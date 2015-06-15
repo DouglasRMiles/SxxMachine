@@ -88,7 +88,7 @@ public final class Prolog {
     protected final IdentityHashMap<VariableTerm,VariableTerm> copyHash;
 
     /** The size of the pushback buffer used for creating input streams. */
-    public static final int PUSHBACK_SIZE = 3;
+    public static final int PUSHBACK_SIZE = 256;
 
     /** Standard input stream. */
     protected transient PushbackReader userInput;

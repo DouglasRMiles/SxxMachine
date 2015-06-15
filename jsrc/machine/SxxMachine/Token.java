@@ -152,6 +152,34 @@ public class Token {
 	    if (rc > 0)
 		rc = 'S';
 	    return rc;
+	case '-':
+		// need special handling for Integer.MIN_VALUE - it must be returned with the sign symbol,
+		// otherwise Integer.parseInt() will fail to parse it
+		c1 = in.read();
+		StringBuffer s1 = new StringBuffer("-");
+		if (Character.isDigit((char)c1)){
+			// potential match, have to read whole number
+		    rc = read_number(c1, s1, in);
+	    	try{
+	    		if (rc==1 && Integer.parseInt(s1.toString())==Integer.MIN_VALUE){
+		    		s.append(s1);		    	
+	    			return 'I';
+		    	}
+		    } catch (Exception e) {
+		    	// ignore and unread the number and handle minus and number separately
+		    }
+		} else {
+			s1.append((char)c1); // append for subsequent unread
+		}
+	    // unread s1 except first character in it
+		char[] cbuf = new char[s1.length()-1];
+		s1.getChars(1, s1.length(), cbuf, 0);
+		in.unread(cbuf);
+		rc = read_symbol(c, s, in);
+	    if (rc > 0){
+	    	rc = 'A';
+	    }
+	    return rc;	    
 	default:
 	    break;
 	}

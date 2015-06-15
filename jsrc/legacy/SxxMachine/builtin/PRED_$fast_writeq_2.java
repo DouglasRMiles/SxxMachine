@@ -1,5 +1,6 @@
 package com.googlecode.prolog_cafe.builtin;
 import  com.googlecode.prolog_cafe.lang.*;
+
 import java.io.PrintWriter;
 /**
  * <code>'$fast_writeq'/2</code><br>
@@ -37,7 +38,11 @@ public class PRED_$fast_writeq_2 extends Predicate.P2 {
 	if (! (stream instanceof PrintWriter))
 	    throw new PermissionException(this, "output", "stream", a1, "");
 	// print term
-	((PrintWriter) stream).print(a2.dereference().toQuotedString());
+	String qs = a2.dereference().toQuotedString();
+	if ("/*".equals(qs)){
+		qs = "'"+qs+"'";
+	}	
+	((PrintWriter) stream).print(qs);
 	return cont;
     }
 }
