@@ -18,13 +18,19 @@ public class JavaObjectTerm extends Term {
     protected Object obj;
 
     /** Constructs a new Prolog java-term that wraps the argument object. */
-    public JavaObjectTerm(Object _obj) { 
-	obj   = _obj;
+    public JavaObjectTerm(Object _obj) {
+    	if ( _obj==null) {
+    		throw new NullPointerException("Error: constructing JavaObjectTerm around null");
+    	}
+    	obj   = _obj;
     }
 
     /** Sets the argument object to this <code>JavaObjectTerm</code>. */
     public void setObject(Object _obj) {
-	obj   = _obj;
+    	if ( _obj==null) {
+    		throw new NullPointerException("Error: JavaObjectTerm can not wrap null");
+    	}
+    	obj   = _obj;
     }
 
     /** Returns the object wrapped by this <code>JavaObjectTerm</code>. */
@@ -39,11 +45,11 @@ public class JavaObjectTerm extends Term {
 
     /* Term */
     public boolean unify(Term t, Trail trail) {
-	if (t.isVariable())
-	    return ((VariableTerm)t).unify(this, trail);
-	if (! t.isJavaObject())
-	    return false;
-	return obj.equals(((JavaObjectTerm)t).obj);
+		if (t.isVariable())
+		    return ((VariableTerm)t).unify(this, trail);
+		if (! t.isJavaObject())
+		    return false;
+		return obj.equals(((JavaObjectTerm)t).obj);
     }
 
     /** 
@@ -75,19 +81,19 @@ public class JavaObjectTerm extends Term {
      * @see #compareTo
      */
     public boolean equals(Object o) {
-	if (! (o instanceof JavaObjectTerm))
-	    return false;
-	return obj.equals(((JavaObjectTerm)o).obj);
+		if (! (o instanceof JavaObjectTerm))
+		    return false;
+		return obj.equals(((JavaObjectTerm)o).obj);
     }
 
     public int hashCode() {
-	return obj.hashCode();
+    	return obj.hashCode();
     }
 
     /** Returns a string representation of this <code>JavaObjectTerm</code>. */
     public String toString() {
-	return obj.getClass().getName()
-      + "(0x" + Integer.toHexString(hashCode()) + ")";
+		return obj.getClass().getName()
+	      + "(0x" + Integer.toHexString(hashCode()) + ")";
     }
 
     /* Comparable */
@@ -101,16 +107,16 @@ public class JavaObjectTerm extends Term {
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if (anotherTerm.isVariable() 
-	    || anotherTerm.isNumber() 
-	    || anotherTerm.isSymbol()
-	    || anotherTerm.isList()
-	    || anotherTerm.isStructure())
-	    return AFTER;
-	if (! anotherTerm.isJavaObject())
-	    return BEFORE;
-	if (obj.equals(((JavaObjectTerm) anotherTerm).obj))
-	    return EQUAL;
-	return obj.hashCode() - ((JavaObjectTerm) anotherTerm).obj.hashCode(); //???
+		if (anotherTerm.isVariable() 
+		    || anotherTerm.isNumber() 
+		    || anotherTerm.isSymbol()
+		    || anotherTerm.isList()
+		    || anotherTerm.isStructure())
+		    return AFTER;
+		if (! anotherTerm.isJavaObject())
+		    return BEFORE;
+		if (obj.equals(((JavaObjectTerm) anotherTerm).obj))
+		    return EQUAL;
+		return obj.hashCode() - ((JavaObjectTerm) anotherTerm).obj.hashCode(); //???
     }
 }

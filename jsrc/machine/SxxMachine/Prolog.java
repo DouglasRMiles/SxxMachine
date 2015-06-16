@@ -470,7 +470,7 @@ public final class Prolog {
     public void setDoubleQuotes(String mode) { doubleQuotes = mode;}
 
     /** Returns the value of Prolog implementation flag: <code>print_stack_trace</code>. */
-    public String getPrintStackTrace() { return printStackTrace; }
+    public String getPrintStackTrace() { return "on"; /*return printStackTrace;*/ }
     /** Sets the value of Prolog implementation flag: <code>print_stack_trace</code>. */
     public void setPrintStackTrace(String mode) { printStackTrace = mode;}
 
