@@ -47,7 +47,7 @@
 								<!-- phase 1 - compile self by legacy compiler -->
 								<echo message="phase 1 - compile self by legacy compiler" />
 								<java fork="true" classname="com.googlecode.prolog_cafe.compiler.Compiler"
-									  dir="${project.build.directory}" output="${project.build.directory}/plc.out"
+									  dir="${prologSourceDirectory}" output="${project.build.directory}/plc.out"
 									  error="${project.build.directory}/plc.err" failonerror="true">
 									
 									<classpath refid="prolog-cafe-bootstrap" />
@@ -58,11 +58,11 @@
 									<arg value="--show-stack-trace" />
 									<arg value="-s" />
 									<arg file="${project.build.directory}/generated-sources/prolog-cafe-1" />
-									<arg file="${prologSourceDirectory}/operators.pl" />
-									<arg file="${prologSourceDirectory}/system.pl" />
-									<arg file="${prologSourceDirectory}/builtins.pl" />
-									<arg file="${prologSourceDirectory}/pl2am.pl" />
-									<arg file="${prologSourceDirectory}/am2j.pl" />
+									<arg value="operators.pl" />
+									<arg value="system.pl" />
+									<arg value="builtins.pl" />
+									<arg value="pl2am.pl" />
+									<arg value="am2j.pl" />
 								</java>
 								<mkdir dir="${project.build.directory}/classes" />
 								<javac srcdir="${project.build.directory}/generated-sources/prolog-cafe-1"
@@ -73,7 +73,7 @@
 								<!-- phase 2 - compile self by compiler from phase 1 -->
 								<echo message="phase 2 - compile self by compiler from phase 1" />
 								<java fork="true" classname="com.googlecode.prolog_cafe.compiler.Compiler"
-									    dir="${project.build.directory}" output="${project.build.directory}/plc.out"
+									    dir="${prologSourceDirectory}" output="${project.build.directory}/plc.out"
 									    error="${project.build.directory}/plc.err" failonerror="true">
 									
 									<classpath>
@@ -87,11 +87,11 @@
 									<arg value="--show-stack-trace" />
 									<arg value="-s" />
 									<arg file="${project.build.directory}/generated-sources/prolog-cafe-2" />
-									<arg file="${prologSourceDirectory}/operators.pl" />
-									<arg file="${prologSourceDirectory}/system.pl" />
-									<arg file="${prologSourceDirectory}/builtins.pl" />
-									<arg file="${prologSourceDirectory}/pl2am.pl" />
-									<arg file="${prologSourceDirectory}/am2j.pl" />
+									<arg value="operators.pl" />
+									<arg value="system.pl" />
+									<arg value="builtins.pl" />
+									<arg value="pl2am.pl" />
+									<arg value="am2j.pl" />
 								</java>
 								<!-- clean up -->
 								<delete dir="${project.build.directory}/classes" />
