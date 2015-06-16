@@ -27,39 +27,39 @@ public class IllegalTypeException extends BuiltinException {
     /** Constructs a new <code>IllegalTypeException</code> 
      * with a valid type and its culprit. */
     public IllegalTypeException(String _type, Term _culprit) {
-	type    = _type;
-	culprit = _culprit;
+		type    = _type;
+		culprit = _culprit;
     }
 
     /** Constructs a new <code>IllegalTypeException</code> 
      * with the given arguments. */
     public IllegalTypeException(Operation _goal, int _argNo, String _type, Term _culprit) {
-	this.goal    = _goal;
-	this.argNo   = _argNo;
-	type    = _type;
-	culprit = _culprit;
+		this.goal    = _goal;
+		this.argNo   = _argNo;
+		type    = _type;
+		culprit = _culprit;
     }
 
     /** Returns a term representation of this <code>IllegalTypeException</code>:
      * <code>type_error(goal,argNo,type,culprit)</code>.
      */
     public Term getMessageTerm() {
-	Term[] args = {
-	    new JavaObjectTerm(goal), 
-	    new IntegerTerm(argNo), 
-	    SymbolTerm.create(type),
-	    culprit};
-	return new StructureTerm(TYPE_ERROR, args);
+		Term[] args = {
+			(goal==null)?SymbolTerm.create("<Goal unknown>"):new JavaObjectTerm(goal), 
+		    new IntegerTerm(argNo),
+		    SymbolTerm.create(type),
+		    culprit};
+		return new StructureTerm(TYPE_ERROR, args);
     }
 
     /** Returns a string representation of this <code>IllegalTypeException</code>. */
     public String toString() {
-	String s = "{TYPE ERROR: " + goal.toString();
-	if (argNo > 0)
-	    s += " - arg " + argNo;
-	s += ": expected " + type;
-	s += ", found " + culprit.toString();
-	s += "}";
-	return s;
+		String s = "{TYPE ERROR: " + goal;
+		if (argNo > 0)
+		    s += " - arg " + argNo;
+		s += ": expected " + type;
+		s += ", found " + culprit.toString();
+		s += "}";
+		return s;
     }
 }

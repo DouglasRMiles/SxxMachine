@@ -73,11 +73,20 @@ public class PredicateEncoder {
       Matcher m = p.matcher(className);
       StringBuffer r = new StringBuffer();
       while (m.find()) {
-        char c = (char) Integer.parseInt(m.group());
-        m.appendReplacement(r, Character.toString(c));
+        char c = (char) Integer.parseInt(m.group().substring(1), 16);
+        String s;
+        if (c=='\\'){
+        	s = "\\\\";
+        } else if (c=='$'){
+        	s = "\\$";
+        } else {
+        	s = Character.toString(c);
+        }
+        m.appendReplacement(r, s);
       }
       m.appendTail(r);
       return r.toString();
+     
     }
 
     public static void main(String argv[]) {
