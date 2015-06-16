@@ -48,7 +48,7 @@
 								<echo message="phase 1 - compile self by legacy compiler" />
 								<java fork="true" classname="com.googlecode.prolog_cafe.compiler.Compiler"
 									  dir="${project.build.directory}" output="${project.build.directory}/plc.out"
-									  error="${project.build.directory}/plc.err">
+									  error="${project.build.directory}/plc.err" failonerror="true">
 									
 									<classpath refid="prolog-cafe-bootstrap" />
 									
@@ -74,7 +74,7 @@
 								<echo message="phase 2 - compile self by compiler from phase 1" />
 								<java fork="true" classname="com.googlecode.prolog_cafe.compiler.Compiler"
 									    dir="${project.build.directory}" output="${project.build.directory}/plc.out"
-									    error="${project.build.directory}/plc.err">
+									    error="${project.build.directory}/plc.err" failonerror="true">
 									
 									<classpath>
 										<pathelement location="${project.build.directory}/classes" />
