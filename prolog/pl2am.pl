@@ -900,7 +900,10 @@ pretreat_body(Body, Goals) :-
 	pretreat_cut(Cut, Goals0, Goals).
 
 pretreat_cut(Cut, Gs, Gs) :- var(Cut), !.
-pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$neck_cut'|Gs]) :- !.
+pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$neck_cut'|Gs]) :- 
+	\+(pl2am_member('$cut'(Level), Gs)),
+	!.
+pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$get_level'(Level),'$neck_cut'|Gs]) :-!.
 pretreat_cut('$cut'(Level), Gs, ['$get_level'(Level)|Gs]).
 
 pretreat_body0(G, _) --> {var(G)}, !, [call(G)].
