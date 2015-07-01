@@ -161,7 +161,7 @@ public abstract class SymbolTerm extends Term {
 
     /** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
     protected SymbolTerm(String _name, int _arity) {
-	name  = _name;
+	name  = _name==null?"":_name;
 	arity = _arity;
     }
 
