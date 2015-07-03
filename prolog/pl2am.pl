@@ -724,7 +724,7 @@ count_unique_hash([], 0, []).
 count_unique_hash([I|Is], C, K) :-
 	count_unique_hash(Is, C0, K0),
 	I = [_,_,Tag,Hash],
-	((Tag = var ; pl2am_member([_,_,_,Hash], Is)) ->
+	((Tag = var ; pl2am_member([_,_,Tag,Hash], Is)) ->
 	    C = C0, K = K0
 	;
 	    C is C0 + 1, K = [Hash|K0]
