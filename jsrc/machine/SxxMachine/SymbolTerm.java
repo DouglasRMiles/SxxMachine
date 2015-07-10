@@ -57,6 +57,10 @@ public abstract class SymbolTerm extends Term {
       Dynamic(String name, int arity) {
         super(name, arity);
       }
+      
+      Dynamic(String name, int arity, int start, int finish){
+    	  super(name, arity, start, finish);
+      }
     }
 
     private static final class Interned extends SymbolTerm {
@@ -80,6 +84,10 @@ public abstract class SymbolTerm extends Term {
       return new Dynamic(_name, 0);
     }
 
+    public static SymbolTerm create(String _name, int start, int finish){
+    	return new Dynamic(_name, 0, start, finish);
+    }
+    
     /** Returns a Prolog atom for the given name. */
     public static SymbolTerm create(String _name, int arity) {
       // For a non-zero arity try to reuse the term, its probable this is a
@@ -153,18 +161,33 @@ public abstract class SymbolTerm extends Term {
       return new Dynamic(_name, _arity);
     }
 
-    /** Holds a string representation of this <code>SymbolTerm</code>. */
+    /** Holds a string representation of this <code>SymbolTerm</code>.
+     *  The string can be shared (partially) with other <code>SymbolTerm</code> instances */
     protected final String name;
 
     /** Holds the arity of this <code>SymbolTerm</code>. */
     protected final int arity;
-
+    /** Holds start index in name */
+    protected final int start;
+    /** Holds end Index in name */
+    protected final int finish;
+    
     /** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
     protected SymbolTerm(String _name, int _arity) {
-	name  = _name==null?"":_name;
-	arity = _arity;
+		name  = _name==null?"":_name;
+		arity = _arity;
+		start = 0;
+		finish = name.length();
     }
 
+    /** Constructs a new Prolog atom (or functor) with the given symbol name, arity and start/finish. */
+    protected SymbolTerm(String _name, int _arity, int start, int finish) {
+		name  = _name==null?"":_name;
+		arity = _arity;
+		this.start = start;
+		this.finish = finish;
+    }    
+    
     /** Returns the arity of this <code>SymbolTerm</code>.
      * @return the value of <code>arity</code>.
      * @see #arity
@@ -175,8 +198,61 @@ public abstract class SymbolTerm extends Term {
      * @return the value of <code>name</code>.
      * @see #name
      */
-    public String name() { return name; }
-
+    public final String name() { return name.substring(start, finish); } // TODO optimize SymbolTerm.name(), skip call to substring where possible
+    
+    public final int start() { return start; }
+    
+    public final int finish() {return finish; }
+    
+    /**
+     * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
+     * but name of new instance is a substring of this name starting from given beginIndex. 
+     * @param beginIndex
+     * @return
+     */
+    public SymbolTerm subsymbol(int beginIndex) {
+    	if (beginIndex<0){
+    		throw new StringIndexOutOfBoundsException(beginIndex);
+    	}
+    	int subLen = finish-start-beginIndex; 
+    	if (subLen<0){
+    		throw new StringIndexOutOfBoundsException(subLen);
+    	}
+    	
+    	return (beginIndex == 0) ? this : new Dynamic(name, arity, start+beginIndex, finish);
+    }
+    /**
+     * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
+     * but name of new instance is a substring of this name starting from given beginIndex and ending before endIndex. 
+     * @param beginIndex
+     * @param endIndex
+     * @return
+     */
+    public SymbolTerm subsymbol(int beginIndex, int endIndex) {
+        if (beginIndex < 0) {
+            throw new StringIndexOutOfBoundsException(beginIndex);
+        }
+        if (endIndex > finish-start) {
+            throw new StringIndexOutOfBoundsException(endIndex);
+        }
+        int subLen = endIndex - beginIndex;
+        if (subLen < 0) {
+            throw new StringIndexOutOfBoundsException(subLen);
+        }
+        return ((beginIndex == 0) && (endIndex == finish-start)) ? this
+                : new Dynamic(name, arity, start+beginIndex, start+endIndex);
+    }
+    
+    /**
+     * Returns the name length
+     * @return
+     */
+    public int length() {
+    	return finish - start;
+    }
+    
+    // TODO startsWith(), endsWith(), indexOf()
+    
     /* Term */
     public boolean unify(Term t, Trail trail) {
       t = t.dereference();
@@ -184,29 +260,37 @@ public abstract class SymbolTerm extends Term {
         ((VariableTerm) t).bind(this, trail);
         return true;
       }
-      return eq(this, t);
+      //return eq(this, t);
+      return equals(t);
     }
 
     @Override
     public int hashCode() {
-      return name.hashCode();
+      return name().hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
-      return obj instanceof Term && eq(this, (Term) obj);
+    	if (this==obj){
+    		return true;
+    	} else if (obj instanceof SymbolTerm){
+    		SymbolTerm that = (SymbolTerm) obj;
+    		return this.arity==that.arity && this.name().equals(that.name());
+    	} else {
+    		return false;
+    	}
     }
 
-    private static boolean eq(SymbolTerm a, Term b0) {
-      if (a == b0) {
-        return true;
-      } else if (b0 instanceof SymbolTerm && (a instanceof Dynamic || b0 instanceof Dynamic)) {
-        SymbolTerm b = (SymbolTerm) b0;
-        return a.arity == b.arity && a.name.equals(b.name);
-      } else {
-        return false;
-      }
-    }
+//    private static boolean eq(SymbolTerm a, Term b0) {
+//      if (a == b0) {
+//        return true;
+//      } else if (b0 instanceof SymbolTerm && (a instanceof Dynamic || b0 instanceof Dynamic)) {
+//        SymbolTerm b = (SymbolTerm) b0;
+//        return a.arity == b.arity && a.name.equals(b.name);
+//      } else {
+//        return false;
+//      }
+//    }
 
     /**
      * @return the <code>boolean</code> whose value is
@@ -221,12 +305,12 @@ public abstract class SymbolTerm extends Term {
      * @return a <code>java.lang.String</code> object equivalent to
      * this <code>SymbolTerm</code>.
      */
-    public Object toJava() { return name; }
+    public Object toJava() { return name(); }
 
-    public String toQuotedString() { return Token.toQuotedString(name); }
+    public String toQuotedString() { return Token.toQuotedString(name()); }
 
     /** Returns a string representation of this <code>SymbolTerm</code>. */
-    public String toString() { return name; }
+    public String toString() { return name(); }
 
     /* Comparable */
     /**
@@ -245,12 +329,12 @@ public abstract class SymbolTerm extends Term {
 	    return BEFORE;
 	if (this == anotherTerm)
 	    return EQUAL;
-	int x = name.compareTo(((SymbolTerm)anotherTerm).name());
+	int x = name().compareTo(((SymbolTerm)anotherTerm).name());
 	if (x != 0)
 	    return x;
 	int y = this.arity - ((SymbolTerm)anotherTerm).arity();
-	if (y != 0)
+//	if (y != 0)
 	    return y;
-	throw new InternalException("SymbolTerm is not unique");
+//		throw new InternalException("SymbolTerm is not unique");
     }
 }

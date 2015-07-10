@@ -25,12 +25,11 @@ public class PRED_atom_concat_3 extends Predicate.P3 {
 
 	a3 = a3.dereference();
 	if (a3.isSymbol()) {
-	    String str3 = ((SymbolTerm)a3).name();
-	    int endIndex = str3.length();
+		SymbolTerm s3 = (SymbolTerm) a3;
+		int endIndex = s3.length();
 	    Term t = Prolog.Nil;
 	    for (int i=0; i<=endIndex; i++) {
-		Term[] args = {SymbolTerm.create(str3.substring(0, i)),
-			       SymbolTerm.create(str3.substring(i, endIndex))};
+		Term[] args = { s3.subsymbol(0, i),	s3.subsymbol(i)	};
 		t = new ListTerm(new StructureTerm(AC_2, args), t);
 	    }
 	    return new PRED_$member_in_reverse_2(new StructureTerm(AC_2, a1, a2), t, cont);

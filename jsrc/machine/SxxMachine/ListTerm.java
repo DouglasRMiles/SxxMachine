@@ -151,19 +151,22 @@ public class ListTerm extends Term {
     }
 
     public String toQuotedString() {
-	Term x = this;
-	String s = "[";
-	for (;;) {
-	    s += ((ListTerm)x).car.dereference().toQuotedString();
-	    x  = ((ListTerm)x).cdr.dereference();
-	    if (! x.isList())
-		break;
-	    s += ",";
-	}
-	if (! x.isNil())
-	    s += "|" + x.toQuotedString();
-	s += "]";
-	return s;
+    	Term x = this;
+    	StringBuilder sb = new StringBuilder("[");
+    	
+    	while(true){
+    		sb.append(((ListTerm)x).car.dereference().toQuotedString());
+    		x  = ((ListTerm)x).cdr.dereference();
+    		if (!x.isList()){
+    			break;
+    		}
+    		sb.append(',');
+    	}
+    	if (! x.isNil()){
+    		sb.append('|').append(x.toQuotedString());
+    	}
+    	sb.append(']');
+    	return sb.toString();    		
     }
 
     /* Object */

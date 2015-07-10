@@ -59,8 +59,8 @@ public class PRED_number_chars_2 extends Predicate.P2 {
 	} else if (a1.isNumber()) { // number_chars(+Number, ?CharList)
 	    String s = a1.toString();
 	    Term y = Prolog.Nil;
-	    for (int i=s.length(); i>0; i--) {
-		y = new ListTerm(SymbolTerm.create(s.substring(i-1,i)), y);
+	    for (int i=s.length()-1; i>=0; i--) {
+	    	y = new ListTerm(SymbolTerm.create(s.charAt(i)), y);
 	    }
 	    if (! a2.unify(y, engine.trail) ) 
 		return engine.fail();

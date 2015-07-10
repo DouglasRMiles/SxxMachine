@@ -108,14 +108,15 @@ public class StructureTerm extends Term {
     }
 
     public String toQuotedString() {
-	String delim = "";
-	String s = functor.toQuotedString() + "(";
-	for (int i=0; i<args.length; i++) {
-	    s += delim + args[i].toQuotedString();
-	    delim = ",";
-	}
-	s += ")";
-	return s;
+		String delim = "";
+		StringBuilder sb = new StringBuilder(functor.toQuotedString());
+		sb.append('(');
+		for(Term a: args){
+			sb.append(delim).append(a.toQuotedString());
+			delim = ",";
+		}
+		sb.append(')');
+		return sb.toString();
     }
 
     /* Object */
