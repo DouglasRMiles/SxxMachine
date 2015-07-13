@@ -72,17 +72,41 @@ public abstract class Predicate extends Operation {
 
   public static abstract class P1 extends Predicate {
     protected Term arg1;
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(').append(arg1).append(')');
+    	return sb.toString();
+    }
   }
 
   public static abstract class P2 extends Predicate {
     protected Term arg1;
     protected Term arg2;
+
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(').append(arg1).append(", ");
+    	sb.append(arg2).append(')');
+    	return sb.toString();
+    }
   }
 
   public static abstract class P3 extends Predicate {
     protected Term arg1;
     protected Term arg2;
     protected Term arg3;
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(').append(arg1).append(", ");
+    	sb.append(arg2).append(", ");
+    	sb.append(arg3).append(')');
+    	return sb.toString();
+    }    
   }
 
   public static abstract class P4 extends Predicate {
@@ -90,5 +114,15 @@ public abstract class Predicate extends Operation {
     protected Term arg2;
     protected Term arg3;
     protected Term arg4;
+    
+    @Override
+    public String toString() {
+    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(').append(arg1).append(", ");
+    	sb.append(arg2).append(", ");
+    	sb.append(arg3).append(", ");
+    	sb.append(arg4).append(')');
+    	return sb.toString();
+    }
   }
 }
