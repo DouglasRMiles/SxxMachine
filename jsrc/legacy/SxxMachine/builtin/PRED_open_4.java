@@ -86,11 +86,13 @@ public class PRED_open_4 extends Predicate.P4 {
 				streamObject = new JavaObjectTerm(in);
 				opts = new ListTerm(SYM_INPUT, opts);
 			} else if (a2.equals(SYM_WRITE)) {
+				file.getParentFile().mkdirs();
 				PrintWriter out = new PrintWriter(new BufferedWriter(
 						new OutputStreamWriter(new FileOutputStream(file, false),charset)));
 				streamObject = new JavaObjectTerm(out);
 				opts = new ListTerm(SYM_OUTPUT, opts);
 			} else if (a2.equals(SYM_APPEND)) {
+				file.getParentFile().mkdirs();
 				PrintWriter out = new PrintWriter(new BufferedWriter(
 						new OutputStreamWriter(new FileOutputStream(file, true),charset)));
 				streamObject = new JavaObjectTerm(out);
