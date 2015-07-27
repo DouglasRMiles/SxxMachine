@@ -1535,6 +1535,12 @@ builtin_local_predicates(asserta, 1, [:]).
 builtin_local_predicates(assertz, 1, [:]).
 builtin_local_predicates(retract, 1, [:]).
 builtin_local_predicates(retractall, 1, [:]).
+builtin_local_predicates(assert, 2, [:,?]).
+builtin_local_predicates(asserta, 2, [:,?]).
+builtin_local_predicates(assertz, 2, [:,?]).
+builtin_local_predicates(retract, 2, [:,?]).
+builtin_local_predicates(retractall, 2, [:,?]).
+builtin_local_predicates(save, 2, [?,:]).
 builtin_local_predicates(clause, 2, [:,?]).
 builtin_local_predicates(abolish, 1, [:]).
 

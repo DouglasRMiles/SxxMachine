@@ -26,6 +26,7 @@ public class PRED_open_4 extends Predicate.P4 {
 	private static final SymbolTerm SYM_TYPE_1 = SymbolTerm.intern("type", 1);
 	private static final SymbolTerm SYM_FILE_NAME_1 = SymbolTerm.intern("file_name", 1);
 	private static final SymbolTerm SYM_CHARSET = SymbolTerm.intern("charset", 1);
+	private static final SymbolTerm SYM_AUTOCLOSE = SymbolTerm.intern("autoclose", 1);
 
 	public PRED_open_4(Term a1, Term a2, Term a3, Term a4, Operation cont) {
 		arg1 = a1;
@@ -86,13 +87,19 @@ public class PRED_open_4 extends Predicate.P4 {
 				streamObject = new JavaObjectTerm(in);
 				opts = new ListTerm(SYM_INPUT, opts);
 			} else if (a2.equals(SYM_WRITE)) {
-				file.getParentFile().mkdirs();
+				File parentFile = file.getParentFile();
+				if (parentFile!=null) {
+					parentFile.mkdirs();
+				}
 				PrintWriter out = new PrintWriter(new BufferedWriter(
 						new OutputStreamWriter(new FileOutputStream(file, false),charset)));
 				streamObject = new JavaObjectTerm(out);
 				opts = new ListTerm(SYM_OUTPUT, opts);
 			} else if (a2.equals(SYM_APPEND)) {
-				file.getParentFile().mkdirs();
+				File parentFile = file.getParentFile();
+				if (parentFile!=null) {
+					parentFile.mkdirs();
+				}
 				PrintWriter out = new PrintWriter(new BufferedWriter(
 						new OutputStreamWriter(new FileOutputStream(file, true),charset)));
 				streamObject = new JavaObjectTerm(out);
@@ -126,6 +133,16 @@ public class PRED_open_4 extends Predicate.P4 {
 		}
 		((VariableTerm) a3).bind(streamObject, engine.trail);
 		engine.getStreamManager().put(streamObject, opts);
+		
+		if (options.containsKey(SYM_AUTOCLOSE)) {
+			Term autoCloseOption = options.get(SYM_AUTOCLOSE);
+			if (autoCloseOption.arity()!=1 || !autoCloseOption.arg(0).isSymbol() ){
+				throw new IllegalDomainException(this, 4, "stream_option", autoCloseOption);
+			}
+			if ("true".equals(autoCloseOption.arg(0).name())){
+				engine.trail.push(new CloseHelper(engine, streamObject, alias));
+			}
+		}				
 		return cont;
 	}
 
@@ -151,6 +168,35 @@ public class PRED_open_4 extends Predicate.P4 {
 			p = ((ListTerm) p).cdr().dereference();
 		}		
 		return result;
+	}
+	
+	private static class CloseHelper implements Undoable {
+
+		private final Prolog engine;
+		private final JavaObjectTerm streamObject;
+		private final Term alias;		
+		
+		public CloseHelper(Prolog engine, JavaObjectTerm streamObject, Term alias) {
+			this.engine = engine;
+			this.streamObject = streamObject;
+			this.alias = alias;
+		}
+
+
+		@Override
+		public void undo() {
+			engine.getStreamManager().remove(streamObject);
+			if (alias!=null){
+				engine.getStreamManager().remove(alias);
+			}
+			Closeable closeable = (Closeable) streamObject.object();
+			try {
+				closeable.close();
+			} catch(IOException e){
+				throw new JavaException(e);
+			}
+		}
+		
 	}
 	
 }
