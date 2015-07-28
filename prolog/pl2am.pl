@@ -152,6 +152,7 @@ Notation
 :- op(1150,  fx, (package)).  % Prolog Cafe specific
 :- op(1150,  fx, (public)).
 :- op(1150,  fx, (import)).   % Prolog Cafe specific
+:- op(1150,  fx, (include)).   
 :- op(1150,  fx, (mode)).
 :- op(1150,  fx, (multifile)).
 :- op(1150,  fx, (block)).
@@ -166,6 +167,7 @@ Notation
 :- dynamic import_package/2.
 :- dynamic internal_declarations/1.
 :- dynamic file_name/1.
+:- dynamic included_file/1.
 :- dynamic dummy_clause_counter/1.
 :- dynamic pl2am_flag/1.
 :- dynamic fail_flag/0.  % used for generating label(fail/0) or not
@@ -194,6 +196,10 @@ pl2am(_).
 *****************************************************************/
 read_in_program(File, Opts) :-
 	pl2am_preread(File, Opts),
+	read_in_file(File),
+	pl2am_postread.
+
+read_in_file(File):-
 	open(File, read, In),
 	repeat,
 	  read(In, Y),
@@ -201,8 +207,7 @@ read_in_program(File, Opts) :-
 	  assert_clause(X),
 	X == end_of_file,
 	!,
-	close(In),
-	pl2am_postread.
+	close(In).
 
 %%% Pre-init
 pl2am_preread(File, Opts) :-
@@ -216,6 +221,7 @@ pl2am_preread(File, Opts) :-
 	retractall(import_package(_,_)),
 	retractall(internal_declarations(_)),
 	retractall(file_name(_)),
+	retractall(included_file(_)),
 	retractall(dummy_clause_counter(_)),
 	retractall(pl2am_flag(_)),
 	retractall(fail_flag),
@@ -290,6 +296,8 @@ expand_constants(Clause,Clause):-!.
 assert_clause(end_of_file) :- !.
 assert_clause((:- constant C)) :- !,
 	assert_constant(C).
+assert_clause((:- include F)):- !,
+	assert_include_file(F).
 assert_clause((:- dynamic G)) :- !,
 	conj_to_list(G, G1),
 	assert_dynamic_predicates(G1).
@@ -331,6 +339,25 @@ assert_constant(C):-
 assert_constant(C):-
 	pl2am_error([C,is,an,invalid,constant,declaration]),
 	fail.
+
+%%% Include files
+assert_include_file(F):-
+	clause(file_name(BaseFile),_),
+	pl2am_resolve_file(BaseFile, F, IncludeFile),
+	clause(included_file(IncludeFile),_),
+	!.
+assert_include_file(F):-
+	clause(file_name(BaseFile),_),
+	pl2am_resolve_file(BaseFile, F, IncludeFile),
+	assert(included_file(IncludeFile)),
+	asserta(file_name(IncludeFile)),
+	read_in_file(IncludeFile),
+	retract(file_name(IncludeFile)),
+	!.
+assert_include_file(F):-
+	clause(file_name(BaseFile),_),
+	pl2am_error([failed,to,include,file,F,in,BaseFile]),
+	fail.	
 
 %%% Dynamic Declaration
 assert_dynamic_predicates([]) :- !.
@@ -1770,6 +1797,34 @@ pl2am_maplist(Goal, [Elem1|Tail1], [Elem2|Tail2]) :-
 	Term =.. [Goal,Elem1,Elem2],
 	call(Term),
 	pl2am_maplist(Goal,Tail1,Tail2).
+
+pl2am_resolve_file(BaseFile, File, IncludeFile):-
+	pl2am_file_directory(BaseFile,Directory),
+	atom_concat(Directory, File, IncludeFile).
+
+pl2am_file_directory(BaseFile,Directory):-
+	atom_chars(BaseFile,BaseFileChars),
+	pl2am_rev(BaseFileChars, BaseFileCharsRev),
+	pl2am_file_directory_(BaseFileCharsRev, DirectoryCharsRev),
+	pl2am_add_directory_separator(DirectoryCharsRev, DirectoryCharsRev1),
+	pl2am_rev(DirectoryCharsRev1,DirectoryChars),
+	atom_chars(Directory,DirectoryChars).
+
+pl2am_file_directory_([],[]):-!.
+pl2am_file_directory_(['\\'],['\\']):-!.
+pl2am_file_directory_(['/'],['/']):-!.
+pl2am_file_directory_(['\\'|BaseFileCharsRev], BaseFileCharsRev):-!.
+pl2am_file_directory_(['/'|BaseFileCharsRev], BaseFileCharsRev):-!.
+pl2am_file_directory_([_|BaseFileCharsRev],DirectoryCharsRev):- 
+	pl2am_file_directory_(BaseFileCharsRev,DirectoryCharsRev).		
+
+pl2am_add_directory_separator(D,D):-
+	D = ['/'|_], 
+	!.
+pl2am_add_directory_separator(D,D):-
+	D = ['\\'|_], 
+	!.
+pl2am_add_directory_separator(D,['/'|D]).		
 
 %%% transform
 conj_to_list(X, _) :-  var(X), !,

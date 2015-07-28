@@ -1622,6 +1622,8 @@ current_op(Priority, Op_specifier, Operator) :-
 '$current_operator'( 1200,  fx, (?-)).
 '$current_operator'( 1150,  fx, (package)).
 '$current_operator'( 1150,  fx, (import)).
+'$current_operator'( 1150,  fx, (include)).
+'$current_operator'( 1150,  fx, (constant)).
 '$current_operator'( 1150,  fx, (public)).
 '$current_operator'( 1150,  fx, (dynamic)).
 '$current_operator'( 1150,  fx, (meta_predicate)).
