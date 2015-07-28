@@ -146,6 +146,7 @@ Notation
 :- op(1170,  fx, (?-)).
 :- op( 500, yfx, (#)).
 
+:- op(1150,  fx, (constant)).
 :- op(1150,  fx, (dynamic)).
 :- op(1150,  fx, (meta_predicate)).
 :- op(1150,  fx, (package)).  % Prolog Cafe specific
@@ -158,6 +159,7 @@ Notation
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
 :- dynamic dynamic_predicates/2.
+:- dynamic compiler_constant/2.
 :- dynamic meta_predicates/3.
 :- dynamic package_name/1.
 :- dynamic public_predicates/2.
@@ -194,7 +196,8 @@ read_in_program(File, Opts) :-
 	pl2am_preread(File, Opts),
 	open(File, read, In),
 	repeat,
-	  read(In, X),
+	  read(In, Y),
+	  expand_constants(Y,X),
 	  assert_clause(X),
 	X == end_of_file,
 	!,
@@ -206,6 +209,7 @@ pl2am_preread(File, Opts) :-
 	retractall(internal_clause(_,_)),
 	retractall(internal_predicates(_,_)),
 	retractall(dynamic_predicates(_,_)),
+	retractall(compiler_constant(_,_)),
 	retractall(meta_predicates(_,_,_)),
 	retractall(package_name(_)),
 	retractall(public_predicates(_,_)),
@@ -269,8 +273,23 @@ assert_dummy_public :-
 assert_dummy_public :- 
 	assert(public_predicates(_,_)).
 
+%%% Expand constants
+expand_constants(InClause,OutClause):-
+	atom(InClause),
+	clause(compiler_constant(InClause,OutClause),_),
+	!.
+expand_constants(InClause,OutClause):-
+	compound(InClause),
+	InClause =.. InList,
+	pl2am_maplist(expand_constants, InList, OutList),
+	OutClause =.. OutList,
+	!.
+expand_constants(Clause,Clause):-!. 	
+
 %%% Assert Clauses
 assert_clause(end_of_file) :- !.
+assert_clause((:- constant C)) :- !,
+	assert_constant(C).
 assert_clause((:- dynamic G)) :- !,
 	conj_to_list(G, G1),
 	assert_dynamic_predicates(G1).
@@ -299,6 +318,19 @@ assert_clause((:- G)) :- !,
 assert_clause(Clause) :-
 	preprocess(Clause, Cl),
 	assert_cls(Cl).
+
+%%% Constant Declaration
+assert_constant(C):-
+	C = (Name=_),
+	clause(compiler_constant(Name,_),_),
+	!.
+assert_constant(C):-
+	C = (Name=Value),
+	assert(compiler_constant(Name,Value)),
+	!.	
+assert_constant(C):-
+	pl2am_error([C,is,an,invalid,constant,declaration]),
+	fail.
 
 %%% Dynamic Declaration
 assert_dynamic_predicates([]) :- !.
@@ -1732,6 +1764,12 @@ flatten_code([Code1|Code2]) --> !,
 	flatten_code(Code1),
 	flatten_code(Code2).
 flatten_code(Code) --> [Code].
+
+pl2am_maplist(_,[],[]).
+pl2am_maplist(Goal, [Elem1|Tail1], [Elem2|Tail2]) :-
+	Term =.. [Goal,Elem1,Elem2],
+	call(Term),
+	pl2am_maplist(Goal,Tail1,Tail2).
 
 %%% transform
 conj_to_list(X, _) :-  var(X), !,

@@ -5,7 +5,7 @@
 	<groupId>com.googlecode.prolog-cafe</groupId>
 	<artifactId>prolog-cafe</artifactId>
 	<packaging>jar</packaging>
-	<version>1.3.8</version>
+	<version>1.3.9</version>
 	<name>Prolog Cafe</name>
 
 	<mailingLists>
@@ -68,6 +68,10 @@
 								</java>
 								<mkdir dir="${project.build.directory}/classes" />
 								<javac srcdir="${project.build.directory}/generated-sources/prolog-cafe-1"
+									   destdir="${project.build.directory}/classes">
+									<classpath refid="prolog-cafe-bootstrap" />
+								</javac>
+								<javac srcdir="${project.build.sourceDirectory}"
 									   destdir="${project.build.directory}/classes">
 									<classpath refid="prolog-cafe-bootstrap" />
 								</javac>
