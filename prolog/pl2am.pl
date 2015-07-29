@@ -229,6 +229,7 @@ pl2am_preread(File, Opts) :-
 	retractall(pl2am_flag(_)),
 	retractall(fail_flag),
 	retractall(skip_code),
+	retractall(ifdef_flag),
 	assert(file_name(File)),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -349,7 +350,9 @@ assert_clause_(Clause) :-
 assert_constant(C):-
 	C = (Name=_),
 	clause(compiler_constant(Name,_),_),
-	!.
+	!,
+	pl2am_error([compiler,constant,Name,is,already,defined]),
+	fail.
 assert_constant(C):-
 	C = (Name=Value),
 	assert(compiler_constant(Name,Value)),
