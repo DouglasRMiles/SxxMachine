@@ -1630,6 +1630,8 @@ current_op(Priority, Op_specifier, Operator) :-
 '$current_operator'( 1150,  fx, (mode)).
 '$current_operator'( 1150,  fx, (multifile)).
 '$current_operator'( 1150,  fx, (block)).
+'$current_operator'( 1150,  fx, (ifdef)).
+'$current_operator'( 1150,  fx, (ifndef)).
 '$current_operator'( 1100, xfy, (;)).
 '$current_operator'( 1050, xfy, (->)).
 '$current_operator'( 1000, xfy, (',')).

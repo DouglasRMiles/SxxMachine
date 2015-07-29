@@ -156,6 +156,8 @@ Notation
 :- op(1150,  fx, (mode)).
 :- op(1150,  fx, (multifile)).
 :- op(1150,  fx, (block)).
+:- op(1150,  fx, (ifdef)).
+:- op(1150,  fx, (ifndef)).
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -171,6 +173,8 @@ Notation
 :- dynamic dummy_clause_counter/1.
 :- dynamic pl2am_flag/1.
 :- dynamic fail_flag/0.  % used for generating label(fail/0) or not
+:- dynamic skip_code/0. % used for conditional compilation
+:- dynamic ifdef_flag/0. % used for conditional compilation  
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
 package(_). 
@@ -202,8 +206,7 @@ read_in_program(File, Opts) :-
 read_in_file(File):-
 	open(File, read, In),
 	repeat,
-	  read(In, Y),
-	  expand_constants(Y,X),
+	  read(In, X),
 	  assert_clause(X),
 	X == end_of_file,
 	!,
@@ -225,6 +228,7 @@ pl2am_preread(File, Opts) :-
 	retractall(dummy_clause_counter(_)),
 	retractall(pl2am_flag(_)),
 	retractall(fail_flag),
+	retractall(skip_code),
 	assert(file_name(File)),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -294,36 +298,50 @@ expand_constants(Clause,Clause):-!.
 
 %%% Assert Clauses
 assert_clause(end_of_file) :- !.
-assert_clause((:- constant C)) :- !,
+assert_clause((:- ifdef C)) :- !,
+	assert_ifdef(C).
+assert_clause((:- ifndef C)) :- !,
+	assert_ifndef(C).
+assert_clause((:- elsedef)) :- !,
+	assert_elsedef.		
+assert_clause((:- enddef)) :- !,
+	assert_enddef.
+assert_clause(_):-
+	clause(skip_code,_), !.	
+assert_clause(C):-
+	expand_constants(C,EC),
+	assert_clause_(EC).
+
+assert_clause_((:- constant C)) :- !,
 	assert_constant(C).
-assert_clause((:- include F)):- !,
+assert_clause_((:- include F)):- !,
 	assert_include_file(F).
-assert_clause((:- dynamic G)) :- !,
+assert_clause_((:- dynamic G)) :- !,
 	conj_to_list(G, G1),
 	assert_dynamic_predicates(G1).
-assert_clause((:- module(M, PList))) :- !,
+assert_clause_((:- module(M, PList))) :- !,
 	assert_package(M),
 	assert_public_predicates(PList).
-assert_clause((:- meta_predicate G)) :- !,
+assert_clause_((:- meta_predicate G)) :- !,
 	conj_to_list(G, G1),
 	assert_meta_predicates(G1).
-assert_clause((:- package G)) :- !, 
+assert_clause_((:- package G)) :- !, 
 	assert_package(G).
-assert_clause((:- public G)) :- !,
+assert_clause_((:- public G)) :- !,
 	conj_to_list(G, G1),
 	assert_public_predicates(G1).
-assert_clause((:- import G)) :- !,
+assert_clause_((:- import G)) :- !,
 	assert_import(G).
-assert_clause((:- mode _G)) :- !,
+assert_clause_((:- mode _G)) :- !,
 	pl2am_message(['*** WARNING',mode,declaration,is,not,supported,yet]).
-assert_clause((:- multifile _G)) :- !,
+assert_clause_((:- multifile _G)) :- !,
 	pl2am_message(['*** WARNING',multifile,declaration,is,not,supported,yet]).
-assert_clause((:- block _G)) :- !,
+assert_clause_((:- block _G)) :- !,
 	pl2am_message(['*** WARNING',block,declaration,is,not,supported,yet]).
-assert_clause((:- G)) :- !, 
+assert_clause_((:- G)) :- !, 
 	call(G),
 	assert_declarations(G).
-assert_clause(Clause) :-
+assert_clause_(Clause) :-
 	preprocess(Clause, Cl),
 	assert_cls(Cl).
 
@@ -340,6 +358,53 @@ assert_constant(C):-
 	pl2am_error([C,is,an,invalid,constant,declaration]),
 	fail.
 
+%%% Conditional compilation
+assert_ifdef(_):-
+	clause(ifdef_flag,_),
+	!,
+	pl2am_error([nested,ifdef,are,not,supported]),
+	fail.
+assert_ifdef(C):-
+	\+(clause(compiler_constant(C,_),_)),	
+	assert(skip_code).
+assert_ifdef(_):-
+	assert(ifdef_flag).
+
+assert_ifndef(_):-
+	clause(ifdef_flag,_),
+	!,
+	pl2am_error([nested,ifdef,are,not,supported]),
+	fail.
+assert_ifndef(C):-
+	clause(compiler_constant(C,_),_),
+	assert(skip_code).
+assert_ifndef(_):-
+	assert(ifdef_flag).
+
+assert_elsedef:-
+	clause(ifdef_flag,_),
+	clause(skip_code,_),
+	!,
+	retractall(skip_code).
+assert_elsedef:-
+	clause(ifdef_flag,_),
+	!,
+	assert(skip_code).
+assert_elsedef:-
+	!,
+	pl2am_error([elsedef,without,ifdef]),
+	fail.
+
+assert_enddef:-
+	clause(ifdef_flag,_),
+	!,
+	retractall(skip_code),
+	retractall(ifdef_flag).			
+assert_enddef:-
+	!,
+	pl2am_error([enddef,without,ifdef]),
+	fail.
+	
 %%% Include files
 assert_include_file(F):-
 	clause(file_name(BaseFile),_),
