@@ -45,6 +45,7 @@ SEE ALSO
 :- dynamic dest_dir/1.
 :- dynamic current_arity/1.
 :- dynamic current_package/1.
+:- dynamic domain_definition/1.
 
 % :- module('com.googlecode.prolog_cafe.compiler.am2j', [main/0,am2j/1]).
 package(_). 
@@ -67,7 +68,15 @@ am2j([File,Dir]) :-
 	  write_java(X, In),
 	X == end_of_file,
 	!,
-	close(In).
+	close(In),
+	write_domains.
+
+write_domains:-
+	clause(dest_dir(Dir),_),
+	findall(D,domain_definition(D),LD),
+	% on some platforms (like SWI prolog) predicate write_domain_definitions might be not available
+	% so wrap it with catch and produce warning message
+	catch('com.googlecode.prolog_cafe.builtin':call('com.googlecode.prolog_cafe.builtin':write_domain_definitions(Dir,LD)),_,am2j_message([domain,definitions,are,not,supported,and,skipped])). 
 
 write_java(X, _) :- var(X), !, 
 	am2j_error([unbound,variable,is,found]), 

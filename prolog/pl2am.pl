@@ -158,6 +158,7 @@ Notation
 :- op(1150,  fx, (block)).
 :- op(1150,  fx, (ifdef)).
 :- op(1150,  fx, (ifndef)).
+:- op(1150,  fx, (domain)).
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -174,7 +175,8 @@ Notation
 :- dynamic pl2am_flag/1.
 :- dynamic fail_flag/0.  % used for generating label(fail/0) or not
 :- dynamic skip_code/0. % used for conditional compilation
-:- dynamic ifdef_flag/0. % used for conditional compilation  
+:- dynamic ifdef_flag/0. % used for conditional compilation
+:- dynamic domain_definition/2.  
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
 package(_). 
@@ -230,6 +232,7 @@ pl2am_preread(File, Opts) :-
 	retractall(fail_flag),
 	retractall(skip_code),
 	retractall(ifdef_flag),
+	retractall(domain_definition(_, _)),
 	assert(file_name(File)),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -320,6 +323,8 @@ assert_clause_((:- include F)):- !,
 assert_clause_((:- dynamic G)) :- !,
 	conj_to_list(G, G1),
 	assert_dynamic_predicates(G1).
+assert_clause_((:- domain D)) :- !,
+	assert_domain_definition(D).
 assert_clause_((:- module(M, PList))) :- !,
 	assert_package(M),
 	assert_public_predicates(PList).
@@ -451,6 +456,21 @@ assert_dynamic(G) :-
 	pl2am_error([G,is,an,invalid,dynamic,declaration]),
 	fail.
 
+%%% Domain definitions
+assert_domain_definition(D):-
+	D = (Name=_),
+	clause(domain_definition(Name,_),_),
+	!,
+	pl2am_error([domain,Name,is,already,defined]),
+	fail.
+assert_domain_definition(D):-
+	D = (Name=Value),
+	assert(domain_definition(Name,Value)),
+	!.
+assert_domain_definition(D):-
+	pl2am_error([D,is,an,invalid,domain,definition]),
+	fail.
+	
 %%% Meta Predicates Declaration
 assert_meta_predicates([]) :- !.
 assert_meta_predicates([G|Gs]) :-
@@ -590,7 +610,8 @@ compile_all_predicates(Out) :- % compile predicate
 	write_asm(Out, Instructions), 
 	nl(Out), 
 	fail.
-compile_all_predicates(Out):- nl(Out).
+compile_all_predicates(Out) :- write_domain_definitions(Out).
+compile_all_predicates(Out) :- nl(Out).
 
 write_asm(_, []) :- !.
 write_asm(Out, [Instruction|Instructions]) :- !,
@@ -609,6 +630,15 @@ write_asm(Out, (Label: Instruction)) :- !,
 	write_asm(Out, Instruction).
 write_asm(Out, Instruction) :-
 	tab(Out, 8), writeq(Out, Instruction), write(Out, '.'), nl(Out).
+
+
+write_domain_definitions(Out):-
+	clause(package_name(PackageName),_),
+	clause(domain_definition(Name,Value),_),
+	AssertTerm = (:- assert(domain_definition(PackageName:Name = Value))),
+	writeq(Out,AssertTerm),	write(Out, '.'), nl(Out),
+	fail.
+write_domain_definitions(_).
 
 /****************************************************************
   Treat Dynamic Declaration
