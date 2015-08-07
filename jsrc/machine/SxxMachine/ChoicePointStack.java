@@ -86,14 +86,14 @@ public final class ChoicePointStack {
     return Integer.MAX_VALUE;
   }
 
-  /** Shows the contents of this <code>CPFStack</code>. */
-  public void show() {
-    if (top == null) {
-      System.out.println("{choice point stack is empty!}");
-      return;
-    }
-    for (ChoicePointFrame e = top; e != null; e = e.prior) {
-      System.out.println(e);
-    }
-  }
+//  /** Shows the contents of this <code>CPFStack</code>. */
+//  public void show() {
+//    if (top == null) {
+//      System.out.println("{choice point stack is empty!}");
+//      return;
+//    }
+//    for (ChoicePointFrame e = top; e != null; e = e.prior) {
+//      System.out.println(e);
+//    }
+//  }
 }

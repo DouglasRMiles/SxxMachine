@@ -976,7 +976,7 @@ mkdirs(Dir) :- exists_directory(Dir), !.
 mkdirs(Dir) :-
   file_directory_name(Dir, Parent),
   mkdirs(Parent),
-  make_directory(Dir).
+  catch(make_directory(Dir),_,exists_directory(Dir)). % it is ok if we failed to create a directory, because it is already exist
 
 % int
 java_integer(X) :- integer(X), -2147483648 =< X, X =< 2147483647.
@@ -1238,10 +1238,12 @@ for(M, M, N) :- M =< N.
 for(I, M, N) :- M =< N, M1 is M + 1, for(I, M1, N).
 
 %%% print
-am2j_error(M) :- am2j_message(['***','AM2JAVA','ERROR'|M]).
+am2j_error(M) :- am2j_message(user_error, ['***','AM2JAVA','ERROR'|M]).
 
-am2j_message([]) :- nl, flush_output(user_output).
-am2j_message([M|Ms]) :- write(M), write(' '), am2j_message(Ms).
+am2j_message(M) :- am2j_message(user_output, M).
+
+am2j_message(Stream,[]) :- nl(Stream), flush_output(Stream).
+am2j_message([M|Ms]) :- write(Stream, M), write(Stream, ' '), am2j_message(Stream, Ms).
 
 %%% list
 am2j_append([], Zs, Zs).

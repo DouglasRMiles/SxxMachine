@@ -195,7 +195,7 @@ pl2am([PrologFile, AsmFile, Opts]) :-
 	open(AsmFile, write, Out),
 	compile_all_predicates(Out),
 	close(Out).
-pl2am(_).
+%pl2am(_).
 
 /*****************************************************************
   Read in Program
@@ -311,13 +311,13 @@ assert_clause((:- elsedef)) :- !,
 assert_clause((:- enddef)) :- !,
 	assert_enddef.
 assert_clause(_):-
-	clause(skip_code,_), !.	
+	clause(skip_code,_), !.
+assert_clause((:- constant C)) :- !,
+	assert_constant(C).		
 assert_clause(C):-
 	expand_constants(C,EC),
 	assert_clause_(EC).
 
-assert_clause_((:- constant C)) :- !,
-	assert_constant(C).
 assert_clause_((:- include F)):- !,
 	assert_include_file(F).
 assert_clause_((:- dynamic G)) :- !,
@@ -1852,10 +1852,12 @@ intersect_sorted_vars([X|Xs], [Y|Ys], Rs) :- X @> Y, !,
   Utilities
 *****************************************************************/
 %%% print
-pl2am_error(M) :- pl2am_message(['***','PL2ASM','ERROR'|M]).
+pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]).
 
-pl2am_message([]) :- nl, flush_output(user_output).
-pl2am_message([M|Ms]) :- write(M), write(' '), pl2am_message(Ms).
+pl2am_message(M) :- pl2am_message(user_output, M).
+
+pl2am_message(Stream, []) :- nl(Stream), flush_output(Stream).
+pl2am_message(Stream, [M|Ms]) :- write(Stream, M), write(Stream, ' '), pl2am_message(Stream, Ms).
 
 %%% format
 mode_expr([]).

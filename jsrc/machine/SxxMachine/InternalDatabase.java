@@ -97,14 +97,14 @@ public class InternalDatabase {
 	return top == -1;
     }
 
-    /** Shows the contents of this <code>InternalDatabase</code>. */
-    public void show() {
-	if (empty())
-	    System.out.println("{internal database is empty!}");
-	System.out.println("{reusable indices: " + reusableIndices.toString() + "}");
-	for (int i=0; i<=top; i++) {
-	    System.out.print("internal database[" + i + "]: ");
-	    System.out.println(buffer[i]);
-	}
-    }
+//    /** Shows the contents of this <code>InternalDatabase</code>. */
+//    public void show() {
+//	if (empty())
+//	    System.out.println("{internal database is empty!}");
+//	System.out.println("{reusable indices: " + reusableIndices.toString() + "}");
+//	for (int i=0; i<=top; i++) {
+//	    System.out.print("internal database[" + i + "]: ");
+//	    System.out.println(buffer[i]);
+//	}
+//    }
 }

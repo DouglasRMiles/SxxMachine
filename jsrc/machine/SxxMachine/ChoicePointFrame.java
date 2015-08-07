@@ -29,12 +29,15 @@ class ChoicePointFrame {
     }
 
     public String toString() {
-      String t = " time:" + timeStamp + "\n" ;
-      t = t + " cont:" + cont + "\n";
-      t = t + " bp:" + bp + "\n";
-      t = t + " tr:" + tr + "\n";
-      t = t + " b0:" + b0 + "\n";
-      return t;
+    	StringBuilder sb = new StringBuilder(ChoicePointFrame.class.getName());
+    	sb.append('{');
+    	sb.append("time:").append(timeStamp);
+    	sb.append(" cont:").append(cont);
+    	sb.append(" bp:").append(bp);
+    	sb.append(" tr:").append(tr);
+    	sb.append(" b0:").append(b0);
+    	sb.append('}');
+    	return sb.toString();
     }
 
     static final class S1 extends ChoicePointFrame {

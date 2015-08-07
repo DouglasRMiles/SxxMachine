@@ -1,5 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Set;
 
 /**
@@ -20,7 +22,13 @@ public abstract class PrologControl {
 
     /** Holds a Prolog goal to be executed. */
     protected Operation code;
+    
+    protected InputStream userInput = System.in;
 
+    protected PrintStream userOuput = System.out;
+    
+    protected PrintStream userError = System.err;
+    
     /** Constructs a new <code>PrologControl</code>. */
     public PrologControl() {
       engine = new Prolog(this);
@@ -48,6 +56,19 @@ public abstract class PrologControl {
       else
         engine.features.removeAll(f);
     }
+
+    /** @param err stack trace to print (or log). */
+    public void printStackTrace(Throwable err) {
+    	err.printStackTrace(userError);    	
+    }
+
+	public void setUserInput(InputStream userInput) {
+		this.userInput = userInput;
+	}
+
+	public void setUserOuput(PrintStream userOuput) {
+		this.userOuput = userOuput;
+	}
 
     public int getMaxDatabaseSize() {
       if (engine.internalDB != null)
@@ -147,7 +168,7 @@ public abstract class PrologControl {
       Prolog engine = this.engine;
       Operation code = this.code;
       try {
-        engine.init();
+        engine.init(userInput, userOuput, userError);
 
         do {
           if (isEngineStopped()) return;
@@ -163,8 +184,7 @@ public abstract class PrologControl {
       }
     }
 
-    /** @param err stack trace to print (or log). */
-    public void printStackTrace(Throwable err) {
-      err.printStackTrace();
-    }
+	public void setUserError(PrintStream userError) {
+		this.userError = userError;
+	}
 }

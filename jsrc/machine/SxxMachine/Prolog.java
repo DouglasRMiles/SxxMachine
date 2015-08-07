@@ -2,8 +2,10 @@ package com.googlecode.prolog_cafe.lang;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.PushbackReader;
 import java.io.Reader;
@@ -196,7 +198,7 @@ public final class Prolog {
      *   <li><code>streamManager</code>
      * </ul>
      */
-  private void initOnce() {
+  private void initOnce(InputStream in, PrintStream out, PrintStream err) {
     if (8 < maxArity)
       aregs = new Term[maxArity - 8];
     else
@@ -205,12 +207,12 @@ public final class Prolog {
     if (pcl == null) pcl = new PrologClassLoader();
     if (internalDB == null) internalDB = new InternalDatabase();
 
-    streamManager = new HashtableOfTerm();
+    streamManager = new HashtableOfTerm(7);
 
     if (features.contains(Feature.IO)) {
-      userInput = new PushbackReader(new BufferedReader(new InputStreamReader(System.in)), PUSHBACK_SIZE);
-      userOutput = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)), true);
-      userError = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.err)), true);
+      userInput = new PushbackReader(new BufferedReader(new InputStreamReader(in)), PUSHBACK_SIZE);
+      userOutput = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)), true);
+      userError = new PrintWriter(new OutputStreamWriter(err), true);
 
       streamManager.put(SYM_USERINPUT, new JavaObjectTerm(userInput));
       streamManager.put(new JavaObjectTerm(userInput),
@@ -231,9 +233,9 @@ public final class Prolog {
   }
 
     /** Initializes this Prolog engine. */
-    public void init() { 
+    public void init(InputStream in, PrintStream out, PrintStream err) { 
 	if (aregs == null)
-	  initOnce();
+	  initOnce(in,out,err);
 	stack.init();
 	trail.init();
 	B0 = stack.top();

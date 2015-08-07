@@ -19,7 +19,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  * <p>write_domain_definitions(+OutputDir,+DomainDefinitionsList)
  * <p>Writes domain definitions into properties file in the folder corresponding to package.
  * <p>Arguments are:<UL>
- * <LI> OutputDir - the base directory fo output. It will be used as prefix for package directory</LI>
+ * <LI> OutputDir - the base directory for output. It will be used as prefix for package directory</LI>
  * <LI> DomainDefinitionsList - the list of domain definitions. Each item is expected to be complex StructureTerm:
  * packageName:domainName = (aaa;bbb*;ccc(ddd,eee))</LI>
  * </UL>
@@ -60,7 +60,7 @@ public class PRED_write_domain_definitions_2 extends P2 {
 		// process domain definitions
 		String packageName = null;
 		Properties p = new Properties();
-		Term lt = (ListTerm) a2;
+		Term lt = a2;
 		while (!lt.isNil()) {
 			Term t = ((ListTerm) lt).car();
 			lt = ((ListTerm) lt).cdr();
@@ -90,8 +90,9 @@ public class PRED_write_domain_definitions_2 extends P2 {
 			sb.append(d.toString());
 			p.put(name.name(), sb.toString());
 		}
-		
-		writeDomainDefinitions(a1.name(), packageName, p);
+		if (packageName!=null && !p.isEmpty()){
+			writeDomainDefinitions(a1.name(), packageName, p);
+		}
 		
 		return cont;
 	}
