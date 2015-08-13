@@ -146,19 +146,20 @@ Notation
 :- op(1170,  fx, (?-)).
 :- op( 500, yfx, (#)).
 
-:- op(1150,  fx, (constant)).
+:- op(1150,  fx, (constant)).     % added by Augeo
 :- op(1150,  fx, (dynamic)).
 :- op(1150,  fx, (meta_predicate)).
 :- op(1150,  fx, (package)).  % Prolog Cafe specific
 :- op(1150,  fx, (public)).
 :- op(1150,  fx, (import)).   % Prolog Cafe specific
-:- op(1150,  fx, (include)).   
+:- op(1150,  fx, (include)).     % added by Augeo   
 :- op(1150,  fx, (mode)).
 :- op(1150,  fx, (multifile)).
 :- op(1150,  fx, (block)).
-:- op(1150,  fx, (ifdef)).
-:- op(1150,  fx, (ifndef)).
-:- op(1150,  fx, (domain)).
+:- op(1150,  fx, (ifdef)).     % added by Augeo
+:- op(1150,  fx, (ifndef)).     % added by Augeo
+:- op(1150,  fx, (domain)).     % added by Augeo
+:- op(1150,  fx, (database)).     % added by Augeo
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -320,6 +321,8 @@ assert_clause(C):-
 
 assert_clause_((:- include F)):- !,
 	assert_include_file(F).
+assert_clause_((:- database D)):- !,
+	assert_database(D).
 assert_clause_((:- dynamic G)) :- !,
 	conj_to_list(G, G1),
 	assert_dynamic_predicates(G1).
@@ -432,6 +435,31 @@ assert_include_file(F):-
 	pl2am_error([failed,to,include,file,F,in,BaseFile]),
 	fail.	
 
+%%% Database declaration
+assert_database(D):-
+	D = (Name=_),
+	clause(domain_definition(Name,_),_),
+	!,
+	pl2am_error([database,Name,is,already,defined]),
+	fail.
+assert_database(D):-
+	D = (_=Value),
+	assert_domain_definition(D),
+	assert_database_dynamic(Value),
+	!.
+assert_database(D):-
+	pl2am_error([D,is,an,invalid,database,definition]),
+	fail.
+
+assert_database_dynamic(;(Fact,Tail)):-
+	!,
+	assert_database_dynamic(Fact),
+	assert_database_dynamic(Tail).
+	
+assert_database_dynamic(Fact):-
+	functor(Fact,Name,Arity),
+	assert_dynamic(Name/Arity).
+		
 %%% Dynamic Declaration
 assert_dynamic_predicates([]) :- !.
 assert_dynamic_predicates([G|Gs]) :-
