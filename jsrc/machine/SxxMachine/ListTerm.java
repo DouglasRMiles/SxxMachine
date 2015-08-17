@@ -1,5 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 /**
  * List.<br>
@@ -77,17 +79,29 @@ public class ListTerm extends Term {
 
     /* Term */
     public boolean unify(Term t, Trail trail) {
-	t = t.dereference();
-	if (t.isVariable()) {
-	    ((VariableTerm) t).bind(this, trail);
-	    return true;
-	}
-	if (! t.isList())
-	    return false;
-	return car.unify(((ListTerm)t).car(), trail) 
-	    && cdr.unify(((ListTerm)t).cdr(), trail);
+    	Term p = this;
+    	t = t.dereference();
+    	while ((t instanceof ListTerm) && (p instanceof ListTerm) 
+			&& ((ListTerm)p).car.unify(((ListTerm)t).car, trail)){
+    		p = ((ListTerm)p).cdr.dereference();
+    		t = ((ListTerm)t).cdr.dereference();
+    	}
+    	if (t.isVariable()){
+    		((VariableTerm) t).bind(p, trail);
+    		return true;
+    	}
+    	if (p.isVariable()){
+    		((VariableTerm) p).bind(t, trail);
+    		return true;
+    	}
+		if (!(t instanceof ListTerm) && !(p instanceof ListTerm)){
+			return p.unify(t, trail);
+		}
+		return false;
+    	
     }
-
+    
+    
     /** 
      * @return the <code>boolean</code> whose value is
      * <code>convertible(List.class, type)</code>.
@@ -98,7 +112,19 @@ public class ListTerm extends Term {
     }
 
     protected Term copy(Prolog engine) { 
-	return new ListTerm(car.copy(engine), cdr.copy(engine)); 
+    	Deque<ListTerm> stack = new ArrayDeque<ListTerm>(); 
+    	Term p = this;
+    	while (p instanceof ListTerm){
+    		ListTerm lt = (ListTerm) p;
+    		stack.push(lt);
+    		p = lt.cdr.dereference();
+    	}
+    	p = p.copy(engine);
+    	while (!stack.isEmpty()){
+    		ListTerm lt = stack.pop();
+    		p = new ListTerm(lt.car.copy(engine), p);
+    	}
+    	return p;
     }
 
     public boolean isGround() {
