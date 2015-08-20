@@ -178,6 +178,7 @@ Notation
 :- dynamic skip_code/0. % used for conditional compilation
 :- dynamic ifdef_flag/0. % used for conditional compilation
 :- dynamic domain_definition/2.  
+:- dynamic file_base/1. 
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
 package(_). 
@@ -203,11 +204,13 @@ pl2am([PrologFile, AsmFile, Opts]) :-
 *****************************************************************/
 read_in_program(File, Opts) :-
 	pl2am_preread(File, Opts),
-	read_in_file(File),
+	clause(file_name(F),_),
+	read_in_file(F),
 	pl2am_postread.
 
 read_in_file(File):-
-	open(File, read, In),
+	build_file_name(File,F),
+	open(F, read, In),
 	repeat,
 	  read(In, X),
 	  assert_clause(X),
@@ -234,10 +237,29 @@ pl2am_preread(File, Opts) :-
 	retractall(skip_code),
 	retractall(ifdef_flag),
 	retractall(domain_definition(_, _)),
-	assert(file_name(File)),
+	assert_file_name(File),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
 	assert_default_decls.
+
+assert_file_name(Directory:File):-
+	!,
+	assert(file_name(File)),
+	assert(file_base(Directory)).
+
+assert_file_name(File):- 
+	assert_file_name('':File).	
+
+build_file_name(File,File):-
+	clause(file_base(''),_),
+	!.
+
+build_file_name(InFile,OutFile):-
+	clause(file_base(Directory),_),
+	list_to_string([Directory,'/',InFile],OutFile),
+	!.
+
+build_file_name(File,File).		
 
 assert_default_decls :- 
 	builtin_meta_predicates(Pred, Arity, Mode), 
@@ -426,9 +448,11 @@ assert_include_file(F):-
 	clause(file_name(BaseFile),_),
 	pl2am_resolve_file(BaseFile, F, IncludeFile),
 	assert(included_file(IncludeFile)),
-	asserta(file_name(IncludeFile)),
+	retractall(file_name(_)),
+	assert(file_name(IncludeFile)),
 	read_in_file(IncludeFile),
-	retract(file_name(IncludeFile)),
+	retractall(file_name(_)),
+	assert(file_name(BaseFile)),
 	!.
 assert_include_file(F):-
 	clause(file_name(BaseFile),_),
