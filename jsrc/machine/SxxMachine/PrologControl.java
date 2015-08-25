@@ -59,7 +59,7 @@ public abstract class PrologControl {
 
     /** @param err stack trace to print (or log). */
     public void printStackTrace(Throwable err) {
-    	err.printStackTrace(userError);    	
+    	engine.logger.printStackTrace(err);
     }
 
 	public void setUserInput(InputStream userInput) {
@@ -172,7 +172,7 @@ public abstract class PrologControl {
 
         do {
           if (isEngineStopped()) return;
-          code = code.exec(engine);
+          code = engine.exec(code);
         } while (engine.halt == 0);
 
         if (engine.halt != 1) {

@@ -152,14 +152,15 @@ public class StructureTerm extends Term {
 
     /** Returns a string representation of this <code>StructureTerm</code>. */
     public String toString() {
-	String delim = "";
-	String s = functor.toString() + "(";
-	for (int i=0; i<args.length; i++) {
-	    s += delim + args[i].toString();
-	    delim = ",";
-	}
-	s += ")";
-	return s;
+		String delim = "";
+		StringBuilder sb = new StringBuilder(functor.toString());
+		sb.append('(');
+		for(Term a: args){
+			sb.append(delim).append(a.toString());
+			delim = ",";
+		}
+		sb.append(')');
+		return sb.toString();
     }
 
     /* Comparable */

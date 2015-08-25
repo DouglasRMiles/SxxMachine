@@ -48,10 +48,10 @@ class PRED_$begin_sync_2 extends BlockPredicate {
 			    break main_loop;
 		    }
 		    if (engine.control.isEngineStopped())
-			break main_loop;
+		    	break main_loop;
 		    if (outOfLoop)
-			break main_loop;
-		    code = code.exec(engine);
+		    	break main_loop;
+		    code = engine.exec(code);
 		}
 
 	    }

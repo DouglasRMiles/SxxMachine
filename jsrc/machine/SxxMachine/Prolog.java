@@ -13,7 +13,6 @@ import java.io.Writer;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
-import java.util.Map;
 /**
  * Prolog engine.
  *
@@ -22,7 +21,12 @@ import java.util.Map;
  * @version 1.2
 */
 public final class Prolog {
-    private static final SymbolTerm NONE = SymbolTerm.intern("$none");
+
+	final PrologLogger logger;
+	
+	public static final String LOGGER_NAME = Prolog.class.getName();
+	
+	private static final SymbolTerm NONE = SymbolTerm.intern("$none");
 
     /** Prolog thread */
     public PrologControl control;
@@ -166,6 +170,7 @@ public final class Prolog {
     protected final EnumSet<Feature> features = EnumSet.allOf(Feature.class);
 
     Prolog(PrologControl c) {
+      logger = new PrologLogger(this);
       control = c;
       trail = new Trail();
       stack = new ChoicePointStack(trail);
@@ -174,6 +179,7 @@ public final class Prolog {
     }
 
     Prolog(PrologControl c, PrologMachineCopy pmc) {
+      logger = new PrologLogger(this);    	
       control = c;
       trail = new Trail();
       stack = new ChoicePointStack(trail);
@@ -298,9 +304,10 @@ public final class Prolog {
      * and returns the backtrak point in current choice point.
      */
     public Operation fail() {
-	ChoicePointFrame top = stack.top;
-	B0 = top.b0;     // restore B0
-	return top.bp;   // execute next clause
+    	ChoicePointFrame top = stack.top;
+    	logger.fail();
+    	B0 = top.b0;     // restore B0
+    	return top.bp;   // execute next clause
     }
 
     /** 
@@ -393,6 +400,7 @@ public final class Prolog {
       entry.tr = trail.top();
       entry.timeStamp = ++CPFTimeStamp;
       stack.push(entry);
+      logger.jtry(p,next,entry);
       return p;
     }
 
@@ -406,6 +414,7 @@ public final class Prolog {
 	ChoicePointFrame top = stack.top;
 	trail.unwind(top.tr);
 	top.bp = next;
+	logger.retry(p,next);
 	return p;
     }
 
@@ -415,6 +424,7 @@ public final class Prolog {
      */
     public Operation trust(Operation p) {
 	restore();
+	logger.trust(p);
 	trail.unwind(stack.top.tr);
 	stack.delete();
 	return p;
@@ -511,4 +521,17 @@ public final class Prolog {
 
     /** Returns the hash manager. */
     public HashtableOfTerm getHashManager() { return hashManager; }
+
+	public final Operation exec(Operation code){		
+		try {
+			logger.beforeExec(code);
+			Operation next = code.exec(this);
+			logger.afterExec(code,next);
+			return next;			
+		} catch (RuntimeException t){
+			logger.execThrows(t);
+			throw t;
+		}		
+	}
+	
 }

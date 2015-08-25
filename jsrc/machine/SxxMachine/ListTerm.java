@@ -167,13 +167,16 @@ public class ListTerm extends Term {
      * this <code>IntegerTerm</code>.
      */
     public List toJava() { 
-	List<Object> vec = new ArrayList<Object>();
-	Term t = this;
-	while(t.isList()) {
-	    vec.add(((ListTerm)t).car().dereference().toJava());
-	    t = ((ListTerm)t).cdr().dereference();  
-	}
-	return vec;	
+		List<Object> vec = new ArrayList<Object>();
+		Term t = this;
+		while(t.isList()) {
+		    vec.add(((ListTerm)t).car().dereference().toJava());
+		    t = ((ListTerm)t).cdr().dereference();
+		}
+		if (!t.isNil()){
+			vec.add(t);
+		}
+		return vec;	
     }
 
     public String toQuotedString() {
@@ -223,19 +226,22 @@ public class ListTerm extends Term {
 
     /** Returns a string representation of this <code>ListTerm</code>. */
     public String toString() {
-	Term x = this;	
-	String s = "[";
-	for (;;) {
-	    s += ((ListTerm)x).car.dereference().toString();
-	    x  = ((ListTerm)x).cdr.dereference();
-	    if (! x.isList())
-		break;
-	    s += ",";
-	}
-	if (! x.isNil())
-	    s += "|" + x.toString();
-	s += "]";
-	return s;
+    	Term x = this;
+    	StringBuilder sb = new StringBuilder("[");
+    	
+    	while(true){
+    		sb.append(((ListTerm)x).car.dereference().toString());
+    		x  = ((ListTerm)x).cdr.dereference();
+    		if (!x.isList()){
+    			break;
+    		}
+    		sb.append(',');
+    	}
+    	if (! x.isNil()){
+    		sb.append('|').append(x.toString());
+    	}
+    	sb.append(']');
+    	return sb.toString();
     }
 
     /* Comparable */

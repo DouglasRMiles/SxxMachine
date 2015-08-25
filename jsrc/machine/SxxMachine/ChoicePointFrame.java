@@ -17,6 +17,7 @@ class ChoicePointFrame {
     Operation bp;    // next clause
     int tr;          // trail pointer
     int b0;          // cut point
+    Operation ownerPredicate;
 
     static ChoicePointFrame S0(Operation cont) {
       ChoicePointFrame r = new ChoicePointFrame();

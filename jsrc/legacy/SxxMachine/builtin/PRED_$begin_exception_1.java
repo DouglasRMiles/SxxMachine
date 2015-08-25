@@ -32,17 +32,17 @@ class PRED_$begin_exception_1 extends BlockPredicate {
 	  do {
 	    if (ctl.isEngineStopped()) break;
 	    if (outOfLoop) break;
-	    code = code.exec(engine);
+	    code = engine.exec(code);
 	  } while (engine.halt == 0);
 	} catch (PrologException e) {
 	    if (outOfScope)
-		throw e;
+	    	throw e;
 	    engine.setException(engine.copy(e.getMessageTerm()));
 	    engine.cut(B);
 	    return engine.fail();
 	} catch (Exception e) {
 	    if (outOfScope)
-		throw new JavaException(e);
+	    	throw new JavaException(e);
 	    engine.setException(new JavaObjectTerm(e));
 	    engine.cut(B);
 	    return engine.fail();
