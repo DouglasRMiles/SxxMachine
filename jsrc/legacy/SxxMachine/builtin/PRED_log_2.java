@@ -51,8 +51,8 @@ public class PRED_log_2 extends P2 {
 			throw new IllegalTypeException(this, 2, "nonvar", a2);
 		}
 		
-		Logger logger = Logger.getLogger(packageTerm.name().toUpperCase());
-		Level level = Level.parse(levelTerm.name());
+		Logger logger = Logger.getLogger(packageTerm.name());
+		Level level = Level.parse(levelTerm.name().toUpperCase());
 		if (logger.isLoggable(level)){
 			logger.log(level, a2.toString());
 		}
