@@ -82,7 +82,7 @@ public class PRED_open_4 extends Predicate.P4 {
 				if (!file.exists()){
 					throw new ExistenceException(this, 1, "source_sink", a1, "");
 				}
-				PushbackReader in = new PushbackReader(new BufferedReader(
+				PushbackReader in = new LineNumberPushbackReader(new BufferedReader(
 						new InputStreamReader(new FileInputStream(file), charset)), engine.PUSHBACK_SIZE);
 				streamObject = new JavaObjectTerm(in);
 				opts = new ListTerm(SYM_INPUT, opts);

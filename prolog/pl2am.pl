@@ -178,7 +178,8 @@ Notation
 :- dynamic skip_code/0. % used for conditional compilation
 :- dynamic ifdef_flag/0. % used for conditional compilation
 :- dynamic domain_definition/2.  
-:- dynamic file_base/1. 
+:- dynamic file_base/1.
+:- dynamic file_line/2.  
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
 package(_). 
@@ -212,11 +213,21 @@ read_in_file(File):-
 	build_file_name(File,F),
 	open(F, read, In),
 	repeat,
-	  read(In, X),
+	  line_count(In, L),
+	  assert_file_line(F,L),
+	  read_clause_(In, X),
 	  assert_clause(X),
 	X == end_of_file,
 	!,
+	retractall(file_line(_,_)),
 	close(In).
+
+read_clause_(Stream, Clause):-
+	catch(read(Stream, Clause),_,fail), % catch is necessary only for SWI prolg
+	!.
+read_clause_(_, _):-
+	pl2am_error([]),
+	fail.
 
 %%% Pre-init
 pl2am_preread(File, Opts) :-
@@ -260,6 +271,10 @@ build_file_name(InFile,OutFile):-
 	!.
 
 build_file_name(File,File).		
+
+assert_file_line(File,Line):-
+	retractall(file_line(_,_)), %TODO keep stack of included
+	assert(file_line(File,Line)).
 
 assert_default_decls :- 
 	builtin_meta_predicates(Pred, Arity, Mode), 
@@ -1912,6 +1927,11 @@ intersect_sorted_vars([X|Xs], [Y|Ys], Rs) :- X @> Y, !,
   Utilities
 *****************************************************************/
 %%% print
+pl2am_error(M) :-
+	clause(file_line(File,Line),_),
+	!,
+	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]). 
+
 pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]).
 
 pl2am_message(M) :- pl2am_message(user_output, M).
