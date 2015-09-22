@@ -19,6 +19,7 @@ PARAMETERS
           rc : optimise recursive call
           idx: switch_on_hash (2nd. level indexing)
           clo: generate closure for meta predicates
+          pif(folder): folder for writing package init predicates
 
 DESCRIPTION
        This program translates Prolog program into WAM-based intermediate codes.
@@ -179,7 +180,7 @@ Notation
 :- dynamic ifdef_flag/0. % used for conditional compilation
 :- dynamic domain_definition/2.  
 :- dynamic file_base/1.
-:- dynamic file_line/2.  
+:- dynamic file_line/2.
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
 package(_). 
@@ -192,7 +193,7 @@ package(_).
 main :- 
 	read(X), 
 	pl2am(X).
-
+	
 pl2am([PrologFile, AsmFile, Opts]) :-
 	read_in_program(PrologFile, Opts),
 	open(AsmFile, write, Out),
@@ -305,6 +306,7 @@ copt_expr(rc).
 copt_expr(rc(_,_)).
 copt_expr(idx).
 copt_expr(clo).
+copt_expr(pif(_)).
 
 %%% Post-init
 pl2am_postread :- 
@@ -707,6 +709,26 @@ write_domain_definitions(Out):-
 	fail.
 write_domain_definitions(_).
 
+write_init(InitPredicate):-
+	clause(package_name(PackageName),_),
+	clause(pl2am_flag(pif(PackageInitFolder)),_),
+	list_to_string([PackageInitFolder,'/',PackageName,'.init.pl'],File),
+	with_mutex(PackageName, write_init_file(File, PackageName, InitPredicate)).
+	
+write_init(_).
+
+write_init_file(File, PackageName, InitPredicate):-
+	open(File,append,Stream),
+	nl(Stream),
+	write(Stream,':- package \''),
+	write(Stream,PackageName),
+	write(Stream,'\'.'),
+	nl(Stream),
+	writeq(Stream,InitPredicate),
+	write(Stream,'.'),
+	nl(Stream),
+	close(Stream).
+
 /****************************************************************
   Treat Dynamic Declaration
 ****************************************************************/
@@ -734,7 +756,8 @@ collect_init_cls([FA|FAs], ['$new_indexing_hash'(P,FA,_)|Cls]) :-
 assert_init_cls([]) :- !.
 assert_init_cls(Cls) :- 
 	list_to_conj(Cls, Body),
-	assert_clause(('$init' :- Body)).
+	assert_clause(('$init' :- Body)),
+	write_init(('$init' :- Body)).
 
 /****************************************************************
   Compile Predicate
@@ -1775,6 +1798,7 @@ builtin_local_predicates(log, 4, [:,?,?,?]).
 builtin_local_predicates(log, 5, [:,?,?,?,?]).
 builtin_local_predicates(log, 6, [:,?,?,?,?,?]).
 builtin_local_predicates(log, 7, [:,?,?,?,?,?,?]).
+builtin_meta_predicates(with_mutex, 2, [?,:]).
 
 % Control constructs
 builtin_inline_predicates(fail).

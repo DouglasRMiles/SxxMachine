@@ -381,7 +381,7 @@ clause(Head, B) :-
 
 '$init_internal_database'(A) :-
 	'$compiled_predicate'(A, '$init', 0),
-	call(A:'$init'),
+	findall(_,A:'$init',_),
 	!.
 '$init_internal_database'(_).
 
@@ -2596,6 +2596,30 @@ illarg(Msg, _, _) :- raise_exception(Msg).
 	integer(A).
 %'$match_type'(evaluable,    X).
 %'$match_type'('convertible to java',  X).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ISO thread synchronization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- public with_mutex/2.
+
+with_mutex(M,G):-
+	\+(atom(M)),
+	\+(java(M),
+	!,
+	illarg(type(atom),with_mutex(M,G),1).
+with_mutex(M,G):-
+	var(G),
+	!,
+	illarg(var,with_mutex(M,G),2).
+with_mutex(M,G):-
+	\+(callable(G)),
+	!,
+	illarg(type(callable),with_mutex(M,G),2).
+with_mutex(M,G):-	
+	mutex_lock_bt(M),
+	call(G), % if it fails or throws exception, mutex is unlocked automatically due to mutex_lock_bt
+	!,
+	mutex_unlock(M).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Utilities
