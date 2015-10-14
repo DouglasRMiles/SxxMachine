@@ -6,7 +6,7 @@ NAME
 
 USAGE
        # sicstus
-       ?- [pl2am].   
+       ?- [pl2am].
        ?- pl2am([File1, File2, [Op1,..,OpN]]).
 
 PARAMETERS
@@ -24,12 +24,12 @@ PARAMETERS
 DESCRIPTION
        This program translates Prolog program into WAM-based intermediate codes.
        Generated codes can be translated into Java program by using am2j.pl,
-       and then compiled and executed by usual java utilities 
+       and then compiled and executed by usual java utilities
        with the Prolog Cafe runtime system.
 
 COPYRIGHT
        pl2am (Translating Prolog into WAM-based Intermediate Code)
-       Copyright (C) 1997-2008 by 
+       Copyright (C) 1997-2008 by
           Mutsunori Banbara (banbara@kobe-u.ac.jp) and
           Naoyuki Tamura (tamura@kobe-u.ac.jp)
 
@@ -46,7 +46,7 @@ Put Instructions
   put_int(i, X)
   put_float(f, X)
   put_con(f/n, X)
-  put_con(c, X), 
+  put_con(c, X),
   put_list(Xi, Xj, Xk)
   put_str(Xi, Y, Xj)
   put_str_args([Xi,..,Xn], Y)
@@ -130,8 +130,8 @@ Notation
   S ::= s(i) | si(i) | sf(i)
   L ::= f/n | f/n+i | f/n+TAG | f/n+TAG+i | f/n+TAG+i+i
   TAG ::= var | int | flo | con | str | lis | top | sub | nil
-  BinG ::= C | f(A1,..,An, C) 
-  G ::= f(A1,..,An) 
+  BinG ::= C | f(A1,..,An, C)
+  G ::= f(A1,..,An)
   A ::= void | X
   C ::= cont | p(N)
   R ::= cont | econt | a(i) | arg(i) | ea(i)
@@ -153,7 +153,7 @@ Notation
 :- op(1150,  fx, (package)).  % Prolog Cafe specific
 :- op(1150,  fx, (public)).
 :- op(1150,  fx, (import)).   % Prolog Cafe specific
-:- op(1150,  fx, (include)).     % added by Augeo   
+:- op(1150,  fx, (include)).     % added by Augeo
 :- op(1150,  fx, (mode)).
 :- op(1150,  fx, (multifile)).
 :- op(1150,  fx, (block)).
@@ -178,22 +178,22 @@ Notation
 :- dynamic fail_flag/0.  % used for generating label(fail/0) or not
 :- dynamic skip_code/0. % used for conditional compilation
 :- dynamic ifdef_flag/0. % used for conditional compilation
-:- dynamic domain_definition/2.  
+:- dynamic domain_definition/2.
 :- dynamic file_base/1.
 :- dynamic file_line/2.
 
 % :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
-package(_). 
+package(_).
 :- package 'com.googlecode.prolog_cafe.compiler.pl2am'.
 
 :- public main/0, pl2am/1.
 /*****************************************************************
   Main
 *****************************************************************/
-main :- 
-	read(X), 
+main :-
+	read(X),
 	pl2am(X).
-	
+
 pl2am([PrologFile, AsmFile, Opts]) :-
 	read_in_program(PrologFile, Opts),
 	open(AsmFile, write, Out),
@@ -259,8 +259,8 @@ assert_file_name(Directory:File):-
 	assert(file_name(File)),
 	assert(file_base(Directory)).
 
-assert_file_name(File):- 
-	assert_file_name('':File).	
+assert_file_name(File):-
+	assert_file_name('':File).
 
 build_file_name(File,File):-
 	clause(file_base(''),_),
@@ -271,31 +271,31 @@ build_file_name(InFile,OutFile):-
 	list_to_string([Directory,'/',InFile],OutFile),
 	!.
 
-build_file_name(File,File).		
+build_file_name(File,File).
 
 assert_file_line(File,Line):-
 	retractall(file_line(_,_)), %TODO keep stack of included
 	assert(file_line(File,Line)).
 
-assert_default_decls :- 
-	builtin_meta_predicates(Pred, Arity, Mode), 
+assert_default_decls :-
+	builtin_meta_predicates(Pred, Arity, Mode),
 	assert(meta_predicates(Pred, Arity, Mode)),
 	fail.
 assert_default_decls.
 
 assert_compile_opts([]) :- !.
-assert_compile_opts([O|Os]) :- 
+assert_compile_opts([O|Os]) :-
 	assert_copts(O),
 	assert_compile_opts(Os).
 
-assert_copts(O) :- 
+assert_copts(O) :-
 	clause(pl2am_flag(O), _),
 	!.
-assert_copts(O) :- 
+assert_copts(O) :-
 	copt_expr(O),
 	!,
 	assert(pl2am_flag(O)).
-assert_copts(O) :- 
+assert_copts(O) :-
 	pl2am_error([O,is,an,invalid,option,for,pl2am]),
 	fail.
 
@@ -309,22 +309,22 @@ copt_expr(clo).
 copt_expr(pif(_)).
 
 %%% Post-init
-pl2am_postread :- 
+pl2am_postread :-
 	assert_import('com.googlecode.prolog_cafe.lang'),
 	assert_import('com.googlecode.prolog_cafe.builtin'),
 	assert_dummy_package,
 	assert_dummy_public.
 
-assert_dummy_package :- 
+assert_dummy_package :-
 	clause(package_name(_), _),
 	!.
-assert_dummy_package :- 
+assert_dummy_package :-
 	assert(package_name(user)).
 
-assert_dummy_public :- 
+assert_dummy_public :-
 	clause(public_predicates(_,_), _),
 	!.
-assert_dummy_public :- 
+assert_dummy_public :-
 	assert(public_predicates(_,_)).
 
 %%% Expand constants
@@ -338,7 +338,7 @@ expand_constants(InClause,OutClause):-
 	pl2am_maplist(expand_constants, InList, OutList),
 	OutClause =.. OutList,
 	!.
-expand_constants(Clause,Clause):-!. 	
+expand_constants(Clause,Clause):-!.
 
 %%% Assert Clauses
 assert_clause(end_of_file) :- !.
@@ -347,13 +347,13 @@ assert_clause((:- ifdef C)) :- !,
 assert_clause((:- ifndef C)) :- !,
 	assert_ifndef(C).
 assert_clause((:- elsedef)) :- !,
-	assert_elsedef.		
+	assert_elsedef.
 assert_clause((:- enddef)) :- !,
 	assert_enddef.
 assert_clause(_):-
 	clause(skip_code,_), !.
 assert_clause((:- constant C)) :- !,
-	assert_constant(C).		
+	assert_constant(C).
 assert_clause(C):-
 	expand_constants(C,EC),
 	assert_clause_(EC).
@@ -373,7 +373,7 @@ assert_clause_((:- module(M, PList))) :- !,
 assert_clause_((:- meta_predicate G)) :- !,
 	conj_to_list(G, G1),
 	assert_meta_predicates(G1).
-assert_clause_((:- package G)) :- !, 
+assert_clause_((:- package G)) :- !,
 	assert_package(G).
 assert_clause_((:- public G)) :- !,
 	conj_to_list(G, G1),
@@ -386,7 +386,7 @@ assert_clause_((:- multifile _G)) :- !,
 	pl2am_message(['*** WARNING',multifile,declaration,is,not,supported,yet]).
 assert_clause_((:- block _G)) :- !,
 	pl2am_message(['*** WARNING',block,declaration,is,not,supported,yet]).
-assert_clause_((:- G)) :- !, 
+assert_clause_((:- G)) :- !,
 	call(G),
 	assert_declarations(G).
 assert_clause_(Clause) :-
@@ -403,7 +403,7 @@ assert_constant(C):-
 assert_constant(C):-
 	C = (Name=Value),
 	assert(compiler_constant(Name,Value)),
-	!.	
+	!.
 assert_constant(C):-
 	pl2am_error([C,is,an,invalid,constant,declaration]),
 	fail.
@@ -415,7 +415,7 @@ assert_ifdef(_):-
 	pl2am_error([nested,ifdef,are,not,supported]),
 	fail.
 assert_ifdef(C):-
-	\+(clause(compiler_constant(C,_),_)),	
+	\+(clause(compiler_constant(C,_),_)),
 	assert(skip_code).
 assert_ifdef(_):-
 	assert(ifdef_flag).
@@ -449,12 +449,12 @@ assert_enddef:-
 	clause(ifdef_flag,_),
 	!,
 	retractall(skip_code),
-	retractall(ifdef_flag).			
+	retractall(ifdef_flag).
 assert_enddef:-
 	!,
 	pl2am_error([enddef,without,ifdef]),
 	fail.
-	
+
 %%% Include files
 assert_include_file(F):-
 	clause(file_name(BaseFile),_),
@@ -474,7 +474,7 @@ assert_include_file(F):-
 assert_include_file(F):-
 	clause(file_name(BaseFile),_),
 	pl2am_error([failed,to,include,file,F,in,BaseFile]),
-	fail.	
+	fail.
 
 %%% Database declaration
 assert_database(D):-
@@ -496,11 +496,11 @@ assert_database_dynamic(;(Fact,Tail)):-
 	!,
 	assert_database_dynamic(Fact),
 	assert_database_dynamic(Tail).
-	
+
 assert_database_dynamic(Fact):-
 	functor(Fact,Name,Arity),
 	assert_dynamic(Name/Arity).
-		
+
 %%% Dynamic Declaration
 assert_dynamic_predicates([]) :- !.
 assert_dynamic_predicates([G|Gs]) :-
@@ -521,7 +521,7 @@ assert_dynamic(G) :-
 assert_dynamic(G) :-
 	G = F/A,
 	assert(dynamic_predicates(F,A)), !.
-assert_dynamic(G) :- 
+assert_dynamic(G) :-
 	pl2am_error([G,is,an,invalid,dynamic,declaration]),
 	fail.
 
@@ -539,7 +539,7 @@ assert_domain_definition(D):-
 assert_domain_definition(D):-
 	pl2am_error([D,is,an,invalid,domain,definition]),
 	fail.
-	
+
 %%% Meta Predicates Declaration
 assert_meta_predicates([]) :- !.
 assert_meta_predicates([G|Gs]) :-
@@ -561,19 +561,19 @@ assert_meta(G) :-
 	fail.
 
 %%% Package Declaration
-assert_package(G) :- 
+assert_package(G) :-
 	clause(package_name(G1), _),
 	G \== G1,
 	!,
 	pl2am_error([duplicate,package,declarations,:,G1,and,G]),
 	fail.
-assert_package(G) :- 
-	atom(G), 
+assert_package(G) :-
+	atom(G),
 	!,
 	assert(package_name(G)),
 	retractall(import_package(G, _)).
-assert_package(G) :- 
-	pl2am_error([G,is,invalid,package,declaration]), 
+assert_package(G) :-
+	pl2am_error([G,is,invalid,package,declaration]),
 	fail.
 
 %%% Public Declaration
@@ -582,7 +582,7 @@ assert_public_predicates([G|Gs]) :-
 	assert_public(G),
 	assert_public_predicates(Gs).
 
-assert_public(F/A) :- 
+assert_public(F/A) :-
 	predspec_expr(F/A),
 	clause(public_predicates(F, A), _),
 	!.
@@ -591,17 +591,17 @@ assert_public(F/A) :-
 	assert(public_predicates(F, A)).
 
 %%% Import Declaration
-assert_import(G) :- 
-	atom(G), 
-	!, 
+assert_import(G) :-
+	atom(G),
+	!,
 	assert_impt(G, (*)).
-assert_import(M:P) :- 
+assert_import(M:P) :-
 	atom(M),
 	(predspec_expr(P) ; atom(P)),
-	!, 
+	!,
 	assert_impt(M, P).
-assert_import(G) :- 
-	pl2am_error([G,is,invalid,import,declaration]), 
+assert_import(G) :-
+	pl2am_error([G,is,invalid,import,declaration]),
 	fail.
 
 assert_impt(M, _P) :-
@@ -611,14 +611,14 @@ assert_impt(M, P) :-
 	clause(import_package(M, P0), _),
 	(P0 == (*) ; P0 == P),
 	!.
-assert_impt(M, P) :- 
+assert_impt(M, P) :-
 	assert(import_package(M, P)).
 
 %%% Assert Declaration (:- G)
-assert_declarations(G) :- 
+assert_declarations(G) :-
 	clause(internal_declarations(G), _),
 	!.
-assert_declarations(G) :- 
+assert_declarations(G) :-
 	assert(internal_declarations(G)).
 
 %%% Assert Cluase
@@ -633,7 +633,7 @@ assert_predicate(Head) :-
 	\+ clause(package_name('com.googlecode.prolog_cafe.builtin'), _),
 	system_predicate(Head),
 	!,
-	functor(Head, Functor, Arity),	
+	functor(Head, Functor, Arity),
 	pl2am_error([can,not,redefine,builtin,predicate,Functor/Arity]),
 	fail.
 assert_predicate(Head) :-
@@ -653,12 +653,12 @@ preprocess(Cl0, Cl) :-
 preprocess(Cl0, Cl) :-
 	expand_term(Cl0, Cl).
 
-eliminate_disjunction(Cl0, Cl) :- 
+eliminate_disjunction(Cl0, Cl) :-
 	eliminate_disj(Cl0, Cl, DummyCls),
 	assert_dummy_clauses(DummyCls).
 
 assert_dummy_clauses([]) :- !.
-assert_dummy_clauses([C|Cs]) :- 
+assert_dummy_clauses([C|Cs]) :-
 	assert_clause(C),
 	assert_dummy_clauses(Cs).
 
@@ -667,7 +667,7 @@ assert_dummy_clauses([C|Cs]) :-
 *****************************************************************/
 compile_all_predicates(Out) :- % output declarations (ex. op/3)
 	clause(internal_declarations(G), _),
-	writeq(Out, (:- G)), write(Out, '.'), nl(Out), 
+	writeq(Out, (:- G)), write(Out, '.'), nl(Out),
 	fail.
 compile_all_predicates(_) :-   % treat dynamic declaration
 	findall(Functor/Arity, dynamic_predicates(Functor, Arity), PredSpecs),
@@ -676,8 +676,8 @@ compile_all_predicates(_) :-   % treat dynamic declaration
 compile_all_predicates(Out) :- % compile predicate
 	clause(internal_predicates(Functor, Arity), _),
 	compile_predicate(Functor, Arity, Instructions, []),
-	write_asm(Out, Instructions), 
-	nl(Out), 
+	write_asm(Out, Instructions),
+	nl(Out),
 	fail.
 compile_all_predicates(Out) :- write_domain_definitions(Out).
 compile_all_predicates(Out) :- nl(Out).
@@ -714,7 +714,7 @@ write_init(InitPredicate):-
 	clause(pl2am_flag(pif(PackageInitFolder)),_),
 	list_to_string([PackageInitFolder,'/',PackageName,'.init.pl'],File),
 	with_mutex(PackageName, write_init_file(File, PackageName, InitPredicate)).
-	
+
 write_init(_).
 
 write_init_file(File, PackageName, InitPredicate):-
@@ -754,7 +754,7 @@ collect_init_cls([FA|FAs], ['$new_indexing_hash'(P,FA,_)|Cls]) :-
 	collect_init_cls(FAs, Cls).
 
 assert_init_cls([]) :- !.
-assert_init_cls(Cls) :- 
+assert_init_cls(Cls) :-
 	list_to_conj(Cls, Body),
 	assert_clause(('$init' :- Body)),
 	write_init(('$init' :- Body)).
@@ -779,7 +779,7 @@ compile_pred([Clause], FA) --> !,
 	[main(FA, MF): []],
 	[PutGroundTerm],    % generates put instructions of ground terms
 	[FA: []],
-	[comment(Clause)],  
+	[comment(Clause)],
 	[setB0],            % set B0 register for cut
 	[DeclLocalVars],    % generates the declarations of local variables
 	{FA = _/A},
@@ -788,7 +788,7 @@ compile_pred([Clause], FA) --> !,
 	compile_clause(Clause, GTI0, GTI, LTI),
 	{GTI = [_,_,PutGroundTerm0], pl2am_rev(PutGroundTerm0, PutGroundTerm)},
 	{LTI = [XN,_,PN|_], generate_var_decl([1,1], [XN,PN], DeclLocalVars, [])}.
-compile_pred(Clauses, FA) --> 
+compile_pred(Clauses, FA) -->
 	{check_modifier(FA, MF)}, % checks public or non-public
 	[main(FA,MF): []],
 	[PutGroundTerm],    % generates ground terms
@@ -814,7 +814,7 @@ compile_pred(Clauses, FA) -->
 	{replace_hash_keys(Hash0, SAlloc, NewHash, PutHash0)},
 	{PutHash0 == [] -> PutHash = [] ; PutHash = static(PutHash0)},
 	% generate code for the recursize call optimization
-	{clause(pl2am_flag(rc(Functor,Arity)), _) -> 
+	{clause(pl2am_flag(rc(Functor,Arity)), _) ->
               OPT1 = label(FA+top), OPT2 = goto(FA+top), OPT3 = FA+top: []
               ;
               OPT1 = [], OPT2 = [], OPT3 = []
@@ -823,7 +823,7 @@ compile_pred(Clauses, FA) -->
 compile_pred2([], _, _, GTI, GTI) --> !.
 compile_pred2([Clause|Clauses], FA, N, GTI0, GTI) -->
 	[FA+N: []],
-	[comment(Clause)],  
+	[comment(Clause)],
 	[DeclLocalVars],    % generates the declarations of local variables
 	[decl_pred_vars([cont])],
 	{FA = _/Arity},
@@ -835,7 +835,7 @@ compile_pred2([Clause|Clauses], FA, N, GTI0, GTI) -->
 	{LTI = [XN,_,PN|_], generate_var_decl([1,1], [XN,PN], DeclLocalVars, [])}.
 
 %%% Control and Indexing instructions
-generate_switch(Clauses, FA, [Label, Hash]) --> 
+generate_switch(Clauses, FA, [Label, Hash]) -->
 	% generates try, retry, trust, switch_on_term, and switch_on_hash
 	{generate_switch0(Clauses, FA, Instrs, [])},
 	% generates sub-labels for BP
@@ -849,7 +849,7 @@ generate_switch(Clauses, FA, [Label, Hash]) -->
 	% generates new_hash and put_hash instructions for switch_on_hash
 	{gen_hash(SWTs, Hash, [])}.
 
-generate_switch0(Clauses, FA) --> 
+generate_switch0(Clauses, FA) -->
 	{get_indices(Clauses, FA, 1, Is)},
 	generate_switch1(Is, FA).
 
@@ -885,12 +885,12 @@ generate_sw1(Is, FA, Tag, L, PIs0, PIs) -->
 generate_sw1(Is, FA, Tag, FA+Tag, PIs0, PIs) -->
 	generate_sw(Is, FA, nil, L, PIs0, PIs),
 	{count_unique_hash(Is, Size, Keys)},
-	[FA+Tag: switch_on_hash(Tag, Size, L, HT)], 
+	[FA+Tag: switch_on_hash(Tag, Size, L, HT)],
 	{generate_hash_table(Keys, Is, LIs)},
 	generate_hash_tries(LIs, FA+Tag, 0, HT).
 
-no_switch_on_hash(Is, Tag) :- 
-	clause(pl2am_flag(idx), _), 
+no_switch_on_hash(Is, Tag) :-
+	clause(pl2am_flag(idx), _),
 	!,
 	(Tag = var ; Tag = lis ; Tag = nil ; count_unique_hash(Is, C, _), C < 2).
 no_switch_on_hash(_, _).
@@ -899,7 +899,7 @@ generate_sw2(Is, _, _, L, PIs, PIs) -->
 	{pl2am_member((L,Is), PIs)},
 	!.
 generate_sw2(Is, FA, Tag, FA+Tag, PIs0, [(FA+Tag,Is)|PIs0]) -->
-	[FA+Tag: []], 
+	[FA+Tag: []],
 	generate_tries(Is).
 
 generate_hash_tries([], _, _, []) --> !.
@@ -910,7 +910,7 @@ generate_hash_tries([K:[I]|LIs], L0, N, [K:L|Ls]) --> !,
 	{I = [L|_]},
 	generate_hash_tries(LIs, L0, N, Ls).
 generate_hash_tries([K:Is|LIs], L0, N, [K:L0+N|Ls]) -->
-	[L0+N: []], 
+	[L0+N: []],
 	generate_tries(Is),
 	{N1 is N + 1},
 	generate_hash_tries(LIs, L0, N1, Ls).
@@ -992,7 +992,7 @@ assert_fail:- assert(fail_flag).
 
 %%% Generate Labels for Backtrack Point
 generate_bp_label([], _, _, [], []) --> !.
-generate_bp_label([X|Xs], CL, N, Ls, [X|Hs]) --> 
+generate_bp_label([X|Xs], CL, N, Ls, [X|Hs]) -->
 	{X = switch_on_hash(_,_,_,_)},
 	!,
 	[X],
@@ -1010,14 +1010,14 @@ generate_bp_label([retry(L)|Xs], CL, N, [label(CL+N)|Ls], Hs) --> !,
 generate_bp_label([(L:X)|Xs], _, _, [label(L)|Ls], Hs) --> !,
 	[L: []],
 	generate_bp_label([X|Xs], L, 1, Ls, Hs).
-generate_bp_label([X|Xs], CL, N, Ls, Hs) --> 
+generate_bp_label([X|Xs], CL, N, Ls, Hs) -->
 	[X],
 	generate_bp_label(Xs, CL, N, Ls, Hs).
 
-generate_cl_label(_, I, N, []) :- 
-	I > N, 
+generate_cl_label(_, I, N, []) :-
+	I > N,
 	!.
-generate_cl_label(FA, I, N, [label(FA+I)|Ls]) :- 
+generate_cl_label(FA, I, N, [label(FA+I)|Ls]) :-
 	I1 is I+1,
 	generate_cl_label(FA, I1, N, Ls).
 
@@ -1064,20 +1064,20 @@ replace_key(K, _, _) :-
 	fail.
 
 %%% Import Declarations
-generate_import --> 
+generate_import -->
 	{findall((P,C), import_package(P, C), X)},
 	gen_import(X).
 
 gen_import([]) --> !.
-gen_import([(P,'*')|Xs]) --> !, 
+gen_import([(P,'*')|Xs]) --> !,
 	[import_package(P)],
 	gen_import(Xs).
-gen_import([(P,C)|Xs]) --> 
+gen_import([(P,C)|Xs]) -->
 	[import_package(P, C)],
 	gen_import(Xs).
 
 %%% Information
-generate_info(Functor, Arity) --> 
+generate_info(Functor, Arity) -->
 	{clause(file_name(File), _)},
 	[info([Functor/Arity, File])].
 
@@ -1090,9 +1090,9 @@ check_modifier(_, non-public).
 
 %%% generate a list of registers with given range.
 range_reg(I, N, _, []) :- I > N, !.
-range_reg(I, N, A, [R|Rs]) :- 
-	I =< N, 
-	I1 is I+1, 
+range_reg(I, N, A, [R|Rs]) :-
+	I =< N,
+	I1 is I+1,
 	R =.. [A, I],
 	range_reg(I1, N, A, Rs).
 
@@ -1130,7 +1130,7 @@ gen_decl_pred_vars(PL) --> [decl_pred_vars(PL)].
 /****************************************************************
   Compile Clause
 ****************************************************************/
-compile_clause((Head :- Body), GTI0, GTI, LTI) --> 
+compile_clause((Head :- Body), GTI0, GTI, LTI) -->
 	{pretreat_body(Body, Goals0)},     % cut, rename, compile aith exp.
 	{localize_meta(Goals0, Goals)},    % add package name for meta predicates
 	{precompile(Head, Goals, Instrs)}, % generate get, put, put_clo, put_cont, inline
@@ -1138,16 +1138,16 @@ compile_clause((Head :- Body), GTI0, GTI, LTI) -->
 	compile_chunks(Instrs, GTI0, GTI, LTI),
 	!.
 compile_clause(Clause, _, _, _) -->
-	{pl2am_error([compilation,of,Clause,failed])}, 
+	{pl2am_error([compilation,of,Clause,failed])},
 	{fail}.
 
 %%%%%%%%%% Pretreat Body and Compile Arithmetic Expressions
-pretreat_body(Body, Goals) :- 
+pretreat_body(Body, Goals) :-
 	pretreat_body0(Body, Cut, Goals0, []),
 	pretreat_cut(Cut, Goals0, Goals).
 
 pretreat_cut(Cut, Gs, Gs) :- var(Cut), !.
-pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$neck_cut'|Gs]) :- 
+pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$neck_cut'|Gs]) :-
 	\+(pl2am_member('$cut'(Level), Gs)),
 	!.
 pretreat_cut('$cut'(Level), ['$cut'(Level)|Gs], ['$get_level'(Level),'$neck_cut'|Gs]) :-!.
@@ -1269,7 +1269,7 @@ localize_meta_goal((X->Y), P, (X1->Y1)) :- !,
 	localize_meta_goal(Y, P, Y1).
 localize_meta_goal((X;Y), P, (X1;Y1)) :- !,
 	localize_meta_goal(X, P, X1),
-	localize_meta_goal(Y, P, Y1).	
+	localize_meta_goal(Y, P, Y1).
 localize_meta_goal(G, P, G1) :-
 	functor(G, F, A),
 	(clause(meta_predicates(F, A, M), _) ; builtin_local_predicates(F, A, M)),
@@ -1317,11 +1317,11 @@ precompile_body(Goals) -->
 	precomp_body(Goals).
 
 precomp_body([]) --> !, [execute(cont)].
-precomp_body([M:G|Cont]) --> !, 
-	binarize_body(G, Cont, G1), 
+precomp_body([M:G|Cont]) --> !,
+	binarize_body(G, Cont, G1),
 	[execute(M:G1)].
 precomp_body([G|Cont]) -->
-	binarize_body(G, Cont, G1), 
+	binarize_body(G, Cont, G1),
 	[execute(G1)].
 
 /*---------------------------------------------------------------
@@ -1356,7 +1356,7 @@ precomp_cont([G|Cont], V) -->
 
 precomp_inline([], Gs1) --> !, precomp_body(Gs1).
 precomp_inline([fail|_], _) --> !, [inline(fail)].
-precomp_inline([G|Gs], Gs1) --> 
+precomp_inline([G|Gs], Gs1) -->
 	{G  =.. [F|Args]},
 	{functor(G, F, A)},
 	precomp_call(Args, Us, F, A),
@@ -1373,7 +1373,7 @@ pickup_inline_goals([G|Gs], [G|IGs], BGs) :-
 pickup_inline_goals(Gs, [], Gs).
 
 %%% Generate Closure
-precomp_call(As, Us, Functor, Arity) --> 
+precomp_call(As, Us, Functor, Arity) -->
 	{clause(pl2am_flag(clo), _)},
 	{clause(meta_predicates(Functor, Arity, Mode), _)},
 	!,
@@ -1395,14 +1395,14 @@ get_closure(G, _, _) :- var(G), !, fail.
 get_closure(_, P, _) :- var(P), !, fail.
 get_closure(P:G, _, Clo) :- !, get_closure(G, P, Clo).
 get_closure(G, P, P:G) :-  % ???
-	atom(P), 
+	atom(P),
 	callable(G),
 	functor(G, F, A),
-	\+ clause(dynamic_predicates(F,A), _), 
+	\+ clause(dynamic_predicates(F,A), _),
 	!.
 
 %%% Optimize Recursive Call
-optimize_recursive_call(Head, Instrs0, Instrs) :- 
+optimize_recursive_call(Head, Instrs0, Instrs) :-
 	clause(pl2am_flag(rc), _),
 	!,
 	optimize_rc(Instrs0, Head, Instrs, []).
@@ -1432,7 +1432,7 @@ compile_chunks(Chunk, GTI0, GTI, LTI) -->
 
 compile_chunk([], _, GTI, GTI, []) --> !.
 compile_chunk(Chunk, Alloc, GTI0, GTI, LTI) -->
-	{free_x_reg(Chunk, 1, XN), YN = 1, PN = 1}, 
+	{free_x_reg(Chunk, 1, XN), YN = 1, PN = 1},
 	{LTI0 = [XN, YN, PN, Alloc]},
 	comp_chunk(Chunk, LTI0, LTI, GTI0, GTI).
 
@@ -1488,15 +1488,15 @@ alloc_voids1([_|Vars], Chunks, Alloc0, Alloc) :-
   Seen     : Unbound variable | yes | void
   Type     : int | flo | con | str | lis | arr
 */
-comp_instr(get(X, A), LTI0, LTI, GTI0, GTI) --> !, 
+comp_instr(get(X, A), LTI0, LTI, GTI0, GTI) --> !,
 	gen_get(X, A, LTI0, LTI, GTI0, GTI).
-comp_instr(put(X, V), LTI0, LTI, GTI0, GTI) --> !, 
+comp_instr(put(X, V), LTI0, LTI, GTI0, GTI) --> !,
 	gen_put(X, V, LTI0, LTI, GTI0, GTI).
-comp_instr(put_clo(X, V), LTI0, LTI, GTI0, GTI) --> !, 
+comp_instr(put_clo(X, V), LTI0, LTI, GTI0, GTI) --> !,
 	gen_put_clo(X, V, LTI0, LTI, GTI0, GTI).
-comp_instr(put_cont(X, V), LTI0, LTI, GTI0, GTI) --> !, 
+comp_instr(put_cont(X, V), LTI0, LTI, GTI0, GTI) --> !,
 	gen_put_cont(X, V, LTI0, LTI, GTI0, GTI).
-comp_instr(Instr, LTI, LTI, GTI, GTI) --> 
+comp_instr(Instr, LTI, LTI, GTI, GTI) -->
 	[Instr].
 
 %%%%%%%%%% put instructions
@@ -1509,19 +1509,22 @@ gen_put(X, A, LTI0, LTI, GTI, GTI) --> {var(X)}, !,
 gen_put(X, A, LTI, LTI, GTI0, GTI) --> {integer(X)}, !,
 	{assign_sreg(X:int, R, Seen, GTI0, GTI1)},
 	gen_put_int(X, R, Seen, A, GTI1, GTI).
+gen_put(X, A, LTI, LTI, GTI0, GTI) --> {long(X)}, !,
+	{assign_sreg(X:long, R, Seen, GTI0, GTI1)},
+	gen_put_int(X, R, Seen, A, GTI1, GTI).
 gen_put(X, A, LTI, LTI, GTI0, GTI) --> {float(X)}, !,
 	{assign_sreg(X:flo, R, Seen, GTI0, GTI1)},
 	gen_put_float(X, R, Seen, A, GTI1, GTI).
 gen_put(X, A, LTI, LTI, GTI0, GTI) --> {atom(X)}, !,
 	{assign_sreg(X:con, R, Seen, GTI0, GTI1)},
 	gen_put_con(X, R, Seen, A, GTI1, GTI).
-gen_put(X, A, LTI0, LTI, GTI0, GTI) --> 
-	{ground(X), X = [X1|X2]}, 
+gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
+	{ground(X), X = [X1|X2]},
 	!,
 	gen_put_args([X1,X2], [R1,R2], LTI0, LTI, GTI0, GTI1),
 	{assign_sreg(X:lis, R, Seen, GTI1, GTI2)},
 	gen_put_list([R1,R2], R, Seen, A, GTI2, GTI).
-gen_put(X, A, LTI0, LTI, GTI0, GTI) --> 
+gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
 	{ground(X), X =..[_|Args], functor(X,F,N)},
 	!,
 	{assign_sreg(F/N:con, R0, Seen0, GTI0, GTI1)},
@@ -1531,8 +1534,8 @@ gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
 	gen_put_str_args(Regs, R1, Seen1, _, GTI4, GTI5),
 	{assign_sreg(X:str, R, Seen, GTI5, GTI6)},
 	gen_put_str([R0,R1], R, Seen, A, GTI6, GTI).
-gen_put(X, A, LTI0, LTI, GTI0, GTI) --> 
-	{X = [X1|X2]}, 
+gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
+	{X = [X1|X2]},
 	!,
 	gen_put_args([X1,X2], [R1,R2], LTI0, LTI1, GTI0, GTI),
 	{assign_reg(_, R, Seen, LTI1, LTI)},
@@ -1551,27 +1554,27 @@ gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
 	[put_str(R0, R1, R)].
 
 gen_put_var(void, _, A) --> !, {A = void}. % void is a special constant.
-gen_put_var(R, Seen, A) --> {var(Seen)}, !, 
-	{Seen = yes, R = A}, 
+gen_put_var(R, Seen, A) --> {var(Seen)}, !,
+	{Seen = yes, R = A},
 	[put_var(R)].
 gen_put_var(R, _, A) --> {R = A}.
 
-gen_put_int(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !, 
+gen_put_int(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !,
 	{Seen = yes, R = A},
 	{add_instr(put_int(X, R), GTI0, GTI)}.
 gen_put_int(_, R, _, A, GTI, GTI)  --> {R = A}.
 
-gen_put_float(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !, 
+gen_put_float(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !,
 	{Seen = yes, R = A},
 	{add_instr(put_float(X, R), GTI0, GTI)}.
 gen_put_float(_, R, _, A, GTI, GTI)  --> {R = A}.
 
-gen_put_con(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !, 
+gen_put_con(X, R, Seen, A, GTI0, GTI)  --> {var(Seen)}, !,
 	{Seen = yes, R = A},
 	{add_instr(put_con(X, R), GTI0, GTI)}.
 gen_put_con(_, R, _, A, GTI, GTI)  --> {R = A}.
 
-gen_put_list([R1,R2], R, Seen, A, GTI0, GTI) --> {var(Seen)}, !, 
+gen_put_list([R1,R2], R, Seen, A, GTI0, GTI) --> {var(Seen)}, !,
 	{Seen = yes, R = A},
 	{add_instr(put_list(R1, R2, R), GTI0, GTI)}.
 gen_put_list(_, R, _, A, GTI, GTI) --> {R = A}.
@@ -1591,7 +1594,7 @@ gen_put_args([X|Xs], [R|Rs], LTI0, LTI, GTI0, GTI) -->
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	gen_put_args(Xs, Rs, LTI1, LTI, GTI1, GTI).
 
-gen_put_clo(P:X, A, LTI0, LTI, GTI0, GTI) --> 
+gen_put_clo(P:X, A, LTI0, LTI, GTI0, GTI) -->
 	{X =..[F|Args]},
 	!,
 	gen_put_args(Args, Regs, LTI0, LTI1, GTI0, GTI),
@@ -1602,59 +1605,59 @@ gen_put_clo(P:X, A, LTI0, LTI, GTI0, GTI) -->
 	[put_clo(CLO, R)].
 
 %%%%%%%%%% get instructions
-gen_get(X, A, LTI0, LTI, GTI0, GTI) --> 
+gen_get(X, A, LTI0, LTI, GTI0, GTI) -->
 	gen_get([A=X], LTI0, LTI, GTI0, GTI).
 
 gen_get([], LTI, LTI, GTI, GTI) --> !.
-gen_get([A=X|_], LTI, LTI, GTI, GTI) --> 
-	{var(A)}, 
+gen_get([A=X|_], LTI, LTI, GTI, GTI) -->
+	{var(A)},
 	!,
 	{pl2am_error([A,must,not,be,a,variable,in,get(X,A)])},
 	{fail}.
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 	{var(X)},
 	{assign_reg(X, R, Seen, LTI0, LTI1)},
 	{nonvar(Seen)},
 	!,
 	gen_get_var(R, Seen, A),
 	gen_get(Instrs, LTI1, LTI, GTI0, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{var(X)}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{var(X)},
 	!,
 	{add_alloc([X,A,yes], LTI0, LTI1)},
 	gen_get(Instrs, LTI1, LTI, GTI0, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{integer(X)}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{integer(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[get_int(X, R, A)],
 	gen_get(Instrs, LTI1, LTI, GTI1, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{float(X)}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{float(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[get_float(X, R, A)],
 	gen_get(Instrs, LTI1, LTI, GTI1, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{atom(X)}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{atom(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[get_con(X, R, A)],
 	gen_get(Instrs, LTI1, LTI, GTI1, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{ground(X)}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{ground(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[get_ground(X, R, A)],
 	gen_get(Instrs, LTI1, LTI, GTI1, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
-	{X = [X1|X2]}, 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
+	{X = [X1|X2]},
 	!,
 	[get_list(A)],
 	gen_unify([X1,X2], Instrs1, LTI0, LTI1, GTI0, GTI1),
 	gen_get(Instrs1, LTI1, LTI2, GTI1, GTI2),
 	gen_get(Instrs, LTI2, LTI, GTI2, GTI).
-gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
+gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 	{X =.. [F|Args], functor(X, F, N)},
 	{assign_sreg(F/N:con, R, Seen, GTI0, GTI1)},
 	gen_put_con(F/N, R, Seen, _, GTI1, GTI2),
@@ -1668,37 +1671,37 @@ gen_get_var(R, _, A) --> [get_val(R, A)].
 
 %%%%%%%%%% unify instructions
 gen_unify([], [], LTI, LTI, GTI, GTI) --> !.
-gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) --> 
-	{var(X)}, 
+gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
+	{var(X)},
 	!,
 	{assign_reg(X, R, Seen, LTI0, LTI1)},
 	gen_unify_var(R, Seen),
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI0, GTI).
-gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) --> 
-	{integer(X)}, 
+gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
+	{integer(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[unify_int(X, R)],
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI1, GTI).
-gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) --> 
-	{float(X)}, 
+gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
+	{float(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[unify_float(X, R)],
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI1, GTI).
-gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) --> 
-	{atom(X)}, 
+gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
+	{atom(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[unify_con(X, R)],
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI1, GTI).
-gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) --> 
-	{ground(X)}, 
+gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
+	{ground(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[unify_ground(X, R)],
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI1, GTI).
-gen_unify([X|Xs], [R=X|Instrs], LTI0, LTI, GTI0, GTI) --> 
+gen_unify([X|Xs], [R=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 	{assign_reg(_, R, Seen, LTI0, LTI1)},
 	gen_unify_var(R, Seen),
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI0, GTI).
@@ -1706,7 +1709,7 @@ gen_unify([X|Xs], [R=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 %%% unify_void, unify_variable, unify_value
 gen_unify_var(void, _) --> !, [unify_void(1)].
 gen_unify_var(R, Seen) --> {var(Seen)}, !,
-	{Seen = yes}, 
+	{Seen = yes},
 	[unify_var(R)].
 gen_unify_var(R, _) --> [unify_val(R)].
 
@@ -1812,6 +1815,7 @@ builtin_inline_predicates('$not_unifiable'(_,_)).
 builtin_inline_predicates(var(_)).
 builtin_inline_predicates(atom(_)).
 builtin_inline_predicates(integer(_)).
+builtin_inline_predicates(long(_)).
 builtin_inline_predicates(float(_)).
 builtin_inline_predicates(atomic(_)).
 builtin_inline_predicates(nonvar(_)).
@@ -1884,7 +1888,7 @@ builtin_arith_constant(e).
   Eliminate disjunctions
 *****************************************************************/
 %  The clause a :- b;c is converted into a :- b. and a :- c.
-%  In addition, 
+%  In addition,
 %    (C1 -> C2)        is converted into ((C1,!,C2) ; fail).
 %    ((C1 -> C2) ; C3) is converted into ((C1,!,C2) ; C3).
 %    not(C)            is converted into ((C,!,fail) ; true).
@@ -1954,7 +1958,7 @@ intersect_sorted_vars([X|Xs], [Y|Ys], Rs) :- X @> Y, !,
 pl2am_error(M) :-
 	clause(file_line(File,Line),_),
 	!,
-	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]). 
+	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]).
 
 pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]).
 
@@ -2019,16 +2023,16 @@ pl2am_file_directory_(['\\'],['\\']):-!.
 pl2am_file_directory_(['/'],['/']):-!.
 pl2am_file_directory_(['\\'|BaseFileCharsRev], BaseFileCharsRev):-!.
 pl2am_file_directory_(['/'|BaseFileCharsRev], BaseFileCharsRev):-!.
-pl2am_file_directory_([_|BaseFileCharsRev],DirectoryCharsRev):- 
-	pl2am_file_directory_(BaseFileCharsRev,DirectoryCharsRev).		
+pl2am_file_directory_([_|BaseFileCharsRev],DirectoryCharsRev):-
+	pl2am_file_directory_(BaseFileCharsRev,DirectoryCharsRev).
 
 pl2am_add_directory_separator(D,D):-
-	D = ['/'|_], 
+	D = ['/'|_],
 	!.
 pl2am_add_directory_separator(D,D):-
-	D = ['\\'|_], 
+	D = ['\\'|_],
 	!.
-pl2am_add_directory_separator(D,['/'|D]).		
+pl2am_add_directory_separator(D,['/'|D]).
 
 %%% transform
 conj_to_list(X, _) :-  var(X), !,

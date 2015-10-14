@@ -12,6 +12,15 @@ import java.io.*;
  */
 public class Token {
 
+	public static final int TOKEN_ERROR = -2;
+	public static final int TOKEN_END_OF_FILE = -1;
+	public static final int TOKEN_INTEGER = 'I';
+	public static final int TOKEN_LONG = 'L';
+	public static final int TOKEN_DOUBLE = 'D';
+	public static final int TOKEN_ATOM = 'A';
+	public static final int TOKEN_VARIABLE = 'V';
+	public static final int TOKEN_STRING = 'S';
+
     public static boolean isSolo(int c) {
 	return (c =='!' || c ==';');
     }
@@ -43,11 +52,11 @@ public class Token {
     }
 
     /*
-      public static int read_token(StringBuffer s, PushbackReader in) 
+      public static int read_token(StringBuffer s, PushbackReader in)
 
-      This method reads one token from the input "in", sets the string, 
+      This method reads one token from the input "in", sets the string,
       and returns the token type.
-      
+
       Type		String
       -2		"error message"
       -1		"end_of_file"
@@ -63,12 +72,13 @@ public class Token {
       ','		","
       '|'		"|"
       'I'		"decimal"	positive integer
-      'D'		"decimal"	positive double 
+      'L'		"decimal"   positive long
+      'D'		"decimal"	positive double
       'A'		"atom name"
       'V'		"variable name"
       'S'		"string"
     */
-    public static int read_token(StringBuffer s, PushbackReader in) 
+    public static int read_token(StringBuilder s, PushbackReader in)
 	throws IOException {
 
 	int c, c1;
@@ -77,15 +87,10 @@ public class Token {
 	c = in.read(); // get 1st. char
 	if(c == -1) {
 	    s.append("end_of_file");
-	    return -1;
+	    return TOKEN_END_OF_FILE;
 	}
 	if (Character.isDigit((char)c)) {
-	    rc = read_number(c, s, in);
-	    if (rc == 1) 
-		rc = 'I';
-	    else if (rc == 2) 
-		rc = 'D';
-	    return rc;
+		return read_number(c, s, in);
 	}
 	if (Character.isLowerCase((char)c)) {
 	    rc = read_word(c, s, in);
@@ -156,15 +161,19 @@ public class Token {
 		// need special handling for Integer.MIN_VALUE - it must be returned with the sign symbol,
 		// otherwise Integer.parseInt() will fail to parse it
 		c1 = in.read();
-		StringBuffer s1 = new StringBuffer("-");
+		StringBuilder s1 = new StringBuilder("-");
 		if (Character.isDigit((char)c1)){
 			// potential match, have to read whole number
 		    rc = read_number(c1, s1, in);
 	    	try{
-	    		if (rc==1 && Integer.parseInt(s1.toString())==Integer.MIN_VALUE){
-		    		s.append(s1);		    	
-	    			return 'I';
+	    		if (rc==TOKEN_INTEGER && Integer.parseInt(s1.toString())==Integer.MIN_VALUE){
+		    		s.append(s1);
+	    			return TOKEN_INTEGER;
 		    	}
+	    		if (rc==TOKEN_LONG && Long.parseLong(s1.toString())==Long.MIN_VALUE){
+	    			s.append(s1);
+	    			return TOKEN_LONG;
+	    		}
 		    } catch (Exception e) {
 		    	// ignore and unread the number and handle minus and number separately
 		    }
@@ -179,7 +188,7 @@ public class Token {
 	    if (rc > 0){
 	    	rc = 'A';
 	    }
-	    return rc;	    
+	    return rc;
 	default:
 	    break;
 	}
@@ -197,75 +206,91 @@ public class Token {
 	return ' ';
     }
 
-    public static int read_number(int c, StringBuffer s, PushbackReader in) 
-	throws IOException {
+    /**
+     *
+     * @param c
+     * @param s
+     * @param in
+     * @return {@link Token#TOKEN_INTEGER} or {@link Token#TOKEN_LONG} or {@link Token#TOKEN_DOUBLE}
+     * @throws IOException
+     */
+	public static int read_number(int c, StringBuilder s, PushbackReader in) throws IOException {
 
-	int c1, c2, c3;
-	in.unread(c);
-	for (;;) {
-	    c1 = in.read();
-	    if (! Character.isDigit((char)c1))
-		break;
-	    s.append((char) c1);
-	}
-	if (c1 != '.'){
-	    in.unread(c1);
-	    return 1;
-	}
-	c2 = in.read();
-	if (! Character.isDigit((char)c2)){
-	    in.unread(c2);
-	    in.unread(c1);
-	    return 1;
-	}
-	s.append((char)c1);
-	in.unread(c2);
-	for (;;) {
-	    c1 = in.read();
-	    if (! Character.isDigit((char) c1))
-		break;
-	    s.append((char) c1);
-	}
-	//	in.unread(c1);
-	//	return 2;
-	if (c1 != 'E' && c1 != 'e'){
-	    in.unread(c1);
-	    return 2;
-	}
-	c2 = in.read();
-	if (c2 == '-' || c2 == '+') {
-	    c3 = in.read();
-	    if (! Character.isDigit((char)c3)){
-		in.unread(c3);
+		int c1, c2, c3;
+		in.unread(c);
+		for (c1 = in.read(); Character.isDigit((char) c1); c1 = in.read()) {
+			s.append((char) c1);
+		}
+		if (c1 == 'L') {
+			return TOKEN_LONG;
+		}
+		if (c1 != '.') {
+			in.unread(c1);
+			return number_type(s);
+		}
+		c2 = in.read();
+		if (!Character.isDigit((char) c2)) {
+			in.unread(c2);
+			in.unread(c1);
+			return number_type(s);
+		}
+		s.append((char) c1);
 		in.unread(c2);
+		for (c1 = in.read(); Character.isDigit((char) c1); c1 = in.read()) {
+			s.append((char) c1);
+		}
+		// in.unread(c1);
+		// return 2;
+		if (c1 != 'E' && c1 != 'e') {
+			in.unread(c1);
+			return TOKEN_DOUBLE;
+		}
+		c2 = in.read();
+		if (c2 == '-' || c2 == '+') {
+			c3 = in.read();
+			if (!Character.isDigit((char) c3)) {
+				in.unread(c3);
+				in.unread(c2);
+				in.unread(c1);
+				return TOKEN_DOUBLE;
+			}
+			s.append((char) c1);
+			s.append((char) c2);
+			in.unread(c3);
+		} else if (Character.isDigit((char) c2)) {
+			s.append((char) c1);
+			in.unread(c2);
+		} else {
+			in.unread(c2);
+			in.unread(c1);
+			return TOKEN_DOUBLE;
+		}
+		for (c1 = in.read(); Character.isDigit((char) c1); c1 = in.read()) {
+			s.append((char) c1);
+		}
 		in.unread(c1);
-		return 2;
-	    }
-	    s.append((char)c1);
-	    s.append((char)c2);
-	    in.unread(c3);
-	} else if (Character.isDigit((char)c2)){
-	    s.append((char)c1);
-	    in.unread(c2);
-	} else {
-	    in.unread(c2);
-	    in.unread(c1);
-	    return 2;
+		return TOKEN_DOUBLE;
 	}
-	for (;;) {
-	    c1 = in.read();
-	    if (! Character.isDigit((char) c1))
-		break;
-	    s.append((char) c1);
-	}
-	in.unread(c1);
-	return 2;
-    }
 
-    public static int read_word(int c, StringBuffer s, PushbackReader in)
+	private static final int number_type(StringBuilder s){
+		int length = s.length();
+		if (length<10){
+			return TOKEN_INTEGER;
+		} else if (length>10){
+			return TOKEN_LONG;
+		}
+		try {
+			Integer.parseInt(s.toString());
+			return TOKEN_INTEGER;
+		} catch (NumberFormatException e){
+			return TOKEN_LONG;
+		}
+	}
+
+    public static int read_word(int c, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int c1;
-	
+
 	in.unread(c);
 	for (;;) {
 	    c1 = in.read();
@@ -277,11 +302,11 @@ public class Token {
 	return 1;
     }
 
-    public static int read_quoted(int quote, StringBuffer s, PushbackReader in) 
+    public static int read_quoted(int quote, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int rc;
 	int c1;
-	
+
 	for (;;) {
 	    c1 = in.read();
 	    if (c1 == -1 || c1 == '\n') {
@@ -294,7 +319,7 @@ public class Token {
 		    return 1;
 		}
 		c1 = quote;
-	    } 
+	    }
 	    else if (c1 == '\\') {
 		rc = escapeSequences(c1, s, in);
 		if (rc > 0)
@@ -306,15 +331,15 @@ public class Token {
 	}
     }
 
-    public static int escapeSequences(int backslash, StringBuffer s, PushbackReader in)	
+    public static int escapeSequences(int backslash, StringBuilder s, PushbackReader in)
 	throws IOException {
 
 	int c;
 	c = in.read();
 	switch (c) {
 	case 'b': // backspace
-	    s.append((char) 8); break; 
-	case 't': // horizontal tab 
+	    s.append((char) 8); break;
+	case 't': // horizontal tab
 	    s.append((char) 9); break;
 	case 'n': // newline
 	    s.append((char)10); break;
@@ -331,18 +356,18 @@ public class Token {
 	case 'a': // alarm
 	    s.append((char)7); break;
 	default:
-	    s.append((char)c); 
+	    s.append((char)c);
 	    return 2;
 	}
 	return 1;
     }
 
 
-    public static int read_symbol(int c, StringBuffer s, PushbackReader in) 
+    public static int read_symbol(int c, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int c1;
 	s.append((char)c);
-	//	in.unread(c); 
+	//	in.unread(c);
 	for (;;) {
 	    c1 = in.read();
 	    if (! isSymbol(c1))
@@ -356,7 +381,7 @@ public class Token {
 
     /* Write */
     public static void write_string(String s, PrintWriter out) {
-	out.print(s); 
+	out.print(s);
     }
 
     public static void writeq_string(String s, PrintWriter out) {
@@ -372,7 +397,7 @@ public class Token {
 		    out.print("\\\\");
 		else if (ch[i] == 8)  // backspace
 		    out.print("\\b");
-		else if (ch[i] == 9)  // horizontal tab 
+		else if (ch[i] == 9)  // horizontal tab
 		    out.print("\\t");
 		else if (ch[i] == 10) // newline
 		    out.print("\\n");
@@ -388,7 +413,7 @@ public class Token {
 		    out.print("\\d");
 		else if (ch[i] == 7) // alarm
 		    out.print("\\a");
-		else 
+		else
 		    out.print(ch[i]);
 	    }
 	    out.print("\'");
@@ -411,7 +436,7 @@ public class Token {
 		    quoted.append("\\\\");
 		else if (ch[i] == 8)  // backspace
 		    quoted.append("\\b");
-		else if (ch[i] == 9)  // horizontal tab 
+		else if (ch[i] == 9)  // horizontal tab
 		    quoted.append("\\t");
 		else if (ch[i] == 10) // newline
 		    quoted.append("\\n");
@@ -427,7 +452,7 @@ public class Token {
 		    quoted.append("\\d");
 		else if (ch[i] == 7) // alarm
 		    quoted.append("\\a");
-		else 
+		else
 		    quoted.append(ch[i]);
 	    }
 	    quoted.append("\'");
@@ -448,7 +473,7 @@ public class Token {
     public static int getStringType(String s) {
 	char[] p;
 
-	if (s.equals("[]") || s.equals("{}")) 
+	if (s.equals("[]") || s.equals("{}"))
 	    return 0;
 	if (s.equals("")   || s.equals("."))
 	    return 3;

@@ -1,5 +1,5 @@
-%:- op(1150,  fx, (package)). 
-%package(_). 
+%:- op(1150,  fx, (package)).
+%package(_).
 :- package 'com.googlecode.prolog_cafe.builtin'.
 :- public system_predicate/1.
 
@@ -31,6 +31,7 @@ system_predicate('$not_unifiable'(_,_)).
 system_predicate(var(_)).
 system_predicate(atom(_)).
 system_predicate(integer(_)).
+system_predicate(long(_)).
 system_predicate(float(_)).
 system_predicate(atomic(_)).
 system_predicate(compound(_)).

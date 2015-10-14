@@ -6,11 +6,11 @@ NAME
 
 USAGE
        # sicstus
-       ?- [am2j].   
+       ?- [am2j].
        ?- am2j([File]).
 
        # sicstus
-       ?- [am2j].   
+       ?- [am2j].
        ?- am2j([File, Dir]).
 
 PARAMETERS
@@ -19,12 +19,12 @@ PARAMETERS
 DESCRIPTION
        This program translates WAM-based intermediate codes into Java.
        For each predicate p/n, the file named "PRED_p_n.java" is generated.
-       Generated files can be compiled and executed by usual 
+       Generated files can be compiled and executed by usual
        java utilities (ex. javac) with the Prolog Cafe runtime system.
 
 COPYRIGHT
        am2j (Translating WAM-based Intermediate Code into Java)
-       Copyright (C) 1997-2008 by 
+       Copyright (C) 1997-2008 by
           Mutsunori Banbara (banbara@kobe-u.ac.jp) and
           Naoyuki Tamura (tamura@kobe-u.ac.jp)
 
@@ -48,14 +48,14 @@ SEE ALSO
 :- dynamic domain_definition/1.
 
 % :- module('com.googlecode.prolog_cafe.compiler.am2j', [main/0,am2j/1]).
-package(_). 
+package(_).
 :- package 'com.googlecode.prolog_cafe.compiler.am2j'.
 :- public main/0, am2j/1.
 /*****************************************************************
   Main
 *****************************************************************/
-main :- 
-	read(X), 
+main :-
+	read(X),
 	am2j(X).
 
 am2j([File]) :- !, am2j([File, '.']).
@@ -76,10 +76,10 @@ write_domains:-
 	findall(D,domain_definition(D),LD),
 	% on some platforms (like SWI prolog) predicate write_domain_definitions might be not available
 	% so wrap it with catch and produce warning message
-	catch('com.googlecode.prolog_cafe.builtin':call('com.googlecode.prolog_cafe.builtin':write_domain_definitions(Dir,LD)),_,am2j_message([domain,definitions,are,not,supported,and,skipped])). 
+	catch('com.googlecode.prolog_cafe.builtin':call('com.googlecode.prolog_cafe.builtin':write_domain_definitions(Dir,LD)),_,am2j_message([domain,definitions,are,not,supported,and,skipped])).
 
-write_java(X, _) :- var(X), !, 
-	am2j_error([unbound,variable,is,found]), 
+write_java(X, _) :- var(X), !,
+	am2j_error([unbound,variable,is,found]),
 	fail.
 write_java(end_of_file, _) :- !.
 write_java((:- G), _) :- !, call(G).
@@ -105,7 +105,7 @@ write_java(begin_predicate(P, F/A), In) :-
 	X == end_predicate(P, F/A),
 	close(Out),
 	!.
-write_java(X, _) :- 
+write_java(X, _) :-
 	am2j_error([X,is,an,invalid,argument,in,write_java/2]),
 	fail.
 
@@ -125,12 +125,12 @@ write_java0(end_predicate(_, _), _, Out) :- !,
 	write(Out, '}'), nl(Out).
 write_java0(comment(Comment), _, Out) :- !,
 	numbervars(Comment, 0, _),
-	tab(Out, 4), 
-	write(Out, '// '), 
+	tab(Out, 4),
+	write(Out, '// '),
 	writeq(Out, Comment), nl(Out).
 write_java0(debug(Comment), _, Out) :- !,
 	numbervars(Comment, 0, _),
-	write(Out, '// '), 
+	write(Out, '// '),
 	writeq(Out, Comment), nl(Out).
 write_java0(info([FA,File|_]), _, Out) :- !,
 	write(Out, '/*'), nl(Out),
@@ -140,14 +140,14 @@ write_java0(info([FA,File|_]), _, Out) :- !,
         write(Out, ' PLEASE DO NOT EDIT!'), nl(Out),
         write(Out, '*/'), nl(Out).
 write_java0(import_package(P), _, Out) :- !,
-	write(Out, 'import '), 
-	write_package(P, Out), 
+	write(Out, 'import '),
+	write_package(P, Out),
 	write(Out, '.*;'), nl(Out).
 write_java0(import_package(P,FA), _, Out) :- !,
-	write(Out, 'import '), 
-	write_package(P, Out), 
-	write(Out, '.'), 
-	(FA = _/_ -> 
+	write(Out, 'import '),
+	write_package(P, Out),
+	write(Out, '.'),
+	(FA = _/_ ->
 	    write_class_name(FA, Out)
 	    ;
 	    write_package(FA, Out)
@@ -189,7 +189,7 @@ write_java0(set(Ri,Rj), _, Out) :- !,
 	tab(Out, 8),
 	write_reg(Rj, Out),
 	write(Out, ' = '),
-	write_reg(Ri, Out), 
+	write_reg(Ri, Out),
 	write(Out, ';'), nl(Out).
 write_java0(decl_term_vars([]), _, _) :- !.
 write_java0(decl_term_vars(L), _, Out) :- !,
@@ -231,7 +231,7 @@ write_java0(execute(BinG), _, Out) :- !,
 	write(Out, '('),
 	write_reg_args(Args, Out),
 	write(Out, ');'), nl(Out).
-write_java0(inline(G), In, Out) :- 
+write_java0(inline(G), In, Out) :-
 	write_inline(G, In, Out),
 	!.
 write_java0(new_hash(Tag,I), _, Out) :- !,
@@ -258,15 +258,25 @@ write_java0(static(Instrs), In, Out) :- !,
 %%% Put Instructions
 write_java0(put_var(X), _, Out) :- !,
 	tab(Out, 8),
-	write_reg(X, Out), 
+	write_reg(X, Out),
 	write(Out, ' = new VariableTerm(engine);'), nl(Out).
+write_java0(put_int(I,X), _, Out) :-
+	long(I),
+	!,
+	tab(Out, 4),
+	write(Out, 'static final LongTerm '),
+	write_reg(X, Out),
+	write(Out, ' = new LongTerm('),
+	write(Out, I),
+	write(Out, 'L);'),
+	nl(Out).
 write_java0(put_int(I,X), _, Out) :- !,
 	tab(Out, 4),
 	write(Out, 'static final IntegerTerm '),
-	write_reg(X, Out), 
+	write_reg(X, Out),
 	write(Out, ' = new IntegerTerm('),
 	(java_integer(I) -> true; write(Out, 'new java.math.BigInteger("')),
-	write(Out, I), 
+	write(Out, I),
 	(java_integer(I) -> true; write(Out, '")')),
 	write(Out, ');'), nl(Out).
 write_java0(put_float(F,X), _, Out) :- !,
@@ -281,26 +291,26 @@ write_java0(put_con(C,X), _, Out) :- !,
 	write(Out, 'static final SymbolTerm '),
 	write_reg(X, Out),
 	write(Out, ' = SymbolTerm.intern("'),
-	(C = F/A -> 
+	(C = F/A ->
 	    write_constant(F, Out), write(Out, '", '), write(Out, A), write(Out, ');')
 	    ;
 	    write_constant(C, Out), write(Out, '");')
 	),
 	nl(Out).
 write_java0(put_list(Xi,Xj,Xk), _, Out) :- !,
-	(Xk = s(_) -> 
+	(Xk = s(_) ->
 	    tab(Out, 4), write(Out, 'static final ListTerm ')
 	    ;
 	    tab(Out, 8)
 	),
 	write_reg(Xk, Out),
 	write(Out, ' = new ListTerm('),
-	write_reg(Xi, Out), 
-	write(Out, ', '), 
+	write_reg(Xi, Out),
+	write(Out, ', '),
 	write_reg(Xj, Out),
 	write(Out, ');'), nl(Out).
 write_java0(put_str(Xi,Y,Xj), _, Out) :- !,
-	(Xj = s(_) -> 
+	(Xj = s(_) ->
 	    tab(Out, 4), write(Out, 'static final StructureTerm ')
 	    ;
 	    tab(Out, 8)
@@ -312,7 +322,7 @@ write_java0(put_str(Xi,Y,Xj), _, Out) :- !,
 	write_reg(Y, Out),
 	write(Out, ');'), nl(Out).
 write_java0(put_str_args(Xs,Y), _, Out) :- !,
-	(Y = s(_) -> 
+	(Y = s(_) ->
 	    tab(Out, 4), write(Out, 'static final ')
 	    ;
 	    tab(Out, 8)
@@ -347,9 +357,9 @@ write_java0(get_val(Xi,Xj), _, Out) :- !,
 write_java0(get_int(N,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'if ('), write_reg(Xj, Out), write(Out, '.isInteger()){'), nl(Out),
-	tab(Out, 12), 
+	tab(Out, 12),
 	write(Out, 'if (((IntegerTerm) '), write_reg(Xj, Out), write(Out, ').intValue() != '),
 	write(Out, N), write(Out, ')'), nl(Out),
 	tab(Out, 16),
@@ -372,9 +382,9 @@ write_java0(get_int(N,Xi,Xj), In, Out) :- !,
 write_java0(get_float(N,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'if ('), write_reg(Xj, Out), write(Out, '.isDouble()){'), nl(Out),
-	tab(Out, 12), 
+	tab(Out, 12),
 	write(Out, 'if (((DoubleTerm) '), write_reg(Xj, Out), write(Out, ').doubleValue() != '),
 	write(Out, N), write(Out, ')'), nl(Out),
 	tab(Out, 16),
@@ -397,11 +407,11 @@ write_java0(get_float(N,Xi,Xj), In, Out) :- !,
 write_java0(get_con(_,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'if ('), write_reg(Xj, Out), write(Out, '.isSymbol()){'), nl(Out),
-	tab(Out, 12), 
-	write(Out, 'if (! '), 
-	write_reg(Xj, Out), write(Out, '.equals('), write_reg(Xi, Out), 
+	tab(Out, 12),
+	write(Out, 'if (! '),
+	write_reg(Xj, Out), write(Out, '.equals('), write_reg(Xi, Out),
 	write(Out, '))'), nl(Out),
 	tab(Out, 16),
  	write(Out, 'return engine.fail();'), nl(Out),
@@ -424,10 +434,10 @@ write_java0(get_list(X), In, Out) :- !,
 	write_java0(deref(X,X), In, Out),
 	read_instructions(2, In, Us),
 	% read mode
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'if ('), write_reg(X, Out), write(Out, '.isList()){'), nl(Out),
-	tab(Out, 12), 
-	write(Out, 'Term[] args = {((ListTerm)'), 
+	tab(Out, 12),
+	write(Out, 'Term[] args = {((ListTerm)'),
 	write_reg(X, Out), write(Out, ').car(), ((ListTerm)'),
 	write_reg(X, Out), write(Out, ').cdr()};'), nl(Out),
 	write_unify_read(Us, 0, Out),
@@ -449,7 +459,7 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	read_instructions(A, In, Us),
 	% read mode
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'if ('), write_reg(Xj, Out), write(Out, '.isStructure()){'), nl(Out), %??? == F
 	tab(Out, 12),
 	write(Out, 'if (! '), write_reg(Xi, Out),
@@ -457,7 +467,7 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 	write(Out, ').functor()))'), nl(Out),
 	tab(Out, 16),
 	write(Out, 'return engine.fail();'), nl(Out),
-	tab(Out, 12), 
+	tab(Out, 12),
 	write(Out, 'Term[] args = ((StructureTerm)'),
 	write_reg(Xj, Out), write(Out, ').args();'), nl(Out),
 	write_unify_read(Us, 0, Out),
@@ -478,7 +488,7 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 	tab(Out, 8),
  	write(Out, '}'), nl(Out).
 %%% Choice Instructions
-write_java0(try(Li,Lj), _, Out) :- !, 
+write_java0(try(Li,Lj), _, Out) :- !,
 	clause(current_arity(A), _),
 	tab(Out, 8),
 	write(Out, 'return engine.jtry'),
@@ -487,24 +497,24 @@ write_java0(try(Li,Lj), _, Out) :- !,
 		;
 		write(Out, '('), write(Out, A), write(Out, ', ')
 	),
-	write_index(Li, Out), 
+	write_index(Li, Out),
 	write(Out, ', '),
 	write_index(Lj, Out),
 	write(Out, ');'), nl(Out).
-write_java0(retry(Li,Lj), _, Out) :- !, 
+write_java0(retry(Li,Lj), _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'return engine.retry('),
-	write_index(Li, Out), 
+	write_index(Li, Out),
 	write(Out, ', '),
-	write_index(Lj, Out), 
+	write_index(Lj, Out),
 	write(Out, ');'), nl(Out).
-write_java0(trust(L), _, Out) :- !, 
+write_java0(trust(L), _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'return engine.trust('),
 	write_index(L, Out),
 	write(Out, ');'), nl(Out).
 %%% Indexing Instructions
-write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _, Out) :- !, 
+write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'return engine.switch_on_term('),
 	write_index(Lv, Out), write(Out, ', '),
@@ -535,22 +545,22 @@ write_label(main(F/A, Modifier), Out) :- !,
 	nl(Out),
 	nl(Out),
 	% Class definition
-	(Modifier == (public) -> write(Out, 'public ') ; true), 
+	(Modifier == (public) -> write(Out, 'public ') ; true),
 	write(Out, 'final class '),
-	write_class_name(F/A, Out), 
+	write_class_name(F/A, Out),
 	write(Out, ' extends '),
 	write_predicate_base_class(A, Out),
 	write(Out, ' {'), nl(Out).
 write_label(F/A, Out) :- !,
 	% instance variable declaration
-	(A > 4 -> 
+	(A > 4 ->
 	    nl(Out),
 	    write_enum('private final Term ', arg, 5, A, ', ', ';', 4, Out), nl(Out)
 	    ;
 	    true
 	),
 	% constructor
-	nl(Out), 
+	nl(Out),
 	write_constructor(F/A, Out), nl(Out),
 	% exec method
 	nl(Out),
@@ -576,8 +586,8 @@ write_label(Instruction, _, _) :-
 /*****************************************************************
   Write Constructor
 *****************************************************************/
-write_constructor(F/A, Out) :- 
-	tab(Out, 4), write(Out, 'public '), 
+write_constructor(F/A, Out) :-
+	tab(Out, 4), write(Out, 'public '),
 	write_class_name(F/A, Out), write(Out, '('),
 	(A > 0 ->
 	    write_enum('', 'Term a', 1, A, ', ', ', ', 0, Out)
@@ -588,21 +598,21 @@ write_constructor(F/A, Out) :-
 	A > 0,
 	for(I, 1, A),
 	    tab(Out, 8),
-	    write(Out, 'this.'), write(Out, arg), write(Out, I), 
-	    write(Out, ' = '), 
-	    write(Out, a), write(Out, I), 
+	    write(Out, 'this.'), write(Out, arg), write(Out, I),
+	    write(Out, ' = '),
+	    write(Out, a), write(Out, I),
 	    write(Out, ';'),  nl(Out),
 	fail.
 write_constructor(_, Out) :-
-	tab(Out, 8), 
+	tab(Out, 8),
 	write(Out, 'this.cont = cont;'), nl(Out),
-	tab(Out, 4), 
+	tab(Out, 4),
 	write(Out, '}').
 
 write_enum(Head, Sym, SN, EN, Delim, _, Tab, Out) :-
 	SN =< EN,
 	tab(Out, Tab),
-	write(Out, Head), 
+	write(Out, Head),
 	for(I, SN, EN),
 	    write(Out, Sym),
 	    write(Out, I),
@@ -659,8 +669,8 @@ write_unify_r(X, _, _) :-
 write_unify_write([], [], _) :- !.
 write_unify_write([unify_void(0)|Xs], Rs, Out) :- !,
 	write_unify_write(Xs, Rs, Out).
-write_unify_write([unify_void(I)|Xs], [void|Rs], Out) :- 
-	I > 0, 
+write_unify_write([unify_void(I)|Xs], [void|Rs], Out) :-
+	I > 0,
 	!,
 	I1 is I-1,
 	write_unify_write([unify_void(I1)|Xs], Rs, Out).
@@ -711,12 +721,12 @@ write_inline0('$cut'(X), _, Out)       :- !,
 	tab(Out, 8),
 	write(Out, 'if (! '), write_reg(X, Out), write(Out, '.isInteger()) {'), nl(Out),
 	tab(Out, 12),
-	write(Out, 'throw new IllegalTypeException("integer", '), 
+	write(Out, 'throw new IllegalTypeException("integer", '),
 	write_reg(X, Out), write(Out, ');'), nl(Out),
 	tab(Out, 8),
 	write(Out, '} else {'), nl(Out),
 	tab(Out, 12),
-	write(Out, 'engine.cut(((IntegerTerm) '), write_reg(X, Out), 
+	write(Out, 'engine.cut(((IntegerTerm) '), write_reg(X, Out),
 	write(Out, ').intValue());'), nl(Out),
 	tab(Out, 8),
 	write(Out, '}'), nl(Out).
@@ -727,14 +737,15 @@ write_inline0('$not_unifiable'(X,Y), _, Out) :- !, write_if_fail(unify(X,Y), [],
 write_inline0(var(X), _, Out)     :- !, write_if_fail(op('!', @('isVariable'(X))), [X], 8, Out).
 write_inline0(atom(X), _, Out)    :- !, write_if_fail(op('!', @('isSymbol'(X))), [X], 8, Out).
 write_inline0(integer(X), _, Out) :- !, write_if_fail(op('!', @('isInteger'(X))), [X], 8, Out).
+write_inline0(long(X), _, Out)    :- !, write_if_fail(op('!', @('isLong'(X))), [X], 8, Out).
 write_inline0(float(X), _, Out)   :- !, write_if_fail(op('!', @('isDouble'(X))), [X], 8, Out).
 write_inline0(nonvar(X), _, Out)  :- !, write_if_fail(@('isVariable'(X)), [X], 8, Out).
 write_inline0(number(X), _, Out)  :- !, write_if_fail(op('!', @('isNumber'(X))), [X], 8, Out).
 write_inline0(java(X), _, Out)    :- !, write_if_fail(op('!', @('isJavaObject'(X))), [X], 8, Out).
 write_inline0(closure(X), _, Out) :- !, write_if_fail(op('!', @('isClosure'(X))), [X], 8, Out).
-write_inline0(atomic(X), _, Out) :- !, 
+write_inline0(atomic(X), _, Out) :- !,
 	write_if_fail(op('&&',op('!',@('isSymbol'(X))), op('!',@('isNumber'(X)))), [X], 8, Out).
-write_inline0(java(X,Y), _, Out) :- !, 
+write_inline0(java(X,Y), _, Out) :- !,
 	write_if_fail(op('!', @('isJavaObject'(X))), [X], 8, Out),
 	EXP = #('SymbolTerm.create'(@(getName(@(getClass(@(object(cast('JavaObjectTerm',X))))))))),
 	write_if_fail(op('!', unify(Y,EXP)), [], 8, Out).
@@ -819,7 +830,7 @@ make_arith_arg(E, E) :- E = sf(_), !.
 %make_arith_arg(E, cast('NumberTerm',E)) :- E = a(_), !. %???
 make_arith_arg(E, #('Arithmetic.evaluate'(E))).
 
-write_arith(M, E, V, Tab, Out) :- 
+write_arith(M, E, V, Tab, Out) :-
 	make_arith_arg(E, A1),
 	nonvar(V),
 	(    nonvar(M) -> A0 =.. [M,A1], A = @(A0)
@@ -830,8 +841,8 @@ write_arith(M, E, V, Tab, Out) :-
 	%write_deref_args([E], Out),
 	write_inline_java(EXP, Tab, Out).
 
-write_arith(M, E1, E2, V, Tab, Out) :- 
-	nonvar(M), 
+write_arith(M, E1, E2, V, Tab, Out) :-
+	nonvar(M),
 	make_arith_arg(E1, A1),
 	make_arith_arg(E2, A2),
 	nonvar(V),
@@ -842,7 +853,7 @@ write_arith(M, E1, E2, V, Tab, Out) :-
 	%write_deref_args([E1,E2], Out),
 	write_inline_java(EXP, Tab, Out).
 
-write_arith_compare(M, E1, E2, Tab, Out) :- 
+write_arith_compare(M, E1, E2, Tab, Out) :-
 	nonvar(M),
 	make_arith_arg(E1, A1),
 	make_arith_arg(E2, A2),
@@ -903,24 +914,24 @@ write_inline_exp(bracket(Exp), Tab, Out) :- !,
 	write_inline_exp(Exp, 0, Out),
 	write(Out, ')').
 write_inline_exp(op(Op, Exp), Tab, Out) :- !,
-	tab(Out, Tab), 
+	tab(Out, Tab),
 	write(Out, Op), write(Out, ' '), write_inline_exp(Exp, 0, Out).
 write_inline_exp(op(Op, Exp1, Exp2), Tab, Out) :- !,
-	tab(Out, Tab), 
+	tab(Out, Tab),
 	write_inline_exp(Exp1, 0, Out),
-	write(Out, ' '), 
+	write(Out, ' '),
 	write(Out, Op),
-	write(Out, ' '), 
+	write(Out, ' '),
 	write_inline_exp(Exp2, 0, Out).
 write_inline_exp(cast(Class,Exp), Tab, Out) :- !,
-	tab(Out, Tab), 
-	write(Out, '(('), write(Out, Class), write(Out, ') '), 
+	tab(Out, Tab),
+	write(Out, '(('), write(Out, Class), write(Out, ') '),
 	write_inline_exp(Exp, 0, Out), write(Out, ')').
 write_inline_exp(unify(X,Y), Tab, Out) :- !,
 	tab(Out, Tab),
-	write_inline_exp(X, 0, Out), 
+	write_inline_exp(X, 0, Out),
 	write(Out, '.unify('),
-	write_inline_exp(Y, 0, Out), 
+	write_inline_exp(Y, 0, Out),
 	write(Out, ', engine.trail)').
 write_inline_exp(#(X), Tab, Out) :- !,
 	X =.. [F|As],
@@ -931,28 +942,28 @@ write_inline_exp(#(X), Tab, Out) :- !,
 write_inline_exp(@(X), Tab, Out) :- !,
 	X =.. [F|As],
 	write_inline_method(F, As, Tab, Out).
-write_inline_exp(X, Tab, Out) :- X = s(_), !, 
+write_inline_exp(X, Tab, Out) :- X = s(_), !,
 	tab(Out, Tab), write_reg(X, Out).
 write_inline_exp(X, Tab, Out) :- X = si(_), !,  % ???
 	tab(Out, Tab), write_reg(X, Out).
 write_inline_exp(X, Tab, Out) :- X = sf(_), !,  % ???
 	tab(Out, Tab), write_reg(X, Out).
-write_inline_exp(X, Tab, Out) :- X = a(_), !, 
+write_inline_exp(X, Tab, Out) :- X = a(_), !,
 	tab(Out, Tab), write_reg(X, Out).
 write_inline_exp(X, Tab, Out) :- X == void, !,  % ???
 	tab(Out, Tab), write_reg(X, Out).
-write_inline_exp(X, Tab, Out) :- 
+write_inline_exp(X, Tab, Out) :-
 	tab(Out, Tab), write(Out, X).
 
 write_inline_method(F, _, _, _) :- var(F), !, fail.
 write_inline_method(_, A, _, _) :- var(A), !, fail.
 write_inline_method(F, [A], Tab, Out) :- !,
 	tab(Out, Tab),
-	write_inline_exp(A, 0, Out), 
+	write_inline_exp(A, 0, Out),
 	write(Out, '.'), write(Out, F), write(Out, '()').
 write_inline_method(F, [A,B], Tab, Out) :-
 	tab(Out, Tab),
-	write_inline_exp(A, 0, Out), 
+	write_inline_exp(A, 0, Out),
 	write(Out, '.'), write(Out, F), write(Out, '('),
 	write_inline_exp(B, 0, Out), write(Out, ')').
 
@@ -983,18 +994,18 @@ java_integer(X) :- integer(X), -2147483648 =< X, X =< 2147483647.
 
 % Read Instructions
 read_instructions(0, _, []) :- !.
-read_instructions(N, In, [X|Xs]) :- 
+read_instructions(N, In, [X|Xs]) :-
 	N > 0,
 	read(In, X),
 	N1 is N-1,
 	read_instructions(N1, In, Xs).
 
 % Write package name
-write_package(P, Out) :- !, 
+write_package(P, Out) :- !,
 	write(Out, P).
 
 % Write class name
-write_class_name(L, Out) :- 
+write_class_name(L, Out) :-
 	write(Out, 'PRED_'), write_index(L, Out).
 
 % Write out base class name
@@ -1006,9 +1017,9 @@ write_predicate_base_class(4, Out) :- !, write(Out, 'Predicate.P4').
 write_predicate_base_class(_, Out) :- !, write(Out, 'Predicate.P4').
 
 % Write label
-write_index(F/A, Out) :- !, 
+write_index(F/A, Out) :- !,
 	write_pred_spec(F/A, Out).
-write_index(L+I, Out) :- 
+write_index(L+I, Out) :-
 	write_index(L, Out), write(Out, '_'), write(Out, I).
 
 % Write constant name
@@ -1017,7 +1028,7 @@ write_constant(X, Out) :-
 	write(Out, Y).
 
 % Write predicate specification
-write_pred_spec(F/A, Out) :- 
+write_pred_spec(F/A, Out) :-
 	predicate_encoding(F, F1),
 	write(Out, F1), write(Out, '_'), write(Out, A).
 
@@ -1032,13 +1043,13 @@ package_encoding([46|Xs]) --> !, [47], package_encoding(Xs).
 package_encoding([X|Xs])  --> !, [X] , package_encoding(Xs).
 
 % Predicate Encoding
-predicate_encoding(X, Y) :- 
+predicate_encoding(X, Y) :-
 	atom_codes(X, Chs0),
 	pred_encoding(Chs0, Chs, []),
 	atom_codes(Y, Chs).
 
 pred_encoding([]) --> !.
-pred_encoding([X|Xs]) --> 
+pred_encoding([X|Xs]) -->
 	pred_encoding_char(X),
 	pred_encoding(Xs).
 
@@ -1047,13 +1058,13 @@ pred_encoding_char(X) --> {65 =< X, X =<  90}, !, [X]. % A..Z
 pred_encoding_char(X) --> {48 =< X, X =<  57}, !, [X]. % 0..9
 pred_encoding_char(95) --> !, [95].                    % '_'
 pred_encoding_char(36) --> !, [36].                    % '$' ???
-pred_encoding_char(X) --> {0 =< X, X =< 65535}, !, 
+pred_encoding_char(X) --> {0 =< X, X =< 65535}, !,
 	[36],  % '$'
 	pred_encoding_hex(X).
-pred_encoding_char(X) --> 
+pred_encoding_char(X) -->
 	{am2j_error([X,is,an,invalid,character,code]), fail}.
 
-pred_encoding_hex(X) --> 
+pred_encoding_hex(X) -->
 	{int_to_hex(X, [], H)},
 	pred_encoding_hex_char(H).
 
@@ -1128,9 +1139,9 @@ write_reg(X, _) :-
 	fail.
 
 write_reg_args([], _) :- !.
-write_reg_args([X], Out) :- !, 
+write_reg_args([X], Out) :- !,
 	write_reg(X, Out).
-write_reg_args([X|Xs], Out) :- 
+write_reg_args([X|Xs], Out) :-
 	write_reg(X, Out),
 	write(Out, ', '),
 	write_reg_args(Xs, Out).
@@ -1144,7 +1155,7 @@ Put Instructions
 +  put_int(i, X)
 +  put_float(f, X)
 +  put_con(f/n, X)
-+  put_con(c, X), 
++  put_con(c, X),
 +  put_list(Xi, Xj, Xk)
 +  put_str(Xi, Y, Xj)
 +  put_str_args([Xi,..,Xn], Y)
@@ -1223,8 +1234,8 @@ Notation
   S ::= s(i) | si(i) | sf(i)
   L ::= f/n | f/n+i | f/n+TAG | f/n+TAG+i | f/n+TAG+i+i
   TAG ::= var | int | flo | con | str | lis | top | sub | nil
-  BinG ::= C | f(A1,..,An, C) 
-  G ::= f(A1,..,An) 
+  BinG ::= C | f(A1,..,An, C)
+  G ::= f(A1,..,An)
   A ::= void | X
   C ::= cont | p(N)
   R ::= cont | econt | a(i) | arg(i) | ea(i)

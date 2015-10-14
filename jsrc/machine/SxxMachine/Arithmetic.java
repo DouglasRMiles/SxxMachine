@@ -53,13 +53,13 @@ public class Arithmetic {
     static final SymbolTerm SYM_TRUNCATE_1   = SymbolTerm.intern("truncate", 1);
 
     /**
-     * Evaluates <code>_t</code> as an arithmetic expression, 
+     * Evaluates <code>_t</code> as an arithmetic expression,
      * and returns the resulting number as <code>NumberTerm</code>.
      *
      * @exception PInstantiationException if <code>_t</code> contains unbound variables.
      * @exception IllegalDomainException if <code>_t</code> is not an arithmetic expression.
      */
-    public static NumberTerm evaluate(Term _t) 
+    public static NumberTerm evaluate(Term _t)
 	throws PInstantiationException,IllegalDomainException {
 	Term t = _t.dereference();
 
@@ -67,6 +67,8 @@ public class Arithmetic {
 	    throw new PInstantiationException();
 	else if (t.isInteger())
 	    return (IntegerTerm)t;
+	else if (t.isLong())
+		return (LongTerm)t;
 	else if (t.isDouble())
 	    return (DoubleTerm)t;
 	else if (t.equals(SYM_RANDOM))
@@ -77,7 +79,7 @@ public class Arithmetic {
 	    return new DoubleTerm(Math.E);
 	else if (t.isList())
 	    return evaluate(((ListTerm)t).car());
-	else if (! t.isStructure()) 
+	else if (! t.isStructure())
 	    throw new IllegalDomainException("arithmetic expression", t);
 
 	SymbolTerm func = ((StructureTerm)t).functor();

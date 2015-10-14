@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Builtin Predicates of Prolog Cafe
-% 
+%
 % Mutsunori Banbara (banbara@kobe-u.ac.jp)
 % Naoyuki Tamura (tamura@kobe-u.ac.jp)
 % Kobe University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- op(1150,  fx, (package)). 
-package(_). 
+:- op(1150,  fx, (package)).
+package(_).
 :- package 'com.googlecode.prolog_cafe.builtin'.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +41,7 @@ false :- fail.
 (IF -> THEN; _ELSE) :- call(IF), !, call(THEN).
 (_IF -> _THEN; ELSE) :- call(ELSE).
 
-call(Term) :- 
+call(Term) :-
 	'$get_current_B'(Cut),
 	'$meta_call'(Term, user, Cut, 0, interpret).
 
@@ -101,17 +101,17 @@ call(Term) :-
 '$meta_call'(retractall(X), P, _, _, _) :- !, retractall(P:X).
 '$meta_call'(X, P, _, Depth, Mode) :- atom(P), callable(X), !,
 	'$meta_call'(Mode, Depth, P, X).
-'$meta_call'(X, P, _, _, _) :- 
+'$meta_call'(X, P, _, _, _) :-
 	illarg(type(callable), call(P:X), 1).
 
-'$meta_call'(trace, Depth, P, X) :- !, 
+'$meta_call'(trace, Depth, P, X) :- !,
 	functor(X, F, A),
 	'$trace_goal'(X, P, F/A, Depth).
-'$meta_call'(interpret, Depth, P, X) :- 
+'$meta_call'(interpret, Depth, P, X) :-
 	functor(X, F, A),
 	'$call_internal'(X, P, F/A, Depth, interpret).
 
-'$call_internal'(X, P, FA, Depth, Mode) :- 
+'$call_internal'(X, P, FA, Depth, Mode) :-
 	'$new_internal_database'(P),
 	hash_contains_key(P, FA),
 	!,
@@ -130,11 +130,11 @@ catch(Goal, Catch, Recovery) :-
 
 throw(Msg) :- raise_exception(Msg).
 
-on_exception(Catch, Goal, Recovery) :- 
-	callable(Goal), 
+on_exception(Catch, Goal, Recovery) :-
+	callable(Goal),
 	!,
 	'$on_exception'(Catch, Goal, Recovery).
-on_exception(Catch, Goal, Recovery) :- 
+on_exception(Catch, Goal, Recovery) :-
 	illarg(type(callable), on_exception(Catch,Goal,Recovery), 2).
 
 '$on_exception'(_Catch, Goal, _Recovery) :-
@@ -147,10 +147,10 @@ on_exception(Catch, Goal, Recovery) :-
         Msg \== '$none',
 	'$catch_and_throw'(Msg, Catch, Recovery).
 
-'$catch_and_throw'(Msg, Msg, Recovery) :-  !, 
+'$catch_and_throw'(Msg, Msg, Recovery) :-  !,
         '$set_exception'('$none'),
 	call(Recovery).
-'$catch_and_throw'(Msg, _, _) :-  
+'$catch_and_throw'(Msg, _, _) :-
 	raise_exception(Msg).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,7 +168,7 @@ X \= Y :- X \= Y.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Type testing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- public var/1, atom/1, integer/1, float/1, atomic/1, compound/1, nonvar/1, number/1.
+:- public var/1, atom/1, integer/1, long/1, float/1, atomic/1, compound/1, nonvar/1, number/1.
 :- public java/1, java/2, closure/1.
 :- public ground/1, callable/1.
 
@@ -177,6 +177,8 @@ var(X) :- var(X).
 atom(X) :- atom(X).
 
 integer(X) :- integer(X).
+
+long(X) :- long(X).
 
 float(X) :- float(X).
 
@@ -348,13 +350,13 @@ X >= Y :- X >= Y.
 clause(Head, B) :-
 	'$head_to_term'(Head, H, P:PI, clause(Head,B)),
 	'$new_internal_database'(P),
-	'$check_procedure_permission'(P:PI, access, private_procedure, clause(Head, B)), 
+	'$check_procedure_permission'(P:PI, access, private_procedure, clause(Head, B)),
 	'$clause_internal'(P, PI, H, Cl, _),
 	%(ground(Cl) -> Cl = (H :- B) ; copy_term(Cl, (H :- B))). ???
 	copy_term(Cl, (H :- B)).
 
 % head --> term
-'$head_to_term'(H, T, Pkg:F/A, Goal) :- 
+'$head_to_term'(H, T, Pkg:F/A, Goal) :-
 	'$head_to_term'(H, T, user, Pkg, Goal),
 	functor(T, F, A).
 
@@ -363,7 +365,7 @@ clause(Head, B) :-
 '$head_to_term'(P:H, T, _, Pkg, Goal) :- !,
 	'$head_to_term'(H, T, P, Pkg, Goal).
 '$head_to_term'(H, H, Pkg, Pkg, _) :- callable(H), atom(Pkg), !.
-'$head_to_term'(_, _, _, _, Goal) :- 
+'$head_to_term'(_, _, _, _, Goal) :-
 	illarg(type(callable), Goal, 1).
 
 % creates an internal database for A if no exists.
@@ -411,7 +413,7 @@ clause(Head, B) :-
 	'$new_indexing_hash'(P, PI, IH),
 	'$calc_indexing_key'(H, Key),
 	(    hash_contains_key(IH, Key) -> hash_get(IH, Key, Refs)
-             ; 
+             ;
              hash_get(IH, var, Refs)
         ).
 
@@ -429,8 +431,8 @@ clause(Head, B) :-
 	hash_put(P, PI, IH).
 
 '$calc_indexing_key'(H, all) :- atom(H), !.
-'$calc_indexing_key'(H, Key) :- 
-	arg(1, H, A1), 
+'$calc_indexing_key'(H, Key) :-
+	arg(1, H, A1),
 	'$calc_indexing_key0'(A1, Key).
 
 '$calc_indexing_key0'(A1, all) :- var(A1), !.
@@ -440,10 +442,10 @@ clause(Head, B) :-
 '$calc_indexing_key0'(A1, Key) :- illarg(type(term), '$calc_indexing_key0'(A1,Key), 1).
 
 % checks the permission of predicate P:F/A.
-'$check_procedure_permission'(P:F/A, _Operation, _ObjType, _Goal) :- 
+'$check_procedure_permission'(P:F/A, _Operation, _ObjType, _Goal) :-
 	hash_contains_key(P, F/A),
 	!.
-'$check_procedure_permission'(P:F/A, Operation, ObjType, Goal) :- 
+'$check_procedure_permission'(P:F/A, Operation, ObjType, Goal) :-
 	'$compiled_predicate_or_builtin'(P, F, A),
 	!,
         illarg(permission(Operation,ObjType,P:F/A,_), Goal, _).
@@ -478,7 +480,7 @@ assertz(T) :-
 	fail.
 assertz(_).
 
-asserta(T) :- 
+asserta(T) :-
 	'$term_to_clause'(T, Cl, P:PI, asserta(T)),
 	'$new_internal_database'(P),
 	'$check_procedure_permission'(P:PI, modify, static_procedure, asserta(T)),
@@ -489,7 +491,7 @@ asserta(T) :-
 	fail.
 asserta(_).
 
-abolish(T) :- 
+abolish(T) :-
 	'$term_to_predicateindicator'(T, P:PI, abolish(T)),
 	'$new_internal_database'(P),
 	'$check_procedure_permission'(P:PI, modify, static_procedure, abolish(T)),
@@ -512,7 +514,7 @@ retract(Cl) :-
 	'$erase'(Ref),
 	'$rehash_indexing'(P, PI, Ref).
 
-retractall(Head) :- 
+retractall(Head) :-
 	'$head_to_term'(Head, H, P:PI, retractall(Head)),
 	'$new_internal_database'(P),
 	'$check_procedure_permission'(P:PI, access, static_procedure, retractall(Head)),
@@ -525,7 +527,7 @@ retractall(Head) :-
 retractall(_).
 
 % term --> clause (for assert)
-'$term_to_clause'(Cl0, Cl, Pkg:F/A, Goal) :- 
+'$term_to_clause'(Cl0, Cl, Pkg:F/A, Goal) :-
 	'$term_to_clause'(Cl0, Cl, user, Pkg, Goal),
 	Cl = (H :- _),
 	functor(H, F, A).
@@ -546,10 +548,10 @@ retractall(_).
 
 '$term_to_head'(H, H, _, _) :- atom(H), !.
 '$term_to_head'(H, H, _, _) :- compound(H), !.
-'$term_to_head'(_, _, _, Goal) :- 
+'$term_to_head'(_, _, _, Goal) :-
 	illarg(type(callable), Goal, 1).
 
-'$term_to_body'(B0, B, Pkg, _) :- 
+'$term_to_body'(B0, B, Pkg, _) :-
 	'$localize_body'(B0, Pkg, B).
 
 '$localize_body'(G, P, G1) :- var(G), !,
@@ -564,7 +566,7 @@ retractall(_).
 	'$localize_body'(Y, P, Y1).
 '$localize_body'((X;Y), P, (X1;Y1)) :- !,
 	'$localize_body'(X, P, X1),
-	'$localize_body'(Y, P, Y1).	
+	'$localize_body'(Y, P, Y1).
 '$localize_body'(G, P, G1) :-
 	functor(G, F, A),
 	'$builtin_meta_predicates'(F, A, M), %???
@@ -598,7 +600,7 @@ retractall(_).
 '$builtin_meta_predicates'(freeze, 2, [?,:]).
 
 % clause --> term (for retract)
-'$clause_to_term'(Cl, T, Pkg:F/A, Goal) :- 
+'$clause_to_term'(Cl, T, Pkg:F/A, Goal) :-
 	'$clause_to_term'(Cl, T, user, Pkg, Goal),
 	T = (H :- _),
 	functor(H, F, A).
@@ -618,7 +620,7 @@ retractall(_).
 	'$head_to_term'(H0, H, _, Goal).
 
 % term --> predicate indicator (for abolish)
-'$term_to_predicateindicator'(T, Pkg:PI, Goal) :- 
+'$term_to_predicateindicator'(T, Pkg:PI, Goal) :-
 	'$term_to_predicateindicator'(T, PI, user, Pkg, Goal).
 
 '$term_to_predicateindicator'(T, _, _, _, Goal) :- var(T), !,
@@ -642,8 +644,8 @@ retractall(_).
 	'$update_indexing_hash'(A_or_Z, Keys, IH, Ref).
 
 '$gen_indexing_keys'((H :- _), _, [all]) :- atom(H), !.
-'$gen_indexing_keys'((H :- _), IT, Keys) :- 
-	arg(1, H, A1), 
+'$gen_indexing_keys'((H :- _), IT, Keys) :-
+	arg(1, H, A1),
 	'$gen_indexing_keys0'(A1, IT, Keys).
 
 '$gen_indexing_keys0'(A1, IT,      Keys) :- var(A1), !, hash_keys(IT, Keys).
@@ -655,15 +657,15 @@ retractall(_).
              ;
              hash_get(IT, var, L), hash_put(IT, Key, L)
         ).
-'$gen_indexing_keys0'(A1, IT, Keys) :- 
+'$gen_indexing_keys0'(A1, IT, Keys) :-
 	illarg(type(term), '$gen_indexing_keys0'(A1,IT,Keys), 1).
 
 '$update_indexing_hash'(a, Keys, IH, Ref) :- !, '$hash_addz_all'(Keys, IH, Ref).
 '$update_indexing_hash'(z, Keys, IH, Ref) :- !, '$hash_adda_all'(Keys, IH, Ref).
 
 '$hash_adda_all'([], _, _) :- !.
-'$hash_adda_all'([K|Ks], H, X) :- 
-	'$hash_adda'(H, K, X), 
+'$hash_adda_all'([K|Ks], H, X) :-
+	'$hash_adda'(H, K, X),
 	'$hash_adda_all'(Ks, H, X).
 
 '$hash_addz_all'([], _, _) :- !.
@@ -696,11 +698,11 @@ retractall(_).
 findall(Template, Goal, Instances) :- callable(Goal), !,
 	new_hash(H),
 	'$findall'(H, Template, Goal, Instances).
-findall(Template, Goal, Instances) :- 
+findall(Template, Goal, Instances) :-
 	illarg(type(callable), findall(Template,Goal,Instances), 2).
 
 '$findall'(H, Template, Goal, _) :-
-	call(Goal), 
+	call(Goal),
 	copy_term(Template, CT),
 	'$hash_adda'(H, '$FINDALL', CT),
 	fail.
@@ -709,18 +711,18 @@ findall(Template, Goal, Instances) :-
 	reverse(Vs, Instances).
 
 % bagof/3 & setof/3
-bagof(Template, Goal, Instances) :- callable(Goal), !,	
+bagof(Template, Goal, Instances) :- callable(Goal), !,
 	'$bagof'(Template, Goal, Instances).
-bagof(Template, Goal, Instances) :- 
+bagof(Template, Goal, Instances) :-
 	illarg(type(callable), bagof(Template,Goal,Instances), 2).
 
-setof(Template, Goal, Instances) :- callable(Goal), !,	
+setof(Template, Goal, Instances) :- callable(Goal), !,
 	'$bagof'(Template, Goal, Instances0),
 	sort(Instances0, Instances).
-setof(Template, Goal, Instances) :- 
+setof(Template, Goal, Instances) :-
 	illarg(type(callable), setof(Template,Goal,Instances), 2).
 
-'$bagof'(Template, Goal, Instances) :- 
+'$bagof'(Template, Goal, Instances) :-
 	'$free_variables_set'(Goal, Template, FV),
 	%write('Goal = '), write(Goal), nl,
 	%write('Free variables set = '), write(FV), nl,
@@ -730,7 +732,7 @@ setof(Template, Goal, Instances) :-
 	findall(Witness+Template, Goal, S),
 	'$bagof_instances'(S, Witness, Instances0),
 	Instances = Instances0.
-'$bagof'(Template, Goal, Instances) :- 
+'$bagof'(Template, Goal, Instances) :-
 	findall(Template, Goal, Instances),
 	Instances \== [].
 
@@ -769,7 +771,7 @@ setof(Template, Goal, Instances) :-
 '$term_variant'([X|Xs], [Y|Ys], Hash) :- !,
 	'$term_variant'(X, Y, Hash),
 	'$term_variant'(Xs, Ys, Hash).
-'$term_variant'(X, Y, Hash) :- 
+'$term_variant'(X, Y, Hash) :-
 	X =.. Xs,
 	Y =.. Ys,
 	'$term_variant'(Xs, Ys, Hash).
@@ -784,18 +786,18 @@ setof(Template, Goal, Instances) :-
 '$variables_set'(X, Vs, Vs      ) :- var(X), '$builtin_memq'(X, Vs), !.
 '$variables_set'(X, Vs, [X|Vs]  ) :- var(X), !.
 '$variables_set'(X, Vs0, Vs0    ) :- atomic(X), !.
-'$variables_set'([X|Xs], Vs0, Vs) :- !, 
-	'$variables_set'(X, Vs0, Vs1), 
+'$variables_set'([X|Xs], Vs0, Vs) :- !,
+	'$variables_set'(X, Vs0, Vs1),
 	'$variables_set'(Xs, Vs1, Vs).
-'$variables_set'(X, Vs0, Vs     ) :- 
-	X =.. Xs, 
+'$variables_set'(X, Vs0, Vs     ) :-
+	X =.. Xs,
 	'$variables_set'(Xs, Vs0, Vs).
 
 '$builtin_memq'(X, [Y|_])  :- X==Y, !.
 '$builtin_memq'(X, [_|Ys]) :- '$builtin_memq'(X, Ys).
 
 % Existential variables set of a term
-'$existential_variables_set'(X, Vs) :- 
+'$existential_variables_set'(X, Vs) :-
 	'$existential_variables_set'(X, [], Vs).
 
 '$existential_variables_set'(X, Vs, Vs) :- var(X), !.
@@ -808,7 +810,7 @@ setof(Template, Goal, Instances) :-
 %'$existential_variables_set'((X->Y), Vs0, Vs) :- !,
 %	'$existential_variables_set'(X, Vs0, Vs1),
 %	'$existential_variables_set'(Y, Vs1, Vs).
-%'$existential_variables_set'((X,Y), Vs0, Vs) :- !,	
+%'$existential_variables_set'((X,Y), Vs0, Vs) :- !,
 %	'$existential_variables_set'(X, Vs0, Vs1),
 %	'$existential_variables_set'(Y, Vs1, Vs).
 '$existential_variables_set'(^(V,G), Vs0, Vs) :- !,
@@ -819,7 +821,7 @@ setof(Template, Goal, Instances) :-
 '$existential_variables_set'(_, Vs, Vs).
 
 % Free variables set of a term
-'$free_variables_set'(T, V, FV) :- 
+'$free_variables_set'(T, V, FV) :-
 	'$variables_set'(T, TV),
 	'$variables_set'(V, VV),
 	'$existential_variables_set'(T, VV, BV),
@@ -837,7 +839,7 @@ setof(Template, Goal, Instances) :-
 	'$builtin_set_diff0'(Xs, Ys, L).
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [X|L]) :- X @< Y, !,
 	'$builtin_set_diff0'(Xs, [Y|Ys], L).
-'$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :- 
+'$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -858,22 +860,22 @@ open(Source_sink, Mode, Stream) :- open(Source_sink, Mode, Stream, []).
 
 close(S_or_a) :- close(S_or_a, []).
 
-flush_output :- 
+flush_output :-
     current_output(S),
     flush_output(S).
 
-stream_property(Stream, Stream_property) :- 
-	var(Stream_property), 
+stream_property(Stream, Stream_property) :-
+	var(Stream_property),
 	!,
 	'$stream_property'(Stream, Stream_property).
-stream_property(Stream, Stream_property) :- 
-	'$stream_property_specifier'(Stream_property), 
+stream_property(Stream, Stream_property) :-
+	'$stream_property_specifier'(Stream_property),
 	!,
 	'$stream_property'(Stream, Stream_property).
-stream_property(Stream, Stream_property) :- 
+stream_property(Stream, Stream_property) :-
 	illarg(domain(term,stream_property), stream_property(Stream, Stream_property), 2).
 
-'$stream_property'(Stream, Stream_property) :- 
+'$stream_property'(Stream, Stream_property) :-
 	var(Stream),
 	!,
 	'$get_stream_manager'(SM),
@@ -881,13 +883,13 @@ stream_property(Stream, Stream_property) :-
 	'$builtin_member'((Stream,Vs), Map),
 	java(Stream),
 	'$builtin_member'(Stream_property, Vs).
-'$stream_property'(Stream, Stream_property) :- 
+'$stream_property'(Stream, Stream_property) :-
 	java(Stream),
 	!,
 	'$get_stream_manager'(SM),
 	hash_get(SM, Stream, Vs),
 	'$builtin_member'(Stream_property, Vs).
-'$stream_property'(Stream, Stream_property) :- 
+'$stream_property'(Stream, Stream_property) :-
 	illarg(domain(stream,stream), stream_property(Stream, Stream_property), 1).
 
 '$stream_property_specifier'(input).
@@ -969,7 +971,7 @@ put_byte(Byte) :-
 :- public read_with_variables/2, read_with_variables/3.
 :- public read_line/1.
 %:- public read_line/2. (written in Java)
-:- dynamic '$tokens'/1. 
+:- dynamic '$tokens'/1.
 
 read(X) :- current_input(S), read(S, X).
 
@@ -978,8 +980,8 @@ read(S_or_a, X) :-
 	parse_tokens(X, Tokens),
 	!.
 
-read_with_variables(X, Vs) :- 
-	current_input(S), 
+read_with_variables(X, Vs) :-
+	current_input(S),
 	read_with_variables(S, X, Vs).
 
 read_with_variables(S_or_a, X, Vs) :-
@@ -989,14 +991,14 @@ read_with_variables(S_or_a, X, Vs) :-
 
 read_line(X) :- current_input(S), read_line(S, X).
 
-% read_token(S_or_a, Token) reads one token from the input, 
+% read_token(S_or_a, Token) reads one token from the input,
 % and unifies Token with:
-%   error(Atom), 
-%   end_of_file, 
-%   '.', ' ', '(', ')', '[', ']', '{', '}', ',', '|', 
+%   error(Atom),
+%   end_of_file,
+%   '.', ' ', '(', ')', '[', ']', '{', '}', ',', '|',
 %   number(Integer_or_Float),
-%   atom(Atom), 
-%   var(Atom), 
+%   atom(Atom),
+%   var(Atom),
 %   string(CharCodeList)
 
 %read_token(Token) :- current_input(S), read_token(S, Token).
@@ -1007,14 +1009,15 @@ read_token(S_or_a, Token) :-
 
 '$read_token1'([-2], T, error(T))  :- !. % error('message')
 '$read_token1'("I",  T, number(T)) :- !. % number(intvalue)
+'$read_token1'("L",  T, number(T)) :- !. % number(longvalue)
 '$read_token1'("D",  T, number(T)) :- !. % number(floatvalue)
 '$read_token1'("A",  T, atom(T))   :- !. % atom('name')
 '$read_token1'("V",  T, var(T))    :- !. % var('name')
 '$read_token1'("S",  T, string(T)) :- !. % string("chars")
 '$read_token1'(_,    T, T)         :- !. % others
 
-% read_tokens(Tokens, Vs) reads tokens from the input 
-% until full-stop-mark ('.') or end_of_file, 
+% read_tokens(Tokens, Vs) reads tokens from the input
+% until full-stop-mark ('.') or end_of_file,
 % unifies Tokens with a list of tokens.
 % Token for a variable has a form of var(Name,Variable).
 % Vs is a list of Name=Variable pairs.
@@ -1033,7 +1036,7 @@ read_tokens(Stream, Tokens, Vs) :-
 	'$read_tokens1'(Stream, Token, Tokens, Vs, VI).
 
 '$read_tokens1'(Stream, error(Message), [], _, _) :-  !,
-	write(user_error,'{SYNTAX ERROR}'), nl(user_error), 
+	write(user_error,'{SYNTAX ERROR}'), nl(user_error),
 	write(user_error,'** '), write(user_error,Message), write(user_error,' **'), nl(user_error),
 	flush_output(user_error),
 	'$read_tokens_until_fullstop'(Stream),
@@ -1099,7 +1102,7 @@ parse_tokens(X, Tokens) :-
 	{'$parse_tokens_is_post_in_op'(Next)},
 	!,
 	'$parse_tokens_post_in_ops'(Prec0, X1, Prec1, X, Prec).
-'$parse_tokens2'(_, _, _, _, _) --> 
+'$parse_tokens2'(_, _, _, _, _) -->
 	'$parse_tokens_error'([operator,expected,after,expression]).
 
 % '$parse_tokens_before_op'(Prec0, X, Prec)
@@ -1195,7 +1198,7 @@ parse_tokens(X, Tokens) :-
 	[Op],
 	'$parse_tokens_op'(Op, Prec0, X1, Prec1, X2, Prec2),
 	'$parse_tokens_post_in_ops'(Prec0, X2, Prec2, X, Prec).
-'$parse_tokens_post_in_ops'(Prec0, X, Prec, X, Prec) --> 
+'$parse_tokens_post_in_ops'(Prec0, X, Prec, X, Prec) -->
 	{Prec =< Prec0}.
 
 '$parse_tokens_op'(',', Prec0, X1, Prec1, X, PrecOp) --> !,
@@ -1306,7 +1309,7 @@ parse_tokens(X, Tokens) :-
 '$parse_tokens_write_string'(_,[]).
 '$parse_tokens_write_string'(S,[C|Cs]) :- [C] = """", !,
 	put_code(S,C), put_code(S,C), '$parse_tokens_write_string'(S,Cs).
-'$parse_tokens_write_string'(S,[C|Cs]) :- 
+'$parse_tokens_write_string'(S,[C|Cs]) :-
 	put_code(S,C), '$parse_tokens_write_string'(S,Cs).
 
 '$parse_tokens_write_message'(_,[]).
@@ -1355,13 +1358,13 @@ write_term(_, _, _).
 	'$write_term0'(Term, 1200, punct, _, Options, S_or_a),
 	!.
 
-'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :- 
-	var(Term), 
+'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :-
+	var(Term),
 	!,
 	'$write_space_if_needed'(Type0, alpha, S_or_a),
 	'$fast_write'(S_or_a, Term).
-'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :- 
-	java(Term), 
+'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :-
+	java(Term),
 	!,
 	'$write_space_if_needed'(Type0, alpha, S_or_a),
 	'$fast_write'(S_or_a, Term).
@@ -1371,18 +1374,18 @@ write_term(_, _, _).
 	!,
 	'$write_space_if_needed'(Type0, alpha, S_or_a),
 	'$write_VAR'(VN, S_or_a).
-'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :- 
-	number(Term), Term < 0, 
+'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :-
+	number(Term), Term < 0,
 	!,
 	'$write_space_if_needed'(Type0, symbol, S_or_a),
 	'$fast_write'(S_or_a, Term).
-'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :- 
-	number(Term), 
+'$write_term0'(Term, _Prec, Type0, alpha, _, S_or_a) :-
+	number(Term),
 	!,
 	'$write_space_if_needed'(Type0, alpha, S_or_a),
 	'$fast_write'(S_or_a, Term).
 %'$write_term0'(Term, Prec, Type0, punct, _, S_or_a) :-
-%	atom(Term), 
+%	atom(Term),
 %	current_op(PrecOp, OpType, Term),
 %	(OpType = fx ; OpType = fy),
 %	PrecOp =< Prec,
@@ -1391,8 +1394,8 @@ write_term(_, _, _).
 %	put_char(S_or_a, '('),
 %	'$write_atom'(Term, punct, _, _, S_or_a),
 %	put_char(S_or_a, ')').
-'$write_term0'(Term, _Prec, Type0, Type, Style, S_or_a) :- 
-	atom(Term), 
+'$write_term0'(Term, _Prec, Type0, Type, Style, S_or_a) :-
+	atom(Term),
 	!,
 	'$write_atom'(Term, Type0, Type, Style, S_or_a).
 '$write_term0'(Term, Prec, Type0, Type, Style, S_or_a) :-
@@ -1437,14 +1440,14 @@ write_term(_, _, _).
 	Rest is VN//26,
 	'$fast_write'(S_or_a, Rest).
 
-'$write_atom'(Atom, Type0, Type, Style, S_or_a) :- 
-	'$builtin_member'(quoted(true), Style), 
+'$write_atom'(Atom, Type0, Type, Style, S_or_a) :-
+	'$builtin_member'(quoted(true), Style),
 	!,
-	'$atom_type'(Atom, Type), 
+	'$atom_type'(Atom, Type),
 	'$write_space_if_needed'(Type0, Type, S_or_a),
 	'$fast_writeq'(S_or_a, Atom).
 '$write_atom'(Atom, Type0, Type, _, S_or_a) :-
-	'$atom_type'(Atom, Type), 
+	'$atom_type'(Atom, Type),
 	'$write_space_if_needed'(Type0, Type, S_or_a),
 	'$fast_write'(S_or_a, Atom).
 
@@ -1469,7 +1472,7 @@ write_term(_, _, _).
 '$write_op_type'(2, yfx).
 
 '$write_term_op'(Op, OpType, Args, Prec, Type0, punct, Style, S_or_a) :-
-	current_op(PrecOp, OpType, Op), 
+	current_op(PrecOp, OpType, Op),
 	PrecOp > Prec,
 	!,
 	'$write_space_if_needed'(Type0, punct, S_or_a),
@@ -1514,23 +1517,23 @@ write_term(_, _, _).
 	'$write_term0'(A1, Prec1, Type0, Type1, Style, S_or_a),
 	'$write_term_infix_op'(Op, Type1, Type2, Style, S_or_a),
 	'$write_term0'(A2, Prec2, Type2, Type, Style, S_or_a).
-	
+
 '$write_term_infix_op'(',', Type0, punct, _, S_or_a) :- !,
 	'$write_space_if_needed'(Type0, punct, S_or_a),
 	put_char(S_or_a, ',').
 '$write_term_infix_op'(Op, Type0, Type, Style, S_or_a) :-
 	'$write_atom'(Op, Type0, Type, Style, S_or_a).
 
-'$write_term_list_args'([A|As], Type0, Type, Style, S_or_a) :- 
-	nonvar(As), As = [_|_], 
+'$write_term_list_args'([A|As], Type0, Type, Style, S_or_a) :-
+	nonvar(As), As = [_|_],
 	!,
 	'$write_term0'(A, 999, Type0, Type1, Style, S_or_a),
 	'$write_space_if_needed'(Type1, punct, S_or_a),
 	put_char(S_or_a, ','),
 	'$write_term_list_args'(As, punct, Type, Style, S_or_a).
 
-'$write_term_list_args'([A|As], Type0, Type, Style, S_or_a) :- 
-	nonvar(As), As = [], 
+'$write_term_list_args'([A|As], Type0, Type, Style, S_or_a) :-
+	nonvar(As), As = [],
 	!,
 	'$write_term0'(A, 999, Type0, Type, Style, S_or_a).
 
@@ -1557,35 +1560,35 @@ write_term(_, _, _).
 :- dynamic '$current_operator'/3.
 
 op(Priority, Op_specifier, Operator) :-
-	integer(Priority), 
+	integer(Priority),
 	0 =<Priority, Priority =<1200,
 	!,
 	'$op1'(Priority, Op_specifier, Operator).
 op(Priority, Op_specifier, Operator) :-
         illarg(domain(integer,0-1200), op(Priority,Op_specifier,Operator), 1).
 
-'$op1'(Priority, Op_specifier, Operator) :- 
+'$op1'(Priority, Op_specifier, Operator) :-
 	nonvar(Op_specifier),
 	'$op_specifier'(Op_specifier, _),
 	!,
 	'$op2'(Priority, Op_specifier, Operator).
-'$op1'(Priority, Op_specifier, Operator) :- 
-        findall(X, '$op_specifier'(X,_), Domain), 
+'$op1'(Priority, Op_specifier, Operator) :-
+        findall(X, '$op_specifier'(X,_), Domain),
 	illarg(domain(term,Domain), op(Priority,Op_specifier,Operator), 2).
 
-'$op2'(Priority, Op_specifier, Operator) :- 
-	atom(Operator), 
+'$op2'(Priority, Op_specifier, Operator) :-
+	atom(Operator),
 	!,
 	'$add_operators'([Operator], Priority, Op_specifier).
-'$op2'(Priority, Op_specifier, Operator) :- 
+'$op2'(Priority, Op_specifier, Operator) :-
 	'$op_atom_list'(Operator, Atoms),
 	!,
 	'$add_operators'(Atoms, Priority, Op_specifier).
-'$op2'(Priority, Op_specifier, Operator) :- 
+'$op2'(Priority, Op_specifier, Operator) :-
         illarg(type(list(atom)), op(Priority,Op_specifier,Operator), 3).
 
 '$add_operators'([], _, _) :- !.
-'$add_operators'([A|As], Priority, Op_specifier) :- 
+'$add_operators'([A|As], Priority, Op_specifier) :-
 	'$add_op'(A, Priority, Op_specifier),
 	'$add_operators'(As, Priority, Op_specifier).
 
@@ -1748,20 +1751,20 @@ regex_list(Pattern, [_ | Ls], Result) :- regex_list(Pattern, Ls, Result).
 :- public set_prolog_flag/2.
 :- public current_prolog_flag/2.
 
-set_prolog_flag(Flag, Value) :- var(Flag), !, 
+set_prolog_flag(Flag, Value) :- var(Flag), !,
 	illarg(var, set_prolog_flag(Flag,Value), 1).
-set_prolog_flag(Flag, Value) :- var(Value), !, 
+set_prolog_flag(Flag, Value) :- var(Value), !,
 	illarg(var, set_prolog_flag(Flag,Value), 2).
-set_prolog_flag(Flag, Value) :- atom(Flag), !, 
+set_prolog_flag(Flag, Value) :- atom(Flag), !,
 	'$set_prolog_flag0'(Flag, Value).
-set_prolog_flag(Flag, Value) :- 
+set_prolog_flag(Flag, Value) :-
 	illarg(type(atom), set_prolog_flag(Flag,Value), 1).
 
-'$set_prolog_flag0'(Flag, Value) :- 
+'$set_prolog_flag0'(Flag, Value) :-
 	'$prolog_impl_flag'(Flag, Mode, changeable(YN)),
 	!,
 	'$set_prolog_flag0'(YN, Flag, Value, Mode).
-'$set_prolog_flag0'(Flag, Value) :- 
+'$set_prolog_flag0'(Flag, Value) :-
 	illarg(domain(atom,prolog_flag), set_prolog_flag(Flag,Value), 1).
 
 '$set_prolog_flag0'(no, Flag, Value, _) :- !,
@@ -1780,10 +1783,10 @@ current_prolog_flag(Flag, Term) :- atom(Flag), !,
 	(   '$prolog_impl_flag'(Flag, _, _) -> '$get_prolog_impl_flag'(Flag, Term)
         ;   illarg(domain(atom,prolog_flag), current_prolog_flag(Flag,Term), 1)
         ).
-current_prolog_flag(Flag, Term) :- 
+current_prolog_flag(Flag, Term) :-
 	illarg(type(atom), current_prolog_flag(Flag,Term), 1).
 
-% '$prolog_impl_flag'(bounded,     _, changeable(no)). 
+% '$prolog_impl_flag'(bounded,     _, changeable(no)).
 '$prolog_impl_flag'(max_integer, _, changeable(no)).
 '$prolog_impl_flag'(min_integer, _, changeable(no)).
 % '$prolog_impl_flag'(integer_rounding_function, [down,toward_zero], changeable(no)).
@@ -1824,7 +1827,7 @@ expand_term(Dcg, Dcg).
 	'$dcg_translation_atom'(H, H1, S0, S),
 	'$dcg_translation'(B, B1, S0, S).
 
-'$dcg_translation_atom'(X, phrase(X,S0,S), S0, S) :- 
+'$dcg_translation_atom'(X, phrase(X,S0,S), S0, S) :-
 	var(X),
 	!.
 '$dcg_translation_atom'(M:X, M:X1, S0, S) :- !,
@@ -1931,7 +1934,7 @@ java_declared_constructor(Constr, Instance) :-
 	java_declared_constructor0(Constr1, Instance1),
 	Instance = Instance1.
 
-java_method(Class_or_Instance, Method, Value) :- 
+java_method(Class_or_Instance, Method, Value) :-
 	Method =.. [F|As],
 	builtin_java_convert_args(As, As1),
 	Method1 =.. [F|As1],
@@ -1970,9 +1973,9 @@ builtin_java_convert_args([X|Xs], [Y|Ys]) :-
 	java_conversion(X, Y),
 	builtin_java_convert_args(Xs, Ys).
 
-synchronized(Object, Goal) :- 
-	'$begin_sync'(Object, Ref), 
-	call(Goal), 
+synchronized(Object, Goal) :-
+	'$begin_sync'(Object, Ref),
+	call(Goal),
 	'$end_sync'(Ref).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2020,7 +2023,7 @@ cafeteria :-
 	    !,
 	nl, '$fast_write'(bye), nl.
 
-'$cafeteria_init' :- 
+'$cafeteria_init' :-
 	retractall('$leap_flag'(_)),
 	retractall('$current_leash'(_)),
 	retractall('$current_spypoint'(_,_,_)),
@@ -2037,7 +2040,7 @@ cafeteria :-
 '$toplvel_loop' :-
 	current_prolog_flag(debug, Mode),
 	(Mode == off -> true ; print_message(info,[debug])),
-	'$fast_write'('| ?- '), 
+	'$fast_write'('| ?- '),
 	flush_output.
 
 '$cafeteria'(Goal) :-
@@ -2047,12 +2050,12 @@ cafeteria :-
 '$process_order'(G,               _) :- var(G), !, illarg(var, (?- G), 1).
 '$process_order'(end_of_file,     _) :- !.
 '$process_order'([File|Files],    _) :- !, consult([File|Files]).
-'$process_order'(G,            Vars) :- 
+'$process_order'(G,            Vars) :-
 	current_prolog_flag(debug, Mode),
-	(   Mode == off -> call(user:G) ; '$trace_goal'(user:G)   ), nl, 
-	'$rm_redundant_vars'(Vars, Vars1),	
+	(   Mode == off -> call(user:G) ; '$trace_goal'(user:G)   ), nl,
+	'$rm_redundant_vars'(Vars, Vars1),
 	'$give_answers_with_prompt'(Vars1),
-	!, 
+	!,
 	'$fast_write'(yes), nl.
 '$process_order'(_, _) :- nl, '$fast_write'(no), nl.
 
@@ -2065,9 +2068,9 @@ cafeteria :-
 '$give_answers_with_prompt'([]) :- !.
 '$give_answers_with_prompt'(Vs) :-
 	'$give_an_answer'(Vs),
-	'$fast_write'(' ? '), flush_output, 
-	read_line(Str), 
-	Str \== ";", 
+	'$fast_write'(' ? '), flush_output,
+	read_line(Str),
+	Str \== ";",
 	nl.
 
 '$give_an_answer'([])  :- !, '$fast_write'(true).
@@ -2076,7 +2079,7 @@ cafeteria :-
 	'$print_an answer'(X), '$fast_write'(','), nl,
 	'$give_an_answer'(Xs).
 
-'$print_an answer'(N = V) :- 
+'$print_an answer'(N = V) :-
 	write(N), '$fast_write'(' = '), writeq(V).
 
 %%% Read Program
@@ -2129,8 +2132,8 @@ consult_stream(File, In) :-
 '$consult_clause'((:- multifile _)     ) :- !.
 '$consult_clause'((:- block _)         ) :- !.
 '$consult_clause'((:- G)               ) :- !, clause('$consulted_package'(P), _), once(P:G).
-'$consult_clause'(Clause0) :- 
-	'$consult_preprocess'(Clause0, Clause), 
+'$consult_clause'(Clause0) :-
+	'$consult_preprocess'(Clause0, Clause),
 	'$consult_cls'(Clause).
 
 '$assert_consulted_package'(P) :-
@@ -2161,13 +2164,13 @@ consult_stream(File, In) :-
 
 %%% Trace
 trace :- current_prolog_flag(debug, on), !.
-trace :- 
+trace :-
 	set_prolog_flag(debug, on),
 	'$trace_init',
 	'$fast_write'('{Small debugger is switch on}'),
 	nl, !.
 
-'$trace_init' :- 
+'$trace_init' :-
 	retractall('$leap_flag'(_)),
 	retractall('$current_leash'(_)),
 	retractall('$current_spypoint'(_,_,_)),
@@ -2181,33 +2184,33 @@ trace :-
 notrace :- current_prolog_flag(debug, off), !.
 notrace :-
 	set_prolog_flag(debug, off),
-	'$fast_write'('{Small debugger is switch off}'), 
+	'$fast_write'('{Small debugger is switch off}'),
 	nl, !.
 
 debug :- trace.
 nodebug :- notrace.
 
 %%% Spy-Points
-spy(T) :- 
+spy(T) :-
 	'$term_to_predicateindicator'(T, PI, spy(T)),
 	trace,
 	'$assert_spypoint'(PI),
 	'$set_debug_flag'(leap, yes),
 	!.
 
-'$assert_spypoint'(P:F/A) :- 
-	clause('$current_spypoint'(P,F,A), _), 
+'$assert_spypoint'(P:F/A) :-
+	clause('$current_spypoint'(P,F,A), _),
 	print_message(info, [spypoint,P:F/A,is,already,added]),
 	!.
-'$assert_spypoint'(P:F/A) :- 
+'$assert_spypoint'(P:F/A) :-
 	clause('$consulted_predicate'(P,F/A,_), _),
 	assertz('$current_spypoint'(P,F,A)),
 	print_message(info, [spypoint,P:F/A,is,added]),
 	!.
-'$assert_spypoint'(P:F/A) :- 
+'$assert_spypoint'(P:F/A) :-
 	print_message(warning, [no,matching,predicate,for,spy,P:F/A]).
 
-nospy(T) :- 
+nospy(T) :-
 	'$term_to_predicateindicator'(T, PI, nospy(T)),
 	'$retract_spypoint'(PI),
 	'$set_debug_flag'(leap, no),
@@ -2219,7 +2222,7 @@ nospy(T) :-
 	!.
 '$retract_spypoint'(_).
 
-nospyall :-  
+nospyall :-
 	retractall('$current_spypoint'(_,_,_)),
 	'$set_debug_flag'(leap, no).
 
@@ -2227,7 +2230,7 @@ nospyall :-
 leash(L) :- nonvar(L), '$leash'(L), !.
 leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 
-'$leash'([]) :- !, 
+'$leash'([]) :- !,
 	retractall('$current_leash'(_)),
 	print_message(info, [no,leashing]).
 '$leash'(Ms) :-
@@ -2236,9 +2239,9 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 	print_message(info,[leashing,stopping,on,Ms]).
 
 '$assert_leash'([]) :- !.
-'$assert_leash'([X|Xs]) :- 
+'$assert_leash'([X|Xs]) :-
 	'$leash_specifier'(X),
-	assertz('$current_leash'(X)), 
+	assertz('$current_leash'(X)),
 	'$assert_leash'(Xs).
 
 '$leash_specifier'(call).
@@ -2248,45 +2251,45 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 %'$leash_specifier'(exception).
 
 %%% Trace a Goal
-'$trace_goal'(Term) :- 
+'$trace_goal'(Term) :-
 	'$set_debug_flag'(leap, no),
 	'$get_current_B'(Cut),
 	'$meta_call'(Term, user, Cut, 0, trace).
 
-'$trace_goal'(X, P, FA, Depth) :- 
+'$trace_goal'(X, P, FA, Depth) :-
 	print_procedure_box(call, X, P, FA, Depth),
 	'$call_internal'(X, P, FA, Depth, trace),
 	print_procedure_box(exit, X, P, FA, Depth),
 	redo_procedure_box(X, P, FA, Depth).
-'$trace_goal'(X, P, FA, Depth) :- 
+'$trace_goal'(X, P, FA, Depth) :-
 	print_procedure_box(fail, X, P, FA, Depth),
 	fail.
 
-print_procedure_box(Mode, G, P, F/A, Depth) :- 
+print_procedure_box(Mode, G, P, F/A, Depth) :-
 	clause('$current_spypoint'(P, F, A), _),
 	!,
-	'$builtin_message'(['+',Depth,Mode,':',P:G]), 
+	'$builtin_message'(['+',Depth,Mode,':',P:G]),
 	'$read_blocked'(print_procedure_box(Mode,G,P,F/A,Depth)).
-print_procedure_box(Mode, G, P, FA, Depth) :- 
+print_procedure_box(Mode, G, P, FA, Depth) :-
 	clause('$leap_flag'(no), _),
 	!,
-	'$builtin_message'([' ',Depth,Mode,':',P:G]), 
-	(    clause('$current_leash'(Mode), _) 
-             -> 
+	'$builtin_message'([' ',Depth,Mode,':',P:G]),
+	(    clause('$current_leash'(Mode), _)
+             ->
 	     '$read_blocked'(print_procedure_box(Mode,G,P,FA,Depth))
-	     ; 
+	     ;
 	     nl
 	 ).
 print_procedure_box(_, _, _, _, _).
 
 redo_procedure_box(_, _, _, _).
-redo_procedure_box(X, P, FA, Depth) :- 
+redo_procedure_box(X, P, FA, Depth) :-
 	print_procedure_box(redo, X, P, FA, Depth),
 	fail.
 
 '$read_blocked'(G) :-
 	'$fast_write'(' ? '),
-	flush_output, 
+	flush_output,
 	read_line(C),
 	(C == [] -> DOP = 99 ; C = [DOP|_]),
 	'$debug_option'(DOP, G).
@@ -2337,7 +2340,7 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 	'$listing_dynamic_clause'(P, F/A).
 '$listing'(PI, P) :- illarg(type(predicate_indicator), listing(P:PI), 1).
 
-'$listing_dynamic_clause'(P, PI) :- 
+'$listing_dynamic_clause'(P, PI) :-
 	'$new_internal_database'(P),
 	hash_keys(P, Keys),
 	'$builtin_member'(PI, Keys),
@@ -2361,7 +2364,7 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 	write('.'), nl.
 
 '$write_dynamic_head'(user, H) :- !, writeq(H).
-'$write_dynamic_head'(P, H) :- 
+'$write_dynamic_head'(P, H) :-
 	write(P), write(':'), writeq(H).
 
 '$write_dynamic_body'((G1,G2), N) :- !,
@@ -2405,8 +2408,8 @@ length(L, N) :- '$length0'(L, 0, N).
 '$length0'([], I, I) :- !.
 '$length0'([_|L], I0, I) :- I0 < I, I1 is I0+1, '$length0'(L, I1, I).
 
-numbervars(X, VI, VN) :- 
-	integer(VI), VI >= 0, 
+numbervars(X, VI, VN) :-
+	integer(VI), VI >= 0,
 	!,
 	'$numbervars'(X, VI, VN).
 
@@ -2428,12 +2431,12 @@ numbervars(X, VI, VN) :-
 	I1 is I + 1,
 	'$numbervars_str'(I1, N, X, VN1, VN).
 
-statistics(Key, Value) :- 
-	nonvar(Key), 
-	'$statistics_mode'(Key), 
+statistics(Key, Value) :-
+	nonvar(Key),
+	'$statistics_mode'(Key),
 	!,
 	'$statistics'(Key, Value).
-statistics(Key, Value) :- 
+statistics(Key, Value) :-
 	findall(M, '$statistics_mode'(M), Domain),
 	illarg(domain(atom,Domain), statistics(Key,Value), 1).
 
@@ -2443,36 +2446,36 @@ statistics(Key, Value) :-
 
 print_message(Type, Message) :- var(Type), !,
 	illarg(var, print_message(Type,Message), 1).
-print_message(error, Message) :- !, 
+print_message(error, Message) :- !,
 	'$error_message'(Message).
 print_message(info,  Message) :- !,
-	'$fast_write'('{'), 
-	'$builtin_message'(Message), 
+	'$fast_write'('{'),
+	'$builtin_message'(Message),
 	'$fast_write'('}'), nl.
 print_message(warning, Message) :- !,
-	'$fast_write'('{WARNING: '), 
-	'$builtin_message'(Message), 
+	'$fast_write'('{WARNING: '),
+	'$builtin_message'(Message),
 	'$fast_write'('}'), nl.
 
 '$error_message'(instantiation_error(Goal,0)) :- !,
-	'$fast_write'(user_error,'{INSTANTIATION ERROR: '), 
-	'$write_goal'(user_error,Goal), 
+	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
+	'$write_goal'(user_error,Goal),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(instantiation_error(Goal,ArgNo)) :- !,
 	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(type_error(Goal,ArgNo,Type,Culprit)) :- !,
 	'$fast_write'(user_error,'{TYPE ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
 	'$fast_write'(user_error,', found '), write(user_error,Culprit),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(domain_error(Goal,ArgNo,Domain,Culprit)) :- !,
 	'$fast_write'(user_error,'{DOMAIN ERROR: '),
-	'$write_goal'(user_error,Goal), 
+	'$write_goal'(user_error,Goal),
 	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Domain),
 	'$fast_write'(user_error,', found '), write(user_error,Culprit),
@@ -2483,34 +2486,34 @@ print_message(warning, Message) :- !,
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(existence_error(Goal,ArgNo,ObjType,Culprit,_Message)) :- !,
 	'$fast_write'(user_error,'{EXISTENCE ERROR: '),
-	'$write_goal'(user_error,Goal), 
+	'$write_goal'(user_error,Goal),
 	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': '), 
+	'$fast_write'(user_error,': '),
 	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), '$fast_write'(user_error,' does not exist'),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(permission_error(Goal,Operation,ObjType,Culprit,Message)) :- !, 
+'$error_message'(permission_error(Goal,Operation,ObjType,Culprit,Message)) :- !,
 	'$fast_write'(user_error,'{PERMISSION ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - can not '), '$fast_write'(user_error,Operation), '$fast_write'(user_error,' '), 
-	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - can not '), '$fast_write'(user_error,Operation), '$fast_write'(user_error,' '),
+	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit),
 	'$fast_write'(user_error,': '), '$fast_write'(user_error,Message),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(representation_error(Goal,ArgNo,Flag)) :- !, 
+'$error_message'(representation_error(Goal,ArgNo,Flag)) :- !,
 	'$fast_write'(user_error,'{REPRESENTATION ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,': limit of '), '$fast_write'(user_error,Flag), '$fast_write'(user_error,' is breached'),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(evaluation_error(Goal,ArgNo,Type)) :- !, 
+'$error_message'(evaluation_error(Goal,ArgNo,Type)) :- !,
 	'$fast_write'(user_error,'{EVALUATION ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,', found '), '$fast_write'(user_error,Type),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(syntax_error(Goal,ArgNo,Type,Culprit,_Message)) :- !,
 	'$fast_write'(user_error,'{SYNTAX ERROR: '),
-	'$write_goal'(user_error,Goal), 
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo), 
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
 	'$fast_write'(user_error,', found '), write(user_error,Culprit),
 	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
@@ -2520,12 +2523,12 @@ print_message(warning, Message) :- !,
 	'$fast_write'(user_error,'{INTERNAL ERROR: '), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(java_error(Goal,ArgNo,Exception)) :- !,
 	'$fast_write'(user_error,'{JAVA ERROR: '),
-	'$write_goal'(user_error,Goal), 
+	'$write_goal'(user_error,Goal),
 	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
 	'$fast_write'(user_error,', found '), '$write_goal'(user_error,Exception),
 	'$fast_write'(user_error,'}'), nl(user_error),
 	'$print_stack_trace'(Exception),flush_output(user_error).
-'$error_message'(Message) :- 
+'$error_message'(Message) :-
 	'$fast_write'(user_error,'{'), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 
 '$write_goal'(S,Goal) :- java(Goal), !, '$write_toString'(S, Goal).
@@ -2535,9 +2538,9 @@ illarg(Msg, Goal, ArgNo) :- var(Msg), !,
 	illarg(var, Goal, ArgNo).
 illarg(var, Goal, ArgNo) :-
 	raise_exception(instantiation_error(Goal, ArgNo)).
-illarg(type(Type), Goal, ArgNo) :- 
+illarg(type(Type), Goal, ArgNo) :-
 	arg(ArgNo, Goal, Arg),
-	(  nonvar(Arg) -> 
+	(  nonvar(Arg) ->
 	   Error = type_error(Goal,ArgNo,Type,Arg)
 	;  Error = instantiation_error(Goal,ArgNo)
 	),
@@ -2555,17 +2558,17 @@ illarg(existence(ObjType,Culprit,Message), Goal, ArgNo) :-
 	raise_exception(existence_error(Goal,ArgNo,ObjType,Culprit,Message)).
 illarg(permission(Operation, ObjType, Culprit, Message), Goal, _) :-
 	raise_exception(permission_error(Goal,Operation,ObjType,Culprit,Message)).
-illarg(representation(Flag), Goal, ArgNo) :- 
+illarg(representation(Flag), Goal, ArgNo) :-
 	raise_exception(representation_error(Goal,ArgNo,Flag)).
-illarg(evaluation(Type), Goal, ArgNo) :- 
+illarg(evaluation(Type), Goal, ArgNo) :-
 	raise_exception(evaluation_error(Goal,ArgNo,Type)).
-illarg(syntax(Type,Culprit,Message), Goal, ArgNo) :- 
+illarg(syntax(Type,Culprit,Message), Goal, ArgNo) :-
 	raise_exception(syntax_error(Goal,ArgNo,Type,Culprit,Message)).
-illarg(system(Message), _, _) :- 
+illarg(system(Message), _, _) :-
 	raise_exception(system_error(Message)).
-illarg(internal(Message), _, _) :- 
+illarg(internal(Message), _, _) :-
 	raise_exception(internal_error(Message)).
-illarg(java(Exception), Goal, ArgNo) :- 
+illarg(java(Exception), Goal, ArgNo) :-
 	raise_exception(java_error(Goal,ArgNo,Exception)).
 illarg(Msg, _, _) :- raise_exception(Msg).
 
@@ -2579,6 +2582,7 @@ illarg(Msg, _, _) :- raise_exception(Msg).
 '$match_type'(in_character, X) :- (X == 'end_of_file' ; '$match_type'(character,X)).
 '$match_type'(number,       X) :- number(X).
 '$match_type'(integer,      X) :- integer(X).
+'$match_type'(long,         X) :- long(X).
 '$match_type'(float,        X) :- float(X).
 '$match_type'(callable,     X) :- callable(X).
 '$match_type'(compound,     X) :- compound(X).
@@ -2588,9 +2592,9 @@ illarg(Msg, _, _) :- raise_exception(Msg).
 '$match_type'(stream_or_alias, X) :- (atom(X) ; '$match_type'(stream, X)).
 '$match_type'(hash,         X) :- java(X, 'com.googlecode.prolog_cafe.lang.HashtableOfTerm').
 '$match_type'(hash_or_alias,X) :- (atom(X) ; '$match_type'(hash, X)).
-'$match_type'(predicate_indicator, X) :- 
-	nonvar(X), 
-	X = P:F/A, 
+'$match_type'(predicate_indicator, X) :-
+	nonvar(X),
+	X = P:F/A,
 	atom(P),
 	atom(F),
 	integer(A).
@@ -2615,7 +2619,7 @@ with_mutex(M,G):-
 	\+(callable(G)),
 	!,
 	illarg(type(callable),with_mutex(M,G),2).
-with_mutex(M,G):-	
+with_mutex(M,G):-
 	mutex_lock_bt(M),
 	call(G), % if it fails or throws exception, mutex is unlocked automatically due to mutex_lock_bt
 	!,
@@ -2628,7 +2632,7 @@ with_mutex(M,G):-
 '$builtin_append'([X|Xs], Ys, [X|Zs]) :- '$builtin_append'(Xs, Ys, Zs).
 
 '$builtin_member'(X, [X|_]).
-'$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).	
+'$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).
 
 '$builtin_message'([]) :- !.
 '$builtin_message'([M]) :- !, write(M).
