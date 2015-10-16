@@ -389,6 +389,9 @@ assert_clause_((:- block _G)) :- !,
 assert_clause_((:- G)) :- !,
 	call(G),
 	assert_declarations(G).
+assert_clause_((Head :- ;(Body1,Body2))):- !,
+	assert_clause_((Head :- Body1)),
+	assert_clause_((Head :- Body2)).
 assert_clause_(Clause) :-
 	preprocess(Clause, Cl),
 	assert_cls(Cl).
