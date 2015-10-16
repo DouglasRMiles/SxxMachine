@@ -5,18 +5,18 @@ import java.util.regex.Matcher;
  * The <code>PredicateEncoder</code> class contains static methods for encoding predicate names.<br>
  * The predicate with <code>hoge:f/n</code> is encoded to <code>hoge.PRED_f_n</code>, where
  * <code>hoge</code> is package name,
- * <code>f</code> is predicate name, and 
+ * <code>f</code> is predicate name, and
  * <code>n</code> is arity.<br>
  *
  * When encoding a predicate name, we apply the following rules:<br>
  *<ul>
  *<li>The alphanumeric characters
- * &ldquo;<code>a</code>&rdquo; through &ldquo;<code>z</code>&rdquo;, 
- * &ldquo;<code>A</code>&rdquo; through &ldquo;<code>Z</code>&rdquo; and 
+ * &ldquo;<code>a</code>&rdquo; through &ldquo;<code>z</code>&rdquo;,
+ * &ldquo;<code>A</code>&rdquo; through &ldquo;<code>Z</code>&rdquo; and
  * &ldquo;<code>0</code>&rdquo; through &ldquo;<code>9</code>&rdquo; remain the same.
  *<li>The special characters &ldquo;<code>_</code>&rdquo; and &ldquo;<code>$</code>&rdquo; remain the same.
- *<li>All other characters are first converted into a list of character codes. 
- * Then each character code is represented by the 5-character string &ldquo;<code>$XYZW</code>&rdquo;, 
+ *<li>All other characters are first converted into a list of character codes.
+ * Then each character code is represented by the 5-character string &ldquo;<code>$XYZW</code>&rdquo;,
  * where <code>XYZW</code> is the four-digit hexadecimal representation of the character code.
  *</ul>
  *
@@ -39,61 +39,86 @@ public class PredicateEncoder {
      * the predicate that corresponds to <code>pkg:functor/arity</code>.
      */
     public static String encode(String pkg, String functor, int arity) {
-	String x = functor;
-	Pattern p = Pattern.compile("([^a-zA-Z0-9_'$'])");
-	Matcher m = p.matcher(x);
-	StringBuffer sb = new StringBuffer();
-	boolean result = m.find();
-	while (result) {
-	    //	    m.appendReplacement(sb, String.format("\\$%2X", (int)(m.group().charAt(0))));
-	    m.appendReplacement(sb, String.format("\\$%04X", (int)(m.group().charAt(0))));
-	    result = m.find();
-	}
-	m.appendTail(sb);
-	x = sb.toString();
-	return pkg + ".PRED_" + x + "_" + arity;
+    	char[] x = functor.toCharArray();
+    	StringBuilder sb = new StringBuilder(pkg.length()+x.length*5+10);
+    	sb.append(pkg);
+    	sb.append(".PRED_");
+    	int i = 0;
+    	int s = i;
+    	while (i<x.length){
+    		if ( !((x[i]>='a' && x[i]<='z') || (x[i]>='A' && x[i]<='Z') ||
+    				(x[i]>='0' && x[i]<='9') || x[i]=='_' || x[i]=='$')){
+
+    			sb.append(x, s, i-s);
+    			sb.append('$').append(Integer.toHexString(x[i]).substring(4, 8));
+    			s = i+1;
+    		}
+    		i++;
+    	}
+    	if (s<x.length){
+    		sb.append(x, s, x.length-s);
+    	}
+    	sb.append('_').append(arity);
+    	return sb.toString();
     }
 
     public static String decodeFunctor(String className) {
-      // Remove the Java package name, if present.
-      int dot = className.lastIndexOf('.');
-      if (0 < dot)
-        className = className.substring(dot + 1);
+    	int length = className.length();
+    	// Remove the Java package name, if present.
+    	int start = className.lastIndexOf('.');
+    	start++;
+    	// Trim the common PRED_ prefix.
+    	if (className.regionMatches(start, "PRED_", 0, 5)){
+    		start+=5;
+    	}
+    	// Drop the arity from the end.
+    	int finish = className.lastIndexOf('_');
+    	if (finish<0){
+    		finish = length;
+    	}
 
-      // Trim the common PRED_ prefix.
-      if (className.startsWith("PRED_"))
-        className = className.substring("PRED_".length());
+    	// replace $XXXX with character with code XXXX
+    	StringBuilder sb = new StringBuilder(length);
+    	int index = start;
+    	int middle = index;
+    	while (index<finish){
+    		index = className.indexOf('$', index);
 
-      // Drop the arity from the end.
-      int us = className.lastIndexOf('_');
-      if (0 < us)
-        className = className.substring(0, us);
-
-      Pattern p = Pattern.compile("\\$([0-9A-F]{4})");
-      Matcher m = p.matcher(className);
-      StringBuffer r = new StringBuffer();
-      while (m.find()) {
-        char c = (char) Integer.parseInt(m.group().substring(1), 16);
-        String s;
-        if (c=='\\'){
-        	s = "\\\\";
-        } else if (c=='$'){
-        	s = "\\$";
-        } else {
-        	s = Character.toString(c);
-        }
-        m.appendReplacement(r, s);
-      }
-      m.appendTail(r);
-      return r.toString();
-     
+    		if (index<0){
+    			index = finish;
+    		} else if (index+4<finish){
+    			try {
+    				int c = Integer.parseInt(className.substring(index+1, index+5), 16);
+    				sb.append(className.substring(middle, index));
+    				switch (c) {
+					case '\\':
+						sb.append("\\\\");
+						break;
+					case '$':
+						sb.append("\\$");
+					default:
+						sb.append((char)c);
+						break;
+					}
+    				index = middle = index+5;
+    			} catch (NumberFormatException e){
+    				index++;
+    			}
+    		} else {
+    			index++;
+    		}
+    	}
+    	if (middle<finish){
+    		sb.append(className.substring(middle, finish));
+    	}
+    	return sb.toString();
     }
 
-    public static void main(String argv[]) {
-	String p = argv[0];
-	String f = argv[1];
-	int n = (Integer.valueOf(argv[2])).intValue();
-	System.out.println(p + ":" + f + "/" + n);
-	System.out.println(PredicateEncoder.encode(p,f,n));
-    }
+//    public static void main(String argv[]) {
+//		String p = argv[0];
+//		String f = argv[1];
+//		int n = (Integer.valueOf(argv[2])).intValue();
+//		System.out.println(p + ":" + f + "/" + n);
+//		System.out.println(PredicateEncoder.encode(p,f,n));
+//    }
 }

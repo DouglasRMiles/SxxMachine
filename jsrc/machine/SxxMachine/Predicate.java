@@ -2,6 +2,8 @@ package com.googlecode.prolog_cafe.lang;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -31,48 +33,51 @@ public abstract class Predicate extends Operation {
 
   @Override
   public String toString() {
-    LinkedList<Class> toScan = new LinkedList<Class>();
+	Deque<Class> toScan = new ArrayDeque<Class>();
     Class clazz = getClass();
     while (clazz != Predicate.class) {
       toScan.addFirst(clazz);
       clazz = clazz.getSuperclass();
     }
 
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     sb.append(PredicateEncoder.decodeFunctor(getClass().getName()));
     boolean first = true;
-    for (Class c : toScan) {
-      for (Field f : c.getDeclaredFields()) {
-        if ((f.getModifiers() & Modifier.STATIC) == 0
-            && f.getType() == Term.class
-            && f.getName().startsWith("arg")) {
-          Term val;
-          try {
-            f.setAccessible(true);
-            val = (Term) f.get(this);
-          } catch (IllegalArgumentException e) {
-            continue;
-          } catch (IllegalAccessException e) {
-            continue;
-          }
+    int i=1;
+    Field f = null;
+    do {
+    	for (Class c : toScan){
+    		try {
+				f = c.getDeclaredField("arg"+i);
+				if ((f.getModifiers() & Modifier.STATIC) == 0
+						&& f.getType() == Term.class){
 
-          if (first) {
-            sb.append('(');
-            first = false;
-          } else
-            sb.append(", ");
-          sb.append(val);
-        }
-      }
+					f.setAccessible(true);
+					Term val = (Term) f.get(this);
+					if (first) {
+						sb.append('(');
+						first = false;
+					} else {
+						sb.append(", ");
+					}
+					sb.append(val);
+					break;
+				}
+			} catch (Exception e) {
+				f = null;
+			}
+    	}
+    	i++;
+    } while (f!=null);
+    if (!first){
+    	sb.append(')');
     }
-    if (!first)
-      sb.append(')');
     return sb.toString();
   }
 
   public static abstract class P1 extends Predicate {
     protected Term arg1;
-    
+
     @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
@@ -98,7 +103,7 @@ public abstract class Predicate extends Operation {
     protected Term arg1;
     protected Term arg2;
     protected Term arg3;
-    
+
     @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
@@ -106,7 +111,7 @@ public abstract class Predicate extends Operation {
     	sb.append(arg2).append(", ");
     	sb.append(arg3).append(')');
     	return sb.toString();
-    }    
+    }
   }
 
   public static abstract class P4 extends Predicate {
@@ -114,15 +119,6 @@ public abstract class Predicate extends Operation {
     protected Term arg2;
     protected Term arg3;
     protected Term arg4;
-    
-    @Override
-    public String toString() {
-    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
-    	sb.append('(').append(arg1).append(", ");
-    	sb.append(arg2).append(", ");
-    	sb.append(arg3).append(", ");
-    	sb.append(arg4).append(')');
-    	return sb.toString();
-    }
+
   }
 }
