@@ -3,6 +3,7 @@ package com.googlecode.prolog_cafe.lang;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,8 +33,9 @@ public class PrologLogger {
 	private final Prolog engine;
 
 	private Operation currentOperation = null;
-	boolean topBuiltin = false, builtin = false;
+	private boolean topBuiltin = false, builtin = false;
 	private boolean enabled = false;
+	private boolean failure = false;
 
 	private final List<Predicate> stack = new ArrayList<Predicate>();
 
@@ -65,6 +67,7 @@ public class PrologLogger {
 
 	public void fail() {
 		if (enabled ){
+			failure = true;
 			if (!topBuiltin || !builtin){
 				logger.fine(indent(' ', stack.size())+" failure => "+engine.stack.top.bp);
 			} else if (logger.isLoggable(Level.FINEST)){
@@ -133,6 +136,7 @@ public class PrologLogger {
 			currentOperation = code;
 			builtin = code.getClass().getName().startsWith("com.googlecode.prolog_cafe.");
 			topBuiltin = !stack.isEmpty() && stack.get(stack.size()-1).getClass().getName().startsWith("com.googlecode.prolog_cafe.");
+			failure = false;
 			if (!topBuiltin || !builtin){
 				if (code instanceof Predicate) {
 					logger.fine(indent(' ', stack.size())+": "+code);
@@ -155,7 +159,7 @@ public class PrologLogger {
 				return;
 			}
 
-			if ((code instanceof Predicate) && ((Predicate)code).cont!=next){
+			if ((code instanceof Predicate) && !failure && ((Predicate)code).cont!=next){
 				stack.add((Predicate) code);
 				engine.trail.push(new FailureHandler(stack, stack.size()));
 			}
@@ -172,8 +176,20 @@ public class PrologLogger {
 	}
 
 	public void execThrows(RuntimeException t) {
-		logger.log(Level.FINE, "", t);
+		if (enabled){
+			logger.log(Level.FINE, "", t);
+			logger.fine("Prolog stack trace: ");
+			logger.fine("\tat "+currentOperation.getClass().getPackage().getName()+":"+currentOperation);
+			ListIterator<Predicate> it = stack.listIterator(stack.size());
+			while (it.hasPrevious()){
+				Predicate p = it.previous();
+				logger.fine("\tat "+p.getClass().getPackage().getName()+":"+p);
+			}
+		}
+
 	}
+
+
 
 	public void printStackTrace(Throwable err) {
 		logger.log(Level.SEVERE, "", err);
