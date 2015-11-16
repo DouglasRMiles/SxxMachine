@@ -721,7 +721,51 @@ write_init(InitPredicate):-
 write_init(_).
 
 write_init_file(File, PackageName, InitPredicate):-
-	open(File,append,Stream),
+	\+(exists_file(File)),
+	!,
+	write_init_predicate(File, PackageName, InitPredicate).
+
+write_init_file(File, PackageName, InitPredicate):-
+	read_init_predicate(File, InPackageName, InInitPredicate),
+	%PackageName == InPackageName,
+	InitPredicate = (InitHead :- InitBody),
+	InInitPredicate = (InInitHead :- InInitBody),
+	%InitHead == InInitHead,
+	conj_union(InitBody, InInitBody, NewBody),
+	NewBody \== InInitBody,
+	write_init_predicate(File, PackageName, (InitHead :- NewBody)).
+
+write_init_file(_,_,_).
+
+conj_member(X, X):- !.
+conj_member(X,(X,_)):- !.
+conj_member(X,(_,Y)):-
+	conj_member(X,Y).
+
+conj_union((X,L),Y,O):-
+	conj_member(X,Y),
+	!,
+	conj_union(L,Y,O).
+
+conj_union((X,L),Y,O):-
+	!,
+	conj_union(L,(X,Y),O).
+
+conj_union(X, Y, Y):-
+	conj_member(X, Y),
+	!.
+conj_union(X, Y, (X,Y)).
+
+read_init_predicate(File, PackageName, InitPredicate):-
+	open(File, read, In),
+	read_clause_(In, Package),
+	read_clause_(In, InitPredicate),
+	close(In),
+	Package = (:- package PackageName).
+
+
+write_init_predicate(File, PackageName, InitPredicate):-
+	open(File,write,Stream),
 	nl(Stream),
 	write(Stream,':- package \''),
 	write(Stream,PackageName),
@@ -731,6 +775,7 @@ write_init_file(File, PackageName, InitPredicate):-
 	write(Stream,'.'),
 	nl(Stream),
 	close(Stream).
+
 
 /****************************************************************
   Treat Dynamic Declaration
