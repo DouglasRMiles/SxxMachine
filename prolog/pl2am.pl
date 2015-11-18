@@ -389,6 +389,10 @@ assert_clause_((:- block _G)) :- !,
 assert_clause_((:- G)) :- !,
 	call(G),
 	assert_declarations(G).
+assert_clause_(('$init' :- InitBody)):-
+	clause(pl2am_flag(pif(PackageInitFolder)),_),
+	!,
+	write_init(('$init' :- InitBody)).
 assert_clause_((Head :- ;(Body1,Body2))):- !,
 	assert_clause_((Head :- Body1)),
 	assert_clause_((Head :- Body2)).
@@ -804,8 +808,7 @@ collect_init_cls([FA|FAs], ['$new_indexing_hash'(P,FA,_)|Cls]) :-
 assert_init_cls([]) :- !.
 assert_init_cls(Cls) :-
 	list_to_conj(Cls, Body),
-	assert_clause(('$init' :- Body)),
-	write_init(('$init' :- Body)).
+	assert_clause(('$init' :- Body)).
 
 /****************************************************************
   Compile Predicate
