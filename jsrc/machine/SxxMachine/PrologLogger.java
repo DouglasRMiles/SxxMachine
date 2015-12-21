@@ -98,7 +98,9 @@ public class PrologLogger {
 				handler.setFormatter(new SimpleFormatter());
 				handler.setLevel(Level.ALL);
 				logger.addHandler(handler);
+				logger.setUseParentHandlers(false);
 			} catch (Exception e) {
+				logger.setUseParentHandlers(true);
 				logger.getParent().log(Level.SEVERE, "failed to log to file "+fileName, e);
 			}
 		}
@@ -246,5 +248,8 @@ public class PrologLogger {
 
 	public void printStackTrace(Throwable err) {
 		logger.log(Level.SEVERE, "", err);
+		if (!logger.getUseParentHandlers()){ // propagate error outside
+			logger.getParent().log(Level.SEVERE, "", err);
+		}
 	}
 }
