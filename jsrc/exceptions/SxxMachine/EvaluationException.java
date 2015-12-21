@@ -34,15 +34,15 @@ public class EvaluationException extends BuiltinException {
      */
     public Term getMessageTerm() {
 	Term[] args = {
-	    new JavaObjectTerm(goal), 
-	    new IntegerTerm(argNo), 
+	    new JavaObjectTerm(goal),
+	    new IntegerTerm(argNo),
 	    SymbolTerm.create(errorType)};
 	return new StructureTerm(EVALUATION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>EvaluationException</code>. */
     public String toString() {
-	String s = "{EVALUATION ERROR: " + goal.toString();
+	String s = "{EVALUATION ERROR: " + goal;
 	if (argNo > 0)
 	    s += " - arg " + argNo;
 	s += ", found " + errorType;

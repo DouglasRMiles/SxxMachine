@@ -1,9 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,12 +30,59 @@ public class PrologLogger {
 	private static final Logger logger = Logger.getLogger(Prolog.LOGGER_NAME);
 	private final Prolog engine;
 
-	private Operation currentOperation = null;
-	private boolean topBuiltin = false, builtin = false;
 	private boolean enabled = false;
 	private boolean failure = false;
+	private boolean expectAfter = false;
 
-	private final List<Predicate> stack = new ArrayList<Predicate>();
+	private static class StackNode {
+		Operation operation;
+		StackNode next;
+		String indent;
+		Level level;
+
+		StackNode() {
+			operation = null;
+			next = null;
+			indent = "";
+		}
+
+		StackNode(Operation operation, StackNode next){
+			this.operation = operation;
+			this.next = next;
+			int indentLength = next.indent.length()+1;
+			if (indentLength<indentCache.length) {
+				this.indent = indentCache[indentLength];
+			} else {
+				this.indent = next.indent + " ";
+			}
+		}
+
+		public String toString() {
+			return level + indent+": "+operation;
+		}
+
+		StackNode nextPredicate() {
+			StackNode n = next;
+			while (n!=null && !(n.operation instanceof Predicate)) {
+				n = n.next;
+			}
+			return n;
+		}
+	}
+
+	private final static int INDENT_CHACHE_SIZE = 512;
+	final static String[] indentCache = new String[INDENT_CHACHE_SIZE];
+	static {
+		// init indent cache
+		indentCache[0] = "";
+		StringBuilder sb = new StringBuilder(INDENT_CHACHE_SIZE);
+		for (int i=1; i<INDENT_CHACHE_SIZE; i++){
+			sb.append(' ');
+			indentCache[i] = sb.toString();
+		}
+	}
+
+	private StackNode stackTop = new StackNode();
 
 
 	public PrologLogger(Prolog engine) {
@@ -51,81 +96,60 @@ public class PrologLogger {
 			try {
 				FileHandler handler = new FileHandler(fileName);
 				handler.setFormatter(new SimpleFormatter());
+				handler.setLevel(Level.ALL);
 				logger.addHandler(handler);
-				logger.setUseParentHandlers(false);
 			} catch (Exception e) {
-				logger.setUseParentHandlers(true);
+				logger.getParent().log(Level.SEVERE, "failed to log to file "+fileName, e);
 			}
 		}
 		enabled = logger.isLoggable(Level.FINE);
+		enabled = enabled || Boolean.getBoolean(logger.getName()+".enabled");
 	}
 
 	private void reset() {
-		stack.clear();
-		currentOperation = null;
+		stackTop = new StackNode();
 	}
 
 	public void fail() {
 		if (enabled ){
 			failure = true;
-			if (!topBuiltin || !builtin){
-				logger.fine(indent(' ', stack.size())+" failure => "+engine.stack.top.bp);
-			} else if (logger.isLoggable(Level.FINEST)){
-				logger.finest(indent(' ', stack.size())+" =>failure => "+engine.stack.top.bp);
+			if (logger.isLoggable(stackTop.level)){
+				logger.log(stackTop.level, stackTop.indent+" failure => "+engine.stack.top.bp);
 			}
 		}
 	}
 
 
 	public void jtry(Operation p, Operation next, ChoicePointFrame entry) {
-		if (logger.isLoggable(Level.FINER)){
-			entry.ownerPredicate = currentOperation;
-			if (!builtin){
-				logger.finer(indent(' ', stack.size())+"try "+currentOperation+" => "+p);
-			} else if (logger.isLoggable(Level.FINEST)){
-				logger.finest(indent(' ', stack.size())+"try "+currentOperation+" => "+p);
+		if (enabled){
+			entry.ownerPredicate = stackTop.operation; //currentOperation;
+			if (logger.isLoggable(stackTop.level)){
+				logger.log(stackTop.level, stackTop.indent+"try "+stackTop.operation+" => "+p);
 			}
 		}
 	}
 
 	public void retry(Operation p, Operation next) {
-		if (logger.isLoggable(Level.FINER)){
-			if (!builtin){
-				logger.finer(indent(' ', stack.size())+"retry "+engine.stack.top.ownerPredicate+" => "+p);
-			} else if (logger.isLoggable(Level.FINEST)){
-				logger.finest(indent(' ', stack.size())+"retry "+engine.stack.top.ownerPredicate+" => "+p);
+		if (enabled){
+			failure = true;
+			if (logger.isLoggable(stackTop.level)) {
+				logger.log(stackTop.level, stackTop.indent+"retry "+engine.stack.top.ownerPredicate+" => "+p);
 			}
 		}
 	}
 
 	public void trust(Operation p) {
-		if (logger.isLoggable(Level.FINER)){
-			if (!builtin){
-				logger.finer(indent(' ', stack.size())+"trust "+engine.stack.top.ownerPredicate+" => "+p);
-			} else if (logger.isLoggable(Level.FINEST)){
-				logger.finest(indent(' ', stack.size())+"trust "+engine.stack.top.ownerPredicate+" => "+p);
+		if (enabled){
+			failure = true;
+			if (logger.isLoggable(stackTop.level)) {
+				logger.log(stackTop.level, stackTop.indent+"trust "+engine.stack.top.ownerPredicate+" => "+p);
 			}
 		}
 	}
 
 
-	private final String indent(char c, int len) {
-		if (len < 1)
-			return "";
-		StringBuilder sb = new StringBuilder(len).append(c);
-		int remnant = len - sb.length();
-		while (remnant > 0) {
-			if (remnant >= sb.length())
-				sb.append(sb);
-			else
-				sb.append(sb.subSequence(0, remnant));
-			remnant = len - sb.length();
-		}
-		return sb.toString();
-	}
-
 	public void beforeExec(Operation code) {
-		if (logger.isLoggable(Level.FINE)) {
+		if (enabled || logger.isLoggable(Level.FINE)) {
 			// detect logger level change
 			if (!enabled){
 				logger.info("log level set to FINE or below");
@@ -133,18 +157,29 @@ public class PrologLogger {
 				enabled = true;
 			}
 
-			currentOperation = code;
-			builtin = code.getClass().getName().startsWith("com.googlecode.prolog_cafe.");
-			topBuiltin = !stack.isEmpty() && stack.get(stack.size()-1).getClass().getName().startsWith("com.googlecode.prolog_cafe.");
+			// some predicates like $begin_exception contains inner execution loop
+			// afterExec() is called for them only after inner loop finishes
+			if (expectAfter){
+				afterExec(stackTop.operation, null);
+			}
+
 			failure = false;
-			if (!topBuiltin || !builtin){
-				if (code instanceof Predicate) {
-					logger.fine(indent(' ', stack.size())+": "+code);
-				} else if (logger.isLoggable(Level.FINER)){
-					logger.finer(indent(' ', stack.size())+": "+code);
-				}
-			} else if (logger.isLoggable(Level.FINEST)){
-				logger.fine(indent(' ', stack.size())+": "+code);
+			boolean codeBuiltin = code.getClass().getName().startsWith("com.googlecode.prolog_cafe.");
+			Operation parent = stackTop.next!=null?stackTop.next.operation:null;
+			boolean parentBuiltin = parent!=null && parent.getClass().getName().startsWith("com.googlecode.prolog_cafe.");
+			stackTop.operation = code;
+			expectAfter = true;
+			Level level;
+			if (codeBuiltin && parentBuiltin){
+				level = Level.FINEST;
+			} else if (code instanceof Predicate){
+				level = Level.FINE;
+			} else {
+				level = Level.FINER;
+			}
+			stackTop.level = level;
+			if (logger.isLoggable(level)){
+				logger.log(level, stackTop.indent+": "+code);
 			}
 		}
 	}
@@ -153,65 +188,63 @@ public class PrologLogger {
 	public void afterExec(Operation code, Operation next) {
 		// if it was enabled since beforeExec() avoid doing anything before reset() call in beforeExec()
 		if (enabled){
-			if (!logger.isLoggable(Level.FINE)){// it was disabled since beforeExec()
-				logger.info("log level set to CONFIG or above");
-				enabled = false;
-				return;
-			}
+//			if (!logger.isLoggable(Level.FINE)){// it was disabled since beforeExec()
+//				logger.info("log level set to CONFIG or above");
+//				enabled = false;
+//				return;
+//			}
 
-			if ((code instanceof Predicate) && !failure && ((Predicate)code).cont!=next){
-				stack.add((Predicate) code);
-				engine.trail.push(new FailureHandler(stack, stack.size()));
+			if (!failure && expectAfter){
+				if ((code instanceof Predicate) && (((Predicate)code).cont!=next)){
+					final StackNode stackNode = stackTop;
+					stackTop = new StackNode(next, stackTop);
+					engine.trail.push(new Undoable() {
+						@Override
+						public void undo() {
+							stackTop = stackNode;
+						}
+					});
+				} else {
+					// stackTop is either operation or predicate
+					// check if next is a finish for some predicate below stack top
+					StackNode n = stackTop.nextPredicate();
+					while (n!=null && ((Predicate)n.operation).cont==next){
+						stackTop = n;
+						n = n.nextPredicate();
+					}
+				}
+
 			}
-			// TODO optimize
-			int i = 0;
-			Iterator<Predicate> it = stack.iterator();
-			while(it.hasNext() && it.next().cont!=next){
-				i++;
-			}
-			for (int k=stack.size()-1; k>=i; k--){
-				stack.remove(k);
-			}
+			expectAfter = false;
 		}
 	}
 
-	public void execThrows(RuntimeException t) {
+	public RuntimeException execThrows(RuntimeException t) {
 		if (enabled){
-			logger.log(Level.FINE, "", t);
-			logger.fine("Prolog stack trace: ");
-			logger.fine("\tat "+currentOperation.getClass().getPackage().getName()+":"+currentOperation);
-			ListIterator<Predicate> it = stack.listIterator(stack.size());
-			while (it.hasPrevious()){
-				Predicate p = it.previous();
-				logger.fine("\tat "+p.getClass().getPackage().getName()+":"+p);
+			// prepare stack trace for embedding into exception
+			List<Operation> list = new ArrayList<Operation>(stackTop.indent.length());
+			StackNode n = stackTop;
+			while(n!=null){
+				list.add(n.operation);
+				n = n.next;
+			}
+			Operation[] array = new Operation[list.size()];
+			list.toArray(array);
+			// wrap t into JavaException if it is not PrologException
+			if (!(t instanceof PrologException)){
+				t = new JavaException(t);
+			}
+			// add stacktrace into t
+			((PrologException)t).setPrologStackTrace(array);
+
+			if (logger.isLoggable(Level.FINE)) {
+				logger.log(Level.FINE, stackTop.operation+" throws exception ", t);
 			}
 		}
-
+		return t;
 	}
-
-
 
 	public void printStackTrace(Throwable err) {
 		logger.log(Level.SEVERE, "", err);
-	}
-
-	private class FailureHandler implements Undoable{
-
-		private final int depth;
-		private final List<Predicate> stack;
-
-		public FailureHandler(List<Predicate> stack, int depth) {
-			this.stack = stack;
-			this.depth = depth;
-		}
-
-
-		@Override
-		public void undo() {
-			for (int i=stack.size()-1; i>=depth; i--){
-				stack.remove(i);
-			}
-		}
-
 	}
 }

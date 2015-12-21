@@ -23,9 +23,9 @@ import java.util.IdentityHashMap;
 public final class Prolog {
 
 	final PrologLogger logger;
-	
+
 	public static final String LOGGER_NAME = Prolog.class.getName();
-	
+
 	private static final SymbolTerm NONE = SymbolTerm.intern("$none");
 
     /** Prolog thread */
@@ -179,7 +179,7 @@ public final class Prolog {
     }
 
     Prolog(PrologControl c, PrologMachineCopy pmc) {
-      logger = new PrologLogger(this);    	
+      logger = new PrologLogger(this);
       control = c;
       trail = new Trail();
       stack = new ChoicePointStack(trail);
@@ -239,7 +239,7 @@ public final class Prolog {
   }
 
     /** Initializes this Prolog engine. */
-    public void init(InputStream in, PrintStream out, PrintStream err) { 
+    public void init(InputStream in, PrintStream out, PrintStream err) {
 	if (aregs == null)
 	  initOnce(in,out,err);
 	stack.init();
@@ -290,7 +290,7 @@ public final class Prolog {
     public void neckCut()  { stack.cut(B0); }
 
     /**
-     * Returns a copy of term <code>t</code>. 
+     * Returns a copy of term <code>t</code>.
      * @param t a term to be copied. It must be dereferenced.
      */
     public Term copy(Term t) {
@@ -298,7 +298,7 @@ public final class Prolog {
 	return t.copy(this);
     }
 
-    /** 
+    /**
      * Do backtrak.
      * This method restores the value of <code>B0</code>
      * and returns the backtrak point in current choice point.
@@ -310,20 +310,20 @@ public final class Prolog {
     	return top.bp;   // execute next clause
     }
 
-    /** 
-     * Returns the <code>Predicate</code> object refered, respectively, 
-     * <code>var</code>, <code>Int</code>, <code>flo</code>, 
-     * <code>con</code>, <code>str</code>, or <code>lis</code>, 
-     * depending on whether the dereferenced value of argument 
+    /**
+     * Returns the <code>Predicate</code> object refered, respectively,
+     * <code>var</code>, <code>Int</code>, <code>flo</code>,
+     * <code>con</code>, <code>str</code>, or <code>lis</code>,
+     * depending on whether the dereferenced value of argument
      * register <code>areg[1]</code> is a
      * variable, integer, float,
      * atom, compound term, or non-empty list, respectively.
      */
-    public Operation switch_on_term(Operation var, 
-				    Operation Int, 
+    public Operation switch_on_term(Operation var,
+				    Operation Int,
 				    Operation flo,
-				    Operation con, 
-				    Operation str, 
+				    Operation con,
+				    Operation str,
 				    Operation lis) {
 	Term arg1 = areg1.dereference();
 	if (arg1.isVariable())
@@ -355,7 +355,7 @@ public final class Prolog {
      *   <li>compound term - functor/arity
      * </ul>
      *
-     * If there is no mapping for the key of <code>areg[1]</code>, 
+     * If there is no mapping for the key of <code>areg[1]</code>,
      * this returns <code>otherwise</code>.
      */
     public Operation switch_on_hash(HashMap<Term,Operation> hash, Operation otherwise) {
@@ -371,7 +371,7 @@ public final class Prolog {
 	Operation p = hash.get(key);
 	if (p != null)
 	    return p;
-	else 
+	else
 	    return otherwise;
     }
 
@@ -404,7 +404,7 @@ public final class Prolog {
       return p;
     }
 
-    /** 
+    /**
      * Resets all necessary information from the current choice point frame,
      * updates its next clause field to <code>next</code>,
      * and then returns <code>p</code>.
@@ -412,13 +412,13 @@ public final class Prolog {
     public Operation retry(Operation p, Operation next) {
 	restore();
 	ChoicePointFrame top = stack.top;
+	logger.retry(p,next);
 	trail.unwind(top.tr);
 	top.bp = next;
-	logger.retry(p,next);
 	return p;
     }
 
-    /** 
+    /**
      * Resets all necessary information from the current choice point frame,
      * discard it, and then returns <code>p</code>.
      */
@@ -522,16 +522,15 @@ public final class Prolog {
     /** Returns the hash manager. */
     public HashtableOfTerm getHashManager() { return hashManager; }
 
-	public final Operation exec(Operation code){		
+	public final Operation exec(Operation code){
 		try {
 			logger.beforeExec(code);
 			Operation next = code.exec(this);
 			logger.afterExec(code,next);
-			return next;			
+			return next;
 		} catch (RuntimeException t){
-			logger.execThrows(t);
-			throw t;
-		}		
+			throw logger.execThrows(t);
+		}
 	}
-	
+
 }
