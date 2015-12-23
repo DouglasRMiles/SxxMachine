@@ -105,7 +105,8 @@ public class PrologLogger {
 			}
 		}
 		enabled = logger.isLoggable(Level.FINE);
-		enabled = enabled || Boolean.getBoolean(logger.getName()+".enabled");
+		String enabledProperty = System.getProperty(logger.getName()+".enabled");
+		enabled = enabled || enabledProperty==null || "true".equals(enabledProperty);
 	}
 
 	private void reset() {
