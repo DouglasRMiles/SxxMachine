@@ -1,7 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
 /**
  * Java error.<br>
- * There will be a Java error when 
+ * There will be a Java error when
  * a Java exception is threw during interoperating with Java in Prolog Cafe.
  * The class <code>JavaException</code> wraps a subclass of <code>java.lang.Exception</code>.
  *
@@ -17,7 +17,7 @@ public class JavaException extends BuiltinException {
     public static final SymbolTerm JAVA_ERROR = SymbolTerm.intern("java_error", 3);
 
     /** Holds a Java exception. */
-    public Exception e;
+    protected final Exception e;
 
     /** Constructs a new <code>JavaException</code> with a Java exception. */
     public JavaException(Exception _e) {
@@ -37,7 +37,7 @@ public class JavaException extends BuiltinException {
      */
     public Term getMessageTerm() {
 		Term[] args = {
-			(goal==null)?SymbolTerm.create("<Goal unknown>"):new JavaObjectTerm(goal), 
+			(goal==null)?SymbolTerm.create("<Goal unknown>"):new JavaObjectTerm(goal),
 		    new IntegerTerm(argNo),
 		    new JavaObjectTerm(e)};
 		return new StructureTerm(JAVA_ERROR, args);

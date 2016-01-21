@@ -3,6 +3,8 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * Atom.<br>
  * The <code>SymbolTerm</code> class represents a Prolog atom.<br>
@@ -57,7 +59,7 @@ public abstract class SymbolTerm extends Term {
       Dynamic(String name, int arity) {
         super(name, arity);
       }
-      
+
       Dynamic(String name, int arity, int start, int finish){
     	  super(name, arity, start, finish);
       }
@@ -87,7 +89,7 @@ public abstract class SymbolTerm extends Term {
     public static SymbolTerm create(String _name, int start, int finish){
     	return new Dynamic(_name, 0, start, finish);
     }
-    
+
     /** Returns a Prolog atom for the given name. */
     public static SymbolTerm create(String _name, int arity) {
       // For a non-zero arity try to reuse the term, its probable this is a
@@ -171,7 +173,8 @@ public abstract class SymbolTerm extends Term {
     protected final int start;
     /** Holds end Index in name */
     protected final int finish;
-    
+    private int hash = 0;
+
     /** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
     protected SymbolTerm(String _name, int _arity) {
 		name  = _name==null?"":_name;
@@ -186,8 +189,8 @@ public abstract class SymbolTerm extends Term {
 		arity = _arity;
 		this.start = start;
 		this.finish = finish;
-    }    
-    
+    }
+
     /** Returns the arity of this <code>SymbolTerm</code>.
      * @return the value of <code>arity</code>.
      * @see #arity
@@ -198,15 +201,19 @@ public abstract class SymbolTerm extends Term {
      * @return the value of <code>name</code>.
      * @see #name
      */
-    public final String name() { return name.substring(start, finish); } // TODO optimize SymbolTerm.name(), skip call to substring where possible
-    
+    public final String name() {
+    	return name.substring(start, finish);
+    } // TODO optimize SymbolTerm.name(), skip call to substring where possible
+
     public final int start() { return start; }
-    
+
     public final int finish() {return finish; }
-    
+
+    public final String base() { return name; }
+
     /**
      * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
-     * but name of new instance is a substring of this name starting from given beginIndex. 
+     * but name of new instance is a substring of this name starting from given beginIndex.
      * @param beginIndex
      * @return
      */
@@ -214,16 +221,16 @@ public abstract class SymbolTerm extends Term {
     	if (beginIndex<0){
     		throw new StringIndexOutOfBoundsException(beginIndex);
     	}
-    	int subLen = finish-start-beginIndex; 
+    	int subLen = finish-start-beginIndex;
     	if (subLen<0){
     		throw new StringIndexOutOfBoundsException(subLen);
     	}
-    	
+
     	return (beginIndex == 0) ? this : new Dynamic(name, arity, start+beginIndex, finish);
     }
     /**
      * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
-     * but name of new instance is a substring of this name starting from given beginIndex and ending before endIndex. 
+     * but name of new instance is a substring of this name starting from given beginIndex and ending before endIndex.
      * @param beginIndex
      * @param endIndex
      * @return
@@ -242,7 +249,14 @@ public abstract class SymbolTerm extends Term {
         return ((beginIndex == 0) && (endIndex == finish-start)) ? this
                 : new Dynamic(name, arity, start+beginIndex, start+endIndex);
     }
-    
+
+    public SymbolTerm concat(SymbolTerm that){
+    	StringBuilder sb = new StringBuilder(this.finish-this.start+that.finish-that.start());
+    	sb.append(this.name, this.start, this.finish);
+    	sb.append(that.name, that.start, that.finish);
+    	return SymbolTerm.create(sb.toString());
+    }
+
     /**
      * Returns the name length
      * @return
@@ -250,9 +264,9 @@ public abstract class SymbolTerm extends Term {
     public int length() {
     	return finish - start;
     }
-    
+
     // TODO startsWith(), endsWith(), indexOf()
-    
+
     /* Term */
     public boolean unify(Term t, Trail trail) {
       t = t.dereference();
@@ -266,7 +280,15 @@ public abstract class SymbolTerm extends Term {
 
     @Override
     public int hashCode() {
-      return name().hashCode();
+        int h = hash;
+        if (h == 0 && finish-start > 0) {
+
+            for (int i = start; i < finish; i++) {
+                h = 31 * h + name.charAt(i);
+            }
+            hash = h;
+        }
+        return h;
     }
 
     @Override
@@ -275,7 +297,10 @@ public abstract class SymbolTerm extends Term {
     		return true;
     	} else if (obj instanceof SymbolTerm){
     		SymbolTerm that = (SymbolTerm) obj;
-    		return this.arity==that.arity && this.name().equals(that.name());
+    		int thisLength = finish - start;
+    		int thatLength = that.finish - that.start;
+    		return this.arity==that.arity && (thisLength==thatLength) &&
+    				this.name.regionMatches(start, that.name, that.start, finish-start);
     	} else {
     		return false;
     	}

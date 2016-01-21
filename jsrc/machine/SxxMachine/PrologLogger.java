@@ -53,7 +53,7 @@ public class PrologLogger {
 			if (indentLength<indentCache.length) {
 				this.indent = indentCache[indentLength];
 			} else {
-				this.indent = next.indent + " ";
+				this.indent = indentCache[indentCache.length-1];//this.indent = next.indent + " ";
 			}
 		}
 
