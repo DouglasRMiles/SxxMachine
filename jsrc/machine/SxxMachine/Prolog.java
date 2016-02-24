@@ -13,6 +13,8 @@ import java.io.Writer;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 /**
  * Prolog engine.
  *
@@ -27,6 +29,8 @@ public final class Prolog {
 	public static final String LOGGER_NAME = Prolog.class.getName();
 
 	private static final SymbolTerm NONE = SymbolTerm.intern("$none");
+
+	private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<String, Object>();
 
     /** Prolog thread */
     public PrologControl control;
@@ -531,6 +535,14 @@ public final class Prolog {
 		} catch (RuntimeException t){
 			throw logger.execThrows(t);
 		}
+	}
+
+	public Object getExternalData(String key){
+		return externalData.get(key);
+	}
+
+	public void setExternalData(String key, Object value){
+		externalData.put(key, value);
 	}
 
 }

@@ -116,7 +116,7 @@ public abstract class SymbolTerm extends Term {
 
     /** Returns a Prolog functor for the given name and arity. */
     public static SymbolTerm intern(String _name, int _arity) {
-      _name = _name.intern();
+//      _name = _name.intern();
       Key key = new Key(_name, _arity);
 
       Reference<? extends Interned> ref = SYMBOL_TABLE.get(key);
