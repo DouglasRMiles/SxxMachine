@@ -254,16 +254,20 @@ pl2am_preread(File, Opts) :-
 	assert_compile_opts(Opts),
 	assert_default_decls.
 
-assert_file_name(Directory:File):-
+assert_file_name(Directory/File):-
 	!,
 	assert(file_name(File)),
 	assert(file_base(Directory)).
 
 assert_file_name(File):-
-	assert_file_name('':File).
+	assert_file_name(''/File).
 
 build_file_name(File,File):-
 	clause(file_base(''),_),
+	!.
+
+build_file_name(File,File):-
+	File = Package:ResourceName,
 	!.
 
 build_file_name(InFile,OutFile):-
@@ -2056,6 +2060,10 @@ pl2am_maplist(Goal, [Elem1|Tail1], [Elem2|Tail2]) :-
 	Term =.. [Goal,Elem1,Elem2],
 	call(Term),
 	pl2am_maplist(Goal,Tail1,Tail2).
+
+pl2am_resolve_file(BaseFile, File, File):-
+	File = Package:ResourceName,
+	!.
 
 pl2am_resolve_file(BaseFile, File, IncludeFile):-
 	pl2am_file_directory(BaseFile,Directory),

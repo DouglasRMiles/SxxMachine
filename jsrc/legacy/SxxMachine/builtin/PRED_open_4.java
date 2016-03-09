@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * <code>open/4</code><br>
- * 
+ *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
@@ -39,7 +39,8 @@ public class PRED_open_4 extends Predicate.P4 {
 	public Operation exec(Prolog engine) {
 		engine.requireFeature(Prolog.Feature.IO, this, arg1);
 		engine.setB0();
-		File file;
+		File file = null;
+		String resourceName = null;
 		Term alias = null;
 		Term opts = Prolog.Nil;
 		JavaObjectTerm streamObject;
@@ -57,16 +58,28 @@ public class PRED_open_4 extends Predicate.P4 {
 		a1 = a1.dereference();
 		if (a1.isVariable())
 			throw new PInstantiationException(this, 1);
-		if (!a1.isSymbol())
+		if (a1.isSymbol()){
+			file = new File(((SymbolTerm) a1).name());
+		} else if (a1.isStructure() && ":".equals(a1.name()) && 2==a1.arity()){
+			Term pkg = a1.arg(0).dereference();
+			Term name = a1.arg(1).dereference();
+			if (!pkg.isSymbol() || !name.isSymbol()){
+				throw new IllegalDomainException(this, 1, "source_sink", a1);
+			}
+			resourceName = '/' + pkg.name().replace('.', '/') + '/' + name.name();
+		} else {
 			throw new IllegalDomainException(this, 1, "source_sink", a1);
-		file = new File(((SymbolTerm) a1).name());
+		}
 		// io_mode
 		a2 = a2.dereference();
 		if (a2.isVariable())
 			throw new PInstantiationException(this, 2);
 		if (!a2.isSymbol())
 			throw new IllegalTypeException(this, 2, "atom", a2);
-		
+		if (resourceName!=null && !a2.equals(SYM_READ)){ // writing to resources is prohibited
+			throw new PermissionException(this, "open", "source_sink", a1, "");
+		}
+
 		Map<SymbolTerm, Term> options = processOptions(a4.dereference());
 		Charset charset = Charset.defaultCharset();
 		if (options.containsKey(SYM_CHARSET)){
@@ -79,11 +92,17 @@ public class PRED_open_4 extends Predicate.P4 {
 		}
 		try {
 			if (a2.equals(SYM_READ)) {
-				if (!file.exists()){
+				InputStream inputStream = null;
+				if (resourceName!=null){
+					inputStream = PRED_open_4.class.getResourceAsStream(resourceName);
+				} else if (file.exists()) {
+					inputStream = new FileInputStream(file);
+				}
+				if (inputStream==null) {
 					throw new ExistenceException(this, 1, "source_sink", a1, "");
 				}
 				PushbackReader in = new LineNumberPushbackReader(new BufferedReader(
-						new InputStreamReader(new FileInputStream(file), charset)), engine.PUSHBACK_SIZE);
+						new InputStreamReader(inputStream, charset)), engine.PUSHBACK_SIZE);
 				streamObject = new JavaObjectTerm(in);
 				opts = new ListTerm(SYM_INPUT, opts);
 			} else if (a2.equals(SYM_WRITE)) {
@@ -122,18 +141,18 @@ public class PRED_open_4 extends Predicate.P4 {
 			if (engine.getStreamManager().containsKey(alias))
 				throw new PermissionException(this, "open", "source_sink", aliasOption, "");
 		}
-		
-		
+
+
 		opts = new ListTerm(new StructureTerm(SYM_TYPE_1, SYM_TEXT), opts);
 		opts = new ListTerm(new StructureTerm(SYM_MODE_1, a2), opts);
-		opts = new ListTerm(new StructureTerm(SYM_FILE_NAME_1, SymbolTerm.create(file.getAbsolutePath())), opts);
+		opts = new ListTerm(new StructureTerm(SYM_FILE_NAME_1, file==null?a1:SymbolTerm.create(file.getAbsolutePath())), opts);
 		if (alias != null) {
 			engine.getStreamManager().put(alias, streamObject);
 			opts = new ListTerm(new StructureTerm(SYM_ALIAS_1, alias), opts);
 		}
 		((VariableTerm) a3).bind(streamObject, engine.trail);
 		engine.getStreamManager().put(streamObject, opts);
-		
+
 		if (options.containsKey(SYM_AUTOCLOSE)) {
 			Term autoCloseOption = options.get(SYM_AUTOCLOSE);
 			if (autoCloseOption.arity()!=1 || !autoCloseOption.arg(0).isSymbol() ){
@@ -142,7 +161,7 @@ public class PRED_open_4 extends Predicate.P4 {
 			if ("true".equals(autoCloseOption.arg(0).name())){
 				engine.trail.push(new CloseHelper(engine, streamObject, alias));
 			}
-		}				
+		}
 		return cont;
 	}
 
@@ -155,7 +174,7 @@ public class PRED_open_4 extends Predicate.P4 {
 				throw new PInstantiationException(this, 4);
 			if (!p.isList())
 				throw new IllegalTypeException(this, 4, "list", options);
-			
+
 			Term option = ((ListTerm) p).car().dereference();
 			if (option.isVariable())
 				throw new PInstantiationException(this, 4);
@@ -166,16 +185,16 @@ public class PRED_open_4 extends Predicate.P4 {
 				throw new IllegalDomainException(this, 4, "stream_option", option);
 			}
 			p = ((ListTerm) p).cdr().dereference();
-		}		
+		}
 		return result;
 	}
-	
+
 	private static class CloseHelper implements Undoable {
 
 		private final Prolog engine;
 		private final JavaObjectTerm streamObject;
-		private final Term alias;		
-		
+		private final Term alias;
+
 		public CloseHelper(Prolog engine, JavaObjectTerm streamObject, Term alias) {
 			this.engine = engine;
 			this.streamObject = streamObject;
@@ -196,7 +215,7 @@ public class PRED_open_4 extends Predicate.P4 {
 				throw new JavaException(e);
 			}
 		}
-		
+
 	}
-	
+
 }

@@ -7,7 +7,7 @@ import java.io.*;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-class PRED_read_line_2 extends Predicate.P2 {
+public class PRED_read_line_2 extends Predicate.P2 {
     public PRED_read_line_2(Term a1, Term a2, Operation cont) {
 	arg1 = a1;
 	arg2 = a2;
@@ -25,7 +25,7 @@ class PRED_read_line_2 extends Predicate.P2 {
 	Term t;
 
 	// S_or_a
-	a1 = a1.dereference(); 
+	a1 = a1.dereference();
 	if (a1.isVariable()) {
 	    throw new PInstantiationException(this, 1);
 	} else if (a1.isSymbol()) {
