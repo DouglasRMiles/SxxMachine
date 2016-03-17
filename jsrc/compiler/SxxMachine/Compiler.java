@@ -183,6 +183,7 @@ public class Compiler {
       String out = ".";
       String amdir = null;
       boolean stackTrace = false;
+      boolean suppressBanner = false;
       LinkedList<String> plsrc = new LinkedList<String>();
       int argi = 0;
       for (; argi < argv.length; argi++) {
@@ -192,7 +193,9 @@ public class Compiler {
           break;
         }
 
-        if (a.equals("-O")) {
+        if (a.equals("-q")) {
+		  suppressBanner = true;
+		} else if (a.equals("-O")) {
           comp.enableDefaultOptions();
 
         } else if (a.equals("-O:none")) {
@@ -233,7 +236,9 @@ public class Compiler {
       if (plsrc.isEmpty())
         usage();
 
-      banner();
+	  if (!suppressBanner)
+		banner();
+
       for (String pl : plsrc) {
         System.err.println("Translating " + pl);
 
