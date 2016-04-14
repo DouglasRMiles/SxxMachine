@@ -1,9 +1,13 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.FileHandler;
+import java.util.logging.Formatter;
 import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -82,6 +86,36 @@ public class PrologLogger {
 		}
 	}
 
+	private static class PrologLoggerFormatter extends Formatter {
+
+		private final StringBuilder sb = new StringBuilder(512);
+		
+		@Override
+		public String format(LogRecord record) {
+			sb.setLength(0);
+			String level = record.getLevel().toString();
+			int len = level.length();
+			while (len<9){
+				sb.append(' ');
+				len++;
+			}
+			sb.append(level);
+			sb.append(' ');
+			sb.append(record.getMessage());
+			Throwable thrown = record.getThrown();
+			try {
+				StringWriter sw = new StringWriter();
+				PrintWriter pw = new PrintWriter(sw);
+				thrown.printStackTrace(pw);
+				pw.close();
+				sb.append(sw.toString());
+			} catch (Exception ex) {
+			}
+			sb.append('\n');
+			return sb.toString();
+		}		
+	}
+	
 	private StackNode stackTop = new StackNode();
 
 
@@ -95,7 +129,7 @@ public class PrologLogger {
 		if (fileName!=null){
 			try {
 				FileHandler handler = new FileHandler(fileName);
-				handler.setFormatter(new SimpleFormatter());
+				handler.setFormatter(new PrologLoggerFormatter());
 				handler.setLevel(Level.ALL);
 				logger.addHandler(handler);
 				logger.setUseParentHandlers(false);
