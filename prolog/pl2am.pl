@@ -1850,6 +1850,7 @@ builtin_local_predicates(clause, 2, [:,?]).
 builtin_local_predicates(abolish, 1, [:]).
 builtin_local_predicates(log_level, 1, [:]).
 builtin_local_predicates(loggable, 1, [:]).
+builtin_local_predicates(log_error, 2, [:,?]).
 builtin_local_predicates(log, 2, [:,?]).
 builtin_local_predicates(log, 3, [:,?,?]).
 builtin_local_predicates(log, 4, [:,?,?,?]).

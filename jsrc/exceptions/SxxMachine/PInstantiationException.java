@@ -28,7 +28,7 @@ public class PInstantiationException extends BuiltinException {
      */
     public Term getMessageTerm() {
 	Term[] args = {new JavaObjectTerm(goal), new IntegerTerm(argNo)};
-	return new StructureTerm(INSTANTIATION_ERROR, args);
+	return new ErrorTerm(this, INSTANTIATION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>PInstantiationException</code>. */

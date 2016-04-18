@@ -39,7 +39,7 @@ public class RepresentationException extends BuiltinException {
 	    new JavaObjectTerm(goal), 
 	    new IntegerTerm(argNo), 
 	    SymbolTerm.create(flag)};
-	return new StructureTerm(REPRESENTATION_ERROR, args);
+	return new ErrorTerm(this, REPRESENTATION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>RepresentationException</code>. */

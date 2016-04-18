@@ -258,22 +258,23 @@ public class PrologLogger {
 
 	public RuntimeException execThrows(RuntimeException t) {
 		if (enabled){
-			// prepare stack trace for embedding into exception
-			List<Operation> list = new ArrayList<Operation>(stackTop.indent.length());
-			StackNode n = stackTop;
-			while(n!=null){
-				list.add(n.operation);
-				n = n.next;
+			if (!(t instanceof PrologException) || !((PrologException)t).hasPrologStackTrace() ){
+				// prepare stack trace for embedding into exception
+				List<Operation> list = new ArrayList<Operation>(stackTop.indent.length());
+				StackNode n = stackTop;
+				while(n!=null){
+					list.add(n.operation);
+					n = n.next;
+				}
+				Operation[] array = new Operation[list.size()];
+				list.toArray(array);
+				// wrap t into JavaException if it is not PrologException
+				if (!(t instanceof PrologException)){
+					t = new JavaException(t);
+				}
+				// add stacktrace into t
+				((PrologException)t).setPrologStackTrace(array);
 			}
-			Operation[] array = new Operation[list.size()];
-			list.toArray(array);
-			// wrap t into JavaException if it is not PrologException
-			if (!(t instanceof PrologException)){
-				t = new JavaException(t);
-			}
-			// add stacktrace into t
-			((PrologException)t).setPrologStackTrace(array);
-
 			if (logger.isLoggable(Level.FINE)) {
 				logger.log(Level.FINE, stackTop.operation+" throws exception ", t);
 			}
@@ -284,7 +285,7 @@ public class PrologLogger {
 	public void printStackTrace(Throwable err) {
 		logger.log(Level.SEVERE, "", err);
 		if (!logger.getUseParentHandlers()){ // propagate error outside
-			logger.getParent().log(Level.SEVERE, "", err);
+			Logger.getLogger("").log(Level.SEVERE, "", err);
 		}
 	}
 }

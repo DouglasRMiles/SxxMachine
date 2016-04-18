@@ -23,7 +23,7 @@ public class InternalException extends PrologException {
      */
     public Term getMessageTerm() {
 	Term[] args = {SymbolTerm.create(message)};
-	return new StructureTerm(INTERNAL_ERROR, args);
+	return new ErrorTerm(this, INTERNAL_ERROR, args);
     }
 
     /** Returns a string representation of this <code>InternalException</code>. */

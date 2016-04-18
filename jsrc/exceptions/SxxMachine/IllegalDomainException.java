@@ -52,7 +52,7 @@ public class IllegalDomainException extends BuiltinException {
 	    new IntegerTerm(argNo), 
 	    SymbolTerm.create(domain),
 	    culprit};
-	return new StructureTerm(DOMAIN_ERROR, args);
+	return new ErrorTerm(this, DOMAIN_ERROR, args);
     }
 
     /** Returns a string representation of this <code>IllegalDomainException</code>. */

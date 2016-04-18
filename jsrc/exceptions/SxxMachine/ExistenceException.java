@@ -50,7 +50,7 @@ public class ExistenceException extends BuiltinException {
 	    SymbolTerm.create(objType),
 	    culprit,
 	    SymbolTerm.create(message)};
-	return new StructureTerm(EXISTENCE_ERROR, args);
+	return new ErrorTerm(this, EXISTENCE_ERROR, args);
     }
 
     /** Returns a string representation of this <code>ExistenceException</code>. */

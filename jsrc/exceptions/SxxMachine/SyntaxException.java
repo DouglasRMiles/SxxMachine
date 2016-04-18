@@ -48,7 +48,7 @@ public class SyntaxException extends BuiltinException {
 	    SymbolTerm.create(type),
 	    culprit,
 	    SymbolTerm.create(message) };
-	return new StructureTerm(SYNTAX_ERROR, args);
+	return new ErrorTerm(this, SYNTAX_ERROR, args);
     }
 
     /** Returns a string representation of this <code>SyntaxException</code>. */

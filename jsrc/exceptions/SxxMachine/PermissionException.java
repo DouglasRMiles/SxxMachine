@@ -54,7 +54,7 @@ public class PermissionException extends BuiltinException {
 	    SymbolTerm.create(permissionType),
 	    culprit,
 	    SymbolTerm.create(message)};
-	return new StructureTerm(PERMISSION_ERROR, args);
+	return new ErrorTerm(this, PERMISSION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>PermissionException</code>. */

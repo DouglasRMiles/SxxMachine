@@ -5,14 +5,15 @@ import java.util.logging.Logger;
 
 import com.googlecode.prolog_cafe.lang.Operation;
 import com.googlecode.prolog_cafe.lang.Predicate.P2;
+import com.googlecode.prolog_cafe.lang.ErrorTerm;
 import com.googlecode.prolog_cafe.lang.IllegalTypeException;
 import com.googlecode.prolog_cafe.lang.Prolog;
 import com.googlecode.prolog_cafe.lang.PrologException;
 import com.googlecode.prolog_cafe.lang.Term;
 
 /**
- * <b>log(package:level, message)</b> - logs given <i>message</i> to the logger, corresponding to <i>package</i>, 
- * under the given <i>level</i>.
+ * <b>log_error(package:level, error)</b> - logs given <i>error</i> to the logger, corresponding to <i>package</i>, 
+ * under the given <i>level</i>. If possible, java and prolog stack traces are also written.
  * <p><i>package</i> is expected to be atom. (Variable will cause errors).
  * If package is absent, then current package is automatically added by prolog compiler.
  * So call log('INFO','message') is valid.
@@ -20,7 +21,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  * If it is an atom, the current logging level of given package will be set to its value.  
  * Value can be one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL' (from highest to lowest).
  * Also lower case variants without quotes are accepted. So log(info,'message') is valid. 
- * <p><i>message</i> can be any term, including free variable. It will be converted to string using method {@link Object#toString()}
+ * <p><i>error</i> can be any term, including free variable. 
  * 
  * <p>The predicate finds {@link Logger} instance, corresponding to given package, and calls its method {@link Logger#log(Level, String)}
  * with level and message as arguments.
@@ -28,9 +29,9 @@ import com.googlecode.prolog_cafe.lang.Term;
  * @author semenov
  *
  */
-public class PRED_log_2 extends P2 {
+public class PRED_log_error_2 extends P2 {
 
-	public PRED_log_2(Term arg1, Term arg2, Operation cont) {
+	public PRED_log_error_2(Term arg1, Term arg2, Operation cont) {
 		this.arg1 = arg1;
 		this.arg2 = arg2;
 		this.cont = cont;
@@ -54,7 +55,17 @@ public class PRED_log_2 extends P2 {
 		Logger logger = Logger.getLogger(packageTerm.name());
 		Level level = Level.parse(levelTerm.name().toUpperCase());
 		if (logger.isLoggable(level)){
+			Throwable t = null;
+			if (a2.isJavaObject() && (a2.toJava() instanceof Throwable)){
+				t = (Throwable) a2.toJava();
+			} else if (a2 instanceof ErrorTerm){
+				t = ((ErrorTerm)a2).getThrowable();
+			}
+			
 			logger.log(level, a2.toString());
+			if (t!=null){
+				logger.log(level, "", t);
+			}			
 		}
 		return cont;
 	}

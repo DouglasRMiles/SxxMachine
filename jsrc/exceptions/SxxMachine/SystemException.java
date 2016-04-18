@@ -23,7 +23,7 @@ public class SystemException extends PrologException {
      */
     public Term getMessageTerm() {
 	Term[] args = {SymbolTerm.create(message)};
-	return new StructureTerm(SYSTEM_ERROR, args);
+	return new ErrorTerm(this, SYSTEM_ERROR, args);
     }
 
     /** Returns a string representation of this <code>SystemException</code>. */

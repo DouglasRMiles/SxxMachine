@@ -18,35 +18,32 @@ public class EvaluationException extends BuiltinException {
     public String errorType;
 
     /** Constructs a new <code>EvaluationException</code> with an error type. */
-    public EvaluationException(String _errorType) {
-	errorType    = _errorType;
-    }
+	public EvaluationException(String _errorType) {
+		errorType = _errorType;
+	}
 
     /** Constructs a new <code>EvaluationException</code> with the given arguments. */
-    public EvaluationException(Operation _goal, int _argNo, String _errorType) {
-	this.goal    = _goal;
-	this.argNo   = _argNo;
-	errorType    = _errorType;
-    }
+	public EvaluationException(Operation _goal, int _argNo, String _errorType) {
+		this.goal = _goal;
+		this.argNo = _argNo;
+		errorType = _errorType;
+	}
 
     /** Returns a term representation of this <code>EvaluationException</code>:
      * <code>evaluation_error(goal,argNo,errorType)</code>.
      */
-    public Term getMessageTerm() {
-	Term[] args = {
-	    new JavaObjectTerm(goal),
-	    new IntegerTerm(argNo),
-	    SymbolTerm.create(errorType)};
-	return new StructureTerm(EVALUATION_ERROR, args);
-    }
+	public Term getMessageTerm() {
+		Term[] args = { new JavaObjectTerm(goal), new IntegerTerm(argNo), SymbolTerm.create(errorType) };
+		return new ErrorTerm(this, EVALUATION_ERROR, args);
+	}
 
     /** Returns a string representation of this <code>EvaluationException</code>. */
-    public String toString() {
-	String s = "{EVALUATION ERROR: " + goal;
-	if (argNo > 0)
-	    s += " - arg " + argNo;
-	s += ", found " + errorType;
-	s += "}";
-	return s;
-    }
+	public String toString() {
+		String s = "{EVALUATION ERROR: " + goal;
+		if (argNo > 0)
+			s += " - arg " + argNo;
+		s += ", found " + errorType;
+		s += "}";
+		return s;
+	}
 }

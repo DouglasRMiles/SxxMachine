@@ -40,7 +40,7 @@ public class JavaException extends BuiltinException {
 			(goal==null)?SymbolTerm.create("<Goal unknown>"):new JavaObjectTerm(goal),
 		    new IntegerTerm(argNo),
 		    new JavaObjectTerm(e)};
-		return new StructureTerm(JAVA_ERROR, args);
+		return new ErrorTerm(this, JAVA_ERROR, args);
     }
 
     /** Returns a underlying Java exception. */

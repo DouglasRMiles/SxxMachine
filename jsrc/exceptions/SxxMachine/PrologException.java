@@ -22,16 +22,20 @@ public abstract class PrologException extends RuntimeException {
     /** Returns the message term of this object. */
     abstract public Term getMessageTerm();
 
-    private Operation[] prologStackElement;
+    private Operation[] prologStackElement = null;
 
     public Operation[] getPrologStackTrace() {
-    	return prologStackElement.clone();
+    	return prologStackElement==null?null:prologStackElement.clone();
     }
 
     void setPrologStackTrace(Operation[] stack){
     	this.prologStackElement = stack;
     }
 
+    public boolean hasPrologStackTrace(){
+    	return this.prologStackElement != null;
+    }
+    
 	@Override
 	public void printStackTrace(PrintStream s) {
 		super.printStackTrace(s);

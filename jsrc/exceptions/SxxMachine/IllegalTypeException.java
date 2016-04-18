@@ -49,7 +49,7 @@ public class IllegalTypeException extends BuiltinException {
 		    new IntegerTerm(argNo),
 		    SymbolTerm.create(type),
 		    culprit};
-		return new StructureTerm(TYPE_ERROR, args);
+		return new ErrorTerm(this, TYPE_ERROR, args);
     }
 
     /** Returns a string representation of this <code>IllegalTypeException</code>. */
