@@ -161,6 +161,7 @@ Notation
 :- op(1150,  fx, (ifndef)).     % added by Augeo
 :- op(1150,  fx, (domain)).     % added by Augeo
 :- op(1150,  fx, (database)).     % added by Augeo
+:- op(1150,  fx, (include_resource)).     % added by Augeo
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -363,6 +364,8 @@ assert_clause(C):-
 	assert_clause_(EC).
 
 assert_clause_((:- include F)):- !,
+	assert_include_file(F).
+assert_clause_((:- include_resource F)):- !,
 	assert_include_file(F).
 assert_clause_((:- database D)):- !,
 	assert_database(D).
