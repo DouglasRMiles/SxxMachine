@@ -26,14 +26,17 @@ public class IntegerTerm extends NumberTerm {
     public int value() { return val; }
 
     /* Term */
-    public boolean unify(Term t, Trail trail) {
-	if (t.isVariable())
-	    return ((VariableTerm)t).unify(this, trail);
-	if (! t.isInteger())
-	    return false;
-	else 
-	    return this.val == ((IntegerTerm)t).value();
-    }
+	public boolean unify(Term t, Trail trail) {
+		if (t.isVariable())
+			return ((VariableTerm) t).unify(this, trail);
+		if (t.isLong()) {
+			return ((long) this.val) == ((LongTerm) t).longValue();
+		} else if (!t.isInteger()) {
+			return false;
+		} else {
+			return this.val == ((IntegerTerm) t).value();
+		}
+	}
 
     /** 
      * @return the <code>boolean</code> whose value is
@@ -106,6 +109,9 @@ public class IntegerTerm extends NumberTerm {
     public int arithCompareTo(NumberTerm t) {
 	if (t.isDouble())
 	    return - (t.arithCompareTo(this));
+	if (t.isLong()){
+		return - (t.arithCompareTo(this));
+	}
 	int v = t.intValue();
 	if (this.val == v)
 	    return EQUAL;
@@ -212,6 +218,9 @@ public class IntegerTerm extends NumberTerm {
     public NumberTerm multiply(NumberTerm t) {
 	if (t.isDouble())
 	    return t.multiply(this);
+	if (t.isLong()){
+		return t.multiply(this);
+	}
 	return new IntegerTerm(this.val * t.intValue());
     }
 

@@ -276,13 +276,17 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public boolean unify(Term t, Trail trail) {
-		if (t.isVariable()){
-		    return ((VariableTerm)t).unify(this, trail);
-		}
-		if (! (t instanceof LongTerm)){
-		    return false;
+		if (t.isVariable()) {
+			return ((VariableTerm) t).unify(this, trail);
+			
+		} else if (t.isInteger()) {
+			return this.value == ((IntegerTerm) t).longValue();
+			
+		} else if (!(t instanceof LongTerm)) {
+			return false;
+			
 		} else {
-		    return this.value == ((LongTerm)t).value();
+			return this.value == ((LongTerm) t).value();
 		}
 	}
 
