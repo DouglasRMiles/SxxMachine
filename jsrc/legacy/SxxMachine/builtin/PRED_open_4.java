@@ -59,7 +59,11 @@ public class PRED_open_4 extends Predicate.P4 {
 		if (a1.isVariable())
 			throw new PInstantiationException(this, 1);
 		if (a1.isSymbol()){
-			file = new File(((SymbolTerm) a1).name());
+			String fileName = ((SymbolTerm) a1).name();
+			if (File.separator.equals("/")) {
+				fileName = fileName.replaceAll("\\\\+",File.separator);
+			}
+			file = new File(fileName);
 		} else if (a1.isStructure() && ":".equals(a1.name()) && 2==a1.arity()){
 			Term pkg = a1.arg(0).dereference();
 			Term name = a1.arg(1).dereference();
@@ -67,6 +71,9 @@ public class PRED_open_4 extends Predicate.P4 {
 				throw new IllegalDomainException(this, 1, "source_sink", a1);
 			}
 			resourceName = '/' + pkg.name().replace('.', '/') + '/' + name.name();
+			if (File.separator.equals("/")) {
+				resourceName = resourceName.replaceAll("\\\\+",File.separator);
+			}
 		} else {
 			throw new IllegalDomainException(this, 1, "source_sink", a1);
 		}
