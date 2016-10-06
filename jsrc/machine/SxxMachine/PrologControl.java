@@ -187,4 +187,12 @@ public abstract class PrologControl {
 	public void setUserError(PrintStream userError) {
 		this.userError = userError;
 	}
+	
+	public Object getExternalData(String key){
+		return engine.getExternalData(key);
+	}
+
+	public void setExternalData(String key, Object value){
+		engine.setExternalData(key, value);
+	}
 }
