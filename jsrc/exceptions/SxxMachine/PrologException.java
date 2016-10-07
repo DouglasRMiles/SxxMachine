@@ -42,7 +42,13 @@ public abstract class PrologException extends RuntimeException {
 		if (prologStackElement!=null && prologStackElement.length>0){
 			s.println("Prolog stack trace:");
 			for (Operation o: prologStackElement){
-				s.println("\tat "+o.getClass().getPackage().getName()+":"+o);
+				StringBuilder sb = new StringBuilder("\tat ");
+				sb.append(o.getClass().getName());
+				int i = sb.lastIndexOf(".");
+				if (i>=0){
+					sb.setCharAt(i, ':');
+				}
+				s.println(sb.toString());
 			}
 		}
 	}
@@ -53,7 +59,13 @@ public abstract class PrologException extends RuntimeException {
 		if (prologStackElement!=null && prologStackElement.length>0){
 			s.println("Prolog stack trace:");
 			for (Operation o: prologStackElement){
-				s.println("\tat "+o.getClass().getPackage().getName()+":"+o);
+				StringBuilder sb = new StringBuilder("\tat ");
+				sb.append(o.getClass().getName());
+				int i = sb.lastIndexOf(".");
+				if (i>=0){
+					sb.setCharAt(i, ':');
+				}
+				s.println(sb.toString());
 			}
 		}
 	}
