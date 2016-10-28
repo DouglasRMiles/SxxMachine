@@ -1,5 +1,6 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class PrologLogger {
 	private boolean enabled = false;
 	private boolean failure = false;
 	private boolean expectAfter = false;
+	private PrologLoggerFileHandler fileHandler = null;
 
 	private static class StackNode {
 		Operation operation;
@@ -116,38 +118,89 @@ public class PrologLogger {
 		}		
 	}
 	
+	private static class PrologLoggerFileHandler extends FileHandler {
+		
+		private final String fileName;
+
+		public PrologLoggerFileHandler(String fileName) throws IOException, SecurityException {
+			super(fileName);
+			this.fileName = fileName;
+		}
+		
+		public String getFileName() {
+			return fileName;
+		}
+	}
+
 	private StackNode stackTop = new StackNode();
 
 
-	public PrologLogger(Prolog engine) {
+	PrologLogger(Prolog engine) {
 		this.engine = engine;
-		String levelName = System.getProperty(logger.getName()+".level");
-		if (levelName!=null){
-			logger.setLevel(Level.parse(levelName));
+		setLevel(System.getProperty(logger.getName()+".level"));
+		setLogFile(System.getProperty(logger.getName()+".file"));
+		String enabledProperty = System.getProperty(logger.getName()+".enabled");
+		setEnabled(logger.isLoggable(Level.FINE) || enabledProperty==null || "true".equals(enabledProperty));
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	/**
+	 * allows to completely disable logger functions to gain performance.
+	 */
+	public void setEnabled(boolean value) {
+		enabled = value;
+	}
+
+	public String getLogFile() {
+		return fileHandler==null?null:fileHandler.getFileName();
+	}
+
+	public void setLogFile(String logFile) {
+		// close previous handler
+		if (fileHandler!=null){ 
+			// check if file is the same
+			if (fileHandler.getFileName().equals(logFile)){
+				return;
+			}
+			logger.removeHandler(fileHandler);
+			fileHandler.close();
+			logger.setUseParentHandlers(true);
 		}
-		String fileName = System.getProperty(logger.getName()+".file");
-		if (fileName!=null){
+		if (logFile!=null){			
 			try {
-				FileHandler handler = new FileHandler(fileName);
-				handler.setFormatter(new PrologLoggerFormatter());
-				handler.setLevel(Level.ALL);
-				logger.addHandler(handler);
+				fileHandler = new PrologLoggerFileHandler(logFile);
+				fileHandler.setFormatter(new PrologLoggerFormatter());
+				fileHandler.setLevel(Level.ALL);
+				logger.addHandler(fileHandler);
 				logger.setUseParentHandlers(false);
 			} catch (Exception e) {
 				logger.setUseParentHandlers(true);
-				logger.getParent().log(Level.SEVERE, "failed to log to file "+fileName, e);
-			}
+				logger.getParent().log(Level.SEVERE, "failed to log to file "+logFile, e);
+			}			
 		}
-		enabled = logger.isLoggable(Level.FINE);
-		String enabledProperty = System.getProperty(logger.getName()+".enabled");
-		enabled = enabled || enabledProperty==null || "true".equals(enabledProperty);
+		setEnabled(enabled || logger.isLoggable(Level.FINE) || fileHandler!=null);
+	}
+
+	public Level getLevel() {
+		return logger.getLevel();
+	}
+
+	public void setLevel(String levelName){
+		setLevel(levelName==null?null:Level.parse(levelName.toUpperCase()));
+	}
+
+	public void setLevel(Level level){
+		logger.setLevel(level);
+		setEnabled(enabled || logger.isLoggable(Level.FINE) || fileHandler!=null);
 	}
 
 	private void reset() {
 		stackTop = new StackNode();
 	}
 
-	public void fail() {
+	void fail() {
 		if (enabled ){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)){
@@ -157,7 +210,7 @@ public class PrologLogger {
 	}
 
 
-	public void jtry(Operation p, Operation next, ChoicePointFrame entry) {
+	void jtry(Operation p, Operation next, ChoicePointFrame entry) {
 		if (enabled){
 			entry.ownerPredicate = stackTop.operation; //currentOperation;
 			if (logger.isLoggable(stackTop.level)){
@@ -166,7 +219,7 @@ public class PrologLogger {
 		}
 	}
 
-	public void retry(Operation p, Operation next) {
+	void retry(Operation p, Operation next) {
 		if (enabled){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)) {
@@ -175,7 +228,7 @@ public class PrologLogger {
 		}
 	}
 
-	public void trust(Operation p) {
+	void trust(Operation p) {
 		if (enabled){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)) {
@@ -185,7 +238,7 @@ public class PrologLogger {
 	}
 
 
-	public void beforeExec(Operation code) {
+	void beforeExec(Operation code) {
 		if (enabled || logger.isLoggable(Level.FINE)) {
 			// detect logger level change
 			if (!enabled){
@@ -222,7 +275,7 @@ public class PrologLogger {
 	}
 
 
-	public void afterExec(Operation code, Operation next) {
+	void afterExec(Operation code, Operation next) {
 		// if it was enabled since beforeExec() avoid doing anything before reset() call in beforeExec()
 		if (enabled){
 //			if (!logger.isLoggable(Level.FINE)){// it was disabled since beforeExec()
@@ -256,7 +309,7 @@ public class PrologLogger {
 		}
 	}
 
-	public RuntimeException execThrows(RuntimeException t) {
+	RuntimeException execThrows(RuntimeException t) {
 		if (enabled){
 			if (!(t instanceof PrologException) || !((PrologException)t).hasPrologStackTrace() ){
 				// prepare stack trace for embedding into exception

@@ -545,4 +545,7 @@ public final class Prolog {
 		externalData.put(key, value);
 	}
 
+	public PrologLogger getLogger() {
+		return logger;
+	}
 }

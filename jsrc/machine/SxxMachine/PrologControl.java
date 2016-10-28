@@ -195,4 +195,8 @@ public abstract class PrologControl {
 	public void setExternalData(String key, Object value){
 		engine.setExternalData(key, value);
 	}
+
+	public PrologLogger getLogger() {
+		return engine.logger;
+	}
 }
