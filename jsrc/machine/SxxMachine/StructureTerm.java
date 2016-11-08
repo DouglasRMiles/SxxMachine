@@ -22,10 +22,10 @@ package com.googlecode.prolog_cafe.lang;
  */
 public class StructureTerm extends Term {
     /** Holds the functor symbol of this <code>StructureTerm</code>. */
-    protected SymbolTerm functor;
+    private final SymbolTerm functor;
 
     /** Holds the argument terms of this <code>StructureTerm</code>. */
-    protected Term[] args;
+    private final Term[] args;
 
     /**
      * Constructs a new Prolog compound term
@@ -33,7 +33,7 @@ public class StructureTerm extends Term {
      * <code>args</code> is the argument terms respectively.
      */
     public StructureTerm(String name, Term... args){
-	this(SymbolTerm.create(name, args.length), args);
+    	this(SymbolTerm.create(name, args.length), args);
     }
 
     /**
@@ -41,73 +41,81 @@ public class StructureTerm extends Term {
      * such that <code>_functor</code> is the functor symbol, and 
      * <code>_args</code> is the argument terms respectively.
      */
-    public StructureTerm(SymbolTerm _functor, Term... _args){
-	if (_functor.arity() != _args.length)
-	    throw new InternalException("Invalid argument length in StructureTerm");
-	functor = _functor;
-	args = _args;
-    }
+	public StructureTerm(SymbolTerm _functor, Term... _args) {
+		if (_functor.arity() != _args.length)
+			throw new InternalException("Invalid argument length in StructureTerm");
+		functor = _functor;
+		args = _args;
+	}
 
     /** Returns the functor symbol of this <code>StructureTerm</code>.
      * @return the value of <code>functor</code>.
      * @see #functor
      */
-    public SymbolTerm functor(){ return functor; }
+    public final SymbolTerm functor(){ return functor; }
 
     /** Returns the arity of this <code>StructureTerm</code>.
      * @return the value of <code>arity</code>.
      * @see #arity
      */
-    public int arity(){ return args.length; }
+    public final int arity(){ return args.length; }
 
     /** Returns the argument terms of this <code>StructureTerm</code>.
      * @return the value of <code>args</code>.
      * @see #args
      */
-    public Term[] args(){ return args; }
+    public final Term[] args(){ return args; }
 
     /** Returns the string representation of functor symbol of this <code>StructureTerm</code>.
      * @return a <code>String</code> whose value is <code>functor.name()</code>.
      * @see #functor
      * @see SymbolTerm#name
      */
-    public String name(){ return functor.name(); }
+    public final String name(){ return functor.name(); }
 
-    public Term arg(int nth) { return args[nth]; }
+    public final Term arg(int nth) { return args[nth]; }
 
-    public boolean unify(Term t, Trail trail) {
-	t = t.dereference();
-	if (t.isVariable()) {
-	    ((VariableTerm) t).bind(this, trail);
-	    return true;
-	}
-	if (! t.isStructure())
-	    return false;
-	if (! functor.equals(((StructureTerm)t).functor()))
-	    return false;
-	for (int i=0; i<args.length; i++) {
-	    if (! args[i].unify(((StructureTerm)t).args[i], trail))
+	public final boolean unify(Term t, Trail trail) {
+		t = t.dereference();
+		if (t instanceof VariableTerm) {
+			((VariableTerm) t).bind(this, trail);
+			return true;
+		}
+		if (t instanceof StructureTerm){
+			StructureTerm st = (StructureTerm) t;
+			if (!functor.equals(st.functor)){
+				return false;
+			}
+			int i = 0;
+			int len = args.length;
+			while (i<len && args[i].unify(st.args[i], trail)){
+				i++;
+			}
+			return i>=len;
+			
+		}
 		return false;
 	}
-	return true;
-    }
 
-    protected Term copy(Prolog engine) {
-	Term[] a = new Term[args.length];
-	for (int i=0; i<args.length; i++)
-	    a[i] = args[i].copy(engine);
-	return new StructureTerm(functor, a);
-    }
-
-    public boolean isGround() {
-	for (int i=0; i<args.length; i++) {
-	    if (! args[i].isGround())
-		return false;
+	protected Term copy(Prolog engine) {
+		Term[] a = new Term[args.length];
+		int len = args.length;
+		for (int i = 0; i < len; i++) {
+			a[i] = args[i].copy(engine);
+		}
+		return new StructureTerm(functor, a);
 	}
-	return true;
+
+    public final boolean isGround() {
+    	for (Term t: args){
+    		if (!t.isGround()){
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
-    public String toQuotedString() {
+    public final String toQuotedString() {
 		String delim = "";
 		StringBuilder sb = new StringBuilder(functor.toQuotedString());
 		sb.append('(');
@@ -130,25 +138,25 @@ public class StructureTerm extends Term {
      * equivalent to this <code>StructureTerm</code>, false otherwise.
      * @see #compareTo
      */
-    public boolean equals(Object obj) {
-	if (! (obj instanceof StructureTerm))
-	    return false;
-	if (! functor.equals(((StructureTerm)obj).functor()))
-	    return false;
-	for (int i=0; i<args.length; i++) {
-	    if (! args[i].equals(((StructureTerm)obj).args[i].dereference()))
-		return false;
+	public boolean equals(Object obj) {
+		if (!(obj instanceof StructureTerm))
+			return false;
+		if (!functor.equals(((StructureTerm) obj).functor()))
+			return false;
+		for (int i = 0; i < args.length; i++) {
+			if (!args[i].equals(((StructureTerm) obj).args[i].dereference()))
+				return false;
+		}
+		return true;
 	}
-	return true;
-    }
 
-    public int hashCode() {
-	int h = 1;
-	h = 31*h + functor.hashCode();
-	for(int i=0; i<args.length; i++)
-	    h = 31*h + args[i].dereference().hashCode();
-	return h;
-    }
+	public int hashCode() {
+		int h = 1;
+		h = 31 * h + functor.hashCode();
+		for (int i = 0; i < args.length; i++)
+			h = 31 * h + args[i].dereference().hashCode();
+		return h;
+	}
 
     /** Returns a string representation of this <code>StructureTerm</code>. */
     public String toString() {
@@ -173,37 +181,37 @@ public class StructureTerm extends Term {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
-    public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	SymbolTerm functor2;
-	Term[] args2;
-	int arity2, rc;
+	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
+		SymbolTerm functor2;
+		Term[] args2;
+		int arity2, rc;
 
-	if (anotherTerm.isVariable() || anotherTerm.isNumber() || anotherTerm.isSymbol())
-	    return AFTER;
-	if (anotherTerm.isList()) {
-	    ListTerm t = (ListTerm)anotherTerm;
-	    functor2 = ListTerm.SYM_DOT;
-	    args2    = new Term[2];
-	    args2[0] = t.car();
-	    args2[1] = t.cdr();
-	    arity2   = 2;
-	} else if (anotherTerm.isStructure()) {
-	    StructureTerm s = (StructureTerm)anotherTerm;
-	    functor2 = s.functor();
-	    args2    = s.args();
-	    arity2   = s.arity();
-	} else {
-	    return BEFORE;
+		if (anotherTerm.isVariable() || anotherTerm.isNumber() || anotherTerm.isSymbol())
+			return AFTER;
+		if (anotherTerm.isList()) {
+			ListTerm t = (ListTerm) anotherTerm;
+			functor2 = ListTerm.SYM_DOT;
+			args2 = new Term[2];
+			args2[0] = t.car();
+			args2[1] = t.cdr();
+			arity2 = 2;
+		} else if (anotherTerm.isStructure()) {
+			StructureTerm s = (StructureTerm) anotherTerm;
+			functor2 = s.functor();
+			args2 = s.args();
+			arity2 = s.arity();
+		} else {
+			return BEFORE;
+		}
+		if (args.length != arity2)
+			return (args.length - arity2);
+		if (!functor.equals(functor2))
+			return functor.compareTo(functor2);
+		for (int i = 0; i < args.length; i++) {
+			rc = args[i].compareTo(args2[i].dereference());
+			if (rc != EQUAL)
+				return rc;
+		}
+		return EQUAL;
 	}
-	if (args.length != arity2)
-	    return (args.length - arity2);
-	if (! functor.equals(functor2))
-	    return functor.compareTo(functor2);
-	for (int i=0; i<args.length; i++) {
-	    rc = args[i].compareTo(args2[i].dereference());
-	    if (rc != EQUAL) 
-		return rc;
-	}
-	return EQUAL;
-    }
 }

@@ -38,13 +38,13 @@ public class ListTerm extends Term {
     protected static final SymbolTerm SYM_DOT = SymbolTerm.intern(".", 2);
 
     /** Holds the first element of this <code>ListTerm</code>. */
-    protected Term car;
+    private Term car;
 
     /**
      * Holds the list consisting of all the rest of the elements of 
      * this <code>ListTerm</code> but the first one.
      */
-    protected Term cdr;
+    private Term cdr;
 
     /**
      * Constructs a new Prolog list structure
@@ -53,32 +53,32 @@ public class ListTerm extends Term {
      * elements of this list but the first one.
      */
     public ListTerm(Term _car, Term _cdr) { 
-	car = _car;
-	cdr = _cdr; 
+		car = _car;
+		cdr = _cdr; 
     }
 
     /** Returns the value of <code>car</code>.
      * @see #car
      */
-    public Term car() { return car; }
+    public final Term car() { return car; }
 
     /** Returns the value of <code>cdr</code>.
      * @see #cdr
      */
-    public Term cdr() { return cdr; }
+    public final Term cdr() { return cdr; }
 
     /** Sets the value to <code>car</code>.
      * @see #car
      */
-    public void setCar(Term t) { car = t; }
+    public final void setCar(Term t) { car = t; }
 
     /** Sets the value to <code>cdr</code>.
      * @see #cdr
      */
-    public void setCdr(Term t) { cdr = t; }
+    public final void setCdr(Term t) { cdr = t; }
 
     /* Term */
-    public boolean unify(Term t, Trail trail) {
+    public final boolean unify(Term t, Trail trail) {
     	Term p = this;
     	t = t.dereference();
     	while ((t instanceof ListTerm) && (p instanceof ListTerm) 
@@ -108,23 +108,23 @@ public class ListTerm extends Term {
      * @see Term#convertible(Class, Class)
      */
     public boolean convertible(Class type) { 
-	return convertible(List.class, type); 
+    	return convertible(List.class, type); 
     }
 
     protected Term copy(Prolog engine) { 
-    	Deque<ListTerm> stack = new ArrayDeque<ListTerm>(); 
+    	ListTerm c = new ListTerm(null, null), r = c;
     	Term p = this;
-    	while (p instanceof ListTerm){
-    		ListTerm lt = (ListTerm) p;
-    		stack.push(lt);
+    	while (p instanceof ListTerm) {
+    		ListTerm lt = (ListTerm) p;    		
+    		ListTerm x = new ListTerm(lt.car.copy(engine), null);
+    		c.cdr = x;
+    		c = x;
     		p = lt.cdr.dereference();
     	}
-    	p = p.copy(engine);
-    	while (!stack.isEmpty()){
-    		ListTerm lt = stack.pop();
-    		p = new ListTerm(lt.car.copy(engine), p);
+    	if (p!=null){
+    		c.cdr = p.copy(engine);
     	}
-    	return p;
+    	return r.cdr;
     }
 
     public boolean isGround() {
@@ -135,9 +135,9 @@ public class ListTerm extends Term {
 	return true;
     }
 
-    public String name() { return SYM_DOT.name(); }
+    public final String name() { return SYM_DOT.name(); }
 
-    public Term arg(int nth) {
+    public final Term arg(int nth) {
       Term t = this;
       int old_nth = nth;
       while (t.isList() && 0 < nth) {

@@ -53,14 +53,19 @@ public class VariableTerm extends Term implements Undoable {
      * @see #bind(Term,Trail)
      * @see Trail
      */
-    public boolean unify(Term t, Trail trail) {
-	if (val != this)
-	    return val.unify(t, trail);
-	t = t.dereference();
-	if (this != t)
-	    bind(t, trail);
-	return true;
-    }
+	public final boolean unify(Term t, Trail trail) {
+        Term x = this;
+        Term z;
+        while ((x instanceof VariableTerm) && (z=((VariableTerm)x).val)!=x){
+            x = z;
+        }
+		if (x instanceof VariableTerm){
+			((VariableTerm) x).bind(t.dereference(), trail);
+			return true;
+		} else {
+			return x.unify(t, trail);
+		}
+	}
 
     /** 
      * Binds this variable to a given term. 
@@ -69,21 +74,23 @@ public class VariableTerm extends Term implements Undoable {
      * @param trail Trail Stack
      * @see Trail
      */
-  public void bind(Term t, Trail trail) {
-    if (t.isVariable()) {
-      VariableTerm v = (VariableTerm) t;
-      if (v.timeStamp >= this.timeStamp) {
-        v.val = this;
-        if (v.timeStamp < trail.timeStamp)
-          trail.push(v);
-        return;
-      }
-    }
+	public final void bind(Term t, Trail trail) {
+		if (t instanceof VariableTerm) {
+			VariableTerm v = (VariableTerm) t;
+			if (v.timeStamp >= this.timeStamp) {
+				v.val = this;
+				if (v.timeStamp < trail.timeStamp){
+					trail.push(v);
+				}
+				return;
+			}
+		}
 
-    val = t;
-    if (timeStamp < trail.timeStamp)
-      trail.push(this);
-  }
+		val = t;
+		if (timeStamp < trail.timeStamp){
+			trail.push(this);
+		}
+	}
 
     /** 
      * Checks whether this object is convertible with the given Java class type 
@@ -94,7 +101,7 @@ public class VariableTerm extends Term implements Undoable {
      * convertible with <code>type</code>. Otherwise <code>false</code>.
      * @see #val
      */
-    public boolean convertible(Class type) {
+    public final boolean convertible(Class type) {
 	if (val != this)
 	    return val.convertible(type);
 	return convertible(this.getClass(), type);
@@ -105,32 +112,39 @@ public class VariableTerm extends Term implements Undoable {
      * Otherwise, returns the value of <code>val.copy(engine)</code>.
      * @see #val
      */
-    protected Term copy(Prolog engine) {
-	VariableTerm co;
-	if (val != this)
-	    return val.copy(engine);
-	co = engine.copyHash.get(this);
-	if (co == null) {
-	    //	    co = new VariableTerm(engine);
-	    co = new VariableTerm();
-	    engine.copyHash.put(this, co);
+	protected Term copy(Prolog engine) {
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			VariableTerm co = engine.copyHash.get(t);
+			if (co == null) {
+				co = new VariableTerm();
+				engine.copyHash.put((VariableTerm) t, co);
+			}
+			return co;
+		} else {
+			return t.copy(engine);
+		}
 	}
-	return co;
+
+    public final Term dereference() {
+        Term t = this;
+        Term z;
+        while ((t instanceof VariableTerm) && (z=((VariableTerm)t).val)!=t){
+            t = z;
+        }
+        return t;
     }
 
-    public Term dereference() {
-	if (val == this)
-	    return this;
-	return val.dereference();
-    }
-
-    public boolean isGround() {
+    public final boolean isGround() {
 	if (val != this)
 	    return val.isGround();
 	return false;
     }
 
-    public String name() {
+    public final String name() {
     if (val == this)
       return "";
     return val.dereference().name();
@@ -155,7 +169,7 @@ public class VariableTerm extends Term implements Undoable {
      * <code>val.toQuotedString()</code>
      * @see #val
      */
-    public String toQuotedString() {
+    public final String toQuotedString() {
 	if (val != this)
 	    return val.toQuotedString();
 	return variableName();

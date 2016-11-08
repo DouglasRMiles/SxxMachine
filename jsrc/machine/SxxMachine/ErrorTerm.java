@@ -25,9 +25,10 @@ public class ErrorTerm extends StructureTerm {
 	
 	@Override
 	protected Term copy(Prolog engine) {
-		Term[] a = new Term[args.length];
-		for (int i = 0; i < args.length; i++)
-			a[i] = args[i].copy(engine);
-		return new ErrorTerm(error, functor, a);
+		Term[] a = new Term[arity()];
+		for (int i = 0; i < a.length; i++){
+			a[i] = arg(i).copy(engine);
+		}
+		return new ErrorTerm(error, functor(), a);
 	}
 }
