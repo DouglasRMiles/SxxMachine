@@ -57,7 +57,22 @@ public class IntegerTerm extends NumberTerm {
 
     /* Object */
     /** Returns a string representation of this <code>IntegerTerm</code>. */
+    @Override // Overridden for performance
     public String toString() { return Integer.toString(this.val); }
+    
+    /** Returns a quoted string representation of this <code>IntegerTerm</code>. */
+    @Override // Overridden for performance
+    public String toQuotedString() { return Integer.toString(this.val); }
+
+    @Override
+    public void toString(StringBuilder sb){
+    	sb.append(this.val);
+    }
+
+    @Override
+    public void toQuotedString(StringBuilder sb){
+    	sb.append(this.val);
+    }
 
     /**
      * Checks <em>term equality</em> of two terms.

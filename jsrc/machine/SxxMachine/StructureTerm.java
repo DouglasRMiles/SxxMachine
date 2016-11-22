@@ -1,4 +1,9 @@
 package com.googlecode.prolog_cafe.lang;
+
+import java.util.Iterator;
+
+import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
+
 /**
  * Compound term. <br>
  * The <code>StructureTerm</code> class represents a compound term but list.<br>
@@ -114,17 +119,15 @@ public class StructureTerm extends Term {
     	}
     	return true;
     }
-
-    public final String toQuotedString() {
-		String delim = "";
-		StringBuilder sb = new StringBuilder(functor.toQuotedString());
-		sb.append('(');
-		for(Term a: args){
-			sb.append(delim).append(a.toQuotedString());
-			delim = ",";
+    /** Adds a quoted string representation of this <code>StructureTerm</code> to given StringBuilder instance 
+     * Non recursive implementation
+     * */
+	@Override
+    public void toQuotedString(StringBuilder sb){
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toQuotedString(sb);
 		}
-		sb.append(')');
-		return sb.toString();
     }
 
     /* Object */
@@ -158,18 +161,64 @@ public class StructureTerm extends Term {
 		return h;
 	}
 
-    /** Returns a string representation of this <code>StructureTerm</code>. */
-    public String toString() {
-		String delim = "";
-		StringBuilder sb = new StringBuilder(functor.toString());
-		sb.append('(');
-		for(Term a: args){
-			sb.append(delim).append(a.toString());
-			delim = ",";
+    /** Adds a string representation of this <code>StructureTerm</code> to given StringBuilder instance. 
+     * Non recursive implementation
+     * */
+	@Override
+    public void toString(StringBuilder sb){
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toString(sb);
 		}
-		sb.append(')');
-		return sb.toString();
     }
+
+	@Override
+	public Iterator<Term> iterator() {
+		return new StructureTermIterator(functor, args);
+	}
+
+	private static class StructureTermIterator implements Iterator<Term>{
+		private static final SymbolTerm COMMA = SymbolTerm.intern(",");
+		private static final SymbolTerm RIGHT_BRACKET = SymbolTerm.intern(")");
+		private static final SymbolTerm LEFT_BRACKET = SymbolTerm.intern("(");
+		private int index = -2;
+		private final Term functor;
+		private final Term[] args;
+		private final int length;
+		private boolean comma = false;
+		
+		public StructureTermIterator(Term functor, Term[] args) {
+			this.functor = functor;
+			this.args = args;
+			length = args.length;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return index<=length;
+		}
+
+		@Override
+		public Term next() {
+			Term result;
+			if (index==-2){
+				result = functor;
+			} else if (index==-1){
+				result = LEFT_BRACKET;
+			} else if (comma){
+				comma = false;
+				return COMMA;
+			} else if (index<length){
+				result = args[index];
+				comma = (index!=length-1);
+			} else {
+				result = RIGHT_BRACKET;
+			}
+			index++;
+			return result;
+		}		
+	}
+	
 
     /* Comparable */
     /** 

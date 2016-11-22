@@ -2609,7 +2609,7 @@ illarg(Msg, _, _) :- raise_exception(Msg).
 
 with_mutex(M,G):-
 	\+(atom(M)),
-	\+(java(M),
+	\+(java(M)),
 	!,
 	illarg(type(atom),with_mutex(M,G),1).
 with_mutex(M,G):-

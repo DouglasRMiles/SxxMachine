@@ -19,16 +19,22 @@ public class ClosureTerm extends Term {
     public Predicate getCode() { return code; }
 
     /* Term */
-    public boolean unify(Term t, Trail trail) {
-	//	t = t.dereference();
-	if (t.isVariable())
-	    return ((VariableTerm)t).unify(this, trail);
-	if (! t.isClosure())
-	    return false;
-	return code.equals(((ClosureTerm)t).code);
-    }
+	public boolean unify(Term t, Trail trail) {
+		// t = t.dereference();
+		if (t.isVariable())
+			return ((VariableTerm) t).unify(this, trail);
+		if (!t.isClosure())
+			return false;
+		return code.equals(((ClosureTerm) t).code);
+	}
 
+	@Override
     public String toQuotedString() { return toString(); }
+
+	@Override
+	public void toQuotedString(StringBuilder sb) {
+		toString(sb);		
+	}
 
     public String name() { return ""; }
 
@@ -54,8 +60,17 @@ public class ClosureTerm extends Term {
     }
 
     /** Returns a string representation of this <code>ClosureTerm</code>. */
+    @Override
     public String toString() {
-	return "closure[" + code.toString() + "]";
+    	return "closure[" + code.toString() + "]";
+    }
+
+    /** Adds a string representation of this <code>ClosureTerm</code> to given StringBuilder instance */
+    @Override
+    public void toString(StringBuilder sb) {
+    	sb.append("closure[");
+    	code.toString(sb);
+    	sb.append("]");
     }
 
     /* Comparable */

@@ -39,6 +39,7 @@ public class PrologLogger {
 	private boolean failure = false;
 	private boolean expectAfter = false;
 	private PrologLoggerFileHandler fileHandler = null;
+	private final StringBuilder stringBuilder = new StringBuilder(2048);
 
 	private static class StackNode {
 		Operation operation;
@@ -204,17 +205,24 @@ public class PrologLogger {
 		if (enabled ){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)){
-				logger.log(stackTop.level, stackTop.indent+" failure => "+engine.stack.top.bp);
+				stringBuilder.setLength(0);
+				stringBuilder.append(stackTop.indent).append("failure => ");
+				engine.stack.top.bp.toString(stringBuilder);
+				logger.log(stackTop.level, stringBuilder.toString());
 			}
 		}
 	}
-
 
 	void jtry(Operation p, Operation next, ChoicePointFrame entry) {
 		if (enabled){
 			entry.ownerPredicate = stackTop.operation; //currentOperation;
 			if (logger.isLoggable(stackTop.level)){
-				logger.log(stackTop.level, stackTop.indent+"try "+stackTop.operation+" => "+p);
+				stringBuilder.setLength(0);
+				stringBuilder.append(stackTop.indent).append("try ");
+				stackTop.operation.toString(stringBuilder);
+				stringBuilder.append(" => ");
+				p.toString(stringBuilder);
+				logger.log(stackTop.level, stringBuilder.toString());
 			}
 		}
 	}
@@ -223,7 +231,12 @@ public class PrologLogger {
 		if (enabled){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)) {
-				logger.log(stackTop.level, stackTop.indent+"retry "+engine.stack.top.ownerPredicate+" => "+p);
+				stringBuilder.setLength(0);
+				stringBuilder.append(stackTop.indent).append("retry ");
+				engine.stack.top.ownerPredicate.toString(stringBuilder);
+				stringBuilder.append(" => ");
+				p.toString(stringBuilder);
+				logger.log(stackTop.level, stringBuilder.toString());
 			}
 		}
 	}
@@ -232,7 +245,12 @@ public class PrologLogger {
 		if (enabled){
 			failure = true;
 			if (logger.isLoggable(stackTop.level)) {
-				logger.log(stackTop.level, stackTop.indent+"trust "+engine.stack.top.ownerPredicate+" => "+p);
+				stringBuilder.setLength(0);
+				stringBuilder.append(stackTop.indent).append("trust ");
+				engine.stack.top.ownerPredicate.toString(stringBuilder);
+				stringBuilder.append(" => ");
+				p.toString(stringBuilder);
+				logger.log(stackTop.level, stringBuilder.toString());
 			}
 		}
 	}
@@ -269,7 +287,10 @@ public class PrologLogger {
 			}
 			stackTop.level = level;
 			if (logger.isLoggable(level)){
-				logger.log(level, stackTop.indent+": "+code);
+				stringBuilder.setLength(0);
+				stringBuilder.append(stackTop.indent).append(": ");
+				code.toString(stringBuilder);
+				logger.log(level, stringBuilder.toString());
 			}
 		}
 	}
@@ -329,7 +350,10 @@ public class PrologLogger {
 				((PrologException)t).setPrologStackTrace(array);
 			}
 			if (logger.isLoggable(Level.FINE)) {
-				logger.log(Level.FINE, stackTop.operation+" throws exception ", t);
+				stringBuilder.setLength(0);
+				stackTop.operation.toString(stringBuilder);
+				stringBuilder.append(" throws exception ");
+				logger.log(Level.FINE, stringBuilder.toString(), t);
 			}
 		}
 		return t;

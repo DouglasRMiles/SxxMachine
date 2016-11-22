@@ -1,4 +1,8 @@
 package com.googlecode.prolog_cafe.lang;
+
+import java.util.Collections;
+import java.util.Iterator;
+
 /**
  * Variable.<br>
  * The <code>VariableTerm</code> class represents a logical variable.<br>
@@ -169,12 +173,36 @@ public class VariableTerm extends Term implements Undoable {
      * <code>val.toQuotedString()</code>
      * @see #val
      */
-    public final String toQuotedString() {
-	if (val != this)
-	    return val.toQuotedString();
-	return variableName();
+    @Override
+    public String toQuotedString() {
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			return variableName();
+		} else {
+			return t.toQuotedString();
+		}
     }
-
+    /**
+     * Adds a quoted string representation of this term if unbound.
+     * Otherwise, adds the value of dereferenced term:
+     * <code>val.toQuotedString(sb)</code>
+     * @see #val
+     */
+    @Override
+    public void toQuotedString(StringBuilder sb) {
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			sb.append(variableName());
+		} else {
+			t.toQuotedString(sb);
+		} 
+    }
     /* Object */
     /**
      * Checks <em>term equality</em> of two terms.
@@ -201,10 +229,51 @@ public class VariableTerm extends Term implements Undoable {
      * <code>val.toString()</code>
      * @see #val
      */
+    @Override
     public String toString() {
-	if (val != this)
-	    return val.toString();
-	return variableName();
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			return variableName();
+		} else {
+			return t.toString();
+		}
+    }
+    /**
+     * Adds a string representation of this term if unbound.
+     * Otherwise, adds the value of dereferenced term:
+     * <code>val.toString()</code>
+     * @see #val
+     */
+    @Override
+    public void toString(StringBuilder sb) {
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			sb.append(variableName());
+		} else {
+			t.toString(sb);
+		} 
+    }
+    
+    /**
+     * If unbound returns empty iterator, otherwise returns the value's iterator.
+     */
+    @Override
+    public Iterator<Term> iterator(){
+		Term t = this;
+		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
+			t = ((VariableTerm) t).val;
+		}
+		if (t instanceof VariableTerm) {
+			return Collections.emptyIterator();
+		} else {
+			return t.iterator();
+		}   	
     }
 
     /* Undoable */

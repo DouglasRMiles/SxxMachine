@@ -33,6 +33,13 @@ public abstract class Predicate extends Operation {
 
   @Override
   public String toString() {
+	  StringBuilder sb = new StringBuilder();
+	  toString(sb);
+	  return sb.toString();
+  }
+
+  @Override
+  public void toString(StringBuilder sb) {
 	Deque<Class> toScan = new ArrayDeque<Class>();
     Class clazz = getClass();
     while (clazz != Predicate.class) {
@@ -40,7 +47,6 @@ public abstract class Predicate extends Operation {
       clazz = clazz.getSuperclass();
     }
 
-    StringBuilder sb = new StringBuilder();
     sb.append(PredicateEncoder.decodeFunctor(getClass().getName()));
     boolean first = true;
     int i=1;
@@ -60,7 +66,7 @@ public abstract class Predicate extends Operation {
 					} else {
 						sb.append(", ");
 					}
-					sb.append(val);
+					val.toString(sb);
 					break;
 				}
 			} catch (Exception e) {
@@ -72,17 +78,17 @@ public abstract class Predicate extends Operation {
     if (!first){
     	sb.append(')');
     }
-    return sb.toString();
   }
 
   public static abstract class P1 extends Predicate {
     protected Term arg1;
 
     @Override
-    public String toString() {
-    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
-    	sb.append('(').append(arg1).append(')');
-    	return sb.toString();
+    public void toString(StringBuilder sb) {
+    	sb.append(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(');
+    	arg1.toString(sb);
+    	sb.append(')');
     }
   }
 
@@ -91,11 +97,13 @@ public abstract class Predicate extends Operation {
     protected Term arg2;
 
     @Override
-    public String toString() {
-    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
-    	sb.append('(').append(arg1).append(", ");
-    	sb.append(arg2).append(')');
-    	return sb.toString();
+    public void toString(StringBuilder sb) {
+    	sb.append(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(');
+    	arg1.toString(sb);
+    	sb.append(", ");
+    	arg2.toString(sb);
+    	sb.append(')');
     }
   }
 
@@ -105,12 +113,15 @@ public abstract class Predicate extends Operation {
     protected Term arg3;
 
     @Override
-    public String toString() {
-    	StringBuilder sb = new StringBuilder(PredicateEncoder.decodeFunctor(getClass().getName()));
-    	sb.append('(').append(arg1).append(", ");
-    	sb.append(arg2).append(", ");
-    	sb.append(arg3).append(')');
-    	return sb.toString();
+    public void toString(StringBuilder sb) {
+    	sb.append(PredicateEncoder.decodeFunctor(getClass().getName()));
+    	sb.append('(');
+    	arg1.toString(sb);
+    	sb.append(", ");
+    	arg2.toString(sb);
+    	sb.append(", ");
+    	arg3.toString(sb);
+    	sb.append(')');
     }
   }
 

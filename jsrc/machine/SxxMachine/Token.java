@@ -22,33 +22,33 @@ public class Token {
 	public static final int TOKEN_STRING = 'S';
 
     public static boolean isSolo(int c) {
-	return (c =='!' || c ==';');
+    	return (c =='!' || c ==';');
     }
 
     public static boolean isSymbol(int c) {
-	switch (c) {
-	case '+':
-	case '-':
-	case '*':
-	case '/':
-	case '\\':
-	case '^':
-	case '<':
-	case '>':
-	case '=':
-	case '`':
-	case '~':
-	case ':':
-	case '.':
-	case '?':
-	case '@':
-	case '#':
-	case '$':
-	case '&':
-	    return true;
-	default:
-	    return false;
-	}
+		switch (c) {
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+		case '\\':
+		case '^':
+		case '<':
+		case '>':
+		case '=':
+		case '`':
+		case '~':
+		case ':':
+		case '.':
+		case '?':
+		case '@':
+		case '#':
+		case '$':
+		case '&':
+		    return true;
+		default:
+		    return false;
+		}
     }
 
     /*
@@ -422,45 +422,82 @@ public class Token {
 	}
     }
 
-    public static String toQuotedString(String s) {
-	StringBuffer quoted = new StringBuffer(s.length() * 2);
-	char[] ch;
+	public static String toQuotedString(String s) {		
+		if ((getStringType(s) == 3)) {
+			StringBuilder quoted = new StringBuilder(s.length() * 2);
+			//char[] ch = s.toCharArray();
+			quoted.append("\'");
+			int len = s.length();
+			for (int i = 0; i < len; i++) {
+				char c = s.charAt(i);
+				if (c == '\'')
+					quoted.append("\\\'");
+				else if (c == '\\')
+					quoted.append("\\\\");
+				else if (c == 8) // backspace
+					quoted.append("\\b");
+				else if (c == 9) // horizontal tab
+					quoted.append("\\t");
+				else if (c == 10) // newline
+					quoted.append("\\n");
+				else if (c == 11) // vertical tab
+					quoted.append("\\v");
+				else if (c == 12) // form feed
+					quoted.append("\\f");
+				else if (c == 13) // carriage return
+					quoted.append("\\r");
+				else if (c == 27) // escape
+					quoted.append("\\e");
+				else if (c == 127) // delete
+					quoted.append("\\d");
+				else if (c == 7) // alarm
+					quoted.append("\\a");
+				else
+					quoted.append(c);
+			}
+			quoted.append("\'");
+			return quoted.toString();
+		} else {
+			return s;
+		}	
+	}		
 
-	ch = s.toCharArray();
-	if ((getStringType(s) == 3)){
-	    quoted.append("\'");
-	    for (int i=0; i<ch.length; i++) {
-		if (ch[i] == '\'')
-		    quoted.append("\\\'");
-		else if (ch[i] == '\\')
-		    quoted.append("\\\\");
-		else if (ch[i] == 8)  // backspace
-		    quoted.append("\\b");
-		else if (ch[i] == 9)  // horizontal tab
-		    quoted.append("\\t");
-		else if (ch[i] == 10) // newline
-		    quoted.append("\\n");
-		else if (ch[i] == 11) // vertical tab
-		    quoted.append("\\v");
-		else if (ch[i] == 12) // form feed
-		    quoted.append("\\f");
-		else if (ch[i] == 13) // carriage return
-		    quoted.append("\\r");
-		else if (ch[i] == 27) // escape
-		    quoted.append("\\e");
-		else if (ch[i] == 127) // delete
-		    quoted.append("\\d");
-		else if (ch[i] == 7) // alarm
-		    quoted.append("\\a");
-		else
-		    quoted.append(ch[i]);
-	    }
-	    quoted.append("\'");
-	    return quoted.toString();
-	} else {
-	    return s;
+	public static void toQuotedString(String s, StringBuilder quoted) {
+		if ((getStringType(s) == 3)) {
+			quoted.append("\'");
+			int len = s.length();
+			for (int i = 0; i < len; i++) {
+				char c = s.charAt(i);
+				if (c == '\'')
+					quoted.append("\\\'");
+				else if (c == '\\')
+					quoted.append("\\\\");
+				else if (c == 8) // backspace
+					quoted.append("\\b");
+				else if (c == 9) // horizontal tab
+					quoted.append("\\t");
+				else if (c == 10) // newline
+					quoted.append("\\n");
+				else if (c == 11) // vertical tab
+					quoted.append("\\v");
+				else if (c == 12) // form feed
+					quoted.append("\\f");
+				else if (c == 13) // carriage return
+					quoted.append("\\r");
+				else if (c == 27) // escape
+					quoted.append("\\e");
+				else if (c == 127) // delete
+					quoted.append("\\d");
+				else if (c == 7) // alarm
+					quoted.append("\\a");
+				else
+					quoted.append(c);
+			}
+			quoted.append("\'");
+		} else {
+			quoted.append(s);
+		}
 	}
-    }
 
 
     /*
@@ -470,30 +507,32 @@ public class Token {
      *   2 : if string is a solo
      *   3 : others
      */
-    public static int getStringType(String s) {
-	char[] p;
+	public static int getStringType(String s) {
 
-	if (s.equals("[]") || s.equals("{}"))
-	    return 0;
-	if (s.equals("")   || s.equals("."))
-	    return 3;
-	if (s.equals("!")  || s.equals(";"))
-	    return 2;
-	p = s.toCharArray(); // string --> chars[]
-	if (Character.isLowerCase(p[0])){
-	    for (int i=1; i<p.length; i++){
-		if (! Character.isLetterOrDigit(p[i]) && ((int)p[i]) != '_')
-		    return 3;
-	    }
-	    return 0;
+		if (s.equals("[]") || s.equals("{}"))
+			return 0;
+		if (s.equals("") || s.equals("."))
+			return 3;
+		if (s.equals("!") || s.equals(";"))
+			return 2;
+		char p = s.charAt(0);
+		int len = s.length();
+		if (Character.isLowerCase(p)) {
+			for (int i = 1; i < len; i++) {
+				p = s.charAt(i);
+				if (!Character.isLetterOrDigit(p) &&  p != '_')
+					return 3;
+			}
+			return 0;
+		}
+		if (isSymbol(s.charAt(0))) {
+			for (int i = 1; i < len; i++) {
+				p = s.charAt(i);
+				if (!isSymbol(p))
+					return 3;
+			}
+			return 1;
+		}
+		return 3;
 	}
-	if (isSymbol((int) p[0])){
-	    for (int i=1; i<p.length; i++){
-		if (! isSymbol((int) p[i]))
-		    return 3;
-	    }
-	    return 1;
-	}
-	return 3;
-    }
 }

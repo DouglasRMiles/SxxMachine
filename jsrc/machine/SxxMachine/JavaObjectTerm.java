@@ -40,8 +40,11 @@ public class JavaObjectTerm extends Term {
     public Class   getClazz() { return obj.getClass(); }
 
     public String name() { return ""; }
-
-    public String  toQuotedString() { return toString(); }
+    
+    @Override
+    public String toQuotedString() { return toString(); }
+    @Override
+    public void toQuotedString(StringBuilder sb) { toString(sb); }
 
     /* Term */
     public boolean unify(Term t, Trail trail) {
@@ -91,9 +94,19 @@ public class JavaObjectTerm extends Term {
     }
 
     /** Returns a string representation of this <code>JavaObjectTerm</code>. */
+    @Override
     public String toString() {
 		return obj.getClass().getName()
 	      + "(0x" + Integer.toHexString(hashCode()) + ")";
+    }
+    
+    /** Adds a string representation of this <code>JavaObjectTerm</code> to given StringBuilder instance. */
+    @Override
+    public void toString(StringBuilder sb) {
+		sb.append(obj.getClass().getName());
+	    sb.append("(0x"); 
+	    sb.append(Integer.toHexString(hashCode()));
+	    sb.append(")");
     }
 
     /* Comparable */

@@ -57,7 +57,20 @@ public class DoubleTerm extends NumberTerm {
 
     /* Object */
     /** Returns a string representation of this <code>DoubleTerm</code>. */
+    @Override // Overridden for performance
     public String toString() { return Double.toString(this.val); }
+    /** Returns a quated string representation of this <code>DoubleTerm</code>. */
+    @Override // Overridden for performance
+    public String toQuotedString() { return Double.toString(this.val); }
+
+    @Override
+    public void toString(StringBuilder sb){
+    	sb.append(this.val);
+    }
+    @Override
+    public void toQuotedString(StringBuilder sb){
+    	sb.append(this.val);
+    }
 
     /**
      * Checks <em>term equality</em> of two terms.

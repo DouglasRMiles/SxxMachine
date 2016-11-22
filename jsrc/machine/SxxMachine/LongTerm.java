@@ -305,11 +305,26 @@ public class LongTerm extends NumberTerm {
 		return Long.valueOf(value);
 	}
 
-	@Override
+	@Override // Overridden for performance
 	public String toString() {
 		return Long.toString(value);
 	}
 
+	@Override // Overridden for performance
+	public String toQuotedString() {
+		return Long.toString(value);
+	}
+
+    @Override
+    public void toString(StringBuilder sb){
+    	sb.append(this.value);
+    }
+
+    @Override
+    public void toQuotedString(StringBuilder sb){
+    	sb.append(this.value);
+    }
+	
     public boolean equals(Object obj) {
 	if (! (obj instanceof LongTerm))
 	    return false;

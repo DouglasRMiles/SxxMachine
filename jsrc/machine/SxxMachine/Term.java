@@ -1,4 +1,11 @@
 package com.googlecode.prolog_cafe.lang;
+
+import java.util.ArrayDeque;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * The superclass of classes for term structures.
  * The subclasses of <code>Term</code> must override
@@ -152,9 +159,6 @@ public abstract class Term implements Comparable<Term> {
 	return this;
     }
 
-    /** Returns a quoted string representation of this term. */
-    public String  toQuotedString() { return this.toString(); }
-
     /**
      * Check whether there is a widening conversion from <code>from</code> to <code>to</code>.
      */
@@ -216,4 +220,77 @@ public abstract class Term implements Comparable<Term> {
 	    obj instanceof JavaObjectTerm ||
 	    obj instanceof ClosureTerm;
     }
+    /** 
+     * <p>Returns Iterator over terms that make up this term. 
+     * Should return empty iterator if this term is not compound, 
+     * i.e SymbolTerm, NumberTerm, etc.
+     * <p>The method is used in non-recursive implementation of {@link #toString()}
+     *  */
+    public Iterator<Term> iterator() {
+    	return Collections.<Term>emptyIterator();
+    }
+    
+    /** Adds a string representation of this term to given StringBuilder instance. */
+    public abstract void toString(StringBuilder sb);
+
+    /** Adds a quoted string representation of this term to given StringBuilder instance. */    
+    public abstract void toQuotedString(StringBuilder sb);
+    
+    /** Returns a string representation of this term. */
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toString(sb);
+		}
+		return sb.toString();
+    }
+	
+	/** Returns a quoted string representation of this term. */
+	public String toQuotedString() {
+		StringBuilder sb = new StringBuilder();
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toQuotedString(sb);
+		}
+		return sb.toString();
+    }
+	
+	/**
+	 * Iterator over all terms that make up this term. 
+	 * Uses DFS to iterate over terms tree. 
+	 */
+	public static class TermTreeIterator implements Iterator<Term> {
+		private final Deque<Iterator<Term>> stack = new ArrayDeque<Iterator<Term>>();
+		public TermTreeIterator(Term start){
+			stack.push(Collections.singleton(start).iterator());
+		}
+		
+		@Override
+		public boolean hasNext() {
+			while (!stack.isEmpty() && !stack.peek().hasNext()){
+    			stack.pop();
+			}
+			return !stack.isEmpty();
+		}
+
+		@Override
+		public Term next() {
+	    	while (!stack.isEmpty()){
+	    		Iterator<Term> i = stack.peek();
+	    		if (i.hasNext()){
+	    			Term t = i.next();
+	    			Iterator<Term> it = t.iterator();
+	    			if (it.hasNext()){
+	    				stack.push(it);
+	    			} else {
+	    				return t;
+	    			}    			
+	    		} else {
+	    			stack.pop();
+	    		}    	
+	    	}
+	    	throw new NoSuchElementException();
+		}
+	}
 }

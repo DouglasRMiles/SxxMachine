@@ -562,6 +562,9 @@ write_label(F/A, Out) :- !,
 	% constructor
 	nl(Out),
 	write_constructor(F/A, Out), nl(Out),
+	% toString method
+	nl(Out),
+	write_to_string(F/A, Out), nl(Out),	
 	% exec method
 	nl(Out),
 	tab(Out, 4), write(Out, '@Override'), nl(Out),
@@ -977,6 +980,23 @@ write_insert([X|Xs], _, Out) :-
 	atom(X),
 	write(Out, X), nl(Out),
 	write_insert(Xs, _, Out).
+
+/*****************************************************************
+  Write toString(StringBuilder sb)
+*****************************************************************/
+write_to_string(F/A, Out):-
+	tab(Out, 4), write(Out, '@Override'), nl(Out),
+	tab(Out, 4), write(Out, 'public void toString(StringBuilder sb) {'), nl(Out),
+	predicate_encoding(F, F1),
+	tab(Out, 8), write(Out, 'sb.append("'), write(Out, F1),
+	( A>0 -> 
+		write(Out, '(");'), nl(Out),
+		write_enum('','arg',1,A,'.toString(sb); sb.append(", "); ','.toString(sb);',8,Out), nl(Out),
+		tab(Out, 8), write(Out, 'sb.append(")");'), nl(Out)
+		;
+		write(Out, '");'), nl(Out)
+	),
+	tab(Out, 4), write(Out, '}'), nl(Out).
 
 /*****************************************************************
   Auxiliaries

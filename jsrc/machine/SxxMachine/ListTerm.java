@@ -2,7 +2,11 @@ package com.googlecode.prolog_cafe.lang;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
 /**
  * List.<br>
  * The class <code>ListTerm</code> represents a list structure.<br>
@@ -179,23 +183,11 @@ public class ListTerm extends Term {
 		return vec;	
     }
 
-    public String toQuotedString() {
-    	Term x = this;
-    	StringBuilder sb = new StringBuilder("[");
-    	
-    	while(true){
-    		sb.append(((ListTerm)x).car.dereference().toQuotedString());
-    		x  = ((ListTerm)x).cdr.dereference();
-    		if (!x.isList()){
-    			break;
-    		}
-    		sb.append(',');
-    	}
-    	if (! x.isNil()){
-    		sb.append('|').append(x.toQuotedString());
-    	}
-    	sb.append(']');
-    	return sb.toString();    		
+    public void toQuotedString(StringBuilder sb){
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toQuotedString(sb);
+		}
     }
 
     /* Object */
@@ -224,24 +216,77 @@ public class ListTerm extends Term {
 	return h;
     }
 
-    /** Returns a string representation of this <code>ListTerm</code>. */
-    public String toString() {
-    	Term x = this;
-    	StringBuilder sb = new StringBuilder("[");
+    /** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
+     * Non recursive implementation */
+    public void toString(StringBuilder sb){
+		TermTreeIterator it = new TermTreeIterator(this);
+		while(it.hasNext()){
+			it.next().toString(sb);
+		}
+    }
+
+    @Override
+    public Iterator<Term> iterator() {
+    	return new ListTermIterator(this);
+    }
+    
+    /**
+     * Iterator over terms that make up this ListTerm.
+     */
+    private static class ListTermIterator implements Iterator<Term> {    	
+    	private static final SymbolTerm LEFT_BRACKET = SymbolTerm.intern("[");
+		private static final SymbolTerm SEPARATOR = SymbolTerm.intern("|");
+		private static final SymbolTerm RIGHT_BRACKET = SymbolTerm.intern("]");
+		private static final SymbolTerm COMMA = SymbolTerm.intern(",");
+		
+		
+		private Term current;
+    	private int index = 0; 
+    	private Term[] tail = null;
+    	private boolean comma = false;
+    	private boolean first = true;
     	
-    	while(true){
-    		sb.append(((ListTerm)x).car.dereference().toString());
-    		x  = ((ListTerm)x).cdr.dereference();
-    		if (!x.isList()){
-    			break;
-    		}
-    		sb.append(',');
-    	}
-    	if (! x.isNil()){
-    		sb.append('|').append(x.toString());
-    	}
-    	sb.append(']');
-    	return sb.toString();
+    	
+		public ListTermIterator(Term start) {
+			this.current = start;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return current!=null && (tail==null || index<tail.length);
+		}
+
+		@Override
+		public Term next() {
+			Term result;
+			if (first) {
+				first = false;
+				return LEFT_BRACKET;
+			} else if (comma){
+				comma = false;
+				return COMMA;
+			} else if (current instanceof ListTerm) {
+				result = ((ListTerm)current).car;
+				current = ((ListTerm)current).cdr.dereference();
+				comma = (current instanceof ListTerm);
+			} else if (current.isNil()){
+				result = RIGHT_BRACKET;
+				current = null;
+			} else if (tail==null){
+				tail = new Term[]{
+					current,
+					RIGHT_BRACKET
+				};
+				result = SEPARATOR;
+				index = 0;
+			} else if (index<tail.length){
+				result = tail[index];
+				index++;
+			} else {
+				throw new NoSuchElementException();
+			}
+			return result;
+		}
     }
 
     /* Comparable */

@@ -332,10 +332,21 @@ public abstract class SymbolTerm extends Term {
      */
     public Object toJava() { return name(); }
 
+    @Override // Overridden for performance
     public String toQuotedString() { return Token.toQuotedString(name()); }
 
     /** Returns a string representation of this <code>SymbolTerm</code>. */
+    @Override // Overridden for performance
     public String toString() { return name(); }
+
+    @Override
+    public void toString(StringBuilder sb){
+    	sb.append(name());
+    }
+    @Override
+    public void toQuotedString(StringBuilder sb){
+    	Token.toQuotedString(name(), sb);
+    }
 
     /* Comparable */
     /**

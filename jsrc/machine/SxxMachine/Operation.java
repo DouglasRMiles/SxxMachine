@@ -19,4 +19,13 @@ public abstract class Operation {
    * @see Prolog
    */
   public abstract Operation exec(Prolog engine) throws PrologException;
+
+  /**
+   * Default implementation, should be overridden in descendants
+   * @param sb
+   */
+  public void toString(StringBuilder sb){
+	  sb.append(toString());
+  }
+  
 }
