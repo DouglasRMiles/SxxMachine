@@ -14,7 +14,7 @@ package com.googlecode.prolog_cafe.lang;
  */
 public class IntegerTerm extends NumberTerm {
     /** Holds an <code>int</code> value that this <code>IntegerTerm</code> represents. */
-    protected int val;
+    protected final int val;
 
     /** Constructs a new Prolog integer that represents the specified <code>int</code> value. */
     public IntegerTerm(int i) {	val = i; }

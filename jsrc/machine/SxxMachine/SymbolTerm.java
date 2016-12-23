@@ -373,4 +373,9 @@ public abstract class SymbolTerm extends Term {
 	    return y;
 //		throw new InternalException("SymbolTerm is not unique");
     }
+
+    @Override
+    public final boolean isImmutable() {
+    	return true;
+    }
 }

@@ -301,4 +301,9 @@ public class VariableTerm extends Term implements Undoable {
 	    return x;
 	throw new InternalException("VariableTerm is not unique");
     }
+
+	@Override
+	public final boolean isImmutable() {
+		return false;
+	}
 }

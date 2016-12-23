@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class ClosureTerm extends Term {
     /** Holds a <code>Predicate</code> object that represents a Prolog goal. */
-    protected Predicate code;
+    protected final Predicate code;
 
     /** Constructs a new closure structure for the given Prolog goal. */
     public ClosureTerm(Predicate _code) { code = _code; }
@@ -90,4 +90,9 @@ public class ClosureTerm extends Term {
 	    return EQUAL;
 	return code.hashCode() - ((ClosureTerm) anotherTerm).code.hashCode(); //???
     }
+
+	@Override
+	public final boolean isImmutable() {
+		return true;
+	}
 }

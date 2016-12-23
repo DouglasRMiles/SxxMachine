@@ -11,7 +11,7 @@ import com.googlecode.prolog_cafe.lang.VariableTerm;
 
 public class LongTerm extends NumberTerm {
 
-	protected long value;
+	protected final long value;
 
 	public LongTerm(long value) {
 		this.value = value;

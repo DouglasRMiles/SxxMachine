@@ -15,7 +15,7 @@ package com.googlecode.prolog_cafe.lang;
 */
 public class DoubleTerm extends NumberTerm {
     /** Holds a <code>double</code> value that this <code>DoubleTerm</code> represents. */
-    protected double val;
+    protected final double val;
 
     /**
      * Constructs a new Prolog floating point number 

@@ -31,6 +31,11 @@ public abstract class Term implements Comparable<Term> {
      * @return <code>true</code> if succeeds, otherwise <code>false</code>.
      */
     abstract public boolean unify(Term t, Trail trail);
+    /** 
+     * 
+     * @return true if this term is immutable, i.e. can not be changed
+     */
+    public abstract boolean isImmutable();
 
     /**
      * Check whether this term is a logical variable.

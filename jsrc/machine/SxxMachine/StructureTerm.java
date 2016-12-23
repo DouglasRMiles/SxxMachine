@@ -32,6 +32,8 @@ public class StructureTerm extends Term {
     /** Holds the argument terms of this <code>StructureTerm</code>. */
     private final Term[] args;
 
+    private final boolean immutable;
+
     /**
      * Constructs a new Prolog compound term
      * such that <code>name</code> is the functor symbol, and
@@ -51,6 +53,11 @@ public class StructureTerm extends Term {
 			throw new InternalException("Invalid argument length in StructureTerm");
 		functor = _functor;
 		args = _args;
+		int i=args.length-1;
+		while(i>=0 && args[i].isImmutable()){
+			i--;
+		}
+		immutable = i<0;
 	}
 
     /** Returns the functor symbol of this <code>StructureTerm</code>.
@@ -103,12 +110,20 @@ public class StructureTerm extends Term {
 	}
 
 	protected Term copy(Prolog engine) {
+		if (immutable){
+			return this;
+		}
 		Term[] a = new Term[args.length];
 		int len = args.length;
 		for (int i = 0; i < len; i++) {
 			a[i] = args[i].copy(engine);
 		}
 		return new StructureTerm(functor, a);
+	}
+
+	@Override
+	public final boolean isImmutable(){
+		return immutable;
 	}
 
     public final boolean isGround() {

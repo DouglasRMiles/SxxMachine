@@ -132,4 +132,9 @@ public class JavaObjectTerm extends Term {
 		    return EQUAL;
 		return obj.hashCode() - ((JavaObjectTerm) anotherTerm).obj.hashCode(); //???
     }
+
+	@Override
+	public final boolean isImmutable() {
+		return true; // FIXME this.obj is not final
+	}
 }

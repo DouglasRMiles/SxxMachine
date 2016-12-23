@@ -1,16 +1,22 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Formatter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 /**
  * <p>Logs executed predicates and their arguments to {@link Logger} instance specified by {@link Prolog#LOGGER_NAME}.
@@ -40,6 +46,9 @@ public class PrologLogger {
 	private boolean expectAfter = false;
 	private PrologLoggerFileHandler fileHandler = null;
 	private final StringBuilder stringBuilder = new StringBuilder(2048);
+	private final Map<String, Long> timings;
+	private final Map<String, Long> counters;
+	private long start;
 
 	private static class StackNode {
 		Operation operation;
@@ -142,6 +151,14 @@ public class PrologLogger {
 		setLogFile(System.getProperty(logger.getName()+".file"));
 		String enabledProperty = System.getProperty(logger.getName()+".enabled");
 		setEnabled(logger.isLoggable(Level.FINE) || enabledProperty==null || "true".equals(enabledProperty));
+		if (System.getProperty(logger.getName()+".timingsFile")!=null){
+			timings = new HashMap<String, Long>(); // TODO handle concurrency
+			counters = new HashMap<String, Long>();
+		} else {
+			timings = null;
+			counters = null;
+		}
+		
 	}
 
 	public boolean isEnabled() {
@@ -292,6 +309,7 @@ public class PrologLogger {
 				code.toString(stringBuilder);
 				logger.log(level, stringBuilder.toString());
 			}
+			start = System.currentTimeMillis();
 		}
 	}
 
@@ -299,6 +317,12 @@ public class PrologLogger {
 	void afterExec(Operation code, Operation next) {
 		// if it was enabled since beforeExec() avoid doing anything before reset() call in beforeExec()
 		if (enabled){
+			if (timings!=null){
+				long finish = System.currentTimeMillis();
+				String key = code.getClass().getName();
+				counters.put(key, counters.getOrDefault(key, 0L)+1);
+				timings.put(key, timings.getOrDefault(key, 0L)+(finish-start));		
+			}
 //			if (!logger.isLoggable(Level.FINE)){// it was disabled since beforeExec()
 //				logger.info("log level set to CONFIG or above");
 //				enabled = false;
@@ -365,4 +389,57 @@ public class PrologLogger {
 			Logger.getLogger("").log(Level.SEVERE, "", err);
 		}
 	}
+	
+	public void dumpTimings() {
+		String filename = System.getProperty(logger.getName()+".timingsFile");
+		if (timings==null || filename==null){
+			return;
+		}
+    	@SuppressWarnings("unchecked")
+		Map.Entry<String, Long>[] a = new Map.Entry[timings.size()];
+    	int i = 0;
+    	int maxWidth = 0;
+    	for (Map.Entry<String, Long> me: timings.entrySet()){
+    		a[i] = me;
+    		if (maxWidth<me.getKey().length()){
+    			maxWidth = me.getKey().length();
+    		}
+    		i++;
+    	}
+    	Arrays.sort(a, new Comparator<Map.Entry<String, Long>>() {
+			@Override
+			public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
+				return o1.getValue().compareTo(o2.getValue());
+			}
+		});
+    	try {
+			PrintStream printStream = new PrintStream(new FileOutputStream(filename, true), true, "UTF-8");
+			try {
+				printStream.println("Predicates execute statistics "+new Date()+":");
+				printStream.format("%"+maxWidth+"s | Time, ms | Count %n", "Predicate");
+				String format = "%-"+maxWidth+"s | %8d | %8d%n";
+				for (Map.Entry<String, Long> me: a){
+					printStream.format(format, me.getKey(), me.getValue(), counters.get(me.getKey()));
+				}
+				printStream.println();
+			} catch (Exception e) {
+				logger.log(Level.SEVERE, "Failed to write to "+filename, e);
+			} finally {
+				printStream.close();
+				if (printStream.checkError()){
+					logger.log(Level.SEVERE, "Failed to write to "+filename);
+				}
+			}			
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, "Failed to open "+filename, e);
+		}
+	}
+	
+	public void clearTimeings() {
+		if (timings!=null){
+			timings.clear();
+			counters.clear();
+		}
+	}
+	
 }

@@ -41,14 +41,16 @@ public class ListTerm extends Term {
     /** A functor <code>'.' /2</code>. */
     protected static final SymbolTerm SYM_DOT = SymbolTerm.intern(".", 2);
 
+    private final boolean immutable;
+
     /** Holds the first element of this <code>ListTerm</code>. */
-    private Term car;
+    private final Term car;
 
     /**
      * Holds the list consisting of all the rest of the elements of 
      * this <code>ListTerm</code> but the first one.
      */
-    private Term cdr;
+    private final Term cdr;
 
     /**
      * Constructs a new Prolog list structure
@@ -57,8 +59,11 @@ public class ListTerm extends Term {
      * elements of this list but the first one.
      */
     public ListTerm(Term _car, Term _cdr) { 
-		car = _car;
-		cdr = _cdr; 
+		// TODO assert _car!=null;
+    	// TODO assert _cdr!=null;
+    	car = _car;
+		cdr = _cdr;
+		immutable = car.isImmutable() && cdr.isImmutable();
     }
 
     /** Returns the value of <code>car</code>.
@@ -70,16 +75,6 @@ public class ListTerm extends Term {
      * @see #cdr
      */
     public final Term cdr() { return cdr; }
-
-    /** Sets the value to <code>car</code>.
-     * @see #car
-     */
-    public final void setCar(Term t) { car = t; }
-
-    /** Sets the value to <code>cdr</code>.
-     * @see #cdr
-     */
-    public final void setCdr(Term t) { cdr = t; }
 
     /* Term */
     public final boolean unify(Term t, Trail trail) {
@@ -116,19 +111,22 @@ public class ListTerm extends Term {
     }
 
     protected Term copy(Prolog engine) { 
-    	ListTerm c = new ListTerm(null, null), r = c;
+    	if (immutable){
+    		return this;
+    	}
+    	Deque<ListTerm> stack = new ArrayDeque<ListTerm>();
     	Term p = this;
-    	while (p instanceof ListTerm) {
-    		ListTerm lt = (ListTerm) p;    		
-    		ListTerm x = new ListTerm(lt.car.copy(engine), null);
-    		c.cdr = x;
-    		c = x;
+    	while (p instanceof ListTerm){
+    		ListTerm lt = (ListTerm) p;
+    		stack.push(lt);
     		p = lt.cdr.dereference();
     	}
-    	if (p!=null){
-    		c.cdr = p.copy(engine);
+    	p = p.copy(engine);
+    	while (!stack.isEmpty()){
+    		ListTerm lt = stack.pop();
+			p = new ListTerm(lt.car.copy(engine), p);
     	}
-    	return r.cdr;
+    	return p;
     }
 
     public boolean isGround() {
@@ -329,4 +327,9 @@ public class ListTerm extends Term {
 	}
 	return EQUAL;
     }
+
+	@Override
+	public final boolean isImmutable() {
+		return immutable;
+	}
 }

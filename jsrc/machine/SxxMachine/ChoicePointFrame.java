@@ -49,7 +49,7 @@ class ChoicePointFrame {
         this.areg1 = engine.areg1;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
       }
@@ -64,7 +64,7 @@ class ChoicePointFrame {
         this.areg2 = engine.areg2;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -81,7 +81,7 @@ class ChoicePointFrame {
         this.areg3 = engine.areg3;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -100,7 +100,7 @@ class ChoicePointFrame {
         this.areg4 = engine.areg4;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -121,7 +121,7 @@ class ChoicePointFrame {
         this.areg5 = engine.areg5;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -144,7 +144,7 @@ class ChoicePointFrame {
         this.areg6 = engine.areg6;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -169,7 +169,7 @@ class ChoicePointFrame {
         this.areg7 = engine.areg7;
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         engine.cont = this.cont;
         engine.areg1 = this.areg1;
         engine.areg2 = this.areg2;
@@ -218,7 +218,7 @@ class ChoicePointFrame {
         System.arraycopy(engine.aregs, 0, aregs, 0, aregs.length);
       }
 
-      void restore(Prolog engine) {
+      final void restore(Prolog engine) {
         System.arraycopy(aregs, 0, engine.aregs, 0, aregs.length);
         super.restore(engine);
       }

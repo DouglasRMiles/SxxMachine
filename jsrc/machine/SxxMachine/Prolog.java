@@ -13,6 +13,7 @@ import java.io.Writer;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 /**
@@ -298,8 +299,12 @@ public final class Prolog {
      * @param t a term to be copied. It must be dereferenced.
      */
     public Term copy(Term t) {
-	copyHash.clear();
-	return t.copy(this);
+    	if (t.isImmutable()){
+    		return t;
+    	} else {
+    		copyHash.clear();
+    		return t.copy(this);
+    	}
     }
 
     /**

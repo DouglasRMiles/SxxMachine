@@ -100,4 +100,9 @@ public abstract class NumberTerm extends Term {
     abstract public NumberTerm truncate();
     /** Returns a <code>NumberTerm</code> whose value is <code>(this ^ t)</code>. */
     abstract public NumberTerm xor(NumberTerm t);
+
+    @Override
+    public final boolean isImmutable() {
+    	return true;
+    }
 }

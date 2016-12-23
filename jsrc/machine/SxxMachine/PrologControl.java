@@ -181,6 +181,7 @@ public abstract class PrologControl {
       } finally {
         this.code = code;
         SymbolTerm.gc();
+        engine.logger.dumpTimings();
       }
     }
 
