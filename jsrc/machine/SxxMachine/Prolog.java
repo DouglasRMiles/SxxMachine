@@ -95,8 +95,8 @@ public final class Prolog {
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     protected long previousRuntime;
 
-    /** Hashtable for creating a copy of term. */
-    protected final IdentityHashMap<VariableTerm,VariableTerm> copyHash;
+//    /** Hashtable for creating a copy of term. */
+//    protected IdentityHashMap<VariableTerm,VariableTerm> copyHash;
 
     /** The size of the pushback buffer used for creating input streams. */
     public static final int PUSHBACK_SIZE = 256;
@@ -179,7 +179,7 @@ public final class Prolog {
       control = c;
       trail = new Trail();
       stack = new ChoicePointStack(trail);
-      copyHash = new IdentityHashMap<VariableTerm, VariableTerm>();
+//      copyHash = new IdentityHashMap<VariableTerm, VariableTerm>();
       hashManager = new HashtableOfTerm();
     }
 
@@ -188,13 +188,13 @@ public final class Prolog {
       control = c;
       trail = new Trail();
       stack = new ChoicePointStack(trail);
-      copyHash = new IdentityHashMap<VariableTerm, VariableTerm>();
+//      copyHash = new IdentityHashMap<VariableTerm, VariableTerm>();
       pcl = pmc.pcl;
 
       // During restore there is no need to copy terms. clause/2 inside of
       // builtins.pl copies the predicate when it reads from internalDB.
       hashManager = PrologMachineCopy.copyShallow(pmc.hashManager);
-      internalDB = new InternalDatabase(this, pmc.internalDB, false);
+      internalDB = new InternalDatabase(pmc.internalDB, false, new IdentityHashMap<VariableTerm, VariableTerm>());
     }
 
     /**
@@ -302,8 +302,9 @@ public final class Prolog {
     	if (t.isImmutable()){
     		return t;
     	} else {
-    		copyHash.clear();
-    		return t.copy(this);
+    		//copyHash.clear();
+//    		copyHash = new IdentityHashMap<VariableTerm, VariableTerm>();
+    		return t.copy(new IdentityHashMap<VariableTerm, VariableTerm>());
     	}
     }
 

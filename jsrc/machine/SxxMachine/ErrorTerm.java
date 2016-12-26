@@ -1,4 +1,8 @@
 package com.googlecode.prolog_cafe.lang;
+
+import java.util.IdentityHashMap;
+import java.util.Map;
+
 /**
  * A term to represent errors, extends {@link StructureTerm}, 
  * additionally holds reference to {@link Throwable}, which this term represents.
@@ -24,10 +28,10 @@ public class ErrorTerm extends StructureTerm {
 	}	
 	
 	@Override
-	protected Term copy(Prolog engine) {
+	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
 		Term[] a = new Term[arity()];
 		for (int i = 0; i < a.length; i++){
-			a[i] = arg(i).copy(engine);
+			a[i] = arg(i).copy(copyHash);
 		}
 		return new ErrorTerm(error, functor(), a);
 	}

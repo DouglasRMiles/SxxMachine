@@ -1,7 +1,9 @@
 package com.googlecode.prolog_cafe.lang;
 
 import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Variable.<br>
@@ -116,20 +118,20 @@ public class VariableTerm extends Term implements Undoable {
      * Otherwise, returns the value of <code>val.copy(engine)</code>.
      * @see #val
      */
-	protected Term copy(Prolog engine) {
+	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
 		Term t = this;
 		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
 			t = ((VariableTerm) t).val;
 		}
 		if (t instanceof VariableTerm) {
-			VariableTerm co = engine.copyHash.get(t);
+			VariableTerm co = copyHash.get(t);
 			if (co == null) {
 				co = new VariableTerm();
-				engine.copyHash.put((VariableTerm) t, co);
+				copyHash.put((VariableTerm) t, co);
 			}
 			return co;
 		} else {
-			return t.copy(engine);
+			return t.copy(copyHash);
 		}
 	}
 

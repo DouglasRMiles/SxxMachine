@@ -1,5 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
+import java.util.IdentityHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 /**
  * Internal database for dynamic predicates.<br>
  *
@@ -36,7 +38,7 @@ public class InternalDatabase {
 	top = -1;
     }
 
-    InternalDatabase(Prolog engine, InternalDatabase src, boolean deepCopy) {
+    InternalDatabase(InternalDatabase src, boolean deepCopy, IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
       maxContents = src.maxContents;
       buffer = new Term[src.buffer.length];
       reusableIndices = new LinkedList<Integer>(src.reusableIndices);
@@ -46,7 +48,7 @@ public class InternalDatabase {
         for (int i = 0; i <= top; i++) {
           Term s = src.buffer[i];
           if (s != null) {
-            buffer[i] = s.copy(engine);
+            buffer[i] = s.copy(copyHash);
           }
         }
       } else if (0 <= top) {

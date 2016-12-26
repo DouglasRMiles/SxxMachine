@@ -1,6 +1,8 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
 
@@ -109,14 +111,14 @@ public class StructureTerm extends Term {
 		return false;
 	}
 
-	protected Term copy(Prolog engine) {
+	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
 		if (immutable){
 			return this;
 		}
 		Term[] a = new Term[args.length];
 		int len = args.length;
 		for (int i = 0; i < len; i++) {
-			a[i] = args[i].copy(engine);
+			a[i] = args[i].copy(copyHash);
 		}
 		return new StructureTerm(functor, a);
 	}

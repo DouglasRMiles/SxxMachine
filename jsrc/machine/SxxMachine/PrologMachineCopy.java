@@ -1,5 +1,6 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.util.IdentityHashMap;
 import java.util.Map;
 
 /**
@@ -46,29 +47,29 @@ public class PrologMachineCopy {
     // modified again later.
     //
     // During restore terms are not copied.
-    try {
-      engine.copyHash.clear();
-
-      hashManager = copyDeep(engine, engine.hashManager);
-      internalDB = new InternalDatabase(engine, engine.internalDB, true);
-    } finally {
-      engine.copyHash.clear();
-    }
+//    try {
+//      engine.copyHash.clear();
+      IdentityHashMap<VariableTerm,VariableTerm> copyHash = new IdentityHashMap<VariableTerm, VariableTerm>(); 
+      hashManager = copyDeep(engine.hashManager, copyHash);
+      internalDB = new InternalDatabase(engine.internalDB, true, copyHash);
+//    } finally {
+//      engine.copyHash.clear();
+//    }
   }
 
-  private static HashtableOfTerm copyDeep(Prolog engine, HashtableOfTerm src) {
+  private static HashtableOfTerm copyDeep(HashtableOfTerm src, IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
     HashtableOfTerm hm = new HashtableOfTerm();
     for (Map.Entry<Term, Term> e : src.entrySet()) {
-      Term val = e.getValue().copy(engine);
+      Term val = e.getValue().copy(copyHash);
 
       if (val.isJavaObject()) {
         JavaObjectTerm o = (JavaObjectTerm) val;
         if (o.obj instanceof HashtableOfTerm) {
-          val = new JavaObjectTerm(copyDeep(engine, (HashtableOfTerm) o.obj));
+          val = new JavaObjectTerm(copyDeep((HashtableOfTerm) o.obj, copyHash));
         }
       }
 
-      hm.put(e.getKey().copy(engine), val);
+      hm.put(e.getKey().copy(copyHash), val);
     }
     return hm;
   }

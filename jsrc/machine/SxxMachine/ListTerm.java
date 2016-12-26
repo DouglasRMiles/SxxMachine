@@ -2,8 +2,10 @@ package com.googlecode.prolog_cafe.lang;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
@@ -110,21 +112,21 @@ public class ListTerm extends Term {
     	return convertible(List.class, type); 
     }
 
-    protected Term copy(Prolog engine) { 
+    protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) { 
     	if (immutable){
     		return this;
     	}
     	Deque<ListTerm> stack = new ArrayDeque<ListTerm>();
     	Term p = this;
-    	while (p instanceof ListTerm){
+    	while (p instanceof ListTerm && !((ListTerm)p).immutable){
     		ListTerm lt = (ListTerm) p;
     		stack.push(lt);
     		p = lt.cdr.dereference();
     	}
-    	p = p.copy(engine);
+    	p = p.copy(copyHash);
     	while (!stack.isEmpty()){
     		ListTerm lt = stack.pop();
-			p = new ListTerm(lt.car.copy(engine), p);
+			p = new ListTerm(lt.car.copy(copyHash), p);
     	}
     	return p;
     }

@@ -3,7 +3,9 @@ package com.googlecode.prolog_cafe.lang;
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Deque;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
@@ -142,7 +144,7 @@ public abstract class Term implements Comparable<Term> {
     public boolean convertible(Class type) { return convertible(getClass(), type); }
 
     /** Returns a copy of this object. */
-    protected Term copy(Prolog engine) { return this; }
+    protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) { return this; }
 
     /** Returns the dereference value of this term. */
     public Term    dereference() { return this; }
