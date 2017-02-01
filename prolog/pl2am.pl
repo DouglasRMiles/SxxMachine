@@ -165,7 +165,8 @@ Notation
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
-:- dynamic dynamic_predicates/2.
+:- dynamic dynamic_predicates/3.
+:- dynamic database_call/1
 :- dynamic compiler_constant/2.
 :- dynamic meta_predicates/3.
 :- dynamic package_name/1.
@@ -235,7 +236,8 @@ read_clause_(_, _):-
 pl2am_preread(File, Opts) :-
 	retractall(internal_clause(_,_)),
 	retractall(internal_predicates(_,_)),
-	retractall(dynamic_predicates(_,_)),
+	retractall(dynamic_predicates(_,_,_)),
+	retractall(database_call(_)),
 	retractall(compiler_constant(_,_)),
 	retractall(meta_predicates(_,_,_)),
 	retractall(package_name(_)),
@@ -250,6 +252,7 @@ pl2am_preread(File, Opts) :-
 	retractall(skip_code),
 	retractall(ifdef_flag),
 	retractall(domain_definition(_, _)),
+	assert(database_call(call)),
 	assert_file_name(File),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -531,10 +534,11 @@ assert_dynamic(G) :-
 	fail.
 assert_dynamic(G) :-
 	G = F/A,
-	clause(dynamic_predicates(F,A), _), !.
+	clause(dynamic_predicates(F,A,_), _), !.
 assert_dynamic(G) :-
 	G = F/A,
-	assert(dynamic_predicates(F,A)), !.
+	clause(database_call(Call),_),
+	assert(dynamic_predicates(F,A,Call)), !.
 assert_dynamic(G) :-
 	pl2am_error([G,is,an,invalid,dynamic,declaration]),
 	fail.
@@ -684,7 +688,7 @@ compile_all_predicates(Out) :- % output declarations (ex. op/3)
 	writeq(Out, (:- G)), write(Out, '.'), nl(Out),
 	fail.
 compile_all_predicates(_) :-   % treat dynamic declaration
-	findall(Functor/Arity, dynamic_predicates(Functor, Arity), PredSpecs),
+	findall(Functor/Arity, dynamic_predicates(Functor, Arity, call), PredSpecs),
 	assert_init_clauses(PredSpecs),
 	fail.
 compile_all_predicates(Out) :- % compile predicate
@@ -1221,7 +1225,7 @@ pretreat_body0(halt, _)  --> !, [halt].
 pretreat_body0(abort, _) --> !, [abort].
 pretreat_body0((G1,G2), Cut) --> !, pretreat_body0(G1, Cut), pretreat_body0(G2, Cut).
 pretreat_body0(G, _) --> pretreat_builtin(G), !.
-pretreat_body0(G, _) --> {functor(G, F, A), clause(dynamic_predicates(F, A), _)}, !, [call(G)].
+pretreat_body0(G, _) --> {functor(G, F, A), clause(dynamic_predicates(F, A, Call), _), CG=..[Call,G]}, !, [CG].
 pretreat_body0(G, _) --> [G].
 
 %%% rename builtins
@@ -1456,7 +1460,7 @@ get_closure(G, P, P:G) :-  % ???
 	atom(P),
 	callable(G),
 	functor(G, F, A),
-	\+ clause(dynamic_predicates(F,A), _),
+	\+ clause(dynamic_predicates(F,A,_), _),
 	!.
 
 %%% Optimize Recursive Call

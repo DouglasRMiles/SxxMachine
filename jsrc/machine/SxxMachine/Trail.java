@@ -31,13 +31,20 @@ public final class Trail {
 	this(2048);
     }
 
-    /** Constructs a new trail stack with the given size. */
-    public Trail(int n) {
+    /** Constructs a new trail stack with the given page size. */
+    public Trail(int pageSize) {
     	buffersList = new ArrayDeque<Undoable[]>(1000);
-    	buffer = new Undoable[n];
+    	buffer = new Undoable[pageSize];
     	top = -1;
     }
 
+    /** Constructs a new trail stack with the given page size and initial number of pages. */
+    public Trail(int pageSize, int pages) {
+    	buffersList = new ArrayDeque<Undoable[]>(pages);
+    	buffer = new Undoable[pageSize];
+    	top = -1;
+    }
+    
     /** Discards all entries. */
     public void init() { deleteAll(); }
 
