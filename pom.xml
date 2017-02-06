@@ -168,4 +168,13 @@
       <uniqueVersion>true</uniqueVersion>
     </repository>
   </distributionManagement -->
+
+   	<distributionManagement>
+    		<repository>
+      			<id>m2repo</id>
+      			<name>Maven Repository for Bitbucket</name>
+      			<url>${m2repo.home}</url>
+      			<uniqueVersion>true</uniqueVersion>
+    		</repository>
+  	</distributionManagement>
 </project>
