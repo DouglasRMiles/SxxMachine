@@ -25,6 +25,10 @@ public abstract class Term implements Comparable<Term> {
     public static final int AFTER  =  1;
     /** Holds an integer value <code>-1</code>. */
     public static final int BEFORE = -1;
+    
+    /** Holds a term to which this variable is bound. Initial value is <code>this</code> (self-reference). 
+     * Moved from VariableTerm here in order to force inlining of method {@link #dereference()}*/
+    protected Term val = this;
 
     /**
      * Checks whether the argument term is unified with this one.
@@ -147,7 +151,7 @@ public abstract class Term implements Comparable<Term> {
     protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) { return this; }
 
     /** Returns the dereference value of this term. */
-    public Term    dereference() { return this; }
+    public final Term    dereference() { return val; }
 
     /**
      * Check whether this term is a ground term.

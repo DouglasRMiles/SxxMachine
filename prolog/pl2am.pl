@@ -166,7 +166,7 @@ Notation
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
 :- dynamic dynamic_predicates/3.
-:- dynamic database_call/1
+:- dynamic database_call/1.
 :- dynamic compiler_constant/2.
 :- dynamic meta_predicates/3.
 :- dynamic package_name/1.

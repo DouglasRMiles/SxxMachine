@@ -1,9 +1,12 @@
 package com.googlecode.prolog_cafe.lang;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Variable.<br>
@@ -18,18 +21,20 @@ import java.util.Map;
  * @version 1.0
  */
 public class VariableTerm extends Term implements Undoable {
-    /** Holds a term to which this variable is bound. Initial value is <code>this</code> (self-reference). */
-    private Term val;
     /** A CPF time stamp when this object is newly constructed. */
     private long timeStamp;
+    /** Variable terms, that reference to (use value of) this one */  
+    private List<VariableTerm> upRef = null;
+    /** Opposite reference to upRef */
+    private VariableTerm downRef = null;
 
     /** Constructs a new logical variable so that
      * the <code>timeStamp</code> field is set to <code>Long.MIN_VALUE</code>.
      */
-    public VariableTerm() {
-	val = this;
-    timeStamp = Long.MIN_VALUE;
-    }
+	public VariableTerm() {
+		val = this;
+		timeStamp = Long.MIN_VALUE;
+	}
 
     /** Constructs a new logical variable so that
      * the <code>timeStamp</code> field is set to the current value of
@@ -37,13 +42,13 @@ public class VariableTerm extends Term implements Undoable {
      * @param engine Current Prolog engine.
      * @see Prolog#getCPFTimeStamp
      */
-    public VariableTerm(Prolog engine) {
-	val = this;
-	timeStamp = engine.getCPFTimeStamp();
-    }
+	public VariableTerm(Prolog engine) {
+		val = this;
+		timeStamp = engine.getCPFTimeStamp();
+	}
 
     /** Returns a string representation of this object.*/
-    protected String variableName() { return "_" + Integer.toHexString(hashCode()).toUpperCase(); }
+    private final String variableName() { return "_" + Integer.toHexString(hashCode()).toUpperCase(); }
 
     /* Term */
     /** 
@@ -60,19 +65,39 @@ public class VariableTerm extends Term implements Undoable {
      * @see Trail
      */
 	public final boolean unify(Term t, Trail trail) {
-        Term x = this;
-        Term z;
-        while ((x instanceof VariableTerm) && (z=((VariableTerm)x).val)!=x){
-            x = z;
-        }
-		if (x instanceof VariableTerm){
-			((VariableTerm) x).bind(t.dereference(), trail);
+		if (val instanceof VariableTerm){
+			((VariableTerm) val).bind(t.dereference(), trail);
 			return true;
 		} else {
-			return x.unify(t, trail);
+			return val.unify(t, trail);
 		}
 	}
-
+	
+	private final void updateUpRef(Term value) {
+		Deque<VariableTerm> queue = new ArrayDeque<VariableTerm>();
+		queue.add(this);
+		while (!queue.isEmpty()){
+			VariableTerm v = queue.poll();			
+			v.val = value;
+			if (v.upRef!=null) {
+				for (VariableTerm u: v.upRef){
+					if (u.val!=value){ // queue only not visited variable terms
+						queue.add(u);
+					}
+				}
+			}
+		}		
+	}
+	
+	private final void bindUpRef(VariableTerm upVariable){
+		if (this.upRef==null){
+			this.upRef = new ArrayList<VariableTerm>(2);
+		}
+		this.upRef.add(upVariable);
+		upVariable.downRef = this;
+		upVariable.updateUpRef(this.val);
+	}
+	
     /** 
      * Binds this variable to a given term. 
      * And pushs this variable to trail stack if necessary. 
@@ -81,18 +106,25 @@ public class VariableTerm extends Term implements Undoable {
      * @see Trail
      */
 	public final void bind(Term t, Trail trail) {
-		if (t instanceof VariableTerm) {
+		if (t instanceof VariableTerm){
 			VariableTerm v = (VariableTerm) t;
-			if (v.timeStamp >= this.timeStamp) {
-				v.val = this;
+			if (v.timeStamp >= this.timeStamp){
+				bindUpRef(v);
 				if (v.timeStamp < trail.timeStamp){
 					trail.push(v);
 				}
 				return;
+			} else {
+				v.bindUpRef(this);
+				if (timeStamp < trail.timeStamp){
+					trail.push(this);
+				}
+				return;
 			}
 		}
-
-		val = t;
+		// update upRefs to use value t
+		updateUpRef(t);
+		downRef = null;
 		if (timeStamp < trail.timeStamp){
 			trail.push(this);
 		}
@@ -107,11 +139,9 @@ public class VariableTerm extends Term implements Undoable {
      * convertible with <code>type</code>. Otherwise <code>false</code>.
      * @see #val
      */
-    public final boolean convertible(Class type) {
-	if (val != this)
-	    return val.convertible(type);
-	return convertible(this.getClass(), type);
-    }
+	public final boolean convertible(Class type) {
+		return (val != this)?val.convertible(type):convertible(this.getClass(), type);
+	}
 
     /** 
      * Returns a copy of this object if unbound variable.
@@ -119,42 +149,25 @@ public class VariableTerm extends Term implements Undoable {
      * @see #val
      */
 	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
-			VariableTerm co = copyHash.get(t);
+		if (val instanceof VariableTerm) {
+			VariableTerm co = copyHash.get(val);
 			if (co == null) {
 				co = new VariableTerm();
-				copyHash.put((VariableTerm) t, co);
+				copyHash.put((VariableTerm) val, co);
 			}
 			return co;
 		} else {
-			return t.copy(copyHash);
+			return val.copy(copyHash);
 		}
 	}
 
-    public final Term dereference() {
-        Term t = this;
-        Term z;
-        while ((t instanceof VariableTerm) && (z=((VariableTerm)t).val)!=t){
-            t = z;
-        }
-        return t;
-    }
+	public final boolean isGround() {
+		return (val != this) ? val.isGround() : false;
+	}
 
-    public final boolean isGround() {
-	if (val != this)
-	    return val.isGround();
-	return false;
-    }
-
-    public final String name() {
-    if (val == this)
-      return "";
-    return val.dereference().name();
-    }
+	public final String name() {
+		return (val == this) ? "" : val.dereference().name();
+	}
 
     /** 
      * Returns <code>this</code> if this variable is unbound.
@@ -163,11 +176,9 @@ public class VariableTerm extends Term implements Undoable {
      * @return a Java object defined in <em>Prolog Cafe interoperability with Java</em>.
      * @see #val
      */
-    public Object toJava() { 
-	if (val != this)
-	    return val.toJava();
-	return this;
-    }
+	public Object toJava() {
+		return (val != this) ? val.toJava() : this;
+	}
 
     /**
      * Returns a quoted string representation of this term if unbound.
@@ -177,15 +188,7 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public String toQuotedString() {
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
-			return variableName();
-		} else {
-			return t.toQuotedString();
-		}
+    	return (val instanceof VariableTerm) ? variableName() : val.toQuotedString();
     }
     /**
      * Adds a quoted string representation of this term if unbound.
@@ -195,14 +198,10 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public void toQuotedString(StringBuilder sb) {
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
+		if (val instanceof VariableTerm) {
 			sb.append(variableName());
 		} else {
-			t.toQuotedString(sb);
+			val.toQuotedString(sb);
 		} 
     }
     /* Object */
@@ -217,13 +216,9 @@ public class VariableTerm extends Term implements Undoable {
      * @see #val
      * @see #compareTo
     */
-    public boolean equals(Object obj) {
-	if(val != this)
-	    return val.equals(obj);
-	if (! (obj instanceof VariableTerm)) // ???
-	    return false; //???
-	return this == obj;
-    }
+	public boolean equals(Object obj) {
+		return (val != this) ? val.equals(obj) : this == obj;
+	}
 
     /**
      * Returns a string representation of this term if unbound.
@@ -233,15 +228,7 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public String toString() {
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
-			return variableName();
-		} else {
-			return t.toString();
-		}
+    	return (val instanceof VariableTerm) ? variableName() : val.toString();
     }
     /**
      * Adds a string representation of this term if unbound.
@@ -251,14 +238,10 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public void toString(StringBuilder sb) {
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
+		if (val instanceof VariableTerm) {
 			sb.append(variableName());
 		} else {
-			t.toString(sb);
+			val.toString(sb);
 		} 
     }
     
@@ -267,19 +250,26 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public Iterator<Term> iterator(){
-		Term t = this;
-		while ((t instanceof VariableTerm) && ((VariableTerm) t).val != t) {
-			t = ((VariableTerm) t).val;
-		}
-		if (t instanceof VariableTerm) {
-			return Collections.emptyIterator();
-		} else {
-			return t.iterator();
-		}   	
+    	return (val instanceof VariableTerm) ? Collections.<Term>emptyIterator() : val.iterator();
     }
 
     /* Undoable */
-    public void undo() { val = this; }
+    public void undo() { 
+    	// remove self from references of bound variable
+    	if (downRef!=null){
+    		// do not use downRef.upRef.remove(this), because it uses equals() which is overriden and is not equivalent to ==
+    		Iterator<VariableTerm> it = downRef.upRef.iterator();
+    		while(it.hasNext()){
+    			if (it.next()==this){
+    				it.remove();
+    				break;
+    			}
+    		}
+    		downRef = null;
+    	}
+    	// update references 
+    	updateUpRef(this);    	
+    }
 
     /* Comparable */
     /** 
@@ -291,18 +281,18 @@ public class VariableTerm extends Term implements Undoable {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
-    public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if(val != this)
-	    return val.compareTo(anotherTerm);
-	if (! anotherTerm.isVariable())
-	    return BEFORE;
-	if (this == anotherTerm) 
-	    return EQUAL;
-	int x = this.hashCode() - ((VariableTerm)anotherTerm).hashCode();
-	if (x != 0)
-	    return x;
-	throw new InternalException("VariableTerm is not unique");
-    }
+	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
+		if (val != this)
+			return val.compareTo(anotherTerm);
+		if (!anotherTerm.isVariable())
+			return BEFORE;
+		if (this == anotherTerm)
+			return EQUAL;
+		int x = this.hashCode() - ((VariableTerm) anotherTerm).hashCode();
+		if (x != 0)
+			return x;
+		throw new InternalException("VariableTerm is not unique");
+	}
 
 	@Override
 	public final boolean isImmutable() {
