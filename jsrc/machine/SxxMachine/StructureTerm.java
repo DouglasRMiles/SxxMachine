@@ -90,25 +90,24 @@ public class StructureTerm extends Term {
     public final Term arg(int nth) { return args[nth]; }
 
 	public final boolean unify(Term t, Trail trail) {
-		t = t.dereference();
+		t = t.val; // fast dereference //t = t.dereference();
 		if (t instanceof VariableTerm) {
-			((VariableTerm) t).bind(this, trail);
-			return true;
+			return ((VariableTerm) t).bind(this, trail);
 		}
-		if (t instanceof StructureTerm){
-			StructureTerm st = (StructureTerm) t;
-			if (!functor.equals(st.functor)){
-				return false;
-			}
-			int i = 0;
-			int len = args.length;
-			while (i<len && args[i].unify(st.args[i], trail)){
-				i++;
-			}
-			return i>=len;
+		if (!(t instanceof StructureTerm)){
+			return false;
+		}
 			
+		StructureTerm st = (StructureTerm) t;
+		if (!functor.equals(st.functor)){
+			return false;
 		}
-		return false;
+    	for(int i=0; i<args.length; i++) {
+    		if (!args[i].unify(st.args[i], trail)){
+    			return false;
+    		};
+    	}
+    	return true;
 	}
 
 	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {

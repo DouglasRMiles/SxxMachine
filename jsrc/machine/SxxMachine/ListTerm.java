@@ -87,19 +87,16 @@ public class ListTerm extends Term {
     		p = ((ListTerm)p).cdr.dereference();
     		t = ((ListTerm)t).cdr.dereference();
     	}
-    	if (t.isVariable()){
-    		((VariableTerm) t).bind(p, trail);
-    		return true;
+    	if (t instanceof VariableTerm){
+    		return ((VariableTerm) t).bind(p, trail);
     	}
-    	if (p.isVariable()){
-    		((VariableTerm) p).bind(t, trail);
-    		return true;
+    	if (p instanceof VariableTerm){
+    		return ((VariableTerm) p).bind(t, trail);
     	}
 		if (!(t instanceof ListTerm) && !(p instanceof ListTerm)){
 			return p.unify(t, trail);
 		}
 		return false;
-    	
     }
     
     

@@ -31,11 +31,9 @@ public class DoubleTerm extends NumberTerm {
 
     /* Term */
     public boolean unify(Term t, Trail trail) {
-	if (t.isVariable())
-	    return ((VariableTerm)t).unify(this, trail);
-	if (! t.isDouble())
-	    return false;
-	return this.val == ((DoubleTerm)t).value();
+    	t = t.dereference();
+    	return (t instanceof VariableTerm) ? ((VariableTerm)t).bind(this, trail) :
+    		((t instanceof DoubleTerm) && this.val == ((DoubleTerm)t).val);
     }
 
     public String name() { return ""; }

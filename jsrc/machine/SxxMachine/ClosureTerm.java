@@ -20,7 +20,7 @@ public class ClosureTerm extends Term {
 
     /* Term */
 	public boolean unify(Term t, Trail trail) {
-		// t = t.dereference();
+		t = t.dereference();
 		if (t.isVariable())
 			return ((VariableTerm) t).unify(this, trail);
 		if (!t.isClosure())

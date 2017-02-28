@@ -27,15 +27,10 @@ public class IntegerTerm extends NumberTerm {
 
     /* Term */
 	public boolean unify(Term t, Trail trail) {
-		if (t.isVariable())
-			return ((VariableTerm) t).unify(this, trail);
-		if (t.isLong()) {
-			return ((long) this.val) == ((LongTerm) t).longValue();
-		} else if (!t.isInteger()) {
-			return false;
-		} else {
-			return this.val == ((IntegerTerm) t).value();
-		}
+		t = t.dereference();
+		return (t instanceof VariableTerm) ? ((VariableTerm) t).bind(this, trail) :
+			(((t instanceof IntegerTerm) && this.val == ((IntegerTerm) t).val) ||
+			 ((t instanceof LongTerm) && ((long) this.val) == ((LongTerm) t).longValue()));
 	}
 
     /** 

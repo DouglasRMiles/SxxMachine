@@ -48,11 +48,9 @@ public class JavaObjectTerm extends Term {
 
     /* Term */
     public boolean unify(Term t, Trail trail) {
-		if (t.isVariable())
-		    return ((VariableTerm)t).unify(this, trail);
-		if (! t.isJavaObject())
-		    return false;
-		return obj.equals(((JavaObjectTerm)t).obj);
+    	t = t.dereference();
+    	return (t instanceof VariableTerm) ? ((VariableTerm)t).bind(this, trail) :
+    		((t instanceof JavaObjectTerm) && obj.equals(((JavaObjectTerm)t).obj));
     }
 
     /** 

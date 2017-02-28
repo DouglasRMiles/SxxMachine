@@ -65,15 +65,14 @@ public class VariableTerm extends Term implements Undoable {
      * @see Trail
      */
 	public final boolean unify(Term t, Trail trail) {
-		if (val instanceof VariableTerm){
-			((VariableTerm) val).bind(t.dereference(), trail);
-			return true;
-		} else {
-			return val.unify(t, trail);
-		}
+		return (val instanceof VariableTerm) ? ((VariableTerm) val).bind(t.dereference(), trail) : val.unify(t, trail);
 	}
 	
 	private final void updateUpRef(Term value) {
+		if (upRef==null || upRef.isEmpty()){ // short cut
+			val = value;
+			return;
+		}
 		Deque<VariableTerm> queue = new ArrayDeque<VariableTerm>();
 		queue.add(this);
 		while (!queue.isEmpty()){
@@ -91,7 +90,7 @@ public class VariableTerm extends Term implements Undoable {
 	
 	private final void bindUpRef(VariableTerm upVariable){
 		if (this.upRef==null){
-			this.upRef = new ArrayList<VariableTerm>(2);
+			this.upRef = new ArrayList<VariableTerm>(4);
 		}
 		this.upRef.add(upVariable);
 		upVariable.downRef = this;
@@ -101,33 +100,30 @@ public class VariableTerm extends Term implements Undoable {
     /** 
      * Binds this variable to a given term. 
      * And pushs this variable to trail stack if necessary. 
-     * @param t a term to be bound.
+     * @param p a term to be bound.
      * @param trail Trail Stack
      * @see Trail
      */
-	public final void bind(Term t, Trail trail) {
-		if (t instanceof VariableTerm){
-			VariableTerm v = (VariableTerm) t;
+	public final boolean bind(Term p, Trail trail) {
+		if (p instanceof VariableTerm){
+			VariableTerm v = (VariableTerm) p, t = this;
 			if (v.timeStamp >= this.timeStamp){
-				bindUpRef(v);
-				if (v.timeStamp < trail.timeStamp){
-					trail.push(v);
-				}
-				return;
-			} else {
-				v.bindUpRef(this);
-				if (timeStamp < trail.timeStamp){
-					trail.push(this);
-				}
-				return;
+				t = v;
+				v = this;
 			}
+			v.bindUpRef(t);
+			if (t.timeStamp < trail.timeStamp){
+				trail.push(t);
+			}
+			return true;
 		}
 		// update upRefs to use value t
-		updateUpRef(t);
+		updateUpRef(p);
 		downRef = null;
 		if (timeStamp < trail.timeStamp){
 			trail.push(this);
 		}
+		return true;
 	}
 
     /** 
