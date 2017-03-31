@@ -80,10 +80,8 @@ public class DoubleTerm extends NumberTerm {
      * @see #compareTo
     */
     public boolean equals(Object obj) {
-	if (! (obj instanceof DoubleTerm))
-	    return false;
-	return Double.doubleToLongBits(this.val) == Double.doubleToLongBits(((DoubleTerm)obj).val);
-    }
+		return obj instanceof DoubleTerm && Double.doubleToLongBits(this.val) == Double.doubleToLongBits(((DoubleTerm) obj).val);
+	}
 
     public int hashCode() {
 	long bits = Double.doubleToLongBits(this.val);

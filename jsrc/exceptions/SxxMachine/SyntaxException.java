@@ -13,13 +13,13 @@ public class SyntaxException extends BuiltinException {
     public static final SymbolTerm SYNTAX_ERROR = SymbolTerm.intern("syntax_error", 5);
 
     /** Holds a string representation of valid type. */
-    public String type;
+    public final String type;
 
     /** Holds the argument or one of its components which caused the error. */
-    public Term culprit;
+    public final Term culprit;
 
     /** Holds a string representation of detail message. */
-    public String message;
+    public final String message;
 
     /** Constructs a new <code>SyntaxException</code> 
      * with a valid type, its culprit, and message. */

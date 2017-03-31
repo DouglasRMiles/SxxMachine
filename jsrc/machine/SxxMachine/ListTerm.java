@@ -129,11 +129,7 @@ public class ListTerm extends Term {
     }
 
     public boolean isGround() {
-	if (! car.isGround())
-	    return false;
-	if (! cdr.isGround())
-	    return false;
-	return true;
+		return car.isGround() && cdr.isGround();
     }
 
     public final String name() { return SYM_DOT.name(); }
@@ -199,11 +195,8 @@ public class ListTerm extends Term {
      * @see #compareTo
      */
     public boolean equals(Object obj) {
-    	if (! (obj instanceof ListTerm))
-    	    return false;
-	return car.equals(((ListTerm)obj).car().dereference()) 
-	    && cdr.equals(((ListTerm)obj).cdr().dereference());
-    }
+		return obj instanceof ListTerm && car.equals(((ListTerm) obj).car().dereference()) && cdr.equals(((ListTerm) obj).cdr().dereference());
+	}
 
     public int hashCode() {
 	int h = 1;

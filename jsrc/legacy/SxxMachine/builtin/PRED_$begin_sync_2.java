@@ -7,7 +7,7 @@ import  com.googlecode.prolog_cafe.lang.*;
  * @version 1.2
  */
 class PRED_$begin_sync_2 extends BlockPredicate {
-    Term arg1, arg2;
+    private final Term arg1, arg2;
 
     public PRED_$begin_sync_2(Term a1, Term a2, Operation cont) {
 	arg1 = a1;

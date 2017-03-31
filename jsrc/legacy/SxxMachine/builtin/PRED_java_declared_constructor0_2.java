@@ -8,7 +8,7 @@ import java.lang.reflect.*;
  * @version 1.1
  */
 public class PRED_java_declared_constructor0_2 extends JavaPredicate {
-    Term arg1, arg2;
+    private final Term arg1, arg2;
 
     public PRED_java_declared_constructor0_2(Term a1, Term a2, Operation cont) {
 	arg1 = a1;
@@ -68,18 +68,18 @@ public class PRED_java_declared_constructor0_2 extends JavaPredicate {
 		    pArgs[i] = new JavaObjectTerm(pArgs[i]);
 		jArgs[i] = pArgs[i].toJava();
 	    }
-	    for (int i=0; i<constrs.length; i++) {
-		if (checkParameterTypes(constrs[i].getParameterTypes(), pArgs)) {
-		    try {
-			c = constrs[i]; 
-			c.setAccessible(true);
-			instance = c.newInstance(jArgs);
-			break;    // Succeeds to create new instance
-		    } catch (Exception e) {
-			c = null; // Back to loop
-		    }
+		for (Constructor constr : constrs) {
+			if (checkParameterTypes(constr.getParameterTypes(), pArgs)) {
+				try {
+					c = constr;
+					c.setAccessible(true);
+					instance = c.newInstance(jArgs);
+					break;    // Succeeds to create new instance
+				} catch (Exception e) {
+					c = null; // Back to loop
+				}
+			}
 		}
-	    }
 	    if (c == null)
 		throw new ExistenceException(this, 1, "constructor", a1, "");
 	    if (! a2.unify(toPrologTerm(instance), engine.trail))

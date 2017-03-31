@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class VariableTerm extends Term implements Undoable {
     /** A CPF time stamp when this object is newly constructed. */
-    private long timeStamp;
+    private final long timeStamp;
     /** Variable terms, that reference to (use value of) this one */  
     private List<VariableTerm> upRef = null;
     /** Opposite reference to upRef */
@@ -48,7 +48,7 @@ public class VariableTerm extends Term implements Undoable {
 	}
 
     /** Returns a string representation of this object.*/
-    private final String variableName() { return "_" + Integer.toHexString(hashCode()).toUpperCase(); }
+    private String variableName() { return "_" + Integer.toHexString(hashCode()).toUpperCase(); }
 
     /* Term */
     /** 
@@ -68,7 +68,7 @@ public class VariableTerm extends Term implements Undoable {
 		return (val instanceof VariableTerm) ? ((VariableTerm) val).bind(t.dereference(), trail) : val.unify(t, trail);
 	}
 	
-	private final void updateUpRef(Term value) {
+	private void updateUpRef(Term value) {
 		if (upRef==null || upRef.isEmpty()){ // short cut
 			val = value;
 			return;
@@ -88,7 +88,7 @@ public class VariableTerm extends Term implements Undoable {
 		}		
 	}
 	
-	private final void bindUpRef(VariableTerm upVariable){
+	private void bindUpRef(VariableTerm upVariable){
 		if (this.upRef==null){
 			this.upRef = new ArrayList<VariableTerm>(4);
 		}
@@ -158,7 +158,7 @@ public class VariableTerm extends Term implements Undoable {
 	}
 
 	public final boolean isGround() {
-		return (val != this) ? val.isGround() : false;
+		return (val != this) && val.isGround();
 	}
 
 	public final String name() {

@@ -93,8 +93,8 @@ public class LineNumberPushbackReader extends PushbackReader {
             for (int i = off; i < off + n; i++) {
                 if (cbuf[i]=='\n'){
                 	lineNumber++;
-                };
-            }
+                }
+			}
 
             return n;
         }
@@ -186,7 +186,7 @@ public class LineNumberPushbackReader extends PushbackReader {
         for (int i = off; i < off + len; i++) {
             if (cbuf[i]=='\n'){
             	lineNumber--;
-            };
-        }		
+            }
+		}
 	}
 }

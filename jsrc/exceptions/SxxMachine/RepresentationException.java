@@ -17,7 +17,7 @@ public class RepresentationException extends BuiltinException {
                max_arity | max_integer | min_integer
     */
     /** Holds a string representation of flag. */
-    public String flag;
+    public final String flag;
 
     /** Constructs a new <code>RepresentationException</code> with a flag. */
     public RepresentationException(String _flag) {

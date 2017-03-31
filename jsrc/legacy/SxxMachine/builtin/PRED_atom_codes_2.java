@@ -22,7 +22,7 @@ public class PRED_atom_codes_2 extends Predicate.P2 {
 	a1 = a1.dereference();
 	a2 = a2.dereference();
 	if (a1.isVariable()) { // atom_codes(-Atom, +CharCodeList)
-	    StringBuffer sb = new StringBuffer();
+	    StringBuilder sb = new StringBuilder();
 	    Term x = a2;
 	    while(! x.isNil()) {
 		if (x.isVariable())

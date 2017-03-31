@@ -73,8 +73,7 @@ public class PrologClassLoader extends ClassLoader {
       CacheEntry ent = findPredicate(pkg, functor, arity);
       if (ent instanceof ValidPredicate) {
         Object[] a = new Object[arity + 1];
-        for (int i = 0; i < arity; i++)
-          a[i] = args[i];
+        System.arraycopy(args, 0, a, 0, arity);
         a[arity] = cont;
         return ((ValidPredicate) ent).constructor.newInstance(a);
       }

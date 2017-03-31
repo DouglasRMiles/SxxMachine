@@ -105,8 +105,8 @@ public class StructureTerm extends Term {
     	for(int i=0; i<args.length; i++) {
     		if (!args[i].unify(st.args[i], trail)){
     			return false;
-    		};
-    	}
+    		}
+		}
     	return true;
 	}
 
@@ -172,8 +172,9 @@ public class StructureTerm extends Term {
 	public int hashCode() {
 		int h = 1;
 		h = 31 * h + functor.hashCode();
-		for (int i = 0; i < args.length; i++)
-			h = 31 * h + args[i].dereference().hashCode();
+		for (Term arg : args) {
+			h = 31 * h + arg.dereference().hashCode();
+		}
 		return h;
 	}
 

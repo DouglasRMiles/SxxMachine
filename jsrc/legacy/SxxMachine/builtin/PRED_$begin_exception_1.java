@@ -10,7 +10,7 @@ import com.googlecode.prolog_cafe.lang.*;
  * @version 1.2
  */
 class PRED_$begin_exception_1 extends BlockPredicate {
-	Term arg1;
+	private final Term arg1;
 
 	public PRED_$begin_exception_1(Term a1, Operation cont) {
 		arg1 = a1;

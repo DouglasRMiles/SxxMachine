@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public abstract class PrologControl {
     /** Holds a Prolog engine. */
-    protected Prolog engine;
+    protected final Prolog engine;
 
     /** Holds a Prolog goal to be executed. */
     protected Operation code;

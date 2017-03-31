@@ -24,7 +24,7 @@ public class PRED_number_codes_2 extends Predicate.P2 {
 	if (a2.isNil())
 	    throw new SyntaxException(this, 2, "character_code_list", a2, "");
 	if (a1.isVariable()) { // number_codes(-Number, +CharCodeList)
-	    StringBuffer sb = new StringBuffer();
+	    StringBuilder sb = new StringBuilder();
 	    Term x = a2;
 	    while(! x.isNil()) {
 		if (x.isVariable())

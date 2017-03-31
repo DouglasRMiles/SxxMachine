@@ -102,7 +102,7 @@ public class PRED_open_4 extends Predicate.P4 {
 					throw new ExistenceException(this, 1, "source_sink", a1, "");
 				}
 				PushbackReader in = new LineNumberPushbackReader(new BufferedReader(
-						new InputStreamReader(inputStream, charset)), engine.PUSHBACK_SIZE);
+						new InputStreamReader(inputStream, charset)), Prolog.PUSHBACK_SIZE);
 				streamObject = new JavaObjectTerm(in);
 				opts = new ListTerm(SYM_INPUT, opts);
 			} else if (a2.equals(SYM_WRITE)) {

@@ -11,7 +11,7 @@ public class SystemException extends PrologException {
     public static final SymbolTerm SYSTEM_ERROR = SymbolTerm.intern("system_error", 1);
 
     /** Holds a message. */
-    public String message;
+    public final String message;
 
     /** Constructs a new <code>SystemException</code> with a message. */
     public SystemException(String _message) {

@@ -14,7 +14,7 @@ public class PermissionException extends BuiltinException {
 
     /* operation ::= access | create | input | modify | open | output | reposition | new */
     /** Holds a string representation of operation. */
-    public String operation;
+    public final String operation;
 
     /*
       permissionType ::= binary_stream | flag | operator | past_end_of_stream
@@ -22,13 +22,13 @@ public class PermissionException extends BuiltinException {
 			 stream | text_stream
     */
     /** Holds a string representation of permission type. */
-    public String permissionType;
+    public final String permissionType;
 
     /** Holds the argument or one of its components which caused the error. */
-    public Term culprit;
+    public final Term culprit;
 
     /** Holds a string representation of detail message. */
-    public String message;
+    public final String message;
 
     /** Constructs a new <code>PermissionException</code>
      * with the given arguments. */

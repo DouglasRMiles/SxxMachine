@@ -82,10 +82,8 @@ public class JavaObjectTerm extends Term {
      * @see #compareTo
      */
     public boolean equals(Object o) {
-		if (! (o instanceof JavaObjectTerm))
-		    return false;
-		return obj.equals(((JavaObjectTerm)o).obj);
-    }
+		return o instanceof JavaObjectTerm && obj.equals(((JavaObjectTerm) o).obj);
+	}
 
     public int hashCode() {
     	return obj.hashCode();

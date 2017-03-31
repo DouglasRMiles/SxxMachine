@@ -17,12 +17,8 @@ public class PRED_peek_char_2 extends Predicate.P2 {
     }
 
     boolean inCharacter(Term t) {
-	if (! t.isSymbol())
-	    return false;
-	if (t.equals(SYM_EOF))
-	    return true;
-	return ((SymbolTerm)t).name().length() == 1;
-    }
+		return t.isSymbol() && (t.equals(SYM_EOF) || ((SymbolTerm) t).name().length() == 1);
+	}
 
     public Operation exec(Prolog engine) {
         engine.setB0();

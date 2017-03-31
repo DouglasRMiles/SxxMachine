@@ -272,7 +272,7 @@ public class Token {
 		return TOKEN_DOUBLE;
 	}
 
-	private static final int number_type(StringBuilder s){
+	private static int number_type(StringBuilder s){
 		int length = s.length();
 		if (length<10){
 			return TOKEN_INTEGER;
@@ -390,32 +390,32 @@ public class Token {
 	ch = s.toCharArray();
 	if ((getStringType(s) == 3)){
 	    out.print("\'");
-	    for (int i=0; i<ch.length; i++) {
-		if (ch[i] == '\'')
-		    out.print("\\\'");
-		else if (ch[i] == '\\')
-		    out.print("\\\\");
-		else if (ch[i] == 8)  // backspace
-		    out.print("\\b");
-		else if (ch[i] == 9)  // horizontal tab
-		    out.print("\\t");
-		else if (ch[i] == 10) // newline
-		    out.print("\\n");
-		else if (ch[i] == 11) // vertical tab
-		    out.print("\\v");
-		else if (ch[i] == 12) // form feed
-		    out.print("\\f");
-		else if (ch[i] == 13) // carriage return
-		    out.print("\\r");
-		else if (ch[i] == 27) // escape
-		    out.print("\\e");
-		else if (ch[i] == 127) // delete
-		    out.print("\\d");
-		else if (ch[i] == 7) // alarm
-		    out.print("\\a");
-		else
-		    out.print(ch[i]);
-	    }
+		for (char aCh : ch) {
+			if (aCh == '\'')
+				out.print("\\\'");
+			else if (aCh == '\\')
+				out.print("\\\\");
+			else if (aCh == 8)  // backspace
+				out.print("\\b");
+			else if (aCh == 9)  // horizontal tab
+				out.print("\\t");
+			else if (aCh == 10) // newline
+				out.print("\\n");
+			else if (aCh == 11) // vertical tab
+				out.print("\\v");
+			else if (aCh == 12) // form feed
+				out.print("\\f");
+			else if (aCh == 13) // carriage return
+				out.print("\\r");
+			else if (aCh == 27) // escape
+				out.print("\\e");
+			else if (aCh == 127) // delete
+				out.print("\\d");
+			else if (aCh == 7) // alarm
+				out.print("\\a");
+			else
+				out.print(aCh);
+		}
 	    out.print("\'");
 	} else {
 	    write_string(s, out);

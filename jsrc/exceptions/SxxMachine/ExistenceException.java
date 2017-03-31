@@ -14,13 +14,13 @@ public class ExistenceException extends BuiltinException {
 
     /* objType ::= procedure | source_sink | stream | hash */
     /** Holds a string representation of object type. */
-    public String objType;
+    public final String objType;
 
     /** Holds the argument or one of its components which caused the error. */
-    public Term   culprit;
+    public final Term culprit;
 
     /** Holds a string representation of detail message. */
-    public String message;
+    public final String message;
 
     /** Constructs a new <code>ExistenceException</code>
      * with a object type, its culprit, and message. */

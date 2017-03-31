@@ -10,7 +10,7 @@ package com.googlecode.prolog_cafe.lang;
  * @version 1.0
  */
 public class OutOfLoop implements Undoable {
-    BlockPredicate p;
+    final BlockPredicate p;
 
     public OutOfLoop(BlockPredicate _p) {
 	p = _p;

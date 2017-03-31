@@ -52,8 +52,8 @@ public class PrologLogger {
 
 	private static class StackNode {
 		Operation operation;
-		StackNode next;
-		String indent;
+		final StackNode next;
+		final String indent;
 		Level level;
 
 		StackNode() {
@@ -333,12 +333,7 @@ public class PrologLogger {
 				if ((code instanceof Predicate) && (((Predicate)code).cont!=next)){
 					final StackNode stackNode = stackTop;
 					stackTop = new StackNode(next, stackTop);
-					engine.trail.push(new Undoable() {
-						@Override
-						public void undo() {
-							stackTop = stackNode;
-						}
-					});
+					engine.trail.push(() -> stackTop = stackNode);
 				} else {
 					// stackTop is either operation or predicate
 					// check if next is a finish for some predicate below stack top
@@ -406,12 +401,7 @@ public class PrologLogger {
     		}
     		i++;
     	}
-    	Arrays.sort(a, new Comparator<Map.Entry<String, Long>>() {
-			@Override
-			public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
-				return o1.getValue().compareTo(o2.getValue());
-			}
-		});
+    	Arrays.sort(a, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
     	try {
 			PrintStream printStream = new PrintStream(new FileOutputStream(filename, true), true, "UTF-8");
 			try {

@@ -15,7 +15,7 @@ public class EvaluationException extends BuiltinException {
 
     /* errorType ::= float_overflow | int_overflow | undefined | underflow | zero_devisor */
     /** Holds a string representation of error type. */
-    public String errorType;
+    public final String errorType;
 
     /** Constructs a new <code>EvaluationException</code> with an error type. */
 	public EvaluationException(String _errorType) {

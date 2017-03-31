@@ -20,7 +20,7 @@ public class PRED_tab_2 extends Predicate.P2 {
         a1 = arg1;
         a2 = arg2;
 	int n;
-	String s = "";
+//	String s = "";
 	Object stream = null;
 
 	// Char
@@ -53,9 +53,10 @@ public class PRED_tab_2 extends Predicate.P2 {
 	if (! (stream instanceof PrintWriter))
 	    throw new PermissionException(this, "output", "stream", a1, "");
 	// tab
-	for (int i=0; i<n; i++)
-	    s += " ";
-	((PrintWriter) stream).print(s);
+	for (int i=0; i<n; i++) {
+//	    s.append(" ");
+		((PrintWriter) stream).print(" ");
+	}
 	return cont;
     }
 }

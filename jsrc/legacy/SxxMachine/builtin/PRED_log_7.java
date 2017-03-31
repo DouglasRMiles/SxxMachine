@@ -33,7 +33,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  */
 
 public class PRED_log_7 extends Predicate {
-	Term arg1, arg2, arg3, arg4, arg5, arg6, arg7;
+	private final Term arg1, arg2, arg3, arg4, arg5, arg6, arg7;
 	
 	public PRED_log_7(Term arg1, Term arg2, Term arg3, Term arg4, Term arg5, Term arg6, Term arg7, Operation cont) {
 		this.arg1 = arg1;

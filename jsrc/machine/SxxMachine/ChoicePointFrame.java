@@ -42,7 +42,7 @@ class ChoicePointFrame {
     }
 
     static final class S1 extends ChoicePointFrame {
-      private Term areg1;
+      private final Term areg1;
 
       S1(Prolog engine) {
         this.cont = engine.cont;
@@ -56,7 +56,7 @@ class ChoicePointFrame {
     }
 
     static final class S2 extends ChoicePointFrame {
-      private Term areg1, areg2;
+      private final Term areg1, areg2;
 
       S2(Prolog engine) {
         this.cont = engine.cont;
@@ -72,7 +72,7 @@ class ChoicePointFrame {
     }
 
     static final class S3 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3;
+      private final Term areg1, areg2, areg3;
 
       S3(Prolog engine) {
         this.cont = engine.cont;
@@ -90,7 +90,7 @@ class ChoicePointFrame {
     }
 
     static final class S4 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3, areg4;
+      private final Term areg1, areg2, areg3, areg4;
 
       S4(Prolog engine) {
         this.cont = engine.cont;
@@ -110,7 +110,7 @@ class ChoicePointFrame {
     }
 
     static final class S5 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3, areg4, areg5;
+      private final Term areg1, areg2, areg3, areg4, areg5;
 
       S5(Prolog engine) {
         this.cont = engine.cont;
@@ -132,7 +132,7 @@ class ChoicePointFrame {
     }
 
     static final class S6 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3, areg4, areg5, areg6;
+      private final Term areg1, areg2, areg3, areg4, areg5, areg6;
 
       S6(Prolog engine) {
         this.cont = engine.cont;
@@ -156,7 +156,7 @@ class ChoicePointFrame {
     }
 
     static final class S7 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3, areg4, areg5, areg6, areg7;
+      private final Term areg1, areg2, areg3, areg4, areg5, areg6, areg7;
 
       S7(Prolog engine) {
         this.cont = engine.cont;
@@ -182,7 +182,7 @@ class ChoicePointFrame {
     }
 
     static class S8 extends ChoicePointFrame {
-      private Term areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8;
+      private final Term areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8;
 
       S8(Prolog engine) {
         this.cont = engine.cont;
@@ -210,7 +210,7 @@ class ChoicePointFrame {
     }
 
     static final class S9 extends S8 {
-      private Term[] aregs;
+      private final Term[] aregs;
 
       S9(int arity, Prolog engine) {
         super(engine);

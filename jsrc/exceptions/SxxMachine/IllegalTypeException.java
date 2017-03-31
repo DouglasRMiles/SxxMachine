@@ -19,10 +19,10 @@ public class IllegalTypeException extends BuiltinException {
 	       flaot | java
     */
     /** Holds a string representation of valid type. */
-    public String type;
+    public final String type;
 
     /** Holds the argument or one of its components which caused the error. */
-    public Term culprit;
+    public final Term culprit;
 
     /** Constructs a new <code>IllegalTypeException</code> 
      * with a valid type and its culprit. */

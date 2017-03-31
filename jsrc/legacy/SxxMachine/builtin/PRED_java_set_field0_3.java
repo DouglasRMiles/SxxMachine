@@ -8,7 +8,7 @@ import java.lang.reflect.*;
  * @version 1.1
  */
 public class PRED_java_set_field0_3 extends JavaPredicate {
-    Term arg1, arg2, arg3;
+	private final Term arg1, arg2, arg3;
 
     public PRED_java_set_field0_3(Term a1, Term a2, Term a3, Operation cont) {
 	arg1 = a1;

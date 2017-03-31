@@ -92,8 +92,8 @@ public class Compiler {
     }
 
     /** Prolog context running the compiler/translater tools. */
-    private BufferingPrologControl pcl;
-    private EnumSet<Option> options;
+    private final BufferingPrologControl pcl;
+    private final EnumSet<Option> options;
 
     /** Initialize a new compiler instance. */
     public Compiler() {

@@ -20,7 +20,7 @@ public class InternalDatabase {
 
     /* For GC */
     /** A list of reusable entry indices. */
-    protected LinkedList<Integer> reusableIndices;
+    protected final LinkedList<Integer> reusableIndices;
 
     /** the top index of this <code>InternalDatabase</code>. */
     protected int top;
@@ -72,9 +72,7 @@ public class InternalDatabase {
 	      throw new SystemException("internal database capacity reached");
 	    int len = buffer.length;
 	    Term[] new_buffer = new Term[Math.min(len+10000, maxContents)];
-	    for(int i=0; i<len; i++){
-		new_buffer[i] = buffer[i];
-	    }
+		System.arraycopy(buffer, 0, new_buffer, 0, len);
 	    buffer = new_buffer;
 	    buffer[top] = t;
 	    return top;

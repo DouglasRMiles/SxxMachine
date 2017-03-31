@@ -22,10 +22,10 @@ public class IllegalDomainException extends BuiltinException {
 		 hash_or_alias| hash_option | 'arithmetic expression'
     */
     /** Holds a string representation of valid domain. */
-    public String domain;
+    public final String domain;
 
     /** Holds the argument or one of its components which caused the error. */
-    public Term culprit;
+    public final Term culprit;
 
     /** Constructs a new <code>IllegalDomainException</code>
      * with a valid domain and its culprit. */

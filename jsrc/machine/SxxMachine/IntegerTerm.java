@@ -79,10 +79,8 @@ public class IntegerTerm extends NumberTerm {
      * @see #compareTo
     */
     public boolean equals(Object obj) {
-	if (! (obj instanceof IntegerTerm))
-	    return false;
-	return this.val == ((IntegerTerm)obj).value();
-    }
+		return obj instanceof IntegerTerm && this.val == ((IntegerTerm) obj).value();
+	}
 
     public int hashCode() { return this.val; }
 

@@ -34,7 +34,7 @@ public final class Prolog {
 	private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<String, Object>();
 
     /** Prolog thread */
-    public PrologControl control;
+    public final PrologControl control;
 
     /** Argument registers */
     public Term areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8;
@@ -170,8 +170,8 @@ public final class Prolog {
       IO,
 
       /** Track the running time of evaluations */
-      STATISTICS_RUNTIME;
-    }
+      STATISTICS_RUNTIME
+	}
     protected final EnumSet<Feature> features = EnumSet.allOf(Feature.class);
 
     Prolog(PrologControl c) {

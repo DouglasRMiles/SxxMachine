@@ -23,9 +23,7 @@ public class ClosureTerm extends Term {
 		t = t.dereference();
 		if (t.isVariable())
 			return ((VariableTerm) t).unify(this, trail);
-		if (!t.isClosure())
-			return false;
-		return code.equals(((ClosureTerm) t).code);
+		return t.isClosure() && code.equals(((ClosureTerm) t).code);
 	}
 
 	@Override
@@ -50,10 +48,8 @@ public class ClosureTerm extends Term {
      * @see #compareTo
      */
     public boolean equals(Object obj) { // obj must be dereferenced
-	if (! (obj instanceof ClosureTerm))
-	    return false;
-	return code.equals(((ClosureTerm)obj).code);
-    }
+		return obj instanceof ClosureTerm && code.equals(((ClosureTerm) obj).code);
+	}
 
     public int hashCode() {
 	return code.hashCode();

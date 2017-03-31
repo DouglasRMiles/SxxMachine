@@ -11,7 +11,7 @@ public class InternalException extends PrologException {
     public static final SymbolTerm INTERNAL_ERROR = SymbolTerm.intern("internal_error", 1);
 
     /** Holds a message. */
-    public String message;
+    public final String message;
 
     /** Constructs a new <code>InternalException</code> with a message. */
     public InternalException(String _message) {

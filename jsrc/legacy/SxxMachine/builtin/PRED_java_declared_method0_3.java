@@ -8,7 +8,7 @@ import java.lang.reflect.*;
  * @version 1.1
  */
 public class PRED_java_declared_method0_3 extends JavaPredicate {
-    Term arg1, arg2, arg3;
+    private final Term arg1, arg2, arg3;
 
     public PRED_java_declared_method0_3(Term a1, Term a2, Term a3, Operation cont) {
 	arg1 = a1;
@@ -75,19 +75,19 @@ public class PRED_java_declared_method0_3 extends JavaPredicate {
 			pArgs[i] = new JavaObjectTerm(pArgs[i]);
 		    jArgs[i] = pArgs[i].toJava();
 		}
-		for (int i=0; i<methods.length; i++) {
-		    if (methods[i].getName().equals(methodName) 
-			&&  checkParameterTypes(methods[i].getParameterTypes(), pArgs)) {
-			try {
-			    m = methods[i];
-			    m.setAccessible(true);
-			    value = m.invoke(instance, jArgs); 
-			    break;     // Succeeds to invoke the method
-			} catch (Exception e) {
-			    m = null;  // Back to loop
+			for (Method method : methods) {
+				if (method.getName().equals(methodName)
+						&& checkParameterTypes(method.getParameterTypes(), pArgs)) {
+					try {
+						m = method;
+						m.setAccessible(true);
+						value = m.invoke(instance, jArgs);
+						break;     // Succeeds to invoke the method
+					} catch (Exception e) {
+						m = null;  // Back to loop
+					}
+				}
 			}
-		    }
-		}
 		if (m == null)
 		    throw new ExistenceException(this, 2, "method", a2, "");
 	    } else {

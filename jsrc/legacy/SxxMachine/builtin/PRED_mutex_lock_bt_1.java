@@ -57,14 +57,11 @@ public class PRED_mutex_lock_bt_1 extends P1 {
 			throw new IllegalTypeException(this, 1, "atom or JavaObjectTerm(Lock)", a1);
 		}
 		lock.lock();
-		engine.trail.push(new Undoable() {
-			@Override
-			public void undo() {
-				try {
-					lock.unlock();
-				} catch (IllegalMonitorStateException e){
-					// ignore, because the lock is already unlocked explicitly
-				}
+		engine.trail.push(() -> {
+			try {
+				lock.unlock();
+			} catch (IllegalMonitorStateException e){
+				// ignore, because the lock is already unlocked explicitly
 			}
 		});
 		return cont;
