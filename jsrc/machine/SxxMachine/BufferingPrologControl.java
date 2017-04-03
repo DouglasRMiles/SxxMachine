@@ -12,6 +12,7 @@ import java.util.List;
 public class BufferingPrologControl extends PrologControl {
   private int resLimit;
   private List resBuffer;
+  private boolean engineStopped;
 
   private boolean resSingle;
   private Term[] resTemplate;
@@ -143,6 +144,7 @@ public class BufferingPrologControl extends PrologControl {
   private boolean run(int newLimit) {
     resLimit = newLimit;
     resBuffer = new ArrayList(Math.min(newLimit, 16));
+    engineStopped = (resLimit <= resBuffer.size());
 
     executePredicate();
     return 0 < resBuffer.size();
@@ -150,7 +152,7 @@ public class BufferingPrologControl extends PrologControl {
 
   @Override
   public boolean isEngineStopped() {
-    return resLimit <= resBuffer.size();
+    return engineStopped;
   }
 
   @Override
@@ -160,10 +162,12 @@ public class BufferingPrologControl extends PrologControl {
       r[i] = engine.copy(resTemplate[i]);
     }
     resBuffer.add(resSingle ? r[0] : r);
+    engineStopped = (resLimit <= resBuffer.size());
   }
 
   @Override
   protected void fail() {
     resLimit = 0;
+    engineStopped = (resLimit <= resBuffer.size());
   }
 }

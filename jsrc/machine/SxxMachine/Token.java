@@ -1,5 +1,4 @@
 package com.googlecode.prolog_cafe.lang;
-import java.util.*;
 import java.io.*;
 /**
  * The <code>Token</code> class contains methods

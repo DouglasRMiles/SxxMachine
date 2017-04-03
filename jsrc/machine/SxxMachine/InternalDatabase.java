@@ -1,7 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
 import java.util.IdentityHashMap;
 import java.util.LinkedList;
-import java.util.Map;
+
 /**
  * Internal database for dynamic predicates.<br>
  *

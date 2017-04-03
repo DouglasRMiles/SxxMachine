@@ -1,22 +1,9 @@
 package com.googlecode.prolog_cafe.lang;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.FileHandler;
+import java.io.*;
+import java.util.*;
+import java.util.logging.*;
 import java.util.logging.Formatter;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
 
 /**
  * <p>Logs executed predicates and their arguments to {@link Logger} instance specified by {@link Prolog#LOGGER_NAME}.
@@ -87,7 +74,7 @@ public class PrologLogger {
 	}
 
 	private final static int INDENT_CHACHE_SIZE = 512;
-	final static String[] indentCache = new String[INDENT_CHACHE_SIZE];
+	private final static String[] indentCache = new String[INDENT_CHACHE_SIZE];
 	static {
 		// init indent cache
 		indentCache[0] = "";
@@ -401,7 +388,7 @@ public class PrologLogger {
     		}
     		i++;
     	}
-    	Arrays.sort(a, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+    	Arrays.sort(a, Comparator.comparing(Map.Entry::getValue));
     	try {
 			PrintStream printStream = new PrintStream(new FileOutputStream(filename, true), true, "UTF-8");
 			try {
