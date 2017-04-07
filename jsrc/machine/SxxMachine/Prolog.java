@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.logging.Logger;
+
 /**
  * Prolog engine.
  *
@@ -16,7 +18,7 @@ public final class Prolog {
 
 	final PrologLogger logger;
 
-	public static final String LOGGER_NAME = Prolog.class.getName();
+	private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
 
 	private static final SymbolTerm NONE = SymbolTerm.intern("$none");
 
@@ -104,7 +106,7 @@ public final class Prolog {
 	private HashtableOfTerm streamManager;
 
 	/** Hashtable for managing internal databases. */
-	protected final HashtableOfTerm hashManager;
+	private final HashtableOfTerm hashManager;
 
 	/** Name of the builtin package. */
 	public static final String BUILTIN = "com.googlecode.prolog_cafe.builtin";
@@ -113,17 +115,17 @@ public final class Prolog {
 	public static final SymbolTerm Nil     = SymbolTerm.intern("[]");
 
 	/* Some symbols for stream options */
-	static final SymbolTerm SYM_MODE_1     = SymbolTerm.intern("mode", 1);
-	static final SymbolTerm SYM_ALIAS_1    = SymbolTerm.intern("alias", 1);
-	static final SymbolTerm SYM_TYPE_1     = SymbolTerm.intern("type", 1);
-	static final SymbolTerm SYM_READ       = SymbolTerm.intern("read");
-	static final SymbolTerm SYM_APPEND     = SymbolTerm.intern("append");
-	static final SymbolTerm SYM_INPUT      = SymbolTerm.intern("input");
-	static final SymbolTerm SYM_OUTPUT     = SymbolTerm.intern("output");
-	static final SymbolTerm SYM_TEXT       = SymbolTerm.intern("text");
-	static final SymbolTerm SYM_USERINPUT  = SymbolTerm.intern("user_input");
-	static final SymbolTerm SYM_USEROUTPUT = SymbolTerm.intern("user_output");
-	static final SymbolTerm SYM_USERERROR  = SymbolTerm.intern("user_error");
+	private static final SymbolTerm SYM_MODE_1     = SymbolTerm.intern("mode", 1);
+	private static final SymbolTerm SYM_ALIAS_1    = SymbolTerm.intern("alias", 1);
+	private static final SymbolTerm SYM_TYPE_1     = SymbolTerm.intern("type", 1);
+	private static final SymbolTerm SYM_READ       = SymbolTerm.intern("read");
+	private static final SymbolTerm SYM_APPEND     = SymbolTerm.intern("append");
+	private static final SymbolTerm SYM_INPUT      = SymbolTerm.intern("input");
+	private static final SymbolTerm SYM_OUTPUT     = SymbolTerm.intern("output");
+	private static final SymbolTerm SYM_TEXT       = SymbolTerm.intern("text");
+	private static final SymbolTerm SYM_USERINPUT  = SymbolTerm.intern("user_input");
+	private static final SymbolTerm SYM_USEROUTPUT = SymbolTerm.intern("user_output");
+	private static final SymbolTerm SYM_USERERROR  = SymbolTerm.intern("user_error");
 
 	private static final PrintWriter NO_OUTPUT = new PrintWriter(new Writer() {
 		@Override
@@ -164,7 +166,7 @@ public final class Prolog {
 	protected final EnumSet<Feature> features = EnumSet.allOf(Feature.class);
 
 	Prolog(PrologControl c) {
-		logger = new PrologLogger(this);
+		logger = new PrologLogger(javaUtilLogger);
 		control = c;
 		trail = new Trail();
 		stack = new ChoicePointStack(trail);
@@ -173,7 +175,7 @@ public final class Prolog {
 	}
 
 	Prolog(PrologControl c, PrologMachineCopy pmc) {
-		logger = new PrologLogger(this);
+		logger = new PrologLogger(javaUtilLogger);
 		control = c;
 		trail = new Trail();
 		stack = new ChoicePointStack(trail);
@@ -248,6 +250,7 @@ public final class Prolog {
 //	initialFrame.tr = trail.top();
 //	initialFrame.timeStamp = ++CPFTimeStamp;
 		stack.push(initialFrame);
+		logger.init(initialFrame);
 
 		halt = 0;
 
@@ -304,7 +307,7 @@ public final class Prolog {
 	 */
 	public Operation fail() {
 		ChoicePointFrame top = stack.top;
-    	logger.fail();
+    	logger.fail(top.bp, top);
 		B0 = top.b0;     // restore B0
 		return top.bp;   // execute next clause
 	}
@@ -382,17 +385,70 @@ public final class Prolog {
 // --Commented out by Inspection STOP (03.04.2017 11:14)
 
 	/** Creates a new choice point frame. */
-	public Operation jtry0(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry1(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry2(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry3(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry4(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, areg4, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry5(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry6(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry7(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, next, ++CPFTimeStamp)); return p; }
-	public Operation jtry8(Operation p, Operation next) { stack.push(new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8, next, ++CPFTimeStamp)); return p; }
+	public Operation jtry0(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+	public Operation jtry1(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+	public Operation jtry2(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+	public Operation jtry3(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
+	public Operation jtry4(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
+	public Operation jtry5(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
+	public Operation jtry6(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
+	public Operation jtry7(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
+	public Operation jtry8(Operation p, Operation next) {
+		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
+		return p;
+	}
+
 	public Operation jtry(int arity, Operation p, Operation next) {
-		stack.push(new ChoicePointFrame(this, arity, next, ++CPFTimeStamp));
+		final ChoicePointFrame entry = new ChoicePointFrame(this, arity, next, ++CPFTimeStamp);
+		stack.push(entry);
+		logger.jtry(p, next, entry);
 		return p;
 	}
 
@@ -414,7 +470,7 @@ public final class Prolog {
 	public Operation retry(Operation p, Operation next) {
 		stack.top.restore(this); //restore();
 		ChoicePointFrame top = stack.top;
-		logger.retry(p,next);
+		logger.retry(p, next, top);
 		trail.unwind(top.tr);
 		top.bp = next;
 		return p;
@@ -425,9 +481,10 @@ public final class Prolog {
 	 * discard it, and then returns <code>p</code>.
 	 */
 	public Operation trust(Operation p) {
-		stack.top.restore(this);//restore();
-		logger.trust(p);
-		trail.unwind(stack.top.tr);
+		final ChoicePointFrame top = stack.top;
+		top.restore(this);
+		logger.trust(p, top);
+		trail.unwind(top.tr);
 		stack.delete();
 		return p;
 	}
@@ -527,9 +584,7 @@ public final class Prolog {
 	public final Operation exec(Operation code){
 		try {
 			logger.beforeExec(code);
-			Operation next = code.exec(this);
-			logger.afterExec(code,next);
-		return next;
+			return code.exec(this);
 		} catch (RuntimeException t){
 			throw logger.execThrows(t);
 		}
@@ -543,7 +598,7 @@ public final class Prolog {
 		externalData.put(key, value);
 	}
 
-	public PrologLogger getLogger() {
-		return logger;
-	}
+//	public PrologLogger getLogger() {
+//		return logger;
+//	}
 }

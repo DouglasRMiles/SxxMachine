@@ -50,7 +50,7 @@ public class PrologMachineCopy {
 //    try {
 //      engine.copyHash.clear();
       IdentityHashMap<VariableTerm,VariableTerm> copyHash = new IdentityHashMap<VariableTerm, VariableTerm>(); 
-      hashManager = copyDeep(engine.hashManager, copyHash);
+      hashManager = copyDeep(engine.getHashManager(), copyHash);
       internalDB = new InternalDatabase(engine.internalDB, true, copyHash);
 //    } finally {
 //      engine.copyHash.clear();

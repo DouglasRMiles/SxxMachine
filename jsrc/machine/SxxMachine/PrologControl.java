@@ -23,11 +23,11 @@ public abstract class PrologControl {
     /** Holds a Prolog goal to be executed. */
     protected Operation code;
     
-    protected InputStream userInput = System.in;
+    private InputStream userInput = System.in;
 
-    protected PrintStream userOuput = System.out;
+    private PrintStream userOuput = System.out;
     
-    protected PrintStream userError = System.err;
+    private PrintStream userError = System.err;
     
     /** Constructs a new <code>PrologControl</code>. */
     public PrologControl() {
@@ -181,7 +181,7 @@ public abstract class PrologControl {
       } finally {
         this.code = code;
         SymbolTerm.gc();
-        engine.logger.dumpTimings();
+        engine.logger.close();
       }
     }
 
@@ -197,7 +197,7 @@ public abstract class PrologControl {
 		engine.setExternalData(key, value);
 	}
 
-	public PrologLogger getLogger() {
-		return engine.logger;
-	}
+//	public PrologLogger getLogger() {
+//		return engine.logger;
+//	}
 }

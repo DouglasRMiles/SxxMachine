@@ -13,17 +13,19 @@ class ChoicePointFrame {
   ChoicePointFrame prior;
 
   final long timeStamp;
-  final Operation cont;  // continuation goal
+  private final Operation cont;  // continuation goal
   Operation bp;    // next clause
   final int tr;    // trail pointer
   final int b0;    // cut point
-  Operation ownerPredicate;
+
+  Predicate ownerPredicate; // used in PrologLogger
+  int loggerStackTop; // used in PrologLogger
 
   private Term areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8;
   private Term[] aregs;
   private final int usedArgs;
 
-  public ChoicePointFrame(Prolog engine, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Operation next, long timeStamp){
     usedArgs = 0;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -33,7 +35,7 @@ class ChoicePointFrame {
     //areg1=areg2=areg3=areg4=areg5=areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Operation next, long timeStamp){
     usedArgs = 1;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -44,7 +46,7 @@ class ChoicePointFrame {
     //areg2=areg3=areg4=areg5=areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Operation next, long timeStamp){
     usedArgs = 2;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -56,7 +58,7 @@ class ChoicePointFrame {
     //areg3=areg4=areg5=areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Operation next, long timeStamp){
     usedArgs = 3;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -69,7 +71,7 @@ class ChoicePointFrame {
     //areg4=areg5=areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Operation next, long timeStamp){
     usedArgs = 4;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -83,7 +85,7 @@ class ChoicePointFrame {
     //areg5=areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Operation next, long timeStamp){
     usedArgs = 5;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -98,7 +100,7 @@ class ChoicePointFrame {
     //areg6=areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Operation next, long timeStamp){
     usedArgs = 6;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -114,7 +116,7 @@ class ChoicePointFrame {
     //areg7=areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Term areg7, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Term areg7, Operation next, long timeStamp){
     usedArgs = 7;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -131,7 +133,7 @@ class ChoicePointFrame {
     //areg8=null;
   }
 
-  public ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Term areg7, Term areg8, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, Term areg1, Term areg2, Term areg3, Term areg4, Term areg5, Term areg6, Term areg7, Term areg8, Operation next, long timeStamp){
     usedArgs = 8;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -148,7 +150,7 @@ class ChoicePointFrame {
     this.areg8 = areg8;
   }
 
-  public ChoicePointFrame(Prolog engine, int arity, Operation next, long timeStamp){
+  ChoicePointFrame(Prolog engine, int arity, Operation next, long timeStamp){
     usedArgs = 9;
     b0 = engine.B0;
     tr = engine.trail.top();
@@ -184,15 +186,14 @@ class ChoicePointFrame {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder(ChoicePointFrame.class.getName());
-    sb.append('{');
-    sb.append("time:").append(timeStamp);
-    sb.append(" cont:").append(cont);
-    sb.append(" bp:").append(bp);
-    sb.append(" tr:").append(tr);
-    sb.append(" b0:").append(b0);
-    sb.append('}');
-    return sb.toString();
+    String sb = ChoicePointFrame.class.getName() + '{' +
+            "time:" + timeStamp +
+            " cont:" + cont +
+            " bp:" + bp +
+            " tr:" + tr +
+            " b0:" + b0 +
+            '}';
+    return sb;
   }
 
 }
