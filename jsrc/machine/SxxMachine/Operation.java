@@ -10,7 +10,8 @@ package com.googlecode.prolog_cafe.lang;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public abstract class Operation {
+@FunctionalInterface
+public interface Operation {
   /**
    * Executes this operation and returns a continuation goal.
    *
@@ -18,14 +19,5 @@ public abstract class Operation {
    * @exception PrologException if a Prolog exception is raised.
    * @see Prolog
    */
-  public abstract Operation exec(Prolog engine) throws PrologException;
-
-  /**
-   * Default implementation, should be overridden in descendants
-   * @param sb
-   */
-  public void toString(StringBuilder sb){
-	  sb.append(toString());
-  }
-  
+  Operation exec(Prolog engine) throws PrologException;
 }

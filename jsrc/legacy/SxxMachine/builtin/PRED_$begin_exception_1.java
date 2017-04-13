@@ -19,6 +19,7 @@ class PRED_$begin_exception_1 extends BlockPredicate {
 
 	public Operation exec(Prolog engine) {
 		engine.setB0();
+		PrologLogger logger = engine.getLogger();
 		Term a1;
 		a1 = arg1;
 
@@ -32,19 +33,16 @@ class PRED_$begin_exception_1 extends BlockPredicate {
 		engine.trail.push(new OutOfLoop(this));
 
 		try {
-			while (engine.halt == 0 && !ctl.isEngineStopped() && !outOfLoop){
-				code = engine.exec(code);
+			while (engine.halt == 0 && !ctl.isEngineStopped() && !outOfLoop) {
+				logger.beforeExec(code);
+				code = code.exec(engine);
 			}
-		} catch (PrologException e) {
-			if (outOfScope)
+		} catch (RuntimeException re){
+			PrologException e = logger.execThrows(re);
+			if (outOfScope){
 				throw e;
+			}
 			engine.setException(engine.copy(e.getMessageTerm()));
-			engine.cut(B);
-			return engine.fail();
-		} catch (Exception e) {
-			if (outOfScope)
-				throw new JavaException(e);
-			engine.setException(new JavaObjectTerm(e));
 			engine.cut(B);
 			return engine.fail();
 		}

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public final class Prolog {
 
-	final PrologLogger logger;
+	private final PrologLogger logger;
 
 	private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
 
@@ -581,14 +581,14 @@ public final class Prolog {
 	/** Returns the hash manager. */
 	public HashtableOfTerm getHashManager() { return hashManager; }
 
-	public final Operation exec(Operation code){
-		try {
-			logger.beforeExec(code);
-			return code.exec(this);
-		} catch (RuntimeException t){
-			throw logger.execThrows(t);
-		}
-	}
+//	public final Operation exec(Operation code){
+//		try {
+//			logger.beforeExec(code);
+//			return code.exec(this);
+//		} catch (RuntimeException t){
+//			throw logger.execThrows(t);
+//		}
+//	}
 
 	public Object getExternalData(String key){
 		return externalData.get(key);
@@ -598,7 +598,7 @@ public final class Prolog {
 		externalData.put(key, value);
 	}
 
-//	public PrologLogger getLogger() {
-//		return logger;
-//	}
+	public PrologLogger getLogger() {
+		return logger;
+	}
 }

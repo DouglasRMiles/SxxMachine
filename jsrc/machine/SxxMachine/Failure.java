@@ -6,7 +6,7 @@ package com.googlecode.prolog_cafe.lang;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.2
  */
-public class Failure extends Operation {
+public class Failure implements Operation {
     public static final Failure FAILURE = new Failure();
     private Failure() {}
 
@@ -20,7 +20,7 @@ public class Failure extends Operation {
     public String toString(){ return "Failure"; }
 
     public static final Operation FAIL_0 = new PRED_fail_0();
-    private static final class PRED_fail_0 extends Operation {
+    private static final class PRED_fail_0 implements Operation {
       @Override
       public Operation exec(Prolog engine) throws PrologException {
         engine.setB0();

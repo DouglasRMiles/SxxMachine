@@ -8,7 +8,7 @@ package com.googlecode.prolog_cafe.lang;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class Success extends Operation {
+public class Success implements Operation {
     public static final Success SUCCESS = new Success();
     private Success() {}
 

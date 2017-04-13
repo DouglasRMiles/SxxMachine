@@ -21,7 +21,7 @@ import java.util.Deque;
  *   }
  * </pre>
  */
-public abstract class Predicate extends Operation {
+public abstract class Predicate implements Operation {
   /**
    * Holds the continuation goal of this predicate.
    * <p>
@@ -37,7 +37,6 @@ public abstract class Predicate extends Operation {
 	  return sb.toString();
   }
 
-  @Override
   public void toString(StringBuilder sb) {
 	Deque<Class> toScan = new ArrayDeque<Class>();
     Class clazz = getClass();

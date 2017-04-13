@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  * @author semenov
  *
  */
-class PrologLogger {
+public class PrologLogger {
 
 	private final Logger logger;
 
@@ -55,7 +55,7 @@ class PrologLogger {
 		logger.log(Level.FINER, ()->{
 			stringBuilder.setLength(0);
 			stringBuilder.append(indent, 1, stackTop).append("failure => ");
-			next.toString(stringBuilder);
+			stringBuilder.append(next);
 			return stringBuilder.toString();
 		});
 		normalExecution = false;
@@ -73,7 +73,7 @@ class PrologLogger {
 			stringBuilder.append(indent, 1, stackTop).append("try ");
 			stackFrame[stackTop].toString(stringBuilder);
 			stringBuilder.append(" => ");
-			p.toString(stringBuilder);
+			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
 	}
@@ -85,7 +85,7 @@ class PrologLogger {
 			stringBuilder.append(indent, 1, stackTop).append("retry ");
 			entry.ownerPredicate.toString(stringBuilder);
 			stringBuilder.append(" => ");
-			p.toString(stringBuilder);
+			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
 		normalExecution = false;
@@ -100,7 +100,7 @@ class PrologLogger {
 			stringBuilder.append(indent, 1, stackTop).append("trust ");
 			entry.ownerPredicate.toString(stringBuilder);
 			stringBuilder.append(" => ");
-			p.toString(stringBuilder);
+			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
 		normalExecution = false;
@@ -108,7 +108,7 @@ class PrologLogger {
 		stackFrame[stackTop] = entry.ownerPredicate;
 	}
 
-	final void beforeExec(Operation code) {
+	public final void beforeExec(Operation code) {
 		Level level;
 		// do afterExec
 		if (code instanceof Predicate) {
@@ -133,7 +133,11 @@ class PrologLogger {
 		logger.log(level, ()->{
 			stringBuilder.setLength(0);
 			stringBuilder.append(indent, 1, stackTop).append(": ");
-			code.toString(stringBuilder);
+			if (code instanceof Predicate){
+				((Predicate) code).toString(stringBuilder);
+			} else {
+				stringBuilder.append(code);
+			}
 			return stringBuilder.toString();
 		});
 	}
@@ -146,7 +150,7 @@ class PrologLogger {
 		Arrays.fill(indent, ' ');
 	}
 
-	final RuntimeException execThrows(RuntimeException t) {
+	public final PrologException execThrows(RuntimeException t) {
 		if (!(t instanceof PrologException) || !((PrologException)t).hasPrologStackTrace() ){
 			Operation[] array = new Operation[stackTop];
 			for (int i=stackTop, k=0; i>0; i--){
@@ -159,10 +163,13 @@ class PrologLogger {
 			}
 			// add stacktrace into t
 			((PrologException)t).setPrologStackTrace(array);
+			if (t instanceof BuiltinException) {
+				((BuiltinException) t).goal = stackFrame[stackTop];
+			}
 		}
 		// write to log
 		logger.log(Level.FINE, "", t);
-		return t;
+		return (PrologException) t;
 	}
 
 	final void printStackTrace(Throwable err) {

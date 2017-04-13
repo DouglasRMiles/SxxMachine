@@ -59,7 +59,7 @@ public abstract class PrologControl {
 
     /** @param err stack trace to print (or log). */
     public void printStackTrace(Throwable err) {
-    	engine.logger.printStackTrace(err);
+    	engine.getLogger().printStackTrace(err);
     }
 
 	public void setUserInput(InputStream userInput) {
@@ -166,22 +166,26 @@ public abstract class PrologControl {
      */
     protected void executePredicate() throws PrologException, JavaInterruptedException {
       Prolog engine = this.engine;
+      PrologLogger logger = engine.getLogger();
       Operation code = this.code;
       try {
         engine.init(userInput, userOuput, userError);
 
         do {
           if (isEngineStopped()) return;
-          code = engine.exec(code);
+          logger.beforeExec(code);
+          code = code.exec(engine);
         } while (engine.halt == 0);
 
         if (engine.halt != 1) {
             throw new HaltException(engine.halt - 1);
         }
+      } catch (RuntimeException t){
+          throw logger.execThrows(t);
       } finally {
         this.code = code;
         SymbolTerm.gc();
-        engine.logger.close();
+        logger.close();
       }
     }
 
