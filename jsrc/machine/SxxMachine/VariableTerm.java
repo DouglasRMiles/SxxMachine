@@ -213,10 +213,15 @@ public class VariableTerm extends Term implements Undoable {
      * @see #compareTo
     */
 	public boolean equals(Object obj) {
-		return (val != this) ? val.equals(obj) : this == obj;
+		return (val == this) ? this == obj : val.equals(obj);
 	}
 
-    /**
+	@Override
+	public int hashCode() {
+		return (val==this) ? System.identityHashCode(this) : val.hashCode();
+	}
+
+	/**
      * Returns a string representation of this term if unbound.
      * Otherwise, returns the value of dereferenced term:
      * <code>val.toString()</code>
@@ -246,7 +251,7 @@ public class VariableTerm extends Term implements Undoable {
      */
     @Override
     public Iterator<Term> iterator(){
-    	return (val instanceof VariableTerm) ? Collections.<Term>emptyIterator() : val.iterator();
+    	return (val instanceof VariableTerm) ? Collections.emptyIterator() : val.iterator();
     }
 
     /* Undoable */
@@ -284,7 +289,7 @@ public class VariableTerm extends Term implements Undoable {
 			return BEFORE;
 		if (this == anotherTerm)
 			return EQUAL;
-		int x = this.hashCode() - ((VariableTerm) anotherTerm).hashCode();
+		int x = this.hashCode() - anotherTerm.hashCode();
 		if (x != 0)
 			return x;
 		throw new InternalException("VariableTerm is not unique");

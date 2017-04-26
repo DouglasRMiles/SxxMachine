@@ -1,11 +1,7 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
+import com.googlecode.prolog_cafe.lang.*;
+
 /**
  * '$builtin_member'(X, [X|_]).
  * '$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).
@@ -31,34 +27,50 @@ final class PRED_$builtin_member_2 extends Predicate.P2 {
 
 	@Override
 	public final Operation exec(Prolog engine) {
+		Term a1 = arg1.dereference();
+		Term a2 = arg2.dereference();
+		if (!(a2 instanceof ListTerm)){
+			return engine.fail();
+		}
+
+		Term value = ((ListTerm) a2).car();
+		if (((ListTerm) a2).cdr().dereference().equals(Prolog.Nil)){
+			return (a1.unify(value, engine.trail)) ? cont : engine.fail();
+		}
+
 		engine.areg1 = arg1;
-		engine.areg2 = arg2;
+		engine.areg2 = new JavaObjectTerm(new Term[]{a2});
 		engine.cont = cont;
 		engine.setB0();
-		return PRED_$builtin_member_2::check;
+		return engine.jtry2(PRED_$builtin_member_2::get, PRED_$builtin_member_2::retry);
 	}
 
-	private static Operation check(Prolog engine) throws PrologException {
-		Term a2 = engine.areg2.dereference();
-		if (a2 instanceof ListTerm) {
-			engine.areg2 = a2;
-			return engine.jtry2(PRED_$builtin_member_2::get, PRED_$builtin_member_2::next);
+	private static Operation retry(Prolog engine) {
+		engine.retry(PRED_$builtin_member_2::get, PRED_$builtin_member_2::retry); // restore engine.areg1, areg2, cont
+		Term[] p = (Term[]) engine.areg2.toJava();
+		Trail trail = engine.trail;
+		int top = trail.top();
+		Term a2 = p[0];
+		while (a2 instanceof ListTerm){
+			final Term value = ((ListTerm) a2).car().dereference();
+			a2 = ((ListTerm) a2).cdr().dereference();
+			if (engine.areg1.unify(value, engine.trail)) {
+				p[0] = a2;
+				return engine.cont;
+			}
+			trail.unwind(top);
 		}
-		return engine.fail();
+		return engine.trust(Failure.FAIL_0);
 	}
 
-	private static Operation get(Prolog engine) throws PrologException {
-		Term a2 = engine.areg2;
-		if (engine.areg1.unify(((ListTerm) a2).car(), engine.trail)) {
+	private static Operation get(Prolog engine) {
+		Term[] p = (Term[]) engine.areg2.toJava();
+		final ListTerm a2 = (ListTerm) p[0];
+		final Term value = a2.car();
+		p[0] = a2.cdr().dereference();
+		if (engine.areg1.unify(value, engine.trail)) {
 			return engine.cont;
 		}
 		return engine.fail();
 	}
-
-	private static Operation next(Prolog engine) throws PrologException {
-		Operation next = engine.trust(PRED_$builtin_member_2::check);
-		engine.areg2 = ((ListTerm) engine.areg2).cdr();
-		return next;
-	}
-
 }

@@ -355,8 +355,9 @@ write_java0(get_val(Xi,Xj), _, Out) :- !,
 	write_reg(Xj, Out), write(Out, ', engine.trail))'), nl(Out),
 	tab(Out, 12),
 	write(Out, 'return engine.fail();'), nl(Out).
-%write_java0(get_int(_,Xi,Xj), In, Out) :- !,
-%	write_java0(get_val(Xi, Xj), In, Out).
+write_java0(get_int(_,Xi,Xj), In, Out) :- !,
+	write_java0(get_val(Xi, Xj), In, Out).
+/*
 write_java0(get_int(N,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
@@ -380,8 +381,10 @@ write_java0(get_int(N,Xi,Xj), In, Out) :- !,
  	write(Out, 'return engine.fail();'), nl(Out),
 	tab(Out, 8),
  	write(Out, '}'), nl(Out).
-%write_java0(get_float(_,Xi,Xj), In, Out) :- !,
-%	write_java0(get_val(Xi, Xj), In, Out).
+*/
+write_java0(get_float(_,Xi,Xj), In, Out) :- !,
+	write_java0(get_val(Xi, Xj), In, Out).
+/*
 write_java0(get_float(N,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
@@ -405,8 +408,11 @@ write_java0(get_float(N,Xi,Xj), In, Out) :- !,
  	write(Out, 'return engine.fail();'), nl(Out),
 	tab(Out, 8),
  	write(Out, '}'), nl(Out).
-%write_java0(get_con(_,Xi,Xj), In, Out) :- !,
-%	write_java0(get_val(Xi, Xj), In, Out).
+*/
+write_java0(get_con(_,Xi,Xj), In, Out) :- !,
+	write_java0(get_val(Xi, Xj), In, Out).
+
+/*
 write_java0(get_con(_,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	% read mode
@@ -431,6 +437,7 @@ write_java0(get_con(_,Xi,Xj), In, Out) :- !,
  	write(Out, 'return engine.fail();'), nl(Out),
 	tab(Out, 8),
  	write(Out, '}'), nl(Out).
+ */
 write_java0(get_ground(_,Xi,Xj), In, Out) :- !,
 	write_java0(get_val(Xi, Xj), In, Out).
 write_java0(get_list(X), In, Out) :- !,

@@ -50,7 +50,7 @@ public class JavaObjectTerm extends Term {
     public boolean unify(Term t, Trail trail) {
     	t = t.dereference();
     	return (t instanceof VariableTerm) ? ((VariableTerm)t).bind(this, trail) :
-    		((t instanceof JavaObjectTerm) && obj.equals(((JavaObjectTerm)t).obj));
+    		((t instanceof JavaObjectTerm) && obj==(((JavaObjectTerm)t).obj));
     }
 
     /** 
@@ -74,19 +74,18 @@ public class JavaObjectTerm extends Term {
      * Checks <em>term equality</em> of two terms.
      * The result is <code>true</code> if and only if the argument is an instance of
      * <code>JavaObjectTerm</code>, and 
-     * the pairs of wrapped objects in the two java-term are <em>equal</em>
-     * by <code>obj.equals(((JavaObjectTerm)o).obj)</code>.
+     * both terms point to the same java object.
      * @param o the object to compare with. This must be dereferenced.
      * @return <code>true</code> if the given object represents a java-term
      * equivalent to this <code>JavaObjectTerm</code>, false otherwise.
      * @see #compareTo
      */
     public boolean equals(Object o) {
-		return o instanceof JavaObjectTerm && obj.equals(((JavaObjectTerm) o).obj);
+		return o instanceof JavaObjectTerm && obj==(((JavaObjectTerm) o).obj);
 	}
 
     public int hashCode() {
-    	return obj.hashCode();
+    	return System.identityHashCode(obj);
     }
 
     /** Returns a string representation of this <code>JavaObjectTerm</code>. */
@@ -124,7 +123,7 @@ public class JavaObjectTerm extends Term {
 		    return AFTER;
 		if (! anotherTerm.isJavaObject())
 		    return BEFORE;
-		if (obj.equals(((JavaObjectTerm) anotherTerm).obj))
+		if (obj==(((JavaObjectTerm) anotherTerm).obj))
 		    return EQUAL;
 		return obj.hashCode() - ((JavaObjectTerm) anotherTerm).obj.hashCode(); //???
     }

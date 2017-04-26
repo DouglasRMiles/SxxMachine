@@ -22,7 +22,7 @@ public final class Prolog {
 
 	private static final SymbolTerm NONE = SymbolTerm.intern("$none");
 
-	private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<String, Object>();
+	private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<>();
 
 	/** Prolog thread */
 	public final PrologControl control;
@@ -244,13 +244,10 @@ public final class Prolog {
 		CPFTimeStamp = Long.MIN_VALUE;
 
 		// Creates an initial choice point frame.
-		ChoicePointFrame initialFrame = new ChoicePointFrame(this, Failure.FAILURE, ++CPFTimeStamp);  //ChoicePointFrame.S0(null);
-//	initialFrame.b0 = B0;
-//	initialFrame.bp = Failure.FAILURE;
-//	initialFrame.tr = trail.top();
-//	initialFrame.timeStamp = ++CPFTimeStamp;
-		stack.push(initialFrame);
-		logger.init(initialFrame);
+		//ChoicePointFrame initialFrame = new ChoicePointFrame(this, Failure.FAILURE, ++CPFTimeStamp);  //ChoicePointFrame.S0(null);
+		trail.timeStamp = ++CPFTimeStamp;
+		stack.push(this, Failure.FAILURE, ChoicePointStack::restore0);
+		logger.init(stack.top);
 
 		halt = 0;
 
@@ -386,69 +383,59 @@ public final class Prolog {
 
 	/** Creates a new choice point frame. */
 	public Operation jtry0(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, next, ChoicePointStack::restore0));
 		return p;
 	}
 	public Operation jtry1(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, next));
 		return p;
 	}
 	public Operation jtry2(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, next));
 		return p;
 	}
 	public Operation jtry3(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, next));
 		return p;
 	}
 
 	public Operation jtry4(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, areg4, next));
 		return p;
 	}
 
 	public Operation jtry5(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, areg4, areg5, next));
 		return p;
 	}
 
 	public Operation jtry6(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, areg4, areg5, areg6, next));
 		return p;
 	}
 
 	public Operation jtry7(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, next));
 		return p;
 	}
 
 	public Operation jtry8(Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8, next));
 		return p;
 	}
 
 	public Operation jtry(int arity, Operation p, Operation next) {
-		final ChoicePointFrame entry = new ChoicePointFrame(this, arity, next, ++CPFTimeStamp);
-		stack.push(entry);
-		logger.jtry(p, next, entry);
+		trail.timeStamp = ++CPFTimeStamp;
+		logger.jtry(p, next, stack.push(this, arity, next));
 		return p;
 	}
 
@@ -468,8 +455,8 @@ public final class Prolog {
 	 * and then returns <code>p</code>.
 	 */
 	public Operation retry(Operation p, Operation next) {
-		stack.top.restore(this); //restore();
 		ChoicePointFrame top = stack.top;
+		top.restore.accept(top,this);
 		logger.retry(p, next, top);
 		trail.unwind(top.tr);
 		top.bp = next;
@@ -482,7 +469,7 @@ public final class Prolog {
 	 */
 	public Operation trust(Operation p) {
 		final ChoicePointFrame top = stack.top;
-		top.restore(this);
+		top.restore.accept(top,this);
 		logger.trust(p, top);
 		trail.unwind(top.tr);
 		stack.delete();
@@ -503,7 +490,7 @@ public final class Prolog {
 	}
 
 	/** Returns the current time stamp of choice point frame. */
-	public long    getCPFTimeStamp() { return CPFTimeStamp; }
+	public long getCPFTimeStamp() { return CPFTimeStamp; }
 
 	/** Returns the value of Prolog implementation flag: <code>bounded</code>. */
 	public boolean isBounded() { return bounded; }
