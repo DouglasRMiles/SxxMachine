@@ -3,13 +3,10 @@ package com.googlecode.prolog_cafe.builtin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.*;
 import com.googlecode.prolog_cafe.lang.Predicate.P2;
-import com.googlecode.prolog_cafe.lang.ErrorTerm;
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
+
+import static com.googlecode.prolog_cafe.builtin.PRED_loggable_1.LEVELS;
 
 /**
  * <b>log_error(package:level, error)</b> - logs given <i>error</i> to the logger, corresponding to <i>package</i>, 
@@ -39,24 +36,19 @@ public class PRED_log_error_2 extends P2 {
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
+		final Term a1 = arg1.dereference();
+		final Term a2 = arg2.dereference();
 
-		Term a1 = arg1.dereference();
-		Term a2 = arg2.dereference();
-		Term packageTerm, levelTerm;		
-		
-		if (!a1.isStructure() || a1.arity()!=2 || 
-				!(packageTerm=a1.arg(0)).isSymbol() || !(levelTerm=a1.arg(1)).isSymbol()){
+		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
 		}
-//		if (a2.isVariable()){
-//			throw new IllegalTypeException(this, 2, "nonvar", a2);
-//		}
-		
-		Logger logger = Logger.getLogger(packageTerm.name());
-		Level level = Level.parse(levelTerm.name().toUpperCase());
+
+		final Logger logger = Logger.getLogger(a1.arg(0).name());
+		final Level level = LEVELS.getOrDefault(a1.arg(1), Level.INFO);
+
 		if (logger.isLoggable(level)){
 			Throwable t = null;
-			if (a2.isJavaObject() && (a2.toJava() instanceof Throwable)){
+			if (a2 instanceof JavaObjectTerm && (a2.toJava() instanceof Throwable)){
 				t = (Throwable) a2.toJava();
 			} else if (a2 instanceof ErrorTerm){
 				t = ((ErrorTerm)a2).getThrowable();

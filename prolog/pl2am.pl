@@ -252,7 +252,7 @@ pl2am_preread(File, Opts) :-
 	retractall(skip_code),
 	retractall(ifdef_flag),
 	retractall(domain_definition(_, _)),
-	assert(database_call(call)),
+	assert(database_call('com.googlecode.prolog_cafe.builtin':call)),
 	assert_file_name(File),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -688,7 +688,7 @@ compile_all_predicates(Out) :- % output declarations (ex. op/3)
 	writeq(Out, (:- G)), write(Out, '.'), nl(Out),
 	fail.
 compile_all_predicates(_) :-   % treat dynamic declaration
-	findall(Functor/Arity, dynamic_predicates(Functor, Arity, call), PredSpecs),
+	findall(Functor/Arity, dynamic_predicates(Functor, Arity, 'com.googlecode.prolog_cafe.builtin':call), PredSpecs),
 	assert_init_clauses(PredSpecs),
 	fail.
 compile_all_predicates(Out) :- % compile predicate
@@ -1225,7 +1225,18 @@ pretreat_body0(halt, _)  --> !, [halt].
 pretreat_body0(abort, _) --> !, [abort].
 pretreat_body0((G1,G2), Cut) --> !, pretreat_body0(G1, Cut), pretreat_body0(G2, Cut).
 pretreat_body0(G, _) --> pretreat_builtin(G), !.
-pretreat_body0(G, _) --> {functor(G, F, A), clause(dynamic_predicates(F, A, Call), _), CG=..[Call,G]}, !, [CG].
+pretreat_body0(G, _) --> {functor(G, F, A), clause(dynamic_predicates(F, A, _:Call), _), CG=..[Call,G]}, !, [CG].
+pretreat_body0(findall(X,G,L), Z) --> {
+        nonvar(G),
+        functor(G, F, A),
+        clause(dynamic_predicates(F, A, Call), _),
+        Call\=='com.googlecode.prolog_cafe.builtin':call,
+        Call=P:C,
+        CG=..[C,G]
+    },
+    !,
+    pretreat_body0(findall(X,P:CG,L), Z).
+
 pretreat_body0(G, _) --> [G].
 
 %%% rename builtins
@@ -1345,6 +1356,10 @@ localize_meta_goal(G, P, P:G).
 
 localize_meta_args([], [], _, []) :- !.
 localize_meta_args([:|Ms], [A|As], P, [P:A|As1]) :-
+	(var(A) ; A \= _:_),
+	!,
+	localize_meta_args(Ms, As, P, As1).
+localize_meta_args([;|Ms], [A|As], P, [P:A|As1]) :-
 	(var(A) ; A \= _:_),
 	!,
 	localize_meta_args(Ms, As, P, As1).
@@ -2032,7 +2047,7 @@ pl2am_message(Stream, [M|Ms]) :- write(Stream, M), write(Stream, ' '), pl2am_mes
 
 %%% format
 mode_expr([]).
-mode_expr([M|Ms]) :- nonvar(M), pl2am_member(M, [:,+,-,?]), !, mode_expr(Ms).
+mode_expr([M|Ms]) :- nonvar(M), pl2am_member(M, [:,;,+,-,?]), !, mode_expr(Ms).
 
 predspec_expr(F/A) :- atom(F), integer(A).
 

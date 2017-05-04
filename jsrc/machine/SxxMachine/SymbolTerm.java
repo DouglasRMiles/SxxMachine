@@ -97,13 +97,10 @@ public abstract class SymbolTerm extends Term {
         @Override
         public int hashCode() {
             int h = hash;
-            if (h == 0 && finish-start > 0) {
-
-                for (int i = start; i < finish; i++) {
-                    h = 31 * h + name.charAt(i);
-                }
-                hash = h;
-            }
+			if (h == 0 && finish-start > 0) {
+				h = name.substring(start, finish).hashCode(); // use the same hashCode function as in SymbolTerm
+				hash = h;
+			}
             return h;
         }
         

@@ -20,8 +20,7 @@ class PRED_$begin_exception_1 extends BlockPredicate {
 	public Operation exec(Prolog engine) {
 		engine.setB0();
 		PrologLogger logger = engine.getLogger();
-		Term a1;
-		a1 = arg1;
+		Term a1 = arg1;
 
 		if (!a1.unify(new JavaObjectTerm(this), engine.trail))
 			return engine.fail();

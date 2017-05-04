@@ -3,12 +3,9 @@ package com.googlecode.prolog_cafe.builtin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
+import com.googlecode.prolog_cafe.lang.*;
+
+import static com.googlecode.prolog_cafe.builtin.PRED_loggable_1.LEVELS;
 
 /**
  * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, 
@@ -48,30 +45,24 @@ public class PRED_log_7 extends Predicate {
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
+		final Term a1 = arg1.dereference();
+		final Term a2 = arg2.dereference();
+		final Term a3 = arg3.dereference();
+		final Term a4 = arg4.dereference();
+		final Term a5 = arg5.dereference();
+		final Term a6 = arg6.dereference();
+		final Term a7 = arg7.dereference();
 
-		Term a1 = arg1.dereference();
-		Term a2 = arg2.dereference();
-		Term a3 = arg3.dereference();
-		Term a4 = arg4.dereference();
-		Term a5 = arg5.dereference();
-		Term a6 = arg6.dereference();
-		Term a7 = arg7.dereference();
-		Term packageTerm, levelTerm;
-		
-		
-		if (!a1.isStructure() || a1.arity()!=2 || 
-				!(packageTerm=a1.arg(0)).isSymbol() || !(levelTerm=a1.arg(1)).isSymbol()){
+		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
 		}
-		if (!a2.isSymbol()){
+		if (!(a2 instanceof SymbolTerm)){
 			throw new IllegalTypeException(this, 2, "atom", a2);
 		}
-		
-		Logger logger = Logger.getLogger(packageTerm.name());
-		Level level = Level.parse(levelTerm.name().toUpperCase());
-		if (logger.isLoggable(level)){
-			logger.log(level, String.format(a2.name(), a3.toJava(), a4.toJava(), a5.toJava(), a6.toJava(), a7.toJava()));
-		}
+
+		final Logger logger = Logger.getLogger(a1.arg(0).name());
+		final Level level = LEVELS.getOrDefault(a1.arg(1), Level.INFO);
+		logger.log(level, ()->String.format(a2.name(), a3.toJava(), a4.toJava(), a5.toJava(), a6.toJava(), a7.toJava()));
 		return cont;
 	}
 
