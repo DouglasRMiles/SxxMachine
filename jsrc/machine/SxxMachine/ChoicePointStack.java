@@ -237,8 +237,11 @@ public final class ChoicePointStack {
 
   /** Discards all choice points after the value of <code>i</code>. */
   public void cut(int i) {
-    level = i;
-    top = frames[level];
+    if (level > i) {
+      level = i;
+      top = frames[level];
+      Arrays.fill(frames, i+1, level+1, null);
+    }
     trail.timeStamp = top.timeStamp;
   }
 
