@@ -165,28 +165,43 @@ public abstract class PrologControl {
      * @throws JavaInterruptedException
      */
     protected void executePredicate() throws PrologException, JavaInterruptedException {
-      Prolog engine = this.engine;
-      PrologLogger logger = engine.getLogger();
-      Operation code = this.code;
-      try {
-        engine.init(userInput, userOuput, userError);
+        Prolog engine = this.engine;
+        PrologLogger logger = engine.getLogger();
+        Operation code = this.code;
+        try {
+            engine.init(userInput, userOuput, userError);
+            mainLoop:
+            do {
+                try {
 
-        do {
-          if (isEngineStopped()) return;
-          logger.beforeExec(code);
-          code = code.exec(engine);
-        } while (engine.halt == 0);
+                    do {
+                        logger.beforeExec(code);
+                        code = code.exec(engine);
+                    } while (code != null);
 
-        if (engine.halt != 1) {
-            throw new HaltException(engine.halt - 1);
+                } catch (StopEngineException see) {
+                    return; // escape execution loop
+                } catch (RuntimeException t) {
+                    PrologException e = logger.execThrows(t);
+                    final int b = engine.peekCatcherB();
+                    if (b >= 0) {
+                        engine.setException(engine.copy(e.getMessageTerm()));
+                        engine.cut(b);
+                        code = engine.fail(); // set next operation to execute
+                        continue mainLoop;
+                    } else {
+                        throw e;
+                    }
+                }
+                if (engine.halt != 1) {
+                    throw new HaltException(engine.halt - 1);
+                }
+            } while (code!=null);
+        } finally {
+            this.code = code;
+            SymbolTerm.gc();
+            logger.close();
         }
-      } catch (RuntimeException t){
-          throw logger.execThrows(t);
-      } finally {
-        this.code = code;
-        SymbolTerm.gc();
-        logger.close();
-      }
     }
 
 	public void setUserError(PrintStream userError) {

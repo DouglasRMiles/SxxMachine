@@ -163,11 +163,17 @@ public class BufferingPrologControl extends PrologControl {
     }
     resBuffer.add(resSingle ? r[0] : r);
     engineStopped = (resLimit <= resBuffer.size());
+    if (engineStopped){
+      throw new StopEngineException("success");
+    }
   }
 
   @Override
   protected void fail() {
     resLimit = 0;
     engineStopped = (resLimit <= resBuffer.size());
+    if (engineStopped){
+      throw new StopEngineException("failure");
+    }
   }
 }

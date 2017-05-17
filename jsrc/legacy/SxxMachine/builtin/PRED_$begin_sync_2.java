@@ -53,8 +53,8 @@ class PRED_$begin_sync_2 extends BlockPredicate {
 						if (engine.halt != 0) {
 							break main_loop;
 						}
-						if (engine.control.isEngineStopped())
-							break main_loop;
+//						if (engine.control.isEngineStopped())
+//							break main_loop;
 						if (outOfLoop)
 							break main_loop;
 
@@ -66,8 +66,8 @@ class PRED_$begin_sync_2 extends BlockPredicate {
 					if (engine.halt != 0) {
 						break main_loop;
 					}
-					if (engine.control.isEngineStopped())
-						break main_loop;
+//					if (engine.control.isEngineStopped())
+//						break main_loop;
 					if (outOfLoop)
 						break main_loop;
 
@@ -76,6 +76,8 @@ class PRED_$begin_sync_2 extends BlockPredicate {
 				}
 
 			}
+		} catch (StopEngineException see){
+			throw see;
 		} catch (RuntimeException e){
 			throw logger.execThrows(e);
 		}

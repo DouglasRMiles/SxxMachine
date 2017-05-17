@@ -17,34 +17,10 @@ class PRED_$begin_exception_1 extends BlockPredicate {
 		this.cont = cont;
 	}
 
-	public Operation exec(Prolog engine) {
+	public Operation exec(final Prolog engine) {
 		engine.setB0();
-		PrologLogger logger = engine.getLogger();
-		Term a1 = arg1;
-
-		if (!a1.unify(new JavaObjectTerm(this), engine.trail))
-			return engine.fail();
-		PrologControl ctl = engine.control;
-		Operation code = cont;
-		int B = engine.stack.top();
-		this.outOfScope = false;
-		this.outOfLoop = false;
-		engine.trail.push(new OutOfLoop(this));
-
-		try {
-			while (engine.halt == 0 && !ctl.isEngineStopped() && !outOfLoop) {
-				logger.beforeExec(code);
-				code = code.exec(engine);
-			}
-		} catch (RuntimeException re){
-			PrologException e = logger.execThrows(re);
-			if (outOfScope){
-				throw e;
-			}
-			engine.setException(engine.copy(e.getMessageTerm()));
-			engine.cut(B);
-			return engine.fail();
-		}
-		return code;
+		engine.pushCatcherB(engine.B0);
+		engine.trail.push(()-> engine.popCatcherB());
+		return cont;
 	}
 }

@@ -1232,7 +1232,8 @@ pretreat_body0(findall(X,G,L), Z) --> {
         clause(dynamic_predicates(F, A, Call), _),
         Call\=='com.googlecode.prolog_cafe.builtin':call,
         Call=P:C,
-        CG=..[C,G]
+        clause(package_name(P1), _),
+        CG=..[C,P1:G]
     },
     !,
     pretreat_body0(findall(X,P:CG,L), Z).

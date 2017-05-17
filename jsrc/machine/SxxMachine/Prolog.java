@@ -47,6 +47,9 @@ public final class Prolog {
 
 	/** Current time stamp of choice point frame */
 	private long CPFTimeStamp;
+	/** Stack for keeping B value of error catchers */
+	private int[] catchersB = new int[256];
+	private int catchersBindex = -1;
 
 	/**
 	 * Exception level of continuation passing loop:
@@ -272,6 +275,28 @@ public final class Prolog {
 		if (!features.contains(f)) {
 			throw new PermissionException(goal, "use", f.toString().toLowerCase(), arg, "disabled");
 		}
+	}
+
+	public void pushCatcherB(int b){
+		catchersBindex++;
+		if (catchersBindex>=catchersB.length){
+			ensureCatchersCapability();
+		}
+		catchersB[catchersBindex] = b;
+	}
+
+	private void ensureCatchersCapability() {
+		int[] newCatchersB = new int[catchersB.length<<1];
+		System.arraycopy(catchersB, 0, newCatchersB, 0, catchersB.length);
+		catchersB = newCatchersB;
+	}
+
+	public int popCatcherB(){
+		return (catchersBindex>=0) ? catchersB[catchersBindex--] : -1;
+	}
+
+	public int peekCatcherB() {
+		return (catchersBindex>=0) ? catchersB[catchersBindex] : -1;
 	}
 
 	/** Sets B0 to the top of the choice point stack.. */
