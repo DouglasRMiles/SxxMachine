@@ -350,17 +350,17 @@ public final class Prolog {
 									Operation str,
 									Operation lis) {
 		Term arg1 = areg1.dereference();
-		if (arg1.isVariable())
+		if (arg1 instanceof VariableTerm)
 			return var;
-		if (arg1.isInteger())
+		if (arg1 instanceof IntegerTerm)
 			return Int;
-		if (arg1.isDouble())
+		if (arg1 instanceof DoubleTerm)
 			return flo;
-		if (arg1.isSymbol())
+		if (arg1 instanceof SymbolTerm)
 			return con;
-		if (arg1.isStructure())
+		if (arg1 instanceof StructureTerm)
 			return str;
-		if (arg1.isList())
+		if (arg1 instanceof ListTerm)
 			return lis;
 		return var;
 	}

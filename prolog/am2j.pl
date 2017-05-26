@@ -468,7 +468,24 @@ write_java0(get_list(X), In, Out) :- !,
 write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 	write_java0(deref(Xj,Xj), In, Out),
 	read_instructions(A, In, Us),
-	% read mode
+	% simple unify
+		write_unify_write(Us, Rs, Out),
+    	tab(Out, 8),
+    	write(Out, '{'), nl(Out),
+    	tab(Out, 12),
+    	write(Out, 'Term[] args = {'), write_reg_args(Rs, Out), write(Out, '};'), nl(Out),
+        tab(Out, 12),
+    	write(Out, 'if (!'), write_reg(Xj, Out), write(Out, '.unify(new StructureTerm('),
+    	write_reg(Xi, Out), write(Out, ', args), engine.trail)){'), nl(Out),
+	    tab(Out, 16),
+ 	    write(Out, 'return engine.fail();'), nl(Out),
+	    tab(Out, 12),
+ 	    write(Out, '}'), nl(Out),
+        tab(Out, 8),
+        write(Out, '}'), nl(Out).
+
+
+/*	% read mode
 	tab(Out, 8),
 	write(Out, 'if ('), write_reg(Xj, Out), write(Out, ' instanceof StructureTerm){'), nl(Out), %??? == F
 	tab(Out, 12),
@@ -497,6 +514,7 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
  	write(Out, 'return engine.fail();'), nl(Out),
 	tab(Out, 8),
  	write(Out, '}'), nl(Out).
+ */
 %%% Choice Instructions
 write_java0(try(Li,Lj), _, Out) :- !,
 	clause(current_arity(A), _),
