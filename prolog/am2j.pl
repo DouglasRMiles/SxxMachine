@@ -175,8 +175,8 @@ write_java0(label(L), _, Out) :- !.
 write_java0(goto(L), _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'return '),
-	write_method_ref(L, Out),
-	write(Out, ';'), nl(Out).
+	write_index(L, Out),
+	write(Out, '(engine);'), nl(Out).
 write_java0(setB0, _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'engine.setB0();'), nl(Out).
@@ -519,44 +519,51 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 write_java0(try(Li,Lj), _, Out) :- !,
 	clause(current_arity(A), _),
 	tab(Out, 8),
-	write(Out, 'return engine.jtry'),
+	write(Out, 'engine.jtry'),
 	( A =< 8 ->
 		write(Out, A), write(Out, '(')
 		;
 		write(Out, '('), write(Out, A), write(Out, ', ')
 	),
-	write_method_ref(Li, Out),
-	write(Out, ', '),
+	write(Out, 'null, '),
 	write_method_ref(Lj, Out),
-	write(Out, ');'), nl(Out).
+	write(Out, ');'), nl(Out),
+	tab(Out, 8),
+	write(Out, 'return '), write_index(Li, Out), write(Out, '(engine);'), nl(Out).
 write_java0(retry(Li,Lj), _, Out) :- !,
 	tab(Out, 8),
-	write(Out, 'return engine.retry('),
-	write_method_ref(Li, Out),
-	write(Out, ', '),
+	write(Out, 'engine.retry(null, '),
 	write_method_ref(Lj, Out),
-	write(Out, ');'), nl(Out).
+	write(Out, ');'), nl(Out),
+	tab(Out, 8),
+	write(Out, 'return '), write_index(Li, Out), write(Out, '(engine);'), nl(Out).
 write_java0(trust(L), _, Out) :- !,
 	tab(Out, 8),
-	write(Out, 'return engine.trust('),
-	write_method_ref(L, Out),
-	write(Out, ');'), nl(Out).
+	write(Out, 'engine.trust(null);'), nl(Out),
+	tab(Out, 8),
+	write(Out, 'return '), write_index(L, Out), write(Out, '(engine);'), nl(Out).
 %%% Indexing Instructions
 write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _, Out) :- !,
 	tab(Out, 8),
-	write(Out, 'return engine.switch_on_term('),
-	write_method_ref(Lv, Out), write(Out, ', '),
-	write_method_ref(Li, Out), write(Out, ', '),
-	write_method_ref(Lf, Out), write(Out, ', '),
-	write_method_ref(Lc, Out), write(Out, ', '),
-	write_method_ref(Ls, Out), write(Out, ', '),
-	write_method_ref(Ll, Out), write(Out, ');'), nl(Out).
+	write(Out, '{'), write_inline_start('switch_on_term', Out), nl(Out),
+	tab(Out, 12),
+	write(Out, 'Term x = engine.areg1.dereference();'),nl(Out),
+    write_if_method_call('x instanceof VariableTerm', Lv, Out),
+    write_if_method_call('x instanceof ListTerm', Ll, Out),
+    write_if_method_call('x instanceof StructureTerm', Ls, Out),
+    write_if_method_call('x instanceof SymbolTerm', Lc, Out),
+    write_if_method_call('x instanceof IntegerTerm', Li, Out),
+    write_if_method_call('x instanceof DoubleTerm', Lf, Out),
+    tab(Out, 12),
+    write(Out, 'return '), write_index(Lv, Out), write(Out, '(engine);'), nl(Out),
+	tab(Out, 8),
+	write(Out, '}'), write_inline_end(Out), nl(Out).
 write_java0(switch_on_hash(Tag,_,L, _), _, Out) :- !,
 	tab(Out, 8),
 	write(Out, 'return engine.switch_on_hash('),
 	(Tag == int -> write(Out, 'Int') ; write(Out, Tag)),
 	write(Out, ', '),
-	write_method_ref(L, Out), write(Out, ');'), nl(Out).
+	write_method_ref(L, Out), write(Out, ').exec(engine);'), nl(Out).
 write_java0(Instruction, _, _) :-
 	am2j_error([Instruction,is,an,invalid,instruction]),
 	fail.
@@ -1084,6 +1091,24 @@ write_method_ref(R, Out):-
     write_class_name(F/A, Out),
     write(Out, '::'),
     write_index(R, Out).
+
+% Write if method call for switch_on_term
+write_if_method_call(Cond, fail/0, Out):-
+    !,
+    tab(Out, 12),
+    write(Out, 'if ('), write(Out, Cond), write(Out, ') {'), nl(Out),
+    tab(Out, 16),
+    write(Out, 'return engine.fail();'), nl(Out),
+    tab(Out, 12),
+    write(Out, '}'), nl(Out).
+
+write_if_method_call(Cond, Method, Out):-
+    tab(Out, 12),
+    write(Out, 'if ('), write(Out, Cond), write(Out, ') {'), nl(Out),
+    tab(Out, 16),
+    write(Out, 'return '), write_index(Method, Out), write(Out, '(engine);'), nl(Out),
+    tab(Out, 12),
+    write(Out, '}'), nl(Out).
 
 % Write label
 write_index(F/A, Out) :- !,
