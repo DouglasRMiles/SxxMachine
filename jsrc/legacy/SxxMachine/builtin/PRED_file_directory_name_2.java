@@ -1,14 +1,6 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.IllegalDomainException;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.PInstantiationException;
-import com.googlecode.prolog_cafe.lang.PermissionException;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import com.googlecode.prolog_cafe.lang.*;
 
 import java.io.File;
 
@@ -26,8 +18,8 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
     engine.setB0();
 
     Term a1 = arg1.dereference();
-    if (a1.isVariable()) throw new PInstantiationException(this, 1);
-    if (!a1.isSymbol()) throw new IllegalDomainException(this, 1, "file", a1);
+    if ((a1 instanceof VariableTerm)) throw new PInstantiationException(this, 1);
+    if (!(a1 instanceof SymbolTerm)) throw new IllegalDomainException(this, 1, "file", a1);
 
     File file = new File(a1.name());
     File dir = file.getParentFile();

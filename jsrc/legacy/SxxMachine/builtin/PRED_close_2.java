@@ -33,14 +33,14 @@ public class PRED_close_2 extends Predicate.P2 {
 	a2 = a2.dereference();
 	Term tmp = a2;
 	while (! tmp.isNil()) {
-	    if (tmp.isVariable())
+	    if ((tmp instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
-	    if (! tmp.isList())
+	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 2, "list", a2);
 	    Term car = ((ListTerm) tmp).car().dereference();
-	    if (car.isVariable())
+	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
-	    if (car.isStructure()) {
+	    if ((car instanceof StructureTerm)) {
 		SymbolTerm functor = ((StructureTerm) car).functor();
 		Term[] args = ((StructureTerm) car).args();
 		if (functor.equals(SYM_FORCE_1)) {
@@ -61,13 +61,13 @@ public class PRED_close_2 extends Predicate.P2 {
 	}
 	//stream
 	a1 = a1.dereference();
-	if (a1.isVariable()) {
+	if ((a1 instanceof VariableTerm)) {
 	    throw new PInstantiationException(this, 1);
-	} else if (a1.isSymbol()) {
+	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
 	    stream = ((JavaObjectTerm) engine.getStreamManager().get(a1)).object();
-	} else if (a1.isJavaObject()) {
+	} else if ((a1 instanceof JavaObjectTerm)) {
 	    stream = ((JavaObjectTerm) a1).object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
@@ -100,14 +100,14 @@ public class PRED_close_2 extends Predicate.P2 {
 	}
 	// delete associated entries from the stream manager
 	HashtableOfTerm streamManager = engine.getStreamManager();
-	if (a1.isSymbol()) {
+	if ((a1 instanceof SymbolTerm)) {
 	    streamManager.remove(engine.getStreamManager().get(a1));
 	    streamManager.remove(a1);
-	} else if (a1.isJavaObject()) {
+	} else if ((a1 instanceof JavaObjectTerm)) {
 	    Term tmp2 = streamManager.get(a1);
 	    while (! tmp2.isNil()) {
 		Term car = ((ListTerm) tmp2).car().dereference();
-		if (car.isStructure()) {
+		if ((car instanceof StructureTerm)) {
 		    SymbolTerm functor = ((StructureTerm) car).functor();
 		    Term[] args = ((StructureTerm) car).args();
 		    if (functor.equals(SYM_ALIAS_1)) {

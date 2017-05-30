@@ -62,7 +62,7 @@ public class PrologMachineCopy {
     for (Map.Entry<Term, Term> e : src.entrySet()) {
       Term val = e.getValue().copy(copyHash);
 
-      if (val.isJavaObject()) {
+      if ((val instanceof JavaObjectTerm)) {
         JavaObjectTerm o = (JavaObjectTerm) val;
         if (o.obj instanceof HashtableOfTerm) {
           val = new JavaObjectTerm(copyDeep((HashtableOfTerm) o.obj, copyHash));
@@ -79,7 +79,7 @@ public class PrologMachineCopy {
     for (Map.Entry<Term, Term> e : src.entrySet()) {
       Term val = e.getValue();
 
-      if (val.isJavaObject()) {
+      if ((val instanceof JavaObjectTerm)) {
         JavaObjectTerm o = (JavaObjectTerm) val;
         if (o.obj instanceof HashtableOfTerm) {
           val = new JavaObjectTerm(copyShallow((HashtableOfTerm) o.obj));

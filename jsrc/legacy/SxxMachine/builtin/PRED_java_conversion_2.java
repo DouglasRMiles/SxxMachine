@@ -22,17 +22,17 @@ public class PRED_java_conversion_2 extends Predicate.P2 {
 
 	a1 = a1.dereference();
 	a2 = a2.dereference();
-	if (a1.isVariable()) { // a1 = var
-	    if (a2.isJavaObject()) { // a1 = var /\ a2 = java
+	if ((a1 instanceof VariableTerm)) { // a1 = var
+	    if ((a2 instanceof JavaObjectTerm)) { // a1 = var /\ a2 = java
 		((VariableTerm)a1).bind(inverseConversion(((JavaObjectTerm)a2).object()), engine.trail);
 	    } else { // a1 = var /\ a2 = nonjava
 		((VariableTerm)a1).bind(a2, engine.trail);
 	    }
-	} else if (! a2.isVariable()) { // a1 = nonvar /\ a2 = nonvar
+	} else if (! (a2 instanceof VariableTerm)) { // a1 = nonvar /\ a2 = nonvar
 	    throw new IllegalTypeException(this, 2, "variable", a2);
 	} else { // a1 = nonvar /\ a2 = var
 	    // (a1 = java \/  a1 = str \/ a1 = clo) /\ a2 = var
-	    if (a1.isJavaObject() || a1.isStructure() || a1.isClosure()) {
+	    if ((a1 instanceof JavaObjectTerm) || (a1 instanceof StructureTerm) || (a1 instanceof ClosureTerm)) {
 		((VariableTerm)a2).bind(a1, engine.trail);
 	    } else { // a1 != java /\ a1 != str /\ a1 != clo /\ a2 = var
 		((VariableTerm)a2).bind(new JavaObjectTerm(a1.toJava()), engine.trail);

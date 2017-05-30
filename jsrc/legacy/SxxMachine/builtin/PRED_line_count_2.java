@@ -1,24 +1,9 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PushbackReader;
-
-import com.googlecode.prolog_cafe.lang.LineNumberPushbackReader;
-import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.*;
 import com.googlecode.prolog_cafe.lang.Predicate.P2;
-import com.googlecode.prolog_cafe.lang.ExistenceException;
-import com.googlecode.prolog_cafe.lang.IllegalDomainException;
-import com.googlecode.prolog_cafe.lang.IntegerTerm;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.PInstantiationException;
-import com.googlecode.prolog_cafe.lang.PermissionException;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.RepresentationException;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.TermException;
+
+import java.io.PushbackReader;
 
 public class PRED_line_count_2 extends P2 {
 
@@ -39,14 +24,14 @@ public class PRED_line_count_2 extends P2 {
 
 		// S_or_a
 		a1 = a1.dereference();
-		if (a1.isVariable()) {
+		if ((a1 instanceof VariableTerm)) {
 			throw new PInstantiationException(this, 1);
-		} else if (a1.isSymbol()) {
+		} else if ((a1 instanceof SymbolTerm)) {
 			if (!engine.getStreamManager().containsKey(a1)) {
 				throw new ExistenceException(this, 1, "stream", a1, "");
 			}
 			stream = ((JavaObjectTerm) engine.getStreamManager().get(a1)).object();
-		} else if (a1.isJavaObject()) {
+		} else if ((a1 instanceof JavaObjectTerm)) {
 			stream = ((JavaObjectTerm) a1).object();
 		} else {
 			throw new IllegalDomainException(this, 1, "stream_or_alias", a1);

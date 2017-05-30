@@ -285,7 +285,7 @@ public class VariableTerm extends Term implements Undoable {
 	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
 		if (val != this)
 			return val.compareTo(anotherTerm);
-		if (!anotherTerm.isVariable())
+		if (!(anotherTerm instanceof VariableTerm))
 			return BEFORE;
 		if (this == anotherTerm)
 			return EQUAL;

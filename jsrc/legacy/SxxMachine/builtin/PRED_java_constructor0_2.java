@@ -35,15 +35,15 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 	try {
 	    // 2nd. argument (unbound variable)
 	    a2 = a2.dereference();
-	    if (! a2.isVariable())
+	    if (! (a2 instanceof VariableTerm))
 		throw new IllegalTypeException(this, 2, "variable", a2);
 	    // 1st. argument (atom or callable term)
 	    a1 = a1.dereference();
-	    if (a1.isVariable())
+	    if ((a1 instanceof VariableTerm))
 		throw new PInstantiationException(this, 1);
-	    if (!a1.isSymbol() && !a1.isStructure())
+	    if (!(a1 instanceof SymbolTerm) && !(a1 instanceof StructureTerm))
 		throw new IllegalTypeException(this, 1, "callable", a1);
-	    if (a1.isSymbol()) { // No argument constructor
+	    if ((a1 instanceof SymbolTerm)) { // No argument constructor
 		clazz = Class.forName(((SymbolTerm)a1).name());
 		instance = clazz.newInstance();
 		if (! a2.unify(toPrologTerm(instance), engine.trail))
@@ -60,7 +60,7 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 	    jArgs  = new Object[arity];
 	    for (int i=0; i<arity; i++) {
 		pArgs[i] = pArgs[i].dereference();
-		if (! pArgs[i].isJavaObject())
+		if (! (pArgs[i] instanceof JavaObjectTerm))
 		    pArgs[i] = new JavaObjectTerm(pArgs[i]);
 		jArgs[i] = pArgs[i].toJava();
 	    }

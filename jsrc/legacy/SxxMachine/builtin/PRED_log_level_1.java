@@ -44,7 +44,7 @@ public class PRED_log_level_1 extends P1 {
 		final Term packageTerm = a1.arg(0);
 		final Logger logger = Logger.getLogger(packageTerm.name());
 		final Term levelTerm = a1.arg(1);
-		if (levelTerm.isVariable()){			
+		if ((levelTerm instanceof VariableTerm)){
 			// obtain logger's level, which may be inherited from parent
 			Level level = null;
 			for(Logger l = logger; l!=null && (level=l.getLevel())==null; l=l.getParent());

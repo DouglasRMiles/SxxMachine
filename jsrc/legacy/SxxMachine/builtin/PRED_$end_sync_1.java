@@ -18,7 +18,7 @@ class PRED_$end_sync_1 extends Predicate.P1 {
 	a1 = arg1;
 
 	a1 = a1.dereference();
-	if (! a1.isJavaObject())
+	if (! (a1 instanceof JavaObjectTerm))
 	    throw new IllegalTypeException(this, 1, "java", a1);
 	Object obj = ((JavaObjectTerm)a1).object();
 	if (! (obj instanceof PRED_$begin_sync_2))

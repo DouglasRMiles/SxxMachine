@@ -34,11 +34,11 @@ public class PRED_java_set_declared_field0_3 extends JavaPredicate {
 	try {
 	    // 1st. argument (atom or java term)
 	    a1 = a1.dereference();
-	    if (a1.isVariable()) {	
+	    if ((a1 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 1);
-	    } else if (a1.isSymbol()){      // class
+	    } else if ((a1 instanceof SymbolTerm)){      // class
 		clazz = Class.forName(((SymbolTerm)a1).name());
-	    } else if (a1.isJavaObject()) { // instance
+	    } else if ((a1 instanceof JavaObjectTerm)) { // instance
 		instance = ((JavaObjectTerm)a1).object();
 		clazz = ((JavaObjectTerm)a1).getClazz();
 	    } else {
@@ -46,15 +46,15 @@ public class PRED_java_set_declared_field0_3 extends JavaPredicate {
 	    }
 	    // 2nd. argument (atom)
 	    a2 = a2.dereference();
-	    if (a2.isVariable()) {
+	    if ((a2 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 2);
-	    } else if (! a2.isSymbol()) {
+	    } else if (! (a2 instanceof SymbolTerm)) {
 		throw new IllegalTypeException(this, 2, "atom", a2);
 	    }
 	    field = clazz.getDeclaredField(((SymbolTerm)a2).name());
 	    // 3rd. argument (term)
 	    a3 = a3.dereference();
-	    if (a3.isJavaObject())
+	    if ((a3 instanceof JavaObjectTerm))
 		value = a3.toJava();
 	    else
 		value = a3;

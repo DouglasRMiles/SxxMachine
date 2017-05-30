@@ -1,14 +1,9 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import java.util.concurrent.locks.Lock;
-
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.Mutex;
-import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.*;
 import com.googlecode.prolog_cafe.lang.Predicate.P1;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
+
+import java.util.concurrent.locks.Lock;
 /**
 
 <p>mutex_lock_bt(+MutexId)
@@ -46,9 +41,9 @@ public class PRED_mutex_lock_1 extends P1 {
 		Term a1 = arg1.dereference();
 
 		Lock lock;
-		if (a1.isSymbol()){
+		if ((a1 instanceof SymbolTerm)){
 			lock = Mutex.getInstance(a1.name());
-		} else if (a1.isJavaObject() && (a1.toJava() instanceof Lock)) {
+		} else if ((a1 instanceof JavaObjectTerm) && (a1.toJava() instanceof Lock)) {
 			lock = (Lock) a1.toJava();
 		} else {
 			throw new IllegalTypeException(this, 1, "atom or JavaObjectTerm(Lock)", a1);

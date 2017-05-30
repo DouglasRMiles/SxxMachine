@@ -252,16 +252,16 @@ public class StructureTerm extends Term {
 		Term[] args2;
 		int arity2, rc;
 
-		if (anotherTerm.isVariable() || anotherTerm.isNumber() || anotherTerm.isSymbol())
+		if ((anotherTerm instanceof VariableTerm) || (anotherTerm instanceof NumberTerm) || (anotherTerm instanceof SymbolTerm))
 			return AFTER;
-		if (anotherTerm.isList()) {
+		if ((anotherTerm instanceof ListTerm)) {
 			ListTerm t = (ListTerm) anotherTerm;
 			functor2 = ListTerm.SYM_DOT;
 			args2 = new Term[2];
 			args2[0] = t.car();
 			args2[1] = t.cdr();
 			arity2 = 2;
-		} else if (anotherTerm.isStructure()) {
+		} else if ((anotherTerm instanceof StructureTerm)) {
 			StructureTerm s = (StructureTerm) anotherTerm;
 			functor2 = s.functor();
 			args2 = s.args();

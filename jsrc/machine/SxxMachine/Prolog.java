@@ -385,9 +385,9 @@ public final class Prolog {
 	public Operation switch_on_hash(HashMap<Term,Operation> hash, Operation otherwise) {
 		Term arg1 = areg1.dereference();
 		Term key;
-		if (arg1.isInteger() || arg1.isDouble() || arg1.isSymbol()) {
+		if (((arg1 instanceof IntegerTerm) || arg1 instanceof DoubleTerm) || (arg1 instanceof SymbolTerm)) {
 			key = arg1;
-		} else if (arg1.isStructure()) {
+		} else if ((arg1 instanceof StructureTerm)) {
 			key = ((StructureTerm) arg1).functor();
 		} else {
 			throw new SystemException("Invalid argument in switch_on_hash");

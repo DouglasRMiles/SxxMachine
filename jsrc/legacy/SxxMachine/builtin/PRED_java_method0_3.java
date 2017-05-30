@@ -38,16 +38,16 @@ public class PRED_java_method0_3 extends JavaPredicate {
 
 	// 3rd. argument (unbound variable)
 	a3 = a3.dereference();
-	if (! a3.isVariable())
+	if (! (a3 instanceof VariableTerm))
 	    throw new IllegalTypeException(this, 3, "variable", a3);
 	try {
 	    // 1st. argument (atom or java term)
 	    a1 = a1.dereference();
-	    if (a1.isVariable()) {
+	    if ((a1 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 1);
-	    } else if (a1.isSymbol()){      // class
+	    } else if ((a1 instanceof SymbolTerm)){      // class
 		clazz = Class.forName(((SymbolTerm)a1).name());
-	    } else if (a1.isJavaObject()) { // instance
+	    } else if ((a1 instanceof JavaObjectTerm)) { // instance
 		instance = ((JavaObjectTerm)a1).object();
 		clazz = ((JavaObjectTerm)a1).getClazz();
 	    } else {
@@ -55,13 +55,13 @@ public class PRED_java_method0_3 extends JavaPredicate {
 	    }
 	    // 2nd. argument (atom or callable term)
 	    a2 = a2.dereference();
-	    if (a2.isVariable()) {
+	    if ((a2 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 2);
-	    } else if (a2.isSymbol()) {    // No argument method
+	    } else if ((a2 instanceof SymbolTerm)) {    // No argument method
 		m = clazz.getMethod(((SymbolTerm)a2).name());
 		//m.setAccessible(true);
 		value = m.invoke(instance);
-	    } else if (a2.isStructure()) { // Parameterized method
+	    } else if ((a2 instanceof StructureTerm)) { // Parameterized method
 		methodName = ((StructureTerm)a2).name();
 		arity      = ((StructureTerm)a2).arity();
 		methods = clazz.getMethods();
@@ -71,7 +71,7 @@ public class PRED_java_method0_3 extends JavaPredicate {
 		jArgs = new Object[arity];
 		for (int i=0; i<arity; i++) {
 		    pArgs[i] = pArgs[i].dereference();
-		    if (! pArgs[i].isJavaObject())
+		    if (! (pArgs[i] instanceof JavaObjectTerm))
 			pArgs[i] = new JavaObjectTerm(pArgs[i]);
 		    jArgs[i] = pArgs[i].toJava();
 		}

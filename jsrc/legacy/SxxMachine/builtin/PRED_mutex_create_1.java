@@ -1,13 +1,7 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Mutex;
-import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.*;
 import com.googlecode.prolog_cafe.lang.Predicate.P1;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
 /**
 
 <p>mutex_create(?MutexId)
@@ -29,9 +23,9 @@ public class PRED_mutex_create_1 extends P1 {
 	public Operation exec(Prolog engine) throws PrologException {
 		Term a1 = arg1.dereference();
 		
-		if (a1.isSymbol()){
+		if ((a1 instanceof SymbolTerm)){
 			Mutex.getInstance(a1.name());
-		} else if (a1.isVariable()){
+		} else if ((a1 instanceof VariableTerm)){
 			if (!a1.unify(new JavaObjectTerm(Mutex.getInstance()), engine.trail)){
 				return engine.fail();
 			}

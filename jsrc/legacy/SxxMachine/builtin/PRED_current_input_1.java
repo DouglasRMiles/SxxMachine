@@ -18,9 +18,9 @@ public class PRED_current_input_1 extends Predicate.P1 {
 	Term a1;
 	a1 = arg1;
 	a1 = a1.dereference();
-	if (a1.isVariable()) {
+	if ((a1 instanceof VariableTerm)) {
 	    ((VariableTerm)a1).bind(new JavaObjectTerm(engine.getCurrentInput()), engine.trail);
-	} else if (a1.isJavaObject()) {
+	} else if ((a1 instanceof JavaObjectTerm)) {
 	    if (! a1.unify(new JavaObjectTerm(engine.getCurrentInput()), engine.trail)) 
 		return engine.fail();
 	} else {

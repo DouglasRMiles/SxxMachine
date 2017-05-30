@@ -95,9 +95,9 @@ public class IntegerTerm extends NumberTerm {
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if (anotherTerm.isVariable() || anotherTerm.isDouble())
+	if (((anotherTerm instanceof VariableTerm) || anotherTerm instanceof DoubleTerm))
 	    return AFTER;
-	if (! anotherTerm.isInteger())
+	if (! (anotherTerm instanceof IntegerTerm))
 	    return BEFORE;
 	int v = ((IntegerTerm)anotherTerm).value();
 	if (this.val == v)
@@ -115,9 +115,9 @@ public class IntegerTerm extends NumberTerm {
     public double doubleValue() { return (double)(this.val); }
 
     public int arithCompareTo(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    return - (t.arithCompareTo(this));
-	if (t.isLong()){
+	if ((t instanceof LongTerm)){
 		return - (t.arithCompareTo(this));
 	}
 	int v = t.intValue();
@@ -133,7 +133,7 @@ public class IntegerTerm extends NumberTerm {
     public NumberTerm acos() { return new DoubleTerm(Math.acos(this.doubleValue())); }
 
     public NumberTerm add(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    return t.add(this);
 	return new IntegerTerm(this.val + t.intValue());
     }
@@ -143,7 +143,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> is a floating point number.
      */
     public NumberTerm and(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	return new IntegerTerm(this.val & t.intValue());
     }
@@ -181,7 +181,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
     public NumberTerm intDivide(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	if (t.intValue() == 0)
 	    throw new EvaluationException("zero_divisor");
@@ -198,13 +198,13 @@ public class IntegerTerm extends NumberTerm {
     }
 
     public NumberTerm max(NumberTerm t) {
-	if (t.isDouble()) 
+	if ((t instanceof DoubleTerm))
 	    return t.max(this);
 	return new IntegerTerm(Math.max(this.val, t.intValue()));
     }
 
     public NumberTerm min(NumberTerm t) {
-	if (t.isDouble()) 
+	if ((t instanceof DoubleTerm))
 	    return t.min(this);
 	return new IntegerTerm(Math.min(this.val, t.intValue()));
     }
@@ -216,7 +216,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
     public NumberTerm mod(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	if (t.intValue() == 0)
 	    throw new EvaluationException("zero_divisor");
@@ -224,9 +224,9 @@ public class IntegerTerm extends NumberTerm {
     }
 
     public NumberTerm multiply(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    return t.multiply(this);
-	if (t.isLong()){
+	if ((t instanceof LongTerm)){
 		return t.multiply(this);
 	}
 	return new IntegerTerm(this.val * t.intValue());
@@ -241,7 +241,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> is a floating point number.
      */
     public NumberTerm or(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	return new IntegerTerm(this.val | t.intValue());
     }
@@ -257,7 +257,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> is a floating point number.
      */
     public NumberTerm shiftLeft(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	return new IntegerTerm(this.val << t.intValue());
     }
@@ -267,7 +267,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> is a floating point number.
      */
     public NumberTerm shiftRight(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	return new IntegerTerm(this.val >> t.intValue());
     }
@@ -287,7 +287,7 @@ public class IntegerTerm extends NumberTerm {
     }
 
     public NumberTerm subtract(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    return new DoubleTerm(this.doubleValue() - t.doubleValue());
 	return new IntegerTerm(this.val - t.intValue());
     }
@@ -307,7 +307,7 @@ public class IntegerTerm extends NumberTerm {
      * <code>NumberTerm</code> is a floating point number.
      */
     public NumberTerm xor(NumberTerm t) {
-	if (t.isDouble())
+	if ((t instanceof DoubleTerm))
 	    throw new IllegalTypeException("integer", t);
 	return new IntegerTerm(this.val ^ t.intValue());
     }

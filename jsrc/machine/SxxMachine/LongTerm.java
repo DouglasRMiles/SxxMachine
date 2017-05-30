@@ -23,7 +23,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public int compareTo(Term anotherTerm) {
-		if (anotherTerm.isVariable() || anotherTerm.isDouble())
+		if (((anotherTerm instanceof VariableTerm) || anotherTerm instanceof DoubleTerm))
 		    return AFTER;
 		if (! (anotherTerm instanceof LongTerm))
 		    return BEFORE;
@@ -67,7 +67,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm add(NumberTerm t) {
-		if (t.isDouble()){
+		if ((t instanceof DoubleTerm)){
 			return t.add(this);
 		}
 		return new LongTerm(this.value+t.longValue());
@@ -75,7 +75,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm and(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		return new LongTerm(this.value & t.longValue());
 	}
@@ -128,7 +128,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm intDivide(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		if (t.intValue() == 0)
 		    throw new EvaluationException("zero_divisor");
@@ -144,21 +144,21 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm max(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    return t.max(this);
 		return new LongTerm(Math.max(this.value, t.longValue()));
 	}
 
 	@Override
 	public NumberTerm min(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    return t.min(this);
 		return new LongTerm(Math.min(this.value, t.longValue()));
 	}
 
 	@Override
 	public NumberTerm mod(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		if (t.intValue() == 0)
 		    throw new EvaluationException("zero_divisor");
@@ -167,7 +167,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm multiply(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    return t.multiply(this);
 		return new LongTerm(this.value * t.longValue());
 	}
@@ -184,7 +184,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm or(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		return new LongTerm(this.value | t.longValue());
 	}
@@ -206,14 +206,14 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm shiftLeft(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		return new LongTerm(this.value << t.intValue());
 	}
 
 	@Override
 	public NumberTerm shiftRight(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		return new LongTerm(this.value >> t.intValue());
 	}
@@ -237,7 +237,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm subtract(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    return new DoubleTerm(this.doubleValue() - t.doubleValue());
 		return new LongTerm(this.value - t.longValue());
 	}
@@ -269,7 +269,7 @@ public class LongTerm extends NumberTerm {
 
 	@Override
 	public NumberTerm xor(NumberTerm t) {
-		if (t.isDouble())
+		if ((t instanceof DoubleTerm))
 		    throw new IllegalTypeException("integer", t);
 		return new LongTerm(this.value ^ t.longValue());
 	}

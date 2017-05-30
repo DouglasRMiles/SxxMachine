@@ -115,13 +115,13 @@ public class JavaObjectTerm extends Term {
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-		if (anotherTerm.isVariable() 
-		    || anotherTerm.isNumber() 
-		    || anotherTerm.isSymbol()
-		    || anotherTerm.isList()
-		    || anotherTerm.isStructure())
+		if ((anotherTerm instanceof VariableTerm)
+		    || (anotherTerm instanceof NumberTerm)
+		    || (anotherTerm instanceof SymbolTerm)
+		    || (anotherTerm instanceof ListTerm)
+		    || (anotherTerm instanceof StructureTerm))
 		    return AFTER;
-		if (! anotherTerm.isJavaObject())
+		if (! (anotherTerm instanceof JavaObjectTerm))
 		    return BEFORE;
 		if (obj==(((JavaObjectTerm) anotherTerm).obj))
 		    return EQUAL;

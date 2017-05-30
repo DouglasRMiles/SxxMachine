@@ -99,9 +99,9 @@ public class DoubleTerm extends NumberTerm {
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced
-	if (anotherTerm.isVariable())
+	if ((anotherTerm instanceof VariableTerm))
 	    return AFTER;
-	if (! anotherTerm.isDouble())
+	if (!( anotherTerm instanceof DoubleTerm))
 	    return BEFORE;
 	return Double.compare(this.val, ((DoubleTerm)anotherTerm).value());
     }

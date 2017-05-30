@@ -52,18 +52,18 @@ public class PRED_open_4 extends Predicate.P4 {
 
 		// stream
 		a3 = a3.dereference();
-		if (!a3.isVariable())
+		if (!(a3 instanceof VariableTerm))
 			throw new IllegalTypeException(this, 3, "variable", a3);
 		// source_sink
 		a1 = a1.dereference();
-		if (a1.isVariable())
+		if ((a1 instanceof VariableTerm))
 			throw new PInstantiationException(this, 1);
-		if (a1.isSymbol()){
+		if ((a1 instanceof SymbolTerm)){
 			file = new File(((SymbolTerm) a1).name());
-		} else if (a1.isStructure() && ":".equals(a1.name()) && 2==a1.arity()){
+		} else if ((a1 instanceof StructureTerm) && ":".equals(a1.name()) && 2==a1.arity()){
 			Term pkg = a1.arg(0).dereference();
 			Term name = a1.arg(1).dereference();
-			if (!pkg.isSymbol() || !name.isSymbol()){
+			if (!(pkg instanceof SymbolTerm) || !(name instanceof SymbolTerm)){
 				throw new IllegalDomainException(this, 1, "source_sink", a1);
 			}
 			resourceName = '/' + pkg.name().replace('.', '/') + '/' + name.name();
@@ -72,9 +72,9 @@ public class PRED_open_4 extends Predicate.P4 {
 		}
 		// io_mode
 		a2 = a2.dereference();
-		if (a2.isVariable())
+		if ((a2 instanceof VariableTerm))
 			throw new PInstantiationException(this, 2);
-		if (!a2.isSymbol())
+		if (!(a2 instanceof SymbolTerm))
 			throw new IllegalTypeException(this, 2, "atom", a2);
 		if (resourceName!=null && !a2.equals(SYM_READ)){ // writing to resources is prohibited
 			throw new PermissionException(this, "open", "source_sink", a1, "");
@@ -84,7 +84,7 @@ public class PRED_open_4 extends Predicate.P4 {
 		Charset charset = Charset.defaultCharset();
 		if (options.containsKey(SYM_CHARSET)){
 			Term charsetOption = options.get(SYM_CHARSET);
-			if (charsetOption.arity()!=1 || !charsetOption.arg(0).isSymbol()){
+			if (charsetOption.arity()!=1 || !(charsetOption.arg(0) instanceof SymbolTerm)){
 				throw new IllegalDomainException(this, 4, "stream_option", charsetOption);
 			}
 			String charsetName = charsetOption.arg(0).dereference().name();
@@ -134,7 +134,7 @@ public class PRED_open_4 extends Predicate.P4 {
 		// stream_options
 		if (options.containsKey(SYM_ALIAS_1)){
 			Term aliasOption = options.get(SYM_ALIAS_1);
-			if (aliasOption.arity()!=1 || !aliasOption.arg(0).isSymbol()){
+			if (aliasOption.arity()!=1 || !(aliasOption.arg(0) instanceof SymbolTerm)){
 				throw new IllegalDomainException(this, 4, "stream_option", aliasOption);
 			}
 			alias = aliasOption.arg(0).dereference();
@@ -155,7 +155,7 @@ public class PRED_open_4 extends Predicate.P4 {
 
 		if (options.containsKey(SYM_AUTOCLOSE)) {
 			Term autoCloseOption = options.get(SYM_AUTOCLOSE);
-			if (autoCloseOption.arity()!=1 || !autoCloseOption.arg(0).isSymbol() ){
+			if (autoCloseOption.arity()!=1 || !(autoCloseOption.arg(0) instanceof SymbolTerm) ){
 				throw new IllegalDomainException(this, 4, "stream_option", autoCloseOption);
 			}
 			if ("true".equals(autoCloseOption.arg(0).name())){
@@ -170,15 +170,15 @@ public class PRED_open_4 extends Predicate.P4 {
 		Term p = options;
 		while (!p.isNil()) {
 			// type check
-			if (p.isVariable())
+			if ((p instanceof VariableTerm))
 				throw new PInstantiationException(this, 4);
-			if (!p.isList())
+			if (!(p instanceof ListTerm))
 				throw new IllegalTypeException(this, 4, "list", options);
 
 			Term option = ((ListTerm) p).car().dereference();
-			if (option.isVariable())
+			if ((option instanceof VariableTerm))
 				throw new PInstantiationException(this, 4);
-			if (option.isStructure()) {
+			if ((option instanceof StructureTerm)) {
 				SymbolTerm functor = ((StructureTerm) option).functor();
 				result.put(functor, option);
 			} else {

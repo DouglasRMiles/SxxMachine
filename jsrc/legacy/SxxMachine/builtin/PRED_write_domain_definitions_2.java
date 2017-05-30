@@ -1,20 +1,13 @@
 package com.googlecode.prolog_cafe.builtin;
 
+import com.googlecode.prolog_cafe.lang.*;
+import com.googlecode.prolog_cafe.lang.Predicate.P2;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-
-import com.googlecode.prolog_cafe.lang.IllegalDomainException;
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.JavaException;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate.P2;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologException;
-import com.googlecode.prolog_cafe.lang.Term;
 /**
  * <p>write_domain_definitions(+OutputDir,+DomainDefinitionsList)
  * <p>Writes domain definitions into properties file in the folder corresponding to package.
@@ -50,11 +43,11 @@ public class PRED_write_domain_definitions_2 extends P2 {
 		
 		// input check
 		// a1 is output directory
-		if (!a1.isSymbol()){
+		if (!(a1 instanceof SymbolTerm)){
 			throw new IllegalTypeException(this, 1, "atom", a1);
 		}
 		// a2 is a list of domain definitions in form package:name = (aaa;bbb*;ccc(ddd,eee))
-		if (!a2.isNil() && !a2.isList()){
+		if (!a2.isNil() && !(a2 instanceof ListTerm)){
 			throw new IllegalTypeException(this, 2, "list", a2);
 		}
 		// process domain definitions
@@ -65,11 +58,11 @@ public class PRED_write_domain_definitions_2 extends P2 {
 			Term t = ((ListTerm) lt).car();
 			lt = ((ListTerm) lt).cdr();
 			
-			if (!t.isStructure() || !"=".equals(t.name()) || t.arity()!=2){
+			if (!(t instanceof StructureTerm) || !"=".equals(t.name()) || t.arity()!=2){
 				throw new IllegalDomainException(this, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
 			}
 			Term packageAndName = t.arg(0);
-			if (!packageAndName.isStructure() || !":".equals(packageAndName.name()) || packageAndName.arity()!=2){
+			if (!(packageAndName instanceof StructureTerm) || !":".equals(packageAndName.name()) || packageAndName.arity()!=2){
 				throw new IllegalDomainException(this, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
 			}
 			Term packageTerm = packageAndName.arg(0);
