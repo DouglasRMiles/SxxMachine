@@ -29,7 +29,7 @@ import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
  */
 public class StructureTerm extends Term {
     /** Holds the functor symbol of this <code>StructureTerm</code>. */
-    private final SymbolTerm functor;
+	private final String name;
 
     /** Holds the argument terms of this <code>StructureTerm</code>. */
     private final Term[] args;
@@ -41,8 +41,14 @@ public class StructureTerm extends Term {
      * such that <code>name</code> is the functor symbol, and
      * <code>args</code> is the argument terms respectively.
      */
-    public StructureTerm(String name, Term... args){
-    	this(SymbolTerm.create(name, args.length), args);
+    public StructureTerm(String name, Term... _args){
+    	this.name = name;
+		args = _args;
+		int i = args.length-1;
+		while(i>=0 && args[i].isImmutable()){
+			i--;
+		}
+		immutable = i<0;
     }
 
     /**
@@ -53,7 +59,7 @@ public class StructureTerm extends Term {
 	public StructureTerm(SymbolTerm _functor, Term... _args) {
 		if (_functor.arity() != _args.length)
 			throw new InternalException("Invalid argument length in StructureTerm");
-		functor = _functor;
+		name = _functor.name();
 		args = _args;
 		int i=args.length-1;
 		while(i>=0 && args[i].isImmutable()){
@@ -66,7 +72,7 @@ public class StructureTerm extends Term {
      * @return the value of <code>functor</code>.
      * @see #functor
      */
-    public final SymbolTerm functor(){ return functor; }
+    public final SymbolTerm functor(){ return SymbolTerm.intern(name, args.length); }
 
     /** Returns the arity of this <code>StructureTerm</code>.
      * @return the value of <code>arity</code>.
@@ -85,7 +91,7 @@ public class StructureTerm extends Term {
      * @see #functor
      * @see SymbolTerm#name
      */
-    public final String name(){ return functor.name(); }
+    public final String name(){ return name; }
 
     public final Term arg(int nth) { return args[nth]; }
 
@@ -99,7 +105,7 @@ public class StructureTerm extends Term {
 		}
 			
 		StructureTerm st = (StructureTerm) t;
-		if (!functor.equals(st.functor)){
+		if (args.length!=st.args.length || !name.equals(st.name)){
 			return false;
 		}
     	for(int i=0; i<args.length; i++) {
@@ -119,7 +125,7 @@ public class StructureTerm extends Term {
 		for (int i = 0; i < len; i++) {
 			a[i] = args[i].copy(copyHash);
 		}
-		return new StructureTerm(functor, a);
+		return new StructureTerm(name, a);
 	}
 
 	@Override
@@ -160,10 +166,11 @@ public class StructureTerm extends Term {
 	public boolean equals(Object obj) {
 		if (!(obj instanceof StructureTerm))
 			return false;
-		if (!functor.equals(((StructureTerm) obj).functor()))
+		StructureTerm st = (StructureTerm) obj;
+		if (!name.equals(st.name) || args.length!=st.args.length)
 			return false;
 		for (int i = 0; i < args.length; i++) {
-			if (!args[i].equals(((StructureTerm) obj).args[i].dereference()))
+			if (!args[i].equals(st.args[i].dereference()))
 				return false;
 		}
 		return true;
@@ -171,7 +178,7 @@ public class StructureTerm extends Term {
 
 	public int hashCode() {
 		int h = 1;
-		h = 31 * h + functor.hashCode();
+		h = 31 * h + name.hashCode();
 		for (Term arg : args) {
 			h = 31 * h + arg.dereference().hashCode();
 		}
@@ -191,7 +198,7 @@ public class StructureTerm extends Term {
 
 	@Override
 	public Iterator<Term> iterator() {
-		return new StructureTermIterator(functor, args);
+		return new StructureTermIterator(functor(), args);
 	}
 
 	private static class StructureTermIterator implements Iterator<Term>{
@@ -204,7 +211,7 @@ public class StructureTerm extends Term {
 		private final int length;
 		private boolean comma = false;
 		
-		public StructureTermIterator(Term functor, Term[] args) {
+		StructureTermIterator(Term functor, Term[] args) {
 			this.functor = functor;
 			this.args = args;
 			length = args.length;
@@ -248,7 +255,7 @@ public class StructureTerm extends Term {
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
 	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-		SymbolTerm functor2;
+		SymbolTerm functor, functor2;
 		Term[] args2;
 		int arity2, rc;
 
@@ -271,6 +278,7 @@ public class StructureTerm extends Term {
 		}
 		if (args.length != arity2)
 			return (args.length - arity2);
+		functor = functor();
 		if (!functor.equals(functor2))
 			return functor.compareTo(functor2);
 		for (int i = 0; i < args.length; i++) {

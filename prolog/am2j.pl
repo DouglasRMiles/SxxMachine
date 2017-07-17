@@ -47,6 +47,7 @@ SEE ALSO
 :- dynamic current_functor/1.
 :- dynamic current_package/1.
 :- dynamic domain_definition/1.
+:- dynamic inlined/2.
 
 % :- module('com.googlecode.prolog_cafe.compiler.am2j', [main/0,am2j/1]).
 package(_).
@@ -89,6 +90,7 @@ write_java(begin_predicate(P, F/A), In) :-
 	retractall(current_package(_)),
 	retractall(current_arity(_)),
 	retractall(current_functor(_)),
+	retractall(inlined(_,_)),
 	assert(current_package(P)),
 	assert(current_arity(A)),
 	assert(current_functor(F)),
@@ -248,7 +250,11 @@ write_java0(put_hash(X,L,Tag), _, Out) :- !,
 	tab(Out, 8),
 	(Tag == int -> write(Out, 'Int') ; write(Out, Tag)),
 	write(Out, '.put('),
-	write_reg(X, Out),
+	(clause(inlined(X,F/A),_) ->
+	    write(Out, 'SymbolTerm.intern("'), write_constant(F, Out), write(Out, '",'), write(Out, A), write(Out, ')')
+	    ;
+	    write_reg(X, Out)
+	),
 	write(Out, ', '),
 	write_method_ref(L, Out),
 	write(Out, ');'), nl(Out).
@@ -289,6 +295,8 @@ write_java0(put_float(F,X), _, Out) :- !,
 	write(Out, ' = new DoubleTerm('),
 	write(Out, F),
 	write(Out, ');'), nl(Out).
+write_java0(put_con(F/A,X), _, Out) :- !,
+	assert(inlined(X,F/A)).
 write_java0(put_con(C,X), _, Out) :- !,
 	tab(Out, 4),
 	write(Out, 'private static final SymbolTerm '),
@@ -320,10 +328,16 @@ write_java0(put_str(Xi,Y,Xj), _, Out) :- !,
 	),
 	write_reg(Xj, Out),
 	write(Out, ' = new StructureTerm('),
-	write_reg(Xi, Out),
+	(clause(inlined(Xi,F/A),_) ->
+	    write(Out, '"'), write_constant(F, Out), write(Out, '"')
+	    ;
+	    write_reg(Xi, Out)
+	),
 	write(Out, ', '),
 	write_reg(Y, Out),
 	write(Out, ');'), nl(Out).
+write_java0(put_str_args(Xs,s(Y)), _, Out) :- !,
+    assert(inlined(s(Y),str_args(Xs))).
 write_java0(put_str_args(Xs,Y), _, Out) :- !,
 	(Y = s(_) ->
 	    tab(Out, 4), write(Out, 'private static final ')
@@ -470,19 +484,13 @@ write_java0(get_str(_F/A,Xi,Xj), In, Out) :- !,
 	read_instructions(A, In, Us),
 	% simple unify
 		write_unify_write(Us, Rs, Out),
-    	tab(Out, 8),
-    	write(Out, '{'), nl(Out),
-    	tab(Out, 12),
-    	write(Out, 'Term[] args = {'), write_reg_args(Rs, Out), write(Out, '};'), nl(Out),
         tab(Out, 12),
     	write(Out, 'if (!'), write_reg(Xj, Out), write(Out, '.unify(new StructureTerm('),
-    	write_reg(Xi, Out), write(Out, ', args), engine.trail)){'), nl(Out),
+    	write_reg(Xi, Out), write(Out, ', '), write_reg_args(Rs, Out), write(Out, '), engine.trail)){'), nl(Out),
 	    tab(Out, 16),
  	    write(Out, 'return engine.fail();'), nl(Out),
 	    tab(Out, 12),
- 	    write(Out, '}'), nl(Out),
-        tab(Out, 8),
-        write(Out, '}'), nl(Out).
+ 	    write(Out, '}'), nl(Out).
 
 
 /*	% read mode
@@ -1219,6 +1227,8 @@ write_reg(ea(X),  Out) :- !, write(Out, 'engine.aregs['), Y is X - 9, write(Out,
 write_reg(econt,  Out) :- !, write(Out, 'engine.cont').
 write_reg(arg(X), Out) :- !, write(Out, arg), write(Out, X).
 write_reg(a(X),   Out) :- !, write(Out, a), write(Out, X).
+write_reg(s(X),   Out) :- clause(inlined(s(X),F/A),_), !, write(Out, '"'), write_constant(F, Out), write(Out, '"').
+write_reg(s(X),   Out) :- clause(inlined(s(X),str_args(Xs)),_), !, write_reg_args(Xs, Out).
 write_reg(s(X),   Out) :- !, write(Out, s), write(Out, X).
 write_reg(si(X),   Out) :- !, write(Out, si), write(Out, X). % ???
 write_reg(sf(X),   Out) :- !, write(Out, sf), write(Out, X). % ???
