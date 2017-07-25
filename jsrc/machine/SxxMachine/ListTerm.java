@@ -5,7 +5,6 @@ import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.NoSuchElementException;
 
 import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
@@ -76,28 +75,25 @@ public class ListTerm extends Term {
     /** Returns the value of <code>cdr</code>.
      * @see #cdr
      */
-    public final Term cdr() { return cdr; }
+    public Term cdr() { return cdr; }
 
     /* Term */
     public final boolean unify(Term t, Trail trail) {
-    	Term p = this;
-    	t = t.dereference();
-    	while ((t instanceof ListTerm) && (p instanceof ListTerm) 
-			&& ((ListTerm)p).car.unify(((ListTerm)t).car, trail)){
-    		p = ((ListTerm)p).cdr.dereference();
-    		t = ((ListTerm)t).cdr.dereference();
-    	}
-    	if (t instanceof VariableTerm){
-    		return ((VariableTerm) t).bind(p, trail);
-    	}
-    	if (p instanceof VariableTerm){
-    		return ((VariableTerm) p).bind(t, trail);
-    	}
-		if (!(t instanceof ListTerm) && !(p instanceof ListTerm)){
-			return p.unify(t, trail);
+		Term p = this;
+		t = t.dereference();
+		while ((t instanceof ListTerm) && (p instanceof ListTerm)
+				&& ((ListTerm) p).car.unify(((ListTerm) t).car, trail)) {
+			p = ((ListTerm) p).cdr().dereference();
+			t = ((ListTerm) t).cdr().dereference();
 		}
-		return false;
-    }
+		if (t instanceof VariableTerm) {
+			return ((VariableTerm) t).bind(p, trail);
+		}
+		if (p instanceof VariableTerm) {
+			return ((VariableTerm) p).bind(t, trail);
+		}
+		return !(t instanceof ListTerm) && !(p instanceof ListTerm) && p.unify(t, trail);
+	}
     
     
     /** 
@@ -118,7 +114,7 @@ public class ListTerm extends Term {
     	while (p instanceof ListTerm && !((ListTerm)p).immutable){
     		ListTerm lt = (ListTerm) p;
     		stack.push(lt);
-    		p = lt.cdr.dereference();
+    		p = lt.cdr().dereference();
     	}
     	p = p.copy(copyHash);
     	while (!stack.isEmpty()){
@@ -129,17 +125,17 @@ public class ListTerm extends Term {
     }
 
     public boolean isGround() {
-		return car.isGround() && cdr.isGround();
+		return car.isGround() && cdr().isGround();
     }
 
     public final String name() { return SYM_DOT.name(); }
 
-    public final Term arg(int nth) {
+    public Term arg(int nth) {
       Term t = this;
       int old_nth = nth;
       while ((t instanceof ListTerm) && 0 < nth) {
         nth--;
-        t = ((ListTerm)t).cdr.dereference();
+        t = ((ListTerm)t).cdr().dereference();
       }
       if ((t instanceof ListTerm))
         return ((ListTerm)t).car;
@@ -167,7 +163,7 @@ public class ListTerm extends Term {
 		List<Object> vec = new ArrayList<Object>();
 		Term t = this;
 		while((t instanceof ListTerm)) {
-		    vec.add(((ListTerm)t).car().dereference().toJava());
+		    vec.add(((ListTerm)t).car.dereference().toJava());
 		    t = ((ListTerm)t).cdr().dereference();
 		}
 		if (!t.isNil()){
@@ -195,14 +191,14 @@ public class ListTerm extends Term {
      * @see #compareTo
      */
     public boolean equals(Object obj) {
-		return obj instanceof ListTerm && car.equals(((ListTerm) obj).car().dereference()) && cdr.equals(((ListTerm) obj).cdr().dereference());
+		return obj instanceof ListTerm && car.equals(((ListTerm) obj).car().dereference()) && cdr().equals(((ListTerm) obj).cdr().dereference());
 	}
 
     public int hashCode() {
 	int h = 1;
 	h = 31*h + SYM_DOT.hashCode();
 	h = 31*h + car.dereference().hashCode();
-	h = 31*h + cdr.dereference().hashCode();
+	h = 31*h + cdr().dereference().hashCode();
 	return h;
     }
 
@@ -257,7 +253,7 @@ public class ListTerm extends Term {
 				return COMMA;
 			} else if (current instanceof ListTerm) {
 				result = ((ListTerm)current).car;
-				current = ((ListTerm)current).cdr.dereference();
+				current = ((ListTerm)current).cdr().dereference();
 				comma = (current instanceof ListTerm);
 			} else if (current.isNil()){
 				result = RIGHT_BRACKET;
@@ -293,7 +289,7 @@ public class ListTerm extends Term {
 	if ((anotherTerm instanceof VariableTerm) || (anotherTerm instanceof NumberTerm) || (anotherTerm instanceof SymbolTerm))
 	    return AFTER;
 	if ((anotherTerm instanceof StructureTerm)) {
-	    int arity = ((StructureTerm)anotherTerm).arity();
+	    int arity = anotherTerm.arity();
 	    if (2 != arity)
 		return (2 - arity);
 	    SymbolTerm functor = ((StructureTerm)anotherTerm).functor();
@@ -315,7 +311,7 @@ public class ListTerm extends Term {
 	    rc = tmp.compareTo(args[i].dereference());
 	    if (rc != EQUAL) 
 		return rc;
-	    tmp = cdr;
+	    tmp = cdr();
 	}
 	return EQUAL;
     }
@@ -324,4 +320,25 @@ public class ListTerm extends Term {
 	public final boolean isImmutable() {
 		return immutable;
 	}
+
+	/**
+	 * adds given term to the end of the list.
+	 * Default implementation recreates the whole list and returns reference to new list,
+	 * because the original list can be immutable.
+	 * */
+	public ListTerm add(Term term) {
+		Deque<Term> stack = new ArrayDeque<Term>();
+		Term t = this;
+		while (t instanceof ListTerm){
+			ListTerm lt = (ListTerm) t;
+			stack.push(lt.car.dereference());
+			t = lt.cdr().dereference();
+		}
+		t = new ListTerm(term, Prolog.Nil);
+		while (!stack.isEmpty()){
+			t = new ListTerm(stack.pop(), t);
+		}
+		return (ListTerm) t;
+	}
+
 }

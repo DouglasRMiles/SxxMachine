@@ -704,11 +704,10 @@ findall(Template, Goal, Instances) :-
 '$findall'(H, Template, Goal, _) :-
 	call(Goal),
 	copy_term(Template, CT),
-	'$hash_adda'(H, '$FINDALL', CT),
+	'$hash_addz'(H, '$FINDALL', CT),
 	fail.
 '$findall'(H, _, _, Instances) :-
-	hash_get(H, '$FINDALL', Vs),
-	reverse(Vs, Instances).
+	hash_get(H, '$FINDALL', Instances).
 
 % bagof/3 & setof/3
 bagof(Template, Goal, Instances) :- callable(Goal), !,
@@ -2396,9 +2395,9 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 :- public numbervars/3.
 :- public statistics/2.
 
-reverse(Xs, Zs) :- reverse(Xs, [], Zs).
-reverse([], Zs, Zs).
-reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
+%reverse(Xs, Zs) :- reverse(Xs, [], Zs).
+%reverse([], Zs, Zs).
+%reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
 
 length(L, N) :- var(N), !, '$length'(L, 0, N).
 length(L, N) :- '$length0'(L, 0, N).

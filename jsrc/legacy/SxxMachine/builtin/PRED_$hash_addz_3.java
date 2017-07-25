@@ -47,24 +47,15 @@ class PRED_$hash_addz_3 extends Predicate.P3 {
 		if (!(hash instanceof HashtableOfTerm))
 			throw new InternalException(this + ": Hash is not HashtableOfTerm");
 		a2 = a2.dereference();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
-		if (elem == null)
-			elem = SYM_NIL;
 		a3 = a3.dereference();
-		
-		Deque<Term> stack = new ArrayDeque<Term>();
-		Term t = elem;
-		while (t instanceof ListTerm){
-			ListTerm lt = (ListTerm) t;
-			stack.push(lt.car().dereference());
-			t = lt.cdr();
+		Term elem = ((HashtableOfTerm) hash).get(a2);
+		if (elem == null || SYM_NIL.equals(elem)) {
+			elem = new ListViewTerm(a3);
+		} else if (elem instanceof ListTerm) {
+			elem = ((ListTerm) elem).add(a3);
+		} else {
+			throw new InternalException(this + ": elem is not a ListTerm");
 		}
-		t = new ListTerm(a3, SYM_NIL);
-		while (!stack.isEmpty()){
-			t = new ListTerm(stack.pop(), t);
-		}
-		elem = t;
-
 		((HashtableOfTerm) hash).put(a2, elem);
 		return cont;
 	}
