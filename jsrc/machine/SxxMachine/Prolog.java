@@ -515,7 +515,7 @@ public final class Prolog {
 	}
 
 	/** Returns the current time stamp of choice point frame. */
-	public long getCPFTimeStamp() { return CPFTimeStamp; }
+	public final long getCPFTimeStamp() { return CPFTimeStamp; }
 
 	/** Returns the value of Prolog implementation flag: <code>bounded</code>. */
 	public boolean isBounded() { return bounded; }
