@@ -233,7 +233,7 @@ public class ListTerm extends Term {
     	private boolean first = true;
     	
     	
-		public ListTermIterator(Term start) {
+		ListTermIterator(Term start) {
 			this.current = start;
 		}
 
@@ -334,7 +334,7 @@ public class ListTerm extends Term {
 			stack.push(lt.car.dereference());
 			t = lt.cdr().dereference();
 		}
-		t = new ListTerm(term, Prolog.Nil);
+		t = term.isNil() ? term : new ListTerm(term, Prolog.Nil);
 		while (!stack.isEmpty()){
 			t = new ListTerm(stack.pop(), t);
 		}
