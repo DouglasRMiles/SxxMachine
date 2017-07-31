@@ -133,9 +133,7 @@ public class IntegerTerm extends NumberTerm {
     public NumberTerm acos() { return new DoubleTerm(Math.acos(this.doubleValue())); }
 
     public NumberTerm add(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    return t.add(this);
-	return new IntegerTerm(this.val + t.intValue());
+	    return (t instanceof DoubleTerm) ? t.add(this) : new IntegerTerm(this.val + t.intValue());
     }
 
     /** 
