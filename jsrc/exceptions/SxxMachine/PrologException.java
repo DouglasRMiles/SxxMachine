@@ -1,5 +1,9 @@
 package com.googlecode.prolog_cafe.exceptions;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
+import com.googlecode.prolog_cafe.lang.Operation;
 import com.googlecode.prolog_cafe.lang.Term;
 
 /**
@@ -27,7 +31,7 @@ public abstract class PrologException extends RuntimeException {
     	return prologStackElement==null?null:prologStackElement.clone();
     }
 
-    void setPrologStackTrace(Operation[] stack){
+    public void setPrologStackTrace(Operation[] stack){
     	this.prologStackElement = stack;
     }
 

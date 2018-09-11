@@ -1,6 +1,20 @@
 package com.googlecode.prolog_cafe.builtin;
-import  com.googlecode.prolog_cafe.lang.*;
-import java.lang.reflect.*;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import com.googlecode.prolog_cafe.exceptions.ExistenceException;
+import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
+import com.googlecode.prolog_cafe.exceptions.JavaException;
+import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
+import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
+import com.googlecode.prolog_cafe.lang.JavaPredicate;
+import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.StructureTerm;
+import com.googlecode.prolog_cafe.lang.SymbolTerm;
+import com.googlecode.prolog_cafe.lang.Term;
+import com.googlecode.prolog_cafe.lang.VariableTerm;
 /**
  * <code>java_declared_method0/3</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

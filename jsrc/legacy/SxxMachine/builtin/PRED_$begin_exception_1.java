@@ -1,6 +1,9 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.*;
+import com.googlecode.prolog_cafe.lang.BlockPredicate;
+import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.Term;
 
 /**
  * <code>'$begin_exception'/1</code><br>

@@ -1,6 +1,11 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.*;
+import com.googlecode.prolog_cafe.lang.ListTerm;
+import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.Predicate;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.SymbolTerm;
+import com.googlecode.prolog_cafe.lang.Term;
 
 
 public final class PRED_reverse_2 extends Predicate.P2 {

@@ -3,8 +3,6 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  * Atom.<br>
  * The <code>SymbolTerm</code> class represents a Prolog atom.<br>

@@ -1,9 +1,9 @@
 package com.googlecode.prolog_cafe.exceptions;
 
+import com.googlecode.prolog_cafe.lang.ErrorTerm;
 import com.googlecode.prolog_cafe.lang.IntegerTerm;
 import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
 import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
 
@@ -57,7 +57,7 @@ public class IllegalDomainException extends BuiltinException {
     public Term getMessageTerm() {
 	Term[] args = {
 	    new JavaObjectTerm(goal), 
-	    new IntegerTerm(argNo), 
+	    new IntegerTerm(argNo),
 	    SymbolTerm.create(domain),
 	    culprit};
 	return new ErrorTerm(this, DOMAIN_ERROR, args);

@@ -8,6 +8,8 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import com.googlecode.prolog_cafe.exceptions.InternalException;
+
 /**
  * Variable.<br>
  * The <code>VariableTerm</code> class represents a logical variable.<br>

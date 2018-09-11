@@ -1,6 +1,9 @@
 package com.googlecode.prolog_cafe.lang;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.List;
 
 /**
  * List term that allows tail addition to the list without recreating the list.

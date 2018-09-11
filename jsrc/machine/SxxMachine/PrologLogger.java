@@ -1,10 +1,13 @@
 package com.googlecode.prolog_cafe.lang;
 
-import com.googlecode.prolog_cafe.builtin.PRED_true_0;
-
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.googlecode.prolog_cafe.builtin.PRED_true_0;
+import com.googlecode.prolog_cafe.exceptions.BuiltinException;
+import com.googlecode.prolog_cafe.exceptions.JavaException;
+import com.googlecode.prolog_cafe.exceptions.PrologException;
 
 /**
  * <p>Logs executed predicates and their arguments to {@link Logger} instance given in constructor.
@@ -151,7 +154,7 @@ public class PrologLogger {
 	}
 
 	public final PrologException execThrows(RuntimeException t) {
-		if (!(t instanceof PrologException) || !((PrologException)t).hasPrologStackTrace() ){
+		if (!(t instanceof PrologException) || !((com.googlecode.prolog_cafe.exceptions.PrologException)t).hasPrologStackTrace() ){
 			Operation[] array = new Operation[stackTop];
 			for (int i=stackTop, k=0; i>0; i--){
 				array[k] = stackFrame[i];
@@ -162,7 +165,7 @@ public class PrologLogger {
 				t = new JavaException(t);
 			}
 			// add stacktrace into t
-			((PrologException)t).setPrologStackTrace(array);
+			((com.googlecode.prolog_cafe.exceptions.PrologException)t).setPrologStackTrace(array);
 			if (t instanceof BuiltinException) {
 				((BuiltinException) t).goal = stackFrame[stackTop];
 			}

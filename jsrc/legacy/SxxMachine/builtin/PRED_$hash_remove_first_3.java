@@ -1,10 +1,22 @@
 package com.googlecode.prolog_cafe.builtin;
 
-import com.googlecode.prolog_cafe.lang.*;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Hashtable;
+
+import com.googlecode.prolog_cafe.exceptions.ExistenceException;
+import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
+import com.googlecode.prolog_cafe.exceptions.InternalException;
+import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
+import com.googlecode.prolog_cafe.lang.HashtableOfTerm;
+import com.googlecode.prolog_cafe.lang.IntegerTerm;
+import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
+import com.googlecode.prolog_cafe.lang.ListTerm;
+import com.googlecode.prolog_cafe.lang.Operation;
+import com.googlecode.prolog_cafe.lang.Predicate;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.SymbolTerm;
+import com.googlecode.prolog_cafe.lang.Term;
+import com.googlecode.prolog_cafe.lang.VariableTerm;
 
 /**
  * <code>'$hash_remove_first'/3</code><br>

@@ -6,8 +6,6 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-
-import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
 /**
  * List.<br>
  * The class <code>ListTerm</code> represents a list structure.<br>

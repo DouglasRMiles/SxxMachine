@@ -1,4 +1,7 @@
 package com.googlecode.prolog_cafe.builtin;
+
+import java.io.PrintWriter;
+
 import com.googlecode.prolog_cafe.exceptions.ExistenceException;
 import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
 import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
@@ -10,8 +13,6 @@ import com.googlecode.prolog_cafe.lang.Prolog;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
 import com.googlecode.prolog_cafe.lang.VariableTerm;
-
-import java.io.PrintWriter;
 /**
  * <code>'$fast_writeq'/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

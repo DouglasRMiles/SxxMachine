@@ -1,7 +1,6 @@
 package com.googlecode.prolog_cafe.lang;
 
 import java.util.IdentityHashMap;
-import java.util.Map;
 
 /**
  * A term to represent errors, extends {@link StructureTerm}, 

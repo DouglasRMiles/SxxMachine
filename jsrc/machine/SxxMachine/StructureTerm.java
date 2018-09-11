@@ -2,9 +2,8 @@ package com.googlecode.prolog_cafe.lang;
 
 import java.util.IdentityHashMap;
 import java.util.Iterator;
-import java.util.Map;
 
-import com.googlecode.prolog_cafe.lang.Term.TermTreeIterator;
+import com.googlecode.prolog_cafe.exceptions.InternalException;
 
 /**
  * Compound term. <br>

@@ -1,4 +1,5 @@
 package com.googlecode.prolog_cafe.builtin;
+
 import com.googlecode.prolog_cafe.lang.IntegerTerm;
 import com.googlecode.prolog_cafe.lang.Operation;
 import com.googlecode.prolog_cafe.lang.Predicate;

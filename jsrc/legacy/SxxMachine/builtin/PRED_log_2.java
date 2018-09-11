@@ -1,12 +1,17 @@
 package com.googlecode.prolog_cafe.builtin;
 
+import static com.googlecode.prolog_cafe.builtin.PRED_loggable_1.LEVELS;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.lang.*;
+import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
+import com.googlecode.prolog_cafe.exceptions.PrologException;
+import com.googlecode.prolog_cafe.lang.Operation;
 import com.googlecode.prolog_cafe.lang.Predicate.P2;
-
-import static com.googlecode.prolog_cafe.builtin.PRED_loggable_1.LEVELS;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.StructureTerm;
+import com.googlecode.prolog_cafe.lang.Term;
 
 /**
  * <b>log(package:level, message)</b> - logs given <i>message</i> to the logger, corresponding to <i>package</i>, 

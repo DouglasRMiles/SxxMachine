@@ -3,6 +3,8 @@ package com.googlecode.prolog_cafe.lang;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.googlecode.prolog_cafe.exceptions.StopEngineException;
+
 /**
  * Executes Prolog on the current thread, buffering all solutions.
  * <p>

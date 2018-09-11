@@ -1,13 +1,7 @@
 package com.googlecode.prolog_cafe.lang;
 
-import com.googlecode.prolog_cafe.lang.DoubleTerm;
-import com.googlecode.prolog_cafe.lang.EvaluationException;
-import com.googlecode.prolog_cafe.lang.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.IntegerTerm;
-import com.googlecode.prolog_cafe.lang.NumberTerm;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.Trail;
-import com.googlecode.prolog_cafe.lang.VariableTerm;
+import com.googlecode.prolog_cafe.exceptions.EvaluationException;
+import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
 
 public class LongTerm extends NumberTerm {
 

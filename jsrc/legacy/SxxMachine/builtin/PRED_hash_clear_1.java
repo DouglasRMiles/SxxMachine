@@ -1,4 +1,5 @@
 package com.googlecode.prolog_cafe.builtin;
+
 import com.googlecode.prolog_cafe.exceptions.ExistenceException;
 import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
 import com.googlecode.prolog_cafe.exceptions.InternalException;

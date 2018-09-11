@@ -1,6 +1,6 @@
 package com.googlecode.prolog_cafe.exceptions;
 
-import com.googlecode.prolog_cafe.lang.StructureTerm;
+import com.googlecode.prolog_cafe.lang.ErrorTerm;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
 

@@ -1,22 +1,13 @@
 package com.googlecode.prolog_cafe.repl;
 
+import java.util.StringTokenizer;
+
 import com.googlecode.prolog_cafe.exceptions.HaltException;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
 import com.googlecode.prolog_cafe.lang.ListTerm;
 import com.googlecode.prolog_cafe.lang.Prolog;
 import com.googlecode.prolog_cafe.lang.StructureTerm;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.PrintStream;
-import java.io.PushbackReader;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.StringTokenizer;
 /**
  * Prolog Cafe launcher.
  * The <code>PrologMain</code> class launchs the Prolog Cafe system.<br>
@@ -46,7 +37,7 @@ public class PrologMain {
     /** Copyright information */
     public static final String COPYRIGHT = "Copyright(C) 1997-2009 M.Banbara and N.Tamura";
 
-    public static void main(String argv[]) {
+    public static void main(String argv[]) {    	
 	BlockingPrologControl p;
 	String goal;
 	try {
@@ -54,7 +45,8 @@ public class PrologMain {
 	    System.err.println(COPYRIGHT);
 	    if (argv.length != 1) {
 		usage();
-		System.exit(999);
+		//exit(999);
+		 argv = new String[] {"cafeteria"};
 	    } 
 	    Term arg1 = Prolog.Nil;
 	    arg1 = new ListTerm(SymbolTerm.intern("user"), arg1);

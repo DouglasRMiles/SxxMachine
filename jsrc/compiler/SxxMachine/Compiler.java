@@ -1,4 +1,11 @@
 package com.googlecode.prolog_cafe.compiler;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.LinkedList;
+
 import com.googlecode.prolog_cafe.exceptions.CompileException;
 import com.googlecode.prolog_cafe.exceptions.PrologException;
 import com.googlecode.prolog_cafe.lang.BufferingPrologControl;
@@ -7,13 +14,6 @@ import com.googlecode.prolog_cafe.lang.Prolog;
 import com.googlecode.prolog_cafe.lang.PrologClassLoader;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.EnumSet;
-import java.util.LinkedList;
 /**
  * The <code>Compiler</code> class provides methods for
  * translating Prolog programs into Java programs.

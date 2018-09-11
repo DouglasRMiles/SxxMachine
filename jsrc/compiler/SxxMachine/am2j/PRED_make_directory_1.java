@@ -1,5 +1,7 @@
 package com.googlecode.prolog_cafe.compiler.am2j;
 
+import java.io.File;
+
 import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
 import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
 import com.googlecode.prolog_cafe.exceptions.PermissionException;
@@ -10,8 +12,6 @@ import com.googlecode.prolog_cafe.lang.Prolog;
 import com.googlecode.prolog_cafe.lang.SymbolTerm;
 import com.googlecode.prolog_cafe.lang.Term;
 import com.googlecode.prolog_cafe.lang.VariableTerm;
-
-import java.io.File;
 
 /** {@code make_directory(+Dir)} */
 public class PRED_make_directory_1 extends Predicate.P1 {

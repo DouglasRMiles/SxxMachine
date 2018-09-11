@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package  com.googlecode.prolog_cafe.exceptions;
 
 /**
  * Created by semenov on 04.05.2017.

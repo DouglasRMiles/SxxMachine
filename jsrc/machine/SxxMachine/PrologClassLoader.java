@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import com.googlecode.prolog_cafe.exceptions.ExistenceException;
+import com.googlecode.prolog_cafe.exceptions.PrologException;
+
 /**
  * Prolog class loader.
  *
