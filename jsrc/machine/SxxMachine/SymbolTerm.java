@@ -361,6 +361,7 @@ public abstract class SymbolTerm extends Term {
      * @return a <code>java.lang.String</code> object equivalent to
      * this <code>SymbolTerm</code>.
      */
+    @Override
     public Object toJava() { return name; }
 
     @Override // Overridden for performance

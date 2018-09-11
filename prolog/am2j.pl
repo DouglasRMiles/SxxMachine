@@ -148,6 +148,12 @@ write_java0(import_package(P), _, Out) :- !,
 	write(Out, 'import '),
 	write_package(P, Out),
 	write(Out, '.*;'), nl(Out).
+write_java0(import_static(P,F), _, Out) :- !,
+	write(Out, 'import static '),
+	write_package(P, Out),
+	write(Out, '.'),
+	write(Out, F),
+	write(Out, ';'), nl(Out).
 write_java0(import_package(P,FA), _, Out) :- !,
 	write(Out, 'import '),
 	write_package(P, Out),
@@ -1305,6 +1311,7 @@ Other Instructions
 +  end_predicate(p, f/n)
 
 +  import_package(p)
++  import_static(p, f/n)
 +  import_package(p, f/n)
 
 +  main(f/n, public): [Instructions]

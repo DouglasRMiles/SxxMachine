@@ -1978,6 +1978,66 @@ synchronized(Object, Goal) :-
 	call(Goal),
 	'$end_sync'(Ref).
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- public reverse/2.
+:- public length/2.
+:- public numbervars/3.
+:- public statistics/2.
+
+%reverse(Xs, Zs) :- reverse(Xs, [], Zs).
+%reverse([], Zs, Zs).
+%reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
+
+length(L, N) :- var(N), !, '$length'(L, 0, N).
+length(L, N) :- '$length0'(L, 0, N).
+
+'$length'([], I, I).
+'$length'([_|L], I0, I) :- I1 is I0+1, '$length'(L, I1, I).
+
+'$length0'([], I, I) :- !.
+'$length0'([_|L], I0, I) :- I0 < I, I1 is I0+1, '$length0'(L, I1, I).
+
+numbervars(X, VI, VN) :-
+	integer(VI), VI >= 0,
+	!,
+	'$numbervars'(X, VI, VN).
+
+'$numbervars'(X, VI, VN) :- var(X), !,
+	X = '$VAR'(VI),	  % This structure is checked in write
+	VN is VI + 1.
+'$numbervars'(X, VI, VI) :- atomic(X), !.
+'$numbervars'(X, VI, VI) :- java(X), !.
+'$numbervars'(X, VI, VN) :-
+	functor(X, _, N),
+	'$numbervars_str'(1, N, X, VI, VN).
+
+'$numbervars_str'(I, I, X, VI, VN) :- !,
+	arg(I, X, A),
+	'$numbervars'(A, VI, VN).
+'$numbervars_str'(I, N, X, VI, VN) :-
+	arg(I, X, A),
+	'$numbervars'(A, VI, VN1),
+	I1 is I + 1,
+	'$numbervars_str'(I1, N, X, VN1, VN).
+
+statistics(Key, Value) :-
+	nonvar(Key),
+	'$statistics_mode'(Key),
+	!,
+	'$statistics'(Key, Value).
+statistics(Key, Value) :-
+	findall(M, '$statistics_mode'(M), Domain),
+	illarg(domain(atom,Domain), statistics(Key,Value), 1).
+
+'$statistics_mode'(runtime).
+'$statistics_mode'(trail).
+'$statistics_mode'(choice).
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Prolog interpreter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2162,7 +2222,11 @@ consult_stream(File, In) :-
 	assertz('$consulted_predicate'(P,F/A,File)),
 	!.
 
+
+
+
 %%% Trace
+
 trace :- current_prolog_flag(debug, on), !.
 trace :-
 	set_prolog_flag(debug, on),
@@ -2189,6 +2253,82 @@ notrace :-
 
 debug :- trace.
 nodebug :- notrace.
+
+%%% Trace a Goal
+'$trace_goal'(Term) :-
+	'$set_debug_flag'(leap, no),
+	'$get_current_B'(Cut),
+	'$meta_call'(Term, user, Cut, 0, trace).
+
+'$trace_goal'(X, P, FA, Depth) :-
+	print_procedure_box(call, X, P, FA, Depth),
+	'$call_internal'(X, P, FA, Depth, trace),
+	print_procedure_box(exit, X, P, FA, Depth),
+	redo_procedure_box(X, P, FA, Depth).
+'$trace_goal'(X, P, FA, Depth) :-
+	print_procedure_box(fail, X, P, FA, Depth),
+	fail.
+
+print_procedure_box(Mode, G, P, F/A, Depth) :-
+	clause('$current_spypoint'(P, F, A), _),
+	!,
+	'$builtin_message'(['+',Depth,Mode,':',P:G]),
+	'$read_blocked'(print_procedure_box(Mode,G,P,F/A,Depth)).
+print_procedure_box(Mode, G, P, FA, Depth) :-
+	clause('$leap_flag'(no), _),
+	!,
+	'$builtin_message'([' ',Depth,Mode,':',P:G]),
+	(    clause('$current_leash'(Mode), _)
+             ->
+	     '$read_blocked'(print_procedure_box(Mode,G,P,FA,Depth))
+	     ;
+	     nl
+	 ).
+print_procedure_box(_, _, _, _, _).
+
+redo_procedure_box(_, _, _, _).
+redo_procedure_box(X, P, FA, Depth) :-
+	print_procedure_box(redo, X, P, FA, Depth),
+	fail.
+
+'$read_blocked'(G) :-
+	'$fast_write'(' ? '),
+	flush_output,
+	read_line(C),
+	(C == [] -> DOP = 99 ; C = [DOP|_]),
+	'$debug_option'(DOP, G).
+
+'$debug_option'(97,  _) :- !, notrace, abort.               % a for abort
+'$debug_option'(99,  _) :- !, '$set_debug_flag'(leap, no).  % c for creep
+'$debug_option'(108, _) :- !, '$set_debug_flag'(leap, yes). % l for leap
+'$debug_option'(43,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % + for spy this
+	spy(P:FA),
+	call(print_procedure_box(Mode,G,P,FA,Depth)).
+'$debug_option'(45,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % - for nospy this
+	nospy(P:FA),
+	call(print_procedure_box(Mode,G,P,FA,Depth)).
+'$debug_option'(63,  G) :- !, '$show_debug_option', call(G).
+'$debug_option'(104, G) :- !, '$show_debug_option', call(G).
+'$debug_option'(_, _).
+
+'$show_debug_option' :-
+	tab(4), '$fast_write'('Debugging options:'), nl,
+	tab(4), '$fast_write'('a      abort'), nl,
+	tab(4), '$fast_write'('RET    creep'), nl,
+	tab(4), '$fast_write'('c      creep'), nl,
+	tab(4), '$fast_write'('l      leap'), nl,
+	tab(4), '$fast_write'('+      spy this'), nl,
+	tab(4), '$fast_write'('-      nospy this'), nl,
+	tab(4), '$fast_write'('?      help'), nl,
+	tab(4), '$fast_write'('h      help'), nl.
+
+'$set_debug_flag'(leap, Flag) :-
+	clause('$leap_flag'(Flag), _),
+	!.
+'$set_debug_flag'(leap, Flag) :-
+	retractall('$leap_flag'(_)),
+	assertz('$leap_flag'(Flag)).
+
 
 %%% Spy-Points
 spy(T) :-
@@ -2249,82 +2389,6 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 '$leash_specifier'(redo).
 '$leash_specifier'(fail).
 %'$leash_specifier'(exception).
-
-%%% Trace a Goal
-'$trace_goal'(Term) :-
-	'$set_debug_flag'(leap, no),
-	'$get_current_B'(Cut),
-	'$meta_call'(Term, user, Cut, 0, trace).
-
-'$trace_goal'(X, P, FA, Depth) :-
-	print_procedure_box(call, X, P, FA, Depth),
-	'$call_internal'(X, P, FA, Depth, trace),
-	print_procedure_box(exit, X, P, FA, Depth),
-	redo_procedure_box(X, P, FA, Depth).
-'$trace_goal'(X, P, FA, Depth) :-
-	print_procedure_box(fail, X, P, FA, Depth),
-	fail.
-
-print_procedure_box(Mode, G, P, F/A, Depth) :-
-	clause('$current_spypoint'(P, F, A), _),
-	!,
-	'$builtin_message'(['+',Depth,Mode,':',P:G]),
-	'$read_blocked'(print_procedure_box(Mode,G,P,F/A,Depth)).
-print_procedure_box(Mode, G, P, FA, Depth) :-
-	clause('$leap_flag'(no), _),
-	!,
-	'$builtin_message'([' ',Depth,Mode,':',P:G]),
-	(    clause('$current_leash'(Mode), _)
-             ->
-	     '$read_blocked'(print_procedure_box(Mode,G,P,FA,Depth))
-	     ;
-	     nl
-	 ).
-print_procedure_box(_, _, _, _, _).
-
-redo_procedure_box(_, _, _, _).
-redo_procedure_box(X, P, FA, Depth) :-
-	print_procedure_box(redo, X, P, FA, Depth),
-	fail.
-
-'$read_blocked'(G) :-
-	'$fast_write'(' ? '),
-	flush_output,
-	read_line(C),
-	(C == [] -> DOP = 99 ; C = [DOP|_]),
-	'$debug_option'(DOP, G).
-
-'$debug_option'(97,  _) :- !, notrace, abort.               % a for abort
-'$debug_option'(99,  _) :- !, '$set_debug_flag'(leap, no).  % c for creep
-'$debug_option'(108, _) :- !, '$set_debug_flag'(leap, yes). % l for leap
-'$debug_option'(43,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % + for spy this
-	spy(P:FA),
-	call(print_procedure_box(Mode,G,P,FA,Depth)).
-'$debug_option'(45,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % - for nospy this
-	nospy(P:FA),
-	call(print_procedure_box(Mode,G,P,FA,Depth)).
-'$debug_option'(63,  G) :- !, '$show_debug_option', call(G).
-'$debug_option'(104, G) :- !, '$show_debug_option', call(G).
-'$debug_option'(_, _).
-
-'$show_debug_option' :-
-	tab(4), '$fast_write'('Debuggin options:'), nl,
-	tab(4), '$fast_write'('a      abort'), nl,
-	tab(4), '$fast_write'('RET    creep'), nl,
-	tab(4), '$fast_write'('c      creep'), nl,
-	tab(4), '$fast_write'('l      leap'), nl,
-	tab(4), '$fast_write'('+      spy this'), nl,
-	tab(4), '$fast_write'('-      nospy this'), nl,
-	tab(4), '$fast_write'('?      help'), nl,
-	tab(4), '$fast_write'('h      help'), nl.
-
-'$set_debug_flag'(leap, Flag) :-
-	clause('$leap_flag'(Flag), _),
-	!.
-'$set_debug_flag'(leap, Flag) :-
-	retractall('$leap_flag'(_)),
-	assertz('$leap_flag'(Flag)).
-
 %%% Listing
 listing :- '$listing'(_, user).
 
@@ -2387,63 +2451,6 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 '$write_dynamic_body'(B, N) :-
 	tab(N), writeq(B).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Misc
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- public reverse/2.
-:- public length/2.
-:- public numbervars/3.
-:- public statistics/2.
-
-%reverse(Xs, Zs) :- reverse(Xs, [], Zs).
-%reverse([], Zs, Zs).
-%reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
-
-length(L, N) :- var(N), !, '$length'(L, 0, N).
-length(L, N) :- '$length0'(L, 0, N).
-
-'$length'([], I, I).
-'$length'([_|L], I0, I) :- I1 is I0+1, '$length'(L, I1, I).
-
-'$length0'([], I, I) :- !.
-'$length0'([_|L], I0, I) :- I0 < I, I1 is I0+1, '$length0'(L, I1, I).
-
-numbervars(X, VI, VN) :-
-	integer(VI), VI >= 0,
-	!,
-	'$numbervars'(X, VI, VN).
-
-'$numbervars'(X, VI, VN) :- var(X), !,
-	X = '$VAR'(VI),	  % This structure is checked in write
-	VN is VI + 1.
-'$numbervars'(X, VI, VI) :- atomic(X), !.
-'$numbervars'(X, VI, VI) :- java(X), !.
-'$numbervars'(X, VI, VN) :-
-	functor(X, _, N),
-	'$numbervars_str'(1, N, X, VI, VN).
-
-'$numbervars_str'(I, I, X, VI, VN) :- !,
-	arg(I, X, A),
-	'$numbervars'(A, VI, VN).
-'$numbervars_str'(I, N, X, VI, VN) :-
-	arg(I, X, A),
-	'$numbervars'(A, VI, VN1),
-	I1 is I + 1,
-	'$numbervars_str'(I1, N, X, VN1, VN).
-
-statistics(Key, Value) :-
-	nonvar(Key),
-	'$statistics_mode'(Key),
-	!,
-	'$statistics'(Key, Value).
-statistics(Key, Value) :-
-	findall(M, '$statistics_mode'(M), Domain),
-	illarg(domain(atom,Domain), statistics(Key,Value), 1).
-
-'$statistics_mode'(runtime).
-'$statistics_mode'(trail).
-'$statistics_mode'(choice).
-
 print_message(Type, Message) :- var(Type), !,
 	illarg(var, print_message(Type,Message), 1).
 print_message(error, Message) :- !,
@@ -2456,6 +2463,14 @@ print_message(warning, Message) :- !,
 	'$fast_write'('{WARNING: '),
 	'$builtin_message'(Message),
 	'$fast_write'('}'), nl.
+
+
+'$builtin_message'([]) :- !.
+'$builtin_message'([M]) :- !, write(M).
+'$builtin_message'([M|Ms]) :-
+	write(M),
+	'$fast_write'(' '),
+	'$builtin_message'(Ms).
 
 '$error_message'(instantiation_error(Goal,0)) :- !,
 	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
@@ -2633,10 +2648,6 @@ with_mutex(M,G):-
 
 %'$builtin_member'(X, [X|_]).
 %'$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).
-
-'$builtin_message'([]) :- !.
-'$builtin_message'([M]) :- !, write(M).
-'$builtin_message'([M|Ms]) :- write(M), '$fast_write'(' '), '$builtin_message'(Ms).
 
 '$member_in_reverse'(X, [_|L]) :- '$member_in_reverse'(X, L).
 '$member_in_reverse'(X, [X|_]).

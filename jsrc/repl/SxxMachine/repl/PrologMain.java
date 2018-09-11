@@ -1,4 +1,21 @@
-package com.googlecode.prolog_cafe.lang;
+package com.googlecode.prolog_cafe.repl;
+
+import com.googlecode.prolog_cafe.exceptions.HaltException;
+import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
+import com.googlecode.prolog_cafe.lang.ListTerm;
+import com.googlecode.prolog_cafe.lang.Prolog;
+import com.googlecode.prolog_cafe.lang.StructureTerm;
+import com.googlecode.prolog_cafe.lang.SymbolTerm;
+import com.googlecode.prolog_cafe.lang.Term;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintStream;
+import java.io.PushbackReader;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.StringTokenizer;
 /**
  * Prolog Cafe launcher.

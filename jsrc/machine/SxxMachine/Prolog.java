@@ -1,4 +1,6 @@
 package com.googlecode.prolog_cafe.lang;
+import com.googlecode.prolog_cafe.exceptions.PermissionException;
+import com.googlecode.prolog_cafe.exceptions.SystemException;
 import java.io.*;
 import java.util.EnumSet;
 import java.util.HashMap;
