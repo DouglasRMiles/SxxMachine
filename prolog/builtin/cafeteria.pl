@@ -7,14 +7,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 :- package 'com.googlecode.prolog_cafe.builtin'.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Prolog interpreter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 :- public cafeteria/0.
+:- public consult/1.
+:- public trace/0, notrace/0.
+:- public debug/0, nodebug/0.
+:- public leash/1.
+:- public spy/1, nospy/1, nospyall/0.
+:- public listing/0.
+:- public listing/1.
+
 
 %%% Main
 cafeteria :-
@@ -27,9 +28,6 @@ cafeteria :-
 	nl, '$fast_write'(bye), nl.
 
 '$cafeteria_init' :-
-	'$new_indexing_hash'('com.googlecode.prolog_cafe.builtin','$leap_flag'/1, _),
-	'$new_indexing_hash'('com.googlecode.prolog_cafe.builtin','$current_spypoint'/3, _),
-	'$new_indexing_hash'('com.googlecode.prolog_cafe.builtin','$current_leash'/1, _),
 	retractall('$leap_flag'(_)),
 	retractall('$current_leash'(_)),
 	retractall('$current_spypoint'(_,_,_)),
@@ -50,7 +48,7 @@ cafeteria :-
 	flush_output.
 
 '$cafeteria'(Goal) :-
-	read_with_variables('user_input', Goal, Vars),
+	read_with_variables(Goal, Vars),
 	'$process_order'(Goal, Vars).
 
 '$process_order'(G,               _) :- var(G), !, illarg(var, (?- G), 1).
@@ -75,7 +73,7 @@ cafeteria :-
 '$give_answers_with_prompt'(Vs) :-
 	'$give_an_answer'(Vs),
 	'$fast_write'(' ? '), flush_output,
-	read_line('user_input', Str),
+	read_line(Str),
 	Str \== ";",
 	nl.
 
@@ -88,8 +86,8 @@ cafeteria :-
 '$print_an answer'(N = V) :-
 	write(N), '$fast_write'(' = '), writeq(V).
 
+
 %%% Read Program
-:- public consult/1.
 
 consult(Files) :- var(Files), !, illarg(var, consult(Files), 1).
 consult([]) :- !.
@@ -99,6 +97,7 @@ consult(File) :- atom(File), !, '$consult'(File).
 '$consult'(F) :-
 	'$prolog_file_name'(F, PF),
 	open(PF, read, In),
+	stream_property(In, file_name(File)),
 	print_message(info, [consulting,File,'...']),
 	statistics(runtime, _),
 	consult_stream(File, In),
@@ -109,15 +108,7 @@ consult(File) :- atom(File), !, '$consult'(File).
 '$prolog_file_name'(File,  File) :- sub_atom(File, _, _, After, '.'), After > 0, !.
 '$prolog_file_name'(File0, File) :- atom_concat(File0, '.pl', File).
 
-
-
-
-
-
-
 %%% Trace
-:- public trace/0, notrace/0.
-:- public debug/0, nodebug/0.
 
 trace :- current_prolog_flag(debug, on), !.
 trace :-
@@ -152,8 +143,6 @@ nodebug :- notrace.
 	'$get_current_B'(Cut),
 	'$meta_call'(Term, user, Cut, 0, trace).
 
-'$trace_goal'(nodebug, _, _, _) :- nodebug.
-'$trace_goal'(notrace, _, _, _) :- notrace.
 '$trace_goal'(X, P, FA, Depth) :-
 	print_procedure_box(call, X, P, FA, Depth),
 	'$call_internal'(X, P, FA, Depth, trace),
@@ -188,7 +177,7 @@ redo_procedure_box(X, P, FA, Depth) :-
 '$read_blocked'(G) :-
 	'$fast_write'(' ? '),
 	flush_output,
-	read_line('user_input', C),
+	read_line(C),
 	(C == [] -> DOP = 99 ; C = [DOP|_]),
 	'$debug_option'(DOP, G).
 
@@ -224,7 +213,6 @@ redo_procedure_box(X, P, FA, Depth) :-
 	assertz('$leap_flag'(Flag)).
 
 %%% Spy-Points
-:- public spy/1, nospy/1, nospyall/0.
 
 spy(T) :-
 	'$term_to_predicateindicator'(T, PI, spy(T)),
@@ -262,7 +250,6 @@ nospyall :-
 	'$set_debug_flag'(leap, no).
 
 %%% Leash
-:- public leash/1.
 
 leash(L) :- nonvar(L), '$leash'(L), !.
 leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
@@ -288,9 +275,6 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 %'$leash_specifier'(exception).
 
 %%% Listing
-:- public listing/0.
-:- public listing/1.
-
 listing :- '$listing'(_, user).
 
 listing(T) :- var(T), !, illarg(var, listing(T), 1).
@@ -381,80 +365,81 @@ flush_output :- flush_output('user_output').
 	'$builtin_message'(Ms).
 
 '$error_message'(instantiation_error(Goal,0)) :- !,
-	'$fast_write'('{INSTANTIATION ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(instantiation_error(Goal,ArgNo)) :- !,
-	'$fast_write'('{INSTANTIATION ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(type_error(Goal,ArgNo,Type,Culprit)) :- !,
-	'$fast_write'('{TYPE ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(': expected '), '$fast_write'(Type),
-	'$fast_write'(', found '), write(Culprit),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{TYPE ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
+	'$fast_write'(user_error,', found '), write(user_error,Culprit),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(domain_error(Goal,ArgNo,Domain,Culprit)) :- !,
-	'$fast_write'('{DOMAIN ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(': expected '), '$fast_write'(Domain),
-	'$fast_write'(', found '), write(Culprit),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{DOMAIN ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Domain),
+	'$fast_write'(user_error,', found '), write(user_error,Culprit),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(existence_error(_Goal,0,ObjType,Culprit,_Message)) :- !,
-	'$fast_write'('{EXISTENCE ERROR: '),
-	'$fast_write'(ObjType), '$fast_write'(' '), write(Culprit), '$fast_write'(' does not exist'),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{EXISTENCE ERROR: '),
+	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), '$fast_write'(user_error,' does not exist'),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(existence_error(Goal,ArgNo,ObjType,Culprit,_Message)) :- !,
-	'$fast_write'('{EXISTENCE ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(': '),
-	'$fast_write'(ObjType), '$fast_write'(' '), write(Culprit), '$fast_write'(' does not exist'),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{EXISTENCE ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,': '),
+	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), '$fast_write'(user_error,' does not exist'),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(permission_error(Goal,Operation,ObjType,Culprit,Message)) :- !,
-	'$fast_write'('{PERMISSION ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - can not '), '$fast_write'(Operation), '$fast_write'(' '),
-	'$fast_write'(ObjType), '$fast_write'(' '), write(Culprit),
-	'$fast_write'(': '), '$fast_write'(Message),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{PERMISSION ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - can not '), '$fast_write'(user_error,Operation), '$fast_write'(user_error,' '),
+	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit),
+	'$fast_write'(user_error,': '), '$fast_write'(user_error,Message),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(representation_error(Goal,ArgNo,Flag)) :- !,
-	'$fast_write'('{REPRESENTATION ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(': limit of '), '$fast_write'(Flag), '$fast_write'(' is breached'),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{REPRESENTATION ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,': limit of '), '$fast_write'(user_error,Flag), '$fast_write'(user_error,' is breached'),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(evaluation_error(Goal,ArgNo,Type)) :- !,
-	'$fast_write'('{EVALUATION ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(', found '), '$fast_write'(Type),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{EVALUATION ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,', found '), '$fast_write'(user_error,Type),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(syntax_error(Goal,ArgNo,Type,Culprit,_Message)) :- !,
-	'$fast_write'('{SYNTAX ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(': expected '), '$fast_write'(Type),
-	'$fast_write'(', found '), write(Culprit),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{SYNTAX ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
+	'$fast_write'(user_error,', found '), write(user_error,Culprit),
+	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(system_error(Message)) :- !,
-	'$fast_write'('{SYSTEM ERROR: '), write(Message), '$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{SYSTEM ERROR: '), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(internal_error(Message)) :- !,
-	'$fast_write'('{INTERNAL ERROR: '), write(Message), '$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{INTERNAL ERROR: '), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$error_message'(java_error(Goal,ArgNo,Exception)) :- !,
-	'$fast_write'('{JAVA ERROR: '),
-	'$write_goal'(Goal),
-	'$fast_write'(' - arg '), '$fast_write'(ArgNo),
-	'$fast_write'(', found '), '$write_goal'(Exception),
-	'$fast_write'('}'), nl.
+	'$fast_write'(user_error,'{JAVA ERROR: '),
+	'$write_goal'(user_error,Goal),
+	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
+	'$fast_write'(user_error,', found '), '$write_goal'(user_error,Exception),
+	'$fast_write'(user_error,'}'), nl(user_error),
+	'$print_stack_trace'(Exception),flush_output(user_error).
 '$error_message'(Message) :-
-	'$fast_write'('{'), write(Message), '$fast_write'('}'), nl.
-
+	'$fast_write'(user_error,'{'), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
 '$write_goal'(Goal) :- java(Goal), !, '$write_toString'('user_error', Goal).
 '$write_goal'(Goal) :- write(Goal).
 
 '$write_goal'(S,Goal) :- java(Goal), !, '$write_toString'(S, Goal).
 '$write_goal'(S,Goal) :- write(S,Goal).
+

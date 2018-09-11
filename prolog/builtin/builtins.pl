@@ -841,127 +841,7 @@ setof(Template, Goal, Instances) :-
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Stream selection and control
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%:- public current_input/1  (written in Java)
-%:- public current_output/1 (written in Java)
-%:- public set_input/1, set_output/1. (written in Java)
-%:- public open/4 (written in Java)
-:- public open/3.
-%:- public close/2 (written in Java)
-:- public close/1.
-%:- public flush_output/1.(written in Java)
-:- public flush_output/0.
-:- public stream_property/2.
-
-open(Source_sink, Mode, Stream) :- open(Source_sink, Mode, Stream, []).
-
-close(S_or_a) :- close(S_or_a, []).
-
-flush_output :-
-    current_output(S),
-    flush_output(S).
-
-stream_property(Stream, Stream_property) :-
-	var(Stream_property),
-	!,
-	'$stream_property'(Stream, Stream_property).
-stream_property(Stream, Stream_property) :-
-	'$stream_property_specifier'(Stream_property),
-	!,
-	'$stream_property'(Stream, Stream_property).
-stream_property(Stream, Stream_property) :-
-	illarg(domain(term,stream_property), stream_property(Stream, Stream_property), 2).
-
-'$stream_property'(Stream, Stream_property) :-
-	var(Stream),
-	!,
-	'$get_stream_manager'(SM),
-	hash_map(SM, Map),
-	'$builtin_member'((Stream,Vs), Map),
-	java(Stream),
-	'$builtin_member'(Stream_property, Vs).
-'$stream_property'(Stream, Stream_property) :-
-	java(Stream),
-	!,
-	'$get_stream_manager'(SM),
-	hash_get(SM, Stream, Vs),
-	'$builtin_member'(Stream_property, Vs).
-'$stream_property'(Stream, Stream_property) :-
-	illarg(domain(stream,stream), stream_property(Stream, Stream_property), 1).
-
-'$stream_property_specifier'(input).
-'$stream_property_specifier'(output).
-'$stream_property_specifier'(alias(_)).
-'$stream_property_specifier'(mode(_)).
-'$stream_property_specifier'(type(_)).
-'$stream_property_specifier'(file_name(_)).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Character input/output
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%:- public get_char/2, get_code/2.   (written in Java)
-%:- public peek_char/2, peek_code/2. (written in Java)
-%:- public put_char/2, put_code/2.   (written in Java)
-%:- public nl/0.                     (written in Java)
-
-:- public get_char/1, get_code/1.
-:- public peek_char/1, peek_code/1.
-:- public put_char/1, put_code/1.
-:- public nl/1.
-
-get_char(Char)  :- current_input(S), get_char(S, Char).
-get_code(Code)  :- current_input(S), get_code(S, Code).
-
-peek_char(Char) :- current_input(S), peek_char(S, Char).
-peek_code(Code) :- current_input(S), peek_code(S, Code).
-
-put_char(Char)  :- current_output(S), put_char(S, Char).
-put_code(Code)  :- current_output(S), put_code(S, Code).
-
-nl(S) :- put_char(S, '\n').
-
-:- public get0/1, get0/2.
-:- public get/1.
-%:- public get/2.  (written in Java)
-:- public put/1, put/2.
-:- public tab/1.
-%:- public tab/2.  (written in Java)
-:- public skip/1.
-%:- public skip/2. (written in Java)
-
-get0(Code)  :- current_input(S), get_code(S, Code).
-get0(S_or_a, Code)  :- get_code(S_or_a, Code).
-
-get(Code)  :- current_input(S), get(S, Code).
-
-put(Exp)  :- current_output(S), put(S, Exp).
-put(S_or_a, Exp)  :- Code is Exp, put_code(S_or_a, Code).
-
-tab(N) :- current_output(S), tab(S, N).
-
-skip(N) :- current_input(S), skip(S, N).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Byte input/output
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- public get_byte/1, peek_byte/1, put_byte/1.
-%:- public get_byte/2.  % written in java
-%:- public peek_byte/2. % written in java
-%:- public put_byte/2.  % written in java
-
-get_byte(Byte) :-
-    current_input(S),
-    get_byte(S, Byte).
-
-peek_byte(Byte) :-
-    current_input(S),
-    peek_byte(S, Byte).
-
-put_byte(Byte) :-
-    current_output(S),
-    put_byte(S, Byte).
+:- include(io).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Term input/output (read)
@@ -1898,6 +1778,262 @@ hash_exists(Alias) :-
   '$get_hash_manager'(HM),
   hash_contains_key(HM, Alias).
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Prolog interpreter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- op(1170, xfx, (:-)).
+:- op(1170, xfx, (-->)).
+:- op(1170,  fx, (:-)).
+:- op(1170,  fx, (?-)).
+
+:- op(1150,  fx, (package)).
+:- op(1150,  fx, (import)).
+:- op(1150,  fx, (public)).
+:- op(1150,  fx, (dynamic)).
+:- op(1150,  fx, (meta_predicate)).
+:- op(1150,  fx, (mode)).
+:- op(1150,  fx, (multifile)).
+:- op(1150,  fx, (block)).
+
+:- public consult_stream/1.
+:- dynamic '$consulted_file'/1.
+:- dynamic '$consulted_import'/2.
+:- dynamic '$consulted_package'/1.
+:- dynamic '$consulted_predicate'/3.
+
+%%% Read Program
+
+consult_stream(File, In) :-
+	'$consult_init'(File),
+	repeat,
+	    read(In, Cl),
+	    '$consult_clause'(Cl),
+	    Cl == end_of_file,
+	    !.
+
+'$consult_init'(File) :-
+	retractall('$consulted_file'(_)),
+	retractall('$consulted_package'(_)),
+	retractall('$consulted_import'(File, _)),
+	retract('$consulted_predicate'(P,PI,File)),
+	abolish(P:PI),
+	fail.
+'$consult_init'(File) :-
+	assertz('$consulted_file'(File)),
+	assertz('$consulted_package'(user)).
+
+'$consult_clause'(end_of_file          ) :- !.
+'$consult_clause'((:- module(P,_))     ) :- !, '$assert_consulted_package'(P).
+'$consult_clause'((:- package P)       ) :- !, '$assert_consulted_package'(P).
+'$consult_clause'((:- import P)        ) :- !, '$assert_consulted_import'(P).
+'$consult_clause'((:- dynamic _)       ) :- !.
+'$consult_clause'((:- public _)        ) :- !.
+'$consult_clause'((:- meta_predicate _)) :- !.
+'$consult_clause'((:- mode _)          ) :- !.
+'$consult_clause'((:- multifile _)     ) :- !.
+'$consult_clause'((:- block _)         ) :- !.
+'$consult_clause'((:- G)               ) :- !, clause('$consulted_package'(P), _), once(P:G).
+'$consult_clause'(Clause0) :-
+	'$consult_preprocess'(Clause0, Clause),
+	'$consult_cls'(Clause).
+
+'$assert_consulted_package'(P) :-
+	clause('$consulted_package'(P), _),
+	!.
+'$assert_consulted_package'(P) :-
+	retractall('$consulted_package'(_)),
+	assertz('$consulted_package'(P)).
+
+'$assert_consulted_import'(P) :-
+	clause('$consulted_file'(File), _),
+	assertz('$consulted_import'(File, P)).
+
+'$consult_preprocess'(Clause0, Clause) :-
+	expand_term(Clause0, Clause).
+
+'$consult_cls'((H :- G)) :- !, '$assert_consulted_clause'((H :- G)).
+'$consult_cls'(H) :- '$assert_consulted_clause'((H :- true)).
+
+'$assert_consulted_clause'(Clause) :-
+	Clause = (H :- _),
+	functor(H, F, A),
+	clause('$consulted_file'(File), _),
+	clause('$consulted_package'(P), _),
+	assertz(P:Clause),
+	assertz('$consulted_predicate'(P,F/A,File)),
+	!.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- public reverse/2.
+:- public length/2.
+:- public numbervars/3.
+:- public statistics/2.
+
+%reverse(Xs, Zs) :- reverse(Xs, [], Zs).
+%reverse([], Zs, Zs).
+%reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
+
+length(L, N) :- var(N), !, '$length'(L, 0, N).
+length(L, N) :- '$length0'(L, 0, N).
+
+'$length'([], I, I).
+'$length'([_|L], I0, I) :- I1 is I0+1, '$length'(L, I1, I).
+
+'$length0'([], I, I) :- !.
+'$length0'([_|L], I0, I) :- I0 < I, I1 is I0+1, '$length0'(L, I1, I).
+
+numbervars(X, VI, VN) :-
+	integer(VI), VI >= 0,
+	!,
+	'$numbervars'(X, VI, VN).
+
+'$numbervars'(X, VI, VN) :- var(X), !,
+	X = '$VAR'(VI),	  % This structure is checked in write
+	VN is VI + 1.
+'$numbervars'(X, VI, VI) :- atomic(X), !.
+'$numbervars'(X, VI, VI) :- java(X), !.
+'$numbervars'(X, VI, VN) :-
+	functor(X, _, N),
+	'$numbervars_str'(1, N, X, VI, VN).
+
+'$numbervars_str'(I, I, X, VI, VN) :- !,
+	arg(I, X, A),
+	'$numbervars'(A, VI, VN).
+'$numbervars_str'(I, N, X, VI, VN) :-
+	arg(I, X, A),
+	'$numbervars'(A, VI, VN1),
+	I1 is I + 1,
+	'$numbervars_str'(I1, N, X, VN1, VN).
+
+statistics(Key, Value) :-
+	nonvar(Key),
+	'$statistics_mode'(Key),
+	!,
+	'$statistics'(Key, Value).
+statistics(Key, Value) :-
+	findall(M, '$statistics_mode'(M), Domain),
+	illarg(domain(atom,Domain), statistics(Key,Value), 1).
+
+'$statistics_mode'(runtime).
+'$statistics_mode'(trail).
+'$statistics_mode'(choice).
+
+
+illarg(Msg, Goal, ArgNo) :- var(Msg), !,
+	illarg(var, Goal, ArgNo).
+illarg(var, Goal, ArgNo) :-
+	raise_exception(instantiation_error(Goal, ArgNo)).
+illarg(type(Type), Goal, ArgNo) :-
+	arg(ArgNo, Goal, Arg),
+	(  nonvar(Arg) ->
+	   Error = type_error(Goal,ArgNo,Type,Arg)
+	;  Error = instantiation_error(Goal,ArgNo)
+	),
+	raise_exception(Error).
+illarg(domain(Type,ExpDomain), Goal, ArgNo) :-
+	arg(ArgNo, Goal, Arg),
+	(  '$match_type'(Type, Arg) ->
+	   Error = domain_error(Goal,ArgNo,ExpDomain,Arg)
+	;  nonvar(Arg) ->
+	   Error = type_error(Goal,ArgNo,Type,Arg)
+	;  Error = instantiation_error(Goal,ArgNo)
+	),
+	raise_exception(Error).
+illarg(existence(ObjType,Culprit,Message), Goal, ArgNo) :-
+	raise_exception(existence_error(Goal,ArgNo,ObjType,Culprit,Message)).
+illarg(permission(Operation, ObjType, Culprit, Message), Goal, _) :-
+	raise_exception(permission_error(Goal,Operation,ObjType,Culprit,Message)).
+illarg(representation(Flag), Goal, ArgNo) :-
+	raise_exception(representation_error(Goal,ArgNo,Flag)).
+illarg(evaluation(Type), Goal, ArgNo) :-
+	raise_exception(evaluation_error(Goal,ArgNo,Type)).
+illarg(syntax(Type,Culprit,Message), Goal, ArgNo) :-
+	raise_exception(syntax_error(Goal,ArgNo,Type,Culprit,Message)).
+illarg(system(Message), _, _) :-
+	raise_exception(system_error(Message)).
+illarg(internal(Message), _, _) :-
+	raise_exception(internal_error(Message)).
+illarg(java(Exception), Goal, ArgNo) :-
+	raise_exception(java_error(Goal,ArgNo,Exception)).
+illarg(Msg, _, _) :- raise_exception(Msg).
+
+'$match_type'(term,         _).
+'$match_type'(variable,     X) :- var(X).
+'$match_type'(atom,         X) :- atom(X).
+'$match_type'(atomic,       X) :- atomic(X).
+'$match_type'(byte,         X) :- integer(X), 0 =< X, X =< 255.
+'$match_type'(in_byte,      X) :- integer(X), -1 =< X, X =< 255.
+'$match_type'(character,    X) :- atom(X), atom_length(X, 1).
+'$match_type'(in_character, X) :- (X == 'end_of_file' ; '$match_type'(character,X)).
+'$match_type'(number,       X) :- number(X).
+'$match_type'(integer,      X) :- integer(X).
+'$match_type'(long,         X) :- long(X).
+'$match_type'(float,        X) :- float(X).
+'$match_type'(callable,     X) :- callable(X).
+'$match_type'(compound,     X) :- compound(X).
+'$match_type'(list,         X) :- nonvar(X), (X = [] ; X = [_|_]).
+'$match_type'(java,         X) :- java(X).
+'$match_type'(stream,       X) :- (java(X, 'java.io.PushbackReader') ; java(X, 'java.io.PrintWriter')).
+'$match_type'(stream_or_alias, X) :- (atom(X) ; '$match_type'(stream, X)).
+'$match_type'(hash,         X) :- java(X, 'com.googlecode.prolog_cafe.lang.HashtableOfTerm').
+'$match_type'(hash_or_alias,X) :- (atom(X) ; '$match_type'(hash, X)).
+'$match_type'(predicate_indicator, X) :-
+	nonvar(X),
+	X = P:F/A,
+	atom(P),
+	atom(F),
+	integer(A).
+%'$match_type'(evaluable,    X).
+%'$match_type'('convertible to java',  X).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Utilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'$builtin_append'([], Zs, Zs).
+'$builtin_append'([X|Xs], Ys, [X|Zs]) :- '$builtin_append'(Xs, Ys, Zs).
+
+%'$builtin_member'(X, [X|_]).
+%'$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).
+
+'$member_in_reverse'(X, [_|L]) :- '$member_in_reverse'(X, L).
+'$member_in_reverse'(X, [X|_]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ISO thread synchronization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- public with_mutex/2.
+
+with_mutex(M,G):-
+	\+(atom(M)),
+	\+(java(M)),
+	!,
+	illarg(type(atom),with_mutex(M,G),1).
+with_mutex(M,G):-
+	var(G),
+	!,
+	illarg(var,with_mutex(M,G),2).
+with_mutex(M,G):-
+	\+(callable(G)),
+	!,
+	illarg(type(callable),with_mutex(M,G),2).
+with_mutex(M,G):-
+	mutex_lock_bt(M),
+	call(G), % if it fails or throws exception, mutex is unlocked automatically due to mutex_lock_bt
+	!,
+	mutex_unlock(M).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Java interoperation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1980,677 +2116,5 @@ synchronized(Object, Goal) :-
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Misc
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- public reverse/2.
-:- public length/2.
-:- public numbervars/3.
-:- public statistics/2.
 
-%reverse(Xs, Zs) :- reverse(Xs, [], Zs).
-%reverse([], Zs, Zs).
-%reverse([X|Xs], Tmp, Zs) :- reverse(Xs, [X|Tmp], Zs).
-
-length(L, N) :- var(N), !, '$length'(L, 0, N).
-length(L, N) :- '$length0'(L, 0, N).
-
-'$length'([], I, I).
-'$length'([_|L], I0, I) :- I1 is I0+1, '$length'(L, I1, I).
-
-'$length0'([], I, I) :- !.
-'$length0'([_|L], I0, I) :- I0 < I, I1 is I0+1, '$length0'(L, I1, I).
-
-numbervars(X, VI, VN) :-
-	integer(VI), VI >= 0,
-	!,
-	'$numbervars'(X, VI, VN).
-
-'$numbervars'(X, VI, VN) :- var(X), !,
-	X = '$VAR'(VI),	  % This structure is checked in write
-	VN is VI + 1.
-'$numbervars'(X, VI, VI) :- atomic(X), !.
-'$numbervars'(X, VI, VI) :- java(X), !.
-'$numbervars'(X, VI, VN) :-
-	functor(X, _, N),
-	'$numbervars_str'(1, N, X, VI, VN).
-
-'$numbervars_str'(I, I, X, VI, VN) :- !,
-	arg(I, X, A),
-	'$numbervars'(A, VI, VN).
-'$numbervars_str'(I, N, X, VI, VN) :-
-	arg(I, X, A),
-	'$numbervars'(A, VI, VN1),
-	I1 is I + 1,
-	'$numbervars_str'(I1, N, X, VN1, VN).
-
-statistics(Key, Value) :-
-	nonvar(Key),
-	'$statistics_mode'(Key),
-	!,
-	'$statistics'(Key, Value).
-statistics(Key, Value) :-
-	findall(M, '$statistics_mode'(M), Domain),
-	illarg(domain(atom,Domain), statistics(Key,Value), 1).
-
-'$statistics_mode'(runtime).
-'$statistics_mode'(trail).
-'$statistics_mode'(choice).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Prolog interpreter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- op(1170, xfx, (:-)).
-:- op(1170, xfx, (-->)).
-:- op(1170,  fx, (:-)).
-:- op(1170,  fx, (?-)).
-
-:- op(1150,  fx, (package)).
-:- op(1150,  fx, (import)).
-:- op(1150,  fx, (public)).
-:- op(1150,  fx, (dynamic)).
-:- op(1150,  fx, (meta_predicate)).
-:- op(1150,  fx, (mode)).
-:- op(1150,  fx, (multifile)).
-:- op(1150,  fx, (block)).
-
-:- public cafeteria/0.
-:- public consult/1.
-:- public consult_stream/1.
-:- public trace/0, notrace/0.
-:- public debug/0, nodebug/0.
-:- public leash/1.
-:- public spy/1, nospy/1, nospyall/0.
-:- public listing/0.
-:- public listing/1.
-
-:- dynamic '$current_leash'/1.
-:- dynamic '$current_spypoint'/3.
-:- dynamic '$leap_flag'/1.
-:- dynamic '$consulted_file'/1.
-:- dynamic '$consulted_import'/2.
-:- dynamic '$consulted_package'/1.
-:- dynamic '$consulted_predicate'/3.
-
-%%% Main
-cafeteria :-
-	'$cafeteria_init',
-	repeat,
-	    '$toplvel_loop',
-	    on_exception(Msg, '$cafeteria'(Goal), print_message(error, Msg)),
-	    Goal == end_of_file,
-	    !,
-	nl, '$fast_write'(bye), nl.
-
-'$cafeteria_init' :-
-	retractall('$leap_flag'(_)),
-	retractall('$current_leash'(_)),
-	retractall('$current_spypoint'(_,_,_)),
-	retractall('$consulted_file'(_)),
-	retractall('$consulted_package'(_)),
-	retractall('$consulted_predicate'(_,_,_)),
-	assertz('$leap_flag'(no)),
-	assertz('$current_leash'(call)),
-	assertz('$current_leash'(exit)),
-	assertz('$current_leash'(redo)),
-	assertz('$current_leash'(fail)),
-	!.
-
-'$toplvel_loop' :-
-	current_prolog_flag(debug, Mode),
-	(Mode == off -> true ; print_message(info,[debug])),
-	'$fast_write'('| ?- '),
-	flush_output.
-
-'$cafeteria'(Goal) :-
-	read_with_variables(Goal, Vars),
-	'$process_order'(Goal, Vars).
-
-'$process_order'(G,               _) :- var(G), !, illarg(var, (?- G), 1).
-'$process_order'(end_of_file,     _) :- !.
-'$process_order'([File|Files],    _) :- !, consult([File|Files]).
-'$process_order'(G,            Vars) :-
-	current_prolog_flag(debug, Mode),
-	(   Mode == off -> call(user:G) ; '$trace_goal'(user:G)   ), nl,
-	'$rm_redundant_vars'(Vars, Vars1),
-	'$give_answers_with_prompt'(Vars1),
-	!,
-	'$fast_write'(yes), nl.
-'$process_order'(_, _) :- nl, '$fast_write'(no), nl.
-
-'$rm_redundant_vars'([], []) :- !.
-'$rm_redundant_vars'(['_'=_|Xs], Vs)  :- !,
-	'$rm_redundant_vars'(Xs, Vs).
-'$rm_redundant_vars'([X|Xs], [X|Vs]) :-
-	'$rm_redundant_vars'(Xs, Vs).
-
-'$give_answers_with_prompt'([]) :- !.
-'$give_answers_with_prompt'(Vs) :-
-	'$give_an_answer'(Vs),
-	'$fast_write'(' ? '), flush_output,
-	read_line(Str),
-	Str \== ";",
-	nl.
-
-'$give_an_answer'([])  :- !, '$fast_write'(true).
-'$give_an_answer'([X]) :- !, '$print_an answer'(X).
-'$give_an_answer'([X|Xs]) :-
-	'$print_an answer'(X), '$fast_write'(','), nl,
-	'$give_an_answer'(Xs).
-
-'$print_an answer'(N = V) :-
-	write(N), '$fast_write'(' = '), writeq(V).
-
-%%% Read Program
-consult(Files) :- var(Files), !, illarg(var, consult(Files), 1).
-consult([]) :- !.
-consult([File|Files]) :- !, consult(File), consult(Files).
-consult(File) :- atom(File), !, '$consult'(File).
-
-'$consult'(F) :-
-	'$prolog_file_name'(F, PF),
-	open(PF, read, In),
-	stream_property(In, file_name(File)),
-	print_message(info, [consulting,File,'...']),
-	statistics(runtime, _),
-	consult_stream(File, In),
-	statistics(runtime, [_,T]),
-	print_message(info, [File,consulted,T,msec]),
-	close(In).
-
-consult_stream(File, In) :-
-	'$consult_init'(File),
-	repeat,
-	    read(In, Cl),
-	    '$consult_clause'(Cl),
-	    Cl == end_of_file,
-	    !.
-
-'$prolog_file_name'(File,  File) :- sub_atom(File, _, _, After, '.'), After > 0, !.
-'$prolog_file_name'(File0, File) :- atom_concat(File0, '.pl', File).
-
-'$consult_init'(File) :-
-	retractall('$consulted_file'(_)),
-	retractall('$consulted_package'(_)),
-	retractall('$consulted_import'(File, _)),
-	retract('$consulted_predicate'(P,PI,File)),
-	abolish(P:PI),
-	fail.
-'$consult_init'(File) :-
-	assertz('$consulted_file'(File)),
-	assertz('$consulted_package'(user)).
-
-'$consult_clause'(end_of_file          ) :- !.
-'$consult_clause'((:- module(P,_))     ) :- !, '$assert_consulted_package'(P).
-'$consult_clause'((:- package P)       ) :- !, '$assert_consulted_package'(P).
-'$consult_clause'((:- import P)        ) :- !, '$assert_consulted_import'(P).
-'$consult_clause'((:- dynamic _)       ) :- !.
-'$consult_clause'((:- public _)        ) :- !.
-'$consult_clause'((:- meta_predicate _)) :- !.
-'$consult_clause'((:- mode _)          ) :- !.
-'$consult_clause'((:- multifile _)     ) :- !.
-'$consult_clause'((:- block _)         ) :- !.
-'$consult_clause'((:- G)               ) :- !, clause('$consulted_package'(P), _), once(P:G).
-'$consult_clause'(Clause0) :-
-	'$consult_preprocess'(Clause0, Clause),
-	'$consult_cls'(Clause).
-
-'$assert_consulted_package'(P) :-
-	clause('$consulted_package'(P), _),
-	!.
-'$assert_consulted_package'(P) :-
-	retractall('$consulted_package'(_)),
-	assertz('$consulted_package'(P)).
-
-'$assert_consulted_import'(P) :-
-	clause('$consulted_file'(File), _),
-	assertz('$consulted_import'(File, P)).
-
-'$consult_preprocess'(Clause0, Clause) :-
-	expand_term(Clause0, Clause).
-
-'$consult_cls'((H :- G)) :- !, '$assert_consulted_clause'((H :- G)).
-'$consult_cls'(H) :- '$assert_consulted_clause'((H :- true)).
-
-'$assert_consulted_clause'(Clause) :-
-	Clause = (H :- _),
-	functor(H, F, A),
-	clause('$consulted_file'(File), _),
-	clause('$consulted_package'(P), _),
-	assertz(P:Clause),
-	assertz('$consulted_predicate'(P,F/A,File)),
-	!.
-
-
-
-
-%%% Trace
-
-trace :- current_prolog_flag(debug, on), !.
-trace :-
-	set_prolog_flag(debug, on),
-	'$trace_init',
-	'$fast_write'('{Small debugger is switch on}'),
-	nl, !.
-
-'$trace_init' :-
-	retractall('$leap_flag'(_)),
-	retractall('$current_leash'(_)),
-	retractall('$current_spypoint'(_,_,_)),
-	assertz('$leap_flag'(no)),
-	assertz('$current_leash'(call)),
-	assertz('$current_leash'(exit)),
-	assertz('$current_leash'(redo)),
-	assertz('$current_leash'(fail)),
-	!.
-
-notrace :- current_prolog_flag(debug, off), !.
-notrace :-
-	set_prolog_flag(debug, off),
-	'$fast_write'('{Small debugger is switch off}'),
-	nl, !.
-
-debug :- trace.
-nodebug :- notrace.
-
-%%% Trace a Goal
-'$trace_goal'(Term) :-
-	'$set_debug_flag'(leap, no),
-	'$get_current_B'(Cut),
-	'$meta_call'(Term, user, Cut, 0, trace).
-
-'$trace_goal'(X, P, FA, Depth) :-
-	print_procedure_box(call, X, P, FA, Depth),
-	'$call_internal'(X, P, FA, Depth, trace),
-	print_procedure_box(exit, X, P, FA, Depth),
-	redo_procedure_box(X, P, FA, Depth).
-'$trace_goal'(X, P, FA, Depth) :-
-	print_procedure_box(fail, X, P, FA, Depth),
-	fail.
-
-print_procedure_box(Mode, G, P, F/A, Depth) :-
-	clause('$current_spypoint'(P, F, A), _),
-	!,
-	'$builtin_message'(['+',Depth,Mode,':',P:G]),
-	'$read_blocked'(print_procedure_box(Mode,G,P,F/A,Depth)).
-print_procedure_box(Mode, G, P, FA, Depth) :-
-	clause('$leap_flag'(no), _),
-	!,
-	'$builtin_message'([' ',Depth,Mode,':',P:G]),
-	(    clause('$current_leash'(Mode), _)
-             ->
-	     '$read_blocked'(print_procedure_box(Mode,G,P,FA,Depth))
-	     ;
-	     nl
-	 ).
-print_procedure_box(_, _, _, _, _).
-
-redo_procedure_box(_, _, _, _).
-redo_procedure_box(X, P, FA, Depth) :-
-	print_procedure_box(redo, X, P, FA, Depth),
-	fail.
-
-'$read_blocked'(G) :-
-	'$fast_write'(' ? '),
-	flush_output,
-	read_line(C),
-	(C == [] -> DOP = 99 ; C = [DOP|_]),
-	'$debug_option'(DOP, G).
-
-'$debug_option'(97,  _) :- !, notrace, abort.               % a for abort
-'$debug_option'(99,  _) :- !, '$set_debug_flag'(leap, no).  % c for creep
-'$debug_option'(108, _) :- !, '$set_debug_flag'(leap, yes). % l for leap
-'$debug_option'(43,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % + for spy this
-	spy(P:FA),
-	call(print_procedure_box(Mode,G,P,FA,Depth)).
-'$debug_option'(45,  print_procedure_box(Mode,G,P,FA,Depth)) :- !, % - for nospy this
-	nospy(P:FA),
-	call(print_procedure_box(Mode,G,P,FA,Depth)).
-'$debug_option'(63,  G) :- !, '$show_debug_option', call(G).
-'$debug_option'(104, G) :- !, '$show_debug_option', call(G).
-'$debug_option'(_, _).
-
-'$show_debug_option' :-
-	tab(4), '$fast_write'('Debugging options:'), nl,
-	tab(4), '$fast_write'('a      abort'), nl,
-	tab(4), '$fast_write'('RET    creep'), nl,
-	tab(4), '$fast_write'('c      creep'), nl,
-	tab(4), '$fast_write'('l      leap'), nl,
-	tab(4), '$fast_write'('+      spy this'), nl,
-	tab(4), '$fast_write'('-      nospy this'), nl,
-	tab(4), '$fast_write'('?      help'), nl,
-	tab(4), '$fast_write'('h      help'), nl.
-
-'$set_debug_flag'(leap, Flag) :-
-	clause('$leap_flag'(Flag), _),
-	!.
-'$set_debug_flag'(leap, Flag) :-
-	retractall('$leap_flag'(_)),
-	assertz('$leap_flag'(Flag)).
-
-
-%%% Spy-Points
-spy(T) :-
-	'$term_to_predicateindicator'(T, PI, spy(T)),
-	trace,
-	'$assert_spypoint'(PI),
-	'$set_debug_flag'(leap, yes),
-	!.
-
-'$assert_spypoint'(P:F/A) :-
-	clause('$current_spypoint'(P,F,A), _),
-	print_message(info, [spypoint,P:F/A,is,already,added]),
-	!.
-'$assert_spypoint'(P:F/A) :-
-	clause('$consulted_predicate'(P,F/A,_), _),
-	assertz('$current_spypoint'(P,F,A)),
-	print_message(info, [spypoint,P:F/A,is,added]),
-	!.
-'$assert_spypoint'(P:F/A) :-
-	print_message(warning, [no,matching,predicate,for,spy,P:F/A]).
-
-nospy(T) :-
-	'$term_to_predicateindicator'(T, PI, nospy(T)),
-	'$retract_spypoint'(PI),
-	'$set_debug_flag'(leap, no),
-	!.
-
-'$retract_spypoint'(P:F/A) :-
-	retract('$current_spypoint'(P,F,A)),
-	print_message(info, [spypoint,P:F/A,is,removed]),
-	!.
-'$retract_spypoint'(_).
-
-nospyall :-
-	retractall('$current_spypoint'(_,_,_)),
-	'$set_debug_flag'(leap, no).
-
-%%% Leash
-leash(L) :- nonvar(L), '$leash'(L), !.
-leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
-
-'$leash'([]) :- !,
-	retractall('$current_leash'(_)),
-	print_message(info, [no,leashing]).
-'$leash'(Ms) :-
-	retractall('$current_leash'(_)),
-	'$assert_leash'(Ms),
-	print_message(info,[leashing,stopping,on,Ms]).
-
-'$assert_leash'([]) :- !.
-'$assert_leash'([X|Xs]) :-
-	'$leash_specifier'(X),
-	assertz('$current_leash'(X)),
-	'$assert_leash'(Xs).
-
-'$leash_specifier'(call).
-'$leash_specifier'(exit).
-'$leash_specifier'(redo).
-'$leash_specifier'(fail).
-%'$leash_specifier'(exception).
-%%% Listing
-listing :- '$listing'(_, user).
-
-listing(T) :- var(T), !, illarg(var, listing(T), 1).
-listing(P) :- atom(P), !, '$listing'(_, P).
-listing(F/A) :- !, '$listing'(F/A, user).
-listing(P:PI) :- atom(P), !, '$listing'(PI, P).
-listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
-
-'$listing'(PI, P) :- var(PI), !,
-	'$listing_dynamic_clause'(P, _).
-'$listing'(F/A, P) :- atom(F), integer(A), !,
-	'$listing_dynamic_clause'(P, F/A).
-'$listing'(PI, P) :- illarg(type(predicate_indicator), listing(P:PI), 1).
-
-'$listing_dynamic_clause'(P, PI) :-
-	'$new_internal_database'(P),
-	hash_keys(P, Keys),
-	'$builtin_member'(PI, Keys),
-	PI = F/A,
-	functor(H, F, A),
-	'$clause_internal'(P, PI, H, Cl, _),
-	'$write_dynamic_clause'(P, Cl),
-	fail.
-'$listing_dynamic_clause'(_, _).
-
-'$write_dynamic_clause'(_, Cl) :- var(Cl), !, fail.
-'$write_dynamic_clause'(P, (H :- true)) :- !,
-	numbervars(H, 0, _),
-	'$write_dynamic_head'(P, H),
-	write('.'), nl.
-'$write_dynamic_clause'(P, (H :- B)) :- !,
-	numbervars((H :- B), 0, _),
-	'$write_dynamic_head'(P, H),
-	write(' :-'), nl,
-	'$write_dynamic_body'(B, 8),
-	write('.'), nl.
-
-'$write_dynamic_head'(user, H) :- !, writeq(H).
-'$write_dynamic_head'(P, H) :-
-	write(P), write(':'), writeq(H).
-
-'$write_dynamic_body'((G1,G2), N) :- !,
-	'$write_dynamic_body'(G1, N), write(','), nl,
-	'$write_dynamic_body'(G2, N).
-'$write_dynamic_body'((G1;G2), N) :- !,
-	N1 is N+4,
-	tab(N), write('('), nl,
-	'$write_dynamic_body'(G1, N1), nl,
-	tab(N), write(';'), nl,
-	'$write_dynamic_body'(G2, N1), nl,
-	tab(N), write(')').
-'$write_dynamic_body'((G1->G2), N) :- !,
-	N1 is N+4,
-	tab(N), write('('), nl,
-	'$write_dynamic_body'(G1, N1), nl,
-	tab(N), write('->'), nl,
-	'$write_dynamic_body'(G2, N1), nl,
-	tab(N), write(')').
-'$write_dynamic_body'(B, N) :-
-	tab(N), writeq(B).
-
-print_message(Type, Message) :- var(Type), !,
-	illarg(var, print_message(Type,Message), 1).
-print_message(error, Message) :- !,
-	'$error_message'(Message).
-print_message(info,  Message) :- !,
-	'$fast_write'('{'),
-	'$builtin_message'(Message),
-	'$fast_write'('}'), nl.
-print_message(warning, Message) :- !,
-	'$fast_write'('{WARNING: '),
-	'$builtin_message'(Message),
-	'$fast_write'('}'), nl.
-
-
-'$builtin_message'([]) :- !.
-'$builtin_message'([M]) :- !, write(M).
-'$builtin_message'([M|Ms]) :-
-	write(M),
-	'$fast_write'(' '),
-	'$builtin_message'(Ms).
-
-'$error_message'(instantiation_error(Goal,0)) :- !,
-	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(instantiation_error(Goal,ArgNo)) :- !,
-	'$fast_write'(user_error,'{INSTANTIATION ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(type_error(Goal,ArgNo,Type,Culprit)) :- !,
-	'$fast_write'(user_error,'{TYPE ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
-	'$fast_write'(user_error,', found '), write(user_error,Culprit),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(domain_error(Goal,ArgNo,Domain,Culprit)) :- !,
-	'$fast_write'(user_error,'{DOMAIN ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Domain),
-	'$fast_write'(user_error,', found '), write(user_error,Culprit),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(existence_error(_Goal,0,ObjType,Culprit,_Message)) :- !,
-	'$fast_write'(user_error,'{EXISTENCE ERROR: '),
-	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), '$fast_write'(user_error,' does not exist'),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(existence_error(Goal,ArgNo,ObjType,Culprit,_Message)) :- !,
-	'$fast_write'(user_error,'{EXISTENCE ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': '),
-	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit), '$fast_write'(user_error,' does not exist'),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(permission_error(Goal,Operation,ObjType,Culprit,Message)) :- !,
-	'$fast_write'(user_error,'{PERMISSION ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - can not '), '$fast_write'(user_error,Operation), '$fast_write'(user_error,' '),
-	'$fast_write'(user_error,ObjType), '$fast_write'(user_error,' '), write(user_error,Culprit),
-	'$fast_write'(user_error,': '), '$fast_write'(user_error,Message),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(representation_error(Goal,ArgNo,Flag)) :- !,
-	'$fast_write'(user_error,'{REPRESENTATION ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': limit of '), '$fast_write'(user_error,Flag), '$fast_write'(user_error,' is breached'),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(evaluation_error(Goal,ArgNo,Type)) :- !,
-	'$fast_write'(user_error,'{EVALUATION ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,', found '), '$fast_write'(user_error,Type),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(syntax_error(Goal,ArgNo,Type,Culprit,_Message)) :- !,
-	'$fast_write'(user_error,'{SYNTAX ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,': expected '), '$fast_write'(user_error,Type),
-	'$fast_write'(user_error,', found '), write(user_error,Culprit),
-	'$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(system_error(Message)) :- !,
-	'$fast_write'(user_error,'{SYSTEM ERROR: '), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(internal_error(Message)) :- !,
-	'$fast_write'(user_error,'{INTERNAL ERROR: '), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-'$error_message'(java_error(Goal,ArgNo,Exception)) :- !,
-	'$fast_write'(user_error,'{JAVA ERROR: '),
-	'$write_goal'(user_error,Goal),
-	'$fast_write'(user_error,' - arg '), '$fast_write'(user_error,ArgNo),
-	'$fast_write'(user_error,', found '), '$write_goal'(user_error,Exception),
-	'$fast_write'(user_error,'}'), nl(user_error),
-	'$print_stack_trace'(Exception),flush_output(user_error).
-'$error_message'(Message) :-
-	'$fast_write'(user_error,'{'), write(user_error,Message), '$fast_write'(user_error,'}'), nl(user_error),flush_output(user_error).
-
-'$write_goal'(S,Goal) :- java(Goal), !, '$write_toString'(S, Goal).
-'$write_goal'(S,Goal) :- write(S,Goal).
-
-illarg(Msg, Goal, ArgNo) :- var(Msg), !,
-	illarg(var, Goal, ArgNo).
-illarg(var, Goal, ArgNo) :-
-	raise_exception(instantiation_error(Goal, ArgNo)).
-illarg(type(Type), Goal, ArgNo) :-
-	arg(ArgNo, Goal, Arg),
-	(  nonvar(Arg) ->
-	   Error = type_error(Goal,ArgNo,Type,Arg)
-	;  Error = instantiation_error(Goal,ArgNo)
-	),
-	raise_exception(Error).
-illarg(domain(Type,ExpDomain), Goal, ArgNo) :-
-	arg(ArgNo, Goal, Arg),
-	(  '$match_type'(Type, Arg) ->
-	   Error = domain_error(Goal,ArgNo,ExpDomain,Arg)
-	;  nonvar(Arg) ->
-	   Error = type_error(Goal,ArgNo,Type,Arg)
-	;  Error = instantiation_error(Goal,ArgNo)
-	),
-	raise_exception(Error).
-illarg(existence(ObjType,Culprit,Message), Goal, ArgNo) :-
-	raise_exception(existence_error(Goal,ArgNo,ObjType,Culprit,Message)).
-illarg(permission(Operation, ObjType, Culprit, Message), Goal, _) :-
-	raise_exception(permission_error(Goal,Operation,ObjType,Culprit,Message)).
-illarg(representation(Flag), Goal, ArgNo) :-
-	raise_exception(representation_error(Goal,ArgNo,Flag)).
-illarg(evaluation(Type), Goal, ArgNo) :-
-	raise_exception(evaluation_error(Goal,ArgNo,Type)).
-illarg(syntax(Type,Culprit,Message), Goal, ArgNo) :-
-	raise_exception(syntax_error(Goal,ArgNo,Type,Culprit,Message)).
-illarg(system(Message), _, _) :-
-	raise_exception(system_error(Message)).
-illarg(internal(Message), _, _) :-
-	raise_exception(internal_error(Message)).
-illarg(java(Exception), Goal, ArgNo) :-
-	raise_exception(java_error(Goal,ArgNo,Exception)).
-illarg(Msg, _, _) :- raise_exception(Msg).
-
-'$match_type'(term,         _).
-'$match_type'(variable,     X) :- var(X).
-'$match_type'(atom,         X) :- atom(X).
-'$match_type'(atomic,       X) :- atomic(X).
-'$match_type'(byte,         X) :- integer(X), 0 =< X, X =< 255.
-'$match_type'(in_byte,      X) :- integer(X), -1 =< X, X =< 255.
-'$match_type'(character,    X) :- atom(X), atom_length(X, 1).
-'$match_type'(in_character, X) :- (X == 'end_of_file' ; '$match_type'(character,X)).
-'$match_type'(number,       X) :- number(X).
-'$match_type'(integer,      X) :- integer(X).
-'$match_type'(long,         X) :- long(X).
-'$match_type'(float,        X) :- float(X).
-'$match_type'(callable,     X) :- callable(X).
-'$match_type'(compound,     X) :- compound(X).
-'$match_type'(list,         X) :- nonvar(X), (X = [] ; X = [_|_]).
-'$match_type'(java,         X) :- java(X).
-'$match_type'(stream,       X) :- (java(X, 'java.io.PushbackReader') ; java(X, 'java.io.PrintWriter')).
-'$match_type'(stream_or_alias, X) :- (atom(X) ; '$match_type'(stream, X)).
-'$match_type'(hash,         X) :- java(X, 'com.googlecode.prolog_cafe.lang.HashtableOfTerm').
-'$match_type'(hash_or_alias,X) :- (atom(X) ; '$match_type'(hash, X)).
-'$match_type'(predicate_indicator, X) :-
-	nonvar(X),
-	X = P:F/A,
-	atom(P),
-	atom(F),
-	integer(A).
-%'$match_type'(evaluable,    X).
-%'$match_type'('convertible to java',  X).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ISO thread synchronization
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- public with_mutex/2.
-
-with_mutex(M,G):-
-	\+(atom(M)),
-	\+(java(M)),
-	!,
-	illarg(type(atom),with_mutex(M,G),1).
-with_mutex(M,G):-
-	var(G),
-	!,
-	illarg(var,with_mutex(M,G),2).
-with_mutex(M,G):-
-	\+(callable(G)),
-	!,
-	illarg(type(callable),with_mutex(M,G),2).
-with_mutex(M,G):-
-	mutex_lock_bt(M),
-	call(G), % if it fails or throws exception, mutex is unlocked automatically due to mutex_lock_bt
-	!,
-	mutex_unlock(M).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Utilities
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'$builtin_append'([], Zs, Zs).
-'$builtin_append'([X|Xs], Ys, [X|Zs]) :- '$builtin_append'(Xs, Ys, Zs).
-
-%'$builtin_member'(X, [X|_]).
-%'$builtin_member'(X, [_|L]) :- '$builtin_member'(X, L).
-
-'$member_in_reverse'(X, [_|L]) :- '$member_in_reverse'(X, L).
-'$member_in_reverse'(X, [X|_]).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% END
-
+:- include(cafeteria).
