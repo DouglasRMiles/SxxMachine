@@ -1,7 +1,7 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
-import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
-import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.PInstantiationException;
 
 /**
  * The <code>Arithmetic</code> class contains a method

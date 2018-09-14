@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * Java-term.<br>
  * The <code>JavaObjectTerm</code> class wraps a java object.<br>

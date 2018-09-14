@@ -6,7 +6,7 @@
 % Kobe University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-:- package 'com.googlecode.prolog_cafe.builtin'.
+:- package 'SxxMachine.builtin'.
 :- public cafeteria/0.
 :- public consult/1.
 :- public trace/0, notrace/0.

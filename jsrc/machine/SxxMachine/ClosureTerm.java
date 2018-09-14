@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 /**
  * Closure.<br>

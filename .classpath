@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="jsrc/builtin"/>
+	<classpathentry kind="src" path="jsrc/compiler"/>
+	<classpathentry kind="src" path="jsrc/library"/>
+	<classpathentry kind="src" path="jsrc/machine"/>
+	<classpathentry kind="src" path="jsrc/repl"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-1.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-19.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-21.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-22.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-4.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3-patch-48.jar"/>
-	<classpathentry kind="lib" path="lib/prolog-cafe-1.3.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="eclipse-out/classes"/>
 </classpath>

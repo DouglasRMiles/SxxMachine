@@ -162,6 +162,8 @@ Notation
 :- op(1150,  fx, (domain)).     % added by Augeo
 :- op(1150,  fx, (database)).     % added by Augeo
 :- op(1150,  fx, (include_resource)).     % added by Augeo
+:- set_prolog_flag(double_quote,codes).
+atom_or_nil(A):- atom(A);A==[].
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -184,24 +186,50 @@ Notation
 :- dynamic file_base/1.
 :- dynamic file_line/2.
 
-% :- module('com.googlecode.prolog_cafe.compiler.pl2am', [main/0,pl2am/1]).
+% :- module('SxxMachine.pl2am', [main/0,pl2am/1]).
 package(_).
-:- package 'com.googlecode.prolog_cafe.compiler.pl2am'.
+:- package 'SxxMachine.pl2am'.
+
+:- discontiguous((builtin_meta_predicates)/3).
+:- discontiguous((builtin_local_predicates)/3).
+
+:- multifile(system_predicate/1).
+:- dynamic(system_predicate/1).
+:- include(system).
+long(X):- integer(X),(X>2147483647; X < - 2147483647).
 
 :- public main/0, pl2am/1.
 /*****************************************************************
   Main
 *****************************************************************/
+:- if(\+ current_predicate(main/0)).
 main :-
 	read(X),
 	pl2am(X).
+:- endif.
 
-pl2am([PrologFile, AsmFile, Opts]) :-
+pl2am([PrologFile, AsmFile, Opts]) :- !,
 	read_in_program(PrologFile, Opts),
 	open(AsmFile, write, Out),
 	compile_all_predicates(Out),
-	close(Out).
+	close(Out),!.
+
+/*
+      eliminateDisjunctions("ed", true),
+      arithmeticCompilation("ac", true),
+      inlineExpansion("ie", true),
+      optimiseRecursiveCall("rc", true),
+      switchOnHash("idx", true),
+      generateClosure("clo", false);
+      ac,idx
+*/
+%pl2am(File):- pl2am(File,[ed,ie,rc]).
+pl2am(File):- pl2am(File,[ed,ie,rc,clo]).
+
 %pl2am(_).
+pl2am(File,Opts):-
+   absolute_file_name(File,PrologFile),atom_concat(PrologFile,'.am',AsmFile),
+   pl2am([PrologFile, AsmFile, Opts]),!.
 
 /*****************************************************************
   Read in Program
@@ -226,7 +254,8 @@ read_in_file(File):-
 	close(In).
 
 read_clause_(Stream, Clause):-
-	catch(read(Stream, Clause),_,fail), % catch is necessary only for SWI prolg
+        read_term(Stream, Clause, [double_quotes(codes)]),
+	%catch(read(Stream, Clause),_,fail), % catch is necessary only for SWI prolg
 	!.
 read_clause_(_, _):-
 	pl2am_error([]),
@@ -252,7 +281,7 @@ pl2am_preread(File, Opts) :-
 	retractall(skip_code),
 	retractall(ifdef_flag),
 	retractall(domain_definition(_, _)),
-	assert(database_call('com.googlecode.prolog_cafe.builtin':call)),
+	assert(database_call('SxxMachine.builtin':call)),
 	assert_file_name(File),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -271,7 +300,7 @@ build_file_name(File,File):-
 	!.
 
 build_file_name(File,File):-
-	File = Package:ResourceName,
+	File = _Package:_ResourceName,
 	!.
 
 build_file_name(InFile,OutFile):-
@@ -318,8 +347,8 @@ copt_expr(pif(_)).
 
 %%% Post-init
 pl2am_postread :-
-	assert_import('com.googlecode.prolog_cafe.lang'),
-	assert_import('com.googlecode.prolog_cafe.builtin'),
+	assert_import('SxxMachine'),
+	assert_import('SxxMachine.builtin'),
 	assert_dummy_package,
 	assert_dummy_public.
 
@@ -337,7 +366,7 @@ assert_dummy_public :-
 
 %%% Expand constants
 expand_constants(InClause,OutClause):-
-	atom(InClause),
+	atom_or_nil(InClause),
 	clause(compiler_constant(InClause,OutClause),_),
 	!.
 expand_constants(InClause,OutClause):-
@@ -400,7 +429,7 @@ assert_clause_((:- G)) :- !,
 	call(G),
 	assert_declarations(G).
 assert_clause_(('$init' :- InitBody)):-
-	clause(pl2am_flag(pif(PackageInitFolder)),_),
+	clause(pl2am_flag(pif(_PackageInitFolder)),_),
 	!,
 	write_init(('$init' :- InitBody)).
 assert_clause_((Head :- ;(Body1,Body2))):- !,
@@ -525,7 +554,7 @@ assert_dynamic_predicates([G|Gs]) :-
 	assert_dynamic_predicates(Gs).
 
 assert_dynamic(G) :-
-	\+ clause(package_name('com.googlecode.prolog_cafe.builtin'), _),
+	\+ clause(package_name('SxxMachine.builtin'), _),
 	G = F/A,
 	functor(Head, F, A),
 	system_predicate(Head),
@@ -586,7 +615,7 @@ assert_package(G) :-
 	pl2am_error([duplicate,package,declarations,:,G1,and,G]),
 	fail.
 assert_package(G) :-
-	atom(G),
+	atom_or_nil(G),
 	!,
 	assert(package_name(G)),
 	retractall(import_package(G, _)).
@@ -610,12 +639,12 @@ assert_public(F/A) :-
 
 %%% Import Declaration
 assert_import(G) :-
-	atom(G),
+	atom_or_nil(G),
 	!,
 	assert_impt(G, (*)).
 assert_import(M:P) :-
-	atom(M),
-	(predspec_expr(P) ; atom(P)),
+	atom_or_nil(M),
+	(predspec_expr(P) ; atom_or_nil(P)),
 	!,
 	assert_impt(M, P).
 assert_import(G) :-
@@ -648,7 +677,7 @@ assert_cls(Head) :- !,
 	assert(internal_clause(Head, true)).
 
 assert_predicate(Head) :-
-	\+ clause(package_name('com.googlecode.prolog_cafe.builtin'), _),
+	\+ clause(package_name('SxxMachine.builtin'), _),
 	system_predicate(Head),
 	!,
 	functor(Head, Functor, Arity),
@@ -688,7 +717,7 @@ compile_all_predicates(Out) :- % output declarations (ex. op/3)
 	writeq(Out, (:- G)), write(Out, '.'), nl(Out),
 	fail.
 compile_all_predicates(_) :-   % treat dynamic declaration
-	findall(Functor/Arity, dynamic_predicates(Functor, Arity, 'com.googlecode.prolog_cafe.builtin':call), PredSpecs),
+	findall(Functor/Arity, dynamic_predicates(Functor, Arity, 'SxxMachine.builtin':call), PredSpecs),
 	assert_init_clauses(PredSpecs),
 	fail.
 compile_all_predicates(Out) :- % compile predicate
@@ -741,10 +770,10 @@ write_init_file(File, PackageName, InitPredicate):-
 	write_init_predicate(File, PackageName, InitPredicate).
 
 write_init_file(File, PackageName, InitPredicate):-
-	read_init_predicate(File, InPackageName, InInitPredicate),
+	read_init_predicate(File, _InPackageName, InInitPredicate),
 	%PackageName == InPackageName,
 	InitPredicate = (InitHead :- InitBody),
-	InInitPredicate = (InInitHead :- InInitBody),
+	InInitPredicate = (_InInitHead :- InInitBody),
 	%InitHead == InInitHead,
 	conj_union(InitBody, InInitBody, NewBody),
 	NewBody \== InInitBody,
@@ -1021,7 +1050,7 @@ get_indices([Clause|Clauses], FA, N, [[FA+N,A1,Tag,Hash]|Is]) :-
 get_hash(X, var, 0) :- var(X), !.
 get_hash(X, int, X) :- integer(X), !.
 get_hash(X, flo, X) :- float(X), !.
-get_hash(X, con, X) :- atom(X), !.
+get_hash(X, con, X) :- atom_or_nil(X), !.
 get_hash(X, lis, '.'/2) :- X = [_|_], !.
 get_hash(X, str, F/A) :- functor(X, F, A), !.
 
@@ -1111,13 +1140,13 @@ replace_key(K, Alloc, X) :-
 	allocated(Alloc, K:flo, [X,yes]),
 	!.
 replace_key(K, Alloc, X) :-
-	atom(K),
+	atom_or_nil(K),
 	allocated(Alloc, K:con, [X,yes]),
 	!.
 replace_key(K, Alloc, X) :-
 	nonvar(K),
 	K = F/A,
-	atom(F),
+	atom_or_nil(F),
 	integer(A),
 	allocated(Alloc, K:con, [X,yes]),
 	!.
@@ -1230,7 +1259,7 @@ pretreat_body0(findall(X,G,L), Z) --> {
         nonvar(G),
         functor(G, F, A),
         clause(dynamic_predicates(F, A, Call), _),
-        Call\=='com.googlecode.prolog_cafe.builtin':call,
+        Call\=='SxxMachine.builtin':call,
         Call=P:C,
         clause(package_name(P1), _),
         CG=..[C,P1:G]
@@ -1243,6 +1272,8 @@ pretreat_body0(G, _) --> [G].
 %%% rename builtins
 pretreat_builtin(X = Y)    --> !, ['$unify'(X, Y)].
 pretreat_builtin(X \= Y)    --> !, ['$not_unifiable'(X, Y)].
+pretreat_builtin(X =@= Y)   --> !, ['$variant'(X, Y)].
+pretreat_builtin(X \=@= Y)  --> !, ['$not_variant'(X, Y)].
 pretreat_builtin(X == Y)   --> !, ['$equality_of_term'(X, Y)].
 pretreat_builtin(X \== Y)  --> !, ['$inequality_of_term'(X, Y)].
 pretreat_builtin(?=(X, Y)) --> !, ['$identical_or_cannot_unify'(X, Y)].
@@ -1473,7 +1504,7 @@ get_closure(G, _, _) :- var(G), !, fail.
 get_closure(_, P, _) :- var(P), !, fail.
 get_closure(P:G, _, Clo) :- !, get_closure(G, P, Clo).
 get_closure(G, P, P:G) :-  % ???
-	atom(P),
+	atom_or_nil(P),
 	callable(G),
 	functor(G, F, A),
 	\+ clause(dynamic_predicates(F,A,_), _),
@@ -1593,7 +1624,7 @@ gen_put(X, A, LTI, LTI, GTI0, GTI) --> {long(X)}, !,
 gen_put(X, A, LTI, LTI, GTI0, GTI) --> {float(X)}, !,
 	{assign_sreg(X:flo, R, Seen, GTI0, GTI1)},
 	gen_put_float(X, R, Seen, A, GTI1, GTI).
-gen_put(X, A, LTI, LTI, GTI0, GTI) --> {atom(X)}, !,
+gen_put(X, A, LTI, LTI, GTI0, GTI) --> {atom_or_nil(X)}, !,
 	{assign_sreg(X:con, R, Seen, GTI0, GTI1)},
 	gen_put_con(X, R, Seen, A, GTI1, GTI).
 gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
@@ -1717,7 +1748,7 @@ gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 	[get_float(X, R, A)],
 	gen_get(Instrs, LTI1, LTI, GTI1, GTI).
 gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
-	{atom(X)},
+	{atom_or_nil(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[get_con(X, R, A)],
@@ -1768,7 +1799,7 @@ gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
 	[unify_float(X, R)],
 	gen_unify(Xs, Instrs, LTI1, LTI, GTI1, GTI).
 gen_unify([X|Xs], Instrs, LTI0, LTI, GTI0, GTI) -->
-	{atom(X)},
+	{atom_or_nil(X)},
 	!,
 	gen_put(X, R, LTI0, LTI1, GTI0, GTI1),
 	[unify_con(X, R)],
@@ -1906,6 +1937,8 @@ builtin_inline_predicates(ground(_)).
 % Term comparison
 builtin_inline_predicates('$equality_of_term'(_,_)).
 builtin_inline_predicates('$inequality_of_term'(_,_)).
+builtin_inline_predicates('$variant'(_, _)).
+builtin_inline_predicates('$not_variant'(_, _)).
 builtin_inline_predicates('$after'(_,_)).
 builtin_inline_predicates('$before'(_,_)).
 builtin_inline_predicates('$not_after'(_,_)).
@@ -2050,7 +2083,7 @@ pl2am_message(Stream, [M|Ms]) :- write(Stream, M), write(Stream, ' '), pl2am_mes
 mode_expr([]).
 mode_expr([M|Ms]) :- nonvar(M), pl2am_member(M, [:,;,+,-,?]), !, mode_expr(Ms).
 
-predspec_expr(F/A) :- atom(F), integer(A).
+predspec_expr(F/A) :- atom_or_nil(F), integer(A).
 
 %%% list
 pl2am_append([], Zs, Zs).
@@ -2085,8 +2118,8 @@ pl2am_maplist(Goal, [Elem1|Tail1], [Elem2|Tail2]) :-
 	call(Term),
 	pl2am_maplist(Goal,Tail1,Tail2).
 
-pl2am_resolve_file(BaseFile, File, File):-
-	File = Package:ResourceName,
+pl2am_resolve_file(_BaseFile, File, File):-
+	File = _Package:_ResourceName,
 	!.
 
 pl2am_resolve_file(BaseFile, File, IncludeFile):-
@@ -2131,7 +2164,7 @@ list_to_string(List, String) :-
 	atom_codes(String, Chars).
 
 list_to_chars([], []) :- !.
-list_to_chars([L|Ls], [C|Cs]) :- atom(L), !,
+list_to_chars([L|Ls], [C|Cs]) :- atom_or_nil(L), !,
 	atom_codes(L, C),
 	list_to_chars(Ls, Cs).
 list_to_chars([L|Ls], [C|Cs]) :- number(L), !,

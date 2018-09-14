@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import com.googlecode.prolog_cafe.exceptions.InternalException;
+import SxxMachine.exceptions.InternalException;
 
 /**
  * Variable.<br>

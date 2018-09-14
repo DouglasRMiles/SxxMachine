@@ -1,13 +1,13 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Set;
 
-import com.googlecode.prolog_cafe.exceptions.HaltException;
-import com.googlecode.prolog_cafe.exceptions.JavaInterruptedException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
-import com.googlecode.prolog_cafe.exceptions.StopEngineException;
+import SxxMachine.exceptions.HaltException;
+import SxxMachine.exceptions.JavaInterruptedException;
+import SxxMachine.exceptions.PrologException;
+import SxxMachine.exceptions.StopEngineException;
 
 /**
  * Tracks current evaluation goal and results.
@@ -187,7 +187,7 @@ public abstract class PrologControl {
                 } catch (StopEngineException see) {
                     return; // escape execution loop
                 } catch (RuntimeException t) {
-                	com.googlecode.prolog_cafe.exceptions.PrologException e = logger.execThrows(t);
+                	SxxMachine.exceptions.PrologException e = logger.execThrows(t);
                     final int b = engine.peekCatcherB();
                     if (b >= 0) {
                         engine.setException(engine.copy(e.getMessageTerm()));

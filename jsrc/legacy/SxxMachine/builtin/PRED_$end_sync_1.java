@@ -1,13 +1,13 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.exceptions.SystemException;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.OutOfScope;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.SystemException;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.Operation;
+import SxxMachine.OutOfScope;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.Term;
 /**
  * <code>'$end_sync'/1</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

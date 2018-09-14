@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,24 +16,24 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.googlecode.prolog_cafe.exceptions.ExistenceException;
-import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.exceptions.InternalException;
-import com.googlecode.prolog_cafe.exceptions.JavaException;
-import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
-import com.googlecode.prolog_cafe.exceptions.PermissionException;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.LineNumberPushbackReader;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.Undoable;
-import com.googlecode.prolog_cafe.lang.VariableTerm;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.InternalException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.PermissionException;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.LineNumberPushbackReader;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.Undoable;
+import SxxMachine.VariableTerm;
 
 /**
  * <code>open/4</code><br>

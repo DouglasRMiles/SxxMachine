@@ -1,6 +1,6 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
-import com.googlecode.prolog_cafe.exceptions.PrologException;
+import SxxMachine.exceptions.PrologException;
 
 /**
  * Superclass any single step operation in the Prolog interpreter.

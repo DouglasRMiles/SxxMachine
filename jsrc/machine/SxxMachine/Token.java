@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.PushbackReader;

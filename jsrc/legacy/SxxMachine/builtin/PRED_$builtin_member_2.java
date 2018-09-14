@@ -1,13 +1,13 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.lang.Failure;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.Trail;
+import SxxMachine.Failure;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.Term;
+import SxxMachine.Trail;
 
 /**
  * '$builtin_member'(X, [X|_]).

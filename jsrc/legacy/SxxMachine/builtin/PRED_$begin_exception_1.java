@@ -1,9 +1,9 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.lang.BlockPredicate;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.BlockPredicate;
+import SxxMachine.Operation;
+import SxxMachine.Prolog;
+import SxxMachine.Term;
 
 /**
  * <code>'$begin_exception'/1</code><br>

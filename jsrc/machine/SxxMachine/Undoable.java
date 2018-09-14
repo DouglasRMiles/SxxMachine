@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * Implementing this interface allows an object to be pushed to trail stack.<br>
  * @see Trail

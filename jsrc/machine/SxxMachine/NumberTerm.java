@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * The superclass of classes for integers and floating point numbers.
  *

@@ -1,11 +1,11 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 
 
 public final class PRED_reverse_2 extends Predicate.P2 {

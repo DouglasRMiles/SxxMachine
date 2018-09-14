@@ -1,11 +1,11 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.lang.IntegerTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 
 public final class PRED_$compiled_predicate_or_builtin_3 extends Predicate.P3 {
     public PRED_$compiled_predicate_or_builtin_3(Term a1, Term a2, Term a3, Operation cont) {

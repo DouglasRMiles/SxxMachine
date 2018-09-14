@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * A trail entry for out-of-scope flag.<br>
  * This <code>OutOfScope</code> class is used in 

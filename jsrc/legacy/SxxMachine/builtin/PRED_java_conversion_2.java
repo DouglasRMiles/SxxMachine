@@ -1,21 +1,21 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
 import java.util.List;
 
-import com.googlecode.prolog_cafe.exceptions.EvaluationException;
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.lang.ClosureTerm;
-import com.googlecode.prolog_cafe.lang.DoubleTerm;
-import com.googlecode.prolog_cafe.lang.IntegerTerm;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.VariableTerm;
+import SxxMachine.exceptions.EvaluationException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.ClosureTerm;
+import SxxMachine.DoubleTerm;
+import SxxMachine.IntegerTerm;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.VariableTerm;
 /**
  * <code>java_conversion/2</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

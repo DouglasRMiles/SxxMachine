@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -17,8 +17,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.exceptions.PermissionException;
-import com.googlecode.prolog_cafe.exceptions.SystemException;
+import SxxMachine.exceptions.PermissionException;
+import SxxMachine.exceptions.SystemException;
 
 /**
  * Prolog engine.
@@ -125,7 +125,7 @@ public final class Prolog {
 	private final HashtableOfTerm hashManager;
 
 	/** Name of the builtin package. */
-	public static final String BUILTIN = "com.googlecode.prolog_cafe.builtin";
+	public static final String BUILTIN = "SxxMachine.builtin";
 
 	/** Holds an atom <code>[]<code> (empty list). */
 	public static final SymbolTerm Nil     = SymbolTerm.intern("[]");

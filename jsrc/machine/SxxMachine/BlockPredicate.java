@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * The <code>BlockPredicate</code> class is used to implement
  * builtin-predicates. For example,

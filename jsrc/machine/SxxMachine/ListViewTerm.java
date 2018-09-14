@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,9 +44,9 @@ public class ListViewTerm extends ListTerm {
 	};
 	/** the list of terms */
 	private final List<Term> list;
-	/** index of element in the {@link com.googlecode.prolog_cafe.lang.ListViewTerm#list} represented by this instance*/
+	/** index of element in the {@link SxxMachine.ListViewTerm#list} represented by this instance*/
 	private final int index;
-	/** holds next {@link com.googlecode.prolog_cafe.lang.ListViewTerm} instance,
+	/** holds next {@link SxxMachine.ListViewTerm} instance,
 	 * the value is lazy initialized */
 	private Term next = null;
 

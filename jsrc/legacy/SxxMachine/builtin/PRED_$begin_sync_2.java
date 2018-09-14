@@ -1,16 +1,16 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
-import com.googlecode.prolog_cafe.exceptions.StopEngineException;
-import com.googlecode.prolog_cafe.lang.BlockPredicate;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.OutOfLoop;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologLogger;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.StopEngineException;
+import SxxMachine.BlockPredicate;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.Operation;
+import SxxMachine.OutOfLoop;
+import SxxMachine.Prolog;
+import SxxMachine.PrologLogger;
+import SxxMachine.Term;
+import SxxMachine.VariableTerm;
 
 /**
  * <code>'$begin_sync'/2</code>

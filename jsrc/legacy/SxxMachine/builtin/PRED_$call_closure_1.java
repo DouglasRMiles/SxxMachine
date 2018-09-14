@@ -1,10 +1,10 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.lang.ClosureTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.ClosureTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.Term;
 /**
  * <code>'$call_closure'/1</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

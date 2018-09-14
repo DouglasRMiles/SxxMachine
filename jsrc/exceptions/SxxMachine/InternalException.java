@@ -1,8 +1,8 @@
-package com.googlecode.prolog_cafe.exceptions;
+package SxxMachine.exceptions;
 
-import com.googlecode.prolog_cafe.lang.ErrorTerm;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.ErrorTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 
 /**
  * Internal error.<br>

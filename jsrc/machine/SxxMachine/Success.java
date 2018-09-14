@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 /**
  * Initial continuation goal.<br>
  * That is to say, this <code>Success</code> will be executed 
@@ -8,8 +8,8 @@ package com.googlecode.prolog_cafe.lang;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class Success implements Operation {
-    public static final Success SUCCESS = new Success();
+public class Success extends Predicate {
+    public static final Predicate SUCCESS = new Success();
     private Success() {}
 
     /**

@@ -1,9 +1,9 @@
-package com.googlecode.prolog_cafe.repl;
+package SxxMachine.repl;
 
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.PrologControl;
-import com.googlecode.prolog_cafe.lang.PrologMachineCopy;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.Predicate;
+import SxxMachine.PrologControl;
+import SxxMachine.PrologMachineCopy;
+import SxxMachine.Term;
 /**
  * Prolog thread.<br>
  * The <code>BlockingPrologControl</code> class is an implementation of
@@ -44,7 +44,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  * // Usage:
  * //   % plcafe -cp queens.jar T
  * //
- * import com.googlecode.prolog_cafe.lang.*;
+ * import SxxMachine.*;
  * public class T {
  *     public static void main(String args[]) {
  *     long t = System.currentTimeMillis();

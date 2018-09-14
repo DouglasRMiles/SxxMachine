@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.compiler;
+package SxxMachine;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.LinkedList;
 
-import com.googlecode.prolog_cafe.exceptions.CompileException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
-import com.googlecode.prolog_cafe.lang.BufferingPrologControl;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.PrologClassLoader;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.exceptions.CompileException;
+import SxxMachine.exceptions.PrologException;
+import SxxMachine.BufferingPrologControl;
+import SxxMachine.ListTerm;
+import SxxMachine.Prolog;
+import SxxMachine.PrologClassLoader;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 /**
  * The <code>Compiler</code> class provides methods for
  * translating Prolog programs into Java programs.
@@ -35,7 +35,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  * <ul>
  * <li>From Command line<br>
  * <pre>
- *    % java -cp $PLCAFEDIR/plcafe.jar com.googlecode.prolog_cafe.compiler.Compiler:$CLASSPATH $PLCAFEDIR/examples/prolog/list.pl
+ *    % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.Compiler:$CLASSPATH $PLCAFEDIR/examples/prolog/list.pl
  *    Prolog Cafe X.X.X (YYY)
  *    Copyright(C) 1997-200X M.Banbara and N.Tamura
  *    % ls
@@ -43,7 +43,7 @@ import com.googlecode.prolog_cafe.lang.Term;
  * </pre>
  * <li>From Java program<br>
  * <pre>
- *    import com.googlecode.prolog_cafe.compiler.Compiler;
+ *    import SxxMachine.Compiler;
  *    public class T {
  *        public static void main(String argv[]) {
  *            Compiler comp = new Compiler();
@@ -123,7 +123,7 @@ public class Compiler {
 
         ListTerm args = new ListTerm(prolog, new ListTerm(wam, new ListTerm(op, Prolog.Nil)));
 	    try {
-          if (!pcl.execute("com.googlecode.prolog_cafe.compiler.pl2am", "pl2am", args))
+          if (!pcl.execute("SxxMachine.pl2am", "pl2am", args))
             throw new CompileException("Unknown Error");
 	    } catch (PrologException err) {
 	      throw new CompileException("Error compiling "+_prolog, err);
@@ -148,7 +148,7 @@ public class Compiler {
 	    Term dir    = SymbolTerm.create(_dir);
 	    ListTerm args = new ListTerm(wam, new ListTerm(dir, Prolog.Nil));
 	    try {
-	      if (!pcl.execute("com.googlecode.prolog_cafe.compiler.am2j", "am2j", args))
+	      if (!pcl.execute("SxxMachine.am2j", "am2j", args))
 	        throw new CompileException("Unknown Error");
 	    } catch (PrologException err) {
 	       throw new CompileException("Error converting "+_wam, err);

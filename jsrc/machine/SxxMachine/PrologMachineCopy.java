@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.IdentityHashMap;
 import java.util.Map;

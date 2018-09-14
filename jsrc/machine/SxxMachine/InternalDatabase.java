@@ -1,8 +1,8 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 import java.util.IdentityHashMap;
 import java.util.LinkedList;
 
-import com.googlecode.prolog_cafe.exceptions.SystemException;
+import SxxMachine.exceptions.SystemException;
 
 /**
  * Internal database for dynamic predicates.<br>

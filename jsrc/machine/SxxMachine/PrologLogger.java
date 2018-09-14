@@ -1,13 +1,12 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.builtin.PRED_true_0;
-import com.googlecode.prolog_cafe.exceptions.BuiltinException;
-import com.googlecode.prolog_cafe.exceptions.JavaException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
+import SxxMachine.exceptions.BuiltinException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PrologException;
 
 /**
  * <p>Logs executed predicates and their arguments to {@link Logger} instance given in constructor.
@@ -46,7 +45,7 @@ public class PrologLogger {
 	final void init(ChoicePointFrame initialChoicePointFrame) {
 		stackTop = 0;
 		//Arrays.fill(stackFrame, null);
-		stackFrame[0] = new PRED_true_0(null); // TODO check if null is ok
+		stackFrame[0] = Success.SUCCESS; // TODO check if null is ok
 		normalExecution = true;
 
 		initialChoicePointFrame.ownerPredicate = stackFrame[stackTop];
@@ -154,7 +153,7 @@ public class PrologLogger {
 	}
 
 	public final PrologException execThrows(RuntimeException t) {
-		if (!(t instanceof PrologException) || !((com.googlecode.prolog_cafe.exceptions.PrologException)t).hasPrologStackTrace() ){
+		if (!(t instanceof PrologException) || !((SxxMachine.exceptions.PrologException)t).hasPrologStackTrace() ){
 			Operation[] array = new Operation[stackTop];
 			for (int i=stackTop, k=0; i>0; i--){
 				array[k] = stackFrame[i];
@@ -165,7 +164,7 @@ public class PrologLogger {
 				t = new JavaException(t);
 			}
 			// add stacktrace into t
-			((com.googlecode.prolog_cafe.exceptions.PrologException)t).setPrologStackTrace(array);
+			((SxxMachine.exceptions.PrologException)t).setPrologStackTrace(array);
 			if (t instanceof BuiltinException) {
 				((BuiltinException) t).goal = stackFrame[stackTop];
 			}

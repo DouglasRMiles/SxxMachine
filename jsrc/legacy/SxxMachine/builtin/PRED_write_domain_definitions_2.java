@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,17 +6,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.exceptions.JavaException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate.P2;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PrologException;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate.P2;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 /**
  * <p>write_domain_definitions(+OutputDir,+DomainDefinitionsList)
  * <p>Writes domain definitions into properties file in the folder corresponding to package.

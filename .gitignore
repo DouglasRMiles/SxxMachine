@@ -1,1 +1,6 @@
-/bin/
+/eclipse-out/
+# /.apt_generated
+/bazel-*/
+*.bak
+~*
+*~

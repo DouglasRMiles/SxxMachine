@@ -1,7 +1,7 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
-import com.googlecode.prolog_cafe.exceptions.EvaluationException;
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.EvaluationException;
+import SxxMachine.exceptions.IllegalTypeException;
 
 /**
  * Integer.<br>

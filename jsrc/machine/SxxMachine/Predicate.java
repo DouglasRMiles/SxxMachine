@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

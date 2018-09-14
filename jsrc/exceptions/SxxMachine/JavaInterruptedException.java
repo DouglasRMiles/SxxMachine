@@ -1,4 +1,4 @@
-package  com.googlecode.prolog_cafe.exceptions;
+package  SxxMachine.exceptions;
 
 /**
  * Thown when '$print_stack_trace/1' receives an InterruptedException

@@ -1,10 +1,10 @@
-package com.googlecode.prolog_cafe.exceptions;
+package SxxMachine.exceptions;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.Operation;
+import SxxMachine.Term;
 
 /**
  * The superclass of classes for Prolog exceptions.<br>

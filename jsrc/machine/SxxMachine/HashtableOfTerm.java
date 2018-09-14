@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 import java.util.HashMap;
 /**
  * <code>Hashtable&lt;Term,Term&gt;</code>.<br>

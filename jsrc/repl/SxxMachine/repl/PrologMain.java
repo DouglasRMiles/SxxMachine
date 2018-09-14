@@ -1,13 +1,13 @@
-package com.googlecode.prolog_cafe.repl;
+package SxxMachine.repl;
 
 import java.util.StringTokenizer;
 
-import com.googlecode.prolog_cafe.exceptions.HaltException;
-import com.googlecode.prolog_cafe.lang.ListTerm;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.exceptions.HaltException;
+import SxxMachine.ListTerm;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 /**
  * Prolog Cafe launcher.
  * The <code>PrologMain</code> class launchs the Prolog Cafe system.<br>
@@ -15,13 +15,13 @@ import com.googlecode.prolog_cafe.lang.Term;
  * <code>package</code> is a package name, and 
  * <code>predicate</code> is a predicate name (only atom).
  * <pre>
- *   % java -cp $PLCAFEDIR/plcafe.jar com.googlecode.prolog_cafe.lang.PrologMain package:predicate
- *   % java -cp $PLCAFEDIR/plcafe.jar com.googlecode.prolog_cafe.lang.PrologMain predicate
+ *   % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.PrologMain package:predicate
+ *   % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.PrologMain predicate
  * </pre>
  * Let us show a sample session for launching a small Prolog interpreter:
- * <code>com.googlecode.prolog_cafe.builtin:cafeteria/0</code>.<br>
+ * <code>SxxMachine.builtin:cafeteria/0</code>.<br>
  * <pre>
- *    % java  -cp $PLCAFEDIR/plcafe.jar:$CLASSPATH com.googlecode.prolog_cafe.lang.PrologMain com.googlecode.prolog_cafe.builtin:cafeteria
+ *    % java  -cp $PLCAFEDIR/plcafe.jar:$CLASSPATH SxxMachine.PrologMain SxxMachine.builtin:cafeteria
  *    Prolog Cafe X.X.X (YYY)
  *    Copyright(C) 1997-200X M.Banbara and N.Tamura
  *    | ?- 
@@ -94,9 +94,9 @@ public class PrologMain {
     protected static void usage() {
 	String s = "Usage:\n";
 	s += "java -cp $PLCAFEDIR/plcafe.jar";
-	s += " com.googlecode.prolog_cafe.lang.PrologMain package:predicate\n";
+	s += " SxxMachine.PrologMain package:predicate\n";
 	s += "java -cp $PLCAFEDIR/plcafe.jar";
-	s += " com.googlecode.prolog_cafe.lang.PrologMain predicate\n";
+	s += " SxxMachine.PrologMain predicate\n";
 	s += "    package:        package name\n";
 	s += "    predicate:      predicate name (only atom)";
 	System.out.println(s);

@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.Arrays;
 import java.util.function.BiConsumer;

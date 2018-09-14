@@ -1,12 +1,12 @@
 %:- op(1150,  fx, (package)).
 %package(_).
-:- package 'com.googlecode.prolog_cafe.builtin'.
+:- package 'SxxMachine.builtin'.
 :- public system_predicate/1.
 
 system_predicate(system_predicate(_)).
 % Control constructs
 system_predicate(true).
-system_predicate(therwise).
+system_predicate(otherwise).
 system_predicate(fail).
 system_predicate(false).
 system_predicate((!)).
@@ -47,6 +47,10 @@ system_predicate((_ == _)).
 system_predicate('$equality_of_term'(_,_)).
 system_predicate((_ \== _)).
 system_predicate('$inequality_of_term'(_,_)).
+system_predicate((_ =@= _)).
+system_predicate('$variant'(_, _)).
+system_predicate((_ \=@= _)).
+system_predicate('$not_variant'(_, _)).
 system_predicate((_ @< _)).
 system_predicate('$before'(_,_)).
 system_predicate((_ @> _)).

@@ -1,6 +1,6 @@
 // Copyright 2011 Google Inc. All Rights Reserved.
 
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
 import java.util.function.BiConsumer;
 

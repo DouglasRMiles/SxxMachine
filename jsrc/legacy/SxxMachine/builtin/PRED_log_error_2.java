@@ -1,19 +1,19 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import static com.googlecode.prolog_cafe.builtin.PRED_loggable_1.LEVELS;
+import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.exceptions.IllegalTypeException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
-import com.googlecode.prolog_cafe.lang.ErrorTerm;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate.P2;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.StructureTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PrologException;
+import SxxMachine.ErrorTerm;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate.P2;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.Term;
 
 /**
  * <b>log_error(package:level, error)</b> - logs given <i>error</i> to the logger, corresponding to <i>package</i>, 

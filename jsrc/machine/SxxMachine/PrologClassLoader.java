@@ -1,14 +1,14 @@
-package com.googlecode.prolog_cafe.lang;
+package SxxMachine;
 
-import static com.googlecode.prolog_cafe.lang.PredicateEncoder.encode;
+import static SxxMachine.PredicateEncoder.encode;
 
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import com.googlecode.prolog_cafe.exceptions.ExistenceException;
-import com.googlecode.prolog_cafe.exceptions.PrologException;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.PrologException;
 
 /**
  * Prolog class loader.

@@ -1,4 +1,4 @@
-package  com.googlecode.prolog_cafe.exceptions;
+package  SxxMachine.exceptions;
 
 /**
  * Created by semenov on 04.05.2017.

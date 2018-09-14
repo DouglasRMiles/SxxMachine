@@ -1,7 +1,7 @@
-package com.googlecode.prolog_cafe.exceptions;
+package SxxMachine.exceptions;
 
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.Operation;
+import SxxMachine.Term;
 
 /**
  * Builtin exception.<br>

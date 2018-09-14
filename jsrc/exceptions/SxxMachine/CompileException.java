@@ -1,4 +1,4 @@
-package com.googlecode.prolog_cafe.exceptions;
+package SxxMachine.exceptions;
 
 /** Indicates compiling did not succeed. */
 public class CompileException extends Exception {

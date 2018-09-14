@@ -1,17 +1,17 @@
-package com.googlecode.prolog_cafe.builtin;
+package SxxMachine.builtin;
 
-import com.googlecode.prolog_cafe.exceptions.ExistenceException;
-import com.googlecode.prolog_cafe.exceptions.IllegalDomainException;
-import com.googlecode.prolog_cafe.exceptions.InternalException;
-import com.googlecode.prolog_cafe.exceptions.PInstantiationException;
-import com.googlecode.prolog_cafe.lang.HashtableOfTerm;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.Predicate;
-import com.googlecode.prolog_cafe.lang.Prolog;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
-import com.googlecode.prolog_cafe.lang.VariableTerm;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.InternalException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.HashtableOfTerm;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.Operation;
+import SxxMachine.Predicate;
+import SxxMachine.Prolog;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.VariableTerm;
 /**
    <code>hash_put/3</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

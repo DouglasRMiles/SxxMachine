@@ -1,10 +1,10 @@
-package com.googlecode.prolog_cafe.exceptions;
+package SxxMachine.exceptions;
 
-import com.googlecode.prolog_cafe.lang.ErrorTerm;
-import com.googlecode.prolog_cafe.lang.JavaObjectTerm;
-import com.googlecode.prolog_cafe.lang.Operation;
-import com.googlecode.prolog_cafe.lang.SymbolTerm;
-import com.googlecode.prolog_cafe.lang.Term;
+import SxxMachine.ErrorTerm;
+import SxxMachine.JavaObjectTerm;
+import SxxMachine.Operation;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
 
 /**
  * Permission error.<br>
