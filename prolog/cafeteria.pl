@@ -1,1 +1,1 @@
-../../main/java/com/googlecode/prolog_cafe/builtin/cafeteria.pl
+../jsrc/builtin/SxxMachine/builtin/cafeteria.pl

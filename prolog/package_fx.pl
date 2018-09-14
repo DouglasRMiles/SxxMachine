@@ -1,1 +1,1 @@
-../../main/java/com/googlecode/prolog_cafe/compiler/package_fx.pl
+../jsrc/compiler/SxxMachine/package_fx.pl

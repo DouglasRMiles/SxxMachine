@@ -1,1 +1,1 @@
-../../main/java/com/googlecode/prolog_cafe/builtin/system.pl
+../jsrc/builtin/SxxMachine/builtin/system.pl
