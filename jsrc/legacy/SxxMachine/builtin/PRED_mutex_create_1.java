@@ -2,7 +2,7 @@ package SxxMachine.builtin;
 
 import SxxMachine.exceptions.IllegalTypeException;
 import SxxMachine.exceptions.PrologException;
-import SxxMachine.JavaObjectTerm;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.Mutex;
 import SxxMachine.Operation;
 import SxxMachine.Predicate.P1;
@@ -22,19 +22,19 @@ import SxxMachine.VariableTerm;
 */
 public class PRED_mutex_create_1 extends P1 {
 
-	public PRED_mutex_create_1(Term arg1, Operation cont) {
-		this.arg1 = arg1;
+	public PRED_mutex_create_1(Term a0, Operation cont) {
+		this.LARG[0] = a0; //0];
 		this.cont = cont;
 	}
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
-		Term a1 = arg1.dereference();
+		Term a1 = LARG[0].dref();
 		
 		if ((a1 instanceof SymbolTerm)){
 			Mutex.getInstance(a1.name());
 		} else if ((a1 instanceof VariableTerm)){
-			if (!a1.unify(new JavaObjectTerm(Mutex.getInstance()), engine.trail)){
+			if (!a1.unify(new FFIObjectTerm(Mutex.getInstance()), engine.trail)){
 				return engine.fail();
 			}
 		} else {

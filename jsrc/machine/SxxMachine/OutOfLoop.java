@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 /**
  * A trail entry for out-of-loop flag.<br>
  * This <code>OutOfLoop</code> class is used in 
@@ -11,13 +14,11 @@ package SxxMachine;
  */
 public class OutOfLoop implements Undoable {
     final BlockPredicate p;
-
     public OutOfLoop(BlockPredicate _p) {
-	p = _p;
+	this.p = _p;
     }
-
+    @Override
     public void undo() {
-	p.outOfLoop = true;
+	this.p.outOfLoop = true;
     }
 }
-

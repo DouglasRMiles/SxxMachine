@@ -1,10 +1,13 @@
 package SxxMachine.exceptions;
 
+import SxxMachine.*;
+
+
+
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-import SxxMachine.Operation;
-import SxxMachine.Term;
+import SxxMachine.TermData.StaticPred;
 
 /**
  * The superclass of classes for Prolog exceptions.<br>
@@ -14,62 +17,67 @@ import SxxMachine.Term;
  * @version 1.0
  */
 public abstract class PrologException extends RuntimeException {
+  /** Constructs a new Prolog exception. */
+  public PrologException() {
+  }
 
-    /** Constructs a new Prolog exception. */
-    public PrologException() {}
+  public PrologException(String s) {
+    super(s);
+  }
 
-    public PrologException(String s) {
-      super(s);
+  abstract public String getMessage();
+  /** Returns the message term of this object. */
+  abstract public Term getMessageTerm();
+
+  private Operation[] prologStackElement = null;
+
+  public Operation[] getPrologStackTrace() {
+    return this.prologStackElement == null ? null
+        : this.prologStackElement.clone();
+  }
+
+  public void setPrologStackTrace(Operation[] stack) {
+    this.prologStackElement = stack;
+  }
+
+  public boolean hasPrologStackTrace() {
+    return this.prologStackElement != null;
+  }
+
+  @Override
+  public void printStackTrace(PrintStream s) {
+    super.printStackTrace(s);
+    if (this.prologStackElement != null && this.prologStackElement.length > 0) {
+      s.println("Prolog stack trace:");
+      for (Operation o : this.prologStackElement) {
+        s.println(printOp(o));
+      }
     }
+  }
 
-    /** Returns the message term of this object. */
-    abstract public Term getMessageTerm();
-
-    private Operation[] prologStackElement = null;
-
-    public Operation[] getPrologStackTrace() {
-    	return prologStackElement==null?null:prologStackElement.clone();
+  private StringBuilder printOp(Operation o) {
+    StringBuilder sb = new StringBuilder("\tat ");
+    if (o.getClass() == StaticPred.class) {
+      StaticPred o2 = (StaticPred) o;
+      o2.toString(sb);
+      return sb;
     }
-
-    public void setPrologStackTrace(Operation[] stack){
-    	this.prologStackElement = stack;
+    sb.append(o.getClass().getName());
+    int i = sb.lastIndexOf(".");
+    if (i >= 0) {
+      sb.setCharAt(i, ':');
     }
+    return sb;
+  }
 
-    public boolean hasPrologStackTrace(){
-    	return this.prologStackElement != null;
+  @Override
+  public void printStackTrace(PrintWriter s) {
+    super.printStackTrace(s);
+    if (this.prologStackElement != null && this.prologStackElement.length > 0) {
+      s.println("Prolog stack trace:");
+      for (Operation o : this.prologStackElement) {
+        s.println(printOp(o));
+      }
     }
-    
-	@Override
-	public void printStackTrace(PrintStream s) {
-		super.printStackTrace(s);
-		if (prologStackElement!=null && prologStackElement.length>0){
-			s.println("Prolog stack trace:");
-			for (Operation o: prologStackElement){
-				StringBuilder sb = new StringBuilder("\tat ");
-				sb.append(o.getClass().getName());
-				int i = sb.lastIndexOf(".");
-				if (i>=0){
-					sb.setCharAt(i, ':');
-				}
-				s.println(sb.toString());
-			}
-		}
-	}
-
-	@Override
-	public void printStackTrace(PrintWriter s) {
-		super.printStackTrace(s);
-		if (prologStackElement!=null && prologStackElement.length>0){
-			s.println("Prolog stack trace:");
-			for (Operation o: prologStackElement){
-				StringBuilder sb = new StringBuilder("\tat ");
-				sb.append(o.getClass().getName());
-				int i = sb.lastIndexOf(".");
-				if (i>=0){
-					sb.setCharAt(i, ':');
-				}
-				s.println(sb.toString());
-			}
-		}
-	}
+  }
 }

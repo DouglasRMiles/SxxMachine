@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 /**
  * A trail entry for out-of-scope flag.<br>
  * This <code>OutOfScope</code> class is used in 
@@ -11,12 +14,12 @@ package SxxMachine;
  */
 public class OutOfScope implements Undoable {
     final BlockPredicate p;
-
     public OutOfScope(BlockPredicate _p) {
-	p = _p;
+	this.p = _p;
     }
 
+    @Override
     public void undo() {
-	p.outOfScope = false;
+	this.p.outOfScope = false;
     }
 }

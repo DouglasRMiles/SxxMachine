@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.PushbackReader;
@@ -12,7 +15,6 @@ import java.io.PushbackReader;
  * @version 1.2.5
  */
 public class Token {
-
 	public static final int TOKEN_ERROR = -2;
 	public static final int TOKEN_END_OF_FILE = -1;
 	public static final int TOKEN_INTEGER = 'I';
@@ -21,11 +23,9 @@ public class Token {
 	public static final int TOKEN_ATOM = 'A';
 	public static final int TOKEN_VARIABLE = 'V';
 	public static final int TOKEN_STRING = 'S';
-
     public static boolean isSolo(int c) {
     	return (c =='!' || c ==';');
     }
-
     public static boolean isSymbol(int c) {
 		switch (c) {
 		case '+':
@@ -51,13 +51,10 @@ public class Token {
 		    return false;
 		}
     }
-
     /*
       public static int read_token(StringBuffer s, PushbackReader in)
-
       This method reads one token from the input "in", sets the string,
       and returns the token type.
-
       Type		String
       -2		"error message"
       -1		"end_of_file"
@@ -81,10 +78,8 @@ public class Token {
     */
     public static int read_token(StringBuilder s, PushbackReader in)
 	throws IOException {
-
 	int c, c1;
 	int rc;
-
 	c = in.read(); // get 1st. char
 	if(c == -1) {
 	    s.append("end_of_file");
@@ -206,7 +201,6 @@ public class Token {
 	s.append(" ");
 	return ' ';
     }
-
     /**
      *
      * @param c
@@ -216,7 +210,6 @@ public class Token {
      * @throws IOException
      */
 	public static int read_number(int c, StringBuilder s, PushbackReader in) throws IOException {
-
 		int c1, c2, c3;
 		in.unread(c);
 		for (c1 = in.read(); Character.isDigit((char) c1); c1 = in.read()) {
@@ -272,7 +265,6 @@ public class Token {
 		in.unread(c1);
 		return TOKEN_DOUBLE;
 	}
-
 	private static int number_type(StringBuilder s){
 		int length = s.length();
 		if (length<10){
@@ -287,11 +279,9 @@ public class Token {
 			return TOKEN_LONG;
 		}
 	}
-
     public static int read_word(int c, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int c1;
-
 	in.unread(c);
 	for (;;) {
 	    c1 = in.read();
@@ -302,12 +292,10 @@ public class Token {
 	in.unread(c1);
 	return 1;
     }
-
     public static int read_quoted(int quote, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int rc;
 	int c1;
-
 	for (;;) {
 	    c1 = in.read();
 	    if (c1 == -1 || c1 == '\n') {
@@ -331,10 +319,11 @@ public class Token {
 	    s.append((char)c1);
 	}
     }
-
+    /**
+     * @param backslash  
+     */
     public static int escapeSequences(int backslash, StringBuilder s, PushbackReader in)
 	throws IOException {
-
 	int c;
 	c = in.read();
 	switch (c) {
@@ -363,7 +352,6 @@ public class Token {
 	return 1;
     }
 
-
     public static int read_symbol(int c, StringBuilder s, PushbackReader in)
 	throws IOException {
 	int c1;
@@ -379,15 +367,12 @@ public class Token {
 	return 1;
     }
 
-
     /* Write */
     public static void write_string(String s, PrintWriter out) {
 	out.print(s);
     }
-
     public static void writeq_string(String s, PrintWriter out) {
 	char[] ch;
-
 	ch = s.toCharArray();
 	if ((getStringType(s) == 3)){
 	    out.print("\'");
@@ -422,9 +407,10 @@ public class Token {
 	    write_string(s, out);
 	}
     }
-
-	public static String toQuotedString(String s) {		
-		if ((getStringType(s) == 3)) {
+	public static String toQuotedString(String s) {
+	   int st = getStringType(s);
+	    if(st==0) return s;
+		if ((st == 3)) {
 			StringBuilder quoted = new StringBuilder(s.length() * 2);
 			//char[] ch = s.toCharArray();
 			quoted.append("\'");
@@ -462,7 +448,6 @@ public class Token {
 			return s;
 		}	
 	}		
-
 	public static void toQuotedString(String s, StringBuilder quoted) {
 		if ((getStringType(s) == 3)) {
 			quoted.append("\'");
@@ -500,7 +485,6 @@ public class Token {
 		}
 	}
 
-
     /*
      * return value:
      *   0 : if string is a lower case alphnum
@@ -509,7 +493,6 @@ public class Token {
      *   3 : others
      */
 	public static int getStringType(String s) {
-
 		if (s.equals("[]") || s.equals("{}"))
 			return 0;
 		if (s.equals("") || s.equals("."))

@@ -1,4 +1,10 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
+
+import java.util.Comparator;
+
 /**
  * Java-term.<br>
  * The <code>JavaObjectTerm</code> class wraps a java object.<br>
@@ -13,46 +19,89 @@ package SxxMachine;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class JavaObjectTerm extends Term {
-    /** Holds a java object that this <code>JavaObjectTerm</code> wraps. */
-    protected Object obj;
+@SuppressWarnings("rawtypes")
+public class FFIObjectTerm extends SystemObject {
+  
+  @Override
+  public FFIObjectTerm toClone()  {
+      return new FFIObjectTerm(val);
+  }
 
+  public Object toObject() {
+      return val;
+  }
+  
+  @Override
+  public boolean isObject() {
+      return true;
+  }
+
+
+  Object val;
+
+
+  /*
+  private boolean available;
+  
+  synchronized public void suspend() {
+  available=false;
+  while(!available) {
+    try {
+      wait();
+    }
+    catch(InterruptedException e) {}
+  }
+  }
+  
+  synchronized public void resume() {
+  available=true;
+  notifyAll();
+  }
+  */
+  @Override
+  public final boolean isImmutable() {
+      return immutable; 
+      // FIXME this.obj is not final
+  }
+  @Override
+  public String toAtomName() throws PrologException {
+    return ""+obj;
+  }
+    /** Holds a java object that this <code>JavaObjectTerm</code> wraps. */
+    final private Object obj;
+    public boolean immutable = true;
+	@Override
+	public boolean isFFIObject() {
+		return true;
+	}
     /** Constructs a new Prolog java-term that wraps the argument object. */
-    public JavaObjectTerm(Object _obj) {
+    public FFIObjectTerm(Object _obj) {
     	if ( _obj==null) {
     		throw new NullPointerException("Error: constructing JavaObjectTerm around null");
     	}
-    	obj   = _obj;
+    	this.obj   = _obj;
     }
-
     /** Sets the argument object to this <code>JavaObjectTerm</code>. */
-    public void setObject(Object _obj) {
-    	if ( _obj==null) {
-    		throw new NullPointerException("Error: JavaObjectTerm can not wrap null");
-    	}
-    	obj   = _obj;
-    }
-
+//    public void setObject(Object _obj) {
+//    	if ( _obj==null) {
+//    		throw new NullPointerException("Error: JavaObjectTerm can not wrap null");
+//    	}
+//    	this.obj   = _obj;
+//    }
     /** Returns the object wrapped by this <code>JavaObjectTerm</code>. */
-    public Object  object() { return obj; }
-
+    public Object  object() { return this.obj; }
     /** Returns a <code>java.lang.Class</code> of object wrapped by this <code>JavaObjectTerm</code>. */
-    public Class   getClazz() { return obj.getClass(); }
-
+    public Class   getClazz() { return this.obj.getClass(); }
+    @Override
     public String name() { return ""; }
     
-    @Override
-    public String toQuotedString() { return toString(); }
-    @Override
-    public void toQuotedString(StringBuilder sb) { toString(sb); }
-
     /* Term */
-    public boolean unify(Term t, Trail trail) {
-    	t = t.dereference();
-    	return (t instanceof VariableTerm) ? ((VariableTerm)t).bind(this, trail) :
-    		((t instanceof JavaObjectTerm) && obj==(((JavaObjectTerm)t).obj));
+    @Override
+    public boolean unifyImpl(Term t, Trail trail) {
+    	t = t.dref();
+    	return (t .isVar()) ? t.bind(this, trail) :
+    		((t .isFFIObject()) && this.obj==(((FFIObjectTerm)t).obj));
     }
-
     /** 
      * Check whether the wrapped object is convertible with the given Java class type.
      * @return the <code>boolean</code> whose value is
@@ -60,15 +109,15 @@ public class JavaObjectTerm extends Term {
      * @see #getClazz()
      * @see Term#convertible(Class, Class)
      */
-    public boolean convertible(Class type) { return convertible(obj.getClass(), type); }
-
+    @Override
+    public boolean convertible(Class type) { return convertible(this.obj.getClass(), type); }
     /** 
      * Returns the object wrapped by this <code>JavaObjectTerm</code>.
      * @return the value of <code>obj</code>.
      * @see #obj
      */
-    public Object toJava() { return obj; }
-
+    @Override
+    public Object toJava() { return this.obj; }
     /* Object */
     /**
      * Checks <em>term equality</em> of two terms.
@@ -80,30 +129,23 @@ public class JavaObjectTerm extends Term {
      * equivalent to this <code>JavaObjectTerm</code>, false otherwise.
      * @see #compareTo
      */
-    public boolean equals(Object o) {
-		return o instanceof JavaObjectTerm && obj==(((JavaObjectTerm) o).obj);
-	}
-
-    public int hashCode() {
-    	return System.identityHashCode(obj);
-    }
-
-    /** Returns a string representation of this <code>JavaObjectTerm</code>. */
     @Override
-    public String toString() {
-		return obj.getClass().getName()
-	      + "(0x" + Integer.toHexString(hashCode()) + ")";
+    public boolean equalsTerm(Term o, Comparator comparator) {
+		return o .isFFIObject() && this.obj==(((FFIObjectTerm) o).obj);
+	}
+    @Override
+    public int termHashCodeImpl() {
+    	return System.identityHashCode(this.obj);
     }
     
     /** Adds a string representation of this <code>JavaObjectTerm</code> to given StringBuilder instance. */
     @Override
-    public void toString(StringBuilder sb) {
-		sb.append(obj.getClass().getName());
+    public void toStringImpl(int printFlags, StringBuilder sb) {
+		sb.append(this.obj.getClass().getName());
 	    sb.append("(0x"); 
-	    sb.append(Integer.toHexString(hashCode()));
+	    sb.append(Integer.toHexString(termHashCode()));
 	    sb.append(")");
     }
-
     /* Comparable */
     /** 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -114,22 +156,23 @@ public class JavaObjectTerm extends Term {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-		if ((anotherTerm instanceof VariableTerm)
-		    || (anotherTerm instanceof NumberTerm)
-		    || (anotherTerm instanceof SymbolTerm)
-		    || (anotherTerm instanceof ListTerm)
-		    || (anotherTerm instanceof StructureTerm))
+		if ((anotherTerm .isVar())
+		    || (anotherTerm .isNumber())
+		    || (anotherTerm .isSymbol())
+		    || (anotherTerm .isCons())
+		    || (anotherTerm .isStructure()))
 		    return AFTER;
-		if (! (anotherTerm instanceof JavaObjectTerm))
+		if (! (anotherTerm .isFFIObject()))
 		    return BEFORE;
-		if (obj==(((JavaObjectTerm) anotherTerm).obj))
+		if (this.obj==(((FFIObjectTerm) anotherTerm).obj))
 		    return EQUAL;
-		return obj.hashCode() - ((JavaObjectTerm) anotherTerm).obj.hashCode(); //???
+		return this.obj.hashCode() - ((FFIObjectTerm) anotherTerm).obj.hashCode(); //???
     }
 
-	@Override
-	public final boolean isImmutable() {
-		return true; // FIXME this.obj is not final
-	}
+  @Override
+  public int type() {
+    return TYPE_JAVA_OBJECT;
+  }
 }

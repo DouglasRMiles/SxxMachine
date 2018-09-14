@@ -1,5 +1,8 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
+
 /**
  * The abstract class <code>JavaPredicate</code> contains methods
  * for interoperating with Java</em>.<br>

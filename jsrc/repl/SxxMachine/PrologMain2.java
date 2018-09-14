@@ -1,4 +1,7 @@
-package SxxMachine.repl;
+package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 
 import java.util.StringTokenizer;
 
@@ -31,7 +34,7 @@ import SxxMachine.Term;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class PrologMain {
+public class PrologMain2 {
     /** Version information */
     public static final String VERSION   = "Prolog Cafe 1.2.5 (mantis)";
     /** Copyright information */
@@ -49,8 +52,8 @@ public class PrologMain {
 		 argv = new String[] {"cafeteria"};
 	    } 
 	    Term arg1 = Prolog.Nil;
-	    arg1 = new ListTerm(SymbolTerm.intern("user"), arg1);
-	    arg1 = new ListTerm(SymbolTerm.intern(Prolog.BUILTIN), arg1);
+	    arg1 = TermData.CONS(SymbolTerm.intern("user"), arg1);
+	    arg1 = TermData.CONS(SymbolTerm.intern(Prolog.BUILTIN), arg1);
 	    Term arg2 = parseAtomicGoal(argv[0]);
 	    if (arg2  == null) {
 		usage();

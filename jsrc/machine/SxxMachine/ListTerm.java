@@ -1,168 +1,186 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/**
- * List.<br>
- * The class <code>ListTerm</code> represents a list structure.<br>
- * 
- * <pre>
- *  % [1,2]
- *  Term Nil = SymbolTerm.makeSymbol("[]");
- *  Term  n1 = IntegerTerm(1);
- *  Term  n2 = IntegerTerm(2);
- *  Term   t = new ListTerm(n1, new ListTerm(n2, Nil));
- *  
- *  Term car = ((ListTerm)t).car();
- *  Term cdr = ((ListTerm)t).cdr();
- * </pre>
- *
- * Here is sample program for creating a list from <code>1</code> to <code>n</code>.
- * <pre>
- * public static Term makeList(int n) {
- *   Term t = SymbolTerm.makeSymbol("[]");
- *   for (int i=n; i>0; i--) {
- *     t = new ListTerm(new IntegerTerm(i), t);
- *   }
- *   return t;
- * }
- * </pre>
- *
- * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
- * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
- * @version 1.0
- */
-public class ListTerm extends Term {
-    /** A functor <code>'.' /2</code>. */
-    protected static final SymbolTerm SYM_DOT = SymbolTerm.intern(".", 2);
 
-    private final boolean immutable;
+import prolog.terms.Const;
+@SuppressWarnings({"rawtypes","unused"})
+abstract public class ListTerm extends Const {
+    protected boolean immutable;
+	@Override
+	public boolean isCons() {
+		return true;
+	}
+	@Override
+  public boolean isAtomicValue() {
+		return false;
+	}
+
+  public int containsTermImpl(Term variableTerm, Comparator comparison) {
+    return car().containsTerm(variableTerm, comparison)
+        + cdr().containsTerm(variableTerm, comparison);
+  }
 
     /** Holds the first element of this <code>ListTerm</code>. */
-    private final Term car;
-
+    //private Term car;
     /**
      * Holds the list consisting of all the rest of the elements of 
      * this <code>ListTerm</code> but the first one.
      */
-    private final Term cdr;
-
+    //private Term cdr;
     /**
      * Constructs a new Prolog list structure
      * such that <code>_car</code> is the first element of this list, and 
      * <code>_cdr</code> is the list consisting of all the rest of the 
      * elements of this list but the first one.
      */
-    public ListTerm(Term _car, Term _cdr) { 
-		// TODO assert _car!=null;
-    	// TODO assert _cdr!=null;
-    	car = _car;
-		cdr = _cdr;
-		immutable = car.isImmutable() && cdr.isImmutable();
+  ListTerm(String s) {
+    super(s);
+  }
+  ListTerm(Term _car, Term _cdr) {
+    super(".");
+//		// TODO assert _car!=null;
+//    	// TODO assert _cdr!=null;
+//    	//this.car = _car;
+//		//this.cdr = _cdr;
+       argz = VA(_car,_cdr);
+//		//this.immutable = this.argz[0].isImmutable() && this.argz[1].isImmutable();
     }
-
     /** Returns the value of <code>car</code>.
      * @see #car
      */
-    public final Term car() { return car; }
-
+    @Override
+    public Term car() { return this.argz[0]; }
     /** Returns the value of <code>cdr</code>.
      * @see #cdr
      */
-    public Term cdr() { return cdr; }
-
-    /* Term */
-    public final boolean unify(Term t, Trail trail) {
-		Term p = this;
-		t = t.dereference();
-		while ((t instanceof ListTerm) && (p instanceof ListTerm)
-				&& ((ListTerm) p).car.unify(((ListTerm) t).car, trail)) {
-			p = ((ListTerm) p).cdr().dereference();
-			t = ((ListTerm) t).cdr().dereference();
-		}
-		if (t instanceof VariableTerm) {
-			return ((VariableTerm) t).bind(p, trail);
-		}
-		if (p instanceof VariableTerm) {
-			return ((VariableTerm) p).bind(t, trail);
-		}
-		return !(t instanceof ListTerm) && !(p instanceof ListTerm) && p.unify(t, trail);
+    @Override
+    public Term cdr() { return this.argz[1]; }
+    /* Term */ 
+    @Override
+    public boolean unifyImpl(Term t, Trail trail) {
+      Term p = this;
+      t = t.dref();
+      while (t.isCons() && p.isCons() && p.car().unify(t.car(), trail)) {
+        p = p.cdr().dref();
+        t = t.cdr().dref();
+      }
+      if (t.isVar()) return t.bind(p, trail);
+      if (p.isVar()) return p.bind(t, trail);
+      return !(t.isCons()) && !(p.isCons()) && p.unify(t, trail);
 	}
     
     
+    /** Sets the value to <code>car</code>.
+     * @see #car
+     */
+    public void setCar(Term t) { this.argz[0] = t; }
+
+    /** Sets the value to <code>cdr</code>.
+     * @see #cdr
+     */
+    public void setCdr(Term t) { this.argz[1] = t; }
+
+    @Override
+    public int type() {
+      return TYPE_LIST;
+    }
+
     /** 
      * @return the <code>boolean</code> whose value is
      * <code>convertible(List.class, type)</code>.
      * @see Term#convertible(Class, Class)
      */
+    @Override
     public boolean convertible(Class type) { 
     	return convertible(List.class, type); 
     }
-
-    protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) { 
-    	if (immutable){
+    @Override
+    protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deepCopy) { 
+    	if (this.isImmutable()){
     		return this;
     	}
     	Deque<ListTerm> stack = new ArrayDeque<ListTerm>();
     	Term p = this;
-    	while (p instanceof ListTerm && !((ListTerm)p).immutable){
-    		ListTerm lt = (ListTerm) p;
+    	while (p .isCons() && !((ListTerm) p).immutable){
+    		ListTerm lt =   (ListTerm) p;
     		stack.push(lt);
-    		p = lt.cdr().dereference();
+    		p = lt.cdr().dref();
     	}
-    	p = p.copy(copyHash);
+    	p = p.copy(copyHash,  deepCopy);
     	while (!stack.isEmpty()){
     		ListTerm lt = stack.pop();
-			p = new ListTerm(lt.car.copy(copyHash), p);
+			p = CONS(lt.car().copy(copyHash, deepCopy), p);
     	}
     	return p;
     }
-
+    @Override
     public boolean isGround() {
-		return car.isGround() && cdr().isGround();
+		return this.argz[0].isGround() && cdr().isGround();
     }
-
-    public final String name() { return SYM_DOT.name(); }
-
-    public Term arg(int nth) {
+    
+    @Override
+    public int arity() {
+       return 2;
+    }
+    @Override
+    public Term[] args() {
+      return argz;
+    }
+    
+    @Override
+   public Term functor() {
+      return Prolog.SYM_DOT;
+    }
+    
+    @Override
+   public String name() { return Prolog.SYM_DOT.name(); }
+    public Term arg0(int nth) {
+      return nth0(nth);
+    }
+    @Override
+    public Term nth0(int nth) {
       Term t = this;
       int old_nth = nth;
-      while ((t instanceof ListTerm) && 0 < nth) {
+      while ((t .isCons()) && 0 < nth) {
         nth--;
-        t = ((ListTerm)t).cdr().dereference();
+        t = ( t).cdr().dref();
       }
-      if ((t instanceof ListTerm))
-        return ((ListTerm)t).car;
+      if ((t .isCons()))
+        return t.car();
       throw new ArrayIndexOutOfBoundsException(old_nth);
     }
-
     /** Returns the length of this <code>ListTerm</code>. */
     public int length() {
 	int count = 0;
 	Term t = this;
-	while((t instanceof ListTerm)) {
+	while((t .isCons())) {
 	    count++;
-	    t = ((ListTerm)t).cdr().dereference();
+	    t = ( t).cdr().dref();
 	}
 	return count;
     }
-
     /** 
      * Returns a {@code java.util.List} corresponds to this <code>ListTerm</code>
      * according to <em>Prolog Cafe interoperability with Java</em>.
      * @return a {@link java.util.List} object equivalent to
      * this <code>IntegerTerm</code>.
      */
-    public List toJava() { 
+    @Override
+    public Object toJava() { 
 		List<Object> vec = new ArrayList<Object>();
 		Term t = this;
-		while((t instanceof ListTerm)) {
-		    vec.add(((ListTerm)t).car.dereference().toJava());
-		    t = ((ListTerm)t).cdr().dereference();
+		while((t .isCons())) {
+		    vec.add(( t).car().dref().toJava());
+		    t = ( t).cdr().dref();
 		}
 		if (!t.isNil()){
 			vec.add(t);
@@ -170,12 +188,32 @@ public class ListTerm extends Term {
 		return vec;	
     }
 
-    public void toQuotedString(StringBuilder sb){
-		TermTreeIterator it = new TermTreeIterator(this);
-		while(it.hasNext()){
-			it.next().toQuotedString(sb);
-		}
+    /** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
+     * Non recursive implementation */
+    public void toQuotedString_old(int printFlags, StringBuilder sb){
+        TermTreeIterator it = new TermTreeIterator(this,true);
+        while(it.hasNext()){
+            Term t = it.next();
+            t.toQuotedString(0, sb);
+        }
     }
+
+  @Override
+  public void toStringImpl(int printingFlags, StringBuilder sb) {
+    Term x = this;
+    sb.append("[");
+    for (;;) {
+      x.car().dref().toQuotedString(1, sb);
+      x = x.cdr().dref();
+      if (!(x.isCons())) break;
+      sb.append(",");
+    }
+    if (!Prolog.Nil.equals(x)) {
+      sb.append("|");
+      x.toQuotedString(printingFlags, sb);
+    }
+    sb.append("]");
+  }
 
     /* Object */
     /**
@@ -188,40 +226,34 @@ public class ListTerm extends Term {
      * equivalent to this <code>ListTerm</code>, false otherwise.
      * @see #compareTo
      */
-    public boolean equals(Object obj) {
-		return obj instanceof ListTerm && car.equals(((ListTerm) obj).car().dereference()) && cdr().equals(((ListTerm) obj).cdr().dereference());
+    @Override
+    public boolean equalsTerm(Term obj, Comparator comparator) {
+		return obj .isCons() && this.argz[0].equalsTerm((  obj).car().dref(), comparator) && cdr().equalsTerm((  obj).cdr().dref(), comparator);
 	}
 
-    public int hashCode() {
-	int h = 1;
-	h = 31*h + SYM_DOT.hashCode();
-	h = 31*h + car.dereference().hashCode();
-	h = 31*h + cdr().dereference().hashCode();
-	return h;
-    }
-
-    /** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
-     * Non recursive implementation */
-    public void toString(StringBuilder sb){
-		TermTreeIterator it = new TermTreeIterator(this);
-		while(it.hasNext()){
-			it.next().toString(sb);
-		}
-    }
-
+    public Term[] argz;
     @Override
-    public Iterator<Term> iterator() {
-    	return new ListTermIterator(this);
+  public int termHashCodeImpl() {
+        int h = 1;
+        h = 31*h + Prolog.SYM_DOT.termHashCode();
+        h = 31*h + this.car().dref().termHashCode();
+        h = 31*h + cdr().dref().termHashCode();
+        return h;
+    }
+    
+    @Override
+    public Iterator<Term> iterator(boolean includeSyntax) {
+    	return new ListTermIterator(this,includeSyntax);
     }
     
     /**
-     * Iterator over terms that make up this ListTerm.
+     * Iterator over terms that make up this ListTerm. 
      */
-    private static class ListTermIterator implements Iterator<Term> {    	
-    	private static final SymbolTerm LEFT_BRACKET = SymbolTerm.intern("[");
-		private static final SymbolTerm SEPARATOR = SymbolTerm.intern("|");
-		private static final SymbolTerm RIGHT_BRACKET = SymbolTerm.intern("]");
-		private static final SymbolTerm COMMA = SymbolTerm.intern(",");
+    public static class ListTermIterator implements Iterator<Term> {    	
+    	private static final SymbolTerm LEFT_BRACKET = SymbolTerm.internToken("[");
+		private static final SymbolTerm SEPARATOR = SymbolTerm.internToken("|");
+		private static final SymbolTerm RIGHT_BRACKET = SymbolTerm.internToken("]");
+		private static final SymbolTerm COMMA = SymbolTerm.internToken(",");
 		
 		
 		private Term current;
@@ -229,50 +261,49 @@ public class ListTerm extends Term {
     	private Term[] tail = null;
     	private boolean comma = false;
     	private boolean first = true;
+      private boolean includeSyntax;
     	
     	
-		ListTermIterator(Term start) {
+		ListTermIterator(Term start, boolean includeSyntax) {
+		   this.includeSyntax = includeSyntax;
 			this.current = start;
 		}
-
 		@Override
 		public boolean hasNext() {
-			return current!=null && (tail==null || index<tail.length);
+			return this.current!=null && (this.tail==null || this.index<this.tail.length);
 		}
-
 		@Override
 		public Term next() {
 			Term result;
-			if (first) {
-				first = false;
+			if (this.first && includeSyntax) {
+				this.first = false;
 				return LEFT_BRACKET;
-			} else if (comma){
-				comma = false;
+			} else if (this.comma && includeSyntax){
+				this.comma = false;
 				return COMMA;
-			} else if (current instanceof ListTerm) {
-				result = ((ListTerm)current).car;
-				current = ((ListTerm)current).cdr().dereference();
-				comma = (current instanceof ListTerm);
-			} else if (current.isNil()){
+			} else if (this.current .isCons()) {
+				result = ( this.current).car();
+				this.current = ( this.current).cdr().dref();
+				this.comma = (this.current .isCons());
+			} else if (this.current.isNil() && includeSyntax){
 				result = RIGHT_BRACKET;
-				current = null;
-			} else if (tail==null){
-				tail = new Term[]{
-					current,
+				this.current = null;
+			} else if (this.tail==null){
+				this.tail = new Term[]{
+					this.current,
 					RIGHT_BRACKET
 				};
 				result = SEPARATOR;
-				index = 0;
-			} else if (index<tail.length){
-				result = tail[index];
-				index++;
+				this.index = 0;
+			} else if (this.index<this.tail.length){
+				result = this.tail[this.index];
+				this.index++;
 			} else {
 				throw new NoSuchElementException();
 			}
 			return result;
 		}
     }
-
     /* Comparable */
     /** 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -283,60 +314,100 @@ public class ListTerm extends Term {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if ((anotherTerm instanceof VariableTerm) || (anotherTerm instanceof NumberTerm) || (anotherTerm instanceof SymbolTerm))
+	if ((anotherTerm .isVar()) || (anotherTerm .isNumber()) || (anotherTerm .isSymbol()))
 	    return AFTER;
-	if ((anotherTerm instanceof StructureTerm)) {
+	if ((anotherTerm .isStructure())) {
 	    int arity = anotherTerm.arity();
 	    if (2 != arity)
 		return (2 - arity);
-	    SymbolTerm functor = ((StructureTerm)anotherTerm).functor();
-	    if (! SYM_DOT.equals(functor))
-		return SYM_DOT.compareTo(functor);
+	    Term functor = ((StructureTerm)anotherTerm).functor();
+	    if (! Prolog.SYM_DOT.equalsTerm(functor, StrictEquals))
+	      	return Prolog.SYM_DOT.compareTo(functor);
 	}
 	Term[] args = new Term[2];
-	if ((anotherTerm instanceof ListTerm)) {
-	    args[0] = ((ListTerm)anotherTerm).car();
-	    args[1] = ((ListTerm)anotherTerm).cdr();
-	} else if ((anotherTerm instanceof StructureTerm)) {
+	if ((anotherTerm .isCons())) {
+	    args[0] = ( anotherTerm).car();
+	    args[1] = ( anotherTerm).cdr();
+	} else if ((anotherTerm .isStructure())) {
 	    args = ((StructureTerm)anotherTerm).args();
 	} else {
 	    return BEFORE;
 	}
-	Term tmp = car;
+	Term tmp = this.argz[0];
 	int rc;
 	for (int i=0; i<2; i++) {
-	    rc = tmp.compareTo(args[i].dereference());
+	    rc = tmp.compareTo(args[i].dref());
 	    if (rc != EQUAL) 
 		return rc;
 	    tmp = cdr();
 	}
 	return EQUAL;
     }
-
 	@Override
-	public final boolean isImmutable() {
-		return immutable;
+	public boolean isImmutable() {
+		return this.immutable;
 	}
-
 	/**
 	 * adds given term to the end of the list.
 	 * Default implementation recreates the whole list and returns reference to new list,
 	 * because the original list can be immutable.
 	 * */
+	@Override
 	public ListTerm add(Term term) {
-		Deque<Term> stack = new ArrayDeque<Term>();
-		Term t = this;
-		while (t instanceof ListTerm){
-			ListTerm lt = (ListTerm) t;
-			stack.push(lt.car.dereference());
-			t = lt.cdr().dereference();
-		}
-		t = term.isNil() ? term : new ListTerm(term, Prolog.Nil);
-		while (!stack.isEmpty()){
-			t = new ListTerm(stack.pop(), t);
-		}
-		return (ListTerm) t;
-	}
+	  if(isImmutable()) {
+	    return addToCopy(term);
+	  }
+	  final Term cdr = argz[1];
+	  if(cdr.isCons()) return cdr.add(term);
+	  if(cdr==Prolog.Nil) {
+        // proper list
+        ListTerm acdr = CONS(term, cdr);
+        argz[1]=acdr;
 
+	  } else {
+        // improper list?
+        ListTerm acdr = CONS(term, cdr);
+        argz[1]=acdr;
+	  }
+	  return this;
+	}
+	
+	public ListTerm addToCopy(Term term) {
+		@SuppressWarnings("unused")
+        Deque<Term> stack = new ArrayDeque<Term>();
+		Term t = this;
+		while (t .isCons()){
+			ListTerm lt =   (ListTerm) t;
+			stack.push(lt.argz[0].dref());
+			t = lt.cdr().dref();
+		}
+		t = term.isNil() ? term : CONS(term, Prolog.Nil);
+		while (!stack.isEmpty()){
+			t = CONS(stack.pop(), t);
+		}
+		return   (ListTerm) t;
+	}
+	   
+
+    public ListTerm append(Term term) {
+       if(isImmutable()) {
+         throw new NoSuchElementException("isImmutable: " +this);
+         //return addToCopy(term);
+       }
+       final Term  cdr = argz[1];
+       if(cdr.isCons()) return cdr.add(term);
+       if(cdr==Prolog.Nil) {
+         // proper list
+         ListTerm acdr = CONS(term, cdr);
+         argz[1]=acdr;
+         return acdr;
+       } else {
+         // improper list?
+         ListTerm acdr = CONS(cdr, term);
+         argz[1]=acdr;
+         return acdr;
+       }
+     }
 }

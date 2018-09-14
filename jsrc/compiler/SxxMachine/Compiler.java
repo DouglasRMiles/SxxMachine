@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,13 +10,6 @@ import java.util.EnumSet;
 import java.util.LinkedList;
 
 import SxxMachine.exceptions.CompileException;
-import SxxMachine.exceptions.PrologException;
-import SxxMachine.BufferingPrologControl;
-import SxxMachine.ListTerm;
-import SxxMachine.Prolog;
-import SxxMachine.PrologClassLoader;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
 /**
  * The <code>Compiler</code> class provides methods for
  * translating Prolog programs into Java programs.
@@ -35,7 +31,7 @@ import SxxMachine.Term;
  * <ul>
  * <li>From Command line<br>
  * <pre>
- *    % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.Compiler:$CLASSPATH $PLCAFEDIR/examples/prolog/list.pl
+ *    % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.compiler.Compiler:$CLASSPATH $PLCAFEDIR/examples/prolog/list.pl
  *    Prolog Cafe X.X.X (YYY)
  *    Copyright(C) 1997-200X M.Banbara and N.Tamura
  *    % ls
@@ -43,7 +39,7 @@ import SxxMachine.Term;
  * </pre>
  * <li>From Java program<br>
  * <pre>
- *    import SxxMachine.Compiler;
+ *    import SxxMachine.compiler.Compiler;
  *    public class T {
  *        public static void main(String argv[]) {
  *            Compiler comp = new Compiler();
@@ -82,28 +78,23 @@ public class Compiler {
       optimiseRecursiveCall("rc", true),
       switchOnHash("idx", true),
       generateClosure("clo", false);
-
       final SymbolTerm symbol;
       final boolean onByDefault;
-
       Option(String symbol, boolean onByDefault) {
         this.symbol = SymbolTerm.intern(symbol);
         this.onByDefault = onByDefault;
       }
     }
-
     /** Prolog context running the compiler/translater tools. */
     private final BufferingPrologControl pcl;
     private final EnumSet<Option> options;
-
     /** Initialize a new compiler instance. */
     public Compiler() {
-      pcl = new BufferingPrologControl();
-      pcl.setPrologClassLoader(new PrologClassLoader(Compiler.class.getClassLoader()));
-      options = EnumSet.noneOf(Option.class);
+      this.pcl = new BufferingPrologControl();
+      this.pcl.setPrologClassLoader(new PrologClassLoader(Compiler.class.getClassLoader()));
+      this.options = EnumSet.noneOf(Option.class);
       enableDefaultOptions();
     }
-
     /**
      * Translates a Prolog program into a WAM-based intermediate code.
      *
@@ -113,23 +104,20 @@ public class Compiler {
     public void prologToWAM(String _prolog, String _wam) throws CompileException {
 	    if (! fileExists(_prolog))
 		  throw new CompileException(new FileNotFoundException(_prolog));
-
 	    // Create arguments
 	    Term prolog = SymbolTerm.create(_prolog);
 	    Term wam    = SymbolTerm.create(_wam);
 	    Term op     = Prolog.Nil;
-	    for (Option opt : options)
-	      op = new ListTerm(opt.symbol, op);
-
-        ListTerm args = new ListTerm(prolog, new ListTerm(wam, new ListTerm(op, Prolog.Nil)));
+	    for (Option opt : this.options)
+	      op = TermData.CONS(opt.symbol, op);
+        ListTerm args = TermData.LIST(prolog,wam,op);
 	    try {
-          if (!pcl.execute("SxxMachine.pl2am", "pl2am", args))
+          if (!this.pcl.execute("SxxMachine.compiler.pl2am", "pl2am", args))
             throw new CompileException("Unknown Error");
 	    } catch (PrologException err) {
 	      throw new CompileException("Error compiling "+_prolog, err);
 	    }
     }
-
     /**
      * Translates WAM-based intermediate code into Java source.
      *
@@ -142,19 +130,17 @@ public class Compiler {
           throw new CompileException(new FileNotFoundException(_wam));
 	   if (! fileExists(_dir) && !new File(_dir).mkdirs())
          throw new CompileException(new FileNotFoundException(_dir));
-
 	    // Create arguments
 	    Term wam    = SymbolTerm.create(_wam);
 	    Term dir    = SymbolTerm.create(_dir);
-	    ListTerm args = new ListTerm(wam, new ListTerm(dir, Prolog.Nil));
+	    ListTerm args = TermData.LIST(wam,dir);
 	    try {
-	      if (!pcl.execute("SxxMachine.am2j", "am2j", args))
+	      if (!this.pcl.execute("SxxMachine.compiler.am2j", "am2j", args))
 	        throw new CompileException("Unknown Error");
 	    } catch (PrologException err) {
 	       throw new CompileException("Error converting "+_wam, err);
 	    }
     }
-
     /**
      * Translates a Prolog program into Java source files.
      *
@@ -178,7 +164,6 @@ public class Compiler {
           tmp.deleteOnExit();
       }
     }
-
     public static void main(String argv[]) throws Exception {
       Compiler comp = new Compiler();
       String out = ".";
@@ -193,41 +178,32 @@ public class Compiler {
           argi++;
           break;
         }
-
         if (a.equals("-q")) {
 		  suppressBanner = true;
 		} else if (a.equals("-O")) {
           comp.enableDefaultOptions();
-
         } else if (a.equals("-O:none")) {
           comp.options.clear();
-
         } else if (a.startsWith("-O:")) {
           String optname = a.substring("-O:".length());
           Option opt = findOptionByName(optname);
           if (opt != null)
             comp.enable(opt);
-
         } else if (a.equals("-s")) {
           if (++argi == argv.length)
             usage();
           out = argv[argi];
-
         } else if (a.equals("-am")) {
           if (++argi == argv.length)
             usage();
           amdir = argv[argi];
-
         } else if (a.equals("-h") || a.equals("--help") || a.equals("-help")) {
           usage();
-
         } else if (a.equals("--show-stack-trace")) {
           stackTrace = true;
-
         } else if (a.startsWith("-")) {
           System.err.println("error: Unsupported flag '" + a + "'");
           usage();
-
         } else {
           plsrc.add(a);
         }
@@ -236,13 +212,10 @@ public class Compiler {
         plsrc.addAll(Arrays.asList(argv).subList(argi, argv.length));
       if (plsrc.isEmpty())
         usage();
-
 	  if (!suppressBanner)
 		banner();
-
       for (String pl : plsrc) {
         System.err.println("Translating " + pl);
-
         try {
           if (amdir != null) {
             String base;
@@ -252,7 +225,6 @@ public class Compiler {
               base = pl;
             File am = new File(new File(amdir), base + ".am");
             am.getParentFile().mkdirs();
-
             comp.prologToWAM(pl, am.getPath());
             comp.wamToJavaSource(am.getPath(), out);
           } else {
@@ -267,7 +239,6 @@ public class Compiler {
         }
       }
     }
-
     private static Option findOptionByName(String optname) {
       for (Option opt : Option.values()) {
         if (opt.toString().equalsIgnoreCase(optname))
@@ -279,7 +250,6 @@ public class Compiler {
       System.exit(1);
       throw new RuntimeException("System.exit(1)");
     }
-
     private static void usage() {
       System.err.print("usage: ");
       System.err.print("java ");
@@ -288,54 +258,46 @@ public class Compiler {
       System.err.print(" prolog_source...");
       System.err.println();
       banner();
-
       String optfmt = "  %-20s %s";
       System.err.format(optfmt, "-s <directory>", "where to place generated source files");
       System.err.println();
       System.err.format(optfmt, "-am <directory>", "save WAM intermediate files");
       System.err.println();
-
       System.err.format(optfmt, "-O", "enable all optimizations");
       System.err.println();
       System.err.format(optfmt, "-O:none", "disable all optimizations");
       System.err.println();
-
       // Special options not related to building Prolog programs.
       System.err.println();
       System.err.format(optfmt, "-h, --help", "display this message");
       System.err.println();
       System.err.format(optfmt, "--show-stack-trace", "show Java stack trace on failure");
       System.err.println();
-
       System.exit(1);
     }
-
     private static void banner() {
       System.err.println("Prolog Cafe");
       System.err.println("Copyright(C) 1997-2009 M.Banbara and N.Tamura");
       System.err.println();
     }
-
     private static boolean fileExists(String _file) {
 	try {
 	    return new File(_file).exists();
 	} catch (SecurityException e) {}
 	return false;
     }
-
-    public boolean isEnabled(Option opt) { return options.contains(opt); }
-    public void enable(Option opt) { options.add(opt); }
-    public void disable(Option opt) { options.remove(opt); }
+    public boolean isEnabled(Option opt) { return this.options.contains(opt); }
+    public void enable(Option opt) { this.options.add(opt); }
+    public void disable(Option opt) { this.options.remove(opt); }
     public void setEnabled(Option opt, boolean on) {
       if (on)
         enable(opt);
       else
         disable(opt);
     }
-
     private void enableDefaultOptions() {
       for (Option opt : Option.values())
         if (opt.onByDefault)
-          options.add(opt);
+          this.options.add(opt);
     }
 }

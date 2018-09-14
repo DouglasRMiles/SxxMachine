@@ -49,22 +49,22 @@ public class PRED_loggable_1 extends P1 {
 		LEVELS.put(SymbolTerm.intern("severe"), Level.SEVERE);
 	}
 
-	public PRED_loggable_1(Term arg1, Operation cont) {
-		this.arg1 = arg1;
+	public PRED_loggable_1(Term a0, Operation cont) {
+		this.LARG[0] = a0; //0];
 		this.cont = cont;
 	}
 	
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
 
-		Term a1 = arg1.dereference();
+		Term a1 = LARG[0].dref();
 
 		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
 		}
 		
-		Logger logger = Logger.getLogger(a1.arg(0).name());
-		if (!logger.isLoggable(LEVELS.getOrDefault(a1.arg(1), Level.INFO))){
+		Logger logger = Logger.getLogger(a1.arg0(0).name());
+		if (!logger.isLoggable(LEVELS.getOrDefault(a1.arg0(1), Level.INFO))){
 			return engine.fail();
 		}
 		return cont;

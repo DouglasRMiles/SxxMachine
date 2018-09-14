@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 /**
  * The <code>BlockPredicate</code> class is used to implement
  * builtin-predicates. For example,
@@ -16,7 +19,5 @@ public abstract class BlockPredicate extends Predicate {
     public boolean outOfScope = false;
     public boolean outOfLoop  = false;
 }
-
-
 
 

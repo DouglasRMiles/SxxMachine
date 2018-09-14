@@ -1,11 +1,7 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.HashtableOfTerm;
-import SxxMachine.JavaObjectTerm;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
@@ -14,6 +10,10 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.PermissionException;
 /**
    <code>new_hash/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -24,22 +24,22 @@ public class PRED_new_hash_2 extends Predicate.P2 {
     private static final SymbolTerm SYM_ALIAS_1 = SymbolTerm.intern("alias", 1);
 
     public PRED_new_hash_2(Term a1, Term a2, Operation cont) {
-        arg1 = a1;
-        arg2 = a2;
+        LARG[0] = a1;
+        LARG[1] = a2;
         this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
         Term a1, a2;
-        a1 = arg1;
-        a2 = arg2;
+        a1 = LARG[0];
+        a2 = LARG[1];
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if (! (a1 instanceof VariableTerm))
 	    throw new IllegalTypeException(this, 1, "variable", a1);
-	Term newHash = new JavaObjectTerm(new HashtableOfTerm());
-	a2 = a2.dereference();
+	Term newHash = new FFIObjectTerm(new HashtableOfTerm());
+	a2 = a2.dref();
 	if (a2.isNil()) {
 	    if (! a1.unify(newHash, engine.trail))
 		return engine.fail();
@@ -54,14 +54,14 @@ public class PRED_new_hash_2 extends Predicate.P2 {
 		throw new PInstantiationException(this, 2);
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 2, "list", a2);
-	    Term car = ((ListTerm) tmp).car().dereference();
+	    Term car = ((ListTerm) tmp).car().dref();
 	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
 	    if ((car instanceof StructureTerm)) {
-		SymbolTerm functor = ((StructureTerm) car).functor();
+		Term functor = ((StructureTerm) car).functor();
 		Term[] args = ((StructureTerm) car).args();
 		if (functor.equals(SYM_ALIAS_1)) {
-		    Term alias = args[0].dereference();
+		    Term alias = args[0].dref();
 		    if (! (alias instanceof SymbolTerm))
 			throw new IllegalDomainException(this, 2, "hash_option", car);
 		    else {
@@ -75,7 +75,7 @@ public class PRED_new_hash_2 extends Predicate.P2 {
 	    } else {
 		throw new IllegalDomainException(this, 2, "hash_option", car);
 	    }
-	    tmp = ((ListTerm) tmp).cdr().dereference();
+	    tmp = ((ListTerm) tmp).cdr().dref();
 	}
 	if (! a1.unify(newHash, engine.trail))
 	    return engine.fail();

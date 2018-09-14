@@ -1,4 +1,11 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * The <code>PredicateEncoder</code> class contains static methods for encoding predicate names.<br>
  * The predicate with <code>hoge:f/n</code> is encoded to <code>hoge.PRED_f_n</code>, where
@@ -26,7 +33,6 @@ package SxxMachine;
  * @version 1.1
  */
 public class PredicateEncoder {
-
     /**
      * Returns a string representation of class for
      * the predicate with the given arguments.
@@ -36,20 +42,27 @@ public class PredicateEncoder {
      * @return a string representation of class for
      * the predicate that corresponds to <code>pkg:functor/arity</code>.
      */
+
     public static String encode(String pkg, String functor, int arity) {
     	char[] x = functor.toCharArray();
-    	StringBuilder sb = new StringBuilder(pkg.length()+x.length*5+10);
-    	sb.append(pkg);
-    	sb.append(".PRED_");
+    	StringBuilder sb = new StringBuilder(pkg==null?0:pkg.length()+x.length*5+10);
+    	sb.append("PRED_");
     	int i = 0;
     	int s = i;
     	while (i<x.length){
     		if ( !((x[i]>='a' && x[i]<='z') || (x[i]>='A' && x[i]<='Z') ||
     				(x[i]>='0' && x[i]<='9') || x[i]=='_' || x[i]=='$')){
-
-    			sb.append(x, s, i-s);
-    			sb.append('$').append(Integer.toHexString(x[i]).substring(4, 8));
-    			s = i+1;
+				sb.append(x, s, i - s);
+				String hex = Long.toHexString(x[i]).toUpperCase();
+				int hl = hex.length();
+				if (hl > 7) {
+					hex = hex.substring(4, 8);
+				} else while (hl < 4) {
+						hex = "0" + hex;
+						hl++;
+					}
+				sb.append('$').append(hex);
+				s = i + 1;
     		}
     		i++;
     	}
@@ -57,9 +70,60 @@ public class PredicateEncoder {
     		sb.append(x, s, x.length-s);
     	}
     	sb.append('_').append(arity);
-    	return sb.toString();
+    	
+    	if(pkg!=null) {
+        	if(!pkg.endsWith("$")) pkg += ".";
+    	} else {
+    		pkg = "";
+    	}
+    	return pkg + sb.toString();
     }
 
+public static String decodeFunctor_2(String className) {
+      // Remove the Java package name, if present.
+      int dot = className.lastIndexOf('.');
+      if (0 < dot)
+        className = className.substring(dot + 1);
+
+      // Trim the common PRED_ prefix.
+      if (className.startsWith("PRED_"))
+        className = className.substring("PRED_".length());
+
+      // Drop the arity from the end.
+      int us = className.lastIndexOf('_');
+      if (0 < us)
+        className = className.substring(0, us);
+
+      Pattern p = Pattern.compile("\\$([0-9A-F]{4})");
+      Matcher m = p.matcher(className);
+      StringBuffer r = new StringBuffer();
+      while (m.find()) {
+        char c = (char) Integer.parseInt(m.group());
+        m.appendReplacement(r, Character.toString(c));
+      }
+      m.appendTail(r);
+      return r.toString();
+    }
+public static int decodeArity(String className) {
+  // Drop the arity from the end.
+  int finish = className.lastIndexOf('_');
+  if (finish<0){
+     return -1;
+  }
+  if(className.endsWith("_2")) return 2;
+  if(className.endsWith("_1")) return 1;
+  if(className.endsWith("_3")) return 3;
+  if(className.endsWith("_0")) return 0;
+  if(className.endsWith("_4")) return 4;
+  if(className.endsWith("_5")) return 5;
+  if(className.endsWith("_6")) return 6;
+  if(className.endsWith("_7")) return 7;
+  if(className.endsWith("_8")) return 8;
+  if(className.endsWith("_9")) return 9;
+  return Integer.parseInt(className.substring(finish)+1);
+}
+
+    @SuppressWarnings("fallthrough")
     public static String decodeFunctor(String className) {
     	int length = className.length();
     	// Remove the Java package name, if present.
@@ -74,14 +138,12 @@ public class PredicateEncoder {
     	if (finish<0){
     		finish = length;
     	}
-
     	// replace $XXXX with character with code XXXX
     	StringBuilder sb = new StringBuilder(length);
     	int index = start;
     	int middle = index;
     	while (index<finish){
     		index = className.indexOf('$', index);
-
     		if (index<0){
     			index = finish;
     		} else if (index+4<finish){
@@ -111,12 +173,11 @@ public class PredicateEncoder {
     	}
     	return sb.toString();
     }
-
-//    public static void main(String argv[]) {
-//		String p = argv[0];
-//		String f = argv[1];
-//		int n = (Integer.valueOf(argv[2])).intValue();
-//		System.out.println(p + ":" + f + "/" + n);
-//		System.out.println(PredicateEncoder.encode(p,f,n));
-//    }
+    public static void main(String argv[]) {
+	String p = argv[0];
+	String f = argv[1];
+	int n = (Integer.valueOf(argv[2])).intValue();
+	System.out.println(p + ":" + f + "/" + n);
+	System.out.println(PredicateEncoder.encode(p,f,n));
+    }
 }

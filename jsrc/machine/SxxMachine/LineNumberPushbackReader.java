@@ -1,25 +1,21 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
 import java.io.IOException;
 import java.io.PushbackReader;
 import java.io.Reader;
-
 public class LineNumberPushbackReader extends PushbackReader {
-
 	/** The current line number */
     private int lineNumber = 0;
-
     /** The line number of the mark, if any */
     private int markedLineNumber; // Defaults to 0
-
 	public LineNumberPushbackReader(Reader in) {
 		super(in);
 	}
-
 	public LineNumberPushbackReader(Reader in, int size) {
 		super(in, size);
 	}
-
     /**
      * Set the current line number.
      *
@@ -31,7 +27,6 @@ public class LineNumberPushbackReader extends PushbackReader {
     public void setLineNumber(int lineNumber) {
         this.lineNumber = lineNumber;
     }
-
     /**
      * Get the current line number.
      *
@@ -40,7 +35,7 @@ public class LineNumberPushbackReader extends PushbackReader {
      * @see #setLineNumber
      */
     public int getLineNumber() {
-        return lineNumber;
+        return this.lineNumber;
     }
     
     /**
@@ -54,17 +49,16 @@ public class LineNumberPushbackReader extends PushbackReader {
      * @throws  IOException
      *          If an I/O error occurs
      */
-    @SuppressWarnings("fallthrough")
+    @Override
     public int read() throws IOException {
-        synchronized (lock) {
+        synchronized (this.lock) {
             int c = super.read();
             if (c=='\n'){
-            	lineNumber++;
+            	this.lineNumber++;
             }
             return c;
         }
     }
-
     /**
      * Read characters into a portion of an array.  Whenever a <a
      * href="#lt">line terminator</a> is read the current line number is
@@ -85,27 +79,22 @@ public class LineNumberPushbackReader extends PushbackReader {
      * @throws  IOException
      *          If an I/O error occurs
      */
-    @SuppressWarnings("fallthrough")
+    @Override
     public int read(char cbuf[], int off, int len) throws IOException {
-        synchronized (lock) {
+        synchronized (this.lock) {
             int n = super.read(cbuf, off, len);
-
             for (int i = off; i < off + n; i++) {
                 if (cbuf[i]=='\n'){
-                	lineNumber++;
+                	this.lineNumber++;
                 }
 			}
-
             return n;
         }
     }
-
     /** Maximum skip-buffer size */
     private static final int maxSkipBufferSize = 8192;
-
     /** Skip buffer, null until allocated */
     private char skipBuffer[] = null;
-
     /**
      * Skip characters.
      *
@@ -120,16 +109,17 @@ public class LineNumberPushbackReader extends PushbackReader {
      * @throws  IllegalArgumentException
      *          If <tt>n</tt> is negative
      */
+    @Override
     public long skip(long n) throws IOException {
         if (n < 0)
             throw new IllegalArgumentException("skip() value is negative");
         int nn = (int) Math.min(n, maxSkipBufferSize);
-        synchronized (lock) {
-            if ((skipBuffer == null) || (skipBuffer.length < nn))
-                skipBuffer = new char[nn];
+        synchronized (this.lock) {
+            if ((this.skipBuffer == null) || (this.skipBuffer.length < nn))
+                this.skipBuffer = new char[nn];
             long r = n;
             while (r > 0) {
-                int nc = read(skipBuffer, 0, (int) Math.min(r, nn));
+                int nc = read(this.skipBuffer, 0, (int) Math.min(r, nn));
                 if (nc == -1)
                     break;
                 r -= nc;
@@ -137,7 +127,6 @@ public class LineNumberPushbackReader extends PushbackReader {
             return n - r;
         }
     }
-
     /**
      * Mark the present position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point, and will also reset
@@ -151,13 +140,13 @@ public class LineNumberPushbackReader extends PushbackReader {
      * @throws  IOException
      *          If an I/O error occurs
      */
+    @Override
     public void mark(int readAheadLimit) throws IOException {
-        synchronized (lock) {
+        synchronized (this.lock) {
             super.mark(readAheadLimit);
-            markedLineNumber = lineNumber;
+            this.markedLineNumber = this.lineNumber;
         }
     }
-
     /**
      * Reset the stream to the most recent mark.
      *
@@ -165,27 +154,26 @@ public class LineNumberPushbackReader extends PushbackReader {
      *          If the stream has not been marked, or if the mark has been
      *          invalidated
      */
+    @Override
     public void reset() throws IOException {
-        synchronized (lock) {
+        synchronized (this.lock) {
             super.reset();
-            lineNumber = markedLineNumber;
+            this.lineNumber = this.markedLineNumber;
         }
     }
-
 	@Override
 	public void unread(int c) throws IOException {		
 		super.unread(c);
 		if (c=='\n'){
-			lineNumber--;
+			this.lineNumber--;
 		}
 	}
-
 	@Override
 	public void unread(char[] cbuf, int off, int len) throws IOException {
 		super.unread(cbuf, off, len);
         for (int i = off; i < off + len; i++) {
             if (cbuf[i]=='\n'){
-            	lineNumber--;
+            	this.lineNumber--;
             }
 		}
 	}

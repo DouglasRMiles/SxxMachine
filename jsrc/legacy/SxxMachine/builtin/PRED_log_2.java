@@ -33,24 +33,24 @@ import SxxMachine.Term;
  */
 public class PRED_log_2 extends P2 {
 
-	public PRED_log_2(Term arg1, Term arg2, Operation cont) {
-		this.arg1 = arg1;
-		this.arg2 = arg2;
+	public PRED_log_2(Term a0, Term a1, Operation cont) {
+		this.LARG[0] = a0; //0];
+		this.LARG[1] = a1; //1];
 		this.cont = cont;
 	}
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
 
-		final Term a1 = arg1.dereference();
-		final Term a2 = arg2.dereference();
+		final Term a1 = LARG[0].dref();
+		final Term a2 = LARG[1].dref();
 
 		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
 		}
 
-		final Logger logger = Logger.getLogger(a1.arg(0).name());
-		final Level level = LEVELS.getOrDefault(a1.arg(1), Level.INFO);
+		final Logger logger = Logger.getLogger(a1.arg0(0).name());
+		final Level level = LEVELS.getOrDefault(a1.arg0(1), Level.INFO);
 		logger.log(level, a2::toString);
 		return cont;
 	}

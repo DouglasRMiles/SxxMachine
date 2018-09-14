@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.exceptions.*;
 
 /**
  * Superclass any single step operation in the Prolog interpreter.

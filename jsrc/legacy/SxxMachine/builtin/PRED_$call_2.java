@@ -1,8 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.SystemException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
@@ -10,6 +7,9 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.SystemException;
 
 /**
  * <code>'$call'/2</code><br>
@@ -25,16 +25,16 @@ class PRED_$call_2 extends Predicate.P2 {
 	private final static Term[] NO_ARGS = new Term[0];
 
 	public PRED_$call_2(Term a1, Term a2, Operation cont) {
-		arg1 = a1;
-		arg2 = a2;
+		LARG[0] = a1;
+		LARG[1] = a2;
 		this.cont = cont;
 	}
 
 	public Operation exec(Prolog engine) {
 		engine.setB0();
 		Term a1, a2;
-		a1 = arg1.dereference(); // a1 must be atom of package name
-		a2 = arg2.dereference(); // a2 must be callable name
+		a1 = LARG[0].dref(); // a1 must be atom of package name
+		a2 = LARG[1].dref(); // a2 must be callable name
 
 		String functor;
 		int arity;

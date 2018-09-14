@@ -1,4 +1,10 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
+
+import prolog.terms.Real;
+
 /**
  * The superclass of classes for integers and floating point numbers.
  *
@@ -6,14 +12,36 @@ package SxxMachine;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public abstract class NumberTerm extends Term {
+public abstract class NumberTerm extends Real {
+	
+  @Override
+  public NumberTerm functor() {
+    return this;
+  }
+  
+  abstract public String toAtomName() ;
+  @Override
+  protected
+  void toStringImpl(int printFlags, StringBuilder sb) {
+     sb.append(toAtomName());
+    
+  }
+
+	@Override
+	public boolean isNumber() {
+		return true;
+	}
+	@Override
+  public boolean isNonvar() {
+		return true;
+	}
     /** Returns the numeric value represented by this object after conversion to type <code>int</code>. */
     abstract public int intValue();
     /** Returns the numeric value represented by this object after conversion to type <code>long</code>. */
+    @Override
     abstract public long longValue();
     /** Returns the numeric value represented by this object after conversion to type <code>double</code>. */
     abstract public double doubleValue();
-
     /** 
      * Compares two <code>NumberTerm</code> objects numerically.
      * @param t the <code>NumberTerm</code> to compare with.
@@ -25,7 +53,6 @@ public abstract class NumberTerm extends Term {
      * if this object is numerically greater than the argument <code>NumberTerm</code>.
      */
     abstract public int arithCompareTo(NumberTerm t);
-
     /** Returns a <code>NumberTerm</code> whose value is <code>abs(this)</code>. */
     abstract public NumberTerm abs();
     /** Returns a <code>NumberTerm</code> whose value is <code>acos(this)</code>. */
@@ -100,7 +127,6 @@ public abstract class NumberTerm extends Term {
     abstract public NumberTerm truncate();
     /** Returns a <code>NumberTerm</code> whose value is <code>(this ^ t)</code>. */
     abstract public NumberTerm xor(NumberTerm t);
-
     @Override
     public final boolean isImmutable() {
     	return true;

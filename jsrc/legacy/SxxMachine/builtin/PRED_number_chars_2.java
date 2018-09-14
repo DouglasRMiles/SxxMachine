@@ -1,8 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.SyntaxException;
 import SxxMachine.DoubleTerm;
 import SxxMachine.IntegerTerm;
 import SxxMachine.ListTerm;
@@ -12,7 +9,11 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.SyntaxException;
 /**
  * <code>number_chars/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -21,19 +22,19 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_number_chars_2 extends Predicate.P2 {
     public PRED_number_chars_2(Term a1, Term a2, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 
-	a1 = a1.dereference();
-	a2 = a2.dereference();
+	a1 = a1.dref();
+	a2 = a2.dref();
 	if (a2.isNil())
 	    throw new SyntaxException(this, 2, "character_code_list", a2, "");
 	if ((a1 instanceof VariableTerm)) { // number_chars(-Number, +CharList)
@@ -49,13 +50,13 @@ public class PRED_number_chars_2 extends Predicate.P2 {
 		    throw new PInstantiationException(this, 2);
 		if (!( x instanceof ListTerm))
 		    throw new IllegalTypeException(this, 2, "list", a2);
-		Term car = ((ListTerm)x).car().dereference();
+		Term car = ((ListTerm)x).car().dref();
 		if ((car instanceof VariableTerm))
 		    throw new PInstantiationException(this, 2);
 		if (! (car instanceof SymbolTerm) || ((SymbolTerm)car).name().length() != 1)
 		    throw new IllegalTypeException(this, 2, "character", a2);
 		sb.append(((SymbolTerm)car).name());
-		x = ((ListTerm)x).cdr().dereference();
+		x = ((ListTerm)x).cdr().dref();
 	    }
 	    try {
 		if (! a1.unify(new IntegerTerm(Integer.parseInt(sb.toString())), engine.trail))
@@ -73,7 +74,7 @@ public class PRED_number_chars_2 extends Predicate.P2 {
 	    String s = a1.toString();
 	    Term y = Prolog.Nil;
 	    for (int i=s.length()-1; i>=0; i--) {
-	    	y = new ListTerm(SymbolTerm.create(s.charAt(i)), y);
+	    	y = TermData.CONS(SymbolTerm.create(s.charAt(i)), y);
 	    }
 	    if (! a2.unify(y, engine.trail) ) 
 		return engine.fail();

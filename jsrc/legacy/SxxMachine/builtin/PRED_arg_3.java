@@ -1,8 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
@@ -11,6 +8,9 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
  * <code>arg/3</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -19,28 +19,28 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_arg_3 extends Predicate.P3 {
     public PRED_arg_3(Term a1, Term a2, Term a3, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
-	arg3 = a3;
+	LARG[0] = a1;
+	LARG[1] = a2;
+	LARG[2] = a3;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2, a3;
-	a1 = arg1;
-	a2 = arg2;
-	a3 = arg3;
+	a1 = LARG[0];
+	a2 = LARG[1];
+	a3 = LARG[2];
 
 	Term[] args;
 	int arity, argNo;
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if((a1 instanceof VariableTerm))
 	    throw new PInstantiationException(this, 1);
 	else if(! (a1 instanceof IntegerTerm))
 	    throw new IllegalTypeException(this, 1, "integer", a1);
-	a2 = a2.dereference();
+	a2 = a2.dref();
 	if ((a2 instanceof ListTerm)) {
 	    args = new Term[2];
 	    args[0] = ((ListTerm)a2).car();

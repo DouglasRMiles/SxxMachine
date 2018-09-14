@@ -1,4 +1,7 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 /**
  * Implementing this interface allows an object to be pushed to trail stack.<br>
  * @see Trail
@@ -11,10 +14,7 @@ public interface Undoable {
      * Undoes this object.<br> 
      * @see Trail#unwind(int) 
     */
-    void undo();
+    public void undo();
 }
-
-
-
 
 

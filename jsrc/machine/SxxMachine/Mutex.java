@@ -1,10 +1,11 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 public class Mutex {
 	
 	private static final ConcurrentMap<String, Lock> LOCKS = new ConcurrentHashMap<String, Lock>();
@@ -25,5 +26,4 @@ public class Mutex {
 		}				
 		return lock;
 	}
-
 }

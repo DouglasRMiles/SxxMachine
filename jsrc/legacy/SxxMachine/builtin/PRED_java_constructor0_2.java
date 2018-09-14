@@ -2,11 +2,7 @@ package SxxMachine.builtin;
 
 import java.lang.reflect.Constructor;
 
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.JavaObjectTerm;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.JavaPredicate;
 import SxxMachine.Operation;
 import SxxMachine.Prolog;
@@ -14,6 +10,10 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
  * <code>java_constructor0/2</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -21,21 +21,21 @@ import SxxMachine.VariableTerm;
  * @version 1.1
  */
 public class PRED_java_constructor0_2 extends JavaPredicate {
-    private final Term arg1, arg2;
+    // private final Term LARG[0], LARG[1];
 
     public PRED_java_constructor0_2(Term a1, Term a2, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, this, arg1);
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, this, LARG[0]);
         engine.setB0();
 
 	Term a1, a2;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 
 	Class clazz = null;
 	Object instance = null;
@@ -47,11 +47,11 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 
 	try {
 	    // 2nd. argument (unbound variable)
-	    a2 = a2.dereference();
+	    a2 = a2.dref();
 	    if (! (a2 instanceof VariableTerm))
 		throw new IllegalTypeException(this, 2, "variable", a2);
 	    // 1st. argument (atom or callable term)
-	    a1 = a1.dereference();
+	    a1 = a1.dref();
 	    if ((a1 instanceof VariableTerm))
 		throw new PInstantiationException(this, 1);
 	    if (!(a1 instanceof SymbolTerm) && !(a1 instanceof StructureTerm))
@@ -72,9 +72,9 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 	    pArgs  = ((StructureTerm)a1).args();
 	    jArgs  = new Object[arity];
 	    for (int i=0; i<arity; i++) {
-		pArgs[i] = pArgs[i].dereference();
-		if (! (pArgs[i] instanceof JavaObjectTerm))
-		    pArgs[i] = new JavaObjectTerm(pArgs[i]);
+		pArgs[i] = pArgs[i].dref();
+		if (! (pArgs[i] instanceof FFIObjectTerm))
+		    pArgs[i] = new FFIObjectTerm(pArgs[i]);
 		jArgs[i] = pArgs[i].toJava();
 	    }
 		for (Constructor constr : constrs) {
@@ -111,6 +111,6 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 	if (Term.instanceOfTerm(obj))
 	    return (Term)obj;
 	else 
-	    return new JavaObjectTerm(obj);
+	    return new FFIObjectTerm(obj);
     }
 }

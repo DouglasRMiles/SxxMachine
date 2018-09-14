@@ -1,8 +1,9 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
-
 /**
  * Trail stack.<br>
  * The class <code>Trail</code> represents a trail stack.<br>
@@ -16,103 +17,85 @@ import java.util.Deque;
 public final class Trail {
 	/** list of already filled buffers */
 	private final Deque<Undoable[]> buffersList;
-
 	private final int pageSize;
 	/** An array of <code>Undoable</code> entries. */
 	private Undoable[] buffer;
-
 	/** the top index of this <code>Trail</code>. */
 	private int top;
-
 	private int base;
-
 	/** Current timestamp of the top of {@link ChoicePointStack}. */
 	long timeStamp;
-
+	final Prolog mach;
 	/** Constructs a new trail stack. */
-	public Trail() {
-		this(2048);
+	public Trail(Prolog m) {
+		this(m,2048);
 	}
-
 	/** Constructs a new trail stack with the given page size. */
-	public Trail(int pageSize) {
-		this.pageSize = pageSize;
-		buffersList = new ArrayDeque<Undoable[]>(1000);
-		buffer = new Undoable[pageSize];
-		top = -1;
-		base = 0;
+	public Trail(Prolog m, int pageSize) {
+		this(m, pageSize, 1000);
 	}
-
 	/** Constructs a new trail stack with the given page size and initial number of pages. */
-	public Trail(int pageSize, int pages) {
+	public Trail(Prolog m, int pageSize, int pages) {
+		this.mach = m;
 		this.pageSize = pageSize;
-		buffersList = new ArrayDeque<Undoable[]>(pages);
-		buffer = new Undoable[pageSize];
-		top = -1;
-		base = 0;
+		this.buffersList = new ArrayDeque<Undoable[]>(pages);
+		this.buffer = new Undoable[pageSize];
+		this.top = -1;
+		this.base = 0;
 	}
-
 	/** Discards all entries. */
 	public void init() { deleteAll(); }
-
 	/** Pushs an entry to this <code>Trail</code>. */
 	public void push(Undoable t) {
-		if (++top >= pageSize) {
-			buffersList.addLast(buffer);
-			buffer = new Undoable[pageSize];
-			top = 0;
-			base+=pageSize;
+		if (++this.top >= this.pageSize) {
+			this.buffersList.addLast(this.buffer);
+			this.buffer = new Undoable[this.pageSize];
+			this.top = 0;
+			this.base+=this.pageSize;
 		}
-		buffer[top] = t;
+		this.buffer[this.top] = t;
 	}
-
 	/** Pops an entry from this <code>Trail</code>. */
 	public Undoable pop() {
-		Undoable t = buffer[top];
-		buffer[top--] = null;
-		if (top<0 && base>0){
-			buffer = buffersList.pollLast();
-			top = buffer.length-1;
-			base -= pageSize;
+		Undoable t = this.buffer[this.top];
+		this.buffer[this.top--] = null;
+		if (this.top<0 && this.base>0){
+			this.buffer = this.buffersList.pollLast();
+			this.top = this.buffer.length-1;
+			this.base -= this.pageSize;
 		}
 		return t;
 	}
-
 	/** Discards all entries. */
 	private void deleteAll() {
-		buffersList.clear();
-		buffer = new Undoable[buffer.length];
-		top = -1;
-		base = 0;
+		this.buffersList.clear();
+		this.buffer = new Undoable[this.buffer.length];
+		this.top = -1;
+		this.base = 0;
 	}
-
 	/** Tests if this stack has no entry. */
 	public boolean empty() {
-		return base==0 && top == -1;
+		return this.base==0 && this.top == -1;
 	}
-
 	/** Current allocation of the trail storage array.  */
-	public int max() { return base+pageSize; }
-
+	public int max() { return this.base+this.pageSize; }
 	/** Returns the value of <code>top</code>.
 	 * @see #top
 	 */
-	public int top() { return base + top; }
-
+	public int top() { return this.base + this.top; }
 	/** Unwinds all entries after the value of <code>i</code>. */
 	public void unwind(int i) {
-		while (base + top > i) {
-			Undoable t = buffer[top];
-			buffer[top--] = null;
-			if (top<0 && base>0){
-				buffer = buffersList.pollLast();
-				top = pageSize-1;
-				base -= pageSize;
+		while (this.base + this.top > i) {
+			Undoable t = this.buffer[this.top];
+			this.buffer[this.top--] = null;
+			if (this.top<0 && this.base>0){
+				this.buffer = this.buffersList.pollLast();
+				this.top = this.pageSize-1;
+				this.base -= this.pageSize;
 			}
 			t.undo();
 		}
 	}
-
 //    /** Shows the contents of this <code>Trail</code>. */
 //    public void show() {
 //	if (empty()) {
@@ -124,5 +107,8 @@ public final class Trail {
 //	    System.out.println(buffer[i]);
 //	}
 //    }
+	public Prolog getProlog() {
+		// TODO Auto-generated method stub
+		return this.mach;
+	}
 }
-

@@ -1,11 +1,8 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.ClosureTerm;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
 import SxxMachine.ListTerm;
 import SxxMachine.NumberTerm;
 import SxxMachine.Operation;
@@ -14,7 +11,11 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
  * <code>functor/3</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -25,28 +26,28 @@ public class PRED_functor_3 extends Predicate.P3 {
     private static final SymbolTerm SYM_DOT = SymbolTerm.intern(".");
 
     public PRED_functor_3(Term a1, Term a2, Term a3, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
-	arg3 = a3;
+	LARG[0] = a1;
+	LARG[1] = a2;
+	LARG[2] = a3;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2, a3;
-	a1 = arg1;
-	a2 = arg2;
-	a3 = arg3;
+	a1 = LARG[0];
+	a2 = LARG[1];
+	a3 = LARG[2];
 
 	// functor(?X,+Y,+Z)
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if ((a1 instanceof VariableTerm)) {
-	    a2 = a2.dereference();
+	    a2 = a2.dref();
 	    if ((a2 instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
-	    if (!(a2 instanceof SymbolTerm) &&  !(a2 instanceof NumberTerm) && !(a2 instanceof JavaObjectTerm) && !(a2 instanceof ClosureTerm))
+	    if (!(a2 instanceof SymbolTerm) &&  !(a2 instanceof NumberTerm) && !(a2 instanceof FFIObjectTerm) && !(a2 instanceof ClosureTerm))
 		throw new IllegalTypeException(this, 2, "atomic", a2);
-	    a3 = a3.dereference();
+	    a3 = a3.dref();
 	    if ((a3 instanceof VariableTerm))
 		throw new PInstantiationException(this, 3);
 	    if (! (a3 instanceof IntegerTerm))
@@ -62,7 +63,7 @@ public class PRED_functor_3 extends Predicate.P3 {
 	    if (! (a2 instanceof SymbolTerm))
 		throw new IllegalTypeException(this, 2, "atom", a2);
 	    if (n == 2  &&  a2.equals(SYM_DOT)) {
-		Term t = new ListTerm(new VariableTerm(engine), new VariableTerm(engine));
+		Term t = TermData.CONS(new VariableTerm(engine), new VariableTerm(engine));
 		if(! a1.unify(t, engine.trail))
 		    return engine.fail();
 		return cont;
@@ -78,7 +79,7 @@ public class PRED_functor_3 extends Predicate.P3 {
 	// functor(+X,?Y,?Z)
 	Term functor;
 	IntegerTerm arity;
-	if ((a1 instanceof SymbolTerm) || (a1 instanceof NumberTerm) || (a1 instanceof JavaObjectTerm) || (a1 instanceof ClosureTerm)) {
+	if ((a1 instanceof SymbolTerm) || (a1 instanceof NumberTerm) || (a1 instanceof FFIObjectTerm) || (a1 instanceof ClosureTerm)) {
 	    functor = a1;
 	    arity   = new IntegerTerm(0);
 	} else if ((a1 instanceof ListTerm)) {

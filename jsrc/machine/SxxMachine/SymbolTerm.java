@@ -1,8 +1,14 @@
 package SxxMachine;
+
+import SxxMachine.exceptions.*;
+
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
+import java.util.Comparator;
 import java.util.concurrent.ConcurrentHashMap;
+
+import prolog.terms.Const;
 /**
  * Atom.<br>
  * The <code>SymbolTerm</code> class represents a Prolog atom.<br>
@@ -16,117 +22,132 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public abstract class SymbolTerm extends Term {
+@SuppressWarnings({"unused","rawtypes"})
+public abstract class SymbolTerm extends Const {
+  @Override
+  public int type() {
+    return TYPE_SYMBOL;
+  }
+	@Override
+	public boolean isSymbol() {
+		return true;
+	}
     /** Symbol table. */
     private static final ConcurrentHashMap<Key, InternRef> SYMBOL_TABLE =
       new ConcurrentHashMap<Key, InternRef>();
-
     private static final ReferenceQueue<Interned> DEAD = new ReferenceQueue<Interned>();
-
     private static final class Key {
       final String name;
       final int arity;
-
       Key(String n, int a) {
-        name = n;
-        arity = a;
+        this.name = n;
+        this.arity = a;
       }
-
       @Override
       public int hashCode() {
-        return name.hashCode();
+        return this.name.hashCode();
       }
-
       @Override
       public boolean equals(Object other) {
         Key k = (Key) other;
-        return arity == k.arity && name.equals(k.name);
+        return this.arity == k.arity && this.name.equals(k.name);
       }
     }
-
     private static final class InternRef extends WeakReference<Interned> {
       final Key key;
-
       InternRef(Key key, Interned sym) {
         super(sym, DEAD);
         this.key = key;
       }
     }
-
-    private static final class Dynamic extends SymbolTerm {
-      Dynamic(String name, int arity) {
+    public static class Dynamic extends SymbolTerm {
+      protected Dynamic(String name, int arity) {
         super(name, arity);
       }
+      protected Dynamic(String name) {
+        super(name, -1);
+      }
+      @Override
+      public String toString() {
+        int arity = arity();
+        return "/*D*/"+name()+"/"+arity;
+      }
     }
-
-    private static final class Interned extends SymbolTerm {
+    public static final class Interned extends SymbolTerm {
       Interned(String name, int arity) {
         super(name, arity);
       }
+      @Override
+      public String toString() {
+        int arity = arity();
+        if(arity==0) return name();
+        return name()+"/"+arity;
+      }
     }
     
-    private static final class Partial extends SymbolTerm {
+    public static final class Partial extends SymbolTerm {
         private int hash = 0;
     	
     	Partial(String name, int arity, int start, int finish){
     		super(name, arity, start, finish);
     	}
+        public String toString() {
+          int arity = arity();
+          return "/*P"+start+":"+finish+"*/"+name()+"/"+arity;
+        }
     	
         @Override
-        public boolean equals(Object obj) {
+        public boolean equalsTerm(Term obj, Comparator comparator) {
         	if (this==obj){
         		return true;
-        	} else if (obj instanceof SymbolTerm){
+        	} else if (obj .isSymbol()){
         		SymbolTerm that = (SymbolTerm) obj;
-        		int thisLength = finish - start;
+        		int thisLength = this.finish - this.start;
         		int thatLength = that.finish - that.start; 		
         		return this.arity==that.arity && (thisLength==thatLength) &&    				
-        				this.name.regionMatches(start, that.name, that.start, thisLength);
+        				this.name.regionMatches(this.start, that.name, that.start, thisLength);
         	}
         	return false;        	
         }
         
         @Override
-        public boolean unify(Term t, Trail trail) {
-            t = t.dereference();
-            return (t instanceof VariableTerm) ? ((VariableTerm) t).bind(this, trail) : equals(t);
+        public boolean unifyImpl(Term t, Trail trail) {
+            t = t.dref();
+            Comparator comparator = Term.Unifiable;
+            return (t .isVar()) ? ( t).bind(this, trail) : equalsTerm(t, comparator);
         }
         
         @Override
-        public int hashCode() {
-            int h = hash;
-			if (h == 0 && finish-start > 0) {
-				h = name.substring(start, finish).hashCode(); // use the same hashCode function as in SymbolTerm
-				hash = h;
+        public int termHashCodeImpl() {
+            int h = this.hash;
+			if (h == 0 && this.finish-this.start > 0) {
+				h = this.name.substring(this.start, this.finish).hashCode(); // use the same hashCode function as in SymbolTerm
+				this.hash = h;
 			}
             return h;
         }
         
         @Override
         public final String name() {
-        	return name.substring(start, finish);
+        	return this.name.substring(this.start, this.finish);
         }
         
         @Override
-        public String toString() { return name(); }
-        
         public Object toJava() { return name(); }
         
-        @Override // Overridden for performance
-        public String toQuotedString() { return Token.toQuotedString(name()); }
-        
         @Override
-        public void toString(StringBuilder sb){
-        	sb.append(name());
-        }
-        @Override
-        public void toQuotedString(StringBuilder sb){
-        	Token.toQuotedString(name(), sb);
+        public void toStringImpl(int printingFlags, StringBuilder sb) {
+          String name = this.name();
+          if (TermData.isQuoted(printingFlags))
+            Token.toQuotedString(name, sb);
+          else
+            sb.append(name);
         }
     }
-
+    
+    
     private static final SymbolTerm colon2 = intern(":", 2);
-
+    public static final Term GOALS = intern("$goals");
     /** Returns a Prolog atom for the given character. */
     public static SymbolTerm create(char c) {
       if (0 <= c && c <= 127)
@@ -134,12 +155,10 @@ public abstract class SymbolTerm extends Term {
       else
         return create(Character.toString(c));
     }
-
     /** Returns a Prolog atom for the given name. */
     public static SymbolTerm create(String _name) {
       return new Dynamic(_name, 0);
     }
-
     /** Returns a Prolog atom for the given name. */
     public static SymbolTerm create(String _name, int arity) {
       // For a non-zero arity try to reuse the term, its probable this is a
@@ -148,27 +167,25 @@ public abstract class SymbolTerm extends Term {
       // likely to already be in the cache.
       if (arity != 0)
         return softReuse(_name, arity);
-
       return new Dynamic(_name, 0);
     }
-
     /** Returns a Prolog functor for the given name and arity. */
     public static StructureTerm create(String pkg, String name, int arity) {
       // This is likely a specific function that exists in code, so try to reuse
       // the symbols that are involved in the term.
       return new StructureTerm(colon2, softReuse(pkg, 0), softReuse(name, arity));
     }
-
     /** Returns a Prolog atom for the given name. */
     public static SymbolTerm intern(String _name) {
     	return intern(_name, 0);
     }
-
     /** Returns a Prolog functor for the given name and arity. */
     public static SymbolTerm intern(String _name, int _arity) {
-//      _name = _name.intern();
+      if(_name==null) {
+        soopsy();
+      }
+      _name = _name.intern();
       Key key = new Key(_name, _arity);
-
       Reference<? extends Interned> ref = SYMBOL_TABLE.get(key);
       if (ref != null) {
         Interned sym = ref.get();
@@ -177,9 +194,7 @@ public abstract class SymbolTerm extends Term {
         SYMBOL_TABLE.remove(key, ref);
         ref.enqueue();
       }
-
       gc();
-
       Interned sym = new Interned(_name, _arity);
       InternRef nref = new InternRef(key, sym);
       InternRef oref = SYMBOL_TABLE.putIfAbsent(key, nref);
@@ -190,14 +205,12 @@ public abstract class SymbolTerm extends Term {
       }
       return sym;
     }
-
     static void gc() {
       Reference<? extends Interned> ref;
       while ((ref = DEAD.poll()) != null) {
         SYMBOL_TABLE.remove(((InternRef) ref).key, ref);
       }
     }
-
     private static SymbolTerm softReuse(String _name, int _arity) {
       Key key = new Key(_name, _arity);
       Reference<? extends Interned> ref = SYMBOL_TABLE.get(key);
@@ -208,58 +221,52 @@ public abstract class SymbolTerm extends Term {
         SYMBOL_TABLE.remove(key, ref);
         ref.enqueue();
       }
-
       // If reuse wasn't possible, construct the term dynamically.
       return new Dynamic(_name, _arity);
     }
-
     /** Holds a string representation of this <code>SymbolTerm</code>.
      *  The string can be shared (partially) with other <code>SymbolTerm</code> instances */
-    protected final String name;
-
+   // protected final String name;
+    protected final String quoted;
     /** Holds the arity of this <code>SymbolTerm</code>. */
     protected final int arity;
     /** Holds start index in name */
     protected final int start;
     /** Holds end Index in name */
     protected final int finish;
-
     /** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
     protected SymbolTerm(String _name, int _arity) {
-		name  = _name==null?"":_name;
-		arity = _arity;
-		start = 0;
-		finish = name.length();
+      super(_name);
+		quoted = Token.toQuotedString(name());
+		this.arity = _arity;
+		this.start = 0;
+		this.finish = this.name.length();
     }
-
     /** Constructs a new Prolog atom (or functor) with the given symbol name, arity and start/finish. */
     protected SymbolTerm(String _name, int _arity, int start, int finish) {
-		name  = _name==null?"":_name;
-		arity = _arity;
+       super(_name);
+		quoted = Token.toQuotedString(name());
+		this.arity = _arity;
 		this.start = start;
 		this.finish = finish;
     }
-
     /** Returns the arity of this <code>SymbolTerm</code>.
      * @return the value of <code>arity</code>.
      * @see #arity
      */
-    public final int arity() { return arity; }
-
+    @Override
+    public final int arity() { return this.arity; }
     /** Returns the string representation of this <code>SymbolTerm</code>.
      * @return the value of <code>name</code>.
      * @see #name
      */
+    @Override
     public String name() {
-    	return name;
+    	return this.name;
     }
-
-    public final int start() { return start; }
-
-    public final int finish() {return finish; }
-
-    public final String base() { return name; }
-
+    public final int start() { return this.start; }
+    public final int finish() {return this.finish; }
+    public final String base() { return this.name; }
     /**
      * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
      * but name of new instance is a substring of this name starting from given beginIndex.
@@ -270,12 +277,11 @@ public abstract class SymbolTerm extends Term {
     	if (beginIndex<0){
     		throw new StringIndexOutOfBoundsException(beginIndex);
     	}
-    	int subLen = finish-start-beginIndex;
+    	int subLen = this.finish-this.start-beginIndex;
     	if (subLen<0){
     		throw new StringIndexOutOfBoundsException(subLen);
     	}
-
-    	return (beginIndex == 0) ? this : new Partial(name, arity, start+beginIndex, finish);
+    	return (beginIndex == 0) ? this : new Partial(this.name, this.arity, this.start+beginIndex, this.finish);
     }
     /**
      * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
@@ -288,71 +294,64 @@ public abstract class SymbolTerm extends Term {
         if (beginIndex < 0) {
             throw new StringIndexOutOfBoundsException(beginIndex);
         }
-        if (endIndex > finish-start) {
+        if (endIndex > this.finish-this.start) {
             throw new StringIndexOutOfBoundsException(endIndex);
         }
         int subLen = endIndex - beginIndex;
         if (subLen < 0) {
             throw new StringIndexOutOfBoundsException(subLen);
         }
-        return ((beginIndex == 0) && (endIndex == finish-start)) ? this
-                : new Partial(name, arity, start+beginIndex, start+endIndex);
+        return ((beginIndex == 0) && (endIndex == this.finish-this.start)) ? this
+                : new Partial(this.name, this.arity, this.start+beginIndex, this.start+endIndex);
     }
-
     public SymbolTerm concat(SymbolTerm that){
     	StringBuilder sb = new StringBuilder(this.finish-this.start+that.finish-that.start());
     	sb.append(this.name, this.start, this.finish);
     	sb.append(that.name, that.start, that.finish);
     	return SymbolTerm.create(sb.toString());
     }
-
     /**
      * Returns the name length
      * @return
      */
     public int length() {
-    	return finish - start;
+    	return this.finish - this.start;
     }
-
     // TODO startsWith(), endsWith(), indexOf()
-
     /* Term */
-    public boolean unify(Term t, Trail trail) {
-      t = t.val; // fast dereference
-      return (t instanceof VariableTerm) ? ((VariableTerm) t).bind(this, trail) : 
+    @Override
+    public boolean unifyImpl(Term t, Trail trail) {
+      t = t.dref(); // fast dereference
+      return (t .isVar()) ? t.bind(this, trail) : 
     	  ((t instanceof Partial) ? t.unify(this, trail) : 
-    		  ((t instanceof SymbolTerm) && (arity==((SymbolTerm)t).arity) && name.equals(((SymbolTerm)t).name)));
+    		  ((t .isSymbol()) && (this.arity==((SymbolTerm)t).arity) && this.name.equals(((SymbolTerm)t).name)));
     }
-
     @Override
-    public int hashCode() {
-    	return name.hashCode();
+    public int termHashCodeImpl() {
+    	return this.name.hashCode();
     }
-
     @Override
-    public boolean equals(Object obj) {
-    	return (obj instanceof Partial) ? ((Partial)obj).equals(this) :
-    		((obj instanceof SymbolTerm) && (arity==((SymbolTerm)obj).arity) && name.equals(((SymbolTerm)obj).name));
+    public boolean equalsTerm(Term obj, Comparator comparator) {
+    	return (obj instanceof Partial) ? ((Partial)obj).equalsTerm(this, comparator) :
+    		((obj .isSymbol()) && (this.arity==((SymbolTerm)obj).arity) && this.name.equals(((SymbolTerm)obj).name));
     }
-
 //    private static boolean eq(SymbolTerm a, Term b0) {
 //      if (a == b0) {
 //        return true;
-//      } else if (b0 instanceof SymbolTerm && (a instanceof Dynamic || b0 instanceof Dynamic)) {
+//      } else if (b0 .isSymbol() && (a instanceof Dynamic || b0 instanceof Dynamic)) {
 //        SymbolTerm b = (SymbolTerm) b0;
 //        return a.arity == b.arity && a.name.equals(b.name);
 //      } else {
 //        return false;
 //      }
 //    }
-
     /**
      * @return the <code>boolean</code> whose value is
      * <code>convertible(String.class, type)</code>.
      * @see Term#convertible(Class, Class)
      */
+    @Override
     public boolean convertible(Class type) { return convertible(String.class, type); }
-
     /**
      * Returns a <code>java.lang.String</code> corresponds to this <code>SymbolTerm</code>
      * according to <em>Prolog Cafe interoperability with Java</em>.
@@ -360,24 +359,21 @@ public abstract class SymbolTerm extends Term {
      * this <code>SymbolTerm</code>.
      */
     @Override
-    public Object toJava() { return name; }
-
-    @Override // Overridden for performance
-    public String toQuotedString() { return Token.toQuotedString(name); }
-
-    /** Returns a string representation of this <code>SymbolTerm</code>. */
-    @Override // Overridden for performance
-    public String toString() { return name; }
+    public Object toJava() { return this.name; }
 
     @Override
-    public void toString(StringBuilder sb){
-    	sb.append(name);
+    public void toStringImpl(int printingFlags, StringBuilder sb){
+      String name = this.name;
+      if(super.isQuoted(printingFlags)) {
+        sb.append(quoted);
+      } else {
+        sb.append(name);      
+      }
     }
     @Override
-    public void toQuotedString(StringBuilder sb){
-    	Token.toQuotedString(name, sb);
+    public String toAtomName() throws PrologException {
+      return name();
     }
-
     /* Comparable */
     /**
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -388,10 +384,11 @@ public abstract class SymbolTerm extends Term {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if ((anotherTerm instanceof VariableTerm) || (anotherTerm instanceof NumberTerm))
+	if ((anotherTerm .isVar()) || (anotherTerm .isNumber()))
 	    return AFTER;
-	if (! (anotherTerm instanceof SymbolTerm))
+	if (! (anotherTerm .isSymbol()))
 	    return BEFORE;
 	if (this == anotherTerm)
 	    return EQUAL;
@@ -403,9 +400,26 @@ public abstract class SymbolTerm extends Term {
 	    return y;
 //		throw new InternalException("SymbolTerm is not unique");
     }
-
     @Override
     public final boolean isImmutable() {
     	return true;
     }
+    @Override
+    boolean IsNil() {
+      if (Prolog.Nil == this)
+          return true;
+      if ( this.name().equals("[]")) {
+          //throw
+      }
+      return false;
+  }
+    public static SymbolTerm internToken(String _name) {
+      SymbolTerm tok = intern(_name);
+      return tok;
+    }
+    @Override
+    public SymbolTerm functor() {
+      return this;
+    }
+
 }

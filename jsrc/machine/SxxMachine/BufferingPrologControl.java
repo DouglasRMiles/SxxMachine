@@ -1,31 +1,27 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import SxxMachine.exceptions.StopEngineException;
-
 /**
  * Executes Prolog on the current thread, buffering all solutions.
  * <p>
  * Whenever a solution is found for the predicate the arguments are deep-copied
  * and buffered in a result collection.
  */
+@SuppressWarnings({"rawtypes","unchecked"})
 public class BufferingPrologControl extends PrologControl {
   private int resLimit;
   private List resBuffer;
   private boolean engineStopped;
-
   private boolean resSingle;
   private Term[] resTemplate;
-
   public BufferingPrologControl() {
   }
-
   public BufferingPrologControl(PrologMachineCopy pmc) {
     super(pmc);
   }
-
   /**
    * Initialize one or more packages in the interpreter.
    *
@@ -36,10 +32,9 @@ public class BufferingPrologControl extends PrologControl {
     Term goal = SymbolTerm.intern("true");
     Term head = Prolog.Nil;
     for (int i = pkgs.length - 1; 0 <= i; i--)
-      head = new ListTerm(SymbolTerm.intern(pkgs[i]), head);
+      head = TermData.CONS(SymbolTerm.intern(pkgs[i]), head);
     return execute(Prolog.BUILTIN, "initialization", head, goal);
   }
-
   /**
    * Determine if the predicate completes successfully.
    *
@@ -51,7 +46,6 @@ public class BufferingPrologControl extends PrologControl {
   public boolean execute(String pkg, String functor, Term... args) {
     return once(pkg, functor, args) != null;
   }
-
   /**
    * Execute a function and return one solution.
    *
@@ -66,9 +60,8 @@ public class BufferingPrologControl extends PrologControl {
   public Term once(String pkg, String functor, Term arg) {
     setPredicate(pkg, functor, arg);
     setResultTemplate(arg);
-    return (Term) (run(1) ? resBuffer.get(0) : null);
+    return (Term) (run(1) ? this.resBuffer.get(0) : null);
   }
-
   /**
    * Execute a function and return one solution.
    *
@@ -84,9 +77,8 @@ public class BufferingPrologControl extends PrologControl {
   public Term[] once(String pkg, String functor, Term... args) {
     setPredicate(pkg, functor, args);
     setResultTemplate(args);
-    return (Term[]) (run(1) ? resBuffer.get(0) : null);
+    return (Term[]) (run(1) ? this.resBuffer.get(0) : null);
   }
-
   /**
    * Execute a function and return all solutions.
    *
@@ -103,9 +95,8 @@ public class BufferingPrologControl extends PrologControl {
     setPredicate(pkg, functor, arg);
     setResultTemplate(arg);
     run(Integer.MAX_VALUE);
-    return resBuffer;
+    return this.resBuffer;
   }
-
   /**
    * Execute a function and return all solutions.
    *
@@ -118,23 +109,21 @@ public class BufferingPrologControl extends PrologControl {
    * @return a deep copy of {@code args} for each solution found. Empty list if
    *         there are no solutions.
    */
+  
   public List<Term[]> all(String pkg, String functor, Term... args) {
     setPredicate(pkg, functor, args);
     setResultTemplate(args);
     run(Integer.MAX_VALUE);
-    return resBuffer;
+    return this.resBuffer;
   }
-
   private void setResultTemplate(Term t) {
-    resTemplate = new Term[] {t};
-    resSingle = true;
+    this.resTemplate = new Term[] {t};
+    this.resSingle = true;
   }
-
   private void setResultTemplate(Term[] t) {
-    resTemplate = t;
-    resSingle = false;
+    this.resTemplate = t;
+    this.resSingle = false;
   }
-
   /**
    * Execute until the limit is reached.
    *
@@ -144,37 +133,34 @@ public class BufferingPrologControl extends PrologControl {
    *         solutions to the predicate.
    */
   private boolean run(int newLimit) {
-    resLimit = newLimit;
-    resBuffer = new ArrayList(Math.min(newLimit, 16));
-    engineStopped = (resLimit <= resBuffer.size());
-
+    this.resLimit = newLimit;
+    this.resBuffer = new ArrayList(Math.min(newLimit, 16));
+    this.engineStopped = (this.resLimit <= this.resBuffer.size());
     executePredicate();
-    return 0 < resBuffer.size();
+    return 0 < this.resBuffer.size();
   }
-
   @Override
   public boolean isEngineStopped() {
-    return engineStopped;
+    return this.engineStopped ||
+     this.resLimit <= this.resBuffer.size();
   }
-
   @Override
   protected void success() {
-    Term[] r = new Term[resTemplate.length];
-    for (int i = 0; i < resTemplate.length; i++) {
-      r[i] = engine.copy(resTemplate[i]);
+    Term[] r = new Term[this.resTemplate.length];
+    for (int i = 0; i < this.resTemplate.length; i++) {
+      r[i] = this.engine.copy(this.resTemplate[i]);
     }
-    resBuffer.add(resSingle ? r[0] : r);
-    engineStopped = (resLimit <= resBuffer.size());
-    if (engineStopped){
+    this.resBuffer.add(this.resSingle ? r[0] : r);
+    this.engineStopped = (this.resLimit <= this.resBuffer.size());
+    if (this.engineStopped){
       throw new StopEngineException("success");
     }
   }
-
   @Override
   protected void fail() {
-    resLimit = 0;
-    engineStopped = (resLimit <= resBuffer.size());
-    if (engineStopped){
+    this.resLimit = 0;
+    this.engineStopped = (this.resLimit <= this.resBuffer.size());
+    if (this.engineStopped){
       throw new StopEngineException("failure");
     }
   }

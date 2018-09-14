@@ -15,7 +15,7 @@ import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 
 /**
- * <b>log(package:level, format, arg1, arg2)</b> - logs message, specified by <i>format</i> and <i>arg1</i>,<i>arg2</i> to the logger, 
+ * <b>log(package:level, format, LARG[0], LARG[1])</b> - logs message, specified by <i>format</i> and <i>LARG[0]</i>,<i>LARG[1]</i> to the logger, 
  * corresponding to <i>package</i>, under the given <i>level</i>.
  * <p><i>package</i> is expected to be atom. (Variable will cause errors).
  * If package is absent, then current package is automatically added by prolog compiler.
@@ -26,31 +26,31 @@ import SxxMachine.Term;
  * Also lower case variants without quotes are accepted. So log(info,'%s','message') is valid. 
  * <p><i>format</i> - is expected to be an atom, holding format string, that will be supplied to method {@link String#format(String, Object...)}. 
  * Variable will cause error.
- * <p><i>arg1</i> - can be any term, including free variable. It will be converted to string using method {@link Object#toString()}
- * <p><i>arg2</i> - can be any term, including free variable. It will be converted to string using method {@link Object#toString()}
+ * <p><i>LARG[0]</i> - can be any term, including free variable. It will be converted to string using method {@link Object#toString()}
+ * <p><i>LARG[1]</i> - can be any term, including free variable. It will be converted to string using method {@link Object#toString()}
  * <p>The predicate finds {@link Logger} instance, corresponding to given package, and calls its method {@link Logger#log(Level, String)}
- * with level and the result of {@link String#format(String, Object...)} call with <i>format</i> and <i>arg1</i>,<i>arg2</i> as arguments.
+ * with level and the result of {@link String#format(String, Object...)} call with <i>format</i> and <i>LARG[0]</i>,<i>LARG[1]</i> as arguments.
  *  
  * @author semenov
  *
  */
 public class PRED_log_4 extends P4 {
 
-	public PRED_log_4(Term arg1, Term arg2, Term arg3, Term arg4, Operation cont) {
-		this.arg1 = arg1;
-		this.arg2 = arg2;
-		this.arg3 = arg3;
-		this.arg4 = arg4;
+	public PRED_log_4(Term a0, Term a1, Term a2, Term LARG[3], Operation cont) {
+		this.LARG[0] = a0; //0];
+		this.LARG[1] = a1; //1];
+		this.LARG[2] = a2; //2];
+		this.LARG[3] = LARG[3];
 		this.cont = cont;
 	}
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
 
-		final Term a1 = arg1.dereference();
-		final Term a2 = arg2.dereference();
-		final Term a3 = arg3.dereference();
-		final Term a4 = arg4.dereference();
+		final Term a1 = LARG[0].dref();
+		final Term a2 = LARG[1].dref();
+		final Term a3 = LARG[2].dref();
+		final Term a4 = LARG[3].dref();
 
 		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
@@ -59,8 +59,8 @@ public class PRED_log_4 extends P4 {
 			throw new IllegalTypeException(this, 2, "atom", a2);
 		}
 
-		final Logger logger = Logger.getLogger(a1.arg(0).name());
-		final Level level = LEVELS.getOrDefault(a1.arg(1), Level.INFO);
+		final Logger logger = Logger.getLogger(a1.arg0(0).name());
+		final Level level = LEVELS.getOrDefault(a1.arg0(1), Level.INFO);
 		logger.log(level, ()->String.format(a2.name(), a3.toJava(), a4.toJava()));
 		return cont;
 	}

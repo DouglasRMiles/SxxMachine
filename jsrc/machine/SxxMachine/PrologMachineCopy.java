@@ -1,7 +1,9 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
+
 import java.util.IdentityHashMap;
-import java.util.Map;
 
 /**
  * Backup of a Prolog interpreter that can later create a new interpreter.
@@ -22,7 +24,7 @@ public class PrologMachineCopy {
    * @return the copy.
    */
   public static PrologMachineCopy save(PrologControl ctl) {
-    return new PrologMachineCopy(ctl.engine);
+    return new PrologMachineCopy(ctl.engine, true);
   }
 
   /**
@@ -32,62 +34,46 @@ public class PrologMachineCopy {
    * @return the copy.
    */
   public static PrologMachineCopy save(Prolog engine) {
-    return new PrologMachineCopy(engine);
+    return new PrologMachineCopy(engine, true);
+  }
+
+  public static PrologMachineCopy cloneCheap(Prolog engine) {
+    return new PrologMachineCopy(engine, false);
   }
 
   protected final PrologClassLoader pcl;
   protected final HashtableOfTerm hashManager;
   protected final InternalDatabase internalDB;
+  private boolean noCopy;
 
-  private PrologMachineCopy(Prolog engine) {
-    pcl = engine.pcl;
-
+  private PrologMachineCopy(Prolog engine, boolean deep) {
+    this.pcl = engine.pcl;
     // During backup, copy all terms using a single consistent copyHash.
     // This isolates the copy from the source interpreter, in case it gets
     // modified again later.
     //
     // During restore terms are not copied.
-//    try {
-//      engine.copyHash.clear();
-      IdentityHashMap<VariableTerm,VariableTerm> copyHash = new IdentityHashMap<VariableTerm, VariableTerm>(); 
-      hashManager = copyDeep(engine.getHashManager(), copyHash);
-      internalDB = new InternalDatabase(engine.internalDB, true, copyHash);
-//    } finally {
-//      engine.copyHash.clear();
-//    }
-  }
-
-  private static HashtableOfTerm copyDeep(HashtableOfTerm src, IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
-    HashtableOfTerm hm = new HashtableOfTerm();
-    for (Map.Entry<Term, Term> e : src.entrySet()) {
-      Term val = e.getValue().copy(copyHash);
-
-      if ((val instanceof JavaObjectTerm)) {
-        JavaObjectTerm o = (JavaObjectTerm) val;
-        if (o.obj instanceof HashtableOfTerm) {
-          val = new JavaObjectTerm(copyDeep((HashtableOfTerm) o.obj, copyHash));
-        }
-      }
-
-      hm.put(e.getKey().copy(copyHash), val);
+    // try {
+    // engine.copyHash.clear();
+    @SuppressWarnings("unused")
+    IdentityHashMap<Object, Term> copyHash =
+        new IdentityHashMap<Object, Term>();
+    if (deep) {
+      this.hashManager = engine.getHashManager().copyDeep(copyHash);
+      this.internalDB = engine.internalDB.copyInternalDatabase(true, copyHash);
+    } else {
+      noCopy = true;
+      this.hashManager = engine.getHashManager();
+      this.internalDB = engine.internalDB;
     }
-    return hm;
+    // } finally {
+    // engine.copyHash.clear();
+    // }
   }
 
-  static HashtableOfTerm copyShallow(HashtableOfTerm src) {
-    HashtableOfTerm hm = new HashtableOfTerm();
-    for (Map.Entry<Term, Term> e : src.entrySet()) {
-      Term val = e.getValue();
-
-      if ((val instanceof JavaObjectTerm)) {
-        JavaObjectTerm o = (JavaObjectTerm) val;
-        if (o.obj instanceof HashtableOfTerm) {
-          val = new JavaObjectTerm(copyShallow((HashtableOfTerm) o.obj));
-        }
-      }
-
-      hm.put(e.getKey(), val);
-    }
-    return hm;
+  public boolean noCopy() {
+    // TODO Auto-generated method stub
+    return this.noCopy;
   }
+
 }

@@ -1,9 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.RepresentationException;
-import SxxMachine.exceptions.SyntaxException;
 import SxxMachine.DoubleTerm;
 import SxxMachine.IntegerTerm;
 import SxxMachine.ListTerm;
@@ -12,7 +8,12 @@ import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.RepresentationException;
+import SxxMachine.exceptions.SyntaxException;
 /**
  * <code>number_codes/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -21,19 +22,19 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_number_codes_2 extends Predicate.P2 {
     public PRED_number_codes_2(Term a1, Term a2, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 
-	a1 = a1.dereference();
-	a2 = a2.dereference();
+	a1 = a1.dref();
+	a2 = a2.dref();
 	if (a2.isNil())
 	    throw new SyntaxException(this, 2, "character_code_list", a2, "");
 	if ((a1 instanceof VariableTerm)) { // number_codes(-Number, +CharCodeList)
@@ -44,7 +45,7 @@ public class PRED_number_codes_2 extends Predicate.P2 {
 		    throw new PInstantiationException(this, 2);
 		if (!( x instanceof ListTerm))
 		    throw new IllegalTypeException(this, 2, "list", a2);
-		Term car = ((ListTerm)x).car().dereference();
+		Term car = ((ListTerm)x).car().dref();
 		if ((car instanceof VariableTerm))
 		    throw new PInstantiationException(this, 2);
 		if (! (car instanceof IntegerTerm))
@@ -54,7 +55,7 @@ public class PRED_number_codes_2 extends Predicate.P2 {
 		if (! Character.isDefined((char)i))
 		    throw new RepresentationException(this, 2, "character_code");
 		sb.append((char)i);
-		x = ((ListTerm)x).cdr().dereference();
+		x = ((ListTerm)x).cdr().dref();
 	    }
 	    try {
 		if (! a1.unify(new IntegerTerm(Integer.parseInt(sb.toString())), engine.trail))
@@ -72,7 +73,7 @@ public class PRED_number_codes_2 extends Predicate.P2 {
 	    char[] chars = a1.toString().toCharArray();
 	    Term y = Prolog.Nil;
 	    for (int i=chars.length; i>0; i--) {
-		y = new ListTerm(new IntegerTerm((int)chars[i-1]), y);
+		y = TermData.CONS(new IntegerTerm((int)chars[i-1]), y);
 	    }
 	    if (! a2.unify(y, engine.trail) ) 
 		return engine.fail();

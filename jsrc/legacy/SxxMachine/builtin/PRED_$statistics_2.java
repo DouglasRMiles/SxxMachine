@@ -1,15 +1,15 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.IntegerTerm;
-import SxxMachine.ListTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
    <code>'$statistics'/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -23,19 +23,19 @@ class PRED_$statistics_2 extends Predicate.P2 {
     private static final SymbolTerm SYM_CHOICE  = SymbolTerm.intern("choice");
 
     public PRED_$statistics_2(Term a1, Term a2, Operation cont){
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine){
         engine.setB0();
 	Term a1, a2;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 	Term result = null;
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if ((a1 instanceof VariableTerm)) {
 	    throw new PInstantiationException(this, 1);
 	} else if (! (a1 instanceof SymbolTerm)) {
@@ -49,7 +49,7 @@ class PRED_$statistics_2 extends Predicate.P2 {
 	    engine.setPreviousRuntime(val1);
 	    start    = new IntegerTerm((int)val1);
 	    previous = new IntegerTerm((int)val2);
-	    result   = new ListTerm(start, new ListTerm(previous, Nil));
+	    result   = TermData.CONS(start, TermData.CONS(previous, Nil));
 	} else if (a1.equals(SYM_TRAIL)) {
 	    int top, max;
 	    Term free, used;
@@ -57,7 +57,7 @@ class PRED_$statistics_2 extends Predicate.P2 {
 	    max    = engine.trail.max();
 	    used   = new IntegerTerm(top);
 	    free   = new IntegerTerm(max - top);
-	    result = new ListTerm(used, new ListTerm(free, Nil));
+	    result = TermData.CONS(used, TermData.CONS(free, Nil));
 	} else if (a1.equals(SYM_CHOICE)) {
 	    int top, max;
 	    Term free, used;
@@ -65,7 +65,7 @@ class PRED_$statistics_2 extends Predicate.P2 {
 	    max    = engine.stack.max();
 	    used   = new IntegerTerm(top);
 	    free   = new IntegerTerm(max - top);
-	    result = new ListTerm(used, new ListTerm(free, Nil));
+	    result = TermData.CONS(used, TermData.CONS(free, Nil));
 	} else {
 	    return engine.fail();
 	}

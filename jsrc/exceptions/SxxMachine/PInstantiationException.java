@@ -1,11 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.Operation;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.*;
 
 /**
  * Instantiation error.<br>
@@ -20,31 +15,33 @@ import SxxMachine.Term;
 public class PInstantiationException extends BuiltinException {
     /** A functor symbol of <code>instantiation/2</code>. */
     public static final SymbolTerm INSTANTIATION_ERROR = SymbolTerm.intern("instantiation_error", 2);
-
     /** Constructs a new <code>PInstantiationException</code>. */
     public PInstantiationException(){}
-
     /** Constructs a new <code>PInstantiationException</code>
      * with the given arguments. */
     public PInstantiationException(Operation _goal, int _argNo) {
 	this.goal    = _goal;
 	this.argNo   = _argNo;
     }
-
     /** Returns a term representation of this <code>PInstantiationException</code>:
      * <code>instantiation_error(goal,argNo)</code>.
      */
+    @Override
     public Term getMessageTerm() {
-	Term[] args = {new JavaObjectTerm(goal), new IntegerTerm(argNo)};
-	return new ErrorTerm(this, INSTANTIATION_ERROR, args);
+	Term[] args = {TermData.FFIObject(this.goal), TermData.Integer(this.argNo)};
+	return TermData.createErrorTerm(this, INSTANTIATION_ERROR, args);
     }
-
     /** Returns a string representation of this <code>PInstantiationException</code>. */
+    @Override
     public String toString() {
-	String s = "{INSTANTIATION ERROR: " + goal.toString();
-	if (argNo > 0)
-	    s += " - arg " + argNo;
+	String s = "{INSTANTIATION ERROR: " + this.goal.toString();
+	if (this.argNo > 0)
+	    s += " - arg " + this.argNo;
 	s += "}";
 	return s;
     }
+    public String getMessage() {
+    return toString();
+    }
+
 }

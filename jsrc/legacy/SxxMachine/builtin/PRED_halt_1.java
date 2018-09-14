@@ -1,13 +1,13 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 
 /**
  * <code>halt/1</code><br>
@@ -17,15 +17,15 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_halt_1 extends Predicate.P1 {
 	public PRED_halt_1(Term a1, Operation cont) {
-		arg1 = a1;
+		LARG[0] = a1;
 		this.cont = cont;
 	}
 
 	public Operation exec(Prolog engine) {
 		engine.setB0();
-		Term a1 = arg1;
+		Term a1 = LARG[0];
 
-		a1 = a1.dereference();
+		a1 = a1.dref();
 		if ((a1 instanceof VariableTerm))
 			throw new PInstantiationException(this, 1);
 		if (!(a1 instanceof IntegerTerm))

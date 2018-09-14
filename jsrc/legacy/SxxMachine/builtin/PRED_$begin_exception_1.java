@@ -13,10 +13,10 @@ import SxxMachine.Term;
  * @version 1.2
  */
 class PRED_$begin_exception_1 extends BlockPredicate {
-	private final Term arg1;
+	// private final Term LARG[0];
 
 	public PRED_$begin_exception_1(Term a1, Operation cont) {
-		arg1 = a1;
+		LARG[0] = a1;
 		this.cont = cont;
 	}
 

@@ -1,17 +1,17 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.InternalException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.HashtableOfTerm;
-import SxxMachine.JavaObjectTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.InternalException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
    <code>hash_contains_key/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -20,21 +20,21 @@ import SxxMachine.VariableTerm;
 */
 public class PRED_hash_contains_key_2 extends Predicate.P2 {
 	public PRED_hash_contains_key_2(Term a1, Term a2, Operation cont) {
-		arg1 = a1;
-		arg2 = a2;
+		LARG[0] = a1;
+		LARG[1] = a2;
 		this.cont = cont;
 	}
 
 	public Operation exec(Prolog engine) {
 		engine.setB0();
-		Term a1 = arg1.dereference();
-		Term a2 = arg2.dereference();
+		Term a1 = LARG[0].dref();
+		Term a2 = LARG[1].dref();
 		Object hash = null;
 		
-		if ((a1 instanceof JavaObjectTerm)) {
-			hash = ((JavaObjectTerm) a1).object();
+		if ((a1 instanceof FFIObjectTerm)) {
+			hash = ((FFIObjectTerm) a1).object();
 		} else if ((a1 instanceof SymbolTerm)){
-			JavaObjectTerm t = (JavaObjectTerm) engine.getHashManager().get(a1);
+			FFIObjectTerm t = (FFIObjectTerm) engine.getHashManager().get(a1);
 			if (t==null){
 				throw new ExistenceException(this, 1, "hash", a1, "");
 			}

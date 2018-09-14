@@ -1,11 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.Operation;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.*;
 
 /**
  * Type error.<br>
@@ -19,7 +14,6 @@ import SxxMachine.Term;
 public class IllegalTypeException extends BuiltinException {
     /** A functor symbol of <code>type_error/4</code>. */
     public static final SymbolTerm TYPE_ERROR = SymbolTerm.intern("type_error", 4);
-
     /*
       type ::= atom | atomic | byte | callable | character | compound | evaluable |
                in_byte | in_character | integer | list | number |
@@ -28,46 +22,47 @@ public class IllegalTypeException extends BuiltinException {
     */
     /** Holds a string representation of valid type. */
     public final String type;
-
     /** Holds the argument or one of its components which caused the error. */
     public final Term culprit;
-
     /** Constructs a new <code>IllegalTypeException</code> 
      * with a valid type and its culprit. */
     public IllegalTypeException(String _type, Term _culprit) {
-		type    = _type;
-		culprit = _culprit;
+		this.type    = _type;
+		this.culprit = _culprit;
     }
-
     /** Constructs a new <code>IllegalTypeException</code> 
      * with the given arguments. */
     public IllegalTypeException(Operation _goal, int _argNo, String _type, Term _culprit) {
 		this.goal    = _goal;
 		this.argNo   = _argNo;
-		type    = _type;
-		culprit = _culprit;
+		this.type    = _type;
+		this.culprit = _culprit;
     }
-
     /** Returns a term representation of this <code>IllegalTypeException</code>:
      * <code>type_error(goal,argNo,type,culprit)</code>.
      */
+    @Override
     public Term getMessageTerm() {
 		Term[] args = {
-			(goal==null)?SymbolTerm.create("<Goal unknown>"):new JavaObjectTerm(goal), 
-		    new IntegerTerm(argNo),
-		    SymbolTerm.create(type),
-		    culprit};
-		return new ErrorTerm(this, TYPE_ERROR, args);
+			(this.goal==null)?SymbolTerm.create("<Goal unknown>"):TermData.FFIObject(this.goal), 
+		    TermData.Integer(this.argNo),
+		    SymbolTerm.create(this.type),
+		    this.culprit};
+		return TermData.createErrorTerm(this, TYPE_ERROR, args);
     }
-
     /** Returns a string representation of this <code>IllegalTypeException</code>. */
+    @Override
     public String toString() {
-		String s = "{TYPE ERROR: " + goal;
-		if (argNo > 0)
-		    s += " - arg " + argNo;
-		s += ": expected " + type;
-		s += ", found " + culprit.toString();
+		String s = "{TYPE ERROR: " + this.goal;
+		if (this.argNo > 0)
+		    s += " - arg " + this.argNo;
+		s += ": expected " + this.type;
+		s += ", found " + this.culprit.toAtomName();
 		s += "}";
 		return s;
     }
+    public String getMessage() {
+    return toString();
+    }
+
 }

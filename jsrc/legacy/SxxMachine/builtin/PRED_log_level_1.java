@@ -36,21 +36,21 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_log_level_1 extends P1 {
 
-	public PRED_log_level_1(Term arg1, Operation cont) {
-		this.arg1 = arg1;
+	public PRED_log_level_1(Term a0, Operation cont) {
+		this.LARG[0] = a0; //0];
 		this.cont = cont;
 	}
 	
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
 
-		final Term a1 = arg1.dereference();
+		final Term a1 = LARG[0].dref();
 		if (!(a1 instanceof StructureTerm) || a1.arity()!=2){
 			throw new IllegalTypeException(this, 1, "package:level", a1);
 		}
-		final Term packageTerm = a1.arg(0);
+		final Term packageTerm = a1.arg0(0);
 		final Logger logger = Logger.getLogger(packageTerm.name());
-		final Term levelTerm = a1.arg(1);
+		final Term levelTerm = a1.arg0(1);
 		if ((levelTerm instanceof VariableTerm)){
 			// obtain logger's level, which may be inherited from parent
 			Level level = null;

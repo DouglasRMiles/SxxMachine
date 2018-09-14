@@ -1,4 +1,6 @@
-package SxxMachine.repl;
+package SxxMachine;
+
+import SxxMachine.exceptions.*;
 
 import SxxMachine.Predicate;
 import SxxMachine.PrologControl;
@@ -107,15 +109,15 @@ public class BlockingPrologControl
   private volatile Thread thread;
 
   /** A flag that indicates whether the result of goal is <code>true</code> or <code>false</code>. */
-  private boolean result;
-
+   boolean result;
   /** A flag that indicates whether the result of goal is ready or not. */
-  private boolean resultReady;
-
+   boolean resultReady;
   /** Constructs a new <code>BlockingPrologControl</code>. */
   public BlockingPrologControl() {
   }
-
+   public BlockingPrologControl(Prolog p) {
+     super(p);
+   }
   /** Constructs a new <code>BlockingPrologControl</code>. */
   public BlockingPrologControl(PrologMachineCopy pmc) {
     super(pmc);
@@ -134,7 +136,7 @@ public class BlockingPrologControl
    * @see #run
    */
   public synchronized boolean execute(String pkg, String functor, Term... args) {
-    return execute(getPrologClassLoader().predicate(pkg, functor, args));
+    return execute((Predicate) getPrologClassLoader().predicate(pkg, functor, args));
   }
 
   /**
@@ -151,14 +153,14 @@ public class BlockingPrologControl
    */
   public synchronized boolean execute(Predicate p) {
   setPredicate(p);
-  thread = new Thread(this);
-  thread.setName("Prolog-" + p.toString());
-  thread.start(); // execute run() in new thread.
+  this.thread = new Thread(this);
+  this.thread.setName("Prolog-" + p.toString());
+  this.thread.start(); // execute run() in new thread.
   try {
       wait();     // wait caller's thread.
   } catch (InterruptedException e) {}
   stop();
-  return result;
+  return this.result;
   }
 
   /**
@@ -209,11 +211,12 @@ public class BlockingPrologControl
    * @see #result
    * @see #thread
    */
+  @Override
   protected synchronized void success() {
-  resultReady = true;
-  result = true;
+  this.resultReady = true;
+  this.result = true;
   notifyAll();
-  while (thread != null && resultReady) {
+  while (this.thread != null && this.resultReady) {
       try {
       wait();
       } catch (InterruptedException e) {}
@@ -236,11 +239,12 @@ public class BlockingPrologControl
    * @see #result
    * @see #thread
    */
+  @Override
   protected synchronized void fail() {
-  resultReady = true;
-  result = false;
+  this.resultReady = true;
+  this.result = false;
   notifyAll();
-  while (thread != null && resultReady) {
+  while (this.thread != null && this.resultReady) {
       try {
       wait();
       } catch (InterruptedException e) {}
@@ -248,13 +252,14 @@ public class BlockingPrologControl
   }
 
   /** @return true if the engine is no longer supposed to execute. */
+  @Override
   public boolean isEngineStopped() {
-    return thread == null;
+    return this.thread == null;
   }
 
   /** Waits for this thread to die. */
   public synchronized void join() {
-  while (thread != null && ! resultReady) {
+  while (this.thread != null && ! this.resultReady) {
       try {
       wait();
       } catch (InterruptedException e) {}
@@ -272,8 +277,8 @@ public class BlockingPrologControl
    * @see #thread
    */
   public synchronized void stop() {
-  resultReady = false;
-  thread = null;
+  this.resultReady = false;
+  this.thread = null;
   notifyAll();
   }
 
@@ -286,9 +291,9 @@ public class BlockingPrologControl
    * @see #run
    */
   public synchronized void start() {
-  resultReady = false;
-  thread = new Thread(this);
-  thread.start();
+  this.resultReady = false;
+  this.thread = new Thread(this);
+  this.thread.start();
   }
 
   /**
@@ -299,7 +304,7 @@ public class BlockingPrologControl
    * @see #resultReady
    */
   public synchronized void cont() {
-  resultReady = false;
+  this.resultReady = false;
   notifyAll();
   }
 
@@ -310,7 +315,7 @@ public class BlockingPrologControl
    * @see #resultReady
    */
   public synchronized boolean ready() {
-  return resultReady;
+  return this.resultReady;
   }
 
   /**
@@ -320,7 +325,7 @@ public class BlockingPrologControl
    * @see #result
    */
   public synchronized boolean in_success() {
-  return ready() && result;
+  return ready() && this.result;
   }
 
   /**
@@ -330,7 +335,7 @@ public class BlockingPrologControl
    * @see #result
    */
   public synchronized boolean in_failure() {
-  return ready() && ! result;
+  return ready() && ! this.result;
   }
 
   /**
@@ -348,15 +353,15 @@ public class BlockingPrologControl
    * @see #thread
    */
   public synchronized boolean next() {
-  while (thread != null && ! resultReady) {
+  while (this.thread != null && ! this.resultReady) {
       try {
       wait();
       } catch (InterruptedException e) {}
   }
-  if (! result) {
+  if (! this.result) {
       stop();
   }
-  return result;
+  return this.result;
   }
 
   /**
@@ -369,6 +374,7 @@ public class BlockingPrologControl
    * @see #fail
    * @see #stop
    */
+  @Override
   public void run() {
     try {
       executePredicate();

@@ -1,7 +1,9 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.EvaluationException;
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.*;
+
+
+import java.util.Comparator;
 
 /**
  * Floating point number.
@@ -9,8 +11,8 @@ import SxxMachine.exceptions.IllegalTypeException;
  * primitive type <code>double</code>.
  *
  * <pre>
- * Term t = new DoubleTerm(3.3333);
- * double d = ((DoubleTerm)t).doubleValue();
+ * Term t = Float(3.3333);
+ * double d = (t).doubleValue();
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -18,35 +20,49 @@ import SxxMachine.exceptions.IllegalTypeException;
  * @version 1.0
 */
 public class DoubleTerm extends NumberTerm {
-    /** Holds a <code>double</code> value that this <code>DoubleTerm</code> represents. */
-    protected final double val;
+	
+  public int arityOrType() {
+    return Term.REAL;
+ }
 
+	@Override
+	public boolean isDouble() {
+		return true;
+	}
+    /** Holds a <code>double</code> value that this <code>DoubleTerm</code> represents. */
+   // protected final double value;
     /**
      * Constructs a new Prolog floating point number 
      * that represents the specified <code>double</code> value.
      */
-    public DoubleTerm(double i) { val = i; }
-
+    public DoubleTerm(double i) { this.value = i; }
     /**
-     * Returns the value of <code>val</code>.
-     * @see #val
+     * Returns the value of <code>value</code>.
+     * @see #value
      */
-    public double value() { return val; }
+    public Object value() { return this.value; }
 
-    /* Term */
-    public boolean unify(Term t, Trail trail) {
-    	t = t.dereference();
-    	return (t instanceof VariableTerm) ? ((VariableTerm)t).bind(this, trail) :
-    		((t instanceof DoubleTerm) && this.val == ((DoubleTerm)t).val);
+    @Override
+    public int type() {
+      return TYPE_DOUBLE;
     }
 
-    public String name() { return ""; }
+    @Override
+    public boolean unifyImpl(Term t, Trail trail) {
+    	t = t.dref();
+    	return (t .isVar()) ? t.unify(this, trail) :
+    		((t .isDouble()) && this.value == t.doubleValue());
+    }
 
+    @Override
+    public String name() { oopsy(); return "Double"; }
     /** 
      * @return the <code>boolean</code> whose value is
      * <code>convertible(Double.class, type)</code>.
      * @see Term#convertible(Class, Class)
      */
+
+    @Override
     public boolean convertible(Class type) { return convertible(Double.class, type); }
 
     /** 
@@ -55,25 +71,16 @@ public class DoubleTerm extends NumberTerm {
      * @return a <code>java.lang.Double</code> object equivalent to
      * this <code>DoubleTerm</code>.
      */
-    public Object toJava() { return Double.valueOf(val); }
-
+    @Override
+    public Object toJava() { return Double.valueOf(this.value); }
     /* Object */
-    /** Returns a string representation of this <code>DoubleTerm</code>. */
     @Override // Overridden for performance
-    public String toString() { return Double.toString(this.val); }
-    /** Returns a quated string representation of this <code>DoubleTerm</code>. */
-    @Override // Overridden for performance
-    public String toQuotedString() { return Double.toString(this.val); }
-
+    public String toAtomName() { return Double.toString(this.value); }
+    /** Returns a unqupted string representation of this <code>DoubleTerm</code>. */
     @Override
-    public void toString(StringBuilder sb){
-    	sb.append(this.val);
+    public void toStringImpl(int printFlags, StringBuilder sb){
+    	sb.append(this.value);
     }
-    @Override
-    public void toQuotedString(StringBuilder sb){
-    	sb.append(this.val);
-    }
-
     /**
      * Checks <em>term equality</em> of two terms.
      * The result is <code>true</code> if and only if the argument is an instance of
@@ -83,15 +90,15 @@ public class DoubleTerm extends NumberTerm {
      * point number equivalent to this <code>DoubleTerm</code>, false otherwise.
      * @see #compareTo
     */
-    public boolean equals(Object obj) {
-		return obj instanceof DoubleTerm && Double.doubleToLongBits(this.val) == Double.doubleToLongBits(((DoubleTerm) obj).val);
+    @Override
+    public boolean equalsTerm(Term obj, Comparator comparator) {
+		return obj .isDouble() && Double.doubleToLongBits(this.value) == Double.doubleToLongBits(( obj).doubleValue());
 	}
-
-    public int hashCode() {
-	long bits = Double.doubleToLongBits(this.val);
+    @Override
+    public int termHashCodeImpl() {
+	long bits = Double.doubleToLongBits(this.value);
 	return (int)(bits ^ (bits >>> 32));
     }
-
     /* Comparable */
     /** 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -102,165 +109,214 @@ public class DoubleTerm extends NumberTerm {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced
-	if ((anotherTerm instanceof VariableTerm))
+	if ((anotherTerm .isVar()))
 	    return AFTER;
-	if (!( anotherTerm instanceof DoubleTerm))
+	if (!( anotherTerm .isDouble()))
 	    return BEFORE;
-	return Double.compare(this.val, ((DoubleTerm)anotherTerm).value());
+	return Double.compare(this.value, anotherTerm.doubleValue());
     }
-
     /* NumberTerm */
-    public int intValue() { return (int)val; }
+    @Override
+    public int intValue() { return (int)this.value; }
 
-    public long longValue() { return (long)val; }
+    @Override
+    public long longValue() { return (long)this.value; }
 
-    public double doubleValue() { return val; }
+    @Override
+    public double doubleValue() { return this.value; }
 
+    @Override
     public int arithCompareTo(NumberTerm t) {
-	return Double.compare(this.val, t.doubleValue());
+	return Double.compare(this.value, t.doubleValue());
     }
 
-    public NumberTerm abs() { return new DoubleTerm(Math.abs(this.val)); }
+    @Override
+    public NumberTerm abs() { return Float(Math.abs(this.value)); }
 
-    public NumberTerm acos() { return new DoubleTerm(Math.acos(this.val)); }
+    @Override
+    public NumberTerm acos() { return Float(Math.acos(this.value)); }
 
-    public NumberTerm add(NumberTerm t) { return new DoubleTerm(this.val + t.doubleValue()); }
-
+    @Override
+    public NumberTerm add(NumberTerm t) { return Float(this.value + t.doubleValue()); }
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm and(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm and(NumberTerm t) { throw mustInt(); }
     //    public NumberTerm and(NumberTerm t) { return new IntegerTerm(this.intValue() & t.intValue()); }
 
-    public NumberTerm asin() { return new DoubleTerm(Math.asin(this.val)); }
+    @Override
+    public NumberTerm asin() { return Float(Math.asin(this.value)); }
 
-    public NumberTerm atan() { return new DoubleTerm(Math.atan(this.val)); }
+    @Override
+    public NumberTerm atan() { return Float(Math.atan(this.value)); }
 
-    public NumberTerm ceil() { return new IntegerTerm((int) Math.ceil(this.val)); }
+    @Override
+    public NumberTerm ceil() { return Integer((long) Math.ceil(this.value)); }
 
-    public NumberTerm cos() { return new DoubleTerm(Math.cos(this.val)); }
-
+    @Override
+    public NumberTerm cos() { return Float(Math.cos(this.value)); }
     /** 
      * @exception EvaluationException if the given argument
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
+    @Override
     public NumberTerm divide(NumberTerm t) { 
 	if (t.doubleValue() == 0)
 	    throw new EvaluationException("zero_divisor");
-	return new DoubleTerm(this.val / t.doubleValue());
+	return Float(this.value / t.doubleValue());
     }
 
-    public NumberTerm exp() { return new DoubleTerm(Math.exp(this.val)); }
+    @Override
+    public NumberTerm exp() { return Float(Math.exp(this.value)); }
 
+    @Override
     public NumberTerm floatIntPart() { 
-	return new DoubleTerm(Math.signum(this.val) * Math.floor(Math.abs(this.val)));
+	return Float(Math.signum(this.value) * Math.floor(Math.abs(this.value)));
     }
 
+    @Override
     public NumberTerm floatFractPart() { 
-	return new DoubleTerm(this.val - Math.signum(this.val) * Math.floor(Math.abs(this.val)));
+	return Float(this.value - Math.signum(this.value) * Math.floor(Math.abs(this.value)));
     }
 
-    public NumberTerm floor() { return new IntegerTerm((int) Math.floor(this.val)); }
-
+    @Override
+    public NumberTerm floor() { return Integer((long) Math.floor(this.value)); }
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm intDivide(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm intDivide(NumberTerm t) { throw mustInt(); }
     //    public NumberTerm intDivide(NumberTerm t) {	return new IntegerTerm((int)(this.intValue() / t.intValue())); }
-
     /** 
      * @exception EvaluationException if this object represents <coe>0</code>.
      */
+    @Override
     public NumberTerm log() { 
-	if (this.val == 0)
+	if (this.value == 0)
 	    throw new EvaluationException("undefined");
-	return new DoubleTerm(Math.log(this.val)); 
+	return Float(Math.log(this.value)); 
     }
 
-    public NumberTerm max(NumberTerm t) { return new DoubleTerm(Math.max(this.val, t.doubleValue())); }
+    @Override
+    public NumberTerm max(NumberTerm t) { return Float(Math.max(this.value, t.doubleValue())); }
 
-    public NumberTerm min(NumberTerm t) { return new DoubleTerm(Math.min(this.val, t.doubleValue())); }
-
+    @Override
+    public NumberTerm min(NumberTerm t) { return Float(Math.min(this.value, t.doubleValue())); }
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm mod(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm mod(NumberTerm t) { throw mustInt(); }
     //    public NumberTerm mod(NumberTerm t) { return new IntegerTerm(this.intValue() % t.intValue()); }
 
-    public NumberTerm multiply(NumberTerm t) { return new DoubleTerm(this.val * t.doubleValue()); }
+    @Override
+    public NumberTerm multiply(NumberTerm t) { return Float(this.value * t.doubleValue()); }
 
-    public NumberTerm negate() { return new DoubleTerm(- this.val); }
-
+    @Override
+    public NumberTerm negate() { return Float(- this.value); }
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm not() { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm not() { throw mustInt(); }
     //    public NumberTerm not() { return new IntegerTerm(~ this.intValue()); }
-
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm or(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm or(NumberTerm t) { throw mustInt(); }
     //    public NumberTerm or(NumberTerm t) { return new IntegerTerm(this.intValue() | t.intValue()); }
 
-    public NumberTerm pow(NumberTerm t) { return new DoubleTerm(Math.pow(this.val, t.doubleValue())); }
+    @Override
+    public NumberTerm pow(NumberTerm t) { return Float(Math.pow(this.value, t.doubleValue())); }
 
-    public NumberTerm rint() { return new DoubleTerm(Math.rint(this.val)); }
+    @Override
+    public NumberTerm rint() { return Float(Math.rint(this.value)); }
 
-    public NumberTerm round() { return new IntegerTerm((int) Math.round(this.val)); }
-
-    /** 
-     * Throws a <code>type_error</code>.
-     * @exception IllegalTypeException
-     */
-    public NumberTerm shiftLeft(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm round() { return Integer( Math.round(this.value)); }
 
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm shiftRight(NumberTerm t) { throw new IllegalTypeException("integer", this); }
+    @Override
+    public NumberTerm shiftLeft(NumberTerm t) { throw mustInt(); }
+    /** 
+     * Throws a <code>type_error</code>.
+     * @exception IllegalTypeException
+     */
+    @Override
+    public NumberTerm shiftRight(NumberTerm t) { throw mustInt(); }
 
-    public NumberTerm signum() {return new DoubleTerm(Math.signum(this.val)); }
+    @Override
+    public NumberTerm signum() {return Float(Math.signum(this.value)); }
  
-    public NumberTerm sin() { return new DoubleTerm(Math.sin(this.val)); }
-
+    @Override
+    public NumberTerm sin() { return Float(Math.sin(this.value)); }
     /** 
      * @exception EvaluationException if this object represents
      * a floating point number less than <coe>0</code>.
      */
+    @Override
     public NumberTerm sqrt() { 
-	if (this.val < 0)
+	if (this.value < 0)
 	    throw new EvaluationException("undefined");
-	return new DoubleTerm(Math.sqrt(this.val)); 
+	return Float(Math.sqrt(this.value)); 
     }
 
-    public NumberTerm subtract(NumberTerm t) { return new DoubleTerm(this.val - t.doubleValue()); }
+    @Override
+    public NumberTerm subtract(NumberTerm t) { return Float(this.value - t.doubleValue()); }
 
-    public NumberTerm tan() { return new DoubleTerm(Math.tan(this.val)); }
+    @Override
+    public NumberTerm tan() { return Float(Math.tan(this.value)); }
 
-    public NumberTerm toDegrees() { return new DoubleTerm(Math.toDegrees(this.val)); }
+    @Override
+    public NumberTerm toDegrees() { return Float(Math.toDegrees(this.value)); }
 
+    @Override
     public NumberTerm toFloat() { return this; }
 
-    public NumberTerm toRadians() { return new DoubleTerm(Math.toRadians(this.val)); }
+    @Override
+    public NumberTerm toRadians() { return Float(Math.toRadians(this.value)); }
 
-    public NumberTerm truncate() { 
-	if (this.val >= 0)
-	    return new IntegerTerm((int) Math.floor(this.val));
-	else 
-	    return new IntegerTerm((int) (-1 * Math.floor(Math.abs(this.val))));
+//    public NumberTerm Float(double n) {
+//      return new DoubleTerm(n);
+//    }
+    public DoubleTerm Float(long n) {
+      return new DoubleTerm(n);
     }
 
+    @Override
+    public NumberTerm truncate() { 
+	if (this.value >= 0)
+	    return Integer((long) Math.floor(this.value));
+	else 
+	    return Integer((long) (-1 * Math.floor(Math.abs(this.value))));
+    }
     /** 
      * Throws a <code>type_error</code>.
      * @exception IllegalTypeException
      */
-    public NumberTerm xor(NumberTerm t) { throw new IllegalTypeException("integer", this); }
-}
+    @Override
+    public NumberTerm xor(NumberTerm t) { throw mustInt(); }
+    
+    private IllegalTypeException mustInt() {
+      return new IllegalTypeException("integer", this);
+    }
+    private LongTerm Integer(long round) {
+       int i = (int)round;
+       if(((long)i)==round) {
+         return TermData.Integer(i);
+       }
+      return TermData.Long(round);
+    }
+ }

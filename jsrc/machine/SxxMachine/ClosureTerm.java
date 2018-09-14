@@ -1,5 +1,10 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
+
+import java.util.Comparator;
+
 /**
  * Closure.<br>
  * The class <code>ClosureTerm</code> represents a closure structure.<br>
@@ -8,34 +13,33 @@ package SxxMachine;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class ClosureTerm extends Term {
+public class ClosureTerm extends SystemObject {
     /** Holds a <code>Predicate</code> object that represents a Prolog goal. */
     protected final Predicate code;
-
+	@Override
+	public boolean isClosure() {
+		return true;
+	}
     /** Constructs a new closure structure for the given Prolog goal. */
-    public ClosureTerm(Predicate _code) { code = _code; }
-
+    public ClosureTerm(Predicate _code) { this.code = _code; }
     /** Returns the Prolog goal of this <code>ClosureTerm</code>. */
-    public Predicate getCode() { return code; }
+    public Predicate getCode() { return this.code; }
 
-    /* Term */
-	public boolean unify(Term t, Trail trail) {
-		t = t.dereference();
-		if ((t instanceof VariableTerm))
+    @Override
+    public int type() {
+      return TYPE_CLOSURE;
+    }
+
+    @Override
+	public boolean unifyImpl(Term t, Trail trail) {
+		t = t.dref();
+		if ((t .isVar()))
 			return ((VariableTerm) t).unify(this, trail);
-		return (t instanceof ClosureTerm) && code.equals(((ClosureTerm) t).code);
+		return (t .isClosure()) && this.code.equals(((ClosureTerm) t).code);
 	}
 
-	@Override
-    public String toQuotedString() { return toString(); }
-
-	@Override
-	public void toQuotedString(StringBuilder sb) {
-		toString(sb);		
-	}
-
+    @Override
     public String name() { return ""; }
-
     /* Object */
     /**
      * Checks <em>term equality</em> of two terms.
@@ -47,28 +51,22 @@ public class ClosureTerm extends Term {
      * equivalent to this <code>ClosureTerm</code>, false otherwise.
      * @see #compareTo
      */
-    public boolean equals(Object obj) { // obj must be dereferenced
-		return obj instanceof ClosureTerm && code.equals(((ClosureTerm) obj).code);
-	}
-
-    public int hashCode() {
-	return code.hashCode();
-    }
-
-    /** Returns a string representation of this <code>ClosureTerm</code>. */
     @Override
-    public String toString() {
-    	return "closure[" + code.toString() + "]";
+    public boolean equalsTerm(Term obj, Comparator comparator) { // obj must be dereferenced
+		return obj .isClosure() && this.code.equals(((ClosureTerm) obj).code);
+	}
+    @Override
+    public int termHashCodeImpl() {
+	return this.code.hashCode();
     }
 
     /** Adds a string representation of this <code>ClosureTerm</code> to given StringBuilder instance */
     @Override
-    public void toString(StringBuilder sb) {
+    public void toStringImpl(int printFlags, StringBuilder sb) {
     	sb.append("closure[");
-    	code.toString(sb);
+    	this.code.toString(sb);
     	sb.append("]");
     }
-
     /* Comparable */
     /** 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -79,14 +77,14 @@ public class ClosureTerm extends Term {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced
-	if (! (anotherTerm instanceof ClosureTerm))
+	if (! (anotherTerm .isClosure()))
 	    return AFTER;
-	if (code.equals(((ClosureTerm) anotherTerm).code))
+	if (this.code.equals(((ClosureTerm) anotherTerm).code))
 	    return EQUAL;
-	return code.hashCode() - ((ClosureTerm) anotherTerm).code.hashCode(); //???
+	return this.code.hashCode() - ((ClosureTerm) anotherTerm).code.hashCode(); //???
     }
-
 	@Override
 	public final boolean isImmutable() {
 		return true;

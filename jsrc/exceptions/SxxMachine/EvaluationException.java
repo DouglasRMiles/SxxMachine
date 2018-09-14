@@ -1,12 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.Operation;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-
+import SxxMachine.*;
 /**
  * Evaluation error.<br>
  * There will be an evaluation error when the operands
@@ -20,38 +14,39 @@ import SxxMachine.Term;
 public class EvaluationException extends BuiltinException {
     /** A functor symbol of <code>evaluation_error/3</code>. */
     public static final SymbolTerm EVALUATION_ERROR = SymbolTerm.intern("evaluation_error", 3);
-
     /* errorType ::= float_overflow | int_overflow | undefined | underflow | zero_devisor */
     /** Holds a string representation of error type. */
     public final String errorType;
-
     /** Constructs a new <code>EvaluationException</code> with an error type. */
 	public EvaluationException(String _errorType) {
-		errorType = _errorType;
+		this.errorType = _errorType;
 	}
-
     /** Constructs a new <code>EvaluationException</code> with the given arguments. */
 	public EvaluationException(Operation _goal, int _argNo, String _errorType) {
 		this.goal = _goal;
 		this.argNo = _argNo;
-		errorType = _errorType;
+		this.errorType = _errorType;
 	}
-
     /** Returns a term representation of this <code>EvaluationException</code>:
      * <code>evaluation_error(goal,argNo,errorType)</code>.
      */
-	public Term getMessageTerm() {
-		Term[] args = { new JavaObjectTerm(goal), new IntegerTerm(argNo), SymbolTerm.create(errorType) };
-		return new ErrorTerm(this, EVALUATION_ERROR, args);
+	@Override
+  public Term getMessageTerm() {
+		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), SymbolTerm.create(this.errorType) };
+		return TermData.createErrorTerm(this, EVALUATION_ERROR, args);
 	}
-
     /** Returns a string representation of this <code>EvaluationException</code>. */
-	public String toString() {
-		String s = "{EVALUATION ERROR: " + goal;
-		if (argNo > 0)
-			s += " - arg " + argNo;
-		s += ", found " + errorType;
+	@Override
+  public String toString() {
+		String s = "{EVALUATION ERROR: " + this.goal;
+		if (this.argNo > 0)
+			s += " - arg " + this.argNo;
+		s += ", found " + this.errorType;
 		s += "}";
 		return s;
 	}
+    public String getMessage() {
+    return toString();
+    }
+
 }

@@ -2,15 +2,16 @@ package SxxMachine.builtin;
 
 import java.util.Arrays;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
  * <code>sort/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -19,21 +20,21 @@ import SxxMachine.VariableTerm;
  */
 public class PRED_sort_2 extends Predicate.P2 {
     public PRED_sort_2(Term a1, Term a2, Operation cont) {
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 	int len;
 	Term tmp, tmp2;
 	Term[] list;
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if ((a1 instanceof VariableTerm)) {
 	    throw new PInstantiationException(this, 1);
 	} else if (a1.equals(Prolog.Nil)) {
@@ -49,8 +50,8 @@ public class PRED_sort_2 extends Predicate.P2 {
 	for (int i=0; i<len; i++) {
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 1, "list", a1);
-	    list[i] = ((ListTerm)tmp).car().dereference();
-	    tmp = ((ListTerm)tmp).cdr().dereference();
+	    list[i] = ((ListTerm)tmp).car().dref();
+	    tmp = ((ListTerm)tmp).cdr().dref();
 	}
 	if (! tmp.equals(Prolog.Nil))
 	    throw new PInstantiationException(this, 1);
@@ -63,7 +64,7 @@ public class PRED_sort_2 extends Predicate.P2 {
 	tmp2 = null;
 	for (int i=list.length-1; i>=0; i--) {
 	    if (! list[i].equals(tmp2))
-		tmp = new ListTerm(list[i], tmp);
+		tmp = TermData.CONS(list[i], tmp);
 	    tmp2 = list[i];
 	}
 	if(! a2.unify(tmp, engine.trail)) 

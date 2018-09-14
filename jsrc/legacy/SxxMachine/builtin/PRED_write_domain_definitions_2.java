@@ -39,16 +39,16 @@ public class PRED_write_domain_definitions_2 extends P2 {
 	public PRED_write_domain_definitions_2() {
 	}
 
-	public PRED_write_domain_definitions_2(Term arg1, Term arg2, Operation cont) {
-		this.arg1 = arg1;
-		this.arg2 = arg2;
+	public PRED_write_domain_definitions_2(Term a0, Term a1, Operation cont) {
+		this.LARG[0] = a0; //0];
+		this.LARG[1] = a1; //1];
 		this.cont = cont;
 	}
 
 	@Override
 	public Operation exec(Prolog engine) throws PrologException {
-		Term a1 = arg1.dereference();
-		Term a2 = arg2.dereference();
+		Term a1 = LARG[0].dref();
+		Term a2 = LARG[1].dref();
 		
 		// input check
 		// a1 is output directory
@@ -70,24 +70,24 @@ public class PRED_write_domain_definitions_2 extends P2 {
 			if (!(t instanceof StructureTerm) || !"=".equals(t.name()) || t.arity()!=2){
 				throw new IllegalDomainException(this, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
 			}
-			Term packageAndName = t.arg(0);
+			Term packageAndName = t.arg0(0);
 			if (!(packageAndName instanceof StructureTerm) || !":".equals(packageAndName.name()) || packageAndName.arity()!=2){
 				throw new IllegalDomainException(this, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
 			}
-			Term packageTerm = packageAndName.arg(0);
+			Term packageTerm = packageAndName.arg0(0);
 			if (packageName==null){
 				packageName = packageTerm.name();
 			} else if (!packageName.equals(packageTerm.name())){
 				throw new IllegalDomainException(this, 2, "same package in every list item", a2);
 			}
-			Term name = packageAndName.arg(1);
+			Term name = packageAndName.arg0(1);
 			
-			Term definition = t.arg(1);
+			Term definition = t.arg0(1);
 			StringBuilder sb = new StringBuilder();
 			Term d = definition;
 			while (";".equals(d.name())){
-				sb.append(d.arg(0).toString()).append(';');
-				d = d.arg(1);
+				sb.append(d.arg0(0).toString()).append(';');
+				d = d.arg0(1);
 			}
 			sb.append(d.toString());
 			p.put(name.name(), sb.toString());

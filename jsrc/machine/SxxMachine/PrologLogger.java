@@ -1,12 +1,15 @@
 package SxxMachine;
 
+import SxxMachine.exceptions.*;
+
+
+
+import static SxxMachine.TermData.Op;
+import static SxxMachine.TermData.VA;
+
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import SxxMachine.exceptions.BuiltinException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PrologException;
 
 /**
  * <p>Logs executed predicates and their arguments to {@link Logger} instance given in constructor.
@@ -26,162 +29,182 @@ import SxxMachine.exceptions.PrologException;
  *
  */
 public class PrologLogger {
-
 	private final Logger logger;
-
 	private Predicate[] stackFrame;
 	private int stackTop;
 	private boolean normalExecution = true;
-
 	private final StringBuilder stringBuilder = new StringBuilder(2048);
 	private char[] indent;
-
-	PrologLogger(Logger logger){
-		this.logger = logger;
-		stackFrame = new Predicate[256];
-		indent = new char[256];
-	}
-
+  public boolean loggerEnable = false;
+	Logger getJLogger(){
+	  return this.logger;
+    }
+    PrologLogger(Logger logger){
+      this.logger = logger;
+      this.stackFrame = new Predicate[256];
+      this.indent = new char[256];
+  }
 	final void init(ChoicePointFrame initialChoicePointFrame) {
-		stackTop = 0;
+		this.stackTop = 0;
 		//Arrays.fill(stackFrame, null);
-		stackFrame[0] = Success.SUCCESS; // TODO check if null is ok
-		normalExecution = true;
-
-		initialChoicePointFrame.ownerPredicate = stackFrame[stackTop];
-		initialChoicePointFrame.loggerStackTop = stackTop;
+		this.stackFrame[0] = Op(SxxMachine.builtin.FILE_builtins::PRED_true_0_static_exec,VA(),null); // TODO check if null is ok
+		this.normalExecution = true;
+		initialChoicePointFrame.ownerPredicate = this.stackFrame[this.stackTop];
+		initialChoicePointFrame.loggerStackTop = this.stackTop;
 	}
-
 	final void fail(Operation next, ChoicePointFrame entry) {
 		//  write to log
-		logger.log(Level.FINER, ()->{
+	  if(this.loggerEnable)this.logger.log(Level.FINER, ()->{
 			stringBuilder.setLength(0);
-			stringBuilder.append(indent, 1, stackTop).append("failure => ");
+			stringBuilder.append(this.indent, 1, this.stackTop).append("failure => ");
 			stringBuilder.append(next);
 			return stringBuilder.toString();
 		});
-		normalExecution = false;
-		stackTop = entry.loggerStackTop;
-		stackFrame[stackTop] = entry.ownerPredicate;
+		this.normalExecution = false;
+		this.stackTop = entry.loggerStackTop;
+		this.stackFrame[this.stackTop] = (Predicate) entry.ownerPredicate;
 	}
 
-
+	/**
+   * @param next  
+   */
 	final void jtry(Operation p, Operation next, ChoicePointFrame entry) {
-		entry.ownerPredicate = stackFrame[stackTop];
-		entry.loggerStackTop = stackTop;
+		entry.ownerPredicate = this.stackFrame[this.stackTop];
+		entry.loggerStackTop = this.stackTop;
 		//  write to log
-		logger.log(Level.FINER, ()->{
+		if(this.loggerEnable)this.logger.log(Level.FINER, ()->{
 			stringBuilder.setLength(0);
-			stringBuilder.append(indent, 1, stackTop).append("try ");
-			stackFrame[stackTop].toString(stringBuilder);
+			stringBuilder.append(this.indent, 1, this.stackTop).append("try ");
+			stringBuilder.append(this.stackFrame[this.stackTop].toString());
 			stringBuilder.append(" => ");
 			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
 	}
-
+	/**
+   * @param next  
+   */
 	final void retry(Operation p, Operation next, ChoicePointFrame entry) {
 		//  write to log
-		logger.log(Level.FINER, ()->{
+	    if(this.loggerEnable)this.logger.log(Level.FINER, ()->{
 			stringBuilder.setLength(0);
-			stringBuilder.append(indent, 1, stackTop).append("retry ");
-			entry.ownerPredicate.toString(stringBuilder);
+			stringBuilder.append(this.indent, 1, this.stackTop).append("retry ");
+			stringBuilder.append(entry.ownerPredicate.toString());
 			stringBuilder.append(" => ");
 			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
-		normalExecution = false;
-		stackTop = entry.loggerStackTop;
-		stackFrame[stackTop] = entry.ownerPredicate;
+		this.normalExecution = false;
+		this.stackTop = entry.loggerStackTop;
+		this.stackFrame[this.stackTop] = (Predicate) entry.ownerPredicate;
 	}
-
 	final void trust(Operation p, ChoicePointFrame entry) {
 		// write to log
-		logger.log(Level.FINER, ()->{
+	  if(this.loggerEnable)this.logger.log(Level.FINER, ()->{
 			stringBuilder.setLength(0);
-			stringBuilder.append(indent, 1, stackTop).append("trust ");
-			entry.ownerPredicate.toString(stringBuilder);
+			stringBuilder.append(this.indent, 1, this.stackTop).append("trust ");
+			stringBuilder.append(entry.ownerPredicate.toString());
 			stringBuilder.append(" => ");
 			stringBuilder.append(p);
 			return stringBuilder.toString();
 		});
-		normalExecution = false;
-		stackTop = entry.loggerStackTop;
-		stackFrame[stackTop] = entry.ownerPredicate;
+		this.normalExecution = false;
+		this.stackTop = entry.loggerStackTop;
+		this.stackFrame[this.stackTop] = (Predicate) entry.ownerPredicate;
 	}
-
 	public final void beforeExec(Operation code) {
 		Level level;
 		// do afterExec
 		if (code instanceof Predicate) {
-			if (normalExecution){
-				while (stackTop>=0 && stackFrame[stackTop].cont==code){
-					stackTop--;
+			if (this.normalExecution){
+				while (this.stackTop>=0 && this.stackFrame[this.stackTop].cont==code){
+					this.stackTop--;
 				}
-				stackTop++;
-				if (stackTop>=stackFrame.length) {
+				this.stackTop++;
+				if (this.stackTop>=this.stackFrame.length) {
 					ensureCapacity();
 				}
 			}
-
 			// most important
-			stackFrame[stackTop] = (Predicate) code;
+			this.stackFrame[this.stackTop] = (Predicate) code;
 			level = Level.FINE;
 		} else {
 			level = Level.FINER;
 		}
-		normalExecution = true;
+		this.normalExecution = true;
 		//  if logger.isLoggable(Level.FINE) write code to log
-		logger.log(level, ()->{
+		if(this.loggerEnable)this.logger.log(level, ()->{
 			stringBuilder.setLength(0);
-			stringBuilder.append(indent, 1, stackTop).append(": ");
+			stringBuilder.append(this.indent, 1, this.stackTop).append(": ");
 			if (code instanceof Predicate){
 				((Predicate) code).toString(stringBuilder);
 			} else {
-				stringBuilder.append(code);
-			}
+              stringBuilder.append(code);
+          }
 			return stringBuilder.toString();
 		});
 	}
-
+	
+  public final void printStack(Operation codeP, StringBuilder stringBuilder) {
+    int stackTop = this.stackTop;
+    Operation code = null;
+    String indent = "\n" + " ";
+    for (int i = 0; i < stackTop; i++) {
+      code = this.stackFrame[i];
+      stringBuilder.append(indent);
+      if (code == codeP) {
+        break;
+      } else {
+        stringBuilder.append("ABOVE: ");
+      }
+      if (code instanceof Predicate) {
+        ((Predicate) code).toString(stringBuilder);
+      } else {
+        stringBuilder.append(code.toString());
+      }
+    }
+    code = codeP;
+    stringBuilder.append("\nHERE: ");
+    if (code instanceof Predicate) {
+      ((Predicate) code).toRest(indent + "  GOTO: ", stringBuilder);
+    }
+  }
 	private void ensureCapacity() {
-		Predicate[] array = new Predicate[stackFrame.length*2];
-		System.arraycopy(stackFrame, 0, array, 0, stackFrame.length);
-		stackFrame = array;
-		indent = new char[stackFrame.length];
-		Arrays.fill(indent, ' ');
+		Predicate[] array = new Predicate[this.stackFrame.length*2];
+		System.arraycopy(this.stackFrame, 0, array, 0, this.stackFrame.length);
+		this.stackFrame = array;
+		this.indent = new char[this.stackFrame.length];
+		Arrays.fill(this.indent, ' ');
 	}
-
 	public final PrologException execThrows(RuntimeException t) {
-		if (!(t instanceof PrologException) || !((SxxMachine.exceptions.PrologException)t).hasPrologStackTrace() ){
-			Operation[] array = new Operation[stackTop];
-			for (int i=stackTop, k=0; i>0; i--){
-				array[k] = stackFrame[i];
+		if (!(t instanceof PrologException) || !((PrologException)t).hasPrologStackTrace() ){
+			Operation[] array = new Operation[this.stackTop];
+			for (int i=this.stackTop, k=0; i>0; i--){
+				array[k] = this.stackFrame[i];
 				k++;
 			}
 			// wrap t into JavaException if it is not PrologException
 			if (!(t instanceof PrologException)){
+			  t.printStackTrace();
 				t = new JavaException(t);
 			}
 			// add stacktrace into t
-			((SxxMachine.exceptions.PrologException)t).setPrologStackTrace(array);
+			((PrologException)t).setPrologStackTrace(array);
 			if (t instanceof BuiltinException) {
-				((BuiltinException) t).goal = stackFrame[stackTop];
+				((BuiltinException) t).goal = this.stackFrame[this.stackTop];
 			}
 		}
 		// write to log
-		logger.log(Level.FINE, "", t);
+		this.logger.log(Level.FINE, "", t);
 		return (PrologException) t;
 	}
-
 	final void printStackTrace(Throwable err) {
-		logger.log(Level.SEVERE, "", err);
-		if (!logger.getUseParentHandlers()){ // propagate error outside
+		this.logger.log(Level.SEVERE, "", err);
+		if (!this.logger.getUseParentHandlers()){ // propagate error outside
 			Logger.getLogger("").log(Level.SEVERE, "", err);
 		}
 	}
-
 	final void close() {
-		Arrays.fill(stackFrame, stackTop+1, stackFrame.length, null);
+		Arrays.fill(this.stackFrame, this.stackTop+1, this.stackFrame.length, null);
 	}
 }

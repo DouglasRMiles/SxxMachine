@@ -1,6 +1,7 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.Term;
+import SxxMachine.*;
+
 
 /**
  * User-defined exception.<br>
@@ -14,18 +15,19 @@ import SxxMachine.Term;
  */
 public class TermException extends PrologException {
     /** Message as term. */
-    Term message;
-
+   Term messageTerm;
     /** Constructs a new <code>TermException</code>. */
     public TermException(){}
-
     /** Constructs a new <code>TermException</code> with a given message term. */
     public TermException(Term _message){
-	super(_message.toString());
-	message = _message;
+	super(_message.toAtomName());
+	this.messageTerm = _message;
     }
-
+    @Override
     public Term getMessageTerm() {
-	return message;
+	return this.messageTerm;
+    }
+    public String getMessage() {
+    return messageTerm.pprint();
     }
 }

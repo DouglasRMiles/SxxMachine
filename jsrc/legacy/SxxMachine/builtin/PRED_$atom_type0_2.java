@@ -15,8 +15,8 @@ import SxxMachine.Token;
  */
 class PRED_$atom_type0_2 extends Predicate.P2 {
     public PRED_$atom_type0_2(Term a1, Term a2, Operation cont){ 
-	arg1 = a1;
-	arg2 = a2;
+	LARG[0] = a1;
+	LARG[1] = a2;
 	this.cont = cont;
     }
 
@@ -24,10 +24,10 @@ class PRED_$atom_type0_2 extends Predicate.P2 {
         engine.setB0();
 	Term a1, a2;
 	int type;
-	a1 = arg1;
-	a2 = arg2;
+	a1 = LARG[0];
+	a2 = LARG[1];
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if(! (a1 instanceof SymbolTerm))
 	    return engine.fail();
 	type = Token.getStringType(((SymbolTerm)a1).name());

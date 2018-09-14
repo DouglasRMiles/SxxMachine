@@ -12,16 +12,16 @@ import SxxMachine.Term;
  */
 class PRED_$set_exception_1 extends Predicate.P1 {
     public PRED_$set_exception_1(Term a1, Operation cont) {
-	arg1 = a1;
+	LARG[0] = a1;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1;
-	a1 = arg1;
+	a1 = LARG[0];
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	engine.setException(a1);
 	return cont;
     }

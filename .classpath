@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="jsrc/builtin"/>
+	<classpathentry excluding="SxxMachine/builtin/PRED_log_4.java|SxxMachine/builtin/PRED_log_5.java|SxxMachine/builtin/PRED_log_6.java|SxxMachine/builtin/PRED_log_7.java|SxxMachine/builtin/PRED_atom_concat_3.java" kind="src" path="jsrc/builtin"/>
 	<classpathentry kind="src" path="jsrc/compiler"/>
 	<classpathentry kind="src" path="jsrc/library"/>
 	<classpathentry kind="src" path="jsrc/machine"/>
 	<classpathentry kind="src" path="jsrc/repl"/>
+	<classpathentry kind="src" path="jsrc/kernelprolog"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="eclipse-out/classes"/>
 </classpath>

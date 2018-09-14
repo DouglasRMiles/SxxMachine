@@ -1,11 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.Operation;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.*;
 
 /**
  * Representation error.<br>
@@ -19,44 +14,45 @@ import SxxMachine.Term;
 public class RepresentationException extends BuiltinException {
     /** A functor symbol of <code>representation_error/3</code>. */
     public static final SymbolTerm REPRESENTATION_ERROR = SymbolTerm.intern("representation_error", 3);
-
     /*
       flag ::= character | character_code | in_character_code | 
                max_arity | max_integer | min_integer
     */
     /** Holds a string representation of flag. */
     public final String flag;
-
     /** Constructs a new <code>RepresentationException</code> with a flag. */
     public RepresentationException(String _flag) {
-	flag    = _flag;
+	this.flag    = _flag;
     }
-
     /** Constructs a new <code>RepresentationException</code> with the given arguments. */
     public RepresentationException(Operation _goal, int _argNo, String _flag) {
 	this.goal    = _goal;
 	this.argNo   = _argNo;
-	flag    = _flag;
+	this.flag    = _flag;
     }
-
     /** Returns a term representation of this <code>RepresentationException</code>:
      * <code>representation_error(goal,argNo,flag)</code>.
      */
+    @Override
     public Term getMessageTerm() {
 	Term[] args = {
-	    new JavaObjectTerm(goal), 
-	    new IntegerTerm(argNo), 
-	    SymbolTerm.create(flag)};
-	return new ErrorTerm(this, REPRESENTATION_ERROR, args);
+	    TermData.FFIObject(this.goal), 
+	    TermData.Integer(this.argNo), 
+	    SymbolTerm.create(this.flag)};
+	return TermData.createErrorTerm(this, REPRESENTATION_ERROR, args);
     }
-
     /** Returns a string representation of this <code>RepresentationException</code>. */
+    @Override
     public String toString() {
-	String s = "{REPRESENTATION ERROR: " + goal.toString();
-	if (argNo > 0)
-	    s += " - arg " + argNo;
-	s += ": limit of " + flag +  " is breached";
+	String s = "{REPRESENTATION ERROR: " + this.goal.toString();
+	if (this.argNo > 0)
+	    s += " - arg " + this.argNo;
+	s += ": limit of " + this.flag +  " is breached";
 	s += "}";
 	return s;
     }
+    public String getMessage() {
+    return toString();
+    }
+
 }

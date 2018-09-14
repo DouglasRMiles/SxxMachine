@@ -1,7 +1,12 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.EvaluationException;
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.*;
+
+
+import java.util.Comparator;
+
+import prolog.KPTrail;
+import prolog.terms.Expect;
 
 /**
  * Integer.<br>
@@ -16,63 +21,65 @@ import SxxMachine.exceptions.IllegalTypeException;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class IntegerTerm extends NumberTerm {
+public class IntegerTerm extends LongTerm {
     /** Holds an <code>int</code> value that this <code>IntegerTerm</code> represents. */
-    protected final int val;
+  //  protected final int intValue();
+	@Override
+	public boolean isInteger() {
+		return true;
+	}
+    @Override
+    public boolean isLong() {   
+        return false;
+    }
+
+	  public boolean unifyInt(int i, Trail trail) {
+	     return intValue() == i;
+	  }
+
 
     /** Constructs a new Prolog integer that represents the specified <code>int</code> value. */
-    public IntegerTerm(int i) {	val = i; }
-
+    public IntegerTerm(int i) {	super(i); }
     /**
-     * Returns the value of <code>val</code>.
-     * @see #val
+     * Returns the value of <code>intValue()</code>.
+     * @see #intValue()
      */
-    public int value() { return val; }
-
+    public Object value() { return this.intValue(); }
     /* Term */
-	public boolean unify(Term t, Trail trail) {
-		t = t.dereference();
-		return (t instanceof VariableTerm) ? ((VariableTerm) t).bind(this, trail) :
-			(((t instanceof IntegerTerm) && this.val == ((IntegerTerm) t).val) ||
-			 ((t instanceof LongTerm) && ((long) this.val) == ((LongTerm) t).longValue()));
+	@Override
+  public boolean unifyImpl(Term t, Trail trail) {
+		t = t.dref();
+		return (t .isVar()) ? ((VariableTerm) t).bind(this, trail) :
+			(((t .isInteger()) && this.intValue() == ((IntegerTerm) t).intValue()) ||
+			 ((t .isLong()) && (this.intValue()) == ((LongTerm) t).longValue()));
 	}
-
     /** 
      * @return the <code>boolean</code> whose value is
      * <code>convertible(Integer.class, type)</code>.
      * @see Term#convertible(Class, Class)
      */
+    @Override
     public boolean convertible(Class type) { return convertible(Integer.class, type); }
-
-    public String name() { return ""; }
-
+    @Override
+    public String name() { 
+      oopsy();
+      return ""; }
     /** 
      * Returns a <code>java.lang.Integer</code> corresponds to this <code>IntegerTerm</code>
      * according to <em>Prolog Cafe interoperability with Java</em>.
      * @return a <code>java.lang.Integer</code> object equivalent to
      * this <code>IntegerTerm</code>.
      */
-    public Object toJava() { return Integer.valueOf(val); }
+    @Override
+    public Object toJava() { return Integer.valueOf(this.intValue()); }
 
-    /* Object */
-    /** Returns a string representation of this <code>IntegerTerm</code>. */
-    @Override // Overridden for performance
-    public String toString() { return Integer.toString(this.val); }
-    
     /** Returns a quoted string representation of this <code>IntegerTerm</code>. */
     @Override // Overridden for performance
-    public String toQuotedString() { return Integer.toString(this.val); }
-
+    public String toAtomName() { return Integer.toString(this.intValue()); }
     @Override
-    public void toString(StringBuilder sb){
-    	sb.append(this.val);
+    public void toStringImpl(int printFlags, StringBuilder sb){
+    	sb.append(this.intValue());
     }
-
-    @Override
-    public void toQuotedString(StringBuilder sb){
-    	sb.append(this.val);
-    }
-
     /**
      * Checks <em>term equality</em> of two terms.
      * The result is <code>true</code> if and only if the argument is an instance of
@@ -82,12 +89,12 @@ public class IntegerTerm extends NumberTerm {
      * equivalent to this <code>IntegerTerm</code>, false otherwise.
      * @see #compareTo
     */
-    public boolean equals(Object obj) {
-		return obj instanceof IntegerTerm && this.val == ((IntegerTerm) obj).value();
+    @Override
+    public boolean equalsTerm(Term obj, Comparator comparator) {
+		return obj .isInteger() && this.intValue() == obj.intValue();
 	}
-
-    public int hashCode() { return this.val; }
-
+    @Override
+    public int termHashCodeImpl() { return this.intValue(); }
     /* Comparable */
     /** 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -98,219 +105,224 @@ public class IntegerTerm extends NumberTerm {
      * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
      * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
      */
+    @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if (((anotherTerm instanceof VariableTerm) || anotherTerm instanceof DoubleTerm))
+	if (((anotherTerm .isVar()) || anotherTerm .isDouble()))
 	    return AFTER;
-	if (! (anotherTerm instanceof IntegerTerm))
+	if (! (anotherTerm .isInteger()))
 	    return BEFORE;
-	int v = ((IntegerTerm)anotherTerm).value();
-	if (this.val == v)
+	int v = ((IntegerTerm)anotherTerm).intValue();
+	if (this.intValue() == v)
 	    return EQUAL;
-	if (this.val > v)
+	if (this.intValue() > v)
 	    return AFTER;
 	return BEFORE;
     }
-
     /* NumberTerm */
-    public int intValue() { return this.val; }
-
-    public long longValue() { return (long)(this.val); }
-
-    public double doubleValue() { return (double)(this.val); }
-
-    public int arithCompareTo(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    return - (t.arithCompareTo(this));
-	if ((t instanceof LongTerm)){
-		return - (t.arithCompareTo(this));
-	}
-	int v = t.intValue();
-	if (this.val == v)
-	    return EQUAL;
-	if (this.val > v)
-	    return AFTER;
-	return BEFORE;
+    //@Override
+    //public int intValue() { return this.intValue(); }
+    //@Override
+    //public long longValue() { return (this.intValue()); }
+    //@Override
+  //  public double doubleValue() { return (this.intValue()); }
+   // @Override
+  public int arithCompareTo(NumberTerm t) {
+    if ((t.isDouble())) return -(t.arithCompareTo(this));
+    if ((t.isLong())) {
+      return -(t.arithCompareTo(this));
     }
-
-    public NumberTerm abs() { return new IntegerTerm(Math.abs(this.val)); }
-
-    public NumberTerm acos() { return new DoubleTerm(Math.acos(this.doubleValue())); }
-
+    int v = t.intValue();
+    if (this.intValue() == v) return EQUAL;
+    if (this.intValue() > v) return AFTER;
+    return BEFORE;
+  }
+    @Override
+    public NumberTerm abs() { return Integer(Math.abs(this.intValue())); }
+    @Override
+    public NumberTerm acos() { return Float(Math.acos(intValue())); }
+    @Override
     public NumberTerm add(NumberTerm t) {
-	    return (t instanceof DoubleTerm) ? t.add(this) : new IntegerTerm(this.val + t.intValue());
+	    return (t .isDouble()) ? t.add(this) : Integer(this.intValue() + t.intValue());
     }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      */
+    @Override
     public NumberTerm and(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
-	return new IntegerTerm(this.val & t.intValue());
+	must_be_int(t);
+	return Integer(this.intValue() & t.intValue());
     }
-
-    public NumberTerm asin() { return new DoubleTerm(Math.asin(this.doubleValue())); }
-
-    public NumberTerm atan() { return new DoubleTerm(Math.atan(this.doubleValue())); }
-
+    @Override
+    public NumberTerm asin() { return Float(Math.asin(intValue())); }
+    @Override
+    public NumberTerm atan() { return Float(Math.atan(intValue())); }
+    @Override
     public NumberTerm ceil() { return this; }
-
-    public NumberTerm cos() { return new DoubleTerm(Math.cos(this.doubleValue())); }
-
+    @Override
+    public NumberTerm cos() { return Float(Math.cos(intValue())); }
     /** 
      * @exception EvaluationException if the given argument
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
+    @Override
     public NumberTerm divide(NumberTerm t) { 
 	if (t.doubleValue() == 0)
 	    throw new EvaluationException("zero_divisor");
-	return new DoubleTerm(this.doubleValue() / t.doubleValue()); 
+	return Float(intValue() / t.doubleValue()); 
     }
-
-    public NumberTerm exp() { return new DoubleTerm(Math.exp(this.doubleValue())); }
-
+    @Override
+    public NumberTerm exp() { return Float(Math.exp(intValue())); }
+    @Override
     public NumberTerm floatIntPart() { throw new IllegalTypeException("float", this); }
-
+    @Override
     public NumberTerm floatFractPart() { throw new IllegalTypeException("float", this); }
-
+    @Override
     public NumberTerm floor() { return this; }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      * @exception EvaluationException if the given argument
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
+    @Override
     public NumberTerm intDivide(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
+	must_be_int(t);
 	if (t.intValue() == 0)
 	    throw new EvaluationException("zero_divisor");
-	return new IntegerTerm((int) (this.val / t.intValue()));
+	return Integer(this.intValue() / t.intValue());
     }
-
     /** 
      * @exception EvaluationException if this object represents <coe>0</code>.
      */
+    @Override
     public NumberTerm log() { 
-	if (this.val == 0)
+	if (this.intValue() == 0)
 	    throw new EvaluationException("undefined");
-	return new DoubleTerm(Math.log(this.doubleValue())); 
+	return Float(Math.log(intValue())); 
     }
-
+    @Override
     public NumberTerm max(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
+	if ((t .isDouble()))
 	    return t.max(this);
-	return new IntegerTerm(Math.max(this.val, t.intValue()));
+	return Integer(Math.max(this.intValue(), t.intValue()));
     }
-
+    @Override
     public NumberTerm min(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
+	if ((t .isDouble()))
 	    return t.min(this);
-	return new IntegerTerm(Math.min(this.val, t.intValue()));
+	return Integer(Math.min(this.intValue(), t.intValue()));
     }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      * @exception EvaluationException if the given argument
      * <code>NumberTerm</code> represents <coe>0</code>.
      */
+    @Override
     public NumberTerm mod(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
+	must_be_int(t);
 	if (t.intValue() == 0)
 	    throw new EvaluationException("zero_divisor");
-	return new IntegerTerm(this.val % t.intValue());
+	return Integer(this.intValue() % t.intValue());
     }
-
+    @Override
     public NumberTerm multiply(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
+	if ((t .isDouble()))
 	    return t.multiply(this);
-	if ((t instanceof LongTerm)){
+	if ((t .isLong())){
 		return t.multiply(this);
 	}
-	return new IntegerTerm(this.val * t.intValue());
+	return Integer(this.intValue() * t.intValue());
     }
-
-    public NumberTerm negate() { return new IntegerTerm(- this.val); }
-
-    public NumberTerm not() { return new IntegerTerm(~ this.val); }
-
+    @Override
+    public NumberTerm negate() { return Integer(- this.intValue()); }
+    @Override
+    public NumberTerm not() { return Integer(~ this.intValue()); }
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      */
+    @Override
     public NumberTerm or(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
-	return new IntegerTerm(this.val | t.intValue());
+	must_be_int(t);
+	return Integer(this.intValue() | t.intValue());
     }
-
-    public NumberTerm pow(NumberTerm t) { return new DoubleTerm(Math.pow(this.doubleValue(), t.doubleValue())); }
-
-    public NumberTerm rint() { return new DoubleTerm(this.doubleValue()); }
-
+    @Override
+    public NumberTerm pow(NumberTerm t) { return Float(Math.pow(intValue(), t.doubleValue())); }
+    @Override
+    public NumberTerm rint() { return Float(intValue()); }
+    @Override
     public NumberTerm round() { return this; }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      */
+    @Override
     public NumberTerm shiftLeft(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
-	return new IntegerTerm(this.val << t.intValue());
+	must_be_int(t);
+	return Integer(this.intValue() << t.intValue());
     }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      */
+    @Override
     public NumberTerm shiftRight(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
-	return new IntegerTerm(this.val >> t.intValue());
+	must_be_int(t);
+	return Integer(this.intValue() >> t.intValue());
     }
-
-    public NumberTerm signum() {return new IntegerTerm((int) Math.signum((double) this.val)); }
-
-    public NumberTerm sin() { return new DoubleTerm(Math.sin(this.doubleValue())); }
-
+    @Override
+    public NumberTerm signum() {return Integer((int) Math.signum((double) this.intValue())); }
+    @Override
+    public NumberTerm sin() { return Float(Math.sin(intValue())); }
     /** 
      * @exception EvaluationException if this object represents
      * an integer less than <coe>0</code>.
      */
+    @Override
     public NumberTerm sqrt() { 
-	if (this.val < 0)
+	if (this.intValue() < 0)
 	    throw new EvaluationException("undefined");
-	return new DoubleTerm(Math.sqrt(this.doubleValue())); 
+	return Float(Math.sqrt(intValue())); 
     }
-
+    @Override
     public NumberTerm subtract(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    return new DoubleTerm(this.doubleValue() - t.doubleValue());
-	return new IntegerTerm(this.val - t.intValue());
+	if ((t .isDouble()))
+	    return Float(intValue() - t.doubleValue());
+	return Integer(this.intValue() - t.intValue());
     }
-
-    public NumberTerm tan() { return new DoubleTerm(Math.tan(this.doubleValue())); }
-
-    public NumberTerm toDegrees() { return new DoubleTerm(Math.toDegrees(this.doubleValue())); }
-
-    public NumberTerm toFloat() { return new DoubleTerm((double) this.val); }
-
-    public NumberTerm toRadians() { return new DoubleTerm(Math.toRadians(this.doubleValue())); }
-
+    @Override
+    public NumberTerm tan() { return Float(Math.tan(intValue())); }
+    @Override
+    public NumberTerm toDegrees() { return Float(Math.toDegrees(intValue())); }
+    @Override
+    public NumberTerm toFloat() { return Float(this.intValue()); }
+    @Override
+    public NumberTerm toRadians() { return Float(Math.toRadians(intValue())); }
+    @Override
     public NumberTerm truncate() { return this; }
-
     /** 
      * @exception IllegalTypeException if the given argument
      * <code>NumberTerm</code> is a floating point number.
      */
+    @Override
     public NumberTerm xor(NumberTerm t) {
-	if ((t instanceof DoubleTerm))
-	    throw new IllegalTypeException("integer", t);
-	return new IntegerTerm(this.val ^ t.intValue());
+	must_be_int(t);
+	return Integer(this.intValue() ^ t.intValue());
+    }
+    private void must_be_int(NumberTerm t) {
+      if ((t .isDouble())) throw new IllegalTypeException("integer", t);
+      
+    }
+//    public NumberTerm Float(double n) {
+//      return new DoubleTerm(n);
+//    }
+    public NumberTerm Integer(long n) {
+      return TermData.Long(n);
+    }
+    @Override
+    public int type() {
+      return TYPE_INTEGER;
     }
 }

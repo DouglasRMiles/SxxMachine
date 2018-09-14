@@ -2,23 +2,23 @@ package SxxMachine.builtin;
 
 import java.io.PushbackReader;
 
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
 import SxxMachine.DoubleTerm;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.ListTerm;
 import SxxMachine.LongTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.Token;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.ExistenceException;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.JavaException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.PermissionException;
 /**
  * <code>'$read_token0'/3</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -28,9 +28,9 @@ import SxxMachine.VariableTerm;
  */
 class PRED_$read_token0_3 extends Predicate.P3 {
     public PRED_$read_token0_3(Term a1, Term a2, Term a3, Operation cont){
-	arg1 = a1;
-	arg2 = a2;
-	arg3 = a3;
+	LARG[0] = a1;
+	LARG[1] = a2;
+	LARG[2] = a3;
 	this.cont = cont;
     }
 
@@ -39,9 +39,9 @@ class PRED_$read_token0_3 extends Predicate.P3 {
     public Operation exec(Prolog engine) {
         engine.setB0();
 	Term a1, a2, a3;
-	a1 = arg1;
-	a2 = arg2;
-	a3 = arg3;
+	a1 = LARG[0];
+	a2 = LARG[1];
+	a3 = LARG[2];
 
 	Object stream = null;
 	StringBuilder s;
@@ -49,15 +49,15 @@ class PRED_$read_token0_3 extends Predicate.P3 {
 	Term token;
 
 	// S_or_a
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if ((a1 instanceof VariableTerm)) {
 	    throw new PInstantiationException(this, 1);
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((JavaObjectTerm) engine.getStreamManager().get(a1)).object();
-	} else if ((a1 instanceof JavaObjectTerm)) {
-	    stream = ((JavaObjectTerm) a1).object();
+	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	} else if ((a1 instanceof FFIObjectTerm)) {
+	    stream = ((FFIObjectTerm) a1).object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}
@@ -81,7 +81,7 @@ class PRED_$read_token0_3 extends Predicate.P3 {
 			char[] chars = (s.toString()).toCharArray();
 			token = Prolog.Nil;
 			for (int i=chars.length; i>0; i--){
-			    token = new ListTerm(new IntegerTerm((int)chars[i-1]), token);
+			    token = TermData.CONS(new IntegerTerm((int)chars[i-1]), token);
 			}
 			break;
 	    default :

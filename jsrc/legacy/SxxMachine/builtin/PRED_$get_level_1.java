@@ -13,14 +13,14 @@ import SxxMachine.Term;
 */
 public class PRED_$get_level_1 extends Predicate.P1 {
     public PRED_$get_level_1(Term a1, Operation cont) {
-        arg1 = a1;
+        LARG[0] = a1;
         this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
 	//        engine.setB0(); 
 	Term a1;
-        a1 = arg1;
+        a1 = LARG[0];
         if (! a1.unify(new IntegerTerm(engine.B0), engine.trail)) {
             return engine.fail();
         }

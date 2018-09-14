@@ -1,11 +1,11 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.exceptions.IllegalTypeException;
 /**
  * <code>'$erase'/1</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -14,16 +14,16 @@ import SxxMachine.Term;
  */
 class PRED_$erase_1 extends Predicate.P1 {
     public PRED_$erase_1(Term a1, Operation cont) {
-	arg1 = a1;
+	LARG[0] = a1;
 	this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
-	Term a1 = arg1;
+	Term a1 = LARG[0];
 	int idx;
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if (! (a1 instanceof IntegerTerm))
 	    throw new IllegalTypeException(this, 1, "integer", a1);
 	idx = ((IntegerTerm)a1).intValue();

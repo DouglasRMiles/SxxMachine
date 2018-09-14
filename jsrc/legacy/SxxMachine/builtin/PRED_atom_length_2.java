@@ -1,8 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
@@ -10,6 +7,9 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 /**
  * <code>atom_lengt/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -18,20 +18,20 @@ import SxxMachine.VariableTerm;
 */
 public class PRED_atom_length_2 extends Predicate.P2 {
     public PRED_atom_length_2(Term a1, Term a2, Operation cont) {
-        arg1 = a1;
-        arg2 = a2;
+        LARG[0] = a1;
+        LARG[1] = a2;
         this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
         Term a1, a2;
-        a1 = arg1;
-        a2 = arg2;
+        a1 = LARG[0];
+        a2 = LARG[1];
 	int length;
 
-	a1 = a1.dereference();
-	a2 = a2.dereference();
+	a1 = a1.dref();
+	a2 = a2.dref();
 
 	if ((a1 instanceof VariableTerm))
 	    throw new PInstantiationException(this, 1);

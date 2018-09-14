@@ -3,16 +3,16 @@ package SxxMachine.builtin;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.ListTerm;
+import SxxMachine.FFIObjectTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
 
 /**
  * <code>regex_match/3</code><br>
@@ -24,22 +24,22 @@ import SxxMachine.VariableTerm;
 public class PRED_regex_match_3 extends Predicate.P3 {
 
 	public PRED_regex_match_3(Term a1, Term a2, Term a3, Operation cont) {
-		arg1 = a1;
-		arg2 = a2;
-		arg3 = a3;
+		LARG[0] = a1;
+		LARG[1] = a2;
+		LARG[2] = a3;
 		this.cont = cont;
 	}
 
 	public Operation exec(Prolog engine) {
 		engine.setB0();
 		engine.cont = cont;
-		Term a1 = arg1.dereference();
-		Term a2 = arg2.dereference();
+		Term a1 = LARG[0].dref();
+		Term a2 = LARG[1].dref();
 
 		if ((a1 instanceof VariableTerm)) {
 			throw new PInstantiationException(this, 1);
 		}
-		Pattern pattern = (Pattern) ((JavaObjectTerm) a1).object();
+		Pattern pattern = (Pattern) ((FFIObjectTerm) a1).object();
 
 		if ((a2 instanceof VariableTerm)) {
 			throw new PInstantiationException(this, 1);
@@ -53,15 +53,15 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 			return engine.fail();
 		}
 
-		engine.areg1 = new JavaObjectTerm(matcher);
-		engine.areg2 = arg3;
+		engine.AREGS[0] = new FFIObjectTerm(matcher);
+		engine.AREGS[1] = LARG[2];
 		return engine.jtry2(PRED_regex_match_3::regex_check, PRED_regex_match_3::regex_next);
 	}
 
 	private static Operation regex_check(Prolog engine) {
-		Term a1 = engine.areg1;
-		Term result = engine.areg2;
-		Matcher matcher = (Matcher) ((JavaObjectTerm) a1).object();
+		Term a1 = engine.AREGS[0];
+		Term result = engine.AREGS[1];
+		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
 
 		Term matches = getMatches(matcher);
 
@@ -78,8 +78,8 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 
 
 	private static Operation regex_empty(Prolog engine) {
-		Term a1 = engine.areg1;
-		Matcher matcher = (Matcher) ((JavaObjectTerm) a1).object();
+		Term a1 = engine.AREGS[0];
+		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
 		if (!matcher.find()) {
 			return engine.fail();
 		}
@@ -92,7 +92,7 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 		Term list = Prolog.Nil;
 		for (int i = matcher.groupCount(); i >= 0; i--) {
 			SymbolTerm match = SymbolTerm.create(matcher.group(i));
-			list = new ListTerm(match, list);
+			list = TermData.CONS(match, list);
 		}
 		return list;
 	}

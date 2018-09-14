@@ -1,8 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.*;
 
 /**
  * System error.<br>
@@ -14,26 +12,28 @@ import SxxMachine.Term;
 public class SystemException extends PrologException {
     /** A functor symbol of <code>system_error/1</code>. */
     public static final SymbolTerm SYSTEM_ERROR = SymbolTerm.intern("system_error", 1);
-
     /** Holds a message. */
     public final String message;
-
+    @Override
+    public String getMessage() {
+    return message;
+    }
     /** Constructs a new <code>SystemException</code> with a message. */
     public SystemException(String _message) {
-	message = _message;
+	this.message = _message;
     }
-
     /** Returns a term representation of this <code>SystemException</code>:
      * <code>system_error(message)</code>.
      */
+    @Override
     public Term getMessageTerm() {
-	Term[] args = {SymbolTerm.create(message)};
-	return new ErrorTerm(this, SYSTEM_ERROR, args);
+	Term[] args = {SymbolTerm.create(this.message)};
+	return TermData.createErrorTerm(this, SYSTEM_ERROR, args);
     }
-
     /** Returns a string representation of this <code>SystemException</code>. */
+    @Override
     public String toString() {
-	String s = "{SYSTEM ERROR: " + message;
+	String s = "{SYSTEM ERROR: " + this.message;
 	s += "}";
 	return s;
     }

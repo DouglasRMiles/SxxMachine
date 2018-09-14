@@ -1,11 +1,6 @@
 package SxxMachine.exceptions;
 
-import SxxMachine.ErrorTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.JavaObjectTerm;
-import SxxMachine.Operation;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.*;
 
 /**
  * Domain error.<br>
@@ -20,7 +15,6 @@ import SxxMachine.Term;
 public class IllegalDomainException extends BuiltinException {
     /** A functor symbol of <code>domain_error/4</code>. */
     public static final SymbolTerm DOMAIN_ERROR = SymbolTerm.intern("domain_error", 4);
-
     /*
       domain ::= character_code_list | close_option | flag_value | io_mode | 
                  non_empty_list | not_less_than_zero | operator_priority |
@@ -31,46 +25,47 @@ public class IllegalDomainException extends BuiltinException {
     */
     /** Holds a string representation of valid domain. */
     public final String domain;
-
     /** Holds the argument or one of its components which caused the error. */
     public final Term culprit;
-
     /** Constructs a new <code>IllegalDomainException</code>
      * with a valid domain and its culprit. */
     public IllegalDomainException(String _domain, Term _culprit) {
-	domain    = _domain;
-	culprit = _culprit;
+	this.domain    = _domain;
+	this.culprit = _culprit;
     }
-
     /** Constructs a new <code>IllegalDomainException</code> 
      * with the given arguments. */
     public IllegalDomainException(Operation _goal, int _argNo, String _domain, Term _culprit) {
 	this.goal    = _goal;
 	this.argNo   = _argNo;
-	domain    = _domain;
-	culprit = _culprit;
+	this.domain    = _domain;
+	this.culprit = _culprit;
     }
-
     /** Returns a term representation of this <code>IllegalDomainException</code>:
      * <code>domain_error(goal,argNo,type,culprit)</code>.
      */
+    @Override
     public Term getMessageTerm() {
 	Term[] args = {
-	    new JavaObjectTerm(goal), 
-	    new IntegerTerm(argNo),
-	    SymbolTerm.create(domain),
-	    culprit};
-	return new ErrorTerm(this, DOMAIN_ERROR, args);
+	    TermData.FFIObject(this.goal), 
+	    TermData.Integer(this.argNo), 
+	    SymbolTerm.create(this.domain),
+	    this.culprit};
+	return TermData.createErrorTerm(this, DOMAIN_ERROR, args);
     }
-
     /** Returns a string representation of this <code>IllegalDomainException</code>. */
+    @Override
     public String toString() {
-	String s = "{DOMAIN ERROR: " + goal.toString();
-	if (argNo > 0)
-	    s += " - arg " + argNo;
-	s += ": expected " + domain;
-	s += ", found " + culprit.toString();
+	String s = "{DOMAIN ERROR: " + this.goal.toString();
+	if (this.argNo > 0)
+	    s += " - arg " + this.argNo;
+	s += ": expected " + this.domain;
+	s += ", found " + this.culprit.toAtomName();
 	s += "}";
 	return s;
     }
+    public String getMessage() {
+    return toString();
+    }
+
 }

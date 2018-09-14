@@ -1,8 +1,5 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.RepresentationException;
 import SxxMachine.IntegerTerm;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
@@ -11,7 +8,11 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
+import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
+import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.exceptions.RepresentationException;
 /**
    <code>'$get_instances'/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -22,19 +23,19 @@ class PRED_$get_instances_2 extends Predicate.P2 {
     private static final SymbolTerm COMMA = SymbolTerm.intern(",", 2);
 
     public PRED_$get_instances_2(Term a1, Term a2, Operation cont) {
-        arg1 = a1;
-        arg2 = a2;
+        LARG[0] = a1;
+        LARG[1] = a2;
         this.cont = cont;
     }
 
     public Operation exec(Prolog engine) {
         engine.setB0();
         Term a1, a2;
-        a1 = arg1;
-        a2 = arg2;
+        a1 = LARG[0];
+        a2 = LARG[1];
 	int idx;
 
-	a1 = a1.dereference();
+	a1 = a1.dref();
 	if (a1.isNil())
 	    return engine.fail();
 	if (!( a1 instanceof ListTerm))
@@ -44,7 +45,7 @@ class PRED_$get_instances_2 extends Predicate.P2 {
 	while(! tmp.isNil()) {
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 1, "list", a1);
-	    Term car = ((ListTerm)tmp).car().dereference();
+	    Term car = ((ListTerm)tmp).car().dref();
 	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 1);
 	    if (! (car instanceof IntegerTerm))
@@ -53,9 +54,9 @@ class PRED_$get_instances_2 extends Predicate.P2 {
 	    int i = ((IntegerTerm)car).intValue();
 	    Term e = engine.internalDB.get(i);
 	    if (e != null) {
-		x = new ListTerm(new StructureTerm(COMMA, e, car), x);
+		x = TermData.CONS(new StructureTerm(COMMA, e, car), x);
 	    }
-	    tmp = ((ListTerm)tmp).cdr().dereference();
+	    tmp = ((ListTerm)tmp).cdr().dref();
 	}
 	if (! a2.unify(x, engine.trail))
 	    return engine.fail();

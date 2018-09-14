@@ -1,7 +1,8 @@
 package SxxMachine;
 
-import java.util.IdentityHashMap;
+import SxxMachine.exceptions.*;
 
+import java.util.IdentityHashMap;
 /**
  * A term to represent errors, extends {@link StructureTerm}, 
  * additionally holds reference to {@link Throwable}, which this term represents.
@@ -9,7 +10,10 @@ import java.util.IdentityHashMap;
  *
  */
 public class ErrorTerm extends StructureTerm {
-
+	//@Override
+	public boolean isError() {
+		return true;
+	}
 	private final Throwable error;
 	
 	public ErrorTerm(Throwable error, String name, Term... args){
@@ -17,21 +21,20 @@ public class ErrorTerm extends StructureTerm {
 		this.error = error;
 	}
 	
-	public ErrorTerm(Throwable error, SymbolTerm _functor, Term... _args){
+	public ErrorTerm(Throwable error, Term _functor, Term... _args){
 		super(_functor, _args);
 		this.error = error;
 	}
-
 	public Throwable getThrowable() {
-		return error;
+		return this.error;
 	}	
 	
 	@Override
-	protected Term copy(IdentityHashMap<VariableTerm,VariableTerm> copyHash) {
+	protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
 		Term[] a = new Term[arity()];
 		for (int i = 0; i < a.length; i++){
-			a[i] = arg(i).copy(copyHash);
+			a[i] = arg0(i).copy(copyHash, deeply);
 		}
-		return new ErrorTerm(error, functor(), a);
+		return TermData.createErrorTerm(this.error, functor(), a);
 	}
 }
