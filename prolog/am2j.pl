@@ -361,7 +361,7 @@ write_java0(execute(cont), _) :- !,
 	w('return cont;'), nl.
 
 write_java0(execute(BinG), _) :- !,
-	(BinG = P:G -> true ; BinG = G),
+	((BinG = P:G) -> true ; BinG = G),
 	functor(G, F, A0),
 	A is A0-1,
 	G =.. [F|Args],
@@ -766,6 +766,8 @@ is_file_pred(_).
 create_call_op(_P,fail/0,Args):- 
   w('//\n Op(fail_0, VA('),write_reg_args_last_paren(Args),w(')'),!.
 
+create_call_op(_P,(':')/2,[M,Call]):- functor(Call,F,A),Call=..[_|Args],!,create_call_op(M,F/A,Args).
+
 create_call_op(_P,F/A,Args):- is_sys_pred(F/A,Where),!,
   w('//\n Op('),maybe_write_package(Where,'::'),write_class_name(F/A),
   w('_static_exec'),w(', VA('),write_reg_args_last_paren(Args),w(')'),!.
@@ -794,6 +796,8 @@ create_call_op(P,F/A,Args):-
 
 
 maybe_write_package(P,With):- (nonvar(P) -> (write_package(P), w(With)) ; true),!.
+
+:- dynamic(declared_class_name/1).
 
 
 write_repeat(A,Atom):- forall(between(1,A,_),w(Atom)).
@@ -1535,6 +1539,7 @@ write_reg(ea(8)) :- !, w('m.areg8').
 write_reg(ea(X)) :- !, w('m.aregs['), Y is X - 9, w(Y), w(']').
 */
 write_reg(@(X)) :- must(ground(X)),!, wl([' ',X,' ']).
+write_reg('#'(execute(M:P))) :- !, functor(P,F,A),A1 is A-1,P=..[_|Args],create_call_op(M,F/A1,Args).
 write_reg('#'(execute(P))) :- !, functor(P,F,A),A1 is A-1,P=..[_|Args],create_call_op(_M,F/A1,Args).
 write_reg(s(X)) :- not_slash(X),aliased_to(s(X),Val),wl([' ',Val,' ']).%must(write_as_field_value(Val)),!.
 write_reg(si(X)) :- not_slash(X),aliased_to(si(X),Val),wl([' ',Val,' ']).%must(write_as_field_value(Val)),!.

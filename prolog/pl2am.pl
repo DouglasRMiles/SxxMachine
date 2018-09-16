@@ -380,7 +380,8 @@ expand_constants(Clause,Clause):-!.
 
 %%% Assert Clauses
 assert_clause(end_of_file) :- !.
-assert_clause((:- if(C))) :- !, (C -> true ; assert_begin_if(C)).
+assert_clause((:- '$iso'(_))) :- !.
+assert_clause((:- if(C))) :- !, (C -> assert_begin_if(true) ; assert_begin_if(fail)).
 assert_clause((:- else)) :- !,  assert_else_if.
 assert_clause((:- endif)) :- !,  assert_end_if.
 assert_clause((:- ifdef C)) :- !,
@@ -400,6 +401,14 @@ assert_clause(C):-
 	assert_clause_(EC).
 
 assert_clause_((:- ensure_loaded(F))):- !,
+	assert_include_file(consult,F).	
+assert_clause_((:- reconsult(F))):- !,
+	assert_include_file(consult,F).	
+
+        
+assert_clause_((:- predicate_options(_,_,_))):- !.
+
+assert_clause_((:- reexport(F))):- !,
 	assert_include_file(consult,F).	
 assert_clause_((:- consult(F))):- !,
 	assert_include_file(consult,F).	
@@ -466,11 +475,15 @@ assert_constant(C):-
 	fail.
 
 %%% SWI-Prolog-like Conditional compilation
-assert_begin_if:-
+assert_begin_if(_):-
 	clause(begin_if_flag,_),
 	!,
 	pl2am_error([nested,'if',are,not,supported,yet]),
 	fail.
+assert_begin_if(fail):- !,
+	assert(begin_if_flag),
+        assert(skip_code).
+
 assert_begin_if(_):-
 	assert(begin_if_flag).
 
@@ -605,6 +618,8 @@ assert_dynamic_predicates([G|Gs]) :-
 	assert_dynamic(G),
 	assert_dynamic_predicates(Gs).
 
+assert_dynamic(user:G) :- !,assert_dynamic(G).
+assert_dynamic(system:G) :- !,assert_dynamic(G).
 assert_dynamic(G) :-
 	\+ clause(package_name('SxxMachine.builtin'), _),
 	G = F/A,
@@ -797,7 +812,7 @@ write_asm(Out, (Label: Instruction)) :- !,
 	writeq(Out, Label), write(Out, ' :'), nl(Out),
 	write_asm(Out, Instruction).
 write_asm(Out, Instruction) :-
-	tab(Out, 8), writeq(Out, Instruction), write(Out, '.'), nl(Out).
+	tab(Out, 8), display(Out, Instruction), write(Out, '.'), nl(Out).
 
 
 write_domain_definitions(Out):-
@@ -2123,9 +2138,9 @@ intersect_sorted_vars([X|Xs], [Y|Ys], Rs) :- X @> Y, !,
 pl2am_error(M) :-
 	clause(file_line(File,Line),_),
 	!,
-	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]).
+	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]),trace.
 
-pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]).
+pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]),trace.
 
 pl2am_message(M) :- pl2am_message(user_output, M).
 
@@ -2135,6 +2150,7 @@ pl2am_message(Stream, [M|Ms]) :- write(Stream, M), write(Stream, ' '), pl2am_mes
 %%% format
 mode_expr([]).
 mode_expr([M|Ms]) :- nonvar(M), pl2am_member(M, [:,;,+,-,?]), !, mode_expr(Ms).
+mode_expr([_|Ms]) :- mode_expr(Ms).
 
 predspec_expr(F/A) :- atom_or_nil(F), integer(A).
 

@@ -3641,7 +3641,7 @@ public class bootpreds extends FFIPredicate {
 	 *
 	 */
 	// _loggable_1 extends P1 {
-	static final Map<Term, Level> LEVELS = new HashMap<>();
+	public static final Map<Term, Level> LEVELS = new HashMap<>();
 	static {
 		LEVELS.put(SYM("ALL"), Level.ALL);
 		LEVELS.put(SYM("all"), Level.ALL);

@@ -1919,7 +1919,7 @@ static public void loadPreds() {
    PredTable.registerBuiltin("context_module",1,FILE_swi_supp::PRED_context_module_1_static_exec);
    PredTable.registerBuiltin("strip_module",3,FILE_swi_supp::PRED_strip_module_3_static_exec);
    PredTable.registerBuiltin("$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/swi_supp.pl","$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl",4,FILE_swi_supp::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_4_static_exec);
-   PredTable.registerBuiltin("*->","$002A$002D$003E",2,FILE_swi_supp::PRED_$002A$002D$003E_2_static_exec);
+   PredTable.registerBuiltin("*->","$002A$002D$003E",2,FILE_swi_supp::PRED_$002A$002D$003E_2_static_exec)	;
    PredTable.registerBuiltin("maplist",2,FILE_swi_supp::PRED_maplist_2_static_exec);
    PredTable.registerBuiltin("maplist",3,FILE_swi_supp::PRED_maplist_3_static_exec);
    PredTable.registerBuiltin("maplist",4,FILE_swi_supp::PRED_maplist_4_static_exec);
