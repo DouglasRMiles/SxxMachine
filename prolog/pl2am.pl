@@ -195,7 +195,7 @@ package(_).
 
 :- multifile(system_predicate/1).
 :- dynamic(system_predicate/1).
-:- include(system).
+:- include('builtin/system.pl').
 long(X):- integer(X),(X>2147483647; X < - 2147483647).
 
 :- public main/0, pl2am/1.
@@ -729,8 +729,8 @@ assert_cls(Head) :- !,
 	assert(internal_clause(Head, true)).
 
 assert_predicate(Head) :-
-	\+ clause(package_name('SxxMachine.builtin'), _),
-	system_predicate(Head),
+        system_predicate(Head),
+	fail, \+ clause(package_name('SxxMachine.builtin'), _),	
 	!,
 	functor(Head, Functor, Arity),
 	pl2am_error([can,not,redefine,builtin,predicate,Functor/Arity]),
