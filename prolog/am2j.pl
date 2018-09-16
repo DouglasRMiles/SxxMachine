@@ -31,11 +31,12 @@ COPYRIGHT
 SEE ALSO
        http://kaminari.istc.kobe-u.ac.jp/PrologCafe/
 *****************************************************************/
-nop(_).
-%:- use_module(library(must_trace)).
+%:- module('SxxMachine.am2j', [main/0,am2j/1]).
 legacy_functor(P,'.',A):- functor(P,'[|]',A),!.
 legacy_functor(P,F,A):- functor(P,F,A),!.
 must(G):- call(G)*->true;throw(fail_must(G)).
+nop(_).
+%:- use_module(library(must_trace)).
 
 /*****************************************************************
   Declarations
@@ -56,23 +57,23 @@ must(G):- call(G)*->true;throw(fail_must(G)).
 
 
 :- set_prolog_flag(double_quote,codes).
-% :- ensure_loaded(pl2am).
 :- multifile(system_predicate/1).
 :- dynamic(system_predicate/1).
-:- include(pl2am_xx_per_file).
+:- ensure_loaded(pl2am).
 
-% :- module('SxxMachine.am2j', [main/0,am2j/1]).
 %package(_).
 %long(X):- integer(X),(X>2147483647; X < - 2147483647).
 atom_or_nil_am2j(A):- atom(A);A==[].
+
 :- package 'SxxMachine.am2j'.
 :- public main/0, am2j/1.
+
 /*****************************************************************
   Main
 *****************************************************************/
 :- if(\+ current_predicate(main/0)).
 main :-
-    read_term(X,[double_quotes(codes)]),
+    catch(read_term(X, [double_quotes(codes),module('SxxMachine.pl2am')]),E,(wd(E),trace)),
 	am2j(X).
 :- endif.
 
@@ -81,7 +82,8 @@ am2j_flag(no_switch_on_term_inline).
 am2j_flag(unused).
 am2j_flag(arrays).
 
-pl2j(File):-                          
+pl2j(File0):-                          
+   prolog_file_name(File0,File),
    pl2am(File),!,                            
    atom_concat(File,'.am',AMFile),
    am2j(AMFile),!.
@@ -93,13 +95,13 @@ am2j([File,Dir]) :-
         clear_buffer(File),
 	open(File, read, In),
 	repeat,
-	  read_term(In, X, [double_quotes(codes)]),
+	  catch(read_term(In, X, [double_quotes(codes),module('SxxMachine.pl2am')]),E,(wd(E),trace)),
 	  once(must(buffer(File,write_java(X, In)))),
           X == end_of_file,!,
 	close(In),
-       optimize_buffer(File),
-       write_buffer(File),
-	write_domains.
+        optimize_buffer(File),!,
+        write_buffer(File),!,
+	write_domains,!.
 am2j(File):-am2j([File]),!.
 
 
@@ -156,12 +158,12 @@ write_java(begin_predicate(P00, F/A), In) :- !,
 	%mkdirs(SrcDir),
        % open(SrcFile, w),
 	nop((w(' public class '),write_package(P),w(' extends CompiledFile {'),
-	  nl)))),
+	  nl)))),!,
        call((repeat,
-	  read_term(In, X, [double_quotes(codes)]),
+	  catch(read_term(In, X, [double_quotes(codes),module('SxxMachine.pl2am')]),E,(wd(E),trace)),
 	  once(must(buffer(F/A,write_java0(X, In)))),
           %X == end_of_file,
-	  X = end_predicate(_, F/A),!)),
+	  X = end_predicate(_, F/A),!)),!,   
           optimize_buffer(F/A),
           write_buffer(F/A),
        % close(Out),
@@ -173,6 +175,7 @@ write_java(X, _) :-
 w(_,_):- told,trace.
 
 clear_buffer(FA):- retractall(buff(FA,_)),!.
+
 buffer(_File,write_java(begin_predicate(P00, F/A), In)):-!,write_java(begin_predicate(P00, F/A), In),!.
 buffer(FA,write_java0(get_list(X), In)) :- !,	
 	read_instructions(2, In, Us),
@@ -181,9 +184,9 @@ buffer(FA,write_java0(get_str(F/A,Xi,Xj), In)) :- !,
         read_instructions(A, In, Us),
         buffer(FA,write_java0(after_get_str(F/A,Xi,Xj,Us), In)).
 
-buffer(FA,write_java0(X, _In)):- !,buffer(FA,bwj(X)).
-
+buffer(FA,write_java0(X, _In)):- !,buffer(FA,bwj(X)).
 buffer(FA,X):- ignore(forall(gleaned(X),true)),assertz(buff(FA,X)),!.
+
 optimize_buffer(FA):-findall(D,buff(FA,bwj(D)),L),nop(wd(optimize_buffer(FA,L))),optimize_buffer_list(FA,L,L2),
  (L==L2->true;resave_buffer(FA,L2)).
 optimize_buffer(FA):-!,wd(optimize_buffer(FA)),with_output_to(user_error,listing(user:buff/2)).
@@ -222,9 +225,19 @@ combine3_1l([put_int(S,INTO)|More],[inline('@'(DECL))|List]):- integer(S), long(
 combine3_1l([put_int(S,INTO)|More],[inline('@'(DECL))|List]):-  must(symbol_to_name(S,Var)),
   subst(More,INTO,'@'(Var),List),!,
   format(atom(DECL),'final static IntegerTerm ~w = Integer(~w);',[Var,S]),!.
+
+combine3_1l([deref(Ri,Rj)|Rest],RestO):-
+  until_end_of_proc(Rest,RealRest,Next),  
+  occurrences_of_var(RealRest,Rj,N),!,N==1,
+  subst(RealRest,Rj,'@'(dref(Ri)),List),
+  append(List,Next,RestO),!.
+
+%until_end_of_proc([execute(W)|More],[execute(W)],More).
+until_end_of_proc(Rest,RealRest,Next):- append(Left,[execute(W)|Next],Rest),!,append(Left,[execute(W)],RealRest),!.
+   
 %combine3_1l([put_int(1,INTO)|More],List):- subst(More,INTO,'@'(int_1),List),!.
 %combine3_1l([put_int(N,INTO)|More],List):- N < 31, N > -31, symbol_to_name(N,Var),format(atom(A),'~w',[Var]),subst(More,INTO,'@'(A),List),!.
-combine3_1l(_ABC,_List):- fail.
+%combine3_1l(_ABC,_List):- fail.
 
 bwj(X):- write_java0(X,errr).
 
@@ -267,7 +280,7 @@ write_java0(debug(Comment), _) :- !,
 	w('// '),
 	writeq( Comment), nl.
 write_java0(info([FA,File|_]), _) :- !,
-        writel(['/** PREDICATE: ',wr(FA),'\nfrom: ',wr(File),'\n*/']),nl.
+        wl(['/** PREDICATE: ',wr(FA),'\nfrom: ',wr(File),'\n*/']),nl.
 write_java0(import_package(P), _) :- !,
 	nop((w('// import '),maybe_write_package(P,''), w('.*;'), nl)).
 write_java0(import_package(P,FA), _) :- !,
@@ -303,6 +316,7 @@ write_java0(setB0, _) :- !,
 	tab(8),
 	w('m.setB0();'), nl.
 write_java0(deref(_,void), _) :- !.
+write_java0(deref(_,Rj), _):- Rj='@'(Atom),atom(Atom),!.
 write_java0(deref(Ri,Rj), _) :- !,
 	tab(8),                            
 	write_reg(Rj),
@@ -392,7 +406,7 @@ write_java0(put_var(X), _) :- !,
 write_java0(G, _) :- once(gleaned_away(G)),!.
 
 %write_java0(put_int(I,_X), _) :- check_if_remembered(I,_),!.
-write_java0(put_int(I,X), _) :-  am2j_flag(aliases),writel(['/*',wr(X),'*/']),symbol_to_name(I,Name),!,
+write_java0(put_int(I,X), _) :-  am2j_flag(aliases),wl(['/*',wr(X),'*/']),symbol_to_name(I,Name),!,
    must((assertz(aliased_to(X,Name)), 
          tab(4),
             w('private static final LongTerm '),
@@ -436,7 +450,7 @@ write_java0(put_con(F/A,X), _) :- must(integer(A)),!,assert(inlined(X,F/A)).
 %write_java0(put_con(C,X), _) :- is_remembered(C,XX),nonvar(XX),assertz(aliased_to(X,XX)).
 %write_java0(put_con(_,X), _) :- is_aliased(X,_R2),!.
 
-write_java0(put_con(C,X), _) :- am2j_flag(aliases), writel(['/*',wr(X),'*/']),symbol_to_name(C,Name),!,
+write_java0(put_con(C,X), _) :- am2j_flag(aliases), wl(['/*',wr(X),'*/']),symbol_to_name(C,Name),!,
    must((assertz(aliased_to(X,Name)), declare_symbol('@'(Name),C))).
 
 write_java0(put_con(C,X), _) :- atomic(C),must((declare_symbol(X,C))),!.
@@ -697,7 +711,7 @@ write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _) :- am2j_flag(no_switch_on_term
       write_method_ref(Ls),w(', '),
       write_method_ref(Ll),w('); '),
       nl.
-
+% unless no_switch_on_term_inline 
 write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _) :- !,
 	tab(8),
 	w('{'), write_inline_start('switch_on_term'), nl,
@@ -713,6 +727,7 @@ write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _) :- !,
     w('return '), write_index(Lv), w('(m);'), nl,
 	tab(8),
 	w('}'), write_inline_end('switch_on_term'), nl.
+
 write_java0(switch_on_hash(Tag,_,L, _), _) :- !,
 	tab(8),
 	w('return m.switch_on_hash('),
@@ -736,7 +751,7 @@ is_sys_pred(copy_term/3,sxxtensions).
 is_sys_pred(F/_,sxxtensions):- atom_concat('nb_',_,F),!.
 is_sys_pred(freeze/2,sxxtensions).
 is_sys_pred(frozen/2,sxxtensions).
-is_sys_pred(call/N,'FILE_callN'):- N>1.
+%is_sys_pred(call/N,'FILE_callN'):- N>1.
 is_sys_pred(compare/3,'FILE_builtins').
 is_sys_pred(is/2,'FILE_builtins').
 is_sys_pred(catch/3,'FILE_builtins').
@@ -748,24 +763,27 @@ is_file_pred(FA):- is_sys_pred(FA),!,fail.
 is_file_pred(F/_):- atom_concat('$',_,F),!,fail.
 is_file_pred(_).
 
-create_call_op(P,fail/0,Args):- 
-  w('Op(fail_0, VA('),write_reg_args_last_paren(Args),w(')'),!.
+create_call_op(_P,fail/0,Args):- 
+  w('//\n Op(fail_0, VA('),write_reg_args_last_paren(Args),w(')'),!.
 
-create_call_op(P,F/A,Args):- is_sys_pred(F/A,Where),!,
-  w('Op('),maybe_write_package(Where,'::'),write_class_name(F/A),
+create_call_op(_P,F/A,Args):- is_sys_pred(F/A,Where),!,
+  w('//\n Op('),maybe_write_package(Where,'::'),write_class_name(F/A),
   w('_static_exec'),w(', VA('),write_reg_args_last_paren(Args),w(')'),!.
+
+create_call_op(_P,F/A,Args):-
+  w('//\n Op((e)->'),write_class_name(F/A),w('_static_exec(e), VA('),write_reg_args_last_paren(Args),w(')'),!.
 
 
 create_call_op(P,F/A,Args):- !,
-  w('Op('),maybe_write_package(P,'.'),write_file_classname(F/A),w('::'),write_class_name(F/A),
+  w('//\n Op('),maybe_write_package(P,'.'),write_file_classname(F/A),w('::'),write_class_name(F/A),
   w('_static_exec'),w(', VA('),write_reg_args_last_paren(Args),w(')'),!.
 
 create_call_op(P,F/A,Args):- is_file_pred(F/A),!,
-  w('Op('),maybe_write_package(P,'.'),write_file_classname(F/A),w('::'),write_class_name(F/A),
+  w('//\n Op('),maybe_write_package(P,'.'),write_file_classname(F/A),w('::'),write_class_name(F/A),
   w('_static_exec'),w(', VA('),write_reg_args_last_paren(Args),w(')'),!.
 
 create_call_op(P,F/A,Args):- 
-  w('Op('),maybe_write_package(P,'.'),write_class_name(F/A),
+  w('//\n Op('),maybe_write_package(P,'.'),write_class_name(F/A),
   w('::static_exec'),w(', VA('),write_reg_args_last_paren(Args),w(')'),!.
 
 create_call_op(P,F/A,Args):- 
@@ -789,7 +807,7 @@ write_label(main(F/A, Modifier)) :- !,
 %	write_class_name(F/A), w('.*;'),
 %	nl,
    % Class premptive loader
-        %writel(['static { ',write_system_predicate(F/A),'}']),
+        %wl(['static { ',write_system_predicate(F/A),'}']),
 	% Class definition
 	
         assert(declared_class_name(F/A)),
@@ -816,7 +834,7 @@ write_label(F/A) :- !,
         return static_exec(m);
     }'),nl)),
     tab(4),
-    writel(['public static Operation ',(write_class_name(F/A)),'_static_exec(Prolog m) { 
+    wl(['public static Operation ',(write_class_name(F/A)),'_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  ']), nl.
 write_label(L) :-
 	tab(4),
@@ -983,7 +1001,7 @@ write_unify_w(X,_) :-
 *****************************************************************/
 :- dynamic(has_inlined/1).
 
-write_inline('@'(X), In) :- has_inlined('@'(X)),!.
+write_inline('@'(X), _In) :- has_inlined('@'(X)),!.
 write_inline(X, In) :- asserta(has_inlined(X)),
 	write_inline_start(X),
 	must(write_inline0(X, In)),
@@ -1011,7 +1029,7 @@ write_inline0('$cut'(X), _)       :- !,
 	tab(8),
        nop(( w('if ('), write_reg(X), w(' .isInteger()) {'), nl)),
 	tab(10), % intValue will throw IllegalTypeException on its own if not an Integer
-	writel(['m.cut( ', write_reg(X), '.intValue());\n']),
+	wl(['m.cut( ', write_reg(X), '.intValue());\n']),
         nop((tab(8),w('} else {'), nl,
          tab(12),w('throw new IllegalTypeException("integer", '),write_reg(X), w(');'), nl,
 	tab(8),w('}'), nl)).
@@ -1051,6 +1069,7 @@ write_inline0(java(X,Y), _) :- !,
 	write_if_fail(op('!', instanceof(X, 'FFIObjectTerm')), [X], 8),
 	EXP = '#'('SYM'(@(getName(@(getClass(@(object(cast('FFIObjectTerm',X))))))))),
 	write_if_fail(op('!', unify(Y,EXP)), [], 8).
+write_inline0(jinstanceof(X,Y), In) :- !, write_inline0(java(X,Y), In).
 write_inline0(ground(X), _) :- !, write_if_fail(op('!', @('isGround'(X))), [X], 8).
 % Term comparison
 write_inline0('$equality_of_term'(X,Y), _)   :- !, write_if_fail(op('!',@('equalsTerm'(X,Y))), [X,Y], 8).
@@ -1305,7 +1324,7 @@ write_insert([X|Xs], _) :-
 /*****************************************************************
   Write toString(StringBuilder sb)
 *****************************************************************/
-write_to_string(_F/A):- % write_to_string_SB(F/A),
+write_to_string(_F/_A):- % write_to_string_SB(F/A),
         %tab(4), constant_encoding(F,FC),w('public String predName() { return '),write_constant_string(FC),w(';}'), nl,!,
        % (A>4 -> (tab(4), w('public int predArity() { return '),w(A),w(';}'), nl) ; true),
         %tab(4), predicate_encoding(F, F1),w('public String predNameEnc() { return '),write_constant_string(F1),w(';}'), nl,
@@ -1344,7 +1363,7 @@ java_integer(X) :- integer(X), -2147483648 =< X, X =< 2147483647.
 read_instructions(0, _, []) :- !.
 read_instructions(N, In, [X|Xs]) :-
 	N > 0,
-	read_term(In, X, [double_quotes(codes)]),
+	catch(read_term(In, X, [double_quotes(codes),module('SxxMachine.pl2am')]),E,(wd(E),trace)),
 	N1 is N-1,
 	read_instructions(N1, In, Xs).
 
@@ -1515,23 +1534,23 @@ write_reg(ea(7)) :- !, w('m.areg7').
 write_reg(ea(8)) :- !, w('m.areg8').
 write_reg(ea(X)) :- !, w('m.aregs['), Y is X - 9, w(Y), w(']').
 */
-write_reg(@(X)) :- must(ground(X)),!, writel([' ',X,' ']).
+write_reg(@(X)) :- must(ground(X)),!, wl([' ',X,' ']).
 write_reg('#'(execute(P))) :- !, functor(P,F,A),A1 is A-1,P=..[_|Args],create_call_op(_M,F/A1,Args).
-write_reg(s(X)) :- not_slash(X),aliased_to(s(X),Val),writel([' ',Val,' ']).%must(write_as_field_value(Val)),!.
-write_reg(si(X)) :- not_slash(X),aliased_to(si(X),Val),writel([' ',Val,' ']).%must(write_as_field_value(Val)),!.
+write_reg(s(X)) :- not_slash(X),aliased_to(s(X),Val),wl([' ',Val,' ']).%must(write_as_field_value(Val)),!.
+write_reg(si(X)) :- not_slash(X),aliased_to(si(X),Val),wl([' ',Val,' ']).%must(write_as_field_value(Val)),!.
 write_reg(s(X)) :- clause(inlined(s(X),F/_A),_), !, write_constant_string(F).
 write_reg(s(X)) :- clause(inlined(s(X),str_args(Xs)),_), !, must(write_reg_args(Xs)).
-write_reg(s(X)) :- !,  write_pred_prefix(_),writel(['s',X]).
-write_reg(si(X)) :- !,  write_pred_prefix(_),writel(['s',X]).
+write_reg(s(X)) :- !,  write_pred_prefix(_),wl(['s',X]).
+write_reg(si(X)) :- !,  write_pred_prefix(_),wl(['s',X]).
 %write_reg(si(X)) :- check_if_remembered(Val,si(X)),nonvar(Val),!,must(write_as_field_value(Val)),!.
-write_reg(si(X)) :- !, writel(['si',X]). % ???
-write_reg(sf(X)) :- !, writel(['sf',X]). % ???
-write_reg(y(X)) :- !, writel(['y',X]). % ???
-write_reg(p(X)) :- !, writel(['p',X]). % ???
-write_reg(a(X)) :- !, writel(['a',X]).
+write_reg(si(X)) :- !, wl(['si',X]). % ???
+write_reg(sf(X)) :- !, wl(['sf',X]). % ???
+write_reg(y(X)) :- !, wl(['y',X]). % ???
+write_reg(p(X)) :- !, wl(['p',X]). % ???
+write_reg(a(X)) :- !, wl(['a',X]).
 
 write_reg(econt) :- !, w('m.cont').
-write_reg(arg(X)) :- !, writel(['arg',X]).
+write_reg(arg(X)) :- !, wl(['arg',X]).
 write_reg(cont) :- !, w(cont).
 write_reg(null) :- !, w(null).
 % am2j only
@@ -1553,7 +1572,7 @@ write_as_field_value(si(X)):- !, write_reg(si(X)).
 write_as_field_value(sf(X)):- !, write_reg(sf(X)).
 write_as_field_value(@(X)):- !, w(X).
 write_as_field_value(X):- atom(X),atom_concat('ATOM_',_,X),!, w(X).
-write_as_field_value(I):- integer(I),!, (I<0-> (NI is 0-I,writel(['negint_',NI])); writel(['int_',I])).
+write_as_field_value(I):- integer(I),!, (I<0-> (NI is 0-I,wl(['int_neg',NI])); wl(['int_',I])).
 write_as_field_value([]):- !, w('Prolog.Nil').
 
 
@@ -1732,7 +1751,7 @@ write_system_predicate(F/A):- !,
 write_system_predicate(P):- functor(P,F,A),write_system_predicate(F/A).
 
 write_file_classname(_F/_A):- input_file_name(Name),w('FILE_'),
- file_base_name(Name,BaseExt),file_name_extension(Base,Ext,BaseExt),
+ file_base_name(Name,BaseExt),file_name_extension(Base,_Ext,BaseExt),
   w(Base).
 write_file_classname(_).
 
@@ -1750,13 +1769,21 @@ member(X,[1,2,3,4]).
 
 */
 
-writel([]) .
-writel([X|R]) :- wr(X) , writel(R) .
+wl([]) .
+wl([X|R]) :- !, wl(X) , wl(R) .
+wl(X) :- wr(X),!.
+
+wln(X):- wl(X),nl.
+
+wl(X,Y):-wl(X),wl(Y).
+wl(X,Y,Z):-wl(X),wl(Y),wl(Z).
+wl(C,X,Y,Z):-wl(C),wl(X),wl(Y),wl(Z).
+wl(B,C,X,Y,Z):-wl(B),wl(C),wl(X),wl(Y),wl(Z).
+wl(A,B,C,X,Y,Z):-wl(A),wl(B),wl(C),wl(X),wl(Y),wl(Z).
 
 w(W):- write(W).
-wl(W):- write(W),nl.
 
-wr(Var):- var(Var),!,throw(wr(Var)).
+wr(Var):- var(Var),!,throw(var_wr(Var)).
 wr(@(Atom)) :- ! , w(Atom).
 wr(wr(nl)) :- ! , nl .
 wr(wr(Atom)) :- ! , w(Atom).
@@ -1771,7 +1798,7 @@ wrargs(N,T) :- wrargs(N,T,_) .
 wrargs(N,_,_) :- N = 0 , ! .
 wrargs(N,T,Komma) :- 
 		(var(Komma) -> Komma = yes ; w(',') ) ,
-		writel([T,a,N]) ,
+		wl([T,a,N]) ,
 		M is N - 1 , 
 		wrargs(M,T,Komma) .
 
@@ -1790,7 +1817,7 @@ declare_symbol(X,C):-
 
    symbol_to_name(NIL,'Prolog.Nil'):- NIL == [],!.
    symbol_to_name(Atom,Out):- atom(Atom),symbol_to_name_A(Atom,SName),!,atom_concat('ATOM_',SName,Out).
-   symbol_to_name(I,Var):- integer(I),!, (I<0-> (NI is 0-I,atom_concat('negint_',NI,Var)); atom_concat('int_',I,Var)).
+   symbol_to_name(I,Var):- integer(I),!, (I<0-> (NI is 0-I,atom_concat('int_neg',NI,Var)); atom_concat('int_',I,Var)).
 
    symbol_to_name_A(Atom,Out):- symbol_to_name1(Atom,Out),!.
    symbol_to_name_A(Name,Name).
@@ -1857,21 +1884,66 @@ declare_symbol(X,C):-
 
 write_constant_string(F):- must((w('"'), write_constant(F), w('"'))).
 
-input_file_name(X):- current_prolog_flag(argv,List),append(_,['--plfile',File],List),absolute_file_name(File,X,[expand(true),access(read),file_type(prolog)]).
+input_file_name(File):- arg_flag('--plfile',X),prolog_file_name(X,File).
 
-bi:- input_file_name(X),
-  tell('./GEN.java.out'),
-  write('public class '),
-     input_file_name(Name),w('FILE_'),
- file_base_name(Name,BaseExt),file_name_extension(Base,Ext,BaseExt),
-  w(Base),
-    w(' extends FILE_builtins {'),nl,
-  pl2j(X),
-  w('static {'),
+arg_flag(F,X):- current_prolog_flag(argv,List),append(_,[F,X|_],List),!.
+arg_flag(F,X):- current_prolog_flag(os_argv,List),append(_,[F,X|_],List),!.
+
+prolog_file_name(File,X):-
+    expand_file_search_path(File,XX),absolute_file_name(XX,X,[expand(true),access(read),file_type(prolog)]).
+
+file_package_name(File,Dir):- file_directory_name(File, DirAll),directory_file_path(_,Dir,DirAll).
+bi:- 
+   input_file_name(Name),
+   arg_flag('--dir',Dir),
+   file_base_name(Name,BaseExt),
+   file_name_extension(Base,_Ext,BaseExt),
+   file_package_name(Name,P),
+   file_to_base_class(Base,Sxx),
+   atomic_list_concat([Dir,'/',P,'/SxxMachine/',P,'/FILE_',Base,'.java'],'',ToFile),
+   tell(ToFile),
+   wln(['package SxxMachine.',P,';']),
+   wln(' '),
+   wln('import java.io.*;'),
+   wln('import java.lang.reflect.*;'),
+   wln('import java.nio.charset.Charset;'),
+   wln('import java.util.*;'),
+   wln('import java.util.concurrent.locks.*;'),
+   wln('import java.util.logging.*;'),
+   wln('import java.util.regex.*;'),
+   wln('import static SxxMachine.builtin.bootpreds.*;'),
+   wln('import static SxxMachine.builtin.bootpreds.LEVELS;'),
+   wln('import static SxxMachine.builtin.FILE_builtins.*;'),
+   wln('import static SxxMachine.builtin.FILE_cafeteria.*;'),
+   wln('import static SxxMachine.builtin.FILE_io.*;'),
+   wln('import static SxxMachine.builtin.FILE_swi_supp.*;'),
+   wln('import static SxxMachine.builtin.PRED_system_predicate_1.*;'),
+   wln('import static SxxMachine.builtin.sxxtensions.*;'),
+   wln('import static SxxMachine.Failure.*;'),
+   wln('import static SxxMachine.Predicate.*;'),
+   wln('import static SxxMachine.Prolog.*;'),
+   wln('import static SxxMachine.Success.*;'),
+   wln('import static SxxMachine.SymbolTerm.*;'),
+   wln('import static SxxMachine.TermData.*;'),
+   wln('import SxxMachine.*;'),
+   wln('import SxxMachine.builtin.*;'),
+   wln('import SxxMachine.exceptions.*;'),
+   wln('import SxxMachine.builtin.bootpreds.*;'),
+   wln('import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;'),
+   wln('import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;'),
+   wln('import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;'),
+   wln('import SxxMachine.builtin.FILE_builtins.*;'),
+   wln('import SxxMachine.builtin.sxxtensions.*;'),
+  wln(['public class FILE_',Base,' extends ',Sxx,' {']),
+  pl2j(Name),
+  wln('static { loadPreds(); }\nstatic public loadPreds() {'),
   forall(declared_class_name(F/A),write_system_predicate(F/A)),
-  w('}'),
+  wln('}'),wln('}'),
   told,halt.
 
+
+file_to_base_class(builtins, sxxtensions).
+file_to_base_class(_, 'FILE_builtins').
 
 :- bi.
 

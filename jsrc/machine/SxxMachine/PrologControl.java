@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.io.PushbackReader;
 import java.util.Set;
 
+import SxxMachine.builtin.FILE_builtins;
 import SxxMachine.builtin.sxxtensions;
 
 
@@ -288,6 +289,7 @@ public abstract class PrologControl {
 //    pendingGoals = SymbolTerm.intern("[]");
 //    code = Prolog.Call1;
     
+	  if(engine.halt != 1) return after;
     Term pendingGoals = engine.popPendingGoals();
     if(pendingGoals==Prolog.Nil) return after;
     engine.push(new SxxMachine.builtin.sxxtensions.PopPendingGoals(engine, engine.pendingGoals));
@@ -303,7 +305,7 @@ public abstract class PrologControl {
         after = insertCode(goal,after);
         pendingGoals = pendingGoals.cdr();
       }
-      return new TermData.StaticPred("call",sxxtensions::PRED_call_1_static_exec,TermData.VA(pendingGoals), after);
+      return new TermData.StaticPred("call",FILE_builtins::PRED_call_1_static_exec,TermData.VA(pendingGoals), after);
   }
 
   protected void executePredicate_goog() throws PrologException {

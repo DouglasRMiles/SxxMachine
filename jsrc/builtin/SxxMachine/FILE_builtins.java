@@ -1,21 +1,39 @@
 package SxxMachine.builtin;
-import static SxxMachine.Failure.fail_0;
 
-import SxxMachine.Arithmetic;
-import SxxMachine.FFIObjectTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.ListTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.exceptions.*;
+import SxxMachine.*;
+import SxxMachine.builtin.*;
+import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
+import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
+import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
 
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.locks.*;
+import java.util.logging.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+import java.nio.charset.Charset;
 
-//import SxxMachine.compiler.*;
+import SxxMachine.builtin.bootpreds.*;
+import SxxMachine.builtin.sxxtensions.*;
+import SxxMachine.builtin.FILE_builtins.*;
 
-public class FILE_builtins extends bootpreds {
+import static SxxMachine.builtin.bootpreds.*;
+import static SxxMachine.builtin.sxxtensions.*;
+import static SxxMachine.builtin.FILE_builtins.*;
+import static SxxMachine.builtin.PRED_system_predicate_1.*;
+import static SxxMachine.builtin.FILE_rbtrees.*;
+
+import static SxxMachine.builtin.bootpreds.LEVELS;
+import static SxxMachine.TermData.*;
+import static SxxMachine.SymbolTerm.*;
+import static SxxMachine.Predicate.*;
+import static SxxMachine.Prolog.*;
+import static SxxMachine.Failure.*;
+import static SxxMachine.Success.*;
+
+public class FILE_builtins extends sxxtensions {
 /** PREDICATE: (package)/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
@@ -124,7 +142,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // A^B:-[call('SxxMachine.builtin':B)]
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a3), cont);
     }
 /** PREDICATE: (,)/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -146,7 +165,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a3 = S(":", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a4 = S(":", y2);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), cont));
     }
 /** PREDICATE: (;)/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -209,7 +230,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
         a4 = S(":", y2);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), cont);
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), cont);
     }
 
     private final static Operation $003B_2_2(Prolog m) { 
@@ -229,7 +251,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a4 = S(":", y2);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), cont);
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), cont);
     }
 
     private final static Operation $003B_2_3(Prolog m) { 
@@ -257,7 +280,10 @@ m.cont = cont;
         a6 = S(":", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a7 = S(":", y2);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_call_1_static_exec, VA(a7), cont)));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a7), cont)));
     }
 
     private final static Operation $003B_2_4(Prolog m) { 
@@ -274,7 +300,8 @@ m.cont = cont;
             }
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a3), cont);
     }
 /** PREDICATE: (->)/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -302,7 +329,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a4 = S(":", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_call_1_static_exec, VA(a5), cont)));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a5), cont)));
     }
 /** PREDICATE: call/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -323,7 +353,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // call(A):-['$get_current_B'(B),'$meta_call'(A,user,B,0,interpret)]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_$get_current_B_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1, PRED_call_1_s1, a2,  int_0 ,  ATOM_interpret ), cont));
+        return //
+ Op((e)->PRED_$get_current_B_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, PRED_call_1_s1, a2,  int_0 ,  ATOM_interpret ), cont));
     }
 /** PREDICATE: $meta_call/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -818,7 +850,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1);
         a7 = S("call", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$meta_call_5_s1, a7,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$meta_call_5_s1, a7,  int_1 ), cont);
     }
 
     private final static Operation $meta_call_5_2(Prolog m) { 
@@ -848,7 +881,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$call_closure_1_static_exec, VA(a1), cont);
+        return //
+ Op((e)->PRED_$call_closure_1_static_exec(e), VA(a1), cont);
     }
 
     private final static Operation $meta_call_5_3(Prolog m) { 
@@ -886,7 +920,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_trace_0_static_exec, VA(), cont);
+        return //
+ Op((e)->PRED_trace_0_static_exec(e), VA(), cont);
     }
 
     private final static Operation $meta_call_5_5(Prolog m) { 
@@ -905,7 +940,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_debug_0_static_exec, VA(), cont);
+        return //
+ Op((e)->PRED_debug_0_static_exec(e), VA(), cont);
     }
 
     private final static Operation $meta_call_5_6(Prolog m) { 
@@ -924,7 +960,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_notrace_0_static_exec, VA(), cont);
+        return //
+ Op((e)->PRED_notrace_0_static_exec(e), VA(), cont);
     }
 
     private final static Operation $meta_call_5_7(Prolog m) { 
@@ -943,7 +980,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_nodebug_0_static_exec, VA(), cont);
+        return //
+ Op((e)->PRED_nodebug_0_static_exec(e), VA(), cont);
     }
 
     private final static Operation $meta_call_5_8(Prolog m) { 
@@ -965,7 +1003,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_spy_1_static_exec, VA(a6), cont);
+        return //
+ Op((e)->PRED_spy_1_static_exec(e), VA(a6), cont);
     }
 
     private final static Operation $meta_call_5_9(Prolog m) { 
@@ -987,7 +1026,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_nospy_1_static_exec, VA(a6), cont);
+        return //
+ Op((e)->PRED_nospy_1_static_exec(e), VA(a6), cont);
     }
 
     private final static Operation $meta_call_5_10(Prolog m) { 
@@ -1006,7 +1046,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_nospyall_0_static_exec, VA(), cont);
+        return //
+ Op((e)->PRED_nospyall_0_static_exec(e), VA(), cont);
     }
 
     private final static Operation $meta_call_5_11(Prolog m) { 
@@ -1028,7 +1069,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_leash_1_static_exec, VA(a6), cont);
+        return //
+ Op((e)->PRED_leash_1_static_exec(e), VA(a6), cont);
     }
 
     private final static Operation $meta_call_5_12(Prolog m) { 
@@ -1058,7 +1100,8 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a8 = CONS(a6, a7);
-        return Op(FILE_builtins::PRED_consult_1_static_exec, VA(a8), cont);
+        return //
+ Op((e)->PRED_consult_1_static_exec(e), VA(a8), cont);
     }
 
     private final static Operation $meta_call_5_13(Prolog m) { 
@@ -1136,7 +1179,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$meta_call_5_s21,  ATOM_$0021 ,  int_0 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$meta_call_5_s21,  ATOM_$0021 ,  int_0 ), cont);
     }
 
     private final static Operation $meta_call_5_16(Prolog m) { 
@@ -1188,7 +1232,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), cont);
+        p1 = //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), cont);
         m.AREGS[0] = a6;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
@@ -1224,7 +1269,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_static_exec, VA(a8, a9, a7, a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_static_exec(e), VA(a8, a9, a7, a2, a3, a4, a5), cont);
     }
 
     private final static Operation $meta_call_5_19(Prolog m) { 
@@ -1247,7 +1293,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec, VA(a6, a7, a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(e), VA(a6, a7, a2, a3, a4, a5), cont);
     }
 
     private final static Operation $meta_call_5_20(Prolog m) { 
@@ -1270,7 +1317,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec, VA(a6, a7, a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(e), VA(a6, a7, a2, a3, a4, a5), cont);
     }
 
     private final static Operation $meta_call_5_21(Prolog m) { 
@@ -1292,7 +1340,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec, VA(a6, a2, a4, a5), cont);
+        return //
+ Op((e)->PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec(e), VA(a6, a2, a4, a5), cont);
     }
 
     private final static Operation $meta_call_5_22(Prolog m) { 
@@ -1316,8 +1365,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a9 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_findall_3_static_exec, VA(a6, a9, a8), cont);
+        a9 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_findall_3_static_exec(e), VA(a6, a9, a8), cont);
     }
 
     private final static Operation $meta_call_5_23(Prolog m) { 
@@ -1341,8 +1392,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a9 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_bagof_3_static_exec, VA(a6, a9, a8), cont);
+        a9 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_bagof_3_static_exec(e), VA(a6, a9, a8), cont);
     }
 
     private final static Operation $meta_call_5_24(Prolog m) { 
@@ -1366,8 +1419,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a9 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_setof_3_static_exec, VA(a6, a9, a8), cont);
+        a9 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_setof_3_static_exec(e), VA(a6, a9, a8), cont);
     }
 
     private final static Operation $meta_call_5_25(Prolog m) { 
@@ -1389,8 +1444,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a7 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a6, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_once_1_static_exec, VA(a7), cont);
+        a7 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a6, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_once_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_26(Prolog m) { 
@@ -1414,9 +1471,12 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a9 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), null));
-        a10 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a8, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_on_exception_3_static_exec, VA(a6, a9, a10), cont);
+        a9 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), null));
+        a10 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a8, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_on_exception_3_static_exec(e), VA(a6, a9, a10), cont);
     }
 
     private final static Operation $meta_call_5_27(Prolog m) { 
@@ -1440,9 +1500,12 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a9 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a6, a2, a3, a4, a5), null));
-        a10 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a8, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_catch_3_static_exec, VA(a9, a7, a10), cont);
+        a9 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a6, a2, a3, a4, a5), null));
+        a10 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a8, a2, a3, a4, a5), null));
+        return //
+ Op(FILE_builtins::PRED_catch_3_static_exec, VA(a9, a7, a10), cont);
     }
 
     private final static Operation $meta_call_5_28(Prolog m) { 
@@ -1465,8 +1528,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a8 = Closure( Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a7, a2, a3, a4, a5), null));
-        return Op(FILE_builtins::PRED_synchronized_2_static_exec, VA(a6, a8), cont);
+        a8 = Closure( //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a7, a2, a3, a4, a5), null));
+        return //
+ Op((e)->PRED_synchronized_2_static_exec(e), VA(a6, a8), cont);
     }
 
     private final static Operation $meta_call_5_29(Prolog m) { 
@@ -1491,7 +1556,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a8 = S(":", y1);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a8, a7), cont);
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a8, a7), cont);
     }
 
     private final static Operation $meta_call_5_30(Prolog m) { 
@@ -1515,7 +1581,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_31(Prolog m) { 
@@ -1539,7 +1606,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_32(Prolog m) { 
@@ -1563,7 +1631,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_asserta_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_asserta_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_33(Prolog m) { 
@@ -1587,7 +1656,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_retract_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_retract_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_34(Prolog m) { 
@@ -1611,7 +1681,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_abolish_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_abolish_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_35(Prolog m) { 
@@ -1635,7 +1706,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a6);
         a7 = S(":", y1);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation $meta_call_5_36(Prolog m) { 
@@ -1662,7 +1734,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$meta_call_4_static_exec, VA(a5, a4, a2, a1), cont)));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$meta_call_4_static_exec(e), VA(a5, a4, a2, a1), cont)));
     }
 
     private final static Operation $meta_call_5_37(Prolog m) { 
@@ -1680,7 +1755,8 @@ m.cont = cont;
         a6 = S(":", y1);
         Term[] y2 = VA(a6);
         a7 = S("call", y2);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$meta_call_5_s44, a7,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$meta_call_5_s44, a7,  int_1 ), cont);
     }
 /** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/7
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -1725,7 +1801,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1, a4, PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_s1, a6, a7), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a8), Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a2, a4, a5, a6, a7), cont)));
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, a4, PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_s1, a6, a7), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a8), //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a2, a4, a5, a6, a7), cont)));
     }
 
     private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_2(Prolog m) { 
@@ -1741,7 +1820,8 @@ m.cont = cont;
         a7 = m.AREGS[6];
         cont = m.cont;
     // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F,G):-['$meta_call'(C,D,E,F,G)]
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a3, a4, a5, a6, a7), cont);
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a3, a4, a5, a6, a7), cont);
     }
 /** PREDICATE: $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/6
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -1785,7 +1865,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1, a3, PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_s1, a5, a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a2, a3, a4, a5, a6), cont)));
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, a3, PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_s1, a5, a6), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a2, a3, a4, a5, a6), cont)));
     }
 
     private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(Prolog m) { 
@@ -1838,7 +1921,8 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$meta_call'(A,C,D,E,F)]
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1, a3, a4, a5, a6), cont);
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, a3, a4, a5, a6), cont);
     }
 
     private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(Prolog m) { 
@@ -1853,7 +1937,8 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$meta_call'(B,C,D,E,F)]
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a2, a3, a4, a5, a6), cont);
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a2, a3, a4, a5, a6), cont);
     }
 /** PREDICATE: $dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -1893,7 +1978,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1, a2, PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_s1, a3, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, a2, PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_s1, a3, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_2(Prolog m) { 
@@ -1953,7 +2041,9 @@ m.cont = cont;
         a6 = V(m);
         Term[] y1 = VA(a5, a6);
         a7 = S("/", y1);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a4, a5, a6), Op(FILE_builtins::PRED_$trace_goal_4_static_exec, VA(a4, a3, a7, a2), cont));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a4, a5, a6), //
+ Op((e)->PRED_$trace_goal_4_static_exec(e), VA(a4, a3, a7, a2), cont));
     }
 
     private final static Operation $meta_call_4_2(Prolog m) { 
@@ -1973,7 +2063,9 @@ m.cont = cont;
         a6 = V(m);
         Term[] y1 = VA(a5, a6);
         a7 = S("/", y1);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a4, a5, a6), Op(FILE_builtins::PRED_$call_internal_5_static_exec, VA(a4, a3, a7, a2,  ATOM_interpret ), cont));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a4, a5, a6), //
+ Op((e)->PRED_$call_internal_5_static_exec(e), VA(a4, a3, a7, a2,  ATOM_interpret ), cont));
     }
 /** PREDICATE: $call_internal/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2022,7 +2114,14 @@ m.cont = cont;
         Term[] y2 = VA(a2, a1);
         a10 = S(":", y2);
         a11 = V(m);
-        return Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a2), Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a2, a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$get_current_B_1_static_exec, VA(a7), Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_clause_2_static_exec, VA(a10, a11), Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a11, a2, a7, a8, a5), cont)))))));
+        return //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a2, a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$get_current_B_1_static_exec(e), VA(a7), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a10, a11), //
+ Op((e)->PRED_$meta_call_5_static_exec(e), VA(a11, a2, a7, a8, a5), cont)))))));
     }
 
     private final static Operation $call_internal_5_2(Prolog m) { 
@@ -2036,7 +2135,8 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$call_internal'(A,B,C,D,E):-['$call'(B,A)]
-        return Op(FILE_builtins::PRED_$call_2_static_exec, VA(a2, a1), cont);
+        return //
+ Op((e)->PRED_$call_2_static_exec(e), VA(a2, a1), cont);
     }
 /** PREDICATE: catch/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2058,7 +2158,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a4 = S(":", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
         a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_on_exception_3_static_exec, VA(a2, a4, a5), cont);
+        return //
+ Op((e)->PRED_on_exception_3_static_exec(e), VA(a2, a4, a5), cont);
     }
 /** PREDICATE: throw/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2074,7 +2175,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
          Term a1;
         a1 = LARG[0];
     // throw(A):-[raise_exception(A)]
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a1), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a1), cont);
     }
 /** PREDICATE: on_exception/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2114,7 +2216,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$on_exception_3_static_exec, VA(a1, a2, a3), cont)));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$on_exception_3_static_exec(e), VA(a1, a2, a3), cont)));
     }
 
     private final static Operation on_exception_3_2(Prolog m) { 
@@ -2128,7 +2233,8 @@ m.cont = cont;
     // on_exception(A,B,C):-[illarg(type(callable),on_exception(A,B,C),2)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("on_exception", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_on_exception_3_s4, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_on_exception_3_s4, a4,  int_2 ), cont);
     }
 /** PREDICATE: $on_exception/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2164,7 +2270,11 @@ m.cont = cont;
         a4 = V(m);
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a5 = S(":", y1);
-        return Op(FILE_builtins::PRED_$set_exception_1_static_exec, VA(PRED_$on_exception_3_s1), Op(FILE_builtins::PRED_$begin_exception_1_static_exec, VA(a4), Op(FILE_builtins::PRED_call_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$end_exception_1_static_exec, VA(a4), cont))));
+        return //
+ Op((e)->PRED_$set_exception_1_static_exec(e), VA(PRED_$on_exception_3_s1), //
+ Op((e)->PRED_$begin_exception_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$end_exception_1_static_exec(e), VA(a4), cont))));
     }
 
     private final static Operation $on_exception_3_2(Prolog m) { 
@@ -2178,7 +2288,10 @@ m.cont = cont;
         cont = m.cont;
     // '$on_exception'(A,B,C):-['$get_exception'(D),'$inequality_of_term'(D,'$none'),'$catch_and_throw'(D,A,C)]
         a4 = V(m);
-        return Op(FILE_builtins::PRED_$get_exception_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$inequality_of_term_2_static_exec, VA(a4, PRED_$on_exception_3_s1), Op(FILE_builtins::PRED_$catch_and_throw_3_static_exec, VA(a4, a1, a3), cont)));
+        return //
+ Op((e)->PRED_$get_exception_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$inequality_of_term_2_static_exec(e), VA(a4, PRED_$on_exception_3_s1), //
+ Op((e)->PRED_$catch_and_throw_3_static_exec(e), VA(a4, a1, a3), cont)));
     }
 /** PREDICATE: $catch_and_throw/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2218,7 +2331,9 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
         a4 = S(":", y1);
-        return Op(FILE_builtins::PRED_$set_exception_1_static_exec, VA(PRED_$catch_and_throw_3_s1), Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_$set_exception_1_static_exec(e), VA(PRED_$catch_and_throw_3_s1), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), cont));
     }
 
     private final static Operation $catch_and_throw_3_2(Prolog m) { 
@@ -2230,7 +2345,8 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // '$catch_and_throw'(A,B,C):-[raise_exception(A)]
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a1), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a1), cont);
     }
 /** PREDICATE: (=)/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2544,32 +2660,6 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         //END inline expansion
         return cont;
     }
-/** PREDICATE: jinstanceof/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_jinstanceof_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // jinstanceof(A,B):-java(A,B)
-        m.setB0();
-         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // jinstanceof(A,B):-[java(A,B)]
-        //START inline expansion of java(a(1),a(2))
-        a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
-            return m.fail();
-        }
-        if (! a2.unify(SYM(((FFIObjectTerm) a1).object().getClass().getName()), m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return cont;
-    }
 /** PREDICATE: closure/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
@@ -2638,7 +2728,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         //END inline expansion
         a2 = V(m);
         a3 = V(m);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a1, V(m), a2), Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, PRED_compound_1_s1), Op(FILE_builtins::PRED_$greater_than_2_static_exec, VA(a2, a3), cont)));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a1, V(m), a2), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, PRED_compound_1_s1), //
+ Op((e)->PRED_$greater_than_2_static_exec(e), VA(a2, a3), cont)));
     }
 /** PREDICATE: callable/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -2705,7 +2798,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_compound_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont));
+        return //
+ Op((e)->PRED_compound_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont));
     }
 
     private final static Operation callable_1_3(Prolog m) { 
@@ -3077,7 +3172,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a3 = LARG[2];
     // compare(A,B,C):-['$compare0'(D,B,C),'$map_compare_op'(D,A)]
         a4 = V(m);
-        return Op(FILE_builtins::PRED_$compare0_3_static_exec, VA(a4, a2, a3), Op(FILE_builtins::PRED_$map_compare_op_2_static_exec, VA(a4, a1), cont));
+        return //
+ Op((e)->PRED_$compare0_3_static_exec(e), VA(a4, a2, a3), //
+ Op((e)->PRED_$map_compare_op_2_static_exec(e), VA(a4, a1), cont));
     }
 /** PREDICATE: $map_compare_op/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -3233,7 +3330,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // A=..B:-['$univ'(A,B)]
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a2), cont);
     }
 /** PREDICATE: copy_term/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4382,7 +4480,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a10 = V(m);
         Term[] y5 = VA(a3, a2);
         a11 = S(":-", y5);
-        return Op(FILE_builtins::PRED_$head_to_term_4_static_exec, VA(a1, a3, a6, a7), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a8,  ATOM_access ,  ATOM_private_procedure , a9), Op(FILE_builtins::PRED_$clause_internal_5_static_exec, VA(a4, a5, a3, a10, V(m)), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a10, a11), cont)))));
+        return //
+ Op((e)->PRED_$head_to_term_4_static_exec(e), VA(a1, a3, a6, a7), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a8,  ATOM_access ,  ATOM_private_procedure , a9), //
+ Op((e)->PRED_$clause_internal_5_static_exec(e), VA(a4, a5, a3, a10, V(m)), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a10, a11), cont)))));
     }
 /** PREDICATE: $head_to_term/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4415,7 +4518,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
             if (!a6.unify(C("/", a7, a8), m.trail)){
                 return m.fail();
             }
-        return Op(FILE_builtins::PRED_$head_to_term_5_static_exec, VA(a1, a2,  ATOM_user , a5, a4), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a2, a7, a8), cont));
+        return //
+ Op((e)->PRED_$head_to_term_5_static_exec(e), VA(a1, a2,  ATOM_user , a5, a4), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a2, a7, a8), cont));
     }
 /** PREDICATE: $head_to_term/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4501,7 +4606,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$head_to_term_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$head_to_term_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $head_to_term_5_2(Prolog m) { 
@@ -4555,7 +4661,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a1), Op(FILE_builtins::PRED_atom_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), cont)));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_atom_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), cont)));
     }
 
     private final static Operation $head_to_term_5_4(Prolog m) { 
@@ -4569,7 +4678,8 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$head_to_term'(A,B,C,D,E):-[illarg(type(callable),E,1)]
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$head_to_term_5_s7, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$head_to_term_5_s7, a5,  int_1 ), cont);
     }
 /** PREDICATE: $new_internal_database/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4593,7 +4703,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a2 = V(m);
-        return Op(FILE_builtins::PRED_$get_hash_manager_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$new_internal_database_2_static_exec, VA(a2, a1), cont));
+        return //
+ Op((e)->PRED_$get_hash_manager_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$new_internal_database_2_static_exec(e), VA(a2, a1), cont));
     }
 /** PREDICATE: $new_internal_database/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4630,7 +4742,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $new_internal_database_2_2(Prolog m) { 
@@ -4645,7 +4759,9 @@ m.cont = cont;
         Term[] y1 = VA(a2);
         a3 = S("alias", y1);
         a4 = CONS(a3,  Prolog.Nil );
-        return Op(FILE_builtins::PRED_new_hash_2_static_exec, VA(V(m), a4), Op(FILE_builtins::PRED_$init_internal_database_1_static_exec, VA(a2), cont));
+        return //
+ Op((e)->PRED_new_hash_2_static_exec(e), VA(V(m), a4), //
+ Op((e)->PRED_$init_internal_database_1_static_exec(e), VA(a2), cont));
     }
 /** PREDICATE: $init_internal_database/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4684,7 +4800,10 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1, PRED_$init_internal_database_1_s1);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_$compiled_predicate_3_static_exec, VA(a1, PRED_$init_internal_database_1_s1,  int_0 ), Op(FILE_builtins::PRED_findall_3_static_exec, VA(V(m), a3, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont)));
+        return //
+ Op((e)->PRED_$compiled_predicate_3_static_exec(e), VA(a1, PRED_$init_internal_database_1_s1,  int_0 ), //
+ Op((e)->PRED_findall_3_static_exec(e), VA(V(m), a3, V(m)), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont)));
     }
 
     private final static Operation $init_internal_database_1_2(Prolog m) { 
@@ -4718,7 +4837,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a2 = V(m);
-        return Op(FILE_builtins::PRED_$get_hash_manager_1_static_exec, VA(a2), Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a2, a1), cont));
+        return //
+ Op((e)->PRED_$get_hash_manager_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a2, a1), cont));
     }
 /** PREDICATE: $clause_internal/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4743,7 +4864,11 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$clause_internal'(A,B,C,D,E):-[hash_contains_key(A,B),'$get_indices'(A,B,C,F),'$get_instances'(F,G),'$clause_internal0'(G,D,E)]
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$get_indices_4_static_exec, VA(a1, a2, a3, a6), Op(FILE_builtins::PRED_$get_instances_2_static_exec, VA(a6, a7), Op(FILE_builtins::PRED_$clause_internal0_3_static_exec, VA(a7, a4, a5), cont))));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$get_indices_4_static_exec(e), VA(a1, a2, a3, a6), //
+ Op((e)->PRED_$get_instances_2_static_exec(e), VA(a6, a7), //
+ Op((e)->PRED_$clause_internal0_3_static_exec(e), VA(a7, a4, a5), cont))));
     }
 /** PREDICATE: $clause_internal0/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4859,7 +4984,8 @@ m.cont = cont;
     // '$clause_internal0'(A,B,C):-['$builtin_member'((B,C),A)]
         Term[] y1 = VA(a2, a3);
         a4 = S(",", y1);
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a4, a1), cont);
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(a4, a1), cont);
     }
 /** PREDICATE: $dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4898,7 +5024,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a2, a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a2, a3, a1), cont)));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a2, a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a2, a3, a1), cont)));
     }
 
     private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
@@ -4910,7 +5039,8 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-[hash_get(B,var,A)]
-        return Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a2, PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, a1), cont);
+        return //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a2, PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, a1), cont);
     }
 /** PREDICATE: $get_indices/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4932,7 +5062,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$get_indices'(A,B,C,D):-['$new_indexing_hash'(A,B,E),'$calc_indexing_key'(C,F),'$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(D,E,F)]
         a5 = V(m);
         a6 = V(m);
-        return Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(a1, a2, a5), Op(FILE_builtins::PRED_$calc_indexing_key_2_static_exec, VA(a3, a6), Op(FILE_builtins::PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a4, a5, a6), cont)));
+        return //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(a1, a2, a5), //
+ Op((e)->PRED_$calc_indexing_key_2_static_exec(e), VA(a3, a6), //
+ Op((e)->PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a4, a5, a6), cont)));
     }
 /** PREDICATE: $new_indexing_hash/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -4974,7 +5107,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a1, a2, a3), cont)));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a1, a2, a3), cont)));
     }
 
     private final static Operation $new_indexing_hash_3_2(Prolog m) { 
@@ -4987,7 +5123,13 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // '$new_indexing_hash'(A,B,C):-[new_hash(C),hash_put(C,all,[]),hash_put(C,var,[]),hash_put(C,lis,[]),hash_put(C,str,[]),hash_put(A,B,C)]
-        return Op(FILE_builtins::PRED_new_hash_1_static_exec, VA(a3), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a3, PRED_$new_indexing_hash_3_s1,  Prolog.Nil ), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a3,  ATOM_var ,  Prolog.Nil ), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a3,  ATOM_lis ,  Prolog.Nil ), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a3,  ATOM_str ,  Prolog.Nil ), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a1, a2, a3), cont))))));
+        return //
+ Op((e)->PRED_new_hash_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a3, PRED_$new_indexing_hash_3_s1,  Prolog.Nil ), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a3,  ATOM_var ,  Prolog.Nil ), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a3,  ATOM_lis ,  Prolog.Nil ), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a3,  ATOM_str ,  Prolog.Nil ), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a1, a2, a3), cont))))));
     }
 /** PREDICATE: $calc_indexing_key/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5049,7 +5191,9 @@ m.cont = cont;
         cont = m.cont;
     // '$calc_indexing_key'(A,B):-[arg(1,A,C),'$calc_indexing_key0'(C,B)]
         a3 = V(m);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a1, a3), Op(FILE_builtins::PRED_$calc_indexing_key0_2_static_exec, VA(a3, a2), cont));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a1, a3), //
+ Op((e)->PRED_$calc_indexing_key0_2_static_exec(e), VA(a3, a2), cont));
     }
 /** PREDICATE: $calc_indexing_key0/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5164,7 +5308,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_compound_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_compound_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $calc_indexing_key0_2_4(Prolog m) { 
@@ -5191,7 +5337,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$term_hash_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_$term_hash_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation $calc_indexing_key0_2_5(Prolog m) { 
@@ -5204,7 +5351,8 @@ m.cont = cont;
     // '$calc_indexing_key0'(A,B):-[illarg(type(term),'$calc_indexing_key0'(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a3 = S("$calc_indexing_key0", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$calc_indexing_key0_2_s7, a3,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$calc_indexing_key0_2_s7, a3,  int_1 ), cont);
     }
 /** PREDICATE: $check_procedure_permission/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5266,7 +5414,9 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a7, a8);
         a10 = S("/", y1);
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a5, a10), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a9), cont));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a5, a10), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a9), cont));
     }
 
     private final static Operation $check_procedure_permission_4_2(Prolog m) { 
@@ -5304,7 +5454,10 @@ m.cont = cont;
         a11 = S(":", y2);
         Term[] y3 = VA(a2, a3, a11, V(m));
         a12 = S("permission", y3);
-        return Op(FILE_builtins::PRED_$compiled_predicate_or_builtin_3_static_exec, VA(a5, a7, a8), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a9), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(a12, a4, V(m)), cont)));
+        return //
+ Op((e)->PRED_$compiled_predicate_or_builtin_3_static_exec(e), VA(a5, a7, a8), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(a12, a4, V(m)), cont)));
     }
 
     private final static Operation $check_procedure_permission_4_3(Prolog m) { 
@@ -5359,7 +5512,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_once_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_once_1_static_exec(e), VA(a3), cont);
     }
 
     private final static Operation initialization_2_2(Prolog m) { 
@@ -5383,7 +5537,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a3), Op(FILE_builtins::PRED_initialization_2_static_exec, VA(a4, a2), cont));
+        return //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_initialization_2_static_exec(e), VA(a4, a2), cont));
     }
 /** PREDICATE: assert/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5401,7 +5557,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // assert(A):-[assertz('SxxMachine.builtin':A)]
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
         a2 = S(":", y1);
-        return Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a2), cont);
     }
 /** PREDICATE: assertz/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5447,7 +5604,14 @@ m.cont = cont;
         a8 = S("assertz", y4);
         a9 = V(m);
         a10 = V(m);
-        return Op(FILE_builtins::PRED_$term_to_clause_4_static_exec, VA(a1, a2, a5, a6), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a7,  ATOM_modify ,  ATOM_static_procedure , a8), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a2, a9), Op(FILE_builtins::PRED_$insert_2_static_exec, VA(a9, a10), Op(FILE_builtins::PRED_$update_indexing_5_static_exec, VA(a3, a4, a2, a10,  ATOM_z ), Op(fail_0, VA(), cont)))))));
+        return //
+ Op((e)->PRED_$term_to_clause_4_static_exec(e), VA(a1, a2, a5, a6), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a7,  ATOM_modify ,  ATOM_static_procedure , a8), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a2, a9), //
+ Op((e)->PRED_$insert_2_static_exec(e), VA(a9, a10), //
+ Op((e)->PRED_$update_indexing_5_static_exec(e), VA(a3, a4, a2, a10,  ATOM_z ), //
+ Op(fail_0, VA(), cont)))))));
     }
 
     private final static Operation assertz_1_2(Prolog m) { 
@@ -5501,7 +5665,14 @@ m.cont = cont;
         a8 = S("asserta", y4);
         a9 = V(m);
         a10 = V(m);
-        return Op(FILE_builtins::PRED_$term_to_clause_4_static_exec, VA(a1, a2, a5, a6), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a7,  ATOM_modify ,  ATOM_static_procedure , a8), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a2, a9), Op(FILE_builtins::PRED_$insert_2_static_exec, VA(a9, a10), Op(FILE_builtins::PRED_$update_indexing_5_static_exec, VA(a3, a4, a2, a10,  ATOM_a ), Op(fail_0, VA(), cont)))))));
+        return //
+ Op((e)->PRED_$term_to_clause_4_static_exec(e), VA(a1, a2, a5, a6), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a7,  ATOM_modify ,  ATOM_static_procedure , a8), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a2, a9), //
+ Op((e)->PRED_$insert_2_static_exec(e), VA(a9, a10), //
+ Op((e)->PRED_$update_indexing_5_static_exec(e), VA(a3, a4, a2, a10,  ATOM_a ), //
+ Op(fail_0, VA(), cont)))))));
     }
 
     private final static Operation asserta_1_2(Prolog m) { 
@@ -5554,7 +5725,15 @@ m.cont = cont;
         a7 = S("abolish", y4);
         a8 = V(m);
         a9 = V(m);
-        return Op(FILE_builtins::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a4, a5), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a6,  ATOM_modify ,  ATOM_static_procedure , a7), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(a2, a3, a8), Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a8,  ATOM_all , a9), Op(FILE_builtins::PRED_$erase_all_1_static_exec, VA(a9), Op(FILE_builtins::PRED_hash_remove_2_static_exec, VA(a2, a3), Op(fail_0, VA(), cont))))))));
+        return //
+ Op((e)->PRED_$term_to_predicateindicator_3_static_exec(e), VA(a1, a4, a5), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a6,  ATOM_modify ,  ATOM_static_procedure , a7), //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(a2, a3, a8), //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a8,  ATOM_all , a9), //
+ Op((e)->PRED_$erase_all_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_hash_remove_2_static_exec(e), VA(a2, a3), //
+ Op(fail_0, VA(), cont))))))));
     }
 
     private final static Operation abolish_1_2(Prolog m) { 
@@ -5597,7 +5776,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a10 = S(":-", y5);
         a11 = V(m);
         a12 = V(m);
-        return Op(FILE_builtins::PRED_$clause_to_term_4_static_exec, VA(a1, a2, a5, a6), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a7,  ATOM_access ,  ATOM_static_procedure , a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a10), Op(FILE_builtins::PRED_$clause_internal_5_static_exec, VA(a3, a4, a9, a11, a12), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a11, a2), Op(FILE_builtins::PRED_$erase_1_static_exec, VA(a12), Op(FILE_builtins::PRED_$rehash_indexing_3_static_exec, VA(a3, a4, a12), cont))))))));
+        return //
+ Op((e)->PRED_$clause_to_term_4_static_exec(e), VA(a1, a2, a5, a6), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a7,  ATOM_access ,  ATOM_static_procedure , a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a10), //
+ Op((e)->PRED_$clause_internal_5_static_exec(e), VA(a3, a4, a9, a11, a12), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a11, a2), //
+ Op((e)->PRED_$erase_1_static_exec(e), VA(a12), //
+ Op((e)->PRED_$rehash_indexing_3_static_exec(e), VA(a3, a4, a12), cont))))))));
     }
 /** PREDICATE: retractall/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5642,7 +5829,15 @@ m.cont = cont;
         a10 = V(m);
         Term[] y5 = VA(a2, V(m));
         a11 = S(":-", y5);
-        return Op(FILE_builtins::PRED_$head_to_term_4_static_exec, VA(a1, a2, a5, a6), Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$check_procedure_permission_4_static_exec, VA(a7,  ATOM_access ,  ATOM_static_procedure , a8), Op(FILE_builtins::PRED_$clause_internal_5_static_exec, VA(a3, a4, a2, a9, a10), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a9, a11), Op(FILE_builtins::PRED_$erase_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$rehash_indexing_3_static_exec, VA(a3, a4, a10), Op(fail_0, VA(), cont))))))));
+        return //
+ Op((e)->PRED_$head_to_term_4_static_exec(e), VA(a1, a2, a5, a6), //
+ Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$check_procedure_permission_4_static_exec(e), VA(a7,  ATOM_access ,  ATOM_static_procedure , a8), //
+ Op((e)->PRED_$clause_internal_5_static_exec(e), VA(a3, a4, a2, a9, a10), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a9, a11), //
+ Op((e)->PRED_$erase_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$rehash_indexing_3_static_exec(e), VA(a3, a4, a10), //
+ Op(fail_0, VA(), cont))))))));
     }
 
     private final static Operation retractall_1_2(Prolog m) { 
@@ -5687,7 +5882,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a9 = V(m);
         Term[] y1 = VA(a9, V(m));
         a10 = S(":-", y1);
-        return Op(FILE_builtins::PRED_$term_to_clause_5_static_exec, VA(a1, a2,  ATOM_user , a5, a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a10), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a9, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$term_to_clause_5_static_exec(e), VA(a1, a2,  ATOM_user , a5, a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a10), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a9, a7, a8), cont)));
     }
 /** PREDICATE: $term_to_clause/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -5789,7 +5987,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_clause_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_clause_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $term_to_clause_5_2(Prolog m) { 
@@ -5819,7 +6018,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_clause_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_clause_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $term_to_clause_5_3(Prolog m) { 
@@ -5869,7 +6069,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_clause_5_s7, a5,  int_1 ), cont)));
+        return //
+ Op((e)->PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_clause_5_s7, a5,  int_1 ), cont)));
     }
 
     private final static Operation $term_to_clause_5_5(Prolog m) { 
@@ -5901,7 +6104,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$term_to_head_4_static_exec, VA(a6, a8, a3, a5), Op(FILE_builtins::PRED_$term_to_body_4_static_exec, VA(a7, a9, a3, a5), cont));
+        return //
+ Op((e)->PRED_$term_to_head_4_static_exec(e), VA(a6, a8, a3, a5), //
+ Op((e)->PRED_$term_to_body_4_static_exec(e), VA(a7, a9, a3, a5), cont));
     }
 
     private final static Operation $term_to_clause_5_6(Prolog m) { 
@@ -5922,7 +6127,8 @@ m.cont = cont;
             }
         if (! a3.unify(a4, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_$term_to_head_4_static_exec, VA(a1, a6, a3, a5), cont);
+        return //
+ Op((e)->PRED_$term_to_head_4_static_exec(e), VA(a1, a6, a3, a5), cont);
     }
 /** PREDICATE: $dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -6057,7 +6263,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_compound_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), cont));
+        return //
+ Op((e)->PRED_compound_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), cont));
     }
 
     private final static Operation $term_to_head_4_3(Prolog m) { 
@@ -6070,7 +6278,8 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // '$term_to_head'(A,B,C,D):-[illarg(type(callable),D,1)]
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_head_4_s4, a4,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_head_4_s4, a4,  int_1 ), cont);
     }
 /** PREDICATE: $term_to_body/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -6089,7 +6298,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a3 = LARG[2];
         a4 = LARG[3];
     // '$term_to_body'(A,B,C,D):-['$localize_body'(A,C,B)]
-        return Op(FILE_builtins::PRED_$localize_body_3_static_exec, VA(a1, a3, a2), cont);
+        return //
+ Op((e)->PRED_$localize_body_3_static_exec(e), VA(a1, a3, a2), cont);
     }
 /** PREDICATE: $localize_body/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -6273,7 +6483,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_builtins::PRED_$localize_body_3_static_exec, VA(a5, a2, a7), cont);
+        p1 = //
+ Op((e)->PRED_$localize_body_3_static_exec(e), VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -6306,7 +6517,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_builtins::PRED_$localize_body_3_static_exec, VA(a5, a2, a7), cont);
+        p1 = //
+ Op((e)->PRED_$localize_body_3_static_exec(e), VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -6339,7 +6551,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_builtins::PRED_$localize_body_3_static_exec, VA(a5, a2, a7), cont);
+        p1 = //
+ Op((e)->PRED_$localize_body_3_static_exec(e), VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -6370,7 +6583,13 @@ m.cont = cont;
         a9 = CONS(a5, a8);
         a10 = V(m);
         a11 = CONS(a5, a10);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a1, a5, a6), Op(FILE_builtins::PRED_$builtin_meta_predicates_3_static_exec, VA(a5, a6, a7), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a9), Op(FILE_builtins::PRED_$localize_args_4_static_exec, VA(a7, a8, a2, a10), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a3, a11), cont))))));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a1, a5, a6), //
+ Op((e)->PRED_$builtin_meta_predicates_3_static_exec(e), VA(a5, a6, a7), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a9), //
+ Op((e)->PRED_$localize_args_4_static_exec(e), VA(a7, a8, a2, a10), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a3, a11), cont))))));
     }
 
     private final static Operation $localize_body_3_7(Prolog m) { 
@@ -6447,7 +6666,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_system_predicate_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_system_predicate_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 
     private final static Operation $localize_body_3_10(Prolog m) { 
@@ -6589,7 +6810,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a6, V(m), V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$localize_args_4_static_exec, VA(a5, a7, a3, a9), cont)));
+        return //
+ Op((e)->PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a6, V(m), V(m)), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$localize_args_4_static_exec(e), VA(a5, a7, a3, a9), cont)));
     }
 
     private final static Operation $localize_args_4_3(Prolog m) { 
@@ -7019,7 +7243,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a9 = V(m);
         Term[] y1 = VA(a9, V(m));
         a10 = S(":-", y1);
-        return Op(FILE_builtins::PRED_$clause_to_term_5_static_exec, VA(a1, a2,  ATOM_user , a5, a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a10), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a9, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$clause_to_term_5_static_exec(e), VA(a1, a2,  ATOM_user , a5, a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a10), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a9, a7, a8), cont)));
     }
 /** PREDICATE: $clause_to_term/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -7120,7 +7347,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$clause_to_term_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$clause_to_term_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $clause_to_term_5_2(Prolog m) { 
@@ -7150,7 +7378,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$clause_to_term_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$clause_to_term_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $clause_to_term_5_3(Prolog m) { 
@@ -7200,7 +7429,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$clause_to_term_5_s7, a5,  int_1 ), cont)));
+        return //
+ Op((e)->PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$clause_to_term_5_s7, a5,  int_1 ), cont)));
     }
 
     private final static Operation $clause_to_term_5_5(Prolog m) { 
@@ -7230,7 +7462,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$head_to_term_4_static_exec, VA(a6, a8, V(m), a5), cont);
+        return //
+ Op((e)->PRED_$head_to_term_4_static_exec(e), VA(a6, a8, V(m), a5), cont);
     }
 
     private final static Operation $clause_to_term_5_6(Prolog m) { 
@@ -7251,7 +7484,8 @@ m.cont = cont;
             }
         if (! a3.unify(a4, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_$head_to_term_4_static_exec, VA(a1, a6, V(m), a5), cont);
+        return //
+ Op((e)->PRED_$head_to_term_4_static_exec(e), VA(a1, a6, V(m), a5), cont);
     }
 /** PREDICATE: $dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -7332,7 +7566,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
             if (!a2.unify(C(":", a4, a5), m.trail)){
                 return m.fail();
             }
-        return Op(FILE_builtins::PRED_$term_to_predicateindicator_5_static_exec, VA(a1, a5,  ATOM_user , a4, a3), cont);
+        return //
+ Op((e)->PRED_$term_to_predicateindicator_5_static_exec(e), VA(a1, a5,  ATOM_user , a4, a3), cont);
     }
 /** PREDICATE: $term_to_predicateindicator/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -7442,7 +7677,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_predicateindicator_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_predicateindicator_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $term_to_predicateindicator_5_2(Prolog m) { 
@@ -7472,7 +7708,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_predicateindicator_5_s1, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_predicateindicator_5_s1, a5,  int_1 ), cont);
     }
 
     private final static Operation $term_to_predicateindicator_5_3(Prolog m) { 
@@ -7532,7 +7769,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_predicateindicator_5_s8, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_predicateindicator_5_s8, a5,  int_1 ), cont);
     }
 
     private final static Operation $term_to_predicateindicator_5_5(Prolog m) { 
@@ -7558,7 +7796,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_predicateindicator_5_s11, a5,  int_1 ), cont)));
+        return //
+ Op((e)->PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_predicateindicator_5_s11, a5,  int_1 ), cont)));
     }
 
     private final static Operation $term_to_predicateindicator_5_6(Prolog m) { 
@@ -7584,7 +7825,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$term_to_predicateindicator_5_s14, a5,  int_1 ), cont)));
+        return //
+ Op((e)->PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$term_to_predicateindicator_5_s14, a5,  int_1 ), cont)));
     }
 
     private final static Operation $term_to_predicateindicator_5_7(Prolog m) { 
@@ -7741,7 +7985,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$update_indexing'(A,B,C,D,E):-['$new_indexing_hash'(A,B,F),'$gen_indexing_keys'(C,F,G),'$update_indexing_hash'(E,G,F,D)]
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(a1, a2, a6), Op(FILE_builtins::PRED_$gen_indexing_keys_3_static_exec, VA(a3, a6, a7), Op(FILE_builtins::PRED_$update_indexing_hash_4_static_exec, VA(a5, a7, a6, a4), cont)));
+        return //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(a1, a2, a6), //
+ Op((e)->PRED_$gen_indexing_keys_3_static_exec(e), VA(a3, a6, a7), //
+ Op((e)->PRED_$update_indexing_hash_4_static_exec(e), VA(a5, a7, a6, a4), cont)));
     }
 /** PREDICATE: $gen_indexing_keys/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -7819,7 +8066,9 @@ m.cont = cont;
                 return m.fail();
             }
         a5 = V(m);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a4, a5), Op(FILE_builtins::PRED_$gen_indexing_keys0_3_static_exec, VA(a5, a2, a3), cont));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a4, a5), //
+ Op((e)->PRED_$gen_indexing_keys0_3_static_exec(e), VA(a5, a2, a3), cont));
     }
 /** PREDICATE: $gen_indexing_keys0/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -7887,7 +8136,8 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_keys_2_static_exec, VA(a2, a3), cont);
+        return //
+ Op((e)->PRED_hash_keys_2_static_exec(e), VA(a2, a3), cont);
     }
 
     private final static Operation $gen_indexing_keys0_3_2(Prolog m) { 
@@ -7938,7 +8188,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_compound_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_compound_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 
     private final static Operation $gen_indexing_keys0_3_4(Prolog m) { 
@@ -7991,7 +8243,9 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$term_hash_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a2, a5, V(m)), cont));
+        return //
+ Op((e)->PRED_$term_hash_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a2, a5, V(m)), cont));
     }
 
     private final static Operation $gen_indexing_keys0_3_5(Prolog m) { 
@@ -8005,7 +8259,8 @@ m.cont = cont;
     // '$gen_indexing_keys0'(A,B,C):-[illarg(type(term),'$gen_indexing_keys0'(A,B,C),1)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("$gen_indexing_keys0", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$gen_indexing_keys0_3_s12, a4,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$gen_indexing_keys0_3_s12, a4,  int_1 ), cont);
     }
 /** PREDICATE: $dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8044,7 +8299,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 
     private final static Operation $dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
@@ -8057,7 +8314,9 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // '$dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-[hash_get(A,var,C),hash_put(A,B,C)]
-        return Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a1, PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, a3), Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a1, a2, a3), cont));
+        return //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a1, PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, a3), //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a1, a2, a3), cont));
     }
 /** PREDICATE: $update_indexing_hash/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8099,7 +8358,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$hash_addz_all_3_static_exec, VA(a2, a3, a4), cont);
+        return //
+ Op((e)->PRED_$hash_addz_all_3_static_exec(e), VA(a2, a3, a4), cont);
     }
 
     private final static Operation $update_indexing_hash_4_2(Prolog m) { 
@@ -8117,7 +8377,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$hash_adda_all_3_static_exec, VA(a2, a3, a4), cont);
+        return //
+ Op((e)->PRED_$hash_adda_all_3_static_exec(e), VA(a2, a3, a4), cont);
     }
 /** PREDICATE: $hash_adda_all/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8183,7 +8444,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$hash_adda_3_static_exec, VA(a2, a4, a3), Op(FILE_builtins::PRED_$hash_adda_all_3_static_exec, VA(a5, a2, a3), cont));
+        return //
+ Op((e)->PRED_$hash_adda_3_static_exec(e), VA(a2, a4, a3), //
+ Op((e)->PRED_$hash_adda_all_3_static_exec(e), VA(a5, a2, a3), cont));
     }
 /** PREDICATE: $hash_addz_all/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8249,7 +8512,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$hash_addz_3_static_exec, VA(a2, a4, a3), Op(FILE_builtins::PRED_$hash_addz_all_3_static_exec, VA(a5, a2, a3), cont));
+        return //
+ Op((e)->PRED_$hash_addz_3_static_exec(e), VA(a2, a4, a3), //
+ Op((e)->PRED_$hash_addz_all_3_static_exec(e), VA(a5, a2, a3), cont));
     }
 /** PREDICATE: $erase_all/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8311,7 +8576,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$erase_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$erase_all_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_$erase_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$erase_all_1_static_exec(e), VA(a3), cont));
     }
 /** PREDICATE: $rehash_indexing/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8332,7 +8599,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$rehash_indexing'(A,B,C):-['$new_indexing_hash'(A,B,D),hash_keys(D,E),'$remove_index_all'(E,D,C)]
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(a1, a2, a4), Op(FILE_builtins::PRED_hash_keys_2_static_exec, VA(a4, a5), Op(FILE_builtins::PRED_$remove_index_all_3_static_exec, VA(a5, a4, a3), cont)));
+        return //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(a1, a2, a4), //
+ Op((e)->PRED_hash_keys_2_static_exec(e), VA(a4, a5), //
+ Op((e)->PRED_$remove_index_all_3_static_exec(e), VA(a5, a4, a3), cont)));
     }
 /** PREDICATE: $remove_index_all/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8398,7 +8668,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$hash_remove_first_3_static_exec, VA(a2, a4, a3), Op(FILE_builtins::PRED_$remove_index_all_3_static_exec, VA(a5, a2, a3), cont));
+        return //
+ Op((e)->PRED_$hash_remove_first_3_static_exec(e), VA(a2, a4, a3), //
+ Op((e)->PRED_$remove_index_all_3_static_exec(e), VA(a5, a2, a3), cont));
     }
 /** PREDICATE: findall/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8438,7 +8710,11 @@ m.cont = cont;
         }
         //END inline expansion
         a5 = V(m);
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_new_hash_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$findall_4_static_exec, VA(a5, a1, a2, a3), cont))));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_new_hash_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$findall_4_static_exec(e), VA(a5, a1, a2, a3), cont))));
     }
 
     private final static Operation findall_3_2(Prolog m) { 
@@ -8452,7 +8728,8 @@ m.cont = cont;
     // findall(A,B,C):-[illarg(type(callable),findall(A,B,C),2)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("findall", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_findall_3_s4, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_findall_3_s4, a4,  int_2 ), cont);
     }
 /** PREDICATE: $findall/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8489,7 +8766,11 @@ m.cont = cont;
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
         a5 = S(":", y1);
         a6 = V(m);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a5), Op(FILE_builtins::PRED_copy_term_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_$hash_addz_3_static_exec, VA(a1,  ATOM_$0024FINDALL , a6), Op(fail_0, VA(), cont))));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_copy_term_2_static_exec(e), VA(a2, a6), //
+ Op((e)->PRED_$hash_addz_3_static_exec(e), VA(a1,  ATOM_$0024FINDALL , a6), //
+ Op(fail_0, VA(), cont))));
     }
 
     private final static Operation $findall_4_2(Prolog m) { 
@@ -8502,7 +8783,8 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // '$findall'(A,B,C,D):-[hash_get(A,'$FINDALL',D)]
-        return Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a1,  ATOM_$0024FINDALL , a4), cont);
+        return //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a1,  ATOM_$0024FINDALL , a4), cont);
     }
 /** PREDICATE: bagof/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8541,7 +8823,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$bagof_3_static_exec, VA(a1, a2, a3), cont)));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$bagof_3_static_exec(e), VA(a1, a2, a3), cont)));
     }
 
     private final static Operation bagof_3_2(Prolog m) { 
@@ -8555,7 +8840,8 @@ m.cont = cont;
     // bagof(A,B,C):-[illarg(type(callable),bagof(A,B,C),2)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("bagof", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_bagof_3_s4, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_bagof_3_s4, a4,  int_2 ), cont);
     }
 /** PREDICATE: setof/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8595,7 +8881,11 @@ m.cont = cont;
         }
         //END inline expansion
         a5 = V(m);
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$bagof_3_static_exec, VA(a1, a2, a5), Op(FILE_builtins::PRED_sort_2_static_exec, VA(a5, a3), cont))));
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$bagof_3_static_exec(e), VA(a1, a2, a5), //
+ Op((e)->PRED_sort_2_static_exec(e), VA(a5, a3), cont))));
     }
 
     private final static Operation setof_3_2(Prolog m) { 
@@ -8609,7 +8899,8 @@ m.cont = cont;
     // setof(A,B,C):-[illarg(type(callable),setof(A,B,C),2)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("setof", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_setof_3_s4, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_setof_3_s4, a4,  int_2 ), cont);
     }
 /** PREDICATE: $bagof/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8658,7 +8949,14 @@ m.cont = cont;
         a9 = S(":", y2);
         a10 = V(m);
         a11 = V(m);
-        return Op(FILE_builtins::PRED_$free_variables_set_3_static_exec, VA(a2, a1, a5), Op(FILE_builtins::PRED_$inequality_of_term_2_static_exec, VA(a5, PRED_$bagof_3_s1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a6, a7), Op(FILE_builtins::PRED_findall_3_static_exec, VA(a8, a9, a10), Op(FILE_builtins::PRED_$bagof_instances_3_static_exec, VA(a10, a6, a11), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a11), cont)))))));
+        return //
+ Op((e)->PRED_$free_variables_set_3_static_exec(e), VA(a2, a1, a5), //
+ Op((e)->PRED_$inequality_of_term_2_static_exec(e), VA(a5, PRED_$bagof_3_s1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a6, a7), //
+ Op((e)->PRED_findall_3_static_exec(e), VA(a8, a9, a10), //
+ Op((e)->PRED_$bagof_instances_3_static_exec(e), VA(a10, a6, a11), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a11), cont)))))));
     }
 
     private final static Operation $bagof_3_2(Prolog m) { 
@@ -8673,7 +8971,9 @@ m.cont = cont;
     // '$bagof'(A,B,C):-[findall(A,'SxxMachine.builtin':B,C),'$inequality_of_term'(C,[])]
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a4 = S(":", y1);
-        return Op(FILE_builtins::PRED_findall_3_static_exec, VA(a1, a4, a3), Op(FILE_builtins::PRED_$inequality_of_term_2_static_exec, VA(a3, PRED_$bagof_3_s1), cont));
+        return //
+ Op((e)->PRED_findall_3_static_exec(e), VA(a1, a4, a3), //
+ Op((e)->PRED_$inequality_of_term_2_static_exec(e), VA(a3, PRED_$bagof_3_s1), cont));
     }
 /** PREDICATE: $bagof_instances/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8744,7 +9044,9 @@ m.cont = cont;
         a12 = S("+", y2);
         a13 = CONS(a12, a9);
         a14 = CONS(a5, a10);
-        return Op(FILE_builtins::PRED_$variants_subset_5_static_exec, VA(a7, a4, a9, a10, a11), Op(FILE_builtins::PRED_$bagof_instances0_5_static_exec, VA(a11, a2, a3, a13, a14), cont));
+        return //
+ Op((e)->PRED_$variants_subset_5_static_exec(e), VA(a7, a4, a9, a10, a11), //
+ Op((e)->PRED_$bagof_instances0_5_static_exec(e), VA(a11, a2, a3, a13, a14), cont));
     }
 /** PREDICATE: $bagof_instances0/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8780,7 +9082,9 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$bagof_instances0'(A,B,C,D,E):-['$unify_witness'(D,B),'$unify'(C,E)]
-        return Op(FILE_builtins::PRED_$unify_witness_2_static_exec, VA(a4, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a5), cont));
+        return //
+ Op((e)->PRED_$unify_witness_2_static_exec(e), VA(a4, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a5), cont));
     }
 
     private final static Operation $bagof_instances0_5_2(Prolog m) { 
@@ -8794,7 +9098,8 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$bagof_instances0'(A,B,C,D,E):-['$bagof_instances'(A,B,C)]
-        return Op(FILE_builtins::PRED_$bagof_instances_3_static_exec, VA(a1, a2, a3), cont);
+        return //
+ Op((e)->PRED_$bagof_instances_3_static_exec(e), VA(a1, a2, a3), cont);
     }
 /** PREDICATE: $variants_subset/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -8931,7 +9236,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$term_variant_2_static_exec, VA(a2, a8), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a13), Op(FILE_builtins::PRED_$variants_subset_5_static_exec, VA(a7, a2, a11, a12, a5), cont)));
+        return //
+ Op((e)->PRED_$term_variant_2_static_exec(e), VA(a2, a8), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_$variants_subset_5_static_exec(e), VA(a7, a2, a11, a12, a5), cont)));
     }
 
     private final static Operation $variants_subset_5_3(Prolog m) { 
@@ -8994,7 +9302,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a2 = LARG[1];
     // '$term_variant'(A,B):-[new_hash(C),'$term_variant'(A,B,C)]
         a3 = V(m);
-        return Op(FILE_builtins::PRED_new_hash_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$term_variant_3_static_exec, VA(a1, a2, a3), cont));
+        return //
+ Op((e)->PRED_new_hash_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$term_variant_3_static_exec(e), VA(a1, a2, a3), cont));
     }
 /** PREDICATE: $dummy_11_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9033,7 +9343,11 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a3, a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a3, a1, a4), Op(FILE_builtins::PRED_$equality_of_term_2_static_exec, VA(a2, a4), cont))));
+        return //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a3, a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a3, a1, a4), //
+ Op((e)->PRED_$equality_of_term_2_static_exec(e), VA(a2, a4), cont))));
     }
 
     private final static Operation $dummy_11_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_2(Prolog m) { 
@@ -9052,7 +9366,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_hash_put_3_static_exec, VA(a3, a1, a2), cont);
+        return //
+ Op((e)->PRED_hash_put_3_static_exec(e), VA(a3, a1, a2), cont);
     }
 /** PREDICATE: $term_variant/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9142,7 +9457,8 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_11_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec, VA(a1, a2, a3, V(m)), cont);
+        return //
+ Op((e)->PRED_$dummy_11_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec(e), VA(a1, a2, a3, V(m)), cont);
     }
 
     private final static Operation $term_variant_3_2(Prolog m) { 
@@ -9247,7 +9563,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_builtins::PRED_$term_variant_3_static_exec, VA(a5, a7, a3), cont);
+        p1 = //
+ Op((e)->PRED_$term_variant_3_static_exec(e), VA(a5, a7, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a6;
         m.AREGS[2] = a3;
@@ -9267,7 +9584,10 @@ m.cont = cont;
     // '$term_variant'(A,B,C):-['$univ'(A,D),'$univ'(B,E),'$term_variant'(D,E,C)]
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a5), Op(FILE_builtins::PRED_$term_variant_3_static_exec, VA(a4, a5, a3), cont)));
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a4), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a2, a5), //
+ Op((e)->PRED_$term_variant_3_static_exec(e), VA(a4, a5, a3), cont)));
     }
 /** PREDICATE: $unify_witness/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9362,7 +9682,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // '$variables_set'(A,B):-['$variables_set'(A,[],B)]
-        return Op(FILE_builtins::PRED_$variables_set_3_static_exec, VA(a1, PRED_$variables_set_2_s1, a2), cont);
+        return //
+ Op((e)->PRED_$variables_set_3_static_exec(e), VA(a1, PRED_$variables_set_2_s1, a2), cont);
     }
 /** PREDICATE: $variables_set/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9451,7 +9772,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_memq_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_$builtin_memq_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 
     private final static Operation $variables_set_3_2(Prolog m) { 
@@ -9550,7 +9873,8 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a6 = V(m);
-        p1 = Op(FILE_builtins::PRED_$variables_set_3_static_exec, VA(a5, a6, a3), cont);
+        p1 = //
+ Op((e)->PRED_$variables_set_3_static_exec(e), VA(a5, a6, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -9569,7 +9893,9 @@ m.cont = cont;
         cont = m.cont;
     // '$variables_set'(A,B,C):-['$univ'(A,D),'$variables_set'(D,B,C)]
         a4 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_$variables_set_3_static_exec, VA(a4, a2, a3), cont));
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a4), //
+ Op((e)->PRED_$variables_set_3_static_exec(e), VA(a4, a2, a3), cont));
     }
 /** PREDICATE: $builtin_memq/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9672,7 +9998,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // '$existential_variables_set'(A,B):-['$existential_variables_set'(A,[],B)]
-        return Op(FILE_builtins::PRED_$existential_variables_set_3_static_exec, VA(a1, PRED_$existential_variables_set_2_s1, a2), cont);
+        return //
+ Op((e)->PRED_$existential_variables_set_3_static_exec(e), VA(a1, PRED_$existential_variables_set_2_s1, a2), cont);
     }
 /** PREDICATE: $existential_variables_set/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9841,7 +10168,9 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a6 = V(m);
-        return Op(FILE_builtins::PRED_$variables_set_3_static_exec, VA(a4, a2, a6), Op(FILE_builtins::PRED_$existential_variables_set_3_static_exec, VA(a5, a6, a3), cont));
+        return //
+ Op((e)->PRED_$variables_set_3_static_exec(e), VA(a4, a2, a6), //
+ Op((e)->PRED_$existential_variables_set_3_static_exec(e), VA(a5, a6, a3), cont));
     }
 
     private final static Operation $existential_variables_set_3_5(Prolog m) { 
@@ -9907,7 +10236,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a5 = V(m);
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_$variables_set_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_$variables_set_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_$existential_variables_set_3_static_exec, VA(a1, a6, a7), Op(FILE_builtins::PRED_$builtin_set_diff_3_static_exec, VA(a5, a7, a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont)))));
+        return //
+ Op((e)->PRED_$variables_set_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_$variables_set_2_static_exec(e), VA(a2, a6), //
+ Op((e)->PRED_$existential_variables_set_3_static_exec(e), VA(a1, a6, a7), //
+ Op((e)->PRED_$builtin_set_diff_3_static_exec(e), VA(a5, a7, a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont)))));
     }
 /** PREDICATE: $builtin_set_diff/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -9928,7 +10262,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$builtin_set_diff'(A,B,C):-[sort(A,D),sort(B,E),'$builtin_set_diff0'(D,E,C)]
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_builtins::PRED_sort_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_sort_2_static_exec, VA(a2, a5), Op(FILE_builtins::PRED_$builtin_set_diff0_3_static_exec, VA(a4, a5, a3), cont)));
+        return //
+ Op((e)->PRED_sort_2_static_exec(e), VA(a1, a4), //
+ Op((e)->PRED_sort_2_static_exec(e), VA(a2, a5), //
+ Op((e)->PRED_$builtin_set_diff0_3_static_exec(e), VA(a4, a5, a3), cont)));
     }
 /** PREDICATE: $builtin_set_diff0/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -10222,709 +10559,6 @@ m.cont = cont;
 m.cont = cont;
         return $builtin_set_diff0_3_top(m);
     }
-/** PREDICATE: open/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_open_3_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_open_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // open(A,B,C):-open(A,B,C,[])
-        m.setB0();
-         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // open(A,B,C):-[open(A,B,C,[])]
-        return Op(FILE_builtins::PRED_open_4_static_exec, VA(a1, a2, a3, PRED_open_3_s1), cont);
-    }
-/** PREDICATE: close/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_close_1_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_close_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // close(A):-close(A,[])
-        m.setB0();
-         Term a1;
-        a1 = LARG[0];
-    // close(A):-[close(A,[])]
-        return Op(FILE_builtins::PRED_close_2_static_exec, VA(a1, PRED_close_1_s1), cont);
-    }
-/** PREDICATE: flush_output/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_flush_output_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // flush_output:-current_output(A),flush_output(A)
-        m.setB0();
-         Term a1;
-        Operation p1;
-    // flush_output:-[current_output(A),flush_output(A)]
-        a1 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a1), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA(a1), cont));
-    }
-/** PREDICATE: stream_property/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_stream_property = SYM("stream_property");
-    private static final StructureTerm PRED_stream_property_2_s5 = S("domain",  ATOM_term ,  ATOM_stream_property );
-
-
-
-
-    public static Operation PRED_stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::stream_property_2_sub_1);
-        return stream_property_2_1(m);
-    }
-
-    private final static Operation stream_property_2_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::stream_property_2_sub_2);
-        return stream_property_2_2(m);
-    }
-
-    private final static Operation stream_property_2_sub_2(Prolog m) { 
-        m.trust(null);
-        return stream_property_2_3(m);
-    }
-
-    private final static Operation stream_property_2_1(Prolog m) { 
-    // stream_property(A,B):-var(B),!,'$stream_property'(A,B)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // stream_property(A,B):-['$get_level'(C),var(B),'$cut'(C),'$stream_property'(A,B)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(2))
-        a2 = a2.dref();
-        if (! (a2 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$stream_property_2_static_exec, VA(a1, a2), cont);
-    }
-
-    private final static Operation stream_property_2_2(Prolog m) { 
-    // stream_property(A,B):-'$stream_property_specifier'(B),!,'$stream_property'(A,B)
-         Term a1, a2, a3;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // stream_property(A,B):-['$get_level'(C),'$stream_property_specifier'(B),'$cut'(C),'$stream_property'(A,B)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$stream_property_specifier_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$stream_property_2_static_exec, VA(a1, a2), cont)));
-    }
-
-    private final static Operation stream_property_2_3(Prolog m) { 
-    // stream_property(A,B):-illarg(domain(term,stream_property),stream_property(A,B),2)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // stream_property(A,B):-[illarg(domain(term,stream_property),stream_property(A,B),2)]
-        Term[] y1 = VA(a1, a2);
-        a3 = S("stream_property", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_stream_property_2_s5, a3,  int_2 ), cont);
-    }
-/** PREDICATE: $stream_property/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_stream = SYM("stream");
-    private static final StructureTerm PRED_$stream_property_2_s5 = S("domain",  ATOM_stream ,  ATOM_stream );
-
-
-
-
-    public static Operation PRED_$stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$stream_property_2_sub_1);
-        return $stream_property_2_1(m);
-    }
-
-    private final static Operation $stream_property_2_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_2_sub_2);
-        return $stream_property_2_2(m);
-    }
-
-    private final static Operation $stream_property_2_sub_2(Prolog m) { 
-        m.trust(null);
-        return $stream_property_2_3(m);
-    }
-
-    private final static Operation $stream_property_2_1(Prolog m) { 
-    // '$stream_property'(A,B):-var(A),!,'$get_stream_manager'(C),hash_map(C,D),'$builtin_member'((A,E),D),java(A),'$builtin_member'(B,E)
-         Term a1, a2, a3, a4, a5, a6, a7;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$stream_property'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$get_stream_manager'(D),hash_map(D,E),'$builtin_member'((A,F),E),java(A),'$builtin_member'(B,F)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        a4 = V(m);
-        a5 = V(m);
-        a6 = V(m);
-        Term[] y1 = VA(a1, a6);
-        a7 = S(",", y1);
-        return Op(FILE_builtins::PRED_$get_stream_manager_1_static_exec, VA(a4), Op(FILE_builtins::PRED_hash_map_2_static_exec, VA(a4, a5), Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a7, a5), Op(FILE_builtins::PRED_java_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a2, a6), cont)))));
-    }
-
-    private final static Operation $stream_property_2_2(Prolog m) { 
-    // '$stream_property'(A,B):-java(A),!,'$get_stream_manager'(C),hash_get(C,A,D),'$builtin_member'(B,D)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$stream_property'(A,B):-['$get_level'(C),java(A),'$cut'(C),'$get_stream_manager'(D),hash_get(D,A,E),'$builtin_member'(B,E)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of java(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_$get_stream_manager_1_static_exec, VA(a4), Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a4, a1, a5), Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a2, a5), cont)));
-    }
-
-    private final static Operation $stream_property_2_3(Prolog m) { 
-    // '$stream_property'(A,B):-illarg(domain(stream,stream),stream_property(A,B),1)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$stream_property'(A,B):-[illarg(domain(stream,stream),stream_property(A,B),1)]
-        Term[] y1 = VA(a1, a2);
-        a3 = S("stream_property", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$stream_property_2_s5, a3,  int_1 ), cont);
-    }
-/** PREDICATE: $stream_property_specifier/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$stream_property_specifier_1_s1 = SYM("input");
-        final static SymbolTerm ATOM_output = SYM("output");
-
-
-
-
-    public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$stream_property_specifier_1_var, fail_0, fail_0, FILE_builtins::$stream_property_specifier_1_con, FILE_builtins::$stream_property_specifier_1_str, fail_0); 
-    }
-
-    private final static Operation $stream_property_specifier_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$stream_property_specifier_1_var_1);
-        return $stream_property_specifier_1_1(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_var_2);
-        return $stream_property_specifier_1_2(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_var_3);
-        return $stream_property_specifier_1_3(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_var_3(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_var_4);
-        return $stream_property_specifier_1_4(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_var_4(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_var_5);
-        return $stream_property_specifier_1_5(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_var_5(Prolog m) { 
-        m.trust(null);
-        return $stream_property_specifier_1_6(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_con(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$stream_property_specifier_1_con_1);
-        return $stream_property_specifier_1_1(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_con_1(Prolog m) { 
-        m.trust(null);
-        return $stream_property_specifier_1_2(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_str(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$stream_property_specifier_1_str_1);
-        return $stream_property_specifier_1_3(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_str_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_str_2);
-        return $stream_property_specifier_1_4(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_str_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$stream_property_specifier_1_str_3);
-        return $stream_property_specifier_1_5(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_str_3(Prolog m) { 
-        m.trust(null);
-        return $stream_property_specifier_1_6(m);
-    }
-
-    private final static Operation $stream_property_specifier_1_1(Prolog m) { 
-    // '$stream_property_specifier'(input):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'(input):-[]
-        if (! PRED_$stream_property_specifier_1_s1.unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-
-    private final static Operation $stream_property_specifier_1_2(Prolog m) { 
-    // '$stream_property_specifier'(output):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'(output):-[]
-        if (!  ATOM_output .unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-
-    private final static Operation $stream_property_specifier_1_3(Prolog m) { 
-    // '$stream_property_specifier'(alias(A)):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'(alias(A)):-[]
-        a1 = a1.dref();
-            if (!a1.unify(C("alias", V(m)), m.trail)){
-                return m.fail();
-            }
-        return cont;
-    }
-
-    private final static Operation $stream_property_specifier_1_4(Prolog m) { 
-    // '$stream_property_specifier'((mode A)):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'((mode A)):-[]
-        a1 = a1.dref();
-            if (!a1.unify(C("mode", V(m)), m.trail)){
-                return m.fail();
-            }
-        return cont;
-    }
-
-    private final static Operation $stream_property_specifier_1_5(Prolog m) { 
-    // '$stream_property_specifier'(type(A)):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'(type(A)):-[]
-        a1 = a1.dref();
-            if (!a1.unify(C("type", V(m)), m.trail)){
-                return m.fail();
-            }
-        return cont;
-    }
-
-    private final static Operation $stream_property_specifier_1_6(Prolog m) { 
-    // '$stream_property_specifier'(file_name(A)):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$stream_property_specifier'(file_name(A)):-[]
-        a1 = a1.dref();
-            if (!a1.unify(C("file_name", V(m)), m.trail)){
-                return m.fail();
-            }
-        return cont;
-    }
-/** PREDICATE: get_char/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get_char(A):-current_input(B),get_char(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // get_char(A):-[current_input(B),get_char(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_get_char_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: get_code/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get_code(A):-current_input(B),get_code(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // get_code(A):-[current_input(B),get_code(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_get_code_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: peek_char/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_peek_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // peek_char(A):-current_input(B),peek_char(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // peek_char(A):-[current_input(B),peek_char(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_peek_char_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: peek_code/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_peek_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // peek_code(A):-current_input(B),peek_code(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // peek_code(A):-[current_input(B),peek_code(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_peek_code_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: put_char/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_put_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // put_char(A):-current_output(B),put_char(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // put_char(A):-[current_output(B),put_char(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: put_code/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_put_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // put_code(A):-current_output(B),put_code(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // put_code(A):-[current_output(B),put_code(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: nl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_nl_1_s1 = SYM("\n");
-
-
-
-
-    public static Operation PRED_nl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // nl(A):-put_char(A,'\n')
-        m.setB0();
-         Term a1;
-        a1 = LARG[0];
-    // nl(A):-[put_char(A,'\n')]
-        return Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a1, PRED_nl_1_s1), cont);
-    }
-/** PREDICATE: get0/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get0_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get0(A):-current_input(B),get_code(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // get0(A):-[current_input(B),get_code(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_get_code_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: get0/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get0_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get0(A,B):-get_code(A,B)
-        m.setB0();
-         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // get0(A,B):-[get_code(A,B)]
-        return Op(FILE_builtins::PRED_get_code_2_static_exec, VA(a1, a2), cont);
-    }
-/** PREDICATE: get/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get(A):-current_input(B),get(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // get(A):-[current_input(B),get(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_get_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: put/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_put_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // put(A):-current_output(B),put(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // put(A):-[current_output(B),put(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_put_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: put/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_put_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // put(A,B):-C is B,put_code(A,C)
-        m.setB0();
-         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // put(A,B):-[C is B,put_code(A,C)]
-        a3 = V(m);
-        //START inline expansion of a(3)is a(2)
-        if (! a3.unify(Arithmetic.evaluate(a2), m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a1, a3), cont);
-    }
-/** PREDICATE: tab/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_tab_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // tab(A):-current_output(B),tab(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // tab(A):-[current_output(B),tab(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_tab_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: skip/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_skip_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // skip(A):-current_input(B),skip(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // skip(A):-[current_input(B),skip(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_skip_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: get_byte/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_get_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // get_byte(A):-current_input(B),get_byte(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // get_byte(A):-[current_input(B),get_byte(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_get_byte_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: peek_byte/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_peek_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // peek_byte(A):-current_input(B),peek_byte(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // peek_byte(A):-[current_input(B),peek_byte(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_peek_byte_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: put_byte/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_put_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // put_byte(A):-current_output(B),put_byte(B,A)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // put_byte(A):-[current_output(B),put_byte(B,A)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_put_byte_2_static_exec, VA(a2, a1), cont));
-    }
 /** PREDICATE: read/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
@@ -10941,7 +10575,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // read(A):-[current_input(B),read(B,A)]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_read_2_static_exec, VA(a2, a1), cont));
+        return //
+ Op((e)->PRED_current_input_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_read_2_static_exec(e), VA(a2, a1), cont));
     }
 /** PREDICATE: read/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -10966,7 +10602,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a4 = V(m);
-        return Op(FILE_builtins::PRED_read_tokens_3_static_exec, VA(a1, a4, V(m)), Op(FILE_builtins::PRED_parse_tokens_2_static_exec, VA(a2, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont)));
+        return //
+ Op((e)->PRED_read_tokens_3_static_exec(e), VA(a1, a4, V(m)), //
+ Op((e)->PRED_parse_tokens_2_static_exec(e), VA(a2, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont)));
     }
 /** PREDICATE: read_with_variables/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -10985,7 +10624,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a2 = LARG[1];
     // read_with_variables(A,B):-[current_input(C),read_with_variables(C,A,B)]
         a3 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a3), Op(FILE_builtins::PRED_read_with_variables_3_static_exec, VA(a3, a1, a2), cont));
+        return //
+ Op((e)->PRED_current_input_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_read_with_variables_3_static_exec(e), VA(a3, a1, a2), cont));
     }
 /** PREDICATE: read_with_variables/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11011,7 +10652,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a5 = V(m);
-        return Op(FILE_builtins::PRED_read_tokens_3_static_exec, VA(a1, a5, a3), Op(FILE_builtins::PRED_parse_tokens_2_static_exec, VA(a2, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont)));
+        return //
+ Op((e)->PRED_read_tokens_3_static_exec(e), VA(a1, a5, a3), //
+ Op((e)->PRED_parse_tokens_2_static_exec(e), VA(a2, a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont)));
     }
 /** PREDICATE: read_line/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11029,7 +10673,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // read_line(A):-[current_input(B),read_line(B,A)]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_current_input_1_static_exec, VA(a2), Op(FILE_builtins::PRED_read_line_2_static_exec, VA(a2, a1), cont));
+        return //
+ Op((e)->PRED_current_input_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_read_line_2_static_exec(e), VA(a2, a1), cont));
     }
 /** PREDICATE: read_token/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11051,7 +10697,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a3 = V(m);
         a4 = V(m);
         a5 = CONS(a3, PRED_read_token_2_s1);
-        return Op(FILE_builtins::PRED_$read_token0_3_static_exec, VA(a1, a3, a4), Op(FILE_builtins::PRED_$read_token1_3_static_exec, VA(a5, a4, a2), cont));
+        return //
+ Op((e)->PRED_$read_token0_3_static_exec(e), VA(a1, a3, a4), //
+ Op((e)->PRED_$read_token1_3_static_exec(e), VA(a5, a4, a2), cont));
     }
 /** PREDICATE: $read_token1/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11308,7 +10956,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$read_tokens_4_static_exec, VA(a1, a2, a3, PRED_read_tokens_3_s1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_$read_tokens_4_static_exec(e), VA(a1, a2, a3, PRED_read_tokens_3_s1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 /** PREDICATE: $read_tokens/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11329,7 +10979,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a4 = LARG[3];
     // '$read_tokens'(A,B,C,D):-[read_token(A,E),'$read_tokens1'(A,E,B,C,D)]
         a5 = V(m);
-        return Op(FILE_builtins::PRED_read_token_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_$read_tokens1_5_static_exec, VA(a1, a5, a2, a3, a4), cont));
+        return //
+ Op((e)->PRED_read_token_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_$read_tokens1_5_static_exec(e), VA(a1, a5, a2, a3, a4), cont));
     }
 /** PREDICATE: $read_tokens1/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11410,7 +11062,16 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002A$002A$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a6), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002A$002A ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_$read_tokens_until_fullstop_1_static_exec, VA(a1), Op(fail_0, VA(), cont)))))))));
+        return //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$007D ), //
+ Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002A$002A$0020 ), //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a6), //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002A$002A ), //
+ Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), //
+ Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), //
+ Op((e)->PRED_$read_tokens_until_fullstop_1_static_exec(e), VA(a1), //
+ Op(fail_0, VA(), cont)))))))));
     }
 
     private final static Operation $read_tokens1_5_2(Prolog m) { 
@@ -11511,7 +11172,8 @@ m.cont = cont;
         Term[] y1 = VA( ATOM__ , a8);
         a11 = S("=", y1);
         a12 = CONS(a11, a5);
-        return Op(FILE_builtins::PRED_$read_tokens_4_static_exec, VA(a1, a7, a10, a12), cont);
+        return //
+ Op((e)->PRED_$read_tokens_4_static_exec(e), VA(a1, a7, a10, a12), cont);
     }
 
     private final static Operation $read_tokens1_5_5(Prolog m) { 
@@ -11556,7 +11218,10 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a6, a9);
         a11 = S("=", y1);
-        return Op(FILE_builtins::PRED_$mem_pair_2_static_exec, VA(a11, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$read_tokens_4_static_exec, VA(a1, a8, a4, a5), cont)));
+        return //
+ Op((e)->PRED_$mem_pair_2_static_exec(e), VA(a11, a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$read_tokens_4_static_exec(e), VA(a1, a8, a4, a5), cont)));
     }
 
     private final static Operation $read_tokens1_5_6(Prolog m) { 
@@ -11614,7 +11279,8 @@ m.cont = cont;
         Term[] y1 = VA(a6, a9);
         a12 = S("=", y1);
         a13 = CONS(a12, a5);
-        return Op(FILE_builtins::PRED_$read_tokens_4_static_exec, VA(a1, a8, a11, a13), cont);
+        return //
+ Op((e)->PRED_$read_tokens_4_static_exec(e), VA(a1, a8, a11, a13), cont);
     }
 
     private final static Operation $read_tokens1_5_7(Prolog m) { 
@@ -11640,7 +11306,8 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$read_tokens_4_static_exec, VA(a1, a6, a4, a5), cont);
+        return //
+ Op((e)->PRED_$read_tokens_4_static_exec(e), VA(a1, a6, a4, a5), cont);
     }
 /** PREDICATE: $mem_pair/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11764,7 +11431,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // '$read_tokens_until_fullstop'(A):-[read_token(A,B),'$read_tokens_until_fullstop'(A,B)]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_read_token_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$read_tokens_until_fullstop_2_static_exec, VA(a1, a2), cont));
+        return //
+ Op((e)->PRED_read_token_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$read_tokens_until_fullstop_2_static_exec(e), VA(a1, a2), cont));
     }
 /** PREDICATE: $read_tokens_until_fullstop/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11834,7 +11503,9 @@ m.cont = cont;
         cont = m.cont;
     // '$read_tokens_until_fullstop'(A,B):-[read_token(A,C),'$read_tokens_until_fullstop'(A,C)]
         a3 = V(m);
-        return Op(FILE_builtins::PRED_read_token_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$read_tokens_until_fullstop_2_static_exec, VA(a1, a3), cont));
+        return //
+ Op((e)->PRED_read_token_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_$read_tokens_until_fullstop_2_static_exec(e), VA(a1, a3), cont));
     }
 /** PREDICATE: parse_tokens/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11872,7 +11543,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a8 = S("$tokens", y5);
         Term[] y6 = VA( ATOM_SxxMachine$002Ebuiltin , a8);
         a9 = S(":", y6);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a5), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a1,  int_1201 , a2, PRED_parse_tokens_2_s7), Op(FILE_builtins::PRED_retract_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont)))));
+        return //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a1,  int_1201 , a2, PRED_parse_tokens_2_s7), //
+ Op((e)->PRED_retract_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont)))));
     }
 /** PREDICATE: $parse_tokens/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11905,7 +11581,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a10 = V(m);
         a11 = V(m);
         a12 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a3, a6), Op(FILE_builtins::PRED_$parse_tokens1_5_static_exec, VA(a2, a7, a8, a6, a9), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a9), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a10, a11), Op(FILE_builtins::PRED_$parse_tokens2_7_static_exec, VA(a2, a7, a8, a1, V(m), a11, a12), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a4, a12), cont))))))));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a3, a6), //
+ Op((e)->PRED_$parse_tokens1_5_static_exec(e), VA(a2, a7, a8, a6, a9), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a9), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a10, a11), //
+ Op((e)->PRED_$parse_tokens2_7_static_exec(e), VA(a2, a7, a8, a1, V(m), a11, a12), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a4, a12), cont))))))));
     }
 /** PREDICATE: $parse_tokens1/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -11959,7 +11643,13 @@ m.cont = cont;
         a8 = V(m);
         a9 = V(m);
         a10 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a7, a4, a8), Op(FILE_builtins::PRED_$parse_tokens_is_starter_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a9, a8), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a9), Op(FILE_builtins::PRED_$parse_tokens_before_op_5_static_exec, VA(a1, a2, a3, a10, a5), cont))))));
+        return //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a7, a4, a8), //
+ Op((e)->PRED_$parse_tokens_is_starter_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a9, a8), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a9), //
+ Op((e)->PRED_$parse_tokens_before_op_5_static_exec(e), VA(a1, a2, a3, a10, a5), cont))))));
     }
 
     private final static Operation $parse_tokens1_5_2(Prolog m) { 
@@ -11977,7 +11667,9 @@ m.cont = cont;
         a6 = V(m);
         a7 = V(m);
         a8 = CONS(a6, PRED_$parse_tokens1_5_s9);
-        return Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a6, a4, a7), Op(FILE_builtins::PRED_$parse_tokens_error_3_static_exec, VA(a8, a7, a5), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a6, a4, a7), //
+ Op((e)->PRED_$parse_tokens_error_3_static_exec(e), VA(a8, a7, a5), cont));
     }
 /** PREDICATE: $parse_tokens2/7
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -12041,7 +11733,14 @@ m.cont = cont;
         a10 = V(m);
         a11 = V(m);
         a12 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a9, a6, a10), Op(FILE_builtins::PRED_$parse_tokens_is_terminator_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a3, a1), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a7, a12), cont)))))));
+        return //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a9, a6, a10), //
+ Op((e)->PRED_$parse_tokens_is_terminator_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a3, a1), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a7, a12), cont)))))));
     }
 
     private final static Operation $parse_tokens2_7_2(Prolog m) { 
@@ -12068,7 +11767,13 @@ m.cont = cont;
         a10 = V(m);
         a11 = V(m);
         a12 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a9, a6, a10), Op(FILE_builtins::PRED_$parse_tokens_is_post_in_op_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_$parse_tokens_post_in_ops_7_static_exec, VA(a1, a2, a3, a4, a5, a12, a7), cont))))));
+        return //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a9, a6, a10), //
+ Op((e)->PRED_$parse_tokens_is_post_in_op_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_$parse_tokens_post_in_ops_7_static_exec(e), VA(a1, a2, a3, a4, a5, a12, a7), cont))))));
     }
 
     private final static Operation $parse_tokens2_7_3(Prolog m) { 
@@ -12084,7 +11789,8 @@ m.cont = cont;
         a7 = m.AREGS[6];
         cont = m.cont;
     // '$parse_tokens2'(A,B,C,D,E,F,G):-['$parse_tokens_error'([operator,expected,after,expression],F,G)]
-        return Op(FILE_builtins::PRED_$parse_tokens_error_3_static_exec, VA(PRED_$parse_tokens2_7_s9, a6, a7), cont);
+        return //
+ Op((e)->PRED_$parse_tokens_error_3_static_exec(e), VA(PRED_$parse_tokens2_7_s9, a6, a7), cont);
     }
 /** PREDICATE: $parse_tokens_before_op/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -12477,7 +12183,9 @@ m.cont = cont;
         }
         //END inline expansion
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a2,  int_1201 , a7, a8), Op(FILE_builtins::PRED_$parse_tokens_expect_3_static_exec, VA( ATOM_$0029 , a8, a5), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a2,  int_1201 , a7, a8), //
+ Op((e)->PRED_$parse_tokens_expect_3_static_exec(e), VA( ATOM_$0029 , a8, a5), cont));
     }
 
     private final static Operation $parse_tokens_before_op_5_8(Prolog m) { 
@@ -12516,7 +12224,9 @@ m.cont = cont;
         }
         //END inline expansion
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a7, a8), Op(FILE_builtins::PRED_$parse_tokens_brace_3_static_exec, VA(a2, a8, a5), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a7, a8), //
+ Op((e)->PRED_$parse_tokens_brace_3_static_exec(e), VA(a2, a8, a5), cont));
     }
 
     private final static Operation $parse_tokens_before_op_5_9(Prolog m) { 
@@ -12555,7 +12265,9 @@ m.cont = cont;
         }
         //END inline expansion
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a7, a8), Op(FILE_builtins::PRED_$parse_tokens_list_3_static_exec, VA(a2, a8, a5), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a7, a8), //
+ Op((e)->PRED_$parse_tokens_list_3_static_exec(e), VA(a2, a8, a5), cont));
     }
 
     private final static Operation $parse_tokens_before_op_5_10(Prolog m) { 
@@ -12616,7 +12328,11 @@ m.cont = cont;
         a14 = V(m);
         a15 = V(m);
         a16 = CONS(a8, a14);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a12, a13), Op(FILE_builtins::PRED_$parse_tokens_args_3_static_exec, VA(a14, a13, a15), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a16), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a5, a15), cont))));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a12, a13), //
+ Op((e)->PRED_$parse_tokens_args_3_static_exec(e), VA(a14, a13, a15), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a2, a16), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a5, a15), cont))));
     }
 
     private final static Operation $parse_tokens_before_op_5_11(Prolog m) { 
@@ -12669,7 +12385,26 @@ m.cont = cont;
         a21 = V(m);
         a22 = V(m);
         a23 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a3,  ATOM_fx , a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a3, a1), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a11, a12), Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a13, a12, a14), Op(FILE_builtins::PRED_$parse_tokens_is_starter_1_static_exec, VA(a13), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a15, a14), Op(FILE_builtins::PRED_$dummy_12_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a13), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a16, a15), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a17, a16), Op(FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a20, a17), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a21, a18, a20, a22), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a2, a8,  int_1 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a23, a22), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a2, a21), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a5, a23), cont)))))))))))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a3,  ATOM_fx , a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a3, a1), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a11, a12), //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a13, a12, a14), //
+ Op((e)->PRED_$parse_tokens_is_starter_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a15, a14), //
+ Op((e)->PRED_$dummy_12_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a16, a15), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a17, a16), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a20, a17), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a21, a18, a20, a22), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a2, a8,  int_1 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a23, a22), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a2, a21), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a5, a23), cont)))))))))))))))))));
     }
 
     private final static Operation $parse_tokens_before_op_5_12(Prolog m) { 
@@ -12718,7 +12453,24 @@ m.cont = cont;
         a18 = V(m);
         a19 = V(m);
         a20 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a3,  ATOM_fy , a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a3, a1), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a11, a12), Op(FILE_builtins::PRED_$parse_tokens_peep_next_3_static_exec, VA(a13, a12, a14), Op(FILE_builtins::PRED_$parse_tokens_is_starter_1_static_exec, VA(a13), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a15, a14), Op(FILE_builtins::PRED_$dummy_13_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a13), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a16, a15), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a17, a16), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a18, a3, a17, a19), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a2, a8,  int_1 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a20, a19), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a2, a18), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a5, a20), cont)))))))))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a3,  ATOM_fy , a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a3, a1), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a11, a12), //
+ Op((e)->PRED_$parse_tokens_peep_next_3_static_exec(e), VA(a13, a12, a14), //
+ Op((e)->PRED_$parse_tokens_is_starter_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a15, a14), //
+ Op((e)->PRED_$dummy_13_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a16, a15), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a17, a16), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a18, a3, a17, a19), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a2, a8,  int_1 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a20, a19), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a2, a18), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a5, a20), cont)))))))))))))))));
     }
 
     private final static Operation $parse_tokens_before_op_5_13(Prolog m) { 
@@ -12788,7 +12540,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$parse_tokens_is_post_in_op_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_is_post_in_op_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_12_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
@@ -12834,7 +12589,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$parse_tokens_is_post_in_op_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_is_post_in_op_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_13_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
@@ -12921,7 +12679,11 @@ m.cont = cont;
         a6 = V(m);
         Term[] y1 = VA(a4);
         a7 = S("{}", y1);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a4,  int_1201 , a2, a5), Op(FILE_builtins::PRED_$parse_tokens_expect_3_static_exec, VA( ATOM_$007D , a5, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a1, a7), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a6), cont))));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a4,  int_1201 , a2, a5), //
+ Op((e)->PRED_$parse_tokens_expect_3_static_exec(e), VA( ATOM_$007D , a5, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a1, a7), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a6), cont))));
     }
 /** PREDICATE: $parse_tokens_list/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -13008,7 +12770,10 @@ m.cont = cont;
         }
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a4,  int_999 , a2, a6), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a6, a7), Op(FILE_builtins::PRED_$parse_tokens_list_rest_3_static_exec, VA(a5, a7, a3), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a4,  int_999 , a2, a6), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a6, a7), //
+ Op((e)->PRED_$parse_tokens_list_rest_3_static_exec(e), VA(a5, a7, a3), cont)));
     }
 /** PREDICATE: $parse_tokens_list_rest/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -13094,7 +12859,9 @@ m.cont = cont;
         }
         //END inline expansion
         a6 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a1,  int_999 , a5, a6), Op(FILE_builtins::PRED_$parse_tokens_expect_3_static_exec, VA( ATOM_$005D , a6, a3), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a1,  int_999 , a5, a6), //
+ Op((e)->PRED_$parse_tokens_expect_3_static_exec(e), VA( ATOM_$005D , a6, a3), cont));
     }
 
     private final static Operation $parse_tokens_list_rest_3_2(Prolog m) { 
@@ -13142,7 +12909,10 @@ m.cont = cont;
         //END inline expansion
         a8 = V(m);
         a9 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a4,  int_999 , a7, a8), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_$parse_tokens_list_rest_3_static_exec, VA(a5, a9, a3), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a4,  int_999 , a7, a8), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a8, a9), //
+ Op((e)->PRED_$parse_tokens_list_rest_3_static_exec(e), VA(a5, a9, a3), cont)));
     }
 
     private final static Operation $parse_tokens_list_rest_3_3(Prolog m) { 
@@ -13156,7 +12926,8 @@ m.cont = cont;
     // '$parse_tokens_list_rest'('[]',A,B):-['$parse_tokens_expect'(']',A,B)]
         if (!  ATOM_Nil .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_$parse_tokens_expect_3_static_exec, VA( ATOM_$005D , a2, a3), cont);
+        return //
+ Op((e)->PRED_$parse_tokens_expect_3_static_exec(e), VA( ATOM_$005D , a2, a3), cont);
     }
 /** PREDICATE: $parse_tokens_args/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -13241,7 +13012,10 @@ m.cont = cont;
         }
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a4,  int_999 , a2, a6), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a6, a7), Op(FILE_builtins::PRED_$parse_tokens_args_rest_3_static_exec, VA(a5, a7, a3), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a4,  int_999 , a2, a6), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a6, a7), //
+ Op((e)->PRED_$parse_tokens_args_rest_3_static_exec(e), VA(a5, a7, a3), cont)));
     }
 /** PREDICATE: $parse_tokens_args_rest/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -13313,7 +13087,10 @@ m.cont = cont;
         //END inline expansion
         a8 = V(m);
         a9 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a4,  int_999 , a7, a8), Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_$parse_tokens_args_rest_3_static_exec, VA(a5, a9, a3), cont)));
+        return //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a4,  int_999 , a7, a8), //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a8, a9), //
+ Op((e)->PRED_$parse_tokens_args_rest_3_static_exec(e), VA(a5, a9, a3), cont)));
     }
 
     private final static Operation $parse_tokens_args_rest_3_2(Prolog m) { 
@@ -13327,7 +13104,8 @@ m.cont = cont;
     // '$parse_tokens_args_rest'('[]',A,B):-['$parse_tokens_expect'(')',A,B)]
         if (!  ATOM_Nil .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_$parse_tokens_expect_3_static_exec, VA( ATOM_$0029 , a2, a3), cont);
+        return //
+ Op((e)->PRED_$parse_tokens_expect_3_static_exec(e), VA( ATOM_$0029 , a2, a3), cont);
     }
 /** PREDICATE: $parse_tokens_post_in_ops/7
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -13372,7 +13150,11 @@ m.cont = cont;
         a12 = V(m);
         a13 = V(m);
         a14 = V(m);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a6, a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a11), Op(FILE_builtins::PRED_$parse_tokens_op_8_static_exec, VA(a9, a1, a2, a3, a12, a13, a10, a14), Op(FILE_builtins::PRED_$parse_tokens_post_in_ops_7_static_exec, VA(a1, a12, a13, a4, a5, a14, a7), cont))));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a6, a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a11), //
+ Op((e)->PRED_$parse_tokens_op_8_static_exec(e), VA(a9, a1, a2, a3, a12, a13, a10, a14), //
+ Op((e)->PRED_$parse_tokens_post_in_ops_7_static_exec(e), VA(a1, a12, a13, a4, a5, a14, a7), cont))));
     }
 
     private final static Operation $parse_tokens_post_in_ops_7_2(Prolog m) { 
@@ -13602,7 +13384,17 @@ m.cont = cont;
         a11 = V(m);
         a12 = V(m);
         a13 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a6,  ATOM_xf , a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$less_than_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a5, a9,  int_1 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a13, a12), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a5, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a13), cont))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a6,  ATOM_xf , a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$less_than_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a5, a9,  int_1 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a13, a12), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a5, a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a13), cont))))))))));
     }
 
     private final static Operation $parse_tokens_op_8_4(Prolog m) { 
@@ -13629,7 +13421,17 @@ m.cont = cont;
         a11 = V(m);
         a12 = V(m);
         a13 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a6,  ATOM_yf , a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a5, a9,  int_1 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a13, a12), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a5, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a13), cont))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a6,  ATOM_yf , a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a5, a9,  int_1 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a13, a12), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a5, a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a13), cont))))))))));
     }
 
     private final static Operation $parse_tokens_op_8_5(Prolog m) { 
@@ -13670,7 +13472,24 @@ m.cont = cont;
         a19 = V(m);
         a20 = V(m);
         a21 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a6,  ATOM_xfx , a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_$less_than_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a13, a12), Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a16, a13), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a17, a14, a16, a18), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a19, a18), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a5, a9,  int_2 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a20, a19), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a5, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a21, a20), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_2 , a5, a17), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a21), cont)))))))))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a6,  ATOM_xfx , a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_$less_than_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a13, a12), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a16, a13), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a17, a14, a16, a18), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a19, a18), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a5, a9,  int_2 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a20, a19), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a5, a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a21, a20), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_2 , a5, a17), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a21), cont)))))))))))))))));
     }
 
     private final static Operation $parse_tokens_op_8_6(Prolog m) { 
@@ -13709,7 +13528,24 @@ m.cont = cont;
         a18 = V(m);
         a19 = V(m);
         a20 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a6,  ATOM_xfy , a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_$less_than_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a13, a12), Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a15, a13), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a16, a14, a15, a17), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a18, a17), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a5, a9,  int_2 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a19, a18), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a5, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a20, a19), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_2 , a5, a16), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a20), cont)))))))))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a6,  ATOM_xfy , a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_$less_than_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a13, a12), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a15, a13), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a16, a14, a15, a17), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a18, a17), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a5, a9,  int_2 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a19, a18), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a5, a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a20, a19), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_2 , a5, a16), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a20), cont)))))))))))))))));
     }
 
     private final static Operation $parse_tokens_op_8_7(Prolog m) { 
@@ -13750,7 +13586,24 @@ m.cont = cont;
         a19 = V(m);
         a20 = V(m);
         a21 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a6,  ATOM_yfx , a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a11, a7), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a12, a11), Op(FILE_builtins::PRED_$less_or_equal_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a13, a12), Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a16, a13), Op(FILE_builtins::PRED_$parse_tokens_4_static_exec, VA(a17, a14, a16, a18), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a10), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a19, a18), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a5, a9,  int_2 ), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a20, a19), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_1 , a5, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a21, a20), Op(FILE_builtins::PRED_arg_3_static_exec, VA( int_2 , a5, a17), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a8, a21), cont)))))))))))))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a6,  ATOM_yfx , a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a11, a7), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a11), //
+ Op((e)->PRED_$less_or_equal_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a13, a12), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a16, a13), //
+ Op((e)->PRED_$parse_tokens_4_static_exec(e), VA(a17, a14, a16, a18), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a10), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a19, a18), //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a5, a9,  int_2 ), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a20, a19), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_1 , a5, a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a21, a20), //
+ Op((e)->PRED_arg_3_static_exec(e), VA( int_2 , a5, a17), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a8, a21), cont)))))))))))))))));
     }
 /** PREDICATE: $parse_tokens_is_starter/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14122,7 +13975,10 @@ m.cont = cont;
         }
         //END inline expansion
         a4 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(V(m), a4, a2), Op(FILE_builtins::PRED_$parse_tokens_post_in_type_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont)));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(V(m), a4, a2), //
+ Op((e)->PRED_$parse_tokens_post_in_type_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont)));
     }
 /** PREDICATE: $parse_tokens_post_in_type/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14264,7 +14120,11 @@ m.cont = cont;
         a5 = V(m);
         a6 = V(m);
         a7 = CONS(a1, a6);
-        return Op(FILE_builtins::PRED_$parse_tokens_skip_spaces_2_static_exec, VA(a2, a5), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a5, a7), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a6), cont))));
+        return //
+ Op((e)->PRED_$parse_tokens_skip_spaces_2_static_exec(e), VA(a2, a5), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a5, a7), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a6), cont))));
     }
 
     private final static Operation $parse_tokens_expect_3_2(Prolog m) { 
@@ -14277,7 +14137,8 @@ m.cont = cont;
         cont = m.cont;
     // '$parse_tokens_expect'(A,B,C):-['$parse_tokens_error'([A,expected],B,C)]
         a4 = CONS(a1, PRED_$parse_tokens_expect_3_s3);
-        return Op(FILE_builtins::PRED_$parse_tokens_error_3_static_exec, VA(a4, a2, a3), cont);
+        return //
+ Op((e)->PRED_$parse_tokens_error_3_static_exec(e), VA(a4, a2, a3), cont);
     }
 /** PREDICATE: $parse_tokens_skip_spaces/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14404,7 +14265,18 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a5 = S("$tokens", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a5);
         a6 = S(":", y2);
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA(PRED_$parse_tokens_error_3_s1,  ATOM_$007BSYNTAX$0020ERROR$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA(PRED_$parse_tokens_error_3_s1), Op(FILE_builtins::PRED_write_2_static_exec, VA(PRED_$parse_tokens_error_3_s1,  ATOM_$002A$002A$0020 ), Op(FILE_builtins::PRED_$parse_tokens_write_message_2_static_exec, VA(PRED_$parse_tokens_error_3_s1, a1), Op(FILE_builtins::PRED_write_2_static_exec, VA(PRED_$parse_tokens_error_3_s1,  ATOM_$0020$002A$002A ), Op(FILE_builtins::PRED_nl_1_static_exec, VA(PRED_$parse_tokens_error_3_s1), Op(FILE_builtins::PRED_$parse_tokens_error1_2_static_exec, VA( Prolog.Nil , a2), Op(FILE_builtins::PRED_clause_2_static_exec, VA(a6, V(m)), Op(FILE_builtins::PRED_$parse_tokens_error1_2_static_exec, VA(a4, a2), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA(PRED_$parse_tokens_error_3_s1), Op(fail_0, VA(), cont)))))))))));
+        return //
+ Op((e)->PRED_write_2_static_exec(e), VA(PRED_$parse_tokens_error_3_s1,  ATOM_$007BSYNTAX$0020ERROR$007D ), //
+ Op((e)->PRED_nl_1_static_exec(e), VA(PRED_$parse_tokens_error_3_s1), //
+ Op((e)->PRED_write_2_static_exec(e), VA(PRED_$parse_tokens_error_3_s1,  ATOM_$002A$002A$0020 ), //
+ Op((e)->PRED_$parse_tokens_write_message_2_static_exec(e), VA(PRED_$parse_tokens_error_3_s1, a1), //
+ Op((e)->PRED_write_2_static_exec(e), VA(PRED_$parse_tokens_error_3_s1,  ATOM_$0020$002A$002A ), //
+ Op((e)->PRED_nl_1_static_exec(e), VA(PRED_$parse_tokens_error_3_s1), //
+ Op((e)->PRED_$parse_tokens_error1_2_static_exec(e), VA( Prolog.Nil , a2), //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a6, V(m)), //
+ Op((e)->PRED_$parse_tokens_error1_2_static_exec(e), VA(a4, a2), //
+ Op((e)->PRED_flush_output_1_static_exec(e), VA(PRED_$parse_tokens_error_3_s1), //
+ Op(fail_0, VA(), cont)))))))))));
     }
 /** PREDICATE: $parse_tokens_error1/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14499,7 +14371,12 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002A$002A$0020here$0020$002A$002A ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_$parse_tokens_error1_2_static_exec, VA(a1, PRED_$parse_tokens_error1_2_s1), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), cont)))));
+        return //
+ Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002A$002A$0020here$0020$002A$002A ), //
+ Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), //
+ Op((e)->PRED_$parse_tokens_error1_2_static_exec(e), VA(a1, PRED_$parse_tokens_error1_2_s1), //
+ Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $parse_tokens_error1_2_3(Prolog m) { 
@@ -14523,7 +14400,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$parse_tokens_error2_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$parse_tokens_error1_2_static_exec, VA(a4, a2), cont));
+        return //
+ Op((e)->PRED_$parse_tokens_error2_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$parse_tokens_error1_2_static_exec(e), VA(a4, a2), cont));
     }
 /** PREDICATE: $parse_tokens_error2/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14580,7 +14459,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_write_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $parse_tokens_error2_1_2(Prolog m) { 
@@ -14598,7 +14478,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_writeq_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_writeq_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $parse_tokens_error2_1_3(Prolog m) { 
@@ -14616,7 +14497,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_write_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $parse_tokens_error2_1_4(Prolog m) { 
@@ -14635,7 +14517,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0022 ), Op(FILE_builtins::PRED_$parse_tokens_write_string_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0022 ), cont)));
+        return //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0022 ), //
+ Op((e)->PRED_$parse_tokens_write_string_2_static_exec(e), VA( ATOM_user_error , a2), //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0022 ), cont)));
     }
 
     private final static Operation $parse_tokens_error2_1_5(Prolog m) { 
@@ -14645,7 +14530,8 @@ m.cont = cont;
         a1 = m.AREGS[0];
         cont = m.cont;
     // '$parse_tokens_error2'(A):-[write(user_error,A)]
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a1), cont);
+        return //
+ Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a1), cont);
     }
 /** PREDICATE: $parse_tokens_write_string/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14725,7 +14611,10 @@ m.cont = cont;
         a5 = a5.dref();
                   m.cut( a5.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$parse_tokens_write_string_2_static_exec, VA(a1, a4), cont)));
+        return //
+ Op((e)->PRED_put_code_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_put_code_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_$parse_tokens_write_string_2_static_exec(e), VA(a1, a4), cont)));
     }
 
     private final static Operation $parse_tokens_write_string_2_3(Prolog m) { 
@@ -14749,7 +14638,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$parse_tokens_write_string_2_static_exec, VA(a1, a4), cont));
+        return //
+ Op((e)->PRED_put_code_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_$parse_tokens_write_string_2_static_exec(e), VA(a1, a4), cont));
     }
 /** PREDICATE: $parse_tokens_write_message/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14807,7 +14698,10 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_write_2_static_exec, VA(a1,  ATOM_$0020 ), Op(FILE_builtins::PRED_$parse_tokens_write_message_2_static_exec, VA(a1, a4), cont)));
+        return //
+ Op((e)->PRED_write_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_write_2_static_exec(e), VA(a1,  ATOM_$0020 ), //
+ Op((e)->PRED_$parse_tokens_write_message_2_static_exec(e), VA(a1, a4), cont)));
     }
 /** PREDICATE: write/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14827,7 +14721,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // write(A):-[current_output(B),write_term(B,A,[numbervars(true)])]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a2, a1, PRED_write_1_s6), cont));
+        return //
+ Op((e)->PRED_current_output_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a2, a1, PRED_write_1_s6), cont));
     }
 /** PREDICATE: write/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14846,7 +14742,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // write(A,B):-[write_term(A,B,[numbervars(true)])]
-        return Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a1, a2, PRED_write_2_s6), cont);
+        return //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a1, a2, PRED_write_2_s6), cont);
     }
 /** PREDICATE: writeq/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14868,7 +14765,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // writeq(A):-[current_output(B),write_term(B,A,[quoted(true),numbervars(true)])]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a2, a1, PRED_writeq_1_s9), cont));
+        return //
+ Op((e)->PRED_current_output_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a2, a1, PRED_writeq_1_s9), cont));
     }
 /** PREDICATE: writeq/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14889,7 +14788,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // writeq(A,B):-[write_term(A,B,[quoted(true),numbervars(true)])]
-        return Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a1, a2, PRED_writeq_2_s9), cont);
+        return //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a1, a2, PRED_writeq_2_s9), cont);
     }
 /** PREDICATE: write_canonical/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14911,7 +14811,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
     // write_canonical(A):-[current_output(B),write_term(B,A,[quoted(true),ignore_ops(true)])]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a2, a1, PRED_write_canonical_1_s9), cont));
+        return //
+ Op((e)->PRED_current_output_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a2, a1, PRED_write_canonical_1_s9), cont));
     }
 /** PREDICATE: write_canonical/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14932,7 +14834,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // write_canonical(A,B):-[write_term(A,B,[quoted(true),ignore_ops(true)])]
-        return Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a1, a2, PRED_write_canonical_2_s9), cont);
+        return //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a1, a2, PRED_write_canonical_2_s9), cont);
     }
 /** PREDICATE: write_term/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14951,7 +14854,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a2 = LARG[1];
     // write_term(A,B):-[current_output(C),write_term(C,A,B)]
         a3 = V(m);
-        return Op(FILE_builtins::PRED_current_output_1_static_exec, VA(a3), Op(FILE_builtins::PRED_write_term_3_static_exec, VA(a3, a1, a2), cont));
+        return //
+ Op((e)->PRED_current_output_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_write_term_3_static_exec(e), VA(a3, a1, a2), cont));
     }
 /** PREDICATE: write_term/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -14983,7 +14888,9 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // write_term(A,B,C):-['$write_term'(A,B,C),fail]
-        return Op(FILE_builtins::PRED_$write_term_3_static_exec, VA(a1, a2, a3), Op(fail_0, VA(), cont));
+        return //
+ Op((e)->PRED_$write_term_3_static_exec(e), VA(a1, a2, a3), //
+ Op(fail_0, VA(), cont));
     }
 
     private final static Operation write_term_3_2(Prolog m) { 
@@ -15022,7 +14929,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a2, PRED_$write_term_3_s1,  ATOM_punct , V(m), a3, a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), cont));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a2, PRED_$write_term_3_s1,  ATOM_punct , V(m), a3, a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
     }
 /** PREDICATE: $write_term0/6
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -15121,7 +15030,9 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3, PRED_$write_term0_6_s1, a6), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a6, a1), cont));
+        return //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3, PRED_$write_term0_6_s1, a6), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a6, a1), cont));
     }
 
     private final static Operation $write_term0_6_2(Prolog m) { 
@@ -15155,7 +15066,9 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3, PRED_$write_term0_6_s1, a6), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a6, a1), cont));
+        return //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3, PRED_$write_term0_6_s1, a6), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a6, a1), cont));
     }
 
     private final static Operation $write_term0_6_3(Prolog m) { 
@@ -15204,7 +15117,11 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(PRED_$write_term0_6_s7, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3, PRED_$write_term0_6_s1, a6), Op(FILE_builtins::PRED_$write_VAR_2_static_exec, VA(a8, a6), cont))));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(PRED_$write_term0_6_s7, a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3, PRED_$write_term0_6_s1, a6), //
+ Op((e)->PRED_$write_VAR_2_static_exec(e), VA(a8, a6), cont))));
     }
 
     private final static Operation $write_term0_6_4(Prolog m) { 
@@ -15249,7 +15166,9 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3,  ATOM_symbol , a6), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a6, a1), cont));
+        return //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3,  ATOM_symbol , a6), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a6, a1), cont));
     }
 
     private final static Operation $write_term0_6_5(Prolog m) { 
@@ -15283,7 +15202,9 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3, PRED_$write_term0_6_s1, a6), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a6, a1), cont));
+        return //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3, PRED_$write_term0_6_s1, a6), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a6, a1), cont));
     }
 
     private final static Operation $write_term0_6_6(Prolog m) { 
@@ -15314,7 +15235,8 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a3, a4, a5, a6), cont);
+        return //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a3, a4, a5, a6), cont);
     }
 
     private final static Operation $write_term0_6_7(Prolog m) { 
@@ -15339,7 +15261,11 @@ m.cont = cont;
         a8 = V(m);
         a9 = V(m);
         a10 = V(m);
-        return Op(FILE_builtins::PRED_$dummy_14_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$write_is_operator_4_static_exec, VA(a1, a8, a9, a10), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$write_term_op_8_static_exec, VA(a8, a10, a9, a2, a3, a4, a5, a6), cont))));
+        return //
+ Op((e)->PRED_$dummy_14_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$write_is_operator_4_static_exec(e), VA(a1, a8, a9, a10), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$write_term_op_8_static_exec(e), VA(a8, a10, a9, a2, a3, a4, a5, a6), cont))));
     }
 
     private final static Operation $write_term0_6_8(Prolog m) { 
@@ -15369,7 +15295,13 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_15_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3,  ATOM_punct , a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$005B ), Op(FILE_builtins::PRED_$write_term_list_args_5_static_exec, VA(a1,  ATOM_punct , V(m), a5, a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$005D ), cont))))));
+        return //
+ Op((e)->PRED_$dummy_15_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3,  ATOM_punct , a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$005B ), //
+ Op((e)->PRED_$write_term_list_args_5_static_exec(e), VA(a1,  ATOM_punct , V(m), a5, a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$005D ), cont))))));
     }
 
     private final static Operation $write_term0_6_9(Prolog m) { 
@@ -15399,7 +15331,13 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_16_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a3,  ATOM_punct , a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$007B ), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a8,  int_1200 ,  ATOM_punct , V(m), a5, a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$007D ), cont))))));
+        return //
+ Op((e)->PRED_$dummy_16_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a3,  ATOM_punct , a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$007B ), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a8,  int_1200 ,  ATOM_punct , V(m), a5, a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$007D ), cont))))));
     }
 
     private final static Operation $write_term0_6_10(Prolog m) { 
@@ -15420,7 +15358,12 @@ m.cont = cont;
         a7 = V(m);
         a8 = V(m);
         a9 = CONS(a7, a8);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a9), Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a7, a3, V(m), a5, a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$0028 ), Op(FILE_builtins::PRED_$write_term_args_5_static_exec, VA(a8,  ATOM_punct , V(m), a5, a6), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a6,  ATOM_$0029 ), cont)))));
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a9), //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a7, a3, V(m), a5, a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$0028 ), //
+ Op((e)->PRED_$write_term_args_5_static_exec(e), VA(a8,  ATOM_punct , V(m), a5, a6), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a6,  ATOM_$0029 ), cont)))));
     }
 /** PREDICATE: $dummy_14_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -15457,7 +15400,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(PRED_$dummy_14_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(PRED_$dummy_14_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_14_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
@@ -15504,7 +15450,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(PRED_$dummy_15_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(PRED_$dummy_15_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_15_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
@@ -15551,7 +15500,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(PRED_$dummy_16_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(PRED_$dummy_16_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s4, a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $dummy_16_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
@@ -15641,7 +15593,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a3,  ATOM_$0020 ), cont);
+        return //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a3,  ATOM_$0020 ), cont);
     }
 
     private final static Operation $write_space_if_needed_3_3(Prolog m) { 
@@ -15660,7 +15613,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a3,  ATOM_$0020 ), cont);
+        return //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a3,  ATOM_$0020 ), cont);
     }
 
     private final static Operation $write_space_if_needed_3_4(Prolog m) { 
@@ -15735,7 +15689,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a2, a5), cont);
+        return //
+ Op((e)->PRED_put_code_2_static_exec(e), VA(a2, a5), cont);
     }
 
     private final static Operation $write_VAR_2_2(Prolog m) { 
@@ -15760,7 +15715,10 @@ m.cont = cont;
         a6 = V(m);
         Term[] y3 = VA(a1, PRED_$write_VAR_2_s1);
         a7 = S("//", y3);
-        return Op(FILE_builtins::PRED_put_code_2_static_exec, VA(a2, a3), Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a2, a6), cont)));
+        return //
+ Op((e)->PRED_put_code_2_static_exec(e), VA(a2, a3), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a2, a6), cont)));
     }
 /** PREDICATE: $write_atom/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -15803,7 +15761,12 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(PRED_$write_atom_5_s4, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$atom_type_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a2, a3, a5), Op(FILE_builtins::PRED_$fast_writeq_2_static_exec, VA(a5, a1), cont)))));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(PRED_$write_atom_5_s4, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
+ Op((e)->PRED_$atom_type_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a2, a3, a5), //
+ Op((e)->PRED_$fast_writeq_2_static_exec(e), VA(a5, a1), cont)))));
     }
 
     private final static Operation $write_atom_5_2(Prolog m) { 
@@ -15818,7 +15781,10 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$write_atom'(A,B,C,D,E):-['$atom_type'(A,C),'$write_space_if_needed'(B,C,E),'$fast_write'(E,A)]
-        return Op(FILE_builtins::PRED_$atom_type_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a2, a3, a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA(a5, a1), cont)));
+        return //
+ Op((e)->PRED_$atom_type_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a2, a3, a5), //
+ Op((e)->PRED_$fast_write_2_static_exec(e), VA(a5, a1), cont)));
     }
 /** PREDICATE: $atom_type/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -15868,7 +15834,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$atom_type0_2_static_exec, VA(a1,  int_0 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_$atom_type0_2_static_exec(e), VA(a1,  int_0 ), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $atom_type_2_2(Prolog m) { 
@@ -15888,7 +15856,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$atom_type0_2_static_exec, VA(a1,  int_1 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_$atom_type0_2_static_exec(e), VA(a1,  int_1 ), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $atom_type_2_3(Prolog m) { 
@@ -15908,7 +15878,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$atom_type0_2_static_exec, VA(a1,  int_2 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_$atom_type0_2_static_exec(e), VA(a1,  int_2 ), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $atom_type_2_4(Prolog m) { 
@@ -15928,7 +15900,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$atom_type0_2_static_exec, VA(a1,  int_3 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
+        return //
+ Op((e)->PRED_$atom_type0_2_static_exec(e), VA(a1,  int_3 ), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 /** PREDICATE: $write_is_operator/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -15956,7 +15930,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         //END inline expansion
         a6 = V(m);
         a7 = CONS(V(m), a3);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a1, a2, a6), Op(FILE_builtins::PRED_$write_op_type_2_static_exec, VA(a6, a4), Op(FILE_builtins::PRED_current_op_3_static_exec, VA(V(m), a4, a2), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a7), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), cont)))));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a1, a2, a6), //
+ Op((e)->PRED_$write_op_type_2_static_exec(e), VA(a6, a4), //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(V(m), a4, a2), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a7), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), cont)))));
     }
 /** PREDICATE: $write_op_type/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16159,7 +16138,14 @@ m.cont = cont;
         }
         //END inline expansion
         a10 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a10, a2, a1), Op(FILE_builtins::PRED_$greater_than_2_static_exec, VA(a10, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a9), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a5, PRED_$write_term_op_8_s1, a8), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a8,  ATOM_$0028 ), Op(FILE_builtins::PRED_$write_term_op1_8_static_exec, VA(a1, a2, a3, a10, PRED_$write_term_op_8_s1, V(m), a7, a8), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a8,  ATOM_$0029 ), cont)))))));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a10, a2, a1), //
+ Op((e)->PRED_$greater_than_2_static_exec(e), VA(a10, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a5, PRED_$write_term_op_8_s1, a8), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a8,  ATOM_$0028 ), //
+ Op((e)->PRED_$write_term_op1_8_static_exec(e), VA(a1, a2, a3, a10, PRED_$write_term_op_8_s1, V(m), a7, a8), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a8,  ATOM_$0029 ), cont)))))));
     }
 
     private final static Operation $write_term_op_8_2(Prolog m) { 
@@ -16178,7 +16164,9 @@ m.cont = cont;
         cont = m.cont;
     // '$write_term_op'(A,B,C,D,E,F,G,H):-[current_op(I,B,A),'$write_term_op1'(A,B,C,I,E,F,G,H)]
         a9 = V(m);
-        return Op(FILE_builtins::PRED_current_op_3_static_exec, VA(a9, a2, a1), Op(FILE_builtins::PRED_$write_term_op1_8_static_exec, VA(a1, a2, a3, a9, a5, a6, a7, a8), cont));
+        return //
+ Op((e)->PRED_current_op_3_static_exec(e), VA(a9, a2, a1), //
+ Op((e)->PRED_$write_term_op1_8_static_exec(e), VA(a1, a2, a3, a9, a5, a6, a7, a8), cont));
     }
 /** PREDICATE: $write_term_op1/8
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16264,7 +16252,10 @@ m.cont = cont;
         a11 = V(m);
         Term[] y1 = VA(a4,  int_1 );
         a12 = S("-", y1);
-        return Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a5, a10, a7, a8), Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a11, a10, a6, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a5, a10, a7, a8), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a11, a10, a6, a7, a8), cont)));
     }
 
     private final static Operation $write_term_op1_8_2(Prolog m) { 
@@ -16301,7 +16292,10 @@ m.cont = cont;
         //END inline expansion
         a10 = V(m);
         a11 = V(m);
-        return Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a5, a10, a7, a8), Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a4), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a11, a10, a6, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a5, a10, a7, a8), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a4), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a11, a10, a6, a7, a8), cont)));
     }
 
     private final static Operation $write_term_op1_8_3(Prolog m) { 
@@ -16345,7 +16339,9 @@ m.cont = cont;
         }
         //END inline expansion
         a12 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a10, a5, a12, a7, a8), Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a12, a6, a7, a8), cont));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a10, a5, a12, a7, a8), //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a12, a6, a7, a8), cont));
     }
 
     private final static Operation $write_term_op1_8_4(Prolog m) { 
@@ -16387,7 +16383,9 @@ m.cont = cont;
         }
         //END inline expansion
         a11 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a10, a5, a11, a7, a8), Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a11, a6, a7, a8), cont));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a10, a5, a11, a7, a8), //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a11, a6, a7, a8), cont));
     }
 
     private final static Operation $write_term_op1_8_5(Prolog m) { 
@@ -16452,7 +16450,10 @@ m.cont = cont;
         //END inline expansion
         a16 = V(m);
         a17 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a12, a5, a16, a7, a8), Op(FILE_builtins::PRED_$write_term_infix_op_5_static_exec, VA(a1, a16, a17, a7, a8), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a11, a14, a17, a6, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a12, a5, a16, a7, a8), //
+ Op((e)->PRED_$write_term_infix_op_5_static_exec(e), VA(a1, a16, a17, a7, a8), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a11, a14, a17, a6, a7, a8), cont)));
     }
 
     private final static Operation $write_term_op1_8_6(Prolog m) { 
@@ -16515,7 +16516,10 @@ m.cont = cont;
         //END inline expansion
         a15 = V(m);
         a16 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a12, a5, a15, a7, a8), Op(FILE_builtins::PRED_$write_term_infix_op_5_static_exec, VA(a1, a15, a16, a7, a8), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a11, a14, a16, a6, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a12, a5, a15, a7, a8), //
+ Op((e)->PRED_$write_term_infix_op_5_static_exec(e), VA(a1, a15, a16, a7, a8), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a11, a14, a16, a6, a7, a8), cont)));
     }
 
     private final static Operation $write_term_op1_8_7(Prolog m) { 
@@ -16578,7 +16582,10 @@ m.cont = cont;
         //END inline expansion
         a15 = V(m);
         a16 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a9, a12, a5, a15, a7, a8), Op(FILE_builtins::PRED_$write_term_infix_op_5_static_exec, VA(a1, a15, a16, a7, a8), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a11, a13, a16, a6, a7, a8), cont)));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a9, a12, a5, a15, a7, a8), //
+ Op((e)->PRED_$write_term_infix_op_5_static_exec(e), VA(a1, a15, a16, a7, a8), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a11, a13, a16, a6, a7, a8), cont)));
     }
 /** PREDICATE: $write_term_infix_op/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16626,7 +16633,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a2,  ATOM_punct , a5), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a5, PRED_$write_term_infix_op_5_s1), cont));
+        return //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a2,  ATOM_punct , a5), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a5, PRED_$write_term_infix_op_5_s1), cont));
     }
 
     private final static Operation $write_term_infix_op_5_2(Prolog m) { 
@@ -16640,7 +16649,8 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // '$write_term_infix_op'(A,B,C,D,E):-['$write_atom'(A,B,C,D,E)]
-        return Op(FILE_builtins::PRED_$write_atom_5_static_exec, VA(a1, a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$write_atom_5_static_exec(e), VA(a1, a2, a3, a4, a5), cont);
     }
 /** PREDICATE: $write_term_list_args/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16721,7 +16731,11 @@ m.cont = cont;
                   m.cut( a8.intValue());
         //END inline expansion
         a10 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a6, PRED_$write_term_list_args_5_s1, a2, a10, a4, a5), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a10,  ATOM_punct , a5), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a5,  ATOM_$002C ), Op(FILE_builtins::PRED_$write_term_list_args_5_static_exec, VA(a7,  ATOM_punct , a3, a4, a5), cont))));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a6, PRED_$write_term_list_args_5_s1, a2, a10, a4, a5), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a10,  ATOM_punct , a5), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a5,  ATOM_$002C ), //
+ Op((e)->PRED_$write_term_list_args_5_static_exec(e), VA(a7,  ATOM_punct , a3, a4, a5), cont))));
     }
 
     private final static Operation $write_term_list_args_5_2(Prolog m) { 
@@ -16768,7 +16782,8 @@ m.cont = cont;
         a8 = a8.dref();
                   m.cut( a8.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a6, PRED_$write_term_list_args_5_s1, a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a6, PRED_$write_term_list_args_5_s1, a2, a3, a4, a5), cont);
     }
 
     private final static Operation $write_term_list_args_5_3(Prolog m) { 
@@ -16796,7 +16811,11 @@ m.cont = cont;
             return m.fail();
         }
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a6, PRED_$write_term_list_args_5_s1, a2, a8, a4, a5), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a8,  ATOM_punct , a5), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a5,  ATOM_$007C ), Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a7, PRED_$write_term_list_args_5_s1,  ATOM_punct , a3, a4, a5), cont))));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a6, PRED_$write_term_list_args_5_s1, a2, a8, a4, a5), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a8,  ATOM_punct , a5), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a5,  ATOM_$007C ), //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a7, PRED_$write_term_list_args_5_s1,  ATOM_punct , a3, a4, a5), cont))));
     }
 /** PREDICATE: $write_term_args/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16887,7 +16906,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a6,  int_999 , a2, a3, a4, a5), cont);
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a6,  int_999 , a2, a3, a4, a5), cont);
     }
 
     private final static Operation $write_term_args_5_3(Prolog m) { 
@@ -16918,7 +16938,11 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$write_term0_6_static_exec, VA(a6,  int_999 , a2, a8, a4, a5), Op(FILE_builtins::PRED_$write_space_if_needed_3_static_exec, VA(a8,  ATOM_punct , a5), Op(FILE_builtins::PRED_put_char_2_static_exec, VA(a5,  ATOM_$002C ), Op(FILE_builtins::PRED_$write_term_args_5_static_exec, VA(a7,  ATOM_punct , a3, a4, a5), cont))));
+        return //
+ Op((e)->PRED_$write_term0_6_static_exec(e), VA(a6,  int_999 , a2, a8, a4, a5), //
+ Op((e)->PRED_$write_space_if_needed_3_static_exec(e), VA(a8,  ATOM_punct , a5), //
+ Op((e)->PRED_put_char_2_static_exec(e), VA(a5,  ATOM_$002C ), //
+ Op((e)->PRED_$write_term_args_5_static_exec(e), VA(a7,  ATOM_punct , a3, a4, a5), cont))));
     }
 /** PREDICATE: op/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -16990,7 +17014,8 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$op1_3_static_exec, VA(a1, a2, a3), cont);
+        return //
+ Op((e)->PRED_$op1_3_static_exec(e), VA(a1, a2, a3), cont);
     }
 
     private final static Operation op_3_2(Prolog m) { 
@@ -17004,7 +17029,8 @@ m.cont = cont;
     // op(A,B,C):-[illarg(domain(integer,0-1200),op(A,B,C),1)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("op", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_op_3_s9, a4,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_op_3_s9, a4,  int_1 ), cont);
     }
 /** PREDICATE: $op1/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17048,7 +17074,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$op_specifier_2_static_exec, VA(a2, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$op2_3_static_exec, VA(a1, a2, a3), cont)));
+        return //
+ Op((e)->PRED_$op_specifier_2_static_exec(e), VA(a2, V(m)), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$op2_3_static_exec(e), VA(a1, a2, a3), cont)));
     }
 
     private final static Operation $op1_3_2(Prolog m) { 
@@ -17062,13 +17091,16 @@ m.cont = cont;
         cont = m.cont;
     // '$op1'(A,B,C):-[findall(D,'SxxMachine.builtin':'$op_specifier'(D,E),F),illarg(domain(term,F),op(A,B,C),2)]
         a4 = V(m);
-        a5 = Closure( Op(FILE_builtins::PRED_$op_specifier_2_static_exec, VA(a4, V(m)), null));
+        a5 = Closure( //
+ Op((e)->PRED_$op_specifier_2_static_exec(e), VA(a4, V(m)), null));
         a6 = V(m);
         Term[] y1 = VA( ATOM_term , a6);
         a7 = S("domain", y1);
         Term[] y2 = VA(a1, a2, a3);
         a8 = S("op", y2);
-        return Op(FILE_builtins::PRED_findall_3_static_exec, VA(a4, a5, a6), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(a7, a8,  int_2 ), cont));
+        return //
+ Op((e)->PRED_findall_3_static_exec(e), VA(a4, a5, a6), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(a7, a8,  int_2 ), cont));
     }
 /** PREDICATE: $op2/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17124,7 +17156,8 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         a5 = CONS(a3, PRED_$op2_3_s1);
-        return Op(FILE_builtins::PRED_$add_operators_3_static_exec, VA(a5, a1, a2), cont);
+        return //
+ Op((e)->PRED_$add_operators_3_static_exec(e), VA(a5, a1, a2), cont);
     }
 
     private final static Operation $op2_3_2(Prolog m) { 
@@ -17144,7 +17177,10 @@ m.cont = cont;
         }
         //END inline expansion
         a5 = V(m);
-        return Op(FILE_builtins::PRED_$op_atom_list_2_static_exec, VA(a3, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$add_operators_3_static_exec, VA(a5, a1, a2), cont)));
+        return //
+ Op((e)->PRED_$op_atom_list_2_static_exec(e), VA(a3, a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$add_operators_3_static_exec(e), VA(a5, a1, a2), cont)));
     }
 
     private final static Operation $op2_3_3(Prolog m) { 
@@ -17158,7 +17194,8 @@ m.cont = cont;
     // '$op2'(A,B,C):-[illarg(type(list(atom)),op(A,B,C),3)]
         Term[] y1 = VA(a1, a2, a3);
         a4 = S("op", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$op2_3_s8, a4,  int_3 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$op2_3_s8, a4,  int_3 ), cont);
     }
 /** PREDICATE: $add_operators/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17224,7 +17261,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_$add_op_3_static_exec, VA(a4, a2, a3), Op(FILE_builtins::PRED_$add_operators_3_static_exec, VA(a5, a2, a3), cont));
+        return //
+ Op((e)->PRED_$add_op_3_static_exec(e), VA(a4, a2, a3), //
+ Op((e)->PRED_$add_operators_3_static_exec(e), VA(a5, a2, a3), cont));
     }
 /** PREDICATE: $add_op/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17295,7 +17334,8 @@ m.cont = cont;
         a4 = S("permission", y1);
         Term[] y2 = VA(a2, a3, PRED_$add_op_3_s1);
         a5 = S("op", y2);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(a4, a5,  int_3 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(a4, a5,  int_3 ), cont);
     }
 
     private final static Operation $add_op_3_2(Prolog m) { 
@@ -17319,7 +17359,13 @@ m.cont = cont;
         a9 = S("$current_operator", y3);
         Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a9);
         a10 = S(":", y4);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a6, V(m)), Op(FILE_builtins::PRED_$op_specifier_2_static_exec, VA(a3, a7), Op(FILE_builtins::PRED_$op_specifier_2_static_exec, VA(a4, a8), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a7, a8), Op(FILE_builtins::PRED_retract_1_static_exec, VA(a10), Op(fail_0, VA(), cont))))));
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a6, V(m)), //
+ Op((e)->PRED_$op_specifier_2_static_exec(e), VA(a3, a7), //
+ Op((e)->PRED_$op_specifier_2_static_exec(e), VA(a4, a8), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a7, a8), //
+ Op((e)->PRED_retract_1_static_exec(e), VA(a10), //
+ Op(fail_0, VA(), cont))))));
     }
 
     private final static Operation $add_op_3_3(Prolog m) { 
@@ -17352,7 +17398,8 @@ m.cont = cont;
         a4 = S("$current_operator", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a5), cont);
     }
 /** PREDICATE: $op_specifier/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17685,7 +17732,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a4 = S("$current_operator", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a5, V(m)), cont);
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a5, V(m)), cont);
     }
 /** PREDICATE: (\+)/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17723,7 +17771,10 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
     }
 
     private final static Operation $005C$002B_1_2(Prolog m) { 
@@ -17798,7 +17849,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         //END inline expansion
         Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
         a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont));
+        return //
+ Op((e)->PRED_call_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont));
     }
 /** PREDICATE: sub_atom/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17824,7 +17877,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a6 = V(m);
         a7 = V(m);
         a8 = V(m);
-        return Op(FILE_builtins::PRED_atom_concat_3_static_exec, VA(a6, a7, a1), Op(FILE_builtins::PRED_atom_length_2_static_exec, VA(a6, a2), Op(FILE_builtins::PRED_atom_concat_3_static_exec, VA(a5, a8, a7), Op(FILE_builtins::PRED_atom_length_2_static_exec, VA(a5, a3), Op(FILE_builtins::PRED_atom_length_2_static_exec, VA(a8, a4), cont)))));
+        return //
+ Op((e)->PRED_atom_concat_3_static_exec(e), VA(a6, a7, a1), //
+ Op((e)->PRED_atom_length_2_static_exec(e), VA(a6, a2), //
+ Op((e)->PRED_atom_concat_3_static_exec(e), VA(a5, a8, a7), //
+ Op((e)->PRED_atom_length_2_static_exec(e), VA(a5, a3), //
+ Op((e)->PRED_atom_length_2_static_exec(e), VA(a8, a4), cont)))));
     }
 /** PREDICATE: $dummy_17_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17877,7 +17935,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_number_codes_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_number_codes_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation $dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(Prolog m) { 
@@ -17888,7 +17947,8 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$dummy_17_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-['$dummy_18_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B)]
-        return Op(FILE_builtins::PRED_$dummy_18_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_$dummy_18_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation $dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_3(Prolog m) { 
@@ -17901,7 +17961,8 @@ m.cont = cont;
     // '$dummy_17_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-[illarg(type(atomic),name(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a3 = S("name", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_s4, a3,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_s4, a3,  int_1 ), cont);
     }
 /** PREDICATE: $dummy_18_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -17947,7 +18008,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_atom_codes_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_atom_codes_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation $dummy_18_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(Prolog m) { 
@@ -17996,7 +18058,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_$dummy_17_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation name_2_2(Prolog m) { 
@@ -18013,7 +18076,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a1, a2, V(m)), cont);
+        return //
+ Op((e)->PRED_$dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a1, a2, V(m)), cont);
     }
 /** PREDICATE: $dummy_19_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18059,7 +18123,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_number_codes_2_static_exec, VA(a3, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a1, a3), cont)));
+        return //
+ Op((e)->PRED_number_codes_2_static_exec(e), VA(a3, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a1, a3), cont)));
     }
 
     private final static Operation $dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
@@ -18071,7 +18138,8 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // '$dummy_19_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$dummy_20_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C)]
-        return Op(FILE_builtins::PRED_$dummy_20_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a1, a2, a3), cont);
+        return //
+ Op((e)->PRED_$dummy_20_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
     }
 
     private final static Operation $dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_3(Prolog m) { 
@@ -18085,7 +18153,8 @@ m.cont = cont;
     // '$dummy_19_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-[illarg(type(list(char)),name(A,B),2)]
         Term[] y1 = VA(a1, a2);
         a4 = S("name", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s7, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$dummy_19_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s7, a4,  int_2 ), cont);
     }
 /** PREDICATE: $dummy_20_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18123,7 +18192,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_atom_codes_2_static_exec, VA(a3, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a1, a3), cont)));
+        return //
+ Op((e)->PRED_atom_codes_2_static_exec(e), VA(a3, a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a1, a3), cont)));
     }
 
     private final static Operation $dummy_20_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
@@ -18209,7 +18281,8 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_regex_list_3_static_exec, VA(a1, a2, a3), cont);
+        return //
+ Op((e)->PRED_regex_list_3_static_exec(e), VA(a1, a2, a3), cont);
     }
 
     private final static Operation regex_matches_3_3(Prolog m) { 
@@ -18229,7 +18302,9 @@ m.cont = cont;
         }
         //END inline expansion
         a4 = V(m);
-        return Op(FILE_builtins::PRED_regex_compile_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_regex_match_3_static_exec, VA(a4, a2, a3), cont));
+        return //
+ Op((e)->PRED_regex_compile_2_static_exec(e), VA(a1, a4), //
+ Op((e)->PRED_regex_match_3_static_exec(e), VA(a4, a2, a3), cont));
     }
 /** PREDICATE: regex_matches/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18246,8 +18321,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // regex_matches(A,B):-[once('SxxMachine.builtin':regex_matches(A,B,C))]
-        a3 = Closure( Op(FILE_builtins::PRED_regex_matches_3_static_exec, VA(a1, a2, V(m)), null));
-        return Op(FILE_builtins::PRED_once_1_static_exec, VA(a3), cont);
+        a3 = Closure( //
+ Op((e)->PRED_regex_matches_3_static_exec(e), VA(a1, a2, V(m)), null));
+        return //
+ Op((e)->PRED_once_1_static_exec(e), VA(a3), cont);
     }
 /** PREDICATE: regex_list/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18292,7 +18369,8 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_builtins::PRED_regex_matches_3_static_exec, VA(a1, a4, a3), cont);
+        return //
+ Op((e)->PRED_regex_matches_3_static_exec(e), VA(a1, a4, a3), cont);
     }
 
     private final static Operation regex_list_3_2(Prolog m) { 
@@ -18378,7 +18456,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1, a2);
         a4 = S("set_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_set_prolog_flag_2_s1, a4,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_set_prolog_flag_2_s1, a4,  int_1 ), cont);
     }
 
     private final static Operation set_prolog_flag_2_2(Prolog m) { 
@@ -18407,7 +18486,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1, a2);
         a4 = S("set_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_set_prolog_flag_2_s1, a4,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_set_prolog_flag_2_s1, a4,  int_2 ), cont);
     }
 
     private final static Operation set_prolog_flag_2_3(Prolog m) { 
@@ -18434,7 +18514,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$set_prolog_flag0_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_$set_prolog_flag0_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation set_prolog_flag_2_4(Prolog m) { 
@@ -18447,7 +18528,8 @@ m.cont = cont;
     // set_prolog_flag(A,B):-[illarg(type(atom),set_prolog_flag(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a3 = S("set_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_set_prolog_flag_2_s8, a3,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_set_prolog_flag_2_s8, a3,  int_1 ), cont);
     }
 /** PREDICATE: $set_prolog_flag0/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18490,7 +18572,10 @@ m.cont = cont;
         a5 = V(m);
         Term[] y1 = VA(a5);
         a6 = S("changeable", y1);
-        return Op(FILE_builtins::PRED_$prolog_impl_flag_3_static_exec, VA(a1, a4, a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$set_prolog_flag0_4_static_exec, VA(a5, a1, a2, a4), cont)));
+        return //
+ Op((e)->PRED_$prolog_impl_flag_3_static_exec(e), VA(a1, a4, a6), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$set_prolog_flag0_4_static_exec(e), VA(a5, a1, a2, a4), cont)));
     }
 
     private final static Operation $set_prolog_flag0_2_2(Prolog m) { 
@@ -18503,7 +18588,8 @@ m.cont = cont;
     // '$set_prolog_flag0'(A,B):-[illarg(domain(atom,prolog_flag),set_prolog_flag(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a3 = S("set_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$set_prolog_flag0_2_s6, a3,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$set_prolog_flag0_2_s6, a3,  int_1 ), cont);
     }
 /** PREDICATE: $set_prolog_flag0/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18567,7 +18653,8 @@ m.cont = cont;
         a5 = S("permission", y1);
         Term[] y2 = VA(a2, a3);
         a6 = S("set_prolog_flag", y2);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(a5, a6, V(m)), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(a5, a6, V(m)), cont);
     }
 
     private final static Operation $set_prolog_flag0_4_2(Prolog m) { 
@@ -18587,7 +18674,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a3, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$set_prolog_impl_flag_2_static_exec, VA(a2, a3), cont)));
+        return //
+ Op((e)->PRED_$builtin_member_2_static_exec(e), VA(a3, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$set_prolog_impl_flag_2_static_exec(e), VA(a2, a3), cont)));
     }
 
     private final static Operation $set_prolog_flag0_4_3(Prolog m) { 
@@ -18602,7 +18692,8 @@ m.cont = cont;
     // '$set_prolog_flag0'(A,B,C,D):-[illarg(domain(atom,flag_value),set_prolog_flag(B,C),2)]
         Term[] y1 = VA(a2, a3);
         a5 = S("set_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$set_prolog_flag0_4_s10, a5,  int_2 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$set_prolog_flag0_4_s10, a5,  int_2 ), cont);
     }
 /** PREDICATE: current_prolog_flag/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18655,7 +18746,9 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$prolog_impl_flag_3_static_exec, VA(a1, V(m), V(m)), Op(FILE_builtins::PRED_$get_prolog_impl_flag_2_static_exec, VA(a1, a2), cont));
+        return //
+ Op((e)->PRED_$prolog_impl_flag_3_static_exec(e), VA(a1, V(m), V(m)), //
+ Op((e)->PRED_$get_prolog_impl_flag_2_static_exec(e), VA(a1, a2), cont));
     }
 
     private final static Operation current_prolog_flag_2_2(Prolog m) { 
@@ -18682,7 +18775,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_21_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec, VA(a1, a2, V(m), V(m)), cont);
+        return //
+ Op((e)->PRED_$dummy_21_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_static_exec(e), VA(a1, a2, V(m), V(m)), cont);
     }
 
     private final static Operation current_prolog_flag_2_3(Prolog m) { 
@@ -18695,7 +18789,8 @@ m.cont = cont;
     // current_prolog_flag(A,B):-[illarg(type(atom),current_prolog_flag(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a3 = S("current_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_current_prolog_flag_2_s4, a3,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_current_prolog_flag_2_s4, a3,  int_1 ), cont);
     }
 /** PREDICATE: $dummy_21_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18735,7 +18830,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$prolog_impl_flag_3_static_exec, VA(a1, a3, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$get_prolog_impl_flag_2_static_exec, VA(a1, a2), cont)));
+        return //
+ Op((e)->PRED_$prolog_impl_flag_3_static_exec(e), VA(a1, a3, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_$get_prolog_impl_flag_2_static_exec(e), VA(a1, a2), cont)));
     }
 
     private final static Operation $dummy_21_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_2(Prolog m) { 
@@ -18750,7 +18848,8 @@ m.cont = cont;
     // '$dummy_21_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D):-[illarg(domain(atom,prolog_flag),current_prolog_flag(A,B),1)]
         Term[] y1 = VA(a1, a2);
         a5 = S("current_prolog_flag", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$dummy_21_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_s5, a5,  int_1 ), cont);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$dummy_21_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_4_s5, a5,  int_1 ), cont);
     }
 /** PREDICATE: $prolog_impl_flag/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18957,7 +19056,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // halt:-halt(0)
         m.setB0();
     // halt:-[halt(0)]
-        return Op(FILE_builtins::PRED_halt_1_static_exec, VA(PRED_halt_0_s1), cont);
+        return //
+ Op((e)->PRED_halt_1_static_exec(e), VA(PRED_halt_0_s1), cont);
     }
 /** PREDICATE: abort/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -18972,7 +19072,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // abort:-raise_exception('Execution aborted')
         m.setB0();
     // abort:-[raise_exception('Execution aborted')]
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(PRED_abort_0_s1), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(PRED_abort_0_s1), cont);
     }
 /** PREDICATE: C/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -19081,7 +19182,10 @@ m.cont = cont;
         }
         //END inline expansion
         a4 = V(m);
-        return Op(FILE_builtins::PRED_$dcg_expansion_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a4, a2), cont)));
+        return //
+ Op((e)->PRED_$dcg_expansion_2_static_exec(e), VA(a1, a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a4, a2), cont)));
     }
 
     private final static Operation expand_term_2_3(Prolog m) { 
@@ -19218,7 +19322,10 @@ m.cont = cont;
         a14 = V(m);
         a15 = V(m);
         a16 = V(m);
-        return Op(FILE_builtins::PRED_$dcg_translation_atom_4_static_exec, VA(a10, a5, a14, a15), Op(FILE_builtins::PRED_$dcg_translation_4_static_exec, VA(a4, a7, a14, a16), Op(FILE_builtins::PRED_$dcg_translation_4_static_exec, VA(a11, a8, a15, a16), cont)));
+        return //
+ Op((e)->PRED_$dcg_translation_atom_4_static_exec(e), VA(a10, a5, a14, a15), //
+ Op((e)->PRED_$dcg_translation_4_static_exec(e), VA(a4, a7, a14, a16), //
+ Op((e)->PRED_$dcg_translation_4_static_exec(e), VA(a11, a8, a15, a16), cont)));
     }
 
     private final static Operation $dcg_expansion_2_3(Prolog m) { 
@@ -19244,7 +19351,9 @@ m.cont = cont;
             }
         a7 = V(m);
         a8 = V(m);
-        return Op(FILE_builtins::PRED_$dcg_translation_atom_4_static_exec, VA(a3, a5, a7, a8), Op(FILE_builtins::PRED_$dcg_translation_4_static_exec, VA(a4, a6, a7, a8), cont));
+        return //
+ Op((e)->PRED_$dcg_translation_atom_4_static_exec(e), VA(a3, a5, a7, a8), //
+ Op((e)->PRED_$dcg_translation_4_static_exec(e), VA(a4, a6, a7, a8), cont));
     }
 /** PREDICATE: $dcg_translation_atom/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -19378,7 +19487,10 @@ m.cont = cont;
         a9 = CONS(a3, a8);
         a10 = V(m);
         a11 = CONS(a5, a10);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a7), Op(FILE_builtins::PRED_$builtin_append_3_static_exec, VA(a6, a9, a10), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a11), cont)));
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a7), //
+ Op((e)->PRED_$builtin_append_3_static_exec(e), VA(a6, a9, a10), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a2, a11), cont)));
     }
 /** PREDICATE: $dcg_translation/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -19400,7 +19512,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // '$dcg_translation'(A,B,C,D):-['$dcg_trans'(A,E,F,C,D),'$dcg_trans0'(E,B,F,C,D)]
         a5 = V(m);
         a6 = V(m);
-        return Op(FILE_builtins::PRED_$dcg_trans_5_static_exec, VA(a1, a5, a6, a3, a4), Op(FILE_builtins::PRED_$dcg_trans0_5_static_exec, VA(a5, a2, a6, a3, a4), cont));
+        return //
+ Op((e)->PRED_$dcg_trans_5_static_exec(e), VA(a1, a5, a6, a3, a4), //
+ Op((e)->PRED_$dcg_trans0_5_static_exec(e), VA(a5, a2, a6, a3, a4), cont));
     }
 /** PREDICATE: $dcg_trans0/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -19472,7 +19586,8 @@ m.cont = cont;
     // '$dcg_trans0'(A,B,C,D,E):-['$dcg_concat'(A,E=C,B)]
         Term[] y1 = VA(a5, a3);
         a6 = S("=", y1);
-        return Op(FILE_builtins::PRED_$dcg_concat_3_static_exec, VA(a1, a6, a2), cont);
+        return //
+ Op((e)->PRED_$dcg_concat_3_static_exec(e), VA(a1, a6, a2), cont);
     }
 /** PREDICATE: $dcg_concat/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -19780,7 +19895,8 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dcg_translation_atom_4_static_exec, VA(a1, a2, a4, a3), cont);
+        return //
+ Op((e)->PRED_$dcg_translation_atom_4_static_exec(e), VA(a1, a2, a4, a3), cont);
     }
 
     private final static Operation $dcg_trans_5_2(Prolog m) { 
@@ -19871,7 +19987,8 @@ m.cont = cont;
         a9 = V(m);
         Term[] y1 = VA(a4, a6, a9);
         a10 = S("C", y1);
-        p1 = Op(FILE_builtins::PRED_$dcg_concat_3_static_exec, VA(a10, a8, a2), cont);
+        p1 = //
+ Op((e)->PRED_$dcg_concat_3_static_exec(e), VA(a10, a8, a2), cont);
         m.AREGS[0] = a7;
         m.AREGS[1] = a8;
         m.AREGS[2] = a3;
@@ -19957,7 +20074,9 @@ m.cont = cont;
         a8 = V(m);
         a9 = V(m);
         a10 = V(m);
-        p2 = Op(FILE_builtins::PRED_$dcg_trans_5_static_exec, VA(a7, a10, a3, a9, a5), Op(FILE_builtins::PRED_$dcg_concat_3_static_exec, VA(a8, a10, a2), cont));
+        p2 = //
+ Op((e)->PRED_$dcg_trans_5_static_exec(e), VA(a7, a10, a3, a9, a5), //
+ Op((e)->PRED_$dcg_concat_3_static_exec(e), VA(a8, a10, a2), cont));
         m.AREGS[0] = a6;
         m.AREGS[1] = a8;
         m.AREGS[2] = a9;
@@ -19995,7 +20114,8 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a10 = V(m);
-        p1 = Op(FILE_builtins::PRED_$dcg_trans_5_static_exec, VA(a7, a9, a3, a10, a5), cont);
+        p1 = //
+ Op((e)->PRED_$dcg_trans_5_static_exec(e), VA(a7, a9, a3, a10, a5), cont);
         m.AREGS[0] = a6;
         m.AREGS[1] = a8;
         m.AREGS[2] = a10;
@@ -20034,7 +20154,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dcg_translation_4_static_exec, VA(a6, a8, a4, a3), Op(FILE_builtins::PRED_$dcg_translation_4_static_exec, VA(a7, a9, a4, a3), cont));
+        return //
+ Op((e)->PRED_$dcg_translation_4_static_exec(e), VA(a6, a8, a4, a3), //
+ Op((e)->PRED_$dcg_translation_4_static_exec(e), VA(a7, a9, a4, a3), cont));
     }
 
     private final static Operation $dcg_trans_5_9(Prolog m) { 
@@ -20140,7 +20262,8 @@ m.cont = cont;
     // '$dcg_trans'(A,B,C,D,C):-['$dcg_translation_atom'(A,B,D,C)]
         if (! a3.unify(a5, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_$dcg_translation_atom_4_static_exec, VA(a1, a2, a4, a3), cont);
+        return //
+ Op((e)->PRED_$dcg_translation_atom_4_static_exec(e), VA(a1, a2, a4, a3), cont);
     }
 /** PREDICATE: new_hash/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -20157,7 +20280,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
          Term a1;
         a1 = LARG[0];
     // new_hash(A):-[new_hash(A,[])]
-        return Op(FILE_builtins::PRED_new_hash_2_static_exec, VA(a1, PRED_new_hash_1_s1), cont);
+        return //
+ Op((e)->PRED_new_hash_2_static_exec(e), VA(a1, PRED_new_hash_1_s1), cont);
     }
 /** PREDICATE: hash_map/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -20177,7 +20301,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     // hash_map(A,B):-[hash_keys(A,C),sort(C,D),hash_map(D,B,A)]
         a3 = V(m);
         a4 = V(m);
-        return Op(FILE_builtins::PRED_hash_keys_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_sort_2_static_exec, VA(a3, a4), Op(FILE_builtins::PRED_hash_map_3_static_exec, VA(a4, a2, a1), cont)));
+        return //
+ Op((e)->PRED_hash_keys_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_sort_2_static_exec(e), VA(a3, a4), //
+ Op((e)->PRED_hash_map_3_static_exec(e), VA(a4, a2, a1), cont)));
     }
 /** PREDICATE: hash_map/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -20262,7 +20389,9 @@ m.cont = cont;
             if (!a6.unify(C(",", a4, a8), m.trail)){
                 return m.fail();
             }
-        return Op(FILE_builtins::PRED_hash_get_3_static_exec, VA(a3, a4, a8), Op(FILE_builtins::PRED_hash_map_3_static_exec, VA(a5, a7, a3), cont));
+        return //
+ Op((e)->PRED_hash_get_3_static_exec(e), VA(a3, a4, a8), //
+ Op((e)->PRED_hash_map_3_static_exec(e), VA(a5, a7, a3), cont));
     }
 /** PREDICATE: hash_exists/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -20286,2083 +20415,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a2 = V(m);
-        return Op(FILE_builtins::PRED_$get_hash_manager_1_static_exec, VA(a2), Op(FILE_builtins::PRED_hash_contains_key_2_static_exec, VA(a2, a1), cont));
-    }
-/** PREDICATE: java_constructor/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_constructor_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_constructor(A,B):-A=..[C|D],builtin_java_convert_args(D,E),F=..[C|E],java_constructor0(F,G),B=G
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        Operation p1, p2, p3, p4;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // java_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_constructor0(F,G),'$unify'(B,G)]
-        a3 = V(m);
-        a4 = V(m);
-        a5 = CONS(a3, a4);
-        a6 = V(m);
-        a7 = V(m);
-        a8 = CONS(a3, a6);
-        a9 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_builtin_java_convert_args_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a7, a8), Op(FILE_builtins::PRED_java_constructor0_2_static_exec, VA(a7, a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a9), cont)))));
-    }
-/** PREDICATE: java_declared_constructor/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_declared_constructor_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_declared_constructor(A,B):-A=..[C|D],builtin_java_convert_args(D,E),F=..[C|E],java_declared_constructor0(F,G),B=G
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        Operation p1, p2, p3, p4;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // java_declared_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_declared_constructor0(F,G),'$unify'(B,G)]
-        a3 = V(m);
-        a4 = V(m);
-        a5 = CONS(a3, a4);
-        a6 = V(m);
-        a7 = V(m);
-        a8 = CONS(a3, a6);
-        a9 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_builtin_java_convert_args_2_static_exec, VA(a4, a6), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a7, a8), Op(FILE_builtins::PRED_java_declared_constructor0_2_static_exec, VA(a7, a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a9), cont)))));
-    }
-/** PREDICATE: java_method/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_method_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_method(A,B,C):-B=..[D|E],builtin_java_convert_args(E,F),G=..[D|F],java_method0(A,G,H),java_conversion(I,H),C=I
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-        Operation p1, p2, p3, p4, p5;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
-        a4 = V(m);
-        a5 = V(m);
-        a6 = CONS(a4, a5);
-        a7 = V(m);
-        a8 = V(m);
-        a9 = CONS(a4, a7);
-        a10 = V(m);
-        a11 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_builtin_java_convert_args_2_static_exec, VA(a5, a7), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_java_method0_3_static_exec, VA(a1, a8, a10), Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a11), cont))))));
-    }
-/** PREDICATE: java_declared_method/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_declared_method_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_declared_method(A,B,C):-B=..[D|E],builtin_java_convert_args(E,F),G=..[D|F],java_declared_method0(A,G,H),java_conversion(I,H),C=I
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-        Operation p1, p2, p3, p4, p5;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_declared_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_declared_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
-        a4 = V(m);
-        a5 = V(m);
-        a6 = CONS(a4, a5);
-        a7 = V(m);
-        a8 = V(m);
-        a9 = CONS(a4, a7);
-        a10 = V(m);
-        a11 = V(m);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_builtin_java_convert_args_2_static_exec, VA(a5, a7), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_java_declared_method0_3_static_exec, VA(a1, a8, a10), Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a11, a10), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a11), cont))))));
-    }
-/** PREDICATE: java_get_field/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_get_field_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_get_field(A,B,C):-java_get_field0(A,B,D),java_conversion(E,D),C=E
-        m.setB0();
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_get_field(A,B,C):-[java_get_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_java_get_field0_3_static_exec, VA(a1, a2, a4), Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a5, a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a5), cont)));
-    }
-/** PREDICATE: java_get_declared_field/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_get_declared_field_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_get_declared_field(A,B,C):-java_get_declared_field0(A,B,D),java_conversion(E,D),C=E
-        m.setB0();
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_get_declared_field(A,B,C):-[java_get_declared_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_java_get_declared_field0_3_static_exec, VA(a1, a2, a4), Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a5, a4), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a3, a5), cont)));
-    }
-/** PREDICATE: java_set_field/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_set_field_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_set_field(A,B,C):-java_conversion(C,D),java_set_field0(A,B,D)
-        m.setB0();
-         Term a1, a2, a3, a4;
-        Operation p1;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_set_field(A,B,C):-[java_conversion(C,D),java_set_field0(A,B,D)]
-        a4 = V(m);
-        return Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a3, a4), Op(FILE_builtins::PRED_java_set_field0_3_static_exec, VA(a1, a2, a4), cont));
-    }
-/** PREDICATE: java_set_declared_field/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_java_set_declared_field_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // java_set_declared_field(A,B,C):-java_conversion(C,D),java_set_declared_field0(A,B,D)
-        m.setB0();
-         Term a1, a2, a3, a4;
-        Operation p1;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // java_set_declared_field(A,B,C):-[java_conversion(C,D),java_set_declared_field0(A,B,D)]
-        a4 = V(m);
-        return Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a3, a4), Op(FILE_builtins::PRED_java_set_declared_field0_3_static_exec, VA(a1, a2, a4), cont));
-    }
-/** PREDICATE: builtin_java_convert_args/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_builtin_java_convert_args_2_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_builtin_java_convert_args_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::builtin_java_convert_args_2_var, fail_0, fail_0, FILE_builtins::builtin_java_convert_args_2_1, fail_0, FILE_builtins::builtin_java_convert_args_2_2); 
-    }
-
-    private final static Operation builtin_java_convert_args_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::builtin_java_convert_args_2_var_1);
-        return builtin_java_convert_args_2_1(m);
-    }
-
-    private final static Operation builtin_java_convert_args_2_var_1(Prolog m) { 
-        m.trust(null);
-        return builtin_java_convert_args_2_2(m);
-    }
-
-    private final static Operation builtin_java_convert_args_2_1(Prolog m) { 
-    // builtin_java_convert_args([],[]):-!
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // builtin_java_convert_args([],[]):-['$neck_cut']
-        if (! PRED_builtin_java_convert_args_2_s1.unify(a1, m.trail))
-            return m.fail();
-        if (! PRED_builtin_java_convert_args_2_s1.unify(a2, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation builtin_java_convert_args_2_2(Prolog m) { 
-    // builtin_java_convert_args([A|B],[C|D]):-java_conversion(A,C),builtin_java_convert_args(B,D)
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // builtin_java_convert_args([A|B],[C|D]):-[java_conversion(A,C),builtin_java_convert_args(B,D)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
-        } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
-             a1.bind(CONS(a3, a4), m.trail);
-        } else {
-            return m.fail();
-        }
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
-        } else if (a2.isVar()){
-            a5 = V(m);
-            a6 = V(m);
-             a2.bind(CONS(a5, a6), m.trail);
-        } else {
-            return m.fail();
-        }
-        return Op(FILE_builtins::PRED_java_conversion_2_static_exec, VA(a3, a5), Op(FILE_builtins::PRED_builtin_java_convert_args_2_static_exec, VA(a4, a6), cont));
-    }
-/** PREDICATE: synchronized/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_synchronized_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // synchronized(A,B):-'$begin_sync'(A,C),call(B),'$end_sync'(C)
-        m.setB0();
-         Term a1, a2, a3, a4;
-        Operation p1, p2;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // synchronized(A,B):-['$begin_sync'(A,C),call('SxxMachine.builtin':B),'$end_sync'(C)]
-        a3 = V(m);
-        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a4 = S(":", y1);
-        return Op(FILE_builtins::PRED_$begin_sync_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$end_sync_1_static_exec, VA(a3), cont)));
-    }
-/** PREDICATE: cafeteria/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    protected static final SymbolTerm PRED_cafeteria_0_s1 = SYM("error");
-    final static SymbolTerm ATOM_bye = SYM("bye");
-
-
-
-
-
-/** PREDICATE: $cafeteria_init/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$cafeteria_init_0_s1 = SYM("SxxMachine.builtin");
-        final static SymbolTerm ATOM_$0024leap_flag = SYM("$leap_flag");
-    private static final StructureTerm PRED_$cafeteria_init_0_s6 = S("/",  ATOM_$0024leap_flag ,  int_1 );
-        final static SymbolTerm ATOM_$0024current_spypoint = SYM("$current_spypoint");
-    private static final StructureTerm PRED_$cafeteria_init_0_s10 = S("/",  ATOM_$0024current_spypoint ,  int_3 );
-        final static SymbolTerm ATOM_$0024current_leash = SYM("$current_leash");
-    private static final StructureTerm PRED_$cafeteria_init_0_s13 = S("/",  ATOM_$0024current_leash ,  int_1 );
-    private static final StructureTerm PRED_$cafeteria_init_0_s23 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_$cafeteria_init_0_s25 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s23);
-    private static final StructureTerm PRED_$cafeteria_init_0_s28 = S("$current_leash",  ATOM_call );
-    private static final StructureTerm PRED_$cafeteria_init_0_s30 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s28);
-        final static SymbolTerm ATOM_exit = SYM("exit");
-    private static final StructureTerm PRED_$cafeteria_init_0_s33 = S("$current_leash",  ATOM_exit );
-    private static final StructureTerm PRED_$cafeteria_init_0_s35 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s33);
-        final static SymbolTerm ATOM_redo = SYM("redo");
-    private static final StructureTerm PRED_$cafeteria_init_0_s38 = S("$current_leash",  ATOM_redo );
-    private static final StructureTerm PRED_$cafeteria_init_0_s40 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s38);
-    private static final StructureTerm PRED_$cafeteria_init_0_s43 = S("$current_leash",  ATOM_fail );
-    private static final StructureTerm PRED_$cafeteria_init_0_s45 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s43);
-
-
-
-
-    public static Operation PRED_$cafeteria_init_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$cafeteria_init':-'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,A),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,B),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,C),retractall('$leap_flag'(D)),retractall('$current_leash'(E)),retractall('$current_spypoint'(F,G,H)),retractall('$consulted_file'(I)),retractall('$consulted_package'(J)),retractall('$consulted_predicate'(K,L,M)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14;
-    // '$cafeteria_init':-['$get_level'(A),'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,D),retractall('SxxMachine.builtin':'$leap_flag'(E)),retractall('SxxMachine.builtin':'$current_leash'(F)),retractall('SxxMachine.builtin':'$current_spypoint'(G,H,I)),retractall('SxxMachine.builtin':'$consulted_file'(J)),retractall('SxxMachine.builtin':'$consulted_package'(K)),retractall('SxxMachine.builtin':'$consulted_predicate'(L,M,N)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(V(m));
-        a2 = S("$leap_flag", y1);
-        Term[] y2 = VA(PRED_$cafeteria_init_0_s1, a2);
-        a3 = S(":", y2);
-        Term[] y3 = VA(V(m));
-        a4 = S("$current_leash", y3);
-        Term[] y4 = VA(PRED_$cafeteria_init_0_s1, a4);
-        a5 = S(":", y4);
-        Term[] y5 = VA(V(m), V(m), V(m));
-        a6 = S("$current_spypoint", y5);
-        Term[] y6 = VA(PRED_$cafeteria_init_0_s1, a6);
-        a7 = S(":", y6);
-        Term[] y7 = VA(V(m));
-        a8 = S("$consulted_file", y7);
-        Term[] y8 = VA(PRED_$cafeteria_init_0_s1, a8);
-        a9 = S(":", y8);
-        Term[] y9 = VA(V(m));
-        a10 = S("$consulted_package", y9);
-        Term[] y10 = VA(PRED_$cafeteria_init_0_s1, a10);
-        a11 = S(":", y10);
-        Term[] y11 = VA(V(m), V(m), V(m));
-        a12 = S("$consulted_predicate", y11);
-        Term[] y12 = VA(PRED_$cafeteria_init_0_s1, a12);
-        a13 = S(":", y12);
-        return Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s6, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s10, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s13, V(m)), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a5), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a7), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a9), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a11), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a13), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s25), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s30), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s35), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s40), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s45), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont)))))))))))))));
-    }
-/** PREDICATE: $dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s1 = SYM("off");
-        final static SymbolTerm ATOM_info = SYM("info");
-    private static final ListTerm PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
-
-
-
-
-    public static Operation PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
-        return $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
-    }
-
-    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
-    }
-
-    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
-    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-A==off,!,true
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),'$equality_of_term'(A,off),'$cut'(B)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),s(1))
-        a1 = a1.dref();
-        if (! a1.equalsTerm(PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s1)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
-    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-print_message(info,[debug])
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[print_message(info,[debug])]
-        return Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_s5), cont);
-    }
-/** PREDICATE: $toplvel_loop/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$toplvel_loop_0_s1 = SYM("debug");
-        final static SymbolTerm ATOM_$007C$0020$003F$002D$0020 = SYM("| ?- ");
-
-
-
-
-    public static Operation PRED_$toplvel_loop_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$toplvel_loop':-current_prolog_flag(debug,A),'$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$fast_write'('| ?- '),flush_output
-        m.setB0();
-         Term a1;
-        Operation p1, p2, p3;
-    // '$toplvel_loop':-[current_prolog_flag(debug,A),'$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$fast_write'('| ?- '),flush_output]
-        a1 = V(m);
-        return Op(FILE_builtins::PRED_current_prolog_flag_2_static_exec, VA(PRED_$toplvel_loop_0_s1, a1), Op(FILE_builtins::PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007C$0020$003F$002D$0020 ), Op(FILE_builtins::PRED_flush_output_0_static_exec, VA(), cont))));
-    }
-/** PREDICATE: $cafeteria/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$cafeteria_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$cafeteria'(A):-read_with_variables(A,B),'$process_order'(A,B)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-        a1 = LARG[0];
-    // '$cafeteria'(A):-[read_with_variables(A,B),'$process_order'(A,B)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_read_with_variables_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$process_order_2_static_exec, VA(a1, a2), cont));
-    }
-/** PREDICATE: $process_order/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$process_order_2_s1 = SYM("var");
-
-
-
-
-    public static Operation PRED_$process_order_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$process_order_2_var, FILE_builtins::$process_order_2_int, FILE_builtins::$process_order_2_int, FILE_builtins::$process_order_2_con, FILE_builtins::$process_order_2_int, FILE_builtins::$process_order_2_lis); 
-    }
-
-    private final static Operation $process_order_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$process_order_2_var_1);
-        return $process_order_2_1(m);
-    }
-
-    private final static Operation $process_order_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_var_2);
-        return $process_order_2_2(m);
-    }
-
-    private final static Operation $process_order_2_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_var_3);
-        return $process_order_2_3(m);
-    }
-
-    private final static Operation $process_order_2_var_3(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_var_4);
-        return $process_order_2_4(m);
-    }
-
-    private final static Operation $process_order_2_var_4(Prolog m) { 
-        m.trust(null);
-        return $process_order_2_5(m);
-    }
-
-    private final static Operation $process_order_2_int(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$process_order_2_int_1);
-        return $process_order_2_1(m);
-    }
-
-    private final static Operation $process_order_2_int_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_int_2);
-        return $process_order_2_4(m);
-    }
-
-    private final static Operation $process_order_2_int_2(Prolog m) { 
-        m.trust(null);
-        return $process_order_2_5(m);
-    }
-
-    private final static Operation $process_order_2_con(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$process_order_2_con_1);
-        return $process_order_2_1(m);
-    }
-
-    private final static Operation $process_order_2_con_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_con_2);
-        return $process_order_2_2(m);
-    }
-
-    private final static Operation $process_order_2_con_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_con_3);
-        return $process_order_2_4(m);
-    }
-
-    private final static Operation $process_order_2_con_3(Prolog m) { 
-        m.trust(null);
-        return $process_order_2_5(m);
-    }
-
-    private final static Operation $process_order_2_lis(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$process_order_2_lis_1);
-        return $process_order_2_1(m);
-    }
-
-    private final static Operation $process_order_2_lis_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_lis_2);
-        return $process_order_2_3(m);
-    }
-
-    private final static Operation $process_order_2_lis_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$process_order_2_lis_3);
-        return $process_order_2_4(m);
-    }
-
-    private final static Operation $process_order_2_lis_3(Prolog m) { 
-        m.trust(null);
-        return $process_order_2_5(m);
-    }
-
-    private final static Operation $process_order_2_1(Prolog m) { 
-    // '$process_order'(A,B):-var(A),!,illarg(var,(?-A),1)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$process_order'(A,B):-['$get_level'(C),var(A),'$cut'(C),illarg(var,(?-A),1)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a1);
-        a4 = S("?-", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$process_order_2_s1, a4,  int_1 ), cont);
-    }
-
-    private final static Operation $process_order_2_2(Prolog m) { 
-    // '$process_order'(end_of_file,A):-!
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$process_order'(end_of_file,A):-['$neck_cut']
-        if (!  ATOM_end_of_file .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $process_order_2_3(Prolog m) { 
-    // '$process_order'([A|B],C):-!,consult([A|B])
-         Term a1, a2, a3, a4, a5;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$process_order'([A|B],C):-['$neck_cut',consult([A|B])]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
-        } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
-             a1.bind(CONS(a3, a4), m.trail);
-        } else {
-            return m.fail();
-        }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        a5 = CONS(a3, a4);
-        return Op(FILE_builtins::PRED_consult_1_static_exec, VA(a5), cont);
-    }
-
-    private final static Operation $process_order_2_4(Prolog m) { 
-    // '$process_order'(A,B):-current_prolog_flag(debug,C),'$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,C),nl,'$rm_redundant_vars'(B,D),'$give_answers_with_prompt'(D),!,'$fast_write'(yes),nl
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$process_order'(A,B):-['$get_level'(C),current_prolog_flag(debug,D),'$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,D),nl,'$rm_redundant_vars'(B,E),'$give_answers_with_prompt'(E),'$cut'(C),'$fast_write'(yes),nl]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a4), Op(FILE_builtins::PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$rm_redundant_vars_2_static_exec, VA(a2, a5), Op(FILE_builtins::PRED_$give_answers_with_prompt_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_yes ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont))))))));
-    }
-
-    private final static Operation $process_order_2_5(Prolog m) { 
-    // '$process_order'(A,B):-nl,'$fast_write'(no),nl
-         Term a1, a2;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$process_order'(A,B):-[nl,'$fast_write'(no),nl]
-        return Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_no ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont)));
-    }
-/** PREDICATE: $dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_s1 = SYM("off");
-
-
-
-
-    public static Operation PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1);
-        return $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(m);
-    }
-
-    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(m);
-    }
-
-    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(Prolog m) { 
-    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-B==off,!,call(user:A)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-['$get_level'(C),'$equality_of_term'(B,off),'$cut'(C),call(user:A)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(2),s(1))
-        a2 = a2.dref();
-        if (! a2.equalsTerm(PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_s1)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        Term[] y1 = VA( ATOM_user , a1);
-        a4 = S(":", y1);
-        return Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), cont);
-    }
-
-    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(Prolog m) { 
-    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-'$trace_goal'(user:A)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-['$trace_goal'(user:A)]
-        Term[] y1 = VA( ATOM_user , a1);
-        a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_$trace_goal_1_static_exec, VA(a3), cont);
-    }
-/** PREDICATE: $rm_redundant_vars/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$rm_redundant_vars_2_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_$rm_redundant_vars_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        return $rm_redundant_vars_2_top(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_top(Prolog m) { 
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$rm_redundant_vars_2_var, fail_0, fail_0, FILE_builtins::$rm_redundant_vars_2_1, fail_0, FILE_builtins::$rm_redundant_vars_2_lis); 
-    }
-
-    private final static Operation $rm_redundant_vars_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$rm_redundant_vars_2_var_1);
-        return $rm_redundant_vars_2_1(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$rm_redundant_vars_2_var_2);
-        return $rm_redundant_vars_2_2(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_var_2(Prolog m) { 
-        m.trust(null);
-        return $rm_redundant_vars_2_3(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_lis(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$rm_redundant_vars_2_lis_1);
-        return $rm_redundant_vars_2_2(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_lis_1(Prolog m) { 
-        m.trust(null);
-        return $rm_redundant_vars_2_3(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_1(Prolog m) { 
-    // '$rm_redundant_vars'([],[]):-!
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$rm_redundant_vars'([],[]):-['$neck_cut']
-        if (! PRED_$rm_redundant_vars_2_s1.unify(a1, m.trail))
-            return m.fail();
-        if (! PRED_$rm_redundant_vars_2_s1.unify(a2, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $rm_redundant_vars_2_2(Prolog m) { 
-    // '$rm_redundant_vars'(['_'=A|B],C):-!,'$rm_redundant_vars'(B,C)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$rm_redundant_vars'(['_'=A|B],C):-['$neck_cut','$rm_redundant_vars'(B,C)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
-        } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
-             a1.bind(CONS(a3, a4), m.trail);
-        } else {
-            return m.fail();
-        }
-        a3 = a3.dref();
-            if (!a3.unify(C("=",  ATOM__ , V(m)), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        m.AREGS[0] = a4;
-        m.AREGS[1] = a2;
-m.cont = cont;
-        return $rm_redundant_vars_2_top(m);
-    }
-
-    private final static Operation $rm_redundant_vars_2_3(Prolog m) { 
-    // '$rm_redundant_vars'([A|B],[A|C]):-'$rm_redundant_vars'(B,C)
-         Term a1, a2, a3, a4, a5;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$rm_redundant_vars'([A|B],[A|C]):-['$rm_redundant_vars'(B,C)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
-        } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
-             a1.bind(CONS(a3, a4), m.trail);
-        } else {
-            return m.fail();
-        }
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            if (! a3.unify(argz[0], m.trail))
-                return m.fail();
-            a5 = argz[1];
-        } else if (a2.isVar()){
-            a5 = V(m);
-             a2.bind(CONS(a3, a5), m.trail);
-        } else {
-            return m.fail();
-        }
-        m.AREGS[0] = a4;
-        m.AREGS[1] = a5;
-m.cont = cont;
-        return $rm_redundant_vars_2_top(m);
-    }
-/** PREDICATE: $give_answers_with_prompt/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$give_answers_with_prompt_1_s1 = SYM("[]");
-        final static SymbolTerm ATOM_$0020$003F$0020 = SYM(" ? ");
-        final static IntegerTerm int_59 = Integer(59);
-    private static final ListTerm PRED_$give_answers_with_prompt_1_s4 = CONS( int_59 , PRED_$give_answers_with_prompt_1_s1);
-
-
-
-
-    public static Operation PRED_$give_answers_with_prompt_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$give_answers_with_prompt_1_var, FILE_builtins::$give_answers_with_prompt_1_2, FILE_builtins::$give_answers_with_prompt_1_2, FILE_builtins::$give_answers_with_prompt_1_var, FILE_builtins::$give_answers_with_prompt_1_2, FILE_builtins::$give_answers_with_prompt_1_2); 
-    }
-
-    private final static Operation $give_answers_with_prompt_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$give_answers_with_prompt_1_var_1);
-        return $give_answers_with_prompt_1_1(m);
-    }
-
-    private final static Operation $give_answers_with_prompt_1_var_1(Prolog m) { 
-        m.trust(null);
-        return $give_answers_with_prompt_1_2(m);
-    }
-
-    private final static Operation $give_answers_with_prompt_1_1(Prolog m) { 
-    // '$give_answers_with_prompt'([]):-!
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$give_answers_with_prompt'([]):-['$neck_cut']
-        if (! PRED_$give_answers_with_prompt_1_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $give_answers_with_prompt_1_2(Prolog m) { 
-    // '$give_answers_with_prompt'(A):-'$give_an_answer'(A),'$fast_write'(' ? '),flush_output,read_line(B),B\==[59],nl
-         Term a1, a2;
-        Operation p1, p2, p3, p4, p5;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$give_answers_with_prompt'(A):-['$give_an_answer'(A),'$fast_write'(' ? '),flush_output,read_line(B),'$inequality_of_term'(B,[59]),nl]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_$give_an_answer_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), Op(FILE_builtins::PRED_flush_output_0_static_exec, VA(), Op(FILE_builtins::PRED_read_line_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$inequality_of_term_2_static_exec, VA(a2, PRED_$give_answers_with_prompt_1_s4), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont))))));
-    }
-/** PREDICATE: $give_an_answer/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$give_an_answer_1_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_$give_an_answer_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$give_an_answer_1_var, fail_0, fail_0, FILE_builtins::$give_an_answer_1_1, fail_0, FILE_builtins::$give_an_answer_1_lis); 
-    }
-
-    private final static Operation $give_an_answer_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$give_an_answer_1_var_1);
-        return $give_an_answer_1_1(m);
-    }
-
-    private final static Operation $give_an_answer_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$give_an_answer_1_var_2);
-        return $give_an_answer_1_2(m);
-    }
-
-    private final static Operation $give_an_answer_1_var_2(Prolog m) { 
-        m.trust(null);
-        return $give_an_answer_1_3(m);
-    }
-
-    private final static Operation $give_an_answer_1_lis(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$give_an_answer_1_lis_1);
-        return $give_an_answer_1_2(m);
-    }
-
-    private final static Operation $give_an_answer_1_lis_1(Prolog m) { 
-        m.trust(null);
-        return $give_an_answer_1_3(m);
-    }
-
-    private final static Operation $give_an_answer_1_1(Prolog m) { 
-    // '$give_an_answer'([]):-!,'$fast_write'(true)
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$give_an_answer'([]):-['$neck_cut','$fast_write'(true)]
-        if (! PRED_$give_an_answer_1_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( Prolog.True ), cont);
-    }
-
-    private final static Operation $give_an_answer_1_2(Prolog m) { 
-    // '$give_an_answer'([A]):-!,'$print_anzwer'(A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$give_an_answer'([A]):-['$neck_cut','$print_anzwer'(A)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            if (! PRED_$give_an_answer_1_s1.unify(argz[1], m.trail))
-                return m.fail();
-        } else if (a1.isVar()){
-            a2 = V(m);
-             a1.bind(CONS(a2, PRED_$give_an_answer_1_s1), m.trail);
-        } else {
-            return m.fail();
-        }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$print_anzwer_1_static_exec, VA(a2), cont);
-    }
-
-    private final static Operation $give_an_answer_1_3(Prolog m) { 
-    // '$give_an_answer'([A|B]):-'$print_anzwer'(A),'$fast_write'(','),nl,'$give_an_answer'(B)
-         Term a1, a2, a3;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$give_an_answer'([A|B]):-['$print_anzwer'(A),'$fast_write'(','),nl,'$give_an_answer'(B)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            a3 = argz[1];
-        } else if (a1.isVar()){
-            a2 = V(m);
-            a3 = V(m);
-             a1.bind(CONS(a2, a3), m.trail);
-        } else {
-            return m.fail();
-        }
-        return Op(FILE_builtins::PRED_$print_anzwer_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$002C ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$give_an_answer_1_static_exec, VA(a3), cont))));
-    }
-/** PREDICATE: $print_anzwer/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_$0020$003D$0020 = SYM(" = ");
-
-
-
-
-    public static Operation PRED_$print_anzwer_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$print_anzwer'(A=B):-write(A),'$fast_write'(' = '),writeq(B)
-        m.setB0();
-         Term a1, a2, a3;
-        Operation p1, p2;
-        a1 = LARG[0];
-    // '$print_anzwer'(A=B):-[write(A),'$fast_write'(' = '),writeq(B)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C("=", a2, a3), m.trail)){
-                return m.fail();
-            }
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003D$0020 ), Op(FILE_builtins::PRED_writeq_1_static_exec, VA(a3), cont)));
-    }
-/** PREDICATE: $dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1);
-        return $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(m);
-    }
-
-    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(m);
-    }
-
-    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(Prolog m) { 
-    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-A==B,!,fail
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-['$get_level'(C),'$equality_of_term'(A,B),'$cut'(C),fail]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),a(2))
-        a1 = a1.dref();
-        a2 = a2.dref();
-        if (! a1.equalsTerm(a2)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        //START inline expansion of fail
-        return m.fail();
-        //END inline expansion
-    }
-
-    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(Prolog m) { 
-    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-true
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-[]
-        return cont;
-    }
-/** PREDICATE: cyclic_term/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_cyclic_term_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // cyclic_term(A):-canonical_term(p(A),B,C),!,'$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,C)
-        m.setB0();
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2;
-        a1 = LARG[0];
-    // cyclic_term(A):-['$get_level'(B),canonical_term(p(A),C,D),'$cut'(B),'$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(C,D)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a1);
-        a3 = S("p", y1);
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_canonical_term_3_static_exec, VA(a3, a4, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec, VA(a4, a5), cont)));
-    }
-/** PREDICATE: acyclic_term/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_acyclic_term_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::acyclic_term_1_sub_1);
-        return acyclic_term_1_1(m);
-    }
-
-    private final static Operation acyclic_term_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return acyclic_term_1_2(m);
-    }
-
-    private final static Operation acyclic_term_1_1(Prolog m) { 
-    // acyclic_term(A):-ground(A)
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // acyclic_term(A):-[ground(A)]
-        //START inline expansion of ground(a(1))
-        a1 = a1.dref();
-        if (! a1.isGround()) {
-            return m.fail();
-        }
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation acyclic_term_1_2(Prolog m) { 
-    // acyclic_term(A):-'$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A)
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // acyclic_term(A):-['$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A)]
-        return Op(FILE_builtins::PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a1), cont);
-    }
-/** PREDICATE: $dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
-        return $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
-    }
-
-    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
-    }
-
-    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
-    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-cyclic_term(A),!,fail
-         Term a1, a2;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),cyclic_term(A),'$cut'(B),fail]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_cyclic_term_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
-    }
-
-    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
-    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
-        return cont;
-    }
-/** PREDICATE: canonical_term/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_canonical_term_3_s1 = SYM("[]");
-    private static final StructureTerm PRED_canonical_term_3_s6 = S("cycle_at_depth",  int_0 );
-
-
-
-
-    public static Operation PRED_canonical_term_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // canonical_term(A,B,C):-A=..D,decompose_cyclic_term(A,D,E,F,[A],G-H,0),!,B=..E,B=F,C=..G,H=cycle_at_depth(0)
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-        Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-    // canonical_term(A,B,C):-['$get_level'(D),'$univ'(A,E),decompose_cyclic_term(A,E,F,G,[A],H-I,0),'$cut'(D),'$univ'(B,F),'$unify'(B,G),'$univ'(C,H),'$unify'(I,cycle_at_depth(0))]
-        a4 = V(m);
-        //START inline expansion of $get_level(a(4))
-        if (! a4.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a5 = V(m);
-        a6 = V(m);
-        a7 = V(m);
-        a8 = CONS(a1, PRED_canonical_term_3_s1);
-        a9 = V(m);
-        a10 = V(m);
-        Term[] y1 = VA(a9, a10);
-        a11 = S("-", y1);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_decompose_cyclic_term_7_static_exec, VA(a1, a5, a6, a7, a8, a11,  int_0 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a7), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a3, a9), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a10, PRED_canonical_term_3_s6), cont)))))));
-    }
-/** PREDICATE: canonical_term/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_canonical_term_2_s1 = SYM("[]");
-    private static final StructureTerm PRED_canonical_term_2_s6 = S("cycle_at_depth",  int_0 );
-
-
-
-
-    public static Operation PRED_canonical_term_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // canonical_term(A,B):-A=..C,decompose_cyclic_term(A,C,D,E,[A],F-G,0),!,B=..F,G=cycle_at_depth(0)
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8;
-        Operation p1, p2, p3, p4;
-        a1 = LARG[0];
-        a2 = LARG[1];
-    // canonical_term(A,B):-['$get_level'(C),'$univ'(A,D),decompose_cyclic_term(A,D,E,F,[A],G-H,0),'$cut'(C),'$univ'(B,G),'$unify'(H,cycle_at_depth(0))]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a4 = V(m);
-        a5 = CONS(a1, PRED_canonical_term_2_s1);
-        a6 = V(m);
-        a7 = V(m);
-        Term[] y1 = VA(a6, a7);
-        a8 = S("-", y1);
-        return Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a1, a4), Op(FILE_builtins::PRED_decompose_cyclic_term_7_static_exec, VA(a1, a4, V(m), V(m), a5, a8,  int_0 ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a7, PRED_canonical_term_2_s6), cont)))));
-    }
-/** PREDICATE: decompose_cyclic_term/7
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_decompose_cyclic_term_7_s1 = SYM("[]");
-
-    // private final Term arg5, arg6, arg7;
-
-
-
-
-    public static Operation PRED_decompose_cyclic_term_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        return decompose_cyclic_term_7_top(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_top(Prolog m) { 
-        m.setB0();
-        m.jtry7(null, FILE_builtins::decompose_cyclic_term_7_sub_1);
-        return decompose_cyclic_term_7_1(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::decompose_cyclic_term_7_sub_2);
-        return decompose_cyclic_term_7_2(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_sub_2(Prolog m) { 
-        m.retry(null, FILE_builtins::decompose_cyclic_term_7_sub_3);
-        return decompose_cyclic_term_7_3(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_sub_3(Prolog m) { 
-        m.retry(null, FILE_builtins::decompose_cyclic_term_7_sub_4);
-        return decompose_cyclic_term_7_4(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_sub_4(Prolog m) { 
-        m.trust(null);
-        return decompose_cyclic_term_7_5(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_1(Prolog m) { 
-    // decompose_cyclic_term(A,[],[],B,C,[]-D,E):-true
-         Term a1, a2, a3, a4, a5, a6, a7;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // decompose_cyclic_term(A,[],[],B,C,[]-D,E):-[]
-        if (! PRED_decompose_cyclic_term_7_s1.unify(a2, m.trail))
-            return m.fail();
-        if (! PRED_decompose_cyclic_term_7_s1.unify(a3, m.trail))
-            return m.fail();
-        a6 = a6.dref();
-            if (!a6.unify(C("-", PRED_decompose_cyclic_term_7_s1, V(m)), m.trail)){
-                return m.fail();
-            }
-        return cont;
-    }
-
-    private final static Operation decompose_cyclic_term_7_2(Prolog m) { 
-    // decompose_cyclic_term(A,[B|C],[B|D],E,F,[B|G]-H,I):-acyclic_term(B),!,decompose_cyclic_term(A,C,D,E,F,G-H,I)
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // decompose_cyclic_term(A,[B|C],[B|D],E,F,[B|G]-H,I):-['$get_level'(J),acyclic_term(B),'$cut'(J),decompose_cyclic_term(A,C,D,E,F,G-H,I)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a8 = argz[0];
-            a9 = argz[1];
-        } else if (a2.isVar()){
-            a8 = V(m);
-            a9 = V(m);
-             a2.bind(CONS(a8, a9), m.trail);
-        } else {
-            return m.fail();
-        }
-        a3 = a3.dref();
-        if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a8.unify(argz[0], m.trail))
-                return m.fail();
-            a10 = argz[1];
-        } else if (a3.isVar()){
-            a10 = V(m);
-             a3.bind(CONS(a8, a10), m.trail);
-        } else {
-            return m.fail();
-        }
-        a6 = a6.dref();
-            a11 = V(m);
-            a12 = V(m);
-            if (!a6.unify(C("-", a11, a12), m.trail)){
-                return m.fail();
-            }
-        a11 = a11.dref();
-        if (a11 .isCons()){
-            Term[] argz = VA(a11.car(), a11.cdr());
-            if (! a8.unify(argz[0], m.trail))
-                return m.fail();
-            a13 = argz[1];
-        } else if (a11.isVar()){
-            a13 = V(m);
-             a11.bind(CONS(a8, a13), m.trail);
-        } else {
-            return m.fail();
-        }
-        a14 = V(m);
-        //START inline expansion of $get_level(a(14))
-        if (! a14.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a13, a12);
-        a15 = S("-", y1);
-        return Op(FILE_builtins::PRED_acyclic_term_1_static_exec, VA(a8), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a14), Op(FILE_builtins::PRED_decompose_cyclic_term_7_static_exec, VA(a1, a9, a10, a4, a5, a15, a7), cont)));
-    }
-
-    private final static Operation decompose_cyclic_term_7_3(Prolog m) { 
-    // decompose_cyclic_term(A,[B|C],[D|E],D,F,[G|H]-G,I):-A==B,!,decompose_cyclic_term(A,C,E,D,F,H-G,I)
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // decompose_cyclic_term(A,[B|C],[D|E],D,F,[G|H]-G,I):-['$get_level'(J),'$equality_of_term'(A,B),'$cut'(J),decompose_cyclic_term(A,C,E,D,F,H-G,I)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a8 = argz[0];
-            a9 = argz[1];
-        } else if (a2.isVar()){
-            a8 = V(m);
-            a9 = V(m);
-             a2.bind(CONS(a8, a9), m.trail);
-        } else {
-            return m.fail();
-        }
-        a3 = a3.dref();
-        if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a10 = argz[0];
-            a11 = argz[1];
-        } else if (a3.isVar()){
-            a10 = V(m);
-            a11 = V(m);
-             a3.bind(CONS(a10, a11), m.trail);
-        } else {
-            return m.fail();
-        }
-        if (! a10.unify(a4, m.trail))
-            return m.fail();
-        a6 = a6.dref();
-            a12 = V(m);
-            a13 = V(m);
-            if (!a6.unify(C("-", a12, a13), m.trail)){
-                return m.fail();
-            }
-        a12 = a12.dref();
-        if (a12 .isCons()){
-            Term[] argz = VA(a12.car(), a12.cdr());
-            if (! a13.unify(argz[0], m.trail))
-                return m.fail();
-            a14 = argz[1];
-        } else if (a12.isVar()){
-            a14 = V(m);
-             a12.bind(CONS(a13, a14), m.trail);
-        } else {
-            return m.fail();
-        }
-        a15 = V(m);
-        //START inline expansion of $get_level(a(15))
-        if (! a15.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),a(8))
-        a1 = a1.dref();
-        a8 = a8.dref();
-        if (! a1.equalsTerm(a8)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(15))
-        a15 = a15.dref();
-                  m.cut( a15.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a14, a13);
-        a16 = S("-", y1);
-        m.AREGS[0] = a1;
-        m.AREGS[1] = a9;
-        m.AREGS[2] = a11;
-        m.AREGS[3] = a10;
-        m.AREGS[4] = a5;
-        m.AREGS[5] = a16;
-        m.AREGS[6] = a7;
-m.cont = cont;
-        return decompose_cyclic_term_7_top(m);
-    }
-
-    private final static Operation decompose_cyclic_term_7_4(Prolog m) { 
-    // decompose_cyclic_term(A,[B|C],[D|E],F,G,[H|I]-J,K):-'$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,G),!,B=..L,M is K+1,decompose_cyclic_term(B,L,N,O,[B|G],P-Q,M),D=..N,H=..P,'$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,D,F,J,M,O,Q),decompose_cyclic_term(A,C,E,F,G,I-J,K)
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // decompose_cyclic_term(A,[B|C],[D|E],F,G,[H|I]-J,K):-['$get_level'(L),'$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,G),'$cut'(L),'$univ'(B,M),N is K+1,decompose_cyclic_term(B,M,O,P,[B|G],Q-R,N),'$univ'(D,O),'$univ'(H,Q),'$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,D,F,J,N,P,R),decompose_cyclic_term(A,C,E,F,G,I-J,K)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a8 = argz[0];
-            a9 = argz[1];
-        } else if (a2.isVar()){
-            a8 = V(m);
-            a9 = V(m);
-             a2.bind(CONS(a8, a9), m.trail);
-        } else {
-            return m.fail();
-        }
-        a3 = a3.dref();
-        if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a10 = argz[0];
-            a11 = argz[1];
-        } else if (a3.isVar()){
-            a10 = V(m);
-            a11 = V(m);
-             a3.bind(CONS(a10, a11), m.trail);
-        } else {
-            return m.fail();
-        }
-        a6 = a6.dref();
-            a12 = V(m);
-            a13 = V(m);
-            if (!a6.unify(C("-", a12, a13), m.trail)){
-                return m.fail();
-            }
-        a12 = a12.dref();
-        if (a12 .isCons()){
-            Term[] argz = VA(a12.car(), a12.cdr());
-            a14 = argz[0];
-            a15 = argz[1];
-        } else if (a12.isVar()){
-            a14 = V(m);
-            a15 = V(m);
-             a12.bind(CONS(a14, a15), m.trail);
-        } else {
-            return m.fail();
-        }
-        a16 = V(m);
-        //START inline expansion of $get_level(a(16))
-        if (! a16.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a17 = V(m);
-        a18 = V(m);
-        Term[] y1 = VA(a7,  int_1 );
-        a19 = S("+", y1);
-        a20 = V(m);
-        a21 = V(m);
-        a22 = CONS(a8, a5);
-        a23 = V(m);
-        a24 = V(m);
-        Term[] y2 = VA(a23, a24);
-        a25 = S("-", y2);
-        Term[] y3 = VA(a15, a13);
-        a26 = S("-", y3);
-        return Op(FILE_builtins::PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec, VA(a8, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a16), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a8, a17), Op(FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), Op(FILE_builtins::PRED_decompose_cyclic_term_7_static_exec, VA(a8, a17, a20, a21, a22, a25, a18), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a10, a20), Op(FILE_builtins::PRED_$univ_2_static_exec, VA(a14, a23), Op(FILE_builtins::PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_static_exec, VA(a8, a10, a4, a13, a18, a21, a24), Op(FILE_builtins::PRED_decompose_cyclic_term_7_static_exec, VA(a1, a9, a11, a4, a5, a26, a7), cont)))))))));
-    }
-
-    private final static Operation decompose_cyclic_term_7_5(Prolog m) { 
-    // decompose_cyclic_term(A,[B|C],[D|E],D,F,[G|H]-G,I):-decompose_cyclic_term(A,C,E,D,F,H-G,I)
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // decompose_cyclic_term(A,[B|C],[D|E],D,F,[G|H]-G,I):-[decompose_cyclic_term(A,C,E,D,F,H-G,I)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a8 = argz[1];
-        } else if (a2.isVar()){
-            a8 = V(m);
-             a2.bind(CONS(V(m), a8), m.trail);
-        } else {
-            return m.fail();
-        }
-        a3 = a3.dref();
-        if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a9 = argz[0];
-            a10 = argz[1];
-        } else if (a3.isVar()){
-            a9 = V(m);
-            a10 = V(m);
-             a3.bind(CONS(a9, a10), m.trail);
-        } else {
-            return m.fail();
-        }
-        if (! a9.unify(a4, m.trail))
-            return m.fail();
-        a6 = a6.dref();
-            a11 = V(m);
-            a12 = V(m);
-            if (!a6.unify(C("-", a11, a12), m.trail)){
-                return m.fail();
-            }
-        a11 = a11.dref();
-        if (a11 .isCons()){
-            Term[] argz = VA(a11.car(), a11.cdr());
-            if (! a12.unify(argz[0], m.trail))
-                return m.fail();
-            a13 = argz[1];
-        } else if (a11.isVar()){
-            a13 = V(m);
-             a11.bind(CONS(a12, a13), m.trail);
-        } else {
-            return m.fail();
-        }
-        Term[] y1 = VA(a13, a12);
-        a14 = S("-", y1);
-        m.AREGS[0] = a1;
-        m.AREGS[1] = a8;
-        m.AREGS[2] = a10;
-        m.AREGS[3] = a9;
-        m.AREGS[4] = a5;
-        m.AREGS[5] = a14;
-        m.AREGS[6] = a7;
-m.cont = cont;
-        return decompose_cyclic_term_7_top(m);
-    }
-/** PREDICATE: $dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1);
-        return $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(m);
-    }
-
-    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(m);
-    }
-
-    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_1(Prolog m) { 
-    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-instack(A,B),!,fail
-         Term a1, a2, a3;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-['$get_level'(C),instack(A,B),'$cut'(C),fail]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_instack_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(fail_0, VA(), cont)));
-    }
-
-    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_2(Prolog m) { 
-    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-true
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B):-[]
-        return cont;
-    }
-/** PREDICATE: $dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/7
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-    // private final Term arg5, arg6, arg7;
-
-
-
-
-    public static Operation PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry7(null, FILE_builtins::$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_sub_1);
-        return $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_1(m);
-    }
-
-    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_2(m);
-    }
-
-    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_1(Prolog m) { 
-    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F,G):-B=F,B==A,G=cycle_at_depth(E),!
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F,G):-['$get_level'(H),'$unify'(B,F),'$equality_of_term'(B,A),'$unify'(G,cycle_at_depth(E)),'$cut'(H)]
-        a8 = V(m);
-        //START inline expansion of $get_level(a(8))
-        if (! a8.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $unify(a(2),a(6))
-        if (! a2.unify(a6, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(2),a(1))
-        a2 = a2.dref();
-        a1 = a1.dref();
-        if (! a2.equalsTerm(a1)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a5);
-        a9 = S("cycle_at_depth", y1);
-        //START inline expansion of $unify(a(7),a(9))
-        if (! a7.unify(a9, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(8))
-        a8 = a8.dref();
-                  m.cut( a8.intValue());
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_2(Prolog m) { 
-    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F,G):-F=C,G=D
-         Term a1, a2, a3, a4, a5, a6, a7;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        a7 = m.AREGS[6];
-        cont = m.cont;
-    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F,G):-['$unify'(F,C),'$unify'(G,D)]
-        //START inline expansion of $unify(a(6),a(3))
-        if (! a6.unify(a3, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $unify(a(7),a(4))
-        if (! a7.unify(a4, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return cont;
-    }
-/** PREDICATE: instack/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_instack_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        return instack_2_top(m);
-    }
-
-    private final static Operation instack_2_top(Prolog m) { 
-        m.setB0();
-        m.jtry2(null, FILE_builtins::instack_2_sub_1);
-        return instack_2_1(m);
-    }
-
-    private final static Operation instack_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return instack_2_2(m);
-    }
-
-    private final static Operation instack_2_1(Prolog m) { 
-    // instack(A,[B|C]):-A==B,!
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // instack(A,[B|C]):-['$get_level'(D),'$equality_of_term'(A,B),'$cut'(D)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a3 = argz[0];
-        } else if (a2.isVar()){
-            a3 = V(m);
-             a2.bind(CONS(a3, V(m)), m.trail);
-        } else {
-            return m.fail();
-        }
-        a4 = V(m);
-        //START inline expansion of $get_level(a(4))
-        if (! a4.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),a(3))
-        a1 = a1.dref();
-        a3 = a3.dref();
-        if (! a1.equalsTerm(a3)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(4))
-        a4 = a4.dref();
-                  m.cut( a4.intValue());
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation instack_2_2(Prolog m) { 
-    // instack(A,[B|C]):-instack(A,C)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // instack(A,[B|C]):-[instack(A,C)]
-        a2 = a2.dref();
-        if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a3 = argz[1];
-        } else if (a2.isVar()){
-            a3 = V(m);
-             a2.bind(CONS(V(m), a3), m.trail);
-        } else {
-            return m.fail();
-        }
-        m.AREGS[0] = a1;
-        m.AREGS[1] = a3;
-m.cont = cont;
-        return instack_2_top(m);
-    }
-/** PREDICATE: consult/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_consult_1_s1 = SYM("var");
-
-
-
-
-    public static Operation PRED_consult_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        return consult_1_top(m);
-    }
-
-    private final static Operation consult_1_top(Prolog m) { 
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::consult_1_var, FILE_builtins::consult_1_int, FILE_builtins::consult_1_int, FILE_builtins::consult_1_con, FILE_builtins::consult_1_int, FILE_builtins::consult_1_lis); 
-    }
-
-    private final static Operation consult_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::consult_1_var_1);
-        return consult_1_1(m);
-    }
-
-    private final static Operation consult_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::consult_1_var_2);
-        return consult_1_2(m);
-    }
-
-    private final static Operation consult_1_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::consult_1_var_3);
-        return consult_1_3(m);
-    }
-
-    private final static Operation consult_1_var_3(Prolog m) { 
-        m.trust(null);
-        return consult_1_4(m);
-    }
-
-    private final static Operation consult_1_int(Prolog m) { 
-        m.jtry1(null, FILE_builtins::consult_1_int_1);
-        return consult_1_1(m);
-    }
-
-    private final static Operation consult_1_int_1(Prolog m) { 
-        m.trust(null);
-        return consult_1_4(m);
-    }
-
-    private final static Operation consult_1_con(Prolog m) { 
-        m.jtry1(null, FILE_builtins::consult_1_con_1);
-        return consult_1_1(m);
-    }
-
-    private final static Operation consult_1_con_1(Prolog m) { 
-        m.retry(null, FILE_builtins::consult_1_con_2);
-        return consult_1_2(m);
-    }
-
-    private final static Operation consult_1_con_2(Prolog m) { 
-        m.trust(null);
-        return consult_1_4(m);
-    }
-
-    private final static Operation consult_1_lis(Prolog m) { 
-        m.jtry1(null, FILE_builtins::consult_1_lis_1);
-        return consult_1_1(m);
-    }
-
-    private final static Operation consult_1_lis_1(Prolog m) { 
-        m.retry(null, FILE_builtins::consult_1_lis_2);
-        return consult_1_3(m);
-    }
-
-    private final static Operation consult_1_lis_2(Prolog m) { 
-        m.trust(null);
-        return consult_1_4(m);
-    }
-
-    private final static Operation consult_1_1(Prolog m) { 
-    // consult(A):-var(A),!,illarg(var,consult(A),1)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // consult(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,consult(A),1)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a1);
-        a3 = S("consult", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_consult_1_s1, a3,  int_1 ), cont);
-    }
-
-    private final static Operation consult_1_2(Prolog m) { 
-    // consult([]):-!
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // consult([]):-['$neck_cut']
-        if (!  Prolog.Nil .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation consult_1_3(Prolog m) { 
-    // consult([A|B]):-!,consult(A),consult(B)
-         Term a1, a2, a3;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // consult([A|B]):-['$neck_cut',consult(A),consult(B)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            a3 = argz[1];
-        } else if (a1.isVar()){
-            a2 = V(m);
-            a3 = V(m);
-             a1.bind(CONS(a2, a3), m.trail);
-        } else {
-            return m.fail();
-        }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        p1 = Op(FILE_builtins::PRED_consult_1_static_exec, VA(a3), cont);
-        m.AREGS[0] = a2;
-        m.cont = p1;
-        return consult_1_top(m);
-    }
-
-    private final static Operation consult_1_4(Prolog m) { 
-    // consult(A):-atom(A),!,'$consult'(A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // consult(A):-['$get_level'(B),atom(A),'$cut'(B),'$consult'(A)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$consult_1_static_exec, VA(a1), cont);
-    }
-/** PREDICATE: $consult/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$consult_1_s1 = SYM("read");
-        final static SymbolTerm ATOM_consulting = SYM("consulting");
-        final static SymbolTerm ATOM_$002E$002E$002E = SYM("...");
-    private static final ListTerm PRED_$consult_1_s7 = CONS( ATOM_$002E$002E$002E ,  Prolog.Nil );
-        final static SymbolTerm ATOM_runtime = SYM("runtime");
-        final static SymbolTerm ATOM_consulted = SYM("consulted");
-        final static SymbolTerm ATOM_msec = SYM("msec");
-    private static final ListTerm PRED_$consult_1_s11 = CONS( ATOM_msec ,  Prolog.Nil );
-
-
-
-
-    public static Operation PRED_$consult_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$consult'(A):-'$prolog_file_name'(A,B),open(B,read,C),stream_property(C,file_name(D)),print_message(info,[consulting,D,...]),statistics(runtime,E),consult_stream(D,C),statistics(runtime,[F,G]),print_message(info,[D,consulted,G,msec]),close(C)
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        a1 = LARG[0];
-    // '$consult'(A):-['$prolog_file_name'(A,B),open(B,read,C),stream_property(C,file_name(D)),print_message(info,[consulting,D,...]),statistics(runtime,E),consult_stream(D,C),statistics(runtime,[F,G]),print_message(info,[D,consulted,G,msec]),close(C)]
-        a2 = V(m);
-        a3 = V(m);
-        a4 = V(m);
-        Term[] y1 = VA(a4);
-        a5 = S("file_name", y1);
-        a6 = CONS(a4, PRED_$consult_1_s7);
-        a7 = CONS( ATOM_consulting , a6);
-        a8 = V(m);
-        a9 = CONS(a8,  Prolog.Nil );
-        a10 = CONS(V(m), a9);
-        a11 = CONS(a8, PRED_$consult_1_s11);
-        a12 = CONS( ATOM_consulted , a11);
-        a13 = CONS(a4, a12);
-        return Op(FILE_builtins::PRED_$prolog_file_name_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_open_3_static_exec, VA(a2, PRED_$consult_1_s1, a3), Op(FILE_builtins::PRED_stream_property_2_static_exec, VA(a3, a5), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a7), Op(FILE_builtins::PRED_statistics_2_static_exec, VA( ATOM_runtime , V(m)), Op(FILE_builtins::PRED_consult_stream_2_static_exec, VA(a4, a3), Op(FILE_builtins::PRED_statistics_2_static_exec, VA( ATOM_runtime , a10), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a13), Op(FILE_builtins::PRED_close_1_static_exec, VA(a3), cont)))))))));
+        return //
+ Op((e)->PRED_$get_hash_manager_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_hash_contains_key_2_static_exec(e), VA(a2, a1), cont));
     }
 /** PREDICATE: consult_stream/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -22388,61 +20443,13 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         }
         //END inline expansion
         a4 = V(m);
-        return Op(FILE_builtins::PRED_$consult_init_1_static_exec, VA(a1), Op(FILE_builtins::PRED_repeat_0_static_exec, VA(), Op(FILE_builtins::PRED_read_2_static_exec, VA(a2, a4), Op(FILE_builtins::PRED_$consult_clause_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$equality_of_term_2_static_exec, VA(a4, PRED_consult_stream_2_s1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont))))));
-    }
-/** PREDICATE: $prolog_file_name/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$prolog_file_name_2_s1 = SYM(".");
-        final static SymbolTerm ATOM_$002Epl = SYM(".pl");
-
-
-
-
-    public static Operation PRED_$prolog_file_name_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$prolog_file_name_2_sub_1);
-        return $prolog_file_name_2_1(m);
-    }
-
-    private final static Operation $prolog_file_name_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $prolog_file_name_2_2(m);
-    }
-
-    private final static Operation $prolog_file_name_2_1(Prolog m) { 
-    // '$prolog_file_name'(A,A):-sub_atom(A,B,C,D,'.'),D>0,!
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$prolog_file_name'(A,A):-['$get_level'(B),sub_atom(A,C,D,E,'.'),F is 0,'$greater_than'(E,F),'$cut'(B)]
-        if (! a1.unify(a2, m.trail))
-            return m.fail();
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a4 = V(m);
-        a5 = V(m);
-        return Op(FILE_builtins::PRED_sub_atom_5_static_exec, VA(a1, V(m), V(m), a4, PRED_$prolog_file_name_2_s1), Op(FILE_builtins::PRED_is_2_static_exec, VA(a5,  int_0 ), Op(FILE_builtins::PRED_$greater_than_2_static_exec, VA(a4, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont))));
-    }
-
-    private final static Operation $prolog_file_name_2_2(Prolog m) { 
-    // '$prolog_file_name'(A,B):-atom_concat(A,'.pl',B)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$prolog_file_name'(A,B):-[atom_concat(A,'.pl',B)]
-        return Op(FILE_builtins::PRED_atom_concat_3_static_exec, VA(a1,  ATOM_$002Epl , a2), cont);
+        return //
+ Op((e)->PRED_$consult_init_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_repeat_0_static_exec(e), VA(), //
+ Op((e)->PRED_read_2_static_exec(e), VA(a2, a4), //
+ Op((e)->PRED_$consult_clause_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$equality_of_term_2_static_exec(e), VA(a4, PRED_consult_stream_2_s1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont))))));
     }
 /** PREDICATE: $consult_init/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -22494,7 +20501,13 @@ m.cont = cont;
         a11 = S(":", y8);
         Term[] y9 = VA(a8, a9);
         a12 = S(":", y9);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a5), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a7), Op(FILE_builtins::PRED_retract_1_static_exec, VA(a11), Op(FILE_builtins::PRED_abolish_1_static_exec, VA(a12), Op(fail_0, VA(), cont))))));
+        return //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a5), //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_retract_1_static_exec(e), VA(a11), //
+ Op((e)->PRED_abolish_1_static_exec(e), VA(a12), //
+ Op(fail_0, VA(), cont))))));
     }
 
     private final static Operation $consult_init_1_2(Prolog m) { 
@@ -22509,7 +20522,9 @@ m.cont = cont;
         a2 = S("$consulted_file", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y2);
-        return Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a3), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$consult_init_1_s11), cont));
+        return //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$consult_init_1_s11), cont));
     }
 /** PREDICATE: $consult_clause/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -22686,7 +20701,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$assert_consulted_package_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_$assert_consulted_package_1_static_exec(e), VA(a3), cont);
     }
 
     private final static Operation $consult_clause_1_3(Prolog m) { 
@@ -22709,7 +20725,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$assert_consulted_package_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_$assert_consulted_package_1_static_exec(e), VA(a3), cont);
     }
 
     private final static Operation $consult_clause_1_4(Prolog m) { 
@@ -22732,7 +20749,8 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_builtins::PRED_$assert_consulted_import_1_static_exec, VA(a3), cont);
+        return //
+ Op((e)->PRED_$assert_consulted_import_1_static_exec(e), VA(a3), cont);
     }
 
     private final static Operation $consult_clause_1_5(Prolog m) { 
@@ -22890,7 +20908,9 @@ m.cont = cont;
         a5 = S(":", y2);
         Term[] y3 = VA(a3, a2);
         a6 = S(":", y3);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a5, V(m)), Op(FILE_builtins::PRED_once_1_static_exec, VA(a6), cont));
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a5, V(m)), //
+ Op((e)->PRED_once_1_static_exec(e), VA(a6), cont));
     }
 
     private final static Operation $consult_clause_1_12(Prolog m) { 
@@ -22902,7 +20922,9 @@ m.cont = cont;
         cont = m.cont;
     // '$consult_clause'(A):-['$consult_preprocess'(A,B),'$consult_cls'(B)]
         a2 = V(m);
-        return Op(FILE_builtins::PRED_$consult_preprocess_2_static_exec, VA(a1, a2), Op(FILE_builtins::PRED_$consult_cls_1_static_exec, VA(a2), cont));
+        return //
+ Op((e)->PRED_$consult_preprocess_2_static_exec(e), VA(a1, a2), //
+ Op((e)->PRED_$consult_cls_1_static_exec(e), VA(a2), cont));
     }
 /** PREDICATE: $assert_consulted_package/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -22942,7 +20964,9 @@ m.cont = cont;
         a3 = S("$consulted_package", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
         a4 = S(":", y2);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a4, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont));
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a4, V(m)), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont));
     }
 
     private final static Operation $assert_consulted_package_1_2(Prolog m) { 
@@ -22961,7 +20985,9 @@ m.cont = cont;
         a4 = S("$consulted_package", y3);
         Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y4);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a5), cont));
+        return //
+ Op((e)->PRED_retractall_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a5), cont));
     }
 /** PREDICATE: $assert_consulted_import/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -22987,7 +21013,9 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a5 = S("$consulted_import", y3);
         Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a5);
         a6 = S(":", y4);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a4, V(m)), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a6), cont));
+        return //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a4, V(m)), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a6), cont));
     }
 /** PREDICATE: $consult_preprocess/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -23004,7 +21032,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // '$consult_preprocess'(A,B):-[expand_term(A,B)]
-        return Op(FILE_builtins::PRED_expand_term_2_static_exec, VA(a1, a2), cont);
+        return //
+ Op((e)->PRED_expand_term_2_static_exec(e), VA(a1, a2), cont);
     }
 /** PREDICATE: $consult_cls/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -23048,7 +21077,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a3);
         a4 = S(":-", y1);
-        return Op(FILE_builtins::PRED_$assert_consulted_clause_1_static_exec, VA(a4), cont);
+        return //
+ Op((e)->PRED_$assert_consulted_clause_1_static_exec(e), VA(a4), cont);
     }
 
     private final static Operation $consult_cls_1_2(Prolog m) { 
@@ -23060,7 +21090,8 @@ m.cont = cont;
     // '$consult_cls'(A):-['$assert_consulted_clause'((A:-true))]
         Term[] y1 = VA(a1,  Prolog.True );
         a2 = S(":-", y1);
-        return Op(FILE_builtins::PRED_$assert_consulted_clause_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_$assert_consulted_clause_1_static_exec(e), VA(a2), cont);
     }
 /** PREDICATE: $assert_consulted_clause/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -23111,2151 +21142,13 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a15 = S("$consulted_predicate", y8);
         Term[] y9 = VA( ATOM_SxxMachine$002Ebuiltin , a15);
         a16 = S(":", y9);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a3, a5, a6), Op(FILE_builtins::PRED_clause_2_static_exec, VA(a9, V(m)), Op(FILE_builtins::PRED_clause_2_static_exec, VA(a12, V(m)), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a13), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a16), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont))))));
-    }
-/** PREDICATE: trace/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_trace_0_s1 = SYM("debug");
-        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D = SYM("{Small debugger is switch on}");
-
-
-
-
-    public static Operation PRED_trace_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry0(null, FILE_builtins::trace_0_sub_1);
-        return trace_0_1(m);
-    }
-
-    private final static Operation trace_0_sub_1(Prolog m) { 
-        m.trust(null);
-        return trace_0_2(m);
-    }
-
-    private final static Operation trace_0_1(Prolog m) { 
-    // trace:-current_prolog_flag(debug,on),!
-         Term a1;
-        Operation p1;
-        Operation cont;
-        cont = m.cont;
-    // trace:-['$get_level'(A),current_prolog_flag(debug,on),'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_current_prolog_flag_2_static_exec, VA(PRED_trace_0_s1,  ATOM_on ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont));
-    }
-
-    private final static Operation trace_0_2(Prolog m) { 
-    // trace:-set_prolog_flag(debug,on),'$trace_init','$fast_write'('{Small debugger is switch on}'),nl,!
-         Term a1;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        cont = m.cont;
-    // trace:-['$get_level'(A),set_prolog_flag(debug,on),'$trace_init','$fast_write'('{Small debugger is switch on}'),nl,'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_set_prolog_flag_2_static_exec, VA(PRED_trace_0_s1,  ATOM_on ), Op(FILE_builtins::PRED_$trace_init_0_static_exec, VA(), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont)))));
-    }
-/** PREDICATE: $trace_init/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final StructureTerm PRED_$trace_init_0_s8 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_$trace_init_0_s10 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s8);
-    private static final StructureTerm PRED_$trace_init_0_s13 = S("$current_leash",  ATOM_call );
-    private static final StructureTerm PRED_$trace_init_0_s15 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s13);
-    private static final StructureTerm PRED_$trace_init_0_s18 = S("$current_leash",  ATOM_exit );
-    private static final StructureTerm PRED_$trace_init_0_s20 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s18);
-    private static final StructureTerm PRED_$trace_init_0_s23 = S("$current_leash",  ATOM_redo );
-    private static final StructureTerm PRED_$trace_init_0_s25 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s23);
-    private static final StructureTerm PRED_$trace_init_0_s28 = S("$current_leash",  ATOM_fail );
-    private static final StructureTerm PRED_$trace_init_0_s30 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s28);
-
-
-
-
-    public static Operation PRED_$trace_init_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$trace_init':-retractall('$leap_flag'(A)),retractall('$current_leash'(B)),retractall('$current_spypoint'(C,D,E)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
-        m.setB0();
-         Term a1, a2, a3, a4, a5, a6, a7;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8;
-    // '$trace_init':-['$get_level'(A),retractall('SxxMachine.builtin':'$leap_flag'(B)),retractall('SxxMachine.builtin':'$current_leash'(C)),retractall('SxxMachine.builtin':'$current_spypoint'(D,E,F)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(V(m));
-        a2 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a3 = S(":", y2);
-        Term[] y3 = VA(V(m));
-        a4 = S("$current_leash", y3);
-        Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
-        a5 = S(":", y4);
-        Term[] y5 = VA(V(m), V(m), V(m));
-        a6 = S("$current_spypoint", y5);
-        Term[] y6 = VA( ATOM_SxxMachine$002Ebuiltin , a6);
-        a7 = S(":", y6);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a5), Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a7), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s10), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s15), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s20), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s25), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s30), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont)))))))));
-    }
-/** PREDICATE: notrace/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_notrace_0_s1 = SYM("debug");
-        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D = SYM("{Small debugger is switch off}");
-
-
-
-
-    public static Operation PRED_notrace_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry0(null, FILE_builtins::notrace_0_sub_1);
-        return notrace_0_1(m);
-    }
-
-    private final static Operation notrace_0_sub_1(Prolog m) { 
-        m.trust(null);
-        return notrace_0_2(m);
-    }
-
-    private final static Operation notrace_0_1(Prolog m) { 
-    // notrace:-current_prolog_flag(debug,off),!
-         Term a1;
-        Operation p1;
-        Operation cont;
-        cont = m.cont;
-    // notrace:-['$get_level'(A),current_prolog_flag(debug,off),'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_current_prolog_flag_2_static_exec, VA(PRED_notrace_0_s1,  ATOM_off ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont));
-    }
-
-    private final static Operation notrace_0_2(Prolog m) { 
-    // notrace:-set_prolog_flag(debug,off),'$fast_write'('{Small debugger is switch off}'),nl,!
-         Term a1;
-        Operation p1, p2, p3;
-        Operation cont;
-        cont = m.cont;
-    // notrace:-['$get_level'(A),set_prolog_flag(debug,off),'$fast_write'('{Small debugger is switch off}'),nl,'$cut'(A)]
-        a1 = V(m);
-        //START inline expansion of $get_level(a(1))
-        if (! a1.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_set_prolog_flag_2_static_exec, VA(PRED_notrace_0_s1,  ATOM_off ), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), cont))));
-    }
-/** PREDICATE: debug/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_debug_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // debug:-trace
-        m.setB0();
-    // debug:-[trace]
-        return Op(FILE_builtins::PRED_trace_0_static_exec, VA(), cont);
-    }
-/** PREDICATE: nodebug/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_nodebug_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // nodebug:-notrace
-        m.setB0();
-    // nodebug:-[notrace]
-        return Op(FILE_builtins::PRED_notrace_0_static_exec, VA(), cont);
-    }
-/** PREDICATE: spy/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_leap = SYM("leap");
-
-
-
-
-    public static Operation PRED_spy_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // spy(A):-'$term_to_predicateindicator'(A,B,spy(A)),trace,'$assert_spypoint'(B),'$set_debug_flag'(leap,yes),!
-        m.setB0();
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3, p4;
-        a1 = LARG[0];
-    // spy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,spy(A)),trace,'$assert_spypoint'(C),'$set_debug_flag'(leap,yes),'$cut'(B)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a3 = V(m);
-        Term[] y1 = VA(a1);
-        a4 = S("spy", y1);
-        return Op(FILE_builtins::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), Op(FILE_builtins::PRED_trace_0_static_exec, VA(), Op(FILE_builtins::PRED_$assert_spypoint_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont)))));
-    }
-/** PREDICATE: $assert_spypoint/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_spypoint = SYM("spypoint");
-        final static SymbolTerm ATOM_is = SYM("is");
-        final static SymbolTerm ATOM_already = SYM("already");
-        final static SymbolTerm ATOM_added = SYM("added");
-    private static final ListTerm PRED_$assert_spypoint_1_s11 = CONS( ATOM_added ,  Prolog.Nil );
-    private static final ListTerm PRED_$assert_spypoint_1_s12 = CONS( ATOM_already , PRED_$assert_spypoint_1_s11);
-    private static final ListTerm PRED_$assert_spypoint_1_s13 = CONS( ATOM_is , PRED_$assert_spypoint_1_s12);
-    private static final ListTerm PRED_$assert_spypoint_1_s15 = CONS( ATOM_is , PRED_$assert_spypoint_1_s11);
-        final static SymbolTerm ATOM_matching = SYM("matching");
-        final static SymbolTerm ATOM_predicate = SYM("predicate");
-        final static SymbolTerm ATOM_for = SYM("for");
-        final static SymbolTerm ATOM_spy = SYM("spy");
-
-
-
-
-    public static Operation PRED_$assert_spypoint_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$assert_spypoint_1_var, fail_0, fail_0, fail_0, FILE_builtins::$assert_spypoint_1_var, fail_0); 
-    }
-
-    private final static Operation $assert_spypoint_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$assert_spypoint_1_var_1);
-        return $assert_spypoint_1_1(m);
-    }
-
-    private final static Operation $assert_spypoint_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$assert_spypoint_1_var_2);
-        return $assert_spypoint_1_2(m);
-    }
-
-    private final static Operation $assert_spypoint_1_var_2(Prolog m) { 
-        m.trust(null);
-        return $assert_spypoint_1_3(m);
-    }
-
-    private final static Operation $assert_spypoint_1_1(Prolog m) { 
-    // '$assert_spypoint'(A:B/C):-clause('$current_spypoint'(A,B,C),D),print_message(info,[spypoint,A:B/C,is,already,added]),!
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C(":", a2, a3), m.trail)){
-                return m.fail();
-            }
-        a3 = a3.dref();
-            a4 = V(m);
-            a5 = V(m);
-            if (!a3.unify(C("/", a4, a5), m.trail)){
-                return m.fail();
-            }
-        a6 = V(m);
-        //START inline expansion of $get_level(a(6))
-        if (! a6.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a2, a4, a5);
-        a7 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a7);
-        a8 = S(":", y2);
-        Term[] y3 = VA(a4, a5);
-        a9 = S("/", y3);
-        Term[] y4 = VA(a2, a9);
-        a10 = S(":", y4);
-        a11 = CONS(a10, PRED_$assert_spypoint_1_s13);
-        a12 = CONS( ATOM_spypoint , a11);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a8, V(m)), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a12), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), cont)));
-    }
-
-    private final static Operation $assert_spypoint_1_2(Prolog m) { 
-    // '$assert_spypoint'(A:B/C):-clause('$consulted_predicate'(A,B/C,D),E),assertz('$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),!
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$consulted_predicate'(A,B/C,E),F),assertz('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C(":", a2, a3), m.trail)){
-                return m.fail();
-            }
-        a3 = a3.dref();
-            a4 = V(m);
-            a5 = V(m);
-            if (!a3.unify(C("/", a4, a5), m.trail)){
-                return m.fail();
-            }
-        a6 = V(m);
-        //START inline expansion of $get_level(a(6))
-        if (! a6.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a4, a5);
-        a7 = S("/", y1);
-        Term[] y2 = VA(a2, a7, V(m));
-        a8 = S("$consulted_predicate", y2);
-        Term[] y3 = VA( ATOM_SxxMachine$002Ebuiltin , a8);
-        a9 = S(":", y3);
-        Term[] y4 = VA(a2, a4, a5);
-        a10 = S("$current_spypoint", y4);
-        Term[] y5 = VA( ATOM_SxxMachine$002Ebuiltin , a10);
-        a11 = S(":", y5);
-        Term[] y6 = VA(a4, a5);
-        a12 = S("/", y6);
-        Term[] y7 = VA(a2, a12);
-        a13 = S(":", y7);
-        a14 = CONS(a13, PRED_$assert_spypoint_1_s15);
-        a15 = CONS( ATOM_spypoint , a14);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a9, V(m)), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a11), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a15), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), cont))));
-    }
-
-    private final static Operation $assert_spypoint_1_3(Prolog m) { 
-    // '$assert_spypoint'(A:B/C):-print_message(warning,[no,matching,predicate,for,spy,A:B/C])
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-[print_message(warning,[no,matching,predicate,for,spy,A:B/C])]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C(":", a2, a3), m.trail)){
-                return m.fail();
-            }
-        a3 = a3.dref();
-            a4 = V(m);
-            a5 = V(m);
-            if (!a3.unify(C("/", a4, a5), m.trail)){
-                return m.fail();
-            }
-        Term[] y1 = VA(a4, a5);
-        a6 = S("/", y1);
-        Term[] y2 = VA(a2, a6);
-        a7 = S(":", y2);
-        a8 = CONS(a7,  Prolog.Nil );
-        a9 = CONS( ATOM_spy , a8);
-        a10 = CONS( ATOM_for , a9);
-        a11 = CONS( ATOM_predicate , a10);
-        a12 = CONS( ATOM_matching , a11);
-        a13 = CONS( ATOM_no , a12);
-        return Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_warning , a13), cont);
-    }
-/** PREDICATE: nospy/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_nospy_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // nospy(A):-'$term_to_predicateindicator'(A,B,nospy(A)),'$retract_spypoint'(B),'$set_debug_flag'(leap,no),!
-        m.setB0();
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3;
-        a1 = LARG[0];
-    // nospy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,nospy(A)),'$retract_spypoint'(C),'$set_debug_flag'(leap,no),'$cut'(B)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        a3 = V(m);
-        Term[] y1 = VA(a1);
-        a4 = S("nospy", y1);
-        return Op(FILE_builtins::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), Op(FILE_builtins::PRED_$retract_spypoint_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont))));
-    }
-/** PREDICATE: $retract_spypoint/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_removed = SYM("removed");
-    private static final ListTerm PRED_$retract_spypoint_1_s10 = CONS( ATOM_removed ,  Prolog.Nil );
-    private static final ListTerm PRED_$retract_spypoint_1_s11 = CONS( ATOM_is , PRED_$retract_spypoint_1_s10);
-
-
-
-
-    public static Operation PRED_$retract_spypoint_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$retract_spypoint_1_var, FILE_builtins::$retract_spypoint_1_2, FILE_builtins::$retract_spypoint_1_2, FILE_builtins::$retract_spypoint_1_2, FILE_builtins::$retract_spypoint_1_var, FILE_builtins::$retract_spypoint_1_2); 
-    }
-
-    private final static Operation $retract_spypoint_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$retract_spypoint_1_var_1);
-        return $retract_spypoint_1_1(m);
-    }
-
-    private final static Operation $retract_spypoint_1_var_1(Prolog m) { 
-        m.trust(null);
-        return $retract_spypoint_1_2(m);
-    }
-
-    private final static Operation $retract_spypoint_1_1(Prolog m) { 
-    // '$retract_spypoint'(A:B/C):-retract('$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),!
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C(":", a2, a3), m.trail)){
-                return m.fail();
-            }
-        a3 = a3.dref();
-            a4 = V(m);
-            a5 = V(m);
-            if (!a3.unify(C("/", a4, a5), m.trail)){
-                return m.fail();
-            }
-        a6 = V(m);
-        //START inline expansion of $get_level(a(6))
-        if (! a6.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a2, a4, a5);
-        a7 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a7);
-        a8 = S(":", y2);
-        Term[] y3 = VA(a4, a5);
-        a9 = S("/", y3);
-        Term[] y4 = VA(a2, a9);
-        a10 = S(":", y4);
-        a11 = CONS(a10, PRED_$retract_spypoint_1_s11);
-        a12 = CONS( ATOM_spypoint , a11);
-        return Op(FILE_builtins::PRED_retract_1_static_exec, VA(a8), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a12), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), cont)));
-    }
-
-    private final static Operation $retract_spypoint_1_2(Prolog m) { 
-    // '$retract_spypoint'(A):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$retract_spypoint'(A):-[]
-        return cont;
-    }
-/** PREDICATE: nospyall/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_nospyall_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // nospyall:-retractall('$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)
-        m.setB0();
-         Term a1, a2;
-        Operation p1;
-    // nospyall:-[retractall('SxxMachine.builtin':'$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)]
-        Term[] y1 = VA(V(m), V(m), V(m));
-        a1 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
-        a2 = S(":", y2);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont));
-    }
-/** PREDICATE: leash/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_leash_specifier = SYM("leash_specifier");
-    private static final StructureTerm PRED_leash_1_s4 = S("type",  ATOM_leash_specifier );
-
-
-
-
-    public static Operation PRED_leash_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::leash_1_sub_1);
-        return leash_1_1(m);
-    }
-
-    private final static Operation leash_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return leash_1_2(m);
-    }
-
-    private final static Operation leash_1_1(Prolog m) { 
-    // leash(A):-nonvar(A),'$leash'(A),!
-         Term a1, a2;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // leash(A):-['$get_level'(B),nonvar(A),'$leash'(A),'$cut'(B)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of nonvar(a(1))
-        a1 = a1.dref();
-        if ((a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$leash_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), cont));
-    }
-
-    private final static Operation leash_1_2(Prolog m) { 
-    // leash(A):-illarg(type(leash_specifier),leash(A),1)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // leash(A):-[illarg(type(leash_specifier),leash(A),1)]
-        Term[] y1 = VA(a1);
-        a2 = S("leash", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_leash_1_s4, a2,  int_1 ), cont);
-    }
-/** PREDICATE: $leash/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$leash_1_s1 = SYM("[]");
-        final static SymbolTerm ATOM_leashing = SYM("leashing");
-    private static final ListTerm PRED_$leash_1_s8 = CONS( ATOM_leashing , PRED_$leash_1_s1);
-    private static final ListTerm PRED_$leash_1_s9 = CONS( ATOM_no , PRED_$leash_1_s8);
-        final static SymbolTerm ATOM_stopping = SYM("stopping");
-
-
-
-
-    public static Operation PRED_$leash_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$leash_1_var, FILE_builtins::$leash_1_2, FILE_builtins::$leash_1_2, FILE_builtins::$leash_1_var, FILE_builtins::$leash_1_2, FILE_builtins::$leash_1_2); 
-    }
-
-    private final static Operation $leash_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$leash_1_var_1);
-        return $leash_1_1(m);
-    }
-
-    private final static Operation $leash_1_var_1(Prolog m) { 
-        m.trust(null);
-        return $leash_1_2(m);
-    }
-
-    private final static Operation $leash_1_1(Prolog m) { 
-    // '$leash'([]):-!,retractall('$current_leash'(A)),print_message(info,[no,leashing])
-         Term a1, a2, a3;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash'([]):-['$neck_cut',retractall('SxxMachine.builtin':'$current_leash'(A)),print_message(info,[no,leashing])]
-        if (! PRED_$leash_1_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA(V(m));
-        a2 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a3 = S(":", y2);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , PRED_$leash_1_s9), cont));
-    }
-
-    private final static Operation $leash_1_2(Prolog m) { 
-    // '$leash'(A):-retractall('$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])
-         Term a1, a2, a3, a4, a5, a6, a7;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash'(A):-[retractall('SxxMachine.builtin':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
-        Term[] y1 = VA(V(m));
-        a2 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a3 = S(":", y2);
-        a4 = CONS(a1, PRED_$leash_1_s1);
-        a5 = CONS( ATOM_on , a4);
-        a6 = CONS( ATOM_stopping , a5);
-        a7 = CONS( ATOM_leashing , a6);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$assert_leash_1_static_exec, VA(a1), Op(FILE_builtins::PRED_print_message_2_static_exec, VA( ATOM_info , a7), cont)));
-    }
-/** PREDICATE: $assert_leash/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$assert_leash_1_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_$assert_leash_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$assert_leash_1_var, fail_0, fail_0, FILE_builtins::$assert_leash_1_1, fail_0, FILE_builtins::$assert_leash_1_2); 
-    }
-
-    private final static Operation $assert_leash_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$assert_leash_1_var_1);
-        return $assert_leash_1_1(m);
-    }
-
-    private final static Operation $assert_leash_1_var_1(Prolog m) { 
-        m.trust(null);
-        return $assert_leash_1_2(m);
-    }
-
-    private final static Operation $assert_leash_1_1(Prolog m) { 
-    // '$assert_leash'([]):-!
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$assert_leash'([]):-['$neck_cut']
-        if (! PRED_$assert_leash_1_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $assert_leash_1_2(Prolog m) { 
-    // '$assert_leash'([A|B]):-'$leash_specifier'(A),assertz('$current_leash'(A)),'$assert_leash'(B)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('SxxMachine.builtin':'$current_leash'(A)),'$assert_leash'(B)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            a3 = argz[1];
-        } else if (a1.isVar()){
-            a2 = V(m);
-            a3 = V(m);
-             a1.bind(CONS(a2, a3), m.trail);
-        } else {
-            return m.fail();
-        }
-        Term[] y1 = VA(a2);
-        a4 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
-        a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_$leash_specifier_1_static_exec, VA(a2), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a5), Op(FILE_builtins::PRED_$assert_leash_1_static_exec, VA(a3), cont)));
-    }
-/** PREDICATE: $leash_specifier/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$leash_specifier_1_s1 = SYM("call");
-
-
-
-
-    public static Operation PRED_$leash_specifier_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$leash_specifier_1_var, fail_0, fail_0, FILE_builtins::$leash_specifier_1_var, fail_0, fail_0); 
-    }
-
-    private final static Operation $leash_specifier_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$leash_specifier_1_var_1);
-        return $leash_specifier_1_1(m);
-    }
-
-    private final static Operation $leash_specifier_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$leash_specifier_1_var_2);
-        return $leash_specifier_1_2(m);
-    }
-
-    private final static Operation $leash_specifier_1_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$leash_specifier_1_var_3);
-        return $leash_specifier_1_3(m);
-    }
-
-    private final static Operation $leash_specifier_1_var_3(Prolog m) { 
-        m.trust(null);
-        return $leash_specifier_1_4(m);
-    }
-
-    private final static Operation $leash_specifier_1_1(Prolog m) { 
-    // '$leash_specifier'(call):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash_specifier'(call):-[]
-        if (! PRED_$leash_specifier_1_s1.unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-
-    private final static Operation $leash_specifier_1_2(Prolog m) { 
-    // '$leash_specifier'(exit):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash_specifier'(exit):-[]
-        if (!  ATOM_exit .unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-
-    private final static Operation $leash_specifier_1_3(Prolog m) { 
-    // '$leash_specifier'(redo):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash_specifier'(redo):-[]
-        if (!  ATOM_redo .unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-
-    private final static Operation $leash_specifier_1_4(Prolog m) { 
-    // '$leash_specifier'(fail):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$leash_specifier'(fail):-[]
-        if (!  ATOM_fail .unify(a1, m.trail))
-            return m.fail();
-        return cont;
-    }
-/** PREDICATE: $trace_goal/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$trace_goal_1_s1 = SYM("leap");
-
-
-
-
-    public static Operation PRED_$trace_goal_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$trace_goal'(A):-'$set_debug_flag'(leap,no),'$get_current_B'(B),'$meta_call'(A,user,B,0,trace)
-        m.setB0();
-         Term a1, a2;
-        Operation p1, p2;
-        a1 = LARG[0];
-    // '$trace_goal'(A):-['$set_debug_flag'(leap,no),'$get_current_B'(B),'$meta_call'(A,user,B,0,trace)]
-        a2 = V(m);
-        return Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA(PRED_$trace_goal_1_s1,  ATOM_no ), Op(FILE_builtins::PRED_$get_current_B_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$meta_call_5_static_exec, VA(a1,  ATOM_user , a2,  int_0 ,  ATOM_trace ), cont)));
-    }
-/** PREDICATE: $trace_goal/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$trace_goal_4_s1 = SYM("nodebug");
-
-
-
-
-    public static Operation PRED_$trace_goal_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$trace_goal_4_var, FILE_builtins::$trace_goal_4_int, FILE_builtins::$trace_goal_4_int, FILE_builtins::$trace_goal_4_var, FILE_builtins::$trace_goal_4_int, FILE_builtins::$trace_goal_4_int); 
-    }
-
-    private final static Operation $trace_goal_4_var(Prolog m) { 
-        m.jtry4(null, FILE_builtins::$trace_goal_4_var_1);
-        return $trace_goal_4_1(m);
-    }
-
-    private final static Operation $trace_goal_4_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$trace_goal_4_var_2);
-        return $trace_goal_4_2(m);
-    }
-
-    private final static Operation $trace_goal_4_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$trace_goal_4_var_3);
-        return $trace_goal_4_3(m);
-    }
-
-    private final static Operation $trace_goal_4_var_3(Prolog m) { 
-        m.trust(null);
-        return $trace_goal_4_4(m);
-    }
-
-    private final static Operation $trace_goal_4_int(Prolog m) { 
-        m.jtry4(null, FILE_builtins::$trace_goal_4_int_1);
-        return $trace_goal_4_3(m);
-    }
-
-    private final static Operation $trace_goal_4_int_1(Prolog m) { 
-        m.trust(null);
-        return $trace_goal_4_4(m);
-    }
-
-    private final static Operation $trace_goal_4_1(Prolog m) { 
-    // '$trace_goal'(nodebug,A,B,C):-nodebug
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // '$trace_goal'(nodebug,A,B,C):-[nodebug]
-        if (! PRED_$trace_goal_4_s1.unify(a1, m.trail))
-            return m.fail();
-        return Op(FILE_builtins::PRED_nodebug_0_static_exec, VA(), cont);
-    }
-
-    private final static Operation $trace_goal_4_2(Prolog m) { 
-    // '$trace_goal'(notrace,A,B,C):-notrace
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // '$trace_goal'(notrace,A,B,C):-[notrace]
-        if (!  ATOM_notrace .unify(a1, m.trail))
-            return m.fail();
-        return Op(FILE_builtins::PRED_notrace_0_static_exec, VA(), cont);
-    }
-
-    private final static Operation $trace_goal_4_3(Prolog m) { 
-    // '$trace_goal'(A,B,C,D):-print_procedure_box(call,A,B,C,D),'$call_internal'(A,B,C,D,trace),print_procedure_box(exit,A,B,C,D),redo_procedure_box(A,B,C,D)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // '$trace_goal'(A,B,C,D):-[print_procedure_box(call,A,B,C,D),'$call_internal'(A,B,C,D,trace),print_procedure_box(exit,A,B,C,D),redo_procedure_box(A,B,C,D)]
-        return Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA( ATOM_call , a1, a2, a3, a4), Op(FILE_builtins::PRED_$call_internal_5_static_exec, VA(a1, a2, a3, a4,  ATOM_trace ), Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA( ATOM_exit , a1, a2, a3, a4), Op(FILE_builtins::PRED_redo_procedure_box_4_static_exec, VA(a1, a2, a3, a4), cont))));
-    }
-
-    private final static Operation $trace_goal_4_4(Prolog m) { 
-    // '$trace_goal'(A,B,C,D):-print_procedure_box(fail,A,B,C,D),fail
-         Term a1, a2, a3, a4;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // '$trace_goal'(A,B,C,D):-[print_procedure_box(fail,A,B,C,D),fail]
-        return Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA( ATOM_fail , a1, a2, a3, a4), Op(fail_0, VA(), cont));
-    }
-/** PREDICATE: print_procedure_box/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_$002B = SYM("+");
-    private static final StructureTerm PRED_print_procedure_box_5_s12 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_print_procedure_box_5_s14 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_print_procedure_box_5_s12);
-
-    // private final Term arg5;
-
-
-
-
-    public static Operation PRED_print_procedure_box_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry5(null, FILE_builtins::print_procedure_box_5_sub_1);
-        return print_procedure_box_5_1(m);
-    }
-
-    private final static Operation print_procedure_box_5_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::print_procedure_box_5_sub_2);
-        return print_procedure_box_5_2(m);
-    }
-
-    private final static Operation print_procedure_box_5_sub_2(Prolog m) { 
-        m.trust(null);
-        return print_procedure_box_5_3(m);
-    }
-
-    private final static Operation print_procedure_box_5_1(Prolog m) { 
-    // print_procedure_box(A,B,C,D/E,F):-clause('$current_spypoint'(C,D,E),G),!,'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        cont = m.cont;
-    // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
-        a4 = a4.dref();
-            a6 = V(m);
-            a7 = V(m);
-            if (!a4.unify(C("/", a6, a7), m.trail)){
-                return m.fail();
-            }
-        a8 = V(m);
-        //START inline expansion of $get_level(a(8))
-        if (! a8.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a3, a6, a7);
-        a9 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a9);
-        a10 = S(":", y2);
-        Term[] y3 = VA(a3, a2);
-        a11 = S(":", y3);
-        a12 = CONS(a11,  Prolog.Nil );
-        a13 = CONS( ATOM_module_colon , a12);
-        a14 = CONS(a1, a13);
-        a15 = CONS(a5, a14);
-        a16 = CONS( ATOM_$002B , a15);
-        Term[] y4 = VA(a6, a7);
-        a17 = S("/", y4);
-        Term[] y5 = VA(a1, a2, a3, a17, a5);
-        a18 = S("print_procedure_box", y5);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a10, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a8), Op(FILE_builtins::PRED_$builtin_message_1_static_exec, VA(a16), Op(FILE_builtins::PRED_$read_blocked_1_static_exec, VA(a18), cont))));
-    }
-
-    private final static Operation print_procedure_box_5_2(Prolog m) { 
-    // print_procedure_box(A,B,C,D,E):-clause('$leap_flag'(no),F),!,'$builtin_message'([' ',E,A,:,C:B]),'$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,G)
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        cont = m.cont;
-    // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('SxxMachine.builtin':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,H)]
-        a6 = V(m);
-        //START inline expansion of $get_level(a(6))
-        if (! a6.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a3, a2);
-        a7 = S(":", y1);
-        a8 = CONS(a7,  Prolog.Nil );
-        a9 = CONS( ATOM_module_colon , a8);
-        a10 = CONS(a1, a9);
-        a11 = CONS(a5, a10);
-        a12 = CONS( ATOM_$0020 , a11);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(PRED_print_procedure_box_5_s14, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a6), Op(FILE_builtins::PRED_$builtin_message_1_static_exec, VA(a12), Op(FILE_builtins::PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, V(m)), cont))));
-    }
-
-    private final static Operation print_procedure_box_5_3(Prolog m) { 
-    // print_procedure_box(A,B,C,D,E):-true
-         Term a1, a2, a3, a4, a5;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        cont = m.cont;
-    // print_procedure_box(A,B,C,D,E):-[]
-        return cont;
-    }
-/** PREDICATE: $dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-    // private final Term arg5, arg6;
-
-
-
-
-    public static Operation PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry6(null, FILE_builtins::$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1);
-        return $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(m);
-    }
-
-    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(m);
-    }
-
-    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(Prolog m) { 
-    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-clause('$current_leash'(A),F),!,'$read_blocked'(print_procedure_box(A,B,C,D,E))
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        cont = m.cont;
-    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
-        a7 = V(m);
-        //START inline expansion of $get_level(a(7))
-        if (! a7.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a1);
-        a8 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a8);
-        a9 = S(":", y2);
-        Term[] y3 = VA(a1, a2, a3, a4, a5);
-        a10 = S("print_procedure_box", y3);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a9, a6), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$read_blocked_1_static_exec, VA(a10), cont)));
-    }
-
-    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(Prolog m) { 
-    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-nl
-         Term a1, a2, a3, a4, a5, a6;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        a5 = m.AREGS[4];
-        a6 = m.AREGS[5];
-        cont = m.cont;
-    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-[nl]
-        return Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont);
-    }
-/** PREDICATE: redo_procedure_box/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_redo_procedure_box_4_s1 = SYM("redo");
-
-
-
-
-    public static Operation PRED_redo_procedure_box_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry4(null, FILE_builtins::redo_procedure_box_4_sub_1);
-        return redo_procedure_box_4_1(m);
-    }
-
-    private final static Operation redo_procedure_box_4_sub_1(Prolog m) { 
-        m.trust(null);
-        return redo_procedure_box_4_2(m);
-    }
-
-    private final static Operation redo_procedure_box_4_1(Prolog m) { 
-    // redo_procedure_box(A,B,C,D):-true
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // redo_procedure_box(A,B,C,D):-[]
-        return cont;
-    }
-
-    private final static Operation redo_procedure_box_4_2(Prolog m) { 
-    // redo_procedure_box(A,B,C,D):-print_procedure_box(redo,A,B,C,D),fail
-         Term a1, a2, a3, a4;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
-        cont = m.cont;
-    // redo_procedure_box(A,B,C,D):-[print_procedure_box(redo,A,B,C,D),fail]
-        return Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA(PRED_redo_procedure_box_4_s1, a1, a2, a3, a4), Op(fail_0, VA(), cont));
-    }
-/** PREDICATE: $dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1 = SYM("[]");
-        final static IntegerTerm int_99 = Integer(99);
-
-
-
-
-    public static Operation PRED_$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry3(null, FILE_builtins::$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1);
-        return $dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(m);
-    }
-
-    private final static Operation $dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(m);
-    }
-
-    private final static Operation $dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(Prolog m) { 
-    // '$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A==[],!,B=99
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        cont = m.cont;
-    // '$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(A,[]),'$cut'(D),'$unify'(B,99)]
-        a4 = V(m);
-        //START inline expansion of $get_level(a(4))
-        if (! a4.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),s(1))
-        a1 = a1.dref();
-        if (! a1.equalsTerm(PRED_$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(4))
-        a4 = a4.dref();
-                  m.cut( a4.intValue());
-        //END inline expansion
-        //START inline expansion of $unify(a(2),@(int_99))
-        if (! a2.unify(int_99, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
-    // '$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A=[B|C]
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        cont = m.cont;
-    // '$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$unify'(A,[B|C])]
-        a4 = CONS(a2, a3);
-        //START inline expansion of $unify(a(1),a(4))
-        if (! a1.unify(a4, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return cont;
-    }
-/** PREDICATE: $read_blocked/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$read_blocked_1_s1 = SYM(" ? ");
-
-
-
-
-    public static Operation PRED_$read_blocked_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$read_blocked'(A):-'$fast_write'(' ? '),flush_output,read_line(B),'$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,C,D),'$debug_option'(C,A)
-        m.setB0();
-         Term a1, a2, a3;
-        Operation p1, p2, p3, p4;
-        a1 = LARG[0];
-    // '$read_blocked'(A):-['$fast_write'(' ? '),flush_output,read_line(B),'$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B,C,D),'$debug_option'(C,A)]
-        a2 = V(m);
-        a3 = V(m);
-        return Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA(PRED_$read_blocked_1_s1), Op(FILE_builtins::PRED_flush_output_0_static_exec, VA(), Op(FILE_builtins::PRED_read_line_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a2, a3, V(m)), Op(FILE_builtins::PRED_$debug_option_2_static_exec, VA(a3, a1), cont)))));
-    }
-/** PREDICATE: $debug_option/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final /**/ IntegerTerm PRED_$debug_option_2_s1 = Integer(97);
-        final static IntegerTerm int_108 = Integer(108);
-        final static IntegerTerm int_43 = Integer(43);
-        final static IntegerTerm int_45 = Integer(45);
-        final static IntegerTerm int_63 = Integer(63);
-        final static IntegerTerm int_104 = Integer(104);
-
-
-
-
-    public static Operation PRED_$debug_option_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$debug_option_2_var, FILE_builtins::$debug_option_2_var, FILE_builtins::$debug_option_2_8, FILE_builtins::$debug_option_2_8, FILE_builtins::$debug_option_2_8, FILE_builtins::$debug_option_2_8); 
-    }
-
-    private final static Operation $debug_option_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$debug_option_2_var_1);
-        return $debug_option_2_1(m);
-    }
-
-    private final static Operation $debug_option_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_2);
-        return $debug_option_2_2(m);
-    }
-
-    private final static Operation $debug_option_2_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_3);
-        return $debug_option_2_3(m);
-    }
-
-    private final static Operation $debug_option_2_var_3(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_4);
-        return $debug_option_2_4(m);
-    }
-
-    private final static Operation $debug_option_2_var_4(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_5);
-        return $debug_option_2_5(m);
-    }
-
-    private final static Operation $debug_option_2_var_5(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_6);
-        return $debug_option_2_6(m);
-    }
-
-    private final static Operation $debug_option_2_var_6(Prolog m) { 
-        m.retry(null, FILE_builtins::$debug_option_2_var_7);
-        return $debug_option_2_7(m);
-    }
-
-    private final static Operation $debug_option_2_var_7(Prolog m) { 
-        m.trust(null);
-        return $debug_option_2_8(m);
-    }
-
-    private final static Operation $debug_option_2_1(Prolog m) { 
-    // '$debug_option'(97,A):-!,notrace,abort
-         Term a1, a2;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(97,A):-['$neck_cut',notrace,abort]
-        if (! PRED_$debug_option_2_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_notrace_0_static_exec, VA(), Op(FILE_builtins::PRED_abort_0_static_exec, VA(), cont));
-    }
-
-    private final static Operation $debug_option_2_2(Prolog m) { 
-    // '$debug_option'(99,A):-!,'$set_debug_flag'(leap,no)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(99,A):-['$neck_cut','$set_debug_flag'(leap,no)]
-        if (!  int_99 .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont);
-    }
-
-    private final static Operation $debug_option_2_3(Prolog m) { 
-    // '$debug_option'(108,A):-!,'$set_debug_flag'(leap,yes)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(108,A):-['$neck_cut','$set_debug_flag'(leap,yes)]
-        if (!  int_108 .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), cont);
-    }
-
-    private final static Operation $debug_option_2_4(Prolog m) { 
-    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-!,spy(C:D),call(print_procedure_box(A,B,C,D,E))
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
-        if (!  int_43 .unify(a1, m.trail))
-            return m.fail();
-        a2 = a2.dref();
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
-            a7 = V(m);
-            if (!a2.unify(C("print_procedure_box", a3, a4, a5, a6, a7), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA(a5, a6);
-        a8 = S(":", y1);
-        a9 = Closure( Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
-        return Op(FILE_builtins::PRED_spy_1_static_exec, VA(a8), Op(FILE_builtins::PRED_call_1_static_exec, VA(a9), cont));
-    }
-
-    private final static Operation $debug_option_2_5(Prolog m) { 
-    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-!,nospy(C:D),call(print_procedure_box(A,B,C,D,E))
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
-        if (!  int_45 .unify(a1, m.trail))
-            return m.fail();
-        a2 = a2.dref();
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
-            a7 = V(m);
-            if (!a2.unify(C("print_procedure_box", a3, a4, a5, a6, a7), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA(a5, a6);
-        a8 = S(":", y1);
-        a9 = Closure( Op(FILE_builtins::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
-        return Op(FILE_builtins::PRED_nospy_1_static_exec, VA(a8), Op(FILE_builtins::PRED_call_1_static_exec, VA(a9), cont));
-    }
-
-    private final static Operation $debug_option_2_6(Prolog m) { 
-    // '$debug_option'(63,A):-!,'$show_debug_option',call(A)
-         Term a1, a2, a3;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
-        if (!  int_63 .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_$show_debug_option_0_static_exec, VA(), Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), cont));
-    }
-
-    private final static Operation $debug_option_2_7(Prolog m) { 
-    // '$debug_option'(104,A):-!,'$show_debug_option',call(A)
-         Term a1, a2, a3;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
-        if (!  int_104 .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a3 = S(":", y1);
-        return Op(FILE_builtins::PRED_$show_debug_option_0_static_exec, VA(), Op(FILE_builtins::PRED_call_1_static_exec, VA(a3), cont));
-    }
-
-    private final static Operation $debug_option_2_8(Prolog m) { 
-    // '$debug_option'(A,B):-true
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$debug_option'(A,B):-[]
-        return cont;
-    }
-/** PREDICATE: $show_debug_option/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final /**/ IntegerTerm PRED_$show_debug_option_0_s1 = Integer(4);
-        final static SymbolTerm ATOM_Debugging$0020options$003A = SYM("Debugging options:");
-        final static SymbolTerm ATOM_a$0020$0020$0020$0020$0020$0020abort = SYM("a      abort");
-        final static SymbolTerm ATOM_RET$0020$0020$0020$0020creep = SYM("RET    creep");
-        final static SymbolTerm ATOM_c$0020$0020$0020$0020$0020$0020creep = SYM("c      creep");
-        final static SymbolTerm ATOM_l$0020$0020$0020$0020$0020$0020leap = SYM("l      leap");
-        final static SymbolTerm ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this = SYM("+      spy this");
-        final static SymbolTerm ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this = SYM("-      nospy this");
-        final static SymbolTerm ATOM_$003F$0020$0020$0020$0020$0020$0020help = SYM("?      help");
-        final static SymbolTerm ATOM_h$0020$0020$0020$0020$0020$0020help = SYM("h      help");
-
-
-
-
-    public static Operation PRED_$show_debug_option_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$show_debug_option':-tab(4),'$fast_write'('Debugging options:'),nl,tab(4),'$fast_write'('a      abort'),nl,tab(4),'$fast_write'('RET    creep'),nl,tab(4),'$fast_write'('c      creep'),nl,tab(4),'$fast_write'('l      leap'),nl,tab(4),'$fast_write'('+      spy this'),nl,tab(4),'$fast_write'('-      nospy this'),nl,tab(4),'$fast_write'('?      help'),nl,tab(4),'$fast_write'('h      help'),nl
-        m.setB0();
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26;
-    // '$show_debug_option':-[tab(4),'$fast_write'('Debugging options:'),nl,tab(4),'$fast_write'('a      abort'),nl,tab(4),'$fast_write'('RET    creep'),nl,tab(4),'$fast_write'('c      creep'),nl,tab(4),'$fast_write'('l      leap'),nl,tab(4),'$fast_write'('+      spy this'),nl,tab(4),'$fast_write'('-      nospy this'),nl,tab(4),'$fast_write'('?      help'),nl,tab(4),'$fast_write'('h      help'),nl]
-        return Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_Debugging$0020options$003A ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_a$0020$0020$0020$0020$0020$0020abort ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_RET$0020$0020$0020$0020creep ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_c$0020$0020$0020$0020$0020$0020creep ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_l$0020$0020$0020$0020$0020$0020leap ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$003F$0020$0020$0020$0020$0020$0020help ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_h$0020$0020$0020$0020$0020$0020help ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont)))))))))))))))))))))))))));
-    }
-/** PREDICATE: $set_debug_flag/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$set_debug_flag_2_s1 = SYM("leap");
-
-
-
-
-    public static Operation PRED_$set_debug_flag_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$set_debug_flag_2_var, fail_0, fail_0, FILE_builtins::$set_debug_flag_2_var, fail_0, fail_0); 
-    }
-
-    private final static Operation $set_debug_flag_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$set_debug_flag_2_var_1);
-        return $set_debug_flag_2_1(m);
-    }
-
-    private final static Operation $set_debug_flag_2_var_1(Prolog m) { 
-        m.trust(null);
-        return $set_debug_flag_2_2(m);
-    }
-
-    private final static Operation $set_debug_flag_2_1(Prolog m) { 
-    // '$set_debug_flag'(leap,A):-clause('$leap_flag'(A),B),!
-         Term a1, a2, a3, a4, a5;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('SxxMachine.builtin':'$leap_flag'(A),C),'$cut'(B)]
-        if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
-            return m.fail();
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a2);
-        a4 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
-        a5 = S(":", y2);
-        return Op(FILE_builtins::PRED_clause_2_static_exec, VA(a5, V(m)), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), cont));
-    }
-
-    private final static Operation $set_debug_flag_2_2(Prolog m) { 
-    // '$set_debug_flag'(leap,A):-retractall('$leap_flag'(B)),assertz('$leap_flag'(A))
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$set_debug_flag'(leap,A):-[retractall('SxxMachine.builtin':'$leap_flag'(B)),assertz('SxxMachine.builtin':'$leap_flag'(A))]
-        if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
-            return m.fail();
-        Term[] y1 = VA(V(m));
-        a3 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
-        a4 = S(":", y2);
-        Term[] y3 = VA(a2);
-        a5 = S("$leap_flag", y3);
-        Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a5);
-        a6 = S(":", y4);
-        return Op(FILE_builtins::PRED_retractall_1_static_exec, VA(a4), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(a6), cont));
-    }
-/** PREDICATE: listing/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_listing_0_s1 = SYM("user");
-
-
-
-
-    public static Operation PRED_listing_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // listing:-'$listing'(A,user)
-        m.setB0();
-    // listing:-['$listing'(A,user)]
-        return Op(FILE_builtins::PRED_$listing_2_static_exec, VA(V(m), PRED_listing_0_s1), cont);
-    }
-/** PREDICATE: listing/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_listing_1_s1 = SYM("var");
-    private static final StructureTerm PRED_listing_1_s10 = S("type",  ATOM_predicate_indicator );
-
-
-
-
-    public static Operation PRED_listing_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::listing_1_var, FILE_builtins::listing_1_int, FILE_builtins::listing_1_int, FILE_builtins::listing_1_int, FILE_builtins::listing_1_var, FILE_builtins::listing_1_int); 
-    }
-
-    private final static Operation listing_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::listing_1_var_1);
-        return listing_1_1(m);
-    }
-
-    private final static Operation listing_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::listing_1_var_2);
-        return listing_1_2(m);
-    }
-
-    private final static Operation listing_1_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::listing_1_var_3);
-        return listing_1_3(m);
-    }
-
-    private final static Operation listing_1_var_3(Prolog m) { 
-        m.retry(null, FILE_builtins::listing_1_var_4);
-        return listing_1_4(m);
-    }
-
-    private final static Operation listing_1_var_4(Prolog m) { 
-        m.trust(null);
-        return listing_1_5(m);
-    }
-
-    private final static Operation listing_1_int(Prolog m) { 
-        m.jtry1(null, FILE_builtins::listing_1_int_1);
-        return listing_1_1(m);
-    }
-
-    private final static Operation listing_1_int_1(Prolog m) { 
-        m.retry(null, FILE_builtins::listing_1_int_2);
-        return listing_1_2(m);
-    }
-
-    private final static Operation listing_1_int_2(Prolog m) { 
-        m.trust(null);
-        return listing_1_5(m);
-    }
-
-    private final static Operation listing_1_1(Prolog m) { 
-    // listing(A):-var(A),!,illarg(var,listing(A),1)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // listing(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,listing(A),1)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a1);
-        a3 = S("listing", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_listing_1_s1, a3,  int_1 ), cont);
-    }
-
-    private final static Operation listing_1_2(Prolog m) { 
-    // listing(A):-atom(A),!,'$listing'(B,A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // listing(A):-['$get_level'(B),atom(A),'$cut'(B),'$listing'(C,A)]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$listing_2_static_exec, VA(V(m), a1), cont);
-    }
-
-    private final static Operation listing_1_3(Prolog m) { 
-    // listing(A/B):-!,'$listing'(A/B,user)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // listing(A/B):-['$neck_cut','$listing'(A/B,user)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C("/", a2, a3), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA(a2, a3);
-        a4 = S("/", y1);
-        return Op(FILE_builtins::PRED_$listing_2_static_exec, VA(a4,  ATOM_user ), cont);
-    }
-
-    private final static Operation listing_1_4(Prolog m) { 
-    // listing(A:B):-atom(A),!,'$listing'(B,A)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // listing(A:B):-['$get_level'(C),atom(A),'$cut'(C),'$listing'(B,A)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C(":", a2, a3), m.trail)){
-                return m.fail();
-            }
-        a4 = V(m);
-        //START inline expansion of $get_level(a(4))
-        if (! a4.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(2))
-        a2 = a2.dref();
-        if (! (a2 .isSymbol())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(4))
-        a4 = a4.dref();
-                  m.cut( a4.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$listing_2_static_exec, VA(a3, a2), cont);
-    }
-
-    private final static Operation listing_1_5(Prolog m) { 
-    // listing(A):-illarg(type(predicate_indicator),listing(A),1)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // listing(A):-[illarg(type(predicate_indicator),listing(A),1)]
-        Term[] y1 = VA(a1);
-        a2 = S("listing", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_listing_1_s10, a2,  int_1 ), cont);
-    }
-/** PREDICATE: $listing/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final StructureTerm PRED_$listing_2_s5 = S("type",  ATOM_predicate_indicator );
-
-
-
-
-    public static Operation PRED_$listing_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$listing_2_var, FILE_builtins::$listing_2_int, FILE_builtins::$listing_2_int, FILE_builtins::$listing_2_int, FILE_builtins::$listing_2_var, FILE_builtins::$listing_2_int); 
-    }
-
-    private final static Operation $listing_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$listing_2_var_1);
-        return $listing_2_1(m);
-    }
-
-    private final static Operation $listing_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$listing_2_var_2);
-        return $listing_2_2(m);
-    }
-
-    private final static Operation $listing_2_var_2(Prolog m) { 
-        m.trust(null);
-        return $listing_2_3(m);
-    }
-
-    private final static Operation $listing_2_int(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$listing_2_int_1);
-        return $listing_2_1(m);
-    }
-
-    private final static Operation $listing_2_int_1(Prolog m) { 
-        m.trust(null);
-        return $listing_2_3(m);
-    }
-
-    private final static Operation $listing_2_1(Prolog m) { 
-    // '$listing'(A,B):-var(A),!,'$listing_dynamic_clause'(B,C)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$listing'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$listing_dynamic_clause'(B,D)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, V(m)), cont);
-    }
-
-    private final static Operation $listing_2_2(Prolog m) { 
-    // '$listing'(A/B,C):-atom(A),integer(B),!,'$listing_dynamic_clause'(C,A/B)
-         Term a1, a2, a3, a4, a5, a6;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$listing'(A/B,C):-['$get_level'(D),atom(A),integer(B),'$cut'(D),'$listing_dynamic_clause'(C,A/B)]
-        a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C("/", a3, a4), m.trail)){
-                return m.fail();
-            }
-        a5 = V(m);
-        //START inline expansion of $get_level(a(5))
-        if (! a5.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(3))
-        a3 = a3.dref();
-        if (! (a3 .isSymbol())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of integer(a(4))
-        a4 = a4.dref();
-        if (! (a4 .isInteger())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(5))
-        a5 = a5.dref();
-                  m.cut( a5.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a3, a4);
-        a6 = S("/", y1);
-        return Op(FILE_builtins::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont);
-    }
-
-    private final static Operation $listing_2_3(Prolog m) { 
-    // '$listing'(A,B):-illarg(type(predicate_indicator),listing(B:A),1)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$listing'(A,B):-[illarg(type(predicate_indicator),listing(B:A),1)]
-        Term[] y1 = VA(a2, a1);
-        a3 = S(":", y1);
-        Term[] y2 = VA(a3);
-        a4 = S("listing", y2);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_$listing_2_s5, a4,  int_1 ), cont);
-    }
-/** PREDICATE: $listing_dynamic_clause/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$listing_dynamic_clause_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$listing_dynamic_clause_2_sub_1);
-        return $listing_dynamic_clause_2_1(m);
-    }
-
-    private final static Operation $listing_dynamic_clause_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $listing_dynamic_clause_2_2(m);
-    }
-
-    private final static Operation $listing_dynamic_clause_2_1(Prolog m) { 
-    // '$listing_dynamic_clause'(A,B):-'$new_internal_database'(A),hash_keys(A,C),'$builtin_member'(B,C),B=D/E,functor(F,D,E),'$clause_internal'(A,B,F,G,H),'$write_dynamic_clause'(A,G),fail
-         Term a1, a2, a3, a4, a5, a6, a7, a8;
-        Operation p1, p2, p3, p4, p5, p6, p7;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$listing_dynamic_clause'(A,B):-['$new_internal_database'(A),hash_keys(A,C),'$builtin_member'(B,C),'$unify'(B,D/E),functor(F,D,E),'$clause_internal'(A,B,F,G,H),'$write_dynamic_clause'(A,G),fail]
-        a3 = V(m);
-        a4 = V(m);
-        a5 = V(m);
-        Term[] y1 = VA(a4, a5);
-        a6 = S("/", y1);
-        a7 = V(m);
-        a8 = V(m);
-        return Op(FILE_builtins::PRED_$new_internal_database_1_static_exec, VA(a1), Op(FILE_builtins::PRED_hash_keys_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_$builtin_member_2_static_exec, VA(a2, a3), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a2, a6), Op(FILE_builtins::PRED_functor_3_static_exec, VA(a7, a4, a5), Op(FILE_builtins::PRED_$clause_internal_5_static_exec, VA(a1, a2, a7, a8, V(m)), Op(FILE_builtins::PRED_$write_dynamic_clause_2_static_exec, VA(a1, a8), Op(fail_0, VA(), cont))))))));
-    }
-
-    private final static Operation $listing_dynamic_clause_2_2(Prolog m) { 
-    // '$listing_dynamic_clause'(A,B):-true
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$listing_dynamic_clause'(A,B):-[]
-        return cont;
-    }
-/** PREDICATE: $write_dynamic_clause/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_$0020$003A$002D = SYM(" :-");
-        final static IntegerTerm int_8 = Integer(8);
-
-
-
-
-    public static Operation PRED_$write_dynamic_clause_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$write_dynamic_clause_2_sub_1);
-        return $write_dynamic_clause_2_1(m);
-    }
-
-    private final static Operation $write_dynamic_clause_2_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$write_dynamic_clause_2_sub_2);
-        return $write_dynamic_clause_2_2(m);
-    }
-
-    private final static Operation $write_dynamic_clause_2_sub_2(Prolog m) { 
-        m.trust(null);
-        return $write_dynamic_clause_2_3(m);
-    }
-
-    private final static Operation $write_dynamic_clause_2_1(Prolog m) { 
-    // '$write_dynamic_clause'(A,B):-var(B),!,fail
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_clause'(A,B):-['$get_level'(C),var(B),'$cut'(C),fail]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(2))
-        a2 = a2.dref();
-        if (! (a2 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        //START inline expansion of fail
-        return m.fail();
-        //END inline expansion
-    }
-
-    private final static Operation $write_dynamic_clause_2_2(Prolog m) { 
-    // '$write_dynamic_clause'(A,(B:-true)):-!,numbervars(B,0,C),'$write_dynamic_head'(A,B),write('.'),nl
-         Term a1, a2, a3;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_clause'(A,(B:-true)):-['$neck_cut',numbervars(B,0,C),'$write_dynamic_head'(A,B),write('.'),nl]
-        a2 = a2.dref();
-            a3 = V(m);
-            if (!a2.unify(C(":-", a3,  Prolog.True ), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_numbervars_3_static_exec, VA(a3,  int_0 , V(m)), Op(FILE_builtins::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$002E ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont))));
-    }
-
-    private final static Operation $write_dynamic_clause_2_3(Prolog m) { 
-    // '$write_dynamic_clause'(A,(B:-C)):-!,numbervars((B:-C),0,D),'$write_dynamic_head'(A,B),write(' :-'),nl,'$write_dynamic_body'(C,8),write('.'),nl
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_clause'(A,(B:-C)):-['$neck_cut',numbervars((B:-C),0,D),'$write_dynamic_head'(A,B),write(' :-'),nl,'$write_dynamic_body'(C,8),write('.'),nl]
-        a2 = a2.dref();
-            a3 = V(m);
-            a4 = V(m);
-            if (!a2.unify(C(":-", a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        Term[] y1 = VA(a3, a4);
-        a5 = S(":-", y1);
-        return Op(FILE_builtins::PRED_numbervars_3_static_exec, VA(a5,  int_0 , V(m)), Op(FILE_builtins::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$0020$003A$002D ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a4,  int_8 ), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$002E ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont)))))));
-    }
-/** PREDICATE: $write_dynamic_head/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$write_dynamic_head_2_s1 = SYM("user");
-
-
-
-
-    public static Operation PRED_$write_dynamic_head_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$write_dynamic_head_2_var, FILE_builtins::$write_dynamic_head_2_2, FILE_builtins::$write_dynamic_head_2_2, FILE_builtins::$write_dynamic_head_2_var, FILE_builtins::$write_dynamic_head_2_2, FILE_builtins::$write_dynamic_head_2_2); 
-    }
-
-    private final static Operation $write_dynamic_head_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$write_dynamic_head_2_var_1);
-        return $write_dynamic_head_2_1(m);
-    }
-
-    private final static Operation $write_dynamic_head_2_var_1(Prolog m) { 
-        m.trust(null);
-        return $write_dynamic_head_2_2(m);
-    }
-
-    private final static Operation $write_dynamic_head_2_1(Prolog m) { 
-    // '$write_dynamic_head'(user,A):-!,writeq(A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_head'(user,A):-['$neck_cut',writeq(A)]
-        if (! PRED_$write_dynamic_head_2_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_writeq_1_static_exec, VA(a2), cont);
-    }
-
-    private final static Operation $write_dynamic_head_2_2(Prolog m) { 
-    // '$write_dynamic_head'(A,B):-write(A),write(:),writeq(B)
-         Term a1, a2;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_head'(A,B):-[write(A),write(:),writeq(B)]
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a1), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_module_colon ), Op(FILE_builtins::PRED_writeq_1_static_exec, VA(a2), cont)));
-    }
-/** PREDICATE: $write_dynamic_body/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static IntegerTerm int_4 = Integer(4);
-        final static SymbolTerm ATOM_$002D$003E = SYM("->");
-
-
-
-
-    public static Operation PRED_$write_dynamic_body_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        return $write_dynamic_body_2_top(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_top(Prolog m) { 
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$write_dynamic_body_2_var, FILE_builtins::$write_dynamic_body_2_4, FILE_builtins::$write_dynamic_body_2_4, FILE_builtins::$write_dynamic_body_2_4, FILE_builtins::$write_dynamic_body_2_var, FILE_builtins::$write_dynamic_body_2_4); 
-    }
-
-    private final static Operation $write_dynamic_body_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::$write_dynamic_body_2_var_1);
-        return $write_dynamic_body_2_1(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$write_dynamic_body_2_var_2);
-        return $write_dynamic_body_2_2(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$write_dynamic_body_2_var_3);
-        return $write_dynamic_body_2_3(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_var_3(Prolog m) { 
-        m.trust(null);
-        return $write_dynamic_body_2_4(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_1(Prolog m) { 
-    // '$write_dynamic_body'((A,B),C):-!,'$write_dynamic_body'(A,C),write(','),nl,'$write_dynamic_body'(B,C)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_body'((A,B),C):-['$neck_cut','$write_dynamic_body'(A,C),write(','),nl,'$write_dynamic_body'(B,C)]
-        a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C(",", a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        p3 = Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$002C ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a4, a2), cont)));
-        m.AREGS[0] = a3;
-        m.AREGS[1] = a2;
-        m.cont = p3;
-        return $write_dynamic_body_2_top(m);
-    }
-
-    private final static Operation $write_dynamic_body_2_2(Prolog m) { 
-    // '$write_dynamic_body'((A;B),C):-!,D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(;),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_body'((A;B),C):-['$neck_cut',D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(;),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')]
-        a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C(";", a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        a5 = V(m);
-        Term[] y1 = VA(a2,  int_4 );
-        a6 = S("+", y1);
-        //START inline expansion of a(5)is a(6)
-        if (! a5.unify(Arithmetic.evaluate(a6), m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$0028 ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_or ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
-    }
-
-    private final static Operation $write_dynamic_body_2_3(Prolog m) { 
-    // '$write_dynamic_body'((A->B),C):-!,D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(->),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_body'((A->B),C):-['$neck_cut',D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(->),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')]
-        a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C("->", a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        a5 = V(m);
-        Term[] y1 = VA(a2,  int_4 );
-        a6 = S("+", y1);
-        //START inline expansion of a(5)is a(6)
-        if (! a5.unify(Arithmetic.evaluate(a6), m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$0028 ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$002D$003E ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
-    }
-
-    private final static Operation $write_dynamic_body_2_4(Prolog m) { 
-    // '$write_dynamic_body'(A,B):-tab(B),writeq(A)
-         Term a1, a2;
-        Operation p1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_dynamic_body'(A,B):-[tab(B),writeq(A)]
-        return Op(FILE_builtins::PRED_tab_1_static_exec, VA(a2), Op(FILE_builtins::PRED_writeq_1_static_exec, VA(a1), cont));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a3, a5, a6), //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a9, V(m)), //
+ Op((e)->PRED_clause_2_static_exec(e), VA(a12, V(m)), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a13), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(a16), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont))))));
     }
 /** PREDICATE: length/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25302,7 +21195,8 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$length_3_static_exec, VA(a1, PRED_length_2_s1, a2), cont);
+        return //
+ Op((e)->PRED_$length_3_static_exec(e), VA(a1, PRED_length_2_s1, a2), cont);
     }
 
     private final static Operation length_2_2(Prolog m) { 
@@ -25313,7 +21207,8 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // length(A,B):-['$length0'(A,0,B)]
-        return Op(FILE_builtins::PRED_$length0_3_static_exec, VA(a1, PRED_length_2_s1, a2), cont);
+        return //
+ Op((e)->PRED_$length0_3_static_exec(e), VA(a1, PRED_length_2_s1, a2), cont);
     }
 /** PREDICATE: $length/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25523,7 +21418,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        return Op(FILE_builtins::PRED_$numbervars_3_static_exec, VA(a1, a2, a3), cont);
+        return //
+ Op((e)->PRED_$numbervars_3_static_exec(e), VA(a1, a2, a3), cont);
     }
 /** PREDICATE: $numbervars/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25668,7 +21564,9 @@ m.cont = cont;
         cont = m.cont;
     // '$numbervars'(A,B,C):-[functor(A,D,E),'$numbervars_str'(1,E,A,B,C)]
         a4 = V(m);
-        return Op(FILE_builtins::PRED_functor_3_static_exec, VA(a1, V(m), a4), Op(FILE_builtins::PRED_$numbervars_str_5_static_exec, VA( int_1 , a4, a1, a2, a3), cont));
+        return //
+ Op((e)->PRED_functor_3_static_exec(e), VA(a1, V(m), a4), //
+ Op((e)->PRED_$numbervars_str_5_static_exec(e), VA( int_1 , a4, a1, a2, a3), cont));
     }
 /** PREDICATE: $numbervars_str/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25710,7 +21608,9 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a6 = V(m);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA(a1, a3, a6), Op(FILE_builtins::PRED_$numbervars_3_static_exec, VA(a6, a4, a5), cont));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA(a1, a3, a6), //
+ Op((e)->PRED_$numbervars_3_static_exec(e), VA(a6, a4, a5), cont));
     }
 
     private final static Operation $numbervars_str_5_2(Prolog m) { 
@@ -25730,7 +21630,11 @@ m.cont = cont;
         a8 = V(m);
         Term[] y1 = VA(a1,  int_1 );
         a9 = S("+", y1);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA(a1, a3, a6), Op(FILE_builtins::PRED_$numbervars_3_static_exec, VA(a6, a4, a7), Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), Op(FILE_builtins::PRED_$numbervars_str_5_static_exec, VA(a8, a2, a3, a7, a5), cont))));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA(a1, a3, a6), //
+ Op((e)->PRED_$numbervars_3_static_exec(e), VA(a6, a4, a7), //
+ Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
+ Op((e)->PRED_$numbervars_str_5_static_exec(e), VA(a8, a2, a3, a7, a5), cont))));
     }
 /** PREDICATE: statistics/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25773,7 +21677,10 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$statistics_mode_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_$statistics_2_static_exec, VA(a1, a2), cont)));
+        return //
+ Op((e)->PRED_$statistics_mode_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_$statistics_2_static_exec(e), VA(a1, a2), cont)));
     }
 
     private final static Operation statistics_2_2(Prolog m) { 
@@ -25786,13 +21693,16 @@ m.cont = cont;
         cont = m.cont;
     // statistics(A,B):-[findall(C,'SxxMachine.builtin':'$statistics_mode'(C),D),illarg(domain(atom,D),statistics(A,B),1)]
         a3 = V(m);
-        a4 = Closure( Op(FILE_builtins::PRED_$statistics_mode_1_static_exec, VA(a3), null));
+        a4 = Closure( //
+ Op((e)->PRED_$statistics_mode_1_static_exec(e), VA(a3), null));
         a5 = V(m);
         Term[] y1 = VA( ATOM_atom , a5);
         a6 = S("domain", y1);
         Term[] y2 = VA(a1, a2);
         a7 = S("statistics", y2);
-        return Op(FILE_builtins::PRED_findall_3_static_exec, VA(a3, a4, a5), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(a6, a7,  int_1 ), cont));
+        return //
+ Op((e)->PRED_findall_3_static_exec(e), VA(a3, a4, a5), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(a6, a7,  int_1 ), cont));
     }
 /** PREDICATE: $statistics_mode/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -25860,561 +21770,6 @@ m.cont = cont;
         if (!  ATOM_choice .unify(a1, m.trail))
             return m.fail();
         return cont;
-    }
-/** PREDICATE: print_message/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_print_message_2_s1 = SYM("var");
-        final static SymbolTerm ATOM_$007BWARNING$003A$0020 = SYM("{WARNING: ");
-
-
-
-
-    public static Operation PRED_print_message_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::print_message_2_var, FILE_builtins::print_message_2_1, FILE_builtins::print_message_2_1, FILE_builtins::print_message_2_var, FILE_builtins::print_message_2_1, FILE_builtins::print_message_2_1); 
-    }
-
-    private final static Operation print_message_2_var(Prolog m) { 
-        m.jtry2(null, FILE_builtins::print_message_2_var_1);
-        return print_message_2_1(m);
-    }
-
-    private final static Operation print_message_2_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::print_message_2_var_2);
-        return print_message_2_2(m);
-    }
-
-    private final static Operation print_message_2_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::print_message_2_var_3);
-        return print_message_2_3(m);
-    }
-
-    private final static Operation print_message_2_var_3(Prolog m) { 
-        m.trust(null);
-        return print_message_2_4(m);
-    }
-
-    private final static Operation print_message_2_1(Prolog m) { 
-    // print_message(A,B):-var(A),!,illarg(var,print_message(A,B),1)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // print_message(A,B):-['$get_level'(C),var(A),'$cut'(C),illarg(var,print_message(A,B),1)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a1, a2);
-        a4 = S("print_message", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_print_message_2_s1, a4,  int_1 ), cont);
-    }
-
-    private final static Operation print_message_2_2(Prolog m) { 
-    // print_message(error,A):-!,'$error_message'(A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // print_message(error,A):-['$neck_cut','$error_message'(A)]
-        if (!  ATOM_error .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$error_message_1_static_exec, VA(a2), cont);
-    }
-
-    private final static Operation print_message_2_3(Prolog m) { 
-    // print_message(info,A):-!,'$fast_write'('{'),'$builtin_message'(A),'$fast_write'('}'),nl
-         Term a1, a2;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // print_message(info,A):-['$neck_cut','$fast_write'('{'),'$builtin_message'(A),'$fast_write'('}'),nl]
-        if (!  ATOM_info .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007B ), Op(FILE_builtins::PRED_$builtin_message_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont))));
-    }
-
-    private final static Operation print_message_2_4(Prolog m) { 
-    // print_message(warning,A):-!,'$fast_write'('{WARNING: '),'$builtin_message'(A),'$fast_write'('}'),nl
-         Term a1, a2;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // print_message(warning,A):-['$neck_cut','$fast_write'('{WARNING: '),'$builtin_message'(A),'$fast_write'('}'),nl]
-        if (!  ATOM_warning .unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007BWARNING$003A$0020 ), Op(FILE_builtins::PRED_$builtin_message_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont))));
-    }
-/** PREDICATE: $error_message/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-        final static SymbolTerm ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 = SYM("{INSTANTIATION ERROR: ");
-        final static SymbolTerm ATOM_$0020$002D$0020arg$0020 = SYM(" - arg ");
-        final static SymbolTerm ATOM_$007BTYPE$0020ERROR$003A$0020 = SYM("{TYPE ERROR: ");
-        final static SymbolTerm ATOM_$003A$0020expected$0020 = SYM(": expected ");
-        final static SymbolTerm ATOM_$002C$0020found$0020 = SYM(", found ");
-        final static SymbolTerm ATOM_$007BDOMAIN$0020ERROR$003A$0020 = SYM("{DOMAIN ERROR: ");
-        final static SymbolTerm ATOM_$007BEXISTENCE$0020ERROR$003A$0020 = SYM("{EXISTENCE ERROR: ");
-        final static SymbolTerm ATOM_$0020does$0020not$0020exist = SYM(" does not exist");
-        final static SymbolTerm ATOM_$003A$0020 = SYM(": ");
-        final static SymbolTerm ATOM_$007BPERMISSION$0020ERROR$003A$0020 = SYM("{PERMISSION ERROR: ");
-        final static SymbolTerm ATOM_$0020$002D$0020can$0020not$0020 = SYM(" - can not ");
-        final static SymbolTerm ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 = SYM("{REPRESENTATION ERROR: ");
-        final static SymbolTerm ATOM_$003A$0020limit$0020of$0020 = SYM(": limit of ");
-        final static SymbolTerm ATOM_$0020is$0020breached = SYM(" is breached");
-        final static SymbolTerm ATOM_$007BEVALUATION$0020ERROR$003A$0020 = SYM("{EVALUATION ERROR: ");
-        final static SymbolTerm ATOM_$007BSYNTAX$0020ERROR$003A$0020 = SYM("{SYNTAX ERROR: ");
-        final static SymbolTerm ATOM_$007BSYSTEM$0020ERROR$003A$0020 = SYM("{SYSTEM ERROR: ");
-        final static SymbolTerm ATOM_$007BINTERNAL$0020ERROR$003A$0020 = SYM("{INTERNAL ERROR: ");
-        final static SymbolTerm ATOM_$007BJAVA$0020ERROR$003A$0020 = SYM("{JAVA ERROR: ");
-
-
-
-
-    public static Operation PRED_$error_message_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$error_message_1_var, FILE_builtins::$error_message_1_14, FILE_builtins::$error_message_1_14, FILE_builtins::$error_message_1_14, FILE_builtins::$error_message_1_var, FILE_builtins::$error_message_1_14); 
-    }
-
-    private final static Operation $error_message_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$error_message_1_var_1);
-        return $error_message_1_1(m);
-    }
-
-    private final static Operation $error_message_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_2);
-        return $error_message_1_2(m);
-    }
-
-    private final static Operation $error_message_1_var_2(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_3);
-        return $error_message_1_3(m);
-    }
-
-    private final static Operation $error_message_1_var_3(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_4);
-        return $error_message_1_4(m);
-    }
-
-    private final static Operation $error_message_1_var_4(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_5);
-        return $error_message_1_5(m);
-    }
-
-    private final static Operation $error_message_1_var_5(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_6);
-        return $error_message_1_6(m);
-    }
-
-    private final static Operation $error_message_1_var_6(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_7);
-        return $error_message_1_7(m);
-    }
-
-    private final static Operation $error_message_1_var_7(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_8);
-        return $error_message_1_8(m);
-    }
-
-    private final static Operation $error_message_1_var_8(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_9);
-        return $error_message_1_9(m);
-    }
-
-    private final static Operation $error_message_1_var_9(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_10);
-        return $error_message_1_10(m);
-    }
-
-    private final static Operation $error_message_1_var_10(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_11);
-        return $error_message_1_11(m);
-    }
-
-    private final static Operation $error_message_1_var_11(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_12);
-        return $error_message_1_12(m);
-    }
-
-    private final static Operation $error_message_1_var_12(Prolog m) { 
-        m.retry(null, FILE_builtins::$error_message_1_var_13);
-        return $error_message_1_13(m);
-    }
-
-    private final static Operation $error_message_1_var_13(Prolog m) { 
-        m.trust(null);
-        return $error_message_1_14(m);
-    }
-
-    private final static Operation $error_message_1_1(Prolog m) { 
-    // '$error_message'(instantiation_error(A,0)):-!,'$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(instantiation_error(A,0)):-['$neck_cut','$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            if (!a1.unify(C("instantiation_error", a2,  int_0 ), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
-    }
-
-    private final static Operation $error_message_1_2(Prolog m) { 
-    // '$error_message'(instantiation_error(A,B)):-!,'$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3;
-        Operation p1, p2, p3, p4, p5, p6;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(instantiation_error(A,B)):-['$neck_cut','$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C("instantiation_error", a2, a3), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))));
-    }
-
-    private final static Operation $error_message_1_3(Prolog m) { 
-    // '$error_message'(type_error(A,B,C,D)):-!,'$fast_write'(user_error,'{TYPE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(type_error(A,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{TYPE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            if (!a1.unify(C("type_error", a2, a3, a4, a5), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BTYPE$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
-    }
-
-    private final static Operation $error_message_1_4(Prolog m) { 
-    // '$error_message'(domain_error(A,B,C,D)):-!,'$fast_write'(user_error,'{DOMAIN ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(domain_error(A,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{DOMAIN ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            if (!a1.unify(C("domain_error", a2, a3, a4, a5), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BDOMAIN$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
-    }
-
-    private final static Operation $error_message_1_5(Prolog m) { 
-    // '$error_message'(existence_error(A,0,B,C,D)):-!,'$fast_write'(user_error,'{EXISTENCE ERROR: '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),write(user_error,C),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3;
-        Operation p1, p2, p3, p4, p5, p6, p7;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(existence_error(A,0,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{EXISTENCE ERROR: '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),write(user_error,C),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            if (!a1.unify(C("existence_error", V(m),  int_0 , a2, a3, V(m)), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))));
-    }
-
-    private final static Operation $error_message_1_6(Prolog m) { 
-    // '$error_message'(existence_error(A,B,C,D,E)):-!,'$fast_write'(user_error,'{EXISTENCE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(existence_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{EXISTENCE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            if (!a1.unify(C("existence_error", a2, a3, a4, a5, V(m)), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))))));
-    }
-
-    private final static Operation $error_message_1_7(Prolog m) { 
-    // '$error_message'(permission_error(A,B,C,D,E)):-!,'$fast_write'(user_error,'{PERMISSION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - can not '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,': '),'$fast_write'(user_error,E),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(permission_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{PERMISSION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - can not '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,': '),'$fast_write'(user_error,E),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
-            if (!a1.unify(C("permission_error", a2, a3, a4, a5, a6), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BPERMISSION$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020can$0020not$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a6), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))))));
-    }
-
-    private final static Operation $error_message_1_8(Prolog m) { 
-    // '$error_message'(representation_error(A,B,C)):-!,'$fast_write'(user_error,'{REPRESENTATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': limit of '),'$fast_write'(user_error,C),'$fast_write'(user_error,' is breached'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(representation_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{REPRESENTATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': limit of '),'$fast_write'(user_error,C),'$fast_write'(user_error,' is breached'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C("representation_error", a2, a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020limit$0020of$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020is$0020breached ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
-    }
-
-    private final static Operation $error_message_1_9(Prolog m) { 
-    // '$error_message'(evaluation_error(A,B,C)):-!,'$fast_write'(user_error,'{EVALUATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$fast_write'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(evaluation_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{EVALUATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$fast_write'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C("evaluation_error", a2, a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEVALUATION$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))));
-    }
-
-    private final static Operation $error_message_1_10(Prolog m) { 
-    // '$error_message'(syntax_error(A,B,C,D,E)):-!,'$fast_write'(user_error,'{SYNTAX ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(syntax_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{SYNTAX ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            if (!a1.unify(C("syntax_error", a2, a3, a4, a5, V(m)), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
-    }
-
-    private final static Operation $error_message_1_11(Prolog m) { 
-    // '$error_message'(system_error(A)):-!,'$fast_write'(user_error,'{SYSTEM ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(system_error(A)):-['$neck_cut','$fast_write'(user_error,'{SYSTEM ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            if (!a1.unify(C("system_error", a2), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYSTEM$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
-    }
-
-    private final static Operation $error_message_1_12(Prolog m) { 
-    // '$error_message'(internal_error(A)):-!,'$fast_write'(user_error,'{INTERNAL ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1, a2;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(internal_error(A)):-['$neck_cut','$fast_write'(user_error,'{INTERNAL ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            if (!a1.unify(C("internal_error", a2), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINTERNAL$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
-    }
-
-    private final static Operation $error_message_1_13(Prolog m) { 
-    // '$error_message'(java_error(A,B,C)):-!,'$fast_write'(user_error,'{JAVA ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$write_goal'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),'$print_stack_trace'(C),flush_output(user_error)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(java_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{JAVA ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$write_goal'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),'$print_stack_trace'(C),flush_output(user_error)]
-        a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
-            a4 = V(m);
-            if (!a1.unify(C("java_error", a2, a3, a4), m.trail)){
-                return m.fail();
-            }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BJAVA$0020ERROR$003A$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_builtins::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_$print_stack_trace_1_static_exec, VA(a4), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
-    }
-
-    private final static Operation $error_message_1_14(Prolog m) { 
-    // '$error_message'(A):-'$fast_write'(user_error,'{'),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)
-         Term a1;
-        Operation p1, p2, p3, p4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$error_message'(A):-['$fast_write'(user_error,'{'),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        return Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007B ), Op(FILE_builtins::PRED_write_2_static_exec, VA( ATOM_user_error , a1), Op(FILE_builtins::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_builtins::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_builtins::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
-    }
-/** PREDICATE: $write_goal/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$write_goal_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::$write_goal_2_sub_1);
-        return $write_goal_2_1(m);
-    }
-
-    private final static Operation $write_goal_2_sub_1(Prolog m) { 
-        m.trust(null);
-        return $write_goal_2_2(m);
-    }
-
-    private final static Operation $write_goal_2_1(Prolog m) { 
-    // '$write_goal'(A,B):-java(B),!,'$write_toString'(A,B)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_goal'(A,B):-['$get_level'(C),java(B),'$cut'(C),'$write_toString'(A,B)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of java(a(2))
-        a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        return Op(FILE_builtins::PRED_$write_toString_2_static_exec, VA(a1, a2), cont);
-    }
-
-    private final static Operation $write_goal_2_2(Prolog m) { 
-    // '$write_goal'(A,B):-write(A,B)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$write_goal'(A,B):-[write(A,B)]
-        return Op(FILE_builtins::PRED_write_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: illarg/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -26630,11 +21985,12 @@ m.cont = cont;
             return m.fail();
         Term[] y1 = VA(a2, a3);
         a4 = S("instantiation_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a4), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a4), cont);
     }
 
     private final static Operation illarg_3_3(Prolog m) { 
-    // illarg(type(A),B,C):-arg(C,B,D),'$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E),raise_exception(E)
+    // illarg(type(A),B,C):-arg(C,B,D),'$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E),raise_exception(E)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
@@ -26642,7 +21998,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // illarg(type(A),B,C):-[arg(C,B,D),'$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E),raise_exception(E)]
+    // illarg(type(A),B,C):-[arg(C,B,D),'$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E),raise_exception(E)]
         a1 = a1.dref();
             a4 = V(m);
             if (!a1.unify(C("type", a4), m.trail)){
@@ -26650,11 +22006,14 @@ m.cont = cont;
             }
         a5 = V(m);
         a6 = V(m);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA(a3, a2, a5), Op(FILE_builtins::PRED_$dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec, VA(a4, a2, a3, a5, a6), Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a6), cont)));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA(a3, a2, a5), //
+ Op((e)->PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(e), VA(a4, a2, a3, a5, a6), //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a6), cont)));
     }
 
     private final static Operation illarg_3_4(Prolog m) { 
-    // illarg(domain(A,B),C,D):-arg(D,C,E),'$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F),raise_exception(F)
+    // illarg(domain(A,B),C,D):-arg(D,C,E),'$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F),raise_exception(F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
@@ -26662,7 +22021,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // illarg(domain(A,B),C,D):-[arg(D,C,E),'$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F),raise_exception(F)]
+    // illarg(domain(A,B),C,D):-[arg(D,C,E),'$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F),raise_exception(F)]
         a1 = a1.dref();
             a4 = V(m);
             a5 = V(m);
@@ -26671,7 +22030,10 @@ m.cont = cont;
             }
         a6 = V(m);
         a7 = V(m);
-        return Op(FILE_builtins::PRED_arg_3_static_exec, VA(a3, a2, a6), Op(FILE_builtins::PRED_$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec, VA(a4, a5, a2, a3, a6, a7), Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a7), cont)));
+        return //
+ Op((e)->PRED_arg_3_static_exec(e), VA(a3, a2, a6), //
+ Op((e)->PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(e), VA(a4, a5, a2, a3, a6, a7), //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a7), cont)));
     }
 
     private final static Operation illarg_3_5(Prolog m) { 
@@ -26692,7 +22054,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a3, a4, a5, a6);
         a7 = S("existence_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation illarg_3_6(Prolog m) { 
@@ -26714,7 +22077,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a4, a5, a6, a7);
         a8 = S("permission_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a8), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a8), cont);
     }
 
     private final static Operation illarg_3_7(Prolog m) { 
@@ -26733,7 +22097,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a3, a4);
         a5 = S("representation_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation illarg_3_8(Prolog m) { 
@@ -26752,7 +22117,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a3, a4);
         a5 = S("evaluation_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation illarg_3_9(Prolog m) { 
@@ -26773,7 +22139,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a3, a4, a5, a6);
         a7 = S("syntax_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a7), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a7), cont);
     }
 
     private final static Operation illarg_3_10(Prolog m) { 
@@ -26792,7 +22159,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a4);
         a5 = S("system_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation illarg_3_11(Prolog m) { 
@@ -26811,7 +22179,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a4);
         a5 = S("internal_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation illarg_3_12(Prolog m) { 
@@ -26830,7 +22199,8 @@ m.cont = cont;
             }
         Term[] y1 = VA(a2, a3, a4);
         a5 = S("java_error", y1);
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a5), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation illarg_3_13(Prolog m) { 
@@ -26842,9 +22212,10 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // illarg(A,B,C):-[raise_exception(A)]
-        return Op(FILE_builtins::PRED_raise_exception_1_static_exec, VA(a1), cont);
+        return //
+ Op((e)->PRED_raise_exception_1_static_exec(e), VA(a1), cont);
     }
-/** PREDICATE: $dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/5
+/** PREDICATE: $dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
 
@@ -26853,21 +22224,21 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 
 
 
-    public static Operation PRED_$dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry5(null, FILE_builtins::$dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1);
-        return $dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(m);
+        m.jtry5(null, FILE_builtins::$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1);
+        return $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(m);
     }
 
-    private final static Operation $dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1(Prolog m) { 
+    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(m);
+        return $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(m);
     }
 
-    private final static Operation $dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(Prolog m) { 
-    // '$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-nonvar(D),!,E=type_error(B,C,A,D)
+    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(Prolog m) { 
+    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-nonvar(D),!,E=type_error(B,C,A,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
         a1 = m.AREGS[0];
@@ -26876,7 +22247,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // '$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$get_level'(F),nonvar(D),'$cut'(F),'$unify'(E,type_error(B,C,A,D))]
+    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$get_level'(F),nonvar(D),'$cut'(F),'$unify'(E,type_error(B,C,A,D))]
         a6 = V(m);
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
@@ -26903,8 +22274,8 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(Prolog m) { 
-    // '$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-E=instantiation_error(B,C)
+    private final static Operation $dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(Prolog m) { 
+    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-E=instantiation_error(B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -26913,7 +22284,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // '$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$unify'(E,instantiation_error(B,C))]
+    // '$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$unify'(E,instantiation_error(B,C))]
         Term[] y1 = VA(a2, a3);
         a6 = S("instantiation_error", y1);
         //START inline expansion of $unify(a(5),a(6))
@@ -26923,7 +22294,7 @@ m.cont = cont;
         //END inline expansion
         return cont;
     }
-/** PREDICATE: $dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/6
+/** PREDICATE: $dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/6
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
 
@@ -26932,26 +22303,26 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 
 
 
-    public static Operation PRED_$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry6(null, FILE_builtins::$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1);
-        return $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(m);
+        m.jtry6(null, FILE_builtins::$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1);
+        return $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(m);
     }
 
-    private final static Operation $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_2);
-        return $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(m);
+    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_1(Prolog m) { 
+        m.retry(null, FILE_builtins::$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_2);
+        return $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(m);
     }
 
-    private final static Operation $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_2(Prolog m) { 
+    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_sub_2(Prolog m) { 
         m.trust(null);
-        return $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_3(m);
+        return $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_3(m);
     }
 
-    private final static Operation $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(Prolog m) { 
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-'$match_type'(A,E),!,F=domain_error(C,D,B,E)
+    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_1(Prolog m) { 
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-'$match_type'(A,E),!,F=domain_error(C,D,B,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
@@ -26962,7 +22333,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$get_level'(G),'$match_type'(A,E),'$cut'(G),'$unify'(F,domain_error(C,D,B,E))]
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$get_level'(G),'$match_type'(A,E),'$cut'(G),'$unify'(F,domain_error(C,D,B,E))]
         a7 = V(m);
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
@@ -26971,11 +22342,14 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a3, a4, a2, a5);
         a8 = S("domain_error", y1);
-        return Op(FILE_builtins::PRED_$match_type_2_static_exec, VA(a1, a5), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a7), Op(FILE_builtins::PRED_$unify_2_static_exec, VA(a6, a8), cont)));
+        return //
+ Op((e)->PRED_$match_type_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a7), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a6, a8), cont)));
     }
 
-    private final static Operation $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(Prolog m) { 
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-'$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,C,D,E,F)
+    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_2(Prolog m) { 
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-'$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -26985,12 +22359,13 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,C,D,E,F)]
-        return Op(FILE_builtins::PRED_$dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec, VA(a1, a3, a4, a5, a6), cont);
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,C,D,E,F)]
+        return //
+ Op((e)->PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(e), VA(a1, a3, a4, a5, a6), cont);
     }
 
-    private final static Operation $dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_3(Prolog m) { 
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-F=instantiation_error(C,D)
+    private final static Operation $dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_3(Prolog m) { 
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-F=instantiation_error(C,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
         a1 = m.AREGS[0];
@@ -27000,7 +22375,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$unify'(F,instantiation_error(C,D))]
+    // '$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E,F):-['$unify'(F,instantiation_error(C,D))]
         Term[] y1 = VA(a3, a4);
         a7 = S("instantiation_error", y1);
         //START inline expansion of $unify(a(6),a(7))
@@ -27010,7 +22385,7 @@ m.cont = cont;
         //END inline expansion
         return cont;
     }
-/** PREDICATE: $dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/5
+/** PREDICATE: $dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
 
@@ -27019,21 +22394,21 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 
 
 
-    public static Operation PRED_$dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry5(null, FILE_builtins::$dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1);
-        return $dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(m);
+        m.jtry5(null, FILE_builtins::$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1);
+        return $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(m);
     }
 
-    private final static Operation $dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1(Prolog m) { 
+    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(m);
+        return $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(m);
     }
 
-    private final static Operation $dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(Prolog m) { 
-    // '$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-nonvar(D),!,E=type_error(B,C,A,D)
+    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_1(Prolog m) { 
+    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-nonvar(D),!,E=type_error(B,C,A,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
         a1 = m.AREGS[0];
@@ -27042,7 +22417,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // '$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$get_level'(F),nonvar(D),'$cut'(F),'$unify'(E,type_error(B,C,A,D))]
+    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-['$get_level'(F),nonvar(D),'$cut'(F),'$unify'(E,type_error(B,C,A,D))]
         a6 = V(m);
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
@@ -27069,8 +22444,8 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(Prolog m) { 
-    // '$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-fail
+    private final static Operation $dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_2(Prolog m) { 
+    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-fail
          Term a1, a2, a3, a4, a5;
         Operation cont;
         a1 = m.AREGS[0];
@@ -27079,7 +22454,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // '$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-[fail]
+    // '$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C,D,E):-[fail]
         //START inline expansion of fail
         return m.fail();
         //END inline expansion
@@ -27092,7 +22467,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         final static SymbolTerm ATOM_byte = SYM("byte");
         final static IntegerTerm int_255 = Integer(255);
         final static SymbolTerm ATOM_in_byte = SYM("in_byte");
-        final static IntegerTerm negint_1 = Integer(-1);
+        final static IntegerTerm int_neg1 = Integer(-1);
         final static SymbolTerm ATOM_character = SYM("character");
         final static SymbolTerm ATOM_in_character = SYM("in_character");
         final static SymbolTerm ATOM_number = SYM("number");
@@ -27101,6 +22476,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
         final static SymbolTerm ATOM_compound = SYM("compound");
         final static SymbolTerm ATOM_list = SYM("list");
         final static SymbolTerm ATOM_java = SYM("java");
+        final static SymbolTerm ATOM_stream = SYM("stream");
         final static SymbolTerm ATOM_java$002Eio$002EPushbackReader = SYM("java.io.PushbackReader");
         final static SymbolTerm ATOM_java$002Eio$002EPrintWriter = SYM("java.io.PrintWriter");
         final static SymbolTerm ATOM_stream_or_alias = SYM("stream_or_alias");
@@ -27375,8 +22751,8 @@ m.cont = cont;
         }
         //END inline expansion
         a3 = V(m);
-        //START inline expansion of a(3)is@(negint_1)
-        if (! a3.unify(Arithmetic.evaluate(negint_1), m.trail)) {
+        //START inline expansion of a(3)is@(int_neg1)
+        if (! a3.unify(Arithmetic.evaluate(int_neg1), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -27415,7 +22791,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_atom_length_2_static_exec, VA(a2,  int_1 ), cont);
+        return //
+ Op((e)->PRED_atom_length_2_static_exec(e), VA(a2,  int_1 ), cont);
     }
 
     private final static Operation $match_type_2_8(Prolog m) { 
@@ -27430,7 +22807,6 @@ m.cont = cont;
             return m.fail();
         //START inline expansion of $equality_of_term(a(2),@(ATOM_end_of_file))
         a2 = a2.dref();
-        // ATOM_end_of_file  =  ATOM_end_of_file .dref();
         if (! a2.equalsTerm(ATOM_end_of_file)) {
             return m.fail();
         }
@@ -27540,7 +22916,8 @@ m.cont = cont;
     // '$match_type'(callable,A):-[callable(A)]
         if (!  ATOM_callable .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $match_type_2_15(Prolog m) { 
@@ -27553,17 +22930,18 @@ m.cont = cont;
     // '$match_type'(compound,A):-[compound(A)]
         if (!  ATOM_compound .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_compound_1_static_exec, VA(a2), cont);
+        return //
+ Op((e)->PRED_compound_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $match_type_2_16(Prolog m) { 
-    // '$match_type'(list,A):-nonvar(A),'$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C)
+    // '$match_type'(list,A):-nonvar(A),'$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C)
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$match_type'(list,A):-[nonvar(A),'$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C)]
+    // '$match_type'(list,A):-[nonvar(A),'$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C)]
         if (!  ATOM_list .unify(a1, m.trail))
             return m.fail();
         //START inline expansion of nonvar(a(2))
@@ -27572,7 +22950,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_builtins::PRED_$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec, VA(a2, V(m), V(m)), cont);
+        return //
+ Op((e)->PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(e), VA(a2, V(m), V(m)), cont);
     }
 
     private final static Operation $match_type_2_17(Prolog m) { 
@@ -27595,29 +22974,47 @@ m.cont = cont;
     }
 
     private final static Operation $match_type_2_18(Prolog m) { 
-    // '$match_type'(stream,A):-jinstanceof(A,'java.io.PushbackReader')
+    // '$match_type'(stream,A):-java(A,'java.io.PushbackReader')
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$match_type'(stream,A):-[jinstanceof(A,'java.io.PushbackReader')]
+    // '$match_type'(stream,A):-[java(A,'java.io.PushbackReader')]
         if (!  ATOM_stream .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_jinstanceof_2_static_exec, VA(a2,  ATOM_java$002Eio$002EPushbackReader ), cont);
+        //START inline expansion of java(a(2),@(ATOM_java$002Eio$002EPushbackReader))
+        a2 = a2.dref();
+        if (! (a2 .isFFIObject())) {
+            return m.fail();
+        }
+        if (! ATOM_java$002Eio$002EPushbackReader.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return cont;
     }
 
     private final static Operation $match_type_2_19(Prolog m) { 
-    // '$match_type'(stream,A):-jinstanceof(A,'java.io.PrintWriter')
+    // '$match_type'(stream,A):-java(A,'java.io.PrintWriter')
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$match_type'(stream,A):-[jinstanceof(A,'java.io.PrintWriter')]
+    // '$match_type'(stream,A):-[java(A,'java.io.PrintWriter')]
         if (!  ATOM_stream .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_jinstanceof_2_static_exec, VA(a2,  ATOM_java$002Eio$002EPrintWriter ), cont);
+        //START inline expansion of java(a(2),@(ATOM_java$002Eio$002EPrintWriter))
+        a2 = a2.dref();
+        if (! (a2 .isFFIObject())) {
+            return m.fail();
+        }
+        if (! ATOM_java$002Eio$002EPrintWriter.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return cont;
     }
 
     private final static Operation $match_type_2_20(Prolog m) { 
@@ -27665,7 +23062,16 @@ m.cont = cont;
     // '$match_type'(hash,A):-[jinstanceof(A,'SxxMachine.HashtableOfTerm')]
         if (!  ATOM_hash .unify(a1, m.trail))
             return m.fail();
-        return Op(FILE_builtins::PRED_jinstanceof_2_static_exec, VA(a2,  ATOM_SxxMachine$002EHashtableOfTerm ), cont);
+        //START inline expansion of jinstanceof(a(2),@(ATOM_SxxMachine$002EHashtableOfTerm))
+        a2 = a2.dref();
+        if (! (a2 .isFFIObject())) {
+            return m.fail();
+        }
+        if (! ATOM_SxxMachine$002EHashtableOfTerm.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return cont;
     }
 
     private final static Operation $match_type_2_23(Prolog m) { 
@@ -27751,339 +23157,59 @@ m.cont = cont;
         //END inline expansion
         return cont;
     }
-/** PREDICATE: $dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
+/** PREDICATE: $dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
-    private static final SymbolTerm PRED_$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1 = SYM("[]");
+    private static final SymbolTerm PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1 = SYM("[]");
 
 
 
 
-    public static Operation PRED_$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_builtins::$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1);
-        return $dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(m);
+        m.jtry3(null, FILE_builtins::$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1);
+        return $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(m);
+        return $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(Prolog m) { 
-    // '$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A=[]
+    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_1(Prolog m) { 
+    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A=[]
          Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$unify'(A,[])]
+    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$unify'(A,[])]
         //START inline expansion of $unify(a(1),s(1))
-        if (! a1.unify(PRED_$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, m.trail)) {
+        if (! a1.unify(PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_s1, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return cont;
     }
 
-    private final static Operation $dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
-    // '$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A=[B|C]
+    private final static Operation $dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_2(Prolog m) { 
+    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-A=[B|C]
          Term a1, a2, a3, a4;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$unify'(A,[B|C])]
+    // '$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A,B,C):-['$unify'(A,[B|C])]
         a4 = CONS(a2, a3);
         //START inline expansion of $unify(a(1),a(4))
         if (! a1.unify(a4, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        return cont;
-    }
-/** PREDICATE: $dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::$dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
-        return $dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
-    }
-
-    private final static Operation $dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
-    }
-
-    private final static Operation $dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
-    // '$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-atom(A),!,fail
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),atom(A),'$cut'(B),fail]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        //START inline expansion of fail
-        return m.fail();
-        //END inline expansion
-    }
-
-    private final static Operation $dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
-    // '$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
-        return cont;
-    }
-/** PREDICATE: $dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::$dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
-        return $dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
-    }
-
-    private final static Operation $dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
-    }
-
-    private final static Operation $dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
-    // '$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-java(A),!,fail
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),java(A),'$cut'(B),fail]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of java(a(1))
-        a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(2))
-        a2 = a2.dref();
-                  m.cut( a2.intValue());
-        //END inline expansion
-        //START inline expansion of fail
-        return m.fail();
-        //END inline expansion
-    }
-
-    private final static Operation $dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
-    // '$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
-        return cont;
-    }
-/** PREDICATE: with_mutex/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final StructureTerm PRED_with_mutex_2_s4 = S("type",  ATOM_atom );
-    private static final StructureTerm PRED_with_mutex_2_s11 = S("type",  ATOM_callable );
-
-
-
-
-    public static Operation PRED_with_mutex_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry2(null, FILE_builtins::with_mutex_2_sub_1);
-        return with_mutex_2_1(m);
-    }
-
-    private final static Operation with_mutex_2_sub_1(Prolog m) { 
-        m.retry(null, FILE_builtins::with_mutex_2_sub_2);
-        return with_mutex_2_2(m);
-    }
-
-    private final static Operation with_mutex_2_sub_2(Prolog m) { 
-        m.retry(null, FILE_builtins::with_mutex_2_sub_3);
-        return with_mutex_2_3(m);
-    }
-
-    private final static Operation with_mutex_2_sub_3(Prolog m) { 
-        m.trust(null);
-        return with_mutex_2_4(m);
-    }
-
-    private final static Operation with_mutex_2_1(Prolog m) { 
-    // with_mutex(A,B):-'$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),!,illarg(type(atom),with_mutex(A,B),1)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // with_mutex(A,B):-['$get_level'(C),'$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$cut'(C),illarg(type(atom),with_mutex(A,B),1)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a1, a2);
-        a4 = S("with_mutex", y1);
-        return Op(FILE_builtins::PRED_$dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_with_mutex_2_s4, a4,  int_1 ), cont))));
-    }
-
-    private final static Operation with_mutex_2_2(Prolog m) { 
-    // with_mutex(A,B):-var(B),!,illarg(var,with_mutex(A,B),2)
-         Term a1, a2, a3, a4;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // with_mutex(A,B):-['$get_level'(C),var(B),'$cut'(C),illarg(var,with_mutex(A,B),2)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of var(a(2))
-        a2 = a2.dref();
-        if (! (a2 .isVariable())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        Term[] y1 = VA(a1, a2);
-        a4 = S("with_mutex", y1);
-        return Op(FILE_builtins::PRED_illarg_3_static_exec, VA( ATOM_var , a4,  int_2 ), cont);
-    }
-
-    private final static Operation with_mutex_2_3(Prolog m) { 
-    // with_mutex(A,B):-'$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B),!,illarg(type(callable),with_mutex(A,B),2)
-         Term a1, a2, a3, a4;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // with_mutex(A,B):-['$get_level'(C),'$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B),'$cut'(C),illarg(type(callable),with_mutex(A,B),2)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA(a1, a2);
-        a4 = S("with_mutex", y1);
-        return Op(FILE_builtins::PRED_$dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_illarg_3_static_exec, VA(PRED_with_mutex_2_s11, a4,  int_2 ), cont)));
-    }
-
-    private final static Operation with_mutex_2_4(Prolog m) { 
-    // with_mutex(A,B):-mutex_lock_bt(A),call(B),!,mutex_unlock(A)
-         Term a1, a2, a3, a4;
-        Operation p1, p2, p3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // with_mutex(A,B):-['$get_level'(C),mutex_lock_bt(A),call('SxxMachine.builtin':B),'$cut'(C),mutex_unlock(A)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
-        a4 = S(":", y1);
-        return Op(FILE_builtins::PRED_mutex_lock_bt_1_static_exec, VA(a1), Op(FILE_builtins::PRED_call_1_static_exec, VA(a4), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a3), Op(FILE_builtins::PRED_mutex_unlock_1_static_exec, VA(a1), cont))));
-    }
-/** PREDICATE: $dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-
-
-
-
-    public static Operation PRED_$dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        m.jtry1(null, FILE_builtins::$dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
-        return $dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
-    }
-
-    private final static Operation $dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
-        m.trust(null);
-        return $dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
-    }
-
-    private final static Operation $dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
-    // '$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-callable(A),!,fail
-         Term a1, a2;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),callable(A),'$cut'(B),fail]
-        a2 = V(m);
-        //START inline expansion of $get_level(a(2))
-        if (! a2.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        return Op(FILE_builtins::PRED_callable_1_static_exec, VA(a1), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a2), Op(fail_0, VA(), cont)));
-    }
-
-    private final static Operation $dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
-    // '$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
         return cont;
     }
 /** PREDICATE: $builtin_append/3
@@ -28170,108 +23296,6 @@ m.cont = cont;
 m.cont = cont;
         return $builtin_append_3_top(m);
     }
-/** PREDICATE: $builtin_message/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
-*/
-    private static final SymbolTerm PRED_$builtin_message_1_s1 = SYM("[]");
-
-
-
-
-    public static Operation PRED_$builtin_message_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
-        m.setB0();
-        return m.switch_on_term(FILE_builtins::$builtin_message_1_var, fail_0, fail_0, FILE_builtins::$builtin_message_1_1, fail_0, FILE_builtins::$builtin_message_1_lis); 
-    }
-
-    private final static Operation $builtin_message_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$builtin_message_1_var_1);
-        return $builtin_message_1_1(m);
-    }
-
-    private final static Operation $builtin_message_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::$builtin_message_1_var_2);
-        return $builtin_message_1_2(m);
-    }
-
-    private final static Operation $builtin_message_1_var_2(Prolog m) { 
-        m.trust(null);
-        return $builtin_message_1_3(m);
-    }
-
-    private final static Operation $builtin_message_1_lis(Prolog m) { 
-        m.jtry1(null, FILE_builtins::$builtin_message_1_lis_1);
-        return $builtin_message_1_2(m);
-    }
-
-    private final static Operation $builtin_message_1_lis_1(Prolog m) { 
-        m.trust(null);
-        return $builtin_message_1_3(m);
-    }
-
-    private final static Operation $builtin_message_1_1(Prolog m) { 
-    // '$builtin_message'([]):-!
-         Term a1;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$builtin_message'([]):-['$neck_cut']
-        if (! PRED_$builtin_message_1_s1.unify(a1, m.trail))
-            return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return cont;
-    }
-
-    private final static Operation $builtin_message_1_2(Prolog m) { 
-    // '$builtin_message'([A]):-!,write(A)
-         Term a1, a2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$builtin_message'([A]):-['$neck_cut',write(A)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            if (! PRED_$builtin_message_1_s1.unify(argz[1], m.trail))
-                return m.fail();
-        } else if (a1.isVar()){
-            a2 = V(m);
-             a1.bind(CONS(a2, PRED_$builtin_message_1_s1), m.trail);
-        } else {
-            return m.fail();
-        }
-        //START inline expansion of $neck_cut
-        m.neckCut();
-        //END inline expansion
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a2), cont);
-    }
-
-    private final static Operation $builtin_message_1_3(Prolog m) { 
-    // '$builtin_message'([A|B]):-write(A),'$fast_write'(' '),'$builtin_message'(B)
-         Term a1, a2, a3;
-        Operation p1, p2;
-        Operation cont;
-        a1 = m.AREGS[0];
-        cont = m.cont;
-    // '$builtin_message'([A|B]):-[write(A),'$fast_write'(' '),'$builtin_message'(B)]
-        a1 = a1.dref();
-        if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            a3 = argz[1];
-        } else if (a1.isVar()){
-            a2 = V(m);
-            a3 = V(m);
-             a1.bind(CONS(a2, a3), m.trail);
-        } else {
-            return m.fail();
-        }
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA(a2), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_$0020 ), Op(FILE_builtins::PRED_$builtin_message_1_static_exec, VA(a3), cont)));
-    }
 /** PREDICATE: $member_in_reverse/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
@@ -28340,71 +23364,622 @@ m.cont = cont;
         }
         return cont;
     }
-/** PREDICATE: animal/1
+/** PREDICATE: $dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 */
-    private static final SymbolTerm PRED_animal_1_s1 = SYM("goat");
-        final static SymbolTerm ATOM_elephant = SYM("elephant");
-        final static SymbolTerm ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
 
 
-    public static Operation PRED_animal_1_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_builtins::animal_1_var, FILE_builtins::animal_1_3, FILE_builtins::animal_1_3, FILE_builtins::animal_1_var, FILE_builtins::animal_1_3, FILE_builtins::animal_1_3); 
+        m.jtry1(null, FILE_builtins::$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
+        return $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
     }
 
-    private final static Operation animal_1_var(Prolog m) { 
-        m.jtry1(null, FILE_builtins::animal_1_var_1);
-        return animal_1_1(m);
-    }
-
-    private final static Operation animal_1_var_1(Prolog m) { 
-        m.retry(null, FILE_builtins::animal_1_var_2);
-        return animal_1_2(m);
-    }
-
-    private final static Operation animal_1_var_2(Prolog m) { 
+    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
         m.trust(null);
-        return animal_1_3(m);
+        return $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
     }
 
-    private final static Operation animal_1_1(Prolog m) { 
-    // animal(goat):-true
+    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
+    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-atom(A),!,fail
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),atom(A),'$cut'(B),fail]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of atom(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isSymbol())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        //START inline expansion of fail
+        return m.fail();
+        //END inline expansion
+    }
+
+    private final static Operation $dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
+    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // animal(goat):-[]
-        if (! PRED_animal_1_s1.unify(a1, m.trail))
-            return m.fail();
+    // '$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
         return cont;
     }
+/** PREDICATE: $dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
 
-    private final static Operation animal_1_2(Prolog m) { 
-    // animal(elephant):-true
+
+
+
+    public static Operation PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry1(null, FILE_builtins::$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
+        return $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
+    }
+
+    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
+        m.trust(null);
+        return $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
+    }
+
+    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
+    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-java(A),!,fail
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),java(A),'$cut'(B),fail]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of java(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isFFIObject())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        //START inline expansion of fail
+        return m.fail();
+        //END inline expansion
+    }
+
+    private final static Operation $dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
+    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // animal(elephant):-[]
-        if (!  ATOM_elephant .unify(a1, m.trail))
-            return m.fail();
+    // '$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
         return cont;
     }
+/** PREDICATE: with_mutex/2
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+    private static final StructureTerm PRED_with_mutex_2_s4 = S("type",  ATOM_atom );
+    private static final StructureTerm PRED_with_mutex_2_s11 = S("type",  ATOM_callable );
 
-    private final static Operation animal_1_3(Prolog m) { 
-    // animal(A):-write('please type one more animal name: '),nl,flush_output,read(A)
-         Term a1;
+
+
+
+    public static Operation PRED_with_mutex_2_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry2(null, FILE_builtins::with_mutex_2_sub_1);
+        return with_mutex_2_1(m);
+    }
+
+    private final static Operation with_mutex_2_sub_1(Prolog m) { 
+        m.retry(null, FILE_builtins::with_mutex_2_sub_2);
+        return with_mutex_2_2(m);
+    }
+
+    private final static Operation with_mutex_2_sub_2(Prolog m) { 
+        m.retry(null, FILE_builtins::with_mutex_2_sub_3);
+        return with_mutex_2_3(m);
+    }
+
+    private final static Operation with_mutex_2_sub_3(Prolog m) { 
+        m.trust(null);
+        return with_mutex_2_4(m);
+    }
+
+    private final static Operation with_mutex_2_1(Prolog m) { 
+    // with_mutex(A,B):-'$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),!,illarg(type(atom),with_mutex(A,B),1)
+         Term a1, a2, a3, a4;
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
         cont = m.cont;
-    // animal(A):-[write('please type one more animal name: '),nl,flush_output,read(A)]
-        return Op(FILE_builtins::PRED_write_1_static_exec, VA( ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_flush_output_0_static_exec, VA(), Op(FILE_builtins::PRED_read_1_static_exec, VA(a1), cont))));
+    // with_mutex(A,B):-['$get_level'(C),'$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A),'$cut'(C),illarg(type(atom),with_mutex(A,B),1)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        Term[] y1 = VA(a1, a2);
+        a4 = S("with_mutex", y1);
+        return //
+ Op((e)->PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_with_mutex_2_s4, a4,  int_1 ), cont))));
+    }
+
+    private final static Operation with_mutex_2_2(Prolog m) { 
+    // with_mutex(A,B):-var(B),!,illarg(var,with_mutex(A,B),2)
+         Term a1, a2, a3, a4;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // with_mutex(A,B):-['$get_level'(C),var(B),'$cut'(C),illarg(var,with_mutex(A,B),2)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of var(a(2))
+        a2 = a2.dref();
+        if (! (a2 .isVariable())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(3))
+        a3 = a3.dref();
+                  m.cut( a3.intValue());
+        //END inline expansion
+        Term[] y1 = VA(a1, a2);
+        a4 = S("with_mutex", y1);
+        return //
+ Op((e)->PRED_illarg_3_static_exec(e), VA( ATOM_var , a4,  int_2 ), cont);
+    }
+
+    private final static Operation with_mutex_2_3(Prolog m) { 
+    // with_mutex(A,B):-'$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B),!,illarg(type(callable),with_mutex(A,B),2)
+         Term a1, a2, a3, a4;
+        Operation p1, p2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // with_mutex(A,B):-['$get_level'(C),'$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(B),'$cut'(C),illarg(type(callable),with_mutex(A,B),2)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        Term[] y1 = VA(a1, a2);
+        a4 = S("with_mutex", y1);
+        return //
+ Op((e)->PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(e), VA(a2), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_with_mutex_2_s11, a4,  int_2 ), cont)));
+    }
+
+    private final static Operation with_mutex_2_4(Prolog m) { 
+    // with_mutex(A,B):-mutex_lock_bt(A),call(B),!,mutex_unlock(A)
+         Term a1, a2, a3, a4;
+        Operation p1, p2, p3;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // with_mutex(A,B):-['$get_level'(C),mutex_lock_bt(A),call('SxxMachine.builtin':B),'$cut'(C),mutex_unlock(A)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
+        a4 = S(":", y1);
+        return //
+ Op((e)->PRED_mutex_lock_bt_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
+ Op((e)->PRED_mutex_unlock_1_static_exec(e), VA(a1), cont))));
+    }
+/** PREDICATE: $dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry1(null, FILE_builtins::$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1);
+        return $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(m);
+    }
+
+    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_sub_1(Prolog m) { 
+        m.trust(null);
+        return $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(m);
+    }
+
+    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_1(Prolog m) { 
+    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-callable(A),!,fail
+         Term a1, a2;
+        Operation p1, p2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-['$get_level'(B),callable(A),'$cut'(B),fail]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return //
+ Op((e)->PRED_callable_1_static_exec(e), VA(a1), //
+ Op((e)->PRED_$cut_1_static_exec(e), VA(a2), //
+ Op(fail_0, VA(), cont)));
+    }
+
+    private final static Operation $dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_2(Prolog m) { 
+    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-true
+         Term a1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl'(A):-[]
+        return cont;
+    }
+/** PREDICATE: java_constructor/2
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_constructor_2_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_constructor(A,B):-A=..[C|D],builtin_java_convert_args(D,E),F=..[C|E],java_constructor0(F,G),B=G
+        m.setB0();
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
+        Operation p1, p2, p3, p4;
+        a1 = LARG[0];
+        a2 = LARG[1];
+    // java_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_constructor0(F,G),'$unify'(B,G)]
+        a3 = V(m);
+        a4 = V(m);
+        a5 = CONS(a3, a4);
+        a6 = V(m);
+        a7 = V(m);
+        a8 = CONS(a3, a6);
+        a9 = V(m);
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_builtin_java_convert_args_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a7, a8), //
+ Op((e)->PRED_java_constructor0_2_static_exec(e), VA(a7, a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a9), cont)))));
+    }
+/** PREDICATE: java_declared_constructor/2
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_declared_constructor_2_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_declared_constructor(A,B):-A=..[C|D],builtin_java_convert_args(D,E),F=..[C|E],java_declared_constructor0(F,G),B=G
+        m.setB0();
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
+        Operation p1, p2, p3, p4;
+        a1 = LARG[0];
+        a2 = LARG[1];
+    // java_declared_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_declared_constructor0(F,G),'$unify'(B,G)]
+        a3 = V(m);
+        a4 = V(m);
+        a5 = CONS(a3, a4);
+        a6 = V(m);
+        a7 = V(m);
+        a8 = CONS(a3, a6);
+        a9 = V(m);
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a1, a5), //
+ Op((e)->PRED_builtin_java_convert_args_2_static_exec(e), VA(a4, a6), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a7, a8), //
+ Op((e)->PRED_java_declared_constructor0_2_static_exec(e), VA(a7, a9), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a9), cont)))));
+    }
+/** PREDICATE: java_method/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_method_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_method(A,B,C):-B=..[D|E],builtin_java_convert_args(E,F),G=..[D|F],java_method0(A,G,H),java_conversion(I,H),C=I
+        m.setB0();
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
+        Operation p1, p2, p3, p4, p5;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
+        a4 = V(m);
+        a5 = V(m);
+        a6 = CONS(a4, a5);
+        a7 = V(m);
+        a8 = V(m);
+        a9 = CONS(a4, a7);
+        a10 = V(m);
+        a11 = V(m);
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a2, a6), //
+ Op((e)->PRED_builtin_java_convert_args_2_static_exec(e), VA(a5, a7), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a8, a9), //
+ Op((e)->PRED_java_method0_3_static_exec(e), VA(a1, a8, a10), //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a11), cont))))));
+    }
+/** PREDICATE: java_declared_method/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_declared_method_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_declared_method(A,B,C):-B=..[D|E],builtin_java_convert_args(E,F),G=..[D|F],java_declared_method0(A,G,H),java_conversion(I,H),C=I
+        m.setB0();
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
+        Operation p1, p2, p3, p4, p5;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_declared_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_declared_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
+        a4 = V(m);
+        a5 = V(m);
+        a6 = CONS(a4, a5);
+        a7 = V(m);
+        a8 = V(m);
+        a9 = CONS(a4, a7);
+        a10 = V(m);
+        a11 = V(m);
+        return //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a2, a6), //
+ Op((e)->PRED_builtin_java_convert_args_2_static_exec(e), VA(a5, a7), //
+ Op((e)->PRED_$univ_2_static_exec(e), VA(a8, a9), //
+ Op((e)->PRED_java_declared_method0_3_static_exec(e), VA(a1, a8, a10), //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a11, a10), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a11), cont))))));
+    }
+/** PREDICATE: java_get_field/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_get_field_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_get_field(A,B,C):-java_get_field0(A,B,D),java_conversion(E,D),C=E
+        m.setB0();
+         Term a1, a2, a3, a4, a5;
+        Operation p1, p2;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_get_field(A,B,C):-[java_get_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
+        a4 = V(m);
+        a5 = V(m);
+        return //
+ Op((e)->PRED_java_get_field0_3_static_exec(e), VA(a1, a2, a4), //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a5, a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a5), cont)));
+    }
+/** PREDICATE: java_get_declared_field/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_get_declared_field_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_get_declared_field(A,B,C):-java_get_declared_field0(A,B,D),java_conversion(E,D),C=E
+        m.setB0();
+         Term a1, a2, a3, a4, a5;
+        Operation p1, p2;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_get_declared_field(A,B,C):-[java_get_declared_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
+        a4 = V(m);
+        a5 = V(m);
+        return //
+ Op((e)->PRED_java_get_declared_field0_3_static_exec(e), VA(a1, a2, a4), //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a5, a4), //
+ Op((e)->PRED_$unify_2_static_exec(e), VA(a3, a5), cont)));
+    }
+/** PREDICATE: java_set_field/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_set_field_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_set_field(A,B,C):-java_conversion(C,D),java_set_field0(A,B,D)
+        m.setB0();
+         Term a1, a2, a3, a4;
+        Operation p1;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_set_field(A,B,C):-[java_conversion(C,D),java_set_field0(A,B,D)]
+        a4 = V(m);
+        return //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a3, a4), //
+ Op((e)->PRED_java_set_field0_3_static_exec(e), VA(a1, a2, a4), cont));
+    }
+/** PREDICATE: java_set_declared_field/3
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_java_set_declared_field_3_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // java_set_declared_field(A,B,C):-java_conversion(C,D),java_set_declared_field0(A,B,D)
+        m.setB0();
+         Term a1, a2, a3, a4;
+        Operation p1;
+        a1 = LARG[0];
+        a2 = LARG[1];
+        a3 = LARG[2];
+    // java_set_declared_field(A,B,C):-[java_conversion(C,D),java_set_declared_field0(A,B,D)]
+        a4 = V(m);
+        return //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a3, a4), //
+ Op((e)->PRED_java_set_declared_field0_3_static_exec(e), VA(a1, a2, a4), cont));
+    }
+/** PREDICATE: builtin_java_convert_args/2
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+    private static final SymbolTerm PRED_builtin_java_convert_args_2_s1 = SYM("[]");
+
+
+
+
+    public static Operation PRED_builtin_java_convert_args_2_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        return m.switch_on_term(FILE_builtins::builtin_java_convert_args_2_var, fail_0, fail_0, FILE_builtins::builtin_java_convert_args_2_1, fail_0, FILE_builtins::builtin_java_convert_args_2_2); 
+    }
+
+    private final static Operation builtin_java_convert_args_2_var(Prolog m) { 
+        m.jtry2(null, FILE_builtins::builtin_java_convert_args_2_var_1);
+        return builtin_java_convert_args_2_1(m);
+    }
+
+    private final static Operation builtin_java_convert_args_2_var_1(Prolog m) { 
+        m.trust(null);
+        return builtin_java_convert_args_2_2(m);
+    }
+
+    private final static Operation builtin_java_convert_args_2_1(Prolog m) { 
+    // builtin_java_convert_args([],[]):-!
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // builtin_java_convert_args([],[]):-['$neck_cut']
+        if (! PRED_builtin_java_convert_args_2_s1.unify(a1, m.trail))
+            return m.fail();
+        if (! PRED_builtin_java_convert_args_2_s1.unify(a2, m.trail))
+            return m.fail();
+        //START inline expansion of $neck_cut
+        m.neckCut();
+        //END inline expansion
+        return cont;
+    }
+
+    private final static Operation builtin_java_convert_args_2_2(Prolog m) { 
+    // builtin_java_convert_args([A|B],[C|D]):-java_conversion(A,C),builtin_java_convert_args(B,D)
+         Term a1, a2, a3, a4, a5, a6;
+        Operation p1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // builtin_java_convert_args([A|B],[C|D]):-[java_conversion(A,C),builtin_java_convert_args(B,D)]
+        a1 = a1.dref();
+        if (a1 .isCons()){
+            Term[] argz = VA(a1.car(), a1.cdr());
+            a3 = argz[0];
+            a4 = argz[1];
+        } else if (a1.isVar()){
+            a3 = V(m);
+            a4 = V(m);
+             a1.bind(CONS(a3, a4), m.trail);
+        } else {
+            return m.fail();
+        }
+        a2 = a2.dref();
+        if (a2 .isCons()){
+            Term[] argz = VA(a2.car(), a2.cdr());
+            a5 = argz[0];
+            a6 = argz[1];
+        } else if (a2.isVar()){
+            a5 = V(m);
+            a6 = V(m);
+             a2.bind(CONS(a5, a6), m.trail);
+        } else {
+            return m.fail();
+        }
+        return //
+ Op((e)->PRED_java_conversion_2_static_exec(e), VA(a3, a5), //
+ Op((e)->PRED_builtin_java_convert_args_2_static_exec(e), VA(a4, a6), cont));
+    }
+/** PREDICATE: synchronized/2
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
+*/
+
+
+
+
+    public static Operation PRED_synchronized_2_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // synchronized(A,B):-'$begin_sync'(A,C),call(B),'$end_sync'(C)
+        m.setB0();
+         Term a1, a2, a3, a4;
+        Operation p1, p2;
+        a1 = LARG[0];
+        a2 = LARG[1];
+    // synchronized(A,B):-['$begin_sync'(A,C),call('SxxMachine.builtin':B),'$end_sync'(C)]
+        a3 = V(m);
+        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
+        a4 = S(":", y1);
+        return //
+ Op((e)->PRED_$begin_sync_2_static_exec(e), VA(a1, a3), //
+ Op((e)->PRED_call_1_static_exec(e), VA(a4), //
+ Op((e)->PRED_$end_sync_1_static_exec(e), VA(a3), cont)));
     }
 /** PREDICATE: $init/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
@@ -28493,6 +24068,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     private static final StructureTerm PRED_$init_0_s153 = S(":-", PRED_$init_0_s151,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s155 = S(":", PRED_$init_0_s1, PRED_$init_0_s153);
         final static IntegerTerm int_1050 = Integer(1050);
+        final static SymbolTerm ATOM_$002D$003E = SYM("->");
     private static final StructureTerm PRED_$init_0_s159 = S("$current_operator",  int_1050 ,  ATOM_xfy ,  ATOM_$002D$003E );
     private static final StructureTerm PRED_$init_0_s161 = S(":-", PRED_$init_0_s159,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s163 = S(":", PRED_$init_0_s1, PRED_$init_0_s161);
@@ -28540,6 +24116,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     private static final StructureTerm PRED_$init_0_s240 = S("$current_operator",  int_700 ,  ATOM_xfx ,  ATOM_$003D$002E$002E );
     private static final StructureTerm PRED_$init_0_s242 = S(":-", PRED_$init_0_s240,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s244 = S(":", PRED_$init_0_s1, PRED_$init_0_s242);
+        final static SymbolTerm ATOM_is = SYM("is");
     private static final StructureTerm PRED_$init_0_s247 = S("$current_operator",  int_700 ,  ATOM_xfx ,  ATOM_is );
     private static final StructureTerm PRED_$init_0_s249 = S(":-", PRED_$init_0_s247,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s251 = S(":", PRED_$init_0_s1, PRED_$init_0_s249);
@@ -28570,6 +24147,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     private static final StructureTerm PRED_$init_0_s299 = S(":-", PRED_$init_0_s297,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s301 = S(":", PRED_$init_0_s1, PRED_$init_0_s299);
         final static IntegerTerm int_500 = Integer(500);
+        final static SymbolTerm ATOM_$002B = SYM("+");
     private static final StructureTerm PRED_$init_0_s306 = S("$current_operator",  int_500 ,  ATOM_yfx ,  ATOM_$002B );
     private static final StructureTerm PRED_$init_0_s308 = S(":-", PRED_$init_0_s306,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s310 = S(":", PRED_$init_0_s1, PRED_$init_0_s308);
@@ -28641,28 +24219,88 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
     private static final StructureTerm PRED_$init_0_s426 = S("$current_operator",  int_200 ,  ATOM_fy ,  ATOM_$002D );
     private static final StructureTerm PRED_$init_0_s428 = S(":-", PRED_$init_0_s426,  Prolog.True );
     private static final StructureTerm PRED_$init_0_s430 = S(":", PRED_$init_0_s1, PRED_$init_0_s428);
-    private static final StructureTerm PRED_$init_0_s433 = S("/",  ATOM_$0024current_leash ,  int_1 );
-    private static final StructureTerm PRED_$init_0_s437 = S("/",  ATOM_$0024current_spypoint ,  int_3 );
-    private static final StructureTerm PRED_$init_0_s440 = S("/",  ATOM_$0024leap_flag ,  int_1 );
         final static SymbolTerm ATOM_$0024consulted_file = SYM("$consulted_file");
-    private static final StructureTerm PRED_$init_0_s443 = S("/",  ATOM_$0024consulted_file ,  int_1 );
+    private static final StructureTerm PRED_$init_0_s433 = S("/",  ATOM_$0024consulted_file ,  int_1 );
         final static SymbolTerm ATOM_$0024consulted_import = SYM("$consulted_import");
-    private static final StructureTerm PRED_$init_0_s447 = S("/",  ATOM_$0024consulted_import ,  int_2 );
+    private static final StructureTerm PRED_$init_0_s437 = S("/",  ATOM_$0024consulted_import ,  int_2 );
         final static SymbolTerm ATOM_$0024consulted_package = SYM("$consulted_package");
-    private static final StructureTerm PRED_$init_0_s450 = S("/",  ATOM_$0024consulted_package ,  int_1 );
+    private static final StructureTerm PRED_$init_0_s440 = S("/",  ATOM_$0024consulted_package ,  int_1 );
         final static SymbolTerm ATOM_$0024consulted_predicate = SYM("$consulted_predicate");
-    private static final StructureTerm PRED_$init_0_s453 = S("/",  ATOM_$0024consulted_predicate ,  int_3 );
+    private static final StructureTerm PRED_$init_0_s444 = S("/",  ATOM_$0024consulted_predicate ,  int_3 );
 
 
 
 
     public static Operation PRED_$init_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$init':-'$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz(('$current_operator'(1200,xfx,:-):-true)),assertz(('$current_operator'(1200,xfx,-->):-true)),assertz(('$current_operator'(1200,fx,:-):-true)),assertz(('$current_operator'(1200,fx,?-):-true)),assertz(('$current_operator'(1150,fx,package):-true)),assertz(('$current_operator'(1150,fx,import):-true)),assertz(('$current_operator'(1150,fx,include):-true)),assertz(('$current_operator'(1150,fx,include_resource):-true)),assertz(('$current_operator'(1150,fx,constant):-true)),assertz(('$current_operator'(1150,fx,public):-true)),assertz(('$current_operator'(1150,fx,dynamic):-true)),assertz(('$current_operator'(1150,fx,meta_predicate):-true)),assertz(('$current_operator'(1150,fx,mode):-true)),assertz(('$current_operator'(1150,fx,multifile):-true)),assertz(('$current_operator'(1150,fx,block):-true)),assertz(('$current_operator'(1150,fx,ifdef):-true)),assertz(('$current_operator'(1150,fx,ifndef):-true)),assertz(('$current_operator'(1150,fx,domain):-true)),assertz(('$current_operator'(1150,fx,database):-true)),assertz(('$current_operator'(1100,xfy,;):-true)),assertz(('$current_operator'(1050,xfy,->):-true)),assertz(('$current_operator'(1000,xfy,','):-true)),assertz(('$current_operator'(900,fy,\+):-true)),assertz(('$current_operator'(700,xfx,=):-true)),assertz(('$current_operator'(700,xfx,\=):-true)),assertz(('$current_operator'(700,xfx,==):-true)),assertz(('$current_operator'(700,xfx,\==):-true)),assertz(('$current_operator'(700,xfx,@<):-true)),assertz(('$current_operator'(700,xfx,@>):-true)),assertz(('$current_operator'(700,xfx,@=<):-true)),assertz(('$current_operator'(700,xfx,@>=):-true)),assertz(('$current_operator'(700,xfx,=..):-true)),assertz(('$current_operator'(700,xfx,is):-true)),assertz(('$current_operator'(700,xfx,=:=):-true)),assertz(('$current_operator'(700,xfx,=\=):-true)),assertz(('$current_operator'(700,xfx,<):-true)),assertz(('$current_operator'(700,xfx,>):-true)),assertz(('$current_operator'(700,xfx,=<):-true)),assertz(('$current_operator'(700,xfx,>=):-true)),assertz(('$current_operator'(550,xfy,:):-true)),assertz(('$current_operator'(500,yfx,+):-true)),assertz(('$current_operator'(500,yfx,-):-true)),assertz(('$current_operator'(500,yfx,#):-true)),assertz(('$current_operator'(500,yfx,/\):-true)),assertz(('$current_operator'(500,yfx,\/):-true)),assertz(('$current_operator'(500,fx,+):-true)),assertz(('$current_operator'(400,yfx,*):-true)),assertz(('$current_operator'(400,yfx,/):-true)),assertz(('$current_operator'(400,yfx,//):-true)),assertz(('$current_operator'(400,yfx,mod):-true)),assertz(('$current_operator'(400,yfx,rem):-true)),assertz(('$current_operator'(400,yfx,<<):-true)),assertz(('$current_operator'(400,yfx,>>):-true)),assertz(('$current_operator'(300,xfx,~):-true)),assertz(('$current_operator'(200,xfx,**):-true)),assertz(('$current_operator'(200,xfy,^):-true)),assertz(('$current_operator'(200,fy,\):-true)),assertz(('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,E),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,F),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,G),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,H)
+    // '$init':-'$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz(('$current_operator'(1200,xfx,:-):-true)),assertz(('$current_operator'(1200,xfx,-->):-true)),assertz(('$current_operator'(1200,fx,:-):-true)),assertz(('$current_operator'(1200,fx,?-):-true)),assertz(('$current_operator'(1150,fx,package):-true)),assertz(('$current_operator'(1150,fx,import):-true)),assertz(('$current_operator'(1150,fx,include):-true)),assertz(('$current_operator'(1150,fx,include_resource):-true)),assertz(('$current_operator'(1150,fx,constant):-true)),assertz(('$current_operator'(1150,fx,public):-true)),assertz(('$current_operator'(1150,fx,dynamic):-true)),assertz(('$current_operator'(1150,fx,meta_predicate):-true)),assertz(('$current_operator'(1150,fx,mode):-true)),assertz(('$current_operator'(1150,fx,multifile):-true)),assertz(('$current_operator'(1150,fx,block):-true)),assertz(('$current_operator'(1150,fx,ifdef):-true)),assertz(('$current_operator'(1150,fx,ifndef):-true)),assertz(('$current_operator'(1150,fx,domain):-true)),assertz(('$current_operator'(1150,fx,database):-true)),assertz(('$current_operator'(1100,xfy,;):-true)),assertz(('$current_operator'(1050,xfy,->):-true)),assertz(('$current_operator'(1000,xfy,','):-true)),assertz(('$current_operator'(900,fy,\+):-true)),assertz(('$current_operator'(700,xfx,=):-true)),assertz(('$current_operator'(700,xfx,\=):-true)),assertz(('$current_operator'(700,xfx,==):-true)),assertz(('$current_operator'(700,xfx,\==):-true)),assertz(('$current_operator'(700,xfx,@<):-true)),assertz(('$current_operator'(700,xfx,@>):-true)),assertz(('$current_operator'(700,xfx,@=<):-true)),assertz(('$current_operator'(700,xfx,@>=):-true)),assertz(('$current_operator'(700,xfx,=..):-true)),assertz(('$current_operator'(700,xfx,is):-true)),assertz(('$current_operator'(700,xfx,=:=):-true)),assertz(('$current_operator'(700,xfx,=\=):-true)),assertz(('$current_operator'(700,xfx,<):-true)),assertz(('$current_operator'(700,xfx,>):-true)),assertz(('$current_operator'(700,xfx,=<):-true)),assertz(('$current_operator'(700,xfx,>=):-true)),assertz(('$current_operator'(550,xfy,:):-true)),assertz(('$current_operator'(500,yfx,+):-true)),assertz(('$current_operator'(500,yfx,-):-true)),assertz(('$current_operator'(500,yfx,#):-true)),assertz(('$current_operator'(500,yfx,/\):-true)),assertz(('$current_operator'(500,yfx,\/):-true)),assertz(('$current_operator'(500,fx,+):-true)),assertz(('$current_operator'(400,yfx,*):-true)),assertz(('$current_operator'(400,yfx,/):-true)),assertz(('$current_operator'(400,yfx,//):-true)),assertz(('$current_operator'(400,yfx,mod):-true)),assertz(('$current_operator'(400,yfx,rem):-true)),assertz(('$current_operator'(400,yfx,<<):-true)),assertz(('$current_operator'(400,yfx,>>):-true)),assertz(('$current_operator'(300,xfx,~):-true)),assertz(('$current_operator'(200,xfx,**):-true)),assertz(('$current_operator'(200,xfy,^):-true)),assertz(('$current_operator'(200,fy,\):-true)),assertz(('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,E)
         m.setB0();
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50, p51, p52, p53, p54, p55, p56, p57, p58, p59, p60, p61, p62, p63, p64, p65;
-    // '$init':-['$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,-->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,?-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,package):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,import):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include_resource):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,constant):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,public):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,dynamic):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,meta_predicate):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,mode):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,multifile):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,block):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifdef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifndef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,domain):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,database):-true)),assertz('SxxMachine.builtin':('$current_operator'(1100,xfy,;):-true)),assertz('SxxMachine.builtin':('$current_operator'(1050,xfy,->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1000,xfy,','):-true)),assertz('SxxMachine.builtin':('$current_operator'(900,fy,\+):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=..):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,is):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=:=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(550,xfy,:):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,-):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,#):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,/\):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,\/):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,fx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,*):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,/):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,//):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,mod):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,rem):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,<<):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,>>):-true)),assertz('SxxMachine.builtin':('$current_operator'(300,xfx,~):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfx,**):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfy,^):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,\):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,E),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,F),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,G),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,H)]
-        return Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s19), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s26), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s33), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s40), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s48), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s55), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s62), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s69), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s76), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s83), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s90), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s97), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s104), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s111), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s118), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s125), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s132), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s139), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s146), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s155), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s163), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s171), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s180), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s188), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s195), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s202), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s209), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s216), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s223), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s230), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s237), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s244), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s251), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s258), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s265), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s272), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s279), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s286), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s293), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s301), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s310), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s317), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s324), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s331), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s338), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s344), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s352), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s359), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s366), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s373), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s380), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s387), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s394), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s402), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s410), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s417), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s424), Op(FILE_builtins::PRED_assertz_1_static_exec, VA(PRED_$init_0_s430), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s433, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s437, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s440, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s443, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s447, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s450, V(m)), Op(FILE_builtins::PRED_$new_indexing_hash_3_static_exec, VA(PRED_$init_0_s1, PRED_$init_0_s453, V(m)), cont))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50, p51, p52, p53, p54, p55, p56, p57, p58, p59, p60, p61, p62;
+    // '$init':-['$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,-->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,?-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,package):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,import):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include_resource):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,constant):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,public):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,dynamic):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,meta_predicate):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,mode):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,multifile):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,block):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifdef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifndef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,domain):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,database):-true)),assertz('SxxMachine.builtin':('$current_operator'(1100,xfy,;):-true)),assertz('SxxMachine.builtin':('$current_operator'(1050,xfy,->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1000,xfy,','):-true)),assertz('SxxMachine.builtin':('$current_operator'(900,fy,\+):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=..):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,is):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=:=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(550,xfy,:):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,-):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,#):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,/\):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,\/):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,fx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,*):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,/):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,//):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,mod):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,rem):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,<<):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,>>):-true)),assertz('SxxMachine.builtin':('$current_operator'(300,xfx,~):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfx,**):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfy,^):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,\):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,E)]
+        return //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s19), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s26), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s33), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s40), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s48), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s55), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s62), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s69), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s76), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s83), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s90), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s97), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s104), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s111), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s118), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s125), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s132), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s139), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s146), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s155), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s163), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s171), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s180), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s188), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s195), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s202), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s209), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s216), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s223), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s230), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s237), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s244), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s251), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s258), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s265), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s272), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s279), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s286), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s293), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s301), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s310), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s317), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s324), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s331), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s338), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s344), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s352), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s359), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s366), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s373), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s380), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s387), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s394), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s402), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s410), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s417), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s424), //
+ Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s430), //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s433, V(m)), //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s437, V(m)), //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s440, V(m)), //
+ Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s444, V(m)), cont)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
     }
 static {   PredTable.registerBuiltin("package",1,FILE_builtins::PRED_package_1_static_exec);
    PredTable.registerBuiltin("true",0,FILE_builtins::PRED_true_0_static_exec);
@@ -28701,7 +24339,6 @@ static {   PredTable.registerBuiltin("package",1,FILE_builtins::PRED_package_1_s
    PredTable.registerBuiltin("number",1,FILE_builtins::PRED_number_1_static_exec);
    PredTable.registerBuiltin("java",1,FILE_builtins::PRED_java_1_static_exec);
    PredTable.registerBuiltin("java",2,FILE_builtins::PRED_java_2_static_exec);
-   PredTable.registerBuiltin("jinstanceof",2,FILE_builtins::PRED_jinstanceof_2_static_exec);
    PredTable.registerBuiltin("closure",1,FILE_builtins::PRED_closure_1_static_exec);
    PredTable.registerBuiltin("ground",1,FILE_builtins::PRED_ground_1_static_exec);
    PredTable.registerBuiltin("compound",1,FILE_builtins::PRED_compound_1_static_exec);
@@ -28841,29 +24478,6 @@ static {   PredTable.registerBuiltin("package",1,FILE_builtins::PRED_package_1_s
    PredTable.registerBuiltin("$free_variables_set",3,FILE_builtins::PRED_$free_variables_set_3_static_exec);
    PredTable.registerBuiltin("$builtin_set_diff",3,FILE_builtins::PRED_$builtin_set_diff_3_static_exec);
    PredTable.registerBuiltin("$builtin_set_diff0",3,FILE_builtins::PRED_$builtin_set_diff0_3_static_exec);
-   PredTable.registerBuiltin("open",3,FILE_builtins::PRED_open_3_static_exec);
-   PredTable.registerBuiltin("close",1,FILE_builtins::PRED_close_1_static_exec);
-   PredTable.registerBuiltin("flush_output",0,FILE_builtins::PRED_flush_output_0_static_exec);
-   PredTable.registerBuiltin("stream_property",2,FILE_builtins::PRED_stream_property_2_static_exec);
-   PredTable.registerBuiltin("$stream_property",2,FILE_builtins::PRED_$stream_property_2_static_exec);
-   PredTable.registerBuiltin("$stream_property_specifier",1,FILE_builtins::PRED_$stream_property_specifier_1_static_exec);
-   PredTable.registerBuiltin("get_char",1,FILE_builtins::PRED_get_char_1_static_exec);
-   PredTable.registerBuiltin("get_code",1,FILE_builtins::PRED_get_code_1_static_exec);
-   PredTable.registerBuiltin("peek_char",1,FILE_builtins::PRED_peek_char_1_static_exec);
-   PredTable.registerBuiltin("peek_code",1,FILE_builtins::PRED_peek_code_1_static_exec);
-   PredTable.registerBuiltin("put_char",1,FILE_builtins::PRED_put_char_1_static_exec);
-   PredTable.registerBuiltin("put_code",1,FILE_builtins::PRED_put_code_1_static_exec);
-   PredTable.registerBuiltin("nl",1,FILE_builtins::PRED_nl_1_static_exec);
-   PredTable.registerBuiltin("get0",1,FILE_builtins::PRED_get0_1_static_exec);
-   PredTable.registerBuiltin("get0",2,FILE_builtins::PRED_get0_2_static_exec);
-   PredTable.registerBuiltin("get",1,FILE_builtins::PRED_get_1_static_exec);
-   PredTable.registerBuiltin("put",1,FILE_builtins::PRED_put_1_static_exec);
-   PredTable.registerBuiltin("put",2,FILE_builtins::PRED_put_2_static_exec);
-   PredTable.registerBuiltin("tab",1,FILE_builtins::PRED_tab_1_static_exec);
-   PredTable.registerBuiltin("skip",1,FILE_builtins::PRED_skip_1_static_exec);
-   PredTable.registerBuiltin("get_byte",1,FILE_builtins::PRED_get_byte_1_static_exec);
-   PredTable.registerBuiltin("peek_byte",1,FILE_builtins::PRED_peek_byte_1_static_exec);
-   PredTable.registerBuiltin("put_byte",1,FILE_builtins::PRED_put_byte_1_static_exec);
    PredTable.registerBuiltin("read",1,FILE_builtins::PRED_read_1_static_exec);
    PredTable.registerBuiltin("read",2,FILE_builtins::PRED_read_2_static_exec);
    PredTable.registerBuiltin("read_with_variables",2,FILE_builtins::PRED_read_with_variables_2_static_exec);
@@ -28967,6 +24581,34 @@ static {   PredTable.registerBuiltin("package",1,FILE_builtins::PRED_package_1_s
    PredTable.registerBuiltin("hash_map",2,FILE_builtins::PRED_hash_map_2_static_exec);
    PredTable.registerBuiltin("hash_map",3,FILE_builtins::PRED_hash_map_3_static_exec);
    PredTable.registerBuiltin("hash_exists",1,FILE_builtins::PRED_hash_exists_1_static_exec);
+   PredTable.registerBuiltin("consult_stream",2,FILE_builtins::PRED_consult_stream_2_static_exec);
+   PredTable.registerBuiltin("$consult_init",1,FILE_builtins::PRED_$consult_init_1_static_exec);
+   PredTable.registerBuiltin("$consult_clause",1,FILE_builtins::PRED_$consult_clause_1_static_exec);
+   PredTable.registerBuiltin("$assert_consulted_package",1,FILE_builtins::PRED_$assert_consulted_package_1_static_exec);
+   PredTable.registerBuiltin("$assert_consulted_import",1,FILE_builtins::PRED_$assert_consulted_import_1_static_exec);
+   PredTable.registerBuiltin("$consult_preprocess",2,FILE_builtins::PRED_$consult_preprocess_2_static_exec);
+   PredTable.registerBuiltin("$consult_cls",1,FILE_builtins::PRED_$consult_cls_1_static_exec);
+   PredTable.registerBuiltin("$assert_consulted_clause",1,FILE_builtins::PRED_$assert_consulted_clause_1_static_exec);
+   PredTable.registerBuiltin("length",2,FILE_builtins::PRED_length_2_static_exec);
+   PredTable.registerBuiltin("$length",3,FILE_builtins::PRED_$length_3_static_exec);
+   PredTable.registerBuiltin("$length0",3,FILE_builtins::PRED_$length0_3_static_exec);
+   PredTable.registerBuiltin("numbervars",3,FILE_builtins::PRED_numbervars_3_static_exec);
+   PredTable.registerBuiltin("$numbervars",3,FILE_builtins::PRED_$numbervars_3_static_exec);
+   PredTable.registerBuiltin("$numbervars_str",5,FILE_builtins::PRED_$numbervars_str_5_static_exec);
+   PredTable.registerBuiltin("statistics",2,FILE_builtins::PRED_statistics_2_static_exec);
+   PredTable.registerBuiltin("$statistics_mode",1,FILE_builtins::PRED_$statistics_mode_1_static_exec);
+   PredTable.registerBuiltin("illarg",3,FILE_builtins::PRED_illarg_3_static_exec);
+   PredTable.registerBuiltin("$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",5,FILE_builtins::PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec);
+   PredTable.registerBuiltin("$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",6,FILE_builtins::PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec);
+   PredTable.registerBuiltin("$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",5,FILE_builtins::PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec);
+   PredTable.registerBuiltin("$match_type",2,FILE_builtins::PRED_$match_type_2_static_exec);
+   PredTable.registerBuiltin("$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",3,FILE_builtins::PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec);
+   PredTable.registerBuiltin("$builtin_append",3,FILE_builtins::PRED_$builtin_append_3_static_exec);
+   PredTable.registerBuiltin("$member_in_reverse",2,FILE_builtins::PRED_$member_in_reverse_2_static_exec);
+   PredTable.registerBuiltin("$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
+   PredTable.registerBuiltin("$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
+   PredTable.registerBuiltin("with_mutex",2,FILE_builtins::PRED_with_mutex_2_static_exec);
+   PredTable.registerBuiltin("$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
    PredTable.registerBuiltin("java_constructor",2,FILE_builtins::PRED_java_constructor_2_static_exec);
    PredTable.registerBuiltin("java_declared_constructor",2,FILE_builtins::PRED_java_declared_constructor_2_static_exec);
    PredTable.registerBuiltin("java_method",3,FILE_builtins::PRED_java_method_3_static_exec);
@@ -28977,94 +24619,6 @@ static {   PredTable.registerBuiltin("package",1,FILE_builtins::PRED_package_1_s
    PredTable.registerBuiltin("java_set_declared_field",3,FILE_builtins::PRED_java_set_declared_field_3_static_exec);
    PredTable.registerBuiltin("builtin_java_convert_args",2,FILE_builtins::PRED_builtin_java_convert_args_2_static_exec);
    PredTable.registerBuiltin("synchronized",2,FILE_builtins::PRED_synchronized_2_static_exec);
-   PredTable.registerBuiltin("cafeteria",0,FILE_cafeteria::PRED_cafeteria_0_static_exec);
-//   PredTable.registerBuiltin("$cafeteria_init",0,FILE_builtins::PRED_$cafeteria_init_0_static_exec);
-   PredTable.registerBuiltin("$dummy_22_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_22_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
-   PredTable.registerBuiltin("$toplvel_loop",0,FILE_builtins::PRED_$toplvel_loop_0_static_exec);
-   PredTable.registerBuiltin("$cafeteria",1,FILE_builtins::PRED_$cafeteria_1_static_exec);
-   PredTable.registerBuiltin("$process_order",2,FILE_builtins::PRED_$process_order_2_static_exec);
-   PredTable.registerBuiltin("$dummy_23_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",2,FILE_builtins::PRED_$dummy_23_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec);
-   PredTable.registerBuiltin("$rm_redundant_vars",2,FILE_builtins::PRED_$rm_redundant_vars_2_static_exec);
-   PredTable.registerBuiltin("$give_answers_with_prompt",1,FILE_builtins::PRED_$give_answers_with_prompt_1_static_exec);
-   PredTable.registerBuiltin("$give_an_answer",1,FILE_builtins::PRED_$give_an_answer_1_static_exec);
-   PredTable.registerBuiltin("$print_anzwer",1,FILE_builtins::PRED_$print_anzwer_1_static_exec);
-   PredTable.registerBuiltin("$dummy_24_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",2,FILE_builtins::PRED_$dummy_24_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec);
-   PredTable.registerBuiltin("cyclic_term",1,FILE_builtins::PRED_cyclic_term_1_static_exec);
-   PredTable.registerBuiltin("acyclic_term",1,FILE_builtins::PRED_acyclic_term_1_static_exec);
-   PredTable.registerBuiltin("$dummy_25_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_25_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
-   PredTable.registerBuiltin("canonical_term",3,FILE_builtins::PRED_canonical_term_3_static_exec);
-   PredTable.registerBuiltin("canonical_term",2,FILE_builtins::PRED_canonical_term_2_static_exec);
-   PredTable.registerBuiltin("decompose_cyclic_term",7,FILE_builtins::PRED_decompose_cyclic_term_7_static_exec);
-   PredTable.registerBuiltin("$dummy_26_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",2,FILE_builtins::PRED_$dummy_26_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_2_static_exec);
-   PredTable.registerBuiltin("$dummy_27_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",7,FILE_builtins::PRED_$dummy_27_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_7_static_exec);
-   PredTable.registerBuiltin("instack",2,FILE_builtins::PRED_instack_2_static_exec);
-   PredTable.registerBuiltin("consult",1,FILE_builtins::PRED_consult_1_static_exec);
-   PredTable.registerBuiltin("$consult",1,FILE_builtins::PRED_$consult_1_static_exec);
-   PredTable.registerBuiltin("consult_stream",2,FILE_builtins::PRED_consult_stream_2_static_exec);
-   PredTable.registerBuiltin("$prolog_file_name",2,FILE_builtins::PRED_$prolog_file_name_2_static_exec);
-   PredTable.registerBuiltin("$consult_init",1,FILE_builtins::PRED_$consult_init_1_static_exec);
-   PredTable.registerBuiltin("$consult_clause",1,FILE_builtins::PRED_$consult_clause_1_static_exec);
-   PredTable.registerBuiltin("$assert_consulted_package",1,FILE_builtins::PRED_$assert_consulted_package_1_static_exec);
-   PredTable.registerBuiltin("$assert_consulted_import",1,FILE_builtins::PRED_$assert_consulted_import_1_static_exec);
-   PredTable.registerBuiltin("$consult_preprocess",2,FILE_builtins::PRED_$consult_preprocess_2_static_exec);
-   PredTable.registerBuiltin("$consult_cls",1,FILE_builtins::PRED_$consult_cls_1_static_exec);
-   PredTable.registerBuiltin("$assert_consulted_clause",1,FILE_builtins::PRED_$assert_consulted_clause_1_static_exec);
-   PredTable.registerBuiltin("trace",0,FILE_builtins::PRED_trace_0_static_exec);
-   PredTable.registerBuiltin("$trace_init",0,FILE_builtins::PRED_$trace_init_0_static_exec);
-   PredTable.registerBuiltin("notrace",0,FILE_builtins::PRED_notrace_0_static_exec);
-   PredTable.registerBuiltin("debug",0,FILE_builtins::PRED_debug_0_static_exec);
-   PredTable.registerBuiltin("nodebug",0,FILE_builtins::PRED_nodebug_0_static_exec);
-   PredTable.registerBuiltin("spy",1,FILE_builtins::PRED_spy_1_static_exec);
-   PredTable.registerBuiltin("$assert_spypoint",1,FILE_builtins::PRED_$assert_spypoint_1_static_exec);
-   PredTable.registerBuiltin("nospy",1,FILE_builtins::PRED_nospy_1_static_exec);
-   PredTable.registerBuiltin("$retract_spypoint",1,FILE_builtins::PRED_$retract_spypoint_1_static_exec);
-   PredTable.registerBuiltin("nospyall",0,FILE_builtins::PRED_nospyall_0_static_exec);
-   PredTable.registerBuiltin("leash",1,FILE_builtins::PRED_leash_1_static_exec);
-   PredTable.registerBuiltin("$leash",1,FILE_builtins::PRED_$leash_1_static_exec);
-   PredTable.registerBuiltin("$assert_leash",1,FILE_builtins::PRED_$assert_leash_1_static_exec);
-   PredTable.registerBuiltin("$leash_specifier",1,FILE_builtins::PRED_$leash_specifier_1_static_exec);
-   PredTable.registerBuiltin("$trace_goal",1,FILE_builtins::PRED_$trace_goal_1_static_exec);
-   PredTable.registerBuiltin("$trace_goal",4,FILE_builtins::PRED_$trace_goal_4_static_exec);
-   PredTable.registerBuiltin("print_procedure_box",5,FILE_builtins::PRED_print_procedure_box_5_static_exec);
-   PredTable.registerBuiltin("$dummy_28_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",6,FILE_builtins::PRED_$dummy_28_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec);
-   PredTable.registerBuiltin("redo_procedure_box",4,FILE_builtins::PRED_redo_procedure_box_4_static_exec);
-   PredTable.registerBuiltin("$dummy_29_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",3,FILE_builtins::PRED_$dummy_29_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec);
-   PredTable.registerBuiltin("$read_blocked",1,FILE_builtins::PRED_$read_blocked_1_static_exec);
-   PredTable.registerBuiltin("$debug_option",2,FILE_builtins::PRED_$debug_option_2_static_exec);
-   PredTable.registerBuiltin("$show_debug_option",0,FILE_builtins::PRED_$show_debug_option_0_static_exec);
-   PredTable.registerBuiltin("$set_debug_flag",2,FILE_builtins::PRED_$set_debug_flag_2_static_exec);
-   PredTable.registerBuiltin("listing",0,FILE_builtins::PRED_listing_0_static_exec);
-   PredTable.registerBuiltin("listing",1,FILE_builtins::PRED_listing_1_static_exec);
-   PredTable.registerBuiltin("$listing",2,FILE_builtins::PRED_$listing_2_static_exec);
-   PredTable.registerBuiltin("$listing_dynamic_clause",2,FILE_builtins::PRED_$listing_dynamic_clause_2_static_exec);
-   PredTable.registerBuiltin("$write_dynamic_clause",2,FILE_builtins::PRED_$write_dynamic_clause_2_static_exec);
-   PredTable.registerBuiltin("$write_dynamic_head",2,FILE_builtins::PRED_$write_dynamic_head_2_static_exec);
-   PredTable.registerBuiltin("$write_dynamic_body",2,FILE_builtins::PRED_$write_dynamic_body_2_static_exec);
-   PredTable.registerBuiltin("length",2,FILE_builtins::PRED_length_2_static_exec);
-   PredTable.registerBuiltin("$length",3,FILE_builtins::PRED_$length_3_static_exec);
-   PredTable.registerBuiltin("$length0",3,FILE_builtins::PRED_$length0_3_static_exec);
-   PredTable.registerBuiltin("numbervars",3,FILE_builtins::PRED_numbervars_3_static_exec);
-   PredTable.registerBuiltin("$numbervars",3,FILE_builtins::PRED_$numbervars_3_static_exec);
-   PredTable.registerBuiltin("$numbervars_str",5,FILE_builtins::PRED_$numbervars_str_5_static_exec);
-   PredTable.registerBuiltin("statistics",2,FILE_builtins::PRED_statistics_2_static_exec);
-   PredTable.registerBuiltin("$statistics_mode",1,FILE_builtins::PRED_$statistics_mode_1_static_exec);
-   PredTable.registerBuiltin("print_message",2,FILE_builtins::PRED_print_message_2_static_exec);
-   PredTable.registerBuiltin("$error_message",1,FILE_builtins::PRED_$error_message_1_static_exec);
-   PredTable.registerBuiltin("$write_goal",2,FILE_builtins::PRED_$write_goal_2_static_exec);
-   PredTable.registerBuiltin("illarg",3,FILE_builtins::PRED_illarg_3_static_exec);
-   PredTable.registerBuiltin("$dummy_30_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",5,FILE_builtins::PRED_$dummy_30_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec);
-   PredTable.registerBuiltin("$dummy_31_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",6,FILE_builtins::PRED_$dummy_31_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_6_static_exec);
-   PredTable.registerBuiltin("$dummy_32_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",5,FILE_builtins::PRED_$dummy_32_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_5_static_exec);
-   PredTable.registerBuiltin("$match_type",2,FILE_builtins::PRED_$match_type_2_static_exec);
-   PredTable.registerBuiltin("$dummy_33_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",3,FILE_builtins::PRED_$dummy_33_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_3_static_exec);
-   PredTable.registerBuiltin("$dummy_34_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_34_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
-   PredTable.registerBuiltin("$dummy_35_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_35_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
-   PredTable.registerBuiltin("with_mutex",2,FILE_builtins::PRED_with_mutex_2_static_exec);
-   PredTable.registerBuiltin("$dummy_36_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl","$dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl",1,FILE_builtins::PRED_$dummy_36_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbuiltins$002Epl_1_static_exec);
-   PredTable.registerBuiltin("$builtin_append",3,FILE_builtins::PRED_$builtin_append_3_static_exec);
-   PredTable.registerBuiltin("$builtin_message",1,FILE_builtins::PRED_$builtin_message_1_static_exec);
-   PredTable.registerBuiltin("$member_in_reverse",2,FILE_builtins::PRED_$member_in_reverse_2_static_exec);
-   PredTable.registerBuiltin("animal",1,FILE_builtins::PRED_animal_1_static_exec);
    PredTable.registerBuiltin("$init",0,FILE_builtins::PRED_$init_0_static_exec);
 }
  public static void loadFile(){}

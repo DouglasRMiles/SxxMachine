@@ -560,6 +560,7 @@ public final class Prolog {
 	}
 	
 	public Term popPendingGoals() {
+		if(halt != 1)  return Nil;
       synchronized (INTERUPT_LOCK) {
         if(PENDING_INTERUPTS==0) return Nil;
         PENDING_INTERUPTS=0;

@@ -1,4 +1,5 @@
 package SxxMachine.builtin;
+
 import static SxxMachine.Failure.fail_0;
 
 import SxxMachine.IntegerTerm;
@@ -9,10 +10,7 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 
-
-//import SxxMachine.compiler.*;
-
-public class FILE_prover extends bootpreds {
+public class FILE_prover extends FILE_builtins {
 /** PREDICATE: top/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
 */
@@ -25,7 +23,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
     // top:-prover
         m.setB0();
     // top:-[prover]
-        return Op(FILE_prover::PRED_prover_0_static_exec, VA(), cont);
+        return Op((e)->PRED_prover_0_static_exec(e), VA(), cont);
     }
 /** PREDICATE: prover/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
@@ -56,7 +54,7 @@ m.cont = cont;
     // prover:-[problem(A,B,C),implies(B,C),fail]
         a1 = V(m);
         a2 = V(m);
-        return Op(FILE_prover::PRED_problem_3_static_exec, VA(V(m), a1, a2), Op(FILE_prover::PRED_implies_2_static_exec, VA(a1, a2), Op(fail_0, VA(), cont)));
+        return Op((e)->PRED_problem_3_static_exec(e), VA(V(m), a1, a2), Op((e)->PRED_implies_2_static_exec(e), VA(a1, a2), Op(fail_0, VA(), cont)));
     }
 
     private final static Operation prover_0_2(Prolog m) { 
@@ -365,7 +363,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
         a2 = LARG[1];
     // implies(A,B):-[opposite(B,C),add_conjunction(A,C,fs([],[],[],[]))]
         a3 = V(m);
-        return Op(FILE_prover::PRED_opposite_2_static_exec, VA(a2, a3), Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a1, a3, PRED_implies_2_s4), cont));
+        return Op((e)->PRED_opposite_2_static_exec(e), VA(a2, a3), Op((e)->PRED_add_conjunction_3_static_exec(e), VA(a1, a3, PRED_implies_2_s4), cont));
     }
 /** PREDICATE: opposite/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
@@ -429,7 +427,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
+        p1 = Op((e)->PRED_opposite_2_static_exec(e), VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -460,7 +458,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p1 = Op(FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
+        p1 = Op((e)->PRED_opposite_2_static_exec(e), VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -528,7 +526,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
     // add_conjunction(A,B,C):-[expand(A,C,D),expand(B,D,E),refute(E)]
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_prover::PRED_expand_3_static_exec, VA(a1, a3, a4), Op(FILE_prover::PRED_expand_3_static_exec, VA(a2, a4, a5), Op(FILE_prover::PRED_refute_1_static_exec, VA(a5), cont)));
+        return Op((e)->PRED_expand_3_static_exec(e), VA(a1, a3, a4), Op((e)->PRED_expand_3_static_exec(e), VA(a2, a4, a5), Op((e)->PRED_refute_1_static_exec(e), VA(a5), cont)));
     }
 /** PREDICATE: expand/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
@@ -634,7 +632,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a4, a5);
         a8 = S("&", y1);
-        return Op(FILE_prover::PRED_includes_2_static_exec, VA(a6, a8), Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+        return Op((e)->PRED_includes_2_static_exec(e), VA(a6, a8), Op((e)->PRED_$cut_1_static_exec(e), VA(a7), cont));
     }
 
     private final static Operation expand_3_3(Prolog m) { 
@@ -673,7 +671,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a4, a5);
         a11 = S("&", y1);
-        return Op(FILE_prover::PRED_includes_2_static_exec, VA(a7, a11), Op(FILE_prover::PRED_$cut_1_static_exec, VA(a10), cont));
+        return Op((e)->PRED_includes_2_static_exec(e), VA(a7, a11), Op((e)->PRED_$cut_1_static_exec(e), VA(a10), cont));
     }
 
     private final static Operation expand_3_4(Prolog m) { 
@@ -709,7 +707,7 @@ m.cont = cont;
         Term[] y2 = VA(a6, a11, a8, a9);
         a12 = S("fs", y2);
         a13 = V(m);
-        p1 = Op(FILE_prover::PRED_expand_3_static_exec, VA(a5, a13, a3), cont);
+        p1 = Op((e)->PRED_expand_3_static_exec(e), VA(a5, a13, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a12;
         m.AREGS[2] = a13;
@@ -750,7 +748,7 @@ m.cont = cont;
         a12 = V(m);
         Term[] y2 = VA(a12, a7, a8, a9);
         a13 = S("fs", y2);
-        return Op(FILE_prover::PRED_opposite_2_static_exec, VA(a10, a11), Op(FILE_prover::PRED_extend_6_static_exec, VA(a11, a6, a7, a12, a13, a3), cont));
+        return Op((e)->PRED_opposite_2_static_exec(e), VA(a10, a11), Op((e)->PRED_extend_6_static_exec(e), VA(a11, a6, a7, a12, a13, a3), cont));
     }
 
     private final static Operation expand_3_6(Prolog m) { 
@@ -781,7 +779,7 @@ m.cont = cont;
         a9 = V(m);
         Term[] y1 = VA(a5, a6, a9, a8);
         a10 = S("fs", y1);
-        return Op(FILE_prover::PRED_extend_6_static_exec, VA(a4, a7, a8, a9, a10, a3), cont);
+        return Op((e)->PRED_extend_6_static_exec(e), VA(a4, a7, a8, a9, a10, a3), cont);
     }
 
     private final static Operation expand_3_7(Prolog m) { 
@@ -809,7 +807,7 @@ m.cont = cont;
         a9 = V(m);
         Term[] y1 = VA(a5, a6, a7, a9);
         a10 = S("fs", y1);
-        return Op(FILE_prover::PRED_extend_6_static_exec, VA(a4, a8, a7, a9, a10, a3), cont);
+        return Op((e)->PRED_extend_6_static_exec(e), VA(a4, a8, a7, a9, a10, a3), cont);
     }
 /** PREDICATE: includes/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/prover.pl
@@ -937,7 +935,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_prover::PRED_includes_2_static_exec, VA(a3, a1), Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+        return Op((e)->PRED_includes_2_static_exec(e), VA(a3, a1), Op((e)->PRED_$cut_1_static_exec(e), VA(a7), cont));
     }
 
     private final static Operation extend_6_2(Prolog m) { 
@@ -963,7 +961,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_prover::PRED_includes_2_static_exec, VA(a2, a1), Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+        return Op((e)->PRED_includes_2_static_exec(e), VA(a2, a1), Op((e)->PRED_$cut_1_static_exec(e), VA(a7), cont));
     }
 
     private final static Operation extend_6_3(Prolog m) { 
@@ -1073,7 +1071,7 @@ m.cont = cont;
         a12 = V(m);
         Term[] y1 = VA(a7, a3, a4, a5);
         a13 = S("fs", y1);
-        return Op(FILE_prover::PRED_opposite_2_static_exec, VA(a8, a10), Op(FILE_prover::PRED_opposite_2_static_exec, VA(a9, a11), Op(FILE_prover::PRED_$unify_2_static_exec, VA(a12, a13), Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a9, a12), Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a11, a12), Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a8, a11, a12), cont))))));
+        return Op((e)->PRED_opposite_2_static_exec(e), VA(a8, a10), Op((e)->PRED_opposite_2_static_exec(e), VA(a9, a11), Op((e)->PRED_$unify_2_static_exec(e), VA(a12, a13), Op((e)->PRED_add_conjunction_3_static_exec(e), VA(a10, a9, a12), Op((e)->PRED_add_conjunction_3_static_exec(e), VA(a10, a11, a12), Op((e)->PRED_add_conjunction_3_static_exec(e), VA(a8, a11, a12), cont))))));
     }
 static {   PredTable.registerBuiltin("top",0,FILE_prover::PRED_top_0_static_exec);
    PredTable.registerBuiltin("prover",0,FILE_prover::PRED_prover_0_static_exec);

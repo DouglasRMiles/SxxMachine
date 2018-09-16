@@ -1,50 +1,106 @@
 package SxxMachine.builtin;
-import static SxxMachine.Failure.fail_0;
 
-import SxxMachine.Arithmetic;
-import SxxMachine.IntegerTerm;
-import SxxMachine.ListTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
+import SxxMachine.exceptions.*;
+import SxxMachine.*;
+import SxxMachine.builtin.*;
+import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
+import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
+import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
 
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.locks.*;
+import java.util.logging.*;
+import java.util.regex.*;
+import java.lang.reflect.*;
+import java.nio.charset.Charset;
 
-//import SxxMachine.compiler.*;
+import SxxMachine.builtin.bootpreds.*;
+import SxxMachine.builtin.sxxtensions.*;
+import SxxMachine.builtin.FILE_builtins.*;
+
+import static SxxMachine.builtin.bootpreds.*;
+import static SxxMachine.builtin.sxxtensions.*;
+import static SxxMachine.builtin.FILE_builtins.*;
+import static SxxMachine.builtin.PRED_system_predicate_1.*;
+import static SxxMachine.builtin.FILE_rbtrees.*;
+
+import static SxxMachine.builtin.bootpreds.LEVELS;
+import static SxxMachine.TermData.*;
+import static SxxMachine.SymbolTerm.*;
+import static SxxMachine.Predicate.*;
+import static SxxMachine.Prolog.*;
+import static SxxMachine.Failure.*;
+import static SxxMachine.Success.*;
 
 public class FILE_cafeteria extends FILE_builtins {
+/** PREDICATE: cafeteria/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_cafeteria_0_s1 = SYM("error");
+        final static SymbolTerm ATOM_end_of_file = SYM("end_of_file");
+        final static SymbolTerm ATOM_bye = SYM("bye");
+
+
+
+
+    public static Operation PRED_cafeteria_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // cafeteria:-'$cafeteria_init',repeat,'$toplvel_loop',on_exception(A,'$cafeteria'(B),print_message(error,A)),B==end_of_file,!,nl,'$fast_write'(bye),nl
+        m.setB0();
+         Term a1, a2, a3, a4, a5;
+        Operation p1, p2, p3, p4, p5, p6, p7, p8;
+    // cafeteria:-['$get_level'(A),'$cafeteria_init',repeat,'$toplvel_loop',on_exception(B,'SxxMachine.builtin':'$cafeteria'(C),'SxxMachine.builtin':print_message(error,B)),'$equality_of_term'(C,end_of_file),'$cut'(A),nl,'$fast_write'(bye),nl]
+        a1 = V(m);
+        //START inline expansion of $get_level(a(1))
+        if (! a1.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        a2 = V(m);
+        a3 = V(m);
+        a4 = Closure( Op((e)->PRED_$cafeteria_1_static_exec(e), VA(a3), null));
+        a5 = Closure( Op((e)->PRED_print_message_2_static_exec(e), VA(PRED_cafeteria_0_s1, a2), null));
+        return Op((e)->PRED_$cafeteria_init_0_static_exec(e), VA(), Op((e)->PRED_repeat_0_static_exec(e), VA(), Op((e)->PRED_$toplvel_loop_0_static_exec(e), VA(), Op((e)->PRED_on_exception_3_static_exec(e), VA(a2, a4, a5), Op((e)->PRED_$equality_of_term_2_static_exec(e), VA(a3,  ATOM_end_of_file ), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_bye ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont)))))))));
+    }
 /** PREDICATE: $cafeteria_init/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-        final static SymbolTerm ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin = SYM("com.googlecode.prolog_cafe.builtin");
+    private static final SymbolTerm PRED_$cafeteria_init_0_s1 = SYM("SxxMachine.builtin");
+        final static SymbolTerm ATOM_$0024leap_flag = SYM("$leap_flag");
+        final static IntegerTerm int_1 = Integer(1);
+    private static final StructureTerm PRED_$cafeteria_init_0_s6 = S("/",  ATOM_$0024leap_flag ,  int_1 );
+        final static SymbolTerm ATOM_$0024current_spypoint = SYM("$current_spypoint");
+        final static IntegerTerm int_3 = Integer(3);
+    private static final StructureTerm PRED_$cafeteria_init_0_s10 = S("/",  ATOM_$0024current_spypoint ,  int_3 );
+        final static SymbolTerm ATOM_$0024current_leash = SYM("$current_leash");
+    private static final StructureTerm PRED_$cafeteria_init_0_s13 = S("/",  ATOM_$0024current_leash ,  int_1 );
         final static SymbolTerm ATOM_no = SYM("no");
-    private static final StructureTerm PRED_$cafeteria_init_0_s11 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_$cafeteria_init_0_s13 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$cafeteria_init_0_s11);
+    private static final StructureTerm PRED_$cafeteria_init_0_s23 = S("$leap_flag",  ATOM_no );
+    private static final StructureTerm PRED_$cafeteria_init_0_s25 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s23);
         final static SymbolTerm ATOM_call = SYM("call");
-    private static final StructureTerm PRED_$cafeteria_init_0_s16 = S("$current_leash",  ATOM_call );
-    private static final StructureTerm PRED_$cafeteria_init_0_s18 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$cafeteria_init_0_s16);
+    private static final StructureTerm PRED_$cafeteria_init_0_s28 = S("$current_leash",  ATOM_call );
+    private static final StructureTerm PRED_$cafeteria_init_0_s30 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s28);
         final static SymbolTerm ATOM_exit = SYM("exit");
-    private static final StructureTerm PRED_$cafeteria_init_0_s21 = S("$current_leash",  ATOM_exit );
-    private static final StructureTerm PRED_$cafeteria_init_0_s23 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$cafeteria_init_0_s21);
+    private static final StructureTerm PRED_$cafeteria_init_0_s33 = S("$current_leash",  ATOM_exit );
+    private static final StructureTerm PRED_$cafeteria_init_0_s35 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s33);
         final static SymbolTerm ATOM_redo = SYM("redo");
-    private static final StructureTerm PRED_$cafeteria_init_0_s26 = S("$current_leash",  ATOM_redo );
-    private static final StructureTerm PRED_$cafeteria_init_0_s28 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$cafeteria_init_0_s26);
+    private static final StructureTerm PRED_$cafeteria_init_0_s38 = S("$current_leash",  ATOM_redo );
+    private static final StructureTerm PRED_$cafeteria_init_0_s40 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s38);
         final static SymbolTerm ATOM_fail = SYM("fail");
-    private static final StructureTerm PRED_$cafeteria_init_0_s31 = S("$current_leash",  ATOM_fail );
-    private static final StructureTerm PRED_$cafeteria_init_0_s33 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$cafeteria_init_0_s31);
+    private static final StructureTerm PRED_$cafeteria_init_0_s43 = S("$current_leash",  ATOM_fail );
+    private static final StructureTerm PRED_$cafeteria_init_0_s45 = S(":", PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s43);
 
 
 
 
     public static Operation PRED_$cafeteria_init_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$cafeteria_init':-retractall('$leap_flag'(A)),retractall('$current_leash'(B)),retractall('$current_spypoint'(C,D,E)),retractall('$consulted_file'(F)),retractall('$consulted_package'(G)),retractall('$consulted_predicate'(H,I,J)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
+    // '$cafeteria_init':-'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,A),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,B),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,C),retractall('$leap_flag'(D)),retractall('$current_leash'(E)),retractall('$current_spypoint'(F,G,H)),retractall('$consulted_file'(I)),retractall('$consulted_package'(J)),retractall('$consulted_predicate'(K,L,M)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
-    // '$cafeteria_init':-['$get_level'(A),retractall('com.googlecode.prolog_cafe.builtin':'$leap_flag'(B)),retractall('com.googlecode.prolog_cafe.builtin':'$current_leash'(C)),retractall('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(D,E,F)),retractall('com.googlecode.prolog_cafe.builtin':'$consulted_file'(G)),retractall('com.googlecode.prolog_cafe.builtin':'$consulted_package'(H)),retractall('com.googlecode.prolog_cafe.builtin':'$consulted_predicate'(I,J,K)),assertz('com.googlecode.prolog_cafe.builtin':'$leap_flag'(no)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(call)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(exit)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(redo)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(fail)),'$cut'(A)]
+        Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14;
+    // '$cafeteria_init':-['$get_level'(A),'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,D),retractall('SxxMachine.builtin':'$leap_flag'(E)),retractall('SxxMachine.builtin':'$current_leash'(F)),retractall('SxxMachine.builtin':'$current_spypoint'(G,H,I)),retractall('SxxMachine.builtin':'$consulted_file'(J)),retractall('SxxMachine.builtin':'$consulted_package'(K)),retractall('SxxMachine.builtin':'$consulted_predicate'(L,M,N)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
         a1 = V(m);
         //START inline expansion of $get_level(a(1))
         if (! a1.unifyInt(m.B0, m.trail)) {
@@ -53,61 +109,120 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         //END inline expansion
         Term[] y1 = VA(V(m));
         a2 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y2 = VA(PRED_$cafeteria_init_0_s1, a2);
         a3 = S(":", y2);
         Term[] y3 = VA(V(m));
         a4 = S("$current_leash", y3);
-        Term[] y4 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a4);
+        Term[] y4 = VA(PRED_$cafeteria_init_0_s1, a4);
         a5 = S(":", y4);
         Term[] y5 = VA(V(m), V(m), V(m));
         a6 = S("$current_spypoint", y5);
-        Term[] y6 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a6);
+        Term[] y6 = VA(PRED_$cafeteria_init_0_s1, a6);
         a7 = S(":", y6);
         Term[] y7 = VA(V(m));
         a8 = S("$consulted_file", y7);
-        Term[] y8 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a8);
+        Term[] y8 = VA(PRED_$cafeteria_init_0_s1, a8);
         a9 = S(":", y8);
         Term[] y9 = VA(V(m));
         a10 = S("$consulted_package", y9);
-        Term[] y10 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a10);
+        Term[] y10 = VA(PRED_$cafeteria_init_0_s1, a10);
         a11 = S(":", y10);
         Term[] y11 = VA(V(m), V(m), V(m));
         a12 = S("$consulted_predicate", y11);
-        Term[] y12 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a12);
+        Term[] y12 = VA(PRED_$cafeteria_init_0_s1, a12);
         a13 = S(":", y12);
-        return Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a3), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a5), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a7), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a9), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a11), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a13), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s13), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s18), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s23), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s28), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$cafeteria_init_0_s33), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a1), cont))))))))))));
+        return Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s6, V(m)), Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s10, V(m)), Op((e)->PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$cafeteria_init_0_s1, PRED_$cafeteria_init_0_s13, V(m)), Op((e)->PRED_retractall_1_static_exec(e), VA(a3), Op((e)->PRED_retractall_1_static_exec(e), VA(a5), Op((e)->PRED_retractall_1_static_exec(e), VA(a7), Op((e)->PRED_retractall_1_static_exec(e), VA(a9), Op((e)->PRED_retractall_1_static_exec(e), VA(a11), Op((e)->PRED_retractall_1_static_exec(e), VA(a13), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$cafeteria_init_0_s25), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$cafeteria_init_0_s30), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$cafeteria_init_0_s35), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$cafeteria_init_0_s40), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$cafeteria_init_0_s45), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont)))))))))))))));
     }
-/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/1
+/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-    private static final SymbolTerm PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1 = SYM("off");
-        final static SymbolTerm ATOM_info = SYM("info");
-        final static SymbolTerm ATOM_debug = SYM("debug");
-    private static final ListTerm PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
+        final static SymbolTerm ATOM_SxxMachine$002Ebuiltin = SYM("SxxMachine.builtin");
+        final static SymbolTerm ATOM_user = SYM("user");
 
 
 
 
-    public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry1(null, FILE_cafeteria::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(m);
+        m.jtry2(null, FILE_cafeteria::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_sub_1);
+        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(m);
+        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-A==off,!,true
+    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_1(Prolog m) { 
+    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-clause('$current_typein_module'(B),A),!,true
+         Term a1, a2, a3, a4, a5;
+        Operation p1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-['$get_level'(C),clause('SxxMachine.builtin':'$current_typein_module'(B),A),'$cut'(C)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        Term[] y1 = VA(a2);
+        a4 = S("$current_typein_module", y1);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
+        a5 = S(":", y2);
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a5, a1), Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
+    }
+
+    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_2(Prolog m) { 
+    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-B=user
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        cont = m.cont;
+    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-['$unify'(B,user)]
+        //START inline expansion of $unify(a(2),@(ATOM_user))
+        if (! a2.unify(ATOM_user, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return cont;
+    }
+/** PREDICATE: $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1 = SYM("off");
+        final static SymbolTerm ATOM_info = SYM("info");
+        final static SymbolTerm ATOM_debug = SYM("debug");
+    private static final ListTerm PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
+
+
+
+
+    public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry1(null, FILE_cafeteria::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1);
+        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(m);
+    }
+
+    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1(Prolog m) { 
+        m.trust(null);
+        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(m);
+    }
+
+    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(Prolog m) { 
+    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-A==off,!,true
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,off),'$cut'(B)]
+    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,off),'$cut'(B)]
         a2 = V(m);
         //START inline expansion of $get_level(a(2))
         if (! a2.unifyInt(m.B0, m.trail)) {
@@ -116,7 +231,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of $equality_of_term(a(1),s(1))
         a1 = a1.dref();
-        if (! a1.equalsTerm(PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1)) {
+        if (! a1.equalsTerm(PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1)) {
             return m.fail();
         }
         //END inline expansion
@@ -127,14 +242,70 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-print_message(info,[debug])
+    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(Prolog m) { 
+    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-print_message(info,[debug])
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-[print_message(info,[debug])]
-        return Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s5), cont);
+    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-[print_message(info,[debug])]
+        return Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s5), cont);
+    }
+/** PREDICATE: $dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1 = SYM("user");
+
+
+
+
+    public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry1(null, FILE_cafeteria::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1);
+        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(m);
+    }
+
+    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_sub_1(Prolog m) { 
+        m.trust(null);
+        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(m);
+    }
+
+    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_1(Prolog m) { 
+    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-A==user,!,true
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,user),'$cut'(B)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $equality_of_term(a(1),s(1))
+        a1 = a1.dref();
+        if (! a1.equalsTerm(PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_s1)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        return cont;
+    }
+
+    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_2(Prolog m) { 
+    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-'$fast_write'(A)
+         Term a1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A):-['$fast_write'(A)]
+        return Op((e)->PRED_$fast_write_1_static_exec(e), VA(a1), cont);
     }
 /** PREDICATE: $toplvel_loop/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -147,13 +318,14 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 
     public static Operation PRED_$toplvel_loop_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$toplvel_loop':-current_prolog_flag(debug,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A),'$fast_write'('| ?- '),flush_output
+    // '$toplvel_loop':-current_prolog_flag(debug,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(C),'$fast_write'('| ?- '),flush_output
         m.setB0();
-         Term a1;
-        Operation p1, p2, p3;
-    // '$toplvel_loop':-[current_prolog_flag(debug,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A),'$fast_write'('| ?- '),flush_output]
+         Term a1, a2;
+        Operation p1, p2, p3, p4, p5;
+    // '$toplvel_loop':-[current_prolog_flag(debug,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(C),'$fast_write'('| ?- '),flush_output]
         a1 = V(m);
-        return Op(FILE_cafeteria::PRED_current_prolog_flag_2_static_exec, VA(PRED_$toplvel_loop_0_s1, a1), Op(FILE_cafeteria::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec, VA(a1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$007C$0020$003F$002D$0020 ), Op(FILE_cafeteria::PRED_flush_output_0_static_exec, VA(), cont))));
+        a2 = V(m);
+        return Op((e)->PRED_current_prolog_flag_2_static_exec(e), VA(PRED_$toplvel_loop_0_s1, a1), Op((e)->PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec(e), VA(V(m), a2), Op((e)->PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec(e), VA(a1), Op((e)->PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007C$0020$003F$002D$0020 ), Op((e)->PRED_flush_output_0_static_exec(e), VA(), cont))))));
     }
 /** PREDICATE: $cafeteria/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -171,14 +343,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         a1 = LARG[0];
     // '$cafeteria'(A):-[read_with_variables(A,B),'$process_order'(A,B)]
         a2 = V(m);
-        return Op(FILE_cafeteria::PRED_read_with_variables_2_static_exec, VA(a1, a2), Op(FILE_cafeteria::PRED_$process_order_2_static_exec, VA(a1, a2), cont));
+        return Op((e)->PRED_read_with_variables_2_static_exec(e), VA(a1, a2), Op((e)->PRED_$process_order_2_static_exec(e), VA(a1, a2), cont));
     }
 /** PREDICATE: $process_order/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
     private static final SymbolTerm PRED_$process_order_2_s1 = SYM("var");
-        final static IntegerTerm int_1 = Integer(1);
-        final static SymbolTerm ATOM_end_of_file = SYM("end_of_file");
         final static SymbolTerm ATOM_yes = SYM("yes");
 
 
@@ -297,7 +467,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1);
         a4 = S("?-", y1);
-        return Op(FILE_cafeteria::PRED_illarg_3_static_exec, VA(PRED_$process_order_2_s1, a4,  int_1 ), cont);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$process_order_2_s1, a4,  int_1 ), cont);
     }
 
     private final static Operation $process_order_2_2(Prolog m) { 
@@ -340,18 +510,18 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         a5 = CONS(a3, a4);
-        return Op(FILE_cafeteria::PRED_consult_1_static_exec, VA(a5), cont);
+        return Op((e)->PRED_consult_1_static_exec(e), VA(a5), cont);
     }
 
     private final static Operation $process_order_2_4(Prolog m) { 
-    // '$process_order'(A,B):-current_prolog_flag(debug,C),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,C),nl,'$rm_redundant_vars'(B,D),'$give_answers_with_prompt'(D),!,'$fast_write'(yes),nl
-         Term a1, a2, a3, a4, a5;
-        Operation p1, p2, p3, p4, p5, p6, p7;
+    // '$process_order'(A,B):-context_module(C),current_prolog_flag(debug,D),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,C,D),nl,'$rm_redundant_vars'(B,E),'$give_answers_with_prompt'(E),!,'$fast_write'(yes),nl
+         Term a1, a2, a3, a4, a5, a6;
+        Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$process_order'(A,B):-['$get_level'(C),current_prolog_flag(debug,D),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,D),nl,'$rm_redundant_vars'(B,E),'$give_answers_with_prompt'(E),'$cut'(C),'$fast_write'(yes),nl]
+    // '$process_order'(A,B):-['$get_level'(C),context_module(D),current_prolog_flag(debug,E),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,D,E),nl,'$rm_redundant_vars'(B,F),'$give_answers_with_prompt'(F),'$cut'(C),'$fast_write'(yes),nl]
         a3 = V(m);
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
@@ -360,7 +530,8 @@ m.cont = cont;
         //END inline expansion
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_cafeteria::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a4), Op(FILE_cafeteria::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec, VA(a1, a4), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$rm_redundant_vars_2_static_exec, VA(a2, a5), Op(FILE_cafeteria::PRED_$give_answers_with_prompt_1_static_exec, VA(a5), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a3), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_yes ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont))))))));
+        a6 = V(m);
+        return Op((e)->PRED_context_module_1_static_exec(e), VA(a4), Op((e)->PRED_current_prolog_flag_2_static_exec(e), VA( ATOM_debug , a5), Op((e)->PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec(e), VA(a1, a4, a5), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$rm_redundant_vars_2_static_exec(e), VA(a2, a6), Op((e)->PRED_$give_answers_with_prompt_1_static_exec(e), VA(a6), Op((e)->PRED_$cut_1_static_exec(e), VA(a3), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_yes ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont)))))))));
     }
 
     private final static Operation $process_order_2_5(Prolog m) { 
@@ -372,70 +543,71 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$process_order'(A,B):-[nl,'$fast_write'(no),nl]
-        return Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_no ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont)));
+        return Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_no ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont)));
     }
-/** PREDICATE: $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/2
+/** PREDICATE: $dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-    private static final SymbolTerm PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_s1 = SYM("off");
-        final static SymbolTerm ATOM_user = SYM("user");
+    private static final SymbolTerm PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1 = SYM("off");
 
 
 
 
-    public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry2(null, FILE_cafeteria::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_sub_1);
-        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_1(m);
+        m.jtry3(null, FILE_cafeteria::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1);
+        return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_sub_1(Prolog m) { 
+    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_2(m);
+        return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_1(Prolog m) { 
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-B==off,!,call(user:A)
+    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(Prolog m) { 
+    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-C==off,!,call(B:A)
+         Term a1, a2, a3, a4, a5;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        a3 = m.AREGS[2];
+        cont = m.cont;
+    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(C,off),'$cut'(D),call(B:A)]
+        a4 = V(m);
+        //START inline expansion of $get_level(a(4))
+        if (! a4.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $equality_of_term(a(3),s(1))
+        a3 = a3.dref();
+        if (! a3.equalsTerm(PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(4))
+        a4 = a4.dref();
+                  m.cut( a4.intValue());
+        //END inline expansion
+        Term[] y1 = VA(a2, a1);
+        a5 = S(":", y1);
+        return Op((e)->PRED_call_1_static_exec(e), VA(a5), cont);
+    }
+
+    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(Prolog m) { 
+    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-'$trace_goal'(B:A)
          Term a1, a2, a3, a4;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
+        a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-['$get_level'(C),'$equality_of_term'(B,off),'$cut'(C),call(user:A)]
-        a3 = V(m);
-        //START inline expansion of $get_level(a(3))
-        if (! a3.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $equality_of_term(a(2),s(1))
-        a2 = a2.dref();
-        if (! a2.equalsTerm(PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_s1)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(3))
-        a3 = a3.dref();
-                  m.cut( a3.intValue());
-        //END inline expansion
-        Term[] y1 = VA( ATOM_user , a1);
+    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$trace_goal'(B:A)]
+        Term[] y1 = VA(a2, a1);
         a4 = S(":", y1);
-        return Op(FILE_cafeteria::PRED_call_1_static_exec, VA(a4), cont);
-    }
-
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_2(Prolog m) { 
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-'$trace_goal'(user:A)
-         Term a1, a2, a3;
-        Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        cont = m.cont;
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B):-['$trace_goal'(user:A)]
-        Term[] y1 = VA( ATOM_user , a1);
-        a3 = S(":", y1);
-        return Op(FILE_cafeteria::PRED_$trace_goal_1_static_exec, VA(a3), cont);
+        return Op((e)->PRED_$trace_goal_1_static_exec(e), VA(a4), cont);
     }
 /** PREDICATE: $rm_redundant_vars/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -622,7 +794,7 @@ m.cont = cont;
         cont = m.cont;
     // '$give_answers_with_prompt'(A):-['$give_an_answer'(A),'$fast_write'(' ? '),flush_output,read_line(B),'$inequality_of_term'(B,[59]),nl]
         a2 = V(m);
-        return Op(FILE_cafeteria::PRED_$give_an_answer_1_static_exec, VA(a1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), Op(FILE_cafeteria::PRED_flush_output_0_static_exec, VA(), Op(FILE_cafeteria::PRED_read_line_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$inequality_of_term_2_static_exec, VA(a2, PRED_$give_answers_with_prompt_1_s4), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont))))));
+        return Op((e)->PRED_$give_an_answer_1_static_exec(e), VA(a1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$0020$003F$0020 ), Op((e)->PRED_flush_output_0_static_exec(e), VA(), Op((e)->PRED_read_line_1_static_exec(e), VA(a2), Op((e)->PRED_$inequality_of_term_2_static_exec(e), VA(a2, PRED_$give_answers_with_prompt_1_s4), Op((e)->PRED_nl_0_static_exec(e), VA(), cont))))));
     }
 /** PREDICATE: $give_an_answer/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -677,7 +849,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( Prolog.True ), cont);
+        return Op((e)->PRED_$fast_write_1_static_exec(e), VA( Prolog.True ), cont);
     }
 
     private final static Operation $give_an_answer_1_2(Prolog m) { 
@@ -702,7 +874,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$print_an$0020answer_1_static_exec, VA(a2), cont);
+        return Op((e)->PRED_$print_an$0020answer_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $give_an_answer_1_3(Prolog m) { 
@@ -725,7 +897,7 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_cafeteria::PRED_$print_an$0020answer_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$002C ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$give_an_answer_1_static_exec, VA(a3), cont))));
+        return Op((e)->PRED_$print_an$0020answer_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$002C ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$give_an_answer_1_static_exec(e), VA(a3), cont))));
     }
 /** PREDICATE: $print_an answer/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -749,7 +921,183 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
             if (!a1.unify(C("=", a2, a3), m.trail)){
                 return m.fail();
             }
-        return Op(FILE_cafeteria::PRED_write_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003D$0020 ), Op(FILE_cafeteria::PRED_writeq_1_static_exec, VA(a3), cont)));
+        return Op((e)->PRED_write_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$0020$003D$0020 ), Op((e)->PRED_writeq_1_static_exec(e), VA(a3), cont)));
+    }
+/** PREDICATE: consult/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_consult_1_s1 = SYM("var");
+
+
+
+
+    public static Operation PRED_consult_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        return consult_1_top(m);
+    }
+
+    private final static Operation consult_1_top(Prolog m) { 
+        m.setB0();
+        return m.switch_on_term(FILE_cafeteria::consult_1_var, FILE_cafeteria::consult_1_int, FILE_cafeteria::consult_1_int, FILE_cafeteria::consult_1_con, FILE_cafeteria::consult_1_int, FILE_cafeteria::consult_1_lis); 
+    }
+
+    private final static Operation consult_1_var(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::consult_1_var_1);
+        return consult_1_1(m);
+    }
+
+    private final static Operation consult_1_var_1(Prolog m) { 
+        m.retry(null, FILE_cafeteria::consult_1_var_2);
+        return consult_1_2(m);
+    }
+
+    private final static Operation consult_1_var_2(Prolog m) { 
+        m.retry(null, FILE_cafeteria::consult_1_var_3);
+        return consult_1_3(m);
+    }
+
+    private final static Operation consult_1_var_3(Prolog m) { 
+        m.trust(null);
+        return consult_1_4(m);
+    }
+
+    private final static Operation consult_1_int(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::consult_1_int_1);
+        return consult_1_1(m);
+    }
+
+    private final static Operation consult_1_int_1(Prolog m) { 
+        m.trust(null);
+        return consult_1_4(m);
+    }
+
+    private final static Operation consult_1_con(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::consult_1_con_1);
+        return consult_1_1(m);
+    }
+
+    private final static Operation consult_1_con_1(Prolog m) { 
+        m.retry(null, FILE_cafeteria::consult_1_con_2);
+        return consult_1_2(m);
+    }
+
+    private final static Operation consult_1_con_2(Prolog m) { 
+        m.trust(null);
+        return consult_1_4(m);
+    }
+
+    private final static Operation consult_1_lis(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::consult_1_lis_1);
+        return consult_1_1(m);
+    }
+
+    private final static Operation consult_1_lis_1(Prolog m) { 
+        m.retry(null, FILE_cafeteria::consult_1_lis_2);
+        return consult_1_3(m);
+    }
+
+    private final static Operation consult_1_lis_2(Prolog m) { 
+        m.trust(null);
+        return consult_1_4(m);
+    }
+
+    private final static Operation consult_1_1(Prolog m) { 
+    // consult(A):-var(A),!,illarg(var,consult(A),1)
+         Term a1, a2, a3;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // consult(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,consult(A),1)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of var(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isVariable())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        Term[] y1 = VA(a1);
+        a3 = S("consult", y1);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_consult_1_s1, a3,  int_1 ), cont);
+    }
+
+    private final static Operation consult_1_2(Prolog m) { 
+    // consult([]):-!
+         Term a1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // consult([]):-['$neck_cut']
+        if (!  Prolog.Nil .unify(a1, m.trail))
+            return m.fail();
+        //START inline expansion of $neck_cut
+        m.neckCut();
+        //END inline expansion
+        return cont;
+    }
+
+    private final static Operation consult_1_3(Prolog m) { 
+    // consult([A|B]):-!,consult(A),consult(B)
+         Term a1, a2, a3;
+        Operation p1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // consult([A|B]):-['$neck_cut',consult(A),consult(B)]
+        a1 = a1.dref();
+        if (a1 .isCons()){
+            Term[] argz = VA(a1.car(), a1.cdr());
+            a2 = argz[0];
+            a3 = argz[1];
+        } else if (a1.isVar()){
+            a2 = V(m);
+            a3 = V(m);
+             a1.bind(CONS(a2, a3), m.trail);
+        } else {
+            return m.fail();
+        }
+        //START inline expansion of $neck_cut
+        m.neckCut();
+        //END inline expansion
+        p1 = Op((e)->PRED_consult_1_static_exec(e), VA(a3), cont);
+        m.AREGS[0] = a2;
+        m.cont = p1;
+        return consult_1_top(m);
+    }
+
+    private final static Operation consult_1_4(Prolog m) { 
+    // consult(A):-atom(A),!,'$consult'(A)
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // consult(A):-['$get_level'(B),atom(A),'$cut'(B),'$consult'(A)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of atom(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isSymbol())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        return Op((e)->PRED_$consult_1_static_exec(e), VA(a1), cont);
     }
 /** PREDICATE: $consult/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -787,7 +1135,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         a11 = CONS(a8, PRED_$consult_1_s11);
         a12 = CONS( ATOM_consulted , a11);
         a13 = CONS(a4, a12);
-        return Op(FILE_cafeteria::PRED_$prolog_file_name_2_static_exec, VA(a1, a2), Op(FILE_cafeteria::PRED_open_3_static_exec, VA(a2, PRED_$consult_1_s1, a3), Op(FILE_cafeteria::PRED_stream_property_2_static_exec, VA(a3, a5), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a7), Op(FILE_cafeteria::PRED_statistics_2_static_exec, VA( ATOM_runtime , V(m)), Op(FILE_cafeteria::PRED_consult_stream_2_static_exec, VA(a4, a3), Op(FILE_cafeteria::PRED_statistics_2_static_exec, VA( ATOM_runtime , a10), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a13), Op(FILE_cafeteria::PRED_close_1_static_exec, VA(a3), cont)))))))));
+        return Op((e)->PRED_$prolog_file_name_2_static_exec(e), VA(a1, a2), Op((e)->PRED_open_3_static_exec(e), VA(a2, PRED_$consult_1_s1, a3), Op((e)->PRED_stream_property_2_static_exec(e), VA(a3, a5), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a7), Op((e)->PRED_statistics_2_static_exec(e), VA( ATOM_runtime , V(m)), Op((e)->PRED_consult_stream_2_static_exec(e), VA(a4, a3), Op((e)->PRED_statistics_2_static_exec(e), VA( ATOM_runtime , a10), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a13), Op((e)->PRED_close_1_static_exec(e), VA(a3), cont)))))))));
     }
 /** PREDICATE: $prolog_file_name/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -831,7 +1179,7 @@ m.cont = cont;
         //END inline expansion
         a4 = V(m);
         a5 = V(m);
-        return Op(FILE_cafeteria::PRED_sub_atom_5_static_exec, VA(a1, V(m), V(m), a4, PRED_$prolog_file_name_2_s1), Op(FILE_builtins::PRED_is_2_static_exec, VA(a5,  int_0 ), Op(FILE_cafeteria::PRED_$greater_than_2_static_exec, VA(a4, a5), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a3), cont))));
+        return Op((e)->PRED_sub_atom_5_static_exec(e), VA(a1, V(m), V(m), a4, PRED_$prolog_file_name_2_s1), Op(FILE_builtins::PRED_is_2_static_exec, VA(a5,  int_0 ), Op((e)->PRED_$greater_than_2_static_exec(e), VA(a4, a5), Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont))));
     }
 
     private final static Operation $prolog_file_name_2_2(Prolog m) { 
@@ -842,21 +1190,75 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$prolog_file_name'(A,B):-[atom_concat(A,'.pl',B)]
-        return Op(FILE_cafeteria::PRED_atom_concat_3_static_exec, VA(a1,  ATOM_$002Epl , a2), cont);
+        return Op((e)->PRED_atom_concat_3_static_exec(e), VA(a1,  ATOM_$002Epl , a2), cont);
+    }
+/** PREDICATE: trace/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_trace_0_s1 = SYM("debug");
+        final static SymbolTerm ATOM_on = SYM("on");
+        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D = SYM("{Small debugger is switch on}");
+
+
+
+
+    public static Operation PRED_trace_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry0(null, FILE_cafeteria::trace_0_sub_1);
+        return trace_0_1(m);
+    }
+
+    private final static Operation trace_0_sub_1(Prolog m) { 
+        m.trust(null);
+        return trace_0_2(m);
+    }
+
+    private final static Operation trace_0_1(Prolog m) { 
+    // trace:-current_prolog_flag(debug,on),!
+         Term a1;
+        Operation p1;
+        Operation cont;
+        cont = m.cont;
+    // trace:-['$get_level'(A),current_prolog_flag(debug,on),'$cut'(A)]
+        a1 = V(m);
+        //START inline expansion of $get_level(a(1))
+        if (! a1.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return Op((e)->PRED_current_prolog_flag_2_static_exec(e), VA(PRED_trace_0_s1,  ATOM_on ), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont));
+    }
+
+    private final static Operation trace_0_2(Prolog m) { 
+    // trace:-set_prolog_flag(debug,on),'$trace_init','$fast_write'('{Small debugger is switch on}'),nl,!
+         Term a1;
+        Operation p1, p2, p3, p4;
+        Operation cont;
+        cont = m.cont;
+    // trace:-['$get_level'(A),set_prolog_flag(debug,on),'$trace_init','$fast_write'('{Small debugger is switch on}'),nl,'$cut'(A)]
+        a1 = V(m);
+        //START inline expansion of $get_level(a(1))
+        if (! a1.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return Op((e)->PRED_set_prolog_flag_2_static_exec(e), VA(PRED_trace_0_s1,  ATOM_on ), Op((e)->PRED_$trace_init_0_static_exec(e), VA(), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont)))));
     }
 /** PREDICATE: $trace_init/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
     private static final StructureTerm PRED_$trace_init_0_s8 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_$trace_init_0_s10 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$trace_init_0_s8);
+    private static final StructureTerm PRED_$trace_init_0_s10 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s8);
     private static final StructureTerm PRED_$trace_init_0_s13 = S("$current_leash",  ATOM_call );
-    private static final StructureTerm PRED_$trace_init_0_s15 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$trace_init_0_s13);
+    private static final StructureTerm PRED_$trace_init_0_s15 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s13);
     private static final StructureTerm PRED_$trace_init_0_s18 = S("$current_leash",  ATOM_exit );
-    private static final StructureTerm PRED_$trace_init_0_s20 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$trace_init_0_s18);
+    private static final StructureTerm PRED_$trace_init_0_s20 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s18);
     private static final StructureTerm PRED_$trace_init_0_s23 = S("$current_leash",  ATOM_redo );
-    private static final StructureTerm PRED_$trace_init_0_s25 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$trace_init_0_s23);
+    private static final StructureTerm PRED_$trace_init_0_s25 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s23);
     private static final StructureTerm PRED_$trace_init_0_s28 = S("$current_leash",  ATOM_fail );
-    private static final StructureTerm PRED_$trace_init_0_s30 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_$trace_init_0_s28);
+    private static final StructureTerm PRED_$trace_init_0_s30 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s28);
 
 
 
@@ -867,7 +1269,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-    // '$trace_init':-['$get_level'(A),retractall('com.googlecode.prolog_cafe.builtin':'$leap_flag'(B)),retractall('com.googlecode.prolog_cafe.builtin':'$current_leash'(C)),retractall('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(D,E,F)),assertz('com.googlecode.prolog_cafe.builtin':'$leap_flag'(no)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(call)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(exit)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(redo)),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(fail)),'$cut'(A)]
+    // '$trace_init':-['$get_level'(A),retractall('SxxMachine.builtin':'$leap_flag'(B)),retractall('SxxMachine.builtin':'$current_leash'(C)),retractall('SxxMachine.builtin':'$current_spypoint'(D,E,F)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
         a1 = V(m);
         //START inline expansion of $get_level(a(1))
         if (! a1.unifyInt(m.B0, m.trail)) {
@@ -876,17 +1278,99 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         //END inline expansion
         Term[] y1 = VA(V(m));
         a2 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y2);
         Term[] y3 = VA(V(m));
         a4 = S("$current_leash", y3);
-        Term[] y4 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a4);
+        Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y4);
         Term[] y5 = VA(V(m), V(m), V(m));
         a6 = S("$current_spypoint", y5);
-        Term[] y6 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a6);
+        Term[] y6 = VA( ATOM_SxxMachine$002Ebuiltin , a6);
         a7 = S(":", y6);
-        return Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a3), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a5), Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a7), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s10), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s15), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s20), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s25), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(PRED_$trace_init_0_s30), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a1), cont)))))))));
+        return Op((e)->PRED_retractall_1_static_exec(e), VA(a3), Op((e)->PRED_retractall_1_static_exec(e), VA(a5), Op((e)->PRED_retractall_1_static_exec(e), VA(a7), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$trace_init_0_s10), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$trace_init_0_s15), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$trace_init_0_s20), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$trace_init_0_s25), Op((e)->PRED_assertz_1_static_exec(e), VA(PRED_$trace_init_0_s30), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont)))))))));
+    }
+/** PREDICATE: notrace/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_notrace_0_s1 = SYM("debug");
+        final static SymbolTerm ATOM_off = SYM("off");
+        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D = SYM("{Small debugger is switch off}");
+
+
+
+
+    public static Operation PRED_notrace_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry0(null, FILE_cafeteria::notrace_0_sub_1);
+        return notrace_0_1(m);
+    }
+
+    private final static Operation notrace_0_sub_1(Prolog m) { 
+        m.trust(null);
+        return notrace_0_2(m);
+    }
+
+    private final static Operation notrace_0_1(Prolog m) { 
+    // notrace:-current_prolog_flag(debug,off),!
+         Term a1;
+        Operation p1;
+        Operation cont;
+        cont = m.cont;
+    // notrace:-['$get_level'(A),current_prolog_flag(debug,off),'$cut'(A)]
+        a1 = V(m);
+        //START inline expansion of $get_level(a(1))
+        if (! a1.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return Op((e)->PRED_current_prolog_flag_2_static_exec(e), VA(PRED_notrace_0_s1,  ATOM_off ), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont));
+    }
+
+    private final static Operation notrace_0_2(Prolog m) { 
+    // notrace:-set_prolog_flag(debug,off),'$fast_write'('{Small debugger is switch off}'),nl,!
+         Term a1;
+        Operation p1, p2, p3;
+        Operation cont;
+        cont = m.cont;
+    // notrace:-['$get_level'(A),set_prolog_flag(debug,off),'$fast_write'('{Small debugger is switch off}'),nl,'$cut'(A)]
+        a1 = V(m);
+        //START inline expansion of $get_level(a(1))
+        if (! a1.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        return Op((e)->PRED_set_prolog_flag_2_static_exec(e), VA(PRED_notrace_0_s1,  ATOM_off ), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$cut_1_static_exec(e), VA(a1), cont))));
+    }
+/** PREDICATE: debug/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_debug_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // debug:-trace
+        m.setB0();
+    // debug:-[trace]
+        return Op((e)->PRED_trace_0_static_exec(e), VA(), cont);
+    }
+/** PREDICATE: nodebug/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_nodebug_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // nodebug:-notrace
+        m.setB0();
+    // nodebug:-[notrace]
+        return Op((e)->PRED_notrace_0_static_exec(e), VA(), cont);
     }
 /** PREDICATE: $trace_goal/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -899,14 +1383,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 
     public static Operation PRED_$trace_goal_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$trace_goal'(A):-'$set_debug_flag'(leap,no),'$get_current_B'(B),'$meta_call'(A,user,B,0,trace)
+    // '$trace_goal'(A):-'$set_debug_flag'(leap,no),'$get_current_B'(B),context_module(C),'$meta_call'(A,C,B,0,trace)
         m.setB0();
-         Term a1, a2;
-        Operation p1, p2;
+         Term a1, a2, a3;
+        Operation p1, p2, p3;
         a1 = LARG[0];
-    // '$trace_goal'(A):-['$set_debug_flag'(leap,no),'$get_current_B'(B),'$meta_call'(A,user,B,0,trace)]
+    // '$trace_goal'(A):-['$set_debug_flag'(leap,no),'$get_current_B'(B),context_module(C),'$meta_call'(A,C,B,0,trace)]
         a2 = V(m);
-        return Op(FILE_cafeteria::PRED_$set_debug_flag_2_static_exec, VA(PRED_$trace_goal_1_s1,  ATOM_no ), Op(FILE_cafeteria::PRED_$get_current_B_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$meta_call_5_static_exec, VA(a1,  ATOM_user , a2,  int_0 ,  ATOM_trace ), cont)));
+        a3 = V(m);
+        return Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA(PRED_$trace_goal_1_s1,  ATOM_no ), Op((e)->PRED_$get_current_B_1_static_exec(e), VA(a2), Op((e)->PRED_context_module_1_static_exec(e), VA(a3), Op((e)->PRED_$meta_call_5_static_exec(e), VA(a1, a3, a2,  int_0 ,  ATOM_trace ), cont))));
     }
 /** PREDICATE: $trace_goal/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -940,7 +1425,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(call,A,B,C,D),'$call_internal'(A,B,C,D,trace),print_procedure_box(exit,A,B,C,D),redo_procedure_box(A,B,C,D)]
-        return Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA(PRED_$trace_goal_4_s1, a1, a2, a3, a4), Op(FILE_cafeteria::PRED_$call_internal_5_static_exec, VA(a1, a2, a3, a4,  ATOM_trace ), Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA( ATOM_exit , a1, a2, a3, a4), Op(FILE_cafeteria::PRED_redo_procedure_box_4_static_exec, VA(a1, a2, a3, a4), cont))));
+        return Op((e)->PRED_print_procedure_box_5_static_exec(e), VA(PRED_$trace_goal_4_s1, a1, a2, a3, a4), Op((e)->PRED_$call_internal_5_static_exec(e), VA(a1, a2, a3, a4,  ATOM_trace ), Op((e)->PRED_print_procedure_box_5_static_exec(e), VA( ATOM_exit , a1, a2, a3, a4), Op((e)->PRED_redo_procedure_box_4_static_exec(e), VA(a1, a2, a3, a4), cont))));
     }
 
     private final static Operation $trace_goal_4_2(Prolog m) { 
@@ -954,7 +1439,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(fail,A,B,C,D),fail]
-        return Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA( ATOM_fail , a1, a2, a3, a4), Op(fail_0, VA(), cont));
+        return Op((e)->PRED_print_procedure_box_5_static_exec(e), VA( ATOM_fail , a1, a2, a3, a4), Op(fail_0, VA(), cont));
     }
 /** PREDICATE: print_procedure_box/5
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -962,7 +1447,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         final static SymbolTerm ATOM_$002B = SYM("+");
         final static SymbolTerm ATOM_module_colon = SYM(":");
     private static final StructureTerm PRED_print_procedure_box_5_s12 = S("$leap_flag",  ATOM_no );
-    private static final StructureTerm PRED_print_procedure_box_5_s14 = S(":",  ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , PRED_print_procedure_box_5_s12);
+    private static final StructureTerm PRED_print_procedure_box_5_s14 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_print_procedure_box_5_s12);
         final static SymbolTerm ATOM_$0020 = SYM(" ");
 
     // private final Term arg5;
@@ -999,7 +1484,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
+    // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
         a4 = a4.dref();
             a6 = V(m);
             a7 = V(m);
@@ -1014,7 +1499,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a3, a6, a7);
         a9 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a9);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a9);
         a10 = S(":", y2);
         Term[] y3 = VA(a3, a2);
         a11 = S(":", y3);
@@ -1027,11 +1512,11 @@ m.cont = cont;
         a17 = S("/", y4);
         Term[] y5 = VA(a1, a2, a3, a17, a5);
         a18 = S("print_procedure_box", y5);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(a10, V(m)), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a8), Op(FILE_cafeteria::PRED_$builtin_message_1_static_exec, VA(a16), Op(FILE_cafeteria::PRED_$read_blocked_1_static_exec, VA(a18), cont))));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a10, V(m)), Op((e)->PRED_$cut_1_static_exec(e), VA(a8), Op((e)->PRED_$builtin_message_1_static_exec(e), VA(a16), Op((e)->PRED_$read_blocked_1_static_exec(e), VA(a18), cont))));
     }
 
     private final static Operation print_procedure_box_5_2(Prolog m) { 
-    // print_procedure_box(A,B,C,D,E):-clause('$leap_flag'(no),F),!,'$builtin_message'([' ',E,A,:,C:B]),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,G)
+    // print_procedure_box(A,B,C,D,E):-clause('$leap_flag'(no),F),!,'$builtin_message'([' ',E,A,:,C:B]),'$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3;
         Operation cont;
@@ -1041,7 +1526,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('com.googlecode.prolog_cafe.builtin':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,H)]
+    // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('SxxMachine.builtin':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,H)]
         a6 = V(m);
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
@@ -1055,7 +1540,7 @@ m.cont = cont;
         a10 = CONS(a1, a9);
         a11 = CONS(a5, a10);
         a12 = CONS( ATOM_$0020 , a11);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(PRED_print_procedure_box_5_s14, V(m)), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a6), Op(FILE_cafeteria::PRED_$builtin_message_1_static_exec, VA(a12), Op(FILE_cafeteria::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, V(m)), cont))));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(PRED_print_procedure_box_5_s14, V(m)), Op((e)->PRED_$cut_1_static_exec(e), VA(a6), Op((e)->PRED_$builtin_message_1_static_exec(e), VA(a12), Op((e)->PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec(e), VA(a1, a2, a3, a4, a5, V(m)), cont))));
     }
 
     private final static Operation print_procedure_box_5_3(Prolog m) { 
@@ -1071,7 +1556,7 @@ m.cont = cont;
     // print_procedure_box(A,B,C,D,E):-[]
         return cont;
     }
-/** PREDICATE: $dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/6
+/** PREDICATE: $dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/6
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
 
@@ -1080,21 +1565,21 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 
 
 
-    public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry6(null, FILE_cafeteria::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_sub_1);
-        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_1(m);
+        m.jtry6(null, FILE_cafeteria::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_sub_1);
+        return $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_1(m);
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_sub_1(Prolog m) { 
+    private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_2(m);
+        return $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_2(m);
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_1(Prolog m) { 
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-clause('$current_leash'(A),F),!,'$read_blocked'(print_procedure_box(A,B,C,D,E))
+    private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_1(Prolog m) { 
+    // '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-clause('$current_leash'(A),F),!,'$read_blocked'(print_procedure_box(A,B,C,D,E))
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
         Operation cont;
@@ -1105,7 +1590,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('com.googlecode.prolog_cafe.builtin':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
+    // '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
         a7 = V(m);
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
@@ -1114,15 +1599,15 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1);
         a8 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a8);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a8);
         a9 = S(":", y2);
         Term[] y3 = VA(a1, a2, a3, a4, a5);
         a10 = S("print_procedure_box", y3);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(a9, a6), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a7), Op(FILE_cafeteria::PRED_$read_blocked_1_static_exec, VA(a10), cont)));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a9, a6), Op((e)->PRED_$cut_1_static_exec(e), VA(a7), Op((e)->PRED_$read_blocked_1_static_exec(e), VA(a10), cont)));
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_2(Prolog m) { 
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-nl
+    private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_2(Prolog m) { 
+    // '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-nl
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -1132,8 +1617,8 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-[nl]
-        return Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont);
+    // '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C,D,E,F):-[nl]
+        return Op((e)->PRED_nl_0_static_exec(e), VA(), cont);
     }
 /** PREDICATE: redo_procedure_box/4
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1180,39 +1665,39 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // redo_procedure_box(A,B,C,D):-[print_procedure_box(redo,A,B,C,D),fail]
-        return Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA(PRED_redo_procedure_box_4_s1, a1, a2, a3, a4), Op(fail_0, VA(), cont));
+        return Op((e)->PRED_print_procedure_box_5_static_exec(e), VA(PRED_redo_procedure_box_4_s1, a1, a2, a3, a4), Op(fail_0, VA(), cont));
     }
-/** PREDICATE: $dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/3
+/** PREDICATE: $dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-    private static final SymbolTerm PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1 = SYM("[]");
+    private static final SymbolTerm PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1 = SYM("[]");
         final static IntegerTerm int_99 = Integer(99);
 
 
 
 
-    public static Operation PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_cafeteria::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1);
-        return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(m);
+        m.jtry3(null, FILE_cafeteria::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1);
+        return $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(m);
+        return $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(Prolog m) { 
-    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-A==[],!,B=99
+    private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_1(Prolog m) { 
+    // '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-A==[],!,B=99
          Term a1, a2, a3, a4;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(A,[]),'$cut'(D),'$unify'(B,99)]
+    // '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(A,[]),'$cut'(D),'$unify'(B,99)]
         a4 = V(m);
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
@@ -1221,7 +1706,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of $equality_of_term(a(1),s(1))
         a1 = a1.dref();
-        if (! a1.equalsTerm(PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1)) {
+        if (! a1.equalsTerm(PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_s1)) {
             return m.fail();
         }
         //END inline expansion
@@ -1237,15 +1722,15 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(Prolog m) { 
-    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-A=[B|C]
+    private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_2(Prolog m) { 
+    // '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-A=[B|C]
          Term a1, a2, a3, a4;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$unify'(A,[B|C])]
+    // '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(A,B,C):-['$unify'(A,[B|C])]
         a4 = CONS(a2, a3);
         //START inline expansion of $unify(a(1),a(4))
         if (! a1.unify(a4, m.trail)) {
@@ -1264,15 +1749,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 
     public static Operation PRED_$read_blocked_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$read_blocked'(A):-'$fast_write'(' ? '),flush_output,read_line(B),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C,D),'$debug_option'(C,A)
+    // '$read_blocked'(A):-'$fast_write'(' ? '),flush_output,read_line(B),'$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C,D),'$debug_option'(C,A)
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2, p3, p4;
         a1 = LARG[0];
-    // '$read_blocked'(A):-['$fast_write'(' ? '),flush_output,read_line(B),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C,D),'$debug_option'(C,A)]
+    // '$read_blocked'(A):-['$fast_write'(' ? '),flush_output,read_line(B),'$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl'(B,C,D),'$debug_option'(C,A)]
         a2 = V(m);
         a3 = V(m);
-        return Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA(PRED_$read_blocked_1_s1), Op(FILE_cafeteria::PRED_flush_output_0_static_exec, VA(), Op(FILE_cafeteria::PRED_read_line_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec, VA(a2, a3, V(m)), Op(FILE_cafeteria::PRED_$debug_option_2_static_exec, VA(a3, a1), cont)))));
+        return Op((e)->PRED_$fast_write_1_static_exec(e), VA(PRED_$read_blocked_1_s1), Op((e)->PRED_flush_output_0_static_exec(e), VA(), Op((e)->PRED_read_line_1_static_exec(e), VA(a2), Op((e)->PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec(e), VA(a2, a3, V(m)), Op((e)->PRED_$debug_option_2_static_exec(e), VA(a3, a1), cont)))));
     }
 /** PREDICATE: $debug_option/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1349,7 +1834,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_notrace_0_static_exec, VA(), Op(FILE_cafeteria::PRED_abort_0_static_exec, VA(), cont));
+        return Op((e)->PRED_notrace_0_static_exec(e), VA(), Op((e)->PRED_abort_0_static_exec(e), VA(), cont));
     }
 
     private final static Operation $debug_option_2_2(Prolog m) { 
@@ -1365,7 +1850,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont);
+        return Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA( ATOM_leap ,  ATOM_no ), cont);
     }
 
     private final static Operation $debug_option_2_3(Prolog m) { 
@@ -1381,7 +1866,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), cont);
+        return Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA( ATOM_leap ,  ATOM_yes ), cont);
     }
 
     private final static Operation $debug_option_2_4(Prolog m) { 
@@ -1392,7 +1877,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('com.googlecode.prolog_cafe.builtin':print_procedure_box(A,B,C,D,E))]
+    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
         if (!  int_43 .unify(a1, m.trail))
             return m.fail();
         a2 = a2.dref();
@@ -1409,8 +1894,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a5, a6);
         a8 = S(":", y1);
-        a9 = Closure( Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
-        return Op(FILE_cafeteria::PRED_spy_1_static_exec, VA(a8), Op(FILE_cafeteria::PRED_call_1_static_exec, VA(a9), cont));
+        a9 = Closure( Op((e)->PRED_print_procedure_box_5_static_exec(e), VA(a3, a4, a5, a6, a7), null));
+        return Op((e)->PRED_spy_1_static_exec(e), VA(a8), Op((e)->PRED_call_1_static_exec(e), VA(a9), cont));
     }
 
     private final static Operation $debug_option_2_5(Prolog m) { 
@@ -1421,7 +1906,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('com.googlecode.prolog_cafe.builtin':print_procedure_box(A,B,C,D,E))]
+    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
         if (!  int_45 .unify(a1, m.trail))
             return m.fail();
         a2 = a2.dref();
@@ -1438,8 +1923,8 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a5, a6);
         a8 = S(":", y1);
-        a9 = Closure( Op(FILE_cafeteria::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
-        return Op(FILE_cafeteria::PRED_nospy_1_static_exec, VA(a8), Op(FILE_cafeteria::PRED_call_1_static_exec, VA(a9), cont));
+        a9 = Closure( Op((e)->PRED_print_procedure_box_5_static_exec(e), VA(a3, a4, a5, a6, a7), null));
+        return Op((e)->PRED_nospy_1_static_exec(e), VA(a8), Op((e)->PRED_call_1_static_exec(e), VA(a9), cont));
     }
 
     private final static Operation $debug_option_2_6(Prolog m) { 
@@ -1450,15 +1935,15 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('com.googlecode.prolog_cafe.builtin':A)]
+    // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
         if (!  int_63 .unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        Term[] y1 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y1);
-        return Op(FILE_cafeteria::PRED_$show_debug_option_0_static_exec, VA(), Op(FILE_cafeteria::PRED_call_1_static_exec, VA(a3), cont));
+        return Op((e)->PRED_$show_debug_option_0_static_exec(e), VA(), Op((e)->PRED_call_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $debug_option_2_7(Prolog m) { 
@@ -1469,15 +1954,15 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('com.googlecode.prolog_cafe.builtin':A)]
+    // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
         if (!  int_104 .unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        Term[] y1 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y1 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y1);
-        return Op(FILE_cafeteria::PRED_$show_debug_option_0_static_exec, VA(), Op(FILE_cafeteria::PRED_call_1_static_exec, VA(a3), cont));
+        return Op((e)->PRED_$show_debug_option_0_static_exec(e), VA(), Op((e)->PRED_call_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $debug_option_2_8(Prolog m) { 
@@ -1513,7 +1998,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         m.setB0();
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26;
     // '$show_debug_option':-[tab(4),'$fast_write'('Debugging options:'),nl,tab(4),'$fast_write'('a      abort'),nl,tab(4),'$fast_write'('RET    creep'),nl,tab(4),'$fast_write'('c      creep'),nl,tab(4),'$fast_write'('l      leap'),nl,tab(4),'$fast_write'('+      spy this'),nl,tab(4),'$fast_write'('-      nospy this'),nl,tab(4),'$fast_write'('?      help'),nl,tab(4),'$fast_write'('h      help'),nl]
-        return Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_Debugging$0020options$003A ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_a$0020$0020$0020$0020$0020$0020abort ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_RET$0020$0020$0020$0020creep ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_c$0020$0020$0020$0020$0020$0020creep ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_l$0020$0020$0020$0020$0020$0020leap ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$003F$0020$0020$0020$0020$0020$0020help ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(PRED_$show_debug_option_0_s1), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_h$0020$0020$0020$0020$0020$0020help ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont)))))))))))))))))))))))))));
+        return Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_Debugging$0020options$003A ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_a$0020$0020$0020$0020$0020$0020abort ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_RET$0020$0020$0020$0020creep ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_c$0020$0020$0020$0020$0020$0020creep ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_l$0020$0020$0020$0020$0020$0020leap ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$003F$0020$0020$0020$0020$0020$0020help ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(PRED_$show_debug_option_0_s1), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_h$0020$0020$0020$0020$0020$0020help ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont)))))))))))))))))))))))))));
     }
 /** PREDICATE: $set_debug_flag/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1548,7 +2033,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('com.googlecode.prolog_cafe.builtin':'$leap_flag'(A),C),'$cut'(B)]
+    // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('SxxMachine.builtin':'$leap_flag'(A),C),'$cut'(B)]
         if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
             return m.fail();
         a3 = V(m);
@@ -1559,9 +2044,9 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2);
         a4 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a4);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y2);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(a5, V(m)), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a3), cont));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a5, V(m)), Op((e)->PRED_$cut_1_static_exec(e), VA(a3), cont));
     }
 
     private final static Operation $set_debug_flag_2_2(Prolog m) { 
@@ -1572,18 +2057,44 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$set_debug_flag'(leap,A):-[retractall('com.googlecode.prolog_cafe.builtin':'$leap_flag'(B)),assertz('com.googlecode.prolog_cafe.builtin':'$leap_flag'(A))]
+    // '$set_debug_flag'(leap,A):-[retractall('SxxMachine.builtin':'$leap_flag'(B)),assertz('SxxMachine.builtin':'$leap_flag'(A))]
         if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
             return m.fail();
         Term[] y1 = VA(V(m));
         a3 = S("$leap_flag", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a3);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a3);
         a4 = S(":", y2);
         Term[] y3 = VA(a2);
         a5 = S("$leap_flag", y3);
-        Term[] y4 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a5);
+        Term[] y4 = VA( ATOM_SxxMachine$002Ebuiltin , a5);
         a6 = S(":", y4);
-        return Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a4), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(a6), cont));
+        return Op((e)->PRED_retractall_1_static_exec(e), VA(a4), Op((e)->PRED_assertz_1_static_exec(e), VA(a6), cont));
+    }
+/** PREDICATE: spy/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_spy_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // spy(A):-'$term_to_predicateindicator'(A,B,spy(A)),trace,'$assert_spypoint'(B),'$set_debug_flag'(leap,yes),!
+        m.setB0();
+         Term a1, a2, a3, a4;
+        Operation p1, p2, p3, p4;
+        a1 = LARG[0];
+    // spy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,spy(A)),trace,'$assert_spypoint'(C),'$set_debug_flag'(leap,yes),'$cut'(B)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        a3 = V(m);
+        Term[] y1 = VA(a1);
+        a4 = S("spy", y1);
+        return Op((e)->PRED_$term_to_predicateindicator_3_static_exec(e), VA(a1, a3, a4), Op((e)->PRED_trace_0_static_exec(e), VA(), Op((e)->PRED_$assert_spypoint_1_static_exec(e), VA(a3), Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA( ATOM_leap ,  ATOM_yes ), Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont)))));
     }
 /** PREDICATE: $assert_spypoint/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1634,7 +2145,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
+    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -1655,7 +2166,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a4, a5);
         a7 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a7);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a7);
         a8 = S(":", y2);
         Term[] y3 = VA(a4, a5);
         a9 = S("/", y3);
@@ -1663,7 +2174,7 @@ m.cont = cont;
         a10 = S(":", y4);
         a11 = CONS(a10, PRED_$assert_spypoint_1_s13);
         a12 = CONS( ATOM_spypoint , a11);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(a8, V(m)), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a12), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a6), cont)));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a8, V(m)), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a12), Op((e)->PRED_$cut_1_static_exec(e), VA(a6), cont)));
     }
 
     private final static Operation $assert_spypoint_1_2(Prolog m) { 
@@ -1673,7 +2184,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('com.googlecode.prolog_cafe.builtin':'$consulted_predicate'(A,B/C,E),F),assertz('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
+    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$consulted_predicate'(A,B/C,E),F),assertz('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -1696,11 +2207,11 @@ m.cont = cont;
         a7 = S("/", y1);
         Term[] y2 = VA(a2, a7, V(m));
         a8 = S("$consulted_predicate", y2);
-        Term[] y3 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a8);
+        Term[] y3 = VA( ATOM_SxxMachine$002Ebuiltin , a8);
         a9 = S(":", y3);
         Term[] y4 = VA(a2, a4, a5);
         a10 = S("$current_spypoint", y4);
-        Term[] y5 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a10);
+        Term[] y5 = VA( ATOM_SxxMachine$002Ebuiltin , a10);
         a11 = S(":", y5);
         Term[] y6 = VA(a4, a5);
         a12 = S("/", y6);
@@ -1708,7 +2219,7 @@ m.cont = cont;
         a13 = S(":", y7);
         a14 = CONS(a13, PRED_$assert_spypoint_1_s15);
         a15 = CONS( ATOM_spypoint , a14);
-        return Op(FILE_cafeteria::PRED_clause_2_static_exec, VA(a9, V(m)), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(a11), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a15), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a6), cont))));
+        return Op((e)->PRED_clause_2_static_exec(e), VA(a9, V(m)), Op((e)->PRED_assertz_1_static_exec(e), VA(a11), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a15), Op((e)->PRED_$cut_1_static_exec(e), VA(a6), cont))));
     }
 
     private final static Operation $assert_spypoint_1_3(Prolog m) { 
@@ -1740,7 +2251,33 @@ m.cont = cont;
         a11 = CONS( ATOM_predicate , a10);
         a12 = CONS( ATOM_matching , a11);
         a13 = CONS( ATOM_no , a12);
-        return Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_warning , a13), cont);
+        return Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_warning , a13), cont);
+    }
+/** PREDICATE: nospy/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_nospy_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // nospy(A):-'$term_to_predicateindicator'(A,B,nospy(A)),'$retract_spypoint'(B),'$set_debug_flag'(leap,no),!
+        m.setB0();
+         Term a1, a2, a3, a4;
+        Operation p1, p2, p3;
+        a1 = LARG[0];
+    // nospy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,nospy(A)),'$retract_spypoint'(C),'$set_debug_flag'(leap,no),'$cut'(B)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        a3 = V(m);
+        Term[] y1 = VA(a1);
+        a4 = S("nospy", y1);
+        return Op((e)->PRED_$term_to_predicateindicator_3_static_exec(e), VA(a1, a3, a4), Op((e)->PRED_$retract_spypoint_1_static_exec(e), VA(a3), Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA( ATOM_leap ,  ATOM_no ), Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont))));
     }
 /** PREDICATE: $retract_spypoint/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1776,7 +2313,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('com.googlecode.prolog_cafe.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
+    // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -1797,7 +2334,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a2, a4, a5);
         a7 = S("$current_spypoint", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a7);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a7);
         a8 = S(":", y2);
         Term[] y3 = VA(a4, a5);
         a9 = S("/", y3);
@@ -1805,7 +2342,7 @@ m.cont = cont;
         a10 = S(":", y4);
         a11 = CONS(a10, PRED_$retract_spypoint_1_s11);
         a12 = CONS( ATOM_spypoint , a11);
-        return Op(FILE_cafeteria::PRED_retract_1_static_exec, VA(a8), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a12), Op(FILE_cafeteria::PRED_$cut_1_static_exec, VA(a6), cont)));
+        return Op((e)->PRED_retract_1_static_exec(e), VA(a8), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a12), Op((e)->PRED_$cut_1_static_exec(e), VA(a6), cont)));
     }
 
     private final static Operation $retract_spypoint_1_2(Prolog m) { 
@@ -1817,6 +2354,82 @@ m.cont = cont;
     // '$retract_spypoint'(A):-[]
         return cont;
     }
+/** PREDICATE: nospyall/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_nospyall_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // nospyall:-retractall('$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)
+        m.setB0();
+         Term a1, a2;
+        Operation p1;
+    // nospyall:-[retractall('SxxMachine.builtin':'$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)]
+        Term[] y1 = VA(V(m), V(m), V(m));
+        a1 = S("$current_spypoint", y1);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
+        a2 = S(":", y2);
+        return Op((e)->PRED_retractall_1_static_exec(e), VA(a2), Op((e)->PRED_$set_debug_flag_2_static_exec(e), VA( ATOM_leap ,  ATOM_no ), cont));
+    }
+/** PREDICATE: leash/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+        final static SymbolTerm ATOM_leash_specifier = SYM("leash_specifier");
+    private static final StructureTerm PRED_leash_1_s4 = S("type",  ATOM_leash_specifier );
+
+
+
+
+    public static Operation PRED_leash_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        m.jtry1(null, FILE_cafeteria::leash_1_sub_1);
+        return leash_1_1(m);
+    }
+
+    private final static Operation leash_1_sub_1(Prolog m) { 
+        m.trust(null);
+        return leash_1_2(m);
+    }
+
+    private final static Operation leash_1_1(Prolog m) { 
+    // leash(A):-nonvar(A),'$leash'(A),!
+         Term a1, a2;
+        Operation p1;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // leash(A):-['$get_level'(B),nonvar(A),'$leash'(A),'$cut'(B)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of nonvar(a(1))
+        a1 = a1.dref();
+        if ((a1 .isVariable())) {
+            return m.fail();
+        }
+        //END inline expansion
+        return Op((e)->PRED_$leash_1_static_exec(e), VA(a1), Op((e)->PRED_$cut_1_static_exec(e), VA(a2), cont));
+    }
+
+    private final static Operation leash_1_2(Prolog m) { 
+    // leash(A):-illarg(type(leash_specifier),leash(A),1)
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // leash(A):-[illarg(type(leash_specifier),leash(A),1)]
+        Term[] y1 = VA(a1);
+        a2 = S("leash", y1);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_leash_1_s4, a2,  int_1 ), cont);
+    }
 /** PREDICATE: $leash/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
@@ -1825,7 +2438,6 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
     private static final ListTerm PRED_$leash_1_s8 = CONS( ATOM_leashing , PRED_$leash_1_s1);
     private static final ListTerm PRED_$leash_1_s9 = CONS( ATOM_no , PRED_$leash_1_s8);
         final static SymbolTerm ATOM_stopping = SYM("stopping");
-        final static SymbolTerm ATOM_on = SYM("on");
 
 
 
@@ -1854,7 +2466,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$leash'([]):-['$neck_cut',retractall('com.googlecode.prolog_cafe.builtin':'$current_leash'(A)),print_message(info,[no,leashing])]
+    // '$leash'([]):-['$neck_cut',retractall('SxxMachine.builtin':'$current_leash'(A)),print_message(info,[no,leashing])]
         if (! PRED_$leash_1_s1.unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
@@ -1862,9 +2474,9 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(V(m));
         a2 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y2);
-        return Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a3), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , PRED_$leash_1_s9), cont));
+        return Op((e)->PRED_retractall_1_static_exec(e), VA(a3), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , PRED_$leash_1_s9), cont));
     }
 
     private final static Operation $leash_1_2(Prolog m) { 
@@ -1874,16 +2486,16 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$leash'(A):-[retractall('com.googlecode.prolog_cafe.builtin':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
+    // '$leash'(A):-[retractall('SxxMachine.builtin':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
         Term[] y1 = VA(V(m));
         a2 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a2);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
         a3 = S(":", y2);
         a4 = CONS(a1, PRED_$leash_1_s1);
         a5 = CONS( ATOM_on , a4);
         a6 = CONS( ATOM_stopping , a5);
         a7 = CONS( ATOM_leashing , a6);
-        return Op(FILE_cafeteria::PRED_retractall_1_static_exec, VA(a3), Op(FILE_cafeteria::PRED_$assert_leash_1_static_exec, VA(a1), Op(FILE_cafeteria::PRED_print_message_2_static_exec, VA( ATOM_info , a7), cont)));
+        return Op((e)->PRED_retractall_1_static_exec(e), VA(a3), Op((e)->PRED_$assert_leash_1_static_exec(e), VA(a1), Op((e)->PRED_print_message_2_static_exec(e), VA( ATOM_info , a7), cont)));
     }
 /** PREDICATE: $assert_leash/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -1932,7 +2544,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('com.googlecode.prolog_cafe.builtin':'$current_leash'(A)),'$assert_leash'(B)]
+    // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('SxxMachine.builtin':'$current_leash'(A)),'$assert_leash'(B)]
         a1 = a1.dref();
         if (a1 .isCons()){
             Term[] argz = VA(a1.car(), a1.cdr());
@@ -1947,9 +2559,9 @@ m.cont = cont;
         }
         Term[] y1 = VA(a2);
         a4 = S("$current_leash", y1);
-        Term[] y2 = VA( ATOM_com$002Egooglecode$002Eprolog_cafe$002Ebuiltin , a4);
+        Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a4);
         a5 = S(":", y2);
-        return Op(FILE_cafeteria::PRED_$leash_specifier_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_assertz_1_static_exec, VA(a5), Op(FILE_cafeteria::PRED_$assert_leash_1_static_exec, VA(a3), cont)));
+        return Op((e)->PRED_$leash_specifier_1_static_exec(e), VA(a2), Op((e)->PRED_assertz_1_static_exec(e), VA(a5), Op((e)->PRED_$assert_leash_1_static_exec(e), VA(a3), cont)));
     }
 /** PREDICATE: $leash_specifier/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2033,10 +2645,206 @@ m.cont = cont;
             return m.fail();
         return cont;
     }
+/** PREDICATE: listing/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+
+
+
+
+    public static Operation PRED_listing_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // listing:-context_module(A),'$listing'(B,A)
+        m.setB0();
+         Term a1;
+        Operation p1;
+    // listing:-[context_module(A),'$listing'(B,A)]
+        a1 = V(m);
+        return Op((e)->PRED_context_module_1_static_exec(e), VA(a1), Op((e)->PRED_$listing_2_static_exec(e), VA(V(m), a1), cont));
+    }
+/** PREDICATE: listing/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_listing_1_s1 = SYM("var");
+        final static SymbolTerm ATOM_predicate_indicator = SYM("predicate_indicator");
+    private static final StructureTerm PRED_listing_1_s9 = S("type",  ATOM_predicate_indicator );
+
+
+
+
+    public static Operation PRED_listing_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
+        m.setB0();
+        return m.switch_on_term(FILE_cafeteria::listing_1_var, FILE_cafeteria::listing_1_int, FILE_cafeteria::listing_1_int, FILE_cafeteria::listing_1_int, FILE_cafeteria::listing_1_var, FILE_cafeteria::listing_1_int); 
+    }
+
+    private final static Operation listing_1_var(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::listing_1_var_1);
+        return listing_1_1(m);
+    }
+
+    private final static Operation listing_1_var_1(Prolog m) { 
+        m.retry(null, FILE_cafeteria::listing_1_var_2);
+        return listing_1_2(m);
+    }
+
+    private final static Operation listing_1_var_2(Prolog m) { 
+        m.retry(null, FILE_cafeteria::listing_1_var_3);
+        return listing_1_3(m);
+    }
+
+    private final static Operation listing_1_var_3(Prolog m) { 
+        m.retry(null, FILE_cafeteria::listing_1_var_4);
+        return listing_1_4(m);
+    }
+
+    private final static Operation listing_1_var_4(Prolog m) { 
+        m.trust(null);
+        return listing_1_5(m);
+    }
+
+    private final static Operation listing_1_int(Prolog m) { 
+        m.jtry1(null, FILE_cafeteria::listing_1_int_1);
+        return listing_1_1(m);
+    }
+
+    private final static Operation listing_1_int_1(Prolog m) { 
+        m.retry(null, FILE_cafeteria::listing_1_int_2);
+        return listing_1_2(m);
+    }
+
+    private final static Operation listing_1_int_2(Prolog m) { 
+        m.trust(null);
+        return listing_1_5(m);
+    }
+
+    private final static Operation listing_1_1(Prolog m) { 
+    // listing(A):-var(A),!,illarg(var,listing(A),1)
+         Term a1, a2, a3;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // listing(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,listing(A),1)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of var(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isVariable())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        Term[] y1 = VA(a1);
+        a3 = S("listing", y1);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_listing_1_s1, a3,  int_1 ), cont);
+    }
+
+    private final static Operation listing_1_2(Prolog m) { 
+    // listing(A):-atom(A),!,'$listing'(B,A)
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // listing(A):-['$get_level'(B),atom(A),'$cut'(B),'$listing'(C,A)]
+        a2 = V(m);
+        //START inline expansion of $get_level(a(2))
+        if (! a2.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of atom(a(1))
+        a1 = a1.dref();
+        if (! (a1 .isSymbol())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(2))
+        a2 = a2.dref();
+                  m.cut( a2.intValue());
+        //END inline expansion
+        return Op((e)->PRED_$listing_2_static_exec(e), VA(V(m), a1), cont);
+    }
+
+    private final static Operation listing_1_3(Prolog m) { 
+    // listing(A/B):-context_module(C),!,'$listing'(A/B,C)
+         Term a1, a2, a3, a4, a5, a6;
+        Operation p1, p2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // listing(A/B):-['$get_level'(C),context_module(D),'$cut'(C),'$listing'(A/B,D)]
+        a1 = a1.dref();
+            a2 = V(m);
+            a3 = V(m);
+            if (!a1.unify(C("/", a2, a3), m.trail)){
+                return m.fail();
+            }
+        a4 = V(m);
+        //START inline expansion of $get_level(a(4))
+        if (! a4.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        a5 = V(m);
+        Term[] y1 = VA(a2, a3);
+        a6 = S("/", y1);
+        return Op((e)->PRED_context_module_1_static_exec(e), VA(a5), Op((e)->PRED_$cut_1_static_exec(e), VA(a4), Op((e)->PRED_$listing_2_static_exec(e), VA(a6, a5), cont)));
+    }
+
+    private final static Operation listing_1_4(Prolog m) { 
+    // listing(A:B):-atom(A),!,'$listing'(B,A)
+         Term a1, a2, a3, a4;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // listing(A:B):-['$get_level'(C),atom(A),'$cut'(C),'$listing'(B,A)]
+        a1 = a1.dref();
+            a2 = V(m);
+            a3 = V(m);
+            if (!a1.unify(C(":", a2, a3), m.trail)){
+                return m.fail();
+            }
+        a4 = V(m);
+        //START inline expansion of $get_level(a(4))
+        if (! a4.unifyInt(m.B0, m.trail)) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of atom(a(2))
+        a2 = a2.dref();
+        if (! (a2 .isSymbol())) {
+            return m.fail();
+        }
+        //END inline expansion
+        //START inline expansion of $cut(a(4))
+        a4 = a4.dref();
+                  m.cut( a4.intValue());
+        //END inline expansion
+        return Op((e)->PRED_$listing_2_static_exec(e), VA(a3, a2), cont);
+    }
+
+    private final static Operation listing_1_5(Prolog m) { 
+    // listing(A):-illarg(type(predicate_indicator),listing(A),1)
+         Term a1, a2;
+        Operation cont;
+        a1 = m.AREGS[0];
+        cont = m.cont;
+    // listing(A):-[illarg(type(predicate_indicator),listing(A),1)]
+        Term[] y1 = VA(a1);
+        a2 = S("listing", y1);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_listing_1_s9, a2,  int_1 ), cont);
+    }
 /** PREDICATE: $listing/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-        final static SymbolTerm ATOM_predicate_indicator = SYM("predicate_indicator");
     private static final StructureTerm PRED_$listing_2_s5 = S("type",  ATOM_predicate_indicator );
 
 
@@ -2098,7 +2906,7 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, V(m)), cont);
+        return Op((e)->PRED_$listing_dynamic_clause_2_static_exec(e), VA(a2, V(m)), cont);
     }
 
     private final static Operation $listing_2_2(Prolog m) { 
@@ -2139,7 +2947,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a3, a4);
         a6 = S("/", y1);
-        return Op(FILE_cafeteria::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont);
+        return Op((e)->PRED_$listing_dynamic_clause_2_static_exec(e), VA(a2, a6), cont);
     }
 
     private final static Operation $listing_2_3(Prolog m) { 
@@ -2154,7 +2962,7 @@ m.cont = cont;
         a3 = S(":", y1);
         Term[] y2 = VA(a3);
         a4 = S("listing", y2);
-        return Op(FILE_cafeteria::PRED_illarg_3_static_exec, VA(PRED_$listing_2_s5, a4,  int_1 ), cont);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_$listing_2_s5, a4,  int_1 ), cont);
     }
 /** PREDICATE: $listing_dynamic_clause/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2192,7 +3000,7 @@ m.cont = cont;
         a6 = S("/", y1);
         a7 = V(m);
         a8 = V(m);
-        return Op(FILE_cafeteria::PRED_$new_internal_database_1_static_exec, VA(a1), Op(FILE_cafeteria::PRED_hash_keys_2_static_exec, VA(a1, a3), Op(FILE_cafeteria::PRED_$builtin_member_2_static_exec, VA(a2, a3), Op(FILE_cafeteria::PRED_$unify_2_static_exec, VA(a2, a6), Op(FILE_cafeteria::PRED_functor_3_static_exec, VA(a7, a4, a5), Op(FILE_cafeteria::PRED_$clause_internal_5_static_exec, VA(a1, a2, a7, a8, V(m)), Op(FILE_cafeteria::PRED_$write_dynamic_clause_2_static_exec, VA(a1, a8), Op(fail_0, VA(), cont))))))));
+        return Op((e)->PRED_$new_internal_database_1_static_exec(e), VA(a1), Op((e)->PRED_hash_keys_2_static_exec(e), VA(a1, a3), Op((e)->PRED_$builtin_member_2_static_exec(e), VA(a2, a3), Op((e)->PRED_$unify_2_static_exec(e), VA(a2, a6), Op((e)->PRED_functor_3_static_exec(e), VA(a7, a4, a5), Op((e)->PRED_$clause_internal_5_static_exec(e), VA(a1, a2, a7, a8, V(m)), Op((e)->PRED_$write_dynamic_clause_2_static_exec(e), VA(a1, a8), Op(fail_0, VA(), cont))))))));
     }
 
     private final static Operation $listing_dynamic_clause_2_2(Prolog m) { 
@@ -2279,7 +3087,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_numbervars_3_static_exec, VA(a3,  int_0 , V(m)), Op(FILE_cafeteria::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$002E ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont))));
+        return Op((e)->PRED_numbervars_3_static_exec(e), VA(a3,  int_0 , V(m)), Op((e)->PRED_$write_dynamic_head_2_static_exec(e), VA(a1, a3), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$002E ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont))));
     }
 
     private final static Operation $write_dynamic_clause_2_3(Prolog m) { 
@@ -2302,12 +3110,12 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a3, a4);
         a5 = S(":-", y1);
-        return Op(FILE_cafeteria::PRED_numbervars_3_static_exec, VA(a5,  int_0 , V(m)), Op(FILE_cafeteria::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$0020$003A$002D ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a4,  int_8 ), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$002E ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont)))))));
+        return Op((e)->PRED_numbervars_3_static_exec(e), VA(a5,  int_0 , V(m)), Op((e)->PRED_$write_dynamic_head_2_static_exec(e), VA(a1, a3), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$0020$003A$002D ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a4,  int_8 ), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$002E ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont)))))));
     }
 /** PREDICATE: $write_dynamic_head/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
 */
-    private static final SymbolTerm PRED_$write_dynamic_head_2_s1 = SYM("user");
+    private static final SymbolTerm PRED_$write_dynamic_head_2_s1 = SYM(":");
 
 
 
@@ -2316,33 +3124,31 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_cafeteria::$write_dynamic_head_2_var, FILE_cafeteria::$write_dynamic_head_2_2, FILE_cafeteria::$write_dynamic_head_2_2, FILE_cafeteria::$write_dynamic_head_2_var, FILE_cafeteria::$write_dynamic_head_2_2, FILE_cafeteria::$write_dynamic_head_2_2); 
-    }
-
-    private final static Operation $write_dynamic_head_2_var(Prolog m) { 
-        m.jtry2(null, FILE_cafeteria::$write_dynamic_head_2_var_1);
+        m.jtry2(null, FILE_cafeteria::$write_dynamic_head_2_sub_1);
         return $write_dynamic_head_2_1(m);
     }
 
-    private final static Operation $write_dynamic_head_2_var_1(Prolog m) { 
+    private final static Operation $write_dynamic_head_2_sub_1(Prolog m) { 
         m.trust(null);
         return $write_dynamic_head_2_2(m);
     }
 
     private final static Operation $write_dynamic_head_2_1(Prolog m) { 
-    // '$write_dynamic_head'(user,A):-!,writeq(A)
-         Term a1, a2;
+    // '$write_dynamic_head'(A,B):-context_module(A),!,writeq(B)
+         Term a1, a2, a3;
+        Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$write_dynamic_head'(user,A):-['$neck_cut',writeq(A)]
-        if (! PRED_$write_dynamic_head_2_s1.unify(a1, m.trail))
+    // '$write_dynamic_head'(A,B):-['$get_level'(C),context_module(A),'$cut'(C),writeq(B)]
+        a3 = V(m);
+        //START inline expansion of $get_level(a(3))
+        if (! a3.unifyInt(m.B0, m.trail)) {
             return m.fail();
-        //START inline expansion of $neck_cut
-        m.neckCut();
+        }
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_writeq_1_static_exec, VA(a2), cont);
+        return Op((e)->PRED_context_module_1_static_exec(e), VA(a1), Op((e)->PRED_$cut_1_static_exec(e), VA(a3), Op((e)->PRED_writeq_1_static_exec(e), VA(a2), cont)));
     }
 
     private final static Operation $write_dynamic_head_2_2(Prolog m) { 
@@ -2354,7 +3160,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$write_dynamic_head'(A,B):-[write(A),write(:),writeq(B)]
-        return Op(FILE_cafeteria::PRED_write_1_static_exec, VA(a1), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_module_colon ), Op(FILE_cafeteria::PRED_writeq_1_static_exec, VA(a2), cont)));
+        return Op((e)->PRED_write_1_static_exec(e), VA(a1), Op((e)->PRED_write_1_static_exec(e), VA(PRED_$write_dynamic_head_2_s1), Op((e)->PRED_writeq_1_static_exec(e), VA(a2), cont)));
     }
 /** PREDICATE: $write_dynamic_body/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2417,7 +3223,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        p3 = Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$002C ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a4, a2), cont)));
+        p3 = Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$002C ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a4, a2), cont)));
         m.AREGS[0] = a3;
         m.AREGS[1] = a2;
         m.cont = p3;
@@ -2450,7 +3256,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$0028 ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_or ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
+        return Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$0028 ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a3, a5), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_or ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a4, a5), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$0029 ), cont))))))))))));
     }
 
     private final static Operation $write_dynamic_body_2_3(Prolog m) { 
@@ -2479,7 +3285,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$0028 ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$002D$003E ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
+        return Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$0028 ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a3, a5), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$002D$003E ), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_$write_dynamic_body_2_static_exec(e), VA(a4, a5), Op((e)->PRED_nl_0_static_exec(e), VA(), Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_write_1_static_exec(e), VA( ATOM_$0029 ), cont))))))))))));
     }
 
     private final static Operation $write_dynamic_body_2_4(Prolog m) { 
@@ -2491,7 +3297,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$write_dynamic_body'(A,B):-[tab(B),writeq(A)]
-        return Op(FILE_cafeteria::PRED_tab_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_writeq_1_static_exec, VA(a1), cont));
+        return Op((e)->PRED_tab_1_static_exec(e), VA(a2), Op((e)->PRED_writeq_1_static_exec(e), VA(a1), cont));
     }
 /** PREDICATE: print_message/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2558,7 +3364,7 @@ m.cont = cont;
         //END inline expansion
         Term[] y1 = VA(a1, a2);
         a4 = S("print_message", y1);
-        return Op(FILE_cafeteria::PRED_illarg_3_static_exec, VA(PRED_print_message_2_s1, a4,  int_1 ), cont);
+        return Op((e)->PRED_illarg_3_static_exec(e), VA(PRED_print_message_2_s1, a4,  int_1 ), cont);
     }
 
     private final static Operation print_message_2_2(Prolog m) { 
@@ -2574,7 +3380,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$error_message_1_static_exec, VA(a2), cont);
+        return Op((e)->PRED_$error_message_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation print_message_2_3(Prolog m) { 
@@ -2591,7 +3397,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$007B ), Op(FILE_cafeteria::PRED_$builtin_message_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont))));
+        return Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007B ), Op((e)->PRED_$builtin_message_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007D ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont))));
     }
 
     private final static Operation print_message_2_4(Prolog m) { 
@@ -2608,7 +3414,88 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$007BWARNING$003A$0020 ), Op(FILE_cafeteria::PRED_$builtin_message_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_0_static_exec, VA(), cont))));
+        return Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007BWARNING$003A$0020 ), Op((e)->PRED_$builtin_message_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$007D ), Op((e)->PRED_nl_0_static_exec(e), VA(), cont))));
+    }
+/** PREDICATE: write/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_write_1_s1 = SYM("user_output");
+
+
+
+
+    public static Operation PRED_write_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // write(A):-write(user_output,A)
+        m.setB0();
+         Term a1;
+        a1 = LARG[0];
+    // write(A):-[write(user_output,A)]
+        return Op((e)->PRED_write_2_static_exec(e), VA(PRED_write_1_s1, a1), cont);
+    }
+/** PREDICATE: writeq/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_writeq_1_s1 = SYM("user_output");
+
+
+
+
+    public static Operation PRED_writeq_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // writeq(A):-writeq(user_output,A)
+        m.setB0();
+         Term a1;
+        a1 = LARG[0];
+    // writeq(A):-[writeq(user_output,A)]
+        return Op((e)->PRED_writeq_2_static_exec(e), VA(PRED_writeq_1_s1, a1), cont);
+    }
+/** PREDICATE: tab/1
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_tab_1_s1 = SYM("user_output");
+
+
+
+
+    public static Operation PRED_tab_1_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // tab(A):-tab(user_output,A)
+        m.setB0();
+         Term a1;
+        a1 = LARG[0];
+    // tab(A):-[tab(user_output,A)]
+        return Op((e)->PRED_tab_2_static_exec(e), VA(PRED_tab_1_s1, a1), cont);
+    }
+/** PREDICATE: nl/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_nl_0_s1 = SYM("user_output");
+
+
+
+
+    public static Operation PRED_nl_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // nl:-nl(user_output)
+        m.setB0();
+    // nl:-[nl(user_output)]
+        return Op((e)->PRED_nl_1_static_exec(e), VA(PRED_nl_0_s1), cont);
+    }
+/** PREDICATE: flush_output/0
+from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
+*/
+    private static final SymbolTerm PRED_flush_output_0_s1 = SYM("user_output");
+
+
+
+
+    public static Operation PRED_flush_output_0_static_exec(Prolog m) { 
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+    // flush_output:-flush_output(user_output)
+        m.setB0();
+    // flush_output:-[flush_output(user_output)]
+        return Op((e)->PRED_flush_output_1_static_exec(e), VA(PRED_flush_output_0_s1), cont);
     }
 /** PREDICATE: $fast_write/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2625,7 +3512,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
          Term a1;
         a1 = LARG[0];
     // '$fast_write'(A):-['$fast_write'(user_output,A)]
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA(PRED_$fast_write_1_s1, a1), cont);
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA(PRED_$fast_write_1_s1, a1), cont);
     }
 /** PREDICATE: $builtin_message/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2704,7 +3591,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_write_1_static_exec, VA(a2), cont);
+        return Op((e)->PRED_write_1_static_exec(e), VA(a2), cont);
     }
 
     private final static Operation $builtin_message_1_3(Prolog m) { 
@@ -2727,7 +3614,7 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        return Op(FILE_cafeteria::PRED_write_1_static_exec, VA(a2), Op(FILE_cafeteria::PRED_$fast_write_1_static_exec, VA( ATOM_$0020 ), Op(FILE_cafeteria::PRED_$builtin_message_1_static_exec, VA(a3), cont)));
+        return Op((e)->PRED_write_1_static_exec(e), VA(a2), Op((e)->PRED_$fast_write_1_static_exec(e), VA( ATOM_$0020 ), Op((e)->PRED_$builtin_message_1_static_exec(e), VA(a3), cont)));
     }
 /** PREDICATE: $error_message/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -2849,7 +3736,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_2(Prolog m) { 
@@ -2869,7 +3756,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))));
     }
 
     private final static Operation $error_message_1_3(Prolog m) { 
@@ -2891,7 +3778,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BTYPE$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BTYPE$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a5), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_4(Prolog m) { 
@@ -2913,7 +3800,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BDOMAIN$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BDOMAIN$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a5), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_5(Prolog m) { 
@@ -2933,7 +3820,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont))))))));
     }
 
     private final static Operation $error_message_1_6(Prolog m) { 
@@ -2955,7 +3842,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a5), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont))))))))))));
     }
 
     private final static Operation $error_message_1_7(Prolog m) { 
@@ -2978,7 +3865,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BPERMISSION$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020can$0020not$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a6), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BPERMISSION$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020can$0020not$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a5), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a6), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))))))))));
     }
 
     private final static Operation $error_message_1_8(Prolog m) { 
@@ -2999,7 +3886,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020limit$0020of$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020is$0020breached ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020limit$0020of$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020is$0020breached ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont))))))))));
     }
 
     private final static Operation $error_message_1_9(Prolog m) { 
@@ -3020,7 +3907,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEVALUATION$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BEVALUATION$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))))));
     }
 
     private final static Operation $error_message_1_10(Prolog m) { 
@@ -3042,7 +3929,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a5), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a5), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_11(Prolog m) { 
@@ -3061,7 +3948,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYSTEM$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BSYSTEM$0020ERROR$003A$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_12(Prolog m) { 
@@ -3080,7 +3967,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINTERNAL$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BINTERNAL$0020ERROR$003A$0020 ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_13(Prolog m) { 
@@ -3101,7 +3988,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BJAVA$0020ERROR$003A$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op(FILE_cafeteria::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a4), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_$print_stack_trace_1_static_exec, VA(a4), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007BJAVA$0020ERROR$003A$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a2), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error , a3), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), Op((e)->PRED_$write_goal_2_static_exec(e), VA( ATOM_user_error , a4), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_$print_stack_trace_1_static_exec(e), VA(a4), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont))))))))));
     }
 
     private final static Operation $error_message_1_14(Prolog m) { 
@@ -3112,7 +3999,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         cont = m.cont;
     // '$error_message'(A):-['$fast_write'(user_error,'{'),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
-        return Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007B ), Op(FILE_cafeteria::PRED_write_2_static_exec, VA( ATOM_user_error , a1), Op(FILE_cafeteria::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), Op(FILE_cafeteria::PRED_nl_1_static_exec, VA( ATOM_user_error ), Op(FILE_cafeteria::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+        return Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007B ), Op((e)->PRED_write_2_static_exec(e), VA( ATOM_user_error , a1), Op((e)->PRED_$fast_write_2_static_exec(e), VA( ATOM_user_error ,  ATOM_$007D ), Op((e)->PRED_nl_1_static_exec(e), VA( ATOM_user_error ), Op((e)->PRED_flush_output_1_static_exec(e), VA( ATOM_user_error ), cont)))));
     }
 /** PREDICATE: $write_goal/1
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -3158,7 +4045,7 @@ m.cont = cont;
         a2 = a2.dref();
                   m.cut( a2.intValue());
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$write_toString_2_static_exec, VA(PRED_$write_goal_1_s1, a1), cont);
+        return Op((e)->PRED_$write_toString_2_static_exec(e), VA(PRED_$write_goal_1_s1, a1), cont);
     }
 
     private final static Operation $write_goal_1_2(Prolog m) { 
@@ -3168,7 +4055,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         cont = m.cont;
     // '$write_goal'(A):-[write(A)]
-        return Op(FILE_cafeteria::PRED_write_1_static_exec, VA(a1), cont);
+        return Op((e)->PRED_write_1_static_exec(e), VA(a1), cont);
     }
 /** PREDICATE: $write_goal/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl
@@ -3214,7 +4101,7 @@ m.cont = cont;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-        return Op(FILE_cafeteria::PRED_$write_toString_2_static_exec, VA(a1, a2), cont);
+        return Op((e)->PRED_$write_toString_2_static_exec(e), VA(a1, a2), cont);
     }
 
     private final static Operation $write_goal_2_2(Prolog m) { 
@@ -3225,64 +4112,61 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // '$write_goal'(A,B):-[write(A,B)]
-        return Op(FILE_cafeteria::PRED_write_2_static_exec, VA(a1, a2), cont);
+        return Op((e)->PRED_write_2_static_exec(e), VA(a1, a2), cont);
     }
-    
-    public static Operation PRED_cafeteria_0_static_exec(Prolog m) { 
-      Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-  // cafeteria:-'$cafeteria_init',repeat,'$toplvel_loop',on_exception(A,'$cafeteria'(B),print_message(error,A)),B==end_of_file,!,nl,'$fast_write'(bye),nl
-      m.setB0();
-       Term a1, a2, a3, a4, a5;
-      Operation p1, p2, p3, p4, p5, p6, p7, p8;
-  // cafeteria:-['$get_level'(A),'$cafeteria_init',repeat,'$toplvel_loop',on_exception(B,'SxxMachine.builtin':'$cafeteria'(C),'SxxMachine.builtin':print_message(error,B)),'$equality_of_term'(C,end_of_file),'$cut'(A),nl,'$fast_write'(bye),nl]
-      a1 = V(m);
-      //START inline expansion of $get_level(a(1))
-      if (! a1.unifyInt(m.B0, m.trail)) {
-          return m.fail();
-      }
-      //END inline expansion
-      a2 = V(m);
-      a3 = V(m);
-      a4 = Closure( Op(FILE_cafeteria::PRED_$cafeteria_1_static_exec, VA(a3), null));
-      a5 = Closure( Op(FILE_builtins::PRED_print_message_2_static_exec, VA(PRED_cafeteria_0_s1, a2), null));
-      return Op(FILE_cafeteria::PRED_$cafeteria_init_0_static_exec, VA(), Op(FILE_builtins::PRED_repeat_0_static_exec, VA(), Op(FILE_cafeteria::PRED_$toplvel_loop_0_static_exec, VA(), Op(FILE_cafeteria::PRED_on_exception_3_static_exec, VA(a2, a4, a5), Op(FILE_builtins::PRED_$equality_of_term_2_static_exec, VA(a3,  ATOM_end_of_file ), Op(FILE_builtins::PRED_$cut_1_static_exec, VA(a1), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), Op(FILE_builtins::PRED_$fast_write_1_static_exec, VA( ATOM_bye ), Op(FILE_builtins::PRED_nl_0_static_exec, VA(), cont)))))))));
-  }
-    
-static {   
-  PredTable.registerBuiltin("$cafeteria_init",0,FILE_cafeteria::PRED_$cafeteria_init_0_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",1,FILE_cafeteria::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec);
+static {   PredTable.registerBuiltin("cafeteria",0,FILE_cafeteria::PRED_cafeteria_0_static_exec);
+   PredTable.registerBuiltin("$cafeteria_init",0,FILE_cafeteria::PRED_$cafeteria_init_0_static_exec);
+   PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",2,FILE_cafeteria::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec);
+   PredTable.registerBuiltin("$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",1,FILE_cafeteria::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec);
+   PredTable.registerBuiltin("$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",1,FILE_cafeteria::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_1_static_exec);
    PredTable.registerBuiltin("$toplvel_loop",0,FILE_cafeteria::PRED_$toplvel_loop_0_static_exec);
    PredTable.registerBuiltin("$cafeteria",1,FILE_cafeteria::PRED_$cafeteria_1_static_exec);
    PredTable.registerBuiltin("$process_order",2,FILE_cafeteria::PRED_$process_order_2_static_exec);
-   PredTable.registerBuiltin("$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",2,FILE_cafeteria::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_2_static_exec);
+   PredTable.registerBuiltin("$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",3,FILE_cafeteria::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec);
    PredTable.registerBuiltin("$rm_redundant_vars",2,FILE_cafeteria::PRED_$rm_redundant_vars_2_static_exec);
    PredTable.registerBuiltin("$give_answers_with_prompt",1,FILE_cafeteria::PRED_$give_answers_with_prompt_1_static_exec);
    PredTable.registerBuiltin("$give_an_answer",1,FILE_cafeteria::PRED_$give_an_answer_1_static_exec);
    PredTable.registerBuiltin("$print_an answer","$print_an$0020answer",1,FILE_cafeteria::PRED_$print_an$0020answer_1_static_exec);
+   PredTable.registerBuiltin("consult",1,FILE_cafeteria::PRED_consult_1_static_exec);
    PredTable.registerBuiltin("$consult",1,FILE_cafeteria::PRED_$consult_1_static_exec);
    PredTable.registerBuiltin("$prolog_file_name",2,FILE_cafeteria::PRED_$prolog_file_name_2_static_exec);
+   PredTable.registerBuiltin("trace",0,FILE_cafeteria::PRED_trace_0_static_exec);
    PredTable.registerBuiltin("$trace_init",0,FILE_cafeteria::PRED_$trace_init_0_static_exec);
+   PredTable.registerBuiltin("notrace",0,FILE_cafeteria::PRED_notrace_0_static_exec);
+   PredTable.registerBuiltin("debug",0,FILE_cafeteria::PRED_debug_0_static_exec);
+   PredTable.registerBuiltin("nodebug",0,FILE_cafeteria::PRED_nodebug_0_static_exec);
    PredTable.registerBuiltin("$trace_goal",1,FILE_cafeteria::PRED_$trace_goal_1_static_exec);
    PredTable.registerBuiltin("$trace_goal",4,FILE_cafeteria::PRED_$trace_goal_4_static_exec);
    PredTable.registerBuiltin("print_procedure_box",5,FILE_cafeteria::PRED_print_procedure_box_5_static_exec);
-   PredTable.registerBuiltin("$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",6,FILE_cafeteria::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec);
+   PredTable.registerBuiltin("$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",6,FILE_cafeteria::PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_6_static_exec);
    PredTable.registerBuiltin("redo_procedure_box",4,FILE_cafeteria::PRED_redo_procedure_box_4_static_exec);
-   PredTable.registerBuiltin("$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",3,FILE_cafeteria::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec);
+   PredTable.registerBuiltin("$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/cafeteria.pl","$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl",3,FILE_cafeteria::PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fcafeteria$002Epl_3_static_exec);
    PredTable.registerBuiltin("$read_blocked",1,FILE_cafeteria::PRED_$read_blocked_1_static_exec);
    PredTable.registerBuiltin("$debug_option",2,FILE_cafeteria::PRED_$debug_option_2_static_exec);
    PredTable.registerBuiltin("$show_debug_option",0,FILE_cafeteria::PRED_$show_debug_option_0_static_exec);
    PredTable.registerBuiltin("$set_debug_flag",2,FILE_cafeteria::PRED_$set_debug_flag_2_static_exec);
+   PredTable.registerBuiltin("spy",1,FILE_cafeteria::PRED_spy_1_static_exec);
    PredTable.registerBuiltin("$assert_spypoint",1,FILE_cafeteria::PRED_$assert_spypoint_1_static_exec);
+   PredTable.registerBuiltin("nospy",1,FILE_cafeteria::PRED_nospy_1_static_exec);
    PredTable.registerBuiltin("$retract_spypoint",1,FILE_cafeteria::PRED_$retract_spypoint_1_static_exec);
+   PredTable.registerBuiltin("nospyall",0,FILE_cafeteria::PRED_nospyall_0_static_exec);
+   PredTable.registerBuiltin("leash",1,FILE_cafeteria::PRED_leash_1_static_exec);
    PredTable.registerBuiltin("$leash",1,FILE_cafeteria::PRED_$leash_1_static_exec);
    PredTable.registerBuiltin("$assert_leash",1,FILE_cafeteria::PRED_$assert_leash_1_static_exec);
    PredTable.registerBuiltin("$leash_specifier",1,FILE_cafeteria::PRED_$leash_specifier_1_static_exec);
+   PredTable.registerBuiltin("listing",0,FILE_cafeteria::PRED_listing_0_static_exec);
+   PredTable.registerBuiltin("listing",1,FILE_cafeteria::PRED_listing_1_static_exec);
    PredTable.registerBuiltin("$listing",2,FILE_cafeteria::PRED_$listing_2_static_exec);
    PredTable.registerBuiltin("$listing_dynamic_clause",2,FILE_cafeteria::PRED_$listing_dynamic_clause_2_static_exec);
    PredTable.registerBuiltin("$write_dynamic_clause",2,FILE_cafeteria::PRED_$write_dynamic_clause_2_static_exec);
    PredTable.registerBuiltin("$write_dynamic_head",2,FILE_cafeteria::PRED_$write_dynamic_head_2_static_exec);
    PredTable.registerBuiltin("$write_dynamic_body",2,FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec);
    PredTable.registerBuiltin("print_message",2,FILE_cafeteria::PRED_print_message_2_static_exec);
+   PredTable.registerBuiltin("write",1,FILE_cafeteria::PRED_write_1_static_exec);
+   PredTable.registerBuiltin("writeq",1,FILE_cafeteria::PRED_writeq_1_static_exec);
+   PredTable.registerBuiltin("tab",1,FILE_cafeteria::PRED_tab_1_static_exec);
+   PredTable.registerBuiltin("nl",0,FILE_cafeteria::PRED_nl_0_static_exec);
+   PredTable.registerBuiltin("flush_output",0,FILE_cafeteria::PRED_flush_output_0_static_exec);
    PredTable.registerBuiltin("$fast_write",1,FILE_cafeteria::PRED_$fast_write_1_static_exec);
    PredTable.registerBuiltin("$builtin_message",1,FILE_cafeteria::PRED_$builtin_message_1_static_exec);
    PredTable.registerBuiltin("$error_message",1,FILE_cafeteria::PRED_$error_message_1_static_exec);

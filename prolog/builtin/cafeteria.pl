@@ -28,6 +28,9 @@ cafeteria :-
 	nl, '$fast_write'(bye), nl.
 
 '$cafeteria_init' :-
+	'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1, _),
+	'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3, _),
+	'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1, _),
 	retractall('$leap_flag'(_)),
 	retractall('$current_leash'(_)),
 	retractall('$current_spypoint'(_,_,_)),
@@ -43,20 +46,22 @@ cafeteria :-
 
 '$toplvel_loop' :-
 	current_prolog_flag(debug, Mode),
+	(clause('$current_typein_module'(User),_)->true;(User=user)),
 	(Mode == off -> true ; print_message(info,[debug])),
+	(User == user -> true ; '$fast_write'(User)),
 	'$fast_write'('| ?- '),
 	flush_output.
 
 '$cafeteria'(Goal) :-
 	read_with_variables(Goal, Vars),
-	'$process_order'(Goal, Vars).
+        '$process_order'(Goal, Vars).
 
 '$process_order'(G,               _) :- var(G), !, illarg(var, (?- G), 1).
 '$process_order'(end_of_file,     _) :- !.
 '$process_order'([File|Files],    _) :- !, consult([File|Files]).
-'$process_order'(G,            Vars) :-
+'$process_order'(G,            Vars) :- context_module(User),
 	current_prolog_flag(debug, Mode),
-	(   Mode == off -> call(user:G) ; '$trace_goal'(user:G)   ), nl,
+	(   Mode == off -> call(User:G) ; '$trace_goal'(User:G)   ), nl,
 	'$rm_redundant_vars'(Vars, Vars1),
 	'$give_answers_with_prompt'(Vars1),
 	!,
@@ -141,7 +146,8 @@ nodebug :- notrace.
 '$trace_goal'(Term) :-
 	'$set_debug_flag'(leap, no),
 	'$get_current_B'(Cut),
-	'$meta_call'(Term, user, Cut, 0, trace).
+	context_module(User),
+	'$meta_call'(Term, User, Cut, 0, trace).
 
 '$trace_goal'(X, P, FA, Depth) :-
 	print_procedure_box(call, X, P, FA, Depth),
@@ -275,11 +281,11 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 %'$leash_specifier'(exception).
 
 %%% Listing
-listing :- '$listing'(_, user).
+listing :- context_module(User),'$listing'(_, User).
 
 listing(T) :- var(T), !, illarg(var, listing(T), 1).
 listing(P) :- atom(P), !, '$listing'(_, P).
-listing(F/A) :- !, '$listing'(F/A, user).
+listing(F/A) :- context_module(User),!, '$listing'(F/A, User).
 listing(P:PI) :- atom(P), !, '$listing'(PI, P).
 listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 
@@ -312,7 +318,7 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 	'$write_dynamic_body'(B, 8),
 	write('.'), nl.
 
-'$write_dynamic_head'(user, H) :- !, writeq(H).
+'$write_dynamic_head'(User, H) :- context_module(User),!, writeq(H).
 '$write_dynamic_head'(P, H) :-
 	write(P), write(':'), writeq(H).
 

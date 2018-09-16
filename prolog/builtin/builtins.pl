@@ -9,6 +9,7 @@
 package(_).
 :- package 'SxxMachine.builtin'.
 
+:- ensure_loaded('swi_supp.pl').
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Control constructs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -841,7 +842,7 @@ setof(Template, Goal, Instances) :-
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
-:- ensure_loaded(io).
+:- ensure_loaded('io.pl').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Term input/output (read)
@@ -1983,7 +1984,7 @@ illarg(Msg, _, _) :- raise_exception(Msg).
 '$match_type'(java,         X) :- java(X).
 '$match_type'(stream,       X) :- (java(X, 'java.io.PushbackReader') ; java(X, 'java.io.PrintWriter')).
 '$match_type'(stream_or_alias, X) :- (atom(X) ; '$match_type'(stream, X)).
-'$match_type'(hash,         X) :- java(X, 'SxxMachine.HashtableOfTerm').
+'$match_type'(hash,         X) :- jinstanceof(X, 'SxxMachine.HashtableOfTerm').
 '$match_type'(hash_or_alias,X) :- (atom(X) ; '$match_type'(hash, X)).
 '$match_type'(predicate_indicator, X) :-
 	nonvar(X),
@@ -2115,4 +2116,4 @@ synchronized(Object, Goal) :-
 	'$end_sync'(Ref).
 
 
-:- ensure_loaded(cafeteria).
+:- ensure_loaded('cafeteria.pl').

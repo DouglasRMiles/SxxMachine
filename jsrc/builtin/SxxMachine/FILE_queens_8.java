@@ -1,4 +1,5 @@
 package SxxMachine.builtin;
+
 import static SxxMachine.Failure.fail_0;
 
 import SxxMachine.Arithmetic;
@@ -9,13 +10,11 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 
-//import SxxMachine.compiler.*;
-
-public class FILE_queens_8 extends bootpreds {
+public class FILE_queens_8 extends FILE_builtins {
 /** PREDICATE: top/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
 */
-    private static final IntegerTerm si8 = Integer(8);
+    private static final /**/ IntegerTerm PRED_top_0_s1 = Integer(8);
 
 
 
@@ -39,7 +38,7 @@ m.cont = cont;
         Operation cont;
         cont = m.cont;
     // top:-[queens(8,A),fail]
-        return Op(FILE_queens_8::PRED_queens_2_static_exec, VA(si8, V(m)), Op(fail_0, VA(), cont));
+        return Op((e)->PRED_queens_2_static_exec(e), VA(PRED_top_0_s1, V(m)), Op(fail_0, VA(), cont));
     }
 
     private final static Operation top_0_2(Prolog m) { 
@@ -52,7 +51,7 @@ m.cont = cont;
 /** PREDICATE: queens/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
 */
-    private static final IntegerTerm si1 = Integer(1);
+    private static final /**/ IntegerTerm PRED_queens_2_s1 = Integer(1);
 
 
 
@@ -67,7 +66,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
         a2 = LARG[1];
     // queens(A,B):-[range(1,A,C),queens(C,[],B)]
         a3 = V(m);
-        return Op(FILE_queens_8::PRED_range_3_static_exec, VA(si1, a1, a3), Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a3,  Prolog.Nil , a2), cont));
+        return Op((e)->PRED_range_3_static_exec(e), VA(PRED_queens_2_s1, a1, a3), Op((e)->PRED_queens_3_static_exec(e), VA(a3,  Prolog.Nil , a2), cont));
     }
 /** PREDICATE: queens/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
@@ -123,12 +122,12 @@ m.cont = cont;
         a4 = V(m);
         a5 = V(m);
         a6 = CONS(a5, a2);
-        return Op(FILE_queens_8::PRED_select_3_static_exec, VA(a1, a4, a5), Op(FILE_queens_8::PRED_not_attack_2_static_exec, VA(a2, a5), Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a4, a6, a3), cont)));
+        return Op((e)->PRED_select_3_static_exec(e), VA(a1, a4, a5), Op((e)->PRED_not_attack_2_static_exec(e), VA(a2, a5), Op((e)->PRED_queens_3_static_exec(e), VA(a4, a6, a3), cont)));
     }
 /** PREDICATE: not_attack/2
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
 */
-   // private static final IntegerTerm si1 = Integer(1);
+    private static final /**/ IntegerTerm PRED_not_attack_2_s1 = Integer(1);
 
 
 
@@ -141,7 +140,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // not_attack(A,B):-[not_attack(A,B,1)]
-        return Op(FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2, si1), cont);
+        return Op((e)->PRED_not_attack_3_static_exec(e), VA(a1, a2, PRED_not_attack_2_s1), cont);
     }
 /** PREDICATE: not_attack/3
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl

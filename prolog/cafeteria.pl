@@ -1,1 +1,0 @@
-../jsrc/builtin/SxxMachine/builtin/cafeteria.pl

@@ -61,6 +61,9 @@ public class Arithmetic {
      * @exception PInstantiationException if <code>_t</code> contains unbound variables.
      * @exception IllegalDomainException if <code>_t</code> is not an arithmetic expression.
      */
+    final public static NumberTerm evaluate(NumberTerm _t) {
+    	return _t;
+    }
     public static NumberTerm evaluate(Term _t)
 	throws PInstantiationException,IllegalDomainException {
 	Term t = _t.dref();

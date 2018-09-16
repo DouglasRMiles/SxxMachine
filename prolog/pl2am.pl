@@ -163,7 +163,7 @@ Notation
 :- op(1150,  fx, (database)).     % added by Augeo
 :- op(1150,  fx, (include_resource)).     % added by Augeo
 :- set_prolog_flag(double_quote,codes).
-atom_or_nil(A):- atom(A);A==[].
+atom_or_nil(A):- (atom(A);A==[]),!.
 
 :- dynamic internal_clause/2.
 :- dynamic internal_predicates/2.
@@ -176,7 +176,7 @@ atom_or_nil(A):- atom(A);A==[].
 :- dynamic import_package/2.
 :- dynamic internal_declarations/1.
 :- dynamic file_name/1.
-:- dynamic included_file/1.
+:- dynamic included_file/2.
 :- dynamic dummy_clause_counter/1.
 :- dynamic pl2am_flag/1.
 :- dynamic fail_flag/0.  % used for generating label(fail/0) or not
@@ -235,26 +235,26 @@ pl2am(File,Opts):-
   Read in Program
 *****************************************************************/
 read_in_program(File, Opts) :-
-	pl2am_preread(File, Opts),
+	pl2am_preread(File, Opts),!,
 	clause(file_name(F),_),
 	read_in_file(F),
-	pl2am_postread.
+	pl2am_postread,!.
 
 read_in_file(File):-
 	build_file_name(File,F),
 	open(F, read, In),
 	repeat,
-	  line_count(In, L),
+	  once((line_count(In, L),
 	  assert_file_line(F,L),
-	  read_clause_(In, X),
-	  assert_clause(X),
+	   read_clause_(In, X),
+	   assert_clause(X))),
 	X == end_of_file,
 	!,
 	retractall(file_line(_,_)),
 	close(In).
 
 read_clause_(Stream, Clause):-
-        read_term(Stream, Clause, [double_quotes(codes)]),
+    read_term(Stream, Clause, [double_quotes(codes)]),
 	%catch(read(Stream, Clause),_,fail), % catch is necessary only for SWI prolg
 	!.
 read_clause_(_, _):-
@@ -274,7 +274,7 @@ pl2am_preread(File, Opts) :-
 	retractall(import_package(_,_)),
 	retractall(internal_declarations(_)),
 	retractall(file_name(_)),
-	retractall(included_file(_)),
+	retractall(included_file(_Why,_)),
 	retractall(dummy_clause_counter(_)),
 	retractall(pl2am_flag(_)),
 	retractall(fail_flag),
@@ -349,6 +349,7 @@ copt_expr(pif(_)).
 pl2am_postread :-
 	assert_import('SxxMachine'),
 	assert_import('SxxMachine.builtin'),
+    assert_import('SxxMachine.exceptions'),
 	assert_dummy_package,
 	assert_dummy_public.
 
@@ -379,6 +380,9 @@ expand_constants(Clause,Clause):-!.
 
 %%% Assert Clauses
 assert_clause(end_of_file) :- !.
+assert_clause((:- if(C))) :- !, (C -> true ; assert_begin_if(C)).
+assert_clause((:- else)) :- !,  assert_else_if.
+assert_clause((:- endif)) :- !,  assert_end_if.
 assert_clause((:- ifdef C)) :- !,
 	assert_ifdef(C).
 assert_clause((:- ifndef C)) :- !,
@@ -395,10 +399,17 @@ assert_clause(C):-
 	expand_constants(C,EC),
 	assert_clause_(EC).
 
+assert_clause_((:- ensure_loaded(F))):- !,
+	assert_include_file(consult,F).	
+assert_clause_((:- consult(F))):- !,
+	assert_include_file(consult,F).	
+assert_clause_((:- use_module(F))):- !,
+	assert_include_file(consult,F).	
+
 assert_clause_((:- include F)):- !,
-	assert_include_file(F).
+	assert_include_file(include,F).
 assert_clause_((:- include_resource F)):- !,
-	assert_include_file(F).
+	assert_include_file(include,F).
 assert_clause_((:- database D)):- !,
 	assert_database(D).
 assert_clause_((:- dynamic G)) :- !,
@@ -454,6 +465,40 @@ assert_constant(C):-
 	pl2am_error([C,is,an,invalid,constant,declaration]),
 	fail.
 
+%%% SWI-Prolog-like Conditional compilation
+assert_begin_if:-
+	clause(begin_if_flag,_),
+	!,
+	pl2am_error([nested,'if',are,not,supported,yet]),
+	fail.
+assert_begin_if(_):-
+	assert(begin_if_flag).
+
+assert_else_if:-
+	clause(begin_if_flag,_),
+	clause(skip_code,_),
+	!,
+	retractall(skip_code).
+assert_else_if:-
+	clause(begin_if_flag,_),
+	!,
+	assert(skip_code).
+assert_else_if:-
+	!,
+	pl2am_error([else_if,without,begin_if]),
+	fail.
+
+assert_end_if:-
+	clause(begin_if_flag,_),
+	!,
+	retractall(skip_code),
+	retractall(begin_if_flag).
+assert_end_if:-
+	!,
+	pl2am_error([end_if,without,begin_if]),
+	fail.
+
+
 %%% Conditional compilation
 assert_ifdef(_):-
 	clause(ifdef_flag,_),
@@ -502,24 +547,31 @@ assert_enddef:-
 	fail.
 
 %%% Include files
-assert_include_file(F):-
+assert_include_file(Why,F):- prolog_file_name(F,FF)->F \== FF,!,assert_include_file(Why,FF).
+assert_include_file(Why,F):-
 	clause(file_name(BaseFile),_),
 	pl2am_resolve_file(BaseFile, F, IncludeFile),
-	clause(included_file(IncludeFile),_),
+	clause(included_file(Why,IncludeFile),_),
 	!.
-assert_include_file(F):-
+assert_include_file(Why,F):- (Why == (include)),
 	clause(file_name(BaseFile),_),
 	pl2am_resolve_file(BaseFile, F, IncludeFile),
-	assert(included_file(IncludeFile)),
+	assert(included_file(Why,IncludeFile)),
 	retractall(file_name(_)),
 	assert(file_name(IncludeFile)),
 	read_in_file(IncludeFile),
 	retractall(file_name(_)),
 	assert(file_name(BaseFile)),
 	!.
-assert_include_file(F):-
+assert_include_file(Why,F):- Why== consult,
 	clause(file_name(BaseFile),_),
-	pl2am_error([failed,to,include,file,F,in,BaseFile]),
+	pl2am_resolve_file(BaseFile, F, IncludeFile),
+	assert(included_file(Why,IncludeFile)),
+	!.
+
+assert_include_file(Why,F):-
+	clause(file_name(BaseFile),_),
+	pl2am_error([failed,to,Why,file,F,in,BaseFile]),
 	fail.
 
 %%% Database declaration
@@ -722,11 +774,11 @@ compile_all_predicates(_) :-   % treat dynamic declaration
 	fail.
 compile_all_predicates(Out) :- % compile predicate
 	clause(internal_predicates(Functor, Arity), _),
-	compile_predicate(Functor, Arity, Instructions, []),
+	once(compile_predicate(Functor, Arity, Instructions, [])),
 	write_asm(Out, Instructions),
 	nl(Out),
 	fail.
-compile_all_predicates(Out) :- write_domain_definitions(Out).
+compile_all_predicates(Out) :- write_domain_definitions(Out),fail.
 compile_all_predicates(Out) :- nl(Out).
 
 write_asm(_, []) :- !.
@@ -856,12 +908,12 @@ assert_init_cls(Cls) :-
 compile_predicate(Functor, Arity) -->
 	{functor(Head, Functor, Arity)},
 	{findall((Head :- Body), internal_clause(Head, Body), Clauses)},
-	{clause(package_name(P), _)},
+	{clause(package_name(P), _),!},
 	[begin_predicate(P, Functor/Arity)],
 	generate_info(Functor, Arity),
 	generate_import,
 	compile_pred(Clauses, Functor/Arity),
-	[end_predicate(P, Functor/Arity)].
+	[end_predicate(P, Functor/Arity)],!.
 
 %%% Program Code
 compile_pred([], _) --> [], !.
@@ -1932,6 +1984,7 @@ builtin_inline_predicates(nonvar(_)).
 builtin_inline_predicates(number(_)).
 builtin_inline_predicates(java(_)).
 builtin_inline_predicates(java(_,_)).
+builtin_inline_predicates(jinstanceof(_,_)).
 builtin_inline_predicates(closure(_)).
 builtin_inline_predicates(ground(_)).
 % Term comparison
@@ -2118,11 +2171,13 @@ pl2am_maplist(Goal, [Elem1|Tail1], [Elem2|Tail2]) :-
 	call(Term),
 	pl2am_maplist(Goal,Tail1,Tail2).
 
+pl2am_resolve_file(_BaseFile, File, FileR):- prolog_file_name(File,FileR),!.
 pl2am_resolve_file(_BaseFile, File, File):-
 	File = _Package:_ResourceName,
 	!.
-
-pl2am_resolve_file(BaseFile, File, IncludeFile):-
+pl2am_resolve_file(BaseFile, File, IncludeFile):- \+ exists_file(BaseFile),prolog_file_name(BaseFile,BaseFileR)->BaseFile\==BaseFileR,!,
+   pl2am_resolve_file(BaseFileR, File, IncludeFile).
+pl2am_resolve_file(BaseFile, File, IncludeFile):- 
 	pl2am_file_directory(BaseFile,Directory),
 	atom_concat(Directory, File, IncludeFile).
 

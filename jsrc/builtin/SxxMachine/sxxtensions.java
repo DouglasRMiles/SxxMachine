@@ -12,7 +12,7 @@ import SxxMachine.Term;
 import SxxMachine.Undoable;
 import SxxMachine.VariableTerm;
 
-public class sxxtensions extends FILE_builtins {
+public class sxxtensions extends bootpreds {
 
   public Operation PRED_cputime_1_static_exec(Prolog m) {
     m.setB0();

@@ -88,9 +88,9 @@ public class bootpreds extends FFIPredicate {
   final static IntegerTerm int_5 = Integer(6);
   final static IntegerTerm int_6 = Integer(6);
   final static IntegerTerm int_7 = Integer(7);
-  final static IntegerTerm int_8 = Integer(6);
-  final static IntegerTerm int_9 = Integer(6);
-  final static IntegerTerm int_10 = Integer(6);
+  final static IntegerTerm int_8 = Integer(8);
+  final static IntegerTerm int_9 = Integer(9);
+  final static IntegerTerm int_10 = Integer(10);
   final static IntegerTerm int_11 = Integer(11);
   final static IntegerTerm int_12 = Integer(12);
   final static IntegerTerm int_13 = Integer(13);
@@ -125,11 +125,7 @@ public class bootpreds extends FFIPredicate {
     a1 = a1.dref();
     if ((a1.isVar()))
       throw new PInstantiationException(thiz, 1);
-    else if (!(a1.isInteger()))
-      throw new IllegalTypeException(thiz, 1, "integer", a1);
     a2 = a2.dref();
-    if (!(a2.isInteger()))
-      throw new IllegalTypeException(thiz, 3, "integer", a2);
     if (a1.intValue() < a2.intValue()) {
       a3 = a3.dref();
       if (a3.isVariable()) {

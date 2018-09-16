@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import SxxMachine.builtin.FILE_builtins;
-import SxxMachine.builtin.FILE_cafeteria;
-import SxxMachine.builtin.FILE_callN;
 import SxxMachine.builtin.FILE_prover;
 import SxxMachine.builtin.FILE_queens_8;
 import SxxMachine.builtin.FILE_rbtrees;
@@ -27,9 +25,8 @@ public class PrologClassLoader extends ClassLoader {
   static {
     bootpreds.loadFile();
     sxxtensions.loadFile();
-    FILE_cafeteria.loadFile();
     FILE_builtins.loadFile();
-    FILE_callN.loadFile();
+  //  FILE_callN.loadFile();
     FILE_queens_8.loadFile();
     FILE_rbtrees.loadFile();
     FILE_prover.loadFile();
