@@ -1,12 +1,14 @@
-#ifndef FLUENT
-#define FLUENT
+#pragma once
 
 #include "../../../machine/SxxMachine/SystemObject.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -19,9 +21,9 @@ namespace SxxMachine
 	class Fluent : public SystemObject
 	{
 	public:
-		Fluent(Prog* p);
+		Fluent(Prog *p);
 
-		Term* toClone() override;
+		Term *toClone() override;
 
 		bool isFluent() override;
 
@@ -35,7 +37,7 @@ namespace SxxMachine
 		 * reused after backtracking.
 		 */
 	public:
-		virtual void setPersistent(const bool& persistent);
+		virtual void setPersistent(bool persistent);
 
 		/**
 		 * returns true if this Fluent is persistent, false otherwise
@@ -47,7 +49,7 @@ namespace SxxMachine
 		 * undo method of the Fluent on backtracking.
 		 */
 	protected:
-		virtual void trailMe(Prog* p);
+		virtual void trailMe(Prog *p);
 
 	public:
 		virtual void stop();
@@ -59,6 +61,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef FLUENT

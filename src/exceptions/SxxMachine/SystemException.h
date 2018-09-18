@@ -1,13 +1,15 @@
-#ifndef SYSTEMEXCEPTION
-#define SYSTEMEXCEPTION
+#pragma once
 
 #include "PrologException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -23,21 +25,18 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>system_error/1</code>. */
 	public:
-		static SymbolTerm* const  SYSTEM_ERROR;
+		static SymbolTerm *const SYSTEM_ERROR;
 		/** Holds a message. */
 		const std::string message;
 		std::string getMessage() override;
 		/** Constructs a new <code>SystemException</code> with a message. */
-		SystemException(const std::string& _message);
+		SystemException(const std::string &_message);
 		/** Returns a term representation of this <code>SystemException</code>:
 		 * <code>system_error(message)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>SystemException</code>. */
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef SYSTEMEXCEPTION

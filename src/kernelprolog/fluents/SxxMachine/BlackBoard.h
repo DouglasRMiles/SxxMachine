@@ -1,5 +1,4 @@
-#ifndef BLACKBOARD
-#define BLACKBOARD
+#pragma once
 
 #include "HashDict.h"
 #include <string>
@@ -9,7 +8,10 @@
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -35,7 +37,7 @@ namespace SxxMachine
 	public:
 		BlackBoard(std::unordered_map map);
 
-		BlackBoard* toClone() override;
+		BlackBoard *toClone() override;
 
 		/**
 		 Removes the first Term having key k
@@ -43,9 +45,9 @@ namespace SxxMachine
 		*/
 		// synchronized
 	private:
-		Term* pick(const std::string& k);
+		Term *pick(const std::string &k);
 
-		void addBack(const std::string& k, std::vector V);
+		void addBack(const std::string &k, std::vector V);
 
 		/**
 		 Removes the first matching Term or Clause from the
@@ -57,7 +59,7 @@ namespace SxxMachine
 
 		// synchronized
 	protected:
-		Term* take(const std::string& k, Term* pattern);
+		Term *take(const std::string &k, Term *pattern);
 
 		/**
 		 Adds a Term or Clause
@@ -67,17 +69,17 @@ namespace SxxMachine
 		
 		*/
 		// synchronized
-		void add(const std::string& k, Term* value);
+		void add(const std::string &k, Term *value);
 
 		/** This gives an enumeration view for the sequence of
 		   objects kept under key k.
 		*/
 		// synchronized
 	public:
-		virtual Iterator* toEnumerationFor(const std::string& k);
+		virtual Iterator *toEnumerationFor(const std::string &k);
 
 		// synchronized
-		virtual Iterator* toEnumeration();
+		virtual Iterator *toEnumeration();
 
 	};
 
@@ -95,12 +97,12 @@ namespace SxxMachine
 			delete EH;
 		}
 
-		BBoardEnumerator(Iterator* EH);
+		BBoardEnumerator(Iterator *EH);
 
 	private:
-		Iterator* EQ;
+		Iterator *EQ;
 
-		Iterator* EH;
+		Iterator *EH;
 
 		// synchronized
 	public:
@@ -113,6 +115,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef BLACKBOARD

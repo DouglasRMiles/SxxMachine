@@ -11,328 +11,328 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Operation sxxtensions::PRED_string_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_string_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_string_codes_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_string_codes_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_prolog_load_context_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_prolog_load_context_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_phrase_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_phrase_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_phrase_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_phrase_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_predicate_property_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_predicate_property_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_memberchk_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_memberchk_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_setup_call_cleanup_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_setup_call_cleanup_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_succ_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_succ_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_recorda_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_recorda_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_recorded_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_recorded_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_erase1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_erase1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_clause_property_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_clause_property_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_$skip_list_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_$skip_list_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_absolute_file_name_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_absolute_file_name_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_pairs_keys_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_pairs_keys_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_sort_4_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_sort_4_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_$set_predicate_attribute_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_$set_predicate_attribute_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_debug_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_debug_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_$atom_completions_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_$atom_completions_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_expand_file_name_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_expand_file_name_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_forall_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_forall_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_number_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_number_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_unify_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_unify_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_code_type_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_code_type_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_read_string_5_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_read_string_5_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_option_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_option_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_assert_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_assert_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_time_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_time_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_garbage_collect_0_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_garbage_collect_0_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_compile_predicates_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_compile_predicates_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_f2_pos_6_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_f2_pos_6_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_type_error_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_type_error_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_compile_aux_clauses_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_compile_aux_clauses_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_$expand_closure_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_$expand_closure_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_style_check_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_style_check_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_erase_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_erase_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_must_be_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_must_be_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_format_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_format_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_format_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_format_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_format_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_format_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_compound_name_arity_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_compound_name_arity_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_compound_name_arguments_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_compound_name_arguments_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_load_foreign_library_1_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_load_foreign_library_1_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_atomic_list_concat_2_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_atomic_list_concat_2_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_read_term_3_static_exec(Prolog* e)
+	Operation sxxtensions::PRED_read_term_3_static_exec(Prolog *e)
 	{
 		// TODO Auto-generated method stub
 		return nullptr;
 	}
 
-	Operation sxxtensions::PRED_cputime_1_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_cputime_1_static_exec(Prolog *m)
 	{
 		m->setB0();
 		long long t = System::currentTimeMillis();
-		if(!m->AREGS[0]->unify(Long(t), m->trail))
+		if (!m->AREGS[0]->unify(Long(t), m->trail))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	bool sxxtensions::DoSetArg3(Prolog* m, Term* arg1, Term* arg2, Term* arg3)
+	bool sxxtensions::DoSetArg3(Prolog *m, Term *arg1, Term *arg2, Term *arg3)
 	{
 		arg1 = arg1->dref();
 		arg2 = arg2->dref();
 		arg3 = arg3->dref();
-		if(!(arg1->isInteger()))
+		if (!(arg1->isInteger()))
 		{
 			return false;
 		}
-		if(!(arg2->isStructure()))
+		if (!(arg2->isStructure()))
 		{
 			return false;
 		}
 		int i = arg1->intValue();
-		if(i < 1)
+		if (i < 1)
 		{
 			return false;
 		}
 		int l = arg2->arity();
-		if(i > l)
+		if (i > l)
 		{
 			return false;
 		}
 		return DoSetArg3_p2(m, i, arg2, arg3);
 	}
 
-	bool sxxtensions::DoSetArg3_p2(Prolog* m, const int& i, Term* arg2, Term* arg3)
+	bool sxxtensions::DoSetArg3_p2(Prolog *m, int i, Term *arg2, Term *arg3)
 	{
-		if(m == nullptr)
+		if (m == nullptr)
 		{
 			arg2->setarg0(nullptr, i - 1, arg3);
 			return true;
 		}
-		Term* x = arg2->arg0(i - 1);
-		VariableTerm* v = V(m);
+		Term *x = arg2->arg0(i - 1);
+		VariableTerm *v = V(m);
 		v->val = arg3;
 		arg2->setarg0(nullptr, i - 1, v);
 		SetArgTrail tempVar(x, v, m);
@@ -340,10 +340,10 @@ namespace SxxMachine
 		return true;
 	}
 
-	Operation sxxtensions::PRED_setarg_3_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_setarg_3_static_exec(Prolog *m)
 	{
 		m->setB0();
-		if(!DoSetArg3(m, m->AREGS[0], m->AREGS[1], m->AREGS[2]))
+		if (!DoSetArg3(m, m->AREGS[0], m->AREGS[1], m->AREGS[2]))
 		{
 			return m->fail();
 		}
@@ -371,27 +371,27 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("unused") static boolean NonBacktrackingSetArg(Prolog m, Term arg1, Term arg2, Term arg3)
-	bool sxxtensions::NonBacktrackingSetArg(Prolog* m, Term* arg1, Term* arg2, Term* arg3)
+	bool sxxtensions::NonBacktrackingSetArg(Prolog *m, Term *arg1, Term *arg2, Term *arg3)
 	{
 		arg1 = arg1->dref();
 		arg2 = arg2->dref();
 		arg3 = arg3->dref();
 
-		if(!(arg1->isInteger()))
+		if (!(arg1->isInteger()))
 		{
 			return false;
 		}
-		if(arg2->isAtomicValue())
+		if (arg2->isAtomicValue())
 		{
 			return false;
 		}
 		int i = arg1->intValue();
-		if(i < 1)
+		if (i < 1)
 		{
 			return false;
 		}
 		int l = arg2->arity();
-		if(i > l)
+		if (i > l)
 		{
 			return false;
 		}
@@ -399,17 +399,17 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		return true;
 	}
 
-	Operation sxxtensions::PRED_nb_setarg_3_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_nb_setarg_3_static_exec(Prolog *m)
 	{
 		m->setB0();
-		if(!NonBacktrackingSetArg(m, m->AREGS[0], m->AREGS[1], m->AREGS[2]))
+		if (!NonBacktrackingSetArg(m, m->AREGS[0], m->AREGS[1], m->AREGS[2]))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	sxxtensions::SetArgTrail::SetArgTrail(Term* old, VariableTerm* changed, Prolog* m) : StructureTerm("$SetArgTrail", old, changed)
+	sxxtensions::SetArgTrail::SetArgTrail(Term *old, VariableTerm *changed, Prolog *m) : StructureTerm("$SetArgTrail", old, changed)
 	{
 		this->OldValue = old;
 		this->Which = changed;
@@ -422,7 +422,7 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		this->Which->timeStamp = this->m->getCPFTimeStamp();
 	}
 
-	sxxtensions::PopPendingGoals::PopPendingGoals(Prolog* m, Term* o) : StructureTerm("$PopPendingGoals", o)
+	sxxtensions::PopPendingGoals::PopPendingGoals(Prolog *m, Term *o) : StructureTerm("$PopPendingGoals", o)
 	{
 		this->m = m;
 		this->old = o;
@@ -433,7 +433,7 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		this->m->pendingGoals = this->old;
 	}
 
-	sxxtensions::PopAssumptions::PopAssumptions(Prolog* m, Term* o) : StructureTerm("$PopAssumptions", o)
+	sxxtensions::PopAssumptions::PopAssumptions(Prolog *m, Term *o) : StructureTerm("$PopAssumptions", o)
 	{
 		this->m = m;
 		this->old = o;
@@ -444,24 +444,24 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		this->m->assumptions = this->old;
 	}
 
-	Operation sxxtensions::PRED_freeze_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_freeze_2_static_exec(Prolog *m)
 	{
-		Term* a1,* a2;
+		Term *a1, *a2;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
 		a1->freeze(m->trail, a2);
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_frozen_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_frozen_2_static_exec(Prolog *m)
 	{
 
 		m->setB0();
-		Term* a1,* a2;
+		Term *a1, *a2;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1]->dref();
-		Term* goals = a1->frozenGoals();
-		if(!a2->unify(goals, m->trail))
+		Term *goals = a1->frozenGoals();
+		if (!a2->unify(goals, m->trail))
 		{
 			return m->fail();
 		}
@@ -469,102 +469,103 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_copy_term_3_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_copy_term_3_static_exec(Prolog *m)
 	{
-		Term* a1,* a2,* a3;
+		Term *a1, *a2, *a3;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
 		a3 = m->AREGS[2]->dref();
-		IdentityHashMap<any, Term*>* saved = new IdentityHashMap<any, Term*>();
-		if(!a2->unify(a1->copy(saved, Term::COPY_SAVE_ATTRS_COPY), m->trail))
+		IdentityHashMap<any, Term*> *saved = new IdentityHashMap<any, Term*>();
+		if (!a2->unify(a1->copy(saved, Term::COPY_SAVE_ATTRS_COPY), m->trail))
 		{
 			return m->fail();
 		}
-		Term* copyGoals = saved->get(SymbolTerm::GOALS);
-		if(sxxtensions::isNoGoal(copyGoals))
+		Term *copyGoals = saved->get(SymbolTerm::GOALS);
+		if (sxxtensions::isNoGoal(copyGoals))
 		{
-			if(!a3->unify(Prolog::Nil, m->trail))
-			{
-				return m->fail();
-			}
-		} else
-		{
-			if(!a3->unify(copyGoals, m->trail))
+			if (!a3->unify(Prolog::Nil, m->trail))
 			{
 				return m->fail();
 			}
 		}
+		else
+		{
+			if (!a3->unify(copyGoals, m->trail))
+			{
+				return m->fail();
+			}
+		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_copy_term_nat_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_copy_term_nat_2_static_exec(Prolog *m)
 	{
-		Term* a1,* a2;
+		Term *a1, *a2;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
-		IdentityHashMap<any, Term*>* saved = new IdentityHashMap<any, Term*>();
-		if(!a2->unify(a1->copy(saved, Term::COPY_NO_ATTRS), m->trail))
+		IdentityHashMap<any, Term*> *saved = new IdentityHashMap<any, Term*>();
+		if (!a2->unify(a1->copy(saved, Term::COPY_NO_ATTRS), m->trail))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_copy_term_att_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_copy_term_att_2_static_exec(Prolog *m)
 	{
-		Term* a1,* a2;
+		Term *a1, *a2;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
-		IdentityHashMap<any, Term*>* saved = new IdentityHashMap<any, Term*>();
-		Term* copy = a1->copy(saved, Term::COPY_ALL);
-		if(!a2->unify(copy, m->trail))
+		IdentityHashMap<any, Term*> *saved = new IdentityHashMap<any, Term*>();
+		Term *copy = a1->copy(saved, Term::COPY_ALL);
+		if (!a2->unify(copy, m->trail))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_attvar_1_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_attvar_1_static_exec(Prolog *m)
 	{
 		m->setB0();
-		Term* a1;
+		Term *a1;
 		a1 = m->AREGS[0];
 		a1 = a1->dref();
-		if(!a1->isAttvar())
+		if (!a1->isAttvar())
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_get_attr_3_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_get_attr_3_static_exec(Prolog *m)
 	{
 		m->setB0();
-		Term* a1,* a2,* a3;
+		Term *a1, *a2, *a3;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
 		a3 = m->AREGS[2]->dref();
-		Term* t = a1->findOrAttrValue(m->trail, false, a2);
-		if(!t->isStructure())
+		Term *t = a1->findOrAttrValue(m->trail, false, a2);
+		if (!t->isStructure())
 		{
 			return m->fail();
 		}
-		if(!a3->unify(t->arg0(1), m->trail))
+		if (!a3->unify(t->arg0(1), m->trail))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_get_attrs_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_get_attrs_2_static_exec(Prolog *m)
 	{
 
 		m->setB0();
-		Term* a1,* a2;
+		Term *a1, *a2;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
-		Term* attrs = a1->getFdata()->getAttrs();
-		if(!a2->unify(attrs, m->trail))
+		Term *attrs = a1->getFdata()->getAttrs();
+		if (!a2->unify(attrs, m->trail))
 		{
 			return m->fail();
 		}
@@ -573,9 +574,9 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 
 	}
 
-	Operation sxxtensions::PRED_put_attr_3_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_put_attr_3_static_exec(Prolog *m)
 	{
-		Term* a1,* a2,* a3;
+		Term *a1, *a2, *a3;
 		a1 = m->AREGS[0]->dref();
 		a2 = m->AREGS[1]->dref();
 		a3 = m->AREGS[2]->dref();
@@ -583,40 +584,40 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_put_attrs_2_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_put_attrs_2_static_exec(Prolog *m)
 	{
 		m->AREGS[0]->dref().setAttrs(m->trail, m->AREGS[1]->dref());
 		return m->cont;
 
 	}
 
-	Operation sxxtensions::PRED_peek_pending_1_static_exec(Prolog* const m)
+	Operation sxxtensions::PRED_peek_pending_1_static_exec(Prolog *const m)
 	{
 		m->setB0();
 		Term * const a1 = m->AREGS[0]->dref();
-		Term* goals = m->peekPendingGoals();
-		if(!a1->unify(goals, m->trail))
+		Term *goals = m->peekPendingGoals();
+		if (!a1->unify(goals, m->trail))
 		{
 			return m->fail();
 		}
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_add_pending_1_static_exec(Prolog* const m)
+	Operation sxxtensions::PRED_add_pending_1_static_exec(Prolog *const m)
 	{
 		Term * const a1 = m->AREGS[0]->dref();
 		m->addPendingGoal(a1);
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_push_pending_1_static_exec(Prolog* const m)
+	Operation sxxtensions::PRED_push_pending_1_static_exec(Prolog *const m)
 	{
 		Term * const a1 = m->AREGS[0]->dref();
 		m->addPendingGoal(a1);
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_undo_1_static_exec(Prolog* const m)
+	Operation sxxtensions::PRED_undo_1_static_exec(Prolog *const m)
 	{
 		Term * const a1 = m->AREGS[0]->dref();
 		UndoableAnonymousInnerClass tempVar(m, a1);
@@ -624,7 +625,7 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		return m->cont;
 	}
 
-	sxxtensions::UndoableAnonymousInnerClass::UndoableAnonymousInnerClass(SxxMachine::Prolog* m, SxxMachine::Term* a1)
+	sxxtensions::UndoableAnonymousInnerClass::UndoableAnonymousInnerClass(SxxMachine::Prolog *m, SxxMachine::Term *a1)
 	{
 		this->m = m;
 		this->a1 = a1;
@@ -635,21 +636,21 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		m->addPendingGoal(a1);
 	}
 
-	Operation sxxtensions::PRED_assume_1_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_assume_1_static_exec(Prolog *m)
 	{
-		Term* arg1 = m->AREGS[0]->dref();
-		Term* ass = (m->assumptions)->dref();
+		Term *arg1 = m->AREGS[0]->dref();
+		Term *ass = (m->assumptions)->dref();
 		PopAssumptions tempVar(m, ass);
 		m->push(&tempVar);
 		m->assumptions = CONS(arg1, ass);
 		return m->cont;
 	}
 
-	Operation sxxtensions::PRED_allassumed_1_static_exec(Prolog* m)
+	Operation sxxtensions::PRED_allassumed_1_static_exec(Prolog *m)
 	{
-		Term* arg1 = m->AREGS[0]->dref();
-		Term* ass = (m->assumptions)->dref();
-		if(!(arg1->unify(ass, m->trail)))
+		Term *arg1 = m->AREGS[0]->dref();
+		Term *ass = (m->assumptions)->dref();
+		if (!(arg1->unify(ass, m->trail)))
 		{
 			return m->fail();
 		}
@@ -666,36 +667,38 @@ sxxtensions::StaticConstructor sxxtensions::staticConstructor;
 		PredTable::registerBuiltin("allassumed", 1, sxxtensions::PRED_allassumed_1_static_exec);
 	}
 
-	Term* sxxtensions::get_attribute_goals(Term* copy, Term* frozen)
+	Term *sxxtensions::get_attribute_goals(Term *copy, Term *frozen)
 	{
-		if(sxxtensions::isNoGoal(frozen))
+		if (sxxtensions::isNoGoal(frozen))
 		{
 			return nullptr;
 		}
-		return S("put_attrs", { copy, frozen });
+		return S("put_attrs", {copy, frozen});
 	}
 
-	Term* sxxtensions::appendGoals(Term* sofar, Term* goals1)
+	Term *sxxtensions::appendGoals(Term *sofar, Term *goals1)
 	{
-		Term* result = nullptr;
-		if(sxxtensions::isNoGoal(sofar))
+		Term *result = nullptr;
+		if (sxxtensions::isNoGoal(sofar))
 		{
 			result = goals1;
-		} else if(sxxtensions::isNoGoal(goals1))
+		}
+		else if (sxxtensions::isNoGoal(goals1))
 		{
 			result = sofar;
-		} else
-		{
-			return S(",", { sofar, goals1 });
 		}
-		if(sxxtensions::isNoGoal(result))
+		else
+		{
+			return S(",", {sofar, goals1});
+		}
+		if (sxxtensions::isNoGoal(result))
 		{
 			result = nullptr;
 		}
 		return result;
 	}
 
-	bool sxxtensions::isNoGoal(Term* sofar)
+	bool sxxtensions::isNoGoal(Term *sofar)
 	{
 		return sofar == nullptr || sofar == Prolog::Nil || sofar == Prolog::True;
 	}

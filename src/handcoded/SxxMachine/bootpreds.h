@@ -1,9 +1,12 @@
-#ifndef BOOTPREDS
-#define BOOTPREDS
+#pragma once
 
 #include "../../machine/SxxMachine/FFIPredicate.h"
+#include "../../legacy/SxxMachine/builtin/PRED_$begin_exception_1.h"
 #include "../../machine/SxxMachine/BlockPredicate.h"
+#include "../../legacy/SxxMachine/builtin/PRED_$begin_sync_2.h"
+#include "../../legacy/SxxMachine/builtin/PRED_$builtin_member_2.h"
 #include "../../machine/SxxMachine/Predicate.h"
+#include "../../legacy/SxxMachine/builtin/PRED_keysort_2.h"
 #include "../../machine/SxxMachine/Undoable.h"
 #include <string>
 #include <unordered_map>
@@ -20,38 +23,22 @@
 #include "tangible_filesystem.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class IntegerTerm; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class BuiltinException; }
-namespace SxxMachine { class IllegalDomainException; }
-namespace SxxMachine { class PInstantiationException; }
-namespace SxxMachine { class PermissionException; }
-namespace SxxMachine { class ExistenceException; }
-namespace SxxMachine { class FFIObjectTerm; }
-class StringBuilder;
-class PushbackReader;
-class PrintWriter;
-class Writer;
-class Constructor;
-class ClassNotFoundException;
-class InstantiationException;
-class IllegalAccessException;
-class SecurityException;
-class Number;
-class NoSuchMethodException;
-class InvocationTargetException;
-class Method;
-class NullPointerException;
-class Field;
-class NoSuchFieldException;
-class ClassCastException;
-class Lock;
-class IllegalMonitorStateException;
-class NumberFormatException;
-class InterruptedException;
+namespace SxxMachine
+{
+	class IntegerTerm;
+	class Operation;
+	class Prolog;
+	class SymbolTerm;
+	class PRED_$begin_exception_1;
+	class Term;
+	class PRED_$begin_sync_2;
+	class BuiltinException;
+	class IllegalDomainException;
+	class PInstantiationException;
+	class PermissionException;
+	class ExistenceException;
+	class FFIObjectTerm;
+}
 
 namespace SxxMachine
 {
@@ -66,55 +53,55 @@ namespace SxxMachine
 	{
 
 	public:
-		static IntegerTerm* const  int_0;
-		static IntegerTerm* const  int_1;
-		static IntegerTerm* const  int_2;
-		static IntegerTerm* const  int_3;
-		static IntegerTerm* const  int_4;
-		static IntegerTerm* const  int_5;
-		static IntegerTerm* const  int_6;
-		static IntegerTerm* const  int_7;
-		static IntegerTerm* const  int_8;
-		static IntegerTerm* const  int_9;
-		static IntegerTerm* const  int_10;
-		static IntegerTerm* const  int_11;
-		static IntegerTerm* const  int_12;
-		static IntegerTerm* const  int_13;
-		static IntegerTerm* const  int_14;
-		static IntegerTerm* const  int_15;
-		static IntegerTerm* const  int_16;
-		static IntegerTerm* const  int_17;
-		static IntegerTerm* const  int_18;
-		static IntegerTerm* const  int_19;
-		static IntegerTerm* const  int_20;
-		static IntegerTerm* const  int_21;
-		static IntegerTerm* const  int_22;
-		static IntegerTerm* const  int_23;
-		static IntegerTerm* const  int_24;
-		static IntegerTerm* const  int_25;
-		static IntegerTerm* const  int_100;
+		static IntegerTerm *const int_0;
+		static IntegerTerm *const int_1;
+		static IntegerTerm *const int_2;
+		static IntegerTerm *const int_3;
+		static IntegerTerm *const int_4;
+		static IntegerTerm *const int_5;
+		static IntegerTerm *const int_6;
+		static IntegerTerm *const int_7;
+		static IntegerTerm *const int_8;
+		static IntegerTerm *const int_9;
+		static IntegerTerm *const int_10;
+		static IntegerTerm *const int_11;
+		static IntegerTerm *const int_12;
+		static IntegerTerm *const int_13;
+		static IntegerTerm *const int_14;
+		static IntegerTerm *const int_15;
+		static IntegerTerm *const int_16;
+		static IntegerTerm *const int_17;
+		static IntegerTerm *const int_18;
+		static IntegerTerm *const int_19;
+		static IntegerTerm *const int_20;
+		static IntegerTerm *const int_21;
+		static IntegerTerm *const int_22;
+		static IntegerTerm *const int_23;
+		static IntegerTerm *const int_24;
+		static IntegerTerm *const int_25;
+		static IntegerTerm *const int_100;
 
-		static IntegerTerm* const  int_neg1;
-		static IntegerTerm* const  int_neg2;
-		static IntegerTerm* const  int_neg3;
-		static IntegerTerm* const  int_neg4;
-		static IntegerTerm* const  int_neg5;
-		static IntegerTerm* const  int_neg6;
-		static IntegerTerm* const  int_neg7;
-		static IntegerTerm* const  int_neg8;
-		static IntegerTerm* const  int_neg9;
-		static IntegerTerm* const  int_neg10;
-		static IntegerTerm* const  int_neg11;
-		static IntegerTerm* const  int_neg12;
-		static IntegerTerm* const  int_neg13;
-		static IntegerTerm* const  int_neg14;
-		static IntegerTerm* const  int_neg15;
-		static IntegerTerm* const  int_neg16;
-		static IntegerTerm* const  int_neg17;
-		static IntegerTerm* const  int_neg18;
-		static IntegerTerm* const  int_neg19;
-		static IntegerTerm* const  int_neg20;
-		static IntegerTerm* const  int_neg21;
+		static IntegerTerm *const int_neg1;
+		static IntegerTerm *const int_neg2;
+		static IntegerTerm *const int_neg3;
+		static IntegerTerm *const int_neg4;
+		static IntegerTerm *const int_neg5;
+		static IntegerTerm *const int_neg6;
+		static IntegerTerm *const int_neg7;
+		static IntegerTerm *const int_neg8;
+		static IntegerTerm *const int_neg9;
+		static IntegerTerm *const int_neg10;
+		static IntegerTerm *const int_neg11;
+		static IntegerTerm *const int_neg12;
+		static IntegerTerm *const int_neg13;
+		static IntegerTerm *const int_neg14;
+		static IntegerTerm *const int_neg15;
+		static IntegerTerm *const int_neg16;
+		static IntegerTerm *const int_neg17;
+		static IntegerTerm *const int_neg18;
+		static IntegerTerm *const int_neg19;
+		static IntegerTerm *const int_neg20;
+		static IntegerTerm *const int_neg21;
 		/**
 		 * <code>arg/3</code><br>
 		 *
@@ -123,7 +110,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _between_3 extends Predicate.P3 {
-		static Operation PRED_between_3_static_exec(Prolog* engine);
+		static Operation PRED_between_3_static_exec(Prolog *engine);
 
 		/**
 		 * <code>arg/3</code><br>
@@ -133,7 +120,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _arg_3 extends Predicate.P3 {
-		static Operation PRED_arg_3_static_exec(Prolog* engine);
+		static Operation PRED_arg_3_static_exec(Prolog *engine);
 
 		/**
 		 * <code>atom_chars/2</code><br>
@@ -143,7 +130,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _atom_chars_2 extends Predicate.P2 {
-		static Operation PRED_atom_chars_2_static_exec(Prolog* engine);
+		static Operation PRED_atom_chars_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>atom_codes/2</code><br>
@@ -153,7 +140,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _atom_codes_2 extends Predicate.P2 {
-		static Operation PRED_atom_codes_2_static_exec(Prolog* engine);
+		static Operation PRED_atom_codes_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>atom_concat/3</code><br>
@@ -164,10 +151,10 @@ namespace SxxMachine
 		 */
 		// _atom_concat_3 extends Predicate.P3 {
 	private:
-		static SymbolTerm* const  AC_2;
+		static SymbolTerm *const AC_2;
 
 	public:
-		static Operation PRED_atom_concat_3_static_exec(Prolog* engine);
+		static Operation PRED_atom_concat_3_static_exec(Prolog *engine);
 
 		/**
 		 * atomic_concat(+Atomic1, +Atomic2, -Atom) Atom represents the text after
@@ -176,7 +163,7 @@ namespace SxxMachine
 		 * http://www.swi-SxxMachine.org/pldoc/man?predicate=atomic_concat/3
 		 */
 		// _atomic_concat_3 extends Predicate.P3 {
-		static Operation PRED_atomic_concat_3_static_exec(Prolog* engine);
+		static Operation PRED_atomic_concat_3_static_exec(Prolog *engine);
 
 		/**
 		 * <code>atom_lengt/2</code><br>
@@ -186,7 +173,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _atom_length_2 extends Predicate.P2 {
-		static Operation PRED_atom_length_2_static_exec(Prolog* engine);
+		static Operation PRED_atom_length_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$atom_type0'/2</code><br>
@@ -196,7 +183,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$atom_type0_2 extends Predicate.P2 {
-		static Operation PRED_$atom_type0_2_static_exec(Prolog* engine);
+		static Operation PRED_$atom_type0_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$begin_exception'/1</code><br>
@@ -205,7 +192,7 @@ namespace SxxMachine
 		 * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
 		 * @version 1.2
 		 */
-		static Operation PRED_$begin_exception_1_static_exec(Prolog* engine);
+		static Operation PRED_$begin_exception_1_static_exec(Prolog *engine);
 
 	public:
 		class PRED_$begin_exception_1 : public BlockPredicate
@@ -215,11 +202,11 @@ namespace SxxMachine
 		public:
 			int predArity() override;
 
-			PRED_$begin_exception_1(Term* a1, Operation cont);
+			PRED_$begin_exception_1(Term *a1, Operation cont);
 
-			Operation exec(Prolog* engine) override;
+			Operation exec(Prolog *engine) override;
 
-			static Operation static_exec(Prolog* engine);
+			static Operation static_exec(Prolog *engine);
 		};
 
 		/**
@@ -230,7 +217,7 @@ namespace SxxMachine
 		 * @version 1.2
 		 */
 	public:
-		static Operation PRED_$begin_sync_2_static_exec(Prolog* engine);
+		static Operation PRED_$begin_sync_2_static_exec(Prolog *engine);
 
 	public:
 		class PRED_$begin_sync_2 : public BlockPredicate
@@ -239,11 +226,11 @@ namespace SxxMachine
 		public:
 			int predArity() override;
 
-			PRED_$begin_sync_2(Term* a1, Term* a2, Operation cont);
+			PRED_$begin_sync_2(Term *a1, Term *a2, Operation cont);
 
-			Operation exec(Prolog* engine) override;
+			Operation exec(Prolog *engine) override;
 
-			static Operation static_exec(Prolog* engine);
+			static Operation static_exec(Prolog *engine);
 		};
 
 		/**
@@ -256,10 +243,10 @@ namespace SxxMachine
 		{
 
 		public:
-			static Operation static_exec(Prolog* engine);
+			static Operation static_exec(Prolog *engine);
 
 		private:
-			static Operation retry(Prolog* engine);
+			static Operation retry(Prolog *engine);
 		};
 
 		/**
@@ -268,10 +255,10 @@ namespace SxxMachine
 		 */
 		// _$builtin_member_2 extends Predicate.P2 {
 	public:
-		static Operation PRED_$builtin_member_2_static_exec(Prolog* engine);
+		static Operation PRED_$builtin_member_2_static_exec(Prolog *engine);
 
 	private:
-		static Operation retry_bi_member(Prolog* engine);
+		static Operation retry_bi_member(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -282,12 +269,12 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$call_2 extends Predicate.P2 {
-		static SymbolTerm* const  SYM_SLASH_2;
-		static SymbolTerm* const  SYM_COLON_2;
-		static std::vector<Term*> const  NO_ARGS;
+		static SymbolTerm *const SYM_SLASH_2;
+		static SymbolTerm *const SYM_COLON_2;
+		static std::vector<Term*> const NO_ARGS;
 
 	public:
-		static Operation PRED_$call_2_static_exec(Prolog* engine);
+		static Operation PRED_$call_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$call_closure'/1</code><br>
@@ -297,7 +284,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$call_closure_1 extends Predicate.P1 {
-		static Operation PRED_$call_closure_1_static_exec(Prolog* engine);
+		static Operation PRED_$call_closure_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>char_code/2</code><br>
@@ -307,7 +294,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _char_code_2 extends Predicate.P2 {
-		static Operation PRED_char_code_2_static_exec(Prolog* engine);
+		static Operation PRED_char_code_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>close/2</code><br>
@@ -319,12 +306,12 @@ namespace SxxMachine
 		// _close_2 extends Predicate.P2 {
 		// private static final SymbolTerm SYM_ALIAS_1 = F("alias", 1);
 	private:
-		static SymbolTerm* const  SYM_FORCE_1;
-		static SymbolTerm* const  SYM_TRUE;
-		static SymbolTerm* const  SYM_FALSE;
+		static SymbolTerm *const SYM_FORCE_1;
+		static SymbolTerm *const SYM_TRUE;
+		static SymbolTerm *const SYM_FALSE;
 
 	public:
-		static Operation PRED_close_2_static_exec(Prolog* engine);
+		static Operation PRED_close_2_static_exec(Prolog *engine);
 
 		// .IntegerTerm;
 		// .Operation;
@@ -332,7 +319,7 @@ namespace SxxMachine
 		// .Prolog;
 		// .Term;
 		// _$compare0_3 extends Predicate.P3 {
-		static Operation PRED_$compare0_3_static_exec(Prolog* engine);
+		static Operation PRED_$compare0_3_static_exec(Prolog *engine);
 
 		// .IntegerTerm;
 		// .Operation;
@@ -341,7 +328,7 @@ namespace SxxMachine
 		// .SymbolTerm;
 		// .Term;
 		// _$compiled_predicate_3 extends Predicate.P3 {
-		static Operation PRED_$compiled_predicate_3_static_exec(Prolog* engine);
+		static Operation PRED_$compiled_predicate_3_static_exec(Prolog *engine);
 
 		// .IntegerTerm;
 		// .Operation;
@@ -350,7 +337,7 @@ namespace SxxMachine
 		// .SymbolTerm;
 		// .Term;
 		// _$compiled_predicate_or_builtin_3 extends Predicate.P3 {
-		static Operation PRED_$compiled_predicate_or_builtin_3_static_exec(Prolog* engine);
+		static Operation PRED_$compiled_predicate_or_builtin_3_static_exec(Prolog *engine);
 
 		/**
 		 * <code>current_engine/1</code>
@@ -360,7 +347,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _current_engine_1 extends Predicate.P1 {
-		static Operation PRED_current_engine_1_static_exec(Prolog* engine);
+		static Operation PRED_current_engine_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>current_input/1</code><br>
@@ -370,7 +357,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _current_input_1 extends Predicate.P1 {
-		static Operation PRED_current_input_1_static_exec(Prolog* engine);
+		static Operation PRED_current_input_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>current_output/1</code><br>
@@ -380,7 +367,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _current_output_1 extends Predicate.P1 {
-		static Operation PRED_current_output_1_static_exec(Prolog* engine);
+		static Operation PRED_current_output_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$cut'/1</code><br>
@@ -390,7 +377,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$cut_1 extends Predicate.P1 {
-		static Operation PRED_$cut_1_static_exec(Prolog* engine);
+		static Operation PRED_$cut_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$end_exception'/1<code><br>
@@ -400,7 +387,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$end_exception_1 extends Predicate.P1 {
-		static Operation PRED_$end_exception_1_static_exec(Prolog* engine);
+		static Operation PRED_$end_exception_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$end_sync'/1</code>
@@ -410,7 +397,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$end_sync_1 extends Predicate.P1 {
-		static Operation PRED_$end_sync_1_static_exec(Prolog* engine);
+		static Operation PRED_$end_sync_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$erase'/1</code><br>
@@ -420,17 +407,17 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _$erase_1 extends Predicate.P1 {
-		static Operation PRED_$erase_1_static_exec(Prolog* engine);
+		static Operation PRED_$erase_1_static_exec(Prolog *engine);
 
 		// jio.File;
 		/** {@code exists_directory(+Directory)} */
 		// _exists_directory_1 extends Predicate.P1 {
-		static Operation PRED_exists_directory_1_static_exec(Prolog* engine);
+		static Operation PRED_exists_directory_1_static_exec(Prolog *engine);
 
 		// jio.File;
 		/** {@code exists_file(+File)} */
 		// _exists_file_1 extends Predicate.P1 {
-		static Operation PRED_exists_file_1_static_exec(Prolog* engine);
+		static Operation PRED_exists_file_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$fast_write'/1</code><br>
@@ -440,7 +427,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$fast_write_1 extends Predicate.P1 {
-		static Operation PRED_$fast_write_1_static_exec(Prolog* engine);
+		static Operation PRED_$fast_write_1_static_exec(Prolog *engine);
 
 		// jio.PrintWriter;
 		/**
@@ -451,7 +438,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$fast_write_2 extends Predicate.P2 {
-		static Operation PRED_$fast_write_2_static_exec(Prolog* engine);
+		static Operation PRED_$fast_write_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$fast_writeq'/1</code><br>
@@ -461,7 +448,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$fast_writeq_1 extends Predicate.P1 {
-		static Operation PRED_$fast_writeq_1_static_exec(Prolog* engine);
+		static Operation PRED_$fast_writeq_1_static_exec(Prolog *engine);
 
 		// jio.PrintWriter;
 		/**
@@ -472,14 +459,14 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$fast_writeq_2 extends Predicate.P2 {
-		static Operation PRED_$fast_writeq_2_static_exec(Prolog* engine);
+		static Operation PRED_$fast_writeq_2_static_exec(Prolog *engine);
 
-		static PrintWriter* toPrintWriter(Prolog* engine, Operation thiz, Term* a1) throw(BuiltinException);
+		static PrintWriter *toPrintWriter(Prolog *engine, Operation thiz, Term *a1) throw(BuiltinException);
 
 		// jio.File;
 		/** {@code file_directory_name(+File, -Directory)} */
 		// _file_directory_name_2 extends Predicate.P2 {
-		static Operation PRED_file_directory_name_2_static_exec(Prolog* engine);
+		static Operation PRED_file_directory_name_2_static_exec(Prolog *engine);
 
 		// jio.PrintWriter;
 		/**
@@ -490,7 +477,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _flush_output_1 extends Predicate.P1 {
-		static Operation PRED_flush_output_1_static_exec(Prolog* engine);
+		static Operation PRED_flush_output_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>functor/3</code><br>
@@ -501,10 +488,10 @@ namespace SxxMachine
 		 */
 		// _functor_3 extends Predicate.P3 {
 	private:
-		static SymbolTerm* const  SYM_DOT;
+		static SymbolTerm *const SYM_DOT;
 
 	public:
-		static Operation PRED_functor_3_static_exec(Prolog* engine);
+		static Operation PRED_functor_3_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -515,7 +502,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _get_2 extends Predicate.P2 {
-		static Operation PRED_get_2_static_exec(Prolog* engine);
+		static Operation PRED_get_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -527,7 +514,7 @@ namespace SxxMachine
 		 * @since 1.1
 		 */
 		// _get_byte_2 extends Predicate.P2 {
-		static Operation PRED_get_byte_2_static_exec(Prolog* engine);
+		static Operation PRED_get_byte_2_static_exec(Prolog *engine);
 
 		/**
 		 * @param engine
@@ -539,7 +526,7 @@ namespace SxxMachine
 		 * @throws IllegalDomainException
 		 * @throws PermissionException
 		 */
-		static PushbackReader* toPBReader(Prolog* engine, Operation thiz, Term* a1) throw(PInstantiationException, ExistenceException, IllegalDomainException, PermissionException);
+		static PushbackReader *toPBReader(Prolog *engine, Operation thiz, Term *a1) throw(PInstantiationException, ExistenceException, IllegalDomainException, PermissionException);
 
 		// jio.*;
 		/**
@@ -550,9 +537,9 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		//
-		static bool inCharacter(Term* t);
+		static bool inCharacter(Term *t);
 
-		static Operation PRED_get_char_2_static_exec(Prolog* engine);
+		static Operation PRED_get_char_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -563,7 +550,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _get_code_2 extends Predicate.P2 {
-		static Operation PRED_get_code_2_static_exec(Prolog* engine);
+		static Operation PRED_get_code_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_current_B'/1</code><br>
@@ -573,7 +560,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$get_current_B_1 extends Predicate.P1 {
-		static Operation PRED_$get_current_B_1_static_exec(Prolog* engine);
+		static Operation PRED_$get_current_B_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_exception'/1</code><br>
@@ -583,7 +570,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$get_exception_1 extends Predicate.P1 {
-		static Operation PRED_$get_exception_1_static_exec(Prolog* engine);
+		static Operation PRED_$get_exception_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_hash_manager'/1</code><br>
@@ -593,7 +580,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$get_hash_manager_1 extends Predicate.P1 {
-		static Operation PRED_$get_hash_manager_1_static_exec(Prolog* engine);
+		static Operation PRED_$get_hash_manager_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_instances'/2</code><br>
@@ -604,10 +591,10 @@ namespace SxxMachine
 		 */
 		// _$get_instances_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  COMMA;
+		static SymbolTerm *const COMMA;
 
 	public:
-		static Operation PRED_$get_instances_2_static_exec(Prolog* engine);
+		static Operation PRED_$get_instances_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_level'/1</code><br>
@@ -617,16 +604,16 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$get_level_1 extends Predicate.P1 {
-		static Operation PRED_$get_level_1_static_exec(Prolog* engine);
+		static Operation PRED_$get_level_1_static_exec(Prolog *engine);
 
 	private:
-		static SymbolTerm* const  TRUE;
-		static SymbolTerm* const  FALSE;
-		static SymbolTerm* const  BOUNDED;
-		static SymbolTerm* const  MAX_INTEGER;
-		static SymbolTerm* const  MIN_INTEGER;
-		static SymbolTerm* const  INTEGER_ROUNDING_FUNCTION;
-		static SymbolTerm* const  MAX_ARITY;
+		static SymbolTerm *const TRUE;
+		static SymbolTerm *const FALSE;
+		static SymbolTerm *const BOUNDED;
+		static SymbolTerm *const MAX_INTEGER;
+		static SymbolTerm *const MIN_INTEGER;
+		static SymbolTerm *const INTEGER_ROUNDING_FUNCTION;
+		static SymbolTerm *const MAX_ARITY;
 
 		/**
 		 * <code>'$get_prolog_impl_flag'/2</code><br>
@@ -637,7 +624,7 @@ namespace SxxMachine
 		 */
 		// _$get_prolog_impl_flag_2 extends Predicate.P2 {
 	public:
-		static Operation PRED_$get_prolog_impl_flag_2_static_exec(Prolog* engine);
+		static Operation PRED_$get_prolog_impl_flag_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$get_stream_manager'/1</code><br>
@@ -647,7 +634,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$get_stream_manager_1 extends Predicate.P1 {
-		static Operation PRED_$get_stream_manager_1_static_exec(Prolog* engine);
+		static Operation PRED_$get_stream_manager_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>halt/1</code><br>
@@ -657,7 +644,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _halt_1 extends Predicate.P1 {
-		static Operation PRED_halt_1_static_exec(Prolog* engine);
+		static Operation PRED_halt_1_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -669,7 +656,7 @@ namespace SxxMachine
 		 */
 		// _$hash_adda_3 extends Predicate.P3 {
 
-		static Operation PRED_$hash_adda_3_static_exec(Prolog* engine);
+		static Operation PRED_$hash_adda_3_static_exec(Prolog *engine);
 
 		// jutil.ArrayDeque;
 		// jutil.Deque;
@@ -683,7 +670,7 @@ namespace SxxMachine
 		 */
 		// _$hash_addz_3 extends Predicate.P3 {
 
-		static Operation PRED_$hash_addz_3_static_exec(Prolog* engine);
+		static Operation PRED_$hash_addz_3_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -694,7 +681,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_clear_1 extends Predicate.P1 {
-		static Operation PRED_hash_clear_1_static_exec(Prolog* engine);
+		static Operation PRED_hash_clear_1_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -704,7 +691,7 @@ namespace SxxMachine
 		 * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
 		 * @version 1.0
 		 */
-		static Operation PRED_hash_contains_key_2_static_exec(Prolog* engine);
+		static Operation PRED_hash_contains_key_2_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -715,7 +702,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_get_3 extends Predicate.P3 {
-		static Operation PRED_hash_get_3_static_exec(Prolog* engine);
+		static Operation PRED_hash_get_3_static_exec(Prolog *engine);
 
 		/**
 		 * <code>hash_is_empty/1</code><br>
@@ -725,7 +712,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_is_empty_1 extends Predicate.P1 {
-		static Operation PRED_hash_is_empty_1_static_exec(Prolog* engine);
+		static Operation PRED_hash_is_empty_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>hash_keys/2</code><br>
@@ -735,7 +722,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_keys_2 extends Predicate.P2 {
-		static Operation PRED_hash_keys_2_static_exec(Prolog* engine);
+		static Operation PRED_hash_keys_2_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -746,7 +733,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_put_3 extends Predicate.P3 {
-		static Operation PRED_hash_put_3_static_exec(Prolog* engine);
+		static Operation PRED_hash_put_3_static_exec(Prolog *engine);
 
 		// .ExistenceException;
 		// .HashtableOfTerm;
@@ -766,7 +753,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_remove_2 extends Predicate.P2 {
-		static Operation PRED_hash_remove_2_static_exec(Prolog* engine);
+		static Operation PRED_hash_remove_2_static_exec(Prolog *engine);
 
 		// jutil.ArrayDeque;
 		// jutil.Deque;
@@ -780,7 +767,7 @@ namespace SxxMachine
 		 */
 		// _$hash_remove_first_3 extends Predicate.P3 {
 		//
-		static Operation PRED_$hash_remove_first_3_static_exec(Prolog* engine);
+		static Operation PRED_$hash_remove_first_3_static_exec(Prolog *engine);
 
 		// jutil.Hashtable;
 		/**
@@ -791,7 +778,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _hash_size_2 extends Predicate.P2 {
-		static Operation PRED_hash_size_2_static_exec(Prolog* engine);
+		static Operation PRED_hash_size_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$insert'/2</code><br>
@@ -801,7 +788,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _$insert_2 extends Predicate.P2 {
-		static Operation PRED_$insert_2_static_exec(Prolog* engine);
+		static Operation PRED_$insert_2_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -813,7 +800,7 @@ namespace SxxMachine
 		 */
 		// _java_constructor0_2 extends FFIPredicate {
 
-		static Operation PRED_java_constructor0_2_static_exec(Prolog* engine);
+		static Operation PRED_java_constructor0_2_static_exec(Prolog *engine);
 
 		// jutil.List;
 		/**
@@ -824,11 +811,11 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _java_conversion_2 extends Predicate.P2 {
-		static Operation PRED_java_conversion_2_static_exec(Prolog* engine);
+		static Operation PRED_java_conversion_2_static_exec(Prolog *engine);
 
-		static Term* inverseConversion(std::any o);
+		static Term *inverseConversion(std::any o);
 
-		static Operation PRED_java_declared_constructor0_2_static_exec(Prolog* engine);
+		static Operation PRED_java_declared_constructor0_2_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -840,7 +827,7 @@ namespace SxxMachine
 		 */
 		// _java_declared_method0_3 extends FFIPredicate {
 
-		static Operation PRED_java_declared_method0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_declared_method0_3_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -851,7 +838,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// extends FFIPredicate {
-		static Operation PRED_java_get_declared_field0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_get_declared_field0_3_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -862,9 +849,9 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 
-		static Operation PRED_java_get_field0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_get_field0_3_static_exec(Prolog *engine);
 
-		static Term* toPrologTerm(std::any obj);
+		static Term *toPrologTerm(std::any obj);
 
 		// jlang.reflect.*;
 		/**
@@ -875,7 +862,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _java_method0_3 extends FFIPredicate {
-		static Operation PRED_java_method0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_method0_3_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -887,7 +874,7 @@ namespace SxxMachine
 		 */
 		// _java_set_declared_field0_3 extends FFIPredicate {
 
-		static Operation PRED_java_set_declared_field0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_set_declared_field0_3_static_exec(Prolog *engine);
 
 		// jlang.reflect.*;
 		/**
@@ -899,7 +886,7 @@ namespace SxxMachine
 		 */
 		// _java_set_field0_3 extends FFIPredicate {
 
-		static Operation PRED_java_set_field0_3_static_exec(Prolog* engine);
+		static Operation PRED_java_set_field0_3_static_exec(Prolog *engine);
 
 		// jutil.Arrays;
 		/**
@@ -911,23 +898,23 @@ namespace SxxMachine
 		 */
 		// _keysort_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  SYM_HYPHEN_2;
+		static SymbolTerm *const SYM_HYPHEN_2;
 
 	public:
-		static Operation PRED_keysort_2_static_exec(Prolog* engine);
+		static Operation PRED_keysort_2_static_exec(Prolog *engine);
 
 	public:
 		class KeySortComparator : public java::util::Comparator<Term*>
 		{
 		public:
-			virtual int compare(Term* t1, Term* t2);
+			virtual int compare(Term *t1, Term *t2);
 		};
 
 		// .Predicate.P2;
 		// jio.PushbackReader;
 		// _line_count_2 extends P2 {
 	public:
-		static Operation PRED_line_count_2_static_exec(Prolog* engine);
+		static Operation PRED_line_count_2_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -961,7 +948,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_2 extends P2 {
-		static Operation PRED_log_2_static_exec(Prolog* engine);
+		static Operation PRED_log_2_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1001,7 +988,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_3 extends P3 {
-		static Operation PRED_log_3_static_exec(Prolog* engine);
+		static Operation PRED_log_3_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1043,7 +1030,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_4 extends P4 {
-		static Operation PRED_log_4_static_exec(Prolog* engine);
+		static Operation PRED_log_4_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1087,7 +1074,7 @@ namespace SxxMachine
 		 */
 		// _log_5 extends Predicate {
 
-		static Operation PRED_log_5_static_exec(Prolog* engine);
+		static Operation PRED_log_5_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1130,7 +1117,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_6 extends Predicate {
-		static Operation PRED_log_6_static_exec(Prolog* engine);
+		static Operation PRED_log_6_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1174,7 +1161,7 @@ namespace SxxMachine
 		 */
 		// _log_7 extends Predicate {
 
-		static Operation PRED_log_7_static_exec(Prolog* engine);
+		static Operation PRED_log_7_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1208,7 +1195,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_error_2 extends P2 {
-		static Operation PRED_log_error_2_static_exec(Prolog* engine);
+		static Operation PRED_log_error_2_static_exec(Prolog *engine);
 
 		// jutil.HashMap;
 		// jutil.Map;
@@ -1248,7 +1235,7 @@ namespace SxxMachine
 
 
 	public:
-		static Operation PRED_loggable_1_static_exec(Prolog* engine);
+		static Operation PRED_loggable_1_static_exec(Prolog *engine);
 
 		// jutil.logging.Level;
 		// jutil.logging.Logger;
@@ -1284,12 +1271,12 @@ namespace SxxMachine
 		 *
 		 */
 		// _log_level_1 extends P1 {
-		static Operation PRED_log_level_1_static_exec(Prolog* engine);
+		static Operation PRED_log_level_1_static_exec(Prolog *engine);
 
 		// jio.File;
 		/** {@code make_directory(+Dir)} */
 		// _make_directory_1 extends Predicate.P1 {
-		static Operation PRED_make_directory_1_static_exec(Prolog* engine);
+		static Operation PRED_make_directory_1_static_exec(Prolog *engine);
 
 		// .Predicate.P1;
 		/**
@@ -1306,7 +1293,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _mutex_create_1 extends P1 {
-		static Operation PRED_mutex_create_1_static_exec(Prolog* engine);
+		static Operation PRED_mutex_create_1_static_exec(Prolog *engine);
 
 		// .Predicate.P1;
 		// jutil.concurrent.locks.Lock;
@@ -1337,7 +1324,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _mutex_lock_1 extends P1 {
-		static Operation PRED_mutex_lock_1_static_exec(Prolog* engine);
+		static Operation PRED_mutex_lock_1_static_exec(Prolog *engine);
 
 		// .Predicate.P1;
 		// jutil.concurrent.locks.Lock;
@@ -1370,7 +1357,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _mutex_lock_bt_1 extends P1 {
-		static Operation PRED_mutex_lock_bt_1_static_exec(Prolog* engine);
+		static Operation PRED_mutex_lock_bt_1_static_exec(Prolog *engine);
 
 		// .Predicate.P1;
 		// jutil.concurrent.locks.Lock;
@@ -1386,7 +1373,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _mutex_trylock_1 extends P1 {
-		static Operation PRED_mutex_trylock_1_static_exec(Prolog* engine);
+		static Operation PRED_mutex_trylock_1_static_exec(Prolog *engine);
 
 		// .Predicate.P1;
 		// jutil.concurrent.locks.Lock;
@@ -1404,7 +1391,7 @@ namespace SxxMachine
 		 *
 		 */
 		// extends P1 {
-		static Operation PRED_mutex_unlock_1_static_exec(Prolog* engine);
+		static Operation PRED_mutex_unlock_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$neck_cut'/0</code><br>
@@ -1414,7 +1401,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$neck_cut_0 extends Predicate.P0 {
-		static Operation PRED_$neck_cut_0_static_exec(Prolog* engine);
+		static Operation PRED_$neck_cut_0_static_exec(Prolog *engine);
 
 		/**
 		 * <code>new_hash/2</code><br>
@@ -1425,10 +1412,10 @@ namespace SxxMachine
 		 */
 		// _new_hash_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  SYM_ALIAS_1;
+		static SymbolTerm *const SYM_ALIAS_1;
 
 	public:
-		static Operation PRED_new_hash_2_static_exec(Prolog* engine);
+		static Operation PRED_new_hash_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>nl/0</code><br>
@@ -1438,7 +1425,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _nl_0 extends Predicate.P0 { 
-		static Operation PRED_nl_0_static_exec_bootpred(Prolog* engine);
+		static Operation PRED_nl_0_static_exec_bootpred(Prolog *engine);
 
 		/**
 		 * <code>number_chars/2</code><br>
@@ -1448,7 +1435,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _number_chars_2 extends Predicate.P2 {
-		static Operation PRED_number_chars_2_static_exec(Prolog* engine);
+		static Operation PRED_number_chars_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>number_codes/2</code><br>
@@ -1458,21 +1445,21 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _number_codes_2 extends Predicate.P2 {
-		static Operation PRED_number_codes_2_static_exec(Prolog* engine);
+		static Operation PRED_number_codes_2_static_exec(Prolog *engine);
 
 	private:
-		static SymbolTerm* const  SYM_TEXT;
-		static SymbolTerm* const  SYM_READ;
-		static SymbolTerm* const  SYM_WRITE;
-		static SymbolTerm* const  SYM_APPEND;
-		static SymbolTerm* const  SYM_INPUT;
-		static SymbolTerm* const  SYM_OUTPUT;
+		static SymbolTerm *const SYM_TEXT;
+		static SymbolTerm *const SYM_READ;
+		static SymbolTerm *const SYM_WRITE;
+		static SymbolTerm *const SYM_APPEND;
+		static SymbolTerm *const SYM_INPUT;
+		static SymbolTerm *const SYM_OUTPUT;
 		// private static final SymbolTerm SYM_ALIAS_1 = F("alias", 1);
-		static SymbolTerm* const  SYM_MODE_1;
-		static SymbolTerm* const  SYM_TYPE_1;
-		static SymbolTerm* const  SYM_FILE_NAME_1;
-		static SymbolTerm* const  SYM_CHARSET;
-		static SymbolTerm* const  SYM_AUTOCLOSE;
+		static SymbolTerm *const SYM_MODE_1;
+		static SymbolTerm *const SYM_TYPE_1;
+		static SymbolTerm *const SYM_FILE_NAME_1;
+		static SymbolTerm *const SYM_CHARSET;
+		static SymbolTerm *const SYM_AUTOCLOSE;
 
 		// jio.*;
 		// jnio.charset.Charset;
@@ -1487,18 +1474,18 @@ namespace SxxMachine
 		 */
 		// _open_4 extends Predicate.P4 {
 	public:
-		static Operation PRED_open_4_static_exec(Prolog* engine);
+		static Operation PRED_open_4_static_exec(Prolog *engine);
 
 		// @SuppressWarnings("unused")
-		static std::unordered_map<SymbolTerm*, Term*> processOptions(Term* options);
+		static std::unordered_map<SymbolTerm*, Term*> processOptions(Term *options);
 
 	private:
 		class CloseHelper : public Undoable
 		{
 		private:
-			Prolog* const  engine;
-			FFIObjectTerm* const  streamObject;
-			Term* const  alias;
+			Prolog *const engine;
+			FFIObjectTerm *const streamObject;
+			Term *const alias;
 
 		public:
 			virtual ~CloseHelper()
@@ -1508,7 +1495,7 @@ namespace SxxMachine
 				delete alias;
 			}
 
-			CloseHelper(Prolog* engine, FFIObjectTerm* streamObject, Term* alias);
+			CloseHelper(Prolog *engine, FFIObjectTerm *streamObject, Term *alias);
 
 			void undo() override;
 		};
@@ -1525,7 +1512,7 @@ namespace SxxMachine
 		// _peek_byte_2 extends Predicate.P2 {
 
 	public:
-		static Operation PRED_peek_byte_2_static_exec(Prolog* engine);
+		static Operation PRED_peek_byte_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1537,10 +1524,10 @@ namespace SxxMachine
 		 */
 		// _peek_char_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  SYM_EOF;
+		static SymbolTerm *const SYM_EOF;
 
 	public:
-		static Operation PRED_peek_char_2_static_exec(Prolog* engine);
+		static Operation PRED_peek_char_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1552,10 +1539,10 @@ namespace SxxMachine
 		 */
 		// _peek_code_2 extends Predicate.P2 {
 	private:
-		static IntegerTerm* const  INT_EOF;
+		static IntegerTerm *const INT_EOF;
 
 	public:
-		static Operation PRED_peek_code_2_static_exec(Prolog* engine);
+		static Operation PRED_peek_code_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$print_stack_trace'/1</code>
@@ -1565,7 +1552,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$print_stack_trace_1 extends Predicate.P1 {
-		static Operation PRED_$print_stack_trace_1_static_exec(Prolog* engine);
+		static Operation PRED_$print_stack_trace_1_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1577,7 +1564,7 @@ namespace SxxMachine
 		 * @since 1.1
 		 */
 		// _put_byte_2 extends Predicate.P2 {
-		static Operation PRED_put_byte_2_static_exec(Prolog* engine);
+		static Operation PRED_put_byte_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1588,7 +1575,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _put_char_2 extends Predicate.P2 {
-		static Operation PRED_put_char_2_static_exec(Prolog* engine);
+		static Operation PRED_put_char_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1599,7 +1586,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// extends Predicate.P2 {
-		static Operation PRED_put_code_2_static_exec(Prolog* engine);
+		static Operation PRED_put_code_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>raise_exception/1</code><br>
@@ -1609,16 +1596,16 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _raise_exception_1 extends Predicate.P1 {
-		static Operation PRED_raise_exception_1_static_exec(Prolog* engine);
+		static Operation PRED_raise_exception_1_static_exec(Prolog *engine);
 
-		static Operation PRED_throw_1_static_exec(Prolog* engine);
+		static Operation PRED_throw_1_static_exec(Prolog *engine);
 
 		/**
 		 * PREDICATE: $unify/2 from:
 		 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtins.pl
 		 */
 
-		static Operation PRED_$unify_2_static_exec_builtins(Prolog* m);
+		static Operation PRED_$unify_2_static_exec_builtins(Prolog *m);
 
 		// jio.*;
 		/**
@@ -1629,9 +1616,9 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _read_line_2 extends Predicate.P2 {
-		static Operation PRED_read_line_2_static_exec(Prolog* engine);
+		static Operation PRED_read_line_2_static_exec(Prolog *engine);
 
-		static void cleanPendingWhiteSpace(PushbackReader* pbr) throw(IOException);
+		static void cleanPendingWhiteSpace(PushbackReader *pbr) throw(IOException);
 
 		// jio.*;
 		/**
@@ -1648,7 +1635,7 @@ namespace SxxMachine
 		 * The a1 must be user, user_input, and java.io.PushbackReader, otherwise
 		 * fails.
 		 */
-		static Operation PRED_$read_token0_3_static_exec(Prolog* engine);
+		static Operation PRED_$read_token0_3_static_exec(Prolog *engine);
 
 		// jutil.regex.Pattern;
 		/**
@@ -1659,7 +1646,7 @@ namespace SxxMachine
 		 * </pre>
 		 */
 		// _regex_compile_2 extends Predicate.P2 {
-		static Operation PRED_regex_compile_2_static_exec(Prolog* engine);
+		static Operation PRED_regex_compile_2_static_exec(Prolog *engine);
 
 		// jutil.regex.Matcher;
 		// jutil.regex.Pattern;
@@ -1672,20 +1659,20 @@ namespace SxxMachine
 		 * </pre>
 		 */
 		// _regex_match_3 extends Predicate.P3 {
-		static Operation PRED_regex_match_3_static_exec(Prolog* engine);
+		static Operation PRED_regex_match_3_static_exec(Prolog *engine);
 
 	private:
-		static Operation regex_check(Prolog* engine);
+		static Operation regex_check(Prolog *engine);
 
-		static Operation regex_next(Prolog* engine);
+		static Operation regex_next(Prolog *engine);
 
-		static Operation regex_empty(Prolog* engine);
+		static Operation regex_empty(Prolog *engine);
 
-		static Term* getMatches(Matcher* matcher);
+		static Term *getMatches(Matcher *matcher);
 
 		// _reverse_2 extends Predicate.P2 {
 	public:
-		static Operation PRED_reverse_2_static_exec(Prolog* engine);
+		static Operation PRED_reverse_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$set_exception'/1</code><br>
@@ -1695,7 +1682,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _$set_exception_1 extends Predicate.P1 {
-		static Operation PRED_$set_exception_1_static_exec(Prolog* engine);
+		static Operation PRED_$set_exception_1_static_exec(Prolog *engine);
 
 		// jio.PushbackReader;
 		/**
@@ -1706,7 +1693,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _set_input_1 extends Predicate.P1 {
-		static Operation PRED_set_input_1_static_exec(Prolog* engine);
+		static Operation PRED_set_input_1_static_exec(Prolog *engine);
 
 		// jio.PrintWriter;
 		/**
@@ -1717,7 +1704,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _set_output_1 extends Predicate.P1 {
-		static Operation PRED_set_output_1_static_exec(Prolog* engine);
+		static Operation PRED_set_output_1_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$set_prolog_impl_flag'/2</code><br>
@@ -1728,14 +1715,14 @@ namespace SxxMachine
 		 */
 		// _$set_prolog_impl_flag_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  CHAR_CONVERSION;
-		static SymbolTerm* const  DEBUG;
-		static SymbolTerm* const  UNKNOWN;
-		static SymbolTerm* const  DOUBLE_QUOTES;
-		static SymbolTerm* const  PRINT_STACK_TRACE;
+		static SymbolTerm *const CHAR_CONVERSION;
+		static SymbolTerm *const DEBUG;
+		static SymbolTerm *const UNKNOWN;
+		static SymbolTerm *const DOUBLE_QUOTES;
+		static SymbolTerm *const PRINT_STACK_TRACE;
 
 	public:
-		static Operation PRED_$set_prolog_impl_flag_2_static_exec(Prolog* engine);
+		static Operation PRED_$set_prolog_impl_flag_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1747,7 +1734,7 @@ namespace SxxMachine
 		 */
 		// _skip_2 extends Predicate.P2 {
 
-		static Operation PRED_skip_2_static_exec(Prolog* engine);
+		static Operation PRED_skip_2_static_exec(Prolog *engine);
 
 		// jutil.Arrays;
 		/**
@@ -1758,7 +1745,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _sort_2 extends Predicate.P2 {
-		static Operation PRED_sort_2_static_exec(Prolog* engine);
+		static Operation PRED_sort_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$statistics'/2</code><br>
@@ -1769,13 +1756,13 @@ namespace SxxMachine
 		 */
 		// _$statistics_2 extends Predicate.P2 {
 	private:
-		static SymbolTerm* const  Nil;
-		static SymbolTerm* const  SYM_RUNTIME;
-		static SymbolTerm* const  SYM_TRAIL;
-		static SymbolTerm* const  SYM_CHOICE;
+		static SymbolTerm *const Nil;
+		static SymbolTerm *const SYM_RUNTIME;
+		static SymbolTerm *const SYM_TRAIL;
+		static SymbolTerm *const SYM_CHOICE;
 
 	public:
-		static Operation PRED_$statistics_2_static_exec(Prolog* engine);
+		static Operation PRED_$statistics_2_static_exec(Prolog *engine);
 
 		// jio.*;
 		/**
@@ -1786,7 +1773,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// _tab_2 extends Predicate.P2 {
-		static Operation PRED_tab_2_static_exec(Prolog* engine);
+		static Operation PRED_tab_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$term_hash'/2</code><br>
@@ -1796,7 +1783,7 @@ namespace SxxMachine
 		 * @version 1.1
 		 */
 		// _$term_hash_2 extends Predicate.P2 {
-		static Operation PRED_$term_hash_2_static_exec(Prolog* engine);
+		static Operation PRED_$term_hash_2_static_exec(Prolog *engine);
 
 		/**
 		 * <code>'$univ'/2</code><br>
@@ -1806,7 +1793,7 @@ namespace SxxMachine
 		 * @version 1.0
 		 */
 		// extends Predicate.P2 {
-		static Operation PRED_$univ_2_static_exec(Prolog* engine);
+		static Operation PRED_$univ_2_static_exec(Prolog *engine);
 
 		// .Predicate.P2;
 		// jio.File;
@@ -1844,7 +1831,7 @@ namespace SxxMachine
 		 *
 		 */
 		// _write_domain_definitions_2 extends P2 {
-		static Operation PRED_write_domain_definitions_2_static_exec(Prolog* engine);
+		static Operation PRED_write_domain_definitions_2_static_exec(Prolog *engine);
 
 		/**
 		 * Writes given domain definition as properties file for given package and
@@ -1858,7 +1845,7 @@ namespace SxxMachine
 		 */
 	private:
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-		static void writeDomainDefinitions(const std::string& folder, const std::string& packageName, Properties* domains);
+		static void writeDomainDefinitions(const std::string &folder, const std::string &packageName, Properties *domains);
 
 		/**
 		 * <code>'$write_toString'/2</code><br>
@@ -1869,12 +1856,9 @@ namespace SxxMachine
 		 */
 		// _$write_toString_2 extends Predicate.P2 {
 	public:
-		static Operation PRED_$write_toString_2_static_exec(Prolog* engine);
+		static Operation PRED_$write_toString_2_static_exec(Prolog *engine);
 
 		static void loadFile();
 	};
 
 }
-
-
-#endif	//#ifndef BOOTPREDS

@@ -31,34 +31,34 @@ namespace SxxMachine
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
 
-	Operation FILE_asm::PRED_determinate_1_static_exec(Prolog* m)
+	Operation FILE_asm::PRED_determinate_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// determinate(A):-true
 		m->setB0();
-		 Term* a1;
+		 Term *a1;
 		a1 = LARG[0];
 	// determinate(A):-[]
 		return cont;
 	}
 
-SymbolTerm* const  FILE_asm::FUNCTOR_$002F_2 = F("/",2);
-SymbolTerm* const  FILE_asm::ATOM_cmp_error = SYM("cmp_error");
-StructureTerm* const  FILE_asm::L_setup_determinates_0_s5 = S(FUNCTOR_$002F_2, ATOM_cmp_error, int_1);
-SymbolTerm* const  FILE_asm::ATOM_name = SYM("name");
-StructureTerm* const  FILE_asm::L_setup_determinates_0_s9 = S(FUNCTOR_$002F_2, ATOM_name, int_2);
-SymbolTerm* const  FILE_asm::ATOM_length = SYM("length");
-StructureTerm* const  FILE_asm::L_setup_determinates_0_s12 = S(FUNCTOR_$002F_2, ATOM_length, int_2);
-SymbolTerm* const  FILE_asm::ATOM_asm_hash_value = SYM("asm_hash_value");
-StructureTerm* const  FILE_asm::L_setup_determinates_0_s15 = S(FUNCTOR_$002F_2, ATOM_asm_hash_value, int_2);
-ListTerm* const  FILE_asm::L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15, Prolog::Nil);
-ListTerm* const  FILE_asm::L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
-ListTerm* const  FILE_asm::L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
-ListTerm* const  FILE_asm::L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
+SymbolTerm *const FILE_asm::FUNCTOR_$002F_2 = F("/",2);
+SymbolTerm *const FILE_asm::ATOM_cmp_error = SYM("cmp_error");
+StructureTerm *const FILE_asm::L_setup_determinates_0_s5 = S(FUNCTOR_$002F_2, ATOM_cmp_error, int_1);
+SymbolTerm *const FILE_asm::ATOM_name = SYM("name");
+StructureTerm *const FILE_asm::L_setup_determinates_0_s9 = S(FUNCTOR_$002F_2, ATOM_name, int_2);
+SymbolTerm *const FILE_asm::ATOM_length = SYM("length");
+StructureTerm *const FILE_asm::L_setup_determinates_0_s12 = S(FUNCTOR_$002F_2, ATOM_length, int_2);
+SymbolTerm *const FILE_asm::ATOM_asm_hash_value = SYM("asm_hash_value");
+StructureTerm *const FILE_asm::L_setup_determinates_0_s15 = S(FUNCTOR_$002F_2, ATOM_asm_hash_value, int_2);
+ListTerm *const FILE_asm::L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15, Prolog::Nil);
+ListTerm *const FILE_asm::L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
+ListTerm *const FILE_asm::L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
+ListTerm *const FILE_asm::L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
 
-	Operation FILE_asm::PRED_setup_determinates_0_static_exec(Prolog* m)
+	Operation FILE_asm::PRED_setup_determinates_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -69,7 +69,7 @@ ListTerm* const  FILE_asm::L_setup_determinates_0_s20 = CONS(L_setup_determinate
 		return Op([&] (e)
 		{
 		PRED_determinate_1_static_exec(e);
-		}, VA({ L_setup_determinates_0_s20 }), cont);
+		}, VA({L_setup_determinates_0_s20}), cont);
 	}
 
 	FILE_asm::StaticConstructor::StaticConstructor()

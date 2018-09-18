@@ -1,14 +1,16 @@
-#ifndef UNFOLDER
-#define UNFOLDER
+#pragma once
 
 #include "Source.h"
 #include <string>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Clause; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class stop; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Clause;
+	class Prog;
+	class stop;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -35,19 +37,19 @@ namespace SxxMachine
 			delete prog;
 		}
 
-		Unfolder(const int& oldtop, Iterator* e, Clause* goal, Prog* prog);
-		Unfolder* toClone() override;
+		Unfolder(int oldtop, Iterator *e, Clause *goal, Prog *prog);
+		Unfolder *toClone() override;
 
 	private:
 		int oldtop = 0;
 
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("rawtypes") private java.util.Iterator e;
-		Iterator* e;
+		Iterator *e;
 
-		Clause* goal;
+		Clause *goal;
 
-		Prog* prog;
+		Prog *prog;
 
 		/**
 		 * Creates an Unfolder based on goal clause g for resolution step in program p.
@@ -55,19 +57,19 @@ namespace SxxMachine
 		 * p.
 		 */
 	public:
-		Unfolder(Clause* g, Prog* p);
+		Unfolder(Clause *g, Prog *p);
 
 		/**
 		 * Overrides default trailing by empty action
 		 */
 	protected:
-		void trailMe(Prog* p) override;
+		void trailMe(Prog *p) override;
 
 		/**
 		 * Extracts an answer at the end of an AND-derivation
 		 */
 	public:
-		virtual Clause* getAnswer();
+		virtual Clause *getAnswer();
 
 		/**
 		 * Checks if this clause is the last one, allowing LCO
@@ -84,7 +86,7 @@ namespace SxxMachine
 		 * Returns a new clause by unfolding the goal with a matching clause in the
 		 * database, or null if no such clause exists.
 		 */
-		Clause* getElement() override;
+		Clause *getElement() override;
 
 		/**
 		 * Stops production of more alternatives by setting the clause enumerator to
@@ -95,17 +97,17 @@ namespace SxxMachine
 		/**
 		 * Tracer on entering g
 		 */
-		void trace_goal(Clause* g);
+		void trace_goal(Clause *g);
 
 		/**
 		 * Tracer on exiting g
 		 */
-		void trace_failing(Clause* g);
+		void trace_failing(Clause *g);
 
 		/**
 		 * Tracer for undefined predicates
 		 */
-		void trace_nomatch(Term* first);
+		void trace_nomatch(Term *first);
 
 		/**
 		 * Returns a string representation of this unfolder, based on the original
@@ -116,6 +118,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef UNFOLDER

@@ -4,13 +4,13 @@ using namespace std;
 #include "Term.h"
 #include "Trail.h"
 #include "Prolog.h"
+#include "OpVisitor.h"
 #include "SymbolTerm.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 
-	Term* ListTerm::ArgNoDeRef(const int& i)
+	Term *ListTerm::ArgNoDeRef(int i)
 	{
 		return argz[i];
 	}
@@ -25,7 +25,7 @@ namespace SxxMachine
 		return false;
 	}
 
-	int ListTerm::containsTermImpl(Term* variableTerm, Comparator* comparison)
+	int ListTerm::containsTermImpl(Term *variableTerm, Comparator *comparison)
 	{
 		return car()->containsTerm(variableTerm, comparison) + cdr()->containsTerm(variableTerm, comparison);
 	}
@@ -35,53 +35,53 @@ namespace SxxMachine
 		//super(s);
 	}
 
-	ListTerm::ListTerm(Term* _car, Term* _cdr)
+	ListTerm::ListTerm(Term *_car, Term *_cdr)
 	{
 	//	super(".");
 		//		// TODO assert _car!=null;
 		//    	// TODO assert _cdr!=null;
 		//    	//this.car = _car;
 		//		//this.cdr = _cdr;
-		argz = VA({ _car, _cdr });
+		argz = VA({_car, _cdr});
 		//		//this.immutable = this.argz[0].isImmutable() && this.argz[1].isImmutable();
 	}
 
-	Term* ListTerm::car()
+	Term *ListTerm::car()
 	{
 		return this->argz[0];
 	}
 
-	Term* ListTerm::cdr()
+	Term *ListTerm::cdr()
 	{
 		return this->argz[1];
 	}
 
-	bool ListTerm::unifyImpl(Term* t, Trail* trail)
+	bool ListTerm::unifyImpl(Term *t, Trail *trail)
 	{
-		Term* p = this;
+		Term *p = this;
 		t = t->dref();
-		while(t->isCons() && p->isCons() && p->car()->unify(t->car(), trail))
+		while (t->isCons() && p->isCons() && p->car()->unify(t->car(), trail))
 		{
 			p = p->cdr()->dref();
 			t = t->cdr()->dref();
 		}
-		if(t->isVar())
+		if (t->isVar())
 		{
 			return t->bind(p, trail);
 		}
-		if(p->isVar())
+		if (p->isVar())
 		{
 			return p->bind(t, trail);
 		}
 		return !(t->isCons()) && !(p->isCons()) && p->unify(t, trail);
 	}
 
-	void ListTerm::setCar(Term* t)
+	void ListTerm::setCar(Term *t)
 	{
 		this->argz[0] = t;
 	}
 
-	void ListTerm::setCdr(Term* t)
+	void ListTerm::setCdr(Term *t)
 	{
 		this->argz[1] = t;
 	}
@@ -96,24 +96,24 @@ namespace SxxMachine
 		return convertible(vector::typeid, type);
 	}
 
-	Term* ListTerm::copyImpl(IdentityHashMap<any, Term*>* copyHash, const int& deepCopy)
+	Term *ListTerm::copyImpl(IdentityHashMap<any, Term*> *copyHash, int deepCopy)
 	{
-		if(this->isImmutable())
+		if (this->isImmutable())
 		{
 			return this;
 		}
-		Deque<ListTerm*>* stack = new ArrayDeque<ListTerm*>();
-		Term* p = this;
-		while(p->isCons() && !p->asListTerm()->immutable)
+		Deque<ListTerm*> *stack = new ArrayDeque<ListTerm*>();
+		Term *p = this;
+		while (p->isCons() && !p->asListTerm()->immutable)
 		{
-			ListTerm* lt = static_cast<ListTerm*>(p);
+			ListTerm *lt = static_cast<ListTerm*>(p);
 			stack->push(lt);
 			p = lt->cdr()->dref();
 		}
 		p = p->copy(copyHash, deepCopy);
-		while(!stack->isEmpty())
+		while (!stack->isEmpty())
 		{
-			ListTerm* lt = stack->pop();
+			ListTerm *lt = stack->pop();
 			p = CONS(lt->car()->copy(copyHash, deepCopy), p);
 		}
 		return p;
@@ -134,7 +134,7 @@ namespace SxxMachine
 		return argz;
 	}
 
-	Term* ListTerm::functor()
+	Term *ListTerm::functor()
 	{
 		return Prolog::SYM_DOT;
 	}
@@ -144,21 +144,21 @@ namespace SxxMachine
 		return Prolog::SYM_DOT->name();
 	}
 
-	Term* ListTerm::arg0(const int& nth)
+	Term *ListTerm::arg0(int nth)
 	{
 		return nth0(nth);
 	}
 
-	Term* ListTerm::nth0(const int& nth)
+	Term *ListTerm::nth0(int nth)
 	{
-		Term* t = this;
+		Term *t = this;
 		int old_nth = nth;
-		while((t->isCons()) && 0 < nth)
+		while ((t->isCons()) && 0 < nth)
 		{
 			nth--;
 			t = (t)->cdr()->dref();
 		}
-		if((t->isCons()))
+		if ((t->isCons()))
 		{
 			return t->car();
 		}
@@ -168,8 +168,8 @@ namespace SxxMachine
 	int ListTerm::length()
 	{
 		int count = 0;
-		Term* t = this;
-		while((t->isCons()))
+		Term *t = this;
+		while ((t->isCons()))
 		{
 			count++;
 			t = (t)->cdr()->dref();
@@ -180,45 +180,45 @@ namespace SxxMachine
 	any ListTerm::toJava()
 	{
 		vector<any> vec = vector<any>();
-		Term* t = this;
-		while((t->isCons()))
+		Term *t = this;
+		while ((t->isCons()))
 		{
 			vec.push_back((t)->car()->dref()->toJava());
 			t = (t)->cdr()->dref();
 		}
-		if(!t->isNil())
+		if (!t->isNil())
 		{
 			vec.push_back(t);
 		}
 		return vec;
 	}
 
-	void ListTerm::toQuotedString_old(const int& printFlags, StringBuilder* sb)
+	void ListTerm::toQuotedString_old(int printFlags, StringBuilder *sb)
 	{
-		TermTreeIterator* it = new TermTreeIterator(this, true);
-		while(it->hasNext())
+		TermTreeIterator *it = new TermTreeIterator(this, true);
+		while (it->hasNext())
 		{
-			Term* t = it->next();
+			Term *t = it->next();
 			t->toQuotedString(0, sb);
 			it++;
 		}
 	}
 
-	void ListTerm::toStringImpl(const int& printingFlags, StringBuilder* sb)
+	void ListTerm::toStringImpl(int printingFlags, StringBuilder *sb)
 	{
-		Term* x = this;
+		Term *x = this;
 		sb->append("[");
-		for(;;)
+		for (;;)
 		{
 			x->car()->dref()->toQuotedString(1, sb);
 			x = x->cdr()->dref();
-			if(!(x->isCons()))
+			if (!(x->isCons()))
 			{
 				break;
 			}
 			sb->append(",");
 		}
-		if(!Prolog::Nil->equals(x))
+		if (!Prolog::Nil->equals(x))
 		{
 			sb->append("|");
 			x->toQuotedString(printingFlags, sb);
@@ -226,7 +226,7 @@ namespace SxxMachine
 		sb->append("]");
 	}
 
-	bool ListTerm::equalsTerm(Term* obj, Comparator* comparator)
+	bool ListTerm::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
 		return obj->isCons() && this->argz[0]->equalsTerm((obj)->car()->dref(), comparator) && cdr()->equalsTerm((obj)->cdr()->dref(), comparator);
 	}
@@ -240,17 +240,17 @@ namespace SxxMachine
 		return h;
 	}
 
-	Iterator<Term*>* ListTerm::iterator(const bool& includeSyntax)
+	Iterator<Term*> *ListTerm::iterator(bool includeSyntax)
 	{
 		return new ListTermIterator(this, includeSyntax);
 	}
 
-SymbolTerm* const  ListTerm::ListTermIterator::LEFT_BRACKET = SymbolTerm::internToken("[");
-SymbolTerm* const  ListTerm::ListTermIterator::SEPARATOR = SymbolTerm::internToken("|");
-SymbolTerm* const  ListTerm::ListTermIterator::RIGHT_BRACKET = SymbolTerm::internToken("]");
-SymbolTerm* const  ListTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",");
+SymbolTerm *const ListTerm::ListTermIterator::LEFT_BRACKET = SymbolTerm::internToken("[");
+SymbolTerm *const ListTerm::ListTermIterator::SEPARATOR = SymbolTerm::internToken("|");
+SymbolTerm *const ListTerm::ListTermIterator::RIGHT_BRACKET = SymbolTerm::internToken("]");
+SymbolTerm *const ListTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",");
 
-	ListTerm::ListTermIterator::ListTermIterator(Term* start, const bool& includeSyntax)
+	ListTerm::ListTermIterator::ListTermIterator(Term *start, bool includeSyntax)
 	{
 		this->includeSyntax = includeSyntax;
 		this->current = start;
@@ -261,79 +261,87 @@ SymbolTerm* const  ListTerm::ListTermIterator::COMMA = SymbolTerm::internToken("
 		return this->current != nullptr && (this->tail.empty() || this->index < this->tail.size());
 	}
 
-	Term* ListTerm::ListTermIterator::next()
+	Term *ListTerm::ListTermIterator::next()
 	{
-		Term* result;
-		if(this->first && includeSyntax)
+		Term *result;
+		if (this->first && includeSyntax)
 		{
 			this->first = false;
 			return LEFT_BRACKET;
-		} else if(this->comma && includeSyntax)
+		}
+		else if (this->comma && includeSyntax)
 		{
 			this->comma = false;
 			return COMMA;
-		} else if(this->current->isCons())
+		}
+		else if (this->current->isCons())
 		{
 			result = (this->current)->car();
 			this->current = (this->current)->cdr()->dref();
 			this->comma = (this->current->isCons());
-		} else if(this->current->isNil() && includeSyntax)
+		}
+		else if (this->current->isNil() && includeSyntax)
 		{
 			result = RIGHT_BRACKET;
 			this->current = nullptr;
-		} else if(this->tail.empty())
+		}
+		else if (this->tail.empty())
 		{
-			this->tail = std::vector<Term*> { this->current, RIGHT_BRACKET };
+			this->tail = std::vector<Term*> {this->current, RIGHT_BRACKET};
 			result = SEPARATOR;
 			this->index = 0;
-		} else if(this->index < this->tail.size())
+		}
+		else if (this->index < this->tail.size())
 		{
 			result = this->tail[this->index];
 			this->index++;
-		} else
+		}
+		else
 		{
 			throw NoSuchElementException();
 		}
 		return result;
 	}
 
-	int ListTerm::compareTo(Term* otherterm)
+	int ListTerm::compareTo(Term *otherterm)
 	{ // otherterm must be dereferenced.
-		if((otherterm->isVar()) || (otherterm->isNumber()) || (otherterm->isSymbol()))
+		if ((otherterm->isVar()) || (otherterm->isNumber()) || (otherterm->isSymbol()))
 		{
 			return AFTER;
 		}
-		if((otherterm->isStructure()))
+		if ((otherterm->isStructure()))
 		{
 			int arity = otherterm->arity();
-			if(2 != arity)
+			if (2 != arity)
 			{
 				return (2 - arity);
 			}
-			Term* functor = (otherterm)->functor();
-			if(!Prolog::SYM_DOT->equalsTerm(functor, StrictEquals))
+			Term *functor = (otherterm)->functor();
+			if (!Prolog::SYM_DOT->equalsTerm(functor, StrictEquals))
 			{
 				return Prolog::SYM_DOT->compareTo(functor);
 			}
 		}
 		std::vector<Term*> args(2);
-		if((otherterm->isCons()))
+		if ((otherterm->isCons()))
 		{
 			args[0] = (otherterm)->car();
 			args[1] = (otherterm)->cdr();
-		} else if((otherterm->isStructure()))
+		}
+		else if ((otherterm->isStructure()))
 		{
 			args = (otherterm)->args();
-		} else
+		}
+		else
 		{
 			return BEFORE;
 		}
-		Term* tmp = this->argz[0];
+		Term *tmp = this->argz[0];
 		int rc;
-		for(int i = 0; i < 2; i++)
+		for (int i = 0; i < 2; i++)
 		{
 			rc = tmp->compareTo(args[i]->dref());
-			if(rc != EQUAL)
+			if (rc != EQUAL)
 			{
 				return rc;
 			}
@@ -347,74 +355,76 @@ SymbolTerm* const  ListTerm::ListTermIterator::COMMA = SymbolTerm::internToken("
 		return this->immutable;
 	}
 
-	ListTerm* ListTerm::add(Term* term)
+	ListTerm *ListTerm::add(Term *term)
 	{
-		if(isImmutable())
+		if (isImmutable())
 		{
 			return addToCopy(term);
 		}
 		Term * const cdr = argz[1];
-		if(cdr->isCons())
+		if (cdr->isCons())
 		{
 			return cdr->add(term);
 		}
-		if(cdr == Prolog::Nil)
+		if (cdr == Prolog::Nil)
 		{
 			// proper list
-			ListTerm* acdr = CONS(term, cdr);
+			ListTerm *acdr = CONS(term, cdr);
 			argz[1] = acdr;
 
-		} else
+		}
+		else
 		{
 			// improper list?
-			ListTerm* acdr = CONS(term, cdr);
+			ListTerm *acdr = CONS(term, cdr);
 			argz[1] = acdr;
 		}
 		return this;
 	}
 
-	ListTerm* ListTerm::addToCopy(Term* term)
+	ListTerm *ListTerm::addToCopy(Term *term)
 	{
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("unused") java.util.Deque<Term> stack = new java.util.ArrayDeque<Term>();
-		Deque<Term*>* stack = new ArrayDeque<Term*>();
-		Term* t = this;
-		while(t->isCons())
+		Deque<Term*> *stack = new ArrayDeque<Term*>();
+		Term *t = this;
+		while (t->isCons())
 		{
-			ListTerm* lt = static_cast<ListTerm*>(t);
+			ListTerm *lt = static_cast<ListTerm*>(t);
 			stack->push(lt->argz[0]->dref());
 			t = lt->cdr()->dref();
 		}
 		t = term->isNil() ? term : CONS(term, Prolog::Nil);
-		while(!stack->isEmpty())
+		while (!stack->isEmpty())
 		{
 			t = CONS(stack->pop(), t);
 		}
 		return static_cast<ListTerm*>(t);
 	}
 
-	ListTerm* ListTerm::append(Term* term)
+	ListTerm *ListTerm::append(Term *term)
 	{
-		if(isImmutable())
+		if (isImmutable())
 		{
 			throw NoSuchElementException("isImmutable: " + this);
 			//return addToCopy(term);
 		}
 		Term * const cdr = argz[1];
-		if(cdr->isCons())
+		if (cdr->isCons())
 		{
 			return cdr->add(term);
 		}
-		if(cdr == Prolog::Nil)
+		if (cdr == Prolog::Nil)
 		{
 			// proper list
-			ListTerm* acdr = CONS(term, cdr);
+			ListTerm *acdr = CONS(term, cdr);
 			argz[1] = acdr;
 			return acdr;
-		} else
+		}
+		else
 		{
 			// improper list?
-			ListTerm* acdr = CONS(cdr, term);
+			ListTerm *acdr = CONS(cdr, term);
 			argz[1] = acdr;
 			return acdr;
 		}

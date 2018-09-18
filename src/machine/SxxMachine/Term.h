@@ -1,9 +1,7 @@
-#ifndef TERM
-#define TERM
+#pragma once
 
 #include "KPTerm.h"
 #include "Undoable.h"
-#include "Comparable.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -14,19 +12,22 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class ListTerm; }
-namespace SxxMachine { class PrologException; }
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class FrozenData; }
-namespace SxxMachine { class MapTerm; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class LongTerm; }
-namespace SxxMachine { class ClosureTerm; }
-namespace SxxMachine { class VariableTerm; }
-namespace SxxMachine { class HashtableOfTerm; }
-namespace SxxMachine { class NumberTerm; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Trail;
+	class ListTerm;
+	class PrologException;
+	class OpVisitor;
+	class SymbolTerm;
+	class FrozenData;
+	class MapTerm;
+	class StructureTerm;
+	class LongTerm;
+	class ClosureTerm;
+	class VariableTerm;
+	class HashtableOfTerm;
+	class NumberTerm;
+}
 
 namespace SxxMachine
 {
@@ -74,9 +75,9 @@ namespace SxxMachine
 		static constexpr int COPY_NO_ATTRS = 2;
 		static constexpr int COPY_SAVE_ATTRS_COPY = 4;
 
-		static constexpr Comparator* StrictEquals = nullptr;
-		static constexpr Comparator* Unifiable = nullptr;
-		static constexpr Comparator* Subsumes = nullptr;
+		static constexpr Comparator *StrictEquals = nullptr;
+		static constexpr Comparator *Unifiable = nullptr;
+		static constexpr Comparator *Subsumes = nullptr;
 
 
 
@@ -87,11 +88,11 @@ namespace SxxMachine
 		}
 
 	protected:
-		virtual int containsTermImpl(Term* variableTerm, Comparator* comparison);
+		virtual int containsTermImpl(Term *variableTerm, Comparator *comparison);
 	  public:
 		  int loopContainsTerm = 0;
 
-		int containsTerm(Term* variableTerm, Comparator* comparison);
+		int containsTerm(Term *variableTerm, Comparator *comparison);
 
 		/** One of the {@code TYPE_*} constants from {@code Term}. */
 		virtual int type() = 0;
@@ -111,8 +112,8 @@ namespace SxxMachine
 		 * @return <code>true</code> if succeeds, otherwise <code>false</code>.
 		 */
 		int loopedUnifyTerm = 0;
-		bool unify(Term* t, Trail* trail);
-		virtual bool unifyImpl(Term* t, Trail* trail) = 0;
+		bool unify(Term *t, Trail *trail);
+		virtual bool unifyImpl(Term *t, Trail *trail) = 0;
 		/** 
 		 * 
 		 * @return true if this term is immutable, i.e. can not be changed
@@ -198,14 +199,14 @@ namespace SxxMachine
 		/** @return the arity of this Term, if {@link #isStructure()}. */
 		virtual int arity();
 		virtual std::vector<Term*> args();
-		virtual Term* arg0(const int& nth);
+		virtual Term *arg0(int nth);
 		/** @return get the nth argument of {@link #isStructure()} or {@link #isCons()}. */
-		virtual Term* nth0(const int& nth);
-		virtual Term* car();
-		virtual Term* cdr();
+		virtual Term *nth0(int nth);
+		virtual Term *car();
+		virtual Term *cdr();
 		virtual int length();
-		virtual ListTerm* add(Term* t);
-		virtual ListTerm* append(Term* t);
+		virtual ListTerm *add(Term *t);
+		virtual ListTerm *append(Term *t);
 		/**
 		 * Check whether this object is convertible with the given Java class type.
 		 * @param type the Java class type to compare with.
@@ -218,14 +219,14 @@ namespace SxxMachine
 		/** Returns a copy of this object. 
 		 * @param deeply TODO*/
 	protected:
-		virtual Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply);
+		virtual Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply);
 	public:
 		int loopingCopyTerm = 0;
-		Term* copy(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply);
+		Term *copy(IdentityHashMap<std::any, Term*> *copyHash, int deeply);
 		void oopsy() override;
 
 		/** Returns the dereference value of this term. */
-		Term* dref() override;
+		Term *dref() override;
 		/**
 		 * Check whether this term is a ground term.
 		 * @return <code>true</code> if ground, otherwise <code>false</code>.
@@ -253,7 +254,7 @@ namespace SxxMachine
 		 * i.e SymbolTerm, NumberTerm, etc.
 		 * <p>The method is used in non-recursive implementation of {@link #toString()}
 		 *  */
-		virtual Iterator<Term*>* iterator(const bool& includeSyntax);
+		virtual Iterator<Term*> *iterator(bool includeSyntax);
 
 		/** Adds a string representation of this term to given StringBuilder instance. 
 		 * @param printFlags && 1 = quoted*/
@@ -265,13 +266,13 @@ namespace SxxMachine
 		std::string toString() override;
 
   protected:
-	  void toStringImpl(const int& printFlags, StringBuilder* sb) = 0 override;
+	  void toStringImpl(int printFlags, StringBuilder *sb) = 0 override;
 
 	  /** Returns a string representation of this term. */
   public:
-	  void toQuotedString(const int& printFlags, StringBuilder* sb);
+	  void toQuotedString(int printFlags, StringBuilder *sb);
 
-	  void toQuotedString_OLD(const int& printFlags, StringBuilder* sb);
+	  void toQuotedString_OLD(int printFlags, StringBuilder *sb);
 
 	  /** Returns a unquoted string representation of this term. */
 	  virtual std::string toAtomName() throw(PrologException);
@@ -284,7 +285,7 @@ namespace SxxMachine
 		class TermTreeIterator : public Iterator<Term*>
 		{
 		private:
-			Deque<Iterator<Term*>*>* const  stack = new ArrayDeque<Iterator<Term*>*>();
+			Deque<Iterator<Term*>*> *const stack = new ArrayDeque<Iterator<Term*>*>();
 		public:
 			bool includeSyntax = false;
 			virtual ~TermTreeIterator()
@@ -292,29 +293,29 @@ namespace SxxMachine
 				delete stack;
 			}
 
-			TermTreeIterator(Term* start, const bool& includeSyntax);
+			TermTreeIterator(Term *start, bool includeSyntax);
 
 			bool hasNext() override;
-			Term* next() override;
+			Term *next() override;
 		};
 
 	public:
-		bool equalsTerm(Term* head) override;
-		virtual bool equalsTerm(Term* obj, Comparator* comparator) = 0;
+		bool equalsTerm(Term *head) override;
+		virtual bool equalsTerm(Term *obj, OpVisitor *comparator) = 0;
 
 		bool equals(std::any obj) override;
 		virtual bool isVariable();
 		virtual bool isNonvar();
-		virtual bool bind(Term* partial_RenamedTODO, Trail* trail);
-		virtual bool equalsIdentical(Term* t);
+		virtual bool bind(Term *partial_Renamed, Trail *trail);
+		virtual bool equalsIdentical(Term *t);
 
 
 	public:
 		class UndoAttributeReplacement final : public Undoable
 		{
 		private:
-			Term* const  wasAttrs;
-			Term* const  Termthis;
+			Term *const wasAttrs;
+			Term *const Termthis;
 
 		public:
 			virtual ~UndoAttributeReplacement()
@@ -323,28 +324,28 @@ namespace SxxMachine
 				delete Termthis;
 			}
 
-			UndoAttributeReplacement(Term* thiz, Term* wasAttrs);
+			UndoAttributeReplacement(Term *thiz, Term *wasAttrs);
 
 			void undo() override;
 		};
 
 
  public:
-	 virtual Term* drefAttrs();
+	 virtual Term *drefAttrs();
 
-	  virtual Term* ArgNoDeRef(const int& i);
+	  virtual Term *ArgNoDeRef(int i);
 
-		virtual Term* findOrAttrValue(Trail* trail, const bool& createIfMissing, Term* name);
+		virtual Term *findOrAttrValue(Trail *trail, bool createIfMissing, Term *name);
 
-	  virtual Term* freeze(Trail* trail, Term* newval);
+	  virtual Term *freeze(Trail *trail, Term *newval);
 
 	private:
 		class UndoableAnonymousInnerClass : public Undoable
 		{
 		private:
-			Term* outerInstance;
+			Term *outerInstance;
 
-			SxxMachine::Term* prev;
+			SxxMachine::Term *prev;
 
 		public:
 			virtual ~UndoableAnonymousInnerClass()
@@ -352,13 +353,13 @@ namespace SxxMachine
 				delete prev;
 			}
 
-			UndoableAnonymousInnerClass(Term* outerInstance, SxxMachine::Term* prev);
+			UndoableAnonymousInnerClass(Term *outerInstance, SxxMachine::Term *prev);
 
 			void undo() override;
 		};
 
 	public:
-		virtual Term* frozenGoals();
+		virtual Term *frozenGoals();
 
 		virtual bool isAttvar();
 
@@ -370,17 +371,17 @@ namespace SxxMachine
 
 		virtual long long longValue();
 
-		static Term* nullIs(Term* attrs2, Term* valeu);
+		static Term *nullIs(Term *attrs2, Term *valeu);
 
-		virtual void putAttrValue(Trail* trail, Term* name, Term* val);
+		virtual void putAttrValue(Trail *trail, Term *name, Term *val);
 
 	private:
 		class UndoableAnonymousInnerClass2 : public Undoable
 		{
 		private:
-			Term* outerInstance;
+			Term *outerInstance;
 
-			SxxMachine::Term* wasAttrs;
+			SxxMachine::Term *wasAttrs;
 
 		public:
 			virtual ~UndoableAnonymousInnerClass2()
@@ -388,20 +389,20 @@ namespace SxxMachine
 				delete wasAttrs;
 			}
 
-			UndoableAnonymousInnerClass2(Term* outerInstance, SxxMachine::Term* wasAttrs);
+			UndoableAnonymousInnerClass2(Term *outerInstance, SxxMachine::Term *wasAttrs);
 
 			void undo() override;
 		};
 	public:
-		virtual void setAttrs(Trail* trail, Term* newval);
+		virtual void setAttrs(Trail *trail, Term *newval);
 
   private:
 	  class UndoableAnonymousInnerClass3 : public Undoable
 	  {
 	  private:
-		  Term* outerInstance;
+		  Term *outerInstance;
 
-		  SxxMachine::Term* prev;
+		  SxxMachine::Term *prev;
 
 	  public:
 		  virtual ~UndoableAnonymousInnerClass3()
@@ -409,21 +410,21 @@ namespace SxxMachine
 			  delete prev;
 		  }
 
-		  UndoableAnonymousInnerClass3(Term* outerInstance, SxxMachine::Term* prev);
+		  UndoableAnonymousInnerClass3(Term *outerInstance, SxxMachine::Term *prev);
 
 		  void undo() override;
 	  };
 
   public:
-	  virtual void setGoals(Trail* trail, Term* newval);
+	  virtual void setGoals(Trail *trail, Term *newval);
 
   private:
 	  class UndoableAnonymousInnerClass4 : public Undoable
 	  {
 	  private:
-		  Term* outerInstance;
+		  Term *outerInstance;
 
-		  SxxMachine::Term* prev;
+		  SxxMachine::Term *prev;
 
 	  public:
 		  virtual ~UndoableAnonymousInnerClass4()
@@ -431,40 +432,40 @@ namespace SxxMachine
 			  delete prev;
 		  }
 
-		  UndoableAnonymousInnerClass4(Term* outerInstance, SxxMachine::Term* prev);
+		  UndoableAnonymousInnerClass4(Term *outerInstance, SxxMachine::Term *prev);
 
 		  void undo() override;
 	  };
   public:
-	  virtual void setarg0(Trail* trail, const int& i0, Term* value);
+	  virtual void setarg0(Trail *trail, int i0, Term *value);
 
 
-	  virtual Term* setGoals(Term* newval);
+	  virtual Term *setGoals(Term *newval);
 
 private:
-	Term* getGoals();
+	Term *getGoals();
 
 public:
-	virtual void setAttrs(Term* newval);
+	virtual void setAttrs(Term *newval);
 
-	virtual Term* getAttrs();
+	virtual Term *getAttrs();
 
 
 	  virtual bool isFVar();
 	  int intValue() override;
-	  virtual bool unifyInt(const int& i, Trail* trail);
-	  virtual SymbolTerm* asSymbolTerm();
+	  virtual bool unifyInt(int i, Trail *trail);
+	  virtual SymbolTerm *asSymbolTerm();
 
 	  /**
 	   * @return the value
 	   */
-	  virtual Term* getValue();
+	  virtual Term *getValue();
 	  /**
 	   * @return the fdata
 	   */
-	  virtual FrozenData* getFdata();
+	  virtual FrozenData *getFdata();
   private:
-	  FrozenData* fdata = nullptr;
+	  FrozenData *fdata = nullptr;
 	  /**
 	   * @param fdata the fdata to set
 	   */
@@ -474,45 +475,42 @@ public:
   public:
 	  virtual bool isAlias();
 	  double doubleValue() override;
-	  virtual Term* functor();
+	  virtual Term *functor();
 
-	  Term* zowner;
+	  Term *zowner;
 
 
-	  virtual MapTerm* join(Term* term);
+	  virtual MapTerm *join(Term *term);
 
 	  virtual bool isMap();
 
-	  virtual bool pbind(Term* variableTerm, Trail* trail);
+	  virtual bool pbind(Term *variableTerm, Trail *trail);
 
-	virtual void toString(StringBuilder* sb);
+	virtual void toString(StringBuilder *sb);
 
 	virtual std::any object();
 
 	virtual std::type_info getClazz();
-	virtual StructureTerm* asStructureTerm();
+	virtual StructureTerm *asStructureTerm();
 
-	 virtual void setArg(const int& i, Term* value);
+	 virtual void setArg(int i, Term *value);
 		// 
 
-	virtual ListTerm* asListTerm();
+	virtual ListTerm *asListTerm();
 
-	virtual LongTerm* asIntegerTerm();
+	virtual LongTerm *asIntegerTerm();
 
-	virtual ClosureTerm* asClosureTerm();
+	virtual ClosureTerm *asClosureTerm();
 
-	virtual VariableTerm* asVariableTerm();
+	virtual VariableTerm *asVariableTerm();
 
-	virtual LongTerm* asLongTerm();
+	virtual LongTerm *asLongTerm();
 
-	virtual HashtableOfTerm* asHashtableOfTerm();
+	virtual HashtableOfTerm *asHashtableOfTerm();
 
-	virtual NumberTerm* asNumberTerm();
+	virtual NumberTerm *asNumberTerm();
 
-	virtual MapTerm* asMapTerm();
+	virtual MapTerm *asMapTerm();
 	};
 
 }
-
-
-#endif	//#ifndef TERM

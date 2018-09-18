@@ -1,5 +1,4 @@
-#ifndef FFIOBJECTTERM
-#define FFIOBJECTTERM
+#pragma once
 
 #include "SystemObject.h"
 #include <string>
@@ -9,14 +8,16 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class PrologException; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class PrologException;
+	class Trail;
+	class Term;
+	class OpVisitor;
+}
 
 namespace SxxMachine
 {
-
 
 	/**
 	 * Java-term.<br>
@@ -37,7 +38,7 @@ namespace SxxMachine
 	class FFIObjectTerm : public SystemObject
 	{
 	public:
-		FFIObjectTerm* toClone() override;
+		FFIObjectTerm *toClone() override;
 
 	  std::any toObject() override;
 
@@ -87,7 +88,7 @@ namespace SxxMachine
 		/** Returns a <code>java.lang.Class</code> of object wrapped by this <code>JavaObjectTerm</code>. */
 		std::type_info getClazz() override;
 		std::string name() override;
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 		/** 
 		 * Check whether the wrapped object is convertible with the given Java class type.
 		 * @return the <code>boolean</code> whose value is
@@ -97,11 +98,11 @@ namespace SxxMachine
 		 */
 		bool convertible(std::type_info type) override;
 		std::any toJava() override;
-		bool equalsTerm(Term* o, Comparator* comparator) override;
+		bool equalsTerm(Term *o, OpVisitor *comparator) override;
 		int termHashCodeImpl() override;
 
 		/** Adds a string representation of this <code>JavaObjectTerm</code> to given StringBuilder instance. */
-		void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+		void toStringImpl(int printFlags, StringBuilder *sb) override;
 		/* Comparable */
 		/** 
 		 * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -112,12 +113,9 @@ namespace SxxMachine
 		 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 
 	  int type() override;
 	};
 
 }
-
-
-#endif	//#ifndef FFIOBJECTTERM

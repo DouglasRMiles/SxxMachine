@@ -9,7 +9,7 @@ using namespace std;
 #include "../../exceptions/SxxMachine/EvaluationException.h"
 #include "TermData.h"
 #include "Trail.h"
-#include "StringBuilder.h"
+#include "OpVisitor.h"
 
 namespace SxxMachine
 {
@@ -35,7 +35,7 @@ namespace SxxMachine
 	  // longValue() = value;
 	}
 
-	LongTerm::LongTerm(BigInteger* bigInteger) : DoubleTerm(bigInteger->doubleValue())
+	LongTerm::LongTerm(BigInteger *bigInteger) : DoubleTerm(bigInteger->doubleValue())
 	{
 	}
 
@@ -44,7 +44,7 @@ namespace SxxMachine
 		return longValue();
 	}
 
-	bool LongTerm::bind(Term* that, KPTrail* trail)
+	bool LongTerm::bind(Term *that, KPTrail *trail)
 	{
 	  return DoubleTerm::bind(that, trail) && (static_cast<double>(longValue()) == static_cast<double>(Expect::asInt(that)->longValue()));
 	  // unbelievable but true: converting
@@ -59,22 +59,22 @@ namespace SxxMachine
 	  return Term::INT;
 	}
 
-	int LongTerm::compareTo(Term* anotherTerm)
+	int LongTerm::compareTo(Term *anotherTerm)
 	{
-	  if(((anotherTerm->isVar()) || anotherTerm->isDouble()))
+	  if (((anotherTerm->isVar()) || anotherTerm->isDouble()))
 	  {
 		  return AFTER;
 	  }
-	  if(!(anotherTerm->isLong()))
+	  if (!(anotherTerm->isLong()))
 	  {
 		  return BEFORE;
 	  }
 	  long long v = anotherTerm->longValue();
-	  if(longValue() == v)
+	  if (longValue() == v)
 	  {
 		  return EQUAL;
 	  }
-	  if(longValue() > v)
+	  if (longValue() > v)
 	  {
 		  return AFTER;
 	  }
@@ -96,265 +96,265 @@ namespace SxxMachine
 	  return longValue();
 	}
 
-	int LongTerm::arithCompareTo(NumberTerm* t)
+	int LongTerm::arithCompareTo(NumberTerm *t)
 	{
 	  return Long::compare(longValue(), t->longValue());
 	}
 
-	NumberTerm* LongTerm::abs()
+	NumberTerm *LongTerm::abs()
 	{
 	  return optional<long long>(abs(longValue()));
 	}
 
-	NumberTerm* LongTerm::acos()
+	NumberTerm *LongTerm::acos()
 	{
 	  return optional<float>(acos(value));
 	}
 
-	NumberTerm* LongTerm::add(NumberTerm* t)
+	NumberTerm *LongTerm::add(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		return t->add(this);
 	  }
 	  return optional<long long>(longValue() + t->longValue());
 	}
 
-	NumberTerm* LongTerm::and(NumberTerm* t)
+	NumberTerm *LongTerm::and(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
 	  return optional<long long>(longValue() & t->longValue());
 	}
 
-	NumberTerm* LongTerm::asin()
+	NumberTerm *LongTerm::asin()
 	{
 	  return optional<float>(asin(value));
 	}
 
-	NumberTerm* LongTerm::atan()
+	NumberTerm *LongTerm::atan()
 	{
 	  return optional<float>(atan(value));
 	}
 
-	NumberTerm* LongTerm::ceil()
+	NumberTerm *LongTerm::ceil()
 	{
 	  return this;
 	}
 
-	NumberTerm* LongTerm::cos()
+	NumberTerm *LongTerm::cos()
 	{
 	  return optional<float>(cos(value));
 	}
 
-	NumberTerm* LongTerm::divide(NumberTerm* t)
+	NumberTerm *LongTerm::divide(NumberTerm *t)
 	{
-	  if(t->doubleValue() == 0)
+	  if (t->doubleValue() == 0)
 	  {
 		  throw EvaluationException("zero_divisor");
 	  }
 	  return optional<float>(value / t->doubleValue());
 	}
 
-	NumberTerm* LongTerm::exp()
+	NumberTerm *LongTerm::exp()
 	{
 	  return optional<float>(exp(value));
 	}
 
-	NumberTerm* LongTerm::floatIntPart()
+	NumberTerm *LongTerm::floatIntPart()
 	{
 	  throw IllegalTypeException("float", this);
 	}
 
-	NumberTerm* LongTerm::floatFractPart()
+	NumberTerm *LongTerm::floatFractPart()
 	{
 	  throw IllegalTypeException("float", this);
 	}
 
-	NumberTerm* LongTerm::floor()
+	NumberTerm *LongTerm::floor()
 	{
 	  return this;
 	}
 
-	NumberTerm* LongTerm::intDivide(NumberTerm* t)
+	NumberTerm *LongTerm::intDivide(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
-	  if(t->intValue() == 0)
+	  if (t->intValue() == 0)
 	  {
 		  throw EvaluationException("zero_divisor");
 	  }
 	  return optional<long long>((longValue() / t->longValue()));
 	}
 
-	NumberTerm* LongTerm::log()
+	NumberTerm *LongTerm::log()
 	{
-	  if(longValue() == 0LL)
+	  if (longValue() == 0LL)
 	  {
 		  throw EvaluationException("undefined");
 	  }
 	  return optional<float>(log(value));
 	}
 
-	NumberTerm* LongTerm::max(NumberTerm* t)
+	NumberTerm *LongTerm::max(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  return t->max(this);
 	  }
 	  return optional<long long>(max(longValue(), t->longValue()));
 	}
 
-	NumberTerm* LongTerm::min(NumberTerm* t)
+	NumberTerm *LongTerm::min(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  return t->min(this);
 	  }
 	  return optional<long long>(min(longValue(), t->longValue()));
 	}
 
-	NumberTerm* LongTerm::mod(NumberTerm* t)
+	NumberTerm *LongTerm::mod(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
-	  if(t->intValue() == 0)
+	  if (t->intValue() == 0)
 	  {
 		  throw EvaluationException("zero_divisor");
 	  }
 	  return optional<long long>(longValue() % t->longValue());
 	}
 
-	NumberTerm* LongTerm::multiply(NumberTerm* t)
+	NumberTerm *LongTerm::multiply(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  return t->multiply(this);
 	  }
 	  return optional<long long>(longValue() * t->longValue());
 	}
 
-	NumberTerm* LongTerm::negate()
+	NumberTerm *LongTerm::negate()
 	{
 	  return optional<long long>(-longValue());
 	}
 
-	NumberTerm* LongTerm::not()
+	NumberTerm *LongTerm::not()
 	{
 	  return optional<long long>(~longValue());
 	}
 
-	NumberTerm* LongTerm::or(NumberTerm* t)
+	NumberTerm *LongTerm::or(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
 	  return optional<long long>(longValue() | t->longValue());
 	}
 
-	NumberTerm* LongTerm::pow(NumberTerm* t)
+	NumberTerm *LongTerm::pow(NumberTerm *t)
 	{
 	  return optional<float>(pow(value, t->doubleValue()));
 	}
 
-	NumberTerm* LongTerm::rint()
+	NumberTerm *LongTerm::rint()
 	{
 	  return optional<float>(value);
 	}
 
-	NumberTerm* LongTerm::round()
+	NumberTerm *LongTerm::round()
 	{
 	  return this;
 	}
 
-	NumberTerm* LongTerm::shiftLeft(NumberTerm* t)
+	NumberTerm *LongTerm::shiftLeft(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
 	  return optional<long long>(longValue() << t->intValue());
 	}
 
-	NumberTerm* LongTerm::shiftRight(NumberTerm* t)
+	NumberTerm *LongTerm::shiftRight(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
 	  return optional<long long>(longValue() >> t->intValue());
 	}
 
-	NumberTerm* LongTerm::signum()
+	NumberTerm *LongTerm::signum()
 	{
 	  return TermData::Integer(static_cast<int>(Math::signum(static_cast<double>(longValue()))));
 	}
 
-	NumberTerm* LongTerm::sin()
+	NumberTerm *LongTerm::sin()
 	{
 	  return optional<float>(sin(value));
 	}
 
-	NumberTerm* LongTerm::sqrt()
+	NumberTerm *LongTerm::sqrt()
 	{
-	  if(longValue() < 0)
+	  if (longValue() < 0)
 	  {
 		  throw EvaluationException("undefined");
 	  }
 	  return optional<float>(sqrt(value));
 	}
 
-	NumberTerm* LongTerm::subtract(NumberTerm* t)
+	NumberTerm *LongTerm::subtract(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		return optional<float>(value - t->value);
 	  }
 	  return optional<long long>(longValue() - t->longValue());
 	}
 
-	NumberTerm* LongTerm::tan()
+	NumberTerm *LongTerm::tan()
 	{
 	  return optional<float>(tan(value));
 	}
 
-	NumberTerm* LongTerm::toDegrees()
+	NumberTerm *LongTerm::toDegrees()
 	{
 	  return optional<float>(Math::toDegrees(value));
 	}
 
-	NumberTerm* LongTerm::toFloat()
+	NumberTerm *LongTerm::toFloat()
 	{
 	  return optional<float>(longValue());
 	}
 
-	NumberTerm* LongTerm::toRadians()
+	NumberTerm *LongTerm::toRadians()
 	{
 	  return optional<float>(Math::toRadians(value));
 	}
 
-	NumberTerm* LongTerm::truncate()
+	NumberTerm *LongTerm::truncate()
 	{
 	  return this;
 	}
 
-	NumberTerm* LongTerm::xor(NumberTerm* t)
+	NumberTerm *LongTerm::xor(NumberTerm *t)
 	{
-	  if((t->isDouble()))
+	  if ((t->isDouble()))
 	  {
 		  throw IllegalTypeException("integer", t);
 	  }
 	  return optional<long long>(longValue() ^ t->longValue());
 	}
 
-	bool LongTerm::unifyImpl(Term* t, Trail* trail)
+	bool LongTerm::unifyImpl(Term *t, Trail *trail)
 	{
 	  t = t->dref();
 	  return (t->isVar()) ? t->asVariableTerm()->bind(this, trail) : (((t->isLong()) && longValue() == t->asLongTerm()->value) || ((t->isInteger()) && longValue() == t->asIntegerTerm()->longValue()));
@@ -382,14 +382,14 @@ namespace SxxMachine
 	  return Long::toString(longValue());
 	}
 
-	void LongTerm::toStringImpl(const int& printingFlags, StringBuilder* sb)
+	void LongTerm::toStringImpl(int printingFlags, StringBuilder *sb)
 	{
 	  sb->append(longValue());
 	}
 
-	bool LongTerm::equalsTerm(Term* obj, Comparator* comparator)
+	bool LongTerm::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
-	  if(!(obj->isLong()))
+	  if (!(obj->isLong()))
 	  {
 		  return false;
 	  }

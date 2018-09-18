@@ -1,7 +1,7 @@
 package SxxMachine;
 
 import java.util.HashMap;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -67,12 +67,12 @@ public class HashtableOfTerm /* implements Map<Term, Term> */ {
   }
 
   public HashtableOfTerm copyDeep(
-      IdentityHashMap<Object, Term> copyHash) {
+      Map<Object, Term> copyHash) {
     return copyDeep(this, copyHash);
   }
 
   private static HashtableOfTerm copyDeep(HashtableOfTerm src,
-      IdentityHashMap<Object, Term> copyHash) {
+      Map<Object, Term> copyHash) {
     int deeply = Term.COPY_DEEPLY;
     HashtableOfTerm hm = new HashtableOfTerm();
     for (Map.Entry<Term, Term> e : src.entrySet()) {

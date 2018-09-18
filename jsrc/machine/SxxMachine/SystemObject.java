@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import java.util.Comparator;
-
 /**
  * A SystemObject is a Nonvar with system assigned name
  * 
@@ -60,7 +58,7 @@ abstract public class SystemObject extends Nonvar {
    */
 
   @Override
-  public boolean equalsTerm(Term obj, Comparator comparator) {
+  public boolean equalsTerm(Term obj, OpVisitor comparator) {
     return equalsIdentical(obj);
   }
 

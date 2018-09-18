@@ -1,9 +1,7 @@
-#ifndef STRUCTURETERM
-#define STRUCTURETERM
+#pragma once
 
 #include "ListTerm.h"
 #include "../../kernelprolog/main/SxxMachine/NameArity.h"
-#include "Cloneable.h"
 #include <string>
 #include <vector>
 #include <any>
@@ -12,15 +10,16 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class KPTrail; }
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class SymbolTerm; }
-class Method;
-class StringBuilder;
-class StackOverflowError;
+namespace SxxMachine
+{
+	class Term;
+	class Prog;
+	class KPTrail;
+	class Nonvar;
+	class Trail;
+	class OpVisitor;
+	class SymbolTerm;
+}
 
 namespace SxxMachine
 {
@@ -58,9 +57,9 @@ namespace SxxMachine
 
 		std::string getKey() override override;
 
-		static Term* getHead(Term* T);
+		static Term *getHead(Term *T);
 
-		static Term* getTail(Term* T);
+		static Term *getTail(Term *T);
 
 		//public Term argz[];
 
@@ -80,27 +79,27 @@ namespace SxxMachine
 		/*
 		 * public StructureTerm(int arity) { //setDefaultName(); Arguments=new Term[arity]; }
 		 */
-		StructureTerm(const std::string& name, const int& arity);
+		StructureTerm(const std::string &name, int arity);
 		//  public StructureTerm(String name, Term... x0) {
 		//      super(name);
 		//      argz = x0;
 		//  }
 
 	private:
-		static std::vector<Term*> makeVars(const int& arity);
+		static std::vector<Term*> makeVars(int arity);
 
 	public:
-		virtual void init(const int& arity);
+		virtual void init(int arity);
 
-		Term* ArgDeRef(const int& i) final override;
+		Term *ArgDeRef(int i) final override;
 
-		Term* ArgNoDeRef(const int& i) final override;
+		Term *ArgNoDeRef(int i) final override;
 
-		int getIntArg(const int& i) final override;
+		int getIntArg(int i) final override;
 
-		void setArg(const int& i, Term* T) final override;
+		void setArg(int i, Term *T) final override;
 
-		int unifyArg(const int& i, Term* T, Prog* p) final override;
+		int unifyArg(int i, Term *T, Prog *p) final override;
 
 	protected:
 		std::string funToString();
@@ -116,49 +115,49 @@ namespace SxxMachine
 		virtual std::string conjToString();
 
 	protected:
-		static std::string watchNull(Term* x);
+		static std::string watchNull(Term *x);
 
 	private:
 		std::string show_args();
 
 	public:
-		bool bind(Term* that, KPTrail* trail) override;
+		bool bind(Term *that, KPTrail *trail) override;
 
-		bool Unify_TO(Term* that, KPTrail* trail) override;
+		bool Unify_TO(Term *that, KPTrail *trail) override;
 
-		Term* carTokenOrSelf() override;
+		Term *carTokenOrSelf() override;
 
 		// stuff allowing polymorphic cloning of StructureTerm subclasses
 		// without using reflection - should be probaly faster than
 		// reflection classes - to check
-		StructureTerm* toClone() override;
+		StructureTerm *toClone() override;
 
 	protected:
-		virtual StructureTerm* unInitializedClone();
+		virtual StructureTerm *unInitializedClone();
 
-		virtual StructureTerm* initializedClone();
+		virtual StructureTerm *initializedClone();
 
 	public:
-		Term* reaction(Term* that) override;
+		Term *reaction(Term *that) override;
 
-		Nonvar* listify() override;
+		Nonvar *listify() override;
 
 		bool isClause() override;
 
-		static StructureTerm* createCons(Term* x0, Term* x1);
+		static StructureTerm *createCons(Term *x0, Term *x1);
 
-		static StructureTerm* createCons(const std::string& cons, Term* x0, Term* x1);
+		static StructureTerm *createCons(const std::string &cons, Term *x0, Term *x1);
 
-		static StructureTerm* S(const std::string& string, std::vector<Term> &x01);
+		static StructureTerm *S(const std::string &string, std::vector<Term> &x01);
 
-		static StructureTerm* S(const std::string& getName, const int& arity);
+		static StructureTerm *S(const std::string &getName, int arity);
 
-		Term* car() override;
+		Term *car() override;
 
 		/** Returns the value of <code>cdr</code>.
 		 * @see #cdr
 		 */
-		Term* cdr() override;
+		Term *cdr() override;
 
 		bool isCons() override;
 
@@ -172,11 +171,11 @@ namespace SxxMachine
 		//protected String name;
 	protected:
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		Term* functor_RenamedTODO;
+		Term *functor_Renamed;
 	private:
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		std::string name_RenamedTODO;
-		Method* st_exec;
+		std::string name_Renamed;
+		Method *st_exec;
 
 		/** Holds the argument terms of this <code>StructureTerm</code>. */
 		//public Term[] argz;
@@ -191,7 +190,7 @@ namespace SxxMachine
 		 * such that <code>name</code> is the functor symbol, and
 		 * <code>args</code> is the argument terms respectively.
 		 */
-		StructureTerm(const std::string& _name, std::vector<Term> &_args);
+		StructureTerm(const std::string &_name, std::vector<Term> &_args);
 
 	private:
 		void checkImmuatble();
@@ -204,7 +203,7 @@ namespace SxxMachine
 		 * such that <code>_functor</code> is the functor symbol, and 
 		 * <code>_args</code> is the argument terms respectively.
 		 */
-		StructureTerm(Term* _functor, std::vector<Term> &_args);
+		StructureTerm(Term *_functor, std::vector<Term> &_args);
 
 		/** 
 		 * @return the <code>boolean</code> whose value is
@@ -214,7 +213,7 @@ namespace SxxMachine
 		bool convertible(std::type_info type) override;
 
 	private:
-		static std::string checkFunctor(Term* _functor, std::vector<Term*>& _args);
+		static std::string checkFunctor(Term *_functor, std::vector<Term*> &_args);
 
 		/*public StructureTerm(String string, Term a0,Term a1, Term a2,Term a3, Term a4, Term a5) {
 			this(string, new Term[] {a0,a1,a2,a3,a4,a5});
@@ -258,7 +257,7 @@ namespace SxxMachine
 		 * @see #functor
 		 */
 	public:
-		Term* functor() final override;
+		Term *functor() final override;
 
 		/** Returns the arity of this <code>StructureTerm</code>.
 		 * @return the value of <code>arity</code>.
@@ -279,19 +278,19 @@ namespace SxxMachine
 		 */
 		std::string name() override final;
 
-		Term* arg0(const int& nth) override final;
+		Term *arg0(int nth) override final;
 
-		bool unifyImpl(Term* t, Trail* trail) override final;
+		bool unifyImpl(Term *t, Trail *trail) override final;
 
 	protected:
-		Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply) override;
+		Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply) override;
 
 	public:
 		bool isImmutable() override final;
 
 		bool isGround() override;
 
-		int containsTermImpl(Term* variableTerm, Comparator* comparison) override;
+		int containsTermImpl(Term *variableTerm, Comparator *comparison) override;
 
 		/* Object */
 		/**
@@ -304,31 +303,31 @@ namespace SxxMachine
 		 * equivalent to this <code>StructureTerm</code>, false otherwise.
 		 * @see #compareTo
 		 */
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
 		int termHashCodeImpl() override;
 
 		/** Adds a string representation of this <code>StructureTerm</code> to given StringBuilder instance. 
 		 * Non recursive implementation
 		 * */
-		void toStringImpl(const int& printingFlags, StringBuilder* sb) override;
+		void toStringImpl(int printingFlags, StringBuilder *sb) override;
 
-		virtual void toListStringImpl(const int& printingFlags, StringBuilder* sb);
+		virtual void toListStringImpl(int printingFlags, StringBuilder *sb);
 
-		virtual Iterator<Term*>* listIterator(const bool& includeSyntax);
+		virtual Iterator<Term*> *listIterator(bool includeSyntax);
 
-		Iterator<Term*>* iterator(const bool& includeSyntax) override;
+		Iterator<Term*> *iterator(bool includeSyntax) override;
 
 	private:
 		class StructureTermIterator : public Iterator<Term*>
 		{
 		private:
-			static SymbolTerm* const  COMMA;
-			static SymbolTerm* const  RIGHT_BRACKET;
-			static SymbolTerm* const  LEFT_BRACKET;
+			static SymbolTerm *const COMMA;
+			static SymbolTerm *const RIGHT_BRACKET;
+			static SymbolTerm *const LEFT_BRACKET;
 			int index = -2;
-			Term* const  functorIt;
-			std::vector<Term*> const  argsIt;
+			Term *const functorIt;
+			std::vector<Term*> const argsIt;
 			const int length;
 			bool comma = false;
 			bool includeSyntax = false;
@@ -339,11 +338,11 @@ namespace SxxMachine
 				delete functorIt;
 			}
 
-			StructureTermIterator(Term* functor, std::vector<Term*>& args, const bool& includeSyntax);
+			StructureTermIterator(Term *functor, std::vector<Term*> &args, bool includeSyntax);
 
 			bool hasNext() override;
 
-			Term* next() override;
+			Term *next() override;
 		};
 
 		/* Comparable */
@@ -357,21 +356,18 @@ namespace SxxMachine
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
 	public:
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 
-		void setarg0(Trail* trail, const int& i, Term* val) override;
+		void setarg0(Trail *trail, int i, Term *val) override;
 
 		// @Override
-		void setCar(Term* t) override;
+		void setCar(Term *t) override;
 
 		//  @Override
-		void setCdr(Term* t) override;
+		void setCdr(Term *t) override;
 
-		void setMethod(Method* b) override;
+		void setMethod(Method *b) override;
 
 	};
 
 }
-
-
-#endif	//#ifndef STRUCTURETERM

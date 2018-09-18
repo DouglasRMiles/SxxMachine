@@ -9,7 +9,7 @@ namespace SxxMachine
 
 	int Main::init()
 	{
-		if(!Init::startProlog())
+		if (!Init::startProlog())
 		{
 			return 0;
 		}
@@ -18,13 +18,13 @@ namespace SxxMachine
 		return 1;
 	}
 
-	void Main::main(std::vector<wstring>& args)
+	void Main::main(std::vector<wstring> &args)
 	{
-		if(0 == init())
+		if (0 == init())
 		{
 			return;
 		}
-		if(!Init::run(args))
+		if (!Init::run(args))
 		{
 			return;
 		}

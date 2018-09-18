@@ -6,17 +6,17 @@ using namespace std;
 namespace SxxMachine
 {
 
-	void ObjectStack::push(Term* var)
+	void ObjectStack::push(Term *var)
 	{
 		add(var);
 	}
 
-	Term* ObjectStack::pop()
+	Term *ObjectStack::pop()
 	{
 		return any_cast<Term*>(remove(size() - 1));
 	}
 
-	any ObjectStack::remove(const int& i)
+	any ObjectStack::remove(int i)
 	{
 		return stack.erase(stack.begin() + i);
 	}
@@ -31,7 +31,7 @@ namespace SxxMachine
 		return stack.size();
 	}
 
-	void ObjectStack::add(Term* x)
+	void ObjectStack::add(Term *x)
 	{
 		stack.push_back(x);
 	}

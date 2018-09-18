@@ -8,25 +8,24 @@ using namespace std;
 #include "../../exceptions/SxxMachine/PrologException.h"
 #include "../../exceptions/SxxMachine/JavaException.h"
 #include "../../exceptions/SxxMachine/BuiltinException.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 //	import static SxxMachine.TermData.Op;
 //	import static SxxMachine.TermData.VA;
 
-	Logger* PrologLogger::getJLogger()
+	Logger *PrologLogger::getJLogger()
 	{
 	  return this->logger;
 	}
 
-	PrologLogger::PrologLogger(Logger* logger) : logger(logger)
+	PrologLogger::PrologLogger(Logger *logger) : logger(logger)
 	{
 	  this->stackFrame = std::vector<Predicate*>(256);
 	  this->indent = std::vector<char>(256);
 	}
 
-	void PrologLogger::init(ChoicePointFrame* initialChoicePointFrame)
+	void PrologLogger::init(ChoicePointFrame *initialChoicePointFrame)
 	{
 		this->stackTop = 0;
 		//Arrays.fill(stackFrame, null);
@@ -36,10 +35,10 @@ namespace SxxMachine
 		initialChoicePointFrame->loggerStackTop = this->stackTop;
 	}
 
-	void PrologLogger::fail(Operation next, ChoicePointFrame* entry)
+	void PrologLogger::fail(Operation next, ChoicePointFrame *entry)
 	{
 		//  write to log
-	  if(this->loggerEnable)
+	  if (this->loggerEnable)
 	  {
 		  this->logger->log(Level::FINER, [&] ()
 		  {
@@ -61,7 +60,7 @@ namespace SxxMachine
 		entry->ownerPredicate = this->stackFrame[this->stackTop];
 		entry->loggerStackTop = this->stackTop;
 		//  write to log
-		if(this->loggerEnable)
+		if (this->loggerEnable)
 		{
 			this->logger->log(Level::FINER, [&] ()
 			{
@@ -79,7 +78,7 @@ namespace SxxMachine
 	final void retry(Operation p, Operation next, ChoicePointFrame entry)
 	{
 		//  write to log
-		if(this->loggerEnable)
+		if (this->loggerEnable)
 		{
 			this->logger->log(Level::FINER, [&] ()
 			{
@@ -97,7 +96,7 @@ namespace SxxMachine
 	final void trust(Operation p, ChoicePointFrame entry)
 	{
 		// write to log
-	  if(this->loggerEnable)
+	  if (this->loggerEnable)
 	  {
 		  this->logger->log(Level::FINER, [&] ()
 		  {
@@ -114,18 +113,18 @@ namespace SxxMachine
 	  }
 	final void beforeExec(Operation code)
 	{
-		Level* level;
+		Level *level;
 		// do afterExec
-		if(dynamic_cast<Predicate*>(code) != nullptr)
+		if (dynamic_cast<Predicate*>(code) != nullptr)
 		{
-			if(this->normalExecution)
+			if (this->normalExecution)
 			{
-				while(this->stackTop >= 0 && this->stackFrame[this->stackTop]->cont == code)
+				while (this->stackTop >= 0 && this->stackFrame[this->stackTop]->cont == code)
 				{
 					this->stackTop--;
 				}
 				this->stackTop++;
-				if(this->stackTop >= this->stackFrame.size())
+				if (this->stackTop >= this->stackFrame.size())
 				{
 					ensureCapacity();
 				}
@@ -133,22 +132,24 @@ namespace SxxMachine
 			// most important
 			this->stackFrame[this->stackTop] = static_cast<Predicate*>(code);
 			level = Level::FINE;
-		} else
+		}
+		else
 		{
 			level = Level::FINER;
 		}
 		this->normalExecution = true;
 		//  if logger.isLoggable(Level.FINE) write code to log
-		if(this->loggerEnable)
+		if (this->loggerEnable)
 		{
 			this->logger->log(level, [&] ()
 			{
 			stringBuilder->setLength(0);
 			stringBuilder->append(this->indent, 1, this->stackTop)->append(": ");
-			if(dynamic_cast<Predicate*>(code) != nullptr)
+			if (dynamic_cast<Predicate*>(code) != nullptr)
 			{
 				(static_cast<Predicate*>(code))->toString(stringBuilder);
-			} else
+			}
+			else
 			{
 				stringBuilder->append(code);
 			}
@@ -161,22 +162,24 @@ namespace SxxMachine
 	int stackTop = this->stackTop;
 	Operation code = nullptr;
 	wstring indent = wstring("\n") + " ";
-	for(int i = 0; i < stackTop; i++)
+	for (int i = 0; i < stackTop; i++)
 	{
 	  code = this->stackFrame[i];
 	  stringBuilder->append(indent);
-	  if(code == codeP)
+	  if (code == codeP)
 	  {
 		break;
-	  } else
+	  }
+	  else
 	  {
 		stringBuilder->append("ABOVE: ");
 	  }
-	  if(dynamic_cast<Predicate*>(code) != nullptr)
+	  if (dynamic_cast<Predicate*>(code) != nullptr)
 	  {
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 		(static_cast<Predicate*>(code))->toString(stringBuilder);
-	  } else
+	  }
+	  else
 	  {
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 		stringBuilder->append(code->toString());
@@ -184,7 +187,7 @@ namespace SxxMachine
 	}
 	code = codeP;
 	stringBuilder->append("\nHERE: ");
-	if(dynamic_cast<Predicate*>(code) != nullptr)
+	if (dynamic_cast<Predicate*>(code) != nullptr)
 	{
 	  (static_cast<Predicate*>(code))->toRest(indent + "  GOTO: ", stringBuilder);
 	}
@@ -192,32 +195,32 @@ namespace SxxMachine
 private:
 	void ensureCapacity()
 	{
-		std::vector<Predicate*> array_RenamedTODO(this->stackFrame.size()*2);
-		System::arraycopy(this->stackFrame, 0, array_RenamedTODO, 0, this->stackFrame.size());
-		this->stackFrame = array_RenamedTODO;
+		std::vector<Predicate*> array_Renamed(this->stackFrame.size()*2);
+		System::arraycopy(this->stackFrame, 0, array_Renamed, 0, this->stackFrame.size());
+		this->stackFrame = array_Renamed;
 		this->indent = std::vector<char>(this->stackFrame.size());
 		Arrays::fill(this->indent, ' ');
 	}
 public:
 	final PrologException execThrows(runtime_error t)
 	{
-		if(!(dynamic_cast<PrologException*>(t) != nullptr) || !(static_cast<PrologException*>(t))->hasPrologStackTrace())
+		if (!(dynamic_cast<PrologException*>(t) != nullptr) || !(static_cast<PrologException*>(t))->hasPrologStackTrace())
 		{
-			std::vector<Operation> array_RenamedTODO(this->stackTop);
-			for(int i = this->stackTop, k = 0; i > 0; i--)
+			std::vector<Operation> array_Renamed(this->stackTop);
+			for (int i = this->stackTop, k = 0; i > 0; i--)
 			{
-				array_RenamedTODO[k] = this->stackFrame[i];
+				array_Renamed[k] = this->stackFrame[i];
 				k++;
 			}
 			// wrap t into JavaException if it is not PrologException
-			if(!(dynamic_cast<PrologException*>(t) != nullptr))
+			if (!(dynamic_cast<PrologException*>(t) != nullptr))
 			{
 			  t::printStackTrace();
 				t = new JavaException(t);
 			}
 			// add stacktrace into t
-			(static_cast<PrologException*>(t))->setPrologStackTrace(array_RenamedTODO);
-			if(dynamic_cast<BuiltinException*>(t) != nullptr)
+			(static_cast<PrologException*>(t))->setPrologStackTrace(array_Renamed);
+			if (dynamic_cast<BuiltinException*>(t) != nullptr)
 			{
 				(static_cast<BuiltinException*>(t))->goal = this->stackFrame[this->stackTop];
 			}
@@ -229,7 +232,7 @@ public:
 	final void printStackTrace(runtime_error err)
 	{
 		this->logger->log(Level::SEVERE, "", err);
-		if(!this->logger->getUseParentHandlers())
+		if (!this->logger->getUseParentHandlers())
 		{ // propagate error outside
 			Logger::getLogger("").log(Level::SEVERE, "", err);
 		}

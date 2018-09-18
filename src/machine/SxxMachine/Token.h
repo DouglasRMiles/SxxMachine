@@ -1,5 +1,4 @@
-#ifndef TOKEN
-#define TOKEN
+#pragma once
 
 #include <string>
 #include <vector>
@@ -8,10 +7,6 @@
 #include <stdexcept>
 #include "exceptionhelper.h"
 #include "stringbuilder.h"
-
-//JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-class StringBuilder;
-class NumberFormatException;
 
 namespace SxxMachine
 {
@@ -36,8 +31,8 @@ namespace SxxMachine
 		static constexpr int TOKEN_ATOM = 'A';
 		static constexpr int TOKEN_VARIABLE = 'V';
 		static constexpr int TOKEN_STRING = 'S';
-		static bool isSolo(const int& c);
-		static bool isSymbol(const int& c);
+		static bool isSolo(int c);
+		static bool isSymbol(int c);
 		/*
 		  public static int read_token(StringBuffer s, PushbackReader in)
 		  This method reads one token from the input "in", sets the string,
@@ -63,7 +58,7 @@ namespace SxxMachine
 		  'V'		"variable name"
 		  'S'		"string"
 		*/
-		static int read_token(StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
+		static int read_token(StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
 		/**
 		 *
 		 * @param c
@@ -72,24 +67,24 @@ namespace SxxMachine
 		 * @return {@link Token#TOKEN_INTEGER} or {@link Token#TOKEN_LONG} or {@link Token#TOKEN_DOUBLE}
 		 * @throws IOException
 		 */
-		static int read_number(const int& c, StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
+		static int read_number(int c, StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
 	private:
-		static int number_type(StringBuilder* s);
+		static int number_type(StringBuilder *s);
 	public:
-		static int read_word(const int& c, StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
-		static int read_quoted(const int& quote, StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
+		static int read_word(int c, StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
+		static int read_quoted(int quote, StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
 		/**
 		 * @param backslash  
 		 */
-		static int escapeSequences(const int& backslash, StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
+		static int escapeSequences(int backslash, StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
 
-		static int read_symbol(const int& c, StringBuilder* s, PushbackReader* in_RenamedTODO) throw(IOException);
+		static int read_symbol(int c, StringBuilder *s, PushbackReader *in_Renamed) throw(IOException);
 
 		/* Write */
-		static void write_string(const std::string& s, PrintWriter* out);
-		static void writeq_string(const std::string& s, PrintWriter* out);
-		static std::string toQuotedString(const std::string& s);
-		static void toQuotedString(const std::string& s, StringBuilder* quoted);
+		static void write_string(const std::string &s, PrintWriter *out);
+		static void writeq_string(const std::string &s, PrintWriter *out);
+		static std::string toQuotedString(const std::string &s);
+		static void toQuotedString(const std::string &s, StringBuilder *quoted);
 
 		/*
 		 * return value:
@@ -98,10 +93,7 @@ namespace SxxMachine
 		 *   2 : if string is a solo
 		 *   3 : others
 		 */
-		static int getStringType(const std::string& s);
+		static int getStringType(const std::string &s);
 	};
 
 }
-
-
-#endif	//#ifndef TOKEN

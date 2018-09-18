@@ -15,17 +15,17 @@ namespace SxxMachine
 		ctr = 0;
 	}
 
-	Term* VarNumberer::action(Term* place)
+	Term *VarNumberer::action(Term *place)
 	{
 		place = place->dref();
 		// IO.trace(">>action: "+place);
-		if(place->isVar())
+		if (place->isVar())
 		{
-			SymbolTerm* root = any_cast<SymbolTerm*>(dict->get(place));
-			if(nullptr == root)
+			SymbolTerm *root = any_cast<SymbolTerm*>(dict->get(place));
+			if (nullptr == root)
 			{
 				root = new PseudoVar(ctr++);
-				root->name_RenamedTODO = root->name_RenamedTODO + place->name();
+				root->name_Renamed = root->name_Renamed + place->name();
 				dict->put(place, root);
 			}
 			place = root;

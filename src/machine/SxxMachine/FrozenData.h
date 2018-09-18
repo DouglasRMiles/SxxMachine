@@ -1,10 +1,12 @@
-#ifndef FROZENDATA
-#define FROZENDATA
+#pragma once
 
 #include "Prolog.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -12,8 +14,8 @@ namespace SxxMachine
 	class FrozenData
 	{
   private:
-	  Term* goals = Prolog::True;
-	  Term* attrs = Prolog::Nil;
+	  Term *goals = Prolog::True;
+	  Term *attrs = Prolog::Nil;
 
   public:
 	  virtual ~FrozenData()
@@ -24,15 +26,12 @@ namespace SxxMachine
 
 	  FrozenData();
 
-	  virtual Term* getGoals();
+	  virtual Term *getGoals();
 
-	  virtual Term* setGoals(Term* goals);
+	  virtual Term *setGoals(Term *goals);
 
-	  virtual Term* getAttrs();
+	  virtual Term *getAttrs();
 
-	  virtual void setAttrs(Term* attrs);
+	  virtual void setAttrs(Term *attrs);
 	};
 }
-
-
-#endif	//#ifndef FROZENDATA

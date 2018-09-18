@@ -9,26 +9,26 @@ using namespace std;
 namespace SxxMachine
 {
 
-SymbolTerm* const  SyntaxException::SYNTAX_ERROR = SymbolTerm::intern("syntax_error", 5);
+SymbolTerm *const SyntaxException::SYNTAX_ERROR = SymbolTerm::intern("syntax_error", 5);
 
 	wstring SyntaxException::getMessage()
 	{
 	return message;
 	}
 
-	SyntaxException::SyntaxException(const wstring& _type, Term* _culprit, const wstring& _message) : type(_type), culprit(_culprit), message(_message)
+	SyntaxException::SyntaxException(const wstring &_type, Term *_culprit, const wstring &_message) : type(_type), culprit(_culprit), message(_message)
 	{
 	}
 
-	SyntaxException::SyntaxException(Operation _goal, const int& _argNo, const wstring& _type, Term* _culprit, const wstring& _message) : type(_type), culprit(_culprit), message(_message)
+	SyntaxException::SyntaxException(Operation _goal, int _argNo, const wstring &_type, Term *_culprit, const wstring &_message) : type(_type), culprit(_culprit), message(_message)
 	{
 	this->goal = _goal;
 	this->argNo = _argNo;
 	}
 
-	Term* SyntaxException::getMessageTerm()
+	Term *SyntaxException::getMessageTerm()
 	{
-	std::vector<Term*> args = { TermData::FFIObject(this->goal), TermData::Integer(this->argNo), SymbolTerm::create(this->type), this->culprit, SymbolTerm::create(this->message) };
+	std::vector<Term*> args = {TermData::FFIObject(this->goal), TermData::Integer(this->argNo), SymbolTerm::create(this->type), this->culprit, SymbolTerm::create(this->message)};
 	return TermData::createErrorTerm(this, SYNTAX_ERROR, args);
 	}
 
@@ -36,7 +36,7 @@ SymbolTerm* const  SyntaxException::SYNTAX_ERROR = SymbolTerm::intern("syntax_er
 	{
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 	wstring s = "{SYNTAX ERROR: " + this->goal->toString();
-	if(this->argNo > 0)
+	if (this->argNo > 0)
 	{
 		s += " - arg " + to_string(this->argNo);
 	}

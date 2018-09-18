@@ -2,7 +2,7 @@ package SxxMachine;
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 /**
@@ -508,7 +508,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	@Override
-	protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+	protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
 		if (isConsOL())
 			return super.copyImpl(copyHash, deeply);
 		if (this.immutable) {
@@ -555,7 +555,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return true;
 	}
 
-	public int containsTermImpl(Term variableTerm, Comparator comparison) {
+	public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
 		int contains = 0;
 		for (Term t : this.argz) {
 			contains += t.containsTerm(variableTerm, comparison);
@@ -577,7 +577,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	 * @see #compareTo
 	 */
 	@Override
-	public boolean equalsTerm(Term obj, Comparator comparator) {
+	public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		if (isConsOL())
 			return super.equalsTerm(obj, comparator);
 		if (obj == this)

@@ -3,13 +3,11 @@ using namespace std;
 #include "O1Queue.h"
 #include "../../io/SxxMachine/IO.h"
 #include "../../../machine/SxxMachine/Term.h"
-#include "InterruptedException.h"
-#include "CloneNotSupportedException.h"
 
 namespace SxxMachine
 {
 
-	O1Queue::O1Queue(const int& size)
+	O1Queue::O1Queue(int size)
 	{
 		makeIt(size);
 	}
@@ -20,13 +18,13 @@ namespace SxxMachine
 
 	O1Queue::O1Queue(vector V) : O1Queue(V.size() + MIN_QUEUE)
 	{
-		for(int i = 0; i < V.size(); i++)
+		for (int i = 0; i < V.size(); i++)
 		{
 			enq(V[i]);
 		}
 	}
 
-	void O1Queue::makeIt(const int& size)
+	void O1Queue::makeIt(int size)
 	{
 		size = (size < MIN_QUEUE) ? MIN_QUEUE : size;
 		queue = std::vector<any>(size);
@@ -39,17 +37,17 @@ namespace SxxMachine
 		return (head <= tail) ? tail - head : queue.size() - head + tail;
 	}
 
-	bool O1Queue::requeue(const wstring& Mes)
+	bool O1Queue::requeue(const wstring &Mes)
 	{
 		int newSize = 2 * count();
-		if(newSize > MAX_QUEUE || newSize < MIN_QUEUE)
+		if (newSize > MAX_QUEUE || newSize < MIN_QUEUE)
 		{
 			return false;
 		}
 		IO::trace(Mes + "!!! " + toString());
 		std::vector<any> nqueue(newSize);
 		int j = 0;
-		for(int i = head; i != tail; i = inc(i))
+		for (int i = head; i != tail; i = inc(i))
 		{
 			nqueue[j++] = queue[i];
 		}
@@ -61,12 +59,13 @@ namespace SxxMachine
 
 	void O1Queue::enterCritical()
 	{
-		while(busy)
+		while (busy)
 		{
 			try
 			{
 				wait();
-			} catch(const InterruptedException& e)
+			}
+			catch (const InterruptedException &e)
 			{
 			}
 		}
@@ -82,9 +81,9 @@ namespace SxxMachine
 	bool O1Queue::enq(any V)
 	{
 		// enterCritical();
-		if(inc(tail) == head)
+		if (inc(tail) == head)
 		{ // full !!!
-			if(!requeue("expanding"))
+			if (!requeue("expanding"))
 			{
 				IO::errmes("Warning: queue overflow at:" + V);
 				return false;
@@ -99,11 +98,11 @@ namespace SxxMachine
 	any O1Queue::deq()
 	{
 		// enterCritical();
-		if(tail == head) // empty !!!
+		if (tail == head) // empty !!!
 		{
 			return nullptr;
 		}
-		if(4 * count() < queue.size())
+		if (4 * count() < queue.size())
 		{
 			requeue("shrinking");
 		}
@@ -113,7 +112,7 @@ namespace SxxMachine
 		return V;
 	}
 
-	int O1Queue::inc(const int& val)
+	int O1Queue::inc(int val)
 	{
 		return (val + 1) % queue.size();
 	}
@@ -131,7 +130,7 @@ namespace SxxMachine
 	{
 		// enterCritical(); DEADLOCKS!
 		vector v = vector();
-		for(int i = head; i != tail; i = inc(i))
+		for (int i = head; i != tail; i = inc(i))
 		{
 			v.push_back(queue[i]);
 		}
@@ -139,7 +138,7 @@ namespace SxxMachine
 		return v;
 	}
 
-	Iterator* O1Queue::toEnumeration()
+	Iterator *O1Queue::toEnumeration()
 	{
 		return toVector().begin();
 	}
@@ -151,21 +150,22 @@ namespace SxxMachine
 	}
 
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-	O1Queue* O1Queue::toClone()
+	O1Queue *O1Queue::toClone()
 	{
-		O1Queue* R = nullptr;
+		O1Queue *R = nullptr;
 		try
 		{
 			Term::soopsy();
 			R = static_cast<O1Queue*>(__super::clone());
-		} catch(const CloneNotSupportedException& e)
+		}
+		catch (const CloneNotSupportedException &e)
 		{
 			IO::errmes("O1Queue:toClone() " + e);
 		}
 		return R;
 	}
 
-	QueueIterator::QueueIterator(O1Queue* Q)
+	QueueIterator::QueueIterator(O1Queue *Q)
 	{
 		this->Q = Q->toClone();
 	}

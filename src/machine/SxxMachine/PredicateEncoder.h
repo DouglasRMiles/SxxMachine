@@ -1,5 +1,4 @@
-#ifndef PREDICATEENCODER
-#define PREDICATEENCODER
+#pragma once
 
 #include <string>
 #include <vector>
@@ -7,10 +6,6 @@
 #include "exceptionhelper.h"
 #include "stringhelper.h"
 #include "stringbuilder.h"
-
-//JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-class StringBuilder;
-class NumberFormatException;
 
 namespace SxxMachine
 {
@@ -55,18 +50,15 @@ namespace SxxMachine
 		 */
 
 	public:
-		static std::string encode(const std::string& pkg, const std::string& functor, const int& arity);
+		static std::string encode(const std::string &pkg, const std::string &functor, int arity);
 
-	static std::string decodeFunctor_2(const std::string& className);
-	static int decodeArity(const std::string& className);
+	static std::string decodeFunctor_2(const std::string &className);
+	static int decodeArity(const std::string &className);
 
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("fallthrough") public static String decodeFunctor(String className)
-		static std::string decodeFunctor(const std::string& className);
-		static void main(std::vector<std::string>& argv);
+		static std::string decodeFunctor(const std::string &className);
+		static void main(std::vector<std::string> &argv);
 	};
 
 }
-
-
-#endif	//#ifndef PREDICATEENCODER

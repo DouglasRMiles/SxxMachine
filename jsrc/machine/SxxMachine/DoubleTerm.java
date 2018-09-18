@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import java.util.Comparator;
-
 /**
  * Floating point number.
  * The class <code>DoubleTerm</code> wraps a value of 
@@ -88,7 +86,7 @@ public class DoubleTerm extends NumberTerm {
      * @see #compareTo
     */
     @Override
-    public boolean equalsTerm(Term obj, Comparator comparator) {
+    public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		return obj .isDouble() && Double.doubleToLongBits(this.value) == Double.doubleToLongBits(( obj).doubleValue());
 	}
     @Override

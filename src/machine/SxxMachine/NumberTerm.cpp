@@ -3,12 +3,11 @@ using namespace std;
 #include "NumberTerm.h"
 #include "Term.h"
 #include "../../kernelprolog/main/SxxMachine/KPTrail.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 
-	NumberTerm* NumberTerm::toClone()
+	NumberTerm *NumberTerm::toClone()
 	{
 		return this;
 	}
@@ -18,7 +17,7 @@ namespace SxxMachine
 		return Double::hashCode(value);
 	}
 
-	bool NumberTerm::bind(Term* that, KPTrail* trail)
+	bool NumberTerm::bind(Term *that, KPTrail *trail)
 	{
 		return Nonvar::bind(that, trail) && value == ((static_cast<NumberTerm*>(that))->value);
 	}
@@ -33,12 +32,12 @@ namespace SxxMachine
 		return toAtomName();
 	}
 
-	NumberTerm* NumberTerm::functor()
+	NumberTerm *NumberTerm::functor()
 	{
 	  return this;
 	}
 
-	void NumberTerm::toStringImpl(const int& printFlags, StringBuilder* sb)
+	void NumberTerm::toStringImpl(int printFlags, StringBuilder *sb)
 	{
 	   sb->append(toAtomName());
 

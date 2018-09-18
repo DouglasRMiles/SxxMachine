@@ -1,5 +1,4 @@
-#ifndef LISTTERM
-#define LISTTERM
+#pragma once
 
 #include "Nonvar.h"
 #include <string>
@@ -11,10 +10,13 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class SymbolTerm; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Term;
+	class Trail;
+	class OpVisitor;
+	class SymbolTerm;
+}
 
 namespace SxxMachine
 {
@@ -25,7 +27,7 @@ namespace SxxMachine
 	class ListTerm : public Nonvar
 	{
 	public:
-		Term* ArgNoDeRef(const int& i) override;
+		Term *ArgNoDeRef(int i) override;
 
 	protected:
 		bool immutable = false;
@@ -35,7 +37,7 @@ namespace SxxMachine
 
 		bool isAtomicValue() override;
 
-		int containsTermImpl(Term* variableTerm, Comparator* comparison) override;
+		int containsTermImpl(Term *variableTerm, Comparator *comparison) override;
 
 		/** Holds the first element of this <code>ListTerm</code>. */
 		//private Term car;
@@ -53,30 +55,30 @@ namespace SxxMachine
 		 */
 		ListTerm();
 
-		ListTerm(Term* _car, Term* _cdr);
+		ListTerm(Term *_car, Term *_cdr);
 
 		/** Returns the value of <code>car</code>.
 		 * @see #car
 		 */
-		Term* car() override;
+		Term *car() override;
 
 		/** Returns the value of <code>cdr</code>.
 		 * @see #cdr
 		 */
-		Term* cdr() override;
+		Term *cdr() override;
 
 		/* Term */
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 
 		/** Sets the value to <code>car</code>.
 		 * @see #car
 		 */
-		virtual void setCar(Term* t);
+		virtual void setCar(Term *t);
 
 		/** Sets the value to <code>cdr</code>.
 		 * @see #cdr
 		 */
-		virtual void setCdr(Term* t);
+		virtual void setCdr(Term *t);
 
 		int type() override;
 
@@ -88,7 +90,7 @@ namespace SxxMachine
 		bool convertible(std::type_info type) override;
 
 	protected:
-		Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deepCopy) override;
+		Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deepCopy) override;
 
 	public:
 		bool isGround() override;
@@ -97,13 +99,13 @@ namespace SxxMachine
 
 		std::vector<Term*> args() override;
 
-		Term* functor() override;
+		Term *functor() override;
 
 		std::string name() override;
 
-		Term* arg0(const int& nth) override;
+		Term *arg0(int nth) override;
 
-		Term* nth0(const int& nth) override;
+		Term *nth0(int nth) override;
 
 		/** Returns the length of this <code>ListTerm</code>. */
 		int length() override;
@@ -118,9 +120,9 @@ namespace SxxMachine
 
 		/** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
 		 * Non recursive implementation */
-		virtual void toQuotedString_old(const int& printFlags, StringBuilder* sb);
+		virtual void toQuotedString_old(int printFlags, StringBuilder *sb);
 
-		void toStringImpl(const int& printingFlags, StringBuilder* sb) override;
+		void toStringImpl(int printingFlags, StringBuilder *sb) override;
 
 		/* Object */
 		/**
@@ -133,13 +135,13 @@ namespace SxxMachine
 		 * equivalent to this <code>ListTerm</code>, false otherwise.
 		 * @see #compareTo
 		 */
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
 		std::vector<Term*> argz;
 
 		int termHashCodeImpl() override;
 
-		Iterator<Term*>* iterator(const bool& includeSyntax) override;
+		Iterator<Term*> *iterator(bool includeSyntax) override;
 
 		/**
 		 * Iterator over terms that make up this ListTerm. 
@@ -148,12 +150,12 @@ namespace SxxMachine
 		class ListTermIterator : public Iterator<Term*>
 		{
 		private:
-			static SymbolTerm* const  LEFT_BRACKET;
-			static SymbolTerm* const  SEPARATOR;
-			static SymbolTerm* const  RIGHT_BRACKET;
-			static SymbolTerm* const  COMMA;
+			static SymbolTerm *const LEFT_BRACKET;
+			static SymbolTerm *const SEPARATOR;
+			static SymbolTerm *const RIGHT_BRACKET;
+			static SymbolTerm *const COMMA;
 
-			Term* current;
+			Term *current;
 			int index = 0;
 			std::vector<Term*> tail;
 			bool comma = false;
@@ -166,11 +168,11 @@ namespace SxxMachine
 				delete current;
 			}
 
-			ListTermIterator(Term* start, const bool& includeSyntax);
+			ListTermIterator(Term *start, bool includeSyntax);
 
 			bool hasNext() override;
 
-			Term* next() override;
+			Term *next() override;
 		};
 
 		/* Comparable */
@@ -184,7 +186,7 @@ namespace SxxMachine
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>otherterm</code>.
 		 */
 	public:
-		int compareTo(Term* otherterm) override;
+		int compareTo(Term *otherterm) override;
 
 		bool isImmutable() override;
 
@@ -193,14 +195,11 @@ namespace SxxMachine
 		 * Default implementation recreates the whole list and returns reference to new list,
 		 * because the original list can be immutable.
 		 * */
-		ListTerm* add(Term* term) override;
+		ListTerm *add(Term *term) override;
 
-		virtual ListTerm* addToCopy(Term* term);
+		virtual ListTerm *addToCopy(Term *term);
 
-		ListTerm* append(Term* term) override;
+		ListTerm *append(Term *term) override;
 	};
 
 }
-
-
-#endif	//#ifndef LISTTERM

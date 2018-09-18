@@ -1,9 +1,11 @@
-#ifndef ISTERM
-#define ISTERM
+#pragma once
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Prog; }
+namespace SxxMachine
+{
+	class Term;
+	class Prog;
+}
 
 namespace SxxMachine
 {
@@ -11,15 +13,12 @@ namespace SxxMachine
 	class ISTerm
 	{
 	public:
-		virtual Term* ArgDeRef(const int& i) = 0;
+		virtual Term *ArgDeRef(int i) = 0;
 
-		virtual Term* ArgNoDeRef(const int& i) = 0;
+		virtual Term *ArgNoDeRef(int i) = 0;
 
-		virtual int getIntArg(const int& i) = 0;
+		virtual int getIntArg(int i) = 0;
 
-		virtual int unifyArg(const int& i, Term* a, Prog* p) = 0;
+		virtual int unifyArg(int i, Term *a, Prog *p) = 0;
 	};
 }
-
-
-#endif	//#ifndef ISTERM

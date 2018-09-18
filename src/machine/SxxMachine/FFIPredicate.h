@@ -1,12 +1,14 @@
-#ifndef FFIPREDICATE
-#define FFIPREDICATE
+#pragma once
 
 #include "Predicate.h"
 #include <vector>
 #include <typeinfo>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -38,10 +40,7 @@ namespace SxxMachine
 		 * @see Term#convertible(Class)
 		 */
   protected:
-	  static bool checkParameterTypes(std::vector<std::type_info>& paraTypes, std::vector<Term*>& args);
+	  static bool checkParameterTypes(std::vector<std::type_info> &paraTypes, std::vector<Term*> &args);
 	};
 
 }
-
-
-#endif	//#ifndef FFIPREDICATE

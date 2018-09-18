@@ -6,17 +6,17 @@ using namespace std;
 namespace SxxMachine
 {
 
-	void KPTrail::push(Term* var)
+	void KPTrail::push(Term *var)
 	{
 	  add(var);
 	}
 
-	Term* KPTrail::pop()
+	Term *KPTrail::pop()
 	{
 	  return any_cast<Term*>(remove(size() - 1));
 	}
 
-	any KPTrail::remove(const int& i)
+	any KPTrail::remove(int i)
 	{
 	  return stack.erase(stack.begin() + i);
 	}
@@ -31,7 +31,7 @@ namespace SxxMachine
 	  return stack.size();
 	}
 
-	void KPTrail::add(Term* x)
+	void KPTrail::add(Term *x)
 	{
 	  stack.push_back(x);
 	}
@@ -52,14 +52,14 @@ namespace SxxMachine
 	  return name() + "\n" + __super::toString() + "\n";
 	}
 
-	void KPTrail::unwind(const int& to)
+	void KPTrail::unwind(int to)
 	{
 	  // IO.mes("unwind TRAIL: "+name()+": "+size()+"=>"+to);
 	  // if(to>size())
 	  // IO.assertion("unwind attempted from smaller to larger top");
-	  for(int i = size() - to; i > 0; i--)
+	  for (int i = size() - to; i > 0; i--)
 	  {
-		Term* O = pop();
+		Term *O = pop();
 		O->undo();
 	  }
 	}

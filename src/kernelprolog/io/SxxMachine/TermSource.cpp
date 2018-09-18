@@ -11,29 +11,33 @@ using namespace std;
 namespace SxxMachine
 {
 
-	TermSource::TermSource(Nonvar* val, Prog* p) : Source(p)
+	TermSource::TermSource(Nonvar *val, Prog *p) : Source(p)
 	{
 		this->val = val;
 		pos = 0;
 	}
 
-	Term* TermSource::getElement()
+	Term *TermSource::getElement()
 	{
-		Term* X;
-		if(nullptr == val)
+		Term *X;
+		if (nullptr == val)
 		{
 			X = nullptr;
-		} else if(!(val->isStructure()))
+		}
+		else if (!(val->isStructure()))
 		{
 			X = val;
 			val = nullptr;
-		} else if(0 == pos)
+		}
+		else if (0 == pos)
 		{
 			X = TermData::SYM(val->name());
-		} else if(pos <= Expect::asStruct(val)->arityOrType())
+		}
+		else if (pos <= Expect::asStruct(val)->arityOrType())
 		{
 			X = Expect::asStruct(val)->ArgDeRef(pos - 1);
-		} else
+		}
+		else
 		{
 			X = nullptr;
 			val = nullptr;

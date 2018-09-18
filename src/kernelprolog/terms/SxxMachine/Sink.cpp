@@ -8,11 +8,11 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Sink::Sink(Prog* p) : Fluent(p)
+	Sink::Sink(Prog *p) : Fluent(p)
 	{
 	}
 
-	Term* Sink::collect()
+	Term *Sink::collect()
 	{
 		return nullptr;
 	}

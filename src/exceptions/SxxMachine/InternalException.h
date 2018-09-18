@@ -1,13 +1,15 @@
-#ifndef INTERNALEXCEPTION
-#define INTERNALEXCEPTION
+#pragma once
 
 #include "PrologException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -25,15 +27,15 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>internal_error/1</code>. */
 	public:
-		static SymbolTerm* const  INTERNAL_ERROR;
+		static SymbolTerm *const INTERNAL_ERROR;
 		/** Holds a message. */
 		const std::string message;
 		/** Constructs a new <code>InternalException</code> with a message. */
-		InternalException(const std::string& _message);
+		InternalException(const std::string &_message);
 		/** Returns a term representation of this <code>InternalException</code>:
 		 * <code>internal_error(message)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>InternalException</code>. */
 		std::string toString() override;
 		std::string getMessage() override;
@@ -41,6 +43,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef INTERNALEXCEPTION

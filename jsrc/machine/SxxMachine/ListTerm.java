@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Deque;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -30,7 +30,7 @@ abstract public class ListTerm extends Nonvar {
 		return false;
 	}
 
-	public int containsTermImpl(Term variableTerm, Comparator comparison) {
+	public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
 		return car().containsTerm(variableTerm, comparison) + cdr().containsTerm(variableTerm, comparison);
 	}
 
@@ -124,7 +124,7 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	@Override
-	protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deepCopy) {
+	protected Term copyImpl(Map<Object, Term> copyHash, int deepCopy) {
 		if (this.isImmutable()) {
 			return this;
 		}
@@ -256,7 +256,7 @@ abstract public class ListTerm extends Nonvar {
 	 * @see #compareTo
 	 */
 	@Override
-	public boolean equalsTerm(Term obj, Comparator comparator) {
+	public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		return obj.isCons() && this.argz[0].equalsTerm((obj).car().dref(), comparator) && cdr().equalsTerm((obj).cdr().dref(), comparator);
 	}
 

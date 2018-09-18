@@ -2,8 +2,7 @@ package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.List;
 
 /**
@@ -49,7 +48,7 @@ public class ListViewTerm extends ListTerm {
 		}
 
 		@Override
-		public boolean equalsTerm(Term obj, Comparator comparator) {
+		public boolean equalsTerm(Term obj, OpVisitor comparator) {
 			return this == obj;
 		}
 	}
@@ -114,7 +113,7 @@ public class ListViewTerm extends ListTerm {
 	}
 
 	@Override
-	protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+	protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
 		Term result = Prolog.Nil;
 		for (int i = this.list.size() - 1; i >= this.index; i--) {
 			result = TermData.CONS(this.list.get(i).copy(copyHash, deeply), result);

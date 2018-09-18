@@ -2,12 +2,11 @@ using namespace std;
 
 #include "ConstBuiltin.h"
 #include "../../../machine/SxxMachine/Term.h"
-#include "Method.h"
 
 namespace SxxMachine
 {
 
-	void ConstBuiltin::setMethod(Method* b)
+	void ConstBuiltin::setMethod(Method *b)
 	{
 		// TODO Auto-generated method stub
 
@@ -18,7 +17,7 @@ namespace SxxMachine
 		return Name + "/" + to_string(arityOrType());
 	}
 
-	ConstBuiltin::ConstBuiltin(const wstring& s)
+	ConstBuiltin::ConstBuiltin(const wstring &s)
 	{
 		Name = s;
 	}

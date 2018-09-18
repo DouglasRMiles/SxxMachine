@@ -1,5 +1,4 @@
-#ifndef HALTEXCEPTION
-#define HALTEXCEPTION
+#pragma once
 
 #include "SystemException.h"
 
@@ -11,11 +10,8 @@ namespace SxxMachine
   private:
 	  const int status;
   public:
-	  HaltException(const int& status);
+	  HaltException(int status);
 	  virtual int getStatus();
 	};
 
 }
-
-
-#endif	//#ifndef HALTEXCEPTION

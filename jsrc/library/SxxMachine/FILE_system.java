@@ -1,4 +1,4 @@
-package SxxMachine.library;
+package SxxMachine;
 
 import static SxxMachine.FILE_builtins.PRED_set_prolog_flag_2_static_exec;
 import static SxxMachine.sxxtensions.PRED_$set_predicate_attribute_3_static_exec;

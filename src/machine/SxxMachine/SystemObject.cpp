@@ -3,7 +3,7 @@ using namespace std;
 #include "SystemObject.h"
 #include "Trail.h"
 #include "Term.h"
-#include "StringBuilder.h"
+#include "OpVisitor.h"
 
 namespace SxxMachine
 {
@@ -13,24 +13,24 @@ namespace SxxMachine
 	  return TYPE_JAVA_OBJECT;
 	}
 
-	bool SystemObject::unifyImpl(Term* t, Trail* trail)
+	bool SystemObject::unifyImpl(Term *t, Trail *trail)
 	{
 		t = t->dref();
-		if((t->isVar()))
+		if ((t->isVar()))
 		{
 			return t->asVariableTerm()->unify(this, trail);
 		}
 		return equalsTerm(t);
 	}
 
-	void SystemObject::toStringImpl(const int& printFlags, StringBuilder* sb)
+	void SystemObject::toStringImpl(int printFlags, StringBuilder *sb)
 	{
 		sb->append(pprint());
 	}
 
-	int SystemObject::compareTo(Term* anotherTerm)
+	int SystemObject::compareTo(Term *anotherTerm)
 	{ // anotherTerm must be dereferenced
-	  if(this->type() != anotherTerm->type())
+	  if (this->type() != anotherTerm->type())
 	  {
 		return AFTER;
 	  }
@@ -42,12 +42,12 @@ namespace SxxMachine
 		return true;
 	}
 
-	bool SystemObject::equalsTerm(Term* obj, Comparator* comparator)
+	bool SystemObject::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
 	  return equalsIdentical(obj);
 	}
 
-	Term* SystemObject::toClone()
+	Term *SystemObject::toClone()
 	{
 		oopsy();
 		return this;
@@ -80,7 +80,7 @@ long long SystemObject::ctrSO = 0;
 		return "object(" + getClass().getName() + "." + to_string(ordinal) + ")";
 	}
 
-	bool SystemObject::bind(Term* that, Trail* trail)
+	bool SystemObject::bind(Term *that, Trail *trail)
 	{
 		return Nonvar::bind(that, trail) && ordinal == (static_cast<SystemObject*>(that))->ordinal;
 	}

@@ -10,12 +10,12 @@ namespace SxxMachine
 	{
 	}
 
-	BuiltinException::BuiltinException(Term* _message)
+	BuiltinException::BuiltinException(Term *_message)
 	{
 	this->messageTerm = _message;
 	}
 
-	Term* BuiltinException::getMessageTerm()
+	Term *BuiltinException::getMessageTerm()
 	{
 	return this->messageTerm;
 	}

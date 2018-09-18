@@ -25,11 +25,11 @@ namespace SxxMachine
 	{
 	}
 
-	PrologControl::PrologControl(PrologMachineCopy* pmc) : engine(new Prolog(this, pmc))
+	PrologControl::PrologControl(PrologMachineCopy *pmc) : engine(new Prolog(this, pmc))
 	{
 	}
 
-	PrologControl::PrologControl(Prolog* pmc) : engine(pmc)
+	PrologControl::PrologControl(Prolog *pmc) : engine(pmc)
 	{
 	}
 
@@ -38,23 +38,25 @@ namespace SxxMachine
 	  return this->engine->features->contains(f);
 	}
 
-	void PrologControl::setEnabled(Prolog::Feature f, const bool& on)
+	void PrologControl::setEnabled(Prolog::Feature f, bool on)
 	{
-	  if(on)
+	  if (on)
 	  {
 		this->engine->features->add(f);
-	  } else
+	  }
+	  else
 	  {
 		this->engine->features->remove(f);
 	  }
 	}
 
-	void PrologControl::setEnabled(Set<Prolog::Feature>* f, const bool& on)
+	void PrologControl::setEnabled(Set<Prolog::Feature> *f, bool on)
 	{
-	  if(on)
+	  if (on)
 	  {
 		this->engine->features->addAll(f);
-	  } else
+	  }
+	  else
 	  {
 		this->engine->features->removeAll(f);
 	  }
@@ -65,50 +67,51 @@ namespace SxxMachine
 	  this->engine->getLogger()->printStackTrace(err);
 	}
 
-	void PrologControl::setUserInput(InputStream* userInput)
+	void PrologControl::setUserInput(InputStream *userInput)
 	{
 	  this->userInput = userInput;
 	}
 
-	void PrologControl::setUserOuput(PrintStream* userOuput)
+	void PrologControl::setUserOuput(PrintStream *userOuput)
 	{
 	  this->userOuput = userOuput;
 	}
 
 	int PrologControl::getMaxDatabaseSize()
 	{
-	  if(this->engine->internalDB != nullptr)
+	  if (this->engine->internalDB != nullptr)
 	  {
 		return this->engine->internalDB->maxContents;
 	  }
 	  return InternalDatabase::DEFAULT_SIZE;
 	}
 
-	void PrologControl::setMaxDatabaseSize(const int& size)
+	void PrologControl::setMaxDatabaseSize(int size)
 	{
 	  //if (this.engine.aregs != null)
 	   // throw new IllegalStateException("Prolog already initialized");
-	  if(this->engine->internalDB != nullptr)
+	  if (this->engine->internalDB != nullptr)
 	  {
 		this->engine->internalDB->maxContents = size;
-	  } else
+	  }
+	  else
 	  {
 		this->engine->internalDB = new InternalDatabase(size);
 	  }
 	}
 
-	PrologClassLoader* PrologControl::getPrologClassLoader()
+	PrologClassLoader *PrologControl::getPrologClassLoader()
 	{
-	  if(this->engine->pcl == nullptr)
+	  if (this->engine->pcl == nullptr)
 	  {
 		  this->engine->pcl = new PrologClassLoader();
 	  }
 	  return this->engine->pcl;
 	}
 
-	void PrologControl::setPrologClassLoader(PrologClassLoader* cl)
+	void PrologControl::setPrologClassLoader(PrologClassLoader *cl)
 	{
-	  if(this->engine->AREGS.size() > 0)
+	  if (this->engine->AREGS.size() > 0)
 	  {
 		throw IllegalStateException("Prolog already initialized");
 	  }
@@ -120,36 +123,36 @@ namespace SxxMachine
 	  return this->engine->getMaxArity();
 	}
 
-	void PrologControl::setMaxArity(const int& max)
+	void PrologControl::setMaxArity(int max)
 	{
-	  if(max < 8)
+	  if (max < 8)
 	  {
 		  throw IllegalStateException("invalid arity " + to_string(max));
 	  }
-	  if(this->engine->AREGS.size() > 0)
+	  if (this->engine->AREGS.size() > 0)
 	  {
 		throw IllegalStateException("Prolog already initialized");
 	  }
 	  this->engine->maxArity = max;
 	}
 
-	void PrologControl::configureUserIO(InputStream* in_RenamedTODO, OutputStream* out, OutputStream* err)
+	void PrologControl::configureUserIO(InputStream *in_Renamed, OutputStream *out, OutputStream *err)
 	{
-	  if(this->engine->streamManager == nullptr)
+	  if (this->engine->streamManager == nullptr)
 	  {
 		this->engine->streamManager = new HashtableOfTerm(7);
 	  }
-	  if(in_RenamedTODO != nullptr)
+	  if (in_Renamed != nullptr)
 	  {
-		PushbackReader tempVar(new BufferedReader(new InputStreamReader(in_RenamedTODO)), Prolog::PUSHBACK_SIZE);
+		PushbackReader tempVar(new BufferedReader(new InputStreamReader(in_Renamed)), Prolog::PUSHBACK_SIZE);
 		this->engine->streamManager->put(SymbolTerm::intern("user_input"), TermData::FFIObject(&tempVar));
 	  }
-	  if(out != nullptr)
+	  if (out != nullptr)
 	  {
 		PrintWriter tempVar2(new BufferedWriter(new OutputStreamWriter(out)), true);
 		this->engine->streamManager->put(SymbolTerm::intern("user_output"), TermData::FFIObject(&tempVar2));
 	  }
-	  if(err != nullptr)
+	  if (err != nullptr)
 	  {
 		PrintWriter tempVar3(new BufferedWriter(new OutputStreamWriter(err)), true);
 		this->engine->streamManager->put(SymbolTerm::intern("user_error"), TermData::FFIObject(&tempVar3));
@@ -162,14 +165,14 @@ namespace SxxMachine
 	  this->code = operation;
 	}
 
-	void PrologControl::setPredicate(const wstring& pkg, const wstring& functor, vector<Term> &args)
+	void PrologControl::setPredicate(const wstring &pkg, const wstring &functor, vector<Term> &args)
 	{
-	  setPredicate(getPrologClassLoader()->predicate(pkg, functor, { args }));
+	  setPredicate(getPrologClassLoader()->predicate(pkg, functor, {args}));
 	}
 
-	void PrologControl::setPredicate(Term* t)
+	void PrologControl::setPredicate(Term *t)
 	{
-	  setPredicate(Prolog::BUILTIN, "call", { t });
+	  setPredicate(Prolog::BUILTIN, "call", {t});
 	}
 
 	void PrologControl::executePredicate()
@@ -177,15 +180,15 @@ namespace SxxMachine
 	  executePredicate(true);
 	}
 
-	void PrologControl::executePredicate(const bool& isOutter) throw(PrologException, JavaInterruptedException)
+	void PrologControl::executePredicate(bool isOutter) throw(PrologException, JavaInterruptedException)
 	{
-	  Prolog* engine = this->engine;
-	  PrologLogger* logger = engine->getLogger();
+	  Prolog *engine = this->engine;
+	  PrologLogger *logger = engine->getLogger();
 	  Operation code = this->code;
 	  Operation nextCode = this->code;
 	  try
 	  {
-		if(isOutter)
+		if (isOutter)
 		{
 		  engine->init(this->userInput, this->userOuput, this->userError);
 		}
@@ -195,64 +198,70 @@ namespace SxxMachine
 			{
 			  do
 			  {
-				if(isOutter)
+				if (isOutter)
 				{
 					code = insertPendingGoals(code);
 				}
-				if(!Prolog::BE_SAFE)
+				if (!Prolog::BE_SAFE)
 				{
 					logger->beforeExec(code);
 				}
-				if(code == nullptr)
+				if (code == nullptr)
 				{
 				  break;
 				}
 				engine->pred = code;
 				nextCode = code(engine);
-				if(nextCode == code || nextCode == nullptr)
+				if (nextCode == code || nextCode == nullptr)
 				{
 				  break;
 				}
 				code = nextCode;
-			  } while(true);
-			} catch(const StopEngineException& see)
+			  } while (true);
+			}
+			catch (const StopEngineException &see)
 			{
 			  see->printStackTrace();
 			  return; // escape execution loop
-			} catch(const runtime_error& t)
+			}
+			catch (const runtime_error &t)
 			{
-			  PrologException* e = logger->execThrows(t);
+			  PrologException *e = logger->execThrows(t);
 			  constexpr int b = engine->peekCatcherB();
-			  if(b >= 0)
+			  if (b >= 0)
 			  {
 				engine->setException(engine->copy(e->getMessageTerm()));
 				engine->cut(b);
 				code = engine->fail(); // set next operation to execute
 				goto mainLoopContinue;
-			  } else
+			  }
+			  else
 			  {
 				t.printStackTrace();
 				throw e;
 			  }
 			}
-			if(engine->halt != 1)
+			if (engine->halt != 1)
 			{
 			  throw HaltException(engine->halt - 1);
 			}
-		  } while(code != nullptr);
+		  } while (code != nullptr);
 			mainLoopContinue:;
 		mainLoopBreak:;
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
-		if(isOutter)
+		if (isOutter)
 		{
 			this->code = insertPendingGoals(code);
-		} else
+		}
+		else
 		{
 		  this->code = code;
 		}
 
-		if(isOutter)
+		if (isOutter)
 		{
 		  SymbolTerm::gc();
 		  logger->close();
@@ -269,12 +278,12 @@ namespace SxxMachine
 		//    pendingGoals = SymbolTerm.intern("[]");
 		//    code = Prolog.Call1;
 
-		if(engine->halt != 1)
+		if (engine->halt != 1)
 		{
 			return after;
 		}
-	  Term* pendingGoals = engine->popPendingGoals();
-	  if(pendingGoals == Prolog::Nil)
+	  Term *pendingGoals = engine->popPendingGoals();
+	  if (pendingGoals == Prolog::Nil)
 	  {
 		  return after;
 	  }
@@ -285,24 +294,24 @@ namespace SxxMachine
 	  //executePredicate(false);
 	}
 
-	Operation PrologControl::insertCode(Term* pendingGoals, Operation after)
+	Operation PrologControl::insertCode(Term *pendingGoals, Operation after)
 	{
-	  if(pendingGoals == Prolog::Nil)
+	  if (pendingGoals == Prolog::Nil)
 	  {
 		  return after;
 	  }
-	   while(pendingGoals->isCons())
+	   while (pendingGoals->isCons())
 	   {
-		  Term* goal = pendingGoals->car();
+		  Term *goal = pendingGoals->car();
 		  after = insertCode(goal,after);
 		  pendingGoals = pendingGoals->cdr();
 	   }
-		return new TermData::StaticPred("call",FILE_builtins::PRED_call_1_static_exec,TermData::VA({ pendingGoals }), after);
+		return new TermData::StaticPred("call",FILE_builtins::PRED_call_1_static_exec,TermData::VA({pendingGoals}), after);
 	}
 
 	void PrologControl::executePredicate_goog() throw(PrologException)
 	{
-	  Prolog* engine = this->engine;
+	  Prolog *engine = this->engine;
 	  Operation code = this->code;
 	  long long reductionsRemaining = this->reductionLimit;
 	  try
@@ -311,20 +320,22 @@ namespace SxxMachine
 
 		do
 		{
-		  if(isEngineStopped())
+		  if (isEngineStopped())
 		  {
 			  return;
 		  }
 		  // if (--reductionsRemaining <= 0) throw new
 		  // ReductionLimitException(reductionLimit);
 		  code = code(engine);
-		} while(engine->halt == 0);
+		} while (engine->halt == 0);
 
-		if(engine->halt != 1)
+		if (engine->halt != 1)
 		{
 		  throw HaltException(engine->halt - 1);
 		}
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
 		this->reductionsUsed = this->reductionLimit - reductionsRemaining;
 		this->code = code;
@@ -342,22 +353,22 @@ namespace SxxMachine
 	  this->reductionLimit = max(0, limit);
 	}
 
-	void PrologControl::setUserError(PrintStream* userError)
+	void PrologControl::setUserError(PrintStream *userError)
 	{
 	  this->userError = userError;
 	}
 
-	any PrologControl::getExternalData(const wstring& key)
+	any PrologControl::getExternalData(const wstring &key)
 	{
 	  return this->engine->getExternalData(key);
 	}
 
-	void PrologControl::setExternalData(const wstring& key, any value)
+	void PrologControl::setExternalData(const wstring &key, any value)
 	{
 	  this->engine->setExternalData(key, value);
 	}
 
-	PrologLogger* PrologControl::getLogger()
+	PrologLogger *PrologControl::getLogger()
 	{
 	return engine->getLogger();
 	}

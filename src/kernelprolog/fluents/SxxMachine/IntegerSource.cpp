@@ -9,7 +9,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	IntegerSource::IntegerSource(long long fuel, long long a, long long x, long long b, Prog* p) : Source(p)
+	IntegerSource::IntegerSource(long long fuel, long long a, long long x, long long b, Prog *p) : Source(p)
 	{
 		this->fuel = fuel;
 		this->a = a;
@@ -17,13 +17,13 @@ namespace SxxMachine
 		this->x = x;
 	}
 
-	Term* IntegerSource::getElement()
+	Term *IntegerSource::getElement()
 	{
-		if(fuel <= 0)
+		if (fuel <= 0)
 		{
 			return nullptr;
 		}
-		LongTerm* R = optional<long long>(x);
+		LongTerm *R = optional<long long>(x);
 		x = a * x + b;
 		--fuel;
 		return R;

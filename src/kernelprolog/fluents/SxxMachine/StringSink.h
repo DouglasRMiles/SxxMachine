@@ -1,15 +1,16 @@
-#ifndef STRINGSINK
-#define STRINGSINK
+#pragma once
 
 #include "../../terms/SxxMachine/Sink.h"
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
-namespace SxxMachine { class collect; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class stop;
+	class collect;
+}
 
 namespace SxxMachine
 {
@@ -21,7 +22,7 @@ namespace SxxMachine
 	class StringSink : public Sink
 	{
 	protected:
-		StringBuilder* buffer;
+		StringBuilder *buffer;
 
 	public:
 		virtual ~StringSink()
@@ -29,16 +30,13 @@ namespace SxxMachine
 			delete buffer;
 		}
 
-		StringSink(Prog* p);
+		StringSink(Prog *p);
 
-		int putElement(Term* t) override;
+		int putElement(Term *t) override;
 
 		void stop() override;
 
-		Term* collect() override;
+		Term *collect() override;
 	};
 
 }
-
-
-#endif	//#ifndef STRINGSINK

@@ -7,7 +7,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	int true_::st_exec(Prog* p, ISTerm* thiz)
+	int true_::st_exec(Prog *p, ISTerm *thiz)
 	{
 		return 1;
 	}

@@ -11,12 +11,12 @@ namespace SxxMachine
 	{
 	}
 
-	int fail_::exec(Prog* p)
+	int fail_::exec(Prog *p)
 	{
 		return 0;
 	}
 
-	int fail_::st_exec(Prog* p, ISTerm* thiz)
+	int fail_::st_exec(Prog *p, ISTerm *thiz)
 	{
 		return 0;
 	}

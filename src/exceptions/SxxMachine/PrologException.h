@@ -1,16 +1,16 @@
-#ifndef PROLOGEXCEPTION
-#define PROLOGEXCEPTION
+#pragma once
 
-#include "RuntimeException.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -30,11 +30,11 @@ namespace SxxMachine
   public:
 	  PrologException();
 
-	  PrologException(const std::string& s);
+	  PrologException(const std::string &s);
 
 	  virtual std::string getMessage() = 0;
 	  /** Returns the message term of this object. */
-	  virtual Term* getMessageTerm() = 0;
+	  virtual Term *getMessageTerm() = 0;
 
   private:
 	  std::vector<Operation> prologStackElement;
@@ -42,20 +42,17 @@ namespace SxxMachine
   public:
 	  virtual std::vector<Operation> getPrologStackTrace();
 
-	  virtual void setPrologStackTrace(std::vector<Operation>& stack);
+	  virtual void setPrologStackTrace(std::vector<Operation> &stack);
 
 	  virtual bool hasPrologStackTrace();
 
-	  void printStackTrace(PrintStream* s) override;
+	  void printStackTrace(PrintStream *s) override;
 
   private:
-	  StringBuilder* printOp(Operation o);
+	  StringBuilder *printOp(Operation o);
 
   public:
-	  void printStackTrace(PrintWriter* s) override;
+	  void printStackTrace(PrintWriter *s) override;
 	};
 
 }
-
-
-#endif	//#ifndef PROLOGEXCEPTION

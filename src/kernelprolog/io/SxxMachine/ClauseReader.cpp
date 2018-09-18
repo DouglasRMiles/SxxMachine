@@ -13,67 +13,72 @@ using namespace std;
 namespace SxxMachine
 {
 
-	ClauseReader::ClauseReader(Reader* reader, Prog* p) : CharReader(reader, p)
+	ClauseReader::ClauseReader(Reader *reader, Prog *p) : CharReader(reader, p)
 	{
 		make_parser("from shared reader");
 	}
 
-	ClauseReader::ClauseReader(const wstring& f, Prog* p) : CharReader(f, p)
+	ClauseReader::ClauseReader(const wstring &f, Prog *p) : CharReader(f, p)
 	{
 		make_parser(f);
 	}
 
-	ClauseReader::ClauseReader(Prog* p) : CharReader(p)
+	ClauseReader::ClauseReader(Prog *p) : CharReader(p)
 	{
 		make_parser("standard input");
 	}
 
-	ClauseReader::ClauseReader(Term* t, Prog* p) : CharReader(t, p)
+	ClauseReader::ClauseReader(Term *t, Prog *p) : CharReader(t, p)
 	{
 		make_parser("string parser");
 	}
 
-	void ClauseReader::make_parser(const wstring& f)
+	void ClauseReader::make_parser(const wstring &f)
 	{
-		if(nullptr != reader)
+		if (nullptr != reader)
 		{
 			try
 			{
 				this->parser = new Parser(reader);
-			} catch(const IOException& e)
+			}
+			catch (const IOException &e)
 			{
 				IO::errmes("unable to build parser for: " + f);
 			}
-		} else
+		}
+		else
 		{
 			this->parser = nullptr;
 		}
 	}
 
-	Term* ClauseReader::getElement()
+	Term *ClauseReader::getElement()
 	{
-		Clause* C = nullptr;
-		if(reader->equals(IO::input))
+		Clause *C = nullptr;
+		if (reader->equals(IO::input))
 		{
 			wstring s = IO::promptln(">:");
-			if("" == s || 0 == s.length())
+			if ("" == s || 0 == s.length())
 			{
 				C = nullptr;
-			} else
+			}
+			else
 			{
 				C = new Clause(s);
 			}
-		} else if(nullptr != parser)
+		}
+		else if (nullptr != parser)
 		{
-			if(parser->atEOF())
+			if (parser->atEOF())
 			{
 				C = nullptr;
 				stop();
-			} else
+			}
+			else
 			{
 				C = parser->readClause();
 			}
-			if(C != nullptr && C->getHead()->equalsTerm(Prolog::anEof))
+			if (C != nullptr && C->getHead()->equalsTerm(Prolog::anEof))
 			{
 				C = nullptr;
 				stop();
@@ -82,18 +87,18 @@ namespace SxxMachine
 		return extract_info(C);
 	}
 
-	StructureTerm* ClauseReader::extract_info(Clause* C)
+	StructureTerm *ClauseReader::extract_info(Clause *C)
 	{
-		if(nullptr == C)
+		if (nullptr == C)
 		{
 			return nullptr;
 		}
-		Term* Vs = C->varsOf();
-		Clause* SuperC = new Clause(Vs, C);
+		Term *Vs = C->varsOf();
+		Clause *SuperC = new Clause(Vs, C);
 		SuperC->dict = C->dict;
-		Clause* NamedSuperC = SuperC->cnumbervars(false);
-		Term* Ns = NamedSuperC->getHead();
-		Term* NamedC = NamedSuperC->getBody();
+		Clause *NamedSuperC = SuperC->cnumbervars(false);
+		Term *Ns = NamedSuperC->getHead();
+		Term *NamedC = NamedSuperC->getBody();
 		return StructureTerm::S("clause", C, Vs, NamedC, Ns);
 	}
 

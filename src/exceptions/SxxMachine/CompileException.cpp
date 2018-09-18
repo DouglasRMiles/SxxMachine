@@ -5,7 +5,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	CompileException::CompileException(const wstring& message) : Exception(message)
+	CompileException::CompileException(const wstring &message) : Exception(message)
 	{
 	}
 
@@ -13,7 +13,7 @@ namespace SxxMachine
 	{
 	}
 
-	CompileException::CompileException(const wstring& message, runtime_error cause) : Exception(message, cause)
+	CompileException::CompileException(const wstring &message, runtime_error cause) : Exception(message, cause)
 	{
 	}
 }

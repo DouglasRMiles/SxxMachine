@@ -1,7 +1,6 @@
 package SxxMachine;
 
 import java.math.BigInteger;
-import java.util.Comparator;
 
 public class LongTerm extends DoubleTerm {
   @Override
@@ -318,7 +317,7 @@ public Object value() {
   }
 
   @Override
-  public boolean equalsTerm(Term obj, Comparator comparator) {
+  public boolean equalsTerm(Term obj, OpVisitor comparator) {
     if (!(obj.isLong())) return false;
     return longValue() == obj.asLongTerm().longValue();
   }

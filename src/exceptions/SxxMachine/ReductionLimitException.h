@@ -1,7 +1,5 @@
-#ifndef REDUCTIONLIMITEXCEPTION
-#define REDUCTIONLIMITEXCEPTION
+#pragma once
 
-#include "RuntimeException.h"
 #include <stdexcept>
 
 namespace SxxMachine
@@ -22,6 +20,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef REDUCTIONLIMITEXCEPTION

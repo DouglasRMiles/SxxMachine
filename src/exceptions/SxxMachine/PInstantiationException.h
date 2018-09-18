@@ -1,14 +1,16 @@
-#ifndef PINSTANTIATIONEXCEPTION
-#define PINSTANTIATIONEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Operation;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -27,16 +29,16 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>instantiation/2</code>. */
 	public:
-		static SymbolTerm* const  INSTANTIATION_ERROR;
+		static SymbolTerm *const INSTANTIATION_ERROR;
 		/** Constructs a new <code>PInstantiationException</code>. */
 		PInstantiationException();
 		/** Constructs a new <code>PInstantiationException</code>
 		 * with the given arguments. */
-		PInstantiationException(Operation _goal, const int& _argNo);
+		PInstantiationException(Operation _goal, int _argNo);
 		/** Returns a term representation of this <code>PInstantiationException</code>:
 		 * <code>instantiation_error(goal,argNo)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>PInstantiationException</code>. */
 		std::string toString() override;
 		std::string getMessage() override;
@@ -44,6 +46,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef PINSTANTIATIONEXCEPTION

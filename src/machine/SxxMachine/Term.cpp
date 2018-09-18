@@ -8,6 +8,7 @@ using namespace std;
 #include "SymbolTerm.h"
 #include "../../handcoded/SxxMachine/sxxtensions.h"
 #include "../../exceptions/SxxMachine/PrologException.h"
+#include "OpVisitor.h"
 #include "StructureTerm.h"
 #include "FrozenData.h"
 #include "MapTerm.h"
@@ -15,19 +16,18 @@ using namespace std;
 #include "ClosureTerm.h"
 #include "HashtableOfTerm.h"
 #include "NumberTerm.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 
-	int Term::containsTermImpl(Term* variableTerm, Comparator* comparison)
+	int Term::containsTermImpl(Term *variableTerm, Comparator *comparison)
 	{
 	  return 0;
 	}
 
-	int Term::containsTerm(Term* variableTerm, Comparator* comparison)
+	int Term::containsTerm(Term *variableTerm, Comparator *comparison)
 	{
-		if(loopContainsTerm > 0)
+		if (loopContainsTerm > 0)
 		{
 		  return loopContainsTerm;
 		}
@@ -35,7 +35,9 @@ namespace SxxMachine
 		{
 		  loopContainsTerm++;
 		  return containsTermImpl(variableTerm, comparison);
-		} finally
+		}
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+		finally
 		{
 		  loopContainsTerm--;
 		}
@@ -48,7 +50,7 @@ namespace SxxMachine
 
 	int Term::termHashCode()
 	{
-	   if(loopedHashCodeTerm > 0)
+	   if (loopedHashCodeTerm > 0)
 	   {
 		   return 1;
 	   }
@@ -56,24 +58,27 @@ namespace SxxMachine
 	   {
 		 loopedHashCodeTerm++;
 		 return termHashCodeImpl();
-	   } catch(const runtime_error& e)
+	   }
+	   catch (const runtime_error &e)
 	   {
 		 e.printStackTrace();
 		 return System::identityHashCode(this);
-	   } finally
+	   }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	   finally
 	   {
 		 loopedHashCodeTerm--;
 	   }
 	}
 
-	bool Term::unify(Term* t, Trail* trail)
+	bool Term::unify(Term *t, Trail *trail)
 	{
-	  Term* dref = drefAttrs();
-	  if(dref != this)
+	  Term *dref = drefAttrs();
+	  if (dref != this)
 	  {
 		return dref->unify(t, trail);
 	  }
-	  if(loopedUnifyTerm > 0)
+	  if (loopedUnifyTerm > 0)
 	  {
 		  return true;
 	  }
@@ -81,11 +86,14 @@ namespace SxxMachine
 	  {
 		loopedUnifyTerm++;
 		return unifyImpl(t, trail);
-	  } catch(const runtime_error& e)
+	  }
+	  catch (const runtime_error &e)
 	  {
 		e.printStackTrace();
 		return false;
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
 		loopedUnifyTerm--;
 	  }
@@ -161,22 +169,22 @@ namespace SxxMachine
 		throw out_of_range(666);
 	}
 
-	Term* Term::arg0(const int& nth)
+	Term *Term::arg0(int nth)
 	{
 		throw out_of_range(nth);
 	}
 
-	Term* Term::nth0(const int& nth)
+	Term *Term::nth0(int nth)
 	{
 		throw out_of_range(nth);
 	}
 
-	Term* Term::car()
+	Term *Term::car()
 	{
 		throw out_of_range(-1);
 	}
 
-	Term* Term::cdr()
+	Term *Term::cdr()
 	{
 		throw out_of_range(-2);
 	}
@@ -186,12 +194,12 @@ namespace SxxMachine
 		throw out_of_range(-3);
 	}
 
-	ListTerm* Term::add(Term* t)
+	ListTerm *Term::add(Term *t)
 	{
 		throw out_of_range(-5);
 	}
 
-	ListTerm* Term::append(Term* t)
+	ListTerm *Term::append(Term *t)
 	{
 		throw out_of_range(-5);
 	}
@@ -201,34 +209,35 @@ namespace SxxMachine
 		return convertible(getClass(), type);
 	}
 
-	Term* Term::copyImpl(IdentityHashMap<any, Term*>* copyHash, const int& deeply)
+	Term *Term::copyImpl(IdentityHashMap<any, Term*> *copyHash, int deeply)
 	{
 	  return this;
 	}
 
-	Term* Term::copy(IdentityHashMap<any, Term*>* copyHash, const int& deeply)
+	Term *Term::copy(IdentityHashMap<any, Term*> *copyHash, int deeply)
 	{
-	  Term* copy = copyHash->get(this);
-	  if(copy != nullptr)
+	  Term *copy = copyHash->get(this);
+	  if (copy != nullptr)
 	  {
 		  return copy;
 	  }
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
-		if(drefAttrs->type() == this->type())
+		if (drefAttrs->type() == this->type())
 		{
 		   return drefAttrs->copy(copyHash, deeply);
-		} else
+		}
+		else
 		{
 		  //oopsy();
 		  ///return drefAttrs.copy(copyHash, deeply);
 		}
 	  }
-	  if(loopingCopyTerm == 1)
+	  if (loopingCopyTerm == 1)
 	  {
-		VariableTerm* vt = new VariableTerm(Prolog::M);
-		Term* cp = vt->copyImpl(copyHash, deeply);
+		VariableTerm *vt = new VariableTerm(Prolog::M);
+		Term *cp = vt->copyImpl(copyHash, deeply);
 		//copyHash.put(vt, cp);
 		vt->val = this;
 		copyHash->put(this, cp);
@@ -240,40 +249,43 @@ namespace SxxMachine
 		loopingCopyTerm++;
 		copy = copyImpl(copyHash, deeply);
 		copyHash->put(this, copy);
-		if((deeply&COPY_SAVE_ATTRS_COPY) != 0)
+		if ((deeply&COPY_SAVE_ATTRS_COPY) != 0)
 		{
-		  Term* GoalsKey = SymbolTerm::GOALS;
-		  if(this->isFVar())
+		  Term *GoalsKey = SymbolTerm::GOALS;
+		  if (this->isFVar())
 		  {
-			Term* goals1 = frozenGoals()->copy(copyHash, deeply);
-			Term* sofar = copyHash->get(GoalsKey);
-			Term* newsofar = sxxtensions::appendGoals(sofar,goals1);
+			Term *goals1 = frozenGoals()->copy(copyHash, deeply);
+			Term *sofar = copyHash->get(GoalsKey);
+			Term *newsofar = sxxtensions::appendGoals(sofar,goals1);
 			copyHash->put(GoalsKey, newsofar);
 		  }
-		  if(isAttvar())
+		  if (isAttvar())
 		  {
-			Term* attrs = getAttrs()->copy(copyHash, deeply);
-			Term* goals1 = sxxtensions::get_attribute_goals(copy,attrs);
-			Term* sofar = copyHash->get(GoalsKey);
-			Term* newsofar = sxxtensions::appendGoals(sofar, goals1);
+			Term *attrs = getAttrs()->copy(copyHash, deeply);
+			Term *goals1 = sxxtensions::get_attribute_goals(copy,attrs);
+			Term *sofar = copyHash->get(GoalsKey);
+			Term *newsofar = sxxtensions::appendGoals(sofar, goals1);
 			copyHash->put(GoalsKey, newsofar);
 		  }
-		} else if((deeply & COPY_NO_ATTRS) == 0)
+		}
+	  else if ((deeply & COPY_NO_ATTRS) == 0)
+	  {
+		if (this->isFVar())
 		{
-		if(this->isFVar())
-		{
-		  Term* frozen = frozenGoals();
-		  Term* newfroze = frozen->copy(copyHash, deeply);
+		  Term *frozen = frozenGoals();
+		  Term *newfroze = frozen->copy(copyHash, deeply);
 		  copy->setGoals(newfroze);
 		  assert(copy->isFVar());
 		}
-		if(isAttvar())
+		if (isAttvar())
 		{
 		  copy->setAttrs(getAttrs()->copy(copyHash, deeply));
 		}
 	  }
 		return copy;
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
 		loopingCopyTerm--;
 		// TODO: handle finally clause
@@ -287,7 +299,7 @@ namespace SxxMachine
 	  (runtime_error())->printStackTrace();
 	}
 
-	Term* Term::dref()
+	Term *Term::dref()
 	{
 		return this;
 	}
@@ -304,37 +316,45 @@ namespace SxxMachine
 
 	bool Term::convertible(type_info from, type_info to)
 	{
-	if(from == nullptr)
+	if (from == nullptr)
 	{
 		return !to.isPrimitive();
 	}
-	if(to.isAssignableFrom(from))
+	if (to.isAssignableFrom(from))
 	{
 		return true;
-	} else if(to.isPrimitive())
+	}
+	else if (to.isPrimitive())
 	{
-		if(from.equals(Boolean::typeid))
+		if (from.equals(Boolean::typeid))
 		{
 		return to.equals(Boolean::TYPE);
-		} else if(from.equals(Byte::typeid))
+		}
+		else if (from.equals(Byte::typeid))
 		{
 		return to.equals(Byte::TYPE) || to.equals(Short::TYPE) || to.equals(Integer::TYPE) || to.equals(Long::TYPE) || to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Short::typeid))
+		}
+		else if (from.equals(Short::typeid))
 		{
 		return to.equals(Short::TYPE) || to.equals(Integer::TYPE) || to.equals(Long::TYPE) || to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Character::typeid))
+		}
+		else if (from.equals(Character::typeid))
 		{
 		return to.equals(Character::TYPE) || to.equals(Integer::TYPE) || to.equals(Long::TYPE) || to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Integer::typeid))
+		}
+		else if (from.equals(Integer::typeid))
 		{
 		return to.equals(Integer::TYPE) || to.equals(Long::TYPE) || to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Long::typeid))
+		}
+		else if (from.equals(Long::typeid))
 		{
 		return to.equals(Long::TYPE) || to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Float::typeid))
+		}
+		else if (from.equals(Float::typeid))
 		{
 		return to.equals(Float::TYPE) || to.equals(Double::TYPE);
-		} else if(from.equals(Double::typeid))
+		}
+		else if (from.equals(Double::typeid))
 		{
 		return to.equals(Double::TYPE);
 		}
@@ -344,31 +364,33 @@ namespace SxxMachine
 
 	bool Term::instanceOfTerm(any obj0)
 	{
-		if(!(dynamic_cast<Term*>(obj0) != nullptr))
+		if (!(dynamic_cast<Term*>(obj0) != nullptr))
 		{
 			return false;
 		}
-		Term* obj = any_cast<Term*>(obj0);
+		Term *obj = any_cast<Term*>(obj0);
 	return obj->isVar() || obj->isInteger() || obj->isLong() || obj->isDouble() || obj->isSymbol() || obj->isCons() || obj->isStructure() || obj->isFFIObject() || obj->isClosure();
 	}
 
-	Iterator<Term*>* Term::iterator(const bool& includeSyntax)
+	Iterator<Term*> *Term::iterator(bool includeSyntax)
 	{
 		return Collections::emptyIterator<Term*>();
 	}
 
 	wstring Term::toQuotedString() throw(PrologException)
 	{
-	  if(loopPrintingTerm > 0)
+	  if (loopPrintingTerm > 0)
 	  {
 		return "/*looped " + this->getClass().getName() + "@" + Integer::toHexString(System::identityHashCode(this)) + "*/";
 	  }
-	  StringBuilder* sb = new StringBuilder();
+	  StringBuilder *sb = new StringBuilder();
 	  loopPrintingTerm++;
 	  try
 	  {
 		toStringImpl(1, sb);
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
 		loopPrintingTerm--;
 	  }
@@ -380,14 +402,16 @@ namespace SxxMachine
 	  try
 	  {
 		return toQuotedString();
-	  } catch(const runtime_error& e)
+	  }
+	  catch (const runtime_error &e)
 	  {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		try
 		{
 		  return toAtomName();
-		} catch(const runtime_error& e1)
+		}
+		catch (const runtime_error &e1)
 		{
 		  // TODO Auto-generated catch block
 		  e1.printStackTrace();
@@ -396,9 +420,9 @@ namespace SxxMachine
 	  }
 	}
 
-	void Term::toQuotedString(const int& printFlags, StringBuilder* sb)
+	void Term::toQuotedString(int printFlags, StringBuilder *sb)
 	{
-	  if(loopPrintingTerm > 0)
+	  if (loopPrintingTerm > 0)
 	  {
 		sb->append("/*looped*/");
 		return;
@@ -407,16 +431,18 @@ namespace SxxMachine
 	  try
 	  {
 		toStringImpl(printFlags, sb);
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
 		loopPrintingTerm--;
 	  }
 	}
 
-	void Term::toQuotedString_OLD(const int& printFlags, StringBuilder* sb)
+	void Term::toQuotedString_OLD(int printFlags, StringBuilder *sb)
 	{
-	  TermTreeIterator* it = new TermTreeIterator(this, true);
-	  while(it->hasNext())
+	  TermTreeIterator *it = new TermTreeIterator(this, true);
+	  while (it->hasNext())
 	  {
 		it->next()->toQuotedString(printFlags, sb);
 		  it++;
@@ -425,12 +451,12 @@ namespace SxxMachine
 
 	wstring Term::toAtomName() throw(PrologException)
 	{
-	  StringBuilder* sb = new StringBuilder();
+	  StringBuilder *sb = new StringBuilder();
 	  toStringImpl(0, sb);
 	  return sb->toString();
 	}
 
-	Term::TermTreeIterator::TermTreeIterator(Term* start, const bool& includeSyntax)
+	Term::TermTreeIterator::TermTreeIterator(Term *start, bool includeSyntax)
 	{
 		this->includeSyntax = includeSyntax;
 		this->stack->push(Collections::singleton(start).begin());
@@ -438,30 +464,32 @@ namespace SxxMachine
 
 	bool Term::TermTreeIterator::hasNext()
 	{
-		while(!this->stack->isEmpty() && !this->stack->peek()->hasNext())
+		while (!this->stack->isEmpty() && !this->stack->peek()->hasNext())
 		{
 			this->stack->pop();
 		}
 		return !this->stack->isEmpty();
 	}
 
-	Term* Term::TermTreeIterator::next()
+	Term *Term::TermTreeIterator::next()
 	{
-		while(!this->stack->isEmpty())
+		while (!this->stack->isEmpty())
 		{
 			Iterator<Term*> i = this->stack->peek();
-			if(i->hasNext())
+			if (i->hasNext())
 			{
-				Term* t = i->next();
+				Term *t = i->next();
 				Iterator<Term*> it = t->iterator(includeSyntax);
-				if(it->hasNext())
+				if (it->hasNext())
 				{
 					this->stack->push(it);
-				} else
+				}
+				else
 				{
 					return t;
 				}
-			} else
+			}
+			else
 			{
 				this->stack->pop();
 			}
@@ -469,9 +497,9 @@ namespace SxxMachine
 		throw NoSuchElementException();
 	}
 
-	bool Term::equalsTerm(Term* head)
+	bool Term::equalsTerm(Term *head)
 	{
-	  if(head == this)
+	  if (head == this)
 	  {
 		  return true;
 	  }
@@ -480,7 +508,7 @@ namespace SxxMachine
 
 	bool Term::equals(any obj)
 	{
-		if(dynamic_cast<Term*>(obj) != nullptr)
+		if (dynamic_cast<Term*>(obj) != nullptr)
 		{
 			return equalsTerm(any_cast<Term*>(obj), StrictEquals);
 		}
@@ -497,21 +525,21 @@ namespace SxxMachine
 		return true;
 	}
 
-	bool Term::bind(Term* partial_RenamedTODO, Trail* trail)
+	bool Term::bind(Term *partial_Renamed, Trail *trail)
 	{
-	   if(partial_RenamedTODO == this)
+	   if (partial_Renamed == this)
 	   {
 		   return true;
 	   }
 		throw NoSuchElementException("no bind on genral terms");
 	}
 
-	bool Term::equalsIdentical(Term* t)
+	bool Term::equalsIdentical(Term *t)
 	{
 		return equalsTerm(t, StrictEquals);
 	}
 
-	Term::UndoAttributeReplacement::UndoAttributeReplacement(Term* thiz, Term* wasAttrs) : wasAttrs(wasAttrs), Termthis(thiz)
+	Term::UndoAttributeReplacement::UndoAttributeReplacement(Term *thiz, Term *wasAttrs) : wasAttrs(wasAttrs), Termthis(thiz)
 	{
 	}
 
@@ -520,89 +548,90 @@ namespace SxxMachine
 		this->Termthis->setAttrs(this->wasAttrs);
 	}
 
-	Term* Term::drefAttrs()
+	Term *Term::drefAttrs()
 	{
 	   // TODO Auto-generated method stub
-		 if(fdata != nullptr)
+		 if (fdata != nullptr)
 		 {
 			 return this;
 		 }
-		 Term* attterm = dref();
-		 if(attterm == this)
+		 Term *attterm = dref();
+		 if (attterm == this)
 		 {
 			 return attterm;
 		 }
 		 return attterm->drefAttrs();
 	}
 
-	Term* Term::ArgNoDeRef(const int& i)
+	Term *Term::ArgNoDeRef(int i)
 	{
 		  return this->arg0(i);
 	}
 
-	Term* Term::findOrAttrValue(Trail* trail, const bool& createIfMissing, Term* name)
+	Term *Term::findOrAttrValue(Trail *trail, bool createIfMissing, Term *name)
 	{
-		Term* drefAttrs = this->drefAttrs();
-		if(drefAttrs != this)
+		Term *drefAttrs = this->drefAttrs();
+		if (drefAttrs != this)
 		{
 			return drefAttrs->findOrAttrValue(trail, createIfMissing, name);
 		}
-		if(sxxtensions::isNoGoal(this->getAttrs()))
+		if (sxxtensions::isNoGoal(this->getAttrs()))
 		{
-			if(!createIfMissing)
+			if (!createIfMissing)
 			{
 				return Prolog::Nil;
 			}
-			Term* wasAttrs = this->getAttrs();
-			StructureTerm* newatts = nullptr;
+			Term *wasAttrs = this->getAttrs();
+			StructureTerm *newatts = nullptr;
 			this->setAttrs(Prolog::Nil);
-			newatts = C("att", { name, nullptr, Prolog::Nil });
-			if(trail != nullptr)
+			newatts = C("att", {name, nullptr, Prolog::Nil});
+			if (trail != nullptr)
 			{
 				UndoAttributeReplacement tempVar(this, wasAttrs);
 				trail->push(&tempVar);
 			}
 			return newatts;
-		} else
+		}
+		else
 		{
-			Term* next = this->getAttrs();
+			Term *next = this->getAttrs();
 			do
 			{
-				if(next->arg0(0)->equalsTerm(name, StrictEquals))
+				if (next->arg0(0)->equalsTerm(name, StrictEquals))
 				{
 					return next;
 				}
-				Term* nnext = next->arg0(2);
-				if(nnext->name() != "att")
+				Term *nnext = next->arg0(2);
+				if (nnext->name() != "att")
 				{
 					break;
 				}
 				next = nnext;
-			} while(true);
-			if(!createIfMissing)
+			} while (true);
+			if (!createIfMissing)
 			{
 				return Prolog::Nil;
 			}
-			next->setarg0(trail, 2, C("att", { name, nullptr, Prolog::Nil }));
+			next->setarg0(trail, 2, C("att", {name, nullptr, Prolog::Nil}));
 			return next;
 		}
 	}
 
-	Term* Term::freeze(Trail* trail, Term* newval)
+	Term *Term::freeze(Trail *trail, Term *newval)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->freeze(trail, newval);
 	  }
-		  Term* prev = this->frozenGoals();
-		  Term* newgoals = sxxtensions::appendGoals(newval, prev);
+		  Term *prev = this->frozenGoals();
+		  Term *newgoals = sxxtensions::appendGoals(newval, prev);
 		  UndoableAnonymousInnerClass tempVar(this, prev);
 		  trail->push(&tempVar);
 		  return this->setGoals(newgoals);
 	}
 
-	Term::UndoableAnonymousInnerClass::UndoableAnonymousInnerClass(Term* outerInstance, SxxMachine::Term* prev)
+	Term::UndoableAnonymousInnerClass::UndoableAnonymousInnerClass(Term *outerInstance, SxxMachine::Term *prev)
 	{
 		this->outerInstance = outerInstance;
 		this->prev = prev;
@@ -613,10 +642,10 @@ namespace SxxMachine
 		outerInstance->setGoals(prev);
 	}
 
-	Term* Term::frozenGoals()
+	Term *Term::frozenGoals()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->frozenGoals();
 	  }
@@ -625,12 +654,12 @@ namespace SxxMachine
 
 	bool Term::isAttvar()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->isAttvar();
 	  }
-	  if(fdata == nullptr)
+	  if (fdata == nullptr)
 	  {
 		  return false;
 	  }
@@ -639,12 +668,12 @@ namespace SxxMachine
 
 	bool Term::isFrozen()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->isFrozen();
 	  }
-	  if(fdata == nullptr)
+	  if (fdata == nullptr)
 	  {
 		  return false;
 	  }
@@ -663,8 +692,8 @@ namespace SxxMachine
 
 	long long Term::longValue()
 	{
-		Term* deref = this->drefAttrs();
-		if(deref != this)
+		Term *deref = this->drefAttrs();
+		if (deref != this)
 		{
 			return deref->longValue();
 		}
@@ -672,54 +701,55 @@ namespace SxxMachine
 		return -1;
 	}
 
-	Term* Term::nullIs(Term* attrs2, Term* valeu)
+	Term *Term::nullIs(Term *attrs2, Term *valeu)
 	{
 		return attrs2 == nullptr ? valeu : attrs2;
 	}
 
-	void Term::putAttrValue(Trail* trail, Term* name, Term* val)
+	void Term::putAttrValue(Trail *trail, Term *name, Term *val)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		putAttrValue(trail, name, val);
 		return;
 	  }
 
-		Term* wasAttrs = this->getAttrs();
-		if(wasAttrs == nullptr || wasAttrs == Prolog::Nil)
+		Term *wasAttrs = this->getAttrs();
+		if (wasAttrs == nullptr || wasAttrs == Prolog::Nil)
 		{
-			Term* newatts = nullptr;
-			newatts = C("att", { name, val, Prolog::Nil });
-			if(trail != nullptr)
+			Term *newatts = nullptr;
+			newatts = C("att", {name, val, Prolog::Nil});
+			if (trail != nullptr)
 			{
 				UndoableAnonymousInnerClass2 tempVar(this, wasAttrs);
 				trail->push(&tempVar);
 			}
 			this->setAttrs(newatts);
 			return;
-		} else
+		}
+		else
 		{
-			Term* next = wasAttrs;
+			Term *next = wasAttrs;
 			do
 			{
-				if(wasAttrs->arg0(0)->equalsTerm(name, StrictEquals))
+				if (wasAttrs->arg0(0)->equalsTerm(name, StrictEquals))
 				{
 					(wasAttrs)->setarg0(trail, 1, val);
 					return;
 				}
-				Term* nnext = next->arg0(2);
-				if(nnext->name() != "att")
+				Term *nnext = next->arg0(2);
+				if (nnext->name() != "att")
 				{
 					break;
 				}
 				next = nnext;
-			} while(true);
-			next->setarg0(trail, 2, C("att", { name, val, Prolog::Nil }));
+			} while (true);
+			next->setarg0(trail, 2, C("att", {name, val, Prolog::Nil}));
 		}
 	}
 
-	Term::UndoableAnonymousInnerClass2::UndoableAnonymousInnerClass2(Term* outerInstance, SxxMachine::Term* wasAttrs)
+	Term::UndoableAnonymousInnerClass2::UndoableAnonymousInnerClass2(Term *outerInstance, SxxMachine::Term *wasAttrs)
 	{
 		this->outerInstance = outerInstance;
 		this->wasAttrs = wasAttrs;
@@ -730,22 +760,22 @@ namespace SxxMachine
 	  outerInstance->setAttrs(wasAttrs);
 	}
 
-	void Term::setAttrs(Trail* trail, Term* newval)
+	void Term::setAttrs(Trail *trail, Term *newval)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		setAttrs(trail, newval);
 		return;
 	  }
 
-	  Term* prev = nullIs(this->getAttrs(),Prolog::Nil);
+	  Term *prev = nullIs(this->getAttrs(),Prolog::Nil);
 	  UndoableAnonymousInnerClass3 tempVar(this, prev);
 	  trail->push(&tempVar);
 	  this->setAttrs(newval);
 	}
 
-	Term::UndoableAnonymousInnerClass3::UndoableAnonymousInnerClass3(Term* outerInstance, SxxMachine::Term* prev)
+	Term::UndoableAnonymousInnerClass3::UndoableAnonymousInnerClass3(Term *outerInstance, SxxMachine::Term *prev)
 	{
 		this->outerInstance = outerInstance;
 		this->prev = prev;
@@ -756,10 +786,10 @@ namespace SxxMachine
 		outerInstance->setAttrs(prev);
 	}
 
-	void Term::setGoals(Trail* trail, Term* newval)
+	void Term::setGoals(Trail *trail, Term *newval)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  drefAttrs->setGoals(trail, newval);
 	   return;
@@ -770,7 +800,7 @@ namespace SxxMachine
 		this->setGoals(newval);
 	}
 
-	Term::UndoableAnonymousInnerClass4::UndoableAnonymousInnerClass4(Term* outerInstance, SxxMachine::Term* prev)
+	Term::UndoableAnonymousInnerClass4::UndoableAnonymousInnerClass4(Term *outerInstance, SxxMachine::Term *prev)
 	{
 		this->outerInstance = outerInstance;
 		this->prev = prev;
@@ -781,39 +811,39 @@ namespace SxxMachine
 		outerInstance->setGoals(prev);
 	}
 
-	void Term::setarg0(Trail* trail, const int& i0, Term* value)
+	void Term::setarg0(Trail *trail, int i0, Term *value)
 	{
 	  cout << "general SetArg on terms not available" << endl;
 	}
 
-	Term* Term::setGoals(Term* newval)
+	Term *Term::setGoals(Term *newval)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->setGoals(newval);
 	  }
 	return getFdata()->setGoals(newval);
 	}
 
-	Term* Term::getGoals()
+	Term *Term::getGoals()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->getGoals();
 	  }
-	  if(fdata == nullptr)
+	  if (fdata == nullptr)
 	  {
 		  return Prolog::True;
 	  }
 	  return getFdata()->getGoals();
 	}
 
-	void Term::setAttrs(Term* newval)
+	void Term::setAttrs(Term *newval)
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  drefAttrs->setAttrs(newval);
 	  return;
@@ -821,14 +851,14 @@ namespace SxxMachine
 	  getFdata()->setAttrs(newval);
 	}
 
-	Term* Term::getAttrs()
+	Term *Term::getAttrs()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->getAttrs();
 	  }
-	  if(fdata == nullptr)
+	  if (fdata == nullptr)
 	  {
 		  return Prolog::Nil;
 	  }
@@ -837,8 +867,8 @@ namespace SxxMachine
 
 	bool Term::isFVar()
 	{
-	  Term* drefAttrs = this->drefAttrs();
-	  if(drefAttrs != this)
+	  Term *drefAttrs = this->drefAttrs();
+	  if (drefAttrs != this)
 	  {
 		  return drefAttrs->isFVar();
 	  }
@@ -850,24 +880,24 @@ namespace SxxMachine
 	  return static_cast<int>(longValue());
 	}
 
-	bool Term::unifyInt(const int& i, Trail* trail)
+	bool Term::unifyInt(int i, Trail *trail)
 	{
 	  return intValue() == i;
 	}
 
-	SymbolTerm* Term::asSymbolTerm()
+	SymbolTerm *Term::asSymbolTerm()
 	{
 	  return static_cast<SymbolTerm*>(this);
 	}
 
-	Term* Term::getValue()
+	Term *Term::getValue()
 	{
 	  return this;
 	}
 
-	FrozenData* Term::getFdata()
+	FrozenData *Term::getFdata()
 	{
-	  if(fdata == nullptr)
+	  if (fdata == nullptr)
 	  {
 		  fdata = new FrozenData();
 	  }
@@ -884,14 +914,14 @@ namespace SxxMachine
 	  return longValue();
 	}
 
-	Term* Term::functor()
+	Term *Term::functor()
 	{
 	  // TODO Auto-generated method stub
 	  cout << "general functor on terms not available" << endl;
 	  return nullptr;
 	}
 
-	MapTerm* Term::join(Term* term)
+	MapTerm *Term::join(Term *term)
 	{
 	  // TODO Auto-generated method stub
 	  return nullptr;
@@ -903,14 +933,14 @@ namespace SxxMachine
 	  return false;
 	}
 
-	bool Term::pbind(Term* variableTerm, Trail* trail)
+	bool Term::pbind(Term *variableTerm, Trail *trail)
 	{
 	  // TODO Auto-generated method stub
 	  oopsy();
 	  return false;
 	}
 
-	void Term::toString(StringBuilder* sb)
+	void Term::toString(StringBuilder *sb)
 	{
 		 toStringImpl(1, sb);
 	}
@@ -926,60 +956,60 @@ namespace SxxMachine
 		return object().type();
 	}
 
-	StructureTerm* Term::asStructureTerm()
+	StructureTerm *Term::asStructureTerm()
 	{
 		// TODO Auto-generated method stub
 		return static_cast<StructureTerm*>(this);
 	}
 
-	void Term::setArg(const int& i, Term* value)
+	void Term::setArg(int i, Term *value)
 	{
 	 setarg0(nullptr, i, value);
 	}
 
-	ListTerm* Term::asListTerm()
+	ListTerm *Term::asListTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<ListTerm*>(object());
 	}
 
-	LongTerm* Term::asIntegerTerm()
+	LongTerm *Term::asIntegerTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<LongTerm*>(object());
 	}
 
-	ClosureTerm* Term::asClosureTerm()
+	ClosureTerm *Term::asClosureTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<ClosureTerm*>(object());
 	}
 
-	VariableTerm* Term::asVariableTerm()
+	VariableTerm *Term::asVariableTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<VariableTerm*>(object());
 	}
 
-	LongTerm* Term::asLongTerm()
+	LongTerm *Term::asLongTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<LongTerm*>(object());
 	}
 
-	HashtableOfTerm* Term::asHashtableOfTerm()
+	HashtableOfTerm *Term::asHashtableOfTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<HashtableOfTerm*>(object());
 	}
 
-	NumberTerm* Term::asNumberTerm()
+	NumberTerm *Term::asNumberTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<NumberTerm*>(object());
 	}
 
-	MapTerm* Term::asMapTerm()
+	MapTerm *Term::asMapTerm()
 	{
 		// TODO Auto-generated method stub
 		return any_cast<MapTerm*>(object());

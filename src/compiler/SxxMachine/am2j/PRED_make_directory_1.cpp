@@ -11,47 +11,51 @@ using namespace std;
 #include "../../../exceptions/SxxMachine/IllegalDomainException.h"
 #include "../../../exceptions/SxxMachine/PermissionException.h"
 
-namespace SxxMachine::am2j
+namespace SxxMachine
 {
-	using IllegalDomainException = SxxMachine::IllegalDomainException;
-	using Operation = SxxMachine::Operation;
-	using PInstantiationException = SxxMachine::PInstantiationException;
-	using PermissionException = SxxMachine::PermissionException;
-	using Predicate = SxxMachine::Predicate;
-	using Prolog = SxxMachine::Prolog;
-	using PrologException = SxxMachine::PrologException;
-	using SymbolTerm = SxxMachine::SymbolTerm;
-	using Term = SxxMachine::Term;
-	using VariableTerm = SxxMachine::VariableTerm;
-
-	PRED_make_directory_1::PRED_make_directory_1(Term* a1, Operation next)
+	namespace am2j
 	{
-	  LARG[0] = a1;
-	  cont = next;
-	}
+		using IllegalDomainException = SxxMachine::IllegalDomainException;
+		using Operation = SxxMachine::Operation;
+		using PInstantiationException = SxxMachine::PInstantiationException;
+		using PermissionException = SxxMachine::PermissionException;
+		using Predicate = SxxMachine::Predicate;
+		using Prolog = SxxMachine::Prolog;
+		using PrologException = SxxMachine::PrologException;
+		using SymbolTerm = SxxMachine::SymbolTerm;
+		using Term = SxxMachine::Term;
+		using VariableTerm = SxxMachine::VariableTerm;
 
-	Operation PRED_make_directory_1::exec(Prolog* engine) throw(PrologException)
-	{
-	  engine->requireFeature(Prolog::Feature::IO, this, LARG[0]);
-	  engine->setB0();
+		PRED_make_directory_1::PRED_make_directory_1(Term *a1, Operation next)
+		{
+		  LARG[0] = a1;
+		  cont = next;
+		}
 
-	  Term* a1 = LARG[0]->dref();
-	  if(dynamic_cast<VariableTerm*>(a1) != nullptr)
-	  {
-		  throw PInstantiationException(this, 1);
-	  }
-	  if(!(dynamic_cast<SymbolTerm*>(a1) != nullptr))
-	  {
-		  throw IllegalDomainException(this, 1, "dir", a1);
-	  }
+		Operation PRED_make_directory_1::exec(Prolog *engine) throw(PrologException)
+		{
+		  engine->requireFeature(Prolog::Feature::IO, this, LARG[0]);
+		  engine->setB0();
 
-	  File* file = new File(a1->asSymbolTerm()->name());
-	  if(file->mkdir())
-	  {
-		return cont;
-	  } else
-	  {
-		throw PermissionException(this, "open", "dir", a1, "cannot create");
-	  }
+		  Term *a1 = LARG[0]->dref();
+		  if (dynamic_cast<VariableTerm*>(a1) != nullptr)
+		  {
+			  throw PInstantiationException(this, 1);
+		  }
+		  if (!(dynamic_cast<SymbolTerm*>(a1) != nullptr))
+		  {
+			  throw IllegalDomainException(this, 1, "dir", a1);
+		  }
+
+		  File *file = new File(a1->asSymbolTerm()->name());
+		  if (file->mkdir())
+		  {
+			return cont;
+		  }
+		  else
+		  {
+			throw PermissionException(this, "open", "dir", a1, "cannot create");
+		  }
+		}
 	}
 }

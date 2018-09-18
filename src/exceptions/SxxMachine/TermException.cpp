@@ -10,12 +10,12 @@ namespace SxxMachine
 	{
 	}
 
-	TermException::TermException(Term* _message) : PrologException(_message->toAtomName())
+	TermException::TermException(Term *_message) : PrologException(_message->toAtomName())
 	{
 	this->messageTerm = _message;
 	}
 
-	Term* TermException::getMessageTerm()
+	Term *TermException::getMessageTerm()
 	{
 	return this->messageTerm;
 	}

@@ -1,13 +1,15 @@
-#ifndef CHOICEPOINTFRAME
-#define CHOICEPOINTFRAME
+#pragma once
 
 #include "Operation.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Prolog;
+	class Term;
+}
 
 // Copyright 2011 Google Inc. All Rights Reserved.
 namespace SxxMachine
@@ -74,7 +76,7 @@ namespace SxxMachine
 	  Operation ownerPredicate; // used in PrologLogger
 	  int loggerStackTop = 0; // used in PrologLogger
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-	  BiConsumer<ChoicePointFrame*, Prolog*>* restore_RenamedTODO; // method to restore the engine from stack
+	  BiConsumer<ChoicePointFrame*, Prolog*> *restore_Renamed; // method to restore the engine from stack
 	  std::vector<Term*> AREGS;
 	  int arity = -1;
 	  //Term[] aregs;
@@ -84,12 +86,9 @@ namespace SxxMachine
 			delete restore;
 		}
 
-		virtual void restore(Prolog* engine);
+		virtual void restore(Prolog *engine);
 
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef CHOICEPOINTFRAME

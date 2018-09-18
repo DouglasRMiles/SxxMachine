@@ -1,15 +1,17 @@
-#ifndef FILE_SYSTEM
-#define FILE_SYSTEM
+#pragma once
 
 #include "../../machine/SxxMachine/TermData.h"
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Operation;
+	class Prolog;
+}
 
-namespace SxxMachine::library
+namespace SxxMachine
 {
 
 //JAVA TO C++ CONVERTER TODO TASK: The Java 'import static' statement cannot be converted to C++:
@@ -30,56 +32,56 @@ namespace SxxMachine::library
 		from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 		*/
 	private:
-		static SymbolTerm* const  PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1;
+		static SymbolTerm *const PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1;
 	public:
-		static SymbolTerm* const  ATOM_access_level;
-		static SymbolTerm* const  ATOM_system;
-		static SymbolTerm* const  ATOM_user;
+		static SymbolTerm *const ATOM_access_level;
+		static SymbolTerm *const ATOM_system;
+		static SymbolTerm *const ATOM_user;
 
-		static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(Prolog* m);
+		static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(Prolog *m);
 
 	private:
-		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1(Prolog* m);
+		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1(Prolog *m);
 
-		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(Prolog* m);
+		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(Prolog *m);
 
-		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_2(Prolog* m);
+		static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_2(Prolog *m);
 
 		/** PREDICATE: system_mode/1
 		from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 		*/
-		static SymbolTerm* const  PRED_system_mode_1_s1;
+		static SymbolTerm *const PRED_system_mode_1_s1;
 
 	public:
-		static Operation PRED_system_mode_1_static_exec(Prolog* m);
+		static Operation PRED_system_mode_1_static_exec(Prolog *m);
 
 		/** PREDICATE: system_module/0
 		from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 		*/
 	private:
-		static SymbolTerm* const  PRED_system_module_0_s1;
+		static SymbolTerm *const PRED_system_module_0_s1;
 	public:
-		static SymbolTerm* const  ATOM_false;
+		static SymbolTerm *const ATOM_false;
 
-		static Operation PRED_system_module_0_static_exec(Prolog* m);
+		static Operation PRED_system_module_0_static_exec(Prolog *m);
 
 		/** PREDICATE: lock_predicate/1
 		from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 		*/
 	private:
-		static SymbolTerm* const  PRED_lock_predicate_1_s1;
+		static SymbolTerm *const PRED_lock_predicate_1_s1;
 
 	public:
-		static Operation PRED_lock_predicate_1_static_exec(Prolog* m);
+		static Operation PRED_lock_predicate_1_static_exec(Prolog *m);
 
 		/** PREDICATE: unlock_predicate/1
 		from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 		*/
 	private:
-		static SymbolTerm* const  PRED_unlock_predicate_1_s1;
+		static SymbolTerm *const PRED_unlock_predicate_1_s1;
 
 	public:
-		static Operation PRED_unlock_predicate_1_static_exec(Prolog* m);
+		static Operation PRED_unlock_predicate_1_static_exec(Prolog *m);
 
 		private:
 			class StaticConstructor
@@ -97,6 +99,3 @@ namespace SxxMachine::library
 	};
 
 }
-
-
-#endif	//#ifndef FILE_SYSTEM

@@ -33,7 +33,7 @@ namespace SxxMachine
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
 
-	Operation FILE_serialise::PRED_top_0_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_top_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -47,42 +47,42 @@ namespace SxxMachine
 		}, VA(), cont);
 	}
 
-IntegerTerm* const  FILE_serialise::int_65 = optional<int>(65);
-IntegerTerm* const  FILE_serialise::int_66 = optional<int>(66);
-IntegerTerm* const  FILE_serialise::int_76 = optional<int>(76);
-IntegerTerm* const  FILE_serialise::int_69 = optional<int>(69);
-IntegerTerm* const  FILE_serialise::int_32 = optional<int>(32);
-IntegerTerm* const  FILE_serialise::int_87 = optional<int>(87);
-IntegerTerm* const  FILE_serialise::int_83 = optional<int>(83);
-IntegerTerm* const  FILE_serialise::int_73 = optional<int>(73);
-IntegerTerm* const  FILE_serialise::int_82 = optional<int>(82);
-ListTerm* const  FILE_serialise::L_serialise_0_s11 = CONS(int_65, Prolog::Nil);
-ListTerm* const  FILE_serialise::L_serialise_0_s12 = CONS(int_66, L_serialise_0_s11);
-ListTerm* const  FILE_serialise::L_serialise_0_s13 = CONS(int_76, L_serialise_0_s12);
-ListTerm* const  FILE_serialise::L_serialise_0_s14 = CONS(int_69, L_serialise_0_s13);
-ListTerm* const  FILE_serialise::L_serialise_0_s15 = CONS(int_32, L_serialise_0_s14);
-ListTerm* const  FILE_serialise::L_serialise_0_s16 = CONS(int_87, L_serialise_0_s15);
-ListTerm* const  FILE_serialise::L_serialise_0_s17 = CONS(int_65, L_serialise_0_s16);
-ListTerm* const  FILE_serialise::L_serialise_0_s18 = CONS(int_83, L_serialise_0_s17);
-ListTerm* const  FILE_serialise::L_serialise_0_s19 = CONS(int_32, L_serialise_0_s18);
-ListTerm* const  FILE_serialise::L_serialise_0_s20 = CONS(int_73, L_serialise_0_s19);
-ListTerm* const  FILE_serialise::L_serialise_0_s21 = CONS(int_32, L_serialise_0_s20);
-ListTerm* const  FILE_serialise::L_serialise_0_s22 = CONS(int_69, L_serialise_0_s21);
-ListTerm* const  FILE_serialise::L_serialise_0_s23 = CONS(int_82, L_serialise_0_s22);
-ListTerm* const  FILE_serialise::L_serialise_0_s24 = CONS(int_69, L_serialise_0_s23);
-ListTerm* const  FILE_serialise::L_serialise_0_s25 = CONS(int_32, L_serialise_0_s24);
-ListTerm* const  FILE_serialise::L_serialise_0_s26 = CONS(int_73, L_serialise_0_s25);
-ListTerm* const  FILE_serialise::L_serialise_0_s27 = CONS(int_32, L_serialise_0_s26);
-ListTerm* const  FILE_serialise::L_serialise_0_s28 = CONS(int_83, L_serialise_0_s27);
-ListTerm* const  FILE_serialise::L_serialise_0_s29 = CONS(int_65, L_serialise_0_s28);
-ListTerm* const  FILE_serialise::L_serialise_0_s30 = CONS(int_87, L_serialise_0_s29);
-ListTerm* const  FILE_serialise::L_serialise_0_s31 = CONS(int_32, L_serialise_0_s30);
-ListTerm* const  FILE_serialise::L_serialise_0_s32 = CONS(int_69, L_serialise_0_s31);
-ListTerm* const  FILE_serialise::L_serialise_0_s33 = CONS(int_76, L_serialise_0_s32);
-ListTerm* const  FILE_serialise::L_serialise_0_s34 = CONS(int_66, L_serialise_0_s33);
-ListTerm* const  FILE_serialise::L_serialise_0_s35 = CONS(int_65, L_serialise_0_s34);
+IntegerTerm *const FILE_serialise::int_65 = optional<int>(65);
+IntegerTerm *const FILE_serialise::int_66 = optional<int>(66);
+IntegerTerm *const FILE_serialise::int_76 = optional<int>(76);
+IntegerTerm *const FILE_serialise::int_69 = optional<int>(69);
+IntegerTerm *const FILE_serialise::int_32 = optional<int>(32);
+IntegerTerm *const FILE_serialise::int_87 = optional<int>(87);
+IntegerTerm *const FILE_serialise::int_83 = optional<int>(83);
+IntegerTerm *const FILE_serialise::int_73 = optional<int>(73);
+IntegerTerm *const FILE_serialise::int_82 = optional<int>(82);
+ListTerm *const FILE_serialise::L_serialise_0_s11 = CONS(int_65, Prolog::Nil);
+ListTerm *const FILE_serialise::L_serialise_0_s12 = CONS(int_66, L_serialise_0_s11);
+ListTerm *const FILE_serialise::L_serialise_0_s13 = CONS(int_76, L_serialise_0_s12);
+ListTerm *const FILE_serialise::L_serialise_0_s14 = CONS(int_69, L_serialise_0_s13);
+ListTerm *const FILE_serialise::L_serialise_0_s15 = CONS(int_32, L_serialise_0_s14);
+ListTerm *const FILE_serialise::L_serialise_0_s16 = CONS(int_87, L_serialise_0_s15);
+ListTerm *const FILE_serialise::L_serialise_0_s17 = CONS(int_65, L_serialise_0_s16);
+ListTerm *const FILE_serialise::L_serialise_0_s18 = CONS(int_83, L_serialise_0_s17);
+ListTerm *const FILE_serialise::L_serialise_0_s19 = CONS(int_32, L_serialise_0_s18);
+ListTerm *const FILE_serialise::L_serialise_0_s20 = CONS(int_73, L_serialise_0_s19);
+ListTerm *const FILE_serialise::L_serialise_0_s21 = CONS(int_32, L_serialise_0_s20);
+ListTerm *const FILE_serialise::L_serialise_0_s22 = CONS(int_69, L_serialise_0_s21);
+ListTerm *const FILE_serialise::L_serialise_0_s23 = CONS(int_82, L_serialise_0_s22);
+ListTerm *const FILE_serialise::L_serialise_0_s24 = CONS(int_69, L_serialise_0_s23);
+ListTerm *const FILE_serialise::L_serialise_0_s25 = CONS(int_32, L_serialise_0_s24);
+ListTerm *const FILE_serialise::L_serialise_0_s26 = CONS(int_73, L_serialise_0_s25);
+ListTerm *const FILE_serialise::L_serialise_0_s27 = CONS(int_32, L_serialise_0_s26);
+ListTerm *const FILE_serialise::L_serialise_0_s28 = CONS(int_83, L_serialise_0_s27);
+ListTerm *const FILE_serialise::L_serialise_0_s29 = CONS(int_65, L_serialise_0_s28);
+ListTerm *const FILE_serialise::L_serialise_0_s30 = CONS(int_87, L_serialise_0_s29);
+ListTerm *const FILE_serialise::L_serialise_0_s31 = CONS(int_32, L_serialise_0_s30);
+ListTerm *const FILE_serialise::L_serialise_0_s32 = CONS(int_69, L_serialise_0_s31);
+ListTerm *const FILE_serialise::L_serialise_0_s33 = CONS(int_76, L_serialise_0_s32);
+ListTerm *const FILE_serialise::L_serialise_0_s34 = CONS(int_66, L_serialise_0_s33);
+ListTerm *const FILE_serialise::L_serialise_0_s35 = CONS(int_65, L_serialise_0_s34);
 
-	Operation FILE_serialise::PRED_serialise_0_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_serialise_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -93,17 +93,17 @@ ListTerm* const  FILE_serialise::L_serialise_0_s35 = CONS(int_65, L_serialise_0_
 		return Op([&] (e)
 		{
 		PRED_serialise_2_static_exec(e);
-		}, VA({ L_serialise_0_s35, V(m) }), cont);
+		}, VA({L_serialise_0_s35, V(m)}), cont);
 	}
 
-	Operation FILE_serialise::PRED_serialise_2_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_serialise_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// serialise(A,B):-pairlists(A,B,C),arrange(C,D),numbered(D,1,E)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
@@ -113,18 +113,18 @@ ListTerm* const  FILE_serialise::L_serialise_0_s35 = CONS(int_65, L_serialise_0_
 		return Op([&] (e)
 		{
 		PRED_pairlists_3_static_exec(e);
-		}, VA({ a1, a2, a3 }), Op([&] (e)
+		}, VA({a1, a2, a3}), Op([&] (e)
 		{
 		PRED_arrange_2_static_exec(e);
-	}, VA({ a3, a4 }), Op([&] (e)
+	}, VA({a3, a4}), Op([&] (e)
 	{
 		PRED_numbered_3_static_exec(e);
-	}, VA({ a4, int_1, V(m) }), cont)));
+	}, VA({a4, int_1, V(m)}), cont)));
 	}
 
-SymbolTerm* const  FILE_serialise::FUNCTOR_pair_2 = F("pair",2);
+SymbolTerm *const FILE_serialise::FUNCTOR_pair_2 = F("pair",2);
 
-	Operation FILE_serialise::PRED_pairlists_3_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_pairlists_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -133,28 +133,28 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_pair_2 = F("pair",2);
 		return pairlists_3_top(m);
 	}
 
-	Operation FILE_serialise::pairlists_3_top(Prolog* m)
+	Operation FILE_serialise::pairlists_3_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_serialise::pairlists_3_var, Failure::fail_0, Failure::fail_0, FILE_serialise::pairlists_3_2, Failure::fail_0, FILE_serialise::pairlists_3_1);
 	}
 
-	Operation FILE_serialise::pairlists_3_var(Prolog* m)
+	Operation FILE_serialise::pairlists_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_serialise::pairlists_3_var_1);
 		return pairlists_3_1(m);
 	}
 
-	Operation FILE_serialise::pairlists_3_var_1(Prolog* m)
+	Operation FILE_serialise::pairlists_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return pairlists_3_2(m);
 	}
 
-	Operation FILE_serialise::pairlists_3_1(Prolog* m)
+	Operation FILE_serialise::pairlists_3_1(Prolog *m)
 	{
 	// pairlists([A|B],[C|D],[pair(A,C)|E]):-pairlists(B,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -162,52 +162,58 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_pair_2 = F("pair",2);
 		cont = m->cont;
 	// pairlists([A|B],[C|D],[pair(A,C)|E]):-[pairlists(B,D,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a6 = argz[0];
 			a7 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a6 = V(m);
 			a7 = V(m);
 			 a2->bind(CONS(a6, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a8 = argz[0];
 			a9 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a8 = V(m);
 			a9 = V(m);
 			 a3->bind(CONS(a8, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-			if(!a8->unify(C(FUNCTOR_pair_2, { a4, a6 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_pair_2, {a4, a6}), m->trail))
 			{
 				return m->fail();
 			}
@@ -218,35 +224,35 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_pair_2 = F("pair",2);
 		return pairlists_3_top(m);
 	}
 
-	Operation FILE_serialise::pairlists_3_2(Prolog* m)
+	Operation FILE_serialise::pairlists_3_2(Prolog *m)
 	{
 	// pairlists([],[],[]):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// pairlists([],[],[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a2, m->trail))
+		if (!Prolog::Nil->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a3, m->trail))
+		if (!Prolog::Nil->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-SymbolTerm* const  FILE_serialise::FUNCTOR_tree_3 = F("tree",3);
-SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
+SymbolTerm *const FILE_serialise::FUNCTOR_tree_3 = F("tree",3);
+SymbolTerm *const FILE_serialise::ATOM_void = SYM("void");
 
-	Operation FILE_serialise::PRED_arrange_2_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_arrange_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -256,22 +262,22 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return m->switch_on_term(FILE_serialise::arrange_2_var, Failure::fail_0, Failure::fail_0, FILE_serialise::arrange_2_2, Failure::fail_0, FILE_serialise::arrange_2_1);
 	}
 
-	Operation FILE_serialise::arrange_2_var(Prolog* m)
+	Operation FILE_serialise::arrange_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_serialise::arrange_2_var_1);
 		return arrange_2_1(m);
 	}
 
-	Operation FILE_serialise::arrange_2_var_1(Prolog* m)
+	Operation FILE_serialise::arrange_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return arrange_2_2(m);
 	}
 
-	Operation FILE_serialise::arrange_2_1(Prolog* m)
+	Operation FILE_serialise::arrange_2_1(Prolog *m)
 	{
 	// arrange([A|B],tree(C,A,D)):-split(B,A,E,F),arrange(E,C),arrange(F,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -279,24 +285,26 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		cont = m->cont;
 	// arrange([A|B],tree(C,A,D)):-[split(B,A,E,F),arrange(E,C),arrange(F,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
 			a5 = V(m);
 			a6 = V(m);
-			if(!a2->unify(C(FUNCTOR_tree_3, { a5, a3, a6 }), m->trail))
+			if (!a2->unify(C(FUNCTOR_tree_3, {a5, a3, a6}), m->trail))
 			{
 				return m->fail();
 			}
@@ -305,36 +313,36 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return Op([&] (e)
 		{
 		PRED_split_4_static_exec(e);
-		}, VA({ a4, a3, a7, a8 }), Op([&] (e)
+		}, VA({a4, a3, a7, a8}), Op([&] (e)
 		{
 		PRED_arrange_2_static_exec(e);
-	}, VA({ a7, a5 }), Op([&] (e)
+	}, VA({a7, a5}), Op([&] (e)
 	{
 		PRED_arrange_2_static_exec(e);
-	}, VA({ a8, a6 }), cont)));
+	}, VA({a8, a6}), cont)));
 	}
 
-	Operation FILE_serialise::arrange_2_2(Prolog* m)
+	Operation FILE_serialise::arrange_2_2(Prolog *m)
 	{
 	// arrange([],void):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// arrange([],void):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!ATOM_void->unify(a2, m->trail))
+		if (!ATOM_void->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_serialise::PRED_split_4_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_split_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -343,58 +351,58 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return split_4_top(m);
 	}
 
-	Operation FILE_serialise::split_4_top(Prolog* m)
+	Operation FILE_serialise::split_4_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_serialise::split_4_var, Failure::fail_0, Failure::fail_0, FILE_serialise::split_4_4, Failure::fail_0, FILE_serialise::split_4_lis);
 	}
 
-	Operation FILE_serialise::split_4_var(Prolog* m)
+	Operation FILE_serialise::split_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_serialise::split_4_var_1);
 		return split_4_1(m);
 	}
 
-	Operation FILE_serialise::split_4_var_1(Prolog* m)
+	Operation FILE_serialise::split_4_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_serialise::split_4_var_2);
 		return split_4_2(m);
 	}
 
-	Operation FILE_serialise::split_4_var_2(Prolog* m)
+	Operation FILE_serialise::split_4_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_serialise::split_4_var_3);
 		return split_4_3(m);
 	}
 
-	Operation FILE_serialise::split_4_var_3(Prolog* m)
+	Operation FILE_serialise::split_4_var_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return split_4_4(m);
 	}
 
-	Operation FILE_serialise::split_4_lis(Prolog* m)
+	Operation FILE_serialise::split_4_lis(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_serialise::split_4_lis_1);
 		return split_4_1(m);
 	}
 
-	Operation FILE_serialise::split_4_lis_1(Prolog* m)
+	Operation FILE_serialise::split_4_lis_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_serialise::split_4_lis_2);
 		return split_4_2(m);
 	}
 
-	Operation FILE_serialise::split_4_lis_2(Prolog* m)
+	Operation FILE_serialise::split_4_lis_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return split_4_3(m);
 	}
 
-	Operation FILE_serialise::split_4_1(Prolog* m)
+	Operation FILE_serialise::split_4_1(Prolog *m)
 	{
 	// split([A|B],A,C,D):-!,split(B,A,C,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -403,21 +411,23 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		cont = m->cont;
 	// split([A|B],A,C,D):-['$neck_cut',split(B,A,C,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a5->unify(a2, m->trail))
+		if (!a5->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
@@ -432,10 +442,10 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return split_4_top(m);
 	}
 
-	Operation FILE_serialise::split_4_2(Prolog* m)
+	Operation FILE_serialise::split_4_2(Prolog *m)
 	{
 	// split([A|B],C,[A|D],E):-before(A,C),!,split(B,C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -445,40 +455,44 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		cont = m->cont;
 	// split([A|B],C,[A|D],E):-['$get_level'(F),before(A,C),'$cut'(F),split(B,C,D,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a7 = V(m);
 			 a3->bind(CONS(a5, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = V(m);
 		//START inline expansion of $get_level(a(8))
-		if(!a8->unifyInt(m->B0, m->trail))
+		if (!a8->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -486,19 +500,19 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return Op([&] (e)
 		{
 		PRED_before_2_static_exec(e);
-		}, VA({ a5, a2 }), Op([&] (e)
+		}, VA({a5, a2}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a8 }), Op([&] (e)
+	}, VA({a8}), Op([&] (e)
 	{
 		PRED_split_4_static_exec(e);
-	}, VA({ a6, a2, a7, a4 }), cont)));
+	}, VA({a6, a2, a7, a4}), cont)));
 	}
 
-	Operation FILE_serialise::split_4_3(Prolog* m)
+	Operation FILE_serialise::split_4_3(Prolog *m)
 	{
 	// split([A|B],C,D,[A|E]):-before(C,A),!,split(B,C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -508,40 +522,44 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		cont = m->cont;
 	// split([A|B],C,D,[A|E]):-['$get_level'(F),before(C,A),'$cut'(F),split(B,C,D,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a7 = V(m);
 			 a4->bind(CONS(a5, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = V(m);
 		//START inline expansion of $get_level(a(8))
-		if(!a8->unifyInt(m->B0, m->trail))
+		if (!a8->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -549,19 +567,19 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return Op([&] (e)
 		{
 		PRED_before_2_static_exec(e);
-		}, VA({ a2, a5 }), Op([&] (e)
+		}, VA({a2, a5}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a8 }), Op([&] (e)
+	}, VA({a8}), Op([&] (e)
 	{
 		PRED_split_4_static_exec(e);
-	}, VA({ a6, a2, a3, a7 }), cont)));
+	}, VA({a6, a2, a3, a7}), cont)));
 	}
 
-	Operation FILE_serialise::split_4_4(Prolog* m)
+	Operation FILE_serialise::split_4_4(Prolog *m)
 	{
 	// split([],A,[],[]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -569,46 +587,46 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// split([],A,[],[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a3, m->trail))
+		if (!Prolog::Nil->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a4, m->trail))
+		if (!Prolog::Nil->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_serialise::PRED_before_2_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_before_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// before(pair(A,B),pair(C,D)):-A<C
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		a1 = LARG[0];
 		a2 = LARG[1];
 	// before(pair(A,B),pair(C,D)):-['$less_than'(A,C)]
 		a1 = a1->dref();
 			a3 = V(m);
-			if(!a1->unify(C(FUNCTOR_pair_2, { a3, V(m) }), m->trail))
+			if (!a1->unify(C(FUNCTOR_pair_2, {a3, V(m)}), m->trail))
 			{
 				return m->fail();
 			}
 		a2 = a2->dref();
 			a4 = V(m);
-			if(!a2->unify(C(FUNCTOR_pair_2, { a4, V(m) }), m->trail))
+			if (!a2->unify(C(FUNCTOR_pair_2, {a4, V(m)}), m->trail))
 			{
 				return m->fail();
 			}
 		//START inline expansion of $less_than(a(3),a(4))
-		if(Arithmetic::evaluate(a3)->arithCompareTo(Arithmetic::evaluate(a4)) >= 0)
+		if (Arithmetic::evaluate(a3)->arithCompareTo(Arithmetic::evaluate(a4)) >= 0)
 		{
 			return m->fail();
 		}
@@ -616,9 +634,9 @@ SymbolTerm* const  FILE_serialise::ATOM_void = SYM("void");
 		return cont;
 	}
 
-SymbolTerm* const  FILE_serialise::FUNCTOR_$002B_2 = F("+",2);
+SymbolTerm *const FILE_serialise::FUNCTOR_$002B_2 = F("+",2);
 
-	Operation FILE_serialise::PRED_numbered_3_static_exec(Prolog* m)
+	Operation FILE_serialise::PRED_numbered_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -627,28 +645,28 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_$002B_2 = F("+",2);
 		return numbered_3_top(m);
 	}
 
-	Operation FILE_serialise::numbered_3_top(Prolog* m)
+	Operation FILE_serialise::numbered_3_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_serialise::numbered_3_var, Failure::fail_0, Failure::fail_0, FILE_serialise::numbered_3_2, FILE_serialise::numbered_3_1, Failure::fail_0);
 	}
 
-	Operation FILE_serialise::numbered_3_var(Prolog* m)
+	Operation FILE_serialise::numbered_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_serialise::numbered_3_var_1);
 		return numbered_3_1(m);
 	}
 
-	Operation FILE_serialise::numbered_3_var_1(Prolog* m)
+	Operation FILE_serialise::numbered_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return numbered_3_2(m);
 	}
 
-	Operation FILE_serialise::numbered_3_1(Prolog* m)
+	Operation FILE_serialise::numbered_3_1(Prolog *m)
 	{
 	// numbered(tree(A,pair(B,C),D),E,F):-numbered(A,E,C),G is C+1,numbered(D,G,F)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -660,24 +678,24 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_$002B_2 = F("+",2);
 			a4 = V(m);
 			a5 = V(m);
 			a6 = V(m);
-			if(!a1->unify(C(FUNCTOR_tree_3, { a4, a5, a6 }), m->trail))
+			if (!a1->unify(C(FUNCTOR_tree_3, {a4, a5, a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a5 = a5->dref();
 			a7 = V(m);
-			if(!a5->unify(C(FUNCTOR_pair_2, V(m), a7), m->trail))
+			if (!a5->unify(C(FUNCTOR_pair_2, V(m), a7), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = V(m);
 	// put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(9))
-		a9 = S(FUNCTOR_$002B_2, { a7, int_1 });
+		a9 = S(FUNCTOR_$002B_2, {a7, int_1});
 		 ;
-		p2 = Op(FILE_builtins::PRED_is_2_static_exec, VA({ a8, a9 }), Op([&] (e)
+		p2 = Op(FILE_builtins::PRED_is_2_static_exec, VA({a8, a9}), Op([&] (e)
 		{
 		PRED_numbered_3_static_exec(e);
-		}, VA({ a6, a8, a3 }), cont));
+		}, VA({a6, a8, a3}), cont));
 		m->AREGS[0] = a4;
 		m->AREGS[1] = a2;
 		m->AREGS[2] = a7;
@@ -685,21 +703,21 @@ SymbolTerm* const  FILE_serialise::FUNCTOR_$002B_2 = F("+",2);
 		return numbered_3_top(m);
 	}
 
-	Operation FILE_serialise::numbered_3_2(Prolog* m)
+	Operation FILE_serialise::numbered_3_2(Prolog *m)
 	{
 	// numbered(void,A,A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// numbered(void,A,A):-[]
-		if(!ATOM_void->unify(a1, m->trail))
+		if (!ATOM_void->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}

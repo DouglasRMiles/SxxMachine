@@ -1,12 +1,8 @@
-#ifndef CONSTBUILTIN
-#define CONSTBUILTIN
+#pragma once
 
 #include "../../../machine/SxxMachine/TermData.h"
 #include "../../main/SxxMachine/NameArity.h"
 #include <string>
-
-//JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-class Method;
 
 namespace SxxMachine
 {
@@ -20,12 +16,12 @@ namespace SxxMachine
 	{
 
 	public:
-		void setMethod(Method* b) override;
+		void setMethod(Method *b) override;
 		std::string getKey() override;
 
 		std::string Name;
 
-		ConstBuiltin(const std::string& s);
+		ConstBuiltin(const std::string &s);
 
 		//abstract public int exec(Prog p);
 
@@ -38,6 +34,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef CONSTBUILTIN

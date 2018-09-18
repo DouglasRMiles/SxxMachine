@@ -31,16 +31,16 @@ namespace SxxMachine
 	using PRED_$begin_exception_1 = SxxMachine::bootpreds::PRED_$begin_exception_1;
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
-SymbolTerm* const  FILE_fast_mu::ATOM_m = SYM("m");
-SymbolTerm* const  FILE_fast_mu::ATOM_u = SYM("u");
-SymbolTerm* const  FILE_fast_mu::ATOM_i = SYM("i");
-ListTerm* const  FILE_fast_mu::L_top_0_s5 = CONS(ATOM_u, Prolog::Nil);
-ListTerm* const  FILE_fast_mu::L_top_0_s6 = CONS(ATOM_i, L_top_0_s5);
-ListTerm* const  FILE_fast_mu::L_top_0_s7 = CONS(ATOM_i, L_top_0_s6);
-ListTerm* const  FILE_fast_mu::L_top_0_s8 = CONS(ATOM_u, L_top_0_s7);
-ListTerm* const  FILE_fast_mu::L_top_0_s9 = CONS(ATOM_m, L_top_0_s8);
+SymbolTerm *const FILE_fast_mu::ATOM_m = SYM("m");
+SymbolTerm *const FILE_fast_mu::ATOM_u = SYM("u");
+SymbolTerm *const FILE_fast_mu::ATOM_i = SYM("i");
+ListTerm *const FILE_fast_mu::L_top_0_s5 = CONS(ATOM_u, Prolog::Nil);
+ListTerm *const FILE_fast_mu::L_top_0_s6 = CONS(ATOM_i, L_top_0_s5);
+ListTerm *const FILE_fast_mu::L_top_0_s7 = CONS(ATOM_i, L_top_0_s6);
+ListTerm *const FILE_fast_mu::L_top_0_s8 = CONS(ATOM_u, L_top_0_s7);
+ListTerm *const FILE_fast_mu::L_top_0_s9 = CONS(ATOM_m, L_top_0_s8);
 
-	Operation FILE_fast_mu::PRED_top_0_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_top_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -51,41 +51,41 @@ ListTerm* const  FILE_fast_mu::L_top_0_s9 = CONS(ATOM_m, L_top_0_s8);
 		return Op([&] (e)
 		{
 		PRED_theorem_1_static_exec(e);
-		}, VA({ L_top_0_s9 }), cont);
+		}, VA({L_top_0_s9}), cont);
 	}
 
-SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002D_2 = F("-",2);
-ListTerm* const  FILE_fast_mu::L_theorem_1_s6 = CONS(ATOM_i, Prolog::Nil);
-ListTerm* const  FILE_fast_mu::L_theorem_1_s7 = CONS(ATOM_m, L_theorem_1_s6);
+SymbolTerm *const FILE_fast_mu::FUNCTOR_$002D_2 = F("-",2);
+ListTerm *const FILE_fast_mu::L_theorem_1_s6 = CONS(ATOM_i, Prolog::Nil);
+ListTerm *const FILE_fast_mu::L_theorem_1_s7 = CONS(ATOM_m, L_theorem_1_s6);
 
-	Operation FILE_fast_mu::PRED_theorem_1_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_theorem_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// theorem(A):-length(A,B),C is B-1,derive([m,i],A,1,C,D,0)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation p1, p2;
 		a1 = LARG[0];
 	// theorem(A):-[length(A,B),C is B-1,derive([m,i],A,1,C,D,0)]
 		a2 = V(m);
 		a3 = V(m);
 	// put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
-		a4 = S(FUNCTOR_$002D_2, { a2, int_1 });
+		a4 = S(FUNCTOR_$002D_2, {a2, int_1});
 		 ;
 		return Op([&] (e)
 		{
 		FILE_builtins::PRED_length_2_static_exec(e);
-		}, VA({ a1, a2 }), Op(FILE_builtins::PRED_is_2_static_exec, VA({ a3, a4 }), Op([&] (e)
+		}, VA({a1, a2}), Op(FILE_builtins::PRED_is_2_static_exec, VA({a3, a4}), Op([&] (e)
 		{
 		PRED_derive_6_static_exec(e);
-	}, VA({ L_theorem_1_s7, a1, int_1, a3, V(m), int_0 }), cont)));
+	}, VA({L_theorem_1_s7, a1, int_1, a3, V(m), int_0}), cont)));
 	}
 
-SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
+SymbolTerm *const FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
 
-	Operation FILE_fast_mu::PRED_derive_6_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_derive_6_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -94,23 +94,23 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
 		return derive_6_top(m);
 	}
 
-	Operation FILE_fast_mu::derive_6_top(Prolog* m)
+	Operation FILE_fast_mu::derive_6_top(Prolog *m)
 	{
 		m->setB0();
 		m->jtry6(nullptr, FILE_fast_mu::derive_6_sub_1);
 		return derive_6_1(m);
 	}
 
-	Operation FILE_fast_mu::derive_6_sub_1(Prolog* m)
+	Operation FILE_fast_mu::derive_6_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return derive_6_2(m);
 	}
 
-	Operation FILE_fast_mu::derive_6_1(Prolog* m)
+	Operation FILE_fast_mu::derive_6_1(Prolog *m)
 	{
 	// derive(A,B,C,D,E,F):-derive2(A,B,C,D,1,E,F)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -123,13 +123,13 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
 		return Op([&] (e)
 		{
 		PRED_derive2_7_static_exec(e);
-		}, VA({ a1, a2, a3, a4, int_1, a5, a6 }), cont);
+		}, VA({a1, a2, a3, a4, int_1, a5, a6}), cont);
 	}
 
-	Operation FILE_fast_mu::derive_6_2(Prolog* m)
+	Operation FILE_fast_mu::derive_6_2(Prolog *m)
 	{
 	// derive(A,B,C,D,E,F):-G is F+1,derive(A,B,C,D,E,G)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -141,10 +141,10 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
 	// derive(A,B,C,D,E,F):-[G is F+1,derive(A,B,C,D,E,G)]
 		a7 = V(m);
 	// put_str_args([a(6),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(8))
-		a8 = S(FUNCTOR_$002B_2, { a6, int_1 });
+		a8 = S(FUNCTOR_$002B_2, {a6, int_1});
 		 ;
 		//START inline expansion of a(7)is a(8)
-		if(!a7->unify(Arithmetic::evaluate(a8), m->trail))
+		if (!a7->unify(Arithmetic::evaluate(a8), m->trail))
 		{
 			return m->fail();
 		}
@@ -159,9 +159,9 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002B_2 = F("+",2);
 		return derive_6_top(m);
 	}
 
-SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
+SymbolTerm *const FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 
-	Operation FILE_fast_mu::PRED_derive2_7_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_derive2_7_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -172,16 +172,16 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 		return derive2_7_1(m);
 	}
 
-	Operation FILE_fast_mu::derive2_7_sub_1(Prolog* m)
+	Operation FILE_fast_mu::derive2_7_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return derive2_7_2(m);
 	}
 
-	Operation FILE_fast_mu::derive2_7_1(Prolog* m)
+	Operation FILE_fast_mu::derive2_7_1(Prolog *m)
 	{
 	// derive2(A,A,B,B,C,[],D):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -192,25 +192,25 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 		a7 = m->AREGS[6];
 		cont = m->cont;
 	// derive2(A,A,B,B,C,[],D):-[]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a3->unify(a4, m->trail))
+		if (!a3->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a6, m->trail))
+		if (!Prolog::Nil->unify(a6, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_fast_mu::derive2_7_2(Prolog* m)
+	Operation FILE_fast_mu::derive2_7_2(Prolog *m)
 	{
 	// derive2(A,B,C,D,E,[rule(F,G)|H],I):-lower_bound(C,D,J),I>=J,K is I-1,rule(A,G,C,L,E,M,F),derive2(G,B,L,D,M,H,K)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -223,57 +223,59 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 		cont = m->cont;
 	// derive2(A,B,C,D,E,[rule(F,G)|H],I):-[lower_bound(C,D,J),'$greater_or_equal'(I,J),K is I-1,rule(A,G,C,L,E,M,F),derive2(G,B,L,D,M,H,K)]
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a8 = argz[0];
 			a9 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a8 = V(m);
 			a9 = V(m);
 			 a6->bind(CONS(a8, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
 			a10 = V(m);
 			a11 = V(m);
-			if(!a8->unify(C(FUNCTOR_rule_2, { a10, a11 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_rule_2, {a10, a11}), m->trail))
 			{
 				return m->fail();
 			}
 		a12 = V(m);
 		a13 = V(m);
 	// put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(14))
-		a14 = S(FUNCTOR_$002D_2, { a7, int_1 });
+		a14 = S(FUNCTOR_$002D_2, {a7, int_1});
 		 ;
 		a15 = V(m);
 		a16 = V(m);
 		return Op([&] (e)
 		{
 		PRED_lower_bound_3_static_exec(e);
-		}, VA({ a3, a4, a12 }), Op([&] (e)
+		}, VA({a3, a4, a12}), Op([&] (e)
 		{
 		FILE_builtins::PRED_$greater_or_equal_2_static_exec(e);
-	}, VA({ a7, a12 }), Op(FILE_builtins::PRED_is_2_static_exec, VA({ a13, a14 }), Op([&] (e)
+	}, VA({a7, a12}), Op(FILE_builtins::PRED_is_2_static_exec, VA({a13, a14}), Op([&] (e)
 	{
 		PRED_rule_7_static_exec(e);
-	}, VA({ a1, a11, a3, a15, a5, a16, a10 }), Op([&] (e)
+	}, VA({a1, a11, a3, a15, a5, a16, a10}), Op([&] (e)
 	{
 		PRED_derive2_7_static_exec(e);
-	}, VA({ a11, a2, a15, a4, a16, a9, a13 }), cont)))));
+	}, VA({a11, a2, a15, a4, a16, a9, a13}), cont)))));
 	}
 
-	Operation FILE_fast_mu::PRED_rule_7_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_rule_7_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// rule([m|A],[m|B],C,D,E,F,G):-rule(A,B,C,D,E,F,1,i,G,H,H)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -283,36 +285,40 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 		a7 = LARG[6];
 	// rule([m|A],[m|B],C,D,E,F,G):-[rule(A,B,C,D,E,F,1,i,G,H,H)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
-			if(!ATOM_m->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
+			if (!ATOM_m->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a8 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a8 = V(m);
 			 a1->bind(CONS(ATOM_m, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!ATOM_m->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!ATOM_m->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a9 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a9 = V(m);
 			 a2->bind(CONS(ATOM_m, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -320,14 +326,14 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_rule_2 = F("rule",2);
 		return Op([&] (e)
 		{
 		PRED_rule_11_static_exec(e);
-		}, VA({ a8, a9, a3, a4, a5, a6, int_1, ATOM_i, a7, a10, a10 }), cont);
+		}, VA({a8, a9, a3, a4, a5, a6, int_1, ATOM_i, a7, a10, a10}), cont);
 	}
 
-ListTerm* const  FILE_fast_mu::L_rule_11_s3 = CONS(ATOM_i, Prolog::Nil);
-ListTerm* const  FILE_fast_mu::L_rule_11_s5 = CONS(ATOM_u, Prolog::Nil);
-ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
+ListTerm *const FILE_fast_mu::L_rule_11_s3 = CONS(ATOM_i, Prolog::Nil);
+ListTerm *const FILE_fast_mu::L_rule_11_s5 = CONS(ATOM_u, Prolog::Nil);
+ListTerm *const FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 
-	Operation FILE_fast_mu::PRED_rule_11_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_rule_11_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -336,70 +342,70 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return rule_11_top(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_top(Prolog* m)
+	Operation FILE_fast_mu::rule_11_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_fast_mu::rule_11_var, Failure::fail_0, Failure::fail_0, FILE_fast_mu::rule_11_2, Failure::fail_0, FILE_fast_mu::rule_11_lis);
 	}
 
-	Operation FILE_fast_mu::rule_11_var(Prolog* m)
+	Operation FILE_fast_mu::rule_11_var(Prolog *m)
 	{
 		m->jtry(11, nullptr, FILE_fast_mu::rule_11_var_1);
 		return rule_11_1(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_var_1(Prolog* m)
+	Operation FILE_fast_mu::rule_11_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::rule_11_var_2);
 		return rule_11_2(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_var_2(Prolog* m)
+	Operation FILE_fast_mu::rule_11_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::rule_11_var_3);
 		return rule_11_3(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_var_3(Prolog* m)
+	Operation FILE_fast_mu::rule_11_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::rule_11_var_4);
 		return rule_11_4(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_var_4(Prolog* m)
+	Operation FILE_fast_mu::rule_11_var_4(Prolog *m)
 	{
 		m->trust(nullptr);
 		return rule_11_5(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_lis(Prolog* m)
+	Operation FILE_fast_mu::rule_11_lis(Prolog *m)
 	{
 		m->jtry(11, nullptr, FILE_fast_mu::rule_11_lis_1);
 		return rule_11_1(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_lis_1(Prolog* m)
+	Operation FILE_fast_mu::rule_11_lis_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::rule_11_lis_2);
 		return rule_11_3(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_lis_2(Prolog* m)
+	Operation FILE_fast_mu::rule_11_lis_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::rule_11_lis_3);
 		return rule_11_4(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_lis_3(Prolog* m)
+	Operation FILE_fast_mu::rule_11_lis_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return rule_11_5(m);
 	}
 
-	Operation FILE_fast_mu::rule_11_1(Prolog* m)
+	Operation FILE_fast_mu::rule_11_1(Prolog *m)
 	{
 	// rule([i],[i,u],A,B,C,D,E,F,1,G,H):-E>=C,D is E-2,B is A+1
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -414,38 +420,38 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		a11 = m->AREGS[10];
 		cont = m->cont;
 	// rule([i],[i,u],A,B,C,D,E,F,1,G,H):-['$greater_or_equal'(E,C),D is E-2,B is A+1]
-		if(!L_rule_11_s3->unify(a1, m->trail))
+		if (!L_rule_11_s3->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!L_rule_11_s6->unify(a2, m->trail))
+		if (!L_rule_11_s6->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_1->unify(a9, m->trail))
+		if (!int_1->unify(a9, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $greater_or_equal(a(7),a(5))
-		if(Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
+		if (Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(7),@(int_2)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(12))
-		a12 = S(FUNCTOR_$002D_2, { a7, int_2 });
+		a12 = S(FUNCTOR_$002D_2, {a7, int_2});
 		 ;
 		//START inline expansion of a(6)is a(12)
-		if(!a6->unify(Arithmetic::evaluate(a12), m->trail))
+		if (!a6->unify(Arithmetic::evaluate(a12), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(3),@(int_1)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(13))
-		a13 = S(FUNCTOR_$002B_2, { a3, int_1 });
+		a13 = S(FUNCTOR_$002B_2, {a3, int_1});
 		 ;
 		//START inline expansion of a(4)is a(13)
-		if(!a4->unify(Arithmetic::evaluate(a13), m->trail))
+		if (!a4->unify(Arithmetic::evaluate(a13), m->trail))
 		{
 			return m->fail();
 		}
@@ -453,10 +459,10 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::rule_11_2(Prolog* m)
+	Operation FILE_fast_mu::rule_11_2(Prolog *m)
 	{
 	// rule([],A,B,C,D,1,E,F,2,A,[]):-C is B+B
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -471,31 +477,31 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		a11 = m->AREGS[10];
 		cont = m->cont;
 	// rule([],A,B,C,D,1,E,F,2,A,[]):-[C is B+B]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_1->unify(a6, m->trail))
+		if (!int_1->unify(a6, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_2->unify(a9, m->trail))
+		if (!int_2->unify(a9, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a10, m->trail))
+		if (!a2->unify(a10, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a11, m->trail))
+		if (!Prolog::Nil->unify(a11, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(3)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(12))
-		a12 = S(FUNCTOR_$002B_2, { a3, a3 });
+		a12 = S(FUNCTOR_$002B_2, {a3, a3});
 		 ;
 		//START inline expansion of a(4)is a(12)
-		if(!a4->unify(Arithmetic::evaluate(a12), m->trail))
+		if (!a4->unify(Arithmetic::evaluate(a12), m->trail))
 		{
 			return m->fail();
 		}
@@ -503,10 +509,10 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::rule_11_3(Prolog* m)
+	Operation FILE_fast_mu::rule_11_3(Prolog *m)
 	{
 	// rule([i,i,i|A],[u|A],B,C,D,E,F,G,3,H,I):-F>=D,E is F-1,C is B-2
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -522,99 +528,107 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		cont = m->cont;
 	// rule([i,i,i|A],[u|A],B,C,D,E,F,G,3,H,I):-['$greater_or_equal'(F,D),E is F-1,C is B-2]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
-			if(!ATOM_i->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
+			if (!ATOM_i->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a12 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a12 = V(m);
 			 a1->bind(CONS(ATOM_i, a12), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a12 = a12->dref();
-		if(a12->isCons())
+		if (a12->isCons())
 		{
-			std::vector<Term*> argz = VA({ a12->car(), a12->cdr() });
-			if(!ATOM_i->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a12->car(), a12->cdr()});
+			if (!ATOM_i->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a13 = argz[1];
-		} else if(a12->isVar())
+		}
+		else if (a12->isVar())
 		{
 			a13 = V(m);
 			 a12->bind(CONS(ATOM_i, a13), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a13 = a13->dref();
-		if(a13->isCons())
+		if (a13->isCons())
 		{
-			std::vector<Term*> argz = VA({ a13->car(), a13->cdr() });
-			if(!ATOM_i->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a13->car(), a13->cdr()});
+			if (!ATOM_i->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a14 = argz[1];
-		} else if(a13->isVar())
+		}
+		else if (a13->isVar())
 		{
 			a14 = V(m);
 			 a13->bind(CONS(ATOM_i, a14), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!ATOM_u->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!ATOM_u->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a14->unify(argz[1], m->trail))
+			if (!a14->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			 a2->bind(CONS(ATOM_u, a14), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!int_3->unify(a9, m->trail))
+		if (!int_3->unify(a9, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $greater_or_equal(a(7),a(5))
-		if(Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
+		if (Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(15))
-		a15 = S(FUNCTOR_$002D_2, { a7, int_1 });
+		a15 = S(FUNCTOR_$002D_2, {a7, int_1});
 		 ;
 		//START inline expansion of a(6)is a(15)
-		if(!a6->unify(Arithmetic::evaluate(a15), m->trail))
+		if (!a6->unify(Arithmetic::evaluate(a15), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(3),@(int_2)],y(2)),put_str(@('FUNCTOR_$002D_2'),y(2),a(16))
-		a16 = S(FUNCTOR_$002D_2, { a3, int_2 });
+		a16 = S(FUNCTOR_$002D_2, {a3, int_2});
 		 ;
 		//START inline expansion of a(4)is a(16)
-		if(!a4->unify(Arithmetic::evaluate(a16), m->trail))
+		if (!a4->unify(Arithmetic::evaluate(a16), m->trail))
 		{
 			return m->fail();
 		}
@@ -622,10 +636,10 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::rule_11_4(Prolog* m)
+	Operation FILE_fast_mu::rule_11_4(Prolog *m)
 	{
 	// rule([u,u|A],A,B,C,D,E,F,i,4,G,H):-F>=D,E is F-2,C is B-2
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -641,71 +655,75 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		cont = m->cont;
 	// rule([u,u|A],A,B,C,D,E,F,i,4,G,H):-['$greater_or_equal'(F,D),E is F-2,C is B-2]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
-			if(!ATOM_u->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
+			if (!ATOM_u->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a12 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a12 = V(m);
 			 a1->bind(CONS(ATOM_u, a12), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a12 = a12->dref();
-		if(a12->isCons())
+		if (a12->isCons())
 		{
-			std::vector<Term*> argz = VA({ a12->car(), a12->cdr() });
-			if(!ATOM_u->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a12->car(), a12->cdr()});
+			if (!ATOM_u->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a13 = argz[1];
-		} else if(a12->isVar())
+		}
+		else if (a12->isVar())
 		{
 			a13 = V(m);
 			 a12->bind(CONS(ATOM_u, a13), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a13->unify(a2, m->trail))
+		if (!a13->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!ATOM_i->unify(a8, m->trail))
+		if (!ATOM_i->unify(a8, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_4->unify(a9, m->trail))
+		if (!int_4->unify(a9, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $greater_or_equal(a(7),a(5))
-		if(Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
+		if (Arithmetic::evaluate(a7)->arithCompareTo(Arithmetic::evaluate(a5)) < 0)
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(7),@(int_2)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(14))
-		a14 = S(FUNCTOR_$002D_2, { a7, int_2 });
+		a14 = S(FUNCTOR_$002D_2, {a7, int_2});
 		 ;
 		//START inline expansion of a(6)is a(14)
-		if(!a6->unify(Arithmetic::evaluate(a14), m->trail))
+		if (!a6->unify(Arithmetic::evaluate(a14), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(3),@(int_2)],y(2)),put_str(@('FUNCTOR_$002D_2'),y(2),a(15))
-		a15 = S(FUNCTOR_$002D_2, { a3, int_2 });
+		a15 = S(FUNCTOR_$002D_2, {a3, int_2});
 		 ;
 		//START inline expansion of a(4)is a(15)
-		if(!a4->unify(Arithmetic::evaluate(a15), m->trail))
+		if (!a4->unify(Arithmetic::evaluate(a15), m->trail))
 		{
 			return m->fail();
 		}
@@ -713,10 +731,10 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::rule_11_5(Prolog* m)
+	Operation FILE_fast_mu::rule_11_5(Prolog *m)
 	{
 	// rule([A|B],[A|C],D,E,F,G,H,I,J,K,[A|L]):-M is H+1,rule(B,C,D,E,F,G,M,A,J,K,L)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16,* a17;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16, *a17;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -732,60 +750,66 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		cont = m->cont;
 	// rule([A|B],[A|C],D,E,F,G,H,I,J,K,[A|L]):-[M is H+1,rule(B,C,D,E,F,G,M,A,J,K,L)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a12 = argz[0];
 			a13 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a12 = V(m);
 			a13 = V(m);
 			 a1->bind(CONS(a12, a13), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a12->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a12->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a14 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a14 = V(m);
 			 a2->bind(CONS(a12, a14), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
-			if(!a12->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
+			if (!a12->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a15 = argz[1];
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a15 = V(m);
 			 a11->bind(CONS(a12, a15), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a16 = V(m);
 	// put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(17))
-		a17 = S(FUNCTOR_$002B_2, { a7, int_1 });
+		a17 = S(FUNCTOR_$002B_2, {a7, int_1});
 		 ;
 		//START inline expansion of a(16)is a(17)
-		if(!a16->unify(Arithmetic::evaluate(a17), m->trail))
+		if (!a16->unify(Arithmetic::evaluate(a17), m->trail))
 		{
 			return m->fail();
 		}
@@ -805,9 +829,9 @@ ListTerm* const  FILE_fast_mu::L_rule_11_s6 = CONS(ATOM_i, L_rule_11_s5);
 		return rule_11_top(m);
 	}
 
-SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
+SymbolTerm *const FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
 
-	Operation FILE_fast_mu::PRED_lower_bound_3_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_lower_bound_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -818,34 +842,34 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
 		return lower_bound_3_1(m);
 	}
 
-	Operation FILE_fast_mu::lower_bound_3_sub_1(Prolog* m)
+	Operation FILE_fast_mu::lower_bound_3_sub_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_fast_mu::lower_bound_3_sub_2);
 		return lower_bound_3_2(m);
 	}
 
-	Operation FILE_fast_mu::lower_bound_3_sub_2(Prolog* m)
+	Operation FILE_fast_mu::lower_bound_3_sub_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return lower_bound_3_3(m);
 	}
 
-	Operation FILE_fast_mu::lower_bound_3_1(Prolog* m)
+	Operation FILE_fast_mu::lower_bound_3_1(Prolog *m)
 	{
 	// lower_bound(A,B,1):-A<B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// lower_bound(A,B,1):-['$less_than'(A,B)]
-		if(!int_1->unify(a3, m->trail))
+		if (!int_1->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $less_than(a(1),a(2))
-		if(Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) >= 0)
+		if (Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) >= 0)
 		{
 			return m->fail();
 		}
@@ -853,31 +877,31 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::lower_bound_3_2(Prolog* m)
+	Operation FILE_fast_mu::lower_bound_3_2(Prolog *m)
 	{
 	// lower_bound(A,A,2):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// lower_bound(A,A,2):-[]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_2->unify(a3, m->trail))
+		if (!int_2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_fast_mu::lower_bound_3_3(Prolog* m)
+	Operation FILE_fast_mu::lower_bound_3_3(Prolog *m)
 	{
 	// lower_bound(A,B,C):-A>B,D is A-B,E is D/\1,'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -885,27 +909,27 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
 		cont = m->cont;
 	// lower_bound(A,B,C):-['$greater_than'(A,B),D is A-B,E is D/\1,'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)]
 		//START inline expansion of $greater_than(a(1),a(2))
-		if(Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) <= 0)
+		if (Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) <= 0)
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a4 = V(m);
 	// put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(5))
-		a5 = S(FUNCTOR_$002D_2, { a1, a2 });
+		a5 = S(FUNCTOR_$002D_2, {a1, a2});
 		 ;
 		//START inline expansion of a(4)is a(5)
-		if(!a4->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a4->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a6 = V(m);
 	// put_str_args([a(4),@(int_1)],y(2)),put_str(@('FUNCTOR_$002F$005C_2'),y(2),a(7))
-		a7 = S(FUNCTOR_$002F$005C_2, { a4, int_1 });
+		a7 = S(FUNCTOR_$002F$005C_2, {a4, int_1});
 		 ;
 		//START inline expansion of a(6)is a(7)
-		if(!a6->unify(Arithmetic::evaluate(a7), m->trail))
+		if (!a6->unify(Arithmetic::evaluate(a7), m->trail))
 		{
 			return m->fail();
 		}
@@ -913,12 +937,12 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$002F$005C_2 = F("/\\",2);
 		return Op([&] (e)
 		{
 		PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(e);
-		}, VA({ a3, a4, a6 }), cont);
+		}, VA({a3, a4, a6}), cont);
 	}
 
-SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
+SymbolTerm *const FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 
-	Operation FILE_fast_mu::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog* m)
+	Operation FILE_fast_mu::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -929,16 +953,16 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(m);
 	}
 
-	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog* m)
+	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(m);
 	}
 
-	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(Prolog* m)
+	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(Prolog *m)
 	{
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-C=:=0,!,A is B>>1
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -947,20 +971,20 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-['$get_level'(D),E is 0,'$arith_equal'(C,E),'$cut'(D),A is B>>1]
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
-		if(!a4->unifyInt(m->B0, m->trail))
+		if (!a4->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a5 = V(m);
 		//START inline expansion of a(5)is@(int_0)
-		if(!a5->unify(Arithmetic::evaluate(int_0), m->trail))
+		if (!a5->unify(Arithmetic::evaluate(int_0), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $arith_equal(a(3),a(5))
-		if(Arithmetic::evaluate(a3)->arithCompareTo(Arithmetic::evaluate(a5)) != 0)
+		if (Arithmetic::evaluate(a3)->arithCompareTo(Arithmetic::evaluate(a5)) != 0)
 		{
 			return m->fail();
 		}
@@ -970,10 +994,10 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 				  m->cut(a4->intValue());
 		//END inline expansion
 	// put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$003E$003E_2'),y(1),a(6))
-		a6 = S(FUNCTOR_$003E$003E_2, { a2, int_1 });
+		a6 = S(FUNCTOR_$003E$003E_2, {a2, int_1});
 		 ;
 		//START inline expansion of a(1)is a(6)
-		if(!a1->unify(Arithmetic::evaluate(a6), m->trail))
+		if (!a1->unify(Arithmetic::evaluate(a6), m->trail))
 		{
 			return m->fail();
 		}
@@ -981,10 +1005,10 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 		return cont;
 	}
 
-	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(Prolog* m)
+	Operation FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(Prolog *m)
 	{
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-A is (B+1)>>1+1
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -992,16 +1016,16 @@ SymbolTerm* const  FILE_fast_mu::FUNCTOR_$003E$003E_2 = F(">>",2);
 		cont = m->cont;
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-[A is (B+1)>>1+1]
 	// put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
-		a4 = S(FUNCTOR_$002B_2, { a2, int_1 });
+		a4 = S(FUNCTOR_$002B_2, {a2, int_1});
 		 ;
 	// put_str_args([a(4),@(int_1)],y(2)),put_str(@('FUNCTOR_$003E$003E_2'),y(2),a(5))
-		a5 = S(FUNCTOR_$003E$003E_2, { a4, int_1 });
+		a5 = S(FUNCTOR_$003E$003E_2, {a4, int_1});
 		 ;
 	// put_str_args([a(5),@(int_1)],y(3)),put_str(@('FUNCTOR_$002B_2'),y(3),a(6))
-		a6 = S(FUNCTOR_$002B_2, { a5, int_1 });
+		a6 = S(FUNCTOR_$002B_2, {a5, int_1});
 		 ;
 		//START inline expansion of a(1)is a(6)
-		if(!a1->unify(Arithmetic::evaluate(a6), m->trail))
+		if (!a1->unify(Arithmetic::evaluate(a6), m->trail))
 		{
 			return m->fail();
 		}

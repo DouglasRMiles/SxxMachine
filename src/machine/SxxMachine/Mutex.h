@@ -1,5 +1,4 @@
-#ifndef MUTEX
-#define MUTEX
+#pragma once
 
 #include <string>
 
@@ -10,15 +9,12 @@ namespace SxxMachine
 	{
 
 	private:
-		static ConcurrentMap<std::string, Lock*>* const  LOCKS;
+		static ConcurrentMap<std::string, Lock*> *const LOCKS;
 
 	public:
-		static Lock* getInstance();
+		static Lock *getInstance();
 
-		static Lock* getInstance(const std::string& name);
+		static Lock *getInstance(const std::string &name);
 	};
 
 }
-
-
-#endif	//#ifndef MUTEX

@@ -13,50 +13,50 @@ using namespace std;
 namespace SxxMachine
 {
 
-	SymbolTerm* Expect::asConst(Term* i)
+	SymbolTerm *Expect::asConst(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return static_cast<SymbolTerm*>(i->asConst());
 	}
 
-	LongTerm* Expect::asInt(Term* i)
+	LongTerm *Expect::asInt(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return i->asLongTerm();
 	}
 
-	StructureTerm* Expect::asCons(Term* i)
+	StructureTerm *Expect::asCons(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return static_cast<StructureTerm*>(i->asListTerm());
 	}
 
-	StructureTerm* Expect::asStruct(Term* i)
+	StructureTerm *Expect::asStruct(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return static_cast<StructureTerm*>(i->asStructureTerm());
 	}
 
-	StructureTerm* Expect::asConj(Term* i)
+	StructureTerm *Expect::asConj(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return static_cast<StructureTerm*>(i->asStructureTerm());
 	}
 
-	CharReader* Expect::asCharReader(Term* i)
+	CharReader *Expect::asCharReader(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return static_cast<CharReader*>(i->toValue());
 	}
 
-	NumberTerm* Expect::asNum(Term* i)
+	NumberTerm *Expect::asNum(Term *i)
 	{
 		// TODO Auto-generated method stub
 		return i->asNumberTerm();
 	}
 
-	Nonvar* Expect::the(Term* X)
+	Nonvar *Expect::the(Term *X)
 	{
-		return (nullptr == X) ? Prolog::aNo : StructureTerm::S("the", { X });
+		return (nullptr == X) ? Prolog::aNo : StructureTerm::S("the", {X});
 	}
 }

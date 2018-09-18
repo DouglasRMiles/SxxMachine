@@ -1,5 +1,4 @@
-#ifndef IOPEER
-#define IOPEER
+#pragma once
 
 #include "../../main/SxxMachine/Builtins.h"
 #include <string>
@@ -14,11 +13,11 @@ namespace SxxMachine
 	{
 
 	public:
-		virtual void print(const std::string& s) = 0;
+		virtual void print(const std::string &s) = 0;
 
-		virtual void traceln(const std::string& s) = 0;
+		virtual void traceln(const std::string &s) = 0;
 
-		virtual void println(const std::string& s) = 0;
+		virtual void println(const std::string &s) = 0;
 
 		//public abstract boolean addReader(Thread readThread);
 
@@ -28,6 +27,3 @@ namespace SxxMachine
 		virtual void halt() = 0;
 	};
 }
-
-
-#endif	//#ifndef IOPEER

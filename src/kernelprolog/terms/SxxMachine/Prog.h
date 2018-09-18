@@ -1,15 +1,16 @@
-#ifndef PROG
-#define PROG
+#pragma once
 
 #include "Source.h"
-#include "Runnable.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class KPTrail; }
-namespace SxxMachine { class ObjectStack; }
-namespace SxxMachine { class Clause; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class KPTrail;
+	class ObjectStack;
+	class Clause;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -32,31 +33,31 @@ namespace SxxMachine
 			delete parent;
 		}
 
-		Prog* toClone() override;
+		Prog *toClone() override;
 
-		Prog(KPTrail* trail, ObjectStack* orStack, Prog* parent);
+		Prog(KPTrail *trail, ObjectStack *orStack, Prog *parent);
 
 		/**
 		Creates a Prog starting execution with argument "goal" 
 		*/
-		Prog(Clause* goal, Prog* parent);
+		Prog(Clause *goal, Prog *parent);
 
 		// INSTANCE FIELDS
 
 	private:
-		KPTrail* trail;
+		KPTrail *trail;
 
 		/**
 		 * Contains Unfolders that may produce answers.
 		 */
-		ObjectStack* orStack;
+		ObjectStack *orStack;
 
-		Prog* parent;
+		Prog *parent;
 
 	public:
-		KPTrail* getTrail();
+		KPTrail *getTrail();
 
-		Prog* getParent();
+		Prog *getParent();
 
 		// CLASS FIELDS
 
@@ -69,7 +70,7 @@ namespace SxxMachine
 		 * It consists of a chain of "unfolding" steps, possibly
 		 * involving backtracking, which is managed by the OrStack.
 		 */
-		Term* getElement() override;
+		Term *getElement() override;
 
 		void stop() override;
 
@@ -77,17 +78,17 @@ namespace SxxMachine
 		Computes a copy of the first solution X of Goal G.
 		*/
 
-		static Term* firstSolution(Term* X, Term* G);
+		static Term *firstSolution(Term *X, Term *G);
 
 		/**
 		 * creates a new logic engine
 		 */
-		static Prog* new_engine(Term* X, Term* G);
+		static Prog *new_engine(Term *X, Term *G);
 
 		/** asks a logic engine to return a solution
 		 */
 
-		static Term* ask_engine(Prog* p);
+		static Term *ask_engine(Prog *p);
 
 		/** 
 		 * usable for launching on a separate thread
@@ -96,6 +97,3 @@ namespace SxxMachine
 
 	};
 }
-
-
-#endif	//#ifndef PROG

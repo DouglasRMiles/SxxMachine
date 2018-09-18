@@ -1,5 +1,4 @@
-#ifndef VARIABLETERM
-#define VARIABLETERM
+#pragma once
 
 #include "Undoable.h"
 #include "../../kernelprolog/terms/SxxMachine/Var.h"
@@ -12,13 +11,16 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Var; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class KPTrail; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Var;
+	class Trail;
+	class Term;
+	class Prolog;
+	class OpVisitor;
+	class StructureTerm;
+	class KPTrail;
+}
 
 namespace SxxMachine
 {
@@ -49,12 +51,12 @@ namespace SxxMachine
 			delete frozenProxy;
 		}
 
-		Var* toClone() override;
+		Var *toClone() override;
 
   private:
-	  static constexpr Comparator* equalsIdentical = nullptr;
+	  static constexpr Comparator *equalsIdentical = nullptr;
   public:
-	  bool unifyInt(const int& i, Trail* trail) override;
+	  bool unifyInt(int i, Trail *trail) override;
 		/** Holds a term to which this variable is bound. Initial value is <code>this</code> (self-reference). */
 		//private Term val;
 		/** A CPF time stamp when this object is newly constructed. */
@@ -63,9 +65,9 @@ namespace SxxMachine
 	private:
 		std::vector<VariableTerm*> upRef;
 		/** Opposite reference to upRef */
-		VariableTerm* downRef = nullptr;
+		VariableTerm *downRef = nullptr;
 	public:
-		Term* val = this;
+		Term *val = this;
 	private:
 		int isCyclic = 0;
 	public:
@@ -84,7 +86,7 @@ namespace SxxMachine
 		 * @param engine Current Prolog engine.
 		 * @see Prolog#getCPFTimeStamp
 		 */
-		VariableTerm(Prolog* engine);
+		VariableTerm(Prolog *engine);
 		/** Returns a string representation of this object.*/
 		virtual std::string variableName();
 
@@ -103,23 +105,23 @@ namespace SxxMachine
 		 * @see #bind(Term,Trail)
 		 * @see Trail
 		 */
-	  bool unifyImpl(Term* t, Trail* trail) override final;
+	  bool unifyImpl(Term *t, Trail *trail) override final;
 
 
-	  int containsTermImpl(Term* variableTerm, Comparator* comparison) override;
+	  int containsTermImpl(Term *variableTerm, Comparator *comparison) override;
 
   private:
-	  void updateUpRef(Term* value);
+	  void updateUpRef(Term *value);
 
-		void updateUpRefNoOccurs(Term* value);
+		void updateUpRefNoOccurs(Term *value);
 
-		void bindUpRef(VariableTerm* upVariable);
+		void bindUpRef(VariableTerm *upVariable);
 
   public:
-	  VariableTerm* frozenProxy;
-	  Term* freeze(Trail* trail, Term* newval) override;
+	  VariableTerm *frozenProxy;
+	  Term *freeze(Trail *trail, Term *newval) override;
 
-		virtual bool FBind(Term* that, Trail* trail);
+		virtual bool FBind(Term *that, Trail *trail);
 		/** 
 		 * Binds this variable to a given term. 
 		 * And pushs this variable to trail stack if necessary. 
@@ -127,8 +129,8 @@ namespace SxxMachine
 		 * @param trail Trail Stack
 		 * @see Trail
 		 */
-		bool pbind(Term* p, Trail* trail) final override;
-	  bool bind(Term* p, Trail* trail) final override;
+		bool pbind(Term *p, Trail *trail) final override;
+	  bool bind(Term *p, Trail *trail) final override;
 		/** 
 		 * Checks whether this object is convertible with the given Java class type 
 		 * if this variable is unbound.
@@ -145,7 +147,7 @@ namespace SxxMachine
 		 * @see #val
 		 */
 	protected:
-		Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply) override;
+		Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply) override;
 	public:
 		bool isGround() override final;
 		std::string name() override final;
@@ -171,7 +173,7 @@ namespace SxxMachine
 		 * @see #val
 		 * @see #compareTo
 		*/
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 		int termHashCodeImpl() override;
 		/**
 		 * Returns a string representation of this term if unbound.
@@ -180,12 +182,12 @@ namespace SxxMachine
 		 * @see #val
 		 */
 		int loopPrintingVar = 0;
-		void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+		void toStringImpl(int printFlags, StringBuilder *sb) override;
 
 		/**
 		 * If unbound returns empty iterator, otherwise returns the value's iterator.
 		 */
-		Iterator<Term*>* iterator(const bool& skipSyntax) override;
+		Iterator<Term*> *iterator(bool skipSyntax) override;
 		/* Undoable */
 		void undo() override;
 		/* Comparable */
@@ -198,7 +200,7 @@ namespace SxxMachine
 		 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 		bool isImmutable() override final;
 
 		static int nextID;
@@ -207,16 +209,16 @@ namespace SxxMachine
 		std::string varName = "";
 
 
-		VariableTerm(const std::string& sval);
+		VariableTerm(const std::string &sval);
 
-		VariableTerm(Prolog* m, const std::string& sval);
+		VariableTerm(Prolog *m, const std::string &sval);
 
-	  VariableTerm(Prolog* mach, long long currentChoice, StructureTerm* newgoals);
-		VariableTerm(Prolog* mach, long long currentChoice);
+	  VariableTerm(Prolog *mach, long long currentChoice, StructureTerm *newgoals);
+		VariableTerm(Prolog *mach, long long currentChoice);
 
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("cast") @Override public Term dref()
-	  Term* dref() override;
+	  Term *dref() override;
 
 	//  public Term val;
 
@@ -241,19 +243,19 @@ namespace SxxMachine
 	//      return unbound() ? this : val.dref();
 	//  }
 
-	  virtual bool bind(Term* x, KPTrail* trail);
+	  virtual bool bind(Term *x, KPTrail *trail);
 
 	//  public void undo() {
 	//      val = this;
 	//  }
 
-	  bool Unify_TO(Term* that, KPTrail* trail) override;
+	  bool Unify_TO(Term *that, KPTrail *trail) override;
 
-	  virtual bool eq(Term* x);
+	  virtual bool eq(Term *x);
 
 	  std::string getKey() override;
 
-	  Term* reaction(Term* agent) override;
+	  Term *reaction(Term *agent) override;
 
 	//  public String name() {
 	//      return variableName();
@@ -275,11 +277,8 @@ namespace SxxMachine
 	//      return myID;
 	//  }
 
-	  bool equalsTerm(Term* aneof) override;
+	  bool equalsTerm(Term *aneof) override;
 
 	};
 
 }
-
-
-#endif	//#ifndef VARIABLETERM

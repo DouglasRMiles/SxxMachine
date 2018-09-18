@@ -1,5 +1,4 @@
-#ifndef COMPILER
-#define COMPILER
+#pragma once
 
 #include <string>
 #include <vector>
@@ -10,9 +9,11 @@
 #include "tangible_filesystem.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class BufferingPrologControl; }
-namespace SxxMachine { class CompileException; }
-class SecurityException;
+namespace SxxMachine
+{
+	class BufferingPrologControl;
+	class CompileException;
+}
 
 namespace SxxMachine
 {
@@ -118,9 +119,9 @@ private:
 		  const int ordinalValue;
 		  static int nextOrdinal;
 	  public:
-		  SymbolTerm* const  symbol;
+		  SymbolTerm *const symbol;
 		  const bool onByDefault;
-		  Option(const std::string &name, InnerEnum innerEnum, Compiler* outerInstance, const std::string& symbol, const bool& onByDefault);
+		  Option(const std::string &name, InnerEnum innerEnum, Compiler *outerInstance, const std::string &symbol, bool onByDefault);
 
 public:
 			bool operator == (const Option &other);
@@ -137,8 +138,8 @@ public:
 		};
 		/** Prolog context running the compiler/translater tools. */
 	private:
-		BufferingPrologControl* const  pcl;
-		EnumSet<Option>* const  options;
+		BufferingPrologControl *const pcl;
+		EnumSet<Option> *const options;
 		/** Initialize a new compiler instance. */
 	public:
 		virtual ~Compiler()
@@ -155,7 +156,7 @@ public:
 		 * @param _prolog an input Prolog file
 		 * @param _wam an output file for WAM-based intermediate code.
 		*/
-		virtual void prologToWAM(const std::string& _prolog, const std::string& _wam) throw(CompileException);
+		virtual void prologToWAM(const std::string &_prolog, const std::string &_wam) throw(CompileException);
 		/**
 		 * Translates WAM-based intermediate code into Java source.
 		 *
@@ -163,7 +164,7 @@ public:
 		 * @param _dir a destination directory for java files.
 		 * @see #prologToWAM(String, String)
 		*/
-		virtual void wamToJavaSource(const std::string& _wam, const std::string& _dir) throw(CompileException);
+		virtual void wamToJavaSource(const std::string &_wam, const std::string &_dir) throw(CompileException);
 		/**
 		 * Translates a Prolog program into Java source files.
 		 *
@@ -172,23 +173,20 @@ public:
 		 * @see #prologToWAM(String, String)
 		 * @see #wamToJavaSource(String, String)
 		*/
-		virtual void prologToJavaSource(const std::string& prolog, const std::string& dir) throw(CompileException);
-		static void main(std::vector<std::string>& argv) throw(std::runtime_error);
+		virtual void prologToJavaSource(const std::string &prolog, const std::string &dir) throw(CompileException);
+		static void main(std::vector<std::string> &argv) throw(std::runtime_error);
 	private:
-		static Option findOptionByName(const std::string& optname);
+		static Option findOptionByName(const std::string &optname);
 		static void usage();
 		static void banner();
-		static bool fileExists(const std::string& _file);
+		static bool fileExists(const std::string &_file);
 	public:
 		virtual bool isEnabled(Option opt);
 		virtual void enable(Option opt);
 		virtual void disable(Option opt);
-		virtual void setEnabled(Option opt, const bool& on);
+		virtual void setEnabled(Option opt, bool on);
 	private:
 		void enableDefaultOptions();
 	};
 
 }
-
-
-#endif	//#ifndef COMPILER

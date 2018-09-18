@@ -9,9 +9,9 @@ using namespace std;
 namespace SxxMachine
 {
 
-SymbolTerm* const  PermissionException::PERMISSION_ERROR = SymbolTerm::intern("permission_error", 5);
+SymbolTerm *const PermissionException::PERMISSION_ERROR = SymbolTerm::intern("permission_error", 5);
 
-	PermissionException::PermissionException(Operation _goal, const wstring& _operation, const wstring& _permissionType, Term* _culprit, const wstring& _message) : operation(_operation), permissionType(_permissionType), culprit(_culprit), message(_message)
+	PermissionException::PermissionException(Operation _goal, const wstring &_operation, const wstring &_permissionType, Term *_culprit, const wstring &_message) : operation(_operation), permissionType(_permissionType), culprit(_culprit), message(_message)
 	{
 	this->goal = _goal;
 	}
@@ -21,9 +21,9 @@ SymbolTerm* const  PermissionException::PERMISSION_ERROR = SymbolTerm::intern("p
 	return toString();
 	}
 
-	Term* PermissionException::getMessageTerm()
+	Term *PermissionException::getMessageTerm()
 	{
-	std::vector<Term*> args = { TermData::FFIObject(this->goal), SymbolTerm::create(this->operation), SymbolTerm::create(this->permissionType), this->culprit, SymbolTerm::create(this->message) };
+	std::vector<Term*> args = {TermData::FFIObject(this->goal), SymbolTerm::create(this->operation), SymbolTerm::create(this->permissionType), this->culprit, SymbolTerm::create(this->message)};
 	return TermData::createErrorTerm(this, PERMISSION_ERROR, args);
 	}
 

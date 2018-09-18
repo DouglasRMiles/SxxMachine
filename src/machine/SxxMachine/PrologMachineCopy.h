@@ -1,14 +1,16 @@
-#ifndef PROLOGMACHINECOPY
-#define PROLOGMACHINECOPY
+#pragma once
 
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class PrologControl; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologClassLoader; }
-namespace SxxMachine { class HashtableOfTerm; }
-namespace SxxMachine { class InternalDatabase; }
+namespace SxxMachine
+{
+	class PrologControl;
+	class Prolog;
+	class PrologClassLoader;
+	class HashtableOfTerm;
+	class InternalDatabase;
+}
 
 namespace SxxMachine
 {
@@ -41,7 +43,7 @@ namespace SxxMachine
 		  delete internalDB;
 	  }
 
-	  static PrologMachineCopy* save(PrologControl* ctl);
+	  static PrologMachineCopy *save(PrologControl *ctl);
 
 	  /**
 	   * Save the database of a current Prolog interpreter.
@@ -49,19 +51,19 @@ namespace SxxMachine
 	   * @param engine interpreter to copy the database of.
 	   * @return the copy.
 	   */
-	  static PrologMachineCopy* save(Prolog* engine);
+	  static PrologMachineCopy *save(Prolog *engine);
 
-	  static PrologMachineCopy* cloneCheap(Prolog* engine);
+	  static PrologMachineCopy *cloneCheap(Prolog *engine);
 
   protected:
-	  PrologClassLoader* const  pcl;
-	  HashtableOfTerm* const  hashManager;
-	  InternalDatabase* const  internalDB;
+	  PrologClassLoader *const pcl;
+	  HashtableOfTerm *const hashManager;
+	  InternalDatabase *const internalDB;
   private:
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-	  bool noCopy_RenamedTODO = false;
+	  bool noCopy_Renamed = false;
 
-	  PrologMachineCopy(Prolog* engine, const bool& deep);
+	  PrologMachineCopy(Prolog *engine, bool deep);
 
   public:
 	  virtual bool noCopy();
@@ -69,6 +71,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef PROLOGMACHINECOPY

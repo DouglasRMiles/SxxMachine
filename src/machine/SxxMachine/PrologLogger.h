@@ -1,5 +1,4 @@
-#ifndef PROLOGLOGGER
-#define PROLOGLOGGER
+#pragma once
 
 #include <string>
 #include <vector>
@@ -7,10 +6,12 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Predicate; }
-namespace SxxMachine { class ChoicePointFrame; }
-namespace SxxMachine { class Operation; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Predicate;
+	class ChoicePointFrame;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -41,18 +42,15 @@ namespace SxxMachine
 	class PrologLogger
 	{
 	private:
-		Logger* const  logger;
+		Logger *const logger;
 		std::vector<Predicate*> stackFrame;
 		int stackTop = 0;
 		bool normalExecution = true;
-		StringBuilder* const  stringBuilder = new StringBuilder(2048);
+		StringBuilder *const stringBuilder = new StringBuilder(2048);
 		std::vector<char> indent;
   public:
 	  bool loggerEnable = false;
-		virtual Logger* getJLogger();
-		PrologLogger(Logger* logger);
-		void init(ChoicePointFrame* initialChoicePointFrame);
-		void fail(Operation next, ChoicePointFrame* entry);
-
-
-#endif	//#ifndef PROLOGLOGGER
+		virtual Logger *getJLogger();
+		PrologLogger(Logger *logger);
+		void init(ChoicePointFrame *initialChoicePointFrame);
+		void fail(Operation next, ChoicePointFrame *entry);

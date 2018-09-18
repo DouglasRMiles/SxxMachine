@@ -1,14 +1,16 @@
-#ifndef ILLEGALTYPEEXCEPTION
-#define ILLEGALTYPEEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -26,7 +28,7 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>type_error/4</code>. */
 	public:
-		static SymbolTerm* const  TYPE_ERROR;
+		static SymbolTerm *const TYPE_ERROR;
 		/*
 		  type ::= atom | atomic | byte | callable | character | compound | evaluable |
 		           in_byte | in_character | integer | list | number |
@@ -36,7 +38,7 @@ namespace SxxMachine
 		/** Holds a string representation of valid type. */
 		const std::string type;
 		/** Holds the argument or one of its components which caused the error. */
-		Term* const  culprit;
+		Term *const culprit;
 		/** Constructs a new <code>IllegalTypeException</code> 
 		 * with a valid type and its culprit. */
 		virtual ~IllegalTypeException()
@@ -44,14 +46,14 @@ namespace SxxMachine
 			delete culprit;
 		}
 
-		IllegalTypeException(const std::string& _type, Term* _culprit);
+		IllegalTypeException(const std::string &_type, Term *_culprit);
 		/** Constructs a new <code>IllegalTypeException</code> 
 		 * with the given arguments. */
-		IllegalTypeException(Operation _goal, const int& _argNo, const std::string& _type, Term* _culprit);
+		IllegalTypeException(Operation _goal, int _argNo, const std::string &_type, Term *_culprit);
 		/** Returns a term representation of this <code>IllegalTypeException</code>:
 		 * <code>type_error(goal,argNo,type,culprit)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>IllegalTypeException</code>. */
 		std::string toString() override;
 		std::string getMessage() override;
@@ -59,6 +61,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef ILLEGALTYPEEXCEPTION

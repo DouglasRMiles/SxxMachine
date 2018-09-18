@@ -6,8 +6,9 @@ using namespace std;
 
 namespace SxxMachine
 {
+	using namespace std;
 
-	void ChoicePointFrame::restore(Prolog* engine)
+	void ChoicePointFrame::restore(Prolog *engine)
 	{
 	  engine->cont = this->cont;
 	}

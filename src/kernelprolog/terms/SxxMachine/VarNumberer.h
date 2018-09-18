@@ -1,12 +1,14 @@
-#ifndef VARNUMBERER
-#define VARNUMBERER
+#pragma once
 
 #include "../../../machine/SxxMachine/SystemObject.h"
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class HashDict; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class HashDict;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -22,7 +24,7 @@ namespace SxxMachine
 	class VarNumberer : public SystemObject
 	{
 	public:
-		HashDict* dict;
+		HashDict *dict;
 
 		int ctr = 0;
 
@@ -33,11 +35,8 @@ namespace SxxMachine
 
 		VarNumberer();
 
-		Term* action(Term* place) override;
+		Term *action(Term *place) override;
 
 	};
 
 }
-
-
-#endif	//#ifndef VARNUMBERER

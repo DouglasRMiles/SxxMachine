@@ -11,26 +11,26 @@ using namespace std;
 namespace SxxMachine
 {
 
-	SourceMerger::SourceMerger(Nonvar* Xs, Prog* p) : IterableSource(p)
+	SourceMerger::SourceMerger(Nonvar *Xs, Prog *p) : IterableSource(p)
 	{
 		this->Q = new O1Queue(Copier::ConsToVector(Xs));
 	}
 
-	Term* SourceMerger::getElement()
+	Term *SourceMerger::getElement()
 	{
-		if(nullptr == Q)
+		if (nullptr == Q)
 		{
 			return nullptr;
 		}
-		while(!Q->isEmpty())
+		while (!Q->isEmpty())
 		{
-			Source* current = any_cast<Source*>(Q->deq());
-			if(nullptr == current)
+			Source *current = any_cast<Source*>(Q->deq());
+			if (nullptr == current)
 			{
 				continue;
 			}
-			Term* T = current->getElement();
-			if(nullptr == T)
+			Term *T = current->getElement();
+			if (nullptr == T)
 			{
 				continue;
 			}

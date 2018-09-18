@@ -1,5 +1,4 @@
-#ifndef INTERNALDATABASE
-#define INTERNALDATABASE
+#pragma once
 
 #include <vector>
 #include <list>
@@ -8,7 +7,10 @@
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -39,19 +41,19 @@ namespace SxxMachine
 	public:
 		InternalDatabase();
 		/** Constructs a new internal dababase with the given size. */
-		InternalDatabase(const int& n);
+		InternalDatabase(int n);
 
-	   virtual InternalDatabase* copyInternalDatabase(const bool& deepCopy, IdentityHashMap<std::any, Term*>* copyHash);
+	   virtual InternalDatabase *copyInternalDatabase(bool deepCopy, IdentityHashMap<std::any, Term*> *copyHash);
 
 	private:
-		InternalDatabase(InternalDatabase* src, const bool& deepCopy, IdentityHashMap<std::any, Term*>* copyHash);
+		InternalDatabase(InternalDatabase *src, bool deepCopy, IdentityHashMap<std::any, Term*> *copyHash);
 		/** Inserts an entry to this <code>InternalDatabase</code>. */
 	public:
-		virtual int insert(Term* t);
+		virtual int insert(Term *t);
 		/** Returns an entry with the given index from this <code>InternalDatabase</code>. */
-		virtual Term* get(const int& i);
+		virtual Term *get(int i);
 		/** Erases an entry with the given index from this <code>InternalDatabase</code>. */
-		virtual Term* erase(const int& i);
+		virtual Term *erase(int i);
 		/** Tests if this has no entry. */
 	private:
 		bool empty();
@@ -62,6 +64,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef INTERNALDATABASE

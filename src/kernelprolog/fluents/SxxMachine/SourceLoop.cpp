@@ -8,39 +8,40 @@ using namespace std;
 namespace SxxMachine
 {
 
-	SourceLoop::SourceLoop(Source* s, Prog* p) : Source(p)
+	SourceLoop::SourceLoop(Source *s, Prog *p) : Source(p)
 	{
 		this->s = s;
 		this->v = vector();
 		this->i = 0;
 	}
 
-	Term* SourceLoop::getMemoized()
+	Term *SourceLoop::getMemoized()
 	{
-		if(nullptr == v || v.size() <= 0)
+		if (nullptr == v || v.size() <= 0)
 		{
 			return nullptr;
 		}
-		Term* T = static_cast<Term*>(v[i]);
+		Term *T = static_cast<Term*>(v[i]);
 		i = (i + 1) % v.size();
 		return T;
 	}
 
-	Term* SourceLoop::getElement()
+	Term *SourceLoop::getElement()
 	{
-		Term* T = nullptr;
-		if(nullptr != s)
+		Term *T = nullptr;
+		if (nullptr != s)
 		{ // s is alive
 			T = s->getElement();
-			if(nullptr != T)
+			if (nullptr != T)
 			{
 				v.push_back(T);
-			} else
+			}
+			else
 			{
 				s = nullptr;
 			}
 		}
-		if(nullptr == s)
+		if (nullptr == s)
 		{
 			T = getMemoized();
 		}

@@ -1,14 +1,16 @@
-#ifndef EXPECT
-#define EXPECT
+#pragma once
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class LongTerm; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class CharReader; }
-namespace SxxMachine { class NumberTerm; }
-namespace SxxMachine { class Nonvar; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class LongTerm;
+	class StructureTerm;
+	class CharReader;
+	class NumberTerm;
+	class Nonvar;
+}
 
 namespace SxxMachine
 {
@@ -17,25 +19,22 @@ namespace SxxMachine
 	{
 
 	public:
-		static SymbolTerm* asConst(Term* i);
+		static SymbolTerm *asConst(Term *i);
 
-		static LongTerm* asInt(Term* i);
+		static LongTerm *asInt(Term *i);
 
-		static StructureTerm* asCons(Term* i);
+		static StructureTerm *asCons(Term *i);
 
-		static StructureTerm* asStruct(Term* i);
+		static StructureTerm *asStruct(Term *i);
 
-		static StructureTerm* asConj(Term* i);
+		static StructureTerm *asConj(Term *i);
 
-		static CharReader* asCharReader(Term* i);
+		static CharReader *asCharReader(Term *i);
 
-		static NumberTerm* asNum(Term* i);
+		static NumberTerm *asNum(Term *i);
 
-		static Nonvar* the(Term* X);
+		static Nonvar *the(Term *X);
 
 	};
 
 }
-
-
-#endif	//#ifndef EXPECT

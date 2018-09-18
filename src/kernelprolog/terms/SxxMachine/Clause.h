@@ -1,5 +1,4 @@
-#ifndef CLAUSE
-#define CLAUSE
+#pragma once
 
 #include "../../../machine/SxxMachine/StructureTerm.h"
 #include <string>
@@ -8,10 +7,12 @@
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class HashDict; }
-namespace SxxMachine { class KPTrail; }
-class CloneNotSupportedException;
+namespace SxxMachine
+{
+	class Term;
+	class HashDict;
+	class KPTrail;
+}
 
 namespace SxxMachine
 {
@@ -29,33 +30,33 @@ namespace SxxMachine
 			delete dict;
 		}
 
-		Clause(Term* s, std::vector<Term*>& args, HashDict* dict, const bool& ground, const std::string& fname, const int& begins_at, const int& ends_at);
-		Clause* toClone() override;
+		Clause(Term *s, std::vector<Term*> &args, HashDict *dict, bool ground, const std::string &fname, int begins_at, int ends_at);
+		Clause *toClone() override;
 		/**
 		 * Builds a clause given its head and its body
 		 */
-		Clause(Term* head, Term* body);
+		Clause(Term *head, Term *body);
 
 		/**
 		 * Constructs a clause by parsing its string representation. Note the building
 		 * of a dictionary of variables, allowing listing of the clause with its
 		 * original variable names.
 		 */
-		Clause(const std::string& s);
+		Clause(const std::string &s);
 
 		/**
 		 * Extracts a clause from its String representation.
 		 */
 
-		static Clause* clauseFromString(const std::string& s);
+		static Clause *clauseFromString(const std::string &s);
 
 		/**
 		 * Reads a goal as a clause containing a dummy header with all variables in it
 		 */
 
-		virtual Clause* toGoal();
+		virtual Clause *toGoal();
 
-		static Clause* goalFromString(const std::string& line);
+		static Clause *goalFromString(const std::string &line);
 
 		/**
 		 * Detects that a clause is ground (i.e. has no variables)
@@ -65,7 +66,7 @@ namespace SxxMachine
 		/**
 		 * Variable dictionary
 		 */
-		HashDict* dict = nullptr;
+		HashDict *dict = nullptr;
 
 		/**
 		 * Remembers if a clause is ground.
@@ -82,7 +83,7 @@ namespace SxxMachine
 
 		int ends_at = 0;
 
-		virtual void setFile(const std::string& fname, const int& begins_at, const int& ends_at);
+		virtual void setFile(const std::string &fname, int begins_at, int ends_at);
 
 		/**
 		 * Checks if a Clause has been proven ground after beeing read in or created.
@@ -93,7 +94,7 @@ namespace SxxMachine
 		 * Prints out a clause as Head:-Body
 		 */
 	private:
-		std::string Clause2String(Clause* c);
+		std::string Clause2String(Clause *c);
 
 		// uncomment if you want this to be the default toString
 		// procedure - it might create read-back problems, though
@@ -110,48 +111,48 @@ namespace SxxMachine
 		/**
 		 * Pretty prints a clause after replacing ugly variable names
 		 */
-		virtual std::string pprint(const bool& replaceAnonymous);
+		virtual std::string pprint(bool replaceAnonymous);
 
 		/**
 		 * Clause to Term converter: the joy of strong typing:-)
 		 */
-		Clause* toClause() override;
+		Clause *toClause() override;
 
 		/**
 		 * Replaces varibles with nice looking upper case constants for printing
 		 * purposes
 		 */
 		// synchronized
-		virtual Clause* cnumbervars(const bool& replaceAnonymous);
+		virtual Clause *cnumbervars(bool replaceAnonymous);
 
 		/**
 		 * Converts a clause to a term. Note that Head:-true will convert to the term
 		 * Head.
 		 */
-		Term* toTerm() final override;
+		Term *toTerm() final override;
 
 		/**
 		 * Creates a copy of the clause with variables standardized apart, i.e.
 		 * something like f(s(X),Y,X) becomes f(s(X1),Y1,X1)) with X1,Y1 variables
 		 * garantted not to occurring in the the current resolvant.
 		 */
-		Clause* ccopy();
+		Clause *ccopy();
 
 		/**
 		 * Extracts the head of a clause (a Term).
 		 */
-		Term* getHead();
+		Term *getHead();
 
 		/**
 		 * Extracts the body of a clause
 		 */
-		Term* getBody();
+		Term *getBody();
 
 		/**
 		 * Gets the leftmost (first) goal in the body of a clause, i.e. from
 		 * H:-B1,B2,...,Bn it will extract B1.
 		 */
-		Term* getFirst();
+		Term *getFirst();
 
 		/**
 		 * Gets all but the leftmost goal in the body of a clause, i.e. from
@@ -161,14 +162,14 @@ namespace SxxMachine
 		 * @see True
 		 * @see Conj
 		 */
-		Term* getRest();
+		Term *getRest();
 
 		/**
 		 * Concatenates 2 Conjunctions
 		 * 
 		 * @see Clause#unfold
 		 */
-		static Term* appendConj(Term* x, Term* y);
+		static Term *appendConj(Term *x, Term *y);
 
 		/**
 		 * Algebraic composition operation of 2 Clauses, doing the basic resolution step
@@ -180,11 +181,11 @@ namespace SxxMachine
 		 * 
 		 */
 	private:
-		Clause* unfold(Clause* const that, KPTrail* trail);
+		Clause *unfold(Clause *const that, KPTrail *trail);
 
 		// synchronized
 	public:
-		Clause* unfold_with_goal(Clause* goal, KPTrail* trail);
+		Clause *unfold_with_goal(Clause *goal, KPTrail *trail);
 
 		/*
 		 * // synchronized final Clause unfoldedCopy(Clause that,Trail trail) { int
@@ -202,6 +203,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef CLAUSE

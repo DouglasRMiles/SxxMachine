@@ -9,13 +9,13 @@ using namespace std;
 namespace SxxMachine
 {
 
-	TermCollector::TermCollector(Prog* p) : Sink(p)
+	TermCollector::TermCollector(Prog *p) : Sink(p)
 	{
 		this->p = p;
 		this->buffer = vector();
 	}
 
-	int TermCollector::putElement(Term* T)
+	int TermCollector::putElement(Term *T)
 	{
 		buffer.push_back(T);
 		return 1;
@@ -26,7 +26,7 @@ namespace SxxMachine
 		buffer.clear();
 	}
 
-	Term* TermCollector::collect()
+	Term *TermCollector::collect()
 	{
 		return new IterableSource(buffer, p);
 	}

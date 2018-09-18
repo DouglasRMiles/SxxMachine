@@ -15,43 +15,43 @@ namespace SxxMachine
 		return true;
 	}
 
-	CharReader::CharReader(Reader* reader, Prog* p) : Source(p)
+	CharReader::CharReader(Reader *reader, Prog *p) : Source(p)
 	{
 		this->reader = reader;
 	}
 
-	CharReader::CharReader(const wstring& f, Prog* p) : Source(p)
+	CharReader::CharReader(const wstring &f, Prog *p) : Source(p)
 	{
 		makeReader(f);
 	}
 
-	CharReader::CharReader(Term* t, Prog* p) : Source(p)
+	CharReader::CharReader(Term *t, Prog *p) : Source(p)
 	{
 		this->reader = new StringReader(t->toUnquoted());
 	}
 
-	CharReader::CharReader(Prog* p) : CharReader(IO::input, p)
+	CharReader::CharReader(Prog *p) : CharReader(IO::input, p)
 	{
 	}
 
-	void CharReader::makeReader(const wstring& f)
+	void CharReader::makeReader(const wstring &f)
 	{
 		this->reader = IO::url_or_file(f);
 	}
 
-	Term* CharReader::getElement()
+	Term *CharReader::getElement()
 	{
-		if(IO::input == reader)
+		if (IO::input == reader)
 		{
 			wstring s = IO::promptln(">:");
-			if("" == s || s.length() == 0)
+			if ("" == s || s.length() == 0)
 			{
 				return nullptr;
 			}
 			return TermData::SYM(s);
 		}
 
-		if(nullptr == reader)
+		if (nullptr == reader)
 		{
 			return nullptr;
 		}
@@ -59,14 +59,16 @@ namespace SxxMachine
 		try
 		{
 			c = reader->read();
-		} catch(const IOException& e)
+		}
+		catch (const IOException &e)
 		{
 		}
-		if(-1 == c)
+		if (-1 == c)
 		{
 			stop();
 			return nullptr;
-		} else
+		}
+		else
 		{
 			return TermData::Long(c);
 		}
@@ -74,12 +76,13 @@ namespace SxxMachine
 
 	void CharReader::stop()
 	{
-		if(nullptr != reader && IO::input != reader)
+		if (nullptr != reader && IO::input != reader)
 		{
 			try
 			{
 				reader->close();
-			} catch(const IOException& e)
+			}
+			catch (const IOException &e)
 			{
 			}
 			reader = nullptr;

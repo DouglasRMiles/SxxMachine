@@ -1,11 +1,13 @@
-#ifndef FAIL_
-#define FAIL_
+#pragma once
 
 #include "ConstBuiltin.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class ISTerm; }
+namespace SxxMachine
+{
+	class Prog;
+	class ISTerm;
+}
 
 namespace SxxMachine
 {
@@ -18,11 +20,8 @@ namespace SxxMachine
 	public:
 		fail_();
 
-		virtual int exec(Prog* p);
+		virtual int exec(Prog *p);
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 }
-
-
-#endif	//#ifndef FAIL_

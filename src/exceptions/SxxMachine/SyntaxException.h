@@ -1,14 +1,16 @@
-#ifndef SYNTAXEXCEPTION
-#define SYNTAXEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -26,11 +28,11 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>syntax_error/5</code>. */
 	public:
-		static SymbolTerm* const  SYNTAX_ERROR;
+		static SymbolTerm *const SYNTAX_ERROR;
 		/** Holds a string representation of valid type. */
 		const std::string type;
 		/** Holds the argument or one of its components which caused the error. */
-		Term* const  culprit;
+		Term *const culprit;
 		/** Holds a string representation of detail message. */
 		const std::string message;
 		/** Constructs a new <code>SyntaxException</code> 
@@ -41,18 +43,15 @@ namespace SxxMachine
 		}
 
 		std::string getMessage() override;
-		SyntaxException(const std::string& _type, Term* _culprit, const std::string& _message);
+		SyntaxException(const std::string &_type, Term *_culprit, const std::string &_message);
 		/** Constructs a new <code>SyntaxException</code> with the given arguments. */
-		SyntaxException(Operation _goal, const int& _argNo, const std::string& _type, Term* _culprit, const std::string& _message);
+		SyntaxException(Operation _goal, int _argNo, const std::string &_type, Term *_culprit, const std::string &_message);
 		/** Returns a term representation of this <code>SyntaxException</code>:
 		 * <code>syntax_error(goal,argNo,type,culprit,message)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>SyntaxException</code>. */
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef SYNTAXEXCEPTION

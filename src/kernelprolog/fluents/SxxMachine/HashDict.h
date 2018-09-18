@@ -1,5 +1,4 @@
-#ifndef HASHDICT
-#define HASHDICT
+#pragma once
 
 #include <string>
 #include <unordered_map>
@@ -25,7 +24,7 @@ namespace SxxMachine
 		virtual std::string stat();
 
 		//@Override
-		virtual HashDict* toClone();
+		virtual HashDict *toClone();
 
 		virtual int size();
 
@@ -33,9 +32,9 @@ namespace SxxMachine
 
 		virtual std::any put(std::any k, std::any v);
 
-		virtual void remove(const std::string& k);
+		virtual void remove(const std::string &k);
 
-		virtual Set* keySet();
+		virtual Set *keySet();
 
 		const std::unordered_map map;
 
@@ -47,6 +46,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef HASHDICT

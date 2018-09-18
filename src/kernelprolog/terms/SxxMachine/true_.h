@@ -1,9 +1,11 @@
-#ifndef TRUE_
-#define TRUE_
+#pragma once
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class ISTerm; }
-namespace SxxMachine { class Prog; }
+namespace SxxMachine
+{
+	class ISTerm;
+	class Prog;
+}
 
 namespace SxxMachine
 {
@@ -15,10 +17,7 @@ namespace SxxMachine
 	{
 
 	public:
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 }
-
-
-#endif	//#ifndef TRUE_

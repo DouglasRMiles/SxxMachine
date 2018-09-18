@@ -1,11 +1,6 @@
-#ifndef JAVAINTERRUPTEDEXCEPTION
-#define JAVAINTERRUPTEDEXCEPTION
+#pragma once
 
-#include "RuntimeException.h"
 #include <stdexcept>
-
-//JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-class InterruptedException;
 
 namespace SxxMachine
 {
@@ -20,10 +15,7 @@ namespace SxxMachine
 	class JavaInterruptedException : public std::runtime_error
 	{
   public:
-	  JavaInterruptedException(InterruptedException* cause);
+	  JavaInterruptedException(InterruptedException *cause);
 	};
 
 }
-
-
-#endif	//#ifndef JAVAINTERRUPTEDEXCEPTION

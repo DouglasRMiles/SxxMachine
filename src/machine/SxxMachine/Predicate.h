@@ -1,5 +1,4 @@
-#ifndef PREDICATE
-#define PREDICATE
+#pragma once
 
 #include "Operation.h"
 #include "TermData.h"
@@ -10,12 +9,13 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologException; }
-class StringBuilder;
-class Field;
+namespace SxxMachine
+{
+	class Term;
+	class Operation;
+	class Prolog;
+	class PrologException;
+}
 
 namespace SxxMachine
 {
@@ -48,7 +48,7 @@ namespace SxxMachine
 	  std::vector<Term*> LARG;
 
 	  virtual int type();
-	  Operation exec(Prolog* engine) throw(PrologException) override;
+	  Operation exec(Prolog *engine) throw(PrologException) override;
 
 	  virtual std::string predName();
 
@@ -57,7 +57,7 @@ namespace SxxMachine
 	  /**
 	   * @param engine
 	   */
-	  virtual void push_to_engine(Prolog* engine);
+	  virtual void push_to_engine(Prolog *engine);
 
 	  /**
 	   * Holds the continuation goal of this predicate.
@@ -69,15 +69,15 @@ namespace SxxMachine
 	//  protected Term[] LARG;
 
 	  Predicate();
-	  Predicate(const std::string& name, std::vector<Term*>& _args, Operation cont);
+	  Predicate(const std::string &name, std::vector<Term*> &_args, Operation cont);
 
 	  std::string toString() override;
 
-	  virtual void toString(StringBuilder* sb);
+	  virtual void toString(StringBuilder *sb);
 
-	  virtual void toRest(const std::string& fixitive, StringBuilder* sb);
+	  virtual void toRest(const std::string &fixitive, StringBuilder *sb);
 
-	  virtual void toStringLegacy(StringBuilder* sb);
+	  virtual void toStringLegacy(StringBuilder *sb);
 
 
   public:
@@ -105,9 +105,9 @@ namespace SxxMachine
 public:
 	int predArity() override;
 
-	void toString(StringBuilder* sb) override;
+	void toString(StringBuilder *sb) override;
 
-	void push_to_engine(Prolog* engine) override;
+	void push_to_engine(Prolog *engine) override;
   };
   class Predicate::P1 : public Predicate
   {
@@ -115,22 +115,22 @@ public:
 public:
 	int predArity() override;
 
-	void toString(StringBuilder* sb) override;
+	void toString(StringBuilder *sb) override;
 
-	void push_to_engine(Prolog* engine) override;
+	void push_to_engine(Prolog *engine) override;
   };
   class Predicate::P2 : public Predicate
   {
 
 public:
-	P2(const std::string& name, std::vector<Term*>& _args, Operation cont);
+	P2(const std::string &name, std::vector<Term*> &_args, Operation cont);
 	int predArity() override;
 
 	P2();
 
-	void toString(StringBuilder* sb) override;
+	void toString(StringBuilder *sb) override;
 
-	void push_to_engine(Prolog* engine) override;
+	void push_to_engine(Prolog *engine) override;
   };
   class Predicate::P3 : public Predicate
   {
@@ -138,9 +138,9 @@ public:
 
 public:
 	int predArity() override;
-	void toString(StringBuilder* sb) override;
+	void toString(StringBuilder *sb) override;
 
-	void push_to_engine(Prolog* engine) override;
+	void push_to_engine(Prolog *engine) override;
 
   };
   class Predicate::P4 : public Predicate
@@ -148,17 +148,14 @@ public:
 
 
 public:
-	void push_to_engine(Prolog* engine) override;
+	void push_to_engine(Prolog *engine) override;
 
   };
 	class Predicate::P5 : public Predicate
 	{
 
   public:
-	  void push_to_engine(Prolog* engine) override;
+	  void push_to_engine(Prolog *engine) override;
 
 	  int predArity() = 0; override override;
 	};
-
-
-#endif	//#ifndef PREDICATE

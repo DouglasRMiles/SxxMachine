@@ -1,5 +1,4 @@
-#ifndef KPTERM
-#define KPTERM
+#pragma once
 
 #include "Undoable.h"
 #include "TermData.h"
@@ -9,16 +8,18 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class KPTrail; }
-namespace SxxMachine { class Clause; }
-namespace SxxMachine { class numbervars; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Var; }
-namespace SxxMachine { class Source; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Term;
+	class KPTrail;
+	class Clause;
+	class numbervars;
+	class Prog;
+	class Nonvar;
+	class SymbolTerm;
+	class Var;
+	class Source;
+}
 
 namespace SxxMachine
 {
@@ -35,7 +36,7 @@ namespace SxxMachine
 
 		static void soopsy();
 
-		virtual Term* toClone() = 0;
+		virtual Term *toClone() = 0;
 
 		int hashCode() override;
 
@@ -55,29 +56,29 @@ namespace SxxMachine
 		 * otherwise vicious non-reentrancy problems may occur in the presence of GC and
 		 * heavy multi-threading!!!
 		 */
-		virtual Term* dref();
+		virtual Term *dref();
 
-		virtual bool bind(Term* that, KPTrail* trail) = 0;
+		virtual bool bind(Term *that, KPTrail *trail) = 0;
 
 		/** Unify dereferenced */
-		virtual bool Unify_TO(Term* that, KPTrail* trail) = 0;
+		virtual bool Unify_TO(Term *that, KPTrail *trail) = 0;
 
 		/** Dereference and unify_to */
-		bool DO_Unify(Term* that, KPTrail* trail);
+		bool DO_Unify(Term *that, KPTrail *trail);
 
 		void undo() override;
 
 		// public abstract boolean eq(Term that);
 
-		virtual Term* carTokenOrSelf();
+		virtual Term *carTokenOrSelf();
 
-		virtual Term* toTerm();
+		virtual Term *toTerm();
 
-		virtual Clause* toClause();
+		virtual Clause *toClause();
 
 		virtual bool isClause();
 
-		static Term* fromString(const std::string& s);
+		static Term *fromString(const std::string &s);
 
 		/**
 		 * Tests if this term unifies with that. Bindings are trailed and undone after
@@ -87,9 +88,9 @@ namespace SxxMachine
 		 * 
 		 */
 		// synchronized
-		virtual bool matches(Term* that);
+		virtual bool matches(Term *that);
 
-		virtual bool matches(Term* that, KPTrail* trail);
+		virtual bool matches(Term *that, KPTrail *trail);
 
 		/**
 		 * Returns a copy of the result if the unification of this and that. Side
@@ -99,7 +100,7 @@ namespace SxxMachine
 		 */
 		// synchronized
 
-		virtual Term* matching_copy(Term* that);
+		virtual Term *matching_copy(Term *that);
 
 		/**
 		 * Defines the reaction to an agent recursing over the structure of a term.
@@ -109,30 +110,30 @@ namespace SxxMachine
 		 * 
 		 * @see StructureTerm
 		 */
-		virtual Term* reaction(Term* agent);
+		virtual Term *reaction(Term *agent);
 
 		/**
 		 * Identity action.
 		 */
-		virtual Term* action(Term* that);
+		virtual Term *action(Term *that);
 
 		/**
 		 * Returns a copy of a term with variables standardized apart (`fresh
 		 * variables').
 		 */
 		// synchronized
-		virtual Term* copy();
+		virtual Term *copy();
 
 		/**
 		 * Returns '[]'(V1,V2,..Vn) where Vi is a variable occuring in this Term
 		 */
-		virtual Term* varsOf();
+		virtual Term *varsOf();
 
 		/**
 		 * Replaces variables with uppercase constants named `V1', 'V2', etc. to be read
 		 * back as variables.
 		 */
-		virtual Term* numbervars();
+		virtual Term *numbervars();
 
 		/**
 		 * Prints out a term to a String with variables named in order V1, V2,....
@@ -167,16 +168,16 @@ namespace SxxMachine
 		 * warning if this is forgotten.
 		 */
 
-		virtual int exec(Prog* p);
+		virtual int exec(Prog *p);
 
-		static Nonvar* stringToChars(const std::string& s);
+		static Nonvar *stringToChars(const std::string &s);
 
-		virtual Nonvar* toChars();
+		virtual Nonvar *toChars();
 
 		/**
 		 * Converts a list of character codes to a String.
 		 */
-		static std::string charsToString(Nonvar* Cs);
+		static std::string charsToString(Nonvar *Cs);
 
 		virtual bool isCons();
 
@@ -212,27 +213,24 @@ namespace SxxMachine
 
 		virtual bool isCharReader();
 
-		virtual Term* toValue();
+		virtual Term *toValue();
 
 		virtual double doubleValue();
 
-		virtual bool equalsTerm(Term* aneof) = 0;
+		virtual bool equalsTerm(Term *aneof) = 0;
 
-		SymbolTerm* asConst();
+		SymbolTerm *asConst();
 
-		virtual Var* toVar();
+		virtual Var *toVar();
 
-		virtual Term* ArgDeRef(const int& i);
+		virtual Term *ArgDeRef(int i);
 
-		virtual bool isFunctor(const std::string& string);
+		virtual bool isFunctor(const std::string &string);
 
-		virtual Source* asSource();
+		virtual Source *asSource();
 
 	protected:
-		virtual void toStringImpl(const int& printFlags, StringBuilder* sb) = 0;
+		virtual void toStringImpl(int printFlags, StringBuilder *sb) = 0;
 	};
 
 }
-
-
-#endif	//#ifndef KPTERM

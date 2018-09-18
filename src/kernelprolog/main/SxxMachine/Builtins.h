@@ -1,5 +1,4 @@
-#ifndef BUILTINS
-#define BUILTINS
+#pragma once
 
 #include "../../fluents/SxxMachine/HashDict.h"
 #include "../../terms/SxxMachine/FunBuiltin.h"
@@ -15,13 +14,14 @@
 #include "stringhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class NameArity; }
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class ISTerm; }
-namespace SxxMachine { class Prog; }
-class Method;
-class NumberFormatException;
+namespace SxxMachine
+{
+	class NameArity;
+	class Nonvar;
+	class StructureTerm;
+	class ISTerm;
+	class Prog;
+}
 
 namespace SxxMachine
 {
@@ -59,18 +59,18 @@ namespace SxxMachine
 		/**
 		 * registers a symbol as name of a builtin
 		 */
-		virtual void registerBI(NameArity* proto);
+		virtual void registerBI(NameArity *proto);
 
-		virtual void registerBI(NameArity* proto, std::type_info c);
+		virtual void registerBI(NameArity *proto, std::type_info c);
 
 		/**
 		 * Creates a new builtin
 		 */
-		virtual Nonvar* asBuiltin(NameArity* S);
+		virtual Nonvar *asBuiltin(NameArity *S);
 
-		static Nonvar* toConstBuiltin(NameArity* c);
+		static Nonvar *toConstBuiltin(NameArity *c);
 
-		static StructureTerm* toFunBuiltin(StructureTerm* f);
+		static StructureTerm *toFunBuiltin(StructureTerm *f);
 
 	}; // end Builtins
 
@@ -85,7 +85,7 @@ namespace SxxMachine
 	public:
 		is_builtin();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -96,7 +96,7 @@ namespace SxxMachine
 	public:
 		halt();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -107,7 +107,7 @@ namespace SxxMachine
 	public:
 		system();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -118,7 +118,7 @@ namespace SxxMachine
 	public:
 		file_char_reader();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -129,7 +129,7 @@ namespace SxxMachine
 	public:
 		file_clause_reader();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -140,7 +140,7 @@ namespace SxxMachine
 	public:
 		char_file_writer();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -151,7 +151,7 @@ namespace SxxMachine
 	public:
 		clause_file_writer();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -162,7 +162,7 @@ namespace SxxMachine
 	public:
 		get_stdin();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -173,7 +173,7 @@ namespace SxxMachine
 	public:
 		get_stdout();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -188,7 +188,7 @@ namespace SxxMachine
 	public:
 		get_arity();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -200,7 +200,7 @@ namespace SxxMachine
 	public:
 		stack_dump();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -216,7 +216,7 @@ namespace SxxMachine
 		static const long long t0 = System::currentTimeMillis();
 
 	public:
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -229,7 +229,7 @@ namespace SxxMachine
 	public:
 		set_max_answers();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -244,7 +244,7 @@ namespace SxxMachine
 	public:
 		reconsult();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -258,7 +258,7 @@ namespace SxxMachine
 	public:
 		consult();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -269,7 +269,7 @@ namespace SxxMachine
 	public:
 		reconsult_again();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -280,7 +280,7 @@ namespace SxxMachine
 	public:
 		get_default_db();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	// databse operations
@@ -293,7 +293,7 @@ namespace SxxMachine
 	public:
 		new_db();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -305,7 +305,7 @@ namespace SxxMachine
 	public:
 		db_add();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -317,7 +317,7 @@ namespace SxxMachine
 	public:
 		db_remove();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -332,7 +332,7 @@ namespace SxxMachine
 	public:
 		db_collect();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -344,7 +344,7 @@ namespace SxxMachine
 	public:
 		db_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -356,7 +356,7 @@ namespace SxxMachine
 	public:
 		at_key();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -368,7 +368,7 @@ namespace SxxMachine
 	public:
 		pred_to_string();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -379,7 +379,7 @@ namespace SxxMachine
 	public:
 		db_to_string();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -390,7 +390,7 @@ namespace SxxMachine
 	public:
 		arg();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -402,7 +402,7 @@ namespace SxxMachine
 	public:
 		new_fun();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -413,7 +413,7 @@ namespace SxxMachine
 	public:
 		name_to_chars();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -424,7 +424,7 @@ namespace SxxMachine
 	public:
 		chars_to_name();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 
 	};
 
@@ -436,7 +436,7 @@ namespace SxxMachine
 	public:
 		numbervars();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -447,7 +447,7 @@ namespace SxxMachine
 	public:
 		compute();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -458,7 +458,7 @@ namespace SxxMachine
 	public:
 		set_trace();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -470,7 +470,7 @@ namespace SxxMachine
 	public:
 		source_list();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -482,7 +482,7 @@ namespace SxxMachine
 	public:
 		list_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -494,7 +494,7 @@ namespace SxxMachine
 	public:
 		term_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -508,7 +508,7 @@ namespace SxxMachine
 	public:
 		integer_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -519,7 +519,7 @@ namespace SxxMachine
 	public:
 		source_loop();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -531,7 +531,7 @@ namespace SxxMachine
 	public:
 		source_term();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	// Solvers and iterators over clauses
@@ -547,7 +547,7 @@ namespace SxxMachine
 	public:
 		answer_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -558,7 +558,7 @@ namespace SxxMachine
 	public:
 		unfolder_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -571,7 +571,7 @@ namespace SxxMachine
 	public:
 		getfl();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -583,7 +583,7 @@ namespace SxxMachine
 	public:
 		putfl();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -595,7 +595,7 @@ namespace SxxMachine
 	public:
 		stop();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -607,7 +607,7 @@ namespace SxxMachine
 	public:
 		split_source();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -618,7 +618,7 @@ namespace SxxMachine
 	public:
 		merge_sources();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -629,7 +629,7 @@ namespace SxxMachine
 	public:
 		discharge();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -641,7 +641,7 @@ namespace SxxMachine
 	public:
 		collect();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -653,7 +653,7 @@ namespace SxxMachine
 	public:
 		term_string_collector();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -665,7 +665,7 @@ namespace SxxMachine
 	public:
 		term_collector();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -676,7 +676,7 @@ namespace SxxMachine
 	public:
 		string_char_reader();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -687,7 +687,7 @@ namespace SxxMachine
 	public:
 		string_clause_reader();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -703,7 +703,7 @@ namespace SxxMachine
 	public:
 		set_persistent();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 	};
 
 	/**
@@ -714,11 +714,8 @@ namespace SxxMachine
 	public:
 		get_persistent();
 
-		static int st_exec(Prog* p, ISTerm* thiz);
+		static int st_exec(Prog *p, ISTerm *thiz);
 
 	};
 
 }
-
-
-#endif	//#ifndef BUILTINS

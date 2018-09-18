@@ -1,11 +1,13 @@
-#ifndef TERMEXCEPTION
-#define TERMEXCEPTION
+#pragma once
 
 #include "PrologException.h"
 #include <string>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -24,7 +26,7 @@ namespace SxxMachine
 	{
 		/** Message as term. */
    public:
-	   Term* messageTerm;
+	   Term *messageTerm;
 		/** Constructs a new <code>TermException</code>. */
 		virtual ~TermException()
 		{
@@ -33,12 +35,9 @@ namespace SxxMachine
 
 		TermException();
 		/** Constructs a new <code>TermException</code> with a given message term. */
-		TermException(Term* _message);
-		Term* getMessageTerm() override;
+		TermException(Term *_message);
+		Term *getMessageTerm() override;
 		std::string getMessage() override;
 	};
 
 }
-
-
-#endif	//#ifndef TERMEXCEPTION

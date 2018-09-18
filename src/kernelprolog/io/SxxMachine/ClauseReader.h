@@ -1,17 +1,19 @@
-#ifndef CLAUSEREADER
-#define CLAUSEREADER
+#pragma once
 
 #include "CharReader.h"
 #include <string>
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Parser; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class Clause; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Parser;
+	class Prog;
+	class Term;
+	class StructureTerm;
+	class Clause;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -24,7 +26,7 @@ namespace SxxMachine
 	class ClauseReader : public CharReader
 	{
 	protected:
-		Parser* parser;
+		Parser *parser;
 
 	public:
 		virtual ~ClauseReader()
@@ -32,27 +34,24 @@ namespace SxxMachine
 			delete parser;
 		}
 
-		ClauseReader(Reader* reader, Prog* p);
+		ClauseReader(Reader *reader, Prog *p);
 
-		ClauseReader(const std::string& f, Prog* p);
+		ClauseReader(const std::string &f, Prog *p);
 
-		ClauseReader(Prog* p);
+		ClauseReader(Prog *p);
 
 		/**
 		 * parses from a string representation of a term
 		 */
-		ClauseReader(Term* t, Prog* p);
+		ClauseReader(Term *t, Prog *p);
 
-		virtual void make_parser(const std::string& f);
+		virtual void make_parser(const std::string &f);
 
-		Term* getElement() override;
+		Term *getElement() override;
 
-		static StructureTerm* extract_info(Clause* C);
+		static StructureTerm *extract_info(Clause *C);
 
 		void stop() override;
 	};
 
 }
-
-
-#endif	//#ifndef CLAUSEREADER

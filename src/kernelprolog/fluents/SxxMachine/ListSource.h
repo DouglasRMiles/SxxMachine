@@ -1,11 +1,13 @@
-#ifndef LISTSOURCE
-#define LISTSOURCE
+#pragma once
 
 #include "IterableSource.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class Prog; }
+namespace SxxMachine
+{
+	class Nonvar;
+	class Prog;
+}
 
 namespace SxxMachine
 {
@@ -16,10 +18,7 @@ namespace SxxMachine
 	class ListSource : public IterableSource
 	{
 	public:
-		ListSource(Nonvar* xs, Prog* p);
+		ListSource(Nonvar *xs, Prog *p);
 	};
 
 }
-
-
-#endif	//#ifndef LISTSOURCE

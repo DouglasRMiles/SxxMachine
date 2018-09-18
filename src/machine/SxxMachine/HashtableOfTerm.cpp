@@ -11,7 +11,7 @@ namespace SxxMachine
 	{
 	}
 
-	HashtableOfTerm::HashtableOfTerm(const int& initialCapacity) : termMap(unordered_map<Term*, Term*>(initialCapacity))
+	HashtableOfTerm::HashtableOfTerm(int initialCapacity) : termMap(unordered_map<Term*, Term*>(initialCapacity))
 	{
 	}
 
@@ -20,7 +20,7 @@ namespace SxxMachine
 	  return dynamic_cast<HashtableOfTerm*>(hash) != nullptr;
 	}
 
-	bool HashtableOfTerm::containsKey(Term* key)
+	bool HashtableOfTerm::containsKey(Term *key)
 	{
 	  return termMap.find(key) != termMap.end();
 	}
@@ -30,17 +30,17 @@ namespace SxxMachine
 	  termMap.clear();
 	}
 
-	Term* HashtableOfTerm::get(Term* key)
+	Term *HashtableOfTerm::get(Term *key)
 	{
 	  return termMap[key];
 	}
 
-	Term* HashtableOfTerm::put(Term* key, Term* value)
+	Term *HashtableOfTerm::put(Term *key, Term *value)
 	{
 	  return termMap.emplace(key, value);
 	}
 
-	void HashtableOfTerm::remove(Term* key)
+	void HashtableOfTerm::remove(Term *key)
 	{
 	  termMap.erase(key);
 	}
@@ -50,7 +50,7 @@ namespace SxxMachine
 	  return termMap.size();
 	}
 
-	Set<Term*>* HashtableOfTerm::keySet()
+	Set<Term*> *HashtableOfTerm::keySet()
 	{
 	  return termMap.keySet();
 	}
@@ -60,28 +60,28 @@ namespace SxxMachine
 	  return termMap.empty();
 	}
 
-	Set<unordered_map::Entry<Term*, Term*>*>* HashtableOfTerm::entrySet()
+	Set<unordered_map::Entry<Term*, Term*>*> *HashtableOfTerm::entrySet()
 	{
 	  return termMap.entrySet();
 	}
 
-	HashtableOfTerm* HashtableOfTerm::copyDeep(IdentityHashMap<any, Term*>* copyHash)
+	HashtableOfTerm *HashtableOfTerm::copyDeep(IdentityHashMap<any, Term*> *copyHash)
 	{
 	  return copyDeep(this, copyHash);
 	}
 
-	HashtableOfTerm* HashtableOfTerm::copyDeep(HashtableOfTerm* src, IdentityHashMap<any, Term*>* copyHash)
+	HashtableOfTerm *HashtableOfTerm::copyDeep(HashtableOfTerm *src, IdentityHashMap<any, Term*> *copyHash)
 	{
 	  int deeply = Term::COPY_DEEPLY;
-	  HashtableOfTerm* hm = new HashtableOfTerm();
-	  for(auto e : src)
+	  HashtableOfTerm *hm = new HashtableOfTerm();
+	  for (auto e : src)
 	  {
-		Term* val = e.second::copy(copyHash, deeply);
-		if((val->isFFIObject()))
+		Term *val = e.second::copy(copyHash, deeply);
+		if ((val->isFFIObject()))
 		{
-		  Term* o = val;
+		  Term *o = val;
 		  any oobj = o->toJava();
-		  if(HashtableOfTerm::isHashtableOfTerm(oobj))
+		  if (HashtableOfTerm::isHashtableOfTerm(oobj))
 		  {
 			val = TermData::FFIObject(copyDeep(any_cast<HashtableOfTerm*>(oobj), copyHash));
 
@@ -92,17 +92,17 @@ namespace SxxMachine
 	  return hm;
 	}
 
-	HashtableOfTerm* HashtableOfTerm::copyShallow(HashtableOfTerm* src)
+	HashtableOfTerm *HashtableOfTerm::copyShallow(HashtableOfTerm *src)
 	{
-	  HashtableOfTerm* hm = new HashtableOfTerm();
-	  for(auto e : src)
+	  HashtableOfTerm *hm = new HashtableOfTerm();
+	  for (auto e : src)
 	  {
-		Term* val = e.second;
-		if((val->isFFIObject()))
+		Term *val = e.second;
+		if ((val->isFFIObject()))
 		{
-		  Term* o = val;
+		  Term *o = val;
 		  any oobj = o->toJava();
-		  if(HashtableOfTerm::isHashtableOfTerm(oobj))
+		  if (HashtableOfTerm::isHashtableOfTerm(oobj))
 		  {
 			val = TermData::FFIObject(copyShallow(any_cast<HashtableOfTerm*>(oobj)));
 		  }
@@ -112,7 +112,7 @@ namespace SxxMachine
 	  return hm;
 	}
 
-	HashtableOfTerm* HashtableOfTerm::copyShallow()
+	HashtableOfTerm *HashtableOfTerm::copyShallow()
 	{
 	  return copyShallow(this);
 	}

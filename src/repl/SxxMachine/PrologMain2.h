@@ -1,5 +1,4 @@
-#ifndef PROLOGMAIN2
-#define PROLOGMAIN2
+#pragma once
 
 #include <string>
 #include <vector>
@@ -7,7 +6,10 @@
 #include <stdexcept>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -43,7 +45,7 @@ namespace SxxMachine
 		/** Copyright information */
 		static const std::string COPYRIGHT;
 
-		static void main(std::vector<std::string>& argv);
+		static void main(std::vector<std::string> &argv);
 
 		/** Returns a term for given string representation of atom goal, or 
 		 * <code>null</code> if parsing fails.
@@ -52,7 +54,7 @@ namespace SxxMachine
 		 * or <code>null</code> if parsing fails.
 		 */
 	protected:
-		static Term* parseAtomicGoal(const std::string& s);
+		static Term *parseAtomicGoal(const std::string &s);
 
 		/** Shows usage */
 		static void usage();
@@ -60,6 +62,3 @@ namespace SxxMachine
 
 
 }
-
-
-#endif	//#ifndef PROLOGMAIN2

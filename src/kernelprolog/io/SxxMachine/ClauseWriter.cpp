@@ -10,26 +10,27 @@ using namespace std;
 namespace SxxMachine
 {
 
-	ClauseWriter::ClauseWriter(const wstring& f, Prog* p) : CharWriter(f, p)
+	ClauseWriter::ClauseWriter(const wstring &f, Prog *p) : CharWriter(f, p)
 	{
 	}
 
-	ClauseWriter::ClauseWriter(Prog* p) : CharWriter(p)
+	ClauseWriter::ClauseWriter(Prog *p) : CharWriter(p)
 	{
 	}
 
-	int ClauseWriter::putElement(Term* t)
+	int ClauseWriter::putElement(Term *t)
 	{
-		if(nullptr == writer)
+		if (nullptr == writer)
 		{
 			return 0;
 		}
 		wstring s = "";
-		if((t->isStructure()) && "$string" == Expect::asStruct(t)->name())
+		if ((t->isStructure()) && "$string" == Expect::asStruct(t)->name())
 		{
-			SymbolTerm* Xs = Expect::asConst(Expect::asStruct(t)->ArgDeRef(0));
+			SymbolTerm *Xs = Expect::asConst(Expect::asStruct(t)->ArgDeRef(0));
 			s = Term::charsToString(Xs);
-		} else
+		}
+		else
 		{
 			s = t->pprint();
 		}

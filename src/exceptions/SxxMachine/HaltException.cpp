@@ -5,7 +5,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	HaltException::HaltException(const int& status) : SystemException("halt(" + status + ")"), status(status)
+	HaltException::HaltException(int status) : SystemException("halt(" + status + ")"), status(status)
 	{
 	}
 

@@ -1,21 +1,20 @@
-#ifndef BLOCKINGPROLOGCONTROL
-#define BLOCKINGPROLOGCONTROL
+#pragma once
 
 #include "../../machine/SxxMachine/PrologControl.h"
-#include "Runnable.h"
 #include <string>
 #include <vector>
 #include <stdexcept>
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologMachineCopy; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Predicate; }
-namespace SxxMachine { class stop; }
-class Thread;
-class InterruptedException;
+namespace SxxMachine
+{
+	class Prolog;
+	class PrologMachineCopy;
+	class Term;
+	class Predicate;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -122,7 +121,7 @@ namespace SxxMachine
   private:
 //JAVA TO C++ CONVERTER TODO TASK: 'volatile' has a different meaning in C++:
 //ORIGINAL LINE: private volatile Thread thread;
-	  Thread* thread;
+	  Thread *thread;
 
 	  /** A flag that indicates whether the result of goal is <code>true</code> or <code>false</code>. */
    public:
@@ -136,9 +135,9 @@ namespace SxxMachine
 	  }
 
 	  BlockingPrologControl();
-	   BlockingPrologControl(Prolog* p);
+	   BlockingPrologControl(Prolog *p);
 	  /** Constructs a new <code>BlockingPrologControl</code>. */
-	  BlockingPrologControl(PrologMachineCopy* pmc);
+	  BlockingPrologControl(PrologMachineCopy *pmc);
 
 	  /**
 	   * Returns <code>true</code> if the system succeeds to find a first solution
@@ -153,7 +152,7 @@ namespace SxxMachine
 	   * @see #run
 	   */
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-	  bool execute(const std::string& pkg, const std::string& functor, std::vector<Term> &args) override;
+	  bool execute(const std::string &pkg, const std::string &functor, std::vector<Term> &args) override;
 
 	  /**
 	   * Returns <code>true</code> if the system succeeds to find a first solution
@@ -168,7 +167,7 @@ namespace SxxMachine
 	   * @see #run
 	   */
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-	  virtual bool execute(Predicate* p);
+	  virtual bool execute(Predicate *p);
 
 	  /**
 	   * Returns <code>true</code> if the system succeeds to find a first solution
@@ -336,6 +335,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef BLOCKINGPROLOGCONTROL

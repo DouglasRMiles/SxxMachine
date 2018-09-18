@@ -1,5 +1,4 @@
-#ifndef NAMEARITY
-#define NAMEARITY
+#pragma once
 
 #include <string>
 
@@ -17,10 +16,7 @@ namespace SxxMachine
 
 		virtual std::string getKey() = 0;
 
-		virtual void setMethod(Method* b) = 0;
+		virtual void setMethod(Method *b) = 0;
 
 	};
 }
-
-
-#endif	//#ifndef NAMEARITY

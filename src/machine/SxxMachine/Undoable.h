@@ -1,5 +1,4 @@
-#ifndef UNDOABLE
-#define UNDOABLE
+#pragma once
 
 namespace SxxMachine
 {
@@ -24,6 +23,3 @@ namespace SxxMachine
 
 
 }
-
-
-#endif	//#ifndef UNDOABLE

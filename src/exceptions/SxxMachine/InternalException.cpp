@@ -8,15 +8,15 @@ using namespace std;
 namespace SxxMachine
 {
 
-SymbolTerm* const  InternalException::INTERNAL_ERROR = SymbolTerm::intern("internal_error", 1);
+SymbolTerm *const InternalException::INTERNAL_ERROR = SymbolTerm::intern("internal_error", 1);
 
-	InternalException::InternalException(const wstring& _message) : message(_message)
+	InternalException::InternalException(const wstring &_message) : message(_message)
 	{
 	}
 
-	Term* InternalException::getMessageTerm()
+	Term *InternalException::getMessageTerm()
 	{
-	std::vector<Term*> args = { SymbolTerm::create(this->message) };
+	std::vector<Term*> args = {SymbolTerm::create(this->message)};
 	return TermData::createErrorTerm(this, INTERNAL_ERROR, args);
 	}
 

@@ -6,7 +6,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	OutOfLoop::OutOfLoop(BlockPredicate* _p) : p(_p)
+	OutOfLoop::OutOfLoop(BlockPredicate *_p) : p(_p)
 	{
 	}
 

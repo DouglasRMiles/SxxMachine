@@ -1,24 +1,26 @@
-using namespace std;
+
 
 #include "ClosureTerm.h"
 #include "Predicate.h"
 #include "Trail.h"
 #include "Term.h"
-#include "StringBuilder.h"
+#include "OpVisitor.h"
 
 namespace SxxMachine
 {
+	using namespace std;
+
 
 	bool ClosureTerm::isClosure()
 	{
 		return true;
 	}
 
-	ClosureTerm::ClosureTerm(Predicate* _code) : code(_code)
+	ClosureTerm::ClosureTerm(Predicate *_code) : code(_code)
 	{
 	}
 
-	Predicate* ClosureTerm::getCode()
+	Predicate *ClosureTerm::getCode()
 	{
 		return this->code;
 	}
@@ -28,10 +30,10 @@ namespace SxxMachine
 	  return TYPE_CLOSURE;
 	}
 
-	bool ClosureTerm::unifyImpl(Term* t, Trail* trail)
+	bool ClosureTerm::unifyImpl(Term *t, Trail *trail)
 	{
 		t = t->dref();
-		if((t->isVar()))
+		if ((t->isVar()))
 		{
 			return t->asVariableTerm()->unify(this, trail);
 		}
@@ -43,7 +45,7 @@ namespace SxxMachine
 		return "";
 	}
 
-	bool ClosureTerm::equalsTerm(Term* obj, Comparator* comparator)
+	bool ClosureTerm::equalsTerm(Term *obj, OpVisitor *comparator)
 	{ // obj must be dereferenced
 		return obj->isClosure() && this->code->equals(obj->asClosureTerm()->code);
 	}
@@ -53,7 +55,7 @@ namespace SxxMachine
 	return this->code->hashCode();
 	}
 
-	void ClosureTerm::toStringImpl(const int& printFlags, StringBuilder* sb)
+	void ClosureTerm::toStringImpl(int printFlags, StringBuilder *sb)
 	{
 		sb->append("closure[");
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
@@ -61,13 +63,13 @@ namespace SxxMachine
 		sb->append("]");
 	}
 
-	int ClosureTerm::compareTo(Term* anotherTerm)
+	int ClosureTerm::compareTo(Term *anotherTerm)
 	{ // anotherTerm must be dereferenced
-	if(!(anotherTerm->isClosure()))
+	if (!(anotherTerm->isClosure()))
 	{
 		return AFTER;
 	}
-	if(this->code->equals(anotherTerm->asClosureTerm()->code))
+	if (this->code->equals(anotherTerm->asClosureTerm()->code))
 	{
 		return EQUAL;
 	}

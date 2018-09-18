@@ -11,7 +11,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Unfolder::Unfolder(const int& oldtop, Iterator* e, Clause* goal, Prog* prog) : Source(nullptr)
+	Unfolder::Unfolder(int oldtop, Iterator *e, Clause *goal, Prog *prog) : Source(nullptr)
 	{
 		this->oldtop = oldtop;
 		this->e = e;
@@ -19,47 +19,49 @@ namespace SxxMachine
 		this->prog = prog;
 	}
 
-	Unfolder* Unfolder::toClone()
+	Unfolder *Unfolder::toClone()
 	{
 		return new Unfolder(oldtop, e, goal, prog);
 	}
 
-	Unfolder::Unfolder(Clause* g, Prog* p) : Source(p)
+	Unfolder::Unfolder(Clause *g, Prog *p) : Source(p)
 	{
 		this->goal = g;
 		this->prog = p;
 		this->e = nullptr;
 		trace_goal(g);
 		reduceBuiltins();
-		if(nullptr != goal)
+		if (nullptr != goal)
 		{
-			Term* first = goal->getFirst();
-			if(nullptr != first)
+			Term *first = goal->getFirst();
+			if (nullptr != first)
 			{
 				oldtop = prog->getTrail()->size();
 				this->e = Init::default_db->toEnumerationFor(first);
-				if(!e->hasNext())
+				if (!e->hasNext())
 				{
 					trace_nomatch(first);
 				}
 			}
-		} else
+		}
+		else
 		{
 			trace_failing(g);
 		}
 	}
 
-	void Unfolder::trailMe(Prog* p)
+	void Unfolder::trailMe(Prog *p)
 	{
 		// IO.mes("not trailing"+this);
 	};
 
-	Clause* Unfolder::getAnswer()
+	Clause *Unfolder::getAnswer()
 	{
-		if(nullptr != goal && goal->getBody()->isTrueProc())
+		if (nullptr != goal && goal->getBody()->isTrueProc())
 		{
 			return goal->ccopy();
-		} else
+		}
+		else
 		{
 			return nullptr;
 		}
@@ -72,14 +74,14 @@ namespace SxxMachine
 
 	void Unfolder::reduceBuiltins()
 	{
-		for(;;)
+		for (;;)
 		{
-			Term* first = goal->getFirst();
-			if(nullptr == first)
+			Term *first = goal->getFirst();
+			if (nullptr == first)
 			{
 				break; // cannot reduce further
 			}
-			if(first->isConj())
+			if (first->isConj())
 			{ // advances to next (possibly) inline builtin
 				goal = new Clause(goal->getHead(), Clause::appendConj(first, goal->getRest()));
 				first = goal->getFirst();
@@ -87,7 +89,7 @@ namespace SxxMachine
 
 			int ok = first->exec(prog); // (possibly) executes builtin
 
-			switch(ok)
+			switch (ok)
 			{
 
 			case -1: // nothing to do, this is not a builtin
@@ -112,17 +114,17 @@ namespace SxxMachine
 		}
 	}
 
-	Clause* Unfolder::getElement()
+	Clause *Unfolder::getElement()
 	{
-		if(nullptr == e)
+		if (nullptr == e)
 		{
 			return nullptr;
 		}
-		Clause* unfolded_goal = nullptr;
-		while(e->hasNext())
+		Clause *unfolded_goal = nullptr;
+		while (e->hasNext())
 		{
-			Term* T = static_cast<Term*>(e->next());
-			if(!(T->isClause()))
+			Term *T = static_cast<Term*>(e->next());
+			if (!(T->isClause()))
 			{
 				continue;
 			}
@@ -131,7 +133,7 @@ namespace SxxMachine
 			prog->getTrail()->unwind(oldtop);
 			// unify() happens here !!!
 			unfolded_goal = T->toClause()->unfold_with_goal(goal, prog->getTrail());
-			if(nullptr != unfolded_goal)
+			if (nullptr != unfolded_goal)
 			{
 				break;
 			}
@@ -145,9 +147,9 @@ namespace SxxMachine
 		e = nullptr;
 	}
 
-	void Unfolder::trace_goal(Clause* g)
+	void Unfolder::trace_goal(Clause *g)
 	{
-		switch(Prog::tracing)
+		switch (Prog::tracing)
 		{
 		case 2:
 			IO::println(">>>: " + g->getFirst());
@@ -158,9 +160,9 @@ namespace SxxMachine
 		}
 	}
 
-	void Unfolder::trace_failing(Clause* g)
+	void Unfolder::trace_failing(Clause *g)
 	{
-		switch(Prog::tracing)
+		switch (Prog::tracing)
 		{
 		case 2:
 			IO::println("FAILING CALL IN<<<: " + g->getFirst());
@@ -171,9 +173,9 @@ namespace SxxMachine
 		}
 	}
 
-	void Unfolder::trace_nomatch(Term* first)
+	void Unfolder::trace_nomatch(Term *first)
 	{
-		if(Prog::tracing > 0)
+		if (Prog::tracing > 0)
 		{
 			IO::println("*** UNDEFINED CALL: " + first->pprint());
 		}

@@ -1,8 +1,6 @@
-#ifndef PROLOGCLASSLOADER
-#define PROLOGCLASSLOADER
+#pragma once
 
 #include "Operation.h"
-#include "ClassLoader.h"
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -11,13 +9,15 @@
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Key; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologException; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class StructureTerm; }
-class ClassNotFoundException;
+namespace SxxMachine
+{
+	class Operation;
+	class Key;
+	class Prolog;
+	class PrologException;
+	class Term;
+	class StructureTerm;
+}
 
 namespace SxxMachine
 {
@@ -53,7 +53,7 @@ namespace SxxMachine
 	public:
 		NotFoundPredicate();
 
-		Operation exec(Prolog* engine) throw(PrologException) override;
+		Operation exec(Prolog *engine) throw(PrologException) override;
 	  };
 
 
@@ -71,7 +71,7 @@ namespace SxxMachine
 	   *
 	   * @param parent source for all predicates in this context.
 	   */
-	  PrologClassLoader(ClassLoader* parent);
+	  PrologClassLoader(ClassLoader *parent);
 
 	  /**
 	   * Check whether the predicate class for the given arguments is defined.
@@ -82,7 +82,7 @@ namespace SxxMachine
 	   * @return <code>true</code> if the predicate <code>pkg:functor/arity</code>
 	   *         is defined, otherwise <code>false</code>.
 	   */
-	  virtual bool definedPredicate(const std::string& pkg, const std::string& functor, const int& arity);
+	  virtual bool definedPredicate(const std::string &pkg, const std::string &functor, int arity);
 
 	  /**
 	   * Allocate a predicate and configure it with the specified arguments.
@@ -92,7 +92,7 @@ namespace SxxMachine
 	   * @param args arguments to pass. The arity is derived from the arguments.
 	   * @return the predicate encapsulating the logic and the arguments.
 	   */
-	  virtual Operation predicate(const std::string& pkg, const std::string& functor, std::vector<Term> &args);
+	  virtual Operation predicate(const std::string &pkg, const std::string &functor, std::vector<Term> &args);
 
 	  /**
 	   * Allocate a predicate and configure it with the specified arguments.
@@ -104,10 +104,10 @@ namespace SxxMachine
 	   * @param args arguments to pass. The arity is derived from the arguments.
 	   * @return the predicate encapsulating the logic and the arguments.
 	   */
-	  virtual Operation predicate(const std::string& pkg, const std::string& functor, Operation cont, std::vector<Term> &args);
+	  virtual Operation predicate(const std::string &pkg, const std::string &functor, Operation cont, std::vector<Term> &args);
 
   private:
-	  static StructureTerm* term(const std::string& pkg, const std::string& functor, const int& arity);
+	  static StructureTerm *term(const std::string &pkg, const std::string &functor, int arity);
 
 
 	  // private Operation getConstructor(String pkg, String functor, int arity)
@@ -156,9 +156,9 @@ namespace SxxMachine
 	  // }
 	  // return cons;
 	  // }
-	  Operation findPredicate(const std::string& pkg, const std::string& functor, const int& arity) throw(ClassNotFoundException);
+	  Operation findPredicate(const std::string &pkg, const std::string &functor, int arity) throw(ClassNotFoundException);
 
-	  Operation getConstructor(const std::string& pkg, const std::string& functor, const int& arity);
+	  Operation getConstructor(const std::string &pkg, const std::string &functor, int arity);
 
   public:
 	  class Key final
@@ -169,7 +169,7 @@ namespace SxxMachine
 		const int arity;
 
 	public:
-		Key(const std::string& pkg, const std::string& functor, const int& arity);
+		Key(const std::string &pkg, const std::string &functor, int arity);
 
 		int hashCode() override;
 
@@ -178,6 +178,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef PROLOGCLASSLOADER

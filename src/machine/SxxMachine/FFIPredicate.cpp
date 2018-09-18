@@ -6,17 +6,17 @@ using namespace std;
 namespace SxxMachine
 {
 
-	bool FFIPredicate::checkParameterTypes(std::vector<type_info>& paraTypes, std::vector<Term*>& args)
+	bool FFIPredicate::checkParameterTypes(std::vector<type_info> &paraTypes, std::vector<Term*> &args)
 	{
 		  int arity;
 		  arity = paraTypes.size();
-		  if(arity != args.size())
+		  if (arity != args.size())
 		  {
 			  return false;
 		  }
-		  for(int i = 0; i < arity; i++)
+		  for (int i = 0; i < arity; i++)
 		  {
-			  if(!args[i]->convertible(paraTypes[i]))
+			  if (!args[i]->convertible(paraTypes[i]))
 			  {
 				  return false;
 			  }

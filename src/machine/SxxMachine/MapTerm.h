@@ -1,5 +1,4 @@
-#ifndef MAPTERM
-#define MAPTERM
+#pragma once
 
 #include "SystemObject.h"
 #include <string>
@@ -11,10 +10,13 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Trail; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Trail;
+	class OpVisitor;
+}
 
 namespace SxxMachine
 {
@@ -55,7 +57,7 @@ namespace SxxMachine
 	{
 		/** A functor <code>'.' /2</code>. */
 	protected:
-		static SymbolTerm* const  SYM_DOT;
+		static SymbolTerm *const SYM_DOT;
 
 	private:
 		bool immutable = false;
@@ -63,7 +65,7 @@ namespace SxxMachine
 		bool isMap() override;
 		bool isAtomicValue() override;
 
-	  int containsTermImpl(Term* variableTerm, Comparator* comparison) override;
+	  int containsTermImpl(Term *variableTerm, Comparator *comparison) override;
 
 		/** Holds the first element of this <code>ListTerm</code>. */
 		//private Term car;
@@ -78,26 +80,26 @@ namespace SxxMachine
 		 * <code>_cdr</code> is the list consisting of all the rest of the 
 		 * elements of this list but the first one.
 		 */
-		MapTerm(Term* _car, Term* _cdr);
+		MapTerm(Term *_car, Term *_cdr);
 		/** Returns the value of <code>car</code>.
 		 * @see #car
 		 */
-		Term* car() override final;
-		Term* cdr() override;
+		Term *car() override final;
+		Term *cdr() override;
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("unused") @Override public final boolean unifyImpl(Term t, Trail trail)
-		bool unifyImpl(Term* t, Trail* trail) override final;
+		bool unifyImpl(Term *t, Trail *trail) override final;
 
 
 		/** Sets the value to <code>car</code>.
 		 * @see #car
 		 */
-		virtual void setCar(Term* t);
+		virtual void setCar(Term *t);
 
 		/** Sets the value to <code>cdr</code>.
 		 * @see #cdr
 		 */
-		virtual void setCdr(Term* t);
+		virtual void setCdr(Term *t);
 
 		int type() override;
 
@@ -108,17 +110,17 @@ namespace SxxMachine
 		 */
 		bool convertible(std::type_info type) override;
 	protected:
-		Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply) override;
+		Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply) override;
 	public:
 		bool isGround() override;
 
 		int arity() override;
 		std::vector<Term*> args() override;
 
-		SymbolTerm* functor() override;
+		SymbolTerm *functor() override;
 
 		std::string name() override final;
-		Term* arg0(const int& nth) override;
+		Term *arg0(int nth) override;
 		/** Returns the length of this <code>ListTerm</code>. */
 		int length() override;
 		/** 
@@ -131,9 +133,9 @@ namespace SxxMachine
 
 		/** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
 		 * Non recursive implementation */
-		virtual void toQuotedString_old(const int& printFlags, StringBuilder* sb);
+		virtual void toQuotedString_old(int printFlags, StringBuilder *sb);
 
-	  void toStringImpl(const int& printingFlags, StringBuilder* sb) override;
+	  void toStringImpl(int printingFlags, StringBuilder *sb) override;
 
 		/* Object */
 		/**
@@ -146,14 +148,14 @@ namespace SxxMachine
 		 * equivalent to this <code>ListTerm</code>, false otherwise.
 		 * @see #compareTo
 		 */
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
 
 
-		std::vector<Term*> const  argz;
+		std::vector<Term*> const argz;
 		int termHashCodeImpl() override;
 
-		Iterator<Term*>* iterator(const bool& includeSyntax) override;
+		Iterator<Term*> *iterator(bool includeSyntax) override;
 
 		/**
 		 * Iterator over terms that make up this ListTerm.
@@ -162,13 +164,13 @@ namespace SxxMachine
 		class ListTermIterator : public Iterator<Term*>
 		{
 		private:
-			static SymbolTerm* const  LEFT_BRACKET;
-			static SymbolTerm* const  SEPARATOR;
-			static SymbolTerm* const  RIGHT_BRACKET;
-			static SymbolTerm* const  COMMA;
+			static SymbolTerm *const LEFT_BRACKET;
+			static SymbolTerm *const SEPARATOR;
+			static SymbolTerm *const RIGHT_BRACKET;
+			static SymbolTerm *const COMMA;
 
 
-			Term* current;
+			Term *current;
 			int index = 0;
 			std::vector<Term*> tail;
 			bool comma = false;
@@ -182,9 +184,9 @@ namespace SxxMachine
 				delete current;
 			}
 
-			ListTermIterator(Term* start, const bool& includeSyntax);
+			ListTermIterator(Term *start, bool includeSyntax);
 			bool hasNext() override;
-			Term* next() override;
+			Term *next() override;
 		};
 		/* Comparable */
 		/** 
@@ -197,23 +199,20 @@ namespace SxxMachine
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
 	public:
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 		bool isImmutable() override final;
 		/**
 		 * joins given term to the end of the list.
 		 * Default implementation recreates the whole list and returns reference to new list,
 		 * because the original list can be immutable.
 		 * */ 
-		MapTerm* join(Term* term) override;
+		MapTerm *join(Term *term) override;
 
-		virtual MapTerm* joinToCopy(Term* term);
+		virtual MapTerm *joinToCopy(Term *term);
 
 
-		virtual MapTerm* joinTo(Term* term);
-		static MapTerm* MAP(Term* _car, Term* _cdr);
+		virtual MapTerm *joinTo(Term *term);
+		static MapTerm *MAP(Term *_car, Term *_cdr);
 	};
 
 }
-
-
-#endif	//#ifndef MAPTERM

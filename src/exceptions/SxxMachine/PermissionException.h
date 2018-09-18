@@ -1,14 +1,16 @@
-#ifndef PERMISSIONEXCEPTION
-#define PERMISSIONEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -26,7 +28,7 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>permission_error/5</code>. */
 	public:
-		static SymbolTerm* const  PERMISSION_ERROR;
+		static SymbolTerm *const PERMISSION_ERROR;
 		/* operation ::= access | create | input | modify | open | output | reposition | new */
 		/** Holds a string representation of operation. */
 		const std::string operation;
@@ -38,7 +40,7 @@ namespace SxxMachine
 		/** Holds a string representation of permission type. */
 		const std::string permissionType;
 		/** Holds the argument or one of its components which caused the error. */
-		Term* const  culprit;
+		Term *const culprit;
 		/** Holds a string representation of detail message. */
 		const std::string message;
 		/** Constructs a new <code>PermissionException</code>
@@ -48,17 +50,14 @@ namespace SxxMachine
 			delete culprit;
 		}
 
-		PermissionException(Operation _goal, const std::string& _operation, const std::string& _permissionType, Term* _culprit, const std::string& _message);
+		PermissionException(Operation _goal, const std::string &_operation, const std::string &_permissionType, Term *_culprit, const std::string &_message);
 		std::string getMessage() override;
 		/** Returns a term representation of this <code>PermissionException</code>:
 		 * <code>permission_error(goal,argNo,operation,permissionType,culprit,message)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>PermissionException</code>. */
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef PERMISSIONEXCEPTION

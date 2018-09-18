@@ -1,5 +1,4 @@
-#ifndef JAVAEXCEPTION
-#define JAVAEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
@@ -8,10 +7,12 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Term; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Operation;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -32,7 +33,7 @@ namespace SxxMachine
 		static constexpr long long serialVersionUID = -7510890457700984457LL;
 		/** A functor symbol of <code>java_error/3</code>. */
 	public:
-		static SymbolTerm* const  JAVA_ERROR;
+		static SymbolTerm *const JAVA_ERROR;
 		/** Holds a Java exception. */
 	protected:
 		const std::runtime_error e;
@@ -40,11 +41,11 @@ namespace SxxMachine
 	public:
 		JavaException(std::runtime_error _e);
 		/** Constructs a new <code>JavaException</code> with the given arguments. */
-		JavaException(Operation _goal, const int& _argNo, std::runtime_error _e);
+		JavaException(Operation _goal, int _argNo, std::runtime_error _e);
 		/** Returns a term representation of this <code>JavaException</code>:
 		 * <code>java_error(goal,argNo,exception)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a underlying Java exception. */
 		virtual std::runtime_error getException();
 		/** Returns a string representation of this <code>JavaException</code>. */
@@ -54,6 +55,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef JAVAEXCEPTION

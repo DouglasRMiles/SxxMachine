@@ -1,5 +1,4 @@
-#ifndef EXCEPTIONHELPER
-#define EXCEPTIONHELPER
+#pragma once
 
 #include <exception>
 
@@ -35,6 +34,38 @@ public:
     }
 };
 
+class IllegalMonitorStateException : public std::exception
+{
+private:
+    std::string msg;
+
+public:
+    IllegalMonitorStateException(const std::string& message = "") : msg(message)
+    {
+    }
+
+    const char * what() const throw()
+    {
+        return msg.c_str();
+    }
+};
+
+class NumberFormatException : public std::exception
+{
+private:
+    std::string msg;
+
+public:
+    NumberFormatException(const std::string& message = "") : msg(message)
+    {
+    }
+
+    const char * what() const throw()
+    {
+        return msg.c_str();
+    }
+};
+
 class ClassNotFoundException : public std::exception
 {
 private:
@@ -51,13 +82,45 @@ public:
     }
 };
 
-class InstantiationException : public std::exception
+class NoSuchFieldException : public std::exception
 {
 private:
     std::string msg;
 
 public:
-    InstantiationException(const std::string& message = "") : msg(message)
+    NoSuchFieldException(const std::string& message = "") : msg(message)
+    {
+    }
+
+    const char * what() const throw()
+    {
+        return msg.c_str();
+    }
+};
+
+class SecurityException : public std::exception
+{
+private:
+    std::string msg;
+
+public:
+    SecurityException(const std::string& message = "") : msg(message)
+    {
+    }
+
+    const char * what() const throw()
+    {
+        return msg.c_str();
+    }
+};
+
+class NullPointerException : public std::exception
+{
+private:
+    std::string msg;
+
+public:
+    NullPointerException(const std::string& message = "") : msg(message)
     {
     }
 
@@ -83,13 +146,13 @@ public:
     }
 };
 
-class SecurityException : public std::exception
+class InstantiationException : public std::exception
 {
 private:
     std::string msg;
 
 public:
-    SecurityException(const std::string& message = "") : msg(message)
+    InstantiationException(const std::string& message = "") : msg(message)
     {
     }
 
@@ -131,38 +194,6 @@ public:
     }
 };
 
-class NullPointerException : public std::exception
-{
-private:
-    std::string msg;
-
-public:
-    NullPointerException(const std::string& message = "") : msg(message)
-    {
-    }
-
-    const char * what() const throw()
-    {
-        return msg.c_str();
-    }
-};
-
-class NoSuchFieldException : public std::exception
-{
-private:
-    std::string msg;
-
-public:
-    NoSuchFieldException(const std::string& message = "") : msg(message)
-    {
-    }
-
-    const char * what() const throw()
-    {
-        return msg.c_str();
-    }
-};
-
 class ClassCastException : public std::exception
 {
 private:
@@ -170,38 +201,6 @@ private:
 
 public:
     ClassCastException(const std::string& message = "") : msg(message)
-    {
-    }
-
-    const char * what() const throw()
-    {
-        return msg.c_str();
-    }
-};
-
-class IllegalMonitorStateException : public std::exception
-{
-private:
-    std::string msg;
-
-public:
-    IllegalMonitorStateException(const std::string& message = "") : msg(message)
-    {
-    }
-
-    const char * what() const throw()
-    {
-        return msg.c_str();
-    }
-};
-
-class NumberFormatException : public std::exception
-{
-private:
-    std::string msg;
-
-public:
-    NumberFormatException(const std::string& message = "") : msg(message)
     {
     }
 
@@ -306,6 +305,3 @@ public:
         return msg.c_str();
     }
 };
-
-
-#endif	//#ifndef EXCEPTIONHELPER

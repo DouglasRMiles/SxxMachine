@@ -2,9 +2,8 @@ package SxxMachine;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Deque;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.NoSuchElementException; 
 
@@ -47,18 +46,18 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
     public static final int COPY_NO_ATTRS = 2;
     public static final int COPY_SAVE_ATTRS_COPY = 4;
     
-    public static final Comparator StrictEquals = null;
-    public static final Comparator Unifiable = null;
-    public static final Comparator Subsumes = null;
+    public static final OpVisitor StrictEquals = null;
+    public static final OpVisitor Unifiable = null;
+    public static final OpVisitor Subsumes = null;
     
     
 
-    protected int containsTermImpl(Term variableTerm, Comparator comparison) {
+    protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
       return 0;
     }
       int loopContainsTerm = 0;
 
-    final public int containsTerm(Term variableTerm, Comparator comparison) {
+    final public int containsTerm(Term variableTerm, OpVisitor comparison) {
         if (loopContainsTerm > 0) {
           return loopContainsTerm;
         }
@@ -227,11 +226,11 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
     public boolean convertible(Class type) { return convertible(getClass(), type); }
     /** Returns a copy of this object. 
      * @param deeply TODO*/
-    protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
       return this;
     }
     int loopingCopyTerm = 0;
-    final public Term copy(IdentityHashMap<Object, Term> copyHash, int deeply) {      
+    final public Term copy(Map<Object, Term> copyHash, int deeply) {      
       Term copy = copyHash.get(this);
       if (copy!=null) return copy;
       Term drefAttrs = drefAttrs();
@@ -488,7 +487,7 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
       if (head==this) return true;
       return equalsTerm(head, StrictEquals);
     }
-	abstract public boolean equalsTerm(Term obj, Comparator comparator);
+	abstract public boolean equalsTerm(Term obj, OpVisitor comparator);
 	
 	@Override
    public boolean equals(Object obj) {

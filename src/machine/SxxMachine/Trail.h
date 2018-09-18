@@ -1,11 +1,13 @@
-#ifndef TRAIL
-#define TRAIL
+#pragma once
 
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Undoable; }
-namespace SxxMachine { class Prolog; }
+namespace SxxMachine
+{
+	class Undoable;
+	class Prolog;
+}
 
 namespace SxxMachine
 {
@@ -24,18 +26,18 @@ namespace SxxMachine
 	{
 		/** list of already filled buffers */
 	private:
-		Deque<std::vector<Undoable*> >* const  buffersList;
+		Deque<std::vector<Undoable*>> *const buffersList;
 		const int pageSize;
 		/** An array of <code>Undoable</code> entries. */
 		std::vector<Undoable*> buffer;
 		/** the top index of this <code>Trail</code>. */
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		int top_RenamedTODO = 0;
+		int top_Renamed = 0;
 		int base = 0;
 		/** Current timestamp of the top of {@link ChoicePointStack}. */
 	public:
 		long long timeStamp = 0;
-		Prolog* const  mach;
+		Prolog *const mach;
 		/** Constructs a new trail stack. */
 		virtual ~Trail()
 		{
@@ -43,17 +45,17 @@ namespace SxxMachine
 			delete mach;
 		}
 
-		Trail(Prolog* m);
+		Trail(Prolog *m);
 		/** Constructs a new trail stack with the given page size. */
-		Trail(Prolog* m, const int& pageSize);
+		Trail(Prolog *m, int pageSize);
 		/** Constructs a new trail stack with the given page size and initial number of pages. */
-		Trail(Prolog* m, const int& pageSize, const int& pages);
+		Trail(Prolog *m, int pageSize, int pages);
 		/** Discards all entries. */
 		void init();
 		/** Pushs an entry to this <code>Trail</code>. */
-		void push(Undoable* t);
+		void push(Undoable *t);
 		/** Pops an entry from this <code>Trail</code>. */
-		Undoable* pop();
+		Undoable *pop();
 		/** Discards all entries. */
 	private:
 		void deleteAll();
@@ -67,7 +69,7 @@ namespace SxxMachine
 		 */
 		int top();
 		/** Unwinds all entries after the value of <code>i</code>. */
-		void unwind(const int& i);
+		void unwind(int i);
 	//    /** Shows the contents of this <code>Trail</code>. */
 	//    public void show() {
 	//	if (empty()) {
@@ -79,10 +81,7 @@ namespace SxxMachine
 	//	    System.out.println(buffer[i]);
 	//	}
 	//    }
-		Prolog* getProlog();
+		Prolog *getProlog();
 	};
 
 }
-
-
-#endif	//#ifndef TRAIL

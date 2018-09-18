@@ -1,12 +1,14 @@
-#ifndef KPTRAIL
-#define KPTRAIL
+#pragma once
 
 #include <string>
 #include <vector>
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -23,14 +25,14 @@ namespace SxxMachine
 	class KPTrail
 	{
   public:
-	  void push(Term* var);
+	  void push(Term *var);
 
-	  Term* pop();
+	  Term *pop();
 
 	  std::vector<Term*> stack = std::vector<Term*>();
 
   private:
-	  std::any remove(const int& i);
+	  std::any remove(int i);
 
   public:
 	  virtual bool isEmpty();
@@ -38,7 +40,7 @@ namespace SxxMachine
 	  virtual int size();
 
   private:
-	  void add(Term* x);
+	  void add(Term *x);
 
   public:
 //JAVA TO C++ CONVERTER TODO TASK: No base class can be determined:
@@ -54,12 +56,9 @@ namespace SxxMachine
 	   */
 
 	  // synchronized
-	  void unwind(const int& to);
+	  void unwind(int to);
 
 	  virtual std::string stat();
 	};
 
 }
-
-
-#endif	//#ifndef KPTRAIL

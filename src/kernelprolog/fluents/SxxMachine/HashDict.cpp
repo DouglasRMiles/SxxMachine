@@ -23,12 +23,12 @@ namespace SxxMachine
 		return "BlackBoard: " + to_string(size());
 	}
 
-	HashDict* HashDict::toClone()
+	HashDict *HashDict::toClone()
 	{
 		//soopsy();
 		//HashDict other = (HashDict) super.toClone();
 		unordered_map map2 = unordered_map();
-		HashDict* other = new HashDict(map2);
+		HashDict *other = new HashDict(map2);
 		map.putAll(map2);
 		return other;
 	}
@@ -61,13 +61,13 @@ namespace SxxMachine
 		return o1;
 	}
 
-	void HashDict::remove(const wstring& k)
+	void HashDict::remove(const wstring &k)
 	{
 		//super.remove(k);
 		map.erase(k);
 	}
 
-	Set* HashDict::keySet()
+	Set *HashDict::keySet()
 	{
 		//		if (map.keySet().size() != super.keySet().size()) {
 		//			oopsy();

@@ -20,35 +20,35 @@ namespace SxxMachine
 	}
 
 wstring Init::default_lib = "jsrc/kernelprolog/main/SxxMachine/lib.pro";
-DataBase* Init::default_db;
-Builtins* Init::builtinDict;
+DataBase *Init::default_db;
+Builtins *Init::builtinDict;
 
-	Clause* Init::getGoal(const wstring& line)
+	Clause *Init::getGoal(const wstring &line)
 	{
-		Clause* G = Clause::goalFromString(line);
+		Clause *G = Clause::goalFromString(line);
 		// IO.mes("getGoal: "+G+" DICT: "+G.dict); //OK
 		return G;
 	}
 
-	void Init::run_query(const wstring& query)
+	void Init::run_query(const wstring &query)
 	{
-		Clause* Goal = getGoal(query);
+		Clause *Goal = getGoal(query);
 		timeGoal(Goal);
 	}
 
-	Clause* Init::getGoal()
+	Clause *Init::getGoal()
 	{
 		return getGoal(IO::promptln("?- "));
 	}
 
-	void Init::evalGoal(Clause* Goal)
+	void Init::evalGoal(Clause *Goal)
 	{
-		Clause* NamedGoal = Goal->cnumbervars(false);
-		Term* Names = NamedGoal->getHead();
-		if(!(Names->isStructure()))
+		Clause *NamedGoal = Goal->cnumbervars(false);
+		Term *Names = NamedGoal->getHead();
+		if (!(Names->isStructure()))
 		{ // no vars in Goal
-			Term* Result = Prog::firstSolution(Goal->getHead(), Goal->getBody());
-			if(!Prolog::aNo->equalsTerm(Result))
+			Term *Result = Prog::firstSolution(Goal->getHead(), Goal->getBody());
+			if (!Prolog::aNo->equalsTerm(Result))
 			{
 				Result = Prolog::aYes;
 			}
@@ -56,26 +56,26 @@ Builtins* Init::builtinDict;
 			return;
 		}
 
-		Prog* E = new Prog(Goal, nullptr);
+		Prog *E = new Prog(Goal, nullptr);
 
-		for(int i = 0;; i++)
+		for (int i = 0;; i++)
 		{
-			Term* R = Prog::ask_engine(E);
+			Term *R = Prog::ask_engine(E);
 			// IO.mes("GOAL:"+Goal+"\nANSWER: "+R);
-			if(R == nullptr)
+			if (R == nullptr)
 			{
 				IO::println("no");
 				break;
 			}
-			if(Names->isStructure())
+			if (Names->isStructure())
 			{
-				Term* NamedR = R->numbervars();
-				for(int j = 0; j < Names->arityOrType(); j++)
+				Term *NamedR = R->numbervars();
+				for (int j = 0; j < Names->arityOrType(); j++)
 				{
 					IO::println(Expect::asStruct(Names)->ArgDeRef(j) + "=" + NamedR->ArgDeRef(j));
 				}
 				// IO.println(";");
-				if(!moreAnswers(i))
+				if (!moreAnswers(i))
 				{
 					E->stop();
 					break;
@@ -84,17 +84,19 @@ Builtins* Init::builtinDict;
 		}
 	}
 
-	bool Init::moreAnswers(const int& i)
+	bool Init::moreAnswers(int i)
 	{
-		if(IO::maxAnswers == 0)
+		if (IO::maxAnswers == 0)
 		{ // under user control
 			wstring more = IO::promptln("; for more, <enter> to stop: ");
 			return more == ";";
-		} else if(i < IO::maxAnswers || IO::maxAnswers < 0)
+		}
+		else if (i < IO::maxAnswers || IO::maxAnswers < 0)
 		{
 			IO::println(";"); // print all remaining
 			return true;
-		} else
+		}
+		else
 		{ // i >= ...}
 			IO::println(";");
 			IO::println("No more answers computed, max reached! (" + to_string(IO::maxAnswers) + ")");
@@ -102,13 +104,14 @@ Builtins* Init::builtinDict;
 		}
 	}
 
-	void Init::timeGoal(Clause* Goal)
+	void Init::timeGoal(Clause *Goal)
 	{
 		long long t1 = System::currentTimeMillis();
 		try
 		{
 			evalGoal(Goal);
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{
 			IO::errmes("Execution error in goal:\n  " + Goal->pprint() + ".\n", e);
 		}
@@ -121,12 +124,12 @@ Builtins* Init::builtinDict;
 		standardTop("?- ");
 	}
 
-	void Init::standardTop(const wstring& prompt)
+	void Init::standardTop(const wstring &prompt)
 	{
-		for(;;)
+		for (;;)
 		{
-			Clause* G = getGoal(IO::promptln(prompt));
-			if(nullptr == G)
+			Clause *G = getGoal(IO::promptln(prompt));
+			if (nullptr == G)
 			{
 				continue;
 			}
@@ -135,32 +138,32 @@ Builtins* Init::builtinDict;
 		}
 	}
 
-	Term* Init::askProlog(Term* Answer, Term* Body)
+	Term *Init::askProlog(Term *Answer, Term *Body)
 	{
 		return Prog::firstSolution(Answer, Body);
 	}
 
-	Term* Init::askProlog(Term* Goal)
+	Term *Init::askProlog(Term *Goal)
 	{
 		return askProlog(Goal, Goal);
 	}
 
-	wstring Init::askProlog(const wstring& query)
+	wstring Init::askProlog(const wstring &query)
 	{
-		Clause* Goal = getGoal(query);
-		Term* Body = Goal->getBody();
+		Clause *Goal = getGoal(query);
+		Term *Body = Goal->getBody();
 		return askProlog(Body)->pprint();
 	}
 
-	bool Init::run(std::vector<wstring>& args)
+	bool Init::run(std::vector<wstring> &args)
 	{
-		if(nullptr != args)
+		if (nullptr != args)
 		{
-			for(int i = 0; i < args.size(); i++)
+			for (int i = 0; i < args.size(); i++)
 			{
 				wstring result = askProlog(args[i]);
 				IO::trace(result);
-				if("no" == result.intern())
+				if ("no" == result.intern())
 				{
 					IO::errmes("failing cmd line argument: " + args[i]);
 					return false;

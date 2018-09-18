@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import java.util.Comparator;
-
 /**
  * Java-term.<br>
  * The <code>JavaObjectTerm</code> class wraps a java object.<br>
@@ -127,7 +125,7 @@ public class FFIObjectTerm extends SystemObject {
      * @see #compareTo
      */
     @Override
-    public boolean equalsTerm(Term o, Comparator comparator) {
+    public boolean equalsTerm(Term o, OpVisitor comparator) {
 		return o .isFFIObject() && this.obj==(( o).object());
 	}
     @Override

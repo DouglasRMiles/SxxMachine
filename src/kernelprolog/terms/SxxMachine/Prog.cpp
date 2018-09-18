@@ -13,25 +13,25 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Prog* Prog::toClone()
+	Prog *Prog::toClone()
 	{
 		return new Prog(trail, orStack, parent);
 	}
 
-	Prog::Prog(KPTrail* trail, ObjectStack* orStack, Prog* parent) : Source(nullptr)
+	Prog::Prog(KPTrail *trail, ObjectStack *orStack, Prog *parent) : Source(nullptr)
 	{
 		this->trail = trail;
 		this->orStack = orStack;
 		this->parent = parent;
 	}
 
-	Prog::Prog(Clause* goal, Prog* parent) : Source(parent)
+	Prog::Prog(Clause *goal, Prog *parent) : Source(parent)
 	{
 		this->parent = parent;
 		goal = goal->ccopy();
 		this->trail = new KPTrail();
 		this->orStack = new ObjectStack();
-		if(nullptr != goal)
+		if (nullptr != goal)
 		{
 			Unfolder tempVar(goal, this);
 			orStack->push(&tempVar);
@@ -39,56 +39,58 @@ namespace SxxMachine
 
 	}
 
-	KPTrail* Prog::getTrail()
+	KPTrail *Prog::getTrail()
 	{
 		return trail;
 	}
 
-	Prog* Prog::getParent()
+	Prog *Prog::getParent()
 	{
 		return parent;
 	}
 
 int Prog::tracing = 1;
 
-	Term* Prog::getElement()
+	Term *Prog::getElement()
 	{
-		if(nullptr == orStack)
+		if (nullptr == orStack)
 		{
 			return nullptr;
 		}
-		Clause* answer = nullptr;
-		while(!orStack->isEmpty())
+		Clause *answer = nullptr;
+		while (!orStack->isEmpty())
 		{
-			Unfolder* I = static_cast<Unfolder*>(orStack->pop());
+			Unfolder *I = static_cast<Unfolder*>(orStack->pop());
 			answer = I->getAnswer();
-			if(nullptr != answer)
+			if (nullptr != answer)
 			{
 				break;
 			}
-			Clause* nextgoal = I->getElement();
-			if(nullptr != nextgoal)
+			Clause *nextgoal = I->getElement();
+			if (nullptr != nextgoal)
 			{
-				if(I->notLastClause())
+				if (I->notLastClause())
 				{
 					orStack->push(I);
-				} else
+				}
+				else
 				{
 					I->stop();
 				}
-				if(nullptr == answer)
+				if (nullptr == answer)
 				{
 					Unfolder tempVar(nextgoal, this);
 					orStack->push(&tempVar);
 				}
 			}
 		}
-		Term* head;
-		if(nullptr == answer)
+		Term *head;
+		if (nullptr == answer)
 		{
 			head = nullptr;
 			stop();
-		} else
+		}
+		else
 		{
 			head = answer->getHead();
 		}
@@ -97,7 +99,7 @@ int Prog::tracing = 1;
 
 	void Prog::stop()
 	{
-		if(nullptr != trail)
+		if (nullptr != trail)
 		{
 			trail->unwind(0);
 			trail = nullptr;
@@ -105,39 +107,40 @@ int Prog::tracing = 1;
 		orStack = nullptr;
 	}
 
-	Term* Prog::firstSolution(Term* X, Term* G)
+	Term *Prog::firstSolution(Term *X, Term *G)
 	{
-		Prog* p = new_engine(X, G);
-		Term* A = ask_engine(p);
-		if(A != nullptr)
+		Prog *p = new_engine(X, G);
+		Term *A = ask_engine(p);
+		if (A != nullptr)
 		{
-			A = StructureTerm::S("the", { A });
+			A = StructureTerm::S("the", {A});
 			p->stop();
-		} else
+		}
+		else
 		{
 			A = Prolog::aNo;
 		}
 		return A;
 	}
 
-	Prog* Prog::new_engine(Term* X, Term* G)
+	Prog *Prog::new_engine(Term *X, Term *G)
 	{
-		Clause* C = new Clause(X, G);
-		Prog* p = new Prog(C, nullptr);
+		Clause *C = new Clause(X, G);
+		Prog *p = new Prog(C, nullptr);
 		return p;
 	}
 
-	Term* Prog::ask_engine(Prog* p)
+	Term *Prog::ask_engine(Prog *p)
 	{
 		return p->getElement();
 	}
 
 	void Prog::run()
 	{
-		for(;;)
+		for (;;)
 		{
-			Term* Answer = getElement();
-			if(nullptr == Answer)
+			Term *Answer = getElement();
+			if (nullptr == Answer)
 			{
 				break;
 			}

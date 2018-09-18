@@ -10,22 +10,22 @@ namespace SxxMachine
 	{
 	}
 
-	Term* FrozenData::getGoals()
+	Term *FrozenData::getGoals()
 	{
 	  return this->goals;
 	}
 
-	Term* FrozenData::setGoals(Term* goals)
+	Term *FrozenData::setGoals(Term *goals)
 	{
 	  return this->goals = goals;
 	}
 
-	Term* FrozenData::getAttrs()
+	Term *FrozenData::getAttrs()
 	{
 	  return this->attrs;
 	}
 
-	void FrozenData::setAttrs(Term* attrs)
+	void FrozenData::setAttrs(Term *attrs)
 	{
 	  this->attrs = attrs;
 	}

@@ -1,5 +1,4 @@
-#ifndef VAR
-#define VAR
+#pragma once
 
 #include "../../../machine/SxxMachine/Undoable.h"
 #include "../../../machine/SxxMachine/Term.h"
@@ -19,6 +18,3 @@ namespace SxxMachine
 
 	};
 }
-
-
-#endif	//#ifndef VAR

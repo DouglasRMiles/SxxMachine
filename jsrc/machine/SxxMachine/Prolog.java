@@ -16,6 +16,7 @@ import java.io.Writer;
 import java.util.EnumSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
@@ -92,7 +93,7 @@ public final class Prolog {
 	/** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
 	private long previousRuntime;
 //    /** Hashtable for creating a copy of term. */
-//    protected IdentityHashMap<Object, Term> copyHash;
+//    protected Map<Object, Term> copyHash;
 	/** The size of the pushback buffer used for creating input streams. */
 	public static final int PUSHBACK_SIZE = 256;
 	/** Standard input stream. */
@@ -185,7 +186,7 @@ public final class Prolog {
 		this.control = c;
 		this.trail = new Trail(this);
 		this.stack = new ChoicePointStack(this.trail);
-//      copyHash = new IdentityHashMap<Object, Term>();
+//      copyHash = new Map<Object, Term>();
 		this.hashManager = new HashtableOfTerm();
 	}
 	Prolog(PrologControl c, PrologMachineCopy pmc) {
@@ -194,7 +195,7 @@ public final class Prolog {
 		this.control = c;
 		this.trail = new Trail(this);
 		this.stack = new ChoicePointStack(this.trail);
-//      copyHash = new IdentityHashMap<Object, Term>();
+//      copyHash = new Map<Object, Term>();
 		this.pcl = pmc.pcl;
 		// During restore there is no need to copy terms. clause/2 inside of
 		// builtins.pl copies the predicate when it reads from internalDB.
@@ -319,7 +320,7 @@ public final class Prolog {
 		} else {
 		  int deeply = Term.COPY_ALL;
 			//copyHash.clear();
-//    		copyHash = new IdentityHashMap<Object, Term>();
+//    		copyHash = new Map<Object, Term>();
 			return t.copy(new IdentityHashMap<Object, Term>(), deeply);
 		}
 	}

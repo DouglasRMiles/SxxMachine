@@ -33,8 +33,6 @@ using namespace std;
 #include "../../fluents/SxxMachine/SourceMerger.h"
 #include "../../fluents/SxxMachine/StringSink.h"
 #include "../../fluents/SxxMachine/TermCollector.h"
-#include "Method.h"
-#include "NumberFormatException.h"
 
 namespace SxxMachine
 {
@@ -186,40 +184,42 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 		registerBI(&tempVar53);
 	}
 
-	void Builtins::registerBI(NameArity* proto)
+	void Builtins::registerBI(NameArity *proto)
 	{
 		wstring key = proto->name() + "/" + to_string(proto->arityOrType());
 		try
 		{
-			Method* m = proto->getClass().getDeclaredMethod("st_exec", Prog::typeid, ISTerm::typeid);
+			Method *m = proto->getClass().getDeclaredMethod("st_exec", Prog::typeid, ISTerm::typeid);
 			// IO.mes("registering builtin: "+key);
 			this->put(key, m);
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{
 			e.printStackTrace();
 		}
 	}
 
-	void Builtins::registerBI(NameArity* proto, type_info c)
+	void Builtins::registerBI(NameArity *proto, type_info c)
 	{
 		wstring key = proto->name() + "/" + to_string(proto->arityOrType());
 		try
 		{
-			Method* m = c.getDeclaredMethod("st_exec", Prog::typeid, ISTerm::typeid);
+			Method *m = c.getDeclaredMethod("st_exec", Prog::typeid, ISTerm::typeid);
 			// IO.mes("registering builtin: "+key);
 			this->put(key, m);
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{
 			e.printStackTrace();
 		}
 
 	}
 
-	Nonvar* Builtins::asBuiltin(NameArity* S)
+	Nonvar *Builtins::asBuiltin(NameArity *S)
 	{
 		wstring key = S->getKey();
-		Method* b = any_cast<Method*>(this->get(key));
-		if(b != nullptr)
+		Method *b = any_cast<Method*>(this->get(key));
+		if (b != nullptr)
 		{
 			b->setAccessible(true);
 			S->setMethod(b);
@@ -227,27 +227,27 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 		return static_cast<Nonvar*>(S);
 	}
 
-	Nonvar* Builtins::toConstBuiltin(NameArity* c)
+	Nonvar *Builtins::toConstBuiltin(NameArity *c)
 	{
-		if(c->name().length() == 0)
+		if (c->name().length() == 0)
 		{
 			return static_cast<Nonvar*>(c);
 		}
-		if(c->name().equals(Prolog::Nil->name()))
+		if (c->name().equals(Prolog::Nil->name()))
 		{
 			return Prolog::Nil;
 		}
-		if(c->name().equals(Prolog::aNo->name()))
+		if (c->name().equals(Prolog::aNo->name()))
 		{
 			return Prolog::aNo;
 		}
-		if(c->name().equals(Prolog::aYes->name()))
+		if (c->name().equals(Prolog::aYes->name()))
 		{
 			return Prolog::aYes;
 		}
 
-		Nonvar* B = static_cast<Nonvar*>(Init::builtinDict->asBuiltin(c));
-		if(nullptr == B)
+		Nonvar *B = static_cast<Nonvar*>(Init::builtinDict->asBuiltin(c));
+		if (nullptr == B)
 		{
 			// IO.mes("not a builtin:"+this);
 			return static_cast<Nonvar*>(c);
@@ -255,18 +255,18 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 		return B;
 	}
 
-	StructureTerm* Builtins::toFunBuiltin(StructureTerm* f)
+	StructureTerm *Builtins::toFunBuiltin(StructureTerm *f)
 	{
-		if(f->name() == ":-" && f->arityOrType() == 2)
+		if (f->name() == ":-" && f->arityOrType() == 2)
 		{
 			return new Clause(f->argz[0], f->argz[1]);
 		}
-		if(f->name() == "," && f->arityOrType() == 2)
+		if (f->name() == "," && f->arityOrType() == 2)
 		{
 			return StructureTerm::createCons(",", f->argz[0], f->argz[1]);
 		}
-		StructureTerm* B = Init::builtinDict->asBuiltin(f)->asStructureTerm();
-		if(nullptr == B)
+		StructureTerm *B = Init::builtinDict->asBuiltin(f)->asStructureTerm();
+		if (nullptr == B)
 		{
 			return f;
 		}
@@ -279,7 +279,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int is_builtin::st_exec(Prog* p, ISTerm* thiz)
+	int is_builtin::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		return thiz->ArgDeRef(0)->isBuiltin() ? 1 : 0;
@@ -289,7 +289,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int halt::st_exec(Prog* p, ISTerm* thiz)
+	int halt::st_exec(Prog *p, ISTerm *thiz)
 	{
 		Runtime::getRuntime().exit(0);
 		return 1;
@@ -299,7 +299,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int system::st_exec(Prog* p, ISTerm* thiz)
+	int system::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring cmd = Expect::asConst(thiz->ArgDeRef(0))->name();
@@ -310,15 +310,16 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int file_char_reader::st_exec(Prog* p, ISTerm* thiz)
+	int file_char_reader::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* I = thiz->ArgDeRef(0);
-		Fluent* f;
-		if(I->isCharReader())
+		Term *I = thiz->ArgDeRef(0);
+		Fluent *f;
+		if (I->isCharReader())
 		{
 			f = new CharReader(Expect::asCharReader(I)->reader, p);
-		} else
+		}
+		else
 		{
 			wstring s = Expect::asConst(I)->name();
 			f = new CharReader(s, p);
@@ -330,15 +331,16 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int file_clause_reader::st_exec(Prog* p, ISTerm* thiz)
+	int file_clause_reader::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* I = thiz->ArgDeRef(0);
-		Fluent* f;
-		if(I->isCharReader())
+		Term *I = thiz->ArgDeRef(0);
+		Fluent *f;
+		if (I->isCharReader())
 		{
 			f = new ClauseReader(Expect::asCharReader(I)->reader, p);
-		} else
+		}
+		else
 		{
 			wstring s = Expect::asConst(thiz->ArgDeRef(0))->name();
 			f = new ClauseReader(s, p);
@@ -350,11 +352,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int char_file_writer::st_exec(Prog* p, ISTerm* thiz)
+	int char_file_writer::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring s = Expect::asConst(thiz->ArgDeRef(0))->name();
-		Fluent* f = new CharWriter(s, p);
+		Fluent *f = new CharWriter(s, p);
 		return thiz->unifyArg(1, f, p);
 	}
 
@@ -362,11 +364,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int clause_file_writer::st_exec(Prog* p, ISTerm* thiz)
+	int clause_file_writer::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring s = Expect::asConst(thiz->ArgDeRef(0))->name();
-		Fluent* f = new ClauseWriter(s, p);
+		Fluent *f = new ClauseWriter(s, p);
 		return thiz->unifyArg(1, f, p);
 	}
 
@@ -374,7 +376,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int get_stdin::st_exec(Prog* p, ISTerm* thiz)
+	int get_stdin::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		ClauseReader tempVar(p);
@@ -385,7 +387,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int get_stdout::st_exec(Prog* p, ISTerm* thiz)
+	int get_stdout::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		ClauseWriter tempVar(p);
@@ -396,10 +398,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int get_arity::st_exec(Prog* p, ISTerm* thiz)
+	int get_arity::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		LongTerm* N = TermData::Integer(thiz->ArgDeRef(0)->arityOrType());
+		LongTerm *N = TermData::Integer(thiz->ArgDeRef(0)->arityOrType());
 		return thiz->unifyArg(1, N, p);
 	}
 
@@ -407,7 +409,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int stack_dump::st_exec(Prog* p, ISTerm* thiz)
+	int stack_dump::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring s = thiz->ArgDeRef(0)->pprint();
@@ -419,10 +421,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int ctime::st_exec(Prog* p, ISTerm* thiz)
+	int ctime::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* T = optional<long long>(System::currentTimeMillis() - t0);
+		Term *T = optional<long long>(System::currentTimeMillis() - t0);
 		return thiz->unifyArg(0, T, p);
 	}
 
@@ -430,7 +432,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int set_max_answers::st_exec(Prog* p, ISTerm* thiz)
+	int set_max_answers::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		IO::maxAnswers = thiz->getIntArg(0);
@@ -441,10 +443,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int reconsult::st_exec(Prog* p, ISTerm* thiz)
+	int reconsult::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* a = thiz->ArgDeRef(0);
+		Term *a = thiz->ArgDeRef(0);
 		wstring f = Expect::asConst(a)->name();
 		return DataBase::fromFile(f) ? 1 : 0;
 	}
@@ -453,7 +455,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int consult::st_exec(Prog* p, ISTerm* thiz)
+	int consult::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring f = Expect::asConst(thiz->ArgDeRef(0))->name();
@@ -465,7 +467,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int reconsult_again::st_exec(Prog* p, ISTerm* thiz)
+	int reconsult_again::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		return DataBase::fromFile() ? 1 : 0;
@@ -475,7 +477,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int get_default_db::st_exec(Prog* p, ISTerm* thiz)
+	int get_default_db::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		return thiz->unifyArg(0, TermData::FFIObject(Init::default_db), p);
@@ -485,7 +487,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int new_db::st_exec(Prog* p, ISTerm* thiz)
+	int new_db::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		DataBase tempVar(new unordered_map());
@@ -496,15 +498,15 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int db_add::st_exec(Prog* p, ISTerm* thiz)
+	int db_add::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		DataBase* db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
-		Term* X = thiz->ArgDeRef(1);
+		DataBase *db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
+		Term *X = thiz->ArgDeRef(1);
 		// IO.mes("X==>"+X);
 		wstring key = X->getKey();
 		// IO.mes("key==>"+key);
-		if("" == key)
+		if ("" == key)
 		{
 			return 0;
 		}
@@ -517,12 +519,12 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int db_remove::st_exec(Prog* p, ISTerm* thiz)
+	int db_remove::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		DataBase* db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
-		Term* X = thiz->ArgDeRef(1);
-		Term* R = db->cin(X->getKey(), X);
+		DataBase *db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
+		Term *X = thiz->ArgDeRef(1);
+		Term *R = db->cin(X->getKey(), X);
 		return thiz->unifyArg(2, R, p);
 	}
 
@@ -530,12 +532,12 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int db_collect::st_exec(Prog* p, ISTerm* thiz)
+	int db_collect::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		DataBase* db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
-		Term* X = thiz->ArgDeRef(1);
-		Term* R = db->all(X->getKey(), X);
+		DataBase *db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
+		Term *X = thiz->ArgDeRef(1);
+		Term *R = db->all(X->getKey(), X);
 		return thiz->unifyArg(2, R, p);
 	}
 
@@ -543,11 +545,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int db_source::st_exec(Prog* p, ISTerm* thiz)
+	int db_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		DataBase* db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
-		Source* S = new IterableSource(db->toEnumeration(), p);
+		DataBase *db = any_cast<DataBase*>((thiz->ArgDeRef(0))->toObject());
+		Source *S = new IterableSource(db->toEnumeration(), p);
 		return thiz->unifyArg(1, S, p);
 	}
 
@@ -555,10 +557,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int at_key::st_exec(Prog* p, ISTerm* thiz)
+	int at_key::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* R = Init::default_db->all(thiz->ArgDeRef(0)->getKey(), TermData::V());
+		Term *R = Init::default_db->all(thiz->ArgDeRef(0)->getKey(), TermData::V());
 		return thiz->unifyArg(1, R, p);
 	}
 
@@ -566,16 +568,16 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int pred_to_string::st_exec(Prog* p, ISTerm* thiz)
+	int pred_to_string::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring key = thiz->ArgDeRef(0)->getKey();
 		wstring listing = Init::default_db->pred_to_string(key);
-		if("" == listing)
+		if ("" == listing)
 		{
 			return 0;
 		}
-		Nonvar* R = TermData::F(listing);
+		Nonvar *R = TermData::F(listing);
 		return thiz->unifyArg(1, R, p);
 	}
 
@@ -583,7 +585,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int db_to_string::st_exec(Prog* p, ISTerm* thiz)
+	int db_to_string::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		return thiz->unifyArg(0, TermData::F(Init::default_db->pprint()), p);
@@ -593,12 +595,12 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int arg::st_exec(Prog* p, ISTerm* thiz)
+	int arg::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		int i = thiz->getIntArg(0);
-		Term* F = thiz->ArgDeRef(1);
-		Term* A = (i == 0) ? TermData::F(F->name()) : ((i == -1) ? TermData::Integer(F->arityOrType()) : F->args()[i - 1]);
+		Term *F = thiz->ArgDeRef(1);
+		Term *A = (i == 0) ? TermData::F(F->name()) : ((i == -1) ? TermData::Integer(F->arityOrType()) : F->args()[i - 1]);
 		return thiz->unifyArg(2, A, p);
 	}
 
@@ -606,18 +608,19 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int new_fun::st_exec(Prog* p, ISTerm* thiz)
+	int new_fun::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		wstring s = Expect::asConst(thiz->ArgDeRef(0))->name();
 		int i = thiz->getIntArg(1);
-		Term* T;
-		if(i == 0)
+		Term *T;
+		if (i == 0)
 		{
 			T = Builtins::toConstBuiltin(TermData::F(s));
-		} else
+		}
+		else
 		{
-			StructureTerm* F = StructureTerm::S(s);
+			StructureTerm *F = StructureTerm::S(s);
 			F->init(i);
 			T = Builtins::toFunBuiltin(F);
 		}
@@ -628,10 +631,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int name_to_chars::st_exec(Prog* p, ISTerm* thiz)
+	int name_to_chars::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* Cs = (static_cast<Nonvar*>(thiz->ArgDeRef(0)))->toChars();
+		Term *Cs = (static_cast<Nonvar*>(thiz->ArgDeRef(0)))->toChars();
 		return thiz->unifyArg(1, Cs, p);
 	}
 
@@ -639,19 +642,20 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int chars_to_name::st_exec(Prog* p, ISTerm* thiz)
+	int chars_to_name::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		int convert = thiz->getIntArg(0);
 		wstring s = Nonvar::charsToString(static_cast<Nonvar*>(thiz->ArgDeRef(1)));
-		Nonvar* T = TermData::F(s);
-		if(convert > 0)
+		Nonvar *T = TermData::F(s);
+		if (convert > 0)
 		{
 			try
 			{
 				double r = stod(s).doubleValue();
 				T = TermData::NarrowDouble(r);
-			} catch(const NumberFormatException& e)
+			}
+			catch (const NumberFormatException &e)
 			{
 			}
 		}
@@ -662,10 +666,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int numbervars::st_exec(Prog* p, ISTerm* thiz)
+	int numbervars::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* T = thiz->ArgDeRef(0)->numbervars();
+		Term *T = thiz->ArgDeRef(0)->numbervars();
 		return thiz->unifyArg(1, T, p);
 	}
 
@@ -673,13 +677,13 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int compute::st_exec(Prog* p, ISTerm* thiz)
+	int compute::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Term* o = thiz->ArgDeRef(0);
-		Term* a = thiz->ArgDeRef(1);
-		Term* b = thiz->ArgDeRef(2);
-		if(!(o->isConst()) || !(a->isNumber()) || !(b->isNumber()))
+		Term *o = thiz->ArgDeRef(0);
+		Term *a = thiz->ArgDeRef(1);
+		Term *b = thiz->ArgDeRef(2);
+		if (!(o->isConst()) || !(a->isNumber()) || !(b->isNumber()))
 		{
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 			IO::errmes("bad arithmetic operation (" + o + "): " + a + "," + b + "\nprog: " + p->toString());
@@ -689,7 +693,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 		double y = b->doubleValue();
 		double r;
 		char op = opname[0];
-		switch(op)
+		switch (op)
 		{
 		case '+':
 			r = x + y;
@@ -732,7 +736,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 			IO::errmes("bad arithmetic operation <" + StringHelper::toString(op) + "> on " + to_string(x) + " and " + to_string(y));
 			return 0;
 		}
-		Term* R = TermData::NarrowDouble(r);
+		Term *R = TermData::NarrowDouble(r);
 		return thiz->unifyArg(3, R, p);
 	}
 
@@ -740,7 +744,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int set_trace::st_exec(Prog* p, ISTerm* thiz)
+	int set_trace::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		Prog::tracing = thiz->getIntArg(0);
@@ -751,11 +755,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int source_list::st_exec(Prog* p, ISTerm* thiz)
+	int source_list::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* S = static_cast<Source*>(thiz->ArgDeRef(0));
-		Term* Xs = S->toList();
+		Source *S = static_cast<Source*>(thiz->ArgDeRef(0));
+		Term *Xs = S->toList();
 		return thiz->unifyArg(1, Xs, p);
 	}
 
@@ -763,10 +767,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int list_source::st_exec(Prog* p, ISTerm* thiz)
+	int list_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* E = new ListSource(static_cast<Nonvar*>(thiz->ArgDeRef(0)), p);
+		Source *E = new ListSource(static_cast<Nonvar*>(thiz->ArgDeRef(0)), p);
 		return thiz->unifyArg(1, E, p);
 	}
 
@@ -774,10 +778,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int term_source::st_exec(Prog* p, ISTerm* thiz)
+	int term_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		TermSource* E = new TermSource(static_cast<Nonvar*>(thiz->ArgDeRef(0)), p);
+		TermSource *E = new TermSource(static_cast<Nonvar*>(thiz->ArgDeRef(0)), p);
 		return thiz->unifyArg(1, E, p);
 	}
 
@@ -785,10 +789,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int integer_source::st_exec(Prog* p, ISTerm* thiz)
+	int integer_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		IntegerSource* E = new IntegerSource(Expect::asInt(thiz->ArgDeRef(0))->longValue(), Expect::asInt(thiz->ArgDeRef(1))->longValue(), Expect::asInt(thiz->ArgDeRef(2))->longValue(), Expect::asInt(thiz->ArgDeRef(3))->longValue(), p);
+		IntegerSource *E = new IntegerSource(Expect::asInt(thiz->ArgDeRef(0))->longValue(), Expect::asInt(thiz->ArgDeRef(1))->longValue(), Expect::asInt(thiz->ArgDeRef(2))->longValue(), Expect::asInt(thiz->ArgDeRef(3))->longValue(), p);
 		return thiz->unifyArg(4, E, p);
 	}
 
@@ -796,10 +800,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int source_loop::st_exec(Prog* p, ISTerm* thiz)
+	int source_loop::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* s = static_cast<Source*>(thiz->ArgDeRef(0));
+		Source *s = static_cast<Source*>(thiz->ArgDeRef(0));
 		SourceLoop tempVar(s, p);
 		return thiz->unifyArg(1, &tempVar, p);
 	}
@@ -808,11 +812,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int source_term::st_exec(Prog* p, ISTerm* thiz)
+	int source_term::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* S = static_cast<Source*>(thiz->ArgDeRef(0));
-		Term* Xs = Builtins::toFunBuiltin(Expect::asStruct(S->toFun()));
+		Source *S = static_cast<Source*>(thiz->ArgDeRef(0));
+		Term *Xs = Builtins::toFunBuiltin(Expect::asStruct(S->toFun()));
 		return thiz->unifyArg(1, Xs, p);
 	}
 
@@ -820,11 +824,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int answer_source::st_exec(Prog* p, ISTerm* thiz)
+	int answer_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Clause* goal = new Clause(thiz->ArgDeRef(0), thiz->ArgDeRef(1));
-		Prog* U = new Prog(goal, p);
+		Clause *goal = new Clause(thiz->ArgDeRef(0), thiz->ArgDeRef(1));
+		Prog *U = new Prog(goal, p);
 		return thiz->unifyArg(2, U, p);
 	}
 
@@ -832,12 +836,12 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int unfolder_source::st_exec(Prog* p, ISTerm* thiz)
+	int unfolder_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Clause* goal = thiz->ArgDeRef(0)->toClause();
-		Prog* newp = new Prog(goal, p);
-		Unfolder* S = new Unfolder(goal, newp);
+		Clause *goal = thiz->ArgDeRef(0)->toClause();
+		Prog *newp = new Prog(goal, p);
+		Unfolder *S = new Unfolder(goal, newp);
 		return thiz->unifyArg(1, S, p);
 	}
 
@@ -845,13 +849,13 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int getfl::st_exec(Prog* p, ISTerm* thiz)
+	int getfl::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		//IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
-		Term* t = thiz->ArgDeRef(0);
-		Source* S = t->asSource();
-		Term* A = Expect::the(S->getElement());
+		Term *t = thiz->ArgDeRef(0);
+		Source *S = t->asSource();
+		Term *A = Expect::the(S->getElement());
 		//if(null==A) A=Nonvar.aNo;
 		//else A=new Fun("the",A);
 		// IO.mes(">>"+A+"\n"+p+p.getTrail().pprint());
@@ -862,12 +866,12 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int putfl::st_exec(Prog* p, ISTerm* thiz)
+	int putfl::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Sink* S = static_cast<Sink*>(thiz->ArgDeRef(0));
-		Term* X = thiz->ArgDeRef(1);
-		if(0 == S->putElement(X))
+		Sink *S = static_cast<Sink*>(thiz->ArgDeRef(0));
+		Term *X = thiz->ArgDeRef(1);
+		if (0 == S->putElement(X))
 		{
 			IO::errmes("error in putElement: " + X);
 		}
@@ -878,10 +882,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int stop::st_exec(Prog* p, ISTerm* thiz)
+	int stop::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Fluent* S = static_cast<Fluent*>(thiz->ArgDeRef(0));
+		Fluent *S = static_cast<Fluent*>(thiz->ArgDeRef(0));
 		S->stop();
 		return 1;
 	}
@@ -890,11 +894,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int split_source::st_exec(Prog* p, ISTerm* thiz)
+	int split_source::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* original = static_cast<Source*>(thiz->ArgDeRef(0));
-		Nonvar* Xs = original->toList();
+		Source *original = static_cast<Source*>(thiz->ArgDeRef(0));
+		Nonvar *Xs = original->toList();
 		ListSource tempVar(Xs, p);
 		ListSource tempVar2(Xs, p);
 		return (thiz->unifyArg(1, &tempVar, p) > 0 && thiz->unifyArg(2, &tempVar2, p) > 0) ? 1 : 0;
@@ -904,10 +908,10 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int merge_sources::st_exec(Prog* p, ISTerm* thiz)
+	int merge_sources::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Nonvar* list = static_cast<Nonvar*>(thiz->ArgDeRef(0));
+		Nonvar *list = static_cast<Nonvar*>(thiz->ArgDeRef(0));
 		SourceMerger tempVar(list, p);
 		return thiz->unifyArg(1, &tempVar, p);
 	}
@@ -916,19 +920,20 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int discharge::st_exec(Prog* p, ISTerm* thiz)
+	int discharge::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Source* from = static_cast<Source*>(thiz->ArgDeRef(0));
-		Sink* to = static_cast<Sink*>(thiz->ArgDeRef(1));
-		for(;;)
+		Source *from = static_cast<Source*>(thiz->ArgDeRef(0));
+		Sink *to = static_cast<Sink*>(thiz->ArgDeRef(1));
+		for (;;)
 		{
-			Term* X = from->getElement();
-			if(nullptr == X)
+			Term *X = from->getElement();
+			if (nullptr == X)
 			{
 				to->stop();
 				break;
-			} else
+			}
+			else
 			{
 				to->putElement(X);
 			}
@@ -940,17 +945,18 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int collect::st_exec(Prog* p, ISTerm* thiz)
+	int collect::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Sink* s = static_cast<Sink*>(thiz->ArgDeRef(0));
-		Term* X = s->collect();
-		if(nullptr == X)
+		Sink *s = static_cast<Sink*>(thiz->ArgDeRef(0));
+		Term *X = s->collect();
+		if (nullptr == X)
 		{
 			X = Prolog::aNo;
-		} else
+		}
+		else
 		{
-			X = StructureTerm::S("the", { X });
+			X = StructureTerm::S("the", {X});
 		}
 		return thiz->unifyArg(1, X, p);
 	}
@@ -959,7 +965,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int term_string_collector::st_exec(Prog* p, ISTerm* thiz)
+	int term_string_collector::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		StringSink tempVar(p);
@@ -970,7 +976,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int term_collector::st_exec(Prog* p, ISTerm* thiz)
+	int term_collector::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		TermCollector tempVar(p);
@@ -981,7 +987,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int string_char_reader::st_exec(Prog* p, ISTerm* thiz)
+	int string_char_reader::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		CharReader tempVar(thiz->ArgDeRef(0), p);
@@ -992,7 +998,7 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int string_clause_reader::st_exec(Prog* p, ISTerm* thiz)
+	int string_clause_reader::st_exec(Prog *p, ISTerm *thiz)
 	{
 
 		ClauseReader tempVar(thiz->ArgDeRef(0), p);
@@ -1003,11 +1009,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int set_persistent::st_exec(Prog* p, ISTerm* thiz)
+	int set_persistent::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Fluent* F = static_cast<Fluent*>(thiz->ArgDeRef(0));
-		Nonvar* R = static_cast<Nonvar*>(thiz->ArgDeRef(1));
+		Fluent *F = static_cast<Fluent*>(thiz->ArgDeRef(0));
+		Nonvar *R = static_cast<Nonvar*>(thiz->ArgDeRef(1));
 		bool yesno = !R->equalsTerm(Prolog::aNo);
 		F->setPersistent(yesno);
 		return 1;
@@ -1017,11 +1023,11 @@ const unordered_map Builtins::builtinsMap = unordered_map();
 	{
 	}
 
-	int get_persistent::st_exec(Prog* p, ISTerm* thiz)
+	int get_persistent::st_exec(Prog *p, ISTerm *thiz)
 	{
 
-		Fluent* F = static_cast<Fluent*>(thiz->ArgDeRef(0));
-		Term* R = F->getPersistent() ? Prolog::aYes : Prolog::aNo;
+		Fluent *F = static_cast<Fluent*>(thiz->ArgDeRef(0));
+		Term *R = F->getPersistent() ? Prolog::aYes : Prolog::aNo;
 		return thiz->unifyArg(1, R, p);
 	}
 }

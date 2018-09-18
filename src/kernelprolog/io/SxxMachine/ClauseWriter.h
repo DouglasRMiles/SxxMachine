@@ -1,12 +1,14 @@
-#ifndef CLAUSEWRITER
-#define CLAUSEWRITER
+#pragma once
 
 #include "CharWriter.h"
 #include <string>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -17,14 +19,11 @@ namespace SxxMachine
 	class ClauseWriter : public CharWriter
 	{
 	public:
-		ClauseWriter(const std::string& f, Prog* p);
+		ClauseWriter(const std::string &f, Prog *p);
 
-		ClauseWriter(Prog* p);
+		ClauseWriter(Prog *p);
 
-		int putElement(Term* t) override;
+		int putElement(Term *t) override;
 	};
 
 }
-
-
-#endif	//#ifndef CLAUSEWRITER

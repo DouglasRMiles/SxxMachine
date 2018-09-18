@@ -7,33 +7,31 @@ using namespace std;
 #include "Term.h"
 #include "../../kernelprolog/main/SxxMachine/KPTrail.h"
 #include "../../kernelprolog/terms/SxxMachine/Expect.h"
+#include "OpVisitor.h"
 #include "Trail.h"
 #include "TermData.h"
 #include "StructureTerm.h"
 #include "../../exceptions/SxxMachine/PrologException.h"
 #include "Prolog.h"
-#include "Method.h"
-#include "ReferenceQueue.h"
-#include "StringBuilder.h"
-#include "Reference.h"
 
 namespace SxxMachine
 {
 
-	int SymbolTerm::exec(Prog* p)
+	int SymbolTerm::exec(Prog *p)
 	{
 		try
 		{
-			if(st_exec == nullptr)
+			if (st_exec == nullptr)
 			{
 				Init::builtinDict->asBuiltin(this);
 			}
-			if(st_exec == nullptr)
+			if (st_exec == nullptr)
 			{
 				return -1;
 			}
 			return static_cast<int>(st_exec->invoke(nullptr, p, this));
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +46,7 @@ namespace SxxMachine
 
 	bool SymbolTerm::isNil()
 	{
-		return name_RenamedTODO == "[]";
+		return name_Renamed == "[]";
 	}
 
 	bool SymbolTerm::isTrueProc()
@@ -59,26 +57,26 @@ namespace SxxMachine
 
 	wstring SymbolTerm::qname()
 	{
-		return MaybeQuoted(this->name_RenamedTODO);
+		return MaybeQuoted(this->name_Renamed);
 	}
 
-	wstring SymbolTerm::MaybeQuoted(const wstring& sym)
+	wstring SymbolTerm::MaybeQuoted(const wstring &sym)
 	{
-		if(true)
+		if (true)
 		{
 			return Token::toQuotedString(sym);
 		}
-		if(0 == sym.length())
+		if (0 == sym.length())
 		{
 			return "''";
 		}
-		if(!sym.find("\n") != wstring::npos)
+		if (!sym.find("\n") != wstring::npos)
 		{
 			return Token::toQuotedString(sym);
 		}
-		for(int i = 0; i < sym.length(); i++)
+		for (int i = 0; i < sym.length(); i++)
 		{
-			if(!islower(sym[i]))
+			if (!islower(sym[i]))
 			{
 				return StringHelper::toString('\'') + sym + StringHelper::toString('\'');
 			}
@@ -86,7 +84,7 @@ namespace SxxMachine
 		return sym;
 	}
 
-	SymbolTerm* SymbolTerm::toClone() throw(CloneNotSupportedException)
+	SymbolTerm *SymbolTerm::toClone() throw(CloneNotSupportedException)
 	{
 		return this;
 	}
@@ -96,23 +94,23 @@ namespace SxxMachine
 		return qname();
 	}
 
-	bool SymbolTerm::bind(Term* that, KPTrail* trail)
+	bool SymbolTerm::bind(Term *that, KPTrail *trail)
 	{
-		if(!Nonvar::bind(that, trail))
+		if (!Nonvar::bind(that, trail))
 		{
 			return false;
 		}
-		if(name_RenamedTODO != "")
+		if (name_Renamed != "")
 		{
 			//name = name.intern();
 			wstring thatn = Expect::asConst(that)->name();
-			if(thatn == name_RenamedTODO)
+			if (thatn == name_Renamed)
 			{
 				return true;
 			}
 		}
-		Term* thizf = functor();
-		Term* thatf = that->functor();
+		Term *thizf = functor();
+		Term *thatf = that->functor();
 		return thizf == thatf;
 	}
 
@@ -131,31 +129,31 @@ namespace SxxMachine
 		return name();
 	}
 
-	int SymbolTerm::getIntArg(const int& i)
+	int SymbolTerm::getIntArg(int i)
 	{
 		// TODO Auto-generated method stub
 		oopsy();
 		return Nonvar::getIntArg(i);
 	}
 
-	int SymbolTerm::unifyArg(const int& i, Term* a, Prog* p)
+	int SymbolTerm::unifyArg(int i, Term *a, Prog *p)
 	{
 		oopsy();
 		return Nonvar::unifyArg(i, a, p);
 	}
 
-	Term* SymbolTerm::ArgNoDeRef(const int& i)
+	Term *SymbolTerm::ArgNoDeRef(int i)
 	{
 		oopsy();
 		return Nonvar::ArgNoDeRef(i);
 	}
 
-	int SymbolTerm::exec(Prog* p, ISTerm* thiz)
+	int SymbolTerm::exec(Prog *p, ISTerm *thiz)
 	{
 		return exp->exec(p, this);
 	}
 
-	void SymbolTerm::setMethod(Method* b)
+	void SymbolTerm::setMethod(Method *b)
 	{
 		st_exec = b;
 	}
@@ -170,10 +168,10 @@ namespace SxxMachine
 		return true;
 	}
 
-java::util::concurrent::ConcurrentHashMap<Key*, InternRef*>* const  SymbolTerm::SYMBOL_TABLE = new java::util::concurrent::ConcurrentHashMap<Key*, InternRef*>();
-ReferenceQueue<Interned*>* const  SymbolTerm::DEAD = new ReferenceQueue<Interned*>();
+java::util::concurrent::ConcurrentHashMap<Key*, InternRef*> *const SymbolTerm::SYMBOL_TABLE = new java::util::concurrent::ConcurrentHashMap<Key*, InternRef*>();
+ReferenceQueue<Interned*> *const SymbolTerm::DEAD = new ReferenceQueue<Interned*>();
 
-	SymbolTerm::Key::Key(const wstring& n, const int& a) : name(n), arity(a)
+	SymbolTerm::Key::Key(const wstring &n, int a) : name(n), arity(a)
 	{
 	}
 
@@ -184,19 +182,19 @@ ReferenceQueue<Interned*>* const  SymbolTerm::DEAD = new ReferenceQueue<Interned
 
 	bool SymbolTerm::Key::equals(any other)
 	{
-		Key* k = any_cast<Key*>(other);
+		Key *k = any_cast<Key*>(other);
 		return this->arity == k->arity && this->name == k->name;
 	}
 
-	SymbolTerm::InternRef::InternRef(Key* key, Interned* sym) : WeakReference<Interned>(sym, DEAD), key(key)
+	SymbolTerm::InternRef::InternRef(Key *key, Interned *sym) : WeakReference<Interned>(sym, DEAD), key(key)
 	{
 	}
 
-	SymbolTerm::Dynamic::Dynamic(const wstring& name, const int& arity) : SymbolTerm(name, arity)
+	SymbolTerm::Dynamic::Dynamic(const wstring &name, int arity) : SymbolTerm(name, arity)
 	{
 	}
 
-	SymbolTerm::Dynamic::Dynamic(const wstring& name) : SymbolTerm(name, -1)
+	SymbolTerm::Dynamic::Dynamic(const wstring &name) : SymbolTerm(name, -1)
 	{
 	}
 
@@ -206,58 +204,59 @@ ReferenceQueue<Interned*>* const  SymbolTerm::DEAD = new ReferenceQueue<Interned
 		return "/*D*/" + name() + "/" + to_string(arity);
 	}
 
-	SymbolTerm::Interned::Interned(const wstring& name, const int& arity) : SymbolTerm(name, arity)
+	SymbolTerm::Interned::Interned(const wstring &name, int arity) : SymbolTerm(name, arity)
 	{
 	}
 
 	wstring SymbolTerm::Interned::toString()
 	{
 		int arity = this->arity();
-		if(arity == 0)
+		if (arity == 0)
 		{
 			return name();
 		}
 		return name() + "/" + to_string(arity);
 	}
 
-	SymbolTerm::Partial::Partial(const wstring& name, const int& arity, const int& start, const int& finish) : SymbolTerm(name, arity, start, finish)
+	SymbolTerm::Partial::Partial(const wstring &name, int arity, int start, int finish) : SymbolTerm(name, arity, start, finish)
 	{
 	}
 
 	wstring SymbolTerm::Partial::toString()
 	{
 		int arity = this->arity();
-		return "/*P" + to_string(start_RenamedTODO) + ":" + to_string(finish_RenamedTODO) + "*/" + name() + "/" + to_string(arity);
+		return "/*P" + to_string(start_Renamed) + ":" + to_string(finish_Renamed) + "*/" + name() + "/" + to_string(arity);
 	}
 
-	bool SymbolTerm::Partial::equalsTerm(Term* obj, Comparator* comparator)
+	bool SymbolTerm::Partial::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
-		if(this == obj)
+		if (this == obj)
 		{
 			return true;
-		} else if(obj->isSymbol())
+		}
+		else if (obj->isSymbol())
 		{
-			SymbolTerm* that = obj->asSymbolTerm();
-			int thisLength = this->finish_RenamedTODO - this->start_RenamedTODO;
-			int thatLength = that->finish_RenamedTODO - that->start_RenamedTODO;
-			return this->arity_RenamedTODO == that->arity_RenamedTODO && (thisLength == thatLength) && this->name_RenamedTODO.regionMatches(this->start_RenamedTODO, that->name_RenamedTODO, that->start_RenamedTODO, thisLength);
+			SymbolTerm *that = obj->asSymbolTerm();
+			int thisLength = this->finish_Renamed - this->start_Renamed;
+			int thatLength = that->finish_Renamed - that->start_Renamed;
+			return this->arity_Renamed == that->arity_Renamed && (thisLength == thatLength) && this->name_Renamed.regionMatches(this->start_Renamed, that->name_Renamed, that->start_Renamed, thisLength);
 		}
 		return false;
 	}
 
-	bool SymbolTerm::Partial::unifyImpl(Term* t, Trail* trail)
+	bool SymbolTerm::Partial::unifyImpl(Term *t, Trail *trail)
 	{
 		t = t->dref();
-		Comparator* comparator = Term::Unifiable;
+		OpVisitor *comparator = Term::Unifiable;
 		return (t->isVar()) ? (t)->bind(this, trail) : equalsTerm(t, comparator);
 	}
 
 	int SymbolTerm::Partial::termHashCodeImpl()
 	{
 		int h = this->hash;
-		if(h == 0 && this->finish_RenamedTODO - this->start_RenamedTODO > 0)
+		if (h == 0 && this->finish_Renamed - this->start_Renamed > 0)
 		{
-			h = this->name_RenamedTODO.substr(this->start_RenamedTODO, this->finish_RenamedTODO - this->start_RenamedTODO)->hashCode(); // use the same hashCode function as in SymbolTerm
+			h = this->name_Renamed.substr(this->start_Renamed, this->finish_Renamed - this->start_Renamed)->hashCode(); // use the same hashCode function as in SymbolTerm
 			this->hash = h;
 		}
 		return h;
@@ -265,7 +264,7 @@ ReferenceQueue<Interned*>* const  SymbolTerm::DEAD = new ReferenceQueue<Interned
 
 	wstring SymbolTerm::Partial::name()
 	{
-		return this->name_RenamedTODO.substr(this->start_RenamedTODO, this->finish_RenamedTODO - this->start_RenamedTODO);
+		return this->name_Renamed.substr(this->start_Renamed, this->finish_Renamed - this->start_Renamed);
 	}
 
 	any SymbolTerm::Partial::toJava()
@@ -273,79 +272,81 @@ ReferenceQueue<Interned*>* const  SymbolTerm::DEAD = new ReferenceQueue<Interned
 		return name();
 	}
 
-	void SymbolTerm::Partial::toStringImpl(const int& printingFlags, StringBuilder* sb)
+	void SymbolTerm::Partial::toStringImpl(int printingFlags, StringBuilder *sb)
 	{
 		wstring name = this->name();
-		if(TermData::isQuoted(printingFlags))
+		if (TermData::isQuoted(printingFlags))
 		{
 			Token::toQuotedString(name, sb);
-		} else
+		}
+		else
 		{
 			sb->append(name);
 		}
 	}
 
-SymbolTerm* const  SymbolTerm::colon2 = intern(":", 2);
-Term* const  SymbolTerm::GOALS = intern("$goals");
+SymbolTerm *const SymbolTerm::colon2 = intern(":", 2);
+Term *const SymbolTerm::GOALS = intern("$goals");
 
-	SymbolTerm* SymbolTerm::create(const char& c)
+	SymbolTerm *SymbolTerm::create(char c)
 	{
-		if(0 <= c && c <= 127)
+		if (0 <= c && c <= 127)
 		{
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 			return intern(Character::toString(c), 0);
-		} else
+		}
+		else
 		{
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 			return create(Character::toString(c));
 		}
 	}
 
-	SymbolTerm* SymbolTerm::create(const wstring& _name)
+	SymbolTerm *SymbolTerm::create(const wstring &_name)
 	{
 		return new Dynamic(_name, 0);
 	}
 
-	SymbolTerm* SymbolTerm::create(const wstring& _name, const int& arity)
+	SymbolTerm *SymbolTerm::create(const wstring &_name, int arity)
 	{
 		// For a non-zero arity try to reuse the term, its probable this is a
 		// structure term and those are more commonly declared in code
 		// to be a type of object the code manipulates, therefore also very
 		// likely to already be in the cache.
-		if(arity != 0)
+		if (arity != 0)
 		{
 			return softReuse(_name, arity);
 		}
 		return new Dynamic(_name, 0);
 	}
 
-	StructureTerm* SymbolTerm::create(const wstring& pkg, const wstring& name, const int& arity)
+	StructureTerm *SymbolTerm::create(const wstring &pkg, const wstring &name, int arity)
 	{
 		// This is likely a specific function that exists in code, so try to reuse
 		// the symbols that are involved in the term.
 		return new StructureTerm(colon2, softReuse(pkg, 0), softReuse(name, arity));
 	}
 
-	SymbolTerm* SymbolTerm::intern(const wstring& _name)
+	SymbolTerm *SymbolTerm::intern(const wstring &_name)
 	{
 		return intern(_name, 0);
 	}
 
-	SymbolTerm* SymbolTerm::intern(const wstring& _name, const int& _arity)
+	SymbolTerm *SymbolTerm::intern(const wstring &_name, int _arity)
 	{
-		if(_name == "")
+		if (_name == "")
 		{
 			soopsy();
 		}
 		_name = _name.intern();
-		Key* key = new Key(_name, _arity);
+		Key *key = new Key(_name, _arity);
 //JAVA TO C++ CONVERTER TODO TASK: Java wildcard generics are not converted to C++:
 //ORIGINAL LINE: Reference<? extends Interned> ref = SYMBOL_TABLE.get(key);
-		Reference<? extends Interned>* ref = SYMBOL_TABLE->get(key);
-		if(ref != nullptr)
+		Reference<? extends Interned> *ref = SYMBOL_TABLE->get(key);
+		if (ref != nullptr)
 		{
-			Interned* sym = ref->get();
-			if(sym != nullptr)
+			Interned *sym = ref->get();
+			if (sym != nullptr)
 			{
 				return sym;
 			}
@@ -353,13 +354,13 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 			ref->enqueue();
 		}
 		gc();
-		Interned* sym = new Interned(_name, _arity);
-		InternRef* nref = new InternRef(key, sym);
-		InternRef* oref = SYMBOL_TABLE->putIfAbsent(key, nref);
-		if(oref != nullptr)
+		Interned *sym = new Interned(_name, _arity);
+		InternRef *nref = new InternRef(key, sym);
+		InternRef *oref = SYMBOL_TABLE->putIfAbsent(key, nref);
+		if (oref != nullptr)
 		{
-			SymbolTerm* osym = oref->get();
-			if(osym != nullptr)
+			SymbolTerm *osym = oref->get();
+			if (osym != nullptr)
 			{
 				return osym;
 			}
@@ -371,23 +372,23 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 	{
 //JAVA TO C++ CONVERTER TODO TASK: Java wildcard generics are not converted to C++:
 //ORIGINAL LINE: Reference<? extends Interned> ref;
-		Reference<? extends Interned>* ref;
-		while((ref = DEAD->poll()) != nullptr)
+		Reference<? extends Interned> *ref;
+		while ((ref = DEAD->poll()) != nullptr)
 		{
 			SYMBOL_TABLE->remove((static_cast<InternRef*>(ref))->key, ref);
 		}
 	}
 
-	SymbolTerm* SymbolTerm::softReuse(const wstring& _name, const int& _arity)
+	SymbolTerm *SymbolTerm::softReuse(const wstring &_name, int _arity)
 	{
-		Key* key = new Key(_name, _arity);
+		Key *key = new Key(_name, _arity);
 //JAVA TO C++ CONVERTER TODO TASK: Java wildcard generics are not converted to C++:
 //ORIGINAL LINE: Reference<? extends Interned> ref = SYMBOL_TABLE.get(key);
-		Reference<? extends Interned>* ref = SYMBOL_TABLE->get(key);
-		if(ref != nullptr)
+		Reference<? extends Interned> *ref = SYMBOL_TABLE->get(key);
+		if (ref != nullptr)
 		{
-			Interned* sym = ref->get();
-			if(sym != nullptr)
+			Interned *sym = ref->get();
+			if (sym != nullptr)
 			{
 				return sym;
 			}
@@ -398,111 +399,111 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 		return new Dynamic(_name, _arity);
 	}
 
-	SymbolTerm::SymbolTerm(const wstring& _name, const int& _arity) : quoted(Token::toQuotedString(name())), arity(_arity), start(0), finish(this->name_RenamedTODO.length())
+	SymbolTerm::SymbolTerm(const wstring &_name, int _arity) : quoted(Token::toQuotedString(name())), arity(_arity), start(0), finish(this->name_Renamed.length())
 	{
 
-			if(_name != "" && _name != "." && _name != ":-")
+			if (_name != "" && _name != "." && _name != ":-")
 			{
 				wstring is = _name.intern();
-				if(is != _name)
+				if (is != _name)
 				{
 					throw runtime_error("const got uninterned string");
 				}
 			}
-			name_RenamedTODO = _name;
+			name_Renamed = _name;
 
 	}
 
-	SymbolTerm::SymbolTerm(const wstring& _name, const int& _arity, const int& start, const int& finish) : quoted(Token::toQuotedString(name())), arity(_arity), start(start), finish(finish)
+	SymbolTerm::SymbolTerm(const wstring &_name, int _arity, int start, int finish) : quoted(Token::toQuotedString(name())), arity(_arity), start(start), finish(finish)
 	{
 		//		super(_name);
-		name_RenamedTODO = _name;
+		name_Renamed = _name;
 	}
 
 	int SymbolTerm::arity()
 	{
-		return this->arity_RenamedTODO;
+		return this->arity_Renamed;
 	}
 
 	wstring SymbolTerm::name()
 	{
-		return this->name_RenamedTODO;
+		return this->name_Renamed;
 	}
 
 	int SymbolTerm::start()
 	{
-		return this->start_RenamedTODO;
+		return this->start_Renamed;
 	}
 
 	int SymbolTerm::finish()
 	{
-		return this->finish_RenamedTODO;
+		return this->finish_Renamed;
 	}
 
 	wstring SymbolTerm::base()
 	{
-		return this->name_RenamedTODO;
+		return this->name_Renamed;
 	}
 
-	SymbolTerm* SymbolTerm::subsymbol(const int& beginIndex)
+	SymbolTerm *SymbolTerm::subsymbol(int beginIndex)
 	{
-		if(beginIndex < 0)
+		if (beginIndex < 0)
 		{
 			throw StringIndexOutOfBoundsException(beginIndex);
 		}
-		int subLen = this->finish_RenamedTODO - this->start_RenamedTODO - beginIndex;
-		if(subLen < 0)
+		int subLen = this->finish_Renamed - this->start_Renamed - beginIndex;
+		if (subLen < 0)
 		{
 			throw StringIndexOutOfBoundsException(subLen);
 		}
-		return (beginIndex == 0) ? this : new Partial(this->name_RenamedTODO, this->arity_RenamedTODO, this->start_RenamedTODO + beginIndex, this->finish_RenamedTODO);
+		return (beginIndex == 0) ? this : new Partial(this->name_Renamed, this->arity_Renamed, this->start_Renamed + beginIndex, this->finish_Renamed);
 	}
 
-	SymbolTerm* SymbolTerm::subsymbol(const int& beginIndex, const int& endIndex)
+	SymbolTerm *SymbolTerm::subsymbol(int beginIndex, int endIndex)
 	{
-		if(beginIndex < 0)
+		if (beginIndex < 0)
 		{
 			throw StringIndexOutOfBoundsException(beginIndex);
 		}
-		if(endIndex > this->finish_RenamedTODO - this->start_RenamedTODO)
+		if (endIndex > this->finish_Renamed - this->start_Renamed)
 		{
 			throw StringIndexOutOfBoundsException(endIndex);
 		}
 		int subLen = endIndex - beginIndex;
-		if(subLen < 0)
+		if (subLen < 0)
 		{
 			throw StringIndexOutOfBoundsException(subLen);
 		}
-		return ((beginIndex == 0) && (endIndex == this->finish_RenamedTODO - this->start_RenamedTODO)) ? this : new Partial(this->name_RenamedTODO, this->arity_RenamedTODO, this->start_RenamedTODO + beginIndex, this->start_RenamedTODO + endIndex);
+		return ((beginIndex == 0) && (endIndex == this->finish_Renamed - this->start_Renamed)) ? this : new Partial(this->name_Renamed, this->arity_Renamed, this->start_Renamed + beginIndex, this->start_Renamed + endIndex);
 	}
 
-	SymbolTerm* SymbolTerm::concat(SymbolTerm* that)
+	SymbolTerm *SymbolTerm::concat(SymbolTerm *that)
 	{
-		StringBuilder* sb = new StringBuilder(this->finish_RenamedTODO - this->start_RenamedTODO + that->finish_RenamedTODO - that->start());
-		sb->append(this->name_RenamedTODO, this->start_RenamedTODO, this->finish_RenamedTODO);
-		sb->append(that->name_RenamedTODO, that->start_RenamedTODO, that->finish_RenamedTODO);
+		StringBuilder *sb = new StringBuilder(this->finish_Renamed - this->start_Renamed + that->finish_Renamed - that->start());
+		sb->append(this->name_Renamed, this->start_Renamed, this->finish_Renamed);
+		sb->append(that->name_Renamed, that->start_Renamed, that->finish_Renamed);
 		return SymbolTerm::create(sb->toString());
 	}
 
 	int SymbolTerm::length()
 	{
-		return this->finish_RenamedTODO - this->start_RenamedTODO;
+		return this->finish_Renamed - this->start_Renamed;
 	}
 
-	bool SymbolTerm::unifyImpl(Term* t, Trail* trail)
+	bool SymbolTerm::unifyImpl(Term *t, Trail *trail)
 	{
 		t = t->dref(); // fast dereference
-		return (t->isVar()) ? t->bind(this, trail) : ((dynamic_cast<Partial*>(t) != nullptr) ? t->unify(this, trail) : ((t->isSymbol()) && (this->arity_RenamedTODO == (t->asSymbolTerm())->arity_RenamedTODO) && this->name_RenamedTODO == t->asSymbolTerm()->name_RenamedTODO));
+		return (t->isVar()) ? t->bind(this, trail) : ((dynamic_cast<Partial*>(t) != nullptr) ? t->unify(this, trail) : ((t->isSymbol()) && (this->arity_Renamed == (t->asSymbolTerm())->arity_Renamed) && this->name_Renamed == t->asSymbolTerm()->name_Renamed));
 	}
 
 	int SymbolTerm::termHashCodeImpl()
 	{
-		return this->name_RenamedTODO.hashCode();
+		return this->name_Renamed.hashCode();
 	}
 
-	bool SymbolTerm::equalsTerm(Term* obj, Comparator* comparator)
+	bool SymbolTerm::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
-		return (dynamic_cast<Partial*>(obj) != nullptr) ? (static_cast<Partial*>(obj))->equalsTerm(this, comparator) : ((obj->isSymbol()) && (this->arity_RenamedTODO == obj->asSymbolTerm()->arity_RenamedTODO) && this->name_RenamedTODO == obj->asSymbolTerm()->name_RenamedTODO);
+		return (dynamic_cast<Partial*>(obj) != nullptr) ? (static_cast<Partial*>(obj))->equalsTerm(this, comparator) : ((obj->isSymbol()) && (this->arity_Renamed == obj->asSymbolTerm()->arity_Renamed) && this->name_Renamed == obj->asSymbolTerm()->name_Renamed);
 	}
 
 	bool SymbolTerm::convertible(type_info type)
@@ -512,16 +513,17 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 
 	any SymbolTerm::toJava()
 	{
-		return this->name_RenamedTODO;
+		return this->name_Renamed;
 	}
 
-	void SymbolTerm::toStringImpl(const int& printingFlags, StringBuilder* sb)
+	void SymbolTerm::toStringImpl(int printingFlags, StringBuilder *sb)
 	{
-		wstring name = this->name_RenamedTODO;
-		if(Nonvar::isQuoted(printingFlags))
+		wstring name = this->name_Renamed;
+		if (Nonvar::isQuoted(printingFlags))
 		{
 			sb->append(quoted);
-		} else
+		}
+		else
 		{
 			sb->append(name);
 		}
@@ -532,26 +534,26 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 		return name();
 	}
 
-	int SymbolTerm::compareTo(Term* anotherTerm)
+	int SymbolTerm::compareTo(Term *anotherTerm)
 	{ // anotherTerm must be dereferenced.
-		if((anotherTerm->isVar()) || (anotherTerm->isNumber()))
+		if ((anotherTerm->isVar()) || (anotherTerm->isNumber()))
 		{
 			return AFTER;
 		}
-		if(!(anotherTerm->isSymbol()))
+		if (!(anotherTerm->isSymbol()))
 		{
 			return BEFORE;
 		}
-		if(this == anotherTerm)
+		if (this == anotherTerm)
 		{
 			return EQUAL;
 		}
 		int x = name().compare(anotherTerm->asSymbolTerm()->name());
-		if(x != 0)
+		if (x != 0)
 		{
 			return x;
 		}
-		int y = this->arity_RenamedTODO - anotherTerm->asSymbolTerm()->arity();
+		int y = this->arity_Renamed - anotherTerm->asSymbolTerm()->arity();
 		//	if (y != 0)
 		return y;
 		//		throw new InternalException("SymbolTerm is not unique");
@@ -564,24 +566,24 @@ Term* const  SymbolTerm::GOALS = intern("$goals");
 
 	bool SymbolTerm::IsNil()
 	{
-		if(Prolog::Nil == this)
+		if (Prolog::Nil == this)
 		{
 			return true;
 		}
-		if(this->name() == "[]")
+		if (this->name() == "[]")
 		{
 			//throw
 		}
 		return false;
 	}
 
-	SymbolTerm* SymbolTerm::internToken(const wstring& _name)
+	SymbolTerm *SymbolTerm::internToken(const wstring &_name)
 	{
-		SymbolTerm* tok = intern(_name);
+		SymbolTerm *tok = intern(_name);
 		return tok;
 	}
 
-	SymbolTerm* SymbolTerm::functor()
+	SymbolTerm *SymbolTerm::functor()
 	{
 		return this;
 	}

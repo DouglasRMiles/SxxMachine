@@ -1,10 +1,12 @@
-#ifndef OUTOFLOOP
-#define OUTOFLOOP
+#pragma once
 
 #include "Undoable.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class BlockPredicate; }
+namespace SxxMachine
+{
+	class BlockPredicate;
+}
 
 namespace SxxMachine
 {
@@ -22,17 +24,14 @@ namespace SxxMachine
 	class OutOfLoop : public Undoable
 	{
 	public:
-		BlockPredicate* const  p;
+		BlockPredicate *const p;
 		virtual ~OutOfLoop()
 		{
 			delete p;
 		}
 
-		OutOfLoop(BlockPredicate* _p);
+		OutOfLoop(BlockPredicate *_p);
 		void undo() override;
 	};
 
 }
-
-
-#endif	//#ifndef OUTOFLOOP

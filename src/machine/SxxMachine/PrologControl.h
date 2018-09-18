@@ -1,5 +1,4 @@
-#ifndef PROLOGCONTROL
-#define PROLOGCONTROL
+#pragma once
 
 #include "Operation.h"
 #include "Prolog.h"
@@ -10,14 +9,17 @@
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologMachineCopy; }
-namespace SxxMachine { class PrologClassLoader; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class PrologException; }
-namespace SxxMachine { class JavaInterruptedException; }
-namespace SxxMachine { class PrologLogger; }
+namespace SxxMachine
+{
+	class Prolog;
+	class PrologMachineCopy;
+	class PrologClassLoader;
+	class Operation;
+	class Term;
+	class PrologException;
+	class JavaInterruptedException;
+	class PrologLogger;
+}
 
 namespace SxxMachine
 {
@@ -40,7 +42,7 @@ namespace SxxMachine
 	{
 	  /** Holds a Prolog engine. */
   protected:
-	  Prolog* const  engine;
+	  Prolog *const engine;
 	  /** Holds a Prolog goal to be executed. */
 	  Operation code;
 
@@ -49,10 +51,10 @@ namespace SxxMachine
 	  long long reductionLimit = 1 << 20;
 	  long long reductionsUsed = 0;
 
-	  InputStream* userInput = System::in;
-	  PrintStream* userOuput = System::out;
+	  InputStream *userInput = System::in;
+	  PrintStream *userOuput = System::out;
 
-	  PrintStream* userError = System::err;
+	  PrintStream *userError = System::err;
 
 	  /** Constructs a new <code>PrologControl</code>. */
   public:
@@ -67,39 +69,39 @@ namespace SxxMachine
 	  PrologControl();
 
 	  /** Constructs a new <code>PrologControl</code>. */
-	  PrologControl(PrologMachineCopy* pmc);
-	  PrologControl(Prolog* pmc);
+	  PrologControl(PrologMachineCopy *pmc);
+	  PrologControl(Prolog *pmc);
 
 	  virtual bool isEnabled(Prolog::Feature f);
 
-	  virtual void setEnabled(Prolog::Feature f, const bool& on);
+	  virtual void setEnabled(Prolog::Feature f, bool on);
 
-	  virtual void setEnabled(Set<Prolog::Feature>* f, const bool& on);
+	  virtual void setEnabled(Set<Prolog::Feature> *f, bool on);
 
 	  /** @param err stack trace to print (or log). */
 	  virtual void printStackTrace(std::runtime_error err);
 
-	  virtual void setUserInput(InputStream* userInput);
+	  virtual void setUserInput(InputStream *userInput);
 
-	  virtual void setUserOuput(PrintStream* userOuput);
+	  virtual void setUserOuput(PrintStream *userOuput);
 
 	  virtual int getMaxDatabaseSize();
 
-	  virtual void setMaxDatabaseSize(const int& size);
+	  virtual void setMaxDatabaseSize(int size);
 
-	  virtual PrologClassLoader* getPrologClassLoader();
+	  virtual PrologClassLoader *getPrologClassLoader();
 
-	  virtual void setPrologClassLoader(PrologClassLoader* cl);
+	  virtual void setPrologClassLoader(PrologClassLoader *cl);
 
 	  virtual int getMaxArity();
 
-	  virtual void setMaxArity(const int& max);
+	  virtual void setMaxArity(int max);
 
 	  /**
 	   * Registers {@code user_input}, {@code user_output}, and {@code user_error}
 	   * streams.
 	   */
-	  virtual void configureUserIO(InputStream* in_RenamedTODO, OutputStream* out, OutputStream* err);
+	  virtual void configureUserIO(InputStream *in_Renamed, OutputStream *out, OutputStream *err);
 
 	  /**
 	   * Sets a goal and its arguments to this Prolog thread. An initial
@@ -113,7 +115,7 @@ namespace SxxMachine
 	   * continuation goal (a <code>Success</code> object) is set to the
 	   * <code>cont</code> field of goal <code>p</code> as continuation.
 	   */
-	  virtual void setPredicate(const std::string& pkg, const std::string& functor, std::vector<Term> &args);
+	  virtual void setPredicate(const std::string &pkg, const std::string &functor, std::vector<Term> &args);
 
 
 	  /**
@@ -121,7 +123,7 @@ namespace SxxMachine
 	   * continuation goal (a <code>Success</code> object) is set to the
 	   * <code>cont</code> field of <code>call(t)</code> as continuation.
 	   */
-	  virtual void setPredicate(Term* t);
+	  virtual void setPredicate(Term *t);
 
 	  /**
 	   * Is invoked when the system succeeds to find a solution.<br>
@@ -164,14 +166,14 @@ namespace SxxMachine
 	  virtual void executePredicate();
 	  //@SuppressWarnings("null")
   public:
-	  virtual void executePredicate(const bool& isOutter) throw(PrologException, JavaInterruptedException);
+	  virtual void executePredicate(bool isOutter) throw(PrologException, JavaInterruptedException);
 
-	  virtual bool execute(const std::string& pkg, const std::string& functor, std::vector<Term> &args) = 0;
+	  virtual bool execute(const std::string &pkg, const std::string &functor, std::vector<Term> &args) = 0;
 
   private:
 	  Operation insertPendingGoals(Operation after);
 
-	  Operation insertCode(Term* pendingGoals, Operation after);
+	  Operation insertCode(Term *pendingGoals, Operation after);
 
   protected:
 	  virtual void executePredicate_goog() throw(PrologException);
@@ -183,15 +185,12 @@ namespace SxxMachine
 	  /** Applies an upper limit on number of reductions. */
 	  virtual void setReductionLimit(long long limit);
 
-	  virtual void setUserError(PrintStream* userError);
+	  virtual void setUserError(PrintStream *userError);
 
-	  virtual std::any getExternalData(const std::string& key);
+	  virtual std::any getExternalData(const std::string &key);
 
-	  virtual void setExternalData(const std::string& key, std::any value);
-	   virtual PrologLogger* getLogger();
+	  virtual void setExternalData(const std::string &key, std::any value);
+	   virtual PrologLogger *getLogger();
 	};
 
 }
-
-
-#endif	//#ifndef PROLOGCONTROL

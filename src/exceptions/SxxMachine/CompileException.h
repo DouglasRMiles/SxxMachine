@@ -1,7 +1,5 @@
-#ifndef COMPILEEXCEPTION
-#define COMPILEEXCEPTION
+#pragma once
 
-#include "Exception.h"
 #include <string>
 #include <stdexcept>
 
@@ -12,12 +10,9 @@ namespace SxxMachine
 	class CompileException : public std::runtime_error
 	{
   public:
-	  CompileException(const std::string& message);
+	  CompileException(const std::string &message);
 	  CompileException(std::runtime_error cause);
-	  CompileException(const std::string& message, std::runtime_error cause);
+	  CompileException(const std::string &message, std::runtime_error cause);
 	};
 
 }
-
-
-#endif	//#ifndef COMPILEEXCEPTION

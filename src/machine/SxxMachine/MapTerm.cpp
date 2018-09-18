@@ -5,12 +5,12 @@ using namespace std;
 #include "Term.h"
 #include "Trail.h"
 #include "Prolog.h"
-#include "StringBuilder.h"
+#include "OpVisitor.h"
 
 namespace SxxMachine
 {
 
-SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
+SymbolTerm *const MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 
 	bool MapTerm::isMap()
 	{
@@ -22,12 +22,12 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		return false;
 	}
 
-	int MapTerm::containsTermImpl(Term* variableTerm, Comparator* comparison)
+	int MapTerm::containsTermImpl(Term *variableTerm, Comparator *comparison)
 	{
 	  return car()->containsTerm(variableTerm,comparison) + cdr()->containsTerm(variableTerm,comparison);
 	}
 
-	MapTerm::MapTerm(Term* _car, Term* _cdr) : argz(VA({ _car, _cdr }))
+	MapTerm::MapTerm(Term *_car, Term *_cdr) : argz(VA({_car, _cdr}))
 	{
 		// TODO assert _car!=null;
 		// TODO assert _cdr!=null;
@@ -36,51 +36,51 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		//this.immutable = this.argz[0].isImmutable() && this.argz[1].isImmutable();
 	}
 
-	Term* MapTerm::car()
+	Term *MapTerm::car()
 	{
 		return this->argz[0];
 	}
 
-	Term* MapTerm::cdr()
+	Term *MapTerm::cdr()
 	{
 		return this->argz[1];
 	}
 
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("unused") @Override public final boolean unifyImpl(Term t, Trail trail)
-	bool MapTerm::unifyImpl(Term* t, Trail* trail)
+	bool MapTerm::unifyImpl(Term *t, Trail *trail)
 	{
-		Term* p = this;
+		Term *p = this;
 		t = t->dref();
-		while((t->isMap()) && (p->isMap()) && (p)->car()->unify((t)->car(), trail))
+		while ((t->isMap()) && (p->isMap()) && (p)->car()->unify((t)->car(), trail))
 		{
 			p = (p)->cdr()->dref();
 			t = (t)->cdr()->dref();
 		}
-		if(t->isVar())
+		if (t->isVar())
 		{
 			return t->asVariableTerm()->bind(p, trail);
 		}
-		if(p->isVar())
+		if (p->isVar())
 		{
 			return p->asVariableTerm()->bind(t, trail);
 		}
-		if(true)
+		if (true)
 		{
 		  return !(t->isMap()) && !(p->isMap()) && p->unify(t, trail);
 		}
 
-		if(t->isMap())
+		if (t->isMap())
 		{
-		  if(p->isAtomicValue())
+		  if (p->isAtomicValue())
 		  {
 			  return false;
 		  }
 		  return t->unify(p, trail);
 		}
-		if(p->isMap())
+		if (p->isMap())
 		{
-		  if(t->isAtomicValue())
+		  if (t->isAtomicValue())
 		  {
 			  return false;
 		  }
@@ -89,12 +89,12 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		return p->unify(t, trail);
 	}
 
-	void MapTerm::setCar(Term* t)
+	void MapTerm::setCar(Term *t)
 	{
 		this->argz[0] = t;
 	}
 
-	void MapTerm::setCdr(Term* t)
+	void MapTerm::setCdr(Term *t)
 	{
 		this->argz[1] = t;
 	}
@@ -109,24 +109,24 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		return convertible(vector::typeid, type);
 	}
 
-	Term* MapTerm::copyImpl(IdentityHashMap<any, Term*>* copyHash, const int& deeply)
+	Term *MapTerm::copyImpl(IdentityHashMap<any, Term*> *copyHash, int deeply)
 	{
-		if(this->immutable)
+		if (this->immutable)
 		{
 			return this;
 		}
-		Deque<MapTerm*>* stack = new ArrayDeque<MapTerm*>();
-		Term* p = this;
-		while(p->isMap() && !p->asMapTerm()->immutable)
+		Deque<MapTerm*> *stack = new ArrayDeque<MapTerm*>();
+		Term *p = this;
+		while (p->isMap() && !p->asMapTerm()->immutable)
 		{
-			MapTerm* lt = static_cast<MapTerm*>(p);
+			MapTerm *lt = static_cast<MapTerm*>(p);
 			stack->push(lt);
 			p = lt->cdr()->dref();
 		}
 		p = p->copy(copyHash, deeply);
-		while(!stack->isEmpty())
+		while (!stack->isEmpty())
 		{
-			MapTerm* lt = stack->pop();
+			MapTerm *lt = stack->pop();
 			p = MAP(lt->argz[0]->copy(copyHash, deeply), p);
 		}
 		return p;
@@ -147,7 +147,7 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 	  return argz;
 	}
 
-	SymbolTerm* MapTerm::functor()
+	SymbolTerm *MapTerm::functor()
 	{
 	  return SYM_DOT;
 	}
@@ -157,16 +157,16 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		return SYM_DOT->name();
 	}
 
-	Term* MapTerm::arg0(const int& nth)
+	Term *MapTerm::arg0(int nth)
 	{
-	  Term* t = this;
+	  Term *t = this;
 	  int old_nth = nth;
-	  while((t->isMap()) && 0 < nth)
+	  while ((t->isMap()) && 0 < nth)
 	  {
 		nth--;
 		t = (t)->cdr()->dref();
 	  }
-	  if((t->isMap()))
+	  if ((t->isMap()))
 	  {
 		return t->car();
 	  }
@@ -176,8 +176,8 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 	int MapTerm::length()
 	{
 	int count = 0;
-	Term* t = this;
-	while((t->isMap()))
+	Term *t = this;
+	while ((t->isMap()))
 	{
 		count++;
 		t = (t)->cdr()->dref();
@@ -188,45 +188,45 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 	vector MapTerm::toJava()
 	{
 		vector<any> vec = vector<any>();
-		Term* t = this;
-		while((t->isMap()))
+		Term *t = this;
+		while ((t->isMap()))
 		{
 			vec.push_back((t)->car()->dref()->toJava());
 			t = (t)->cdr()->dref();
 		}
-		if(!t->isNil())
+		if (!t->isNil())
 		{
 			vec.push_back(t);
 		}
 		return vec;
 	}
 
-	void MapTerm::toQuotedString_old(const int& printFlags, StringBuilder* sb)
+	void MapTerm::toQuotedString_old(int printFlags, StringBuilder *sb)
 	{
-		TermTreeIterator* it = new TermTreeIterator(this,true);
-		while(it->hasNext())
+		TermTreeIterator *it = new TermTreeIterator(this,true);
+		while (it->hasNext())
 		{
-			Term* t = it->next();
+			Term *t = it->next();
 			t->toQuotedString(0, sb);
 			it++;
 		}
 	}
 
-	void MapTerm::toStringImpl(const int& printingFlags, StringBuilder* sb)
+	void MapTerm::toStringImpl(int printingFlags, StringBuilder *sb)
 	{
-	  Term* x = this;
+	  Term *x = this;
 	  sb->append("[");
-	  for(;;)
+	  for (;;)
 	  {
 		x->car()->dref()->toQuotedString(1, sb);
 		x = x->cdr()->dref();
-		if(!(x->isMap()))
+		if (!(x->isMap()))
 		{
 			break;
 		}
 		sb->append(",");
 	  }
-	  if(!Prolog::Nil->equals(x))
+	  if (!Prolog::Nil->equals(x))
 	  {
 		sb->append("|");
 		x->toQuotedString(printingFlags, sb);
@@ -234,7 +234,7 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 	  sb->append("]");
 	}
 
-	bool MapTerm::equalsTerm(Term* obj, Comparator* comparator)
+	bool MapTerm::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
 		return obj->isMap() && this->argz[0]->equalsTerm((obj)->car()->dref(), comparator) && cdr()->equalsTerm((obj)->cdr()->dref(), comparator);
 	}
@@ -248,17 +248,17 @@ SymbolTerm* const  MapTerm::SYM_DOT = SymbolTerm::intern(".", 2);
 		return h;
 	}
 
-	Iterator<Term*>* MapTerm::iterator(const bool& includeSyntax)
+	Iterator<Term*> *MapTerm::iterator(bool includeSyntax)
 	{
 		return new ListTermIterator(this,includeSyntax);
 	}
 
-SymbolTerm* const  MapTerm::ListTermIterator::LEFT_BRACKET = SymbolTerm::internToken("[");
-SymbolTerm* const  MapTerm::ListTermIterator::SEPARATOR = SymbolTerm::internToken("|");
-SymbolTerm* const  MapTerm::ListTermIterator::RIGHT_BRACKET = SymbolTerm::internToken("]");
-SymbolTerm* const  MapTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",");
+SymbolTerm *const MapTerm::ListTermIterator::LEFT_BRACKET = SymbolTerm::internToken("[");
+SymbolTerm *const MapTerm::ListTermIterator::SEPARATOR = SymbolTerm::internToken("|");
+SymbolTerm *const MapTerm::ListTermIterator::RIGHT_BRACKET = SymbolTerm::internToken("]");
+SymbolTerm *const MapTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",");
 
-	MapTerm::ListTermIterator::ListTermIterator(Term* start, const bool& includeSyntax)
+	MapTerm::ListTermIterator::ListTermIterator(Term *start, bool includeSyntax)
 	{
 	   this->includeSyntax = includeSyntax;
 		this->current = start;
@@ -269,79 +269,87 @@ SymbolTerm* const  MapTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",
 		return this->current != nullptr && (this->tail.empty() || this->index < this->tail.size());
 	}
 
-	Term* MapTerm::ListTermIterator::next()
+	Term *MapTerm::ListTermIterator::next()
 	{
-		Term* result;
-		if(this->first && includeSyntax)
+		Term *result;
+		if (this->first && includeSyntax)
 		{
 			this->first = false;
 			return LEFT_BRACKET;
-		} else if(this->comma && includeSyntax)
+		}
+		else if (this->comma && includeSyntax)
 		{
 			this->comma = false;
 			return COMMA;
-		} else if(this->current->isMap())
+		}
+		else if (this->current->isMap())
 		{
 			result = (this->current)->car();
 			this->current = (this->current)->cdr()->dref();
 			this->comma = (this->current->isMap());
-		} else if(this->current->isNil() && includeSyntax)
+		}
+		else if (this->current->isNil() && includeSyntax)
 		{
 			result = RIGHT_BRACKET;
 			this->current = nullptr;
-		} else if(this->tail.empty())
+		}
+		else if (this->tail.empty())
 		{
-			this->tail = std::vector<Term*>{ this->current, RIGHT_BRACKET };
+			this->tail = std::vector<Term*>{this->current, RIGHT_BRACKET};
 			result = SEPARATOR;
 			this->index = 0;
-		} else if(this->index < this->tail.size())
+		}
+		else if (this->index < this->tail.size())
 		{
 			result = this->tail[this->index];
 			this->index++;
-		} else
+		}
+		else
 		{
 			throw NoSuchElementException();
 		}
 		return result;
 	}
 
-	int MapTerm::compareTo(Term* anotherTerm)
+	int MapTerm::compareTo(Term *anotherTerm)
 	{ // anotherTerm must be dereferenced.
-	if((anotherTerm->isVar()) || (anotherTerm->isNumber()) || (anotherTerm->isSymbol()))
+	if ((anotherTerm->isVar()) || (anotherTerm->isNumber()) || (anotherTerm->isSymbol()))
 	{
 		return AFTER;
 	}
-	if((anotherTerm->isStructure()))
+	if ((anotherTerm->isStructure()))
 	{
 		int arity = anotherTerm->arity();
-		if(2 != arity)
+		if (2 != arity)
 		{
 		return (2 - arity);
 		}
-		Term* functor = (anotherTerm)->functor();
-		if(!SYM_DOT->equalsTerm(functor))
+		Term *functor = (anotherTerm)->functor();
+		if (!SYM_DOT->equalsTerm(functor))
 		{
 		return SYM_DOT->compareTo(functor);
 		}
 	}
 	std::vector<Term*> args(2);
-	if((anotherTerm->isMap()))
+	if ((anotherTerm->isMap()))
 	{
 		args[0] = (anotherTerm)->car();
 		args[1] = (anotherTerm)->cdr();
-	} else if((anotherTerm->isStructure()))
+	}
+	else if ((anotherTerm->isStructure()))
 	{
 		args = (anotherTerm)->args();
-	} else
+	}
+	else
 	{
 		return BEFORE;
 	}
-	Term* tmp = this->argz[0];
+	Term *tmp = this->argz[0];
 	int rc;
-	for(int i = 0; i < 2; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		rc = tmp->compareTo(args[i]->dref());
-		if(rc != EQUAL)
+		if (rc != EQUAL)
 		{
 		return rc;
 		}
@@ -355,80 +363,82 @@ SymbolTerm* const  MapTerm::ListTermIterator::COMMA = SymbolTerm::internToken(",
 		return this->immutable;
 	}
 
-	MapTerm* MapTerm::join(Term* term)
+	MapTerm *MapTerm::join(Term *term)
 	{
-	  if(isImmutable())
+	  if (isImmutable())
 	  {
 		return joinToCopy(term);
 	  }
 	  Term * const cdr = argz[1];
-	  if(cdr->isMap())
+	  if (cdr->isMap())
 	  {
 		  return cdr->join(term);
 	  }
-	  if(cdr == Prolog::Nil)
+	  if (cdr == Prolog::Nil)
 	  {
 		// proper list
-		MapTerm* acdr = MAP(term, cdr);
+		MapTerm *acdr = MAP(term, cdr);
 		argz[1] = acdr;
 
-	  } else
+	  }
+	  else
 	  {
 		// improper list?
-		MapTerm* acdr = MAP(term, cdr);
+		MapTerm *acdr = MAP(term, cdr);
 		argz[1] = acdr;
 	  }
 	  return this;
 	}
 
-	MapTerm* MapTerm::joinToCopy(Term* term)
+	MapTerm *MapTerm::joinToCopy(Term *term)
 	{
 //JAVA TO C++ CONVERTER TODO TASK: Most Java annotations will not have direct C++ equivalents:
 //ORIGINAL LINE: @SuppressWarnings("unused") java.util.Deque<Term> stack = new java.util.ArrayDeque<Term>();
-		Deque<Term*>* stack = new ArrayDeque<Term*>();
-		Term* t = this;
-		while(t->isMap())
+		Deque<Term*> *stack = new ArrayDeque<Term*>();
+		Term *t = this;
+		while (t->isMap())
 		{
-			MapTerm* lt = static_cast<MapTerm*>(t);
+			MapTerm *lt = static_cast<MapTerm*>(t);
 			stack->push(lt->argz[0]->dref());
 			t = lt->cdr()->dref();
 		}
 		t = term->isNil() ? term : MAP(term, Prolog::Nil);
-		while(!stack->isEmpty())
+		while (!stack->isEmpty())
 		{
 			t = MAP(stack->pop(), t);
 		}
 		return static_cast<MapTerm*>(t);
 	}
 
-	MapTerm* MapTerm::joinTo(Term* term)
+	MapTerm *MapTerm::joinTo(Term *term)
 	{
-	   if(isImmutable())
+	   if (isImmutable())
 	   {
 		 throw NoSuchElementException("isImmutable: " + this);
 		 //return joinToCopy(term);
 	   }
 	   Term * const cdr = argz[1];
-	   if(cdr->isMap())
+	   if (cdr->isMap())
 	   {
 		   return cdr->join(term);
 	   }
-	   if(cdr == Prolog::Nil)
+	   if (cdr == Prolog::Nil)
 	   {
 		 // proper list
-		 MapTerm* acdr = MAP(term, cdr);
+		 MapTerm *acdr = MAP(term, cdr);
 		 argz[1] = acdr;
 		 return acdr;
-	   } else
+	   }
+	   else
 	   {
 		 // improper list?
-		 MapTerm* acdr = MAP(cdr, term);
+		 MapTerm *acdr = MAP(cdr, term);
 		 argz[1] = acdr;
 		 return acdr;
 	   }
 	}
 
-	MapTerm* MapTerm::MAP(Term* _car, Term* _cdr)
+	MapTerm *MapTerm::MAP(Term *_car, Term *_cdr)
 	{
 	  // TODO Auto-generated method stub
 	  return new MapTerm(_car, _cdr);

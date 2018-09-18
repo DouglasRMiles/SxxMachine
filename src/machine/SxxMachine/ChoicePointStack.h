@@ -1,16 +1,19 @@
-#ifndef CHOICEPOINTSTACK
-#define CHOICEPOINTSTACK
+#pragma once
 
 #include <vector>
 #include <limits>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class ChoicePointFrame; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { template<typename Ttypename U>class BiConsumer; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Trail;
+	class ChoicePointFrame;
+	class Operation;
+template<typename Ttypename U>
+	class BiConsumer;
+	class Prolog;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -37,11 +40,11 @@ namespace SxxMachine
 	{
 	  /** Trail of the associated Prolog instance. */
   private:
-	  Trail* const  trail;
+	  Trail *const trail;
 	  /** Top of the stack. */
   public:
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-	  ChoicePointFrame* top_RenamedTODO;
+	  ChoicePointFrame *top_Renamed;
 	  /**
 	   * Current level/depth of the stack.
 	   * <p>
@@ -57,24 +60,24 @@ namespace SxxMachine
 		  delete top;
 	  }
 
-	  ChoicePointStack(Trail* trail);
+	  ChoicePointStack(Trail *trail);
   private:
 	  void doubleFramesCapacity();
 
   public:
-	  ChoicePointFrame* push(Prolog* engine, Operation next, BiConsumer<ChoicePointFrame*, Prolog*>* restore);
-	   ChoicePointFrame* push(Prolog* engine, const int& arity, Operation next);
-	  ChoicePointFrame* push(Prolog* engine, std::vector<Term*>& AREGS, const int& arity, Operation next);
+	  ChoicePointFrame *push(Prolog *engine, Operation next, BiConsumer<ChoicePointFrame*, Prolog*> *restore);
+	   ChoicePointFrame *push(Prolog *engine, int arity, Operation next);
+	  ChoicePointFrame *push(Prolog *engine, std::vector<Term*> &AREGS, int arity, Operation next);
   private:
-	  static void restoreN(ChoicePointFrame* frame, Prolog* engine);
+	  static void restoreN(ChoicePointFrame *frame, Prolog *engine);
 
   public:
-	  static void restore0(ChoicePointFrame* frame, Prolog* engine);
+	  static void restore0(ChoicePointFrame *frame, Prolog *engine);
 
 	  /** Discards all choice points after the value of <code>i</code>. */
-	  void cut(const int& i);
+	  void cut(int i);
 	  /** Discards the top of choice points. */
-	  void delete_RenamedTODO();
+	  void delete_Renamed();
 	  /** Discards all choice points. */
 	  void init();
 
@@ -100,6 +103,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef CHOICEPOINTSTACK

@@ -1,11 +1,9 @@
-#ifndef SYMBOLTERM
-#define SYMBOLTERM
+#pragma once
 
 #include "Nonvar.h"
 #include "../../kernelprolog/main/SxxMachine/ISTerm.h"
 #include "../../kernelprolog/main/SxxMachine/NameArity.h"
 #include "../../kernelprolog/main/SxxMachine/ExecProg.h"
-#include "WeakReference.h"
 #include <string>
 #include <cctype>
 #include <stdexcept>
@@ -15,20 +13,20 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class KPTrail; }
-namespace SxxMachine { class ISTerm; }
-namespace SxxMachine { class Key; }
-namespace SxxMachine { class InternRef; }
-namespace SxxMachine { class Interned; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class StructureTerm; }
-namespace SxxMachine { class PrologException; }
-class Method;
-class ReferenceQueue;
-class StringBuilder;
-class Reference;
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class KPTrail;
+	class ISTerm;
+	class Key;
+	class InternRef;
+	class Interned;
+	class OpVisitor;
+	class Trail;
+	class StructureTerm;
+	class PrologException;
+}
 
 namespace SxxMachine
 {
@@ -57,7 +55,7 @@ namespace SxxMachine
 			delete st_exec;
 		}
 
-		int exec(Prog* p) override;
+		int exec(Prog *p) override;
 
 		bool isConst() override;
 
@@ -65,19 +63,19 @@ namespace SxxMachine
 		bool isNil() override;
 
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		std::string name_RenamedTODO;
+		std::string name_Renamed;
 
 		bool isTrueProc() override;
 
 		virtual std::string qname();
 
-		static std::string MaybeQuoted(const std::string& sym);
+		static std::string MaybeQuoted(const std::string &sym);
 
-		SymbolTerm* toClone() throw(CloneNotSupportedException) override;
+		SymbolTerm *toClone() throw(CloneNotSupportedException) override;
 
 		std::string pprint() override;
 
-		bool bind(Term* that, KPTrail* trail) override;
+		bool bind(Term *that, KPTrail *trail) override;
 
 		std::string getKey() override override;
 
@@ -96,21 +94,21 @@ namespace SxxMachine
 
 		std::string toUnquoted() override;
 
-		int getIntArg(const int& i) override;
+		int getIntArg(int i) override;
 
-		int unifyArg(const int& i, Term* a, Prog* p) override;
+		int unifyArg(int i, Term *a, Prog *p) override;
 
-		Term* ArgNoDeRef(const int& i) override;
+		Term *ArgNoDeRef(int i) override;
 
 		ExecProg exp;
 
-		virtual int exec(Prog* p, ISTerm* thiz);
+		virtual int exec(Prog *p, ISTerm *thiz);
 
 	private:
-		Method* st_exec;
+		Method *st_exec;
 
 	public:
-		void setMethod(Method* b) override;
+		void setMethod(Method *b) override;
 
 		int type() override;
 
@@ -118,8 +116,8 @@ namespace SxxMachine
 
 		/** Symbol table. */
 	private:
-		static ConcurrentHashMap<Key*, InternRef*>* const  SYMBOL_TABLE;
-		static ReferenceQueue<Interned*>* const  DEAD;
+		static ConcurrentHashMap<Key*, InternRef*> *const SYMBOL_TABLE;
+		static ReferenceQueue<Interned*> *const DEAD;
 
 	private:
 		class Key final
@@ -128,7 +126,7 @@ namespace SxxMachine
 			const std::string name;
 			const int arity;
 
-			Key(const std::string& n, const int& a);
+			Key(const std::string &n, int a);
 
 			int hashCode() override;
 
@@ -139,14 +137,14 @@ namespace SxxMachine
 		class InternRef final : public WeakReference<Interned*>
 		{
 		public:
-			Key* const  key;
+			Key *const key;
 
 			virtual ~InternRef()
 			{
 				delete key;
 			}
 
-			InternRef(Key* key, Interned* sym);
+			InternRef(Key *key, Interned *sym);
 		};
 
 	public:
@@ -159,32 +157,32 @@ namespace SxxMachine
 		class Partial;
 
 	private:
-		static SymbolTerm* const  colon2;
+		static SymbolTerm *const colon2;
 	public:
-		static Term* const  GOALS;
+		static Term *const GOALS;
 
 		/** Returns a Prolog atom for the given character. */
-		static SymbolTerm* create(const char& c);
+		static SymbolTerm *create(char c);
 
 		/** Returns a Prolog atom for the given name. */
-		static SymbolTerm* create(const std::string& _name);
+		static SymbolTerm *create(const std::string &_name);
 
 		/** Returns a Prolog atom for the given name. */
-		static SymbolTerm* create(const std::string& _name, const int& arity);
+		static SymbolTerm *create(const std::string &_name, int arity);
 
 		/** Returns a Prolog functor for the given name and arity. */
-		static StructureTerm* create(const std::string& pkg, const std::string& name, const int& arity);
+		static StructureTerm *create(const std::string &pkg, const std::string &name, int arity);
 
 		/** Returns a Prolog atom for the given name. */
-		static SymbolTerm* intern(const std::string& _name);
+		static SymbolTerm *intern(const std::string &_name);
 
 		/** Returns a Prolog functor for the given name and arity. */
-		static SymbolTerm* intern(const std::string& _name, const int& _arity);
+		static SymbolTerm *intern(const std::string &_name, int _arity);
 
 		static void gc();
 
 	private:
-		static SymbolTerm* softReuse(const std::string& _name, const int& _arity);
+		static SymbolTerm *softReuse(const std::string &_name, int _arity);
 
 		/** Holds a string representation of this <code>SymbolTerm</code>.
 		 *  The string can be shared (partially) with other <code>SymbolTerm</code> instances */
@@ -193,19 +191,19 @@ namespace SxxMachine
 		const std::string quoted;
 		/** Holds the arity of this <code>SymbolTerm</code>. */
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		const int arity_RenamedTODO;
+		const int arity_Renamed;
 		/** Holds start index in name */
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		const int start_RenamedTODO;
+		const int start_Renamed;
 		/** Holds end Index in name */
 //JAVA TO C++ CONVERTER NOTE: Fields cannot have the same name as methods:
-		const int finish_RenamedTODO;
+		const int finish_Renamed;
 
 		/** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
-		SymbolTerm(const std::string& _name, const int& _arity);
+		SymbolTerm(const std::string &_name, int _arity);
 
 		/** Constructs a new Prolog atom (or functor) with the given symbol name, arity and start/finish. */
-		SymbolTerm(const std::string& _name, const int& _arity, const int& start, const int& finish);
+		SymbolTerm(const std::string &_name, int _arity, int start, int finish);
 
 		/** Returns the arity of this <code>SymbolTerm</code>.
 		 * @return the value of <code>arity</code>.
@@ -232,7 +230,7 @@ namespace SxxMachine
 		 * @param beginIndex
 		 * @return
 		 */
-		virtual SymbolTerm* subsymbol(const int& beginIndex);
+		virtual SymbolTerm *subsymbol(int beginIndex);
 
 		/**
 		 * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
@@ -241,9 +239,9 @@ namespace SxxMachine
 		 * @param endIndex
 		 * @return
 		 */
-		virtual SymbolTerm* subsymbol(const int& beginIndex, const int& endIndex);
+		virtual SymbolTerm *subsymbol(int beginIndex, int endIndex);
 
-		virtual SymbolTerm* concat(SymbolTerm* that);
+		virtual SymbolTerm *concat(SymbolTerm *that);
 
 		/**
 		 * Returns the name length
@@ -253,11 +251,11 @@ namespace SxxMachine
 
 		// TODO startsWith(), endsWith(), indexOf()
 		/* Term */
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 
 		int termHashCodeImpl() override;
 
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
 		//    private static boolean eq(SymbolTerm a, Term b0) {
 		//      if (a == b0) {
@@ -284,7 +282,7 @@ namespace SxxMachine
 		 */
 		std::any toJava() override;
 
-		void toStringImpl(const int& printingFlags, StringBuilder* sb) override;
+		void toStringImpl(int printingFlags, StringBuilder *sb) override;
 
 		std::string toAtomName() throw(PrologException) override;
 
@@ -298,15 +296,15 @@ namespace SxxMachine
 		 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 
 		bool isImmutable() override final;
 
 		bool IsNil() override;
 
-		static SymbolTerm* internToken(const std::string& _name);
+		static SymbolTerm *internToken(const std::string &_name);
 
-		SymbolTerm* functor() override;
+		SymbolTerm *functor() override;
 
 	};
 
@@ -314,9 +312,9 @@ namespace SxxMachine
 	class SymbolTerm::Dynamic : public SymbolTerm
 	{
 	protected:
-		Dynamic(const std::string& name, const int& arity);
+		Dynamic(const std::string &name, int arity);
 
-		Dynamic(const std::string& name);
+		Dynamic(const std::string &name);
 
 	public:
 		std::string toString() override;
@@ -324,7 +322,7 @@ namespace SxxMachine
 	class SymbolTerm::Interned final : public SymbolTerm
 	{
 	public:
-		Interned(const std::string& name, const int& arity);
+		Interned(const std::string &name, int arity);
 
 		std::string toString() override;
 	};
@@ -334,13 +332,13 @@ namespace SxxMachine
 		int hash = 0;
 
 	public:
-		Partial(const std::string& name, const int& arity, const int& start, const int& finish);
+		Partial(const std::string &name, int arity, int start, int finish);
 
 		std::string toString() override;
 
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 
 		int termHashCodeImpl() override;
 
@@ -348,8 +346,5 @@ namespace SxxMachine
 
 		std::any toJava() override;
 
-		void toStringImpl(const int& printingFlags, StringBuilder* sb) override;
+		void toStringImpl(int printingFlags, StringBuilder *sb) override;
 	};
-
-
-#endif	//#ifndef SYMBOLTERM

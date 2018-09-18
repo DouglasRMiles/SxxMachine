@@ -1,18 +1,17 @@
 using namespace std;
 
 #include "CachedMemoizer.h"
-#include "CachedMemoizer.h"
-#include "InterruptedException.h"
 
 namespace SxxMachine
 {
 
-	optional<int> CachedMemoizer<T, U>::Examples::longCalculation(optional<int>& x)
+	optional<int> CachedMemoizer<T, U>::Examples::longCalculation(optional<int> &x)
 	{
 	  try
 	  {
 		delay(1'000);
-	  } catch(const InterruptedException& ignored)
+	  }
+	  catch (const InterruptedException &ignored)
 	  {
 	  }
 	  return x * 2;

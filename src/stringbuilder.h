@@ -1,5 +1,4 @@
-#ifndef STRINGBUILDER
-#define STRINGBUILDER
+#pragma once
 
 //----------------------------------------------------------------------------------------
 //	Copyright © 2007 - 2018 Tangible Software Solutions, Inc.
@@ -107,6 +106,3 @@ private:
 		return ss.str();
 	}
 };
-
-
-#endif	//#ifndef STRINGBUILDER

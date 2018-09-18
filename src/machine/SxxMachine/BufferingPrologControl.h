@@ -1,5 +1,4 @@
-#ifndef BUFFERINGPROLOGCONTROL
-#define BUFFERINGPROLOGCONTROL
+#pragma once
 
 #include "PrologControl.h"
 #include <string>
@@ -7,9 +6,12 @@
 #include <limits>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class PrologMachineCopy; }
-namespace SxxMachine { class arg; }
+namespace SxxMachine
+{
+	class Term;
+	class PrologMachineCopy;
+	class arg;
+}
 
 namespace SxxMachine
 {
@@ -32,7 +34,7 @@ namespace SxxMachine
 	  std::vector<Term*> resTemplate;
   public:
 	  BufferingPrologControl();
-	  BufferingPrologControl(PrologMachineCopy* pmc);
+	  BufferingPrologControl(PrologMachineCopy *pmc);
 	  /**
 	   * Initialize one or more packages in the interpreter.
 	   *
@@ -48,7 +50,7 @@ namespace SxxMachine
 	   * @param args arguments to pass.
 	   * @return true if the function has at least one solution; false otherwise.
 	   */
-	  bool execute(const std::string& pkg, const std::string& functor, std::vector<Term> &args) override;
+	  bool execute(const std::string &pkg, const std::string &functor, std::vector<Term> &args) override;
 	  /**
 	   * Execute a function and return one solution.
 	   *
@@ -60,7 +62,7 @@ namespace SxxMachine
 	   *        variables will be materialized in the result.
 	   * @return a deep copy of {@code arg} for the first solution; null on failure.
 	   */
-	  virtual Term* once(const std::string& pkg, const std::string& functor, Term* arg);
+	  virtual Term *once(const std::string &pkg, const std::string &functor, Term *arg);
 	  /**
 	   * Execute a function and return one solution.
 	   *
@@ -73,7 +75,7 @@ namespace SxxMachine
 	   * @return a deep copy of {@code args} for the first solution; null on
 	   *         failure.
 	   */
-	  virtual std::vector<Term*> once(const std::string& pkg, const std::string& functor, std::vector<Term> &args);
+	  virtual std::vector<Term*> once(const std::string &pkg, const std::string &functor, std::vector<Term> &args);
 	  /**
 	   * Execute a function and return all solutions.
 	   *
@@ -86,7 +88,7 @@ namespace SxxMachine
 	   * @return a deep copy of {@code arg} for each solution found. Empty list if
 	   *         there are no solutions.
 	   */
-	  virtual std::vector<Term*> all(const std::string& pkg, const std::string& functor, Term* arg);
+	  virtual std::vector<Term*> all(const std::string &pkg, const std::string &functor, Term *arg);
 	  /**
 	   * Execute a function and return all solutions.
 	   *
@@ -100,10 +102,10 @@ namespace SxxMachine
 	   *         there are no solutions.
 	   */
 
-	  virtual std::vector<std::vector<Term*> > all(const std::string& pkg, const std::string& functor, std::vector<Term> &args);
+	  virtual std::vector<std::vector<Term*>> all(const std::string &pkg, const std::string &functor, std::vector<Term> &args);
   private:
-	  void setResultTemplate(Term* t);
-	  void setResultTemplate(std::vector<Term*>& t);
+	  void setResultTemplate(Term *t);
+	  void setResultTemplate(std::vector<Term*> &t);
 	  /**
 	   * Execute until the limit is reached.
 	   *
@@ -112,7 +114,7 @@ namespace SxxMachine
 	   * @return true if at least one result was discovered; false if there are no
 	   *         solutions to the predicate.
 	   */
-	  bool run(const int& newLimit);
+	  bool run(int newLimit);
   public:
 	  bool isEngineStopped() override;
   protected:
@@ -121,6 +123,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef BUFFERINGPROLOGCONTROL

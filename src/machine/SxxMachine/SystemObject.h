@@ -1,18 +1,19 @@
-#ifndef SYSTEMOBJECT
-#define SYSTEMOBJECT
+#pragma once
 
 #include "Nonvar.h"
 #include <string>
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Trail;
+	class Term;
+	class OpVisitor;
+}
 
 namespace SxxMachine
 {
-
 
 	/**
 	 * A SystemObject is a Nonvar with system assigned name
@@ -23,11 +24,11 @@ namespace SxxMachine
   public:
 	  int type() override;
 
-	  bool unifyImpl(Term* t, Trail* trail) override;
+	  bool unifyImpl(Term *t, Trail *trail) override;
 
 
 	  /** Adds a string representation of this <code>SystemObject</code> to given StringBuilder instance */
-	  void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+	  void toStringImpl(int printFlags, StringBuilder *sb) override;
 	  /* Comparable */
 	  /** 
 	   * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -38,7 +39,7 @@ namespace SxxMachine
 	   * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 	   * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 	   */
-	  int compareTo(Term* anotherTerm) override;
+	  int compareTo(Term *anotherTerm) override;
 
 	  bool isImmutable() override;
 
@@ -53,9 +54,9 @@ namespace SxxMachine
 	   * @see #compareTo
 	   */
 
-	  bool equalsTerm(Term* obj, Comparator* comparator) override;
+	  bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
-		Term* toClone() override;
+		Term *toClone() override;
 
 		int termHashCodeImpl() override;
 
@@ -73,7 +74,7 @@ namespace SxxMachine
 
 		virtual std::string qname();
 
-		virtual bool bind(Term* that, Trail* trail);
+		virtual bool bind(Term *that, Trail *trail);
 
 		std::string pprint() override;
 
@@ -81,6 +82,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef SYSTEMOBJECT

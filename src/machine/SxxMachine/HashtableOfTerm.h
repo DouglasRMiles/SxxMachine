@@ -1,11 +1,13 @@
-#ifndef HASHTABLEOFTERM
-#define HASHTABLEOFTERM
+#pragma once
 
 #include <unordered_map>
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -27,44 +29,41 @@ namespace SxxMachine
 
 	  HashtableOfTerm();
 
-	  HashtableOfTerm(const int& initialCapacity);
+	  HashtableOfTerm(int initialCapacity);
 
 	  static bool isHashtableOfTerm(std::any hash);
 
-	  virtual bool containsKey(Term* key);
+	  virtual bool containsKey(Term *key);
 
 	  virtual void clear();
 
-	  virtual Term* get(Term* key);
+	  virtual Term *get(Term *key);
 
-	  virtual Term* put(Term* key, Term* value);
+	  virtual Term *put(Term *key, Term *value);
 
-	  virtual void remove(Term* key);
+	  virtual void remove(Term *key);
 
 	  virtual int size();
 
-	  virtual Set<Term*>* keySet();
+	  virtual Set<Term*> *keySet();
 
 	  virtual bool isEmpty();
 
   private:
-	  Set<std::unordered_map::Entry<Term*, Term*>*>* entrySet();
+	  Set<std::unordered_map::Entry<Term*, Term*>*> *entrySet();
 
   public:
-	  virtual HashtableOfTerm* copyDeep(IdentityHashMap<std::any, Term*>* copyHash);
+	  virtual HashtableOfTerm *copyDeep(IdentityHashMap<std::any, Term*> *copyHash);
 
   private:
-	  static HashtableOfTerm* copyDeep(HashtableOfTerm* src, IdentityHashMap<std::any, Term*>* copyHash);
+	  static HashtableOfTerm *copyDeep(HashtableOfTerm *src, IdentityHashMap<std::any, Term*> *copyHash);
 
 
-	  static HashtableOfTerm* copyShallow(HashtableOfTerm* src);
+	  static HashtableOfTerm *copyShallow(HashtableOfTerm *src);
 
   public:
-	  virtual HashtableOfTerm* copyShallow();
+	  virtual HashtableOfTerm *copyShallow();
 
 	};
 
 }
-
-
-#endif	//#ifndef HASHTABLEOFTERM

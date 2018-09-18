@@ -7,13 +7,13 @@ using namespace std;
 namespace SxxMachine
 {
 
-Failure* const  Failure::FAILURE = new Failure();
+Failure *const Failure::FAILURE = new Failure();
 
 	Failure::Failure()
 	{
 	}
 
-	Operation Failure::exec(Prolog* engine)
+	Operation Failure::exec(Prolog *engine)
 	{
 	engine->control->fail();
 	engine->halt = 1; // halt(0)
@@ -27,7 +27,7 @@ Failure* const  Failure::FAILURE = new Failure();
 
 const Operation Failure::fail_0 = new PRED_fail_0();
 
-	Operation Failure::PRED_fail_0::exec(Prolog* engine) throw(PrologException)
+	Operation Failure::PRED_fail_0::exec(Prolog *engine) throw(PrologException)
 	{
 	  engine->setB0();
 	  return engine->fail();

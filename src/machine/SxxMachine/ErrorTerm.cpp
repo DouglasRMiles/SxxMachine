@@ -12,11 +12,11 @@ namespace SxxMachine
 		return true;
 	}
 
-	ErrorTerm::ErrorTerm(runtime_error error, const wstring& name, vector<Term> &args) : StructureTerm(name, args), error(error)
+	ErrorTerm::ErrorTerm(runtime_error error, const wstring &name, vector<Term> &args) : StructureTerm(name, args), error(error)
 	{
 	}
 
-	ErrorTerm::ErrorTerm(runtime_error error, Term* _functor, vector<Term> &_args) : StructureTerm(_functor, _args), error(error)
+	ErrorTerm::ErrorTerm(runtime_error error, Term *_functor, vector<Term> &_args) : StructureTerm(_functor, _args), error(error)
 	{
 	}
 
@@ -25,10 +25,10 @@ namespace SxxMachine
 		return this->error;
 	}
 
-	Term* ErrorTerm::copyImpl(IdentityHashMap<any, Term*>* copyHash, const int& deeply)
+	Term *ErrorTerm::copyImpl(IdentityHashMap<any, Term*> *copyHash, int deeply)
 	{
 		std::vector<Term*> a(arity());
-		for(int i = 0; i < a.size(); i++)
+		for (int i = 0; i < a.size(); i++)
 		{
 			a[i] = arg0(i)->copy(copyHash, deeply);
 		}

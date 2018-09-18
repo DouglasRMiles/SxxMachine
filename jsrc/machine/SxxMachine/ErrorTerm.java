@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import java.util.IdentityHashMap;
+import java.util.Map;
 /**
  * A term to represent errors, extends {@link StructureTerm}, 
  * additionally holds reference to {@link Throwable}, which this term represents.
@@ -28,7 +28,7 @@ public class ErrorTerm extends StructureTerm {
 	}	
 	
 	@Override
-	protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+	protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
 		Term[] a = new Term[arity()];
 		for (int i = 0; i < a.length; i++){
 			a[i] = arg0(i).copy(copyHash, deeply);

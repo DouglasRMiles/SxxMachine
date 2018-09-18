@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import java.util.IdentityHashMap;
+import java.util.*;
 
 /**
  * Backup of a Prolog interpreter that can later create a new interpreter.
@@ -53,7 +53,7 @@ public class PrologMachineCopy {
     // try {
     // engine.copyHash.clear();
     @SuppressWarnings("unused")
-    IdentityHashMap<Object, Term> copyHash =
+    Map<Object, Term> copyHash =
         new IdentityHashMap<Object, Term>();
     if (deep) {
       this.hashManager = engine.getHashManager().copyDeep(copyHash);

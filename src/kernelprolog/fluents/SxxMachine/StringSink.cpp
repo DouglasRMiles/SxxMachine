@@ -5,17 +5,16 @@ using namespace std;
 #include "../../../machine/SxxMachine/Term.h"
 #include "../../main/SxxMachine/Builtins.h"
 #include "../../../machine/SxxMachine/TermData.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 
-	StringSink::StringSink(Prog* p) : Sink(p)
+	StringSink::StringSink(Prog *p) : Sink(p)
 	{
 		this->buffer = new StringBuilder();
 	}
 
-	int StringSink::putElement(Term* t)
+	int StringSink::putElement(Term *t)
 	{
 		buffer->append(t->toUnquoted());
 		return 1;
@@ -26,7 +25,7 @@ namespace SxxMachine
 		buffer = nullptr;
 	}
 
-	Term* StringSink::collect()
+	Term *StringSink::collect()
 	{
 		return TermData::SYM(buffer->toString());
 	}

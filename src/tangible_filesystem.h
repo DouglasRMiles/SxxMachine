@@ -1,5 +1,4 @@
-#ifndef TANGIBLE_FILESYSTEM
-#define TANGIBLE_FILESYSTEM
+#pragma once
 
 //----------------------------------------------------------------------------------------
 //	Copyright © 2007 - 2018 Tangible Software Solutions, Inc.
@@ -10,7 +9,7 @@
 //----------------------------------------------------------------------------------------
 #include <string>
 #include <filesystem>
- 
+
 class FileSystem
 {
 public:
@@ -60,6 +59,3 @@ private:
 		return std::filesystem::path(&path[0]);
 	}
 };
-
-
-#endif	//#ifndef TANGIBLE_FILESYSTEM

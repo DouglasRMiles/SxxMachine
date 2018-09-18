@@ -1,19 +1,20 @@
-#ifndef CLOSURETERM
-#define CLOSURETERM
+#pragma once
 
 #include "SystemObject.h"
 #include <string>
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Predicate; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Predicate;
+	class Trail;
+	class Term;
+	class OpVisitor;
+}
 
 namespace SxxMachine
 {
-
 
 	/**
 	 * Closure.<br>
@@ -27,7 +28,7 @@ namespace SxxMachine
 	{
 		/** Holds a <code>Predicate</code> object that represents a Prolog goal. */
 	protected:
-		Predicate* const  code;
+		Predicate *const code;
 	public:
 		virtual ~ClosureTerm()
 		{
@@ -36,20 +37,20 @@ namespace SxxMachine
 
 		bool isClosure() override;
 		/** Constructs a new closure structure for the given Prolog goal. */
-		ClosureTerm(Predicate* _code);
+		ClosureTerm(Predicate *_code);
 		/** Returns the Prolog goal of this <code>ClosureTerm</code>. */
-		virtual Predicate* getCode();
+		virtual Predicate *getCode();
 
 		int type() override;
 
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 
 		std::string name() override;
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 		int termHashCodeImpl() override;
 
 		/** Adds a string representation of this <code>ClosureTerm</code> to given StringBuilder instance */
-		void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+		void toStringImpl(int printFlags, StringBuilder *sb) override;
 		/* Comparable */
 		/** 
 		 * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -60,11 +61,8 @@ namespace SxxMachine
 		 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 		bool isImmutable() override final;
 	};
 
 }
-
-
-#endif	//#ifndef CLOSURETERM

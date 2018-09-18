@@ -8,6 +8,7 @@ using namespace std;
 #include "../../builtin/SxxMachine/FILE_io.h"
 #include "../../builtin/SxxMachine/FILE_swi_supp.h"
 #include "../../builtin/SxxMachine/FILE_system.h"
+#include "../../library/SxxMachine/FILE_system.h"
 #include "Prolog.h"
 #include "../../exceptions/SxxMachine/PrologException.h"
 #include "Term.h"
@@ -18,7 +19,6 @@ using namespace std;
 #include "StructureTerm.h"
 #include "SymbolTerm.h"
 #include "PredTable.h"
-#include "ClassNotFoundException.h"
 
 namespace SxxMachine
 {
@@ -40,7 +40,7 @@ PrologClassLoader::StaticConstructor PrologClassLoader::staticConstructor;
 	{
 	}
 
-	Operation PrologClassLoader::NotFoundPredicate::exec(Prolog* engine) throw(PrologException)
+	Operation PrologClassLoader::NotFoundPredicate::exec(Prolog *engine) throw(PrologException)
 	{
 	  return nullptr;
 	}
@@ -51,64 +51,66 @@ const Operation PrologClassLoader::NOT_FOUND = new NotFoundPredicate();
 	{
 	}
 
-	PrologClassLoader::PrologClassLoader(ClassLoader* parent) : ClassLoader(parent)
+	PrologClassLoader::PrologClassLoader(ClassLoader *parent) : ClassLoader(parent)
 	{
 	}
 
-	bool PrologClassLoader::definedPredicate(const wstring& pkg, const wstring& functor, const int& arity)
+	bool PrologClassLoader::definedPredicate(const wstring &pkg, const wstring &functor, int arity)
 	{
 	  try
 	  {
 		return findPredicate(pkg, functor, arity) != NOT_FOUND;
-	  } catch(const ClassNotFoundException& cnfe)
+	  }
+	  catch (const ClassNotFoundException &cnfe)
 	  {
 		return false;
 	  }
 	}
 
-	Operation PrologClassLoader::predicate(const wstring& pkg, const wstring& functor, vector<Term> &args)
+	Operation PrologClassLoader::predicate(const wstring &pkg, const wstring &functor, vector<Term> &args)
 	{
-	  return predicate(pkg, functor, { Success::SUCCESS, args });
+	  return predicate(pkg, functor, {Success::SUCCESS, args});
 	}
 
-	Operation PrologClassLoader::predicate(const wstring& pkg, const wstring& functor, Operation cont, vector<Term> &args)
+	Operation PrologClassLoader::predicate(const wstring &pkg, const wstring &functor, Operation cont, vector<Term> &args)
 	{
 	  int arity = args->length;
 	  try
 	  {
 		Operation constructor = findPredicate(pkg, functor, arity);
-		if(constructor != NOT_FOUND)
+		if (constructor != NOT_FOUND)
 		{
-		  Predicate* pred = new TermData::StaticPred(functor, constructor, args, cont);
+		  Predicate *pred = new TermData::StaticPred(functor, constructor, args, cont);
 		  return pred;
 		}
-	  } catch(const runtime_error& cause)
+	  }
+	  catch (const runtime_error &cause)
 	  {
-		if(dynamic_cast<runtime_error>(cause) != nullptr)
+		if (dynamic_cast<runtime_error>(cause) != nullptr)
 		{
 		  cause.printStackTrace();
 		}
-		ExistenceException* err2 = new ExistenceException("procedure", term(pkg, functor, arity), cause.what());
+		ExistenceException *err2 = new ExistenceException("procedure", term(pkg, functor, arity), cause.what());
 		err2->initCause(cause);
 		throw err2;
 	  }
 	  throw ExistenceException("procedure", term(pkg, functor, arity), "NOT_FOUND");
 	}
 
-	StructureTerm* PrologClassLoader::term(const wstring& pkg, const wstring& functor, const int& arity)
+	StructureTerm *PrologClassLoader::term(const wstring &pkg, const wstring &functor, int arity)
 	{
 	  StructureTerm tempVar("/", SymbolTerm::create(functor), TermData::Integer(arity));
 	  return new StructureTerm(":", SymbolTerm::create(pkg), &tempVar);
 	}
 
-	Operation PrologClassLoader::findPredicate(const wstring& pkg, const wstring& functor, const int& arity) throw(ClassNotFoundException)
+	Operation PrologClassLoader::findPredicate(const wstring &pkg, const wstring &functor, int arity) throw(ClassNotFoundException)
 	{
 	  Key * const key = new Key(pkg, functor, arity);
 	  Operation constructor = this->predicateCache[key];
-	  if(constructor == nullptr)
+	  if (constructor == nullptr)
 	  {
 		constructor = getConstructor(pkg, functor, arity);
-		if(constructor == nullptr)
+		if (constructor == nullptr)
 		{
 			throw ClassNotFoundException("" + key);
 		}
@@ -117,12 +119,12 @@ const Operation PrologClassLoader::NOT_FOUND = new NotFoundPredicate();
 	  return constructor;
 	}
 
-	Operation PrologClassLoader::getConstructor(const wstring& pkg, const wstring& functor, const int& arity)
+	Operation PrologClassLoader::getConstructor(const wstring &pkg, const wstring &functor, int arity)
 	{
 	  return PredTable::findPredicateOp(pkg, functor, arity);
 	}
 
-	PrologClassLoader::Key::Key(const wstring& pkg, const wstring& functor, const int& arity) : pkg(pkg), functor(functor), arity(arity)
+	PrologClassLoader::Key::Key(const wstring &pkg, const wstring &functor, int arity) : pkg(pkg), functor(functor), arity(arity)
 	{
 	}
 
@@ -138,7 +140,7 @@ const Operation PrologClassLoader::NOT_FOUND = new NotFoundPredicate();
 	{
 	  outerInstance->if (dynamic_cast<Key*>(other) != nullptr)
 	  {
-		Key* b = any_cast<Key*>(other);
+		Key *b = any_cast<Key*>(other);
 		return this->arity == b->arity && this->pkg == b->pkg && this->functor == b->functor;
 	  }
 	  return false;

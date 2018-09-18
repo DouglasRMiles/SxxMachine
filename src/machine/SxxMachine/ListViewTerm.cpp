@@ -3,9 +3,9 @@ using namespace std;
 #include "ListViewTerm.h"
 #include "Trail.h"
 #include "Term.h"
+#include "OpVisitor.h"
 #include "Prolog.h"
 #include "TermData.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
@@ -15,7 +15,7 @@ namespace SxxMachine
 		return TYPE_LIST;
 	}
 
-	bool ListViewTerm::MutableMarkerForLists::unifyImpl(Term* t, Trail* trail)
+	bool ListViewTerm::MutableMarkerForLists::unifyImpl(Term *t, Trail *trail)
 	{
 		return false;
 	}
@@ -30,11 +30,11 @@ namespace SxxMachine
 		return "";
 	}
 
-	void ListViewTerm::MutableMarkerForLists::toStringImpl(const int& printFlags, StringBuilder* sb)
+	void ListViewTerm::MutableMarkerForLists::toStringImpl(int printFlags, StringBuilder *sb)
 	{
 	}
 
-	int ListViewTerm::MutableMarkerForLists::compareTo(Term* o)
+	int ListViewTerm::MutableMarkerForLists::compareTo(Term *o)
 	{
 		return 0;
 	}
@@ -44,7 +44,7 @@ namespace SxxMachine
 		return System::identityHashCode(this);
 	}
 
-	bool ListViewTerm::MutableMarkerForLists::equalsTerm(Term* obj, Comparator* comparator)
+	bool ListViewTerm::MutableMarkerForLists::equalsTerm(Term *obj, OpVisitor *comparator)
 	{
 		return this == obj;
 	}
@@ -59,50 +59,52 @@ namespace SxxMachine
 		return false;
 	}
 
-Term* const  ListViewTerm::NOT_IMMUTABLE = new MutableMarkerForLists();
+Term *const ListViewTerm::NOT_IMMUTABLE = new MutableMarkerForLists();
 
-	ListViewTerm::ListViewTerm(Term* head) : ListTerm(head, NOT_IMMUTABLE), list(vector<>()), index(0)
+	ListViewTerm::ListViewTerm(Term *head) : ListTerm(head, NOT_IMMUTABLE), list(vector<>()), index(0)
 	{
 		//this.argz = VA(head, NOT_IMMUTABLE);
 		this->list.push_back(head);
 	}
 
-	ListViewTerm::ListViewTerm(vector<Term*>& list, const int& index) : ListTerm(list.get(index), NOT_IMMUTABLE), list(list), index(index)
+	ListViewTerm::ListViewTerm(vector<Term*> &list, int index) : ListTerm(list.get(index), NOT_IMMUTABLE), list(list), index(index)
 	{
 		//this.argz = VA(list.get(index), NOT_IMMUTABLE);//super(list.get(index), NOT_IMMUTABLE); // makes isImmutable to return false
 	}
 
-	ListTerm* ListViewTerm::add(Term* term)
+	ListTerm *ListViewTerm::add(Term *term)
 	{
 		this->list.push_back(term);
 		return this;
 	}
 
-	Term* ListViewTerm::cdr()
+	Term *ListViewTerm::cdr()
 	{
-		if(this->next != nullptr)
+		if (this->next != nullptr)
 		{
 			return this->next;
-		} else if(this->index + 1 < this->list.size())
+		}
+		else if (this->index + 1 < this->list.size())
 		{
 			return this->next = new ListViewTerm(this->list, this->index + 1);
-		} else
+		}
+		else
 		{
 			return Prolog::Nil;
 		}
 	}
 
-	Term* ListViewTerm::copyImpl(IdentityHashMap<any, Term*>* copyHash, const int& deeply)
+	Term *ListViewTerm::copyImpl(IdentityHashMap<any, Term*> *copyHash, int deeply)
 	{
-		Term* result = Prolog::Nil;
-		for(int i = this->list.size() - 1; i >= this->index; i--)
+		Term *result = Prolog::Nil;
+		for (int i = this->list.size() - 1; i >= this->index; i--)
 		{
 			result = TermData::CONS(this->list[i]->copy(copyHash, deeply), result);
 		}
 		return result;
 	}
 
-	Term* ListViewTerm::nth0(const int& nth)
+	Term *ListViewTerm::nth0(int nth)
 	{
 		return this->list[this->index + nth];
 	}
@@ -119,9 +121,9 @@ Term* const  ListViewTerm::NOT_IMMUTABLE = new MutableMarkerForLists();
 
 	bool ListViewTerm::isGround()
 	{
-		for(int i = this->list.size() - 1; i >= this->index; i--)
+		for (int i = this->list.size() - 1; i >= this->index; i--)
 		{
-			if(!this->list[i]->isGround())
+			if (!this->list[i]->isGround())
 			{
 				return false;
 			}
@@ -129,20 +131,20 @@ Term* const  ListViewTerm::NOT_IMMUTABLE = new MutableMarkerForLists();
 		return true;
 	}
 
-	Term* ListViewTerm::car()
+	Term *ListViewTerm::car()
 	{
 		// TODO Auto-generated method stub
 		return nth0(0);
 	}
 
-	void ListViewTerm::setCar(Term* t)
+	void ListViewTerm::setCar(Term *t)
 	{
 		Prolog::Break("SETCAR");
 		argz[0] = t;
 
 	}
 
-	void ListViewTerm::setCdr(Term* t)
+	void ListViewTerm::setCdr(Term *t)
 	{
 		Prolog::Break("SETCDR");
 		argz[1] = t;
@@ -160,7 +162,7 @@ Term* const  ListViewTerm::NOT_IMMUTABLE = new MutableMarkerForLists();
 		return Prolog::SYM_DOT->name();
 	}
 
-	Term* ListViewTerm::toClone() throw(CloneNotSupportedException)
+	Term *ListViewTerm::toClone() throw(CloneNotSupportedException)
 	{
 		return new ListViewTerm(list,index);
 	}

@@ -10,19 +10,19 @@ using namespace std;
 namespace SxxMachine
 {
 
-	CharWriter::CharWriter(const wstring& f, Prog* p) : Sink(p)
+	CharWriter::CharWriter(const wstring &f, Prog *p) : Sink(p)
 	{
 		this->writer = IO::toFileWriter(f);
 	}
 
-	CharWriter::CharWriter(Prog* p) : Sink(p)
+	CharWriter::CharWriter(Prog *p) : Sink(p)
 	{
 		this->writer = IO::output;
 	}
 
-	int CharWriter::putElement(Term* t)
+	int CharWriter::putElement(Term *t)
 	{
-		if(nullptr == writer)
+		if (nullptr == writer)
 		{
 			return 0;
 		}
@@ -30,7 +30,8 @@ namespace SxxMachine
 		{
 			char c = static_cast<char>(Expect::asInt(t)->intValue());
 			writer->write(c);
-		} catch(const IOException& e)
+		}
+		catch (const IOException &e)
 		{
 			return 0;
 		}
@@ -39,12 +40,13 @@ namespace SxxMachine
 
 	void CharWriter::stop()
 	{
-		if(nullptr != writer && IO::output != writer)
+		if (nullptr != writer && IO::output != writer)
 		{
 			try
 			{
 				writer->close();
-			} catch(const IOException& e)
+			}
+			catch (const IOException &e)
 			{
 			}
 			writer = nullptr;

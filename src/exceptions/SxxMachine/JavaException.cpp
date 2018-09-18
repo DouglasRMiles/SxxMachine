@@ -5,27 +5,26 @@ using namespace std;
 #include "../../machine/SxxMachine/Operation.h"
 #include "../../machine/SxxMachine/Term.h"
 #include "../../machine/SxxMachine/TermData.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
 
-SymbolTerm* const  JavaException::JAVA_ERROR = SymbolTerm::intern("java_error", 3);
+SymbolTerm *const JavaException::JAVA_ERROR = SymbolTerm::intern("java_error", 3);
 
 	JavaException::JavaException(runtime_error _e) : e(_e)
 	{
 		initCause(_e);
 	}
 
-	JavaException::JavaException(Operation _goal, const int& _argNo, runtime_error _e) : JavaException(_e)
+	JavaException::JavaException(Operation _goal, int _argNo, runtime_error _e) : JavaException(_e)
 	{
 		this->goal = _goal;
 		this->argNo = _argNo;
 	}
 
-	Term* JavaException::getMessageTerm()
+	Term *JavaException::getMessageTerm()
 	{
-		std::vector<Term*> args = { (this->goal == nullptr)?SymbolTerm::create("<Goal unknown>"):TermData::FFIObject(this->goal), TermData::Integer(this->argNo), TermData::FFIObject(this->e) };
+		std::vector<Term*> args = {(this->goal == nullptr)?SymbolTerm::create("<Goal unknown>"):TermData::FFIObject(this->goal), TermData::Integer(this->argNo), TermData::FFIObject(this->e)};
 		return TermData::createErrorTerm(this, JAVA_ERROR, args);
 	}
 
@@ -36,9 +35,9 @@ SymbolTerm* const  JavaException::JAVA_ERROR = SymbolTerm::intern("java_error", 
 
 	wstring JavaException::toString()
 	{
-		StringBuilder* sb = new StringBuilder("{JAVA ERROR: ");
+		StringBuilder *sb = new StringBuilder("{JAVA ERROR: ");
 		sb->append(this->goal);
-		if(this->argNo > 0)
+		if (this->argNo > 0)
 		{
 			sb->append(" - arg ")->append(this->argNo);
 		}

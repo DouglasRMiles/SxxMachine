@@ -1,4 +1,4 @@
-package SxxMachine.library;
+package SxxMachine;
 
 import static SxxMachine.FILE_builtins.PRED_$greater_or_equal_2_static_exec;
 import static SxxMachine.FILE_builtins.PRED_$new_indexing_hash_3_static_exec;

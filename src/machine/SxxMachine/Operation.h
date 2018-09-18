@@ -1,8 +1,10 @@
-#ifndef OPERATION
-#define OPERATION
+#pragma once
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prolog; }
+namespace SxxMachine
+{
+	class Prolog;
+}
 
 namespace SxxMachine
 {
@@ -20,6 +22,3 @@ namespace SxxMachine
 	using Operation = std::function<SxxMachine::Operation(Prolog engine)>;
 
 }
-
-
-#endif	//#ifndef OPERATION

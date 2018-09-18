@@ -6,13 +6,13 @@ using namespace std;
 namespace SxxMachine
 {
 
-Success* const  Success::SUCCESS = new Success();
+Success *const Success::SUCCESS = new Success();
 
 	Success::Success()
 	{
 	}
 
-	Operation Success::exec(Prolog* engine)
+	Operation Success::exec(Prolog *engine)
 	{
 	engine->control->success();
 	return engine->fail();

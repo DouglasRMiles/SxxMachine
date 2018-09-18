@@ -1,14 +1,16 @@
-#ifndef CHARWRITER
-#define CHARWRITER
+#pragma once
 
 #include "../../terms/SxxMachine/Sink.h"
 #include <string>
 #include "exceptionhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -20,7 +22,7 @@ namespace SxxMachine
 	class CharWriter : public Sink
 	{
 	protected:
-		Writer* writer;
+		Writer *writer;
 
 	public:
 		virtual ~CharWriter()
@@ -28,17 +30,14 @@ namespace SxxMachine
 			delete writer;
 		}
 
-		CharWriter(const std::string& f, Prog* p);
+		CharWriter(const std::string &f, Prog *p);
 
-		CharWriter(Prog* p);
+		CharWriter(Prog *p);
 
-		int putElement(Term* t) override;
+		int putElement(Term *t) override;
 
 		void stop() override;
 
 	};
 
 }
-
-
-#endif	//#ifndef CHARWRITER

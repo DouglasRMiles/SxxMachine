@@ -1,5 +1,4 @@
-#ifndef DOUBLETERM
-#define DOUBLETERM
+#pragma once
 
 #include "NumberTerm.h"
 #include <string>
@@ -10,16 +9,18 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class NumberTerm; }
-namespace SxxMachine { class IllegalTypeException; }
-namespace SxxMachine { class LongTerm; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Trail;
+	class Term;
+	class OpVisitor;
+	class NumberTerm;
+	class IllegalTypeException;
+	class LongTerm;
+}
 
 namespace SxxMachine
 {
-
 
 	/**
 	 * Floating point number.
@@ -48,7 +49,7 @@ namespace SxxMachine
 		 * Constructs a new Prolog floating point number 
 		 * that represents the specified <code>double</code> value.
 		 */
-		DoubleTerm(const double& i);
+		DoubleTerm(double i);
 		/**
 		 * Returns the value of <code>value</code>.
 		 * @see #value
@@ -57,13 +58,13 @@ namespace SxxMachine
 
 		int type() override;
 
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 
 		std::string name() override;
 		bool convertible(std::type_info type) override;
 		std::any toJava() override;
 		std::string toAtomName() override;
-		void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+		void toStringImpl(int printFlags, StringBuilder *sb) override;
 		/**
 		 * Checks <em>term equality</em> of two terms.
 		 * The result is <code>true</code> if and only if the argument is an instance of
@@ -73,7 +74,7 @@ namespace SxxMachine
 		 * point number equivalent to this <code>DoubleTerm</code>, false otherwise.
 		 * @see #compareTo
 		*/
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 		int termHashCodeImpl() override;
 		/* Comparable */
 		/** 
@@ -85,74 +86,71 @@ namespace SxxMachine
 		 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
 		 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
 		 */
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 		/* NumberTerm */
 		int intValue() override;
 		long long longValue() override;
-		int arithCompareTo(NumberTerm* t) override;
+		int arithCompareTo(NumberTerm *t) override;
 
-		NumberTerm* abs() override;
-		NumberTerm* acos() override;
-		NumberTerm* add(NumberTerm* t) override;
-		NumberTerm* and(NumberTerm* t) override;
-		NumberTerm* asin() override;
-		NumberTerm* atan() override;
-		NumberTerm* ceil() override;
-		NumberTerm* cos() override;
-		NumberTerm* divide(NumberTerm* t) override;
+		NumberTerm *abs() override;
+		NumberTerm *acos() override;
+		NumberTerm *add(NumberTerm *t) override;
+		NumberTerm *and(NumberTerm *t) override;
+		NumberTerm *asin() override;
+		NumberTerm *atan() override;
+		NumberTerm *ceil() override;
+		NumberTerm *cos() override;
+		NumberTerm *divide(NumberTerm *t) override;
 
-		NumberTerm* exp() override;
-		NumberTerm* floatIntPart() override;
+		NumberTerm *exp() override;
+		NumberTerm *floatIntPart() override;
 
-		NumberTerm* floatFractPart() override;
+		NumberTerm *floatFractPart() override;
 
-		NumberTerm* floor() override;
-		NumberTerm* intDivide(NumberTerm* t) override;
-		NumberTerm* log() override;
+		NumberTerm *floor() override;
+		NumberTerm *intDivide(NumberTerm *t) override;
+		NumberTerm *log() override;
 
-		NumberTerm* max(NumberTerm* t) override;
-		NumberTerm* min(NumberTerm* t) override;
-		NumberTerm* mod(NumberTerm* t) override;
-		NumberTerm* multiply(NumberTerm* t) override;
-		NumberTerm* negate() override;
-		NumberTerm* not() override;
-		NumberTerm* or(NumberTerm* t) override;
-		NumberTerm* pow(NumberTerm* t) override;
-		NumberTerm* rint() override;
-		NumberTerm* round() override;
-		NumberTerm* shiftLeft(NumberTerm* t) override;
-		NumberTerm* shiftRight(NumberTerm* t) override;
-		NumberTerm* signum() override;
-		NumberTerm* sin() override;
-		NumberTerm* sqrt() override;
+		NumberTerm *max(NumberTerm *t) override;
+		NumberTerm *min(NumberTerm *t) override;
+		NumberTerm *mod(NumberTerm *t) override;
+		NumberTerm *multiply(NumberTerm *t) override;
+		NumberTerm *negate() override;
+		NumberTerm *not() override;
+		NumberTerm *or(NumberTerm *t) override;
+		NumberTerm *pow(NumberTerm *t) override;
+		NumberTerm *rint() override;
+		NumberTerm *round() override;
+		NumberTerm *shiftLeft(NumberTerm *t) override;
+		NumberTerm *shiftRight(NumberTerm *t) override;
+		NumberTerm *signum() override;
+		NumberTerm *sin() override;
+		NumberTerm *sqrt() override;
 
-		NumberTerm* subtract(NumberTerm* t) override;
-		NumberTerm* tan() override;
-		NumberTerm* toDegrees() override;
-		NumberTerm* toFloat() override;
-		NumberTerm* toRadians() override;
+		NumberTerm *subtract(NumberTerm *t) override;
+		NumberTerm *tan() override;
+		NumberTerm *toDegrees() override;
+		NumberTerm *toFloat() override;
+		NumberTerm *toRadians() override;
 
 	//    public NumberTerm Float(double n) {
 	//      return new DoubleTerm(n);
 	//    }
-		virtual DoubleTerm* Float(long long n);
+		virtual DoubleTerm *Float(long long n);
 
-		NumberTerm* truncate() override;
+		NumberTerm *truncate() override;
 		/** 
 		 * Throws a <code>type_error</code>.
 		 * @exception IllegalTypeException
 		 */
-		NumberTerm* xor(NumberTerm* t) override;
+		NumberTerm *xor(NumberTerm *t) override;
 
 	private:
-		IllegalTypeException* mustInt();
-		LongTerm* Integer(long long round);
+		IllegalTypeException *mustInt();
+		LongTerm *Integer(long long round);
 
 	public:
 		bool isFloat() override;
 	};
 
 }
-
-
-#endif	//#ifndef DOUBLETERM

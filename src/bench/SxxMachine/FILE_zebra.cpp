@@ -29,41 +29,41 @@ namespace SxxMachine
 	using PRED_$begin_exception_1 = SxxMachine::bootpreds::PRED_$begin_exception_1;
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
-SymbolTerm* const  FILE_zebra::FUNCTOR_house_5 = F("house",5);
-SymbolTerm* const  FILE_zebra::ATOM_red = SYM("red");
-SymbolTerm* const  FILE_zebra::ATOM_english = SYM("english");
-SymbolTerm* const  FILE_zebra::ATOM_spanish = SYM("spanish");
-SymbolTerm* const  FILE_zebra::ATOM_dog = SYM("dog");
-SymbolTerm* const  FILE_zebra::ATOM_green = SYM("green");
-SymbolTerm* const  FILE_zebra::ATOM_coffee = SYM("coffee");
-SymbolTerm* const  FILE_zebra::ATOM_ukrainian = SYM("ukrainian");
-SymbolTerm* const  FILE_zebra::ATOM_tea = SYM("tea");
-SymbolTerm* const  FILE_zebra::ATOM_ivory = SYM("ivory");
-SymbolTerm* const  FILE_zebra::ATOM_snails = SYM("snails");
-SymbolTerm* const  FILE_zebra::ATOM_winstons = SYM("winstons");
-SymbolTerm* const  FILE_zebra::ATOM_yellow = SYM("yellow");
-SymbolTerm* const  FILE_zebra::ATOM_kools = SYM("kools");
-SymbolTerm* const  FILE_zebra::ATOM_milk = SYM("milk");
-SymbolTerm* const  FILE_zebra::ATOM_norwegian = SYM("norwegian");
-SymbolTerm* const  FILE_zebra::ATOM_chesterfields = SYM("chesterfields");
-SymbolTerm* const  FILE_zebra::ATOM_fox = SYM("fox");
-SymbolTerm* const  FILE_zebra::ATOM_horse = SYM("horse");
-SymbolTerm* const  FILE_zebra::ATOM_orange_juice = SYM("orange_juice");
-SymbolTerm* const  FILE_zebra::ATOM_lucky_strikes = SYM("lucky_strikes");
-SymbolTerm* const  FILE_zebra::ATOM_japanese = SYM("japanese");
-SymbolTerm* const  FILE_zebra::ATOM_parliaments = SYM("parliaments");
-SymbolTerm* const  FILE_zebra::ATOM_blue = SYM("blue");
-SymbolTerm* const  FILE_zebra::ATOM_zebra = SYM("zebra");
-SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
+SymbolTerm *const FILE_zebra::FUNCTOR_house_5 = F("house",5);
+SymbolTerm *const FILE_zebra::ATOM_red = SYM("red");
+SymbolTerm *const FILE_zebra::ATOM_english = SYM("english");
+SymbolTerm *const FILE_zebra::ATOM_spanish = SYM("spanish");
+SymbolTerm *const FILE_zebra::ATOM_dog = SYM("dog");
+SymbolTerm *const FILE_zebra::ATOM_green = SYM("green");
+SymbolTerm *const FILE_zebra::ATOM_coffee = SYM("coffee");
+SymbolTerm *const FILE_zebra::ATOM_ukrainian = SYM("ukrainian");
+SymbolTerm *const FILE_zebra::ATOM_tea = SYM("tea");
+SymbolTerm *const FILE_zebra::ATOM_ivory = SYM("ivory");
+SymbolTerm *const FILE_zebra::ATOM_snails = SYM("snails");
+SymbolTerm *const FILE_zebra::ATOM_winstons = SYM("winstons");
+SymbolTerm *const FILE_zebra::ATOM_yellow = SYM("yellow");
+SymbolTerm *const FILE_zebra::ATOM_kools = SYM("kools");
+SymbolTerm *const FILE_zebra::ATOM_milk = SYM("milk");
+SymbolTerm *const FILE_zebra::ATOM_norwegian = SYM("norwegian");
+SymbolTerm *const FILE_zebra::ATOM_chesterfields = SYM("chesterfields");
+SymbolTerm *const FILE_zebra::ATOM_fox = SYM("fox");
+SymbolTerm *const FILE_zebra::ATOM_horse = SYM("horse");
+SymbolTerm *const FILE_zebra::ATOM_orange_juice = SYM("orange_juice");
+SymbolTerm *const FILE_zebra::ATOM_lucky_strikes = SYM("lucky_strikes");
+SymbolTerm *const FILE_zebra::ATOM_japanese = SYM("japanese");
+SymbolTerm *const FILE_zebra::ATOM_parliaments = SYM("parliaments");
+SymbolTerm *const FILE_zebra::ATOM_blue = SYM("blue");
+SymbolTerm *const FILE_zebra::ATOM_zebra = SYM("zebra");
+SymbolTerm *const FILE_zebra::ATOM_water = SYM("water");
 
-	Operation FILE_zebra::PRED_top_0_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_top_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// top:-houses(A),member(house(red,english,B,C,D),A),member(house(E,spanish,dog,F,G),A),member(house(green,H,I,coffee,J),A),member(house(K,ukrainian,L,tea,M),A),right_of(house(green,N,O,P,Q),house(ivory,R,S,T,U),A),member(house(V,W,snails,X,winstons),A),member(house(yellow,Y,Z,A1,kools),A),A=[B1,C1,house(D1,E1,F1,milk,G1),H1,I1],A=[house(J1,norwegian,K1,L1,M1)|N1],next_to(house(O1,P1,Q1,R1,chesterfields),house(S1,T1,fox,U1,V1),A),next_to(house(W1,X1,Y1,Z1,kools),house(A2,B2,horse,C2,D2),A),member(house(E2,F2,G2,orange_juice,lucky_strikes),A),member(house(H2,japanese,I2,J2,parliaments),A),next_to(house(K2,norwegian,L2,M2,N2),house(blue,O2,P2,Q2,R2),A),member(house(S2,T2,zebra,U2,V2),A),member(house(W2,X2,Y2,water,Z2),A)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16,* a17,* a18,* a19,* a20,* a21,* a22,* a23,* a24,* a25,* a26,* a27;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16, *a17, *a18, *a19, *a20, *a21, *a22, *a23, *a24, *a25, *a26, *a27;
 		Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16;
 	// top:-[houses(A),member(house(red,english,B,C,D),A),member(house(E,spanish,dog,F,G),A),member(house(green,H,I,coffee,J),A),member(house(K,ukrainian,L,tea,M),A),right_of(house(green,N,O,P,Q),house(ivory,R,S,T,U),A),member(house(V,W,snails,X,winstons),A),member(house(yellow,Y,Z,A1,kools),A),'$unify'(A,[B1,C1,house(D1,E1,F1,milk,G1),H1,I1]),'$unify'(A,[house(J1,norwegian,K1,L1,M1)|N1]),next_to(house(O1,P1,Q1,R1,chesterfields),house(S1,T1,fox,U1,V1),A),next_to(house(W1,X1,Y1,Z1,kools),house(A2,B2,horse,C2,D2),A),member(house(E2,F2,G2,orange_juice,lucky_strikes),A),member(house(H2,japanese,I2,J2,parliaments),A),next_to(house(K2,norwegian,L2,M2,N2),house(blue,O2,P2,Q2,R2),A),member(house(S2,T2,zebra,U2,V2),A),member(house(W2,X2,Y2,water,Z2),A)]
 		a1 = V(m);
@@ -136,173 +136,183 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return Op([&] (e)
 		{
 		PRED_houses_1_static_exec(e);
-		}, VA({ a1 }), Op([&] (e)
+		}, VA({a1}), Op([&] (e)
 		{
 		PRED_member_2_static_exec(e);
-	}, VA({ a2, a1 }), Op([&] (e)
+	}, VA({a2, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a3, a1 }), Op([&] (e)
+	}, VA({a3, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a4, a1 }), Op([&] (e)
+	}, VA({a4, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a5, a1 }), Op([&] (e)
+	}, VA({a5, a1}), Op([&] (e)
 	{
 		PRED_right_of_3_static_exec(e);
-	}, VA({ a6, a7, a1 }), Op([&] (e)
+	}, VA({a6, a7, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a8, a1 }), Op([&] (e)
+	}, VA({a8, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a9, a1 }), Op([&] (e)
+	}, VA({a9, a1}), Op([&] (e)
 	{
 		FILE_builtins::PRED_$unify_2_static_exec(e);
-	}, VA({ a1, a15 }), Op([&] (e)
+	}, VA({a1, a15}), Op([&] (e)
 	{
 		FILE_builtins::PRED_$unify_2_static_exec(e);
-	}, VA({ a1, a17 }), Op([&] (e)
+	}, VA({a1, a17}), Op([&] (e)
 	{
 		PRED_next_to_3_static_exec(e);
-	}, VA({ a18, a19, a1 }), Op([&] (e)
+	}, VA({a18, a19, a1}), Op([&] (e)
 	{
 		PRED_next_to_3_static_exec(e);
-	}, VA({ a20, a21, a1 }), Op([&] (e)
+	}, VA({a20, a21, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a22, a1 }), Op([&] (e)
+	}, VA({a22, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a23, a1 }), Op([&] (e)
+	}, VA({a23, a1}), Op([&] (e)
 	{
 		PRED_next_to_3_static_exec(e);
-	}, VA({ a24, a25, a1 }), Op([&] (e)
+	}, VA({a24, a25, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a26, a1 }), Op([&] (e)
+	}, VA({a26, a1}), Op([&] (e)
 	{
 		PRED_member_2_static_exec(e);
-	}, VA({ a27, a1 }), cont)))))))))))))))));
+	}, VA({a27, a1}), cont)))))))))))))))));
 	}
 
-	Operation FILE_zebra::PRED_houses_1_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_houses_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-true
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		a1 = LARG[0];
 	// houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a2 = argz[0];
 			a3 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a2 = V(m);
 			a3 = V(m);
 			 a1->bind(CONS(a2, a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-			if(!a2->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
+			if (!a2->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
 			{
 				return m->fail();
 			}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a3->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-			if(!a4->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
+			if (!a4->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
 			{
 				return m->fail();
 			}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
 			a7 = argz[1];
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			a7 = V(m);
 			 a5->bind(CONS(a6, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-			if(!a6->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
+			if (!a6->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
-		if(a7->isCons())
+		if (a7->isCons())
 		{
-			std::vector<Term*> argz = VA({ a7->car(), a7->cdr() });
+			std::vector<Term*> argz = VA({a7->car(), a7->cdr()});
 			a8 = argz[0];
 			a9 = argz[1];
-		} else if(a7->isVar())
+		}
+		else if (a7->isVar())
 		{
 			a8 = V(m);
 			a9 = V(m);
 			 a7->bind(CONS(a8, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-			if(!a8->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
+			if (!a8->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
 			{
 				return m->fail();
 			}
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			 a9->bind(CONS(a10, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-			if(!a10->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
+			if (!a10->unify(C(FUNCTOR_house_5, V(m), V(m), V(m), V(m), V(m)), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_zebra::PRED_right_of_3_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_right_of_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -311,23 +321,23 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return right_of_3_top(m);
 	}
 
-	Operation FILE_zebra::right_of_3_top(Prolog* m)
+	Operation FILE_zebra::right_of_3_top(Prolog *m)
 	{
 		m->setB0();
 		m->jtry3(nullptr, FILE_zebra::right_of_3_sub_1);
 		return right_of_3_1(m);
 	}
 
-	Operation FILE_zebra::right_of_3_sub_1(Prolog* m)
+	Operation FILE_zebra::right_of_3_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return right_of_3_2(m);
 	}
 
-	Operation FILE_zebra::right_of_3_1(Prolog* m)
+	Operation FILE_zebra::right_of_3_1(Prolog *m)
 	{
 	// right_of(A,B,[B,A|C]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -335,44 +345,48 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		cont = m->cont;
 	// right_of(A,B,[B,A|C]):-[]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a4 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(a2, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a1, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_zebra::right_of_3_2(Prolog* m)
+	Operation FILE_zebra::right_of_3_2(Prolog *m)
 	{
 	// right_of(A,B,[C|D]):-right_of(A,B,D)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -380,15 +394,17 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		cont = m->cont;
 	// right_of(A,B,[C|D]):-[right_of(A,B,D)]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a4 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(V(m), a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -399,7 +415,7 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return right_of_3_top(m);
 	}
 
-	Operation FILE_zebra::PRED_next_to_3_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_next_to_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -408,29 +424,29 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return next_to_3_top(m);
 	}
 
-	Operation FILE_zebra::next_to_3_top(Prolog* m)
+	Operation FILE_zebra::next_to_3_top(Prolog *m)
 	{
 		m->setB0();
 		m->jtry3(nullptr, FILE_zebra::next_to_3_sub_1);
 		return next_to_3_1(m);
 	}
 
-	Operation FILE_zebra::next_to_3_sub_1(Prolog* m)
+	Operation FILE_zebra::next_to_3_sub_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_zebra::next_to_3_sub_2);
 		return next_to_3_2(m);
 	}
 
-	Operation FILE_zebra::next_to_3_sub_2(Prolog* m)
+	Operation FILE_zebra::next_to_3_sub_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return next_to_3_3(m);
 	}
 
-	Operation FILE_zebra::next_to_3_1(Prolog* m)
+	Operation FILE_zebra::next_to_3_1(Prolog *m)
 	{
 	// next_to(A,B,[A,B|C]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -438,44 +454,48 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		cont = m->cont;
 	// next_to(A,B,[A,B|C]):-[]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a4 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(a1, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a2, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_zebra::next_to_3_2(Prolog* m)
+	Operation FILE_zebra::next_to_3_2(Prolog *m)
 	{
 	// next_to(A,B,[B,A|C]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -483,44 +503,48 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		cont = m->cont;
 	// next_to(A,B,[B,A|C]):-[]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a4 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(a2, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a1, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_zebra::next_to_3_3(Prolog* m)
+	Operation FILE_zebra::next_to_3_3(Prolog *m)
 	{
 	// next_to(A,B,[C|D]):-next_to(A,B,D)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -528,15 +552,17 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		cont = m->cont;
 	// next_to(A,B,[C|D]):-[next_to(A,B,D)]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a4 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(V(m), a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -547,7 +573,7 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return next_to_3_top(m);
 	}
 
-	Operation FILE_zebra::PRED_member_2_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_member_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -556,65 +582,69 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return member_2_top(m);
 	}
 
-	Operation FILE_zebra::member_2_top(Prolog* m)
+	Operation FILE_zebra::member_2_top(Prolog *m)
 	{
 		m->setB0();
 		m->jtry2(nullptr, FILE_zebra::member_2_sub_1);
 		return member_2_1(m);
 	}
 
-	Operation FILE_zebra::member_2_sub_1(Prolog* m)
+	Operation FILE_zebra::member_2_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return member_2_2(m);
 	}
 
-	Operation FILE_zebra::member_2_1(Prolog* m)
+	Operation FILE_zebra::member_2_1(Prolog *m)
 	{
 	// member(A,[A|B]):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// member(A,[A|B]):-[]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			 a2->bind(CONS(a1, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_zebra::member_2_2(Prolog* m)
+	Operation FILE_zebra::member_2_2(Prolog *m)
 	{
 	// member(A,[B|C]):-member(A,C)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// member(A,[B|C]):-[member(A,C)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a3 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a3 = V(m);
 			 a2->bind(CONS(V(m), a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -624,7 +654,7 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return member_2_top(m);
 	}
 
-	Operation FILE_zebra::PRED_print_houses_1_static_exec(Prolog* m)
+	Operation FILE_zebra::PRED_print_houses_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -634,39 +664,41 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return m->switch_on_term(FILE_zebra::print_houses_1_var, Failure::fail_0, Failure::fail_0, FILE_zebra::print_houses_1_2, Failure::fail_0, FILE_zebra::print_houses_1_1);
 	}
 
-	Operation FILE_zebra::print_houses_1_var(Prolog* m)
+	Operation FILE_zebra::print_houses_1_var(Prolog *m)
 	{
 		m->jtry1(nullptr, FILE_zebra::print_houses_1_var_1);
 		return print_houses_1_1(m);
 	}
 
-	Operation FILE_zebra::print_houses_1_var_1(Prolog* m)
+	Operation FILE_zebra::print_houses_1_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return print_houses_1_2(m);
 	}
 
-	Operation FILE_zebra::print_houses_1_1(Prolog* m)
+	Operation FILE_zebra::print_houses_1_1(Prolog *m)
 	{
 	// print_houses([A|B]):-!,write(A),nl,print_houses(B)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// print_houses([A|B]):-['$neck_cut',write(A),nl,print_houses(B)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a2 = argz[0];
 			a3 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a2 = V(m);
 			a3 = V(m);
 			 a1->bind(CONS(a2, a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -676,24 +708,24 @@ SymbolTerm* const  FILE_zebra::ATOM_water = SYM("water");
 		return Op([&] (e)
 		{
 		FILE_builtins::PRED_write_1_static_exec(e);
-		}, VA({ a2 }), Op([&] (e)
+		}, VA({a2}), Op([&] (e)
 		{
 		FILE_cafeteria::PRED_nl_0_static_exec(e);
 	}, VA(), Op([&] (e)
 	{
 		PRED_print_houses_1_static_exec(e);
-	}, VA({ a3 }), cont)));
+	}, VA({a3}), cont)));
 	}
 
-	Operation FILE_zebra::print_houses_1_2(Prolog* m)
+	Operation FILE_zebra::print_houses_1_2(Prolog *m)
 	{
 	// print_houses([]):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// print_houses([]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}

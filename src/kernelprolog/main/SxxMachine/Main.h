@@ -1,5 +1,4 @@
-#ifndef MAIN
-#define MAIN
+#pragma once
 
 #include <string>
 #include <vector>
@@ -15,10 +14,7 @@ namespace SxxMachine
 	public:
 		static int init();
 
-		static void main(std::vector<std::string>& args);
+		static void main(std::vector<std::string> &args);
 	};
 
 }
-
-
-#endif	//#ifndef MAIN

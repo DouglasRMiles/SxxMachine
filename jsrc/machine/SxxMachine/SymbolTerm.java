@@ -4,7 +4,6 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
-import java.util.Comparator;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -243,7 +242,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		}
 
 		@Override
-		public boolean equalsTerm(Term obj, Comparator comparator) {
+		public boolean equalsTerm(Term obj, OpVisitor comparator) {
 			if (this == obj) {
 				return true;
 			} else if (obj.isSymbol()) {
@@ -258,7 +257,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		@Override
 		public boolean unifyImpl(Term t, Trail trail) {
 			t = t.dref();
-			Comparator comparator = Term.Unifiable;
+			OpVisitor comparator = Term.Unifiable;
 			return (t.isVar()) ? (t).bind(this, trail) : equalsTerm(t, comparator);
 		}
 
@@ -514,7 +513,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	}
 
 	@Override
-	public boolean equalsTerm(Term obj, Comparator comparator) {
+	public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator) : ((obj.isSymbol()) && (this.arity == obj.asSymbolTerm().arity) && this.name.equals(obj.asSymbolTerm().name));
 	}
 

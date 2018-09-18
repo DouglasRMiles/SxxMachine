@@ -1,13 +1,15 @@
-#ifndef ITERABLESOURCE
-#define ITERABLESOURCE
+#pragma once
 
 #include "../../terms/SxxMachine/Source.h"
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -20,7 +22,7 @@ namespace SxxMachine
 	class IterableSource : public Source
 	{
 	private:
-		Iterator* e;
+		Iterator *e;
 
 	public:
 		virtual ~IterableSource()
@@ -28,18 +30,15 @@ namespace SxxMachine
 			delete e;
 		}
 
-		IterableSource(Prog* p);
+		IterableSource(Prog *p);
 
-		IterableSource(Iterator* iterator, Prog* p);
+		IterableSource(Iterator *iterator, Prog *p);
 
-		IterableSource(std::vector V, Prog* p);
+		IterableSource(std::vector V, Prog *p);
 
-		Term* getElement() override;
+		Term *getElement() override;
 
 		void stop() override;
 	};
 
 }
-
-
-#endif	//#ifndef ITERABLESOURCE

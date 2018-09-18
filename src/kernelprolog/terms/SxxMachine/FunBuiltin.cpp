@@ -5,7 +5,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	FunBuiltin::FunBuiltin(const wstring& f, const int& i) : ConstBuiltin(f)
+	FunBuiltin::FunBuiltin(const wstring &f, int i) : ConstBuiltin(f)
 	{
 		arity = i;
 	}

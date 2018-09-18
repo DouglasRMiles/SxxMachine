@@ -1,12 +1,14 @@
-#ifndef SUCCESS
-#define SUCCESS
+#pragma once
 
 #include "Operation.h"
 #include <string>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
+namespace SxxMachine
+{
+	class Operation;
+	class Prolog;
+}
 
 namespace SxxMachine
 {
@@ -23,7 +25,7 @@ namespace SxxMachine
 	class Success : public Operation
 	{
 	public:
-		static Success* const  SUCCESS;
+		static Success *const SUCCESS;
 	private:
 		Success();
 		/**
@@ -33,12 +35,9 @@ namespace SxxMachine
 		 * @see PrologControl#success
 		 */
 	public:
-		Operation exec(Prolog* engine) override;
+		Operation exec(Prolog *engine) override;
 		/** Returns a string representation of this <code>Success</code>. */
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef SUCCESS

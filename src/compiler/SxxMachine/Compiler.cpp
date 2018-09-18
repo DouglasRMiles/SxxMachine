@@ -10,7 +10,6 @@ using namespace std;
 #include "../../machine/SxxMachine/TermData.h"
 #include "../../machine/SxxMachine/ListTerm.h"
 #include "../../exceptions/SxxMachine/PrologException.h"
-#include "SecurityException.h"
 
 namespace SxxMachine
 {
@@ -37,7 +36,7 @@ Option::StaticConstructor::StaticConstructor()
 Option::StaticConstructor Option::staticConstructor;
 int Option::nextOrdinal = 0;
 
-	Compiler::Option::Option(const wstring &name, InnerEnum innerEnum, Compiler* outerInstance, const wstring& symbol, const bool& onByDefault) : nameValue(name), ordinalValue(nextOrdinal++), innerEnumValue(innerEnum)
+	Compiler::Option::Option(const wstring &name, InnerEnum innerEnum, Compiler *outerInstance, const wstring &symbol, bool onByDefault) : nameValue(name), ordinalValue(nextOrdinal++), innerEnumValue(innerEnum)
 	{
 			this->outerInstance = outerInstance;
 	  this->symbol = SymbolTerm::intern(symbol);
@@ -71,9 +70,9 @@ wstring Option::toString()
 
 Option Option::valueOf(const wstring &name)
 {
-	for(auto enumInstance : Option::valueList)
+	for (auto enumInstance : Option::valueList)
 	{
-		if(enumInstance.nameValue == name)
+		if (enumInstance.nameValue == name)
 		{
 			return enumInstance;
 		}
@@ -87,66 +86,69 @@ Option Option::valueOf(const wstring &name)
 	  enableDefaultOptions();
 	}
 
-	void Compiler::prologToWAM(const wstring& _prolog, const wstring& _wam) throw(CompileException)
+	void Compiler::prologToWAM(const wstring &_prolog, const wstring &_wam) throw(CompileException)
 	{
-		if(!fileExists(_prolog))
+		if (!fileExists(_prolog))
 		{
 		  throw CompileException(FileNotFoundException(_prolog));
 		}
 		// Create arguments
-		Term* prolog = SymbolTerm::create(_prolog);
-		Term* wam = SymbolTerm::create(_wam);
-		Term* op = Prolog::Nil;
-		for(auto opt : this->options)
+		Term *prolog = SymbolTerm::create(_prolog);
+		Term *wam = SymbolTerm::create(_wam);
+		Term *op = Prolog::Nil;
+		for (auto opt : this->options)
 		{
 		  op = TermData::CONS(opt.symbol, op);
 		}
-		ListTerm* args = TermData::LIST(prolog, { wam, op });
+		ListTerm *args = TermData::LIST(prolog, {wam, op});
 		try
 		{
-		  if(!this->pcl->execute("SxxMachine.compiler.pl2am", "pl2am", { args }))
+		  if (!this->pcl->execute("SxxMachine.compiler.pl2am", "pl2am", {args}))
 		  {
 			throw CompileException("Unknown Error");
 		  }
-		} catch(const PrologException& err)
+		}
+		catch (const PrologException &err)
 		{
 		  throw CompileException("Error compiling " + _prolog, err);
 		}
 	}
 
-	void Compiler::wamToJavaSource(const wstring& _wam, const wstring& _dir) throw(CompileException)
+	void Compiler::wamToJavaSource(const wstring &_wam, const wstring &_dir) throw(CompileException)
 	{
-		if(!fileExists(_wam))
+		if (!fileExists(_wam))
 		{
 		  throw CompileException(FileNotFoundException(_wam));
 		}
-	   if(!fileExists(_dir) && !FileSystem::createDirectory(_dir))
+	   if (!fileExists(_dir) && !FileSystem::createDirectory(_dir))
 	   {
 		 throw CompileException(FileNotFoundException(_dir));
 	   }
 		// Create arguments
-		Term* wam = SymbolTerm::create(_wam);
-		Term* dir = SymbolTerm::create(_dir);
-		ListTerm* args = TermData::LIST(wam, { dir });
+		Term *wam = SymbolTerm::create(_wam);
+		Term *dir = SymbolTerm::create(_dir);
+		ListTerm *args = TermData::LIST(wam, {dir});
 		try
 		{
-		  if(!this->pcl->execute("SxxMachine.compiler.am2j", "am2j", { args }))
+		  if (!this->pcl->execute("SxxMachine.compiler.am2j", "am2j", {args}))
 		  {
 			throw CompileException("Unknown Error");
 		  }
-		} catch(const PrologException& err)
+		}
+		catch (const PrologException &err)
 		{
 		   throw CompileException("Error converting " + _wam, err);
 		}
 	}
 
-	void Compiler::prologToJavaSource(const wstring& prolog, const wstring& dir) throw(CompileException)
+	void Compiler::prologToJavaSource(const wstring &prolog, const wstring &dir) throw(CompileException)
 	{
-	  File* tmp;
+	  File *tmp;
 	  try
 	  {
 		tmp = File::createTempFile("PrologCafe_", ".am");
-	  } catch(const IOException& e)
+	  }
+	  catch (const IOException &e)
 	  {
 		throw CompileException("Cannot create temporary file", e);
 	  }
@@ -154,120 +156,135 @@ Option Option::valueOf(const wstring &name)
 	  {
 		prologToWAM(prolog, tmp->getPath());
 		wamToJavaSource(tmp->getPath(), dir);
-	  } finally
+	  }
+//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to the exception 'finally' clause:
+	  finally
 	  {
-		if(!tmp->delete() && tmp->exists())
+		if (!tmp->delete() && tmp->exists())
 		{
 		  tmp->deleteOnExit();
 		}
 	  }
 	}
 
-	void Compiler::main(std::vector<wstring>& argv) throw(runtime_error)
+	void Compiler::main(std::vector<wstring> &argv) throw(runtime_error)
 	{
-	  Compiler* comp = new Compiler();
+	  Compiler *comp = new Compiler();
 	  wstring out = ".";
 	  wstring amdir = "";
 	  bool stackTrace = false;
 	  bool suppressBanner = false;
 	  list<wstring> plsrc = list<wstring>();
 	  int argi = 0;
-	  for(; argi < argv.size(); argi++)
+	  for (; argi < argv.size(); argi++)
 	  {
 		wstring a = argv[argi];
-		if(a == "--")
+		if (a == "--")
 		{
 		  argi++;
 		  break;
 		}
-		if(a == "-q")
+		if (a == "-q")
 		{
 		  suppressBanner = true;
-		} else if(a == "-O")
+		}
+		else if (a == "-O")
 		{
 		  comp->enableDefaultOptions();
-		} else if(a == "-O:none")
+		}
+		else if (a == "-O:none")
 		{
 		  comp->options->clear();
-		} else if(StringHelper::startsWith(a, "-O:"))
+		}
+		else if (StringHelper::startsWith(a, "-O:"))
 		{
 		  wstring optname = a.substr((wstring("-O:")).length());
 		  Option opt = findOptionByName(optname);
-		  if(opt != nullptr)
+		  if (opt != nullptr)
 		  {
 			comp->enable(opt);
 		  }
-		} else if(a == "-s")
+		}
+		else if (a == "-s")
 		{
-		  if(++argi == argv.size())
+		  if (++argi == argv.size())
 		  {
 			usage();
 		  }
 		  out = argv[argi];
-		} else if(a == "-am")
+		}
+		else if (a == "-am")
 		{
-		  if(++argi == argv.size())
+		  if (++argi == argv.size())
 		  {
 			usage();
 		  }
 		  amdir = argv[argi];
-		} else if(a == "-h" || a == "--help" || a == "-help")
+		}
+		else if (a == "-h" || a == "--help" || a == "-help")
 		{
 		  usage();
-		} else if(a == "--show-stack-trace")
+		}
+		else if (a == "--show-stack-trace")
 		{
 		  stackTrace = true;
-		} else if(StringHelper::startsWith(a, "-"))
+		}
+		else if (StringHelper::startsWith(a, "-"))
 		{
 		  System::err::println("error: Unsupported flag '" + a + "'");
 		  usage();
-		} else
+		}
+		else
 		{
 		  plsrc.push_back(a);
 		}
 	  }
-	  if(argi < argv.size())
+	  if (argi < argv.size())
 	  {
 		plsrc.addAll(Arrays::asList(argv).subList(argi, argv.size()));
 	  }
-	  if(plsrc.empty())
+	  if (plsrc.empty())
 	  {
 		usage();
 	  }
-	  if(!suppressBanner)
+	  if (!suppressBanner)
 	  {
 		banner();
 	  }
-	  for(auto pl : plsrc)
+	  for (auto pl : plsrc)
 	  {
 		System::err::println("Translating " + pl);
 		try
 		{
-		  if(amdir != "")
+		  if (amdir != "")
 		  {
 			wstring base;
-			if(pl.endsWith(".pl"))
+			if (pl.endsWith(".pl"))
 			{
 			  base = pl.substr(0, pl.length() - 3);
-			} else
+			}
+			else
 			{
 			  base = pl;
 			}
 			File tempVar(amdir);
-			File* am = new File(&tempVar, base + ".am");
+			File *am = new File(&tempVar, base + ".am");
 			am->getParentFile().mkdirs();
 			comp->prologToWAM(pl, am->getPath());
 			comp->wamToJavaSource(am->getPath(), out);
-		  } else
+		  }
+		  else
 		  {
 			comp->prologToJavaSource(pl, out);
 		  }
-		} catch(const CompileException& err)
+		}
+		catch (const CompileException &err)
 		{
-		  if(stackTrace)
+		  if (stackTrace)
 		  {
 			err->printStackTrace();
-		  } else
+		  }
+		  else
 		  {
 			System::err::println("error: " + err->what());
 		  }
@@ -276,15 +293,15 @@ Option Option::valueOf(const wstring &name)
 	  }
 	}
 
-	Compiler::Option Compiler::findOptionByName(const wstring& optname)
+	Compiler::Option Compiler::findOptionByName(const wstring &optname)
 	{
-	  for(Option opt : Option::values())
+	  for (Option opt : Option::values())
 	  {
-		if(opt.toString()->equalsIgnoreCase(optname))
+		if (opt.toString()->equalsIgnoreCase(optname))
 		{
 		  return opt;
 		}
-		if(opt.symbol::name().equalsIgnoreCase(optname))
+		if (opt.symbol::name().equalsIgnoreCase(optname))
 		{
 		  return opt;
 		}
@@ -328,12 +345,13 @@ Option Option::valueOf(const wstring &name)
 	  System::err::println();
 	}
 
-	bool Compiler::fileExists(const wstring& _file)
+	bool Compiler::fileExists(const wstring &_file)
 	{
 	try
 	{
 		return FileSystem::pathExists(_file);
-	} catch(const SecurityException& e)
+	}
+	catch (const SecurityException &e)
 	{
 	}
 	return false;
@@ -354,12 +372,13 @@ Option Option::valueOf(const wstring &name)
 		this->options->remove(opt);
 	}
 
-	void Compiler::setEnabled(Option opt, const bool& on)
+	void Compiler::setEnabled(Option opt, bool on)
 	{
-	  if(on)
+	  if (on)
 	  {
 		enable(opt);
-	  } else
+	  }
+	  else
 	  {
 		disable(opt);
 	  }
@@ -367,9 +386,9 @@ Option Option::valueOf(const wstring &name)
 
 	void Compiler::enableDefaultOptions()
 	{
-	  for(Option opt : Option::values())
+	  for (Option opt : Option::values())
 	  {
-		if(opt.onByDefault)
+		if (opt.onByDefault)
 		{
 		  this->options->add(opt);
 		}

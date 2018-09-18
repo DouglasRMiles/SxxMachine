@@ -1,5 +1,4 @@
-#ifndef BLOCKPREDICATE
-#define BLOCKPREDICATE
+#pragma once
 
 #include "Predicate.h"
 
@@ -29,6 +28,3 @@ namespace SxxMachine
 
 
 }
-
-
-#endif	//#ifndef BLOCKPREDICATE

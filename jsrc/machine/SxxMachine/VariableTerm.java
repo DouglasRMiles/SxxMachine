@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 
@@ -189,7 +190,7 @@ public class VariableTerm extends Var implements Undoable {
     if(frozenProxy==null) {
         frozenProxy = new VariableTerm();
     }
-    IdentityHashMap<Object, Term> copyHash = new IdentityHashMap<Object, Term>();
+    Map<Object, Term> copyHash = new IdentityHashMap<Object, Term>();
     copyHash.put(this, frozenProxy);
     Term nextnewVal = newval.copy(copyHash, COPY_ALL); 
     return super.freeze(trail, nextnewVal);
@@ -329,7 +330,7 @@ public class VariableTerm extends Var implements Undoable {
      * @see #val
      */
 	@Override
-  protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+  protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
 		if (this.val .isVar()) {
 			Term co = copyHash.get(this.val);
 			if (co == null) {
@@ -379,7 +380,7 @@ public class VariableTerm extends Var implements Undoable {
      * @see #compareTo
     */
 	@Override
-  public boolean equalsTerm(Term obj, Comparator comparator) {
+  public boolean equalsTerm(Term obj, OpVisitor comparator) {
       if (isCyclic>0) return obj==val;
       return (this.val == this) ? this == obj : (this == obj || this.val.equalsTerm(obj, comparator));
 	}

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import java.util.Comparator;
-
 /**
  * Closure.<br>
  * The class <code>ClosureTerm</code> represents a closure structure.<br>
@@ -49,7 +47,7 @@ public class ClosureTerm extends SystemObject {
      * @see #compareTo
      */
     @Override
-    public boolean equalsTerm(Term obj, Comparator comparator) { // obj must be dereferenced
+    public boolean equalsTerm(Term obj, OpVisitor comparator) { // obj must be dereferenced
 		return obj .isClosure() && this.code.equals(obj.asClosureTerm().code);
 	}
     @Override

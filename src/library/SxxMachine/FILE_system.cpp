@@ -7,7 +7,7 @@ using namespace std;
 #include "../../machine/SxxMachine/Term.h"
 #include "../../machine/SxxMachine/PredTable.h"
 
-namespace SxxMachine::library
+namespace SxxMachine
 {
 //	import static SxxMachine.FILE_builtins.PRED_set_prolog_flag_2_static_exec;
 //	import static SxxMachine.sxxtensions.PRED_$set_predicate_attribute_3_static_exec;
@@ -18,12 +18,12 @@ namespace SxxMachine::library
 	using SymbolTerm = SxxMachine::SymbolTerm;
 	using Term = SxxMachine::Term;
 	using TermData = SxxMachine::TermData;
-SxxMachine::SymbolTerm* const  FILE_system::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1 = SYM("true");
-SxxMachine::SymbolTerm* const  FILE_system::ATOM_access_level = SYM("access_level");
-SxxMachine::SymbolTerm* const  FILE_system::ATOM_system = SYM("system");
-SxxMachine::SymbolTerm* const  FILE_system::ATOM_user = SYM("user");
+SxxMachine::SymbolTerm *const FILE_system::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1 = SYM("true");
+SxxMachine::SymbolTerm *const FILE_system::ATOM_access_level = SYM("access_level");
+SxxMachine::SymbolTerm *const FILE_system::ATOM_system = SYM("system");
+SxxMachine::SymbolTerm *const FILE_system::ATOM_user = SYM("user");
 
-	Operation FILE_system::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(Prolog* m)
+	Operation FILE_system::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		m->cont = cont;
@@ -32,30 +32,30 @@ SxxMachine::SymbolTerm* const  FILE_system::ATOM_user = SYM("user");
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(m);
 	}
 
-	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1(Prolog* m)
+	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_2(m);
 	}
 
-	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(Prolog* m)
+	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(Prolog *m)
 	{
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl'(A):-A==true,!,set_prolog_flag(access_level,system)
-		Term* a1,* a2;
+		Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl'(A):-['$get_level'(B),'$equality_of_term'(A,true),'$cut'(B),set_prolog_flag(access_level,system)]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
-		if(!a2->unifyInt(m->B0, m->trail))
+		if (!a2->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $equality_of_term(a(1),s(1))
 		a1 = a1->dref();
-		if(!a1->equalsTerm(PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1))
+		if (!a1->equalsTerm(PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1))
 		{
 			return m->fail();
 		}
@@ -64,90 +64,90 @@ SxxMachine::SymbolTerm* const  FILE_system::ATOM_user = SYM("user");
 		a2 = a2->dref();
 		m->cut(a2->intValue());
 		//END inline expansion
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_set_prolog_flag_2_static_exec(e);
-		}, VA({ ATOM_access_level, ATOM_system }), cont);
+		}, VA({ATOM_access_level, ATOM_system}), cont);
 	}
 
-	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_2(Prolog* m)
+	Operation FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_2(Prolog *m)
 	{
 		Operation cont;
 		cont = m->cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl'(A):-[set_prolog_flag(access_level,user)]
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_set_prolog_flag_2_static_exec(e);
-		}, VA({ ATOM_access_level, ATOM_user }), cont);
+		}, VA({ATOM_access_level, ATOM_user}), cont);
 	}
 
-SxxMachine::SymbolTerm* const  FILE_system::PRED_system_mode_1_s1 = SYM("boolean");
+SxxMachine::SymbolTerm *const FILE_system::PRED_system_mode_1_s1 = SYM("boolean");
 
-	Operation FILE_system::PRED_system_mode_1_static_exec(Prolog* m)
+	Operation FILE_system::PRED_system_mode_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		// system_mode(A):-must_be(boolean,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl'(A)
 		m->setB0();
-		Term* a1;
+		Term *a1;
 		a1 = LARG[0];
 		// system_mode(A):-[must_be(boolean,A),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl'(A)]
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_must_be_2_static_exec(e);
-		}, VA({ PRED_system_mode_1_s1, a1 }), Op([&] (Prolog* e)
+		}, VA({PRED_system_mode_1_s1, a1}), Op([&] (Prolog *e)
 		{
 		PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(e);
-	}, VA({ a1 }), cont));
+	}, VA({a1}), cont));
 	}
 
-SxxMachine::SymbolTerm* const  FILE_system::PRED_system_module_0_s1 = SYM("generate_debug_info");
-SxxMachine::SymbolTerm* const  FILE_system::ATOM_false = SYM("false");
+SxxMachine::SymbolTerm *const FILE_system::PRED_system_module_0_s1 = SYM("generate_debug_info");
+SxxMachine::SymbolTerm *const FILE_system::ATOM_false = SYM("false");
 
-	Operation FILE_system::PRED_system_module_0_static_exec(Prolog* m)
+	Operation FILE_system::PRED_system_module_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		// system_module:-set_prolog_flag(generate_debug_info,false)
 		m->setB0();
 		// system_module:-[set_prolog_flag(generate_debug_info,false)]
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_set_prolog_flag_2_static_exec(e);
-		}, VA({ PRED_system_module_0_s1, ATOM_false }), cont);
+		}, VA({PRED_system_module_0_s1, ATOM_false}), cont);
 	}
 
-SxxMachine::SymbolTerm* const  FILE_system::PRED_lock_predicate_1_s1 = SYM("system");
+SxxMachine::SymbolTerm *const FILE_system::PRED_lock_predicate_1_s1 = SYM("system");
 
-	Operation FILE_system::PRED_lock_predicate_1_static_exec(Prolog* m)
+	Operation FILE_system::PRED_lock_predicate_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		// lock_predicate(A):-'$set_predicate_attribute'(A,system,true)
 		m->setB0();
-		Term* a1;
+		Term *a1;
 		a1 = LARG[0];
 		// lock_predicate(A):-['$set_predicate_attribute'(A,system,true)]
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_$set_predicate_attribute_3_static_exec(e);
-		}, VA({ a1, PRED_lock_predicate_1_s1, Prolog::True }), cont);
+		}, VA({a1, PRED_lock_predicate_1_s1, Prolog::True}), cont);
 	}
 
-SxxMachine::SymbolTerm* const  FILE_system::PRED_unlock_predicate_1_s1 = SYM("system");
+SxxMachine::SymbolTerm *const FILE_system::PRED_unlock_predicate_1_s1 = SYM("system");
 
-	Operation FILE_system::PRED_unlock_predicate_1_static_exec(Prolog* m)
+	Operation FILE_system::PRED_unlock_predicate_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		// unlock_predicate(A):-'$set_predicate_attribute'(A,system,false)
 		m->setB0();
-		Term* a1;
+		Term *a1;
 		a1 = LARG[0];
 		// unlock_predicate(A):-['$set_predicate_attribute'(A,system,false)]
-		return Op([&] (Prolog* e)
+		return Op([&] (Prolog *e)
 		{
 		PRED_$set_predicate_attribute_3_static_exec(e);
-		}, VA({ a1, PRED_unlock_predicate_1_s1, ATOM_false }), cont);
+		}, VA({a1, PRED_unlock_predicate_1_s1, ATOM_false}), cont);
 	}
 
 	FILE_system::StaticConstructor::StaticConstructor()

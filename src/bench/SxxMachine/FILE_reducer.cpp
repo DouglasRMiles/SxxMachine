@@ -32,15 +32,15 @@ namespace SxxMachine
 	using PRED_$begin_exception_1 = SxxMachine::bootpreds::PRED_$begin_exception_1;
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
-SymbolTerm* const  FILE_reducer::FUNCTOR_fac_1 = F("fac",1);
-StructureTerm* const  FILE_reducer::L_top_0_s4 = S(FUNCTOR_fac_1, int_3);
-SymbolTerm* const  FILE_reducer::FUNCTOR_quick_1 = F("quick",1);
-ListTerm* const  FILE_reducer::L_top_0_s9 = CONS(int_2, Prolog::Nil);
-ListTerm* const  FILE_reducer::L_top_0_s10 = CONS(int_1, L_top_0_s9);
-ListTerm* const  FILE_reducer::L_top_0_s11 = CONS(int_3, L_top_0_s10);
-StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11);
+SymbolTerm *const FILE_reducer::FUNCTOR_fac_1 = F("fac",1);
+StructureTerm *const FILE_reducer::L_top_0_s4 = S(FUNCTOR_fac_1, int_3);
+SymbolTerm *const FILE_reducer::FUNCTOR_quick_1 = F("quick",1);
+ListTerm *const FILE_reducer::L_top_0_s9 = CONS(int_2, Prolog::Nil);
+ListTerm *const FILE_reducer::L_top_0_s10 = CONS(int_1, L_top_0_s9);
+ListTerm *const FILE_reducer::L_top_0_s11 = CONS(int_3, L_top_0_s10);
+StructureTerm *const FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11);
 
-	Operation FILE_reducer::PRED_top_0_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_top_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -52,20 +52,20 @@ StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11
 		return Op([&] (e)
 		{
 		PRED_try_2_static_exec(e);
-		}, VA({ L_top_0_s4, V(m) }), Op([&] (e)
+		}, VA({L_top_0_s4, V(m)}), Op([&] (e)
 		{
 		PRED_try_2_static_exec(e);
-	}, VA({ L_top_0_s13, V(m) }), cont));
+	}, VA({L_top_0_s13, V(m)}), cont));
 	}
 
-	Operation FILE_reducer::PRED_try_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_try_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// try(A,B):-listify(A,C),curry(C,D),t_reduce(D,E),make_list(E,B)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
@@ -76,19 +76,19 @@ StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11
 		return Op([&] (e)
 		{
 		PRED_listify_2_static_exec(e);
-		}, VA({ a1, a3 }), Op([&] (e)
+		}, VA({a1, a3}), Op([&] (e)
 		{
 		PRED_curry_2_static_exec(e);
-	}, VA({ a3, a4 }), Op([&] (e)
+	}, VA({a3, a4}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a4, a5 }), Op([&] (e)
+	}, VA({a4, a5}), Op([&] (e)
 	{
 		PRED_make_list_2_static_exec(e);
-	}, VA({ a5, a2 }), cont))));
+	}, VA({a5, a2}), cont))));
 	}
 
-	Operation FILE_reducer::PRED_end_1_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_end_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -99,30 +99,30 @@ StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11
 		return end_1_1(m);
 	}
 
-	Operation FILE_reducer::end_1_sub_1(Prolog* m)
+	Operation FILE_reducer::end_1_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return end_1_2(m);
 	}
 
-	Operation FILE_reducer::end_1_1(Prolog* m)
+	Operation FILE_reducer::end_1_1(Prolog *m)
 	{
 	// end(A):-atom(A),!
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// end(A):-['$get_level'(B),atom(A),'$cut'(B)]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
-		if(!a2->unifyInt(m->B0, m->trail))
+		if (!a2->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of atom(a(1))
 		a1 = a1->dref();
-		if(!(a1->isSymbol()))
+		if (!(a1->isSymbol()))
 		{
 			return m->fail();
 		}
@@ -134,17 +134,17 @@ StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11
 		return cont;
 	}
 
-	Operation FILE_reducer::end_1_2(Prolog* m)
+	Operation FILE_reducer::end_1_2(Prolog *m)
 	{
 	// end(A):-A==[]
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// end(A):-['$equality_of_term'(A,[])]
 		//START inline expansion of $equality_of_term(a(1),@(Prolog.Nil))
 		a1 = a1->dref();
-		if(!a1->equalsTerm(Prolog::Nil))
+		if (!a1->equalsTerm(Prolog::Nil))
 		{
 			return m->fail();
 		}
@@ -152,44 +152,44 @@ StructureTerm* const  FILE_reducer::L_top_0_s13 = S(FUNCTOR_quick_1, L_top_0_s11
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_list_functor_name_1_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_list_functor_name_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// list_functor_name(A):-functor([B|C],A,D)
 		m->setB0();
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		a1 = LARG[0];
 	// list_functor_name(A):-[functor([B|C],A,D)]
 		a2 = CONS(V(m), V(m));
 		return Op([&] (e)
 		{
 		PRED_functor_3_static_exec(e);
-		}, VA({ a2, a1, V(m) }), cont);
+		}, VA({a2, a1, V(m)}), cont);
 	}
 
-SymbolTerm* const  FILE_reducer::ATOM_fac = SYM("fac");
-SymbolTerm* const  FILE_reducer::FUNCTOR_cond_3 = F("cond",3);
-SymbolTerm* const  FILE_reducer::FUNCTOR_$003D_2 = F("=",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_$002A_2 = F("*",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_2 = F("-",2);
-SymbolTerm* const  FILE_reducer::ATOM_quick = SYM("quick");
-SymbolTerm* const  FILE_reducer::FUNCTOR_tl_1 = F("tl",1);
-SymbolTerm* const  FILE_reducer::FUNCTOR_quick2_1 = F("quick2",1);
-SymbolTerm* const  FILE_reducer::FUNCTOR_split_2 = F("split",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_hd_1 = F("hd",1);
-SymbolTerm* const  FILE_reducer::ATOM_quick2 = SYM("quick2");
-SymbolTerm* const  FILE_reducer::FUNCTOR_append_2 = F("append",2);
-SymbolTerm* const  FILE_reducer::ATOM_split = SYM("split");
-SymbolTerm* const  FILE_reducer::FUNCTOR_$003D$003C_2 = F("=<",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_inserthead_2 = F("inserthead",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_inserttail_2 = F("inserttail",2);
-SymbolTerm* const  FILE_reducer::ATOM_inserthead = SYM("inserthead");
-SymbolTerm* const  FILE_reducer::ATOM_inserttail = SYM("inserttail");
-SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
+SymbolTerm *const FILE_reducer::ATOM_fac = SYM("fac");
+SymbolTerm *const FILE_reducer::FUNCTOR_cond_3 = F("cond",3);
+SymbolTerm *const FILE_reducer::FUNCTOR_$003D_2 = F("=",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_$002A_2 = F("*",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_$002D_2 = F("-",2);
+SymbolTerm *const FILE_reducer::ATOM_quick = SYM("quick");
+SymbolTerm *const FILE_reducer::FUNCTOR_tl_1 = F("tl",1);
+SymbolTerm *const FILE_reducer::FUNCTOR_quick2_1 = F("quick2",1);
+SymbolTerm *const FILE_reducer::FUNCTOR_split_2 = F("split",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_hd_1 = F("hd",1);
+SymbolTerm *const FILE_reducer::ATOM_quick2 = SYM("quick2");
+SymbolTerm *const FILE_reducer::FUNCTOR_append_2 = F("append",2);
+SymbolTerm *const FILE_reducer::ATOM_split = SYM("split");
+SymbolTerm *const FILE_reducer::FUNCTOR_$003D$003C_2 = F("=<",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_inserthead_2 = F("inserthead",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_inserttail_2 = F("inserttail",2);
+SymbolTerm *const FILE_reducer::ATOM_inserthead = SYM("inserthead");
+SymbolTerm *const FILE_reducer::ATOM_inserttail = SYM("inserttail");
+SymbolTerm *const FILE_reducer::ATOM_append = SYM("append");
 
-	Operation FILE_reducer::PRED_t_def_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_def_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -199,304 +199,314 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return m->switch_on_term(FILE_reducer::t_def_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::t_def_3_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::t_def_3_var(Prolog* m)
+	Operation FILE_reducer::t_def_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::t_def_3_var_1);
 		return t_def_3_1(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_1(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_def_3_var_2);
 		return t_def_3_2(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_2(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_def_3_var_3);
 		return t_def_3_3(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_3(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_def_3_var_4);
 		return t_def_3_4(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_4(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_4(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_def_3_var_5);
 		return t_def_3_5(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_5(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_5(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_def_3_var_6);
 		return t_def_3_6(m);
 	}
 
-	Operation FILE_reducer::t_def_3_var_6(Prolog* m)
+	Operation FILE_reducer::t_def_3_var_6(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_def_3_7(m);
 	}
 
-	Operation FILE_reducer::t_def_3_1(Prolog* m)
+	Operation FILE_reducer::t_def_3_1(Prolog *m)
 	{
 	// t_def(fac,[A],cond(A=0,1,A*fac(A-1))):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(fac,[A],cond(A=0,1,A*fac(A-1))):-[]
-		if(!ATOM_fac->unify(a1, m->trail))
+		if (!ATOM_fac->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			 a2->bind(CONS(a4, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
 			a5 = V(m);
 			a6 = V(m);
-			if(!a3->unify(C(FUNCTOR_cond_3, { a5, int_1, a6 }), m->trail))
+			if (!a3->unify(C(FUNCTOR_cond_3, {a5, int_1, a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a5 = a5->dref();
-			if(!a5->unify(C(FUNCTOR_$003D_2, { a4, int_0 }), m->trail))
+			if (!a5->unify(C(FUNCTOR_$003D_2, {a4, int_0}), m->trail))
 			{
 				return m->fail();
 			}
 		a6 = a6->dref();
 			a7 = V(m);
-			if(!a6->unify(C(FUNCTOR_$002A_2, { a4, a7 }), m->trail))
+			if (!a6->unify(C(FUNCTOR_$002A_2, {a4, a7}), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
 			a8 = V(m);
-			if(!a7->unify(C(FUNCTOR_fac_1, { a8 }), m->trail))
+			if (!a7->unify(C(FUNCTOR_fac_1, {a8}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-			if(!a8->unify(C(FUNCTOR_$002D_2, { a4, int_1 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_$002D_2, {a4, int_1}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_2(Prolog* m)
+	Operation FILE_reducer::t_def_3_2(Prolog *m)
 	{
 	// t_def(quick,[A],cond(A=[],[],cond(tl(A)=[],A,quick2(split(hd(A),tl(A)))))):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(quick,[A],cond(A=[],[],cond(tl(A)=[],A,quick2(split(hd(A),tl(A)))))):-[]
-		if(!ATOM_quick->unify(a1, m->trail))
+		if (!ATOM_quick->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			 a2->bind(CONS(a4, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
 			a5 = V(m);
 			a6 = V(m);
-			if(!a3->unify(C(FUNCTOR_cond_3, { a5, Prolog::Nil, a6 }), m->trail))
+			if (!a3->unify(C(FUNCTOR_cond_3, {a5, Prolog::Nil, a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a5 = a5->dref();
-			if(!a5->unify(C(FUNCTOR_$003D_2, { a4, Prolog::Nil }), m->trail))
+			if (!a5->unify(C(FUNCTOR_$003D_2, {a4, Prolog::Nil}), m->trail))
 			{
 				return m->fail();
 			}
 		a6 = a6->dref();
 			a7 = V(m);
 			a8 = V(m);
-			if(!a6->unify(C(FUNCTOR_cond_3, { a7, a4, a8 }), m->trail))
+			if (!a6->unify(C(FUNCTOR_cond_3, {a7, a4, a8}), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
 			a9 = V(m);
-			if(!a7->unify(C(FUNCTOR_$003D_2, { a9, Prolog::Nil }), m->trail))
+			if (!a7->unify(C(FUNCTOR_$003D_2, {a9, Prolog::Nil}), m->trail))
 			{
 				return m->fail();
 			}
 		a9 = a9->dref();
-			if(!a9->unify(C(FUNCTOR_tl_1, { a4 }), m->trail))
+			if (!a9->unify(C(FUNCTOR_tl_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
 			a10 = V(m);
-			if(!a8->unify(C(FUNCTOR_quick2_1, { a10 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_quick2_1, {a10}), m->trail))
 			{
 				return m->fail();
 			}
 		a10 = a10->dref();
 			a11 = V(m);
 			a12 = V(m);
-			if(!a10->unify(C(FUNCTOR_split_2, { a11, a12 }), m->trail))
+			if (!a10->unify(C(FUNCTOR_split_2, {a11, a12}), m->trail))
 			{
 				return m->fail();
 			}
 		a11 = a11->dref();
-			if(!a11->unify(C(FUNCTOR_hd_1, { a4 }), m->trail))
+			if (!a11->unify(C(FUNCTOR_hd_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		a12 = a12->dref();
-			if(!a12->unify(C(FUNCTOR_tl_1, { a4 }), m->trail))
+			if (!a12->unify(C(FUNCTOR_tl_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_3(Prolog* m)
+	Operation FILE_reducer::t_def_3_3(Prolog *m)
 	{
 	// t_def(quick2,[A],append(quick(hd(A)),quick(tl(A)))):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(quick2,[A],append(quick(hd(A)),quick(tl(A)))):-[]
-		if(!ATOM_quick2->unify(a1, m->trail))
+		if (!ATOM_quick2->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			 a2->bind(CONS(a4, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
 			a5 = V(m);
 			a6 = V(m);
-			if(!a3->unify(C(FUNCTOR_append_2, { a5, a6 }), m->trail))
+			if (!a3->unify(C(FUNCTOR_append_2, {a5, a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a5 = a5->dref();
 			a7 = V(m);
-			if(!a5->unify(C(FUNCTOR_quick_1, { a7 }), m->trail))
+			if (!a5->unify(C(FUNCTOR_quick_1, {a7}), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
-			if(!a7->unify(C(FUNCTOR_hd_1, { a4 }), m->trail))
+			if (!a7->unify(C(FUNCTOR_hd_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		a6 = a6->dref();
 			a8 = V(m);
-			if(!a6->unify(C(FUNCTOR_quick_1, { a8 }), m->trail))
+			if (!a6->unify(C(FUNCTOR_quick_1, {a8}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-			if(!a8->unify(C(FUNCTOR_tl_1, { a4 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_tl_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_4(Prolog* m)
+	Operation FILE_reducer::t_def_3_4(Prolog *m)
 	{
 	// t_def(split,[A,B],cond(B=[],[[A]],cond(hd(B)=<A,inserthead(hd(B),split(A,tl(B))),inserttail(hd(B),split(A,tl(B)))))):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16,* a17,* a18,* a19,* a20;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16, *a17, *a18, *a19, *a20;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(split,[A,B],cond(B=[],[[A]],cond(hd(B)=<A,inserthead(hd(B),split(A,tl(B))),inserttail(hd(B),split(A,tl(B)))))):-[]
-		if(!ATOM_split->unify(a1, m->trail))
+		if (!ATOM_split->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a2->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			 a5->bind(CONS(a6, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -504,48 +514,52 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 			a7 = V(m);
 			a8 = V(m);
 			a9 = V(m);
-			if(!a3->unify(C(FUNCTOR_cond_3, { a7, a8, a9 }), m->trail))
+			if (!a3->unify(C(FUNCTOR_cond_3, {a7, a8, a9}), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
-			if(!a7->unify(C(FUNCTOR_$003D_2, { a6, Prolog::Nil }), m->trail))
+			if (!a7->unify(C(FUNCTOR_$003D_2, {a6, Prolog::Nil}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a10 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a10 = V(m);
 			 a8->bind(CONS(a10, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
-			if(!a4->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
+			if (!a4->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			 a10->bind(CONS(a4, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -553,345 +567,367 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 			a11 = V(m);
 			a12 = V(m);
 			a13 = V(m);
-			if(!a9->unify(C(FUNCTOR_cond_3, { a11, a12, a13 }), m->trail))
+			if (!a9->unify(C(FUNCTOR_cond_3, {a11, a12, a13}), m->trail))
 			{
 				return m->fail();
 			}
 		a11 = a11->dref();
 			a14 = V(m);
-			if(!a11->unify(C(FUNCTOR_$003D$003C_2, { a14, a4 }), m->trail))
+			if (!a11->unify(C(FUNCTOR_$003D$003C_2, {a14, a4}), m->trail))
 			{
 				return m->fail();
 			}
 		a14 = a14->dref();
-			if(!a14->unify(C(FUNCTOR_hd_1, { a6 }), m->trail))
+			if (!a14->unify(C(FUNCTOR_hd_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a12 = a12->dref();
 			a15 = V(m);
 			a16 = V(m);
-			if(!a12->unify(C(FUNCTOR_inserthead_2, { a15, a16 }), m->trail))
+			if (!a12->unify(C(FUNCTOR_inserthead_2, {a15, a16}), m->trail))
 			{
 				return m->fail();
 			}
 		a15 = a15->dref();
-			if(!a15->unify(C(FUNCTOR_hd_1, { a6 }), m->trail))
+			if (!a15->unify(C(FUNCTOR_hd_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a16 = a16->dref();
 			a17 = V(m);
-			if(!a16->unify(C(FUNCTOR_split_2, { a4, a17 }), m->trail))
+			if (!a16->unify(C(FUNCTOR_split_2, {a4, a17}), m->trail))
 			{
 				return m->fail();
 			}
 		a17 = a17->dref();
-			if(!a17->unify(C(FUNCTOR_tl_1, { a6 }), m->trail))
+			if (!a17->unify(C(FUNCTOR_tl_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a13 = a13->dref();
 			a18 = V(m);
 			a19 = V(m);
-			if(!a13->unify(C(FUNCTOR_inserttail_2, { a18, a19 }), m->trail))
+			if (!a13->unify(C(FUNCTOR_inserttail_2, {a18, a19}), m->trail))
 			{
 				return m->fail();
 			}
 		a18 = a18->dref();
-			if(!a18->unify(C(FUNCTOR_hd_1, { a6 }), m->trail))
+			if (!a18->unify(C(FUNCTOR_hd_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a19 = a19->dref();
 			a20 = V(m);
-			if(!a19->unify(C(FUNCTOR_split_2, { a4, a20 }), m->trail))
+			if (!a19->unify(C(FUNCTOR_split_2, {a4, a20}), m->trail))
 			{
 				return m->fail();
 			}
 		a20 = a20->dref();
-			if(!a20->unify(C(FUNCTOR_tl_1, { a6 }), m->trail))
+			if (!a20->unify(C(FUNCTOR_tl_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_5(Prolog* m)
+	Operation FILE_reducer::t_def_3_5(Prolog *m)
 	{
 	// t_def(inserthead,[A,B],[[A|hd(B)]|tl(B)]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(inserthead,[A,B],[[A|hd(B)]|tl(B)]):-[]
-		if(!ATOM_inserthead->unify(a1, m->trail))
+		if (!ATOM_inserthead->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a2->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			 a5->bind(CONS(a6, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a3->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = a7->dref();
-		if(a7->isCons())
+		if (a7->isCons())
 		{
-			std::vector<Term*> argz = VA({ a7->car(), a7->cdr() });
-			if(!a4->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a7->car(), a7->cdr()});
+			if (!a4->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a9 = argz[1];
-		} else if(a7->isVar())
+		}
+		else if (a7->isVar())
 		{
 			a9 = V(m);
 			 a7->bind(CONS(a4, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-			if(!a9->unify(C(FUNCTOR_hd_1, { a6 }), m->trail))
+			if (!a9->unify(C(FUNCTOR_hd_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-			if(!a8->unify(C(FUNCTOR_tl_1, { a6 }), m->trail))
+			if (!a8->unify(C(FUNCTOR_tl_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_6(Prolog* m)
+	Operation FILE_reducer::t_def_3_6(Prolog *m)
 	{
 	// t_def(inserttail,[A,B],[hd(B),A|tl(B)]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(inserttail,[A,B],[hd(B),A|tl(B)]):-[]
-		if(!ATOM_inserttail->unify(a1, m->trail))
+		if (!ATOM_inserttail->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a2->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			 a5->bind(CONS(a6, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a3->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = a7->dref();
-			if(!a7->unify(C(FUNCTOR_hd_1, { a6 }), m->trail))
+			if (!a7->unify(C(FUNCTOR_hd_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
-			if(!a4->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
+			if (!a4->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a9 = argz[1];
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a4, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-			if(!a9->unify(C(FUNCTOR_tl_1, { a6 }), m->trail))
+			if (!a9->unify(C(FUNCTOR_tl_1, {a6}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_def_3_7(Prolog* m)
+	Operation FILE_reducer::t_def_3_7(Prolog *m)
 	{
 	// t_def(append,[A,B],cond(A=[],B,[hd(A)|append(tl(A),B)])):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_def(append,[A,B],cond(A=[],B,[hd(A)|append(tl(A),B)])):-[]
-		if(!ATOM_append->unify(a1, m->trail))
+		if (!ATOM_append->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a2->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			 a5->bind(CONS(a6, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
 			a7 = V(m);
 			a8 = V(m);
-			if(!a3->unify(C(FUNCTOR_cond_3, { a7, a6, a8 }), m->trail))
+			if (!a3->unify(C(FUNCTOR_cond_3, {a7, a6, a8}), m->trail))
 			{
 				return m->fail();
 			}
 		a7 = a7->dref();
-			if(!a7->unify(C(FUNCTOR_$003D_2, { a4, Prolog::Nil }), m->trail))
+			if (!a7->unify(C(FUNCTOR_$003D_2, {a4, Prolog::Nil}), m->trail))
 			{
 				return m->fail();
 			}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
 			a10 = argz[1];
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			a10 = V(m);
 			 a8->bind(CONS(a9, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-			if(!a9->unify(C(FUNCTOR_hd_1, { a4 }), m->trail))
+			if (!a9->unify(C(FUNCTOR_hd_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		a10 = a10->dref();
 			a11 = V(m);
-			if(!a10->unify(C(FUNCTOR_append_2, { a11, a6 }), m->trail))
+			if (!a10->unify(C(FUNCTOR_append_2, {a11, a6}), m->trail))
 			{
 				return m->fail();
 			}
 		a11 = a11->dref();
-			if(!a11->unify(C(FUNCTOR_tl_1, { a4 }), m->trail))
+			if (!a11->unify(C(FUNCTOR_tl_1, {a4}), m->trail))
 			{
 				return m->fail();
 			}
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_t_reduce_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_reduce_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -901,40 +937,40 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return m->switch_on_term(FILE_reducer::t_reduce_2_var, FILE_reducer::t_reduce_2_int, FILE_reducer::t_reduce_2_int, FILE_reducer::t_reduce_2_int, FILE_reducer::t_reduce_2_int, FILE_reducer::t_reduce_2_var);
 	}
 
-	Operation FILE_reducer::t_reduce_2_var(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::t_reduce_2_var_1);
 		return t_reduce_2_1(m);
 	}
 
-	Operation FILE_reducer::t_reduce_2_var_1(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_reduce_2_var_2);
 		return t_reduce_2_2(m);
 	}
 
-	Operation FILE_reducer::t_reduce_2_var_2(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_var_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_reduce_2_3(m);
 	}
 
-	Operation FILE_reducer::t_reduce_2_int(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_int(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::t_reduce_2_int_1);
 		return t_reduce_2_1(m);
 	}
 
-	Operation FILE_reducer::t_reduce_2_int_1(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_int_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_reduce_2_3(m);
 	}
 
-	Operation FILE_reducer::t_reduce_2_1(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_1(Prolog *m)
 	{
 	// t_reduce(A,B):-atomic(A),!,B=A
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -942,14 +978,14 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 	// t_reduce(A,B):-['$get_level'(C),atomic(A),'$cut'(C),'$unify'(B,A)]
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
-		if(!a3->unifyInt(m->B0, m->trail))
+		if (!a3->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of atomic(a(1))
 		a1 = a1->dref();
-		if(!a1->isAtomicValue())
+		if (!a1->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -959,7 +995,7 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 				  m->cut(a3->intValue());
 		//END inline expansion
 		//START inline expansion of $unify(a(2),a(1))
-		if(!a2->unify(a1, m->trail))
+		if (!a2->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
@@ -967,10 +1003,10 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return cont;
 	}
 
-	Operation FILE_reducer::t_reduce_2_2(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_2(Prolog *m)
 	{
 	// t_reduce([A,B|C],[D,E|C]):-list_functor_name(C),t_reduce(B,E),!,t_reduce(A,D),!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -978,70 +1014,78 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		cont = m->cont;
 	// t_reduce([A,B|C],[D,E|C]):-['$get_level'(F),list_functor_name(C),t_reduce(B,E),'$cut'(F),t_reduce(A,D),'$cut'(F)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a2->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
-			if(!a6->unify(argz[1], m->trail))
+			if (!a6->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a9, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = V(m);
 		//START inline expansion of $get_level(a(10))
-		if(!a10->unifyInt(m->B0, m->trail))
+		if (!a10->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -1049,25 +1093,25 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return Op([&] (e)
 		{
 		PRED_list_functor_name_1_static_exec(e);
-		}, VA({ a6 }), Op([&] (e)
+		}, VA({a6}), Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a5, a9 }), Op([&] (e)
+	}, VA({a5, a9}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a10 }), Op([&] (e)
+	}, VA({a10}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a7 }), Op([&] (e)
+	}, VA({a3, a7}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a10 }), cont)))));
+	}, VA({a10}), cont)))));
 	}
 
-	Operation FILE_reducer::t_reduce_2_3(Prolog* m)
+	Operation FILE_reducer::t_reduce_2_3(Prolog *m)
 	{
 	// t_reduce(A,B):-t_append(C,D,E,A),t_redex(E,D),!,t_reduce(C,B),!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -1076,7 +1120,7 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 	// t_reduce(A,B):-['$get_level'(C),t_append(D,E,F,A),t_redex(F,E),'$cut'(C),t_reduce(D,B),'$cut'(C)]
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
-		if(!a3->unifyInt(m->B0, m->trail))
+		if (!a3->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -1087,22 +1131,22 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return Op([&] (e)
 		{
 		PRED_t_append_4_static_exec(e);
-		}, VA({ a4, a5, a6, a1 }), Op([&] (e)
+		}, VA({a4, a5, a6, a1}), Op([&] (e)
 		{
 		PRED_t_redex_2_static_exec(e);
-	}, VA({ a6, a5 }), Op([&] (e)
+	}, VA({a6, a5}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a3 }), Op([&] (e)
+	}, VA({a3}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a4, a2 }), Op([&] (e)
+	}, VA({a4, a2}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a3 }), cont)))));
+	}, VA({a3}), cont)))));
 	}
 
-	Operation FILE_reducer::PRED_t_append_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_append_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -1111,28 +1155,28 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return t_append_4_top(m);
 	}
 
-	Operation FILE_reducer::t_append_4_top(Prolog* m)
+	Operation FILE_reducer::t_append_4_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_reducer::t_append_4_var, FILE_reducer::t_append_4_1, FILE_reducer::t_append_4_1, FILE_reducer::t_append_4_1, FILE_reducer::t_append_4_1, FILE_reducer::t_append_4_var);
 	}
 
-	Operation FILE_reducer::t_append_4_var(Prolog* m)
+	Operation FILE_reducer::t_append_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::t_append_4_var_1);
 		return t_append_4_1(m);
 	}
 
-	Operation FILE_reducer::t_append_4_var_1(Prolog* m)
+	Operation FILE_reducer::t_append_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_append_4_2(m);
 	}
 
-	Operation FILE_reducer::t_append_4_1(Prolog* m)
+	Operation FILE_reducer::t_append_4_1(Prolog *m)
 	{
 	// t_append(A,A,B,B):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -1140,21 +1184,21 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// t_append(A,A,B,B):-[]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a3->unify(a4, m->trail))
+		if (!a3->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_append_4_2(Prolog* m)
+	Operation FILE_reducer::t_append_4_2(Prolog *m)
 	{
 	// t_append([A|B],C,D,[A|E]):-t_append(B,C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -1163,34 +1207,38 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		cont = m->cont;
 	// t_append([A|B],C,D,[A|E]):-[t_append(B,C,D,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a7 = V(m);
 			 a4->bind(CONS(a5, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -1202,44 +1250,44 @@ SymbolTerm* const  FILE_reducer::ATOM_append = SYM("append");
 		return t_append_4_top(m);
 	}
 
-SymbolTerm* const  FILE_reducer::ATOM_sp = SYM("sp");
-SymbolTerm* const  FILE_reducer::ATOM_bp = SYM("bp");
-SymbolTerm* const  FILE_reducer::ATOM_cp = SYM("cp");
-SymbolTerm* const  FILE_reducer::ATOM_s = SYM("s");
-SymbolTerm* const  FILE_reducer::ATOM_b = SYM("b");
-SymbolTerm* const  FILE_reducer::ATOM_c = SYM("c");
-SymbolTerm* const  FILE_reducer::ATOM_k = SYM("k");
-SymbolTerm* const  FILE_reducer::ATOM_i = SYM("i");
-SymbolTerm* const  FILE_reducer::ATOM_cond = SYM("cond");
-SymbolTerm* const  FILE_reducer::ATOM_apply = SYM("apply");
-SymbolTerm* const  FILE_reducer::ATOM_hd = SYM("hd");
-SymbolTerm* const  FILE_reducer::ATOM_tl = SYM("tl");
-SymbolTerm* const  FILE_reducer::ATOM_$002B = SYM("+");
-SymbolTerm* const  FILE_reducer::ATOM_$002D = SYM("-");
-SymbolTerm* const  FILE_reducer::ATOM_$002A = SYM("*");
-SymbolTerm* const  FILE_reducer::ATOM_$002F$002F = SYM("//");
-SymbolTerm* const  FILE_reducer::ATOM_mod = SYM("mod");
-ListTerm* const  FILE_reducer::L_t_redex_2_s20 = CONS(ATOM_mod, Prolog::Nil);
-ListTerm* const  FILE_reducer::L_t_redex_2_s21 = CONS(ATOM_$002F$002F, L_t_redex_2_s20);
-ListTerm* const  FILE_reducer::L_t_redex_2_s22 = CONS(ATOM_$002A, L_t_redex_2_s21);
-ListTerm* const  FILE_reducer::L_t_redex_2_s23 = CONS(ATOM_$002D, L_t_redex_2_s22);
-ListTerm* const  FILE_reducer::L_t_redex_2_s24 = CONS(ATOM_$002B, L_t_redex_2_s23);
-SymbolTerm* const  FILE_reducer::ATOM_$003C = SYM("<");
-SymbolTerm* const  FILE_reducer::ATOM_$003E = SYM(">");
-SymbolTerm* const  FILE_reducer::ATOM_$003D$003C = SYM("=<");
-SymbolTerm* const  FILE_reducer::ATOM_$003E$003D = SYM(">=");
-SymbolTerm* const  FILE_reducer::ATOM_$003D$005C$003D = SYM("=\\=");
-SymbolTerm* const  FILE_reducer::ATOM_$003D$003A$003D = SYM("=:=");
-ListTerm* const  FILE_reducer::L_t_redex_2_s31 = CONS(ATOM_$003D$003A$003D, Prolog::Nil);
-ListTerm* const  FILE_reducer::L_t_redex_2_s32 = CONS(ATOM_$003D$005C$003D, L_t_redex_2_s31);
-ListTerm* const  FILE_reducer::L_t_redex_2_s33 = CONS(ATOM_$003E$003D, L_t_redex_2_s32);
-ListTerm* const  FILE_reducer::L_t_redex_2_s34 = CONS(ATOM_$003D$003C, L_t_redex_2_s33);
-ListTerm* const  FILE_reducer::L_t_redex_2_s35 = CONS(ATOM_$003E, L_t_redex_2_s34);
-ListTerm* const  FILE_reducer::L_t_redex_2_s36 = CONS(ATOM_$003C, L_t_redex_2_s35);
-SymbolTerm* const  FILE_reducer::ATOM_$003D = SYM("=");
-ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
+SymbolTerm *const FILE_reducer::ATOM_sp = SYM("sp");
+SymbolTerm *const FILE_reducer::ATOM_bp = SYM("bp");
+SymbolTerm *const FILE_reducer::ATOM_cp = SYM("cp");
+SymbolTerm *const FILE_reducer::ATOM_s = SYM("s");
+SymbolTerm *const FILE_reducer::ATOM_b = SYM("b");
+SymbolTerm *const FILE_reducer::ATOM_c = SYM("c");
+SymbolTerm *const FILE_reducer::ATOM_k = SYM("k");
+SymbolTerm *const FILE_reducer::ATOM_i = SYM("i");
+SymbolTerm *const FILE_reducer::ATOM_cond = SYM("cond");
+SymbolTerm *const FILE_reducer::ATOM_apply = SYM("apply");
+SymbolTerm *const FILE_reducer::ATOM_hd = SYM("hd");
+SymbolTerm *const FILE_reducer::ATOM_tl = SYM("tl");
+SymbolTerm *const FILE_reducer::ATOM_$002B = SYM("+");
+SymbolTerm *const FILE_reducer::ATOM_$002D = SYM("-");
+SymbolTerm *const FILE_reducer::ATOM_$002A = SYM("*");
+SymbolTerm *const FILE_reducer::ATOM_$002F$002F = SYM("//");
+SymbolTerm *const FILE_reducer::ATOM_mod = SYM("mod");
+ListTerm *const FILE_reducer::L_t_redex_2_s20 = CONS(ATOM_mod, Prolog::Nil);
+ListTerm *const FILE_reducer::L_t_redex_2_s21 = CONS(ATOM_$002F$002F, L_t_redex_2_s20);
+ListTerm *const FILE_reducer::L_t_redex_2_s22 = CONS(ATOM_$002A, L_t_redex_2_s21);
+ListTerm *const FILE_reducer::L_t_redex_2_s23 = CONS(ATOM_$002D, L_t_redex_2_s22);
+ListTerm *const FILE_reducer::L_t_redex_2_s24 = CONS(ATOM_$002B, L_t_redex_2_s23);
+SymbolTerm *const FILE_reducer::ATOM_$003C = SYM("<");
+SymbolTerm *const FILE_reducer::ATOM_$003E = SYM(">");
+SymbolTerm *const FILE_reducer::ATOM_$003D$003C = SYM("=<");
+SymbolTerm *const FILE_reducer::ATOM_$003E$003D = SYM(">=");
+SymbolTerm *const FILE_reducer::ATOM_$003D$005C$003D = SYM("=\\=");
+SymbolTerm *const FILE_reducer::ATOM_$003D$003A$003D = SYM("=:=");
+ListTerm *const FILE_reducer::L_t_redex_2_s31 = CONS(ATOM_$003D$003A$003D, Prolog::Nil);
+ListTerm *const FILE_reducer::L_t_redex_2_s32 = CONS(ATOM_$003D$005C$003D, L_t_redex_2_s31);
+ListTerm *const FILE_reducer::L_t_redex_2_s33 = CONS(ATOM_$003E$003D, L_t_redex_2_s32);
+ListTerm *const FILE_reducer::L_t_redex_2_s34 = CONS(ATOM_$003D$003C, L_t_redex_2_s33);
+ListTerm *const FILE_reducer::L_t_redex_2_s35 = CONS(ATOM_$003E, L_t_redex_2_s34);
+ListTerm *const FILE_reducer::L_t_redex_2_s36 = CONS(ATOM_$003C, L_t_redex_2_s35);
+SymbolTerm *const FILE_reducer::ATOM_$003D = SYM("=");
+ListTerm *const FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 
-	Operation FILE_reducer::PRED_t_redex_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_redex_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -1249,899 +1297,981 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::t_redex_2_var, FILE_reducer::t_redex_2_18, FILE_reducer::t_redex_2_18, FILE_reducer::t_redex_2_18, FILE_reducer::t_redex_2_18, FILE_reducer::t_redex_2_var);
 	}
 
-	Operation FILE_reducer::t_redex_2_var(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::t_redex_2_var_1);
 		return t_redex_2_1(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_1(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_2);
 		return t_redex_2_2(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_2(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_3);
 		return t_redex_2_3(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_3(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_4);
 		return t_redex_2_4(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_4(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_4(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_5);
 		return t_redex_2_5(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_5(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_5(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_6);
 		return t_redex_2_6(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_6(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_6(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_7);
 		return t_redex_2_7(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_7(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_7(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_8);
 		return t_redex_2_8(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_8(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_8(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_9);
 		return t_redex_2_9(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_9(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_9(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_10);
 		return t_redex_2_10(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_10(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_10(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_11);
 		return t_redex_2_11(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_11(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_11(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_12);
 		return t_redex_2_12(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_12(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_12(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_13);
 		return t_redex_2_13(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_13(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_13(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_14);
 		return t_redex_2_14(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_14(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_14(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_15);
 		return t_redex_2_15(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_15(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_15(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_16);
 		return t_redex_2_16(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_16(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_16(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_redex_2_var_17);
 		return t_redex_2_17(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_var_17(Prolog* m)
+	Operation FILE_reducer::t_redex_2_var_17(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_redex_2_18(m);
 	}
 
-	Operation FILE_reducer::t_redex_2_1(Prolog* m)
+	Operation FILE_reducer::t_redex_2_1(Prolog *m)
 	{
 	// t_redex([A,B,C,D|sp],[[E|B],[E|C]|D]):-t_reduce(A,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C,D|sp],[[E|B],[E|C]|D]):-[t_reduce(A,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a6->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
-			if(!ATOM_sp->unify(argz[1], m->trail))
+			if (!ATOM_sp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a9, ATOM_sp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a2->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
 			a12 = argz[0];
-			if(!a5->unify(argz[1], m->trail))
+			if (!a5->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			a12 = V(m);
 			 a10->bind(CONS(a12, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
 			a13 = argz[0];
-			if(!a9->unify(argz[1], m->trail))
+			if (!a9->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a13 = V(m);
 			 a11->bind(CONS(a13, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a13 = a13->dref();
-		if(a13->isCons())
+		if (a13->isCons())
 		{
-			std::vector<Term*> argz = VA({ a13->car(), a13->cdr() });
-			if(!a12->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a13->car(), a13->cdr()});
+			if (!a12->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a7->unify(argz[1], m->trail))
+			if (!a7->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a13->isVar())
+		}
+		else if (a13->isVar())
 		{
 			 a13->bind(CONS(a12, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-		}, VA({ a3, a12 }), cont);
+		}, VA({a3, a12}), cont);
 	}
 
-	Operation FILE_reducer::t_redex_2_2(Prolog* m)
+	Operation FILE_reducer::t_redex_2_2(Prolog *m)
 	{
 	// t_redex([A,B,C,D|bp],[[A|B],C|D]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C,D|bp],[[A|B],C|D]):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a6->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
-			if(!ATOM_bp->unify(argz[1], m->trail))
+			if (!ATOM_bp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a9, ATOM_bp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a2->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a5->unify(argz[1], m->trail))
+			if (!a5->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			 a10->bind(CONS(a3, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
-			if(!a7->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
+			if (!a7->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a9->unify(argz[1], m->trail))
+			if (!a9->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			 a11->bind(CONS(a7, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_3(Prolog* m)
+	Operation FILE_reducer::t_redex_2_3(Prolog *m)
 	{
 	// t_redex([A,B,C,D|cp],[B,[A|C]|D]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C,D|cp],[B,[A|C]|D]):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a6->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
-			if(!ATOM_cp->unify(argz[1], m->trail))
+			if (!ATOM_cp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a9, ATOM_cp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a10 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a10 = V(m);
 			 a2->bind(CONS(a5, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
 			a11 = argz[0];
-			if(!a9->unify(argz[1], m->trail))
+			if (!a9->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			a11 = V(m);
 			 a10->bind(CONS(a11, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a7->unify(argz[1], m->trail))
+			if (!a7->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			 a11->bind(CONS(a3, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_4(Prolog* m)
+	Operation FILE_reducer::t_redex_2_4(Prolog *m)
 	{
 	// t_redex([A,B,C|s],[[D|B],D|C]):-t_reduce(A,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C|s],[[D|B],D|C]):-[t_reduce(A,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
-			if(!ATOM_s->unify(argz[1], m->trail))
+			if (!ATOM_s->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a7, ATOM_s), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a8 = argz[0];
 			a9 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a8 = V(m);
 			a9 = V(m);
 			 a2->bind(CONS(a8, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a10 = argz[0];
-			if(!a5->unify(argz[1], m->trail))
+			if (!a5->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a10 = V(m);
 			 a8->bind(CONS(a10, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
-			if(!a10->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
+			if (!a10->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a7->unify(argz[1], m->trail))
+			if (!a7->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			 a9->bind(CONS(a10, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-		}, VA({ a3, a10 }), cont);
+		}, VA({a3, a10}), cont);
 	}
 
-	Operation FILE_reducer::t_redex_2_5(Prolog* m)
+	Operation FILE_reducer::t_redex_2_5(Prolog *m)
 	{
 	// t_redex([A,B,C|b],[[A|B]|C]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C|b],[[A|B]|C]):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
-			if(!ATOM_b->unify(argz[1], m->trail))
+			if (!ATOM_b->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a7, ATOM_b), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a8 = argz[0];
-			if(!a7->unify(argz[1], m->trail))
+			if (!a7->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a8 = V(m);
 			 a2->bind(CONS(a8, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a5->unify(argz[1], m->trail))
+			if (!a5->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			 a8->bind(CONS(a3, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_6(Prolog* m)
+	Operation FILE_reducer::t_redex_2_6(Prolog *m)
 	{
 	// t_redex([A,B,C|c],[B,A|C]):-true
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C|c],[B,A|C]):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
-			if(!ATOM_c->unify(argz[1], m->trail))
+			if (!ATOM_c->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a7, ATOM_c), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a8 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a8 = V(m);
 			 a2->bind(CONS(a5, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a7->unify(argz[1], m->trail))
+			if (!a7->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			 a8->bind(CONS(a3, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_7(Prolog* m)
+	Operation FILE_reducer::t_redex_2_7(Prolog *m)
 	{
 	// t_redex([A,B|k],B):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B|k],B):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(V(m), a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a4 = argz[0];
-			if(!ATOM_k->unify(argz[1], m->trail))
+			if (!ATOM_k->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			 a3->bind(CONS(a4, ATOM_k), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a4->unify(a2, m->trail))
+		if (!a4->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_8(Prolog* m)
+	Operation FILE_reducer::t_redex_2_8(Prolog *m)
 	{
 	// t_redex([A|i],A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A|i],A):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
-			if(!ATOM_i->unify(argz[1], m->trail))
+			if (!ATOM_i->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(a3, ATOM_i), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a3->unify(a2, m->trail))
+		if (!a3->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_9(Prolog* m)
+	Operation FILE_reducer::t_redex_2_9(Prolog *m)
 	{
 	// t_redex([A,B,C|cond],B):-t_reduce(C,D),D=true,!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2149,57 +2279,63 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A,B,C|cond],B):-['$get_level'(D),t_reduce(C,E),'$unify'(E,true),'$cut'(D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(V(m), a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a3->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
 			a6 = argz[0];
-			if(!ATOM_cond->unify(argz[1], m->trail))
+			if (!ATOM_cond->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			a6 = V(m);
 			 a5->bind(CONS(a6, ATOM_cond), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a4->unify(a2, m->trail))
+		if (!a4->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a7 = V(m);
 		//START inline expansion of $get_level(a(7))
-		if(!a7->unifyInt(m->B0, m->trail))
+		if (!a7->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -2208,110 +2344,118 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-		}, VA({ a6, a8 }), Op([&] (e)
+		}, VA({a6, a8}), Op([&] (e)
 		{
 		FILE_builtins::PRED_$unify_2_static_exec(e);
-	}, VA({ a8, Prolog::True }), Op([&] (e)
+	}, VA({a8, Prolog::True}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a7 }), cont)));
+	}, VA({a7}), cont)));
 	}
 
-	Operation FILE_reducer::t_redex_2_10(Prolog* m)
+	Operation FILE_reducer::t_redex_2_10(Prolog *m)
 	{
 	// t_redex([A,B,C|cond],A):-true
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A,B,C|cond],A):-[]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			 a4->bind(CONS(V(m), a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = a5->dref();
-		if(a5->isCons())
+		if (a5->isCons())
 		{
-			std::vector<Term*> argz = VA({ a5->car(), a5->cdr() });
-			if(!ATOM_cond->unify(argz[1], m->trail))
+			std::vector<Term*> argz = VA({a5->car(), a5->cdr()});
+			if (!ATOM_cond->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a5->isVar())
+		}
+		else if (a5->isVar())
 		{
 			 a5->bind(CONS(V(m), ATOM_cond), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!a3->unify(a2, m->trail))
+		if (!a3->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_redex_2_11(Prolog* m)
+	Operation FILE_reducer::t_redex_2_11(Prolog *m)
 	{
 	// t_redex([A|apply],B):-t_reduce(A,B)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_redex([A|apply],B):-[t_reduce(A,B)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
-			if(!ATOM_apply->unify(argz[1], m->trail))
+			if (!ATOM_apply->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(a3, ATOM_apply), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-		}, VA({ a3, a2 }), cont);
+		}, VA({a3, a2}), cont);
 	}
 
-	Operation FILE_reducer::t_redex_2_12(Prolog* m)
+	Operation FILE_reducer::t_redex_2_12(Prolog *m)
 	{
 	// t_redex([A|hd],B):-list_functor_name(C),t_reduce(A,[D,B|C])
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2319,19 +2463,21 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A|hd],B):-[list_functor_name(C),t_reduce(A,[D,B|C])]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
-			if(!ATOM_hd->unify(argz[1], m->trail))
+			if (!ATOM_hd->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(a3, ATOM_hd), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -2341,16 +2487,16 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_list_functor_name_1_static_exec(e);
-		}, VA({ a4 }), Op([&] (e)
+		}, VA({a4}), Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a6 }), cont));
+	}, VA({a3, a6}), cont));
 	}
 
-	Operation FILE_reducer::t_redex_2_13(Prolog* m)
+	Operation FILE_reducer::t_redex_2_13(Prolog *m)
 	{
 	// t_redex([A|tl],B):-list_functor_name(C),t_reduce(A,[B,D|C])
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2358,19 +2504,21 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A|tl],B):-[list_functor_name(C),t_reduce(A,[B,D|C])]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
-			if(!ATOM_tl->unify(argz[1], m->trail))
+			if (!ATOM_tl->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(a3, ATOM_tl), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -2380,16 +2528,16 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_list_functor_name_1_static_exec(e);
-		}, VA({ a4 }), Op([&] (e)
+		}, VA({a4}), Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a6 }), cont));
+	}, VA({a3, a6}), cont));
 	}
 
-	Operation FILE_reducer::t_redex_2_14(Prolog* m)
+	Operation FILE_reducer::t_redex_2_14(Prolog *m)
 	{
 	// t_redex([A,B|C],D):-end(C),member(C,[+,-,*,//,mod]),t_reduce(B,E),t_reduce(A,F),number(E),number(F),eval(C,D,E,F)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2, p3, p4, p5, p6;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2397,32 +2545,36 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A,B|C],D):-[end(C),member(C,[+,-,*,//,mod]),t_reduce(B,E),t_reduce(A,F),number(E),number(F),eval(C,D,E,F)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -2431,31 +2583,31 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_end_1_static_exec(e);
-		}, VA({ a6 }), Op([&] (e)
+		}, VA({a6}), Op([&] (e)
 		{
 		PRED_member_2_static_exec(e);
-	}, VA({ a6, L_t_redex_2_s24 }), Op([&] (e)
+	}, VA({a6, L_t_redex_2_s24}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a5, a7 }), Op([&] (e)
+	}, VA({a5, a7}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a8 }), Op([&] (e)
+	}, VA({a3, a8}), Op([&] (e)
 	{
 		FILE_builtins::PRED_number_1_static_exec(e);
-	}, VA({ a7 }), Op([&] (e)
+	}, VA({a7}), Op([&] (e)
 	{
 		FILE_builtins::PRED_number_1_static_exec(e);
-	}, VA({ a8 }), Op([&] (e)
+	}, VA({a8}), Op([&] (e)
 	{
 		PRED_eval_4_static_exec(e);
-	}, VA({ a6, a2, a7, a8 }), cont)))))));
+	}, VA({a6, a2, a7, a8}), cont)))))));
 	}
 
-	Operation FILE_reducer::t_redex_2_15(Prolog* m)
+	Operation FILE_reducer::t_redex_2_15(Prolog *m)
 	{
 	// t_redex([A,B|C],D):-end(C),member(C,[<,>,=<,>=,=\=,=:=]),t_reduce(B,E),t_reduce(A,F),number(E),number(F),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,D,E,F),!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation p1, p2, p3, p4, p5, p6, p7;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2463,38 +2615,42 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A,B|C],D):-['$get_level'(E),end(C),member(C,[<,>,=<,>=,=\=,=:=]),t_reduce(B,F),t_reduce(A,G),number(F),number(G),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,D,F,G),'$cut'(E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
 		//START inline expansion of $get_level(a(7))
-		if(!a7->unifyInt(m->B0, m->trail))
+		if (!a7->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -2504,34 +2660,34 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_end_1_static_exec(e);
-		}, VA({ a6 }), Op([&] (e)
+		}, VA({a6}), Op([&] (e)
 		{
 		PRED_member_2_static_exec(e);
-	}, VA({ a6, L_t_redex_2_s36 }), Op([&] (e)
+	}, VA({a6, L_t_redex_2_s36}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a5, a8 }), Op([&] (e)
+	}, VA({a5, a8}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a9 }), Op([&] (e)
+	}, VA({a3, a9}), Op([&] (e)
 	{
 		FILE_builtins::PRED_number_1_static_exec(e);
-	}, VA({ a8 }), Op([&] (e)
+	}, VA({a8}), Op([&] (e)
 	{
 		FILE_builtins::PRED_number_1_static_exec(e);
-	}, VA({ a9 }), Op([&] (e)
+	}, VA({a9}), Op([&] (e)
 	{
 		PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_static_exec(e);
-	}, VA({ a6, a2, a8, a9 }), Op([&] (e)
+	}, VA({a6, a2, a8, a9}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a7 }), cont))))))));
+	}, VA({a7}), cont))))))));
 	}
 
-	Operation FILE_reducer::t_redex_2_16(Prolog* m)
+	Operation FILE_reducer::t_redex_2_16(Prolog *m)
 	{
 	// t_redex([A,B|=],C):-t_reduce(B,D),t_reduce(A,E),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,D,E),!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2539,40 +2695,44 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A,B|=],C):-['$get_level'(D),t_reduce(B,E),t_reduce(A,F),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,E,F),'$cut'(D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
-			if(!ATOM_$003D->unify(argz[1], m->trail))
+			if (!ATOM_$003D->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			 a4->bind(CONS(a5, ATOM_$003D), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = V(m);
 		//START inline expansion of $get_level(a(6))
-		if(!a6->unifyInt(m->B0, m->trail))
+		if (!a6->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -2582,22 +2742,22 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-		}, VA({ a5, a7 }), Op([&] (e)
+		}, VA({a5, a7}), Op([&] (e)
 		{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a8 }), Op([&] (e)
+	}, VA({a3, a8}), Op([&] (e)
 	{
 		PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_static_exec(e);
-	}, VA({ a2, a7, a8 }), Op([&] (e)
+	}, VA({a2, a7, a8}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a6 }), cont))));
+	}, VA({a6}), cont))));
 	}
 
-	Operation FILE_reducer::t_redex_2_17(Prolog* m)
+	Operation FILE_reducer::t_redex_2_17(Prolog *m)
 	{
 	// t_redex([A|B],C):-end(B),member(B,[-]),t_reduce(A,D),number(D),eval1(B,E,D)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2605,17 +2765,19 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		cont = m->cont;
 	// t_redex([A|B],C):-[end(B),member(B,[-]),t_reduce(A,D),number(D),eval1(B,E,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -2623,25 +2785,25 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_end_1_static_exec(e);
-		}, VA({ a4 }), Op([&] (e)
+		}, VA({a4}), Op([&] (e)
 		{
 		PRED_member_2_static_exec(e);
-	}, VA({ a4, L_t_redex_2_s38 }), Op([&] (e)
+	}, VA({a4, L_t_redex_2_s38}), Op([&] (e)
 	{
 		PRED_t_reduce_2_static_exec(e);
-	}, VA({ a3, a5 }), Op([&] (e)
+	}, VA({a3, a5}), Op([&] (e)
 	{
 		FILE_builtins::PRED_number_1_static_exec(e);
-	}, VA({ a5 }), Op([&] (e)
+	}, VA({a5}), Op([&] (e)
 	{
 		PRED_eval1_3_static_exec(e);
-	}, VA({ a4, V(m), a5 }), cont)))));
+	}, VA({a4, V(m), a5}), cont)))));
 	}
 
-	Operation FILE_reducer::t_redex_2_18(Prolog* m)
+	Operation FILE_reducer::t_redex_2_18(Prolog *m)
 	{
 	// t_redex(A,B):-append(C,D,A),end(D),t_def(D,E,F),t(E,F,G),append(C,G,B)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2656,24 +2818,24 @@ ListTerm* const  FILE_reducer::L_t_redex_2_s38 = CONS(ATOM_$002D, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_append_3_static_exec(e);
-		}, VA({ a3, a4, a1 }), Op([&] (e)
+		}, VA({a3, a4, a1}), Op([&] (e)
 		{
 		PRED_end_1_static_exec(e);
-	}, VA({ a4 }), Op([&] (e)
+	}, VA({a4}), Op([&] (e)
 	{
 		PRED_t_def_3_static_exec(e);
-	}, VA({ a4, a5, a6 }), Op([&] (e)
+	}, VA({a4, a5, a6}), Op([&] (e)
 	{
 		PRED_t_3_static_exec(e);
-	}, VA({ a5, a6, a7 }), Op([&] (e)
+	}, VA({a5, a6, a7}), Op([&] (e)
 	{
 		PRED_append_3_static_exec(e);
-	}, VA({ a3, a7, a2 }), cont)))));
+	}, VA({a3, a7, a2}), cont)))));
 	}
 
-SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
+SymbolTerm *const FILE_reducer::ATOM_false = SYM("false");
 
-	Operation FILE_reducer::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -2684,16 +2846,16 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_1(Prolog* m)
+	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_1(Prolog *m)
 	{
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D):-relop(A,C,D),!,B=true
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -2704,7 +2866,7 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D):-['$get_level'(E),relop(A,C,D),'$cut'(E),'$unify'(B,true)]
 		a5 = V(m);
 		//START inline expansion of $get_level(a(5))
-		if(!a5->unifyInt(m->B0, m->trail))
+		if (!a5->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -2712,19 +2874,19 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return Op([&] (e)
 		{
 		PRED_relop_3_static_exec(e);
-		}, VA({ a1, a3, a4 }), Op([&] (e)
+		}, VA({a1, a3, a4}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a5 }), Op([&] (e)
+	}, VA({a5}), Op([&] (e)
 	{
 		FILE_builtins::PRED_$unify_2_static_exec(e);
-	}, VA({ a2, Prolog::True }), cont)));
+	}, VA({a2, Prolog::True}), cont)));
 	}
 
-	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_2(Prolog* m)
+	Operation FILE_reducer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_2(Prolog *m)
 	{
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D):-B=false
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2733,7 +2895,7 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		cont = m->cont;
 	// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D):-['$unify'(B,false)]
 		//START inline expansion of $unify(a(2),@(ATOM_false))
-		if(!a2->unify(ATOM_false, m->trail))
+		if (!a2->unify(ATOM_false, m->trail))
 		{
 			return m->fail();
 		}
@@ -2741,7 +2903,7 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -2752,16 +2914,16 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_1(Prolog* m)
+	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_1(Prolog *m)
 	{
 	// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C):-B=C,!,A=true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2770,13 +2932,13 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 	// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C):-['$get_level'(D),'$unify'(B,C),'$cut'(D),'$unify'(A,true)]
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
-		if(!a4->unifyInt(m->B0, m->trail))
+		if (!a4->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $unify(a(2),a(3))
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
@@ -2786,7 +2948,7 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 				  m->cut(a4->intValue());
 		//END inline expansion
 		//START inline expansion of $unify(a(1),@(Prolog.True))
-		if(!a1->unify(Prolog::True, m->trail))
+		if (!a1->unify(Prolog::True, m->trail))
 		{
 			return m->fail();
 		}
@@ -2794,10 +2956,10 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return cont;
 	}
 
-	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_2(Prolog* m)
+	Operation FILE_reducer::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_2(Prolog *m)
 	{
 	// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C):-A=false
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2805,7 +2967,7 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		cont = m->cont;
 	// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C):-['$unify'(A,false)]
 		//START inline expansion of $unify(a(1),@(ATOM_false))
-		if(!a1->unify(ATOM_false, m->trail))
+		if (!a1->unify(ATOM_false, m->trail))
 		{
 			return m->fail();
 		}
@@ -2813,11 +2975,11 @@ SymbolTerm* const  FILE_reducer::ATOM_false = SYM("false");
 		return cont;
 	}
 
-SymbolTerm* const  FILE_reducer::FUNCTOR_$002B_2 = F("+",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_$002F$002F_2 = F("//",2);
-SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_$002B_2 = F("+",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_$002F$002F_2 = F("//",2);
+SymbolTerm *const FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 
-	Operation FILE_reducer::PRED_eval_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_eval_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -2827,40 +2989,40 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return m->switch_on_term(FILE_reducer::eval_4_var, Failure::fail_0, Failure::fail_0, FILE_reducer::eval_4_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::eval_4_var(Prolog* m)
+	Operation FILE_reducer::eval_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::eval_4_var_1);
 		return eval_4_1(m);
 	}
 
-	Operation FILE_reducer::eval_4_var_1(Prolog* m)
+	Operation FILE_reducer::eval_4_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::eval_4_var_2);
 		return eval_4_2(m);
 	}
 
-	Operation FILE_reducer::eval_4_var_2(Prolog* m)
+	Operation FILE_reducer::eval_4_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::eval_4_var_3);
 		return eval_4_3(m);
 	}
 
-	Operation FILE_reducer::eval_4_var_3(Prolog* m)
+	Operation FILE_reducer::eval_4_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::eval_4_var_4);
 		return eval_4_4(m);
 	}
 
-	Operation FILE_reducer::eval_4_var_4(Prolog* m)
+	Operation FILE_reducer::eval_4_var_4(Prolog *m)
 	{
 		m->trust(nullptr);
 		return eval_4_5(m);
 	}
 
-	Operation FILE_reducer::eval_4_1(Prolog* m)
+	Operation FILE_reducer::eval_4_1(Prolog *m)
 	{
 	// eval(+,A,B,C):-A is B+C
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2868,15 +3030,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// eval(+,A,B,C):-[A is B+C]
-		if(!ATOM_$002B->unify(a1, m->trail))
+		if (!ATOM_$002B->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(5))
-		a5 = S(FUNCTOR_$002B_2, { a3, a4 });
+		a5 = S(FUNCTOR_$002B_2, {a3, a4});
 		 ;
 		//START inline expansion of a(2)is a(5)
-		if(!a2->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
@@ -2884,10 +3046,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return cont;
 	}
 
-	Operation FILE_reducer::eval_4_2(Prolog* m)
+	Operation FILE_reducer::eval_4_2(Prolog *m)
 	{
 	// eval(-,A,B,C):-A is B-C
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2895,15 +3057,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// eval(-,A,B,C):-[A is B-C]
-		if(!ATOM_$002D->unify(a1, m->trail))
+		if (!ATOM_$002D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(5))
-		a5 = S(FUNCTOR_$002D_2, { a3, a4 });
+		a5 = S(FUNCTOR_$002D_2, {a3, a4});
 		 ;
 		//START inline expansion of a(2)is a(5)
-		if(!a2->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
@@ -2911,10 +3073,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return cont;
 	}
 
-	Operation FILE_reducer::eval_4_3(Prolog* m)
+	Operation FILE_reducer::eval_4_3(Prolog *m)
 	{
 	// eval(*,A,B,C):-A is B*C
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2922,15 +3084,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// eval(*,A,B,C):-[A is B*C]
-		if(!ATOM_$002A->unify(a1, m->trail))
+		if (!ATOM_$002A->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(5))
-		a5 = S(FUNCTOR_$002A_2, { a3, a4 });
+		a5 = S(FUNCTOR_$002A_2, {a3, a4});
 		 ;
 		//START inline expansion of a(2)is a(5)
-		if(!a2->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
@@ -2938,10 +3100,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return cont;
 	}
 
-	Operation FILE_reducer::eval_4_4(Prolog* m)
+	Operation FILE_reducer::eval_4_4(Prolog *m)
 	{
 	// eval(//,A,B,C):-A is B//C
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2949,15 +3111,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// eval(//,A,B,C):-[A is B//C]
-		if(!ATOM_$002F$002F->unify(a1, m->trail))
+		if (!ATOM_$002F$002F->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_$002F$002F_2'),y(1),a(5))
-		a5 = S(FUNCTOR_$002F$002F_2, { a3, a4 });
+		a5 = S(FUNCTOR_$002F$002F_2, {a3, a4});
 		 ;
 		//START inline expansion of a(2)is a(5)
-		if(!a2->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
@@ -2965,10 +3127,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return cont;
 	}
 
-	Operation FILE_reducer::eval_4_5(Prolog* m)
+	Operation FILE_reducer::eval_4_5(Prolog *m)
 	{
 	// eval(mod,A,B,C):-A is B mod C
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -2976,15 +3138,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// eval(mod,A,B,C):-[A is B mod C]
-		if(!ATOM_mod->unify(a1, m->trail))
+		if (!ATOM_mod->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_mod_2'),y(1),a(5))
-		a5 = S(FUNCTOR_mod_2, { a3, a4 });
+		a5 = S(FUNCTOR_mod_2, {a3, a4});
 		 ;
 		//START inline expansion of a(2)is a(5)
-		if(!a2->unify(Arithmetic::evaluate(a5), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a5), m->trail))
 		{
 			return m->fail();
 		}
@@ -2992,29 +3154,29 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_mod_2 = F("mod",2);
 		return cont;
 	}
 
-SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
+SymbolTerm *const FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 
-	Operation FILE_reducer::PRED_eval1_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_eval1_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// eval1(-,A,B):-A is -B
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
 	// eval1(-,A,B):-[A is -B]
-		if(!ATOM_$002D->unify(a1, m->trail))
+		if (!ATOM_$002D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_$002D_1'),y(1),a(4))
-		a4 = S(FUNCTOR_$002D_1, { a3 });
+		a4 = S(FUNCTOR_$002D_1, {a3});
 		 ;
 		//START inline expansion of a(2)is a(4)
-		if(!a2->unify(Arithmetic::evaluate(a4), m->trail))
+		if (!a2->unify(Arithmetic::evaluate(a4), m->trail))
 		{
 			return m->fail();
 		}
@@ -3022,7 +3184,7 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_relop_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_relop_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3032,58 +3194,58 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return m->switch_on_term(FILE_reducer::relop_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::relop_3_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::relop_3_var(Prolog* m)
+	Operation FILE_reducer::relop_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::relop_3_var_1);
 		return relop_3_1(m);
 	}
 
-	Operation FILE_reducer::relop_3_var_1(Prolog* m)
+	Operation FILE_reducer::relop_3_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::relop_3_var_2);
 		return relop_3_2(m);
 	}
 
-	Operation FILE_reducer::relop_3_var_2(Prolog* m)
+	Operation FILE_reducer::relop_3_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::relop_3_var_3);
 		return relop_3_3(m);
 	}
 
-	Operation FILE_reducer::relop_3_var_3(Prolog* m)
+	Operation FILE_reducer::relop_3_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::relop_3_var_4);
 		return relop_3_4(m);
 	}
 
-	Operation FILE_reducer::relop_3_var_4(Prolog* m)
+	Operation FILE_reducer::relop_3_var_4(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::relop_3_var_5);
 		return relop_3_5(m);
 	}
 
-	Operation FILE_reducer::relop_3_var_5(Prolog* m)
+	Operation FILE_reducer::relop_3_var_5(Prolog *m)
 	{
 		m->trust(nullptr);
 		return relop_3_6(m);
 	}
 
-	Operation FILE_reducer::relop_3_1(Prolog* m)
+	Operation FILE_reducer::relop_3_1(Prolog *m)
 	{
 	// relop(<,A,B):-A<B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(<,A,B):-['$less_than'(A,B)]
-		if(!ATOM_$003C->unify(a1, m->trail))
+		if (!ATOM_$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $less_than(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) >= 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) >= 0)
 		{
 			return m->fail();
 		}
@@ -3091,22 +3253,22 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::relop_3_2(Prolog* m)
+	Operation FILE_reducer::relop_3_2(Prolog *m)
 	{
 	// relop(>,A,B):-A>B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(>,A,B):-['$greater_than'(A,B)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $greater_than(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) <= 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) <= 0)
 		{
 			return m->fail();
 		}
@@ -3114,22 +3276,22 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::relop_3_3(Prolog* m)
+	Operation FILE_reducer::relop_3_3(Prolog *m)
 	{
 	// relop(=<,A,B):-A=<B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(=<,A,B):-['$less_or_equal'(A,B)]
-		if(!ATOM_$003D$003C->unify(a1, m->trail))
+		if (!ATOM_$003D$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $less_or_equal(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) > 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) > 0)
 		{
 			return m->fail();
 		}
@@ -3137,22 +3299,22 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::relop_3_4(Prolog* m)
+	Operation FILE_reducer::relop_3_4(Prolog *m)
 	{
 	// relop(>=,A,B):-A>=B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(>=,A,B):-['$greater_or_equal'(A,B)]
-		if(!ATOM_$003E$003D->unify(a1, m->trail))
+		if (!ATOM_$003E$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $greater_or_equal(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) < 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) < 0)
 		{
 			return m->fail();
 		}
@@ -3160,22 +3322,22 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::relop_3_5(Prolog* m)
+	Operation FILE_reducer::relop_3_5(Prolog *m)
 	{
 	// relop(=\=,A,B):-A=\=B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(=\=,A,B):-['$arith_not_equal'(A,B)]
-		if(!ATOM_$003D$005C$003D->unify(a1, m->trail))
+		if (!ATOM_$003D$005C$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $arith_not_equal(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) == 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) == 0)
 		{
 			return m->fail();
 		}
@@ -3183,22 +3345,22 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::relop_3_6(Prolog* m)
+	Operation FILE_reducer::relop_3_6(Prolog *m)
 	{
 	// relop(=:=,A,B):-A=:=B
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// relop(=:=,A,B):-['$arith_equal'(A,B)]
-		if(!ATOM_$003D$003A$003D->unify(a1, m->trail))
+		if (!ATOM_$003D$003A$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of $arith_equal(a(2),a(3))
-		if(Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) != 0)
+		if (Arithmetic::evaluate(a2)->arithCompareTo(Arithmetic::evaluate(a3)) != 0)
 		{
 			return m->fail();
 		}
@@ -3206,14 +3368,14 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_t_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// t(A,B,C):-listify(B,D),curry(D,E),t_argvars(A,E,C),!
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
@@ -3221,7 +3383,7 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 	// t(A,B,C):-['$get_level'(D),listify(B,E),curry(E,F),t_argvars(A,F,C),'$cut'(D)]
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
-		if(!a4->unifyInt(m->B0, m->trail))
+		if (!a4->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -3231,19 +3393,19 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return Op([&] (e)
 		{
 		PRED_listify_2_static_exec(e);
-		}, VA({ a2, a5 }), Op([&] (e)
+		}, VA({a2, a5}), Op([&] (e)
 		{
 		PRED_curry_2_static_exec(e);
-	}, VA({ a5, a6 }), Op([&] (e)
+	}, VA({a5, a6}), Op([&] (e)
 	{
 		PRED_t_argvars_3_static_exec(e);
-	}, VA({ a1, a6, a3 }), Op([&] (e)
+	}, VA({a1, a6, a3}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a4 }), cont))));
+	}, VA({a4}), cont))));
 	}
 
-	Operation FILE_reducer::PRED_t_argvars_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_argvars_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3252,49 +3414,49 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return t_argvars_3_top(m);
 	}
 
-	Operation FILE_reducer::t_argvars_3_top(Prolog* m)
+	Operation FILE_reducer::t_argvars_3_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_reducer::t_argvars_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::t_argvars_3_1, Failure::fail_0, FILE_reducer::t_argvars_3_2);
 	}
 
-	Operation FILE_reducer::t_argvars_3_var(Prolog* m)
+	Operation FILE_reducer::t_argvars_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::t_argvars_3_var_1);
 		return t_argvars_3_1(m);
 	}
 
-	Operation FILE_reducer::t_argvars_3_var_1(Prolog* m)
+	Operation FILE_reducer::t_argvars_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_argvars_3_2(m);
 	}
 
-	Operation FILE_reducer::t_argvars_3_1(Prolog* m)
+	Operation FILE_reducer::t_argvars_3_1(Prolog *m)
 	{
 	// t_argvars([],A,A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// t_argvars([],A,A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::t_argvars_3_2(Prolog* m)
+	Operation FILE_reducer::t_argvars_3_2(Prolog *m)
 	{
 	// t_argvars([A|B],C,D):-t_argvars(B,C,E),t_vars(E,F),t_trans(A,E,F,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -3303,17 +3465,19 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		cont = m->cont;
 	// t_argvars([A|B],C,D):-[t_argvars(B,C,E),t_vars(E,F),t_trans(A,E,F,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -3322,10 +3486,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		p2 = Op([&] (e)
 		{
 		PRED_t_vars_2_static_exec(e);
-		}, VA({ a6, a7 }), Op([&] (e)
+		}, VA({a6, a7}), Op([&] (e)
 		{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a4, a6, a7, a3 }), cont));
+	}, VA({a4, a6, a7, a3}), cont));
 		m->AREGS[0] = a5;
 		m->AREGS[1] = a2;
 		m->AREGS[2] = a6;
@@ -3333,7 +3497,7 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return t_argvars_3_top(m);
 	}
 
-	Operation FILE_reducer::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3344,23 +3508,23 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(Prolog* m)
+	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(Prolog *m)
 	{
 	// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-var(A)
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-[var(A)]
 		//START inline expansion of var(a(1))
 		a1 = a1->dref();
-		if(!(a1->isVariable()))
+		if (!(a1->isVariable()))
 		{
 			return m->fail();
 		}
@@ -3368,17 +3532,17 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(Prolog* m)
+	Operation FILE_reducer::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(Prolog *m)
 	{
 	// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-atomic(A)
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-[atomic(A)]
 		//START inline expansion of atomic(a(1))
 		a1 = a1->dref();
-		if(!a1->isAtomicValue())
+		if (!a1->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -3386,7 +3550,7 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_curry_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_curry_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3396,35 +3560,35 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return m->switch_on_term(FILE_reducer::curry_2_var, FILE_reducer::curry_2_1, FILE_reducer::curry_2_1, FILE_reducer::curry_2_1, FILE_reducer::curry_2_1, FILE_reducer::curry_2_var);
 	}
 
-	Operation FILE_reducer::curry_2_var(Prolog* m)
+	Operation FILE_reducer::curry_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::curry_2_var_1);
 		return curry_2_1(m);
 	}
 
-	Operation FILE_reducer::curry_2_var_1(Prolog* m)
+	Operation FILE_reducer::curry_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return curry_2_2(m);
 	}
 
-	Operation FILE_reducer::curry_2_1(Prolog* m)
+	Operation FILE_reducer::curry_2_1(Prolog *m)
 	{
 	// curry(A,A):-'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A),!
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// curry(A,A):-['$get_level'(B),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A),'$cut'(B)]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
-		if(!a3->unifyInt(m->B0, m->trail))
+		if (!a3->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -3432,43 +3596,45 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return Op([&] (e)
 		{
 		PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(e);
-		}, VA({ a1 }), Op([&] (e)
+		}, VA({a1}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a3 }), cont));
+	}, VA({a3}), cont));
 	}
 
-	Operation FILE_reducer::curry_2_2(Prolog* m)
+	Operation FILE_reducer::curry_2_2(Prolog *m)
 	{
 	// curry([A|B],C):-currylist(B,C,A)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// curry([A|B],C):-[currylist(B,C,A)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_currylist_3_static_exec(e);
-		}, VA({ a4, a2, a3 }), cont);
+		}, VA({a4, a2, a3}), cont);
 	}
 
-	Operation FILE_reducer::PRED_currylist_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_currylist_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3478,33 +3644,33 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return m->switch_on_term(FILE_reducer::currylist_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::currylist_3_1, Failure::fail_0, FILE_reducer::currylist_3_2);
 	}
 
-	Operation FILE_reducer::currylist_3_var(Prolog* m)
+	Operation FILE_reducer::currylist_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::currylist_3_var_1);
 		return currylist_3_1(m);
 	}
 
-	Operation FILE_reducer::currylist_3_var_1(Prolog* m)
+	Operation FILE_reducer::currylist_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return currylist_3_2(m);
 	}
 
-	Operation FILE_reducer::currylist_3_1(Prolog* m)
+	Operation FILE_reducer::currylist_3_1(Prolog *m)
 	{
 	// currylist([],A,A):-!
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// currylist([],A,A):-['$neck_cut']
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
@@ -3514,10 +3680,10 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return cont;
 	}
 
-	Operation FILE_reducer::currylist_3_2(Prolog* m)
+	Operation FILE_reducer::currylist_3_2(Prolog *m)
 	{
 	// currylist([A|B],C,D):-curry(A,E),currylist(B,C,[E|D])
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -3526,17 +3692,19 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		cont = m->cont;
 	// currylist([A|B],C,D):-[curry(A,E),currylist(B,C,[E|D])]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -3545,15 +3713,15 @@ SymbolTerm* const  FILE_reducer::FUNCTOR_$002D_1 = F("-",1);
 		return Op([&] (e)
 		{
 		PRED_curry_2_static_exec(e);
-		}, VA({ a4, a6 }), Op([&] (e)
+		}, VA({a4, a6}), Op([&] (e)
 		{
 		PRED_currylist_3_static_exec(e);
-	}, VA({ a5, a2, a7 }), cont));
+	}, VA({a5, a2, a7}), cont));
 	}
 
-ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
+ListTerm *const FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 
-	Operation FILE_reducer::PRED_t_vars_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_vars_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3562,103 +3730,107 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return t_vars_2_top(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_top(Prolog* m)
+	Operation FILE_reducer::t_vars_2_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_reducer::t_vars_2_var, FILE_reducer::t_vars_2_int, FILE_reducer::t_vars_2_int, FILE_reducer::t_vars_2_int, FILE_reducer::t_vars_2_int, FILE_reducer::t_vars_2_var);
 	}
 
-	Operation FILE_reducer::t_vars_2_var(Prolog* m)
+	Operation FILE_reducer::t_vars_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::t_vars_2_var_1);
 		return t_vars_2_1(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_var_1(Prolog* m)
+	Operation FILE_reducer::t_vars_2_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_vars_2_var_2);
 		return t_vars_2_2(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_var_2(Prolog* m)
+	Operation FILE_reducer::t_vars_2_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_vars_2_var_3);
 		return t_vars_2_3(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_var_3(Prolog* m)
+	Operation FILE_reducer::t_vars_2_var_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_vars_2_4(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_int(Prolog* m)
+	Operation FILE_reducer::t_vars_2_int(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::t_vars_2_int_1);
 		return t_vars_2_1(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_int_1(Prolog* m)
+	Operation FILE_reducer::t_vars_2_int_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_vars_2_2(m);
 	}
 
-	Operation FILE_reducer::t_vars_2_1(Prolog* m)
+	Operation FILE_reducer::t_vars_2_1(Prolog *m)
 	{
 	// t_vars(A,[[A]]):-var(A),!
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_vars(A,[[A]]):-['$get_level'(B),var(A),'$cut'(B)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a3 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a3 = V(m);
 			 a2->bind(CONS(a3, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			 a3->bind(CONS(a1, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
-		if(!a4->unifyInt(m->B0, m->trail))
+		if (!a4->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of var(a(1))
 		a1 = a1->dref();
-		if(!(a1->isVariable()))
+		if (!(a1->isVariable()))
 		{
 			return m->fail();
 		}
@@ -3670,29 +3842,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::t_vars_2_2(Prolog* m)
+	Operation FILE_reducer::t_vars_2_2(Prolog *m)
 	{
 	// t_vars(A,[[]]):-atomic(A),!
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_vars(A,[[]]):-['$get_level'(B),atomic(A),'$cut'(B)]
-		if(!L_t_vars_2_s2->unify(a2, m->trail))
+		if (!L_t_vars_2_s2->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
-		if(!a3->unifyInt(m->B0, m->trail))
+		if (!a3->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of atomic(a(1))
 		a1 = a1->dref();
-		if(!a1->isAtomicValue())
+		if (!a1->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -3704,46 +3876,48 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::t_vars_2_3(Prolog* m)
+	Operation FILE_reducer::t_vars_2_3(Prolog *m)
 	{
 	// t_vars([A],[[]]):-atomic(A),!
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// t_vars([A],[[]]):-['$get_level'(B),atomic(A),'$cut'(B)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			 a1->bind(CONS(a3, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!L_t_vars_2_s2->unify(a2, m->trail))
+		if (!L_t_vars_2_s2->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
-		if(!a4->unifyInt(m->B0, m->trail))
+		if (!a4->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of atomic(a(3))
 		a3 = a3->dref();
-		if(!a3->isAtomicValue())
+		if (!a3->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -3755,10 +3929,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::t_vars_2_4(Prolog* m)
+	Operation FILE_reducer::t_vars_2_4(Prolog *m)
 	{
 	// t_vars([A|B],[C,[D|E],[F|G]]):-t_vars(A,[D|E]),t_vars(B,[F|G]),unionv(D,F,C)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -3766,94 +3940,106 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_vars([A|B],[C,[D|E],[F|G]]):-[t_vars(A,[D|E]),t_vars(B,[F|G]),unionv(D,F,C)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a2->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a6->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = a7->dref();
-		if(a7->isCons())
+		if (a7->isCons())
 		{
-			std::vector<Term*> argz = VA({ a7->car(), a7->cdr() });
+			std::vector<Term*> argz = VA({a7->car(), a7->cdr()});
 			a9 = argz[0];
 			a10 = argz[1];
-		} else if(a7->isVar())
+		}
+		else if (a7->isVar())
 		{
 			a9 = V(m);
 			a10 = V(m);
 			 a7->bind(CONS(a9, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a11 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a11 = V(m);
 			 a8->bind(CONS(a11, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
 			a12 = argz[0];
 			a13 = argz[1];
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a12 = V(m);
 			a13 = V(m);
 			 a11->bind(CONS(a12, a13), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -3862,17 +4048,17 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		p2 = Op([&] (e)
 		{
 		PRED_t_vars_2_static_exec(e);
-		}, VA({ a4, a15 }), Op([&] (e)
+		}, VA({a4, a15}), Op([&] (e)
 		{
 		PRED_unionv_3_static_exec(e);
-	}, VA({ a9, a12, a5 }), cont));
+	}, VA({a9, a12, a5}), cont));
 		m->AREGS[0] = a3;
 		m->AREGS[1] = a14;
 		m->cont = p2;
 		return t_vars_2_top(m);
 	}
 
-	Operation FILE_reducer::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3883,16 +4069,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_1(Prolog* m)
+	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_1(Prolog *m)
 	{
 	// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B):-atomic(B)
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -3900,7 +4086,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 	// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B):-[atomic(B)]
 		//START inline expansion of atomic(a(2))
 		a2 = a2->dref();
-		if(!a2->isAtomicValue())
+		if (!a2->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -3908,10 +4094,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_2(Prolog* m)
+	Operation FILE_reducer::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_2(Prolog *m)
 	{
 	// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B):-var(B),B\==A
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -3919,7 +4105,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 	// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B):-[var(B),'$inequality_of_term'(B,A)]
 		//START inline expansion of var(a(2))
 		a2 = a2->dref();
-		if(!(a2->isVariable()))
+		if (!(a2->isVariable()))
 		{
 			return m->fail();
 		}
@@ -3927,7 +4113,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		//START inline expansion of $inequality_of_term(a(2),a(1))
 		a2 = a2->dref();
 		a1 = a1->dref();
-		if(a2->equalsTerm(a1))
+		if (a2->equalsTerm(a1))
 		{
 			return m->fail();
 		}
@@ -3935,7 +4121,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_t_trans_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_trans_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -3946,34 +4132,34 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return t_trans_4_1(m);
 	}
 
-	Operation FILE_reducer::t_trans_4_sub_1(Prolog* m)
+	Operation FILE_reducer::t_trans_4_sub_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_trans_4_sub_2);
 		return t_trans_4_2(m);
 	}
 
-	Operation FILE_reducer::t_trans_4_sub_2(Prolog* m)
+	Operation FILE_reducer::t_trans_4_sub_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_trans_4_sub_3);
 		return t_trans_4_3(m);
 	}
 
-	Operation FILE_reducer::t_trans_4_sub_3(Prolog* m)
+	Operation FILE_reducer::t_trans_4_sub_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_trans_4_sub_4);
 		return t_trans_4_4(m);
 	}
 
-	Operation FILE_reducer::t_trans_4_sub_4(Prolog* m)
+	Operation FILE_reducer::t_trans_4_sub_4(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_trans_4_5(m);
 	}
 
-	Operation FILE_reducer::t_trans_4_1(Prolog* m)
+	Operation FILE_reducer::t_trans_4_1(Prolog *m)
 	{
 	// t_trans(A,B,C,[B|k]):-'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B),!
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -3983,27 +4169,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_trans(A,B,C,[B|k]):-['$get_level'(D),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B),'$cut'(D)]
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_k->unify(argz[1], m->trail))
+			if (!ATOM_k->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a2, ATOM_k), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = V(m);
 		//START inline expansion of $get_level(a(5))
-		if(!a5->unifyInt(m->B0, m->trail))
+		if (!a5->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4011,16 +4199,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_static_exec(e);
-		}, VA({ a1, a2 }), Op([&] (e)
+		}, VA({a1, a2}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a5 }), cont));
+	}, VA({a5}), cont));
 	}
 
-	Operation FILE_reducer::t_trans_4_2(Prolog* m)
+	Operation FILE_reducer::t_trans_4_2(Prolog *m)
 	{
 	// t_trans(A,B,C,i):-A==B,!
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4028,13 +4216,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// t_trans(A,B,C,i):-['$get_level'(D),'$equality_of_term'(A,B),'$cut'(D)]
-		if(!ATOM_i->unify(a4, m->trail))
+		if (!ATOM_i->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
 		a5 = V(m);
 		//START inline expansion of $get_level(a(5))
-		if(!a5->unifyInt(m->B0, m->trail))
+		if (!a5->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4042,7 +4230,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		//START inline expansion of $equality_of_term(a(1),a(2))
 		a1 = a1->dref();
 		a2 = a2->dref();
-		if(!a1->equalsTerm(a2))
+		if (!a1->equalsTerm(a2))
 		{
 			return m->fail();
 		}
@@ -4054,10 +4242,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::t_trans_4_3(Prolog* m)
+	Operation FILE_reducer::t_trans_4_3(Prolog *m)
 	{
 	// t_trans(A,B,[C|D],[B|k]):-notinv(A,C)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4066,47 +4254,51 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_trans(A,B,[C|D],[B|k]):-[notinv(A,C)]
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a5 = argz[0];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a5 = V(m);
 			 a3->bind(CONS(a5, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_k->unify(argz[1], m->trail))
+			if (!ATOM_k->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a2, ATOM_k), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-		}, VA({ a1, a5 }), cont);
+		}, VA({a1, a5}), cont);
 	}
 
-	Operation FILE_reducer::t_trans_4_4(Prolog* m)
+	Operation FILE_reducer::t_trans_4_4(Prolog *m)
 	{
 	// t_trans(A,[B|C],[D,E,F],G):-E=[H|I],F=[J|K],'$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,K,L,M,N),t_rule1(A,C,J,F,B,H,E,G)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4116,69 +4308,77 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_trans(A,[B|C],[D,E,F],G):-['$unify'(E,[H|I]),'$unify'(F,[J|K]),'$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(C,K,L,M,N),t_rule1(A,C,J,F,B,H,E,G)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a2->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a7 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a7 = V(m);
 			 a3->bind(CONS(V(m), a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = a7->dref();
-		if(a7->isCons())
+		if (a7->isCons())
 		{
-			std::vector<Term*> argz = VA({ a7->car(), a7->cdr() });
+			std::vector<Term*> argz = VA({a7->car(), a7->cdr()});
 			a8 = argz[0];
 			a9 = argz[1];
-		} else if(a7->isVar())
+		}
+		else if (a7->isVar())
 		{
 			a8 = V(m);
 			a9 = V(m);
 			 a7->bind(CONS(a8, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			 a9->bind(CONS(a10, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = V(m);
 		a12 = CONS(a11, V(m));
 		//START inline expansion of $unify(a(8),a(12))
-		if(!a8->unify(a12, m->trail))
+		if (!a8->unify(a12, m->trail))
 		{
 			return m->fail();
 		}
@@ -4187,7 +4387,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a14 = V(m);
 		a15 = CONS(a13, a14);
 		//START inline expansion of $unify(a(10),a(15))
-		if(!a10->unify(a15, m->trail))
+		if (!a10->unify(a15, m->trail))
 		{
 			return m->fail();
 		}
@@ -4195,16 +4395,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_static_exec(e);
-		}, VA({ a6, a14, V(m), V(m), V(m) }), Op([&] (e)
+		}, VA({a6, a14, V(m), V(m), V(m)}), Op([&] (e)
 		{
 		PRED_t_rule1_8_static_exec(e);
-	}, VA({ a1, a6, a13, a10, a5, a11, a8, a4 }), cont));
+	}, VA({a1, a6, a13, a10, a5, a11, a8, a4}), cont));
 	}
 
-	Operation FILE_reducer::t_trans_4_5(Prolog* m)
+	Operation FILE_reducer::t_trans_4_5(Prolog *m)
 	{
 	// t_trans(A,[B,C|D],[E,F,G],H):-F=[I|J],G=[K,L,M],M=[N|O],L=[P|Q],t_rule2(A,D,C,P,L,B,I,F,H)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16,* a17,* a18,* a19,* a20,* a21,* a22;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16, *a17, *a18, *a19, *a20, *a21, *a22;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4213,84 +4413,94 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_trans(A,[B,C|D],[E,F,G],H):-['$unify'(F,[I|J]),'$unify'(G,[K,L,M]),'$unify'(M,[N|O]),'$unify'(L,[P|Q]),t_rule2(A,D,C,P,L,B,I,F,H)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a2->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a6->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
 			a9 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a9 = V(m);
 			 a3->bind(CONS(V(m), a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a9->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
 			a12 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a12 = V(m);
 			 a11->bind(CONS(a12, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a13 = V(m);
 		a14 = CONS(a13, V(m));
 		//START inline expansion of $unify(a(10),a(14))
-		if(!a10->unify(a14, m->trail))
+		if (!a10->unify(a14, m->trail))
 		{
 			return m->fail();
 		}
@@ -4301,14 +4511,14 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a18 = CONS(a15, a17);
 		a19 = CONS(V(m), a18);
 		//START inline expansion of $unify(a(12),a(19))
-		if(!a12->unify(a19, m->trail))
+		if (!a12->unify(a19, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a20 = CONS(V(m), V(m));
 		//START inline expansion of $unify(a(16),a(20))
-		if(!a16->unify(a20, m->trail))
+		if (!a16->unify(a20, m->trail))
 		{
 			return m->fail();
 		}
@@ -4316,7 +4526,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a21 = V(m);
 		a22 = CONS(a21, V(m));
 		//START inline expansion of $unify(a(15),a(22))
-		if(!a15->unify(a22, m->trail))
+		if (!a15->unify(a22, m->trail))
 		{
 			return m->fail();
 		}
@@ -4324,10 +4534,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_t_rule2_9_static_exec(e);
-		}, VA({ a1, a8, a7, a21, a15, a5, a13, a10, a4 }), cont);
+		}, VA({a1, a8, a7, a21, a15, a5, a13, a10, a4}), cont);
 	}
 
-	Operation FILE_reducer::PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -4338,16 +4548,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_1(Prolog* m)
+	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_1(Prolog *m)
 	{
 	// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D,E):-end(A)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4359,13 +4569,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_end_1_static_exec(e);
-		}, VA({ a1 }), cont);
+		}, VA({a1}), cont);
 	}
 
-	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_2(Prolog* m)
+	Operation FILE_reducer::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_2(Prolog *m)
 	{
 	// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D,E):-B=[C,[D|E]],D\==[]
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4378,14 +4588,14 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a7 = CONS(a6, Prolog::Nil);
 		a8 = CONS(a3, a7);
 		//START inline expansion of $unify(a(2),a(8))
-		if(!a2->unify(a8, m->trail))
+		if (!a2->unify(a8, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $inequality_of_term(a(4),@(Prolog.Nil))
 		a4 = a4->dref();
-		if(a4->equalsTerm(Prolog::Nil))
+		if (a4->equalsTerm(Prolog::Nil))
 		{
 			return m->fail();
 		}
@@ -4393,7 +4603,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_t_rule1_8_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_rule1_8_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -4404,28 +4614,28 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return t_rule1_8_1(m);
 	}
 
-	Operation FILE_reducer::t_rule1_8_sub_1(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_sub_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule1_8_sub_2);
 		return t_rule1_8_2(m);
 	}
 
-	Operation FILE_reducer::t_rule1_8_sub_2(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_sub_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule1_8_sub_3);
 		return t_rule1_8_3(m);
 	}
 
-	Operation FILE_reducer::t_rule1_8_sub_3(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_sub_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_rule1_8_4(m);
 	}
 
-	Operation FILE_reducer::t_rule1_8_1(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_1(Prolog *m)
 	{
 	// t_rule1(A,B,C,D,E,F,G,B):-notinv(A,C),A==E,!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4438,13 +4648,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a8 = m->AREGS[7];
 		cont = m->cont;
 	// t_rule1(A,B,C,D,E,F,G,B):-['$get_level'(H),notinv(A,C),'$equality_of_term'(A,E),'$cut'(H)]
-		if(!a2->unify(a8, m->trail))
+		if (!a2->unify(a8, m->trail))
 		{
 			return m->fail();
 		}
 		a9 = V(m);
 		//START inline expansion of $get_level(a(9))
-		if(!a9->unifyInt(m->B0, m->trail))
+		if (!a9->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4452,19 +4662,19 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-		}, VA({ a1, a3 }), Op([&] (e)
+		}, VA({a1, a3}), Op([&] (e)
 		{
 		FILE_builtins::PRED_$equality_of_term_2_static_exec(e);
-	}, VA({ a1, a5 }), Op([&] (e)
+	}, VA({a1, a5}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a9 }), cont)));
+	}, VA({a9}), cont)));
 	}
 
-	Operation FILE_reducer::t_rule1_8_2(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_2(Prolog *m)
 	{
 	// t_rule1(A,B,C,D,E,F,G,[H,B|b]):-notinv(A,C),inv(A,F),A\==E,!,t_trans(A,E,G,H)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4478,42 +4688,46 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule1(A,B,C,D,E,F,G,[H,B|b]):-['$get_level'(I),notinv(A,C),inv(A,F),'$inequality_of_term'(A,E),'$cut'(I),t_trans(A,E,G,H)]
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
 			a10 = argz[1];
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			a10 = V(m);
 			 a8->bind(CONS(a9, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_b->unify(argz[1], m->trail))
+			if (!ATOM_b->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			 a10->bind(CONS(a2, ATOM_b), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = V(m);
 		//START inline expansion of $get_level(a(11))
-		if(!a11->unifyInt(m->B0, m->trail))
+		if (!a11->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4521,25 +4735,25 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-		}, VA({ a1, a3 }), Op([&] (e)
+		}, VA({a1, a3}), Op([&] (e)
 		{
 		PRED_inv_2_static_exec(e);
-	}, VA({ a1, a6 }), Op([&] (e)
+	}, VA({a1, a6}), Op([&] (e)
 	{
 		FILE_builtins::PRED_$inequality_of_term_2_static_exec(e);
-	}, VA({ a1, a5 }), Op([&] (e)
+	}, VA({a1, a5}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a11 }), Op([&] (e)
+	}, VA({a11}), Op([&] (e)
 	{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a5, a7, a9 }), cont)))));
+	}, VA({a1, a5, a7, a9}), cont)))));
 	}
 
-	Operation FILE_reducer::t_rule1_8_3(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_3(Prolog *m)
 	{
 	// t_rule1(A,B,C,D,E,F,G,[E,H|c]):-notinv(A,F),!,t_trans(A,B,D,H)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation p1, p2;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4553,42 +4767,46 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule1(A,B,C,D,E,F,G,[E,H|c]):-['$get_level'(I),notinv(A,F),'$cut'(I),t_trans(A,B,D,H)]
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a9 = argz[1];
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			 a8->bind(CONS(a5, a9), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
-			if(!ATOM_c->unify(argz[1], m->trail))
+			if (!ATOM_c->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			 a9->bind(CONS(a10, ATOM_c), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = V(m);
 		//START inline expansion of $get_level(a(11))
-		if(!a11->unifyInt(m->B0, m->trail))
+		if (!a11->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4596,19 +4814,19 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-		}, VA({ a1, a6 }), Op([&] (e)
+		}, VA({a1, a6}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a11 }), Op([&] (e)
+	}, VA({a11}), Op([&] (e)
 	{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a2, a4, a10 }), cont)));
+	}, VA({a1, a2, a4, a10}), cont)));
 	}
 
-	Operation FILE_reducer::t_rule1_8_4(Prolog* m)
+	Operation FILE_reducer::t_rule1_8_4(Prolog *m)
 	{
 	// t_rule1(A,B,C,D,E,F,G,[H,I|s]):-t_trans(A,B,D,I),t_trans(A,E,G,H)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4622,47 +4840,51 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule1(A,B,C,D,E,F,G,[H,I|s]):-[t_trans(A,B,D,I),t_trans(A,E,G,H)]
 		a8 = a8->dref();
-		if(a8->isCons())
+		if (a8->isCons())
 		{
-			std::vector<Term*> argz = VA({ a8->car(), a8->cdr() });
+			std::vector<Term*> argz = VA({a8->car(), a8->cdr()});
 			a9 = argz[0];
 			a10 = argz[1];
-		} else if(a8->isVar())
+		}
+		else if (a8->isVar())
 		{
 			a9 = V(m);
 			a10 = V(m);
 			 a8->bind(CONS(a9, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
 			a11 = argz[0];
-			if(!ATOM_s->unify(argz[1], m->trail))
+			if (!ATOM_s->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			a11 = V(m);
 			 a10->bind(CONS(a11, ATOM_s), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_t_trans_4_static_exec(e);
-		}, VA({ a1, a2, a4, a11 }), Op([&] (e)
+		}, VA({a1, a2, a4, a11}), Op([&] (e)
 		{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a5, a7, a9 }), cont));
+	}, VA({a1, a5, a7, a9}), cont));
 	}
 
-	Operation FILE_reducer::PRED_t_rule2_9_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_t_rule2_9_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -4673,40 +4895,40 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return t_rule2_9_1(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_sub_1(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_sub_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule2_9_sub_2);
 		return t_rule2_9_2(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_sub_2(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_sub_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule2_9_sub_3);
 		return t_rule2_9_3(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_sub_3(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_sub_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule2_9_sub_4);
 		return t_rule2_9_4(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_sub_4(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_sub_4(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::t_rule2_9_sub_5);
 		return t_rule2_9_5(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_sub_5(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_sub_5(Prolog *m)
 	{
 		m->trust(nullptr);
 		return t_rule2_9_6(m);
 	}
 
-	Operation FILE_reducer::t_rule2_9_1(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_1(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[F,B|c]):-A==C,notinv(A,G),!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4721,44 +4943,48 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[F,B|c]):-['$get_level'(I),'$equality_of_term'(A,C),notinv(A,G),'$cut'(I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
-			if(!a6->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
+			if (!a6->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a10 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			 a9->bind(CONS(a6, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_c->unify(argz[1], m->trail))
+			if (!ATOM_c->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			 a10->bind(CONS(a2, ATOM_c), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = V(m);
 		//START inline expansion of $get_level(a(11))
-		if(!a11->unifyInt(m->B0, m->trail))
+		if (!a11->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4766,7 +4992,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		//START inline expansion of $equality_of_term(a(1),a(3))
 		a1 = a1->dref();
 		a3 = a3->dref();
-		if(!a1->equalsTerm(a3))
+		if (!a1->equalsTerm(a3))
 		{
 			return m->fail();
 		}
@@ -4774,16 +5000,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-		}, VA({ a1, a7 }), Op([&] (e)
+		}, VA({a1, a7}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a11 }), cont));
+	}, VA({a11}), cont));
 	}
 
-	Operation FILE_reducer::t_rule2_9_2(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_2(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[I,B|s]):-A==C,!,t_trans(A,F,H,I)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -4797,42 +5023,46 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[I,B|s]):-['$get_level'(J),'$equality_of_term'(A,C),'$cut'(J),t_trans(A,F,H,I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a9->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_s->unify(argz[1], m->trail))
+			if (!ATOM_s->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			 a11->bind(CONS(a2, ATOM_s), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a12 = V(m);
 		//START inline expansion of $get_level(a(12))
-		if(!a12->unifyInt(m->B0, m->trail))
+		if (!a12->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4840,7 +5070,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		//START inline expansion of $equality_of_term(a(1),a(3))
 		a1 = a1->dref();
 		a3 = a3->dref();
-		if(!a1->equalsTerm(a3))
+		if (!a1->equalsTerm(a3))
 		{
 			return m->fail();
 		}
@@ -4852,13 +5082,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_t_trans_4_static_exec(e);
-		}, VA({ a1, a6, a8, a10 }), cont);
+		}, VA({a1, a6, a8, a10}), cont);
 	}
 
-	Operation FILE_reducer::t_rule2_9_3(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_3(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[F,I,B|cp]):-inv(A,D),notinv(A,G),!,t_trans(A,C,E,I)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13;
 		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4873,59 +5103,65 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[F,I,B|cp]):-['$get_level'(J),inv(A,D),notinv(A,G),'$cut'(J),t_trans(A,C,E,I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
-			if(!a6->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
+			if (!a6->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a10 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			 a9->bind(CONS(a6, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = a10->dref();
-		if(a10->isCons())
+		if (a10->isCons())
 		{
-			std::vector<Term*> argz = VA({ a10->car(), a10->cdr() });
+			std::vector<Term*> argz = VA({a10->car(), a10->cdr()});
 			a11 = argz[0];
 			a12 = argz[1];
-		} else if(a10->isVar())
+		}
+		else if (a10->isVar())
 		{
 			a11 = V(m);
 			a12 = V(m);
 			 a10->bind(CONS(a11, a12), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a12 = a12->dref();
-		if(a12->isCons())
+		if (a12->isCons())
 		{
-			std::vector<Term*> argz = VA({ a12->car(), a12->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a12->car(), a12->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_cp->unify(argz[1], m->trail))
+			if (!ATOM_cp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a12->isVar())
+		}
+		else if (a12->isVar())
 		{
 			 a12->bind(CONS(a2, ATOM_cp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a13 = V(m);
 		//START inline expansion of $get_level(a(13))
-		if(!a13->unifyInt(m->B0, m->trail))
+		if (!a13->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -4933,22 +5169,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_inv_2_static_exec(e);
-		}, VA({ a1, a4 }), Op([&] (e)
+		}, VA({a1, a4}), Op([&] (e)
 		{
 		PRED_notinv_2_static_exec(e);
-	}, VA({ a1, a7 }), Op([&] (e)
+	}, VA({a1, a7}), Op([&] (e)
 	{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a13 }), Op([&] (e)
+	}, VA({a13}), Op([&] (e)
 	{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a3, a5, a11 }), cont))));
+	}, VA({a1, a3, a5, a11}), cont))));
 	}
 
-	Operation FILE_reducer::t_rule2_9_4(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_4(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[I,J,B|sp]):-inv(A,D),!,t_trans(A,C,E,J),t_trans(A,F,H,I)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14;
 		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -4963,57 +5199,63 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[I,J,B|sp]):-['$get_level'(K),inv(A,D),'$cut'(K),t_trans(A,C,E,J),t_trans(A,F,H,I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a9->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
 			a12 = argz[0];
 			a13 = argz[1];
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a12 = V(m);
 			a13 = V(m);
 			 a11->bind(CONS(a12, a13), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a13 = a13->dref();
-		if(a13->isCons())
+		if (a13->isCons())
 		{
-			std::vector<Term*> argz = VA({ a13->car(), a13->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a13->car(), a13->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_sp->unify(argz[1], m->trail))
+			if (!ATOM_sp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a13->isVar())
+		}
+		else if (a13->isVar())
 		{
 			 a13->bind(CONS(a2, ATOM_sp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a14 = V(m);
 		//START inline expansion of $get_level(a(14))
-		if(!a14->unifyInt(m->B0, m->trail))
+		if (!a14->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -5021,22 +5263,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_inv_2_static_exec(e);
-		}, VA({ a1, a4 }), Op([&] (e)
+		}, VA({a1, a4}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a14 }), Op([&] (e)
+	}, VA({a14}), Op([&] (e)
 	{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a3, a5, a12 }), Op([&] (e)
+	}, VA({a1, a3, a5, a12}), Op([&] (e)
 	{
 		PRED_t_trans_4_static_exec(e);
-	}, VA({ a1, a6, a8, a10 }), cont))));
+	}, VA({a1, a6, a8, a10}), cont))));
 	}
 
-	Operation FILE_reducer::t_rule2_9_5(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_5(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[C|B]):-A==F,!
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5050,27 +5292,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[C|B]):-['$get_level'(I),'$equality_of_term'(A,F),'$cut'(I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a2->unify(argz[1], m->trail))
+			if (!a2->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			 a9->bind(CONS(a3, a2), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a10 = V(m);
 		//START inline expansion of $get_level(a(10))
-		if(!a10->unifyInt(m->B0, m->trail))
+		if (!a10->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -5078,7 +5322,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		//START inline expansion of $equality_of_term(a(1),a(6))
 		a1 = a1->dref();
 		a6 = a6->dref();
-		if(!a1->equalsTerm(a6))
+		if (!a1->equalsTerm(a6))
 		{
 			return m->fail();
 		}
@@ -5090,10 +5334,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::t_rule2_9_6(Prolog* m)
+	Operation FILE_reducer::t_rule2_9_6(Prolog *m)
 	{
 	// t_rule2(A,B,C,D,E,F,G,H,[I,C,B|bp]):-t_trans(A,F,H,I)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5107,63 +5351,69 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// t_rule2(A,B,C,D,E,F,G,H,[I,C,B|bp]):-[t_trans(A,F,H,I)]
 		a9 = a9->dref();
-		if(a9->isCons())
+		if (a9->isCons())
 		{
-			std::vector<Term*> argz = VA({ a9->car(), a9->cdr() });
+			std::vector<Term*> argz = VA({a9->car(), a9->cdr()});
 			a10 = argz[0];
 			a11 = argz[1];
-		} else if(a9->isVar())
+		}
+		else if (a9->isVar())
 		{
 			a10 = V(m);
 			a11 = V(m);
 			 a9->bind(CONS(a10, a11), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a11 = a11->dref();
-		if(a11->isCons())
+		if (a11->isCons())
 		{
-			std::vector<Term*> argz = VA({ a11->car(), a11->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a11->car(), a11->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a12 = argz[1];
-		} else if(a11->isVar())
+		}
+		else if (a11->isVar())
 		{
 			a12 = V(m);
 			 a11->bind(CONS(a3, a12), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a12 = a12->dref();
-		if(a12->isCons())
+		if (a12->isCons())
 		{
-			std::vector<Term*> argz = VA({ a12->car(), a12->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a12->car(), a12->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!ATOM_bp->unify(argz[1], m->trail))
+			if (!ATOM_bp->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a12->isVar())
+		}
+		else if (a12->isVar())
 		{
 			 a12->bind(CONS(a2, ATOM_bp), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_t_trans_4_static_exec(e);
-		}, VA({ a1, a6, a8, a10 }), cont);
+		}, VA({a1, a6, a8, a10}), cont);
 	}
 
-	Operation FILE_reducer::PRED_make_list_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_make_list_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5173,34 +5423,34 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::make_list_2_var, FILE_reducer::make_list_2_1, FILE_reducer::make_list_2_1, FILE_reducer::make_list_2_1, FILE_reducer::make_list_2_1, FILE_reducer::make_list_2_var);
 	}
 
-	Operation FILE_reducer::make_list_2_var(Prolog* m)
+	Operation FILE_reducer::make_list_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::make_list_2_var_1);
 		return make_list_2_1(m);
 	}
 
-	Operation FILE_reducer::make_list_2_var_1(Prolog* m)
+	Operation FILE_reducer::make_list_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return make_list_2_2(m);
 	}
 
-	Operation FILE_reducer::make_list_2_1(Prolog* m)
+	Operation FILE_reducer::make_list_2_1(Prolog *m)
 	{
 	// make_list(A,A):-atomic(A)
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// make_list(A,A):-[atomic(A)]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		//START inline expansion of atomic(a(1))
 		a1 = a1->dref();
-		if(!a1->isAtomicValue())
+		if (!a1->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -5208,10 +5458,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::make_list_2_2(Prolog* m)
+	Operation FILE_reducer::make_list_2_2(Prolog *m)
 	{
 	// make_list([A,B|C],[B|D]):-list_functor_name(C),make_list(A,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -5219,62 +5469,68 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// make_list([A,B|C],[B|D]):-[list_functor_name(C),make_list(A,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a5->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a5->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a7 = V(m);
 			 a2->bind(CONS(a5, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_list_functor_name_1_static_exec(e);
-		}, VA({ a6 }), Op([&] (e)
+		}, VA({a6}), Op([&] (e)
 		{
 		PRED_make_list_2_static_exec(e);
-	}, VA({ a3, a7 }), cont));
+	}, VA({a3, a7}), cont));
 	}
 
-	Operation FILE_reducer::PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5285,23 +5541,23 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(m);
 	}
 
-	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_sub_1(Prolog* m)
+	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(m);
 	}
 
-	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(Prolog* m)
+	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_1(Prolog *m)
 	{
 	// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-var(A)
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-[var(A)]
 		//START inline expansion of var(a(1))
 		a1 = a1->dref();
-		if(!(a1->isVariable()))
+		if (!(a1->isVariable()))
 		{
 			return m->fail();
 		}
@@ -5309,17 +5565,17 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(Prolog* m)
+	Operation FILE_reducer::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_2(Prolog *m)
 	{
 	// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-atomic(A)
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A):-[atomic(A)]
 		//START inline expansion of atomic(a(1))
 		a1 = a1->dref();
-		if(!a1->isAtomicValue())
+		if (!a1->isAtomicValue())
 		{
 			return m->fail();
 		}
@@ -5327,7 +5583,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::PRED_listify_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_listify_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5338,29 +5594,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return listify_2_1(m);
 	}
 
-	Operation FILE_reducer::listify_2_sub_1(Prolog* m)
+	Operation FILE_reducer::listify_2_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return listify_2_2(m);
 	}
 
-	Operation FILE_reducer::listify_2_1(Prolog* m)
+	Operation FILE_reducer::listify_2_1(Prolog *m)
 	{
 	// listify(A,A):-'$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A),!
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// listify(A,A):-['$get_level'(B),'$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/reducer.pl'(A),'$cut'(B)]
-		if(!a1->unify(a2, m->trail))
+		if (!a1->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
-		if(!a3->unifyInt(m->B0, m->trail))
+		if (!a3->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
@@ -5368,16 +5624,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec(e);
-		}, VA({ a1 }), Op([&] (e)
+		}, VA({a1}), Op([&] (e)
 		{
 		PRED_$cut_1_static_exec(e);
-	}, VA({ a3 }), cont));
+	}, VA({a3}), cont));
 	}
 
-	Operation FILE_reducer::listify_2_2(Prolog* m)
+	Operation FILE_reducer::listify_2_2(Prolog *m)
 	{
 	// listify(A,[B|C]):-functor(A,B,D),listify_list(1,D,A,C)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -5385,17 +5641,19 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// listify(A,[B|C]):-[functor(A,B,D),listify_list(1,D,A,C)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a2->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -5403,13 +5661,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_functor_3_static_exec(e);
-		}, VA({ a1, a3, a5 }), Op([&] (e)
+		}, VA({a1, a3, a5}), Op([&] (e)
 		{
 		PRED_listify_list_4_static_exec(e);
-	}, VA({ int_1, a5, a1, a4 }), cont));
+	}, VA({int_1, a5, a1, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_listify_list_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_listify_list_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5420,16 +5678,16 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return listify_list_4_1(m);
 	}
 
-	Operation FILE_reducer::listify_list_4_sub_1(Prolog* m)
+	Operation FILE_reducer::listify_list_4_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return listify_list_4_2(m);
 	}
 
-	Operation FILE_reducer::listify_list_4_1(Prolog* m)
+	Operation FILE_reducer::listify_list_4_1(Prolog *m)
 	{
 	// listify_list(A,B,C,[]):-A>B,!
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5437,19 +5695,19 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// listify_list(A,B,C,[]):-['$get_level'(D),'$greater_than'(A,B),'$cut'(D)]
-		if(!Prolog::Nil->unify(a4, m->trail))
+		if (!Prolog::Nil->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
 		a5 = V(m);
 		//START inline expansion of $get_level(a(5))
-		if(!a5->unifyInt(m->B0, m->trail))
+		if (!a5->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $greater_than(a(1),a(2))
-		if(Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) <= 0)
+		if (Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) <= 0)
 		{
 			return m->fail();
 		}
@@ -5461,10 +5719,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return cont;
 	}
 
-	Operation FILE_reducer::listify_list_4_2(Prolog* m)
+	Operation FILE_reducer::listify_list_4_2(Prolog *m)
 	{
 	// listify_list(A,B,C,[D|E]):-A=<B,!,arg(A,C,F),listify(F,D),G is A+1,listify_list(G,B,C,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10;
 		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -5474,29 +5732,31 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// listify_list(A,B,C,[D|E]):-['$get_level'(F),'$less_or_equal'(A,B),'$cut'(F),arg(A,C,G),listify(G,D),H is A+1,listify_list(H,B,C,E)]
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
 		//START inline expansion of $get_level(a(7))
-		if(!a7->unifyInt(m->B0, m->trail))
+		if (!a7->unifyInt(m->B0, m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		//START inline expansion of $less_or_equal(a(1),a(2))
-		if(Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) > 0)
+		if (Arithmetic::evaluate(a1)->arithCompareTo(Arithmetic::evaluate(a2)) > 0)
 		{
 			return m->fail();
 		}
@@ -5508,21 +5768,21 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a8 = V(m);
 		a9 = V(m);
 	// put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(10))
-		a10 = S(FUNCTOR_$002B_2, { a1, int_1 });
+		a10 = S(FUNCTOR_$002B_2, {a1, int_1});
 		 ;
 		return Op([&] (e)
 		{
 		PRED_arg_3_static_exec(e);
-		}, VA({ a1, a3, a8 }), Op([&] (e)
+		}, VA({a1, a3, a8}), Op([&] (e)
 		{
 		PRED_listify_2_static_exec(e);
-	}, VA({ a8, a5 }), Op(FILE_builtins::PRED_is_2_static_exec, VA({ a9, a10 }), Op([&] (e)
+	}, VA({a8, a5}), Op(FILE_builtins::PRED_is_2_static_exec, VA({a9, a10}), Op([&] (e)
 	{
 		PRED_listify_list_4_static_exec(e);
-	}, VA({ a9, a2, a3, a6 }), cont))));
+	}, VA({a9, a2, a3, a6}), cont))));
 	}
 
-	Operation FILE_reducer::PRED_member_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_member_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5531,65 +5791,69 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return member_2_top(m);
 	}
 
-	Operation FILE_reducer::member_2_top(Prolog* m)
+	Operation FILE_reducer::member_2_top(Prolog *m)
 	{
 		m->setB0();
 		m->jtry2(nullptr, FILE_reducer::member_2_sub_1);
 		return member_2_1(m);
 	}
 
-	Operation FILE_reducer::member_2_sub_1(Prolog* m)
+	Operation FILE_reducer::member_2_sub_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return member_2_2(m);
 	}
 
-	Operation FILE_reducer::member_2_1(Prolog* m)
+	Operation FILE_reducer::member_2_1(Prolog *m)
 	{
 	// member(A,[A|B]):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// member(A,[A|B]):-[]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
-			if(!a1->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
+			if (!a1->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			 a2->bind(CONS(a1, V(m)), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::member_2_2(Prolog* m)
+	Operation FILE_reducer::member_2_2(Prolog *m)
 	{
 	// member(A,[B|C]):-member(A,C)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// member(A,[B|C]):-[member(A,C)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a3 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a3 = V(m);
 			 a2->bind(CONS(V(m), a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -5599,7 +5863,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return member_2_top(m);
 	}
 
-	Operation FILE_reducer::PRED_append_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_append_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5608,49 +5872,49 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return append_3_top(m);
 	}
 
-	Operation FILE_reducer::append_3_top(Prolog* m)
+	Operation FILE_reducer::append_3_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_reducer::append_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::append_3_1, Failure::fail_0, FILE_reducer::append_3_2);
 	}
 
-	Operation FILE_reducer::append_3_var(Prolog* m)
+	Operation FILE_reducer::append_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::append_3_var_1);
 		return append_3_1(m);
 	}
 
-	Operation FILE_reducer::append_3_var_1(Prolog* m)
+	Operation FILE_reducer::append_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return append_3_2(m);
 	}
 
-	Operation FILE_reducer::append_3_1(Prolog* m)
+	Operation FILE_reducer::append_3_1(Prolog *m)
 	{
 	// append([],A,A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// append([],A,A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::append_3_2(Prolog* m)
+	Operation FILE_reducer::append_3_2(Prolog *m)
 	{
 	// append([A|B],C,[A|D]):-append(B,C,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5658,34 +5922,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// append([A|B],C,[A|D]):-[append(B,C,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a3 = a3->dref();
-		if(a3->isCons())
+		if (a3->isCons())
 		{
-			std::vector<Term*> argz = VA({ a3->car(), a3->cdr() });
-			if(!a4->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a3->car(), a3->cdr()});
+			if (!a4->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a6 = argz[1];
-		} else if(a3->isVar())
+		}
+		else if (a3->isVar())
 		{
 			a6 = V(m);
 			 a3->bind(CONS(a4, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -5696,7 +5964,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return append_3_top(m);
 	}
 
-	Operation FILE_reducer::PRED_intersectv_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_intersectv_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5706,43 +5974,43 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::intersectv_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::intersectv_3_1, Failure::fail_0, FILE_reducer::intersectv_3_2);
 	}
 
-	Operation FILE_reducer::intersectv_3_var(Prolog* m)
+	Operation FILE_reducer::intersectv_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::intersectv_3_var_1);
 		return intersectv_3_1(m);
 	}
 
-	Operation FILE_reducer::intersectv_3_var_1(Prolog* m)
+	Operation FILE_reducer::intersectv_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return intersectv_3_2(m);
 	}
 
-	Operation FILE_reducer::intersectv_3_1(Prolog* m)
+	Operation FILE_reducer::intersectv_3_1(Prolog *m)
 	{
 	// intersectv([],A,[]):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// intersectv([],A,[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a3, m->trail))
+		if (!Prolog::Nil->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::intersectv_3_2(Prolog* m)
+	Operation FILE_reducer::intersectv_3_2(Prolog *m)
 	{
 	// intersectv([A|B],C,D):-intersectv_2(C,A,B,D)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5750,27 +6018,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// intersectv([A|B],C,D):-[intersectv_2(C,A,B,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_intersectv_2_4_static_exec(e);
-		}, VA({ a2, a4, a5, a3 }), cont);
+		}, VA({a2, a4, a5, a3}), cont);
 	}
 
-	Operation FILE_reducer::PRED_intersectv_2_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_intersectv_2_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5780,22 +6050,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::intersectv_2_4_var, Failure::fail_0, Failure::fail_0, FILE_reducer::intersectv_2_4_1, Failure::fail_0, FILE_reducer::intersectv_2_4_2);
 	}
 
-	Operation FILE_reducer::intersectv_2_4_var(Prolog* m)
+	Operation FILE_reducer::intersectv_2_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::intersectv_2_4_var_1);
 		return intersectv_2_4_1(m);
 	}
 
-	Operation FILE_reducer::intersectv_2_4_var_1(Prolog* m)
+	Operation FILE_reducer::intersectv_2_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return intersectv_2_4_2(m);
 	}
 
-	Operation FILE_reducer::intersectv_2_4_1(Prolog* m)
+	Operation FILE_reducer::intersectv_2_4_1(Prolog *m)
 	{
 	// intersectv_2([],A,B,[]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5803,21 +6073,21 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// intersectv_2([],A,B,[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a4, m->trail))
+		if (!Prolog::Nil->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::intersectv_2_4_2(Prolog* m)
+	Operation FILE_reducer::intersectv_2_4_2(Prolog *m)
 	{
 	// intersectv_2([A|B],C,D,E):-compare(F,C,A),intersectv_3(F,C,D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -5827,28 +6097,30 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// intersectv_2([A|B],C,D,E):-[compare(F,C,A),intersectv_3(F,C,D,A,B,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a7, a2, a5 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a7, a2, a5}), Op([&] (e)
 		{
 		PRED_intersectv_3_6_static_exec(e);
-		}, VA({ a7, a2, a3, a5, a6, a4 }), cont));
+		}, VA({a7, a2, a3, a5, a6, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_intersectv_3_6_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_intersectv_3_6_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5858,28 +6130,28 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::intersectv_3_6_var, Failure::fail_0, Failure::fail_0, FILE_reducer::intersectv_3_6_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_var(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_var(Prolog *m)
 	{
 		m->jtry6(nullptr, FILE_reducer::intersectv_3_6_var_1);
 		return intersectv_3_6_1(m);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_var_1(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::intersectv_3_6_var_2);
 		return intersectv_3_6_2(m);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_var_2(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_var_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return intersectv_3_6_3(m);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_1(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_1(Prolog *m)
 	{
 	// intersectv_3(<,A,B,C,D,E):-intersectv_2(B,C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5889,20 +6161,20 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// intersectv_3(<,A,B,C,D,E):-[intersectv_2(B,C,D,E)]
-		if(!ATOM_$003C->unify(a1, m->trail))
+		if (!ATOM_$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_intersectv_2_4_static_exec(e);
-		}, VA({ a3, a4, a5, a6 }), cont);
+		}, VA({a3, a4, a5, a6}), cont);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_2(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_2(Prolog *m)
 	{
 	// intersectv_3(=,A,B,C,D,[A|E]):-intersectv(B,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5912,37 +6184,39 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// intersectv_3(=,A,B,C,D,[A|E]):-[intersectv(B,D,E)]
-		if(!ATOM_$003D->unify(a1, m->trail))
+		if (!ATOM_$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a2, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_intersectv_3_static_exec(e);
-		}, VA({ a3, a5, a7 }), cont);
+		}, VA({a3, a5, a7}), cont);
 	}
 
-	Operation FILE_reducer::intersectv_3_6_3(Prolog* m)
+	Operation FILE_reducer::intersectv_3_6_3(Prolog *m)
 	{
 	// intersectv_3(>,A,B,C,D,E):-intersectv_2(D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -5952,17 +6226,17 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// intersectv_3(>,A,B,C,D,E):-[intersectv_2(D,A,B,E)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_intersectv_2_4_static_exec(e);
-		}, VA({ a5, a2, a3, a6 }), cont);
+		}, VA({a5, a2, a3, a6}), cont);
 	}
 
-	Operation FILE_reducer::PRED_intersectv_list_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_intersectv_list_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -5972,69 +6246,71 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::intersectv_list_2_var, Failure::fail_0, Failure::fail_0, FILE_reducer::intersectv_list_2_1, Failure::fail_0, FILE_reducer::intersectv_list_2_2);
 	}
 
-	Operation FILE_reducer::intersectv_list_2_var(Prolog* m)
+	Operation FILE_reducer::intersectv_list_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::intersectv_list_2_var_1);
 		return intersectv_list_2_1(m);
 	}
 
-	Operation FILE_reducer::intersectv_list_2_var_1(Prolog* m)
+	Operation FILE_reducer::intersectv_list_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return intersectv_list_2_2(m);
 	}
 
-	Operation FILE_reducer::intersectv_list_2_1(Prolog* m)
+	Operation FILE_reducer::intersectv_list_2_1(Prolog *m)
 	{
 	// intersectv_list([],[]):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// intersectv_list([],[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a2, m->trail))
+		if (!Prolog::Nil->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::intersectv_list_2_2(Prolog* m)
+	Operation FILE_reducer::intersectv_list_2_2(Prolog *m)
 	{
 	// intersectv_list([A|B],C):-intersectv_list(B,A,C)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// intersectv_list([A|B],C):-[intersectv_list(B,A,C)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_intersectv_list_3_static_exec(e);
-		}, VA({ a4, a3, a2 }), cont);
+		}, VA({a4, a3, a2}), cont);
 	}
 
-	Operation FILE_reducer::PRED_intersectv_list_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_intersectv_list_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6044,43 +6320,43 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::intersectv_list_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::intersectv_list_3_1, Failure::fail_0, FILE_reducer::intersectv_list_3_2);
 	}
 
-	Operation FILE_reducer::intersectv_list_3_var(Prolog* m)
+	Operation FILE_reducer::intersectv_list_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::intersectv_list_3_var_1);
 		return intersectv_list_3_1(m);
 	}
 
-	Operation FILE_reducer::intersectv_list_3_var_1(Prolog* m)
+	Operation FILE_reducer::intersectv_list_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return intersectv_list_3_2(m);
 	}
 
-	Operation FILE_reducer::intersectv_list_3_1(Prolog* m)
+	Operation FILE_reducer::intersectv_list_3_1(Prolog *m)
 	{
 	// intersectv_list([],A,A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// intersectv_list([],A,A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::intersectv_list_3_2(Prolog* m)
+	Operation FILE_reducer::intersectv_list_3_2(Prolog *m)
 	{
 	// intersectv_list([A|B],C,D):-intersectv(A,C,E),intersectv_list(B,E,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -6089,17 +6365,19 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// intersectv_list([A|B],C,D):-[intersectv(A,C,E),intersectv_list(B,E,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -6107,13 +6385,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_intersectv_3_static_exec(e);
-		}, VA({ a4, a2, a6 }), Op([&] (e)
+		}, VA({a4, a2, a6}), Op([&] (e)
 		{
 		PRED_intersectv_list_3_static_exec(e);
-	}, VA({ a5, a6, a3 }), cont));
+	}, VA({a5, a6, a3}), cont));
 	}
 
-	Operation FILE_reducer::PRED_diffv_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_diffv_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6123,43 +6401,43 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::diffv_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::diffv_3_1, Failure::fail_0, FILE_reducer::diffv_3_2);
 	}
 
-	Operation FILE_reducer::diffv_3_var(Prolog* m)
+	Operation FILE_reducer::diffv_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::diffv_3_var_1);
 		return diffv_3_1(m);
 	}
 
-	Operation FILE_reducer::diffv_3_var_1(Prolog* m)
+	Operation FILE_reducer::diffv_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return diffv_3_2(m);
 	}
 
-	Operation FILE_reducer::diffv_3_1(Prolog* m)
+	Operation FILE_reducer::diffv_3_1(Prolog *m)
 	{
 	// diffv([],A,[]):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// diffv([],A,[]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a3, m->trail))
+		if (!Prolog::Nil->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::diffv_3_2(Prolog* m)
+	Operation FILE_reducer::diffv_3_2(Prolog *m)
 	{
 	// diffv([A|B],C,D):-diffv_2(C,A,B,D)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6167,27 +6445,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// diffv([A|B],C,D):-[diffv_2(C,A,B,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_diffv_2_4_static_exec(e);
-		}, VA({ a2, a4, a5, a3 }), cont);
+		}, VA({a2, a4, a5, a3}), cont);
 	}
 
-	Operation FILE_reducer::PRED_diffv_2_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_diffv_2_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6197,22 +6477,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::diffv_2_4_var, Failure::fail_0, Failure::fail_0, FILE_reducer::diffv_2_4_1, Failure::fail_0, FILE_reducer::diffv_2_4_2);
 	}
 
-	Operation FILE_reducer::diffv_2_4_var(Prolog* m)
+	Operation FILE_reducer::diffv_2_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::diffv_2_4_var_1);
 		return diffv_2_4_1(m);
 	}
 
-	Operation FILE_reducer::diffv_2_4_var_1(Prolog* m)
+	Operation FILE_reducer::diffv_2_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return diffv_2_4_2(m);
 	}
 
-	Operation FILE_reducer::diffv_2_4_1(Prolog* m)
+	Operation FILE_reducer::diffv_2_4_1(Prolog *m)
 	{
 	// diffv_2([],A,B,[A|B]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6220,36 +6500,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// diffv_2([],A,B,[A|B]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a3->unify(argz[1], m->trail))
+			if (!a3->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a2, a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::diffv_2_4_2(Prolog* m)
+	Operation FILE_reducer::diffv_2_4_2(Prolog *m)
 	{
 	// diffv_2([A|B],C,D,E):-compare(F,C,A),diffv_3(F,C,D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -6259,28 +6541,30 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// diffv_2([A|B],C,D,E):-[compare(F,C,A),diffv_3(F,C,D,A,B,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a7, a2, a5 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a7, a2, a5}), Op([&] (e)
 		{
 		PRED_diffv_3_6_static_exec(e);
-		}, VA({ a7, a2, a3, a5, a6, a4 }), cont));
+		}, VA({a7, a2, a3, a5, a6, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_diffv_3_6_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_diffv_3_6_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6290,28 +6574,28 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::diffv_3_6_var, Failure::fail_0, Failure::fail_0, FILE_reducer::diffv_3_6_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::diffv_3_6_var(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_var(Prolog *m)
 	{
 		m->jtry6(nullptr, FILE_reducer::diffv_3_6_var_1);
 		return diffv_3_6_1(m);
 	}
 
-	Operation FILE_reducer::diffv_3_6_var_1(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::diffv_3_6_var_2);
 		return diffv_3_6_2(m);
 	}
 
-	Operation FILE_reducer::diffv_3_6_var_2(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_var_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return diffv_3_6_3(m);
 	}
 
-	Operation FILE_reducer::diffv_3_6_1(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_1(Prolog *m)
 	{
 	// diffv_3(<,A,B,C,D,[A|E]):-diffv(B,[C|D],E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6321,24 +6605,26 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// diffv_3(<,A,B,C,D,[A|E]):-[diffv(B,[C|D],E)]
-		if(!ATOM_$003C->unify(a1, m->trail))
+		if (!ATOM_$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a2, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -6346,13 +6632,13 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_diffv_3_static_exec(e);
-		}, VA({ a3, a8, a7 }), cont);
+		}, VA({a3, a8, a7}), cont);
 	}
 
-	Operation FILE_reducer::diffv_3_6_2(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_2(Prolog *m)
 	{
 	// diffv_3(=,A,B,C,D,E):-diffv(B,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6362,20 +6648,20 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// diffv_3(=,A,B,C,D,E):-[diffv(B,D,E)]
-		if(!ATOM_$003D->unify(a1, m->trail))
+		if (!ATOM_$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_diffv_3_static_exec(e);
-		}, VA({ a3, a5, a6 }), cont);
+		}, VA({a3, a5, a6}), cont);
 	}
 
-	Operation FILE_reducer::diffv_3_6_3(Prolog* m)
+	Operation FILE_reducer::diffv_3_6_3(Prolog *m)
 	{
 	// diffv_3(>,A,B,C,D,E):-diffv_2(D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6385,17 +6671,17 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// diffv_3(>,A,B,C,D,E):-[diffv_2(D,A,B,E)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_diffv_2_4_static_exec(e);
-		}, VA({ a5, a2, a3, a6 }), cont);
+		}, VA({a5, a2, a3, a6}), cont);
 	}
 
-	Operation FILE_reducer::PRED_unionv_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_unionv_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6405,43 +6691,43 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::unionv_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::unionv_3_1, Failure::fail_0, FILE_reducer::unionv_3_2);
 	}
 
-	Operation FILE_reducer::unionv_3_var(Prolog* m)
+	Operation FILE_reducer::unionv_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::unionv_3_var_1);
 		return unionv_3_1(m);
 	}
 
-	Operation FILE_reducer::unionv_3_var_1(Prolog* m)
+	Operation FILE_reducer::unionv_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return unionv_3_2(m);
 	}
 
-	Operation FILE_reducer::unionv_3_1(Prolog* m)
+	Operation FILE_reducer::unionv_3_1(Prolog *m)
 	{
 	// unionv([],A,A):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// unionv([],A,A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a3, m->trail))
+		if (!a2->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::unionv_3_2(Prolog* m)
+	Operation FILE_reducer::unionv_3_2(Prolog *m)
 	{
 	// unionv([A|B],C,D):-unionv_2(C,A,B,D)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6449,27 +6735,29 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// unionv([A|B],C,D):-[unionv_2(C,A,B,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a4 = argz[0];
 			a5 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a4 = V(m);
 			a5 = V(m);
 			 a1->bind(CONS(a4, a5), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_unionv_2_4_static_exec(e);
-		}, VA({ a2, a4, a5, a3 }), cont);
+		}, VA({a2, a4, a5, a3}), cont);
 	}
 
-	Operation FILE_reducer::PRED_unionv_2_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_unionv_2_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6479,22 +6767,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::unionv_2_4_var, Failure::fail_0, Failure::fail_0, FILE_reducer::unionv_2_4_1, Failure::fail_0, FILE_reducer::unionv_2_4_2);
 	}
 
-	Operation FILE_reducer::unionv_2_4_var(Prolog* m)
+	Operation FILE_reducer::unionv_2_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::unionv_2_4_var_1);
 		return unionv_2_4_1(m);
 	}
 
-	Operation FILE_reducer::unionv_2_4_var_1(Prolog* m)
+	Operation FILE_reducer::unionv_2_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return unionv_2_4_2(m);
 	}
 
-	Operation FILE_reducer::unionv_2_4_1(Prolog* m)
+	Operation FILE_reducer::unionv_2_4_1(Prolog *m)
 	{
 	// unionv_2([],A,B,[A|B]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6502,36 +6790,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// unionv_2([],A,B,[A|B]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!a3->unify(argz[1], m->trail))
+			if (!a3->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a2, a3), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::unionv_2_4_2(Prolog* m)
+	Operation FILE_reducer::unionv_2_4_2(Prolog *m)
 	{
 	// unionv_2([A|B],C,D,E):-compare(F,C,A),unionv_3(F,C,D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -6541,28 +6831,30 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// unionv_2([A|B],C,D,E):-[compare(F,C,A),unionv_3(F,C,D,A,B,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a7, a2, a5 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a7, a2, a5}), Op([&] (e)
 		{
 		PRED_unionv_3_6_static_exec(e);
-		}, VA({ a7, a2, a3, a5, a6, a4 }), cont));
+		}, VA({a7, a2, a3, a5, a6, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_unionv_3_6_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_unionv_3_6_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6572,28 +6864,28 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::unionv_3_6_var, Failure::fail_0, Failure::fail_0, FILE_reducer::unionv_3_6_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::unionv_3_6_var(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_var(Prolog *m)
 	{
 		m->jtry6(nullptr, FILE_reducer::unionv_3_6_var_1);
 		return unionv_3_6_1(m);
 	}
 
-	Operation FILE_reducer::unionv_3_6_var_1(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_reducer::unionv_3_6_var_2);
 		return unionv_3_6_2(m);
 	}
 
-	Operation FILE_reducer::unionv_3_6_var_2(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_var_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return unionv_3_6_3(m);
 	}
 
-	Operation FILE_reducer::unionv_3_6_1(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_1(Prolog *m)
 	{
 	// unionv_3(<,A,B,C,D,[A|E]):-unionv_2(B,C,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6603,37 +6895,39 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// unionv_3(<,A,B,C,D,[A|E]):-[unionv_2(B,C,D,E)]
-		if(!ATOM_$003C->unify(a1, m->trail))
+		if (!ATOM_$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a2, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_unionv_2_4_static_exec(e);
-		}, VA({ a3, a4, a5, a7 }), cont);
+		}, VA({a3, a4, a5, a7}), cont);
 	}
 
-	Operation FILE_reducer::unionv_3_6_2(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_2(Prolog *m)
 	{
 	// unionv_3(=,A,B,C,D,[A|E]):-unionv(B,D,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6643,37 +6937,39 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// unionv_3(=,A,B,C,D,[A|E]):-[unionv(B,D,E)]
-		if(!ATOM_$003D->unify(a1, m->trail))
+		if (!ATOM_$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
-			if(!a2->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
+			if (!a2->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a2, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_unionv_3_static_exec(e);
-		}, VA({ a3, a5, a7 }), cont);
+		}, VA({a3, a5, a7}), cont);
 	}
 
-	Operation FILE_reducer::unionv_3_6_3(Prolog* m)
+	Operation FILE_reducer::unionv_3_6_3(Prolog *m)
 	{
 	// unionv_3(>,A,B,C,D,[C|E]):-unionv_2(D,A,B,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6683,34 +6979,36 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a6 = m->AREGS[5];
 		cont = m->cont;
 	// unionv_3(>,A,B,C,D,[C|E]):-[unionv_2(D,A,B,E)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
-			if(!a4->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
+			if (!a4->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a7 = argz[1];
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a4, a7), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_unionv_2_4_static_exec(e);
-		}, VA({ a5, a2, a3, a7 }), cont);
+		}, VA({a5, a2, a3, a7}), cont);
 	}
 
-	Operation FILE_reducer::PRED_subsetv_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_subsetv_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6720,38 +7018,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::subsetv_2_var, Failure::fail_0, Failure::fail_0, FILE_reducer::subsetv_2_1, Failure::fail_0, FILE_reducer::subsetv_2_2);
 	}
 
-	Operation FILE_reducer::subsetv_2_var(Prolog* m)
+	Operation FILE_reducer::subsetv_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::subsetv_2_var_1);
 		return subsetv_2_1(m);
 	}
 
-	Operation FILE_reducer::subsetv_2_var_1(Prolog* m)
+	Operation FILE_reducer::subsetv_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return subsetv_2_2(m);
 	}
 
-	Operation FILE_reducer::subsetv_2_1(Prolog* m)
+	Operation FILE_reducer::subsetv_2_1(Prolog *m)
 	{
 	// subsetv([],A):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// subsetv([],A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::subsetv_2_2(Prolog* m)
+	Operation FILE_reducer::subsetv_2_2(Prolog *m)
 	{
 	// subsetv([A|B],[C|D]):-compare(E,A,C),subsetv_2(E,A,B,D)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -6759,43 +7057,47 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// subsetv([A|B],[C|D]):-[compare(E,A,C),subsetv_2(E,A,B,D)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a2->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a7 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a7, a3, a5 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a7, a3, a5}), Op([&] (e)
 		{
 		PRED_subsetv_2_4_static_exec(e);
-		}, VA({ a7, a3, a4, a6 }), cont));
+		}, VA({a7, a3, a4, a6}), cont));
 	}
 
-	Operation FILE_reducer::PRED_subsetv_2_4_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_subsetv_2_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6805,22 +7107,22 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::subsetv_2_4_var, Failure::fail_0, Failure::fail_0, FILE_reducer::subsetv_2_4_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::subsetv_2_4_var(Prolog* m)
+	Operation FILE_reducer::subsetv_2_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_reducer::subsetv_2_4_var_1);
 		return subsetv_2_4_1(m);
 	}
 
-	Operation FILE_reducer::subsetv_2_4_var_1(Prolog* m)
+	Operation FILE_reducer::subsetv_2_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return subsetv_2_4_2(m);
 	}
 
-	Operation FILE_reducer::subsetv_2_4_1(Prolog* m)
+	Operation FILE_reducer::subsetv_2_4_1(Prolog *m)
 	{
 	// subsetv_2(=,A,B,C):-subsetv(B,C)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6828,20 +7130,20 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// subsetv_2(=,A,B,C):-[subsetv(B,C)]
-		if(!ATOM_$003D->unify(a1, m->trail))
+		if (!ATOM_$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_subsetv_2_static_exec(e);
-		}, VA({ a3, a4 }), cont);
+		}, VA({a3, a4}), cont);
 	}
 
-	Operation FILE_reducer::subsetv_2_4_2(Prolog* m)
+	Operation FILE_reducer::subsetv_2_4_2(Prolog *m)
 	{
 	// subsetv_2(>,A,B,C):-subsetv([A|B],C)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -6849,7 +7151,7 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// subsetv_2(>,A,B,C):-[subsetv([A|B],C)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
@@ -6857,10 +7159,10 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return Op([&] (e)
 		{
 		PRED_subsetv_2_static_exec(e);
-		}, VA({ a5, a4 }), cont);
+		}, VA({a5, a4}), cont);
 	}
 
-	Operation FILE_reducer::PRED_small_subsetv_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_small_subsetv_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6870,38 +7172,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::small_subsetv_2_var, Failure::fail_0, Failure::fail_0, FILE_reducer::small_subsetv_2_1, Failure::fail_0, FILE_reducer::small_subsetv_2_2);
 	}
 
-	Operation FILE_reducer::small_subsetv_2_var(Prolog* m)
+	Operation FILE_reducer::small_subsetv_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::small_subsetv_2_var_1);
 		return small_subsetv_2_1(m);
 	}
 
-	Operation FILE_reducer::small_subsetv_2_var_1(Prolog* m)
+	Operation FILE_reducer::small_subsetv_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return small_subsetv_2_2(m);
 	}
 
-	Operation FILE_reducer::small_subsetv_2_1(Prolog* m)
+	Operation FILE_reducer::small_subsetv_2_1(Prolog *m)
 	{
 	// small_subsetv([],A):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// small_subsetv([],A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::small_subsetv_2_2(Prolog* m)
+	Operation FILE_reducer::small_subsetv_2_2(Prolog *m)
 	{
 	// small_subsetv([A|B],C):-inv(A,C),small_subsetv(B,C)
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -6909,64 +7211,68 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// small_subsetv([A|B],C):-[inv(A,C),small_subsetv(B,C)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_inv_2_static_exec(e);
-		}, VA({ a3, a2 }), Op([&] (e)
+		}, VA({a3, a2}), Op([&] (e)
 		{
 		PRED_small_subsetv_2_static_exec(e);
-	}, VA({ a4, a2 }), cont));
+	}, VA({a4, a2}), cont));
 	}
 
-	Operation FILE_reducer::PRED_inv_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_inv_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// inv(A,[B|C]):-compare(D,A,B),inv_2(D,A,C)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1;
 		a1 = LARG[0];
 		a2 = LARG[1];
 	// inv(A,[B|C]):-[compare(D,A,B),inv_2(D,A,C)]
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a2->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a5, a1, a3 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a5, a1, a3}), Op([&] (e)
 		{
 		PRED_inv_2_3_static_exec(e);
-		}, VA({ a5, a1, a4 }), cont));
+		}, VA({a5, a1, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_inv_2_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_inv_2_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -6976,73 +7282,73 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::inv_2_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::inv_2_3_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::inv_2_3_var(Prolog* m)
+	Operation FILE_reducer::inv_2_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::inv_2_3_var_1);
 		return inv_2_3_1(m);
 	}
 
-	Operation FILE_reducer::inv_2_3_var_1(Prolog* m)
+	Operation FILE_reducer::inv_2_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return inv_2_3_2(m);
 	}
 
-	Operation FILE_reducer::inv_2_3_1(Prolog* m)
+	Operation FILE_reducer::inv_2_3_1(Prolog *m)
 	{
 	// inv_2(=,A,B):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// inv_2(=,A,B):-[]
-		if(!ATOM_$003D->unify(a1, m->trail))
+		if (!ATOM_$003D->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::inv_2_3_2(Prolog* m)
+	Operation FILE_reducer::inv_2_3_2(Prolog *m)
 	{
 	// inv_2(>,A,B):-inv(A,B)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// inv_2(>,A,B):-[inv(A,B)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_inv_2_static_exec(e);
-		}, VA({ a2, a3 }), cont);
+		}, VA({a2, a3}), cont);
 	}
 
-	Operation FILE_reducer::PRED_notinv_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_notinv_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// notinv(A,B):-notinv_2(B,A)
 		m->setB0();
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 	// notinv(A,B):-[notinv_2(B,A)]
 		return Op([&] (e)
 		{
 		PRED_notinv_2_2_static_exec(e);
-		}, VA({ a2, a1 }), cont);
+		}, VA({a2, a1}), cont);
 	}
 
-	Operation FILE_reducer::PRED_notinv_2_2_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_notinv_2_2_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -7052,38 +7358,38 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::notinv_2_2_var, Failure::fail_0, Failure::fail_0, FILE_reducer::notinv_2_2_1, Failure::fail_0, FILE_reducer::notinv_2_2_2);
 	}
 
-	Operation FILE_reducer::notinv_2_2_var(Prolog* m)
+	Operation FILE_reducer::notinv_2_2_var(Prolog *m)
 	{
 		m->jtry2(nullptr, FILE_reducer::notinv_2_2_var_1);
 		return notinv_2_2_1(m);
 	}
 
-	Operation FILE_reducer::notinv_2_2_var_1(Prolog* m)
+	Operation FILE_reducer::notinv_2_2_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return notinv_2_2_2(m);
 	}
 
-	Operation FILE_reducer::notinv_2_2_1(Prolog* m)
+	Operation FILE_reducer::notinv_2_2_1(Prolog *m)
 	{
 	// notinv_2([],A):-true
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		cont = m->cont;
 	// notinv_2([],A):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::notinv_2_2_2(Prolog* m)
+	Operation FILE_reducer::notinv_2_2_2(Prolog *m)
 	{
 	// notinv_2([A|B],C):-compare(D,C,A),notinv_3(D,C,B)
-		 Term* a1,* a2,* a3,* a4,* a5;
+		 Term *a1, *a2, *a3, *a4, *a5;
 		Operation p1;
 		Operation cont;
 		a1 = m->AREGS[0];
@@ -7091,28 +7397,30 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		cont = m->cont;
 	// notinv_2([A|B],C):-[compare(D,C,A),notinv_3(D,C,B)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a3 = argz[0];
 			a4 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a3 = V(m);
 			a4 = V(m);
 			 a1->bind(CONS(a3, a4), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a5 = V(m);
-		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({ a5, a2, a3 }), Op([&] (e)
+		return Op(FILE_builtins::PRED_compare_3_static_exec, VA({a5, a2, a3}), Op([&] (e)
 		{
 		PRED_notinv_3_3_static_exec(e);
-		}, VA({ a5, a2, a4 }), cont));
+		}, VA({a5, a2, a4}), cont));
 	}
 
-	Operation FILE_reducer::PRED_notinv_3_3_static_exec(Prolog* m)
+	Operation FILE_reducer::PRED_notinv_3_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -7122,53 +7430,53 @@ ListTerm* const  FILE_reducer::L_t_vars_2_s2 = CONS(Prolog::Nil, Prolog::Nil);
 		return m->switch_on_term(FILE_reducer::notinv_3_3_var, Failure::fail_0, Failure::fail_0, FILE_reducer::notinv_3_3_var, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_reducer::notinv_3_3_var(Prolog* m)
+	Operation FILE_reducer::notinv_3_3_var(Prolog *m)
 	{
 		m->jtry3(nullptr, FILE_reducer::notinv_3_3_var_1);
 		return notinv_3_3_1(m);
 	}
 
-	Operation FILE_reducer::notinv_3_3_var_1(Prolog* m)
+	Operation FILE_reducer::notinv_3_3_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return notinv_3_3_2(m);
 	}
 
-	Operation FILE_reducer::notinv_3_3_1(Prolog* m)
+	Operation FILE_reducer::notinv_3_3_1(Prolog *m)
 	{
 	// notinv_3(<,A,B):-true
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// notinv_3(<,A,B):-[]
-		if(!ATOM_$003C->unify(a1, m->trail))
+		if (!ATOM_$003C->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_reducer::notinv_3_3_2(Prolog* m)
+	Operation FILE_reducer::notinv_3_3_2(Prolog *m)
 	{
 	// notinv_3(>,A,B):-notinv_2(B,A)
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
 		a3 = m->AREGS[2];
 		cont = m->cont;
 	// notinv_3(>,A,B):-[notinv_2(B,A)]
-		if(!ATOM_$003E->unify(a1, m->trail))
+		if (!ATOM_$003E->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return Op([&] (e)
 		{
 		PRED_notinv_2_2_static_exec(e);
-		}, VA({ a3, a2 }), cont);
+		}, VA({a3, a2}), cont);
 	}
 
 	FILE_reducer::StaticConstructor::StaticConstructor()

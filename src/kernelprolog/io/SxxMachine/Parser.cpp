@@ -17,7 +17,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	LexerHIDE::LexerHIDE(Reader* I) throw(IOException) : java::io::StreamTokenizer(I)
+	LexerHIDE::LexerHIDE(Reader *I) throw(IOException) : java::io::StreamTokenizer(I)
 	{
 		this->input = I;
 		parseNumbers();
@@ -34,11 +34,11 @@ namespace SxxMachine
 		dict = new HashDict();
 	}
 
-	LexerHIDE::LexerHIDE(const wstring& path, const wstring& s) throw(IOException) : LexerHIDE(IO::url_or_file(path + s))
+	LexerHIDE::LexerHIDE(const wstring &path, const wstring &s) throw(IOException) : LexerHIDE(IO::url_or_file(path + s))
 	{
 	}
 
-	LexerHIDE::LexerHIDE(const wstring& s) throw(runtime_error) : LexerHIDE(IO::string_to_stream(s))
+	LexerHIDE::LexerHIDE(const wstring &s) throw(runtime_error) : LexerHIDE(IO::string_to_stream(s))
 	{
 	}
 
@@ -48,7 +48,7 @@ namespace SxxMachine
 
 const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 
-	wstring LexerHIDE::char2string(const int& c)
+	wstring LexerHIDE::char2string(int c)
 	{
 		return "" + StringHelper::toString(static_cast<char>(c));
 	}
@@ -56,12 +56,13 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 	bool LexerHIDE::atEOF()
 	{
 		bool yes = (TT_EOF == ttype);
-		if(yes)
+		if (yes)
 		{
 			try
 			{
 				input->close();
-			} catch(const IOException& e)
+			}
+			catch (const IOException &e)
 			{
 				IO::trace("unable to close atEOF");
 			}
@@ -74,79 +75,82 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		return !inClause;
 	}
 
-	Term* LexerHIDE::make_const(const wstring& s)
+	Term *LexerHIDE::make_const(const wstring &s)
 	{
 		return new constToken(s);
 	}
 
-	Term* LexerHIDE::make_fun(const wstring& s)
+	Term *LexerHIDE::make_fun(const wstring &s)
 	{
 		return new funToken(s);
 	}
 
-	Term* LexerHIDE::make_int(const double& n)
+	Term *LexerHIDE::make_int(double n)
 	{
 		return new intToken(static_cast<int>(n));
 	}
 
-	Term* LexerHIDE::make_real(const double& n)
+	Term *LexerHIDE::make_real(double n)
 	{
 		return new realToken(n);
 	}
 
-	Term* LexerHIDE::make_number(const double& nval)
+	Term *LexerHIDE::make_number(double nval)
 	{
-		Term* T;
-		if(floor(nval) == nval)
+		Term *T;
+		if (floor(nval) == nval)
 		{
 			T = make_int(nval);
-		} else
+		}
+		else
 		{
 			T = make_real(nval);
 		}
 		return T;
 	}
 
-	Term* LexerHIDE::make_var(const wstring& s)
+	Term *LexerHIDE::make_var(const wstring &s)
 	{
 		s = s.intern();
-		VariableTerm* X;
+		VariableTerm *X;
 		long long occ;
-		if(s == anonymous)
+		if (s == anonymous)
 		{
 			occ = 0;
 			X = TermData::V();
 //JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
 			s = X->toString();
-		} else
+		}
+		else
 		{
 			X = any_cast<VariableTerm*>(dict->get(s));
-			if(X == nullptr)
+			if (X == nullptr)
 			{
 				occ = 1;
 				X = TermData::V();
 				X->varName = s;
-			} else
+			}
+			else
 			{
 				occ = Expect::asInt(any_cast<Term*>(dict->get(X)))->longValue();
 				occ++;
 			}
 		}
-		LongTerm* I = TermData::Long(occ);
+		LongTerm *I = TermData::Long(occ);
 		dict->put(X, I);
 		dict->put(s, X);
 		return new varToken(X, TermData::F(s), I);
 	}
 
-	void LexerHIDE::wordChar(const char& c)
+	void LexerHIDE::wordChar(char c)
 	{
 		wordChars(c, c);
 	}
 
-	Term* LexerHIDE::getWord(const bool& quoted) throw(IOException)
+	Term *LexerHIDE::getWord(bool quoted) throw(IOException)
 	{
-		Term* T;
-		if(quoted && 0 == sval->length())
+		Term *T;
+		if (quoted && 0 == sval->length())
 		{
 			T = make_const("");
 		}
@@ -160,10 +164,11 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		else
 		{
 			char c = sval->charAt(0);
-			if(!quoted && (isupper(c) || '_' == c))
+			if (!quoted && (isupper(c) || '_' == c))
 			{
 				T = make_var(sval);
-			} else
+			}
+			else
 			{ // nonvar
 				wstring s = sval;
 				int nt = nextToken();
@@ -174,12 +179,12 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		return T;
 	}
 
-	Term* LexerHIDE::next() throw(IOException)
+	Term *LexerHIDE::next() throw(IOException)
 	{
 		int n = nextToken();
 		inClause = true;
-		Term* T;
-		switch(n)
+		Term *T;
+		switch (n)
 		{
 		case TT_WORD:
 			T = getWord(false);
@@ -203,10 +208,11 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 			break;
 
 		case '-':
-			if(TT_NUMBER == nextToken())
+			if (TT_NUMBER == nextToken())
 			{
 				T = make_number(-nval);
-			} else
+			}
+			else
 			{
 				pushBack();
 				T = make_const(char2string(n));
@@ -215,10 +221,11 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 			break;
 
 		case ':':
-			if('-' == nextToken())
+			if ('-' == nextToken())
 			{
 				T = new iffToken(":-");
-			} else
+			}
+			else
 			{
 				pushBack();
 				T = make_const(char2string(n));
@@ -228,12 +235,13 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		case '.':
 		{
 			int c = nextToken();
-			if(TT_EOL == c || TT_EOF == c)
+			if (TT_EOL == c || TT_EOF == c)
 			{
 				inClause = false;
 				// dict.clear(); ///!!!: this looses Var names
 				T = new eocToken();
-			} else
+			}
+			else
 			{
 				pushBack();
 				T = make_const(char2string(n)); // !!!: sval is gone
@@ -271,38 +279,38 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		return T;
 	}
 
-	varToken::varToken(Var* X, SymbolTerm* C, LongTerm* I) : StructureTerm("varToken", 3)
+	varToken::varToken(Var *X, SymbolTerm *C, LongTerm *I) : StructureTerm("varToken", 3)
 	{
-		argz = std::vector<Term*> { X, C, I };
+		argz = std::vector<Term*> {X, C, I};
 	}
 
-	StructureTerm* varToken::clone()
+	StructureTerm *varToken::clone()
 	{
 		return new varToken(argz[0]->toVar(), argz[1]->asConst(), (argz[2]->asLongTerm()));
 	}
 
-	intToken::intToken(const int& i) : StructureTerm("intToken", TermData::Long(i))
+	intToken::intToken(int i) : StructureTerm("intToken", TermData::Long(i))
 	{
 	}
 
-	realToken::realToken(const double& i) : StructureTerm("realToken", TermData::Float(i))
+	realToken::realToken(double i) : StructureTerm("realToken", TermData::Float(i))
 	{
 	}
 
-	constToken::constToken(SymbolTerm* c) : StructureTerm("constToken", c)
+	constToken::constToken(SymbolTerm *c) : StructureTerm("constToken", c)
 	{
 		setArg(0, Builtins::toConstBuiltin(c));
 	}
 
-	constToken::constToken(const wstring& s) : constToken(TermData::F(s))
+	constToken::constToken(const wstring &s) : constToken(TermData::F(s))
 	{
 	}
 
-	stringToken::stringToken(constToken* c) : StructureTerm("stringToken", (c->ArgDeRef(0)))
+	stringToken::stringToken(constToken *c) : StructureTerm("stringToken", (c->ArgDeRef(0)))
 	{
 	}
 
-	funToken::funToken(const wstring& s) : StructureTerm("funToken", StructureTerm::S(s.intern()))
+	funToken::funToken(const wstring &s) : StructureTerm("funToken", StructureTerm::S(s.intern()))
 	{
 	}
 
@@ -314,11 +322,11 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 	{
 	}
 
-	iffToken::iffToken(const wstring& s) : StructureTerm("iffToken", TermData::F(s))
+	iffToken::iffToken(const wstring &s) : StructureTerm("iffToken", TermData::F(s))
 	{
 	}
 
-	KPToken::KPToken(const wstring& s) : SymbolTerm::Dynamic(s,0)
+	KPToken::KPToken(const wstring &s) : SymbolTerm::Dynamic(s,0)
 	{
 	}
 
@@ -346,21 +354,21 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 	{
 	}
 
-	Parser::Parser(Reader* I) throw(IOException) : LexerHIDE(I)
+	Parser::Parser(Reader *I) throw(IOException) : LexerHIDE(I)
 	{
 	}
 
-	Parser::Parser(const wstring& p, const wstring& s) throw(IOException) : LexerHIDE(p, s)
+	Parser::Parser(const wstring &p, const wstring &s) throw(IOException) : LexerHIDE(p, s)
 	{
 	}
 
-	Parser::Parser(const wstring& s) throw(runtime_error) : LexerHIDE(s)
+	Parser::Parser(const wstring &s) throw(runtime_error) : LexerHIDE(s)
 	{
 	}
 
-	Clause* Parser::readClause()
+	Clause *Parser::readClause()
 	{
-		Clause* t = nullptr;
+		Clause *t = nullptr;
 		bool verbose = false;
 		try
 		{
@@ -371,39 +379,42 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		 * catch built exception clauses which are defined in lib.pro - allowing to
 		 * recover or be quiet about such errors.
 		 */
-		catch(const ParserException& e)
+		catch (const ParserException &e)
 		{
 			t = errorClause(e, "syntax_error", lineno(), verbose);
 			try
 			{
-				while(!atEOC() && !atEOF())
+				while (!atEOC() && !atEOF())
 				{
 					next();
 				}
-			} catch(const IOException& toIgnore)
+			}
+			catch (const IOException &toIgnore)
 			{
 			}
-		} catch(const IOException& e)
+		}
+		catch (const IOException &e)
 		{
 			t = errorClause(e, "io_exception", lineno(), verbose);
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{
 			t = errorClause(e, "unexpected_syntax_exception", lineno(), true);
 		}
 		return t;
 	}
 
-	Clause* Parser::errorClause(runtime_error e, const wstring& type, const int& line, const bool& verbose)
+	Clause *Parser::errorClause(runtime_error e, const wstring &type, int line, bool verbose)
 	{
 
 		wstring mes = e.what();
-		if("" == mes)
+		if ("" == mes)
 		{
 			mes = "unknown_error";
 		}
-		StructureTerm* f = StructureTerm::S("error", TermData::F(type), TermData::F(mes), StructureTerm::S("line", TermData::Integer(line)));
-		Clause* C = new Clause(f, Prolog::True);
-		if(verbose)
+		StructureTerm *f = StructureTerm::S("error", TermData::F(type), TermData::F(mes), StructureTerm::S("line", TermData::Integer(line)));
+		Clause *C = new Clause(f, Prolog::True);
+		if (verbose)
 		{
 			IO::errmes(type + " error at line:" + to_string(line));
 			IO::errmes(C->pprint(), e);
@@ -411,53 +422,53 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 		return C;
 	}
 
-	bool Parser::isError(Clause* C)
+	bool Parser::isError(Clause *C)
 	{
-		Term* H = C->getHead();
-		if(H->isStructure() && "error" == H->name() && H->arityOrType() == 3 && !(Expect::asStruct(H)->ArgDeRef(0)->dref()->isVar()))
+		Term *H = C->getHead();
+		if (H->isStructure() && "error" == H->name() && H->arityOrType() == 3 && !(Expect::asStruct(H)->ArgDeRef(0)->dref()->isVar()))
 		{
 			return true;
 		}
 		return false;
 	}
 
-	void Parser::showError(Clause* C)
+	void Parser::showError(Clause *C)
 	{
 		IO::errmes("*** " + C);
 	}
 
-	Clause* Parser::toClause(Term* T, HashDict* dict)
+	Clause *Parser::toClause(Term *T, HashDict *dict)
 	{
-		Clause* C = T->toClause(); // adds ...:-true if missing
+		Clause *C = T->toClause(); // adds ...:-true if missing
 		C->dict = dict;
 		return C;
 	}
 
-	Clause* Parser::readClauseOrEOF() throw(IOException)
+	Clause *Parser::readClauseOrEOF() throw(IOException)
 	{
 
 		dict = new HashDict();
 
-		Term* n = next();
+		Term *n = next();
 
 		// IO.mes("readClauseOrEOF 0:"+n);
 
-		if(n->isFunctor("eofToken"))
+		if (n->isFunctor("eofToken"))
 		{
 			return nullptr; // $$toClause(n.token(),dict);
 		}
 
-		if(n->isFunctor("iffToken"))
+		if (n->isFunctor("iffToken"))
 		{
 			n = next();
-			Term* t = getTerm(n);
-			Term* bs = getConjCont(t);
-			Clause* C = new Clause(TermData::F("init"), bs);
+			Term *t = getTerm(n);
+			Term *bs = getConjCont(t);
+			Clause *C = new Clause(TermData::F("init"), bs);
 			C->dict = dict;
 			return C;
 		}
 
-		Term* h = getTerm(n);
+		Term *h = getTerm(n);
 
 		// IO.mes("readClauseOrEOF 1:"+h);
 
@@ -465,193 +476,205 @@ const wstring LexerHIDE::anonymous = (wstring("_")).intern();
 
 		// IO.mes("readClauseOrEOF 2:"+n);
 
-		if(n->isFunctor("eocToken") || n->isFunctor("eofToken"))
+		if (n->isFunctor("eocToken") || n->isFunctor("eofToken"))
 		{
 			return toClause(h, dict);
 		}
 
 		// IO.mes("readClauseOrEOF 3:"+b);
 
-		Clause* C = nullptr;
-		if(n->isFunctor("iffToken"))
+		Clause *C = nullptr;
+		if (n->isFunctor("iffToken"))
 		{
-			Term* t = getTerm();
-			Term* bs = getConjCont(t);
+			Term *t = getTerm();
+			Term *bs = getConjCont(t);
 			C = new Clause(h, bs);
 			C->dict = dict;
-		} else if(n->isFunctor(","))
+		}
+		else if (n->isFunctor(","))
 		{
-			Term* b = getTerm();
-			Term* bs = getConjCont(b);
+			Term *b = getTerm();
+			Term *bs = getConjCont(b);
 			C = toClause(StructureTerm::createCons(",", h, bs), dict);
-		} else
+		}
+		else
 		{
 			throw ParserException("':-' or '.' or ','", "bad body element", n);
 		}
 		return C;
 	}
 
-	Term* Parser::getConjCont(Term* curr) throw(IOException)
+	Term *Parser::getConjCont(Term *curr) throw(IOException)
 	{
 
-		Term* n = next();
-		Term* t = nullptr;
-		if(n->isFunctor("eocToken"))
+		Term *n = next();
+		Term *t = nullptr;
+		if (n->isFunctor("eocToken"))
 		{
 			t = curr;
-		} else if(n->isFunctor(","))
+		}
+		else if (n->isFunctor(","))
 		{
-			Term* other = getTerm();
+			Term *other = getTerm();
 			t = StructureTerm::createCons(",", curr, getConjCont(other));
 		}
-		if(nullptr == t)
+		if (nullptr == t)
 		{
 			throw ParserException("'.'", "bad body element", n);
 		}
 		return t;
 	}
 
-	Term* Parser::getTerm(Term* n) throw(IOException)
+	Term *Parser::getTerm(Term *n) throw(IOException)
 	{
-		Term* t = n->carTokenOrSelf();
-		if(n->isFunctor("stringToken"))
+		Term *t = n->carTokenOrSelf();
+		if (n->isFunctor("stringToken"))
 		{
 			t = (static_cast<Nonvar*>((static_cast<stringToken*>(n))->ArgDeRef(0)))->toChars();
 			// IO.mes("getTerm:stringToken-->"+t);
 
-		} else if(n->isFunctor("["))
+		}
+		else if (n->isFunctor("["))
 		{
 			t = getList();
-		} else if(n->isFunctor("funToken"))
+		}
+		else if (n->isFunctor("funToken"))
 		{
-			StructureTerm* f = static_cast<StructureTerm*>(t);
+			StructureTerm *f = static_cast<StructureTerm*>(t);
 			f->argz = (getArgs());
 			t = Builtins::toFunBuiltin(f);
-		} else
+		}
+		else
 		{
 			; //throw new ParserException("var,int,real,constant,'[' or functor", "bad term", n);
 		}
 		return t;
 	}
 
-	Term* Parser::getTerm() throw(IOException)
+	Term *Parser::getTerm() throw(IOException)
 	{
-		Term* n = next();
+		Term *n = next();
 		return getTerm(n);
 	}
 
 	std::vector<Term*> Parser::getArgs() throw(IOException)
 	{
 		 //break;
-		Term* n = next();
-		if(!(n->isFunctor("(")))
+		Term *n = next();
+		if (!(n->isFunctor("(")))
 		{
 			throw ParserException("'('", "in getArgs", n);
 		}
 		vector v = vector();
-		Term* t = getTerm();
+		Term *t = getTerm();
 		v.push_back(t);
-		for(;;)
+		for (;;)
 		{
 			n = next();
-			if(n->isFunctor(")"))
+			if (n->isFunctor(")"))
 			{
 				int l = v.size();
 				std::vector<Term*> args(l);
 				// v.copyInto(Arguments);
 				std::vector<any> as = v.toArray();
-				for(int i = 0; i < l; i++)
+				for (int i = 0; i < l; i++)
 				{
 					args[i] = any_cast<Term*>(as[i]);
 				}
 				return args;
-			} else if(n->isFunctor(","))
+			}
+			else if (n->isFunctor(","))
 			{
 				t = getTerm();
 				v.push_back(t);
-			} else
+			}
+			else
 			{
 				throw ParserException("',' or ')'", "bad arg", n);
 			}
 		}
 	}
 
-	Term* Parser::getList() throw(IOException)
+	Term *Parser::getList() throw(IOException)
 	{
-		Term* n = next();
-		if(n->isFunctor("]"))
+		Term *n = next();
+		if (n->isFunctor("]"))
 		{
 			return Prolog::Nil;
 		}
-		Term* t = getTerm(n);
+		Term *t = getTerm(n);
 		return getListCont(t);
 	}
 
-	Term* Parser::getListCont(Term* curr) throw(IOException)
+	Term *Parser::getListCont(Term *curr) throw(IOException)
 	{
 		// IO.trace("curr: "+curr);
-		Term* n = next();
-		Term* t = nullptr;
-		if(n->isFunctor("]"))
+		Term *n = next();
+		Term *t = nullptr;
+		if (n->isFunctor("]"))
 		{
 			t = StructureTerm::createCons(curr, Prolog::Nil);
-		} else if(n->isFunctor("|"))
+		}
+		else if (n->isFunctor("|"))
 		{
 			t = StructureTerm::createCons(curr, getTerm());
 			n = next();
-			if(!(n->isFunctor("]")))
+			if (!(n->isFunctor("]")))
 			{
 				throw ParserException("']'", "bad list end after '|'", n);
 			}
-		} else if(n->isFunctor(","))
+		}
+		else if (n->isFunctor(","))
 		{
-			Term* other = getTerm();
+			Term *other = getTerm();
 			t = StructureTerm::createCons(curr, getListCont(other));
 		}
-		if(t == nullptr)
+		if (t == nullptr)
 		{
 			throw ParserException("| or ]", "bad list continuation", n);
 		}
 		return t;
 	}
 
-	wstring Parser::patchEOFString(const wstring& s)
+	wstring Parser::patchEOFString(const wstring &s)
 	{
-		if(!((int)s.rfind(".") >= s.length() - 2))
+		if (!((int)s.rfind(".") >= s.length() - 2))
 		{
 			s = s + ".";
 		}
 		return s;
 	}
 
-	Clause* Parser::clsFromString(const wstring& s)
+	Clause *Parser::clsFromString(const wstring &s)
 	{
-		if("" == s)
+		if ("" == s)
 		{
 			return nullptr;
 		}
 		s = patchEOFString(s);
-		Clause* t = nullptr;
+		Clause *t = nullptr;
 		try
 		{
-			Parser* p;
+			Parser *p;
 			p = new Parser(s);
 			t = p->readClause();
-		} catch(const runtime_error& e)
+		}
+		catch (const runtime_error &e)
 		{ // nothing expected to catch
 			IO::errmes("unexpected parsing error", e);
 		}
-		if(t->dict == nullptr)
+		if (t->dict == nullptr)
 		{
 			t->ground = false;
-		} else
+		}
+		else
 		{
 			t->ground = t->dict->isEmpty();
 		}
 		return t;
 	}
 
-	ParserException::ParserException(const wstring& e, const wstring& f, Term* n) : java::io::IOException("expected: " + e + ", found: " + f + "'" + n + "'")
+	ParserException::ParserException(const wstring &e, const wstring &f, Term *n) : java::io::IOException("expected: " + e + ", found: " + f + "'" + n + "'")
 	{
 	}
 }

@@ -11,7 +11,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Source::Source(Prog* p) : Fluent(p)
+	Source::Source(Prog *p) : Fluent(p)
 	{
 	}
 
@@ -20,34 +20,34 @@ namespace SxxMachine
 		return true;
 	}
 
-	Nonvar* Source::toList()
+	Nonvar *Source::toList()
 	{
-		Term* head = getElement();
-		if(nullptr == head)
+		Term *head = getElement();
+		if (nullptr == head)
 		{
 			return Prolog::Nil;
 		}
-		StructureTerm* l = StructureTerm::createCons(head, Prolog::Nil);
-		StructureTerm* curr = l;
-		for(;;)
+		StructureTerm *l = StructureTerm::createCons(head, Prolog::Nil);
+		StructureTerm *curr = l;
+		for (;;)
 		{
 			head = getElement();
-			if(nullptr == head)
+			if (nullptr == head)
 			{
 				break;
 			}
-			StructureTerm* tail = StructureTerm::createCons(head, Prolog::Nil);
+			StructureTerm *tail = StructureTerm::createCons(head, Prolog::Nil);
 			curr->setArg(1, tail);
 			curr = tail;
 		}
 		return l;
 	}
 
-	Term* Source::toFun()
+	Term *Source::toFun()
 	{
 		vector V = vector();
-		Term* X;
-		while(nullptr != (X = getElement()))
+		Term *X;
+		while (nullptr != (X = getElement()))
 		{
 			V.push_back(X);
 		}

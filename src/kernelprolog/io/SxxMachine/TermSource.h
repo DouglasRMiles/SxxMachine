@@ -1,13 +1,15 @@
-#ifndef TERMSOURCE
-#define TERMSOURCE
+#pragma once
 
 #include "../../terms/SxxMachine/Source.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Nonvar;
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -23,20 +25,17 @@ namespace SxxMachine
 			delete val;
 		}
 
-		TermSource(Nonvar* val, Prog* p);
+		TermSource(Nonvar *val, Prog *p);
 
 	private:
-		Nonvar* val;
+		Nonvar *val;
 
 		int pos = 0;
 
 	public:
-		Term* getElement() override;
+		Term *getElement() override;
 
 		void stop() override;
 	};
 
 }
-
-
-#endif	//#ifndef TERMSOURCE

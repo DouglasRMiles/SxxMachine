@@ -1,5 +1,4 @@
-#ifndef LISTVIEWTERM
-#define LISTVIEWTERM
+#pragma once
 
 #include "ListTerm.h"
 #include "SystemObject.h"
@@ -9,10 +8,13 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class ListTerm; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Trail;
+	class Term;
+	class OpVisitor;
+	class ListTerm;
+}
 
 namespace SxxMachine
 {
@@ -34,18 +36,18 @@ namespace SxxMachine
 		public:
 			int type() override;
 
-			bool unifyImpl(Term* t, Trail* trail) override;
+			bool unifyImpl(Term *t, Trail *trail) override;
 
 			bool isImmutable() override;
 
 			std::string name() override;
 
-			void toStringImpl(const int& printFlags, StringBuilder* sb) override;
-			int compareTo(Term* o) override;
+			void toStringImpl(int printFlags, StringBuilder *sb) override;
+			int compareTo(Term *o) override;
 
 			int termHashCodeImpl() override;
 
-			bool equalsTerm(Term* obj, Comparator* comparator) override;
+			bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 		};
 
 	public:
@@ -59,7 +61,7 @@ namespace SxxMachine
 		bool isImmutable() override;
 
 	private:
-		static Term* const  NOT_IMMUTABLE;
+		static Term *const NOT_IMMUTABLE;
 
 		/** the list of terms */
 		const std::vector<Term*> list;
@@ -72,26 +74,26 @@ namespace SxxMachine
 		 * holds next {@link SxxMachine.ListViewTerm} instance, the value is lazy
 		 * initialized
 		 */
-		Term* next = nullptr;
+		Term *next = nullptr;
 
 		//final Term[] argz;
 
 	public:
-		ListViewTerm(Term* head);
+		ListViewTerm(Term *head);
 
 	private:
-		ListViewTerm(std::vector<Term*>& list, const int& index);
+		ListViewTerm(std::vector<Term*> &list, int index);
 
 	public:
-		ListTerm* add(Term* term) override;
+		ListTerm *add(Term *term) override;
 
-		Term* cdr() override;
+		Term *cdr() override;
 
 	protected:
-		Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply) override;
+		Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply) override;
 
 	public:
-		Term* nth0(const int& nth) override;
+		Term *nth0(int nth) override;
 
 		int length() override;
 
@@ -99,22 +101,19 @@ namespace SxxMachine
 
 		bool isGround() override;
 
-		Term* car() override;
+		Term *car() override;
 
-		void setCar(Term* t) override;
+		void setCar(Term *t) override;
 
-		void setCdr(Term* t) override;
+		void setCdr(Term *t) override;
 
 		std::vector<Term*> args() override;
 
 		std::string name() override;
 
-		Term* toClone() throw(CloneNotSupportedException) override;
+		Term *toClone() throw(CloneNotSupportedException) override;
 
 		int arityOrType() override;
 	};
 
 }
-
-
-#endif	//#ifndef LISTVIEWTERM

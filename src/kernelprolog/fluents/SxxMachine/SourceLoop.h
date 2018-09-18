@@ -1,14 +1,16 @@
-#ifndef SOURCELOOP
-#define SOURCELOOP
+#pragma once
 
 #include "../../terms/SxxMachine/Source.h"
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Source; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Source;
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -28,7 +30,7 @@ namespace SxxMachine
 		std::vector v;
 
 	public:
-		Source* s;
+		Source *s;
 
 	private:
 		int i = 0;
@@ -39,18 +41,15 @@ namespace SxxMachine
 			delete s;
 		}
 
-		SourceLoop(Source* s, Prog* p);
+		SourceLoop(Source *s, Prog *p);
 
 	private:
-		Term* getMemoized();
+		Term *getMemoized();
 
 	public:
-		Term* getElement() override;
+		Term *getElement() override;
 
 		void stop() override;
 	};
 
 }
-
-
-#endif	//#ifndef SOURCELOOP

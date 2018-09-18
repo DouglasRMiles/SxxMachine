@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.LinkedList;
 /**
  * Internal database for dynamic predicates.<br>
@@ -35,11 +35,11 @@ public class InternalDatabase {
 	}
 	
    public InternalDatabase copyInternalDatabase(
-       boolean deepCopy, IdentityHashMap<Object, Term> copyHash) {
+       boolean deepCopy, Map<Object, Term> copyHash) {
           return new InternalDatabase(this, deepCopy, copyHash);
    }
 
-	private InternalDatabase(InternalDatabase src, boolean deepCopy, IdentityHashMap<Object, Term> copyHash) {
+	private InternalDatabase(InternalDatabase src, boolean deepCopy, Map<Object, Term> copyHash) {
 		this.maxContents = src.maxContents;
 		this.buffer = new Term[src.buffer.length];
 		this.reusableIndices = new LinkedList<Integer>(src.reusableIndices);

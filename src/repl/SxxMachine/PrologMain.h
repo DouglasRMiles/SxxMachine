@@ -1,5 +1,4 @@
-#ifndef PROLOGMAIN
-#define PROLOGMAIN
+#pragma once
 
 #include <string>
 #include <vector>
@@ -8,8 +7,11 @@
 #include "stringhelper.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class BlockingPrologControl; }
+namespace SxxMachine
+{
+	class Term;
+	class BlockingPrologControl;
+}
 
 namespace SxxMachine
 {
@@ -50,9 +52,9 @@ namespace SxxMachine
 	  static const std::string COPYRIGHT;
 	  static const std::string HEADER;
 
-		static void main(std::vector<std::string>& argv);
+		static void main(std::vector<std::string> &argv);
 
-		static void exit(const int& i);
+		static void exit(int i);
 		/** Returns a term for given string representation of atom goal, or 
 		 * <code>null</code> if parsing fails.
 		 * @param s  a string representation of initial goal (ex. foge:main).
@@ -60,15 +62,12 @@ namespace SxxMachine
 		 * or <code>null</code> if parsing fails.
 		 */
 	protected:
-		static Term* parseAtomicGoal(const std::string& s);
+		static Term *parseAtomicGoal(const std::string &s);
 
   private:
-	  static void initializePackages(BlockingPrologControl* p, Term* goal);
+	  static void initializePackages(BlockingPrologControl *p, Term *goal);
 
 	  static void usage();
 	};
 
 }
-
-
-#endif	//#ifndef PROLOGMAIN

@@ -4,12 +4,12 @@ using namespace std;
 #include "../../exceptions/SxxMachine/PrologException.h"
 #include "Trail.h"
 #include "Term.h"
-#include "StringBuilder.h"
+#include "OpVisitor.h"
 
 namespace SxxMachine
 {
 
-	FFIObjectTerm* FFIObjectTerm::toClone()
+	FFIObjectTerm *FFIObjectTerm::toClone()
 	{
 	  return new FFIObjectTerm(val);
 	}
@@ -42,7 +42,7 @@ namespace SxxMachine
 
 	FFIObjectTerm::FFIObjectTerm(any _obj) : obj(_obj)
 	{
-		if(_obj == nullptr)
+		if (_obj == nullptr)
 		{
 			throw NullPointerException("Error: constructing JavaObjectTerm around null");
 		}
@@ -63,7 +63,7 @@ namespace SxxMachine
 		return "";
 	}
 
-	bool FFIObjectTerm::unifyImpl(Term* t, Trail* trail)
+	bool FFIObjectTerm::unifyImpl(Term *t, Trail *trail)
 	{
 		t = t->dref();
 		return (t->isVar()) ? t->bind(this, trail) : ((t->isFFIObject()) && this->obj == ((t)->object()));
@@ -79,7 +79,7 @@ namespace SxxMachine
 		return this->obj;
 	}
 
-	bool FFIObjectTerm::equalsTerm(Term* o, Comparator* comparator)
+	bool FFIObjectTerm::equalsTerm(Term *o, OpVisitor *comparator)
 	{
 		return o->isFFIObject() && this->obj == ((o)->object());
 	}
@@ -89,7 +89,7 @@ namespace SxxMachine
 		return System::identityHashCode(this->obj);
 	}
 
-	void FFIObjectTerm::toStringImpl(const int& printFlags, StringBuilder* sb)
+	void FFIObjectTerm::toStringImpl(int printFlags, StringBuilder *sb)
 	{
 		sb->append(this->obj.type().getName());
 		sb->append("(0x");
@@ -97,17 +97,17 @@ namespace SxxMachine
 		sb->append(")");
 	}
 
-	int FFIObjectTerm::compareTo(Term* anotherTerm)
+	int FFIObjectTerm::compareTo(Term *anotherTerm)
 	{ // anotherTerm must be dereferenced.
-		if((anotherTerm->isVar()) || (anotherTerm->isNumber()) || (anotherTerm->isSymbol()) || (anotherTerm->isCons()) || (anotherTerm->isStructure()))
+		if ((anotherTerm->isVar()) || (anotherTerm->isNumber()) || (anotherTerm->isSymbol()) || (anotherTerm->isCons()) || (anotherTerm->isStructure()))
 		{
 			return AFTER;
 		}
-		if(!(anotherTerm->isFFIObject()))
+		if (!(anotherTerm->isFFIObject()))
 		{
 			return BEFORE;
 		}
-		if(this->obj == ((anotherTerm)->object()))
+		if (this->obj == ((anotherTerm)->object()))
 		{
 			return EQUAL;
 		}

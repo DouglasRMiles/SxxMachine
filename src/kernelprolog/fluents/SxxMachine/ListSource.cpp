@@ -7,7 +7,7 @@ using namespace std;
 namespace SxxMachine
 {
 
-	ListSource::ListSource(Nonvar* xs, Prog* p) : IterableSource(Copier::ConsToVector(xs), p)
+	ListSource::ListSource(Nonvar *xs, Prog *p) : IterableSource(Copier::ConsToVector(xs), p)
 	{
 	}
 }

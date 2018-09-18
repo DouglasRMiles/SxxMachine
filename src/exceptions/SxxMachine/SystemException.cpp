@@ -8,20 +8,20 @@ using namespace std;
 namespace SxxMachine
 {
 
-SymbolTerm* const  SystemException::SYSTEM_ERROR = SymbolTerm::intern("system_error", 1);
+SymbolTerm *const SystemException::SYSTEM_ERROR = SymbolTerm::intern("system_error", 1);
 
 	wstring SystemException::getMessage()
 	{
 	return message;
 	}
 
-	SystemException::SystemException(const wstring& _message) : message(_message)
+	SystemException::SystemException(const wstring &_message) : message(_message)
 	{
 	}
 
-	Term* SystemException::getMessageTerm()
+	Term *SystemException::getMessageTerm()
 	{
-	std::vector<Term*> args = { SymbolTerm::create(this->message) };
+	std::vector<Term*> args = {SymbolTerm::create(this->message)};
 	return TermData::createErrorTerm(this, SYSTEM_ERROR, args);
 	}
 

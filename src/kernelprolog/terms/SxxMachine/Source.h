@@ -1,14 +1,16 @@
-#ifndef SOURCE
-#define SOURCE
+#pragma once
 
 #include "../../../machine/SxxMachine/Undoable.h"
 #include "Fluent.h"
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Nonvar; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class Nonvar;
+}
 
 namespace SxxMachine
 {
@@ -18,18 +20,15 @@ namespace SxxMachine
 	{
 
 	public:
-		Source(Prog* p);
+		Source(Prog *p);
 
 		static bool isSource();
 
-		virtual Term* getElement() = 0;
+		virtual Term *getElement() = 0;
 
-		virtual Nonvar* toList();
+		virtual Nonvar *toList();
 
-		virtual Term* toFun();
+		virtual Term *toFun();
 	};
 
 }
-
-
-#endif	//#ifndef SOURCE

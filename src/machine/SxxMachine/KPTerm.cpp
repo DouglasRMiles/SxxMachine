@@ -16,7 +16,6 @@ using namespace std;
 #include "SymbolTerm.h"
 #include "../../kernelprolog/terms/SxxMachine/Var.h"
 #include "../../kernelprolog/terms/SxxMachine/Source.h"
-#include "StringBuilder.h"
 
 namespace SxxMachine
 {
@@ -50,20 +49,20 @@ namespace SxxMachine
 		return pprint();
 	}
 
-	Term* KPTerm::dref()
+	Term *KPTerm::dref()
 	{ // synchronized !!!
 		return static_cast<Term*>(this);
 	}
 
-	bool KPTerm::DO_Unify(Term* that, KPTrail* trail)
+	bool KPTerm::DO_Unify(Term *that, KPTrail *trail)
 	{
-		if(that == this)
+		if (that == this)
 		{
 			return true;
 		}
-		Term* thisd = dref();
-		Term* thatd = that->dref();
-		if(thatd == thisd)
+		Term *thisd = dref();
+		Term *thatd = that->dref();
+		if (thatd == thisd)
 		{
 			return true;
 		}
@@ -74,17 +73,17 @@ namespace SxxMachine
 	{ // does nothing
 	}
 
-	Term* KPTerm::carTokenOrSelf()
+	Term *KPTerm::carTokenOrSelf()
 	{
 		return static_cast<Term*>(this);
 	}
 
-	Term* KPTerm::toTerm()
+	Term *KPTerm::toTerm()
 	{
 		return static_cast<Term*>(this);
 	}
 
-	Clause* KPTerm::toClause()
+	Clause *KPTerm::toClause()
 	{
 		return new Clause(static_cast<Term*>(this), Prolog::True);
 	}
@@ -94,18 +93,18 @@ namespace SxxMachine
 		return false;
 	}
 
-	Term* KPTerm::fromString(const wstring& s)
+	Term *KPTerm::fromString(const wstring &s)
 	{
 		return Clause::clauseFromString(s)->toTerm();
 	}
 
-	bool KPTerm::matches(Term* that)
+	bool KPTerm::matches(Term *that)
 	{
 		KPTrail tempVar();
 		return matches(that, &tempVar);
 	}
 
-	bool KPTerm::matches(Term* that, KPTrail* trail)
+	bool KPTerm::matches(Term *that, KPTrail *trail)
 	{
 		int oldtop = trail->size();
 		bool ok = DO_Unify(that, trail);
@@ -113,12 +112,12 @@ namespace SxxMachine
 		return ok;
 	}
 
-	Term* KPTerm::matching_copy(Term* that)
+	Term *KPTerm::matching_copy(Term *that)
 	{
-		KPTrail* trail = new KPTrail();
+		KPTrail *trail = new KPTrail();
 		bool ok = DO_Unify(that, trail);
 		// if(ok) that=that.copy();
-		if(ok)
+		if (ok)
 		{
 			that = copy();
 		}
@@ -126,30 +125,30 @@ namespace SxxMachine
 		return (ok) ? that : nullptr;
 	}
 
-	Term* KPTerm::reaction(Term* agent)
+	Term *KPTerm::reaction(Term *agent)
 	{
-		Term* T = agent->action(static_cast<Term*>(this));
+		Term *T = agent->action(static_cast<Term*>(this));
 		return T;
 	}
 
-	Term* KPTerm::action(Term* that)
+	Term *KPTerm::action(Term *that)
 	{
 		return that;
 	}
 
-	Term* KPTerm::copy()
+	Term *KPTerm::copy()
 	{
 		Copier tempVar();
 		return reaction(&tempVar);
 	}
 
-	Term* KPTerm::varsOf()
+	Term *KPTerm::varsOf()
 	{
 		Copier tempVar();
 		return (&tempVar)->getMyVars(static_cast<Term*>(this));
 	}
 
-	Term* KPTerm::numbervars()
+	Term *KPTerm::numbervars()
 	{
 		VarNumberer tempVar();
 		return copy()->reaction(static_cast<Term*>(&tempVar));
@@ -157,8 +156,8 @@ namespace SxxMachine
 
 	wstring KPTerm::toUnquoted()
 	{
-		Term* t = numbervars();
-		if(t == this)
+		Term *t = numbervars();
+		if (t == this)
 		{
 			return pprint();
 		}
@@ -181,47 +180,47 @@ namespace SxxMachine
 		return -1;
 	}
 
-	int KPTerm::exec(Prog* p)
+	int KPTerm::exec(Prog *p)
 	{
 		// IO.println("this should be overriden, prog="+p);
 		return -1;
 	}
 
-	Nonvar* KPTerm::stringToChars(const wstring& s)
+	Nonvar *KPTerm::stringToChars(const wstring &s)
 	{
-		if(0 == s.length())
+		if (0 == s.length())
 		{
 			return Prolog::Nil;
 		}
-		ListTerm* l = CONS(TermData::Long((s[0])), Prolog::Nil);
-		Term* curr = l;
-		for(int i = 1; i < s.length(); i++)
+		ListTerm *l = CONS(TermData::Long((s[0])), Prolog::Nil);
+		Term *curr = l;
+		for (int i = 1; i < s.length(); i++)
 		{
-			StructureTerm* tail = StructureTerm::createCons(Long((s[i])), Prolog::Nil);
+			StructureTerm *tail = StructureTerm::createCons(Long((s[i])), Prolog::Nil);
 			curr->setArg(1, tail);
 			curr = tail;
 		}
 		return l;
 	}
 
-	Nonvar* KPTerm::toChars()
+	Nonvar *KPTerm::toChars()
 	{
 		return stringToChars(toUnquoted());
 	}
 
-	wstring KPTerm::charsToString(Nonvar* Cs)
+	wstring KPTerm::charsToString(Nonvar *Cs)
 	{
-		StringBuilder* s = new StringBuilder("");
+		StringBuilder *s = new StringBuilder("");
 
-		while(!(Cs->isNil()))
+		while (!(Cs->isNil()))
 		{
-			if(!(Cs->isCons()))
+			if (!(Cs->isCons()))
 			{
 				return "";
 			}
-			Nonvar* head = static_cast<Nonvar*>(Expect::asCons(Cs)->ArgDeRef(0));
+			Nonvar *head = static_cast<Nonvar*>(Expect::asCons(Cs)->ArgDeRef(0));
 
-			if(!(head->isNumber()))
+			if (!(head->isNumber()))
 			{
 				return "";
 			}
@@ -326,7 +325,7 @@ namespace SxxMachine
 		return false;
 	}
 
-	Term* KPTerm::toValue()
+	Term *KPTerm::toValue()
 	{
 		// TODO Auto-generated method stub
 		return static_cast<Term*>(this);
@@ -338,30 +337,30 @@ namespace SxxMachine
 		return 0;
 	}
 
-	SymbolTerm* KPTerm::asConst()
+	SymbolTerm *KPTerm::asConst()
 	{
 		// TODO Auto-generated method stub
 		return static_cast<SymbolTerm*>(this);
 	}
 
-	Var* KPTerm::toVar()
+	Var *KPTerm::toVar()
 	{
 		// TODO Auto-generated method stub
 		return static_cast<Var*>(this);
 	}
 
-	Term* KPTerm::ArgDeRef(const int& i)
+	Term *KPTerm::ArgDeRef(int i)
 	{
 		return Expect::asStruct(static_cast<Term*>(this))->ArgDeRef(i);
 	}
 
-	bool KPTerm::isFunctor(const wstring& string)
+	bool KPTerm::isFunctor(const wstring &string)
 	{
 		// TODO Auto-generated method stub
 		return name() == string;
 	}
 
-	Source* KPTerm::asSource()
+	Source *KPTerm::asSource()
 	{
 		// TODO Auto-generated method stub
 		return static_cast<Source*>(this);

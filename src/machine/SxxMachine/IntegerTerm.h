@@ -1,5 +1,4 @@
-#ifndef INTEGERTERM
-#define INTEGERTERM
+#pragma once
 
 #include "LongTerm.h"
 #include <string>
@@ -10,14 +9,16 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class NumberTerm; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class Trail;
+	class Term;
+	class OpVisitor;
+	class NumberTerm;
+}
 
 namespace SxxMachine
 {
-
 
 	/**
 	 * Integer.<br>
@@ -40,18 +41,18 @@ namespace SxxMachine
 		bool isInteger() override;
 		bool isLong() override;
 
-		  bool unifyInt(const int& i, Trail* trail) override;
+		  bool unifyInt(int i, Trail *trail) override;
 
 
 		/** Constructs a new Prolog integer that represents the specified <code>int</code> value. */
-		IntegerTerm(const int& i);
+		IntegerTerm(int i);
 		/**
 		 * Returns the value of <code>intValue()</code>.
 		 * @see #intValue()
 		 */
 		std::any value() override;
 		/* Term */
-		bool unifyImpl(Term* t, Trail* trail) override;
+		bool unifyImpl(Term *t, Trail *trail) override;
 		/** 
 		 * @return the <code>boolean</code> whose value is
 		 * <code>convertible(Integer.class, type)</code>.
@@ -67,7 +68,7 @@ namespace SxxMachine
 		 */
 		std::any toJava() override;
 		std::string toAtomName() override;
-		void toStringImpl(const int& printFlags, StringBuilder* sb) override;
+		void toStringImpl(int printFlags, StringBuilder *sb) override;
 		/**
 		 * Checks <em>term equality</em> of two terms.
 		 * The result is <code>true</code> if and only if the argument is an instance of
@@ -77,9 +78,9 @@ namespace SxxMachine
 		 * equivalent to this <code>IntegerTerm</code>, false otherwise.
 		 * @see #compareTo
 		*/
-		bool equalsTerm(Term* obj, Comparator* comparator) override;
+		bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 		int termHashCodeImpl() override;
-		int compareTo(Term* anotherTerm) override;
+		int compareTo(Term *anotherTerm) override;
 		/* NumberTerm */
 		//@Override
 		//public int intValue() { return this.intValue(); }
@@ -88,72 +89,69 @@ namespace SxxMachine
 		//@Override
 	  //  public double doubleValue() { return (this.intValue()); }
 	   // @Override
-	  int arithCompareTo(NumberTerm* t) override;
-		NumberTerm* abs() override;
-		NumberTerm* acos() override;
-		NumberTerm* add(NumberTerm* t) override;
+	  int arithCompareTo(NumberTerm *t) override;
+		NumberTerm *abs() override;
+		NumberTerm *acos() override;
+		NumberTerm *add(NumberTerm *t) override;
 		/** 
 		 * @exception IllegalTypeException if the given argument
 		 * <code>NumberTerm</code> is a floating point number.
 		 */
-		NumberTerm* and(NumberTerm* t) override;
-		NumberTerm* asin() override;
-		NumberTerm* atan() override;
-		NumberTerm* ceil() override;
-		NumberTerm* cos() override;
-		NumberTerm* divide(NumberTerm* t) override;
-		NumberTerm* exp() override;
-		NumberTerm* floatIntPart() override;
-		NumberTerm* floatFractPart() override;
-		NumberTerm* floor() override;
-		NumberTerm* intDivide(NumberTerm* t) override;
+		NumberTerm *and(NumberTerm *t) override;
+		NumberTerm *asin() override;
+		NumberTerm *atan() override;
+		NumberTerm *ceil() override;
+		NumberTerm *cos() override;
+		NumberTerm *divide(NumberTerm *t) override;
+		NumberTerm *exp() override;
+		NumberTerm *floatIntPart() override;
+		NumberTerm *floatFractPart() override;
+		NumberTerm *floor() override;
+		NumberTerm *intDivide(NumberTerm *t) override;
 		/** 
 		 * @exception EvaluationException if this object represents <coe>0</code>.
 		 */
-		NumberTerm* log() override;
-		NumberTerm* max(NumberTerm* t) override;
-		NumberTerm* min(NumberTerm* t) override;
+		NumberTerm *log() override;
+		NumberTerm *max(NumberTerm *t) override;
+		NumberTerm *min(NumberTerm *t) override;
 		/** 
 		 * @exception IllegalTypeException if the given argument
 		 * <code>NumberTerm</code> is a floating point number.
 		 * @exception EvaluationException if the given argument
 		 * <code>NumberTerm</code> represents <coe>0</code>.
 		 */
-		NumberTerm* mod(NumberTerm* t) override;
-		NumberTerm* multiply(NumberTerm* t) override;
-		NumberTerm* negate() override;
-		NumberTerm* not() override;
-		NumberTerm* or(NumberTerm* t) override;
-		NumberTerm* pow(NumberTerm* t) override;
-		NumberTerm* rint() override;
-		NumberTerm* round() override;
-		NumberTerm* shiftLeft(NumberTerm* t) override;
+		NumberTerm *mod(NumberTerm *t) override;
+		NumberTerm *multiply(NumberTerm *t) override;
+		NumberTerm *negate() override;
+		NumberTerm *not() override;
+		NumberTerm *or(NumberTerm *t) override;
+		NumberTerm *pow(NumberTerm *t) override;
+		NumberTerm *rint() override;
+		NumberTerm *round() override;
+		NumberTerm *shiftLeft(NumberTerm *t) override;
 		/** 
 		 * @exception IllegalTypeException if the given argument
 		 * <code>NumberTerm</code> is a floating point number.
 		 */
-		NumberTerm* shiftRight(NumberTerm* t) override;
-		NumberTerm* signum() override;
-		NumberTerm* sin() override;
-		NumberTerm* sqrt() override;
-		NumberTerm* subtract(NumberTerm* t) override;
-		NumberTerm* tan() override;
-		NumberTerm* toDegrees() override;
-		NumberTerm* toFloat() override;
-		NumberTerm* toRadians() override;
-		NumberTerm* truncate() override;
-		NumberTerm* xor(NumberTerm* t) override;
+		NumberTerm *shiftRight(NumberTerm *t) override;
+		NumberTerm *signum() override;
+		NumberTerm *sin() override;
+		NumberTerm *sqrt() override;
+		NumberTerm *subtract(NumberTerm *t) override;
+		NumberTerm *tan() override;
+		NumberTerm *toDegrees() override;
+		NumberTerm *toFloat() override;
+		NumberTerm *toRadians() override;
+		NumberTerm *truncate() override;
+		NumberTerm *xor(NumberTerm *t) override;
 	private:
-		void must_be_int(NumberTerm* t);
+		void must_be_int(NumberTerm *t);
 	//    public NumberTerm Float(double n) {
 	//      return new DoubleTerm(n);
 	//    }
 	public:
-		virtual NumberTerm* Integer(long long n);
+		virtual NumberTerm *Integer(long long n);
 		int type() override;
 	};
 
 }
-
-
-#endif	//#ifndef INTEGERTERM

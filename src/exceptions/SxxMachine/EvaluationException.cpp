@@ -9,28 +9,28 @@ using namespace std;
 namespace SxxMachine
 {
 
-SymbolTerm* const  EvaluationException::EVALUATION_ERROR = SymbolTerm::intern("evaluation_error", 3);
+SymbolTerm *const EvaluationException::EVALUATION_ERROR = SymbolTerm::intern("evaluation_error", 3);
 
-	EvaluationException::EvaluationException(const wstring& _errorType) : errorType(_errorType)
+	EvaluationException::EvaluationException(const wstring &_errorType) : errorType(_errorType)
 	{
 	}
 
-	EvaluationException::EvaluationException(Operation _goal, const int& _argNo, const wstring& _errorType) : errorType(_errorType)
+	EvaluationException::EvaluationException(Operation _goal, int _argNo, const wstring &_errorType) : errorType(_errorType)
 	{
 		this->goal = _goal;
 		this->argNo = _argNo;
 	}
 
-	Term* EvaluationException::getMessageTerm()
+	Term *EvaluationException::getMessageTerm()
 	{
-		std::vector<Term*> args = { TermData::FFIObject(this->goal), TermData::Integer(this->argNo), SymbolTerm::create(this->errorType) };
+		std::vector<Term*> args = {TermData::FFIObject(this->goal), TermData::Integer(this->argNo), SymbolTerm::create(this->errorType)};
 		return TermData::createErrorTerm(this, EVALUATION_ERROR, args);
 	}
 
 	wstring EvaluationException::toString()
 	{
 		wstring s = "{EVALUATION ERROR: " + this->goal;
-		if(this->argNo > 0)
+		if (this->argNo > 0)
 		{
 			s += " - arg " + to_string(this->argNo);
 		}

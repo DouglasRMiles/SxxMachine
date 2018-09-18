@@ -1,7 +1,5 @@
-#ifndef STOPENGINEEXCEPTION
-#define STOPENGINEEXCEPTION
+#pragma once
 
-#include "RuntimeException.h"
 #include <string>
 #include <stdexcept>
 
@@ -15,13 +13,10 @@ namespace SxxMachine
 	{
 	public:
 		StopEngineException();
-		StopEngineException(const std::string& message);
-		StopEngineException(const std::string& message, std::runtime_error cause);
+		StopEngineException(const std::string &message);
+		StopEngineException(const std::string &message, std::runtime_error cause);
 		StopEngineException(std::runtime_error cause);
-		StopEngineException(const std::string& message, std::runtime_error cause, const bool& enableSuppression, const bool& writableStackTrace);
+		StopEngineException(const std::string &message, std::runtime_error cause, bool enableSuppression, bool writableStackTrace);
 	};
 
 }
-
-
-#endif	//#ifndef STOPENGINEEXCEPTION

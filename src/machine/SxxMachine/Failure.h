@@ -1,13 +1,15 @@
-#ifndef FAILURE
-#define FAILURE
+#pragma once
 
 #include "Operation.h"
 #include <string>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class PrologException; }
+namespace SxxMachine
+{
+	class Operation;
+	class Prolog;
+	class PrologException;
+}
 
 namespace SxxMachine
 {
@@ -22,12 +24,12 @@ namespace SxxMachine
 	class Failure : public Operation
 	{
 	public:
-		static Failure* const  FAILURE;
+		static Failure *const FAILURE;
 	private:
 		Failure();
 
 	public:
-		Operation exec(Prolog* engine) override;
+		Operation exec(Prolog *engine) override;
 		/** Returns a string representation of this <code>Failure</code>. */
 		std::string toString() override;
 		static const Operation fail_0;
@@ -35,11 +37,8 @@ namespace SxxMachine
 		class PRED_fail_0 final : public Operation
 		{
 	  public:
-		  Operation exec(Prolog* engine) throw(PrologException) override;
+		  Operation exec(Prolog *engine) throw(PrologException) override;
 		};
 	};
 
 }
-
-
-#endif	//#ifndef FAILURE

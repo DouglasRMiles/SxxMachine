@@ -1,7 +1,6 @@
 package SxxMachine;
 
-import java.util.Comparator;
-import java.util.IdentityHashMap;
+import java.util.Map;
 
 /**
  * The superclass of classes for term structures. The subclasses of
@@ -55,7 +54,7 @@ public abstract class AliasTerm extends Term implements Comparable<Term> {
         : System.identityHashCode(getValue()));
   }
 
-  public boolean equalsTerm(Term obj, Comparator comparator) {
+  public boolean equalsTerm(Term obj, OpVisitor comparator) {
     if (this == obj) return true;
     
     if (useAlias())  return getValue().equalsTerm(obj, comparator);
@@ -267,7 +266,7 @@ public abstract class AliasTerm extends Term implements Comparable<Term> {
 
   /** Returns a copy of this object. */
   @Override
-  protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) {
+  protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
 
     return (useAlias() ? getValue().copy(copyHash, deeply) : super.copy(copyHash, deeply));
   }

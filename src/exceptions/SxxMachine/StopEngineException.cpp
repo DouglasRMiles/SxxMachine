@@ -9,11 +9,11 @@ namespace SxxMachine
 	{
 	}
 
-	StopEngineException::StopEngineException(const wstring& message) : RuntimeException(message)
+	StopEngineException::StopEngineException(const wstring &message) : RuntimeException(message)
 	{
 	}
 
-	StopEngineException::StopEngineException(const wstring& message, runtime_error cause) : RuntimeException(message, cause)
+	StopEngineException::StopEngineException(const wstring &message, runtime_error cause) : RuntimeException(message, cause)
 	{
 	}
 
@@ -21,7 +21,7 @@ namespace SxxMachine
 	{
 	}
 
-	StopEngineException::StopEngineException(const wstring& message, runtime_error cause, const bool& enableSuppression, const bool& writableStackTrace) : RuntimeException(message, cause, enableSuppression, writableStackTrace)
+	StopEngineException::StopEngineException(const wstring &message, runtime_error cause, bool enableSuppression, bool writableStackTrace) : RuntimeException(message, cause, enableSuppression, writableStackTrace)
 	{
 	}
 }

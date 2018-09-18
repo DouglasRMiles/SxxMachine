@@ -31,14 +31,14 @@ namespace SxxMachine
 	using PRED_$begin_sync_2 = SxxMachine::bootpreds::PRED_$begin_sync_2;
 	using PRED_$builtin_member_2 = SxxMachine::bootpreds::PRED_$builtin_member_2;
 
-	Operation FILE_crypt::PRED_top_0_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_top_0_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// top:-odd(A),even(B),even(C),even(D),mult([C,B,A],D,[E,F,G,H|I]),lefteven(H),odd(G),even(F),even(E),zero(I),lefteven(J),mult([C,B,A],J,[K,L,M|N]),lefteven(M),odd(L),even(K),zero(N),sum([E,F,G,H],[0,K,L,M],[O,P,Q,R|S]),odd(R),odd(Q),even(P),even(O),zero(S)
 		m->setB0();
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16,* a17,* a18,* a19,* a20,* a21,* a22,* a23,* a24,* a25,* a26,* a27,* a28,* a29,* a30,* a31,* a32,* a33,* a34,* a35,* a36,* a37,* a38,* a39,* a40,* a41,* a42,* a43,* a44;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16, *a17, *a18, *a19, *a20, *a21, *a22, *a23, *a24, *a25, *a26, *a27, *a28, *a29, *a30, *a31, *a32, *a33, *a34, *a35, *a36, *a37, *a38, *a39, *a40, *a41, *a42, *a43, *a44;
 		Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21;
 	// top:-[odd(A),even(B),even(C),even(D),mult([C,B,A],D,[E,F,G,H|I]),lefteven(H),odd(G),even(F),even(E),zero(I),lefteven(J),mult([C,B,A],J,[K,L,M|N]),lefteven(M),odd(L),even(K),zero(N),sum([E,F,G,H],[0,K,L,M],[O,P,Q,R|S]),odd(R),odd(Q),even(P),even(O),zero(S)]
 		a1 = V(m);
@@ -88,80 +88,80 @@ namespace SxxMachine
 		return Op([&] (e)
 		{
 		PRED_odd_1_static_exec(e);
-		}, VA({ a1 }), Op([&] (e)
+		}, VA({a1}), Op([&] (e)
 		{
 		PRED_even_1_static_exec(e);
-	}, VA({ a2 }), Op([&] (e)
+	}, VA({a2}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a3 }), Op([&] (e)
+	}, VA({a3}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a4 }), Op([&] (e)
+	}, VA({a4}), Op([&] (e)
 	{
 		PRED_mult_3_static_exec(e);
-	}, VA({ a7, a4, a16 }), Op([&] (e)
+	}, VA({a7, a4, a16}), Op([&] (e)
 	{
 		PRED_lefteven_1_static_exec(e);
-	}, VA({ a11 }), Op([&] (e)
+	}, VA({a11}), Op([&] (e)
 	{
 		PRED_odd_1_static_exec(e);
-	}, VA({ a10 }), Op([&] (e)
+	}, VA({a10}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a9 }), Op([&] (e)
+	}, VA({a9}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a8 }), Op([&] (e)
+	}, VA({a8}), Op([&] (e)
 	{
 		PRED_zero_1_static_exec(e);
-	}, VA({ a12 }), Op([&] (e)
+	}, VA({a12}), Op([&] (e)
 	{
 		PRED_lefteven_1_static_exec(e);
-	}, VA({ a17 }), Op([&] (e)
+	}, VA({a17}), Op([&] (e)
 	{
 		PRED_mult_3_static_exec(e);
-	}, VA({ a20, a17, a27 }), Op([&] (e)
+	}, VA({a20, a17, a27}), Op([&] (e)
 	{
 		PRED_lefteven_1_static_exec(e);
-	}, VA({ a23 }), Op([&] (e)
+	}, VA({a23}), Op([&] (e)
 	{
 		PRED_odd_1_static_exec(e);
-	}, VA({ a22 }), Op([&] (e)
+	}, VA({a22}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a21 }), Op([&] (e)
+	}, VA({a21}), Op([&] (e)
 	{
 		PRED_zero_1_static_exec(e);
-	}, VA({ a24 }), Op([&] (e)
+	}, VA({a24}), Op([&] (e)
 	{
 		PRED_sum_3_static_exec(e);
-	}, VA({ a31, a35, a44 }), Op([&] (e)
+	}, VA({a31, a35, a44}), Op([&] (e)
 	{
 		PRED_odd_1_static_exec(e);
-	}, VA({ a39 }), Op([&] (e)
+	}, VA({a39}), Op([&] (e)
 	{
 		PRED_odd_1_static_exec(e);
-	}, VA({ a38 }), Op([&] (e)
+	}, VA({a38}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a37 }), Op([&] (e)
+	}, VA({a37}), Op([&] (e)
 	{
 		PRED_even_1_static_exec(e);
-	}, VA({ a36 }), Op([&] (e)
+	}, VA({a36}), Op([&] (e)
 	{
 		PRED_zero_1_static_exec(e);
-	}, VA({ a40 }), cont))))))))))))))))))))));
+	}, VA({a40}), cont))))))))))))))))))))));
 	}
 
-	Operation FILE_crypt::PRED_sum_3_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_sum_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// sum(A,B,C):-sum(A,B,0,C)
 		m->setB0();
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -169,14 +169,14 @@ namespace SxxMachine
 		return Op([&] (e)
 		{
 		PRED_sum_4_static_exec(e);
-		}, VA({ a1, a2, int_0, a3 }), cont);
+		}, VA({a1, a2, int_0, a3}), cont);
 	}
 
-SymbolTerm* const  FILE_crypt::FUNCTOR_$002B_2 = F("+",2);
-SymbolTerm* const  FILE_crypt::FUNCTOR_mod_2 = F("mod",2);
-SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
+SymbolTerm *const FILE_crypt::FUNCTOR_$002B_2 = F("+",2);
+SymbolTerm *const FILE_crypt::FUNCTOR_mod_2 = F("mod",2);
+SymbolTerm *const FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 
-	Operation FILE_crypt::PRED_sum_4_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_sum_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -185,94 +185,94 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return sum_4_top(m);
 	}
 
-	Operation FILE_crypt::sum_4_top(Prolog* m)
+	Operation FILE_crypt::sum_4_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_crypt::sum_4_var, FILE_crypt::sum_4_3, FILE_crypt::sum_4_3, FILE_crypt::sum_4_con, FILE_crypt::sum_4_3, FILE_crypt::sum_4_lis);
 	}
 
-	Operation FILE_crypt::sum_4_var(Prolog* m)
+	Operation FILE_crypt::sum_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_crypt::sum_4_var_1);
 		return sum_4_1(m);
 	}
 
-	Operation FILE_crypt::sum_4_var_1(Prolog* m)
+	Operation FILE_crypt::sum_4_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_var_2);
 		return sum_4_2(m);
 	}
 
-	Operation FILE_crypt::sum_4_var_2(Prolog* m)
+	Operation FILE_crypt::sum_4_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_var_3);
 		return sum_4_3(m);
 	}
 
-	Operation FILE_crypt::sum_4_var_3(Prolog* m)
+	Operation FILE_crypt::sum_4_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_var_4);
 		return sum_4_4(m);
 	}
 
-	Operation FILE_crypt::sum_4_var_4(Prolog* m)
+	Operation FILE_crypt::sum_4_var_4(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_var_5);
 		return sum_4_5(m);
 	}
 
-	Operation FILE_crypt::sum_4_var_5(Prolog* m)
+	Operation FILE_crypt::sum_4_var_5(Prolog *m)
 	{
 		m->trust(nullptr);
 		return sum_4_6(m);
 	}
 
-	Operation FILE_crypt::sum_4_con(Prolog* m)
+	Operation FILE_crypt::sum_4_con(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_crypt::sum_4_con_1);
 		return sum_4_2(m);
 	}
 
-	Operation FILE_crypt::sum_4_con_1(Prolog* m)
+	Operation FILE_crypt::sum_4_con_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_con_2);
 		return sum_4_3(m);
 	}
 
-	Operation FILE_crypt::sum_4_con_2(Prolog* m)
+	Operation FILE_crypt::sum_4_con_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_con_3);
 		return sum_4_4(m);
 	}
 
-	Operation FILE_crypt::sum_4_con_3(Prolog* m)
+	Operation FILE_crypt::sum_4_con_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return sum_4_6(m);
 	}
 
-	Operation FILE_crypt::sum_4_lis(Prolog* m)
+	Operation FILE_crypt::sum_4_lis(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_crypt::sum_4_lis_1);
 		return sum_4_1(m);
 	}
 
-	Operation FILE_crypt::sum_4_lis_1(Prolog* m)
+	Operation FILE_crypt::sum_4_lis_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::sum_4_lis_2);
 		return sum_4_3(m);
 	}
 
-	Operation FILE_crypt::sum_4_lis_2(Prolog* m)
+	Operation FILE_crypt::sum_4_lis_2(Prolog *m)
 	{
 		m->trust(nullptr);
 		return sum_4_5(m);
 	}
 
-	Operation FILE_crypt::sum_4_1(Prolog* m)
+	Operation FILE_crypt::sum_4_1(Prolog *m)
 	{
 	// sum([A|B],[C|D],E,[F|G]):-!,H is A+C+E,F is H mod 10,I is H//10,sum(B,D,I,G)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14,* a15,* a16;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15, *a16;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -281,47 +281,53 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		cont = m->cont;
 	// sum([A|B],[C|D],E,[F|G]):-['$neck_cut',H is A+C+E,F is H mod 10,I is H//10,sum(B,D,I,G)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a2->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a9 = argz[0];
 			a10 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a9 = V(m);
 			a10 = V(m);
 			 a4->bind(CONS(a9, a10), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -330,32 +336,32 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		//END inline expansion
 		a11 = V(m);
 	// put_str_args([a(5),a(7)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(12))
-		a12 = S(FUNCTOR_$002B_2, { a5, a7 });
+		a12 = S(FUNCTOR_$002B_2, {a5, a7});
 		 ;
 	// put_str_args([a(12),a(3)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(13))
-		a13 = S(FUNCTOR_$002B_2, { a12, a3 });
+		a13 = S(FUNCTOR_$002B_2, {a12, a3});
 		 ;
 		//START inline expansion of a(11)is a(13)
-		if(!a11->unify(Arithmetic::evaluate(a13), m->trail))
+		if (!a11->unify(Arithmetic::evaluate(a13), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(11),@(int_10)],y(3)),put_str(@('FUNCTOR_mod_2'),y(3),a(14))
-		a14 = S(FUNCTOR_mod_2, { a11, int_10 });
+		a14 = S(FUNCTOR_mod_2, {a11, int_10});
 		 ;
 		//START inline expansion of a(9)is a(14)
-		if(!a9->unify(Arithmetic::evaluate(a14), m->trail))
+		if (!a9->unify(Arithmetic::evaluate(a14), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a15 = V(m);
 	// put_str_args([a(11),@(int_10)],y(4)),put_str(@('FUNCTOR_$002F$002F_2'),y(4),a(16))
-		a16 = S(FUNCTOR_$002F$002F_2, { a11, int_10 });
+		a16 = S(FUNCTOR_$002F$002F_2, {a11, int_10});
 		 ;
 		//START inline expansion of a(15)is a(16)
-		if(!a15->unify(Arithmetic::evaluate(a16), m->trail))
+		if (!a15->unify(Arithmetic::evaluate(a16), m->trail))
 		{
 			return m->fail();
 		}
@@ -368,10 +374,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return sum_4_top(m);
 	}
 
-	Operation FILE_crypt::sum_4_2(Prolog* m)
+	Operation FILE_crypt::sum_4_2(Prolog *m)
 	{
 	// sum([],A,0,A):-!
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -379,15 +385,15 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// sum([],A,0,A):-['$neck_cut']
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_0->unify(a3, m->trail))
+		if (!int_0->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a2->unify(a4, m->trail))
+		if (!a2->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
@@ -397,10 +403,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return cont;
 	}
 
-	Operation FILE_crypt::sum_4_3(Prolog* m)
+	Operation FILE_crypt::sum_4_3(Prolog *m)
 	{
 	// sum(A,[],0,A):-!
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -408,15 +414,15 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// sum(A,[],0,A):-['$neck_cut']
-		if(!Prolog::Nil->unify(a2, m->trail))
+		if (!Prolog::Nil->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
-		if(!int_0->unify(a3, m->trail))
+		if (!int_0->unify(a3, m->trail))
 		{
 			return m->fail();
 		}
-		if(!a1->unify(a4, m->trail))
+		if (!a1->unify(a4, m->trail))
 		{
 			return m->fail();
 		}
@@ -426,10 +432,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return cont;
 	}
 
-	Operation FILE_crypt::sum_4_4(Prolog* m)
+	Operation FILE_crypt::sum_4_4(Prolog *m)
 	{
 	// sum([],[A|B],C,[D|E]):-!,F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -437,37 +443,41 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// sum([],[A|B],C,[D|E]):-['$neck_cut',F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a2 = a2->dref();
-		if(a2->isCons())
+		if (a2->isCons())
 		{
-			std::vector<Term*> argz = VA({ a2->car(), a2->cdr() });
+			std::vector<Term*> argz = VA({a2->car(), a2->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a2->isVar())
+		}
+		else if (a2->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a2->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a4->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -476,29 +486,29 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		//END inline expansion
 		a9 = V(m);
 	// put_str_args([a(5),a(3)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(10))
-		a10 = S(FUNCTOR_$002B_2, { a5, a3 });
+		a10 = S(FUNCTOR_$002B_2, {a5, a3});
 		 ;
 		//START inline expansion of a(9)is a(10)
-		if(!a9->unify(Arithmetic::evaluate(a10), m->trail))
+		if (!a9->unify(Arithmetic::evaluate(a10), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a11 = V(m);
 	// put_str_args([a(9),@(int_10)],y(2)),put_str(@('FUNCTOR_$002F$002F_2'),y(2),a(12))
-		a12 = S(FUNCTOR_$002F$002F_2, { a9, int_10 });
+		a12 = S(FUNCTOR_$002F$002F_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(11)is a(12)
-		if(!a11->unify(Arithmetic::evaluate(a12), m->trail))
+		if (!a11->unify(Arithmetic::evaluate(a12), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(9),@(int_10)],y(3)),put_str(@('FUNCTOR_mod_2'),y(3),a(13))
-		a13 = S(FUNCTOR_mod_2, { a9, int_10 });
+		a13 = S(FUNCTOR_mod_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(7)is a(13)
-		if(!a7->unify(Arithmetic::evaluate(a13), m->trail))
+		if (!a7->unify(Arithmetic::evaluate(a13), m->trail))
 		{
 			return m->fail();
 		}
@@ -511,10 +521,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return sum_4_top(m);
 	}
 
-	Operation FILE_crypt::sum_4_5(Prolog* m)
+	Operation FILE_crypt::sum_4_5(Prolog *m)
 	{
 	// sum([A|B],[],C,[D|E]):-!,F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -523,36 +533,40 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		cont = m->cont;
 	// sum([A|B],[],C,[D|E]):-['$neck_cut',F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a2, m->trail))
+		if (!Prolog::Nil->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a4->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -561,29 +575,29 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		//END inline expansion
 		a9 = V(m);
 	// put_str_args([a(5),a(3)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(10))
-		a10 = S(FUNCTOR_$002B_2, { a5, a3 });
+		a10 = S(FUNCTOR_$002B_2, {a5, a3});
 		 ;
 		//START inline expansion of a(9)is a(10)
-		if(!a9->unify(Arithmetic::evaluate(a10), m->trail))
+		if (!a9->unify(Arithmetic::evaluate(a10), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a11 = V(m);
 	// put_str_args([a(9),@(int_10)],y(2)),put_str(@('FUNCTOR_$002F$002F_2'),y(2),a(12))
-		a12 = S(FUNCTOR_$002F$002F_2, { a9, int_10 });
+		a12 = S(FUNCTOR_$002F$002F_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(11)is a(12)
-		if(!a11->unify(Arithmetic::evaluate(a12), m->trail))
+		if (!a11->unify(Arithmetic::evaluate(a12), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(9),@(int_10)],y(3)),put_str(@('FUNCTOR_mod_2'),y(3),a(13))
-		a13 = S(FUNCTOR_mod_2, { a9, int_10 });
+		a13 = S(FUNCTOR_mod_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(7)is a(13)
-		if(!a7->unify(Arithmetic::evaluate(a13), m->trail))
+		if (!a7->unify(Arithmetic::evaluate(a13), m->trail))
 		{
 			return m->fail();
 		}
@@ -596,10 +610,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return sum_4_top(m);
 	}
 
-	Operation FILE_crypt::sum_4_6(Prolog* m)
+	Operation FILE_crypt::sum_4_6(Prolog *m)
 	{
 	// sum([],[],A,[A]):-true
-		 Term* a1,* a2,* a3,* a4;
+		 Term *a1, *a2, *a3, *a4;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -607,44 +621,46 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// sum([],[],A,[A]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
-		if(!Prolog::Nil->unify(a2, m->trail))
+		if (!Prolog::Nil->unify(a2, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
-			if(!a3->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
+			if (!a3->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			 a4->bind(CONS(a3, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::PRED_mult_3_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_mult_3_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
 		Operation thiz = m->pred;
 	// mult(A,B,C):-mult(A,B,0,C)
 		m->setB0();
-		 Term* a1,* a2,* a3;
+		 Term *a1, *a2, *a3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -652,12 +668,12 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002F$002F_2 = F("//",2);
 		return Op([&] (e)
 		{
 		PRED_mult_4_static_exec(e);
-		}, VA({ a1, a2, int_0, a3 }), cont);
+		}, VA({a1, a2, int_0, a3}), cont);
 	}
 
-SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
+SymbolTerm *const FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 
-	Operation FILE_crypt::PRED_mult_4_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_mult_4_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -666,28 +682,28 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return mult_4_top(m);
 	}
 
-	Operation FILE_crypt::mult_4_top(Prolog* m)
+	Operation FILE_crypt::mult_4_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_crypt::mult_4_var, Failure::fail_0, Failure::fail_0, FILE_crypt::mult_4_2, Failure::fail_0, FILE_crypt::mult_4_1);
 	}
 
-	Operation FILE_crypt::mult_4_var(Prolog* m)
+	Operation FILE_crypt::mult_4_var(Prolog *m)
 	{
 		m->jtry4(nullptr, FILE_crypt::mult_4_var_1);
 		return mult_4_1(m);
 	}
 
-	Operation FILE_crypt::mult_4_var_1(Prolog* m)
+	Operation FILE_crypt::mult_4_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return mult_4_2(m);
 	}
 
-	Operation FILE_crypt::mult_4_1(Prolog* m)
+	Operation FILE_crypt::mult_4_1(Prolog *m)
 	{
 	// mult([A|B],C,D,[E|F]):-G is A*C+D,E is G mod 10,H is G//10,mult(B,C,H,F)
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9,* a10,* a11,* a12,* a13,* a14;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -696,63 +712,67 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		cont = m->cont;
 	// mult([A|B],C,D,[E|F]):-[G is A*C+D,E is G mod 10,H is G//10,mult(B,C,H,F)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a1->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a7 = argz[0];
 			a8 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a7 = V(m);
 			a8 = V(m);
 			 a4->bind(CONS(a7, a8), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a9 = V(m);
 	// put_str_args([a(5),a(2)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(10))
-		a10 = S(FUNCTOR_$002A_2, { a5, a2 });
+		a10 = S(FUNCTOR_$002A_2, {a5, a2});
 		 ;
 	// put_str_args([a(10),a(3)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(11))
-		a11 = S(FUNCTOR_$002B_2, { a10, a3 });
+		a11 = S(FUNCTOR_$002B_2, {a10, a3});
 		 ;
 		//START inline expansion of a(9)is a(11)
-		if(!a9->unify(Arithmetic::evaluate(a11), m->trail))
+		if (!a9->unify(Arithmetic::evaluate(a11), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(9),@(int_10)],y(3)),put_str(@('FUNCTOR_mod_2'),y(3),a(12))
-		a12 = S(FUNCTOR_mod_2, { a9, int_10 });
+		a12 = S(FUNCTOR_mod_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(7)is a(12)
-		if(!a7->unify(Arithmetic::evaluate(a12), m->trail))
+		if (!a7->unify(Arithmetic::evaluate(a12), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 		a13 = V(m);
 	// put_str_args([a(9),@(int_10)],y(4)),put_str(@('FUNCTOR_$002F$002F_2'),y(4),a(14))
-		a14 = S(FUNCTOR_$002F$002F_2, { a9, int_10 });
+		a14 = S(FUNCTOR_$002F$002F_2, {a9, int_10});
 		 ;
 		//START inline expansion of a(13)is a(14)
-		if(!a13->unify(Arithmetic::evaluate(a14), m->trail))
+		if (!a13->unify(Arithmetic::evaluate(a14), m->trail))
 		{
 			return m->fail();
 		}
@@ -765,10 +785,10 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return mult_4_top(m);
 	}
 
-	Operation FILE_crypt::mult_4_2(Prolog* m)
+	Operation FILE_crypt::mult_4_2(Prolog *m)
 	{
 	// mult([],A,B,[C,D]):-C is B mod 10,D is B//10
-		 Term* a1,* a2,* a3,* a4,* a5,* a6,* a7,* a8,* a9;
+		 Term *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9;
 		Operation cont;
 		a1 = m->AREGS[0];
 		a2 = m->AREGS[1];
@@ -776,56 +796,60 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		a4 = m->AREGS[3];
 		cont = m->cont;
 	// mult([],A,B,[C,D]):-[C is B mod 10,D is B//10]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		a4 = a4->dref();
-		if(a4->isCons())
+		if (a4->isCons())
 		{
-			std::vector<Term*> argz = VA({ a4->car(), a4->cdr() });
+			std::vector<Term*> argz = VA({a4->car(), a4->cdr()});
 			a5 = argz[0];
 			a6 = argz[1];
-		} else if(a4->isVar())
+		}
+		else if (a4->isVar())
 		{
 			a5 = V(m);
 			a6 = V(m);
 			 a4->bind(CONS(a5, a6), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 		a6 = a6->dref();
-		if(a6->isCons())
+		if (a6->isCons())
 		{
-			std::vector<Term*> argz = VA({ a6->car(), a6->cdr() });
+			std::vector<Term*> argz = VA({a6->car(), a6->cdr()});
 			a7 = argz[0];
-			if(!Prolog::Nil->unify(argz[1], m->trail))
+			if (!Prolog::Nil->unify(argz[1], m->trail))
 			{
 				return m->fail();
 			}
-		} else if(a6->isVar())
+		}
+		else if (a6->isVar())
 		{
 			a7 = V(m);
 			 a6->bind(CONS(a7, Prolog::Nil), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
 	// put_str_args([a(3),@(int_10)],y(1)),put_str(@('FUNCTOR_mod_2'),y(1),a(8))
-		a8 = S(FUNCTOR_mod_2, { a3, int_10 });
+		a8 = S(FUNCTOR_mod_2, {a3, int_10});
 		 ;
 		//START inline expansion of a(5)is a(8)
-		if(!a5->unify(Arithmetic::evaluate(a8), m->trail))
+		if (!a5->unify(Arithmetic::evaluate(a8), m->trail))
 		{
 			return m->fail();
 		}
 		//END inline expansion
 	// put_str_args([a(3),@(int_10)],y(2)),put_str(@('FUNCTOR_$002F$002F_2'),y(2),a(9))
-		a9 = S(FUNCTOR_$002F$002F_2, { a3, int_10 });
+		a9 = S(FUNCTOR_$002F$002F_2, {a3, int_10});
 		 ;
 		//START inline expansion of a(7)is a(9)
-		if(!a7->unify(Arithmetic::evaluate(a9), m->trail))
+		if (!a7->unify(Arithmetic::evaluate(a9), m->trail))
 		{
 			return m->fail();
 		}
@@ -833,7 +857,7 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return cont;
 	}
 
-	Operation FILE_crypt::PRED_zero_1_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_zero_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -842,61 +866,63 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return zero_1_top(m);
 	}
 
-	Operation FILE_crypt::zero_1_top(Prolog* m)
+	Operation FILE_crypt::zero_1_top(Prolog *m)
 	{
 		m->setB0();
 		return m->switch_on_term(FILE_crypt::zero_1_var, Failure::fail_0, Failure::fail_0, FILE_crypt::zero_1_1, Failure::fail_0, FILE_crypt::zero_1_2);
 	}
 
-	Operation FILE_crypt::zero_1_var(Prolog* m)
+	Operation FILE_crypt::zero_1_var(Prolog *m)
 	{
 		m->jtry1(nullptr, FILE_crypt::zero_1_var_1);
 		return zero_1_1(m);
 	}
 
-	Operation FILE_crypt::zero_1_var_1(Prolog* m)
+	Operation FILE_crypt::zero_1_var_1(Prolog *m)
 	{
 		m->trust(nullptr);
 		return zero_1_2(m);
 	}
 
-	Operation FILE_crypt::zero_1_1(Prolog* m)
+	Operation FILE_crypt::zero_1_1(Prolog *m)
 	{
 	// zero([]):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// zero([]):-[]
-		if(!Prolog::Nil->unify(a1, m->trail))
+		if (!Prolog::Nil->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::zero_1_2(Prolog* m)
+	Operation FILE_crypt::zero_1_2(Prolog *m)
 	{
 	// zero([0|A]):-zero(A)
-		 Term* a1,* a2;
+		 Term *a1, *a2;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// zero([0|A]):-[zero(A)]
 		a1 = a1->dref();
-		if(a1->isCons())
+		if (a1->isCons())
 		{
-			std::vector<Term*> argz = VA({ a1->car(), a1->cdr() });
-			if(!int_0->unify(argz[0], m->trail))
+			std::vector<Term*> argz = VA({a1->car(), a1->cdr()});
+			if (!int_0->unify(argz[0], m->trail))
 			{
 				return m->fail();
 			}
 			a2 = argz[1];
-		} else if(a1->isVar())
+		}
+		else if (a1->isVar())
 		{
 			a2 = V(m);
 			 a1->bind(CONS(int_0, a2), m->trail);
-		} else
+		}
+		else
 		{
 			return m->fail();
 		}
@@ -905,7 +931,7 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return zero_1_top(m);
 	}
 
-	Operation FILE_crypt::PRED_odd_1_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_odd_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -915,112 +941,112 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return m->switch_on_term(FILE_crypt::odd_1_var, FILE_crypt::odd_1_var, Failure::fail_0, Failure::fail_0, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_crypt::odd_1_var(Prolog* m)
+	Operation FILE_crypt::odd_1_var(Prolog *m)
 	{
 		m->jtry1(nullptr, FILE_crypt::odd_1_var_1);
 		return odd_1_1(m);
 	}
 
-	Operation FILE_crypt::odd_1_var_1(Prolog* m)
+	Operation FILE_crypt::odd_1_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::odd_1_var_2);
 		return odd_1_2(m);
 	}
 
-	Operation FILE_crypt::odd_1_var_2(Prolog* m)
+	Operation FILE_crypt::odd_1_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::odd_1_var_3);
 		return odd_1_3(m);
 	}
 
-	Operation FILE_crypt::odd_1_var_3(Prolog* m)
+	Operation FILE_crypt::odd_1_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::odd_1_var_4);
 		return odd_1_4(m);
 	}
 
-	Operation FILE_crypt::odd_1_var_4(Prolog* m)
+	Operation FILE_crypt::odd_1_var_4(Prolog *m)
 	{
 		m->trust(nullptr);
 		return odd_1_5(m);
 	}
 
-	Operation FILE_crypt::odd_1_1(Prolog* m)
+	Operation FILE_crypt::odd_1_1(Prolog *m)
 	{
 	// odd(1):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// odd(1):-[]
-		if(!int_1->unify(a1, m->trail))
+		if (!int_1->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::odd_1_2(Prolog* m)
+	Operation FILE_crypt::odd_1_2(Prolog *m)
 	{
 	// odd(3):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// odd(3):-[]
-		if(!int_3->unify(a1, m->trail))
+		if (!int_3->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::odd_1_3(Prolog* m)
+	Operation FILE_crypt::odd_1_3(Prolog *m)
 	{
 	// odd(5):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// odd(5):-[]
-		if(!int_5->unify(a1, m->trail))
+		if (!int_5->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::odd_1_4(Prolog* m)
+	Operation FILE_crypt::odd_1_4(Prolog *m)
 	{
 	// odd(7):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// odd(7):-[]
-		if(!int_7->unify(a1, m->trail))
+		if (!int_7->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::odd_1_5(Prolog* m)
+	Operation FILE_crypt::odd_1_5(Prolog *m)
 	{
 	// odd(9):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// odd(9):-[]
-		if(!int_9->unify(a1, m->trail))
+		if (!int_9->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::PRED_even_1_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_even_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -1030,112 +1056,112 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return m->switch_on_term(FILE_crypt::even_1_var, FILE_crypt::even_1_var, Failure::fail_0, Failure::fail_0, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_crypt::even_1_var(Prolog* m)
+	Operation FILE_crypt::even_1_var(Prolog *m)
 	{
 		m->jtry1(nullptr, FILE_crypt::even_1_var_1);
 		return even_1_1(m);
 	}
 
-	Operation FILE_crypt::even_1_var_1(Prolog* m)
+	Operation FILE_crypt::even_1_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::even_1_var_2);
 		return even_1_2(m);
 	}
 
-	Operation FILE_crypt::even_1_var_2(Prolog* m)
+	Operation FILE_crypt::even_1_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::even_1_var_3);
 		return even_1_3(m);
 	}
 
-	Operation FILE_crypt::even_1_var_3(Prolog* m)
+	Operation FILE_crypt::even_1_var_3(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::even_1_var_4);
 		return even_1_4(m);
 	}
 
-	Operation FILE_crypt::even_1_var_4(Prolog* m)
+	Operation FILE_crypt::even_1_var_4(Prolog *m)
 	{
 		m->trust(nullptr);
 		return even_1_5(m);
 	}
 
-	Operation FILE_crypt::even_1_1(Prolog* m)
+	Operation FILE_crypt::even_1_1(Prolog *m)
 	{
 	// even(0):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// even(0):-[]
-		if(!int_0->unify(a1, m->trail))
+		if (!int_0->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::even_1_2(Prolog* m)
+	Operation FILE_crypt::even_1_2(Prolog *m)
 	{
 	// even(2):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// even(2):-[]
-		if(!int_2->unify(a1, m->trail))
+		if (!int_2->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::even_1_3(Prolog* m)
+	Operation FILE_crypt::even_1_3(Prolog *m)
 	{
 	// even(4):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// even(4):-[]
-		if(!int_4->unify(a1, m->trail))
+		if (!int_4->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::even_1_4(Prolog* m)
+	Operation FILE_crypt::even_1_4(Prolog *m)
 	{
 	// even(6):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// even(6):-[]
-		if(!int_6->unify(a1, m->trail))
+		if (!int_6->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::even_1_5(Prolog* m)
+	Operation FILE_crypt::even_1_5(Prolog *m)
 	{
 	// even(8):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// even(8):-[]
-		if(!int_8->unify(a1, m->trail))
+		if (!int_8->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::PRED_lefteven_1_static_exec(Prolog* m)
+	Operation FILE_crypt::PRED_lefteven_1_static_exec(Prolog *m)
 	{
 		Operation cont = m->cont;
 		std::vector<Term*> LARG = m->AREGS;
@@ -1145,84 +1171,84 @@ SymbolTerm* const  FILE_crypt::FUNCTOR_$002A_2 = F("*",2);
 		return m->switch_on_term(FILE_crypt::lefteven_1_var, FILE_crypt::lefteven_1_var, Failure::fail_0, Failure::fail_0, Failure::fail_0, Failure::fail_0);
 	}
 
-	Operation FILE_crypt::lefteven_1_var(Prolog* m)
+	Operation FILE_crypt::lefteven_1_var(Prolog *m)
 	{
 		m->jtry1(nullptr, FILE_crypt::lefteven_1_var_1);
 		return lefteven_1_1(m);
 	}
 
-	Operation FILE_crypt::lefteven_1_var_1(Prolog* m)
+	Operation FILE_crypt::lefteven_1_var_1(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::lefteven_1_var_2);
 		return lefteven_1_2(m);
 	}
 
-	Operation FILE_crypt::lefteven_1_var_2(Prolog* m)
+	Operation FILE_crypt::lefteven_1_var_2(Prolog *m)
 	{
 		m->retry(nullptr, FILE_crypt::lefteven_1_var_3);
 		return lefteven_1_3(m);
 	}
 
-	Operation FILE_crypt::lefteven_1_var_3(Prolog* m)
+	Operation FILE_crypt::lefteven_1_var_3(Prolog *m)
 	{
 		m->trust(nullptr);
 		return lefteven_1_4(m);
 	}
 
-	Operation FILE_crypt::lefteven_1_1(Prolog* m)
+	Operation FILE_crypt::lefteven_1_1(Prolog *m)
 	{
 	// lefteven(2):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// lefteven(2):-[]
-		if(!int_2->unify(a1, m->trail))
+		if (!int_2->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::lefteven_1_2(Prolog* m)
+	Operation FILE_crypt::lefteven_1_2(Prolog *m)
 	{
 	// lefteven(4):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// lefteven(4):-[]
-		if(!int_4->unify(a1, m->trail))
+		if (!int_4->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::lefteven_1_3(Prolog* m)
+	Operation FILE_crypt::lefteven_1_3(Prolog *m)
 	{
 	// lefteven(6):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// lefteven(6):-[]
-		if(!int_6->unify(a1, m->trail))
+		if (!int_6->unify(a1, m->trail))
 		{
 			return m->fail();
 		}
 		return cont;
 	}
 
-	Operation FILE_crypt::lefteven_1_4(Prolog* m)
+	Operation FILE_crypt::lefteven_1_4(Prolog *m)
 	{
 	// lefteven(8):-true
-		 Term* a1;
+		 Term *a1;
 		Operation cont;
 		a1 = m->AREGS[0];
 		cont = m->cont;
 	// lefteven(8):-[]
-		if(!int_8->unify(a1, m->trail))
+		if (!int_8->unify(a1, m->trail))
 		{
 			return m->fail();
 		}

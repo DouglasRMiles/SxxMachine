@@ -1,4 +1,4 @@
-package SxxMachine.library;
+package SxxMachine;
 
 import static SxxMachine.FILE_builtins.PRED_$002C_2_static_exec;
 import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;

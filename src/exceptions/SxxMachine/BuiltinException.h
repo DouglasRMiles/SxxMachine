@@ -1,11 +1,13 @@
-#ifndef BUILTINEXCEPTION
-#define BUILTINEXCEPTION
+#pragma once
 
 #include "PrologException.h"
 #include "../../machine/SxxMachine/Operation.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -21,7 +23,7 @@ namespace SxxMachine
 	class BuiltinException : public PrologException
 	{
 	public:
-		Term* messageTerm;
+		Term *messageTerm;
 		/** Holds the goal in which this exception occurs. */
 		Operation goal = nullptr;
 		/** Holds the arity of goal in which this exception occurs. */
@@ -34,11 +36,8 @@ namespace SxxMachine
 
 		BuiltinException();
 		/** Constructs a new <code>BuiltinException</code> with a given message term. */
-		BuiltinException(Term* _message);
-		Term* getMessageTerm() override;
+		BuiltinException(Term *_message);
+		Term *getMessageTerm() override;
 	};
 
 }
-
-
-#endif	//#ifndef BUILTINEXCEPTION

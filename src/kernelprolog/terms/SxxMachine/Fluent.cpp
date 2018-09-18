@@ -8,12 +8,12 @@ using namespace std;
 namespace SxxMachine
 {
 
-	Fluent::Fluent(Prog* p)
+	Fluent::Fluent(Prog *p)
 	{
 		trailMe(p);
 	}
 
-	Term* Fluent::toClone()
+	Term *Fluent::toClone()
 	{
 		oopsy();
 		return this;
@@ -24,7 +24,7 @@ namespace SxxMachine
 		return true;
 	}
 
-	void Fluent::setPersistent(const bool& persistent)
+	void Fluent::setPersistent(bool persistent)
 	{
 		this->persistent = persistent;
 	}
@@ -34,9 +34,9 @@ namespace SxxMachine
 		return this->persistent;
 	}
 
-	void Fluent::trailMe(Prog* p)
+	void Fluent::trailMe(Prog *p)
 	{
-		if(nullptr != p)
+		if (nullptr != p)
 		{
 			p->getTrail()->push(this);
 		}
@@ -48,7 +48,7 @@ namespace SxxMachine
 
 	void Fluent::undo()
 	{
-		if(!persistent)
+		if (!persistent)
 		{
 			stop();
 		}

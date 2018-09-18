@@ -1,15 +1,10 @@
-#ifndef CACHEDMEMOIZER
-#define CACHEDMEMOIZER
+#pragma once
 
 #include <unordered_map>
 #include <iostream>
 #include <functional>
 #include <optional>
 #include "exceptionhelper.h"
-
-//JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-class CachedMemoizer;
-class InterruptedException;
 
 namespace SxxMachine
 {
@@ -27,7 +22,7 @@ namespace SxxMachine
 	  {
 	  }
 
-	  internal private* std::function<U(T)
+	  internal *std::function<U(T)
 	  {
 		return [&] (std::any input)
 		{
@@ -36,7 +31,7 @@ namespace SxxMachine
 	  }
 
   public:
-	  static std::function<U<T, * U>(T)
+	  static std::function<U<T, *U>(T)
 	  {
 		CachedMemoizer<T, U> tempVar();
 		return (&tempVar)->doMemoize(function);
@@ -55,14 +50,14 @@ namespace SxxMachine
 			delete f3m;
 		}
 
-		virtual std::optional<int> longCalculation(std::optional<int>& x);
+		virtual std::optional<int> longCalculation(std::optional<int> &x);
 
-		std::function<int(const int&)> f = this::longCalculation;
-		std::function<int(const int&)> g = CachedMemoizer::memoize(f);
+		std::function<int(int)> f = this::longCalculation;
+		std::function<int(int)> g = CachedMemoizer::memoize(f);
 
 		virtual void automaticMemoizationExample();
 
-		std::function<std::function<std::function<int(const int&)> > > f3 = [&] (std::any x)
+		std::function<std::function<std::function<int(int)>>> f3 = [&] (std::any x)
 		{
 	[&] (std::any y)
 	{
@@ -72,7 +67,7 @@ namespace SxxMachine
 		};
 	};
 		};
-		std::function<std::function<std::function<int(const int&)> > > f3m = memoize([&] (std::any x)
+		std::function<std::function<std::function<int(int)>>> f3m = memoize([&] (std::any x)
 		{
 	memoize([&] (std::any y)
 	{
@@ -88,6 +83,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef CACHEDMEMOIZER

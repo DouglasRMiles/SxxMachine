@@ -8,27 +8,28 @@ using namespace std;
 namespace SxxMachine
 {
 
-	IterableSource::IterableSource(Prog* p) : Source(p)
+	IterableSource::IterableSource(Prog *p) : Source(p)
 	{
 		e = nullptr;
 	}
 
-	IterableSource::IterableSource(Iterator* iterator, Prog* p) : Source(p)
+	IterableSource::IterableSource(Iterator *iterator, Prog *p) : Source(p)
 	{
 		this->e = iterator;
 	}
 
-	IterableSource::IterableSource(vector V, Prog* p) : Source(p)
+	IterableSource::IterableSource(vector V, Prog *p) : Source(p)
 	{
 		this->e = V.begin();
 	}
 
-	Term* IterableSource::getElement()
+	Term *IterableSource::getElement()
 	{
-		if(nullptr == e || !e->hasNext())
+		if (nullptr == e || !e->hasNext())
 		{
 			return nullptr;
-		} else
+		}
+		else
 		{
 			return static_cast<Term*>(e->next());
 		}

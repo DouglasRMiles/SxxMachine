@@ -1,5 +1,4 @@
-#ifndef FUNBUILTIN
-#define FUNBUILTIN
+#pragma once
 
 #include "ConstBuiltin.h"
 #include <string>
@@ -17,7 +16,7 @@ namespace SxxMachine
 
 	public:
 		int arity = 0;
-		FunBuiltin(const std::string& f, const int& i);
+		FunBuiltin(const std::string &f, int i);
 	//	@Override
 	//	public int exec(Prog p) {s
 	//		// TODO Auto-generated method stub
@@ -32,6 +31,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef FUNBUILTIN

@@ -1,14 +1,16 @@
-#ifndef SOURCEMERGER
-#define SOURCEMERGER
+#pragma once
 
 #include "IterableSource.h"
 #include <any>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Nonvar; }
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class O1Queue; }
-namespace SxxMachine { class Term; }
+namespace SxxMachine
+{
+	class Nonvar;
+	class Prog;
+	class O1Queue;
+	class Term;
+}
 
 namespace SxxMachine
 {
@@ -26,16 +28,13 @@ namespace SxxMachine
 			delete Q;
 		}
 
-		SourceMerger(Nonvar* Xs, Prog* p);
+		SourceMerger(Nonvar *Xs, Prog *p);
 
 	private:
-		O1Queue* Q;
+		O1Queue *Q;
 
 	public:
-		Term* getElement() override;
+		Term *getElement() override;
 	};
 
 }
-
-
-#endif	//#ifndef SOURCEMERGER

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import java.util.Comparator;
-
 /**
  * Integer.<br>
  * The class <code>IntegerTerm</code> wraps a value of primitive type 
@@ -84,7 +82,7 @@ public class IntegerTerm extends LongTerm {
      * @see #compareTo
     */
     @Override
-    public boolean equalsTerm(Term obj, Comparator comparator) {
+    public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		return obj .isInteger() && this.intValue() == obj.intValue();
 	}
     @Override

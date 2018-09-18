@@ -1,5 +1,4 @@
-#ifndef STRINGHELPER
-#define STRINGHELPER
+#pragma once
 
 //----------------------------------------------------------------------------------------
 //	Copyright © 2007 - 2018 Tangible Software Solutions, Inc.
@@ -289,6 +288,3 @@ public:
 		return ss.str();
 	}
 };
-
-
-#endif	//#ifndef STRINGHELPER

@@ -6,8 +6,6 @@ using namespace std;
 #include "../../machine/SxxMachine/Term.h"
 #include "../../machine/SxxMachine/Predicate.h"
 #include "../../kernelprolog/main/SxxMachine/Builtins.h"
-#include "Thread.h"
-#include "InterruptedException.h"
 
 namespace SxxMachine
 {
@@ -16,22 +14,22 @@ namespace SxxMachine
 	{
 	}
 
-	BlockingPrologControl::BlockingPrologControl(Prolog* p) : PrologControl(p)
+	BlockingPrologControl::BlockingPrologControl(Prolog *p) : PrologControl(p)
 	{
 	}
 
-	BlockingPrologControl::BlockingPrologControl(PrologMachineCopy* pmc) : PrologControl(pmc)
+	BlockingPrologControl::BlockingPrologControl(PrologMachineCopy *pmc) : PrologControl(pmc)
 	{
 	}
 
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-	bool BlockingPrologControl::execute(const wstring& pkg, const wstring& functor, vector<Term> &args)
+	bool BlockingPrologControl::execute(const wstring &pkg, const wstring &functor, vector<Term> &args)
 	{
-	  return execute(static_cast<Predicate*>(getPrologClassLoader()->predicate(pkg, functor, { args })));
+	  return execute(static_cast<Predicate*>(getPrologClassLoader()->predicate(pkg, functor, {args})));
 	}
 
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
-	bool BlockingPrologControl::execute(Predicate* p)
+	bool BlockingPrologControl::execute(Predicate *p)
 	{
 	setPredicate(p);
 	this->thread = new Thread(this);
@@ -41,7 +39,8 @@ namespace SxxMachine
 	try
 	{
 		wait(); // wait caller's thread.
-	} catch(const InterruptedException& e)
+	}
+	catch (const InterruptedException &e)
 	{
 	}
 	stop();
@@ -68,12 +67,13 @@ namespace SxxMachine
 	this->resultReady = true;
 	this->result = true;
 	notifyAll();
-	while(this->thread != nullptr && this->resultReady)
+	while (this->thread != nullptr && this->resultReady)
 	{
 		try
 		{
 		wait();
-		} catch(const InterruptedException& e)
+		}
+		catch (const InterruptedException &e)
 		{
 		}
 	}
@@ -85,12 +85,13 @@ namespace SxxMachine
 	this->resultReady = true;
 	this->result = false;
 	notifyAll();
-	while(this->thread != nullptr && this->resultReady)
+	while (this->thread != nullptr && this->resultReady)
 	{
 		try
 		{
 		wait();
-		} catch(const InterruptedException& e)
+		}
+		catch (const InterruptedException &e)
 		{
 		}
 	}
@@ -104,12 +105,13 @@ namespace SxxMachine
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
 	void BlockingPrologControl::join()
 	{
-	while(this->thread != nullptr && !this->resultReady)
+	while (this->thread != nullptr && !this->resultReady)
 	{
 		try
 		{
 		wait();
-		} catch(const InterruptedException& e)
+		}
+		catch (const InterruptedException &e)
 		{
 		}
 	}
@@ -160,16 +162,17 @@ namespace SxxMachine
 //JAVA TO C++ CONVERTER WARNING: The following method was originally marked 'synchronized':
 	bool BlockingPrologControl::next()
 	{
-	while(this->thread != nullptr && !this->resultReady)
+	while (this->thread != nullptr && !this->resultReady)
 	{
 		try
 		{
 		wait();
-		} catch(const InterruptedException& e)
+		}
+		catch (const InterruptedException &e)
 		{
 		}
 	}
-	if(!this->result)
+	if (!this->result)
 	{
 		stop();
 	}
@@ -188,8 +191,9 @@ namespace SxxMachine
 		//      printStackTrace(e);
 		//      else
 		//      System.out.println(e.toString());
-	  } catch(const runtime_error& e)
-	  {
+	  }
+	catch (const runtime_error &e)
+	{
 		printStackTrace(e);
 	}
 	stop();

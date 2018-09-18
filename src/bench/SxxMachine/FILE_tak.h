@@ -1,13 +1,15 @@
-#ifndef FILE_TAK
-#define FILE_TAK
+#pragma once
 
 #include "../../handcoded/SxxMachine/bootpreds.h"
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class Prolog; }
-namespace SxxMachine { class SymbolTerm; }
+namespace SxxMachine
+{
+	class Operation;
+	class Prolog;
+	class SymbolTerm;
+}
 
 namespace SxxMachine
 {
@@ -52,7 +54,7 @@ namespace SxxMachine
 
 
 	public:
-		static Operation PRED_top_0_static_exec(Prolog* m);
+		static Operation PRED_top_0_static_exec(Prolog *m);
 	/** PREDICATE: tak/0
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
 	*/
@@ -61,26 +63,26 @@ namespace SxxMachine
 
 
 
-		static Operation PRED_tak_0_static_exec(Prolog* m);
+		static Operation PRED_tak_0_static_exec(Prolog *m);
 	/** PREDICATE: tak/4
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
 	*/
 		// main(tak/4,public)
-			static SymbolTerm* const  FUNCTOR_$002D_2;
+			static SymbolTerm *const FUNCTOR_$002D_2;
 
 
 
 
-		static Operation PRED_tak_4_static_exec(Prolog* m);
+		static Operation PRED_tak_4_static_exec(Prolog *m);
 
 	private:
-		static Operation tak_4_top(Prolog* m);
+		static Operation tak_4_top(Prolog *m);
 
-		static Operation tak_4_sub_1(Prolog* m);
+		static Operation tak_4_sub_1(Prolog *m);
 
-		static Operation tak_4_1(Prolog* m);
+		static Operation tak_4_1(Prolog *m);
 
-		static Operation tak_4_2(Prolog* m);
+		static Operation tak_4_2(Prolog *m);
 	private:
 		class StaticConstructor
 		{
@@ -96,6 +98,3 @@ public:
 	};
 
 }
-
-
-#endif	//#ifndef FILE_TAK

@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Deque;
-import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -53,7 +53,7 @@ public class MapTerm extends SystemObject {
 		return false;
 	}
 
-  public int containsTermImpl(Term variableTerm, Comparator comparison) {
+  public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
     return car().containsTerm(variableTerm,comparison)
         + cdr().containsTerm(variableTerm,comparison);
   }
@@ -147,7 +147,7 @@ public class MapTerm extends SystemObject {
     	return convertible(List.class, type); 
     }
     @Override
-    protected Term copyImpl(IdentityHashMap<Object, Term> copyHash, int deeply) { 
+    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) { 
     	if (this.immutable){
     		return this;
     	}
@@ -267,7 +267,7 @@ public class MapTerm extends SystemObject {
      * @see #compareTo
      */
     @Override
-    public boolean equalsTerm(Term obj, Comparator comparator) {
+    public boolean equalsTerm(Term obj, OpVisitor comparator) {
 		return obj .isMap() && this.argz[0].equalsTerm((  obj).car().dref(), comparator) && cdr().equalsTerm((  obj).cdr().dref(), comparator);
 	}
     

@@ -18,13 +18,13 @@ namespace SxxMachine
 		dict = new HashDict();
 	}
 
-	Term* Copier::action(Term* place)
+	Term *Copier::action(Term *place)
 	{
 
-		if(place->isVar())
+		if (place->isVar())
 		{
-			Var* root = any_cast<Var*>(dict->get(place));
-			if(nullptr == root)
+			Var *root = any_cast<Var*>(dict->get(place));
+			if (nullptr == root)
 			{
 				root = V();
 				dict->put(place, root);
@@ -35,15 +35,15 @@ namespace SxxMachine
 		return place;
 	}
 
-	Term* Copier::copyMe(Term* that)
+	Term *Copier::copyMe(Term *that)
 	{
 		return that->reaction(this);
 	}
 
-	vector Copier::EnumerationToVector(Iterator* e)
+	vector Copier::EnumerationToVector(Iterator *e)
 	{
 		vector V = vector();
-		while(e->hasNext())
+		while (e->hasNext())
 		{
 			V.push_back(e->next());
 			e++;
@@ -51,25 +51,28 @@ namespace SxxMachine
 		return V;
 	}
 
-	vector Copier::ConsToVector(Nonvar* Xs)
+	vector Copier::ConsToVector(Nonvar *Xs)
 	{
 		vector V = vector();
-		Term* t = Xs;
-		for(;;)
+		Term *t = Xs;
+		for (;;)
 		{
-			if(t->isNil())
+			if (t->isNil())
 			{
 				break;
-			} else if(t->isCons())
+			}
+			else if (t->isCons())
 			{
-				StructureTerm* c = Expect::asCons(t);
+				StructureTerm *c = Expect::asCons(t);
 				V.push_back(c->ArgDeRef(0));
 				t = c->ArgDeRef(1);
-			} else if(t->isConst())
+			}
+			else if (t->isConst())
 			{
 				V.push_back(t);
 				break;
-			} else
+			}
+			else
 			{
 				V.clear();
 				IO::errmes("bad Cons in ConsToVector: " + t);
@@ -80,37 +83,37 @@ namespace SxxMachine
 		return V;
 	}
 
-	Term* Copier::toFun(SymbolTerm* c, Iterator* e)
+	Term *Copier::toFun(SymbolTerm *c, Iterator *e)
 	{
 		vector V = EnumerationToVector(e);
 		int arity = V.size();
-		if(arity == 0)
+		if (arity == 0)
 		{
 			return c;
 		}
-		StructureTerm* f = StructureTerm::S(c->name(), arity);
-		for(int i = 0; i < arity; i++)
+		StructureTerm *f = StructureTerm::S(c->name(), arity);
+		for (int i = 0; i < arity; i++)
 		{
 			f->setArg(i, static_cast<Term*>(V[i]));
 		}
 		return f;
 	}
 
-	StructureTerm* Copier::VectorToFun(vector V)
+	StructureTerm *Copier::VectorToFun(vector V)
 	{
-		SymbolTerm* f = static_cast<SymbolTerm*>(V[0]);
+		SymbolTerm *f = static_cast<SymbolTerm*>(V[0]);
 		int arity = V.size() - 1;
-		StructureTerm* T = StructureTerm::S(f->name(), arity);
-		for(int i = 0; i < arity; i++)
+		StructureTerm *T = StructureTerm::S(f->name(), arity);
+		for (int i = 0; i < arity; i++)
 		{
 			T->setArg(i, static_cast<Term*>(V[i + 1]));
 		}
 		return T;
 	}
 
-SymbolTerm* const  Copier::anAnswer = TermData::SYM("answer");
+SymbolTerm *const Copier::anAnswer = TermData::SYM("answer");
 
-	Term* Copier::getMyVars(Term* that)
+	Term *Copier::getMyVars(Term *that)
 	{
 		/* Term */
 		that->reaction(this);

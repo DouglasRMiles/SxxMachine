@@ -1,14 +1,16 @@
-#ifndef INTEGERSOURCE
-#define INTEGERSOURCE
+#pragma once
 
 #include "../../terms/SxxMachine/Source.h"
 #include <string>
 #include <optional>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Prog; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class stop; }
+namespace SxxMachine
+{
+	class Prog;
+	class Term;
+	class stop;
+}
 
 namespace SxxMachine
 {
@@ -20,7 +22,7 @@ namespace SxxMachine
 	{
 
 	public:
-		IntegerSource(long long fuel, long long a, long long x, long long b, Prog* p);
+		IntegerSource(long long fuel, long long a, long long x, long long b, Prog *p);
 
 	private:
 		long long fuel = 0;
@@ -32,7 +34,7 @@ namespace SxxMachine
 		long long x = 0;
 
 	public:
-		Term* getElement() override;
+		Term *getElement() override;
 
 		void stop() override;
 
@@ -40,6 +42,3 @@ namespace SxxMachine
 
 	};
 }
-
-
-#endif	//#ifndef INTEGERSOURCE

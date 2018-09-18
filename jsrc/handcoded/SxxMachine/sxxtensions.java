@@ -1,6 +1,7 @@
 package SxxMachine;
 
 import java.util.IdentityHashMap;
+import java.util.Map;
 
 public class sxxtensions extends TermData {
 	public static Operation PRED_string_1_static_exec(Prolog e) {
@@ -413,7 +414,7 @@ public class sxxtensions extends TermData {
 		a1 = m.AREGS[0].dref();
 		a2 = m.AREGS[1].dref();
 		a3 = m.AREGS[2].dref();
-		IdentityHashMap<Object, Term> saved = new IdentityHashMap<Object, Term>();
+		Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
 		if (!a2.unify(a1.copy(saved, Term.COPY_SAVE_ATTRS_COPY), m.trail)) {
 			return m.fail();
 		}
@@ -434,7 +435,7 @@ public class sxxtensions extends TermData {
 		Term a1, a2;
 		a1 = m.AREGS[0].dref();
 		a2 = m.AREGS[1].dref();
-		IdentityHashMap<Object, Term> saved = new IdentityHashMap<Object, Term>();
+		Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
 		if (!a2.unify(a1.copy(saved, Term.COPY_NO_ATTRS), m.trail)) {
 			return m.fail();
 		}
@@ -445,7 +446,7 @@ public class sxxtensions extends TermData {
 		Term a1, a2;
 		a1 = m.AREGS[0].dref();
 		a2 = m.AREGS[1].dref();
-		IdentityHashMap<Object, Term> saved = new IdentityHashMap<Object, Term>();
+		Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
 		Term copy = a1.copy(saved, Term.COPY_ALL);
 		if (!a2.unify(copy, m.trail)) {
 			return m.fail();

@@ -1,14 +1,16 @@
-#ifndef EXISTENCEEXCEPTION
-#define EXISTENCEEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -26,12 +28,12 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>existence_error/5</code>. */
 	public:
-		static SymbolTerm* const  EXISTENCE_ERROR;
+		static SymbolTerm *const EXISTENCE_ERROR;
 		/* objType ::= procedure | source_sink | stream | hash */
 		/** Holds a string representation of object type. */
 		const std::string objType;
 		/** Holds the argument or one of its components which caused the error. */
-		Term* const  culprit;
+		Term *const culprit;
 		/** Holds a string representation of detail message. */
 		const std::string message;
 		/** Constructs a new <code>ExistenceException</code>
@@ -41,21 +43,18 @@ namespace SxxMachine
 			delete culprit;
 		}
 
-		ExistenceException(const std::string& _objType, Term* _culprit, const std::string& _message);
+		ExistenceException(const std::string &_objType, Term *_culprit, const std::string &_message);
 		/** Constructs a new <code>ExistenceException</code> 
 		 * with the given arguments. */
-		ExistenceException(Operation _goal, const int& _argNo, const std::string& _objType, Term* _culprit, const std::string& _message);
+		ExistenceException(Operation _goal, int _argNo, const std::string &_objType, Term *_culprit, const std::string &_message);
 
 		std::string getMessage() override;
 		/** Returns a term representation of this <code>ExistenceException</code>:
 		 * <code>existence_error(goal,argNo,objType,culprit,message)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>ExistenceException</code>. */
 		std::string toString() override;
 	};
 
 }
-
-
-#endif	//#ifndef EXISTENCEEXCEPTION

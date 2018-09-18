@@ -1,18 +1,20 @@
-#ifndef ALIASTERM
-#define ALIASTERM
+#pragma once
 
 #include "Term.h"
-#include "Comparable.h"
 #include <string>
 #include <vector>
 #include <any>
 #include <typeinfo>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class ListTerm; }
-namespace SxxMachine { class SymbolTerm; }
+namespace SxxMachine
+{
+	class Term;
+	class OpVisitor;
+	class Trail;
+	class ListTerm;
+	class SymbolTerm;
+}
 
 namespace SxxMachine
 {
@@ -30,7 +32,7 @@ namespace SxxMachine
 	{
 
   private:
-	  Term* value;
+	  Term *value;
   public:
 	  virtual ~AliasTerm()
 	  {
@@ -51,29 +53,29 @@ namespace SxxMachine
 	  /**
 	   * @return the value
 	   */
-	  Term* getValue() override;
+	  Term *getValue() override;
 
 	  /**
 	   * @param value the value to set
 	   */
-	  virtual void setValue(Term* value);
+	  virtual void setValue(Term *value);
 
 	  /** One of the {@code TYPE_*} constants from {@code Term}. */
 	  int type() override;
 
 	  int termHashCodeImpl() override;
 
-	  bool equalsTerm(Term* obj, Comparator* comparator) override;
+	  bool equalsTerm(Term *obj, OpVisitor *comparator) override;
 
 
-	  bool unifyImpl(Term* t, Trail* trail) override;
+	  bool unifyImpl(Term *t, Trail *trail) override;
 
-	  int compareTo(Term* o) override;
+	  int compareTo(Term *o) override;
 
 	  /**
 	   * Adds a string representation of this term to given StringBuilder instance.
 	   */
-	  void toStringImpl(const int& printFlags, StringBuilder* sb) = 0 override;
+	  void toStringImpl(int printFlags, StringBuilder *sb) = 0 override;
 
 	  /** @return value //the name of this Term, if {@link #isStructure()}. */
 	  std::string name() override;
@@ -185,29 +187,29 @@ namespace SxxMachine
 	   * @return value //get the nth argument of {@link #isStructure()} or
 	   *         {@link #isCons()}.
 	   */
-	  Term* arg0(const int& nth) override;
+	  Term *arg0(int nth) override;
 
-	  Term* car() override;
+	  Term *car() override;
 
-	  Term* cdr() override;
+	  Term *cdr() override;
 
 
 	  int length() override;
 
-	  ListTerm* add(Term* t) override;
+	  ListTerm *add(Term *t) override;
 
-	  ListTerm* append(Term* t) override;
+	  ListTerm *append(Term *t) override;
 
 
 	  bool convertible(std::type_info type) override;
 
 	  /** Returns a copy of this object. */
   protected:
-	  Term* copyImpl(IdentityHashMap<std::any, Term*>* copyHash, const int& deeply) override;
+	  Term *copyImpl(IdentityHashMap<std::any, Term*> *copyHash, int deeply) override;
 
 	  /** Returns the dereference value of this term. */
   public:
-	  Term* dref() override;
+	  Term *dref() override;
 
 	  /**
 	   * Check whether this term is a ground term.
@@ -232,15 +234,15 @@ namespace SxxMachine
 
 	  bool isNonvar() override;
 
-	  bool bind(Term* partial_RenamedTODO, Trail* trail) override;
+	  bool bind(Term *partial_Renamed, Trail *trail) override;
 
-	  bool equalsIdentical(Term* t) override;
+	  bool equalsIdentical(Term *t) override;
 
-	  Term* findOrAttrValue(Trail* trail, const bool& createIfMissing, Term* name) override;
+	  Term *findOrAttrValue(Trail *trail, bool createIfMissing, Term *name) override;
 
-	  Term* freeze(Trail* trail, Term* newval) override;
+	  Term *freeze(Trail *trail, Term *newval) override;
 
-	  Term* frozenGoals() override;
+	  Term *frozenGoals() override;
 
 	  bool isAttvar() override;
 
@@ -252,25 +254,22 @@ namespace SxxMachine
 
 	  long long longValue() override;
 
-	  void putAttrValue(Trail* trail, Term* name, Term* val) override;
+	  void putAttrValue(Trail *trail, Term *name, Term *val) override;
 
-	  void setarg0(Trail* trail, const int& i0, Term* value) override;
+	  void setarg0(Trail *trail, int i0, Term *value) override;
 
-	  void setAttrs(Trail* trail, Term* newval) override;
+	  void setAttrs(Trail *trail, Term *newval) override;
 
-	  void setGoals(Trail* trail, Term* newval) override;
+	  void setGoals(Trail *trail, Term *newval) override;
 
 	  bool isFVar() override;
 
 	  int intValue() override;
 
-	  bool unifyInt(const int& i, Trail* trail) override;
+	  bool unifyInt(int i, Trail *trail) override;
 
-	  SymbolTerm* asSymbolTerm() override;
+	  SymbolTerm *asSymbolTerm() override;
 	  bool isAlias() override;
 	};
 
 }
-
-
-#endif	//#ifndef ALIASTERM

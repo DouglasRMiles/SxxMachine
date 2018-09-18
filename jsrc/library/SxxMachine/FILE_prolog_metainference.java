@@ -1,4 +1,4 @@
-package SxxMachine.library;
+package SxxMachine;
 
 import static SxxMachine.FILE_builtins.PRED_$equality_of_term_2_static_exec;
 import static SxxMachine.FILE_builtins.PRED_$inequality_of_term_2_static_exec;

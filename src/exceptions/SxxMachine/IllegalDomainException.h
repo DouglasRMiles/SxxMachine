@@ -1,14 +1,16 @@
-#ifndef ILLEGALDOMAINEXCEPTION
-#define ILLEGALDOMAINEXCEPTION
+#pragma once
 
 #include "BuiltinException.h"
 #include <string>
 #include <vector>
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class Operation; }
+namespace SxxMachine
+{
+	class SymbolTerm;
+	class Term;
+	class Operation;
+}
 
 namespace SxxMachine
 {
@@ -27,7 +29,7 @@ namespace SxxMachine
 	{
 		/** A functor symbol of <code>domain_error/4</code>. */
 	public:
-		static SymbolTerm* const  DOMAIN_ERROR;
+		static SymbolTerm *const DOMAIN_ERROR;
 		/*
 		  domain ::= character_code_list | close_option | flag_value | io_mode | 
 		             non_empty_list | not_less_than_zero | operator_priority |
@@ -39,7 +41,7 @@ namespace SxxMachine
 		/** Holds a string representation of valid domain. */
 		const std::string domain;
 		/** Holds the argument or one of its components which caused the error. */
-		Term* const  culprit;
+		Term *const culprit;
 		/** Constructs a new <code>IllegalDomainException</code>
 		 * with a valid domain and its culprit. */
 		virtual ~IllegalDomainException()
@@ -47,14 +49,14 @@ namespace SxxMachine
 			delete culprit;
 		}
 
-		IllegalDomainException(const std::string& _domain, Term* _culprit);
+		IllegalDomainException(const std::string &_domain, Term *_culprit);
 		/** Constructs a new <code>IllegalDomainException</code> 
 		 * with the given arguments. */
-		IllegalDomainException(Operation _goal, const int& _argNo, const std::string& _domain, Term* _culprit);
+		IllegalDomainException(Operation _goal, int _argNo, const std::string &_domain, Term *_culprit);
 		/** Returns a term representation of this <code>IllegalDomainException</code>:
 		 * <code>domain_error(goal,argNo,type,culprit)</code>.
 		 */
-		Term* getMessageTerm() override;
+		Term *getMessageTerm() override;
 		/** Returns a string representation of this <code>IllegalDomainException</code>. */
 		std::string toString() override;
 		std::string getMessage() override;
@@ -62,6 +64,3 @@ namespace SxxMachine
 	};
 
 }
-
-
-#endif	//#ifndef ILLEGALDOMAINEXCEPTION

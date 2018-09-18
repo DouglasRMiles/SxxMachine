@@ -1,5 +1,4 @@
-#ifndef PROLOG
-#define PROLOG
+#pragma once
 
 #include "Operation.h"
 #include "../../kernelprolog/main/SxxMachine/Builtins.h"
@@ -14,23 +13,25 @@
 #include "stringbuilder.h"
 
 //JAVA TO C++ CONVERTER NOTE: Forward class declarations:
-namespace SxxMachine { class PrologLogger; }
-namespace SxxMachine { class SymbolTerm; }
-namespace SxxMachine { class PrologControl; }
-namespace SxxMachine { class Term; }
-namespace SxxMachine { class ChoicePointStack; }
-namespace SxxMachine { class Trail; }
-namespace SxxMachine { class PrologClassLoader; }
-namespace SxxMachine { class InternalDatabase; }
-namespace SxxMachine { class HashtableOfTerm; }
-namespace SxxMachine { class ListTerm; }
-namespace SxxMachine { class NameArity; }
-namespace SxxMachine { class PrologMachineCopy; }
-namespace SxxMachine { class Operation; }
-namespace SxxMachine { class arg; }
-namespace SxxMachine { class ChoicePointFrame; }
-namespace SxxMachine { class Undoable; }
-class StringBuilder;
+namespace SxxMachine
+{
+	class PrologLogger;
+	class SymbolTerm;
+	class PrologControl;
+	class Term;
+	class ChoicePointStack;
+	class Trail;
+	class PrologClassLoader;
+	class InternalDatabase;
+	class HashtableOfTerm;
+	class ListTerm;
+	class NameArity;
+	class PrologMachineCopy;
+	class Operation;
+	class arg;
+	class ChoicePointFrame;
+	class Undoable;
+}
 
 namespace SxxMachine
 {
@@ -50,33 +51,33 @@ namespace SxxMachine
 	class Prolog final
 	{
 	private:
-		PrologLogger* const  logger;
-		static Logger* const  javaUtilLogger;
-		static SymbolTerm* const  NONE;
-		ConcurrentMap<std::string, std::any>* const  externalData = new ConcurrentHashMap<std::string, std::any>();
+		PrologLogger *const logger;
+		static Logger *const javaUtilLogger;
+		static SymbolTerm *const NONE;
+		ConcurrentMap<std::string, std::any> *const externalData = new ConcurrentHashMap<std::string, std::any>();
 		/** Prolog thread */
 	public:
-		PrologControl* const  control;
+		PrologControl *const control;
 		/** Argument registers */
 		//public Term AREGS[0], AREGS[1], AREGS[2], AREGS[3], AREGS[4], AREGS[5], AREGS[6], AREGS[7];
 		//public Term[] aregs;
 		std::vector<Term*> AREGS;
 
 	private:
-		static std::vector<Term*> const  NO_REGISTERS;
+		static std::vector<Term*> const NO_REGISTERS;
 		/** Continuation goal register */
 	public:
 		Operation cont;
 		/** Choice point frame stack */
-		ChoicePointStack* const  stack;
+		ChoicePointStack *const stack;
 		/** Trail stack */
-		Trail* const  trail;
+		Trail *const trail;
 		/** Cut pointer */
 		int B0 = 0;
 		/** Class loader */
-		PrologClassLoader* pcl;
+		PrologClassLoader *pcl;
 		/** Internal Database */
-		InternalDatabase* internalDB;
+		InternalDatabase *internalDB;
 		/** Current time stamp of choice point frame */
 	private:
 		long long CPFTimeStamp = 0;
@@ -116,7 +117,7 @@ namespace SxxMachine
 		/** Prolog implementation flag: <code>print_stack_trace</code>. */
 		std::string printStackTrace;
 		/** Holds an exception term for <code>catch/3</code> and <code>throw/1</code>. */
-		Term* exception;
+		Term *exception;
 		/** Holds the start time as <code>long</code> for <code>statistics/2</code>. */
 		long long startRuntime = 0;
 		/** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
@@ -128,41 +129,41 @@ namespace SxxMachine
 		static constexpr int PUSHBACK_SIZE = 256;
 		/** Standard input stream. */
 	private:
-		PushbackReader* userInput;
+		PushbackReader *userInput;
 		/** Standard output stream. */
-		PrintWriter* userOutput;
+		PrintWriter *userOutput;
 		/** Standard error stream. */
-		PrintWriter* userError;
+		PrintWriter *userError;
 		/** Current input stream. */
-		PushbackReader* currentInput;
+		PushbackReader *currentInput;
 		/** Current output stream. */
-		PrintWriter* currentOutput;
+		PrintWriter *currentOutput;
 		/** Hashtable for managing input and output streams. */
 	public:
-		HashtableOfTerm* streamManager;
+		HashtableOfTerm *streamManager;
 		/** Hashtable for managing internal databases. */
 	private:
-		HashtableOfTerm* const  hashManager;
+		HashtableOfTerm *const hashManager;
 		/** Name of the builtin package. */
 	public:
 		static const std::string BUILTIN;
 		/** Holds an atom <code>[]<code> (empty list). */
-		static SymbolTerm* const  Nil;
-		static SymbolTerm* const  True;
+		static SymbolTerm *const Nil;
+		static SymbolTerm *const True;
 		/* Some symbols for stream options */
 	private:
-		static SymbolTerm* const  SYM_MODE_1;
-		static SymbolTerm* const  SYM_ALIAS_1;
-		static SymbolTerm* const  SYM_TYPE_1;
-		static SymbolTerm* const  SYM_READ;
-		static SymbolTerm* const  SYM_APPEND;
-		static SymbolTerm* const  SYM_INPUT;
-		static SymbolTerm* const  SYM_OUTPUT;
-		static SymbolTerm* const  SYM_TEXT;
-		static SymbolTerm* const  SYM_USERINPUT;
-		static SymbolTerm* const  SYM_USEROUTPUT;
-		static SymbolTerm* const  SYM_USERERROR;
-		static PrintWriter* const  NO_OUTPUT;
+		static SymbolTerm *const SYM_MODE_1;
+		static SymbolTerm *const SYM_ALIAS_1;
+		static SymbolTerm *const SYM_TYPE_1;
+		static SymbolTerm *const SYM_READ;
+		static SymbolTerm *const SYM_APPEND;
+		static SymbolTerm *const SYM_INPUT;
+		static SymbolTerm *const SYM_OUTPUT;
+		static SymbolTerm *const SYM_TEXT;
+		static SymbolTerm *const SYM_USERINPUT;
+		static SymbolTerm *const SYM_USEROUTPUT;
+		static SymbolTerm *const SYM_USERERROR;
+		static PrintWriter *const NO_OUTPUT;
 
 	private:
 		class WriterAnonymousInnerClass : public Writer
@@ -170,12 +171,12 @@ namespace SxxMachine
 		public:
 			WriterAnonymousInnerClass();
 
-			void write(std::vector<char&>& cbuf, const int& off, const int& len) throw(IOException) override;
+			void write(std::vector<char> &cbuf, int off, int len) throw(IOException) override;
 			void flush() throw(IOException) override;
 			virtual ~WriterAnonymousInnerClass();
 		};
 	private:
-		static PushbackReader* const  NO_INPUT;
+		static PushbackReader *const NO_INPUT;
 
 	private:
 		class ReaderAnonymousInnerClass : public Reader
@@ -183,7 +184,7 @@ namespace SxxMachine
 		public:
 			ReaderAnonymousInnerClass();
 
-			int read(std::vector<char&>& cbuf, const int& off, const int& len) throw(IOException) override;
+			int read(std::vector<char> &cbuf, int off, int len) throw(IOException) override;
 			virtual ~ReaderAnonymousInnerClass();
 		};
 
@@ -191,7 +192,7 @@ namespace SxxMachine
 		static constexpr bool BE_SAFE = false;
 		static bool BE_FAST;
 		static constexpr bool CYCLIC_TERMS = true;
-		static Prolog* M;
+		static Prolog *M;
 	public:
 		enum class Feature
 		{
@@ -203,23 +204,23 @@ namespace SxxMachine
 			STATISTICS_RUNTIME
 		};
 	protected:
-		EnumSet<Feature>* const  features = EnumSet::allOf(Feature::typeid);
+		EnumSet<Feature> *const features = EnumSet::allOf(Feature::typeid);
 	public:
-		Term* pendingGoals;
+		Term *pendingGoals;
 		int PENDING_INTERUPTS = 0;
 		std::mutex INTERUPT_LOCK;
-		ListTerm* lastPendingGoal;
-		Term* assumptions;
+		ListTerm *lastPendingGoal;
+		Term *assumptions;
 	  Operation pred;
-	  static SymbolTerm* const  anEof;
-	  static SymbolTerm* const  aNo;
-	  static SymbolTerm* const  aYes;
-	  static NameArity* const  aFail; //new fail_();
+	  static SymbolTerm *const anEof;
+	  static SymbolTerm *const aNo;
+	  static SymbolTerm *const aYes;
+	  static NameArity *const aFail; //new fail_();
 
 	  /** A functor <code>'.' /2</code>. */
-	  static SymbolTerm* const  SYM_DOT;
-	  static SymbolTerm* const  SYM_CONJ;
-	  static SymbolTerm* const  SYM_NECK;
+	  static SymbolTerm *const SYM_DOT;
+	  static SymbolTerm *const SYM_CONJ;
+	  static SymbolTerm *const SYM_NECK;
 
 
 		virtual ~Prolog()
@@ -245,8 +246,8 @@ namespace SxxMachine
 			delete assumptions;
 		}
 
-		Prolog(PrologControl* c);
-		Prolog(PrologControl* c, PrologMachineCopy* pmc);
+		Prolog(PrologControl *c);
+		Prolog(PrologControl *c, PrologMachineCopy *pmc);
 		/**
 		 * Initializes some local instances only once.
 		 * This <code>initOnce</code> method is invoked in the constructor
@@ -260,13 +261,13 @@ namespace SxxMachine
 		 * </ul>
 		 */
 	private:
-		void initOnce(InputStream* in_RenamedTODO, PrintStream* out, PrintStream* err);
+		void initOnce(InputStream *in_Renamed, PrintStream *out, PrintStream *err);
 		/** Initializes this Prolog engine. */
 	public:
-		void init(InputStream* in_RenamedTODO, PrintStream* out, PrintStream* err);
+		void init(InputStream *in_Renamed, PrintStream *out, PrintStream *err);
 		/** Ensure a feature is enabled, throwing if not. */
-		void requireFeature(Prolog::Feature f, Operation goal, Term* arg);
-		void pushCatcherB(const int& b);
+		void requireFeature(Prolog::Feature f, Operation goal, Term *arg);
+		void pushCatcherB(int b);
 	private:
 		void ensureCatchersCapability();
 	public:
@@ -275,14 +276,14 @@ namespace SxxMachine
 		/** Sets B0 to the top of the choice point stack.. */
 		void setB0();
 		/** Discards all choice points after the value of <code>i</code>. */
-		void cut(const int& i);
+		void cut(int i);
 		/** Discards all choice points after the value of <code>B0</code>. */
 		void neckCut();
 		/**
 		 * Returns a copy of term <code>t</code>.
 		 * @param t a term to be copied. It must be dereferenced.
 		 */
-		Term* copy(Term* t);
+		Term *copy(Term *t);
 		/**
 		 * Do backtrack.
 		 * This method restores the value of <code>B0</code>
@@ -316,7 +317,7 @@ namespace SxxMachine
 		 * If there is no mapping for the key of <code>areg[1]</code>,
 		 * this returns <code>otherwise</code>.
 		 */
-		Operation switch_on_hash(std::unordered_map<Term*, Operation>& hash, Operation otherwise);
+		Operation switch_on_hash(std::unordered_map<Term*, Operation> &hash, Operation otherwise);
 	// --Commented out by Inspection START (03.04.2017 11:14):
 	//	/** Restores the argument registers and continuation goal register from the current choice point frame. */
 	//	public final void restore() {
@@ -334,9 +335,9 @@ namespace SxxMachine
 		  Operation jtry6(Operation p, Operation next);
 		  Operation jtry7(Operation p, Operation next);
 		  Operation jtry8(Operation p, Operation next);
-		  Operation jtry(const int& arity, Operation p, Operation next);
+		  Operation jtry(int arity, Operation p, Operation next);
 	private:
-		Operation finishjtry(Operation p, Operation next, ChoicePointFrame* entry);
+		Operation finishjtry(Operation p, Operation next, ChoicePointFrame *entry);
 		/**
 		 * Resets all necessary information from the current choice point frame,
 		 * updates its next clause field to <code>next</code>,
@@ -350,7 +351,7 @@ namespace SxxMachine
 		 */
 		Operation trust(Operation p);
 	private:
-		Term* makeStreamProperty(SymbolTerm* _mode, SymbolTerm* io, SymbolTerm* _alias, SymbolTerm* _type);
+		Term *makeStreamProperty(SymbolTerm *_mode, SymbolTerm *io, SymbolTerm *_alias, SymbolTerm *_type);
 		/** Returns the current time stamp of choice point frame. */
 	public:
 		long long getCPFTimeStamp();
@@ -365,29 +366,29 @@ namespace SxxMachine
 		/** Returns the value of Prolog implementation flag: <code>char_conversion</code>. */
 		std::string getCharConversion();
 		/** Sets the value of Prolog implementation flag: <code>char_conversion</code>. */
-		void setCharConversion(const std::string& mode);
+		void setCharConversion(const std::string &mode);
 		/** Returns the value of Prolog implementation flag: <code>debug</code>. */
 		std::string getDebug();
 		/** Sets the value of Prolog implementation flag: <code>debug</code>. */
-		void setDebug(const std::string& mode);
+		void setDebug(const std::string &mode);
 		/** Returns the value of Prolog implementation flag: <code>max_arity</code>. */
 		int getMaxArity();
 		/** Returns the value of Prolog implementation flag: <code>unknown</code>. */
 		std::string getUnknown();
 		/** Sets the value of Prolog implementation flag: <code>unknown</code>. */
-		void setUnknown(const std::string& mode);
+		void setUnknown(const std::string &mode);
 		/** Returns the value of Prolog implementation flag: <code>double_quotes</code>. */
 		std::string getDoubleQuotes();
 		/** Sets the value of Prolog implementation flag: <code>double_quotes</code>. */
-		void setDoubleQuotes(const std::string& mode);
+		void setDoubleQuotes(const std::string &mode);
 		/** Returns the value of Prolog implementation flag: <code>print_stack_trace</code>. */
 		std::string getPrintStackTrace();
 		/** Sets the value of Prolog implementation flag: <code>print_stack_trace</code>. */
-		void setPrintStackTrace(const std::string& mode);
+		void setPrintStackTrace(const std::string &mode);
 		/** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
-		Term* getException();
+		Term *getException();
 		/** Sets the value of <code>exception</code>. This is used in <code>throw/1</code>. */
-		void setException(Term* t);
+		void setException(Term *t);
 		/** Returns the value of <code>startRuntime</code>. This is used in <code>statistics/2</code>. */
 		long long getStartRuntime();
 		/** Returns the value of <code>previousRuntime</code>. This is used in <code>statistics/2</code>. */
@@ -395,23 +396,23 @@ namespace SxxMachine
 		/** Sets the value of <code>previousRuntime</code>. This is used in <code>statistics/2</code>. */
 		void setPreviousRuntime(long long t);
 		/** Returns the standard input stream. */
-		PushbackReader* getUserInput();
+		PushbackReader *getUserInput();
 		/** Returns the standard output stream. */
-		PrintWriter* getUserOutput();
+		PrintWriter *getUserOutput();
 		/** Returns the standard error stream. */
-		PrintWriter* getUserError();
+		PrintWriter *getUserError();
 		/** Returns the current input stream. */
-		PushbackReader* getCurrentInput();
+		PushbackReader *getCurrentInput();
 		/** Sets the current input stream to <code>in</code>. */
-		void setCurrentInput(PushbackReader* in_RenamedTODO);
+		void setCurrentInput(PushbackReader *in_Renamed);
 		/** Returns the current output stream. */
-		PrintWriter* getCurrentOutput();
+		PrintWriter *getCurrentOutput();
 		/** Sets the current output stream to <code>out</code>. */
-		void setCurrentOutput(PrintWriter* out);
+		void setCurrentOutput(PrintWriter *out);
 		/** Returns the stream manager. */
-		HashtableOfTerm* getStreamManager();
+		HashtableOfTerm *getStreamManager();
 		/** Returns the hash manager. */
-		HashtableOfTerm* getHashManager();
+		HashtableOfTerm *getHashManager();
 	//	public final Operation exec(Operation code){
 	//		try {
 	//			logger.beforeExec(code);
@@ -420,25 +421,22 @@ namespace SxxMachine
 	//			throw logger.execThrows(t);
 	//		}
 	//	}
-		std::any getExternalData(const std::string& key);
-		void setExternalData(const std::string& key, std::any value);
-		PrologLogger* getLogger();
-		void push(Undoable* undoable);
+		std::any getExternalData(const std::string &key);
+		void setExternalData(const std::string &key, std::any value);
+		PrologLogger *getLogger();
+		void push(Undoable *undoable);
 
-		Term* popPendingGoals();
-		   Term* peekPendingGoals();
-		void pushPendingGoal(Term* goal);
-		void addPendingGoal(Term* goal);
+		Term *popPendingGoals();
+		   Term *peekPendingGoals();
+		void pushPendingGoal(Term *goal);
+		void addPendingGoal(Term *goal);
 
-		void getStackTrace(StringBuilder* sb);
+		void getStackTrace(StringBuilder *sb);
 
 		std::string toString() override;
 
-	  static void Break(const std::string& string);
+	  static void Break(const std::string &string);
 
 	};
 
 }
-
-
-#endif	//#ifndef PROLOG
