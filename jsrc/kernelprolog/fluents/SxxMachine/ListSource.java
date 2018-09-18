@@ -1,8 +1,8 @@
-package prolog.fluents;
+package SxxMachine;
 
 import SxxMachine.Nonvar;
-import prolog.terms.Copier;
-import prolog.terms.Prog;
+import SxxMachine.Copier;
+import SxxMachine.Prog;
 
 /**
   Builds an iterator from a list

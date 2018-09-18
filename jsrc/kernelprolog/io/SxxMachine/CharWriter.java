@@ -1,12 +1,12 @@
-package prolog.io;
+package SxxMachine;
 
 import java.io.IOException;
 import java.io.Writer;
 
 import SxxMachine.Term;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
-import prolog.terms.Sink;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
+import SxxMachine.Sink;
 
 /**
   Writer

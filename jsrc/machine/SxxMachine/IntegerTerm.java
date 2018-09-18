@@ -5,8 +5,8 @@ import SxxMachine.*;
 
 import java.util.Comparator;
 
-import prolog.KPTrail;
-import prolog.terms.Expect;
+import SxxMachine.KPTrail;
+import SxxMachine.Expect;
 
 /**
  * Integer.<br>

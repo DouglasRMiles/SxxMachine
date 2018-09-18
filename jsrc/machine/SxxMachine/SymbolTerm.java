@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 import java.util.Comparator;
 import java.util.concurrent.ConcurrentHashMap;
 
-import prolog.terms.Const;
+import SxxMachine.Const;
 /**
  * Atom.<br>
  * The <code>SymbolTerm</code> class represents a Prolog atom.<br>

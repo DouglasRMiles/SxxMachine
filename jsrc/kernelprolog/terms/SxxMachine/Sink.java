@@ -1,4 +1,4 @@
-package prolog.terms;
+package SxxMachine;
 
 import SxxMachine.Term;
 

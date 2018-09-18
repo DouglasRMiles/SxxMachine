@@ -1,4 +1,4 @@
-package prolog.io;
+package SxxMachine;
 /*
 * Copyright (C) Paul Tarau 1996-1999
 */

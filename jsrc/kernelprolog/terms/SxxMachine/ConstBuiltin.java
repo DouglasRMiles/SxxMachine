@@ -1,6 +1,6 @@
-package prolog.terms;
+package SxxMachine;
 
-import prolog.builtins.Builtins.NameArity;
+import SxxMachine.Builtins.NameArity;
 
 /**
 * Template for builtins of arity 0

@@ -1,6 +1,6 @@
-package prolog.terms;
+package SxxMachine;
 
-import prolog.builtins.Builtins.ISTerm;
+import SxxMachine.Builtins.ISTerm;
 
 /**
   Always fails

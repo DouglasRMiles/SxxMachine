@@ -1,10 +1,10 @@
-package prolog.terms;
+package SxxMachine;
 
 import java.util.Iterator;
 
 import SxxMachine.Term;
-import prolog.Init;
-import prolog.io.IO;
+import SxxMachine.Init;
+import SxxMachine.IO;
 
 //!depends
 

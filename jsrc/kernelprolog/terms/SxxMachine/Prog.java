@@ -1,9 +1,9 @@
-package prolog.terms;
+package SxxMachine;
 
 import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
-import prolog.KPTrail;
+import SxxMachine.KPTrail;
 
 /**
   Basic toplevel Prolog Engine. Loads and executes Prolog

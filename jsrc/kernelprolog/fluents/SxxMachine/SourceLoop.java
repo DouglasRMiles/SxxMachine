@@ -1,10 +1,10 @@
-package prolog.fluents;
+package SxxMachine;
 
 import java.util.ArrayList;
 
 import SxxMachine.Term;
-import prolog.terms.Prog;
-import prolog.terms.Source;
+import SxxMachine.Prog;
+import SxxMachine.Source;
 
 /**
   An Infinite Source.

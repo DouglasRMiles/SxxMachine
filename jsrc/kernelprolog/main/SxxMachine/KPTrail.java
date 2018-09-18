@@ -3,7 +3,7 @@ package prolog;
 import java.util.ArrayList;
 
 import SxxMachine.Term;
-import prolog.terms.Var;
+import SxxMachine.Var;
 
 /**
  * Implements a stack of undo actions for backtracking, and in particular,

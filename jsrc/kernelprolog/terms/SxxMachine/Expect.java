@@ -1,8 +1,8 @@
-package prolog.terms;
+package SxxMachine;
 import SxxMachine.NumberTerm;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
-import prolog.io.CharReader;
+import SxxMachine.CharReader;
 
 public class Expect {
 

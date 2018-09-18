@@ -22,8 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import prolog.builtins.Builtins.NameArity;
-import prolog.terms.Const;
+import SxxMachine.Builtins.NameArity;
+import SxxMachine.Const;
 /**
  * Prolog engine.
  *

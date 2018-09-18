@@ -1,11 +1,11 @@
-package prolog.io;
+package SxxMachine;
 
 import SxxMachine.Nonvar;
 import SxxMachine.Term;
 import SxxMachine.TermData;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
-import prolog.terms.Source;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
+import SxxMachine.Source;
 
 /**
  * Maps a Term to an Source for iterating over its arguments

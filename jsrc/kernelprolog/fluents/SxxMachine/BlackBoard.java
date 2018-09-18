@@ -1,4 +1,4 @@
-package prolog.fluents;
+package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import SxxMachine.Term;
-import prolog.io.IO;
+import SxxMachine.IO;
 
 /**
 This class implementes generic multiple tuples by key

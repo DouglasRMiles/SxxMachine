@@ -5,12 +5,12 @@ import java.util.HashMap;
 import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
-import prolog.builtins.Builtins;
-import prolog.fluents.DataBase;
-import prolog.io.IO;
-import prolog.terms.Clause;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
+import SxxMachine.Builtins;
+import SxxMachine.DataBase;
+import SxxMachine.IO;
+import SxxMachine.Clause;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
 
 /**
   Initializes Prolog. Sets up shared data areas.

@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import prolog.terms.Const;
+import SxxMachine.Const;
 @SuppressWarnings({"rawtypes","unused"})
 abstract public class ListTerm extends Const {
     protected boolean immutable;

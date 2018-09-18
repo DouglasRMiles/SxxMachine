@@ -3,16 +3,16 @@ package SxxMachine;
 import SxxMachine.*;
 
 
-import prolog.KPTrail;
-import prolog.terms.Clause;
-import prolog.terms.Const;
-import prolog.terms.Copier;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
-import prolog.terms.Source;
-import prolog.terms.Undoable;
-import prolog.terms.Var;
-import prolog.terms.VarNumberer;
+import SxxMachine.KPTrail;
+import SxxMachine.Clause;
+import SxxMachine.Const;
+import SxxMachine.Copier;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
+import SxxMachine.Source;
+import SxxMachine.Undoable;
+import SxxMachine.Var;
+import SxxMachine.VarNumberer;
 
 /**
  * Top element of the Prolog term hierarchy. Describes a simple or compound ter

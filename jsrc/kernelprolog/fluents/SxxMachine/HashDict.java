@@ -1,4 +1,4 @@
-package prolog.fluents;
+package SxxMachine;
 
 import java.util.HashMap;
 import java.util.Map;

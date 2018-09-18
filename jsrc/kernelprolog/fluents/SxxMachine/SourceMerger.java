@@ -1,10 +1,10 @@
-package prolog.fluents;
+package SxxMachine;
 
 import SxxMachine.Term;
-import prolog.terms.Const;
-import prolog.terms.Copier;
-import prolog.terms.Prog;
-import prolog.terms.Source;
+import SxxMachine.Const;
+import SxxMachine.Copier;
+import SxxMachine.Prog;
+import SxxMachine.Source;
 
 /**
   Merges a List of Sources into a new Source which

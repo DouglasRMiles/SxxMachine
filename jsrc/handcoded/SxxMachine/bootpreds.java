@@ -356,7 +356,7 @@ public class bootpreds extends FFIPredicate {
 	 * atomic_concat(+Atomic1, +Atomic2, -Atom) Atom represents the text after
 	 * converting Atomic1 and Atomic2 to text and concatenating the result: ?-
 	 * atomic_concat(name, 42, X). X = name42. Created by semenov on 27.04.2017.
-	 * http://www.swi-prolog.org/pldoc/man?predicate=atomic_concat/3
+	 * http://www.swi-SxxMachine.org/pldoc/man?predicate=atomic_concat/3
 	 */
 	// _atomic_concat_3 extends Predicate.P3 {
 	public static Operation PRED_atomic_concat_3_static_exec(Prolog engine) {

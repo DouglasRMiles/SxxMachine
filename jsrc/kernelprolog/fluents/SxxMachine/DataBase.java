@@ -1,4 +1,4 @@
-package prolog.fluents;
+package SxxMachine;
 
 import java.io.Reader;
 import java.util.ArrayList;
@@ -9,13 +9,13 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
-import prolog.Init;
-import prolog.io.IO;
-import prolog.io.Parser;
-import prolog.terms.Clause;
-import prolog.terms.Const;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
+import SxxMachine.Init;
+import SxxMachine.IO;
+import SxxMachine.Parser;
+import SxxMachine.Clause;
+import SxxMachine.Const;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
 /**
  * Implements a Term and Clause objects based blackboard (database).
  */

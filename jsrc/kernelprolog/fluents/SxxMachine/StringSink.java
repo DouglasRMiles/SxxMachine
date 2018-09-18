@@ -1,9 +1,9 @@
-package prolog.fluents;
+package SxxMachine;
 
 import SxxMachine.Term;
 import SxxMachine.TermData;
-import prolog.terms.Prog;
-import prolog.terms.Sink;
+import SxxMachine.Prog;
+import SxxMachine.Sink;
 
 /**
   Builds  Fluents from Java

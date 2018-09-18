@@ -1,4 +1,4 @@
-package prolog.io;
+package SxxMachine;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -13,12 +13,12 @@ import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
-import prolog.builtins.Builtins;
-import prolog.fluents.HashDict;
-import prolog.terms.Clause;
-import prolog.terms.Const;
-import prolog.terms.Expect;
-import prolog.terms.Var;
+import SxxMachine.Builtins;
+import SxxMachine.HashDict;
+import SxxMachine.Clause;
+import SxxMachine.Const;
+import SxxMachine.Expect;
+import SxxMachine.Var;
 
 /**
  * Lexicographic analyser reading from a stream

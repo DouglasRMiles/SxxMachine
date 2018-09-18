@@ -1,4 +1,4 @@
-package prolog.terms;
+package SxxMachine;
 
 /**
 * Template for builtins of arity >0

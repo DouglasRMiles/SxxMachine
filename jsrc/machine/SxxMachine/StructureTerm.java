@@ -8,11 +8,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import SxxMachine.builtin.sxxtensions;
-import prolog.KPTrail;
-import prolog.terms.Const;
-import prolog.terms.Expect;
-import prolog.terms.*;
-import prolog.terms.Prog;
+import SxxMachine.KPTrail;
+import SxxMachine.Const;
+import SxxMachine.Expect;
+import SxxMachine.*;
+import SxxMachine.Prog;
 /**
  * Compound term. <br>
  * The <code>StructureTerm</code> class represents a compound term but list.<br>

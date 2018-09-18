@@ -11,8 +11,8 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import prolog.KPTrail;
-import prolog.terms.Var;
+import SxxMachine.KPTrail;
+import SxxMachine.Var;
 
 
 /**

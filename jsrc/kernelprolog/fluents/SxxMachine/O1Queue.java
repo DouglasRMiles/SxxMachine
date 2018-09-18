@@ -1,10 +1,10 @@
-package prolog.fluents;
+package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import SxxMachine.Term;
-import prolog.io.IO;
+import SxxMachine.IO;
 
 /**
   Generic dynamic Queeue with (amortized) O(1)

@@ -3,7 +3,7 @@ package SxxMachine;
 import SxxMachine.*;
 
 
-import prolog.KPTrail;
+import SxxMachine.KPTrail;
 
 /**
  * Part of the Prolog Term hierarchy

@@ -1,8 +1,8 @@
-package prolog.terms;
+package SxxMachine;
 
 import SxxMachine.SystemObject;
 import SxxMachine.Term;
-import prolog.fluents.HashDict;
+import SxxMachine.HashDict;
 
 /**
   Used in implementing uniform replacement of

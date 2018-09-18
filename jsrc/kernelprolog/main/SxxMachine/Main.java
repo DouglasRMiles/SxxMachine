@@ -1,6 +1,6 @@
 package prolog;
 
-import prolog.builtins.Builtins;
+import SxxMachine.Builtins;
 
 /**
    Minimal command line only Prolog main entry point

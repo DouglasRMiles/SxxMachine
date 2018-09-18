@@ -1,9 +1,9 @@
-package prolog.io;
+package SxxMachine;
 
 import SxxMachine.Term;
-import prolog.terms.Const;
-import prolog.terms.Expect;
-import prolog.terms.Prog;
+import SxxMachine.Const;
+import SxxMachine.Expect;
+import SxxMachine.Prog;
 
 /**
  * Writer

@@ -1,9 +1,9 @@
-package prolog.fluents;
+package SxxMachine;
 
 import SxxMachine.LongTerm;
 import SxxMachine.Term;
-import prolog.terms.Prog;
-import prolog.terms.Source;
+import SxxMachine.Prog;
+import SxxMachine.Source;
 
 /**
  * creates a source of integers based on x=a*x+b formula

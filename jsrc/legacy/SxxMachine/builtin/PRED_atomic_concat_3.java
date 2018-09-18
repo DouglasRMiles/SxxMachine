@@ -15,7 +15,7 @@ import SxxMachine.Term;
  *  ?- atomic_concat(name, 42, X).
  *  X = name42.
  * Created by semenov on 27.04.2017.
- * http://www.swi-prolog.org/pldoc/man?predicate=atomic_concat/3
+ * http://www.swi-SxxMachine.org/pldoc/man?predicate=atomic_concat/3
  */
 
 public class PRED_atomic_concat_3 extends Predicate.P3 {

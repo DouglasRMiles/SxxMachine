@@ -1,4 +1,4 @@
-package prolog.io;
+package SxxMachine;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -7,8 +7,8 @@ import java.io.StringReader;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.Trail;
-import prolog.terms.Prog;
-import prolog.terms.Source;
+import SxxMachine.Prog;
+import SxxMachine.Source;
 
 /**
   Builds  Fluents from Java

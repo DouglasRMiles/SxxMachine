@@ -1,14 +1,14 @@
-package prolog.terms;
+package SxxMachine;
 
 import java.util.Iterator;
 
 import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.Term;
-import prolog.KPTrail;
-import prolog.fluents.HashDict;
-import prolog.io.IO;
-import prolog.io.Parser;
+import SxxMachine.KPTrail;
+import SxxMachine.HashDict;
+import SxxMachine.IO;
+import SxxMachine.Parser;
 
 //!depends
 /**

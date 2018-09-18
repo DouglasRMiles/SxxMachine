@@ -3,7 +3,7 @@ package SxxMachine;
 import SxxMachine.*;
 
 
-import prolog.terms.Real;
+import SxxMachine.Real;
 
 /**
  * The superclass of classes for integers and floating point numbers.
