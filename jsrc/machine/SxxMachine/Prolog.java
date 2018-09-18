@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import SxxMachine.Builtins.NameArity;
 import SxxMachine.Const;
 /**
  * Prolog engine.
@@ -115,7 +114,7 @@ public final class Prolog {
 	/** Hashtable for managing internal databases. */
 	private final HashtableOfTerm hashManager;
 	/** Name of the builtin package. */
-	public static final String BUILTIN = "SxxMachine.builtin";
+	public static final String BUILTIN = "SxxMachine";
 	/** Holds an atom <code>[]<code> (empty list). */
 	public static final SymbolTerm Nil     = SymbolTerm.intern("[]");
 	public static final SymbolTerm True     = SymbolTerm.intern("true");

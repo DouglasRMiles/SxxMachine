@@ -1,11 +1,11 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
-import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
-import static SxxMachine.builtin.FILE_system.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_swi_supp.*;
+import static SxxMachine.FILE_cafeteria.*;
+import static SxxMachine.FILE_io.*;
+import static SxxMachine.FILE_system.*;
 import static SxxMachine.Failure.*;
 import SxxMachine.*;
 
@@ -88,7 +88,7 @@ final public class FILE_builtins extends TermData {
 	/** PREDICATE: (^)/2
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/builtins.pl
 	*/
-	final static SymbolTerm ATOM_SxxMachine$002Ebuiltin = SYM("SxxMachine.builtin");
+	final static SymbolTerm ATOM_SxxMachine$002Ebuiltin = SYM("SxxMachine");
 
 	public static Operation PRED_$005E_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -97,7 +97,7 @@ final public class FILE_builtins extends TermData {
 		m.setB0();
 		Term a2, a3;
 		a2 = LARG[1];
-		// A^B:-[call('SxxMachine.builtin':B)]
+		// A^B:-[call('SxxMachine':B)]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
 		a3 = S(":", y1);
 		return //
@@ -116,7 +116,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a3, a4;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// A,B:-[call('SxxMachine.builtin':A),call('SxxMachine.builtin':B)]
+		// A,B:-[call('SxxMachine':A),call('SxxMachine':B)]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a1);
 		a3 = S(":", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
@@ -173,7 +173,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// A;B:-['$not_unifiable'(A,(C->D)),call('SxxMachine.builtin':A)]
+		// A;B:-['$not_unifiable'(A,(C->D)),call('SxxMachine':A)]
 		Term[] y1 = VA(V(m), V(m));
 		a3 = S("->", y1);
 		//START inline expansion of $not_unifiable(a(1),a(3))
@@ -193,7 +193,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// A;B:-['$not_unifiable'(B,(C->D)),call('SxxMachine.builtin':B)]
+		// A;B:-['$not_unifiable'(B,(C->D)),call('SxxMachine':B)]
 		Term[] y1 = VA(V(m), V(m));
 		a3 = S("->", y1);
 		//START inline expansion of $not_unifiable(a(2),a(3))
@@ -213,7 +213,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// A->B;C:-['$get_level'(D),call('SxxMachine.builtin':A),'$cut'(D),call('SxxMachine.builtin':B)]
+		// A->B;C:-['$get_level'(D),call('SxxMachine':A),'$cut'(D),call('SxxMachine':B)]
 		a1 = a1.dref();
 		a3 = V(m);
 		a4 = V(m);
@@ -243,7 +243,7 @@ final public class FILE_builtins extends TermData {
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// A->B;C:-[call('SxxMachine.builtin':C)]
+		// A->B;C:-[call('SxxMachine':C)]
 		a1 = a1.dref();
 		if (!a1.unify(C("->", V(m), V(m)), m.trail)) {
 			return m.fail();
@@ -266,7 +266,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a3, a4, a5;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// A->B:-['$get_level'(C),call('SxxMachine.builtin':A),'$cut'(C),call('SxxMachine.builtin':B)]
+		// A->B:-['$get_level'(C),call('SxxMachine':A),'$cut'(C),call('SxxMachine':B)]
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
 		if (!a3.unifyInt(m.B0, m.trail)) {
@@ -1243,7 +1243,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(findall(A,B,C),D,E,F,G):-['$neck_cut',findall(A,'SxxMachine.builtin':'$meta_call'(B,D,E,F,G),C)]
+		// '$meta_call'(findall(A,B,C),D,E,F,G):-['$neck_cut',findall(A,'SxxMachine':'$meta_call'(B,D,E,F,G),C)]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1270,7 +1270,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(bagof(A,B,C),D,E,F,G):-['$neck_cut',bagof(A,'SxxMachine.builtin':'$meta_call'(B,D,E,F,G),C)]
+		// '$meta_call'(bagof(A,B,C),D,E,F,G):-['$neck_cut',bagof(A,'SxxMachine':'$meta_call'(B,D,E,F,G),C)]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1297,7 +1297,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(setof(A,B,C),D,E,F,G):-['$neck_cut',setof(A,'SxxMachine.builtin':'$meta_call'(B,D,E,F,G),C)]
+		// '$meta_call'(setof(A,B,C),D,E,F,G):-['$neck_cut',setof(A,'SxxMachine':'$meta_call'(B,D,E,F,G),C)]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1324,7 +1324,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(once(A),B,C,D,E):-['$neck_cut',once('SxxMachine.builtin':'$meta_call'(A,B,C,D,E))]
+		// '$meta_call'(once(A),B,C,D,E):-['$neck_cut',once('SxxMachine':'$meta_call'(A,B,C,D,E))]
 		a1 = a1.dref();
 		a6 = V(m);
 		if (!a1.unify(C("once", a6), m.trail)) {
@@ -1349,7 +1349,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(on_exception(A,B,C),D,E,F,G):-['$neck_cut',on_exception(A,'SxxMachine.builtin':'$meta_call'(B,D,E,F,G),'SxxMachine.builtin':'$meta_call'(C,D,E,F,G))]
+		// '$meta_call'(on_exception(A,B,C),D,E,F,G):-['$neck_cut',on_exception(A,'SxxMachine':'$meta_call'(B,D,E,F,G),'SxxMachine':'$meta_call'(C,D,E,F,G))]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1378,7 +1378,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(catch(A,B,C),D,E,F,G):-['$neck_cut',catch('SxxMachine.builtin':'$meta_call'(A,D,E,F,G),B,'SxxMachine.builtin':'$meta_call'(C,D,E,F,G))]
+		// '$meta_call'(catch(A,B,C),D,E,F,G):-['$neck_cut',catch('SxxMachine':'$meta_call'(A,D,E,F,G),B,'SxxMachine':'$meta_call'(C,D,E,F,G))]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1407,7 +1407,7 @@ final public class FILE_builtins extends TermData {
 		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
-		// '$meta_call'(synchronized(A,B),C,D,E,F):-['$neck_cut',synchronized(A,'SxxMachine.builtin':'$meta_call'(B,C,D,E,F))]
+		// '$meta_call'(synchronized(A,B),C,D,E,F):-['$neck_cut',synchronized(A,'SxxMachine':'$meta_call'(B,C,D,E,F))]
 		a1 = a1.dref();
 		a6 = V(m);
 		a7 = V(m);
@@ -1973,7 +1973,7 @@ final public class FILE_builtins extends TermData {
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
-		// catch(A,B,C):-[on_exception(B,'SxxMachine.builtin':A,'SxxMachine.builtin':C)]
+		// catch(A,B,C):-[on_exception(B,'SxxMachine':A,'SxxMachine':C)]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a1);
 		a4 = S(":", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a3);
@@ -2077,7 +2077,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// '$on_exception'(A,B,C):-['$set_exception'('$none'),'$begin_exception'(D),call('SxxMachine.builtin':B),'$end_exception'(D)]
+		// '$on_exception'(A,B,C):-['$set_exception'('$none'),'$begin_exception'(D),call('SxxMachine':B),'$end_exception'(D)]
 		a4 = V(m);
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
 		a5 = S(":", y1);
@@ -2129,7 +2129,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$catch_and_throw'(A,A,B):-['$neck_cut','$set_exception'('$none'),call('SxxMachine.builtin':B)]
+		// '$catch_and_throw'(A,A,B):-['$neck_cut','$set_exception'('$none'),call('SxxMachine':B)]
 		if (!a1.unify(a2, m.trail))
 			return m.fail();
 		//START inline expansion of $neck_cut
@@ -5151,7 +5151,7 @@ final public class FILE_builtins extends TermData {
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// initialization([],A):-['$neck_cut',once('SxxMachine.builtin':A)]
+		// initialization([],A):-['$neck_cut',once('SxxMachine':A)]
 		if (!PRED_initialization_2_s1.unify(a1, m.trail))
 			return m.fail();
 		//START inline expansion of $neck_cut
@@ -5199,7 +5199,7 @@ final public class FILE_builtins extends TermData {
 		m.setB0();
 		Term a1, a2;
 		a1 = LARG[0];
-		// assert(A):-[assertz('SxxMachine.builtin':A)]
+		// assert(A):-[assertz('SxxMachine':A)]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a1);
 		a2 = S(":", y1);
 		return //
@@ -8230,7 +8230,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$findall'(A,B,C,D):-[call('SxxMachine.builtin':C),copy_term(B,E),'$hash_addz'(A,'$FINDALL',E),fail]
+		// '$findall'(A,B,C,D):-[call('SxxMachine':C),copy_term(B,E),'$hash_addz'(A,'$FINDALL',E),fail]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a3);
 		a5 = S(":", y1);
 		a6 = V(m);
@@ -8390,7 +8390,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$bagof'(A,B,C):-['$get_level'(D),'$free_variables_set'(B,A,E),'$inequality_of_term'(E,[]),'$cut'(D),'$univ'(F,['$witness'|E]),findall(F+A,'SxxMachine.builtin':B,G),'$bagof_instances'(G,F,H),'$unify'(C,H)]
+		// '$bagof'(A,B,C):-['$get_level'(D),'$free_variables_set'(B,A,E),'$inequality_of_term'(E,[]),'$cut'(D),'$univ'(F,['$witness'|E]),findall(F+A,'SxxMachine':B,G),'$bagof_instances'(G,F,H),'$unify'(C,H)]
 		a4 = V(m);
 		//START inline expansion of $get_level(a(4))
 		if (!a4.unifyInt(m.B0, m.trail)) {
@@ -8424,7 +8424,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$bagof'(A,B,C):-[findall(A,'SxxMachine.builtin':B,C),'$inequality_of_term'(C,[])]
+		// '$bagof'(A,B,C):-[findall(A,'SxxMachine':B,C),'$inequality_of_term'(C,[])]
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
 		a4 = S(":", y1);
 		return //
@@ -10892,7 +10892,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// parse_tokens(A,B):-['$get_level'(C),retractall('SxxMachine.builtin':'$tokens'(D)),assertz('SxxMachine.builtin':'$tokens'(B)),'$parse_tokens'(A,1201,B,['.']),retract('SxxMachine.builtin':'$tokens'(B)),'$cut'(C)]
+		// parse_tokens(A,B):-['$get_level'(C),retractall('SxxMachine':'$tokens'(D)),assertz('SxxMachine':'$tokens'(B)),'$parse_tokens'(A,1201,B,['.']),retract('SxxMachine':'$tokens'(B)),'$cut'(C)]
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
 		if (!a3.unifyInt(m.B0, m.trail)) {
@@ -13541,7 +13541,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a4, a5, a6;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// '$parse_tokens_error'(A,B,C):-[write(user_error,'{SYNTAX ERROR}'),nl(user_error),write(user_error,'** '),'$parse_tokens_write_message'(user_error,A),write(user_error,' **'),nl(user_error),'$parse_tokens_error1'([],B),clause('SxxMachine.builtin':'$tokens'(D),E),'$parse_tokens_error1'(D,B),flush_output(user_error),fail]
+		// '$parse_tokens_error'(A,B,C):-[write(user_error,'{SYNTAX ERROR}'),nl(user_error),write(user_error,'** '),'$parse_tokens_write_message'(user_error,A),write(user_error,' **'),nl(user_error),'$parse_tokens_error1'([],B),clause('SxxMachine':'$tokens'(D),E),'$parse_tokens_error1'(D,B),flush_output(user_error),fail]
 		a4 = V(m);
 		Term[] y1 = VA(a4);
 		a5 = S("$tokens", y1);
@@ -16234,7 +16234,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$op1'(A,B,C):-[findall(D,'SxxMachine.builtin':'$op_specifier'(D,E),F),illarg(domain(term,F),op(A,B,C),2)]
+		// '$op1'(A,B,C):-[findall(D,'SxxMachine':'$op_specifier'(D,E),F),illarg(domain(term,F),op(A,B,C),2)]
 		a4 = V(m);
 		a5 = Closure( //
 				Op((Prolog e) -> PRED_$op_specifier_2_static_exec(e), VA(a4, V(m)), null));
@@ -16480,7 +16480,7 @@ final public class FILE_builtins extends TermData {
 		a1 = m.AREGS[0];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$add_op'(A,B,C):-[clause('SxxMachine.builtin':'$current_operator'(D,E,A),F),'$op_specifier'(C,G),'$op_specifier'(E,H),'$unify'(G,H),retract('SxxMachine.builtin':'$current_operator'(I,E,A)),fail]
+		// '$add_op'(A,B,C):-[clause('SxxMachine':'$current_operator'(D,E,A),F),'$op_specifier'(C,G),'$op_specifier'(E,H),'$unify'(G,H),retract('SxxMachine':'$current_operator'(I,E,A)),fail]
 		a4 = V(m);
 		Term[] y1 = VA(V(m), a4, a1);
 		a5 = S("$current_operator", y1);
@@ -16524,7 +16524,7 @@ final public class FILE_builtins extends TermData {
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
-		// '$add_op'(A,B,C):-[assertz('SxxMachine.builtin':'$current_operator'(B,C,A))]
+		// '$add_op'(A,B,C):-[assertz('SxxMachine':'$current_operator'(B,C,A))]
 		Term[] y1 = VA(a2, a3, a1);
 		a4 = S("$current_operator", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a4);
@@ -16851,7 +16851,7 @@ final public class FILE_builtins extends TermData {
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
-		// current_op(A,B,C):-[clause('SxxMachine.builtin':'$current_operator'(A,B,C),D)]
+		// current_op(A,B,C):-[clause('SxxMachine':'$current_operator'(A,B,C),D)]
 		Term[] y1 = VA(a1, a2, a3);
 		a4 = S("$current_operator", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a4);
@@ -16883,7 +16883,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// \+A:-['$get_level'(B),call('SxxMachine.builtin':A),'$cut'(B),fail]
+		// \+A:-['$get_level'(B),call('SxxMachine':A),'$cut'(B),fail]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
 		if (!a2.unifyInt(m.B0, m.trail)) {
@@ -16954,7 +16954,7 @@ final public class FILE_builtins extends TermData {
 		m.setB0();
 		Term a1, a2, a3;
 		a1 = LARG[0];
-		// once(A):-['$get_level'(B),call('SxxMachine.builtin':A),'$cut'(B)]
+		// once(A):-['$get_level'(B),call('SxxMachine':A),'$cut'(B)]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
 		if (!a2.unifyInt(m.B0, m.trail)) {
@@ -17399,7 +17399,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a3;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// regex_matches(A,B):-[once('SxxMachine.builtin':regex_matches(A,B,C))]
+		// regex_matches(A,B):-[once('SxxMachine':regex_matches(A,B,C))]
 		a3 = Closure( //
 				Op((Prolog e) -> PRED_regex_matches_3_static_exec(e), VA(a1, a2, V(m)), null));
 		return //
@@ -19493,7 +19493,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// '$consult_init'(A):-[retractall('SxxMachine.builtin':'$consulted_file'(B)),retractall('SxxMachine.builtin':'$consulted_package'(C)),retractall('SxxMachine.builtin':'$consulted_import'(A,D)),retract('SxxMachine.builtin':'$consulted_predicate'(E,F,A)),abolish(E:F),fail]
+		// '$consult_init'(A):-[retractall('SxxMachine':'$consulted_file'(B)),retractall('SxxMachine':'$consulted_package'(C)),retractall('SxxMachine':'$consulted_import'(A,D)),retract('SxxMachine':'$consulted_predicate'(E,F,A)),abolish(E:F),fail]
 		Term[] y1 = VA(V(m));
 		a2 = S("$consulted_file", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
@@ -19529,7 +19529,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// '$consult_init'(A):-[assertz('SxxMachine.builtin':'$consulted_file'(A)),assertz('SxxMachine.builtin':'$consulted_package'(user))]
+		// '$consult_init'(A):-[assertz('SxxMachine':'$consulted_file'(A)),assertz('SxxMachine':'$consulted_package'(user))]
 		Term[] y1 = VA(a1);
 		a2 = S("$consulted_file", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
@@ -19902,7 +19902,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// '$consult_clause'((:-A)):-['$neck_cut',clause('SxxMachine.builtin':'$consulted_package'(B),C),once(B:A)]
+		// '$consult_clause'((:-A)):-['$neck_cut',clause('SxxMachine':'$consulted_package'(B),C),once(B:A)]
 		a1 = a1.dref();
 		a2 = V(m);
 		if (!a1.unify(C(":-", a2), m.trail)) {
@@ -19959,7 +19959,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// '$assert_consulted_package'(A):-['$get_level'(B),clause('SxxMachine.builtin':'$consulted_package'(A),C),'$cut'(B)]
+		// '$assert_consulted_package'(A):-['$get_level'(B),clause('SxxMachine':'$consulted_package'(A),C),'$cut'(B)]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
 		if (!a2.unifyInt(m.B0, m.trail)) {
@@ -19981,7 +19981,7 @@ final public class FILE_builtins extends TermData {
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
-		// '$assert_consulted_package'(A):-[retractall('SxxMachine.builtin':'$consulted_package'(B)),assertz('SxxMachine.builtin':'$consulted_package'(A))]
+		// '$assert_consulted_package'(A):-[retractall('SxxMachine':'$consulted_package'(B)),assertz('SxxMachine':'$consulted_package'(A))]
 		Term[] y1 = VA(V(m));
 		a2 = S("$consulted_package", y1);
 		Term[] y2 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
@@ -20006,7 +20006,7 @@ final public class FILE_builtins extends TermData {
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6;
 		a1 = LARG[0];
-		// '$assert_consulted_import'(A):-[clause('SxxMachine.builtin':'$consulted_file'(B),C),assertz('SxxMachine.builtin':'$consulted_import'(B,A))]
+		// '$assert_consulted_import'(A):-[clause('SxxMachine':'$consulted_file'(B),C),assertz('SxxMachine':'$consulted_import'(B,A))]
 		a2 = V(m);
 		Term[] y1 = VA(a2);
 		a3 = S("$consulted_file", y1);
@@ -20106,7 +20106,7 @@ final public class FILE_builtins extends TermData {
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
 		a1 = LARG[0];
-		// '$assert_consulted_clause'(A):-['$get_level'(B),'$unify'(A,(C:-D)),functor(C,E,F),clause('SxxMachine.builtin':'$consulted_file'(G),H),clause('SxxMachine.builtin':'$consulted_package'(I),J),assertz(I:A),assertz('SxxMachine.builtin':'$consulted_predicate'(I,E/F,G)),'$cut'(B)]
+		// '$assert_consulted_clause'(A):-['$get_level'(B),'$unify'(A,(C:-D)),functor(C,E,F),clause('SxxMachine':'$consulted_file'(G),H),clause('SxxMachine':'$consulted_package'(I),J),assertz(I:A),assertz('SxxMachine':'$consulted_predicate'(I,E/F,G)),'$cut'(B)]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
 		if (!a2.unifyInt(m.B0, m.trail)) {
@@ -20672,7 +20672,7 @@ final public class FILE_builtins extends TermData {
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// statistics(A,B):-[findall(C,'SxxMachine.builtin':'$statistics_mode'(C),D),illarg(domain(atom,D),statistics(A,B),1)]
+		// statistics(A,B):-[findall(C,'SxxMachine':'$statistics_mode'(C),D),illarg(domain(atom,D),statistics(A,B),1)]
 		a3 = V(m);
 		a4 = Closure( //
 				Op((Prolog e) -> PRED_$statistics_mode_1_static_exec(e), VA(a3), null));
@@ -22511,7 +22511,7 @@ final public class FILE_builtins extends TermData {
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		cont = m.cont;
-		// with_mutex(A,B):-['$get_level'(C),mutex_lock_bt(A),call('SxxMachine.builtin':B),'$cut'(C),mutex_unlock(A)]
+		// with_mutex(A,B):-['$get_level'(C),mutex_lock_bt(A),call('SxxMachine':B),'$cut'(C),mutex_unlock(A)]
 		a3 = V(m);
 		//START inline expansion of $get_level(a(3))
 		if (!a3.unifyInt(m.B0, m.trail)) {
@@ -22861,7 +22861,7 @@ final public class FILE_builtins extends TermData {
 		Term a1, a2, a3, a4;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		// synchronized(A,B):-['$begin_sync'(A,C),call('SxxMachine.builtin':B),'$end_sync'(C)]
+		// synchronized(A,B):-['$begin_sync'(A,C),call('SxxMachine':B),'$end_sync'(C)]
 		a3 = V(m);
 		Term[] y1 = VA(ATOM_SxxMachine$002Ebuiltin, a2);
 		a4 = S(":", y1);
@@ -22874,7 +22874,7 @@ final public class FILE_builtins extends TermData {
 	/** PREDICATE: $init/0
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/builtins.pl
 	*/
-	private static final SymbolTerm PRED_$init_0_s1 = SYM("SxxMachine.builtin");
+	private static final SymbolTerm PRED_$init_0_s1 = SYM("SxxMachine");
 	final static SymbolTerm ATOM_$0024tokens = SYM("$tokens");
 	private static final StructureTerm PRED_$init_0_s6 = S("/", ATOM_$0024tokens, int_1);
 	final static SymbolTerm ATOM_$003A$002D = SYM(":-");
@@ -23120,9 +23120,9 @@ final public class FILE_builtins extends TermData {
 
 	private static Operation PRED_$init_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		// '$init':-'$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz(('$current_operator'(1200,xfx,:-):-true)),assertz(('$current_operator'(1200,xfx,-->):-true)),assertz(('$current_operator'(1200,fx,:-):-true)),assertz(('$current_operator'(1200,fx,?-):-true)),assertz(('$current_operator'(1150,fx,package):-true)),assertz(('$current_operator'(1150,fx,import):-true)),assertz(('$current_operator'(1150,fx,include):-true)),assertz(('$current_operator'(1150,fx,include_resource):-true)),assertz(('$current_operator'(1150,fx,constant):-true)),assertz(('$current_operator'(1150,fx,public):-true)),assertz(('$current_operator'(1150,fx,dynamic):-true)),assertz(('$current_operator'(1150,fx,meta_predicate):-true)),assertz(('$current_operator'(1150,fx,mode):-true)),assertz(('$current_operator'(1150,fx,multifile):-true)),assertz(('$current_operator'(1150,fx,block):-true)),assertz(('$current_operator'(1150,fx,ifdef):-true)),assertz(('$current_operator'(1150,fx,ifndef):-true)),assertz(('$current_operator'(1150,fx,domain):-true)),assertz(('$current_operator'(1150,fx,database):-true)),assertz(('$current_operator'(1100,xfy,;):-true)),assertz(('$current_operator'(1050,xfy,->):-true)),assertz(('$current_operator'(1000,xfy,','):-true)),assertz(('$current_operator'(900,fy,\+):-true)),assertz(('$current_operator'(700,xfx,=):-true)),assertz(('$current_operator'(700,xfx,\=):-true)),assertz(('$current_operator'(700,xfx,==):-true)),assertz(('$current_operator'(700,xfx,\==):-true)),assertz(('$current_operator'(700,xfx,@<):-true)),assertz(('$current_operator'(700,xfx,@>):-true)),assertz(('$current_operator'(700,xfx,@=<):-true)),assertz(('$current_operator'(700,xfx,@>=):-true)),assertz(('$current_operator'(700,xfx,=..):-true)),assertz(('$current_operator'(700,xfx,is):-true)),assertz(('$current_operator'(700,xfx,=:=):-true)),assertz(('$current_operator'(700,xfx,=\=):-true)),assertz(('$current_operator'(700,xfx,<):-true)),assertz(('$current_operator'(700,xfx,>):-true)),assertz(('$current_operator'(700,xfx,=<):-true)),assertz(('$current_operator'(700,xfx,>=):-true)),assertz(('$current_operator'(550,xfy,:):-true)),assertz(('$current_operator'(500,yfx,+):-true)),assertz(('$current_operator'(500,yfx,-):-true)),assertz(('$current_operator'(500,yfx,#):-true)),assertz(('$current_operator'(500,yfx,/\):-true)),assertz(('$current_operator'(500,yfx,\/):-true)),assertz(('$current_operator'(500,fx,+):-true)),assertz(('$current_operator'(400,yfx,*):-true)),assertz(('$current_operator'(400,yfx,/):-true)),assertz(('$current_operator'(400,yfx,//):-true)),assertz(('$current_operator'(400,yfx,mod):-true)),assertz(('$current_operator'(400,yfx,rem):-true)),assertz(('$current_operator'(400,yfx,<<):-true)),assertz(('$current_operator'(400,yfx,>>):-true)),assertz(('$current_operator'(300,xfx,~):-true)),assertz(('$current_operator'(200,xfx,**):-true)),assertz(('$current_operator'(200,xfy,^):-true)),assertz(('$current_operator'(200,fy,\):-true)),assertz(('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,E)
+		// '$init':-'$new_indexing_hash'('SxxMachine','$tokens'/1,A),assertz(('$current_operator'(1200,xfx,:-):-true)),assertz(('$current_operator'(1200,xfx,-->):-true)),assertz(('$current_operator'(1200,fx,:-):-true)),assertz(('$current_operator'(1200,fx,?-):-true)),assertz(('$current_operator'(1150,fx,package):-true)),assertz(('$current_operator'(1150,fx,import):-true)),assertz(('$current_operator'(1150,fx,include):-true)),assertz(('$current_operator'(1150,fx,include_resource):-true)),assertz(('$current_operator'(1150,fx,constant):-true)),assertz(('$current_operator'(1150,fx,public):-true)),assertz(('$current_operator'(1150,fx,dynamic):-true)),assertz(('$current_operator'(1150,fx,meta_predicate):-true)),assertz(('$current_operator'(1150,fx,mode):-true)),assertz(('$current_operator'(1150,fx,multifile):-true)),assertz(('$current_operator'(1150,fx,block):-true)),assertz(('$current_operator'(1150,fx,ifdef):-true)),assertz(('$current_operator'(1150,fx,ifndef):-true)),assertz(('$current_operator'(1150,fx,domain):-true)),assertz(('$current_operator'(1150,fx,database):-true)),assertz(('$current_operator'(1100,xfy,;):-true)),assertz(('$current_operator'(1050,xfy,->):-true)),assertz(('$current_operator'(1000,xfy,','):-true)),assertz(('$current_operator'(900,fy,\+):-true)),assertz(('$current_operator'(700,xfx,=):-true)),assertz(('$current_operator'(700,xfx,\=):-true)),assertz(('$current_operator'(700,xfx,==):-true)),assertz(('$current_operator'(700,xfx,\==):-true)),assertz(('$current_operator'(700,xfx,@<):-true)),assertz(('$current_operator'(700,xfx,@>):-true)),assertz(('$current_operator'(700,xfx,@=<):-true)),assertz(('$current_operator'(700,xfx,@>=):-true)),assertz(('$current_operator'(700,xfx,=..):-true)),assertz(('$current_operator'(700,xfx,is):-true)),assertz(('$current_operator'(700,xfx,=:=):-true)),assertz(('$current_operator'(700,xfx,=\=):-true)),assertz(('$current_operator'(700,xfx,<):-true)),assertz(('$current_operator'(700,xfx,>):-true)),assertz(('$current_operator'(700,xfx,=<):-true)),assertz(('$current_operator'(700,xfx,>=):-true)),assertz(('$current_operator'(550,xfy,:):-true)),assertz(('$current_operator'(500,yfx,+):-true)),assertz(('$current_operator'(500,yfx,-):-true)),assertz(('$current_operator'(500,yfx,#):-true)),assertz(('$current_operator'(500,yfx,/\):-true)),assertz(('$current_operator'(500,yfx,\/):-true)),assertz(('$current_operator'(500,fx,+):-true)),assertz(('$current_operator'(400,yfx,*):-true)),assertz(('$current_operator'(400,yfx,/):-true)),assertz(('$current_operator'(400,yfx,//):-true)),assertz(('$current_operator'(400,yfx,mod):-true)),assertz(('$current_operator'(400,yfx,rem):-true)),assertz(('$current_operator'(400,yfx,<<):-true)),assertz(('$current_operator'(400,yfx,>>):-true)),assertz(('$current_operator'(300,xfx,~):-true)),assertz(('$current_operator'(200,xfx,**):-true)),assertz(('$current_operator'(200,xfy,^):-true)),assertz(('$current_operator'(200,fy,\):-true)),assertz(('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine','$consulted_predicate'/3,E)
 		m.setB0();
-		// '$init':-['$new_indexing_hash'('SxxMachine.builtin','$tokens'/1,A),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,xfx,-->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,:-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1200,fx,?-):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,package):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,import):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,include_resource):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,constant):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,public):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,dynamic):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,meta_predicate):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,mode):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,multifile):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,block):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifdef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,ifndef):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,domain):-true)),assertz('SxxMachine.builtin':('$current_operator'(1150,fx,database):-true)),assertz('SxxMachine.builtin':('$current_operator'(1100,xfy,;):-true)),assertz('SxxMachine.builtin':('$current_operator'(1050,xfy,->):-true)),assertz('SxxMachine.builtin':('$current_operator'(1000,xfy,','):-true)),assertz('SxxMachine.builtin':('$current_operator'(900,fy,\+):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,\==):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,@>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=..):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,is):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=:=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=\=):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,=<):-true)),assertz('SxxMachine.builtin':('$current_operator'(700,xfx,>=):-true)),assertz('SxxMachine.builtin':('$current_operator'(550,xfy,:):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,-):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,#):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,/\):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,yfx,\/):-true)),assertz('SxxMachine.builtin':('$current_operator'(500,fx,+):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,*):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,/):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,//):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,mod):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,rem):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,<<):-true)),assertz('SxxMachine.builtin':('$current_operator'(400,yfx,>>):-true)),assertz('SxxMachine.builtin':('$current_operator'(300,xfx,~):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfx,**):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,xfy,^):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,\):-true)),assertz('SxxMachine.builtin':('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine.builtin','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine.builtin','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine.builtin','$consulted_predicate'/3,E)]
+		// '$init':-['$new_indexing_hash'('SxxMachine','$tokens'/1,A),assertz('SxxMachine':('$current_operator'(1200,xfx,:-):-true)),assertz('SxxMachine':('$current_operator'(1200,xfx,-->):-true)),assertz('SxxMachine':('$current_operator'(1200,fx,:-):-true)),assertz('SxxMachine':('$current_operator'(1200,fx,?-):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,package):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,import):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,include):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,include_resource):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,constant):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,public):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,dynamic):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,meta_predicate):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,mode):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,multifile):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,block):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,ifdef):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,ifndef):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,domain):-true)),assertz('SxxMachine':('$current_operator'(1150,fx,database):-true)),assertz('SxxMachine':('$current_operator'(1100,xfy,;):-true)),assertz('SxxMachine':('$current_operator'(1050,xfy,->):-true)),assertz('SxxMachine':('$current_operator'(1000,xfy,','):-true)),assertz('SxxMachine':('$current_operator'(900,fy,\+):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,=):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,\=):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,==):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,\==):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,@<):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,@>):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,@=<):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,@>=):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,=..):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,is):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,=:=):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,=\=):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,<):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,>):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,=<):-true)),assertz('SxxMachine':('$current_operator'(700,xfx,>=):-true)),assertz('SxxMachine':('$current_operator'(550,xfy,:):-true)),assertz('SxxMachine':('$current_operator'(500,yfx,+):-true)),assertz('SxxMachine':('$current_operator'(500,yfx,-):-true)),assertz('SxxMachine':('$current_operator'(500,yfx,#):-true)),assertz('SxxMachine':('$current_operator'(500,yfx,/\):-true)),assertz('SxxMachine':('$current_operator'(500,yfx,\/):-true)),assertz('SxxMachine':('$current_operator'(500,fx,+):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,*):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,/):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,//):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,mod):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,rem):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,<<):-true)),assertz('SxxMachine':('$current_operator'(400,yfx,>>):-true)),assertz('SxxMachine':('$current_operator'(300,xfx,~):-true)),assertz('SxxMachine':('$current_operator'(200,xfx,**):-true)),assertz('SxxMachine':('$current_operator'(200,xfy,^):-true)),assertz('SxxMachine':('$current_operator'(200,fy,\):-true)),assertz('SxxMachine':('$current_operator'(200,fy,-):-true)),'$new_indexing_hash'('SxxMachine','$consulted_file'/1,B),'$new_indexing_hash'('SxxMachine','$consulted_import'/2,C),'$new_indexing_hash'('SxxMachine','$consulted_package'/1,D),'$new_indexing_hash'('SxxMachine','$consulted_predicate'/3,E)]
 		return //
 		Op((Prolog e) -> PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), //
 				Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(PRED_$init_0_s19), //

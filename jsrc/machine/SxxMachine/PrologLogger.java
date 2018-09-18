@@ -47,7 +47,7 @@ public class PrologLogger {
 	final void init(ChoicePointFrame initialChoicePointFrame) {
 		this.stackTop = 0;
 		//Arrays.fill(stackFrame, null);
-		this.stackFrame[0] = Op(SxxMachine.builtin.FILE_builtins::PRED_true_0_static_exec,VA(),null); // TODO check if null is ok
+		this.stackFrame[0] = Op(SxxMachine.FILE_builtins::PRED_true_0_static_exec,VA(),null); // TODO check if null is ok
 		this.normalExecution = true;
 		initialChoicePointFrame.ownerPredicate = this.stackFrame[this.stackTop];
 		initialChoicePointFrame.loggerStackTop = this.stackTop;

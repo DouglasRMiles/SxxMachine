@@ -1,12 +1,10 @@
 package SxxMachine;
 
-import SxxMachine.Builtins.NameArity;
-
 /**
 * Template for builtins of arity 0
 */
 
-abstract public class ConstBuiltin implements NameArity {
+abstract public class ConstBuiltin extends TermData implements NameArity {
 
 	String Name;
 	public ConstBuiltin(String s) {
@@ -20,13 +18,11 @@ abstract public class ConstBuiltin implements NameArity {
 	}
 
 	public String name() {
-		// TODO Auto-generated method stub
 		return Name;
 	}
 
 	public int arityOrType() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Term.CONST;
 	}
 	
 

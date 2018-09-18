@@ -6,9 +6,9 @@ import SxxMachine.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import SxxMachine.builtin.*;
-import SxxMachine.builtin.bootpreds;
-import SxxMachine.builtin.sxxtensions;
+import SxxMachine.*;
+import SxxMachine.bootpreds;
+import SxxMachine.sxxtensions;
 
 /**
  * Prolog class loader.

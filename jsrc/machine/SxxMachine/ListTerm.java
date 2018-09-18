@@ -10,10 +10,32 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-
-import SxxMachine.Const;
 @SuppressWarnings({"rawtypes","unused"})
 abstract public class ListTerm extends Const {
+	
+	ExecProg exp;
+
+	public int exec(Prog p, ISTerm thiz) {
+		return exp.exec(p, this);
+	}
+
+	public Term ArgDeRef(int i) {
+		return argz[i].dref();
+	}
+
+	public int getIntArg(int i) {
+		return (int) Expect.asInt(ArgDeRef(i)).doubleValue();
+	}
+
+	public int unifyArg(int i, Term a, Prog p) {
+		return argz[i].dref().Unify_TO(a.dref(), p.getTrail()) ? 1 : 0;
+	}
+
+	@Override
+	public Term ArgNoDeRef(int i) {
+		return argz[i];
+	}
+	
     protected boolean immutable;
 	@Override
 	public boolean isCons() {

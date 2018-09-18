@@ -8,27 +8,27 @@ public class Expect {
 
 	public static Const asConst(Term i) {
 		// TODO Auto-generated method stub
-		return (Const) i.toValue();
+		return (Const) i.asConst();
 	}
 
-	public static NumberTerm asInt(Term i) {
+	public static LongTerm asInt(Term i) {
 		// TODO Auto-generated method stub
-		return (NumberTerm) i.toValue();
+		return i.asLongTerm();
 	}
 
 	public static StructureTerm asCons(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.toValue();
+		return  (StructureTerm) i.asListTerm();
 	}
 
 	public static StructureTerm asStruct(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.toValue();
+		return  (StructureTerm) i.asStructureTerm();
 	}
  
 	public static StructureTerm asConj(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.toValue();
+		return  (StructureTerm) i.asStructureTerm();
 	}
 
 	public static CharReader asCharReader(Term i) {
@@ -38,7 +38,7 @@ public class Expect {
 
 	public static Real asNum(Term i) {
 		// TODO Auto-generated method stub
-		return (Real) i.toValue();
+		return (Real) i.asNumberTerm();
 	}
 
 }

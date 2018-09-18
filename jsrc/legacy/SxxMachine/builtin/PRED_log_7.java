@@ -1,6 +1,6 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
-import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+import static SxxMachine.PRED_loggable_1.LEVELS;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

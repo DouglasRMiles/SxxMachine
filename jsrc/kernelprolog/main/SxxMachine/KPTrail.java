@@ -1,4 +1,4 @@
-package prolog;
+package SxxMachine;
 
 import java.util.ArrayList;
 

@@ -7,7 +7,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import SxxMachine.builtin.sxxtensions;
+import SxxMachine.sxxtensions;
 import SxxMachine.KPTrail;
 import SxxMachine.Const;
 import SxxMachine.Expect;

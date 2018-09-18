@@ -1,9 +1,9 @@
-package prolog;
+package SxxMachine;
 
 import java.util.HashMap;
 
+
 import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
 import SxxMachine.Term;
 import SxxMachine.Builtins;
 import SxxMachine.DataBase;
@@ -24,7 +24,7 @@ public class Init {
 		return s;
 	}
 
-	public static String default_lib = "jsrc/kernelprolog/prolog/lib.pro";
+	public static String default_lib = "jsrc/kernelprolog/main/SxxMachine/lib.pro";
 
 	public static DataBase default_db;
 

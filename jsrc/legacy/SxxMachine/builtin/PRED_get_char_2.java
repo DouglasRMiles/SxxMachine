@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.io.IOException;
 import java.io.PushbackReader;

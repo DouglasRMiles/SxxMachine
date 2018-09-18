@@ -22,7 +22,7 @@ import java.util.Comparator;
 public class DoubleTerm extends NumberTerm {
 	
   public int arityOrType() {
-    return Term.REAL;
+    return Term.FLOAT;
  }
 
 	@Override

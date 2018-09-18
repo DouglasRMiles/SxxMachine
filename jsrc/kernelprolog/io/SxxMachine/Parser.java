@@ -320,43 +320,43 @@ class iffToken extends StructureTerm {
 	}
 }
 
-class Token extends SymbolTerm.Dynamic {
-	Token(String s) {
+class KPToken extends SymbolTerm.Dynamic {
+	KPToken(String s) {
 		super(s,0);
 	}
 }
 
-class lparToken extends Token {
+class lparToken extends KPToken {
 	public lparToken() {
 		super("(");
 	}
 }
 
-class rparToken extends Token {
+class rparToken extends KPToken {
 	public rparToken() {
 		super(")");
 	}
 }
 
-class lbraToken extends Token {
+class lbraToken extends KPToken {
 	public lbraToken() {
 		super("[");
 	}
 }
 
-class rbraToken extends Token {
+class rbraToken extends KPToken {
 	public rbraToken() {
 		super("]");
 	}
 }
 
-class barToken extends Token {
+class barToken extends KPToken {
 	public barToken() {
 		super("|");
 	}
 }
 
-class commaToken extends Token {
+class commaToken extends KPToken {
 	public commaToken() {
 		super(",");
 	}

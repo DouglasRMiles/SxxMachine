@@ -1,11 +1,11 @@
 package SxxMachine.library;
 
-import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.sxxtensions.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_swi_supp.*;
+import static SxxMachine.sxxtensions.*;
 import SxxMachine.*;
-import SxxMachine.builtin.*;
+import SxxMachine.*;
 
 public class FILE_system  extends TermData {
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl/1

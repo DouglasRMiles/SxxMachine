@@ -1,11 +1,11 @@
 package SxxMachine.bench;
 
-import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_swi_supp.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_swi_supp.*;
 import static SxxMachine.Failure.*;
 import SxxMachine.*;
-import SxxMachine.builtin.*;
+import SxxMachine.*;
 
 public class FILE_browse  extends TermData {
 	/** PREDICATE: top/0

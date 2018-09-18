@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import SxxMachine.Operation;
 import SxxMachine.Predicate;

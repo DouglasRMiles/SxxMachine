@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -3197,7 +3197,7 @@ public class bootpreds extends FFIPredicate {
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
 	// .Predicate.P2;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, message)</b> - logs given <i>message</i> to the
 	 * logger, corresponding to <i>package</i>, under the given <i>level</i>.
@@ -3244,7 +3244,7 @@ public class bootpreds extends FFIPredicate {
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
 	// .Predicate.P3;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, format, arg1)</b> - logs message, specified by
 	 * <i>format</i> and <i>arg1</i>, to the logger, corresponding to
@@ -3301,7 +3301,7 @@ public class bootpreds extends FFIPredicate {
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
 	// .Predicate.P4;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, format, arg1, arg2)</b> - logs message, specified by
 	 * <i>format</i> and <i>arg1</i>,<i>arg2</i> to the logger, corresponding to
@@ -3360,7 +3360,7 @@ public class bootpreds extends FFIPredicate {
 
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified
 	 * by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding
@@ -3423,7 +3423,7 @@ public class bootpreds extends FFIPredicate {
 
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified
 	 * by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding
@@ -3486,7 +3486,7 @@ public class bootpreds extends FFIPredicate {
 
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified
 	 * by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding
@@ -3552,7 +3552,7 @@ public class bootpreds extends FFIPredicate {
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
 	// .Predicate.P2;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <b>log_error(package:level, error)</b> - logs given <i>error</i> to the
 	 * logger, corresponding to <i>package</i>, under the given <i>level</i>. If
@@ -3670,7 +3670,7 @@ public class bootpreds extends FFIPredicate {
 	// jutil.logging.Level;
 	// jutil.logging.Logger;
 	// .Predicate.P1;
-	// import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
+	// import static SxxMachine.PRED_loggable_1.LEVELS;
 	/**
 	 * <p>
 	 * <b>log_level(package:level)</b> - gets or sets logging level for given

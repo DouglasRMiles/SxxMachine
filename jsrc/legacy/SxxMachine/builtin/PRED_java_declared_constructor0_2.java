@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

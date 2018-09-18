@@ -1,4 +1,4 @@
-package prolog;
+package SxxMachine;
 
 import SxxMachine.Builtins;
 

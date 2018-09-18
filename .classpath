@@ -13,9 +13,9 @@
 	<classpathentry kind="src" path="jsrc/exceptions"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/fluents"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/io"/>
-	<classpathentry kind="src" path="jsrc/kernelprolog/prolog"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/terms"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/tests"/>
+	<classpathentry kind="src" path="jsrc/kernelprolog/main"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

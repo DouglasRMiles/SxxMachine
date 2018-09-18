@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
  
 import java.io.*;
 import java.lang.reflect.*;
@@ -6,14 +6,14 @@ import java.nio.charset.Charset;
 import java.util.*;
 import java.util.concurrent.locks.*;
 import java.util.logging.*;
-import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
-import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
-import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
-import static SxxMachine.builtin.sxxtensions.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.bootpreds.LEVELS;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_cafeteria.*;
+import static SxxMachine.FILE_io.*;
+import static SxxMachine.FILE_swi_supp.*;
+import static SxxMachine.FILE_system.*;
+import static SxxMachine.sxxtensions.*;
 import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
@@ -21,14 +21,14 @@ import static SxxMachine.Success.*;
 import static SxxMachine.SymbolTerm.*;
 import static SxxMachine.TermData.*;
 import SxxMachine.*;
-import SxxMachine.builtin.*;
 import SxxMachine.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
+import SxxMachine.*;
+import SxxMachine.bootpreds.*;
+import SxxMachine.bootpreds.PRED_$begin_exception_1;
+import SxxMachine.bootpreds.PRED_$begin_sync_2;
+import SxxMachine.bootpreds.PRED_$builtin_member_2;
+import SxxMachine.FILE_builtins.*;
+import SxxMachine.sxxtensions.*;
 public class FILE_cafeteria extends TermData {
 /** PREDICATE: cafeteria/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
@@ -46,7 +46,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-    // cafeteria:-['$get_level'(A),'$cafeteria_init',repeat,'$toplvel_loop',on_exception(B,'SxxMachine.builtin':'$cafeteria'(C),'SxxMachine.builtin':print_message(error,B)),'$equality_of_term'(C,end_of_file),'$cut'(A),nl,'$fast_write'(bye),nl]
+    // cafeteria:-['$get_level'(A),'$cafeteria_init',repeat,'$toplvel_loop',on_exception(B,'SxxMachine':'$cafeteria'(C),'SxxMachine':print_message(error,B)),'$equality_of_term'(C,end_of_file),'$cut'(A),nl,'$fast_write'(bye),nl]
         a1 = V(m);
         //START inline expansion of $get_level(a(1))
         if (! a1.unifyInt(m.B0, m.trail)) {
@@ -73,7 +73,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
 /** PREDICATE: $cafeteria_init/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
 */
-    private static final SymbolTerm PRED_$cafeteria_init_0_s1 = SYM("SxxMachine.builtin");
+    private static final SymbolTerm PRED_$cafeteria_init_0_s1 = SYM("SxxMachine");
         final static SymbolTerm ATOM_$0024leap_flag = SYM("$leap_flag");
         final static IntegerTerm int_1 = Integer(1);
     private static final StructureTerm PRED_$cafeteria_init_0_s6 = S("/",  ATOM_$0024leap_flag ,  int_1 );
@@ -103,11 +103,11 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
 
     public static Operation PRED_$cafeteria_init_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$cafeteria_init':-'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,A),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,B),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,C),retractall('$leap_flag'(D)),retractall('$current_leash'(E)),retractall('$current_spypoint'(F,G,H)),retractall('$consulted_file'(I)),retractall('$consulted_package'(J)),retractall('$consulted_predicate'(K,L,M)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
+    // '$cafeteria_init':-'$new_indexing_hash'('SxxMachine','$leap_flag'/1,A),'$new_indexing_hash'('SxxMachine','$current_spypoint'/3,B),'$new_indexing_hash'('SxxMachine','$current_leash'/1,C),retractall('$leap_flag'(D)),retractall('$current_leash'(E)),retractall('$current_spypoint'(F,G,H)),retractall('$consulted_file'(I)),retractall('$consulted_package'(J)),retractall('$consulted_predicate'(K,L,M)),assertz('$leap_flag'(no)),assertz('$current_leash'(call)),assertz('$current_leash'(exit)),assertz('$current_leash'(redo)),assertz('$current_leash'(fail)),!
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14;
-    // '$cafeteria_init':-['$get_level'(A),'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1,B),'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1,D),retractall('SxxMachine.builtin':'$leap_flag'(E)),retractall('SxxMachine.builtin':'$current_leash'(F)),retractall('SxxMachine.builtin':'$current_spypoint'(G,H,I)),retractall('SxxMachine.builtin':'$consulted_file'(J)),retractall('SxxMachine.builtin':'$consulted_package'(K)),retractall('SxxMachine.builtin':'$consulted_predicate'(L,M,N)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
+    // '$cafeteria_init':-['$get_level'(A),'$new_indexing_hash'('SxxMachine','$leap_flag'/1,B),'$new_indexing_hash'('SxxMachine','$current_spypoint'/3,C),'$new_indexing_hash'('SxxMachine','$current_leash'/1,D),retractall('SxxMachine':'$leap_flag'(E)),retractall('SxxMachine':'$current_leash'(F)),retractall('SxxMachine':'$current_spypoint'(G,H,I)),retractall('SxxMachine':'$consulted_file'(J)),retractall('SxxMachine':'$consulted_package'(K)),retractall('SxxMachine':'$consulted_predicate'(L,M,N)),assertz('SxxMachine':'$leap_flag'(no)),assertz('SxxMachine':'$current_leash'(call)),assertz('SxxMachine':'$current_leash'(exit)),assertz('SxxMachine':'$current_leash'(redo)),assertz('SxxMachine':'$current_leash'(fail)),'$cut'(A)]
         a1 = V(m);
         //START inline expansion of $get_level(a(1))
         if (! a1.unifyInt(m.B0, m.trail)) {
@@ -1285,7 +1285,7 @@ m.cont = cont;
 /** PREDICATE: $trace_init/0
 from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
 */
-        final static SymbolTerm ATOM_SxxMachine$002Ebuiltin = SYM("SxxMachine.builtin");
+        final static SymbolTerm ATOM_SxxMachine$002Ebuiltin = SYM("SxxMachine");
     private static final StructureTerm PRED_$trace_init_0_s8 = S("$leap_flag",  ATOM_no );
     private static final StructureTerm PRED_$trace_init_0_s10 = S(":",  ATOM_SxxMachine$002Ebuiltin , PRED_$trace_init_0_s8);
     private static final StructureTerm PRED_$trace_init_0_s13 = S("$current_leash",  ATOM_call );
@@ -1306,7 +1306,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-    // '$trace_init':-['$get_level'(A),retractall('SxxMachine.builtin':'$leap_flag'(B)),retractall('SxxMachine.builtin':'$current_leash'(C)),retractall('SxxMachine.builtin':'$current_spypoint'(D,E,F)),assertz('SxxMachine.builtin':'$leap_flag'(no)),assertz('SxxMachine.builtin':'$current_leash'(call)),assertz('SxxMachine.builtin':'$current_leash'(exit)),assertz('SxxMachine.builtin':'$current_leash'(redo)),assertz('SxxMachine.builtin':'$current_leash'(fail)),'$cut'(A)]
+    // '$trace_init':-['$get_level'(A),retractall('SxxMachine':'$leap_flag'(B)),retractall('SxxMachine':'$current_leash'(C)),retractall('SxxMachine':'$current_spypoint'(D,E,F)),assertz('SxxMachine':'$leap_flag'(no)),assertz('SxxMachine':'$current_leash'(call)),assertz('SxxMachine':'$current_leash'(exit)),assertz('SxxMachine':'$current_leash'(redo)),assertz('SxxMachine':'$current_leash'(fail)),'$cut'(A)]
         a1 = V(m);
         //START inline expansion of $get_level(a(1))
         if (! a1.unifyInt(m.B0, m.trail)) {
@@ -1548,7 +1548,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
+    // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('SxxMachine':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
         a4 = a4.dref();
             a6 = V(m);
             a7 = V(m);
@@ -1594,7 +1594,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-    // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('SxxMachine.builtin':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl'(A,B,C,D,E,H)]
+    // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('SxxMachine':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl'(A,B,C,D,E,H)]
         a6 = V(m);
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
@@ -1662,7 +1662,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('SxxMachine.builtin':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
+    // '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('SxxMachine':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
         a7 = V(m);
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
@@ -1964,7 +1964,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
+    // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('SxxMachine':print_procedure_box(A,B,C,D,E))]
         if (!  int_43 .unify(a1, m.trail))
             return m.fail();
         a2 = a2.dref();
@@ -1996,7 +1996,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('SxxMachine.builtin':print_procedure_box(A,B,C,D,E))]
+    // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('SxxMachine':print_procedure_box(A,B,C,D,E))]
         if (!  int_45 .unify(a1, m.trail))
             return m.fail();
         a2 = a2.dref();
@@ -2028,7 +2028,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
+    // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('SxxMachine':A)]
         if (!  int_63 .unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
@@ -2049,7 +2049,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('SxxMachine.builtin':A)]
+    // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('SxxMachine':A)]
         if (!  int_104 .unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
@@ -2157,7 +2157,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('SxxMachine.builtin':'$leap_flag'(A),C),'$cut'(B)]
+    // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('SxxMachine':'$leap_flag'(A),C),'$cut'(B)]
         if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
             return m.fail();
         a3 = V(m);
@@ -2183,7 +2183,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$set_debug_flag'(leap,A):-[retractall('SxxMachine.builtin':'$leap_flag'(B)),assertz('SxxMachine.builtin':'$leap_flag'(A))]
+    // '$set_debug_flag'(leap,A):-[retractall('SxxMachine':'$leap_flag'(B)),assertz('SxxMachine':'$leap_flag'(A))]
         if (! PRED_$set_debug_flag_2_s1.unify(a1, m.trail))
             return m.fail();
         Term[] y1 = VA(V(m));
@@ -2278,7 +2278,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
+    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -2320,7 +2320,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine.builtin':'$consulted_predicate'(A,B/C,E),F),assertz('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
+    // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine':'$consulted_predicate'(A,B/C,E),F),assertz('SxxMachine':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -2458,7 +2458,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('SxxMachine.builtin':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
+    // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('SxxMachine':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
         a1 = a1.dref();
             a2 = V(m);
             a3 = V(m);
@@ -2515,7 +2515,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/cafeteria.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-    // nospyall:-[retractall('SxxMachine.builtin':'$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)]
+    // nospyall:-[retractall('SxxMachine':'$current_spypoint'(A,B,C)),'$set_debug_flag'(leap,no)]
         Term[] y1 = VA(V(m), V(m), V(m));
         a1 = S("$current_spypoint", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a1);
@@ -2619,7 +2619,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$leash'([]):-['$neck_cut',retractall('SxxMachine.builtin':'$current_leash'(A)),print_message(info,[no,leashing])]
+    // '$leash'([]):-['$neck_cut',retractall('SxxMachine':'$current_leash'(A)),print_message(info,[no,leashing])]
         if (! PRED_$leash_1_s1.unify(a1, m.trail))
             return m.fail();
         //START inline expansion of $neck_cut
@@ -2641,7 +2641,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$leash'(A):-[retractall('SxxMachine.builtin':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
+    // '$leash'(A):-[retractall('SxxMachine':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
         Term[] y1 = VA(V(m));
         a2 = S("$current_leash", y1);
         Term[] y2 = VA( ATOM_SxxMachine$002Ebuiltin , a2);
@@ -2702,7 +2702,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('SxxMachine.builtin':'$current_leash'(A)),'$assert_leash'(B)]
+    // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('SxxMachine':'$current_leash'(A)),'$assert_leash'(B)]
         a1 = a1.dref();
         if (a1 .isCons()){
             Term[] argz = VA(a1.car(), a1.cdr());

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Builtins.ISTerm;
-
 /**
   Always succeeds
 */

@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 
-import SxxMachine.builtin.sxxtensions; 
+import SxxMachine.sxxtensions; 
 
 /**
  * The superclass of classes for term structures.
@@ -33,7 +33,7 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
     public static final int BEFORE = -1;
     
     public final static int JAVA = -4;
-    public final static int REAL = -3;
+    public final static int FLOAT = -3;
     public final static int INT = -2;
     public final static int VAR = -1;
     public final static int CONST = 0;

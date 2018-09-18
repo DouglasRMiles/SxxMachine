@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import SxxMachine.FFIObjectTerm;
 import SxxMachine.Failure;

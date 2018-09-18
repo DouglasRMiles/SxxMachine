@@ -22,9 +22,9 @@ import SxxMachine.Term;
  *   % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.PrologMain predicate
  * </pre>
  * Let us show a sample session for launching a small Prolog interpreter:
- * <code>SxxMachine.builtin:cafeteria/0</code>.<br>
+ * <code>SxxMachine:cafeteria/0</code>.<br>
  * <pre>
- *    % java  -cp $PLCAFEDIR/plcafe.jar:$CLASSPATH SxxMachine.PrologMain SxxMachine.builtin:cafeteria
+ *    % java  -cp $PLCAFEDIR/plcafe.jar:$CLASSPATH SxxMachine.PrologMain SxxMachine:cafeteria
  *    Prolog Cafe X.X.X (YYY)
  *    Copyright(C) 1997-200X M.Banbara and N.Tamura
  *    | ?- 

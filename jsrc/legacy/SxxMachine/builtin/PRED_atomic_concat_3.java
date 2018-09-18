@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import SxxMachine.IllegalTypeException;
 import SxxMachine.PrologException;

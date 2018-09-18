@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 import java.io.PushbackReader;
 import java.util.Set;
 
-import SxxMachine.builtin.FILE_builtins;
-import SxxMachine.builtin.sxxtensions;
+import SxxMachine.FILE_builtins;
+import SxxMachine.sxxtensions;
 
 
 /**
@@ -292,7 +292,7 @@ public abstract class PrologControl {
 	  if(engine.halt != 1) return after;
     Term pendingGoals = engine.popPendingGoals();
     if(pendingGoals==Prolog.Nil) return after;
-    engine.push(new SxxMachine.builtin.sxxtensions.PopPendingGoals(engine, engine.pendingGoals));
+    engine.push(new SxxMachine.sxxtensions.PopPendingGoals(engine, engine.pendingGoals));
     //code = Prolog.Call1;
     return insertCode(pendingGoals, after);
     //executePredicate(false);

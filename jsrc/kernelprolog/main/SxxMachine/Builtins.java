@@ -12,7 +12,6 @@ import SxxMachine.StructureTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.Init;
-import SxxMachine.Builtins.ISTerm;
 import SxxMachine.DataBase;
 import SxxMachine.HashDict;
 import SxxMachine.IntegerSource;
@@ -49,65 +48,8 @@ import SxxMachine.true_;
  */
 public class Builtins extends HashDict {
 
-	public interface NameArity {
-
-		String name();
-
-		int arityOrType();
-
-	}
-
-	@FunctionalInterface
-	public interface ExecProg {
-		public int exec(Prog p, ISTerm thiz);
-	}
-
-	public class STerm implements ISTerm {
-		Term[] Arguments;
-
-		STerm(ExecProg ep, Term[] args) {
-			exp = ep;
-			Arguments = args;
-		}
-
-		ExecProg exp;
-
-		public int exec(Prog p, ISTerm thiz) {
-			return exp.exec(p, this);
-		}
-
-		StructureTerm st = null;
-
-		public Term ArgDeRef(int i) {
-			return Arguments[i].dref();
-		}
-
-		public int getIntArg(int i) {
-			return (int) Expect.asInt(ArgDeRef(i)).doubleValue();
-		}
-
-		public int unifyArg(int i, Term a, Prog p) {
-			return Arguments[i].dref().Unify_TO(a.dref(), p.getTrail()) ? 1 : 0;
-		}
-
-		@Override
-		public Term ArgNoDeRef(int i) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	}
-
-	public interface ISTerm {
-		public Term ArgDeRef(int i);
-		public Term ArgNoDeRef(int i);
-
-		public int getIntArg(int i);
-
-		public int unifyArg(int i, Term a, Prog p);
-	}
-
 	private static final Map builtinsMap = new HashMap();
-	
+
 	/**
 	 * This constructor registers builtins. Please put a header here if you add a
 	 * builtin at the bottom of this file.
@@ -213,35 +155,27 @@ public class Builtins extends HashDict {
 			Method m = proto.getClass().getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
 			// IO.mes("registering builtin: "+key);
 			this.put(key, m);
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
+		}
+	}
+
+	public void registerBI(NameArity proto, Class c) {
+		String key = proto.name() + "/" + proto.arityOrType();
+		try {
+			Method m = c.getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
+			// IO.mes("registering builtin: "+key);
+			this.put(key, m);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	   public void registerBI(NameArity proto, Class c) {
-	        String key = proto.name() + "/" + proto.arityOrType();
-	        try {
-	            Method m = c.getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
-	            // IO.mes("registering builtin: "+key);
-	            this.put(key, m);
-	        } catch (NoSuchMethodException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	        } catch (SecurityException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	        }
-
-	    }
 
 	/**
 	 * Creates a new builtin
 	 */
-	public Const newBuiltin(Const S) {
+	public Const asBuiltin(Const S) {
 		String key = S.getKey();
 		Method b = (Method) this.get(key);
 		if (b != null) {
@@ -252,7 +186,8 @@ public class Builtins extends HashDict {
 	}
 
 	public static Const toConstBuiltin(Const c) {
-		if(c.name().length()==0) return c;
+		if (c.name().length() == 0)
+			return c;
 		if (c.name().equals(Prolog.Nil.name()))
 			return Prolog.Nil;
 		if (c.name().equals(Prolog.aNo.name()))
@@ -260,7 +195,7 @@ public class Builtins extends HashDict {
 		if (c.name().equals(Prolog.aYes.name()))
 			return Prolog.aYes;
 
-		Const B = (Const) Init.builtinDict.newBuiltin(c);
+		Const B = (Const) Init.builtinDict.asBuiltin(c);
 		if (null == B) {
 			// IO.mes("not a builtin:"+this);
 			return c;
@@ -275,7 +210,7 @@ public class Builtins extends HashDict {
 		if (f.name().equals(",") && f.arityOrType() == 2) {
 			return StructureTerm.createCons(",", f.argz[0], f.argz[1]);
 		}
-		StructureTerm B = Init.builtinDict.newBuiltin(f).asStructureTerm();
+		StructureTerm B = Init.builtinDict.asBuiltin(f).asStructureTerm();
 		if (null == B)
 			return f;
 		//B = B.funClone();
@@ -449,7 +384,7 @@ final class get_arity extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-	  LongTerm N = TermData.Integer(thiz.ArgDeRef(0).arityOrType());
+		LongTerm N = TermData.Integer(thiz.ArgDeRef(0).arityOrType());
 		return thiz.unifyArg(1, N, p);
 	}
 }
@@ -484,7 +419,7 @@ final class ctime extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		Term T = TermData.Long(System.currentTimeMillis() - t0);
+		Term T = Long(System.currentTimeMillis() - t0);
 		return thiz.unifyArg(0, T, p);
 	}
 }
@@ -600,7 +535,7 @@ final class db_add extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		// IO.mes("X==>"+X);
 		String key = X.getKey();
@@ -624,7 +559,7 @@ final class db_remove extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		Term R = db.cin(X.getKey(), X);
 		return thiz.unifyArg(2, R, p);
@@ -645,7 +580,7 @@ final class db_collect extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		Term R = db.all(X.getKey(), X);
 		return thiz.unifyArg(2, R, p);
@@ -663,7 +598,7 @@ final class db_source extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
 		Source S = new JavaSource(db.toEnumeration(), p);
 		return thiz.unifyArg(1, S, p);
 	}
@@ -730,7 +665,7 @@ final class arg extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		int i = thiz.getIntArg(0);
-		Term F =  thiz.ArgDeRef(1);
+		Term F = thiz.ArgDeRef(1);
 		Term A = (i == 0) ? TermData.F(F.name()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.args()[i - 1]);
 		return thiz.unifyArg(2, A, p);
 	}
@@ -797,7 +732,6 @@ final class chars_to_name extends FunBuiltin {
 		}
 		return thiz.unifyArg(2, T, p);
 	}
-
 
 }
 
@@ -1048,7 +982,7 @@ final class getfl extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		 //IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
+		//IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
 		Term t = thiz.ArgDeRef(0);
 		Source S = t.asSource();
 		Term A = Const.the(S.getElement());

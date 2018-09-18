@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

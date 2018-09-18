@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.io.BufferedReader;
 import java.io.IOException;

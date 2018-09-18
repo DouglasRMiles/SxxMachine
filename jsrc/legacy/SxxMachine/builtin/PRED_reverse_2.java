@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;

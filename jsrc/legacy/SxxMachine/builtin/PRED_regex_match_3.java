@@ -1,4 +1,4 @@
-package SxxMachine.builtin;
+package SxxMachine;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
