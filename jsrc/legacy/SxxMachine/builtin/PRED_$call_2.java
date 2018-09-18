@@ -52,7 +52,7 @@ class PRED_$call_2 extends Predicate.P2 {
 				arity = 0;
 			} else if ((a2 instanceof StructureTerm)) {
 				functor = a2.name();
-				args = ((StructureTerm) a2).args();
+				args = ( a2).args();
 				arity = a2.arity();
 			} else {
 				throw new IllegalTypeException(this, 2, "callable", a2);

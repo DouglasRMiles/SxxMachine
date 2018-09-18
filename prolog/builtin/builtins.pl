@@ -9,7 +9,7 @@
 package(_).
 :- package 'SxxMachine.builtin'.
 
-:- ensure_loaded('swi_supp.pl').
+%:- ensure_loaded('swi_supp.pl').
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Control constructs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

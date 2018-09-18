@@ -47,9 +47,9 @@ class PRED_$hash_addz_3 extends Predicate.P3 {
 		} else if ((a1 instanceof SymbolTerm)) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(this, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1 instanceof FFIObjectTerm)) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(this, 1, "hash_or_alias", a1);
 		}
@@ -57,15 +57,15 @@ class PRED_$hash_addz_3 extends Predicate.P3 {
 			throw new InternalException(this + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
 		a3 = a3.dref();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
+		Term elem = hash.asHashtableOfTerm().get(a2);
 		if (elem == null || SYM_NIL.equals(elem)) {
 			elem = new ListViewTerm(a3);
 		} else if (elem instanceof ListTerm) {
-			elem = ((ListTerm) elem).add(a3);
+			elem = elem.asListTerm().add(a3);
 		} else {
 			throw new InternalException(this + ": elem is not a ListTerm");
 		}
-		((HashtableOfTerm) hash).put(a2, elem);
+		hash.asHashtableOfTerm().put(a2, elem);
 		return cont;
 	}
 }

@@ -45,7 +45,7 @@ public class PRED_get_2 extends Predicate.P2 {
 	if (! (a2 instanceof VariableTerm)) {
 	    if (! (a2 instanceof IntegerTerm))
 		throw new IllegalTypeException(this, 2, "integer", a2);
-	    int n = ((IntegerTerm)a2).intValue();
+	    int n = a2.asIntegerlTerm().intValue();
 	    if (n != -1 && ! Character.isDefined(n))
 		throw new RepresentationException(this, 2, "in_character_code");
 	}
@@ -56,9 +56,9 @@ public class PRED_get_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	    stream = ( engine.getStreamManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    stream = ((FFIObjectTerm) a1).object();
+	    stream = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}

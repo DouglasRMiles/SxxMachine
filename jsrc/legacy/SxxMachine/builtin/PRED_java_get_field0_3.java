@@ -52,10 +52,10 @@ public class PRED_java_get_field0_3 extends JavaPredicate {
 	    if ((a1 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 1);
 	    } else if ((a1 instanceof SymbolTerm)){      // class
-		clazz = Class.forName(((SymbolTerm)a1).name());
+		clazz = Class.forName(a1.asSymbolTerm().name());
 	    } else if ((a1 instanceof FFIObjectTerm)) { // instance
-		instance = ((FFIObjectTerm)a1).object();
-		clazz = ((FFIObjectTerm)a1).getClazz();
+		instance = (a1).object();
+		clazz = (a1).getClazz();
 	    } else {
 		throw new IllegalTypeException(this, 1, "atom_or_java", a1);
 	    }
@@ -66,7 +66,7 @@ public class PRED_java_get_field0_3 extends JavaPredicate {
 	    } else if (! (a2 instanceof SymbolTerm)) {
 		throw new IllegalTypeException(this, 2, "atom", a2);
 	    }
-	    field = clazz.getField(((SymbolTerm)a2).name());
+	    field = clazz.getField(a2.asSymbolTerm().name());
 	    value = field.get(instance);
 	    // 3rd. argument
 	    if (value == null)

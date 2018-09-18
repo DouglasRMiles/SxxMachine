@@ -45,18 +45,18 @@ class PRED_$get_instances_2 extends Predicate.P2 {
 	while(! tmp.isNil()) {
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 1, "list", a1);
-	    Term car = ((ListTerm)tmp).car().dref();
+	    Term car = tmp.asListlTerm().car().dref();
 	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 1);
 	    if (! (car instanceof IntegerTerm))
 		throw new RepresentationException(this, 1, "integer");
 	    // car is an integer
-	    int i = ((IntegerTerm)car).intValue();
+	    int i = car.asIntegerlTerm().intValue();
 	    Term e = engine.internalDB.get(i);
 	    if (e != null) {
 		x = TermData.CONS(new StructureTerm(COMMA, e, car), x);
 	    }
-	    tmp = ((ListTerm)tmp).cdr().dref();
+	    tmp = tmp.asListlTerm().cdr().dref();
 	}
 	if (! a2.unify(x, engine.trail))
 	    return engine.fail();

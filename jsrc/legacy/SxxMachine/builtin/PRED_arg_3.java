@@ -43,18 +43,18 @@ public class PRED_arg_3 extends Predicate.P3 {
 	a2 = a2.dref();
 	if ((a2 instanceof ListTerm)) {
 	    args = new Term[2];
-	    args[0] = ((ListTerm)a2).car();
-	    args[1] = ((ListTerm)a2).cdr();
+	    args[0] = a2.asListlTerm().car();
+	    args[1] = a2.asListlTerm().cdr();
 	    arity = 2;
 	} else if ((a2 instanceof StructureTerm)) {
-	    args =  ((StructureTerm)a2).args();
-	    arity = ((StructureTerm)a2).arity();
+	    args =  (a2).args();
+	    arity = (a2).arity();
 	} else if ((a2 instanceof VariableTerm)) {
 	    throw new PInstantiationException(this, 2);
 	} else {
 	    throw new IllegalTypeException(this, 2, "compound", a2);
 	}
-	argNo = ((IntegerTerm)a1).intValue();
+	argNo = a1.asIntegerlTerm().intValue();
 	if (argNo < 0)
 	    throw new IllegalDomainException(this, 1, "not_less_than_zero", a1);
 	if (argNo > arity || argNo < 1)

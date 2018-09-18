@@ -35,23 +35,23 @@ class PRED_$set_prolog_impl_flag_2 extends Predicate.P2 {
 	if (a1.equals(CHAR_CONVERSION)) {
 	    if (! (a2 instanceof SymbolTerm))
 		return engine.fail();
-	    engine.setCharConversion(((SymbolTerm)a2).name());
+	    engine.setCharConversion(a2.asSymbolTerm().name());
 	} else if (a1.equals(DEBUG)) {
 	    if (! (a2 instanceof SymbolTerm))
 		return engine.fail();
-	    engine.setDebug(((SymbolTerm)a2).name());
+	    engine.setDebug(a2.asSymbolTerm().name());
 	} else if (a1.equals(UNKNOWN)) {
 	    if (! (a2 instanceof SymbolTerm))
 		return engine.fail();
-	    engine.setUnknown(((SymbolTerm)a2).name());
+	    engine.setUnknown(a2.asSymbolTerm().name());
 	} else if (a1.equals(DOUBLE_QUOTES)) {
 	    if (! (a2 instanceof SymbolTerm))
 		return engine.fail();
-	    engine.setDoubleQuotes(((SymbolTerm)a2).name());
+	    engine.setDoubleQuotes(a2.asSymbolTerm().name());
 	} else if (a1.equals(PRINT_STACK_TRACE)) {
 	    if (! (a2 instanceof SymbolTerm))
 		return engine.fail();
-	    engine.setPrintStackTrace(((SymbolTerm)a2).name());
+	    engine.setPrintStackTrace(a2.asSymbolTerm().name());
 	} else {
 	    return engine.fail();
 	}

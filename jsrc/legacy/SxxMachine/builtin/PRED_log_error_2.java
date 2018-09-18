@@ -58,7 +58,7 @@ public class PRED_log_error_2 extends P2 {
 			if (a2 instanceof FFIObjectTerm && (a2.toJava() instanceof Throwable)){
 				t = (Throwable) a2.toJava();
 			} else if (a2 instanceof ErrorTerm){
-				t = ((ErrorTerm)a2).getThrowable();
+				t = a2.asErrorlTerm().getThrowable();
 			}
 			
 			logger.log(level, a2.toString());

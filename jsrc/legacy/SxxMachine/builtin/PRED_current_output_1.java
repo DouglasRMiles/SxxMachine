@@ -26,7 +26,7 @@ public class PRED_current_output_1 extends Predicate.P1 {
 	a1 = LARG[0];
 	a1 = a1.dref();
 	if ((a1 instanceof VariableTerm)) {
-	    ((VariableTerm)a1).bind(new FFIObjectTerm(engine.getCurrentOutput()), engine.trail);
+	    a1.asVariablelTerm().bind(new FFIObjectTerm(engine.getCurrentOutput()), engine.trail);
 	} else if ((a1 instanceof FFIObjectTerm)) {
 	    if (! a1.unify(new FFIObjectTerm(engine.getCurrentOutput()), engine.trail)) 
 		return engine.fail();

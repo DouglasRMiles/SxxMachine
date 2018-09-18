@@ -160,6 +160,7 @@ public class PrologMain {
       head = CONS(SymbolTerm.intern(list.get(i)), head);
     }
     p.execute(Prolog.BUILTIN, "initialization", head, done);
+    PredTable.runInits(p.engine);
 }
 
   private static void usage() {

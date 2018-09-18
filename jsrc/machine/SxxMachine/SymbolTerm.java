@@ -15,7 +15,7 @@ import prolog.terms.Const;
  *
  * <pre>
  *   Term t = SymbolTerm.makeSymbol("kobe");
- *   String name = ((SymbolTerm)t).name();
+ *   String name = t.asSymbolTerm().name();
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -101,7 +101,7 @@ public abstract class SymbolTerm extends Const {
         	if (this==obj){
         		return true;
         	} else if (obj .isSymbol()){
-        		SymbolTerm that = (SymbolTerm) obj;
+        		SymbolTerm that =  obj.asSymbolTerm();
         		int thisLength = this.finish - this.start;
         		int thatLength = that.finish - that.start; 		
         		return this.arity==that.arity && (thisLength==thatLength) &&    				
@@ -324,7 +324,7 @@ public abstract class SymbolTerm extends Const {
       t = t.dref(); // fast dereference
       return (t .isVar()) ? t.bind(this, trail) : 
     	  ((t instanceof Partial) ? t.unify(this, trail) : 
-    		  ((t .isSymbol()) && (this.arity==((SymbolTerm)t).arity) && this.name.equals(((SymbolTerm)t).name)));
+    		  ((t .isSymbol()) && (this.arity==(t.asSymbolTerm()).arity) && this.name.equals(t.asSymbolTerm().name)));
     }
     @Override
     public int termHashCodeImpl() {
@@ -333,7 +333,7 @@ public abstract class SymbolTerm extends Const {
     @Override
     public boolean equalsTerm(Term obj, Comparator comparator) {
     	return (obj instanceof Partial) ? ((Partial)obj).equalsTerm(this, comparator) :
-    		((obj .isSymbol()) && (this.arity==((SymbolTerm)obj).arity) && this.name.equals(((SymbolTerm)obj).name));
+    		((obj .isSymbol()) && (this.arity==obj.asSymbolTerm().arity) && this.name.equals(obj.asSymbolTerm().name));
     }
 //    private static boolean eq(SymbolTerm a, Term b0) {
 //      if (a == b0) {
@@ -392,10 +392,10 @@ public abstract class SymbolTerm extends Const {
 	    return BEFORE;
 	if (this == anotherTerm)
 	    return EQUAL;
-	int x = name().compareTo(((SymbolTerm)anotherTerm).name());
+	int x = name().compareTo(anotherTerm.asSymbolTerm().name());
 	if (x != 0)
 	    return x;
-	int y = this.arity - ((SymbolTerm)anotherTerm).arity();
+	int y = this.arity - anotherTerm.asSymbolTerm().arity();
 //	if (y != 0)
 	    return y;
 //		throw new InternalException("SymbolTerm is not unique");

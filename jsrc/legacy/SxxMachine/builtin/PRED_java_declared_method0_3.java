@@ -60,10 +60,10 @@ public class PRED_java_declared_method0_3 extends JavaPredicate {
 	    if ((a1 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 1);
 	    } else if ((a1 instanceof SymbolTerm)){      // class
-		clazz = Class.forName(((SymbolTerm)a1).name());
+		clazz = Class.forName(a1.asSymbolTerm().name());
 	    } else if ((a1 instanceof FFIObjectTerm)) { // instance
-		instance = ((FFIObjectTerm)a1).object();
-		clazz = ((FFIObjectTerm)a1).getClazz();
+		instance = (a1).object();
+		clazz = (a1).getClazz();
 	    } else {
 		throw new IllegalTypeException(this, 1, "atom_or_java", a1);
 	    }
@@ -72,16 +72,16 @@ public class PRED_java_declared_method0_3 extends JavaPredicate {
 	    if ((a2 instanceof VariableTerm)) {
 		throw new PInstantiationException(this, 2);
 	    } else if ((a2 instanceof SymbolTerm)) {    // No argument method
-		m = clazz.getDeclaredMethod(((SymbolTerm)a2).name());
+		m = clazz.getDeclaredMethod(a2.asSymbolTerm().name());
 		m.setAccessible(true);
 		value = m.invoke(instance);
 	    } else if ((a2 instanceof StructureTerm)) { // Parameterized method
-		methodName = ((StructureTerm)a2).name();
-		arity      = ((StructureTerm)a2).arity();
+		methodName = (a2).name();
+		arity      = (a2).arity();
 		methods = clazz.getDeclaredMethods();
 		if (methods.length == 0)
 		    throw new ExistenceException(this, 2, "method", a2, "");
-		pArgs = ((StructureTerm)a2).args();
+		pArgs = (a2).args();
 		jArgs = new Object[arity];
 		for (int i=0; i<arity; i++) {
 		    pArgs[i] = pArgs[i].dref();

@@ -49,9 +49,9 @@ public class PRED_read_line_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	    stream = ( engine.getStreamManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    stream = ((FFIObjectTerm) a1).object();
+	    stream = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}

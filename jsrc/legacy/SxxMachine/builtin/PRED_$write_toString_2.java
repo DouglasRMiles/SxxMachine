@@ -41,9 +41,9 @@ class PRED_$write_toString_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	    stream = ( engine.getStreamManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    stream = ((FFIObjectTerm) a1).object();
+	    stream = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}
@@ -53,7 +53,7 @@ class PRED_$write_toString_2 extends Predicate.P2 {
 	if (! (a2 instanceof FFIObjectTerm))
 	    throw new IllegalTypeException(this, 2, "java", a2);
 	// print java
-	((PrintWriter) stream).print(((FFIObjectTerm)a2).object().toString());
+	((PrintWriter) stream).print((a2).object().toString());
 	return cont;
     }
 }

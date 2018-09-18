@@ -37,12 +37,12 @@ public class PRED_atom_length_2 extends Predicate.P2 {
 	    throw new PInstantiationException(this, 1);
 	if (! (a1 instanceof SymbolTerm))
 	    throw new IllegalTypeException(this, 1, "atom", a1);
-	length = ((SymbolTerm)a1).name().length();
+	length = a1.asSymbolTerm().name().length();
 	if ((a2 instanceof VariableTerm)) {
 	    if (! a2.unify(new IntegerTerm(length), engine.trail))
 		return engine.fail();
 	} else if ((a2 instanceof IntegerTerm)) {
-	    int n = ((IntegerTerm)a2).intValue();
+	    int n = a2.asIntegerlTerm().intValue();
 	    if (n < 0)
 		throw new IllegalDomainException(this, 2, "not_less_than_zero", a2);
 	    if (length != n)

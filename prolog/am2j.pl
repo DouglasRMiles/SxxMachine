@@ -1946,7 +1946,7 @@ bi:-
   wln('}'),wln('}'),
   told,halt.
 
-
+file_to_base_class(_,'Object'):-!.
 file_to_base_class(builtins, sxxtensions).
 file_to_base_class(_, 'FILE_builtins').
 

@@ -26,7 +26,7 @@ public class PRED_$cut_1 extends Predicate.P1 {
         if (! (a1 instanceof IntegerTerm)) {
             throw new IllegalTypeException("integer", a1);
         } else {
-            engine.cut(((IntegerTerm) a1).intValue());
+            engine.cut(a1.asIntegerTerm().intValue());
         }
         return cont;
     }

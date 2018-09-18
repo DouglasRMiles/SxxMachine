@@ -72,7 +72,7 @@ public class Init {
 				break;
 			}
 			if (Names.isStructure()) {
-				StructureTerm NamedR = (StructureTerm) R.numbervars();
+				Term NamedR =  R.numbervars();
 				for (int j = 0; j < Names.arityOrType(); j++) {
 					IO.println(Expect.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));
 				}

@@ -233,7 +233,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 		if (0 == s.length())
 			return Prolog.Nil;
 		ListTerm l = CONS(TermData.Long((s.charAt(0))), Prolog.Nil);
-		StructureTerm curr = (StructureTerm) l;
+		Term curr =  l;
 		for (int i = 1; i < s.length(); i++) {
 			StructureTerm tail = StructureTerm.createCons(Long((s.charAt(i))), Prolog.Nil);
 			curr.setArg(1, tail);
@@ -358,7 +358,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	abstract public boolean equalsTerm(Term aneof) ;
 
-	public Const toConst() {
+	final public Const asConst() {
 		// TODO Auto-generated method stub
 		return (Const)this;
 	}

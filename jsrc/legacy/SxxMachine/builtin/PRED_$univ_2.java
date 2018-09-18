@@ -48,14 +48,14 @@ public class PRED_$univ_2 extends Predicate.P2 {
 			if (!a2.unify(TermData.CONS(a1, SYM_NIL), engine.trail))
 				return engine.fail();
 		} else if ((a1 instanceof ListTerm)) {
-			Term t = TermData.CONS(((ListTerm) a1).cdr(), SYM_NIL);
-			t = TermData.CONS(((ListTerm) a1).car(), t);
+			Term t = TermData.CONS(a1.asListTerm().cdr(), SYM_NIL);
+			t = TermData.CONS(a1.asListTerm().car(), t);
 			t = TermData.CONS(SYM_DOT, t);
 			if (!a2.unify(t, engine.trail))
 				return engine.fail();
 		} else if ((a1 instanceof StructureTerm)) {
-			SymbolTerm sym = SymbolTerm.create(((StructureTerm) a1).functor().name());
-			Term[] args = ((StructureTerm) a1).args();
+			SymbolTerm sym = SymbolTerm.create(( a1).functor().name());
+			Term[] args = ( a1).args();
 			Term t = SYM_NIL;
 			for (int i = args.length; i > 0; i--)
 				t = TermData.CONS(args[i - 1], t);
@@ -69,8 +69,8 @@ public class PRED_$univ_2 extends Predicate.P2 {
 				throw new IllegalDomainException(this, 2, "non_empty_list", a2);
 			else if (!(a2 instanceof ListTerm))
 				throw new IllegalTypeException(this, 2, "list", a2);
-			Term head = ((ListTerm) a2).car().dref();
-			Term tail = ((ListTerm) a2).cdr().dref();
+			Term head = a2.asListTerm().car().dref();
+			Term tail = a2.asListTerm().cdr().dref();
 			if ((head instanceof VariableTerm))
 				throw new PInstantiationException(this, 2);
 			if (tail.equals(SYM_NIL)) {
@@ -90,14 +90,14 @@ public class PRED_$univ_2 extends Predicate.P2 {
 					throw new PInstantiationException(this, 2);
 				if (!(x instanceof ListTerm))
 					throw new IllegalTypeException(this, 2, "list", a2);
-				x = ((ListTerm) x).cdr().dref();
+				x = x.asListTerm().cdr().dref();
 			}
-			int n = ((ListTerm) a2).length() - 1;
-			SymbolTerm sym = SymbolTerm.create(((SymbolTerm) head).name(), n);
+			int n = a2.asListTerm().length() - 1;
+			SymbolTerm sym = SymbolTerm.create(head.asSymbolTerm().name(), n);
 			Term[] args = new Term[n];
 			for (int i = 0; i < n; i++) {
-				args[i] = ((ListTerm) tail).car().dref();
-				tail = ((ListTerm) tail).cdr().dref();
+				args[i] = tail.asListTerm().car().dref();
+				tail = tail.asListTerm().cdr().dref();
 			}
 			Term t = null;
 			if (SYM_DOT.equals(head)){

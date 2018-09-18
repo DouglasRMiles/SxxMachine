@@ -275,7 +275,7 @@ public class Builtins extends HashDict {
 		if (f.name().equals(",") && f.arityOrType() == 2) {
 			return StructureTerm.createCons(",", f.argz[0], f.argz[1]);
 		}
-		StructureTerm B = (StructureTerm) Init.builtinDict.newBuiltin(f);
+		StructureTerm B = Init.builtinDict.newBuiltin(f).asStructureTerm();
 		if (null == B)
 			return f;
 		//B = B.funClone();
@@ -600,7 +600,7 @@ final class db_add extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ((FFIObjectTerm) thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		// IO.mes("X==>"+X);
 		String key = X.getKey();
@@ -624,7 +624,7 @@ final class db_remove extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ((FFIObjectTerm) thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		Term R = db.cin(X.getKey(), X);
 		return thiz.unifyArg(2, R, p);
@@ -645,7 +645,7 @@ final class db_collect extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ((FFIObjectTerm) thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
 		Term X = thiz.ArgDeRef(1);
 		Term R = db.all(X.getKey(), X);
 		return thiz.unifyArg(2, R, p);
@@ -663,7 +663,7 @@ final class db_source extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		DataBase db = (DataBase) ((FFIObjectTerm) thiz.ArgDeRef(0)).toObject();
+		DataBase db = (DataBase) ( thiz.ArgDeRef(0)).toObject();
 		Source S = new JavaSource(db.toEnumeration(), p);
 		return thiz.unifyArg(1, S, p);
 	}
@@ -730,8 +730,8 @@ final class arg extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		int i = thiz.getIntArg(0);
-		StructureTerm F = (StructureTerm) thiz.ArgDeRef(1);
-		Term A = (i == 0) ? TermData.F(F.name()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.argz[i - 1]);
+		Term F =  thiz.ArgDeRef(1);
+		Term A = (i == 0) ? TermData.F(F.name()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.args()[i - 1]);
 		return thiz.unifyArg(2, A, p);
 	}
 }

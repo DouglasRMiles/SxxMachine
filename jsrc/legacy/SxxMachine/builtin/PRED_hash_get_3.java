@@ -41,16 +41,16 @@ public class PRED_hash_get_3 extends Predicate.P3 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getHashManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "hash", a1, "");
-	    hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+	    hash = ( engine.getHashManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    hash = ((FFIObjectTerm) a1).object();
+	    hash = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "hash_or_alias", a1);
 	}
 	if (! (hash instanceof HashtableOfTerm))
 	    throw new InternalException(this + ": Hash is not HashtableOfTerm");
 	a2 = a2.dref();
-	Term elem = ((HashtableOfTerm) hash).get(a2);
+	Term elem = hash.asHashtableOfTerm().get(a2);
 	if (elem == null)
 	    elem = Prolog.Nil;
 	if (! a3.unify(elem, engine.trail))

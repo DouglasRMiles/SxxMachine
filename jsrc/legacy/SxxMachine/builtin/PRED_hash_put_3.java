@@ -41,9 +41,9 @@ public class PRED_hash_put_3 extends Predicate.P3 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getHashManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "hash", a1, "");
-	    hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+	    hash = ( engine.getHashManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    hash = ((FFIObjectTerm) a1).object();
+	    hash = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "hash_or_alias", a1);
 	}
@@ -51,7 +51,7 @@ public class PRED_hash_put_3 extends Predicate.P3 {
 	    throw new InternalException(this + ": Hash is not HashtableOfTerm");
 	a2 = a2.dref();
 	a3 = a3.dref();
-	((HashtableOfTerm) hash).put(a2, a3);
+	hash.asHashtableOfTerm().put(a2, a3);
         return cont;
     }
 }

@@ -12,7 +12,7 @@ import java.util.Comparator;
  * <pre>
  *  import java.util.Hashtable;
  *  Term t = new JavaObjectTerm(new Hashtable());
- *  Hashtable hash = (Hashtable)(((JavaObjectTerm)t).object());
+ *  Hashtable hash = (Hashtable)(t.asJavaObjectlTerm().object());
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -100,7 +100,7 @@ public class FFIObjectTerm extends SystemObject {
     public boolean unifyImpl(Term t, Trail trail) {
     	t = t.dref();
     	return (t .isVar()) ? t.bind(this, trail) :
-    		((t .isFFIObject()) && this.obj==(((FFIObjectTerm)t).obj));
+    		((t .isFFIObject()) && this.obj==((t).object()));
     }
     /** 
      * Check whether the wrapped object is convertible with the given Java class type.
@@ -131,7 +131,7 @@ public class FFIObjectTerm extends SystemObject {
      */
     @Override
     public boolean equalsTerm(Term o, Comparator comparator) {
-		return o .isFFIObject() && this.obj==(((FFIObjectTerm) o).obj);
+		return o .isFFIObject() && this.obj==(( o).object());
 	}
     @Override
     public int termHashCodeImpl() {
@@ -166,9 +166,9 @@ public class FFIObjectTerm extends SystemObject {
 		    return AFTER;
 		if (! (anotherTerm .isFFIObject()))
 		    return BEFORE;
-		if (this.obj==(((FFIObjectTerm) anotherTerm).obj))
+		if (this.obj==(( anotherTerm).object()))
 		    return EQUAL;
-		return this.obj.hashCode() - ((FFIObjectTerm) anotherTerm).obj.hashCode(); //???
+		return this.obj.hashCode() - ( anotherTerm).object().hashCode(); //???
     }
 
   @Override

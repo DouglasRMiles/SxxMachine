@@ -28,7 +28,7 @@ class PRED_$end_sync_1 extends Predicate.P1 {
 	a1 = a1.dref();
 	if (! (a1 instanceof FFIObjectTerm))
 	    throw new IllegalTypeException(this, 1, "java", a1);
-	Object obj = ((FFIObjectTerm)a1).object();
+	Object obj = (a1).object();
 	if (! (obj instanceof PRED_$begin_sync_2))
 	    throw new SystemException("a1 must be an object of PRED_$begin_sync_2: " + this);
 	PRED_$begin_sync_2 p = ((PRED_$begin_sync_2) obj);

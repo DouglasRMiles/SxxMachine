@@ -32,9 +32,9 @@ public class PRED_hash_contains_key_2 extends Predicate.P2 {
 		Object hash = null;
 		
 		if ((a1 instanceof FFIObjectTerm)) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else if ((a1 instanceof SymbolTerm)){
-			FFIObjectTerm t = (FFIObjectTerm) engine.getHashManager().get(a1);
+			FFIObjectTerm t =  engine.getHashManager().get(a1);
 			if (t==null){
 				throw new ExistenceException(this, 1, "hash", a1, "");
 			}
@@ -46,7 +46,7 @@ public class PRED_hash_contains_key_2 extends Predicate.P2 {
 		}
 		
 		if (hash instanceof HashtableOfTerm) {
-			if (((HashtableOfTerm) hash).containsKey(a2)){
+			if (hash.asHashtableOfTerm().containsKey(a2)){
 				return cont;
 			}
 			return engine.fail();

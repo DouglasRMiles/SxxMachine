@@ -1,44 +1,21 @@
 package SxxMachine.library;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
 import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
 import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
 import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
+import static SxxMachine.builtin.FILE_swi_supp.*;
 import static SxxMachine.builtin.sxxtensions.*;
 import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
 import SxxMachine.*;
 import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
 
-public class FILE_prolog_jiti extends FILE_builtins {
+public class FILE_prolog_jiti  extends TermData {
 	/** PREDICATE: jiti_list/0
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	*/
 
 	public static Operation PRED_jiti_list_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// jiti_list:-jiti_list(A:B)
 		m.setB0();
 		Term a1;
@@ -46,7 +23,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		Term[] y1 = VA(V(m), V(m));
 		a1 = S(":", y1);
 		return //
-		Op((e) -> PRED_jiti_list_1_static_exec(e), VA(a1), cont);
+		Op((Prolog e) -> PRED_jiti_list_1_static_exec(e), VA(a1), cont);
 	}
 
 	/** PREDICATE: jiti_list/1
@@ -67,8 +44,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_jiti_list_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::jiti_list_1_var, FILE_prolog_jiti::jiti_list_1_4, FILE_prolog_jiti::jiti_list_1_4, FILE_prolog_jiti::jiti_list_1_4, FILE_prolog_jiti::jiti_list_1_var,
@@ -98,7 +73,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 	private final static Operation jiti_list_1_1(Prolog m) {
 		// jiti_list(A:B/C):-atom(B),integer(C),!,functor(D,B,C),jiti_list(A:D)
 		Term a1, a2, a3, a4, a5, a6, a7, a8;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -141,14 +115,13 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		Term[] y1 = VA(a2, a7);
 		a8 = S(":", y1);
 		return //
-		Op((e) -> PRED_functor_3_static_exec(e), VA(a7, a4, a5), //
-				Op((e) -> PRED_jiti_list_1_static_exec(e), VA(a8), cont));
+		Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a7, a4, a5), //
+				Op((Prolog e) -> PRED_jiti_list_1_static_exec(e), VA(a8), cont));
 	}
 
 	private final static Operation jiti_list_1_2(Prolog m) {
 		// jiti_list(A:B/C):-atom(B),var(C),!,freeze(D,functor(D,B,E)),jiti_list(A:D)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -189,18 +162,17 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		//END inline expansion
 		a7 = V(m);
 		a8 = Closure( //
-				Op((e) -> PRED_functor_3_static_exec(e), VA(a7, a4, V(m)), null));
+				Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a7, a4, V(m)), null));
 		Term[] y1 = VA(a2, a7);
 		a9 = S(":", y1);
 		return //
 		Op(sxxtensions::PRED_freeze_2_static_exec, VA(a7, a8), //
-				Op((e) -> PRED_jiti_list_1_static_exec(e), VA(a9), cont));
+				Op((Prolog e) -> PRED_jiti_list_1_static_exec(e), VA(a9), cont));
 	}
 
 	private final static Operation jiti_list_1_3(Prolog m) {
 		// jiti_list(A:B):-atom(B),!,freeze(C,functor(C,B,D)),jiti_list(A:C)
 		Term a1, a2, a3, a4, a5, a6, a7;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -229,18 +201,17 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		//END inline expansion
 		a5 = V(m);
 		a6 = Closure( //
-				Op((e) -> PRED_functor_3_static_exec(e), VA(a5, a3, V(m)), null));
+				Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a5, a3, V(m)), null));
 		Term[] y1 = VA(a2, a5);
 		a7 = S(":", y1);
 		return //
 		Op(sxxtensions::PRED_freeze_2_static_exec, VA(a5, a6), //
-				Op((e) -> PRED_jiti_list_1_static_exec(e), VA(a7), cont));
+				Op((Prolog e) -> PRED_jiti_list_1_static_exec(e), VA(a7), cont));
 	}
 
 	private final static Operation jiti_list_1_4(Prolog m) {
 		// jiti_list(A):-findall(A-B,(predicate_property(A,indexed(B)),\+predicate_property(A,imported_from(C))),D),format('Predicate~46|~w ~t~8+ ~t~w~6+ ~t~w~6+ ~t~w~5+~n',['Indexed','Buckets','Speedup','Flags']),format('~`=t~76|~n'),maplist(print_indexed,D)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -259,14 +230,14 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		Term[] y6 = VA(a7);
 		a8 = S("\\+", y6);
 		a9 = Closure( //
-				Op((e) -> PRED_$002C_2_static_exec(e), VA(a5, a8), null));
+				Op((Prolog e) -> PRED_$002C_2_static_exec(e), VA(a5, a8), null));
 		a10 = V(m);
 		return //
-		Op((e) -> PRED_findall_3_static_exec(e), VA(a3, a9, a10), //
-				Op((e) -> PRED_format_2_static_exec(e),
+		Op((Prolog e) -> PRED_findall_3_static_exec(e), VA(a3, a9, a10), //
+				Op((Prolog e) -> PRED_format_2_static_exec(e),
 						VA(ATOM_Predicate$007E46$007C$007Ew$0020$007Et$007E8$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E5$002B$007En, PRED_jiti_list_1_s17), //
-						Op((e) -> PRED_format_1_static_exec(e), VA(ATOM_$007E$0060$003Dt$007E76$007C$007En), //
-								Op((e) -> PRED_maplist_2_static_exec(e), VA(ATOM_print_indexed, a10), cont))));
+						Op((Prolog e) -> PRED_format_1_static_exec(e), VA(ATOM_$007E$0060$003Dt$007E76$007C$007En), //
+								Op((Prolog e) -> PRED_maplist_2_static_exec(e), VA(ATOM_print_indexed, a10), cont))));
 	}
 
 	/** PREDICATE: print_indexed/1
@@ -279,8 +250,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_print_indexed_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::print_indexed_1_var, FILE_prolog_jiti::print_indexed_1_2, FILE_prolog_jiti::print_indexed_1_2, FILE_prolog_jiti::print_indexed_1_2, FILE_prolog_jiti::print_indexed_1_var,
@@ -300,7 +269,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 	private final static Operation print_indexed_1_1(Prolog m) {
 		// print_indexed((A:B)-[C-hash(D,E,F,G)|H]):-functor(B,I,J),phrase(iarg_spec(C),K),phrase(iflags(G),L),format('~q ~t~48|~s ~t~8+ ~t~D~6+ ~t~1f~8+ ~t~s~3+~n',[A:I/J,K,D,E,L]),maplist(print_secondary_index,H),!
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26;
-		Operation p1, p2, p3, p4, p5;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -366,13 +334,13 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		a25 = CONS(a17, a24);
 		a26 = CONS(a21, a25);
 		return //
-		Op((e) -> PRED_functor_3_static_exec(e), VA(a5, a14, a15), //
-				Op((e) -> PRED_phrase_2_static_exec(e), VA(a16, a17), //
-						Op((e) -> PRED_phrase_2_static_exec(e), VA(a18, a19), //
-								Op((e) -> PRED_format_2_static_exec(e),
+		Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a5, a14, a15), //
+				Op((Prolog e) -> PRED_phrase_2_static_exec(e), VA(a16, a17), //
+						Op((Prolog e) -> PRED_phrase_2_static_exec(e), VA(a18, a19), //
+								Op((Prolog e) -> PRED_format_2_static_exec(e),
 										VA(ATOM_$007Eq$0020$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En, a26), //
-										Op((e) -> PRED_maplist_2_static_exec(e), VA(ATOM_print_secondary_index, a7), //
-												Op((e) -> PRED_$cut_1_static_exec(e), VA(a13), cont))))));
+										Op((Prolog e) -> PRED_maplist_2_static_exec(e), VA(ATOM_print_secondary_index, a7), //
+												Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a13), cont))))));
 	}
 
 	private final static Operation print_indexed_1_2(Prolog m) {
@@ -384,7 +352,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		// print_indexed(A):-[format('Failed: ~p~n',[A])]
 		a2 = CONS(a1, Prolog.Nil);
 		return //
-		Op((e) -> PRED_format_2_static_exec(e), VA(ATOM_Failed$003A$0020$007Ep$007En, a2), cont);
+		Op((Prolog e) -> PRED_format_2_static_exec(e), VA(ATOM_Failed$003A$0020$007Ep$007En, a2), cont);
 	}
 
 	/** PREDICATE: print_secondary_index/1
@@ -396,8 +364,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_print_secondary_index_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::print_secondary_index_1_var, FILE_prolog_jiti::print_secondary_index_1_2, FILE_prolog_jiti::print_secondary_index_1_2, FILE_prolog_jiti::print_secondary_index_1_2,
@@ -417,7 +383,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 	private final static Operation print_secondary_index_1_1(Prolog m) {
 		// print_secondary_index(A-hash(B,C,D,E)):-phrase(iarg_spec(A),F),phrase(iflags(E),G),format('~t~48|~s ~t~8+ ~t~D~6+ ~t~1f~8+ ~t~s~3+~n',[F,B,C,G]),!
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -452,10 +417,10 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		a14 = CONS(a4, a13);
 		a15 = CONS(a9, a14);
 		return //
-		Op((e) -> PRED_phrase_2_static_exec(e), VA(a8, a9), //
-				Op((e) -> PRED_phrase_2_static_exec(e), VA(a10, a11), //
-						Op((e) -> PRED_format_2_static_exec(e), VA(ATOM_$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En, a15), //
-								Op((e) -> PRED_$cut_1_static_exec(e), VA(a7), cont))));
+		Op((Prolog e) -> PRED_phrase_2_static_exec(e), VA(a8, a9), //
+				Op((Prolog e) -> PRED_phrase_2_static_exec(e), VA(a10, a11), //
+						Op((Prolog e) -> PRED_format_2_static_exec(e), VA(ATOM_$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En, a15), //
+								Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a7), cont))));
 	}
 
 	private final static Operation print_secondary_index_1_2(Prolog m) {
@@ -467,7 +432,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		// print_secondary_index(A):-[format('Secondary failed: ~p~n',[A])]
 		a2 = CONS(a1, Prolog.Nil);
 		return //
-		Op((e) -> PRED_format_2_static_exec(e), VA(ATOM_Secondary$0020failed$003A$0020$007Ep$007En, a2), cont);
+		Op((Prolog e) -> PRED_format_2_static_exec(e), VA(ATOM_Secondary$0020failed$003A$0020$007Ep$007En, a2), cont);
 	}
 
 	/** PREDICATE: iarg_spec/3
@@ -476,8 +441,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_iarg_spec_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::iarg_spec_3_var, fail_0, fail_0, fail_0, FILE_prolog_jiti::iarg_spec_3_var, fail_0);
@@ -513,7 +476,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 			return m.fail();
 		}
 		return //
-		Op((e) -> PRED_number_3_static_exec(e), VA(a4, a2, a3), cont);
+		Op((Prolog e) -> PRED_number_3_static_exec(e), VA(a4, a2, a3), cont);
 	}
 
 	private final static Operation iarg_spec_3_2(Prolog m) {
@@ -531,7 +494,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 			return m.fail();
 		}
 		return //
-		Op((e) -> PRED_plus_list_3_static_exec(e), VA(a4, a2, a3), cont);
+		Op((Prolog e) -> PRED_plus_list_3_static_exec(e), VA(a4, a2, a3), cont);
 	}
 
 	private final static Operation iarg_spec_3_3(Prolog m) {
@@ -549,7 +512,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 			return m.fail();
 		}
 		return //
-		Op((e) -> PRED_deep_list_3_static_exec(e), VA(a4, a2, a3), cont);
+		Op((Prolog e) -> PRED_deep_list_3_static_exec(e), VA(a4, a2, a3), cont);
 	}
 
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl/5
@@ -562,8 +525,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry5(null, FILE_prolog_jiti::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_sub_1);
@@ -577,13 +538,12 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_1(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl'(A,B,C,D,E):-(A==[],D=C),!,D=B
-		Term a1, a2, a3, a4, a5, a6;
+		Term a1, a2, a3, a4, a6;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
 		cont = m.cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl'(A,B,C,D,E):-['$get_level'(F),'$equality_of_term'(A,[]),'$unify'(D,C),'$cut'(F),'$unify'(D,B)]
 		a6 = V(m);
@@ -617,12 +577,11 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_2(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl'(A,B,C,D,E):-C=[43|E],plus_list(A,E,B)
-		Term a1, a2, a3, a4, a5, a6;
+		Term a1, a2, a3, a5, a6;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		cont = m.cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl'(A,B,C,D,E):-['$unify'(C,[43|E]),plus_list(A,E,B)]
@@ -633,7 +592,7 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_plus_list_3_static_exec(e), VA(a1, a5, a2), cont);
+		Op((Prolog e) -> PRED_plus_list_3_static_exec(e), VA(a1, a5, a2), cont);
 	}
 
 	/** PREDICATE: plus_list/3
@@ -643,11 +602,9 @@ public class FILE_prolog_jiti extends FILE_builtins {
 	public static Operation PRED_plus_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// plus_list([A|B],C,D):-number(A,C,E),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl'(B,D,E,F,G)
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -666,8 +623,8 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		}
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_number_3_static_exec(e), VA(a4, a2, a6), //
-				Op((e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_static_exec(e), VA(a5, a3, a6, V(m), V(m)), cont));
+		Op((Prolog e) -> PRED_number_3_static_exec(e), VA(a4, a2, a6), //
+				Op((Prolog e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_static_exec(e), VA(a5, a3, a6, V(m), V(m)), cont));
 	}
 
 	/** PREDICATE: deep_list/3
@@ -678,8 +635,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_deep_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::deep_list_3_var, fail_0, fail_0, fail_0, fail_0, FILE_prolog_jiti::deep_list_3_var);
@@ -726,13 +681,12 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_iarg_spec_3_static_exec(e), VA(a4, a5, a3), cont);
+		Op((Prolog e) -> PRED_iarg_spec_3_static_exec(e), VA(a4, a5, a3), cont);
 	}
 
 	private final static Operation deep_list_3_2(Prolog m) {
 		// deep_list([A|B],C,D):-number(A,C,E),E=[47|F],deep_list(B,F,D)
 		Term a1, a2, a3, a4, a5, a6, a7, a8;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -755,9 +709,9 @@ public class FILE_prolog_jiti extends FILE_builtins {
 		a7 = V(m);
 		a8 = CONS(int_47, a7);
 		return //
-		Op((e) -> PRED_number_3_static_exec(e), VA(a4, a2, a6), //
-				Op((e) -> PRED_$unify_2_static_exec(e), VA(a6, a8), //
-						Op((e) -> PRED_deep_list_3_static_exec(e), VA(a5, a7, a3), cont)));
+		Op((Prolog e) -> PRED_number_3_static_exec(e), VA(a4, a2, a6), //
+				Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a6, a8), //
+						Op((Prolog e) -> PRED_deep_list_3_static_exec(e), VA(a5, a7, a3), cont)));
 	}
 
 	/** PREDICATE: iflags/3
@@ -769,8 +723,6 @@ public class FILE_prolog_jiti extends FILE_builtins {
 
 	public static Operation PRED_iflags_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_jiti::iflags_3_var, fail_0, fail_0, FILE_prolog_jiti::iflags_3_var, fail_0, fail_0);

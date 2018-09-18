@@ -1,36 +1,14 @@
 package SxxMachine.library;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
 import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
 import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
 import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
 import static SxxMachine.builtin.sxxtensions.*;
 import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
 import SxxMachine.*;
 import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
 
-public class FILE_readutil extends FILE_builtins {
+public class FILE_readutil  extends TermData {
 	/** PREDICATE: link_foreign/0
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	*/
@@ -52,8 +30,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_link_foreign_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry0(null, FILE_readutil::link_foreign_0_sub_1);
@@ -68,7 +44,6 @@ public class FILE_readutil extends FILE_builtins {
 	private final static Operation link_foreign_0_1(Prolog m) {
 		// link_foreign:-catch(load_foreign_library(foreign(readutil)),A,fail),!
 		Term a1, a2, a3;
-		Operation p1;
 		Operation cont;
 		cont = m.cont;
 		// link_foreign:-['$get_level'(A),catch(read_util:load_foreign_library(foreign(readutil)),B,read_util:fail),'$cut'(A)]
@@ -79,18 +54,17 @@ public class FILE_readutil extends FILE_builtins {
 		}
 		//END inline expansion
 		a2 = Closure( //
-				Op((e) -> PRED_load_foreign_library_1_static_exec(e), VA(PRED_link_foreign_0_s4), null));
+				Op((Prolog e) -> PRED_load_foreign_library_1_static_exec(e), VA(PRED_link_foreign_0_s4), null));
 		a3 = Closure( //
 				Op(fail_0, VA(), null));
 		return //
 		Op(FILE_builtins::PRED_catch_3_static_exec, VA(a2, V(m), a3), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a1), cont));
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a1), cont));
 	}
 
 	private final static Operation link_foreign_0_2(Prolog m) {
 		// link_foreign:-assertz((read_line_to_codes(A,B):-pl_read_line_to_codes(A,B))),assertz((read_line_to_codes(A,B,C):-pl_read_line_to_codes(A,B,C))),assertz((read_stream_to_codes(A,D):-pl_read_stream_to_codes(A,D))),assertz((read_stream_to_codes(A,D,C):-pl_read_stream_to_codes(A,D,C))),compile_predicates([read_line_to_codes/2,read_line_to_codes/3,read_stream_to_codes/2,read_stream_to_codes/3])
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		cont = m.cont;
 		// link_foreign:-[assertz(read_util:(read_line_to_codes(A,B):-pl_read_line_to_codes(A,B))),assertz(read_util:(read_line_to_codes(A,B,C):-pl_read_line_to_codes(A,B,C))),assertz(read_util:(read_stream_to_codes(A,D):-pl_read_stream_to_codes(A,D))),assertz(read_util:(read_stream_to_codes(A,D,C):-pl_read_stream_to_codes(A,D,C))),compile_predicates([read_line_to_codes/2,read_line_to_codes/3,read_stream_to_codes/2,read_stream_to_codes/3])]
@@ -131,11 +105,11 @@ public class FILE_readutil extends FILE_builtins {
 		Term[] y16 = VA(ATOM_read_util, a19);
 		a20 = S(":", y16);
 		return //
-		Op((e) -> PRED_assertz_1_static_exec(e), VA(a6), //
-				Op((e) -> PRED_assertz_1_static_exec(e), VA(a11), //
-						Op((e) -> PRED_assertz_1_static_exec(e), VA(a16), //
-								Op((e) -> PRED_assertz_1_static_exec(e), VA(a20), //
-										Op((e) -> PRED_compile_predicates_1_static_exec(e), VA(PRED_link_foreign_0_s33), cont)))));
+		Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a6), //
+				Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a11), //
+						Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a16), //
+								Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a20), //
+										Op((Prolog e) -> PRED_compile_predicates_1_static_exec(e), VA(PRED_link_foreign_0_s33), cont)))));
 	}
 
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl/3
@@ -146,8 +120,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_readutil::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_sub_1);
@@ -161,9 +133,8 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_1(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-B== -1,!,C=end_of_file
-		Term a1, a2, a3, a4;
+		Term a2, a3, a4;
 		Operation cont;
-		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
@@ -202,7 +173,7 @@ public class FILE_readutil extends FILE_builtins {
 		cont = m.cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-[read_1line_to_codes(B,A,C)]
 		return //
-		Op((e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a2, a1, a3), cont);
+		Op((Prolog e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a2, a1, a3), cont);
 	}
 
 	/** PREDICATE: pl_read_line_to_codes/2
@@ -212,20 +183,18 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_pl_read_line_to_codes_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// pl_read_line_to_codes(A,B):-get_code(A,C),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,C,D),B=D
 		m.setB0();
 		Term a1, a2, a3, a4;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// pl_read_line_to_codes(A,B):-[get_code(A,C),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,C,D),'$unify'(B,D)]
 		a3 = V(m);
 		a4 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a1, a3), //
-				Op((e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(e), VA(a1, a3, a4), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a4), cont)));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a1, a3), //
+				Op((Prolog e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(e), VA(a1, a3, a4), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a4), cont)));
 	}
 
 	/** PREDICATE: read_1line_to_codes/3
@@ -237,8 +206,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_read_1line_to_codes_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_readutil::read_1line_to_codes_3_var, FILE_readutil::read_1line_to_codes_3_var, FILE_readutil::read_1line_to_codes_3_4, FILE_readutil::read_1line_to_codes_3_4,
@@ -267,10 +234,9 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_1line_to_codes_3_1(Prolog m) {
 		// read_1line_to_codes(-1,A,[]):-!
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// read_1line_to_codes(-1,A,[]):-['$neck_cut']
@@ -286,10 +252,9 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_1line_to_codes_3_2(Prolog m) {
 		// read_1line_to_codes(10,A,[]):-!
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// read_1line_to_codes(10,A,[]):-['$neck_cut']
@@ -306,7 +271,6 @@ public class FILE_readutil extends FILE_builtins {
 	private final static Operation read_1line_to_codes_3_3(Prolog m) {
 		// read_1line_to_codes(13,A,B):-!,get_code(A,C),read_1line_to_codes(C,A,B)
 		Term a1, a2, a3, a4;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -320,14 +284,13 @@ public class FILE_readutil extends FILE_builtins {
 		//END inline expansion
 		a4 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a4), //
-				Op((e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a4, a2, a3), cont));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a4), //
+				Op((Prolog e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a4, a2, a3), cont));
 	}
 
 	private final static Operation read_1line_to_codes_3_4(Prolog m) {
 		// read_1line_to_codes(A,B,[A|C]):-get_code(B,D),read_1line_to_codes(D,B,C)
 		Term a1, a2, a3, a4, a5;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -348,8 +311,8 @@ public class FILE_readutil extends FILE_builtins {
 		}
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a5), //
-				Op((e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a5, a2, a4), cont));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a5), //
+				Op((Prolog e) -> PRED_read_1line_to_codes_3_static_exec(e), VA(a5, a2, a4), cont));
 	}
 
 	/** PREDICATE: pl_read_line_to_codes/3
@@ -359,11 +322,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_pl_read_line_to_codes_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// pl_read_line_to_codes(A,B,C):-get_code(A,D),read_line_to_codes(D,A,E,C),B=E
 		m.setB0();
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -371,9 +332,9 @@ public class FILE_readutil extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a1, a4), //
-				Op((e) -> PRED_read_line_to_codes_4_static_exec(e), VA(a4, a1, a5, a3), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a5), cont)));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a1, a4), //
+				Op((Prolog e) -> PRED_read_line_to_codes_4_static_exec(e), VA(a4, a1, a5, a3), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a5), cont)));
 	}
 
 	/** PREDICATE: read_line_to_codes/4
@@ -383,8 +344,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_read_line_to_codes_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_readutil::read_line_to_codes_4_var, FILE_readutil::read_line_to_codes_4_var, FILE_readutil::read_line_to_codes_4_3, FILE_readutil::read_line_to_codes_4_3,
@@ -408,10 +367,9 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_line_to_codes_4_1(Prolog m) {
 		// read_line_to_codes(-1,A,B,B):-!,B=[]
-		Term a1, a2, a3, a4;
+		Term a1, a3, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
 		cont = m.cont;
@@ -433,10 +391,9 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_line_to_codes_4_2(Prolog m) {
 		// read_line_to_codes(10,A,[10|B],B):-!
-		Term a1, a2, a3, a4, a5;
+		Term a1, a3, a4, a5;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
 		cont = m.cont;
@@ -466,7 +423,6 @@ public class FILE_readutil extends FILE_builtins {
 	private final static Operation read_line_to_codes_4_3(Prolog m) {
 		// read_line_to_codes(A,B,[A|C],D):-get_code(B,E),read_line_to_codes(E,B,C,D)
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -488,8 +444,8 @@ public class FILE_readutil extends FILE_builtins {
 		}
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a6), //
-				Op((e) -> PRED_read_line_to_codes_4_static_exec(e), VA(a6, a2, a5, a4), cont));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a6), //
+				Op((Prolog e) -> PRED_read_line_to_codes_4_static_exec(e), VA(a6, a2, a5, a4), cont));
 	}
 
 	/** PREDICATE: $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl/3
@@ -499,8 +455,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_readutil::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_sub_1);
@@ -552,23 +506,21 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_2(Prolog m) {
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,C)
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-['$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,C)]
 		return //
-		Op((e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_static_exec(e), VA(a1, a3), cont);
+		Op((Prolog e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_static_exec(e), VA(a1, a3), cont);
 	}
 
 	private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_3(Prolog m) {
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-A=C
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B,C):-['$unify'(A,C)]
@@ -587,8 +539,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_readutil::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_sub_1);
@@ -633,12 +583,6 @@ public class FILE_readutil extends FILE_builtins {
 	}
 
 	private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_2(Prolog m) {
-		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B):-fail
-		Term a1, a2;
-		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		cont = m.cont;
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(A,B):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -654,19 +598,17 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_read_line_to_string_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// read_line_to_string(A,B):-read_string(A,'\n','\r',C,D),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(B,C,D)
 		m.setB0();
 		Term a1, a2, a3, a4;
-		Operation p1;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// read_line_to_string(A,B):-[read_string(A,'\n','\r',C,D),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl'(B,C,D)]
 		a3 = V(m);
 		a4 = V(m);
 		return //
-		Op((e) -> PRED_read_string_5_static_exec(e), VA(a1, PRED_read_line_to_string_2_s1, ATOM_$000D, a3, a4), //
-				Op((e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(e), VA(a2, a3, a4), cont));
+		Op((Prolog e) -> PRED_read_string_5_static_exec(e), VA(a1, PRED_read_line_to_string_2_s1, ATOM_$000D, a3, a4), //
+				Op((Prolog e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(e), VA(a2, a3, a4), cont));
 	}
 
 	/** PREDICATE: pl_read_stream_to_codes/2
@@ -677,7 +619,6 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_pl_read_stream_to_codes_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// pl_read_stream_to_codes(A,B):-pl_read_stream_to_codes(A,B,[])
 		m.setB0();
 		Term a1, a2;
@@ -685,7 +626,7 @@ public class FILE_readutil extends FILE_builtins {
 		a2 = LARG[1];
 		// pl_read_stream_to_codes(A,B):-[pl_read_stream_to_codes(A,B,[])]
 		return //
-		Op((e) -> PRED_pl_read_stream_to_codes_3_static_exec(e), VA(a1, a2, PRED_pl_read_stream_to_codes_2_s1), cont);
+		Op((Prolog e) -> PRED_pl_read_stream_to_codes_3_static_exec(e), VA(a1, a2, PRED_pl_read_stream_to_codes_2_s1), cont);
 	}
 
 	/** PREDICATE: pl_read_stream_to_codes/3
@@ -695,11 +636,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_pl_read_stream_to_codes_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// pl_read_stream_to_codes(A,B,C):-get_code(A,D),read_stream_to_codes(D,A,E,C),B=E
 		m.setB0();
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -707,9 +646,9 @@ public class FILE_readutil extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a1, a4), //
-				Op((e) -> PRED_read_stream_to_codes_4_static_exec(e), VA(a4, a1, a5, a3), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a5), cont)));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a1, a4), //
+				Op((Prolog e) -> PRED_read_stream_to_codes_4_static_exec(e), VA(a4, a1, a5, a3), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a5), cont)));
 	}
 
 	/** PREDICATE: read_stream_to_codes/4
@@ -719,8 +658,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_read_stream_to_codes_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_readutil::read_stream_to_codes_4_var, FILE_readutil::read_stream_to_codes_4_var, FILE_readutil::read_stream_to_codes_4_2, FILE_readutil::read_stream_to_codes_4_2,
@@ -739,10 +676,9 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_stream_to_codes_4_1(Prolog m) {
 		// read_stream_to_codes(-1,A,B,B):-!
-		Term a1, a2, a3, a4;
+		Term a1, a3, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
 		cont = m.cont;
@@ -760,7 +696,6 @@ public class FILE_readutil extends FILE_builtins {
 	private final static Operation read_stream_to_codes_4_2(Prolog m) {
 		// read_stream_to_codes(A,B,[A|C],D):-get_code(B,E),read_stream_to_codes(E,B,C,D)
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -782,8 +717,8 @@ public class FILE_readutil extends FILE_builtins {
 		}
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a6), //
-				Op((e) -> PRED_read_stream_to_codes_4_static_exec(e), VA(a6, a2, a5, a4), cont));
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a6), //
+				Op((Prolog e) -> PRED_read_stream_to_codes_4_static_exec(e), VA(a6, a2, a5, a4), cont));
 	}
 
 	/** PREDICATE: read_stream_to_terms/4
@@ -793,11 +728,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_read_stream_to_terms_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// read_stream_to_terms(A,B,C,D):-read_term(A,E,D),read_stream_to_terms(E,A,F,C,D),B=F
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -806,9 +739,9 @@ public class FILE_readutil extends FILE_builtins {
 		a5 = V(m);
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_read_term_3_static_exec(e), VA(a1, a5, a4), //
-				Op((e) -> PRED_read_stream_to_terms_5_static_exec(e), VA(a5, a1, a6, a3, a4), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a6), cont)));
+		Op((Prolog e) -> PRED_read_term_3_static_exec(e), VA(a1, a5, a4), //
+				Op((Prolog e) -> PRED_read_stream_to_terms_5_static_exec(e), VA(a5, a1, a6, a3, a4), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a6), cont)));
 	}
 
 	/** PREDICATE: read_stream_to_terms/5
@@ -820,8 +753,6 @@ public class FILE_readutil extends FILE_builtins {
 
 	public static Operation PRED_read_stream_to_terms_5_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_readutil::read_stream_to_terms_5_var, FILE_readutil::read_stream_to_terms_5_2, FILE_readutil::read_stream_to_terms_5_2, FILE_readutil::read_stream_to_terms_5_var,
@@ -840,13 +771,11 @@ public class FILE_readutil extends FILE_builtins {
 
 	private final static Operation read_stream_to_terms_5_1(Prolog m) {
 		// read_stream_to_terms(end_of_file,A,B,B,C):-!
-		Term a1, a2, a3, a4, a5;
+		Term a1, a3, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
 		cont = m.cont;
 		// read_stream_to_terms(end_of_file,A,B,B,C):-['$neck_cut']
 		if (!PRED_read_stream_to_terms_5_s1.unify(a1, m.trail))
@@ -862,7 +791,6 @@ public class FILE_readutil extends FILE_builtins {
 	private final static Operation read_stream_to_terms_5_2(Prolog m) {
 		// read_stream_to_terms(A,B,[A|C],D,E):-read_term(B,F,E),read_stream_to_terms(F,B,C,D,E)
 		Term a1, a2, a3, a4, a5, a6, a7;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -885,8 +813,8 @@ public class FILE_readutil extends FILE_builtins {
 		}
 		a7 = V(m);
 		return //
-		Op((e) -> PRED_read_term_3_static_exec(e), VA(a2, a7, a5), //
-				Op((e) -> PRED_read_stream_to_terms_5_static_exec(e), VA(a7, a2, a6, a4, a5), cont));
+		Op((Prolog e) -> PRED_read_term_3_static_exec(e), VA(a2, a7, a5), //
+				Op((Prolog e) -> PRED_read_stream_to_terms_5_static_exec(e), VA(a7, a2, a6, a4, a5), cont));
 	}
 
 	/** PREDICATE: read_file_to_codes/3
@@ -899,11 +827,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_read_file_to_codes_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// read_file_to_codes(A,B,C):-must_be(list,C),option(tail(D),C,[]),absolute_file_name(A,[access(read)|C],E),setup_call_cleanup(open(E,read,F,C),read_stream_to_codes(F,B,D),close(F))
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -921,10 +847,10 @@ public class FILE_readutil extends FILE_builtins {
 		Term[] y4 = VA(a8);
 		a11 = S("close", y4);
 		return //
-		Op((e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_codes_3_s1, a3), //
-				Op((e) -> PRED_option_3_static_exec(e), VA(a5, a3, Prolog.Nil), //
-						Op((e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a6, a7), //
-								Op((e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a9, a10, a11), cont))));
+		Op((Prolog e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_codes_3_s1, a3), //
+				Op((Prolog e) -> PRED_option_3_static_exec(e), VA(a5, a3, Prolog.Nil), //
+						Op((Prolog e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a6, a7), //
+								Op((Prolog e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a9, a10, a11), cont))));
 	}
 
 	/** PREDICATE: read_file_to_string/3
@@ -936,11 +862,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_read_file_to_string_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// read_file_to_string(A,B,C):-must_be(list,C),absolute_file_name(A,[access(read)|C],D),setup_call_cleanup(open(D,read,E,C),read_string(E,F,B),close(E))
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -955,9 +879,9 @@ public class FILE_readutil extends FILE_builtins {
 		Term[] y3 = VA(a6);
 		a9 = S("close", y3);
 		return //
-		Op((e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_string_3_s1, a3), //
-				Op((e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a4, a5), //
-						Op((e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a7, a8, a9), cont)));
+		Op((Prolog e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_string_3_s1, a3), //
+				Op((Prolog e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a4, a5), //
+						Op((Prolog e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a7, a8, a9), cont)));
 	}
 
 	/** PREDICATE: read_file_to_terms/3
@@ -969,11 +893,9 @@ public class FILE_readutil extends FILE_builtins {
 	public static Operation PRED_read_file_to_terms_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// read_file_to_terms(A,B,C):-must_be(list,C),option(tail(D),C,[]),absolute_file_name(A,[access(read)|C],E),setup_call_cleanup(open(E,read,F,C),read_stream_to_terms(F,B,D,C),close(F))
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -991,10 +913,10 @@ public class FILE_readutil extends FILE_builtins {
 		Term[] y4 = VA(a8);
 		a11 = S("close", y4);
 		return //
-		Op((e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_terms_3_s1, a3), //
-				Op((e) -> PRED_option_3_static_exec(e), VA(a5, a3, Prolog.Nil), //
-						Op((e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a6, a7), //
-								Op((e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a9, a10, a11), cont))));
+		Op((Prolog e) -> PRED_must_be_2_static_exec(e), VA(PRED_read_file_to_terms_3_s1, a3), //
+				Op((Prolog e) -> PRED_option_3_static_exec(e), VA(a5, a3, Prolog.Nil), //
+						Op((Prolog e) -> PRED_absolute_file_name_3_static_exec(e), VA(a1, a6, a7), //
+								Op((Prolog e) -> PRED_setup_call_cleanup_3_static_exec(e), VA(a9, a10, a11), cont))));
 	}
 
 	static {

@@ -1,19 +1,23 @@
 
-% :- [test].
+:- op(1150,  fx, (package)).
+package(_).
+:- package 'swi_supp'.
 
 :- dynamic('$current_typein_module'/1).
-:- public('$current_typein_module'/1).
 :- dynamic('$current_source_module'/1).
-:- public('$current_source_module'/1).
 :- dynamic('$current_context_module'/1).
-:- public('$current_context_module'/1).
-
-'$current_source_module'(user).
-'$current_typein_module'(user).
+%:- database('$current_source_module'(user)=swi_supp).
+%:- database('$current_typein_module'(user)=swi_supp).
+%:- database('swi_supp'='$current_context_module'(user)).
+'$current_typein_module'(swi_supp).
 '$current_context_module'(user).
+% :- [test].
 
 
-context_module(User) :- clause('$current_context_module'(UserO),_)->User=UserO;User=user.
+
+typein_module(User) :- '$current_typein_module'(UserO) -> User=UserO ; User=user.
+source_module(User) :- '$current_source_module'(UserO) -> User=UserO ; User=user.
+context_module(UserO) :- ('$current_context_module'(User);typein_module(User))->User=UserO.
 
 
 

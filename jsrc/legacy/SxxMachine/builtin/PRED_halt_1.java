@@ -30,7 +30,7 @@ public class PRED_halt_1 extends Predicate.P1 {
 			throw new PInstantiationException(this, 1);
 		if (!(a1 instanceof IntegerTerm))
 			throw new IllegalTypeException(this, 1, "integer", a1);
-		engine.halt = 1 + ((IntegerTerm) a1).intValue();
+		engine.halt = 1 + a1.asIntegerTerm().intValue();
 		return null;
 	}
 }

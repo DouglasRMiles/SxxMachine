@@ -27,7 +27,7 @@ class PRED_$call_closure_1 extends Predicate.P1 {
 
 	if (! (a1 instanceof ClosureTerm))
 	    return engine.fail();
-	code = ((ClosureTerm) a1).getCode();
+	code = a1.asClosureTerm().getCode();
 	code.cont = this.cont;
 	return code;
     }

@@ -37,13 +37,13 @@ public class PRED_char_code_2 extends Predicate.P2 {
 	    } else if (! (a2 instanceof IntegerTerm)) {
 		throw new IllegalTypeException(this, 2, "integer", a2);
 	    }
-	    int i = ((IntegerTerm)a2).intValue();
+	    int i = a2.asIntegerlTerm().intValue();
 	    if (! Character.isDefined(i))
 		throw new RepresentationException(this, 2, "character_code");
 	    if (! a1.unify(SymbolTerm.create((char)i), engine.trail))
 		return engine.fail();
 	} else if ((a1 instanceof SymbolTerm)) { // char_code(+Char, ?CharCode)
-	    String s = ((SymbolTerm)a1).name();
+	    String s = a1.asSymbolTerm().name();
 	    if (s.length() != 1)
 		throw new IllegalTypeException(this, 1, "character", a1);
 	    if(! a2.unify(new IntegerTerm((int)s.charAt(0)), engine.trail)) 

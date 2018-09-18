@@ -46,9 +46,9 @@ cafeteria :-
 
 '$toplvel_loop' :-
 	current_prolog_flag(debug, Mode),
-	(clause('$current_typein_module'(User),_)->true;(User=user)),
+	typein_module(User),!,
 	(Mode == off -> true ; print_message(info,[debug])),
-	(User == user -> true ; '$fast_write'(User)),
+	(User == user -> '$fast_write'(User) ; '$fast_write'(User)),
 	'$fast_write'('| ?- '),
 	flush_output.
 
@@ -356,12 +356,14 @@ print_message(warning, Message) :- !,
 	'$builtin_message'(Message),
 	'$fast_write'('}'), nl.
 
+/*
 write(M)  :- write('user_output', M).
 writeq(M) :- writeq('user_output', M).
 tab(S)    :- tab('user_output', S).
-nl        :- nl('user_output').
 flush_output :- flush_output('user_output').
 '$fast_write'(M) :- '$fast_write'('user_output', M).
+*/
+nl        :- nl('user_output').
 
 '$builtin_message'([]) :- !.
 '$builtin_message'([M]) :- !, write(M).

@@ -44,14 +44,14 @@ public class PRED_sort_2 extends Predicate.P2 {
 	} else if (!( a1 instanceof ListTerm)) {
 	    throw new IllegalTypeException(this, 1, "list", a1);
 	}
-	len = ((ListTerm)a1).length();
+	len = a1.asListlTerm().length();
 	list = new Term[len];
 	tmp = a1;
 	for (int i=0; i<len; i++) {
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 1, "list", a1);
-	    list[i] = ((ListTerm)tmp).car().dref();
-	    tmp = ((ListTerm)tmp).cdr().dref();
+	    list[i] = tmp.asListlTerm().car().dref();
+	    tmp = tmp.asListlTerm().cdr().dref();
 	}
 	if (! tmp.equals(Prolog.Nil))
 	    throw new PInstantiationException(this, 1);

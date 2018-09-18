@@ -396,7 +396,7 @@ public final class Prolog {
 		if (((arg1 .isInteger()) || arg1 .isDouble()) || (arg1 .isSymbol())) {
 			key = arg1;
 		} else if ((arg1 .isStructure())) {
-			key = ((StructureTerm) arg1).functor();
+			key = ( arg1).functor();
 		} else {
 			throw new SystemException("Invalid argument in switch_on_hash");
 		}

@@ -82,15 +82,16 @@ public class Arithmetic {
 	else if (t.equalsTerm(SYM_E))
 	    return new DoubleTerm(Math.E);
 	else if ((t .isCons()))
-	    return evaluate(((ListTerm)t).car());
+	    return evaluate(t.asListTerm().car());
 	else if (! (t .isStructure()))
 	    throw new IllegalDomainException("arithmetic expression", t);
-	SymbolTerm func = ((StructureTerm)t).functor().asSymbolTerm();
-	Term[] args = ((StructureTerm)t).args();
+	SymbolTerm func = (t).functor().asSymbolTerm();
+	Term[] args = (t).args();
 	if (func.equalsTerm(SYM_ADD_1))
 	    return evaluate(args[0]);
 	else if (func.equalsTerm(SYM_NEGATE_1))
 	    return evaluate(args[0]).negate();
+	
 	else if (func.equalsTerm(SYM_ADD_2))
 	    return evaluate(args[0]).add(evaluate(args[1]));
 	else if (func.equalsTerm(SYM_SUBTRACT_2))

@@ -42,9 +42,9 @@ public class PRED_line_count_2 extends P2 {
 			if (!engine.getStreamManager().containsKey(a1)) {
 				throw new ExistenceException(this, 1, "stream", a1, "");
 			}
-			stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+			stream = ( engine.getStreamManager().get(a1)).object();
 		} else if ((a1 instanceof FFIObjectTerm)) {
-			stream = ((FFIObjectTerm) a1).object();
+			stream = a1.object();
 		} else {
 			throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 		}

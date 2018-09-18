@@ -57,7 +57,7 @@ public class PRED_atom_concat_3 extends Predicate.P3 {
 	    throw new IllegalTypeException(this, 1, "integer", a1);
 	if (! (a2 instanceof SymbolTerm))
 	    throw new IllegalTypeException(this, 2, "integer", a2);
-	String str3 = ((SymbolTerm) a1).name().concat(((SymbolTerm) a2).name());
+	String str3 = a1.asSymbolTerm().name().concat(a2.asSymbolTerm().name());
 	if (! a3.unify(SymbolTerm.create(str3), engine.trail))
 	    return engine.fail();
         return cont;

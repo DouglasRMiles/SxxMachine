@@ -50,13 +50,13 @@ public class PRED_number_chars_2 extends Predicate.P2 {
 		    throw new PInstantiationException(this, 2);
 		if (!( x instanceof ListTerm))
 		    throw new IllegalTypeException(this, 2, "list", a2);
-		Term car = ((ListTerm)x).car().dref();
+		Term car = x.asListlTerm().car().dref();
 		if ((car instanceof VariableTerm))
 		    throw new PInstantiationException(this, 2);
-		if (! (car instanceof SymbolTerm) || ((SymbolTerm)car).name().length() != 1)
+		if (! (car instanceof SymbolTerm) || car.asSymbolTerm().name().length() != 1)
 		    throw new IllegalTypeException(this, 2, "character", a2);
-		sb.append(((SymbolTerm)car).name());
-		x = ((ListTerm)x).cdr().dref();
+		sb.append(car.asSymbolTerm().name());
+		x = x.asListlTerm().cdr().dref();
 	    }
 	    try {
 		if (! a1.unify(new IntegerTerm(Integer.parseInt(sb.toString())), engine.trail))

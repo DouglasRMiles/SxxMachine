@@ -44,12 +44,12 @@ class PRED_$begin_sync_2 extends BlockPredicate {
 			throw new PInstantiationException(this, 1);
 		if (!(a1 instanceof FFIObjectTerm))
 			throw new IllegalTypeException(this, 1, "java", a1);
-		o = ((FFIObjectTerm) a1).object();
+		o = a1.object();
 		// 2nd. argument
 		a2 = a2.dref();
 		if (!(a2 instanceof VariableTerm))
 			throw new IllegalTypeException(this, 2, "variable", a1);
-		((VariableTerm) a2).bind(new FFIObjectTerm(this), engine.trail);
+		a2.asVariableTerm().bind(new FFIObjectTerm(this), engine.trail);
 		//
 		code = cont;
 		this.outOfScope = false;

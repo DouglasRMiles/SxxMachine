@@ -34,8 +34,8 @@ public class ClosureTerm extends SystemObject {
 	public boolean unifyImpl(Term t, Trail trail) {
 		t = t.dref();
 		if ((t .isVar()))
-			return ((VariableTerm) t).unify(this, trail);
-		return (t .isClosure()) && this.code.equals(((ClosureTerm) t).code);
+			return t.asVariableTerm().unify(this, trail);
+		return (t .isClosure()) && this.code.equals(t.asClosureTerm().code);
 	}
 
     @Override
@@ -53,7 +53,7 @@ public class ClosureTerm extends SystemObject {
      */
     @Override
     public boolean equalsTerm(Term obj, Comparator comparator) { // obj must be dereferenced
-		return obj .isClosure() && this.code.equals(((ClosureTerm) obj).code);
+		return obj .isClosure() && this.code.equals(obj.asClosureTerm().code);
 	}
     @Override
     public int termHashCodeImpl() {
@@ -81,9 +81,9 @@ public class ClosureTerm extends SystemObject {
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced
 	if (! (anotherTerm .isClosure()))
 	    return AFTER;
-	if (this.code.equals(((ClosureTerm) anotherTerm).code))
+	if (this.code.equals(anotherTerm.asClosureTerm().code))
 	    return EQUAL;
-	return this.code.hashCode() - ((ClosureTerm) anotherTerm).code.hashCode(); //???
+	return this.code.hashCode() - anotherTerm.asClosureTerm().code.hashCode(); //???
     }
 	@Override
 	public final boolean isImmutable() {

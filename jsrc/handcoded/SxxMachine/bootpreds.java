@@ -120,8 +120,6 @@ public class bootpreds extends FFIPredicate {
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
-		Term[] args;
-		int arity, argNo;
 		a1 = a1.dref();
 		if ((a1.isVar()))
 			throw new PInstantiationException(thiz, 1);
@@ -170,8 +168,8 @@ public class bootpreds extends FFIPredicate {
 			args[1] = (a2).cdr();
 			arity = 2;
 		} else if ((a2.isStructure())) {
-			args = ((StructureTerm) a2).args();
-			arity = ((StructureTerm) a2).arity();
+			args = ( a2).args();
+			arity = ( a2).arity();
 		} else if ((a2.isVar())) {
 			throw new PInstantiationException(thiz, 2);
 		} else {
@@ -479,9 +477,6 @@ public class bootpreds extends FFIPredicate {
 
 		public static Operation static_exec(Prolog engine) {
 			Operation cont = engine.cont;
-			Term[] LARG = engine.AREGS;
-			Operation thiz = engine.pred;
-
 			engine.setB0();
 			engine.pushCatcherB(engine.B0);
 			engine.trail.push(() -> engine.popCatcherB());
@@ -521,7 +516,6 @@ public class bootpreds extends FFIPredicate {
 		}
 
 		static public Operation static_exec(Prolog engine) {
-			Operation cont = engine.cont;
 			Term[] LARG = engine.AREGS;
 			BlockPredicate thiz = (BlockPredicate) engine.pred;
 			engine.setB0();
@@ -536,12 +530,12 @@ public class bootpreds extends FFIPredicate {
 				throw new PInstantiationException(thiz, 1);
 			if (!(a1.isFFIObject()))
 				throw new IllegalTypeException(thiz, 1, "java", a1);
-			o = ((FFIObjectTerm) a1).object();
+			o = a1.object();
 			// 2nd. argument
 			a2 = a2.dref();
 			if (!(a2.isVar()))
 				throw new IllegalTypeException(thiz, 2, "variable", a1);
-			((VariableTerm) a2).bind(FFIObject(thiz), engine.trail);
+			a2.asVariableTerm().bind(FFIObject(thiz), engine.trail);
 			//
 			code = thiz.cont;
 			thiz.outOfScope = false;
@@ -594,8 +588,6 @@ public class bootpreds extends FFIPredicate {
 		public static Operation static_exec(Prolog engine) {
 			Operation cont = engine.cont;
 			Term[] LARG = engine.AREGS;
-			Operation thiz = engine.pred;
-
 			final Term a1 = LARG[0].dref();
 			final Term a2 = LARG[1].dref();
 			if (!(a2.isCons())) {
@@ -718,7 +710,7 @@ public class bootpreds extends FFIPredicate {
 				arity = 0;
 			} else if ((a2.isStructure())) {
 				functor = a2.name();
-				args = ((StructureTerm) a2).args();
+				args = ( a2).args();
 				arity = a2.arity();
 			} else {
 				throw new IllegalTypeException(thiz, 2, "callable", a2);
@@ -761,7 +753,7 @@ public class bootpreds extends FFIPredicate {
 		a1 = LARG[0].dref();
 		if (!(a1.isClosure()))
 			return engine.fail();
-		code = ((ClosureTerm) a1).getCode();
+		code = a1.asClosureTerm().getCode();
 		code.cont = cont;
 		return code;
 	}
@@ -843,8 +835,8 @@ public class bootpreds extends FFIPredicate {
 			if ((car.isVar()))
 				throw new PInstantiationException(thiz, 2);
 			if ((car.isStructure())) {
-				Term functor = ((StructureTerm) car).functor();
-				Term[] args = ((StructureTerm) car).args();
+				Term functor = ( car).functor();
+				Term[] args = ( car).args();
 				if (functor.equalsTerm(SYM_FORCE_1)) {
 					Term bool = args[0].dref();
 					if (bool.equalsTerm(SYM_TRUE))
@@ -868,9 +860,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getStreamManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "stream", a1, "");
-			stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+			stream = ( engine.getStreamManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			stream = ((FFIObjectTerm) a1).object();
+			stream = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
 		}
@@ -910,8 +902,8 @@ public class bootpreds extends FFIPredicate {
 			while (!tmp2.isNil()) {
 				Term car = (tmp2).car().dref();
 				if ((car.isStructure())) {
-					Term functor = ((StructureTerm) car).functor();
-					Term[] args = ((StructureTerm) car).args();
+					Term functor = ( car).functor();
+					Term[] args = ( car).args();
 					if (functor.equalsTerm(SYM_ALIAS_1)) {
 						Term alias = args[0].dref();
 						streamManager.remove(alias);
@@ -996,7 +988,7 @@ public class bootpreds extends FFIPredicate {
 		Term a1;
 		a1 = LARG[0];
 		a1 = a1.dref();
-		if (!a1.unify(TermData.FFIObject(engine), engine.trail))
+		if (!a1.unify(FFIObject(engine), engine.trail))
 			return engine.fail();
 		return cont;
 	}
@@ -1019,7 +1011,7 @@ public class bootpreds extends FFIPredicate {
 		a1 = LARG[0];
 		a1 = a1.dref();
 		if ((a1.isVar())) {
-			((VariableTerm) a1).bind(TermData.FFIObject(engine.getCurrentInput()), engine.trail);
+			a1.asVariableTerm().bind(TermData.FFIObject(engine.getCurrentInput()), engine.trail);
 		} else if ((a1.isFFIObject())) {
 			if (!a1.unify(TermData.FFIObject(engine.getCurrentInput()), engine.trail))
 				return engine.fail();
@@ -1047,7 +1039,7 @@ public class bootpreds extends FFIPredicate {
 		a1 = LARG[0];
 		a1 = a1.dref();
 		if ((a1.isVar())) {
-			((VariableTerm) a1).bind(TermData.FFIObject(engine.getCurrentOutput()), engine.trail);
+			a1.asVariableTerm().bind(TermData.FFIObject(engine.getCurrentOutput()), engine.trail);
 		} else if ((a1.isFFIObject())) {
 			if (!a1.unify(TermData.FFIObject(engine.getCurrentOutput()), engine.trail))
 				return engine.fail();
@@ -1114,7 +1106,7 @@ public class bootpreds extends FFIPredicate {
 		a1 = a1.dref();
 		if (!(a1.isFFIObject()))
 			throw new IllegalTypeException(thiz, 1, "java", a1);
-		Object obj = ((FFIObjectTerm) a1).object();
+		Object obj = a1.object();
 		if (!(obj instanceof PRED_$begin_sync_2))
 			throw new SystemException("a1 must be an object of PRED_$begin_sync_2: " + thiz);
 		PRED_$begin_sync_2 p = ((PRED_$begin_sync_2) obj);
@@ -1283,9 +1275,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getStreamManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "stream", a1, "");
-			stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+			stream = ( engine.getStreamManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			stream = ((FFIObjectTerm) a1).object();
+			stream = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
 		}
@@ -1530,9 +1522,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getStreamManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "stream", a1, "");
-			stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+			stream = ( engine.getStreamManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			stream = ((FFIObjectTerm) a1).object();
+			stream = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
 		}
@@ -1898,20 +1890,20 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
+		Term elem = TermData.asHashtableOfTerm(hash).get(a2);
 		if (elem == null)
 			elem = Nil;
 		a3 = a3.dref();
-		((HashtableOfTerm) hash).put(a2, CONS(a3, elem));
+		asHashtableOfTerm(hash).put(a2, CONS(a3, elem));
 		return cont;
 	}
 
@@ -1943,9 +1935,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
@@ -1953,7 +1945,7 @@ public class bootpreds extends FFIPredicate {
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
 		a3 = a3.dref();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
+		Term elem = asHashtableOfTerm(hash).get(a2);
 		if (elem == null || Nil.equalsTerm(elem)) {
 			elem = new ListViewTerm(a3);
 		} else if (elem.isCons()) {
@@ -1961,7 +1953,7 @@ public class bootpreds extends FFIPredicate {
 		} else {
 			throw new InternalException(thiz + ": elem is not a ListTerm");
 		}
-		((HashtableOfTerm) hash).put(a2, elem);
+		asHashtableOfTerm(hash).put(a2, elem);
 		return cont;
 	}
 
@@ -1988,15 +1980,15 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
-		((HashtableOfTerm) hash).clear();
+		asHashtableOfTerm(hash).clear();
 		return cont;
 	}
 
@@ -2017,9 +2009,9 @@ public class bootpreds extends FFIPredicate {
 		Term a2 = LARG[1].dref();
 		Object hash = null;
 		if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else if ((a1.isSymbol())) {
-			FFIObjectTerm t = (FFIObjectTerm) engine.getHashManager().get(a1);
+			Term t =  engine.getHashManager().get(a1);
 			if (t == null) {
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
 			}
@@ -2030,7 +2022,7 @@ public class bootpreds extends FFIPredicate {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (HashtableOfTerm.isHashtableOfTerm(hash)) {
-			if (((HashtableOfTerm) hash).containsKey(a2)) {
+			if (asHashtableOfTerm(hash).containsKey(a2)) {
 				return cont;
 			}
 			return engine.fail();
@@ -2063,16 +2055,16 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
+		Term elem = asHashtableOfTerm(hash).get(a2);
 		if (elem == null)
 			elem = Prolog.Nil;
 		if (!a3.unify(elem, engine.trail))
@@ -2102,15 +2094,15 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
-		if (!((HashtableOfTerm) hash).isEmpty())
+		if (!asHashtableOfTerm(hash).isEmpty())
 			return engine.fail();
 		return cont;
 	}
@@ -2138,16 +2130,16 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		Term keys = Prolog.Nil;
-		for (Term t : ((HashtableOfTerm) hash).keySet())
+		for (Term t : asHashtableOfTerm(hash).keySet())
 			keys = CONS(t, keys);
 		if (!a2.unify(keys, engine.trail))
 			return engine.fail();
@@ -2179,9 +2171,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
@@ -2189,7 +2181,7 @@ public class bootpreds extends FFIPredicate {
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
 		a3 = a3.dref();
-		((HashtableOfTerm) hash).put(a2, a3);
+		((Term) hash).asHashtableOfTerm().put(a2, a3);
 		return cont;
 	}
 
@@ -2226,16 +2218,16 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
-		((HashtableOfTerm) hash).remove(a2);
+		asHashtableOfTerm(hash).remove(a2);
 		return cont;
 	}
 
@@ -2267,16 +2259,16 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
 		if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
-		Term elem = ((HashtableOfTerm) hash).get(a2);
+		Term elem = asHashtableOfTerm(hash).get(a2);
 		if (elem == null || elem.isNil())
 			return cont;
 		a3 = a3.dref();
@@ -2296,10 +2288,10 @@ public class bootpreds extends FFIPredicate {
 		}
 		elem = t;
 		if (elem.isNil() && (a2.isInteger())) {
-			((HashtableOfTerm) hash).remove(a2);
+			asHashtableOfTerm(hash).remove(a2);
 			// System.out.println("################ key " + a2 + " is removed");
 		} else {
-			((HashtableOfTerm) hash).put(a2, elem);
+			asHashtableOfTerm(hash).put(a2, elem);
 		}
 		return cont;
 	}
@@ -2328,9 +2320,9 @@ public class bootpreds extends FFIPredicate {
 		} else if ((a1.isSymbol())) {
 			if (!engine.getHashManager().containsKey(a1))
 				throw new ExistenceException(thiz, 1, "hash", a1, "");
-			hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+			hash = ( engine.getHashManager().get(a1)).object();
 		} else if ((a1.isFFIObject())) {
-			hash = ((FFIObjectTerm) a1).object();
+			hash = a1.object();
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
@@ -2339,7 +2331,7 @@ public class bootpreds extends FFIPredicate {
 		a2 = a2.dref();
 		if (!(a2.isVar()) && !(a2.isInteger()))
 			throw new IllegalTypeException(thiz, 1, "integer", a2);
-		if (!a2.unifyInt((((HashtableOfTerm) hash).size()), engine.trail))
+		if (!a2.unifyInt((asHashtableOfTerm(hash).size()), engine.trail))
 			return engine.fail();
 		return cont;
 	}
@@ -2482,18 +2474,18 @@ public class bootpreds extends FFIPredicate {
 		a2 = a2.dref();
 		if ((a1.isVar())) { // a1 = var
 			if ((a2.isFFIObject())) { // a1 = var /\ a2 = java
-				((VariableTerm) a1).bind(inverseConversion(((FFIObjectTerm) a2).object()), engine.trail);
+				a1.asVariableTerm().bind(inverseConversion(( a2).object()), engine.trail);
 			} else { // a1 = var /\ a2 = nonjava
-				((VariableTerm) a1).bind(a2, engine.trail);
+				a1.asVariableTerm().bind(a2, engine.trail);
 			}
 		} else if (!(a2.isVar())) { // a1 = nonvar /\ a2 = nonvar
 			throw new IllegalTypeException(thiz, 2, "variable", a2);
 		} else { // a1 = nonvar /\ a2 = var
 			// (a1 = java \/ a1 = str \/ a1 = clo) /\ a2 = var
 			if ((a1.isFFIObject()) || (a1.isStructure()) || (a1.isClosure())) {
-				((VariableTerm) a2).bind(a1, engine.trail);
+				a2.asVariableTerm().bind(a1, engine.trail);
 			} else { // a1 != java /\ a1 != str /\ a1 != clo /\ a2 = var
-				((VariableTerm) a2).bind(TermData.FFIObject(a1.toJava()), engine.trail);
+				a2.asVariableTerm().bind(TermData.FFIObject(a1.toJava()), engine.trail);
 			}
 		}
 		return cont;
@@ -2648,8 +2640,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -2662,12 +2654,12 @@ public class bootpreds extends FFIPredicate {
 				m.setAccessible(true);
 				value = m.invoke(instance);
 			} else if ((a2.isStructure())) { // Parameterized method
-				methodName = ((StructureTerm) a2).name();
-				arity = ((StructureTerm) a2).arity();
+				methodName = ( a2).name();
+				arity = ( a2).arity();
 				methods = clazz.getDeclaredMethods();
 				if (methods.length == 0)
 					throw new ExistenceException(thiz, 2, "method", a2, "");
-				pArgs = ((StructureTerm) a2).args();
+				pArgs = ( a2).args();
 				jArgs = new Object[arity];
 				for (int i = 0; i < arity; i++) {
 					pArgs[i] = pArgs[i].dref();
@@ -2749,8 +2741,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -2820,8 +2812,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -2902,8 +2894,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -2916,12 +2908,12 @@ public class bootpreds extends FFIPredicate {
 				// m.setAccessible(true);
 				value = m.invoke(instance);
 			} else if ((a2.isStructure())) { // Parameterized method
-				methodName = ((StructureTerm) a2).name();
-				arity = ((StructureTerm) a2).arity();
+				methodName = ( a2).name();
+				arity = ( a2).arity();
 				methods = clazz.getMethods();
 				if (methods.length == 0)
 					throw new ExistenceException(thiz, 2, "method", a2, "");
-				pArgs = ((StructureTerm) a2).args();
+				pArgs = ( a2).args();
 				jArgs = new Object[arity];
 				for (int i = 0; i < arity; i++) {
 					pArgs[i] = pArgs[i].dref();
@@ -3000,8 +2992,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -3069,8 +3061,8 @@ public class bootpreds extends FFIPredicate {
 			} else if ((a1.isSymbol())) { // class
 				clazz = Class.forName(a1.name());
 			} else if ((a1.isFFIObject())) { // instance
-				instance = ((FFIObjectTerm) a1).object();
-				clazz = ((FFIObjectTerm) a1).getClazz();
+				instance = a1.object();
+				clazz = a1.getClazz();
 			} else {
 				throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
 			}
@@ -3148,7 +3140,7 @@ public class bootpreds extends FFIPredicate {
 				throw new PInstantiationException(thiz, 1);
 			if (!(list[i].isStructure()))
 				throw new IllegalTypeException(thiz, 1, "key_value_pair", a1);
-			if (!((StructureTerm) list[i]).functor().equalsTerm(SYM_HYPHEN_2))
+			if (!( list[i]).functor().equalsTerm(SYM_HYPHEN_2))
 				throw new IllegalTypeException(thiz, 1, "key_value_pair", a1);
 			tmp = (tmp).cdr().dref();
 		}
@@ -3174,8 +3166,8 @@ public class bootpreds extends FFIPredicate {
 
 	static class KeySortComparator implements java.util.Comparator<Term> {
 		public int compare(Term t1, Term t2) {
-			Term arg1 = ((StructureTerm) t1).args()[0].dref();
-			Term arg2 = ((StructureTerm) t2).args()[0].dref();
+			Term arg1 = ( t1).args()[0].dref();
+			Term arg2 = ( t2).args()[0].dref();
 			return arg1.compareTo(arg2);
 		}
 	}
@@ -3191,7 +3183,6 @@ public class bootpreds extends FFIPredicate {
 		Term a1, a2;
 		a1 = LARG[0];
 		a2 = LARG[1];
-		Term t;
 		// S_or_a
 		PushbackReader stream = toPBReader(engine, thiz, a1);
 		// get line number
@@ -3606,7 +3597,7 @@ public class bootpreds extends FFIPredicate {
 			if (a2.isFFIObject() && (a2.toJava() instanceof Throwable)) {
 				t = (Throwable) a2.toJava();
 			} else if (a2 instanceof ErrorTerm) {
-				t = ((ErrorTerm) a2).getThrowable();
+				t = TermData.asErrorTerm(a2).getThrowable();
 			}
 			logger.log(level, a2.toAtomName());
 			if (t != null) {
@@ -4015,8 +4006,8 @@ public class bootpreds extends FFIPredicate {
 			if ((car.isVar()))
 				throw new PInstantiationException(thiz, 2);
 			if ((car.isStructure())) {
-				Term functor = ((StructureTerm) car).functor();
-				Term[] args = ((StructureTerm) car).args();
+				Term functor = ( car).functor();
+				Term[] args = ( car).args();
 				if (functor.equalsTerm(SYM_ALIAS_1)) {
 					Term alias = args[0].dref();
 					if (!(alias.isSymbol()))
@@ -4324,7 +4315,7 @@ public class bootpreds extends FFIPredicate {
 			engine.getStreamManager().put(alias, streamObject);
 			opts = CONS(C(SYM_ALIAS_1, alias), opts);
 		}
-		((VariableTerm) a3).bind(streamObject, engine.trail);
+		a3.asVariableTerm().bind(streamObject, engine.trail);
 		engine.getStreamManager().put(streamObject, opts);
 		if (options.containsKey(SYM_AUTOCLOSE)) {
 			Term autoCloseOption = options.get(SYM_AUTOCLOSE);
@@ -4353,7 +4344,7 @@ public class bootpreds extends FFIPredicate {
 			if ((option.isVar()))
 				throw new PInstantiationException(thiz, 4);
 			if ((option.isStructure())) {
-				SymbolTerm functor = ((StructureTerm) option).functor().asSymbolTerm();
+				SymbolTerm functor = ( option).functor().asSymbolTerm();
 				result.put(functor, option);
 			} else {
 				throw new IllegalDomainException(thiz, 4, "stream_option", option);
@@ -4550,7 +4541,7 @@ public class bootpreds extends FFIPredicate {
 			throw new PInstantiationException(thiz, 1);
 		if (!(a1.isFFIObject()))
 			throw new IllegalTypeException(thiz, 1, "java", a1);
-		Object obj = ((FFIObjectTerm) a1).object();
+		Object obj = a1.object();
 		if (obj instanceof InterruptedException)
 			throw new JavaInterruptedException((InterruptedException) obj);
 		if (engine.getPrintStackTrace().equals("on"))
@@ -4573,7 +4564,7 @@ public class bootpreds extends FFIPredicate {
 		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
-		Term a1, a2;
+		Term a2;
 		a2 = LARG[1];
 		int c;
 		// Byte
@@ -4606,7 +4597,7 @@ public class bootpreds extends FFIPredicate {
 		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
-		Term a1, a2;
+		Term a2;
 		a2 = LARG[1];
 		String str;
 		char c;
@@ -4643,8 +4634,7 @@ public class bootpreds extends FFIPredicate {
 		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
-		Term a1, a2;
-		a1 = LARG[0];
+		Term a2;
 		a2 = LARG[1];
 		int c;
 		// Char
@@ -4703,7 +4693,6 @@ public class bootpreds extends FFIPredicate {
 	public static Operation PRED_$unify_2_static_exec_builtins(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// '$unify'(A,B):-'$unify'(A,B)
 		m.setB0();
 		Term a1, a2;
@@ -4888,7 +4877,7 @@ public class bootpreds extends FFIPredicate {
 		if ((a1.isVar())) {
 			throw new PInstantiationException(thiz, 1);
 		}
-		Pattern pattern = (Pattern) ((FFIObjectTerm) a1).object();
+		Pattern pattern = (Pattern) a1.object();
 		if ((a2.isVar())) {
 			throw new PInstantiationException(thiz, 1);
 		}
@@ -4907,7 +4896,7 @@ public class bootpreds extends FFIPredicate {
 	private static Operation regex_check(Prolog engine) {
 		Term a1 = engine.AREGS[0];
 		Term result = engine.AREGS[1];
-		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
+		Matcher matcher = (Matcher) a1.object();
 		Term matches = getMatches(matcher);
 		if (matches == Prolog.Nil || !result.unify(matches, engine.trail)) {
 			return engine.fail();
@@ -4921,7 +4910,7 @@ public class bootpreds extends FFIPredicate {
 
 	private static Operation regex_empty(Prolog engine) {
 		Term a1 = engine.AREGS[0];
-		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
+		Matcher matcher = (Matcher) a1.object();
 		if (!matcher.find()) {
 			return engine.fail();
 		}
@@ -5008,7 +4997,6 @@ public class bootpreds extends FFIPredicate {
 	// _set_output_1 extends Predicate.P1 {
 	public static Operation PRED_set_output_1_static_exec(Prolog engine) {
 		Operation cont = engine.cont;
-		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
 		// S_or_a
@@ -5098,7 +5086,7 @@ public class bootpreds extends FFIPredicate {
 				throw e;
 			}
 		}
-		n = ((NumberTerm) a2).intValue();
+		n = a2.asNumberTerm().intValue();
 		if (!Character.isDefined(n))
 			throw new RepresentationException(thiz, 2, "character_code");
 		// S_or_a
@@ -5253,7 +5241,7 @@ public class bootpreds extends FFIPredicate {
 		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
-		Term a1, a2;
+		Term a2;
 		a2 = LARG[1];
 		int n;
 		// String s = "";
@@ -5270,7 +5258,7 @@ public class bootpreds extends FFIPredicate {
 				throw e;
 			}
 		}
-		n = ((NumberTerm) a2).intValue();
+		n = a2.asNumberTerm().intValue();
 		// S_or_a
 		PrintWriter stream = toPrintWriter(engine, thiz, engine.AREGS[0]);
 		// tab
@@ -5546,7 +5534,7 @@ public class bootpreds extends FFIPredicate {
 		Term[] LARG = engine.AREGS;
 		Operation thiz = engine.pred;
 		engine.setB0();
-		Term a1, a2;
+		Term a2;
 		a2 = LARG[1];
 		// S_or_a
 		PrintWriter stream = toPrintWriter(engine, thiz, engine.AREGS[0]);
@@ -5554,7 +5542,7 @@ public class bootpreds extends FFIPredicate {
 		if (!(a2.isFFIObject()))
 			throw new IllegalTypeException(thiz, 2, "java", a2);
 		// print java
-		stream.print(((FFIObjectTerm) a2).object().toString());
+		stream.print(( a2).object().toString());
 		return cont;
 	}
 

@@ -39,7 +39,7 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 		if ((a1 instanceof VariableTerm)) {
 			throw new PInstantiationException(this, 1);
 		}
-		Pattern pattern = (Pattern) ((FFIObjectTerm) a1).object();
+		Pattern pattern = (Pattern) a1.object();
 
 		if ((a2 instanceof VariableTerm)) {
 			throw new PInstantiationException(this, 1);
@@ -61,7 +61,7 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 	private static Operation regex_check(Prolog engine) {
 		Term a1 = engine.AREGS[0];
 		Term result = engine.AREGS[1];
-		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
+		Matcher matcher = (Matcher) a1.object();
 
 		Term matches = getMatches(matcher);
 
@@ -79,7 +79,7 @@ public class PRED_regex_match_3 extends Predicate.P3 {
 
 	private static Operation regex_empty(Prolog engine) {
 		Term a1 = engine.AREGS[0];
-		Matcher matcher = (Matcher) ((FFIObjectTerm) a1).object();
+		Matcher matcher = (Matcher) a1.object();
 		if (!matcher.find()) {
 			return engine.fail();
 		}

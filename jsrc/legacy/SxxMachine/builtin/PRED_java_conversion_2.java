@@ -39,18 +39,18 @@ public class PRED_java_conversion_2 extends Predicate.P2 {
 	a2 = a2.dref();
 	if ((a1 instanceof VariableTerm)) { // a1 = var
 	    if ((a2 instanceof FFIObjectTerm)) { // a1 = var /\ a2 = java
-		((VariableTerm)a1).bind(inverseConversion(((FFIObjectTerm)a2).object()), engine.trail);
+		a1.asVariablelTerm().bind(inverseConversion((a2).object()), engine.trail);
 	    } else { // a1 = var /\ a2 = nonjava
-		((VariableTerm)a1).bind(a2, engine.trail);
+		a1.asVariablelTerm().bind(a2, engine.trail);
 	    }
 	} else if (! (a2 instanceof VariableTerm)) { // a1 = nonvar /\ a2 = nonvar
 	    throw new IllegalTypeException(this, 2, "variable", a2);
 	} else { // a1 = nonvar /\ a2 = var
 	    // (a1 = java \/  a1 = str \/ a1 = clo) /\ a2 = var
 	    if ((a1 instanceof FFIObjectTerm) || (a1 instanceof StructureTerm) || (a1 instanceof ClosureTerm)) {
-		((VariableTerm)a2).bind(a1, engine.trail);
+		a2.asVariablelTerm().bind(a1, engine.trail);
 	    } else { // a1 != java /\ a1 != str /\ a1 != clo /\ a2 = var
-		((VariableTerm)a2).bind(new FFIObjectTerm(a1.toJava()), engine.trail);
+		a2.asVariablelTerm().bind(new FFIObjectTerm(a1.toJava()), engine.trail);
 	    }
 	}
 	return cont;

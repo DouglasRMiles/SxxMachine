@@ -56,12 +56,12 @@ public class PRED_close_2 extends Predicate.P2 {
 		throw new PInstantiationException(this, 2);
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 2, "list", a2);
-	    Term car = ((ListTerm) tmp).car().dref();
+	    Term car = tmp.asListTerm().car().dref();
 	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
 	    if ((car instanceof StructureTerm)) {
-		Term functor = ((StructureTerm) car).functor();
-		Term[] args = ((StructureTerm) car).args();
+		Term functor = ( car).functor();
+		Term[] args = ( car).args();
 		if (functor.equals(SYM_FORCE_1)) {
 		    Term bool = args[0].dref();
 		    if (bool.equals(SYM_TRUE))
@@ -76,7 +76,7 @@ public class PRED_close_2 extends Predicate.P2 {
 	    } else {
 		throw new IllegalDomainException(this, 2, "close_option", car);
 	    }
-	    tmp = ((ListTerm) tmp).cdr().dref();
+	    tmp = tmp.asListTerm().cdr().dref();
 	}
 	//stream
 	a1 = a1.dref();
@@ -85,9 +85,9 @@ public class PRED_close_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	    stream = ( engine.getStreamManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    stream = ((FFIObjectTerm) a1).object();
+	    stream = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}
@@ -125,16 +125,16 @@ public class PRED_close_2 extends Predicate.P2 {
 	} else if ((a1 instanceof FFIObjectTerm)) {
 	    Term tmp2 = streamManager.get(a1);
 	    while (! tmp2.isNil()) {
-		Term car = ((ListTerm) tmp2).car().dref();
+		Term car = tmp2.asListTerm().car().dref();
 		if ((car instanceof StructureTerm)) {
-		    Term functor = ((StructureTerm) car).functor();
-		    Term[] args = ((StructureTerm) car).args();
+		    Term functor = ( car).functor();
+		    Term[] args = ( car).args();
 		    if (functor.equals(SYM_ALIAS_1)) {
 			Term alias = args[0].dref();
 			streamManager.remove(alias);
 		    }
 		}
-		tmp2 = ((ListTerm) tmp2).cdr().dref();
+		tmp2 = tmp2.asListTerm().cdr().dref();
 	    }
 	    streamManager.remove(a1);
 	} else {

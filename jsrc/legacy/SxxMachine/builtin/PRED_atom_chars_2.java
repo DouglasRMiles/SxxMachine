@@ -48,13 +48,13 @@ public class PRED_atom_chars_2 extends Predicate.P2 {
 		    throw new PInstantiationException(this, 2);
 		if (!( x instanceof ListTerm))
 		    throw new IllegalTypeException(this, 2, "list", a2);
-		Term car = ((ListTerm)x).car().dref();
+		Term car = x.asListlTerm().car().dref();
 		if ((car instanceof VariableTerm))
 		    throw new PInstantiationException(this, 2);
-		if (! (car instanceof SymbolTerm) || ((SymbolTerm)car).name().length() != 1)
+		if (! (car instanceof SymbolTerm) || car.asSymbolTerm().name().length() != 1)
 		    throw new IllegalTypeException(this, 2, "character", a2);
-		sb.append(((SymbolTerm)car).name());
-		x = ((ListTerm)x).cdr().dref();
+		sb.append(car.asSymbolTerm().name());
+		x = x.asListlTerm().cdr().dref();
 	    }
 	    if (! a1.unify(SymbolTerm.create(sb.toString()), engine.trail))
 		return engine.fail();
@@ -62,7 +62,7 @@ public class PRED_atom_chars_2 extends Predicate.P2 {
 	} else if (a2.isNil() || (a2 instanceof VariableTerm) || (a2 instanceof ListTerm)) { // atom_chars(+Atom, ?CharList)
 	    if (! (a1 instanceof SymbolTerm))
 		throw new IllegalTypeException(this, 1, "atom", a1);
-	    String s = ((SymbolTerm)a1).name();
+	    String s = a1.asSymbolTerm().name();
 	    Term x = Prolog.Nil;
 	    for (int i=s.length(); i>0; i--) {
 		x = TermData.CONS(SymbolTerm.create(s.substring(i-1,i)), x);

@@ -31,7 +31,7 @@ class PRED_$print_stack_trace_1 extends Predicate.P1 {
 	    throw new PInstantiationException(this, 1);
 	if (! (a1 instanceof FFIObjectTerm))
 	    throw new IllegalTypeException(this, 1, "java", a1);
-	Object obj = ((FFIObjectTerm) a1).object();
+	Object obj = a1.object();
 	if (obj instanceof InterruptedException)
 	    throw new JavaInterruptedException((InterruptedException) obj);
 	if (engine.getPrintStackTrace().equals("on"))

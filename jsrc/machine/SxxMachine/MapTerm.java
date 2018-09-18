@@ -103,10 +103,10 @@ public class MapTerm extends SystemObject {
 			t = (  t).cdr().dref();
 		}
 		if (t .isVar()) {
-			return ((VariableTerm) t).bind(p, trail);
+			return t.asVariableTerm().bind(p, trail);
 		}
 		if (p .isVar()) {
-			return ((VariableTerm) p).bind(t, trail);
+			return p.asVariableTerm().bind(t, trail);
 		}
 		if(true) {
 		  return !(t .isMap()) && !(p .isMap()) && p.unify(t, trail);
@@ -155,7 +155,7 @@ public class MapTerm extends SystemObject {
     	}
     	Deque<MapTerm> stack = new ArrayDeque<MapTerm>();
     	Term p = this;
-    	while (p .isMap() && !((MapTerm) p).immutable){
+    	while (p .isMap() && !p.asMapTerm().immutable){
     		MapTerm lt =   (MapTerm) p;
     		stack.push(lt);
     		p = lt.cdr().dref();
@@ -366,7 +366,7 @@ public class MapTerm extends SystemObject {
 	    int arity = anotherTerm.arity();
 	    if (2 != arity)
 		return (2 - arity);
-	    Term functor = ((StructureTerm)anotherTerm).functor();
+	    Term functor = (anotherTerm).functor();
 	    if (! SYM_DOT.equalsTerm(functor))
 		return SYM_DOT.compareTo(functor);
 	}
@@ -375,7 +375,7 @@ public class MapTerm extends SystemObject {
 	    args[0] = ( anotherTerm).car();
 	    args[1] = ( anotherTerm).cdr();
 	} else if ((anotherTerm .isStructure())) {
-	    args = ((StructureTerm)anotherTerm).args();
+	    args = (anotherTerm).args();
 	} else {
 	    return BEFORE;
 	}

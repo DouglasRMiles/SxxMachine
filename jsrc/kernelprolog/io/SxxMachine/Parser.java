@@ -263,7 +263,7 @@ class varToken extends StructureTerm {
 
 	@Override
 	public StructureTerm clone() {
-		return new varToken(argz[0].toVar(), argz[1].toConst(), ((LongTerm) argz[2]));
+		return new varToken(argz[0].toVar(), argz[1].asConst(), ( argz[2].asLongTerm()));
 	}
 }
 
@@ -520,7 +520,7 @@ public class Parser extends LexerHIDE {
 		} else if (n.isFunctor("[")) {
 			t = getList();
 		} else if (n.isFunctor("funToken")) {
-			StructureTerm f = (StructureTerm) t;
+			StructureTerm f =  (StructureTerm) t;
 			f.argz = (getArgs());
 			t = Builtins.toFunBuiltin(f);
 		} else

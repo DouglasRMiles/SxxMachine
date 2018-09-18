@@ -35,8 +35,8 @@ public final class PRED_reverse_2 extends Predicate.P2 {
 		if (a1 instanceof ListTerm || a1.isNil()) {
             Term r = Prolog.Nil;
             while (a1 instanceof ListTerm) {
-                r = TermData.CONS(((ListTerm) a1).car(), r);
-                a1 = ((ListTerm) a1).cdr();
+                r = TermData.CONS(a1.asListTerm().car(), r);
+                a1 = a1.asListTerm().cdr();
             }
             if (a1.isNil() && a2.unify(r, engine.trail)){
             	return cont;

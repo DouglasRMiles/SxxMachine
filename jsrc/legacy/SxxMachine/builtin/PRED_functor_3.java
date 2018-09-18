@@ -52,7 +52,7 @@ public class PRED_functor_3 extends Predicate.P3 {
 		throw new PInstantiationException(this, 3);
 	    if (! (a3 instanceof IntegerTerm))
 		throw new IllegalTypeException(this, 3, "integer", a3);
-	    int n = ((IntegerTerm)a3).intValue();
+	    int n = a3.asIntegerlTerm().intValue();
 	    if (n < 0)
 		throw new IllegalDomainException(this, 3, "not_less_than_zero", a3);
 	    if (n == 0) {
@@ -71,7 +71,7 @@ public class PRED_functor_3 extends Predicate.P3 {
 	    Term[] args = new Term[n];
 	    for(int i=0; i<n; i++)
 		args[i] = new VariableTerm(engine);
-	    SymbolTerm sym = SymbolTerm.create(((SymbolTerm)a2).name(), n);
+	    SymbolTerm sym = SymbolTerm.create(a2.asSymbolTerm().name(), n);
 	    if(! a1.unify(new StructureTerm(sym, args), engine.trail))
 		return engine.fail();
 	    return cont;
@@ -86,8 +86,8 @@ public class PRED_functor_3 extends Predicate.P3 {
 	    functor = SYM_DOT;
 	    arity   = new IntegerTerm(2);
 	} else if ((a1 instanceof StructureTerm)) {
-	    functor = SymbolTerm.create(((StructureTerm)a1).name());
-	    arity   = new IntegerTerm(((StructureTerm)a1).arity());
+	    functor = SymbolTerm.create((a1).name());
+	    arity   = new IntegerTerm((a1).arity());
 	} else {
 	    return engine.fail();
 	}

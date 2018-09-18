@@ -110,7 +110,7 @@ abstract public class ListTerm extends Const {
     	}
     	Deque<ListTerm> stack = new ArrayDeque<ListTerm>();
     	Term p = this;
-    	while (p .isCons() && !((ListTerm) p).immutable){
+    	while (p .isCons() && !p.asListTerm().immutable){
     		ListTerm lt =   (ListTerm) p;
     		stack.push(lt);
     		p = lt.cdr().dref();
@@ -309,29 +309,29 @@ abstract public class ListTerm extends Const {
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * @param anotherTerm the term to compared with. It must be dereferenced.
+     * @param otherterm the term to compared with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; 
-     * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
-     * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
+     * a value less than <code>0</code> if this term is <em>before</em> the <code>otherterm</code>;
+     * and a value greater than <code>0</code> if this term is <em>after</em> the <code>otherterm</code>.
      */
     @Override
-    public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-	if ((anotherTerm .isVar()) || (anotherTerm .isNumber()) || (anotherTerm .isSymbol()))
+    public int compareTo(Term otherterm) { // otherterm must be dereferenced.
+	if ((otherterm .isVar()) || (otherterm .isNumber()) || (otherterm .isSymbol()))
 	    return AFTER;
-	if ((anotherTerm .isStructure())) {
-	    int arity = anotherTerm.arity();
+	if ((otherterm .isStructure())) {
+	    int arity = otherterm.arity();
 	    if (2 != arity)
 		return (2 - arity);
-	    Term functor = ((StructureTerm)anotherTerm).functor();
+	    Term functor = (otherterm).functor();
 	    if (! Prolog.SYM_DOT.equalsTerm(functor, StrictEquals))
 	      	return Prolog.SYM_DOT.compareTo(functor);
 	}
 	Term[] args = new Term[2];
-	if ((anotherTerm .isCons())) {
-	    args[0] = ( anotherTerm).car();
-	    args[1] = ( anotherTerm).cdr();
-	} else if ((anotherTerm .isStructure())) {
-	    args = ((StructureTerm)anotherTerm).args();
+	if ((otherterm .isCons())) {
+	    args[0] = ( otherterm).car();
+	    args[1] = ( otherterm).cdr();
+	} else if ((otherterm .isStructure())) {
+	    args = (otherterm).args();
 	} else {
 	    return BEFORE;
 	}

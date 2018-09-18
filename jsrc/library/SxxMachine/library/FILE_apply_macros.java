@@ -1,36 +1,15 @@
 package SxxMachine.library;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
 import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
 import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
 import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
+import static SxxMachine.builtin.FILE_swi_supp.*;
 import static SxxMachine.builtin.sxxtensions.*;
 import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
 import SxxMachine.*;
 import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
 
-public class FILE_apply_macros extends FILE_builtins {
+public class FILE_apply_macros  extends TermData {
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/9
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
 	*/
@@ -39,8 +18,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry(9, null, FILE_apply_macros::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_sub_1);
@@ -55,7 +32,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_1(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-A=B:C,!,strip_module(A,D,E),F=D:G,H=D:I
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -90,19 +66,16 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y3 = VA(a4, a9);
 		a13 = S(":", y3);
 		return //
-		Op((e) -> PRED_strip_module_3_static_exec(e), VA(a1, a4, a5), //
-				Op((e) -> PRED_$unify_2_static_exec(e), VA(a6, a12), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a8, a13), cont)));
+		Op((Prolog e) -> PRED_strip_module_3_static_exec(e), VA(a1, a4, a5), //
+				Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a6, a12), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a8, a13), cont)));
 	}
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_2(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-E=A,F=G,H=I
-		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
+		Term a1, a5, a6, a7, a8, a9;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
 		a5 = m.AREGS[4];
 		a6 = m.AREGS[5];
 		a7 = m.AREGS[6];
@@ -135,8 +108,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_apply_macros::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_sub_1);
@@ -151,7 +122,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_1(Prolog m) {
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B):-predicate_property(B:A,transparent),!,fail
 		Term a1, a2, a3, a4;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -166,17 +136,13 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y1 = VA(a2, a1);
 		a4 = S(":", y1);
 		return //
-		Op((e) -> PRED_predicate_property_2_static_exec(e), VA(a4, ATOM_transparent), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+		Op((Prolog e) -> PRED_predicate_property_2_static_exec(e), VA(a4, ATOM_transparent), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
 						Op(fail_0, VA(), cont)));
 	}
 
 	private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_2(Prolog m) {
-		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B):-true
-		Term a1, a2;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B):-[]
 		return cont;
@@ -191,8 +157,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry(22, null, FILE_apply_macros::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_sub_1);
@@ -206,31 +170,10 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_1(Prolog m) {
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V):-predicate_property(J:A,defined),!,true
-		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24;
-		Operation p1;
+		Term a1, a10, a23, a24;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
-		a6 = m.AREGS[5];
-		a7 = m.AREGS[6];
-		a8 = m.AREGS[7];
-		a9 = m.AREGS[8];
 		a10 = m.AREGS[9];
-		a11 = m.AREGS[10];
-		a12 = m.AREGS[11];
-		a13 = m.AREGS[12];
-		a14 = m.AREGS[13];
-		a15 = m.AREGS[14];
-		a16 = m.AREGS[15];
-		a17 = m.AREGS[16];
-		a18 = m.AREGS[17];
-		a19 = m.AREGS[18];
-		a20 = m.AREGS[19];
-		a21 = m.AREGS[20];
-		a22 = m.AREGS[21];
 		cont = m.cont;
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V):-['$get_level'(W),predicate_property(J:A,defined),'$cut'(W)]
 		a23 = V(m);
@@ -242,16 +185,14 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y1 = VA(a10, a1);
 		a24 = S(":", y1);
 		return //
-		Op((e) -> PRED_predicate_property_2_static_exec(e), VA(a24, ATOM_defined), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a23), cont));
+		Op((Prolog e) -> PRED_predicate_property_2_static_exec(e), VA(a24, ATOM_defined), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a23), cont));
 	}
 
 	private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_2(Prolog m) {
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V):-empty_lists(B,K),length(L,F),append(K,L,M),N=..[I|M],heads_and_tails(B,O,H,P),append(O,G,Q),R=..[I|Q],append(G,H,S),D=..[E|S],append(P,G,T),U=..[I|T],V=(R:-C,U),compile_aux_clauses([N,V])
-		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30;
-		Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
+		Term a2, a3, a4, a5, a6, a7, a8, a9, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30;
 		Operation cont;
-		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		a4 = m.AREGS[3];
@@ -260,7 +201,6 @@ public class FILE_apply_macros extends FILE_builtins {
 		a7 = m.AREGS[6];
 		a8 = m.AREGS[7];
 		a9 = m.AREGS[8];
-		a10 = m.AREGS[9];
 		a11 = m.AREGS[10];
 		a12 = m.AREGS[11];
 		a13 = m.AREGS[12];
@@ -286,19 +226,19 @@ public class FILE_apply_macros extends FILE_builtins {
 		a29 = CONS(a22, Prolog.Nil);
 		a30 = CONS(a14, a29);
 		return //
-		Op((e) -> PRED_empty_lists_2_static_exec(e), VA(a2, a11), //
-				Op((e) -> PRED_length_2_static_exec(e), VA(a12, a6), //
-						Op((e) -> PRED_append_3_static_exec(e), VA(a11, a12, a13), //
-								Op((e) -> PRED_$univ_2_static_exec(e), VA(a14, a23), //
-										Op((e) -> PRED_heads_and_tails_4_static_exec(e), VA(a2, a15, a8, a16), //
-												Op((e) -> PRED_append_3_static_exec(e), VA(a15, a7, a17), //
-														Op((e) -> PRED_$univ_2_static_exec(e), VA(a18, a24), //
-																Op((e) -> PRED_append_3_static_exec(e), VA(a7, a8, a19), //
-																		Op((e) -> PRED_$univ_2_static_exec(e), VA(a4, a25), //
-																				Op((e) -> PRED_append_3_static_exec(e), VA(a16, a7, a20), //
-																						Op((e) -> PRED_$univ_2_static_exec(e), VA(a21, a26), //
-																								Op((e) -> PRED_$unify_2_static_exec(e), VA(a22, a28), //
-																										Op((e) -> PRED_compile_aux_clauses_1_static_exec(e), VA(a30), cont)))))))))))));
+		Op((Prolog e) -> PRED_empty_lists_2_static_exec(e), VA(a2, a11), //
+				Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a12, a6), //
+						Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a11, a12, a13), //
+								Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a14, a23), //
+										Op((Prolog e) -> PRED_heads_and_tails_4_static_exec(e), VA(a2, a15, a8, a16), //
+												Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a15, a7, a17), //
+														Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a18, a24), //
+																Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a7, a8, a19), //
+																		Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a4, a25), //
+																				Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a16, a7, a20), //
+																						Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a21, a26), //
+																								Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a22, a28), //
+																										Op((Prolog e) -> PRED_compile_aux_clauses_1_static_exec(e), VA(a30), cont)))))))))))));
 	}
 
 	/** PREDICATE: expand_maplist/3
@@ -311,11 +251,9 @@ public class FILE_apply_macros extends FILE_builtins {
 	public static Operation PRED_expand_maplist_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// expand_maplist(A,B,C):-length(B,D),expand_closure_no_fail(A,D,E),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(E,F,G,H,I,J,K,L,M),I=..[M|N],length(N,O),length(P,O),length(Q,D),R is D+1,format(atom(S),'__aux_maplist/~d_~w+~d',[R,L,O]),append(B,N,T),C=..[S|T],U is D+O,prolog_load_context(module,V),functor(K,M,U),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(J,V),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(C,D,J,K,M,O,P,Q,S,V,W,X,Y,Z,A1,B1,C1,D1,E1,F1,G1,H1)
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27;
-		Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -348,23 +286,23 @@ public class FILE_apply_macros extends FILE_builtins {
 		a26 = S("+", y3);
 		a27 = V(m);
 		return //
-		Op((e) -> PRED_length_2_static_exec(e), VA(a2, a4), //
-				Op((e) -> PRED_expand_closure_no_fail_3_static_exec(e), VA(a1, a4, a5), //
-						Op((e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a5, V(m), V(m), V(m), a6, a7, a8, a9, a10), //
-								Op((e) -> PRED_$univ_2_static_exec(e), VA(a6, a12), //
-										Op((e) -> PRED_length_2_static_exec(e), VA(a11, a13), //
-												Op((e) -> PRED_length_2_static_exec(e), VA(a14, a13), //
-														Op((e) -> PRED_length_2_static_exec(e), VA(a15, a4), //
+		Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a2, a4), //
+				Op((Prolog e) -> PRED_expand_closure_no_fail_3_static_exec(e), VA(a1, a4, a5), //
+						Op((Prolog e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a5, V(m), V(m), V(m), a6, a7, a8, a9, a10), //
+								Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a6, a12), //
+										Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a11, a13), //
+												Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a14, a13), //
+														Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a15, a4), //
 																Op(FILE_builtins::PRED_is_2_static_exec, VA(a16, a17), //
-																		Op((e) -> PRED_format_3_static_exec(e), VA(a19, ATOM___aux_maplist$002F$007Ed_$007Ew$002B$007Ed, a22), //
-																				Op((e) -> PRED_append_3_static_exec(e), VA(a2, a11, a23), //
-																						Op((e) -> PRED_$univ_2_static_exec(e), VA(a3, a24), //
+																		Op((Prolog e) -> PRED_format_3_static_exec(e), VA(a19, ATOM___aux_maplist$002F$007Ed_$007Ew$002B$007Ed, a22), //
+																				Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a2, a11, a23), //
+																						Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a3, a24), //
 																								Op(FILE_builtins::PRED_is_2_static_exec, VA(a25, a26), //
-																										Op((e) -> PRED_prolog_load_context_2_static_exec(e), VA(ATOM_module, a27), //
-																												Op((e) -> PRED_functor_3_static_exec(e), VA(a8, a10, a25), //
-																														Op((e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_static_exec(
+																										Op((Prolog e) -> PRED_prolog_load_context_2_static_exec(e), VA(ATOM_module, a27), //
+																												Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a8, a10, a25), //
+																														Op((Prolog e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_static_exec(
 																																e), VA(a7, a27), //
-																																Op((e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_static_exec(
+																																Op((Prolog e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_22_static_exec(
 																																		e),
 																																		VA(a3, a4, a7, a8, a10, a13, a14, a15, a18, a27, V(m), V(m), V(m), V(m), V(m), V(m),
 																																				V(m), V(m), V(m), V(m), V(m), V(m)),
@@ -377,8 +315,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_expand_closure_no_fail_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_apply_macros::expand_closure_no_fail_3_sub_1);
@@ -393,7 +329,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation expand_closure_no_fail_3_1(Prolog m) {
 		// expand_closure_no_fail(A,B,C):-'$expand_closure'(A,B,C),!
 		Term a1, a2, a3, a4;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -407,16 +342,15 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$expand_closure_3_static_exec(e), VA(a1, a2, a3), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), cont));
+		Op((Prolog e) -> PRED_$expand_closure_3_static_exec(e), VA(a1, a2, a3), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), cont));
 	}
 
 	private final static Operation expand_closure_no_fail_3_2(Prolog m) {
 		// expand_closure_no_fail(A,B,A):-true
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// expand_closure_no_fail(A,B,A):-[]
@@ -432,8 +366,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_empty_lists_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		return empty_lists_2_top(m);
 	}
@@ -513,8 +445,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_heads_and_tails_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		return heads_and_tails_4_top(m);
 	}
@@ -639,11 +569,9 @@ public class FILE_apply_macros extends FILE_builtins {
 	public static Operation PRED_expand_apply_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// expand_apply(A,B):-compound(A),compound_name_arity(A,maplist,C),C>=2,A=..[maplist,D|E],qcall_instantiated(D),!,expand_maplist(D,E,B)
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2, p3, p4, p5, p6, p7;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// expand_apply(A,B):-['$get_level'(C),compound(A),compound_name_arity(A,maplist,D),E is 2,'$greater_or_equal'(D,E),'$univ'(A,[maplist,F|G]),qcall_instantiated(F),'$cut'(C),expand_maplist(F,G,B)]
@@ -660,14 +588,14 @@ public class FILE_apply_macros extends FILE_builtins {
 		a8 = CONS(a6, a7);
 		a9 = CONS(PRED_expand_apply_2_s1, a8);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, PRED_expand_apply_2_s1, a4), //
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, PRED_expand_apply_2_s1, a4), //
 						Op(FILE_builtins::PRED_is_2_static_exec, VA(a5, int_2), //
-								Op((e) -> PRED_$greater_or_equal_2_static_exec(e), VA(a4, a5), //
-										Op((e) -> PRED_$univ_2_static_exec(e), VA(a1, a9), //
-												Op((e) -> PRED_qcall_instantiated_1_static_exec(e), VA(a6), //
-														Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-																Op((e) -> PRED_expand_maplist_3_static_exec(e), VA(a6, a7, a2), cont))))))));
+								Op((Prolog e) -> PRED_$greater_or_equal_2_static_exec(e), VA(a4, a5), //
+										Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a1, a9), //
+												Op((Prolog e) -> PRED_qcall_instantiated_1_static_exec(e), VA(a6), //
+														Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+																Op((Prolog e) -> PRED_expand_maplist_3_static_exec(e), VA(a6, a7, a2), cont))))))));
 	}
 
 	/** PREDICATE: $dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/8
@@ -679,8 +607,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_8_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry8(null, FILE_apply_macros::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_8_sub_1);
@@ -750,17 +676,7 @@ public class FILE_apply_macros extends FILE_builtins {
 	}
 
 	private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_8_2(Prolog m) {
-		// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H):-true
-		Term a1, a2, a3, a4, a5, a6, a7, a8;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
-		a6 = m.AREGS[5];
-		a7 = m.AREGS[6];
-		a8 = m.AREGS[7];
 		cont = m.cont;
 		// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H):-[]
 		return cont;
@@ -772,8 +688,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_expand_apply_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::expand_apply_4_var, FILE_apply_macros::expand_apply_4_4, FILE_apply_macros::expand_apply_4_4, FILE_apply_macros::expand_apply_4_4, FILE_apply_macros::expand_apply_4_var,
@@ -828,7 +742,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_8_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m)), cont);
+		Op((Prolog e) -> PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_8_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m)), cont);
 	}
 
 	private final static Operation expand_apply_4_2(Prolog m) {
@@ -854,7 +768,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m), V(m)), cont);
+		Op((Prolog e) -> PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m), V(m)), cont);
 	}
 
 	private final static Operation expand_apply_4_3(Prolog m) {
@@ -882,13 +796,12 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m), V(m)), cont);
+		Op((Prolog e) -> PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(e), VA(a2, a4, V(m), V(m), V(m), V(m), V(m), V(m), V(m)), cont);
 	}
 
 	private final static Operation expand_apply_4_4(Prolog m) {
 		// expand_apply(A,B,C,D):-expand_phrase(A,B,C,D),!
 		Term a1, a2, a3, a4, a5;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -903,8 +816,8 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_expand_phrase_4_static_exec(e), VA(a1, a2, a3, a4), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a5), cont));
+		Op((Prolog e) -> PRED_expand_phrase_4_static_exec(e), VA(a1, a2, a3, a4), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a5), cont));
 	}
 
 	/** PREDICATE: $dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/9
@@ -915,8 +828,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry(9, null, FILE_apply_macros::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_sub_1);
@@ -931,7 +842,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_1(Prolog m) {
 		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-(nonvar(A),A=term_position(C,D,E,F,[G]),compound(G)),!,B=term_position(0,0,0,0,[G,H-I]),arg(2,G,H),I is H+1
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -973,26 +883,15 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y4 = VA(a8, int_1);
 		a17 = S("+", y4);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a7), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a10), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a16), //
-								Op((e) -> PRED_arg_3_static_exec(e), VA(int_2, a7, a8), //
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a7), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a10), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a16), //
+								Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(int_2, a7, a8), //
 										Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a17), cont)))));
 	}
 
 	private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_2(Prolog m) {
-		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-true
-		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
-		a6 = m.AREGS[5];
-		a7 = m.AREGS[6];
-		a8 = m.AREGS[7];
-		a9 = m.AREGS[8];
 		cont = m.cont;
 		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-[]
 		return cont;
@@ -1006,8 +905,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry(9, null, FILE_apply_macros::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_sub_1);
@@ -1022,7 +919,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_1(Prolog m) {
 		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-(nonvar(A),A=term_position(C,D,E,F,[G]),compound(G)),!,B=term_position(0,0,0,0,[term_position(0,0,0,0,[G,H-I]),H-I]),arg(2,G,H),I is H+1
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1070,26 +966,15 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y6 = VA(a8, int_1);
 		a21 = S("+", y6);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a7), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a10), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a20), //
-								Op((e) -> PRED_arg_3_static_exec(e), VA(int_2, a7, a8), //
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a7), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a10), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a20), //
+								Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(int_2, a7, a8), //
 										Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a21), cont)))));
 	}
 
 	private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_9_2(Prolog m) {
-		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-true
-		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
-		a6 = m.AREGS[5];
-		a7 = m.AREGS[6];
-		a8 = m.AREGS[7];
-		a9 = m.AREGS[8];
 		cont = m.cont;
 		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D,E,F,G,H,I):-[]
 		return cont;
@@ -1102,7 +987,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	public static Operation PRED_expand_phrase_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// expand_phrase(A,B):-expand_phrase(A,C,B,D)
 		m.setB0();
 		Term a1, a2;
@@ -1110,7 +994,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		a2 = LARG[1];
 		// expand_phrase(A,B):-[expand_phrase(A,C,B,D)]
 		return //
-		Op((e) -> PRED_expand_phrase_4_static_exec(e), VA(a1, V(m), a2, V(m)), cont);
+		Op((Prolog e) -> PRED_expand_phrase_4_static_exec(e), VA(a1, V(m), a2, V(m)), cont);
 	}
 
 	/** PREDICATE: expand_phrase/4
@@ -1119,8 +1003,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_expand_phrase_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::expand_phrase_4_var, FILE_apply_macros::expand_phrase_4_2, FILE_apply_macros::expand_phrase_4_2, FILE_apply_macros::expand_phrase_4_2,
@@ -1140,7 +1022,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation expand_phrase_4_1(Prolog m) {
 		// expand_phrase(phrase(A,B),C,D,E):-!,extend_pos(C,1,F),expand_phrase(phrase(A,B,[]),F,D,E)
 		Term a1, a2, a3, a4, a5, a6, a7, a8;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1161,14 +1042,13 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y1 = VA(a5, a6, Prolog.Nil);
 		a8 = S("phrase", y1);
 		return //
-		Op((e) -> PRED_extend_pos_3_static_exec(e), VA(a2, int_1, a7), //
-				Op((e) -> PRED_expand_phrase_4_static_exec(e), VA(a8, a7, a3, a4), cont));
+		Op((Prolog e) -> PRED_extend_pos_3_static_exec(e), VA(a2, int_1, a7), //
+				Op((Prolog e) -> PRED_expand_phrase_4_static_exec(e), VA(a8, a7, a3, a4), cont));
 	}
 
 	private final static Operation expand_phrase_4_2(Prolog m) {
 		// expand_phrase(A,B,C,D):-dcg_goal(A,E,F,G),nonvar(E),nt_pos(B,H),dcg_extend(E,H,C,D,F,G)
 		Term a1, a2, a3, a4, a5, a6, a7, a8;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1181,10 +1061,10 @@ public class FILE_apply_macros extends FILE_builtins {
 		a7 = V(m);
 		a8 = V(m);
 		return //
-		Op((e) -> PRED_dcg_goal_4_static_exec(e), VA(a1, a5, a6, a7), //
-				Op((e) -> PRED_nonvar_1_static_exec(e), VA(a5), //
-						Op((e) -> PRED_nt_pos_2_static_exec(e), VA(a2, a8), //
-								Op((e) -> PRED_dcg_extend_6_static_exec(e), VA(a5, a8, a3, a4, a6, a7), cont))));
+		Op((Prolog e) -> PRED_dcg_goal_4_static_exec(e), VA(a1, a5, a6, a7), //
+				Op((Prolog e) -> PRED_nonvar_1_static_exec(e), VA(a5), //
+						Op((Prolog e) -> PRED_nt_pos_2_static_exec(e), VA(a2, a8), //
+								Op((Prolog e) -> PRED_dcg_extend_6_static_exec(e), VA(a5, a8, a3, a4, a6, a7), cont))));
 	}
 
 	/** PREDICATE: dcg_goal/4
@@ -1193,8 +1073,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_dcg_goal_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::dcg_goal_4_var, fail_0, fail_0, fail_0, FILE_apply_macros::dcg_goal_4_var, fail_0);
@@ -1268,8 +1146,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry1(null, FILE_apply_macros::$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_sub_1);
@@ -1284,7 +1160,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_1(Prolog m) {
 		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-dcg_control(A),!,fail
 		Term a1, a2;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -1296,16 +1171,13 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_dcg_control_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a2), //
+		Op((Prolog e) -> PRED_dcg_control_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a2), //
 						Op(fail_0, VA(), cont)));
 	}
 
 	private final static Operation $dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_2(Prolog m) {
-		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-true
-		Term a1;
 		Operation cont;
-		a1 = m.AREGS[0];
 		cont = m.cont;
 		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-[]
 		return cont;
@@ -1320,8 +1192,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_dcg_extend_6_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry6(null, FILE_apply_macros::dcg_extend_6_sub_1);
@@ -1346,7 +1216,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation dcg_extend_6_1(Prolog m) {
 		// dcg_extend(A,B,C,D,E,F):-compound(A),'$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A),!,extend_pos(B,2,D),compound_name_arguments(A,G,H),append(H,[E,F],I),compound_name_arguments(C,G,I)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
-		Operation p1, p2, p3, p4, p5, p6;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1368,19 +1237,18 @@ public class FILE_apply_macros extends FILE_builtins {
 		a11 = CONS(a5, a10);
 		a12 = V(m);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(e), VA(a1), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a7), //
-								Op((e) -> PRED_extend_pos_3_static_exec(e), VA(a2, PRED_dcg_extend_6_s1, a4), //
-										Op((e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a1, a8, a9), //
-												Op((e) -> PRED_append_3_static_exec(e), VA(a9, a11, a12), //
-														Op((e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a3, a8, a12), cont)))))));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(e), VA(a1), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a7), //
+								Op((Prolog e) -> PRED_extend_pos_3_static_exec(e), VA(a2, PRED_dcg_extend_6_s1, a4), //
+										Op((Prolog e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a1, a8, a9), //
+												Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a9, a11, a12), //
+														Op((Prolog e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a3, a8, a12), cont)))))));
 	}
 
 	private final static Operation dcg_extend_6_2(Prolog m) {
 		// dcg_extend(A,B,C,D,E,F):-atom(A),'$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A),!,extend_pos(B,2,D),compound_name_arguments(C,A,[E,F])
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1405,16 +1273,15 @@ public class FILE_apply_macros extends FILE_builtins {
 		a8 = CONS(a6, Prolog.Nil);
 		a9 = CONS(a5, a8);
 		return //
-		Op((e) -> PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a7), //
-						Op((e) -> PRED_extend_pos_3_static_exec(e), VA(a2, PRED_dcg_extend_6_s1, a4), //
-								Op((e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a3, a1, a9), cont))));
+		Op((Prolog e) -> PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a7), //
+						Op((Prolog e) -> PRED_extend_pos_3_static_exec(e), VA(a2, PRED_dcg_extend_6_s1, a4), //
+								Op((Prolog e) -> PRED_compound_name_arguments_3_static_exec(e), VA(a3, a1, a9), cont))));
 	}
 
 	private final static Operation dcg_extend_6_3(Prolog m) {
 		// dcg_extend(A,B,C:D,E,F,G):-compound(A),A=C:H,'$expand':f2_pos(B,I,J,E,I,K),dcg_extend(H,J,D,K,F,G)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1437,16 +1304,15 @@ public class FILE_apply_macros extends FILE_builtins {
 		a12 = V(m);
 		a13 = V(m);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$unify_2_static_exec(e), VA(a1, a10), //
-						Op((e) -> PRED_f2_pos_6_static_exec(e), VA(a2, a11, a12, a4, a11, a13), //
-								Op((e) -> PRED_dcg_extend_6_static_exec(e), VA(a9, a12, a8, a13, a5, a6), cont))));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a1, a10), //
+						Op((Prolog e) -> PRED_f2_pos_6_static_exec(e), VA(a2, a11, a12, a4, a11, a13), //
+								Op((Prolog e) -> PRED_dcg_extend_6_static_exec(e), VA(a9, a12, a8, a13, a5, a6), cont))));
 	}
 
 	private final static Operation dcg_extend_6_4(Prolog m) {
 		// dcg_extend(A,B,C=D,E,C,F):-terminal(A,D,F),!,t_pos(B,E)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1471,9 +1337,9 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_terminal_3_static_exec(e), VA(a1, a8, a6), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a9), //
-						Op((e) -> PRED_t_pos_2_static_exec(e), VA(a2, a4), cont)));
+		Op((Prolog e) -> PRED_terminal_3_static_exec(e), VA(a1, a8, a6), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a9), //
+						Op((Prolog e) -> PRED_t_pos_2_static_exec(e), VA(a2, a4), cont)));
 	}
 
 	/** PREDICATE: $dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/1
@@ -1482,8 +1348,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry1(null, FILE_apply_macros::$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_sub_1);
@@ -1498,7 +1362,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_1(Prolog m) {
 		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-dcg_control(A),!,fail
 		Term a1, a2;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -1510,16 +1373,13 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_dcg_control_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a2), //
+		Op((Prolog e) -> PRED_dcg_control_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a2), //
 						Op(fail_0, VA(), cont)));
 	}
 
 	private final static Operation $dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_1_2(Prolog m) {
-		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-true
-		Term a1;
 		Operation cont;
-		a1 = m.AREGS[0];
 		cont = m.cont;
 		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A):-[]
 		return cont;
@@ -1532,8 +1392,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_dcg_control_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::dcg_control_1_var, fail_0, fail_0, FILE_apply_macros::dcg_control_1_con, FILE_apply_macros::dcg_control_1_str, FILE_apply_macros::dcg_control_1_3);
@@ -1657,7 +1515,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		// dcg_control([A|B]):-[]
 		a1 = a1.dref();
 		if (a1.isCons()) {
-			Term[] argz = VA(a1.car(), a1.cdr());
+			VA(a1.car(), a1.cdr());
 		} else if (a1.isVar()) {
 			a1.bind(CONS(V(m), V(m)), m.trail);
 		} else {
@@ -1757,8 +1615,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry4(null, FILE_apply_macros::$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_sub_1);
@@ -1825,23 +1681,19 @@ public class FILE_apply_macros extends FILE_builtins {
 		cont = m.cont;
 		// '$dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D):-['$dummy_9_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D)]
 		return //
-		Op((e) -> PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(e), VA(a1, a2, a3, a4), cont);
+		Op((Prolog e) -> PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(e), VA(a1, a2, a3, a4), cont);
 	}
 
 	private final static Operation $dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_3(Prolog m) {
 		// '$dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D):-type_error(list,A)
-		Term a1, a2, a3, a4;
+		Term a1;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
 		cont = m.cont;
 		// '$dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D):-[type_error(list,A)]
 		return //
-		Op((e) -> PRED_type_error_2_static_exec(e), VA(PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1, a1), cont);
+		Op((Prolog e) -> PRED_type_error_2_static_exec(e), VA(PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1, a1), cont);
 	}
-
 
 	/** PREDICATE: $dummy_9_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/4
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
@@ -1850,8 +1702,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry4(null, FILE_apply_macros::$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_sub_1);
@@ -1890,18 +1740,10 @@ public class FILE_apply_macros extends FILE_builtins {
 		m.cut(a5.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_append_3_static_exec(e), VA(a1, a3, a2), cont);
+		Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a1, a3, a2), cont);
 	}
 
 	private final static Operation $dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_2(Prolog m) {
-		// '$dummy_9_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D):-fail
-		Term a1, a2, a3, a4;
-		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		cont = m.cont;
 		// '$dummy_9_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,D):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -1915,8 +1757,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_terminal_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_apply_macros::terminal_3_sub_1);
@@ -1936,7 +1776,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation terminal_3_1(Prolog m) {
 		// terminal(A,B,C):-compound(A),A=[D|E],!,'$skip_list'(F,A,G),'$dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl'(A,B,C,G)
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1952,11 +1791,11 @@ public class FILE_apply_macros extends FILE_builtins {
 		a5 = CONS(V(m), V(m));
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$unify_2_static_exec(e), VA(a1, a5), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-								Op((e) -> PRED_$skip_list_3_static_exec(e), VA(V(m), a1, a6), //
-										Op((e) -> PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(e), VA(a1, a2, a3, a6), cont)))));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a1, a5), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+								Op((Prolog e) -> PRED_$skip_list_3_static_exec(e), VA(V(m), a1, a6), //
+										Op((Prolog e) -> PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(e), VA(a1, a2, a3, a6), cont)))));
 	}
 
 	private final static Operation terminal_3_2(Prolog m) {
@@ -1995,7 +1834,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation terminal_3_3(Prolog m) {
 		// terminal(A,B,C):-string(A),string_codes(A,D),append(D,C,B)
 		Term a1, a2, a3, a4;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2004,9 +1842,9 @@ public class FILE_apply_macros extends FILE_builtins {
 		// terminal(A,B,C):-[string(A),string_codes(A,D),append(D,C,B)]
 		a4 = V(m);
 		return //
-		Op((e) -> PRED_string_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_string_codes_2_static_exec(e), VA(a1, a4), //
-						Op((e) -> PRED_append_3_static_exec(e), VA(a4, a3, a2), cont)));
+		Op((Prolog e) -> PRED_string_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_string_codes_2_static_exec(e), VA(a1, a4), //
+						Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a4, a3, a2), cont)));
 	}
 
 	/** PREDICATE: extend_pos/3
@@ -2015,8 +1853,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_extend_pos_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::extend_pos_3_var, FILE_apply_macros::extend_pos_3_1, FILE_apply_macros::extend_pos_3_1, FILE_apply_macros::extend_pos_3_1, FILE_apply_macros::extend_pos_3_var,
@@ -2040,10 +1876,9 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	private final static Operation extend_pos_3_1(Prolog m) {
 		// extend_pos(A,B,A):-var(A),!
-		Term a1, a2, a3, a4;
+		Term a1, a3, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// extend_pos(A,B,A):-['$get_level'(C),var(A),'$cut'(C)]
@@ -2071,7 +1906,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation extend_pos_3_2(Prolog m) {
 		// extend_pos(term_position(A,B,C,D,E),F,term_position(A,B,C,D,G)):-!,extra_pos(F,B,H),append(E,H,G)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2097,8 +1931,8 @@ public class FILE_apply_macros extends FILE_builtins {
 		//END inline expansion
 		a10 = V(m);
 		return //
-		Op((e) -> PRED_extra_pos_3_static_exec(e), VA(a2, a5, a10), //
-				Op((e) -> PRED_append_3_static_exec(e), VA(a8, a10, a9), cont));
+		Op((Prolog e) -> PRED_extra_pos_3_static_exec(e), VA(a2, a5, a10), //
+				Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a8, a10, a9), cont));
 	}
 
 	private final static Operation extend_pos_3_3(Prolog m) {
@@ -2125,7 +1959,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		return //
-		Op((e) -> PRED_extra_pos_3_static_exec(e), VA(a2, a5, a6), cont);
+		Op((Prolog e) -> PRED_extra_pos_3_static_exec(e), VA(a2, a5, a6), cont);
 	}
 
 	/** PREDICATE: extra_pos/3
@@ -2135,8 +1969,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_extra_pos_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::extra_pos_3_var, FILE_apply_macros::extra_pos_3_var, fail_0, fail_0, fail_0, fail_0);
@@ -2234,8 +2066,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_nt_pos_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::nt_pos_2_var, FILE_apply_macros::nt_pos_2_1, FILE_apply_macros::nt_pos_2_1, FILE_apply_macros::nt_pos_2_1, FILE_apply_macros::nt_pos_2_var,
@@ -2254,10 +2084,9 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	private final static Operation nt_pos_2_1(Prolog m) {
 		// nt_pos(A,B):-var(A),!
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// nt_pos(A,B):-['$get_level'(C),var(A),'$cut'(C)]
 		a3 = V(m);
@@ -2313,8 +2142,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_t_pos_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_apply_macros::t_pos_2_sub_1);
@@ -2329,7 +2156,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation t_pos_2_1(Prolog m) {
 		// t_pos(A,term_position(B,C,B,C,[B-C,B-C])):-compound(A),!,arg(1,A,B),arg(2,A,C)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2381,18 +2207,14 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a9), //
-						Op((e) -> PRED_arg_3_static_exec(e), VA(int_1, a1, a3), //
-								Op((e) -> PRED_arg_3_static_exec(e), VA(int_2, a1, a4), cont))));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a9), //
+						Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(int_1, a1, a3), //
+								Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(int_2, a1, a4), cont))));
 	}
 
 	private final static Operation t_pos_2_2(Prolog m) {
-		// t_pos(A,B):-true
-		Term a1, a2;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// t_pos(A,B):-[]
 		return cont;
@@ -2404,8 +2226,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_qcall_instantiated_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::qcall_instantiated_1_var, FILE_apply_macros::qcall_instantiated_1_int, FILE_apply_macros::qcall_instantiated_1_int, FILE_apply_macros::qcall_instantiated_1_int,
@@ -2440,9 +2260,7 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation qcall_instantiated_1_1(Prolog m) {
 		// qcall_instantiated(A):-var(A),!,fail
 		Term a1, a2;
-		Operation cont;
 		a1 = m.AREGS[0];
-		cont = m.cont;
 		// qcall_instantiated(A):-['$get_level'(B),var(A),'$cut'(B),fail]
 		a2 = V(m);
 		//START inline expansion of $get_level(a(2))
@@ -2488,7 +2306,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_callable_1_static_exec(e), VA(a3), cont);
+		Op((Prolog e) -> PRED_callable_1_static_exec(e), VA(a3), cont);
 	}
 
 	private final static Operation qcall_instantiated_1_3(Prolog m) {
@@ -2499,7 +2317,7 @@ public class FILE_apply_macros extends FILE_builtins {
 		cont = m.cont;
 		// qcall_instantiated(A):-[callable(A)]
 		return //
-		Op((e) -> PRED_callable_1_static_exec(e), VA(a1), cont);
+		Op((Prolog e) -> PRED_callable_1_static_exec(e), VA(a1), cont);
 	}
 
 	/** PREDICATE: (:)/2
@@ -2513,8 +2331,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$003A_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_apply_macros::$003A_2_var, fail_0, fail_0, FILE_apply_macros::$003A_2_var, fail_0, fail_0);
@@ -2543,7 +2359,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $003A_2_1(Prolog m) {
 		// prolog_clause:unify_goal(A,B,C,D,E):-is_maplist(A),maplist_expansion(B),D=term_position(F,G,H,I,[J|K]),E=term_position(F,G,H,I,K)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2570,10 +2385,10 @@ public class FILE_apply_macros extends FILE_builtins {
 		Term[] y2 = VA(a7, a8, a9, a10, a11);
 		a14 = S("term_position", y2);
 		return //
-		Op((e) -> PRED_is_maplist_1_static_exec(e), VA(a3), //
-				Op((e) -> PRED_maplist_expansion_1_static_exec(e), VA(a4), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a5, a13), //
-								Op((e) -> PRED_$unify_2_static_exec(e), VA(a6, a14), cont))));
+		Op((Prolog e) -> PRED_is_maplist_1_static_exec(e), VA(a3), //
+				Op((Prolog e) -> PRED_maplist_expansion_1_static_exec(e), VA(a4), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a5, a13), //
+								Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a6, a14), cont))));
 	}
 
 	private final static Operation $003A_2_2(Prolog m) {
@@ -2608,7 +2423,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $003A_2_3(Prolog m) {
 		// system:goal_expansion(A,B):-'$dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl',expand_apply(A,B)
 		Term a1, a2, a3, a4;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2623,8 +2437,8 @@ public class FILE_apply_macros extends FILE_builtins {
 			return m.fail();
 		}
 		return //
-		Op((e) -> PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_static_exec(e), VA(), //
-				Op((e) -> PRED_expand_apply_2_static_exec(e), VA(a3, a4), cont));
+		Op((Prolog e) -> PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_static_exec(e), VA(), //
+				Op((Prolog e) -> PRED_expand_apply_2_static_exec(e), VA(a3, a4), cont));
 	}
 
 	private final static Operation $003A_2_4(Prolog m) {
@@ -2646,7 +2460,7 @@ public class FILE_apply_macros extends FILE_builtins {
 			return m.fail();
 		}
 		return //
-		Op((e) -> PRED_expand_apply_4_static_exec(e), VA(a3, a4, a5, a6), cont);
+		Op((Prolog e) -> PRED_expand_apply_4_static_exec(e), VA(a3, a4, a5, a6), cont);
 	}
 
 	/** PREDICATE: is_maplist/1
@@ -2657,20 +2471,18 @@ public class FILE_apply_macros extends FILE_builtins {
 	public static Operation PRED_is_maplist_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// is_maplist(A):-compound(A),compound_name_arity(A,maplist,B),B>=2
 		m.setB0();
 		Term a1, a2, a3;
-		Operation p1, p2, p3;
 		a1 = LARG[0];
 		// is_maplist(A):-[compound(A),compound_name_arity(A,maplist,B),C is 2,'$greater_or_equal'(B,C)]
 		a2 = V(m);
 		a3 = V(m);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, PRED_is_maplist_1_s1, a2), //
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, PRED_is_maplist_1_s1, a2), //
 						Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, int_2), //
-								Op((e) -> PRED_$greater_or_equal_2_static_exec(e), VA(a2, a3), cont))));
+								Op((Prolog e) -> PRED_$greater_or_equal_2_static_exec(e), VA(a2, a3), cont))));
 	}
 
 	/** PREDICATE: maplist_expansion/1
@@ -2682,18 +2494,16 @@ public class FILE_apply_macros extends FILE_builtins {
 	public static Operation PRED_maplist_expansion_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// maplist_expansion(A):-compound(A),compound_name_arity(A,B,C),sub_atom(B,0,D,E,'__aux_maplist/')
 		m.setB0();
 		Term a1, a2;
-		Operation p1, p2;
 		a1 = LARG[0];
 		// maplist_expansion(A):-[compound(A),compound_name_arity(A,B,C),sub_atom(B,0,D,E,'__aux_maplist/')]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, a2, V(m)), //
-						Op((e) -> PRED_sub_atom_5_static_exec(e), VA(a2, PRED_maplist_expansion_1_s1, V(m), V(m), ATOM___aux_maplist$002F), cont)));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_compound_name_arity_3_static_exec(e), VA(a1, a2, V(m)), //
+						Op((Prolog e) -> PRED_sub_atom_5_static_exec(e), VA(a2, PRED_maplist_expansion_1_s1, V(m), V(m), ATOM___aux_maplist$002F), cont)));
 	}
 
 	/** PREDICATE: $dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/0
@@ -2703,8 +2513,6 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry0(null, FILE_apply_macros::$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_sub_1);
@@ -2719,7 +2527,6 @@ public class FILE_apply_macros extends FILE_builtins {
 	private final static Operation $dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_1(Prolog m) {
 		// '$dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl':-current_prolog_flag(xref,true),!,fail
 		Term a1;
-		Operation p1, p2;
 		Operation cont;
 		cont = m.cont;
 		// '$dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl':-['$get_level'(A),current_prolog_flag(xref,true),'$cut'(A),fail]
@@ -2730,8 +2537,8 @@ public class FILE_apply_macros extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_current_prolog_flag_2_static_exec(e), VA(PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_s1, Prolog.True), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a1), //
+		Op((Prolog e) -> PRED_current_prolog_flag_2_static_exec(e), VA(PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_s1, Prolog.True), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a1), //
 						Op(fail_0, VA(), cont)));
 	}
 
@@ -2752,13 +2559,11 @@ public class FILE_apply_macros extends FILE_builtins {
 
 	public static Operation PRED_$init_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// '$init':-'$new_indexing_hash'(apply_macros,goal_expansion/2,A)
 		m.setB0();
 		// '$init':-['$new_indexing_hash'(apply_macros,goal_expansion/2,A)]
 		return //
-		Op((e) -> PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), cont);
+		Op((Prolog e) -> PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), cont);
 	}
 
 	static {

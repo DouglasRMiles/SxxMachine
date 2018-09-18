@@ -14,7 +14,7 @@ import prolog.terms.Expect;
  * <code>int</code>. 
  * <pre>
  *   Term t = new IntegerTerm(100);
- *   int i = ((IntegerTerm)t).intValue();
+ *   int i = t.asIntegerlTerm().intValue();
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -49,9 +49,9 @@ public class IntegerTerm extends LongTerm {
 	@Override
   public boolean unifyImpl(Term t, Trail trail) {
 		t = t.dref();
-		return (t .isVar()) ? ((VariableTerm) t).bind(this, trail) :
-			(((t .isInteger()) && this.intValue() == ((IntegerTerm) t).intValue()) ||
-			 ((t .isLong()) && (this.intValue()) == ((LongTerm) t).longValue()));
+		return (t .isVar()) ? t.asVariableTerm().bind(this, trail) :
+			(((t .isInteger()) && this.intValue() == t.asIntegerTerm().intValue()) ||
+			 ((t .isLong()) && (this.intValue()) == t.asLongTerm().longValue()));
 	}
     /** 
      * @return the <code>boolean</code> whose value is
@@ -111,7 +111,7 @@ public class IntegerTerm extends LongTerm {
 	    return AFTER;
 	if (! (anotherTerm .isInteger()))
 	    return BEFORE;
-	int v = ((IntegerTerm)anotherTerm).intValue();
+	int v = anotherTerm.asIntegerTerm().intValue();
 	if (this.intValue() == v)
 	    return EQUAL;
 	if (this.intValue() > v)

@@ -30,7 +30,7 @@ class PRED_$atom_type0_2 extends Predicate.P2 {
 	a1 = a1.dref();
 	if(! (a1 instanceof SymbolTerm))
 	    return engine.fail();
-	type = Token.getStringType(((SymbolTerm)a1).name());
+	type = Token.getStringType(a1.asSymbolTerm().name());
 	if(! a2.unify(new IntegerTerm(type), engine.trail)) 
 	    return engine.fail();
 	return cont;

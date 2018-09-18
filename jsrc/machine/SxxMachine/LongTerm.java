@@ -282,10 +282,10 @@ public class LongTerm extends DoubleTerm {
   @Override
   public boolean unifyImpl(Term t, Trail trail) {
     t = t.dref();
-    return (t.isVar()) ? ((VariableTerm) t).bind(this, trail)
-        : (((t.isLong()) && longValue() == ((LongTerm) t).value)
+    return (t.isVar()) ? t.asVariableTerm().bind(this, trail)
+        : (((t.isLong()) && longValue() == t.asLongTerm().value)
             || ((t.isInteger())
-                && longValue() == ((IntegerTerm) t).longValue()));
+                && longValue() == t.asIntegerTerm().longValue()));
   }
 
   @Override
@@ -317,7 +317,7 @@ public class LongTerm extends DoubleTerm {
   @Override
   public boolean equalsTerm(Term obj, Comparator comparator) {
     if (!(obj.isLong())) return false;
-    return longValue() == ((LongTerm) obj).longValue();
+    return longValue() == obj.asLongTerm().longValue();
   }
 
   @Override

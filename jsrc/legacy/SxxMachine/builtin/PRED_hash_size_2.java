@@ -41,9 +41,9 @@ public class PRED_hash_size_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getHashManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "hash", a1, "");
-	    hash = ((FFIObjectTerm) engine.getHashManager().get(a1)).object();
+	    hash = ( engine.getHashManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    hash = ((FFIObjectTerm) a1).object();
+	    hash = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "hash_or_alias", a1);
 	}
@@ -52,7 +52,7 @@ public class PRED_hash_size_2 extends Predicate.P2 {
 	a2 = a2.dref();
 	if (! (a2 instanceof VariableTerm) && ! (a2 instanceof IntegerTerm))
 	    throw new IllegalTypeException(this, 1, "integer", a2);
-	if (! a2.unify(new IntegerTerm(((HashtableOfTerm)hash).size()), engine.trail))
+	if (! a2.unify(new IntegerTerm(hash.asHashtableOflTerm().size()), engine.trail))
 	    return engine.fail();
         return cont;
     }

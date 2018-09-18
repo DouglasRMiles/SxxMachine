@@ -173,6 +173,7 @@ public class sxxtensions extends TermData {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	public static Operation PRED_type_error_2_static_exec(Prolog e) {
 		// TODO Auto-generated method stub
 		return null;
@@ -265,18 +266,18 @@ public class sxxtensions extends TermData {
 		int l = arg2.arity();
 		if (i > l)
 			return false;
-		return DoSetArg3_p2(m, i, (StructureTerm) arg2, arg3);
+		return DoSetArg3_p2(m, i,  arg2, arg3);
 	}
 
-	public static boolean DoSetArg3_p2(Prolog m, int i, StructureTerm arg1, Term arg3) {
+	public static boolean DoSetArg3_p2(Prolog m, int i, Term arg2, Term arg3) {
 		if (m == null) {
-			arg1.setarg0(null, i - 1, arg3);
+			arg2.setarg0(null, i - 1, arg3);
 			return true;
 		}
-		Term x = arg1.arg0(i - 1);
+		Term x = arg2.arg0(i - 1);
 		VariableTerm v = V(m);
 		v.val = arg3;
-		arg1.setarg0(null, i - 1, v);
+		arg2.setarg0(null, i - 1, v);
 		m.push(new SetArgTrail(x, v, m));
 		return true;
 	}
@@ -302,7 +303,7 @@ public class sxxtensions extends TermData {
 		arg2 = arg2.dref();
 		arg3 = arg3.dref();
 
-		if (!(arg1 instanceof IntegerTerm))
+		if (!(arg1.isInteger()))
 			return false;
 		if (arg2.isAtomicValue())
 			return false;
@@ -312,7 +313,7 @@ public class sxxtensions extends TermData {
 		int l = arg2.arity();
 		if (i > l)
 			return false;
-		((StructureTerm) arg2).args()[i - 1] = arg3.dref();
+		( arg2).args()[i - 1] = arg3.dref();
 		return true;
 	}
 

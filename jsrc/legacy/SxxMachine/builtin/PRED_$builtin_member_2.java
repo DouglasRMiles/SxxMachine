@@ -40,8 +40,8 @@ final class PRED_$builtin_member_2 extends Predicate.P2 {
 			return engine.fail();
 		}
 
-		final Term value = ((ListTerm) a2).car();
-		final Term next = ((ListTerm) a2).cdr().dref();
+		final Term value = a2.asListTerm().car();
+		final Term next = a2.asListTerm().cdr().dref();
 
 		if (!next.equals(Prolog.Nil)){
 			engine.setB0();
@@ -60,8 +60,8 @@ final class PRED_$builtin_member_2 extends Predicate.P2 {
 		final int top = trail.top();
 		Term a2 = p[0];
 		while (a2 instanceof ListTerm){
-			final Term value = ((ListTerm) a2).car().dref();
-			a2 = ((ListTerm) a2).cdr().dref();
+			final Term value = a2.asListTerm().car().dref();
+			a2 = a2.asListTerm().cdr().dref();
 			if (engine.AREGS[0].unify(value, engine.trail)) {
 				p[0] = a2;
 				return engine.cont;

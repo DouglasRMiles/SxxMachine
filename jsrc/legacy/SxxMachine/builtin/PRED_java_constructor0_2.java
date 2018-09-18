@@ -57,19 +57,19 @@ public class PRED_java_constructor0_2 extends JavaPredicate {
 	    if (!(a1 instanceof SymbolTerm) && !(a1 instanceof StructureTerm))
 		throw new IllegalTypeException(this, 1, "callable", a1);
 	    if ((a1 instanceof SymbolTerm)) { // No argument constructor
-		clazz = Class.forName(((SymbolTerm)a1).name());
+		clazz = Class.forName(a1.asSymbolTerm().name());
 		instance = clazz.newInstance();
 		if (! a2.unify(toPrologTerm(instance), engine.trail))
 		    return engine.fail();
 		return cont;
 	    } 
 	    // Parameterized constructor
-	    clazz = Class.forName(((StructureTerm)a1).name());
-	    arity  = ((StructureTerm)a1).arity();
+	    clazz = Class.forName((a1).name());
+	    arity  = (a1).arity();
 	    constrs = clazz.getConstructors();
 	    if (constrs.length == 0)
 		throw new ExistenceException(this, 1, "constructor", a1, "");
-	    pArgs  = ((StructureTerm)a1).args();
+	    pArgs  = (a1).args();
 	    jArgs  = new Object[arity];
 	    for (int i=0; i<arity; i++) {
 		pArgs[i] = pArgs[i].dref();

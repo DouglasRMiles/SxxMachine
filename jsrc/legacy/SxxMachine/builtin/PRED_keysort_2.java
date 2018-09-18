@@ -49,20 +49,20 @@ public class PRED_keysort_2 extends Predicate.P2 {
 	} else if (!( a1 instanceof ListTerm)) {
 	    throw new IllegalTypeException(this, 1, "list", a1);
 	}
-	len = ((ListTerm)a1).length();
+	len = a1.asListlTerm().length();
 	list = new Term[len];
 	tmp = a1;
 	for (int i=0; i<len; i++) {
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 1, "list", a1);
-	    list[i] = ((ListTerm)tmp).car().dref();
+	    list[i] = tmp.asListlTerm().car().dref();
 	    if (list[i] instanceof VariableTerm)
 		throw new PInstantiationException(this, 1);
 	    if (!( list[i] instanceof StructureTerm))
 		throw new IllegalTypeException(this, 1, "key_value_pair", a1);
-	    if (! ((StructureTerm) list[i]).functor().equals(SYM_HYPHEN_2))
+	    if (! ( list[i]).functor().equals(SYM_HYPHEN_2))
 		throw new IllegalTypeException(this, 1, "key_value_pair", a1);
-	    tmp = ((ListTerm)tmp).cdr().dref();
+	    tmp = tmp.asListlTerm().cdr().dref();
 	}
 	if (! tmp.equals(Prolog.Nil))
 	    throw new PInstantiationException(this, 1);
@@ -85,8 +85,8 @@ public class PRED_keysort_2 extends Predicate.P2 {
 
 class KeySortComparator implements java.util.Comparator<Term> {
     public int compare(Term t1, Term t2) {
-	Term a1 = ((StructureTerm)t1).args()[0].dref();
-	Term a2 = ((StructureTerm)t2).args()[0].dref();
+	Term a1 = (t1).args()[0].dref();
+	Term a2 = (t2).args()[0].dref();
 	return a1.compareTo(a2);
     }
 }

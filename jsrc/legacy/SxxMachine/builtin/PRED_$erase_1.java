@@ -26,7 +26,7 @@ class PRED_$erase_1 extends Predicate.P1 {
 	a1 = a1.dref();
 	if (! (a1 instanceof IntegerTerm))
 	    throw new IllegalTypeException(this, 1, "integer", a1);
-	idx = ((IntegerTerm)a1).intValue();
+	idx = a1.asIntegerlTerm().intValue();
 	engine.internalDB.erase(idx);
 	return cont;
     }

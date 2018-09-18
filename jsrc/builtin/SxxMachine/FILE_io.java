@@ -1,36 +1,12 @@
 package SxxMachine.builtin;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
 import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
 import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
 import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
-import static SxxMachine.builtin.sxxtensions.*;
 import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
 import SxxMachine.*;
-import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
 
-public class FILE_io extends FILE_builtins {
+public class FILE_io  extends TermData {
 	/** PREDICATE: open/3
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/builtin/io.pl
 	*/
@@ -39,7 +15,6 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_open_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// open(A,B,C):-open(A,B,C,[])
 		m.setB0();
 		Term a1, a2, a3;
@@ -48,7 +23,7 @@ public class FILE_io extends FILE_builtins {
 		a3 = LARG[2];
 		// open(A,B,C):-[open(A,B,C,[])]
 		return //
-		Op((e) -> PRED_open_4_static_exec(e), VA(a1, a2, a3, PRED_open_3_s1), cont);
+		Op((Prolog e) -> PRED_open_4_static_exec(e), VA(a1, a2, a3, PRED_open_3_s1), cont);
 	}
 
 	/** PREDICATE: close/1
@@ -59,14 +34,13 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_close_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// close(A):-close(A,[])
 		m.setB0();
 		Term a1;
 		a1 = LARG[0];
 		// close(A):-[close(A,[])]
 		return //
-		Op((e) -> PRED_close_2_static_exec(e), VA(a1, PRED_close_1_s1), cont);
+		Op((Prolog e) -> PRED_close_2_static_exec(e), VA(a1, PRED_close_1_s1), cont);
 	}
 
 	/** PREDICATE: flush_output/0
@@ -75,17 +49,14 @@ public class FILE_io extends FILE_builtins {
 
 	public static Operation PRED_flush_output_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// flush_output:-current_output(A),flush_output(A)
 		m.setB0();
 		Term a1;
-		Operation p1;
 		// flush_output:-[current_output(A),flush_output(A)]
 		a1 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_flush_output_1_static_exec(e), VA(a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_flush_output_1_static_exec(e), VA(a1), cont));
 	}
 
 	/** PREDICATE: stream_property/2
@@ -98,8 +69,6 @@ public class FILE_io extends FILE_builtins {
 
 	public static Operation PRED_stream_property_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_io::stream_property_2_sub_1);
@@ -141,13 +110,12 @@ public class FILE_io extends FILE_builtins {
 		m.cut(a3.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$stream_property_2_static_exec(e), VA(a1, a2), cont);
+		Op((Prolog e) -> PRED_$stream_property_2_static_exec(e), VA(a1, a2), cont);
 	}
 
 	private final static Operation stream_property_2_2(Prolog m) {
 		// stream_property(A,B):-'$stream_property_specifier'(B),!,'$stream_property'(A,B)
 		Term a1, a2, a3;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -160,9 +128,9 @@ public class FILE_io extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$stream_property_specifier_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_$stream_property_2_static_exec(e), VA(a1, a2), cont)));
+		Op((Prolog e) -> PRED_$stream_property_specifier_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_$stream_property_2_static_exec(e), VA(a1, a2), cont)));
 	}
 
 	private final static Operation stream_property_2_3(Prolog m) {
@@ -176,7 +144,7 @@ public class FILE_io extends FILE_builtins {
 		Term[] y1 = VA(a1, a2);
 		a3 = S("stream_property", y1);
 		return //
-		Op((e) -> PRED_illarg_3_static_exec(e), VA(PRED_stream_property_2_s5, a3, int_2), cont);
+		Op((Prolog e) -> PRED_illarg_3_static_exec(e), VA(PRED_stream_property_2_s5, a3, int_2), cont);
 	}
 
 	/** PREDICATE: $stream_property/2
@@ -188,8 +156,6 @@ public class FILE_io extends FILE_builtins {
 
 	public static Operation PRED_$stream_property_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_io::$stream_property_2_sub_1);
@@ -209,7 +175,6 @@ public class FILE_io extends FILE_builtins {
 	private final static Operation $stream_property_2_1(Prolog m) {
 		// '$stream_property'(A,B):-var(A),!,'$get_stream_manager'(C),hash_map(C,D),'$builtin_member'((A,E),D),java(A),'$builtin_member'(B,E)
 		Term a1, a2, a3, a4, a5, a6, a7;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -237,17 +202,16 @@ public class FILE_io extends FILE_builtins {
 		Term[] y1 = VA(a1, a6);
 		a7 = S(",", y1);
 		return //
-		Op((e) -> PRED_$get_stream_manager_1_static_exec(e), VA(a4), //
-				Op((e) -> PRED_hash_map_2_static_exec(e), VA(a4, a5), //
-						Op((e) -> PRED_$builtin_member_2_static_exec(e), VA(a7, a5), //
-								Op((e) -> PRED_java_1_static_exec(e), VA(a1), //
-										Op((e) -> PRED_$builtin_member_2_static_exec(e), VA(a2, a6), cont)))));
+		Op((Prolog e) -> PRED_$get_stream_manager_1_static_exec(e), VA(a4), //
+				Op((Prolog e) -> PRED_hash_map_2_static_exec(e), VA(a4, a5), //
+						Op((Prolog e) -> PRED_$builtin_member_2_static_exec(e), VA(a7, a5), //
+								Op((Prolog e) -> PRED_java_1_static_exec(e), VA(a1), //
+										Op((Prolog e) -> PRED_$builtin_member_2_static_exec(e), VA(a2, a6), cont)))));
 	}
 
 	private final static Operation $stream_property_2_2(Prolog m) {
 		// '$stream_property'(A,B):-java(A),!,'$get_stream_manager'(C),hash_get(C,A,D),'$builtin_member'(B,D)
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -272,9 +236,9 @@ public class FILE_io extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_$get_stream_manager_1_static_exec(e), VA(a4), //
-				Op((e) -> PRED_hash_get_3_static_exec(e), VA(a4, a1, a5), //
-						Op((e) -> PRED_$builtin_member_2_static_exec(e), VA(a2, a5), cont)));
+		Op((Prolog e) -> PRED_$get_stream_manager_1_static_exec(e), VA(a4), //
+				Op((Prolog e) -> PRED_hash_get_3_static_exec(e), VA(a4, a1, a5), //
+						Op((Prolog e) -> PRED_$builtin_member_2_static_exec(e), VA(a2, a5), cont)));
 	}
 
 	private final static Operation $stream_property_2_3(Prolog m) {
@@ -288,7 +252,7 @@ public class FILE_io extends FILE_builtins {
 		Term[] y1 = VA(a1, a2);
 		a3 = S("stream_property", y1);
 		return //
-		Op((e) -> PRED_illarg_3_static_exec(e), VA(PRED_$stream_property_2_s5, a3, int_1), cont);
+		Op((Prolog e) -> PRED_illarg_3_static_exec(e), VA(PRED_$stream_property_2_s5, a3, int_1), cont);
 	}
 
 	/** PREDICATE: $stream_property_specifier/1
@@ -299,8 +263,6 @@ public class FILE_io extends FILE_builtins {
 
 	public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_io::$stream_property_specifier_1_var, fail_0, fail_0, FILE_io::$stream_property_specifier_1_con, FILE_io::$stream_property_specifier_1_str, fail_0);
@@ -453,17 +415,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get_char_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get_char(A):-current_input(B),get_char(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// get_char(A):-[current_input(B),get_char(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_get_char_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_get_char_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: get_code/1
@@ -473,17 +433,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get_code_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get_code(A):-current_input(B),get_code(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// get_code(A):-[current_input(B),get_code(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: peek_char/1
@@ -493,17 +451,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_peek_char_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// peek_char(A):-current_input(B),peek_char(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// peek_char(A):-[current_input(B),peek_char(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_peek_char_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_peek_char_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: peek_code/1
@@ -513,17 +469,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_peek_code_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// peek_code(A):-current_input(B),peek_code(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// peek_code(A):-[current_input(B),peek_code(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_peek_code_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_peek_code_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: put_char/1
@@ -533,17 +487,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_put_char_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// put_char(A):-current_output(B),put_char(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// put_char(A):-[current_output(B),put_char(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_put_char_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_put_char_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: put_code/1
@@ -553,17 +505,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_put_code_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// put_code(A):-current_output(B),put_code(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// put_code(A):-[current_output(B),put_code(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_put_code_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_put_code_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: nl/1
@@ -574,14 +524,13 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_nl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// nl(A):-put_char(A,'\n')
 		m.setB0();
 		Term a1;
 		a1 = LARG[0];
 		// nl(A):-[put_char(A,'\n')]
 		return //
-		Op((e) -> PRED_put_char_2_static_exec(e), VA(a1, PRED_nl_1_s1), cont);
+		Op((Prolog e) -> PRED_put_char_2_static_exec(e), VA(a1, PRED_nl_1_s1), cont);
 	}
 
 	/** PREDICATE: get0/1
@@ -591,17 +540,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get0_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get0(A):-current_input(B),get_code(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// get0(A):-[current_input(B),get_code(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_get_code_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: get0/2
@@ -611,7 +558,6 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get0_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get0(A,B):-get_code(A,B)
 		m.setB0();
 		Term a1, a2;
@@ -619,7 +565,7 @@ public class FILE_io extends FILE_builtins {
 		a2 = LARG[1];
 		// get0(A,B):-[get_code(A,B)]
 		return //
-		Op((e) -> PRED_get_code_2_static_exec(e), VA(a1, a2), cont);
+		Op((Prolog e) -> PRED_get_code_2_static_exec(e), VA(a1, a2), cont);
 	}
 
 	/** PREDICATE: get/1
@@ -629,17 +575,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get(A):-current_input(B),get(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// get(A):-[current_input(B),get(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_get_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_get_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: put/1
@@ -649,17 +593,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_put_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// put(A):-current_output(B),put(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// put(A):-[current_output(B),put(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_put_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_put_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: put/2
@@ -669,7 +611,6 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_put_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// put(A,B):-C is B,put_code(A,C)
 		m.setB0();
 		Term a1, a2, a3;
@@ -683,7 +624,7 @@ public class FILE_io extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_put_code_2_static_exec(e), VA(a1, a3), cont);
+		Op((Prolog e) -> PRED_put_code_2_static_exec(e), VA(a1, a3), cont);
 	}
 
 	/** PREDICATE: tab/1
@@ -693,17 +634,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_tab_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// tab(A):-current_output(B),tab(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// tab(A):-[current_output(B),tab(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_tab_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_tab_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: skip/1
@@ -713,17 +652,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_skip_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// skip(A):-current_input(B),skip(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// skip(A):-[current_input(B),skip(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_skip_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_skip_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: get_byte/1
@@ -733,17 +670,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_get_byte_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// get_byte(A):-current_input(B),get_byte(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// get_byte(A):-[current_input(B),get_byte(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_get_byte_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_get_byte_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: peek_byte/1
@@ -753,17 +688,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_peek_byte_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// peek_byte(A):-current_input(B),peek_byte(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// peek_byte(A):-[current_input(B),peek_byte(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_input_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_peek_byte_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_input_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_peek_byte_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	/** PREDICATE: put_byte/1
@@ -773,17 +706,15 @@ public class FILE_io extends FILE_builtins {
 	public static Operation PRED_put_byte_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// put_byte(A):-current_output(B),put_byte(B,A)
 		m.setB0();
 		Term a1, a2;
-		Operation p1;
 		a1 = LARG[0];
 		// put_byte(A):-[current_output(B),put_byte(B,A)]
 		a2 = V(m);
 		return //
-		Op((e) -> PRED_current_output_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_put_byte_2_static_exec(e), VA(a2, a1), cont));
+		Op((Prolog e) -> PRED_current_output_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_put_byte_2_static_exec(e), VA(a2, a1), cont));
 	}
 
 	static {

@@ -45,17 +45,17 @@ public class PRED_number_codes_2 extends Predicate.P2 {
 		    throw new PInstantiationException(this, 2);
 		if (!( x instanceof ListTerm))
 		    throw new IllegalTypeException(this, 2, "list", a2);
-		Term car = ((ListTerm)x).car().dref();
+		Term car = x.asListlTerm().car().dref();
 		if ((car instanceof VariableTerm))
 		    throw new PInstantiationException(this, 2);
 		if (! (car instanceof IntegerTerm))
 		    throw new RepresentationException(this, 2, "character_code");
 		// car is an integer
-		int i = ((IntegerTerm)car).intValue();
+		int i = car.asIntegerlTerm().intValue();
 		if (! Character.isDefined((char)i))
 		    throw new RepresentationException(this, 2, "character_code");
 		sb.append((char)i);
-		x = ((ListTerm)x).cdr().dref();
+		x = x.asListlTerm().cdr().dref();
 	    }
 	    try {
 		if (! a1.unify(new IntegerTerm(Integer.parseInt(sb.toString())), engine.trail))

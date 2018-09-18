@@ -43,7 +43,7 @@ public class PRED_put_byte_2 extends Predicate.P2 {
 	    throw new PInstantiationException(this, 2);
 	if (! (a2 instanceof IntegerTerm))
 	    throw new IllegalTypeException(this, 2, "byte", a2);
-	c = ((IntegerTerm)a2).intValue();
+	c = a2.asIntegerlTerm().intValue();
 	if (c < 0 || c > 255)
 	    throw new IllegalTypeException(this, 2, "byte", a2);
 	// S_or_a
@@ -53,9 +53,9 @@ public class PRED_put_byte_2 extends Predicate.P2 {
 	} else if ((a1 instanceof SymbolTerm)) {
 	    if (! engine.getStreamManager().containsKey(a1))
 		throw new ExistenceException(this, 1, "stream", a1, "");
-	    stream = ((FFIObjectTerm) engine.getStreamManager().get(a1)).object();
+	    stream = ( engine.getStreamManager().get(a1)).object();
 	} else if ((a1 instanceof FFIObjectTerm)) {
-	    stream = ((FFIObjectTerm) a1).object();
+	    stream = a1.object();
 	} else {
 	    throw new IllegalDomainException(this, 1, "stream_or_alias", a1);
 	}

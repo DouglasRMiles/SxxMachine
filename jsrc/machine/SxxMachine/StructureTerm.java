@@ -25,9 +25,9 @@ import prolog.terms.Prog;
  *  Term a4 = SymbolTerm.makeSymbol("father", 2);
  *  Term  t = new StructureTerm(a4, a3);
  *  
- *  Term functor = ((StructureTerm)t).functor();
- *  Term[]  args = ((StructureTerm)t).args();
- *  int    arity = ((StructureTerm)t).arity();
+ *  Term functor = (t).functor();
+ *  Term[]  args = (t).args();
+ *  int    arity = (t).arity();
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -196,8 +196,8 @@ public class StructureTerm extends ListTerm implements Cloneable {
 
   public boolean Unify_TO(Term that, KPTrail trail) {
       if (bind(that, trail)) {
-          StructureTerm other = (StructureTerm) that;
-          Term[] otherargz = other.argz;
+    	  Term other =  that;
+          Term[] otherargz = other.args();
           for (int i = 0; i < argz.length; i++) {
               if (!argz[i].DO_Unify(otherargz[i], trail))
                   return false;
@@ -264,7 +264,7 @@ public class StructureTerm extends ListTerm implements Cloneable {
   }
 
   public static StructureTerm createCons(Term x0, Term x1) {
-      return (StructureTerm) CONS(x0, x1);
+      return  CONS(x0, x1).asStructureTerm();
   }
   public static StructureTerm createCons(String cons, Term x0, Term x1) {
       return S(cons, x0, x1);
@@ -549,7 +549,7 @@ public class StructureTerm extends ListTerm implements Cloneable {
     if (isConsOL()) return super.equalsTerm(obj, comparator);
     if(obj==this) return true;
     if (!(obj.isStructure())) return false;
-    StructureTerm st = (StructureTerm) obj;
+    Term st =  obj;
     if (this.name != null) {
       if (!this.name.equals(st.name())) return false;
     } else {
@@ -558,7 +558,7 @@ public class StructureTerm extends ListTerm implements Cloneable {
       }
     }
     for (int i = 0; i < this.argz.length; i++) {
-      if (!this.argz[i].equalsTerm(st.argz[i].dref(), comparator)) return false;
+      if (!this.argz[i].equalsTerm(st.arg0(i).dref(), comparator)) return false;
     }
     return true;
   }
@@ -708,7 +708,7 @@ public class StructureTerm extends ListTerm implements Cloneable {
 			args2[1] = t.cdr();
 			arity2 = 2;
 		} else if ((anotherTerm .isStructure())) {
-			StructureTerm s = (StructureTerm) anotherTerm;
+			Term s =  anotherTerm;
 			functor2 = s.functor();
 			args2 = s.args();
 			arity2 = s.arity();

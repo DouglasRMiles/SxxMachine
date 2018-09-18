@@ -54,12 +54,12 @@ public class PRED_new_hash_2 extends Predicate.P2 {
 		throw new PInstantiationException(this, 2);
 	    if (!( tmp instanceof ListTerm))
 		throw new IllegalTypeException(this, 2, "list", a2);
-	    Term car = ((ListTerm) tmp).car().dref();
+	    Term car = tmp.asListTerm().car().dref();
 	    if ((car instanceof VariableTerm))
 		throw new PInstantiationException(this, 2);
 	    if ((car instanceof StructureTerm)) {
-		Term functor = ((StructureTerm) car).functor();
-		Term[] args = ((StructureTerm) car).args();
+		Term functor = ( car).functor();
+		Term[] args = ( car).args();
 		if (functor.equals(SYM_ALIAS_1)) {
 		    Term alias = args[0].dref();
 		    if (! (alias instanceof SymbolTerm))
@@ -75,7 +75,7 @@ public class PRED_new_hash_2 extends Predicate.P2 {
 	    } else {
 		throw new IllegalDomainException(this, 2, "hash_option", car);
 	    }
-	    tmp = ((ListTerm) tmp).cdr().dref();
+	    tmp = tmp.asListTerm().cdr().dref();
 	}
 	if (! a1.unify(newHash, engine.trail))
 	    return engine.fail();

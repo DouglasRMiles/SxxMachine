@@ -2,6 +2,7 @@ package SxxMachine;
 
 import SxxMachine.exceptions.*;
 
+import java.nio.charset.Charset;
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,6 +10,7 @@ import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.logging.Level;
 
 import SxxMachine.builtin.sxxtensions; 
 
@@ -656,7 +658,7 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
 			Term next = wasAttrs;
 			do {
 				if (wasAttrs.arg0(0).equalsTerm(name, StrictEquals)) {
-					((StructureTerm) wasAttrs).setarg0(trail, 1, val);
+					( wasAttrs).setarg0(trail, 1, val);
 					return;
 				}
 				Term nnext = next.arg0(2);
@@ -801,5 +803,63 @@ public Term getAttrs() {
 
 public void toString(StringBuilder sb) {
 	 toStringImpl(1, sb);
+}
+
+public Object object() {
+	// TODO Auto-generated method stub
+	return this;
+}
+
+public Class getClazz() {
+	return object().getClass();
 } 
+public StructureTerm asStructureTerm() {
+	// TODO Auto-generated method stub
+	return (StructureTerm)this;
+}
+
+ public void setArg(int i, Term value) {
+  setarg0(null, i, value);	
+}
+	// 
+
+public ListTerm asListTerm() {
+	// TODO Auto-generated method stub
+	return (ListTerm)object();
+}
+
+public LongTerm asIntegerTerm() {
+	// TODO Auto-generated method stub
+	return (LongTerm)object();
+}
+
+public ClosureTerm asClosureTerm() {
+	// TODO Auto-generated method stub
+	return (ClosureTerm) object();
+}
+
+public VariableTerm asVariableTerm() {
+	// TODO Auto-generated method stub
+	return (VariableTerm) object();
+}
+
+public LongTerm asLongTerm() {
+	// TODO Auto-generated method stub
+	return (LongTerm)object();
+}
+
+public HashtableOfTerm asHashtableOfTerm() {
+	// TODO Auto-generated method stub
+	return (HashtableOfTerm)object();
+}
+
+public NumberTerm asNumberTerm() {
+	// TODO Auto-generated method stub
+	return (NumberTerm)object();
+}
+
+public MapTerm asMapTerm() {
+	// TODO Auto-generated method stub
+	return (MapTerm)object();
+}
 }

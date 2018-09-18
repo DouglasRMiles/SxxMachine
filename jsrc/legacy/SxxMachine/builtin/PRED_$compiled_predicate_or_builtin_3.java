@@ -20,8 +20,8 @@ public final class PRED_$compiled_predicate_or_builtin_3 extends Predicate.P3 {
         Term a1 = LARG[0].dref();
         Term a2 = LARG[1].dref();
         Term a3 = LARG[2].dref();
-        if(! engine.pcl.definedPredicate(((SymbolTerm)a1).name(), ((SymbolTerm)a2).name(), ((IntegerTerm)a3).intValue())
-        && ! engine.pcl.definedPredicate(Prolog.BUILTIN, ((SymbolTerm)a2).name(), ((IntegerTerm)a3).intValue()))
+        if(! engine.pcl.definedPredicate(a1.asSymbolTerm().name(), a2.asSymbolTerm().name(), a3.asIntegerlTerm().intValue())
+        && ! engine.pcl.definedPredicate(Prolog.BUILTIN, a2.asSymbolTerm().name(), a3.asIntegerlTerm().intValue()))
           return engine.fail();
         return cont;
     }

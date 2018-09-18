@@ -88,7 +88,7 @@ public class PRED_open_4 extends Predicate.P4 {
 		if ((a1 instanceof VariableTerm))
 			throw new PInstantiationException(this, 1);
 		if ((a1 instanceof SymbolTerm)){
-			file = new File(((SymbolTerm) a1).name());
+			file = new File(a1.asSymbolTerm().name());
 		} else if ((a1 instanceof StructureTerm) && ":".equals(a1.name()) && 2==a1.arity()){
 			Term pkg = a1.arg0(0).dref();
 			Term name = a1.arg0(1).dref();
@@ -179,7 +179,7 @@ public class PRED_open_4 extends Predicate.P4 {
 			engine.getStreamManager().put(alias, streamObject);
 			opts = TermData.CONS(new StructureTerm(SYM_ALIAS_1, alias), opts);
 		}
-		((VariableTerm) a3).bind(streamObject, engine.trail);
+		a3.asVariableTerm().bind(streamObject, engine.trail);
 		engine.getStreamManager().put(streamObject, opts);
 
 		if (options.containsKey(SYM_AUTOCLOSE)) {
@@ -204,16 +204,16 @@ public class PRED_open_4 extends Predicate.P4 {
 			if (!(p instanceof ListTerm))
 				throw new IllegalTypeException(this, 4, "list", options);
 
-			Term option = ((ListTerm) p).car().dref();
+			Term option = p.asListTerm().car().dref();
 			if ((option instanceof VariableTerm))
 				throw new PInstantiationException(this, 4);
 			if ((option instanceof StructureTerm)) {
-				Term functor = ((StructureTerm) option).functor();
+				Term functor = ( option).functor();
 				result.put((SymbolTerm) functor, option);
 			} else {
 				throw new IllegalDomainException(this, 4, "stream_option", option);
 			}
-			p = ((ListTerm) p).cdr().dref();
+			p = p.asListTerm().cdr().dref();
 		}
 		return result;
 	}

@@ -64,8 +64,8 @@ public class PRED_write_domain_definitions_2 extends P2 {
 		Properties p = new Properties();
 		Term lt = a2;
 		while (!lt.isNil()) {
-			Term t = ((ListTerm) lt).car();
-			lt = ((ListTerm) lt).cdr();
+			Term t = lt.asListTerm().car();
+			lt = lt.asListTerm().cdr();
 			
 			if (!(t instanceof StructureTerm) || !"=".equals(t.name()) || t.arity()!=2){
 				throw new IllegalDomainException(this, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);

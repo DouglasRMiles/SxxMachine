@@ -19,7 +19,7 @@ abstract public class SystemObject extends Nonvar {
   public boolean unifyImpl(Term t, Trail trail) {
       t = t.dref();
       if ((t .isVar()))
-          return ((VariableTerm) t).unify(this, trail);
+          return t.asVariableTerm().unify(this, trail);
       return equalsTerm(t);
   }
 

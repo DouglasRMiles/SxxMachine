@@ -18,17 +18,17 @@ public class Expect {
 
 	public static StructureTerm asCons(Term i) {
 		// TODO Auto-generated method stub
-		return (StructureTerm) i.toValue();
+		return  (StructureTerm) i.toValue();
 	}
 
 	public static StructureTerm asStruct(Term i) {
 		// TODO Auto-generated method stub
-		return (StructureTerm) i.toValue();
+		return  (StructureTerm) i.toValue();
 	}
-
+ 
 	public static StructureTerm asConj(Term i) {
 		// TODO Auto-generated method stub
-		return (StructureTerm) i.toValue();
+		return  (StructureTerm) i.toValue();
 	}
 
 	public static CharReader asCharReader(Term i) {

@@ -1,36 +1,15 @@
 package SxxMachine.library;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
 import static SxxMachine.builtin.bootpreds.*;
-import static SxxMachine.builtin.bootpreds.LEVELS;
 import static SxxMachine.builtin.FILE_builtins.*;
-import static SxxMachine.builtin.FILE_cafeteria.*;
-import static SxxMachine.builtin.FILE_io.*;
 import static SxxMachine.builtin.FILE_swi_supp.*;
-import static SxxMachine.builtin.FILE_system.*;
+import static SxxMachine.builtin.FILE_swi_supp.*;
 import static SxxMachine.builtin.sxxtensions.*;
 import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
 import SxxMachine.*;
 import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
-import SxxMachine.builtin.bootpreds.*;
-import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.builtin.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.builtin.FILE_builtins.*;
-import SxxMachine.builtin.sxxtensions.*;
 
-public class FILE_prolog_metainference extends FILE_builtins {
+public class FILE_prolog_metainference  extends TermData {
 	/** PREDICATE: inferred_meta_predicate/2
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	*/
@@ -38,8 +17,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_inferred_meta_predicate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_metainference::inferred_meta_predicate_2_var, fail_0, fail_0, fail_0, FILE_prolog_metainference::inferred_meta_predicate_2_var, fail_0);
@@ -74,13 +51,12 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y2 = VA(ATOM_prolog_metainference, a5);
 		a6 = S(":", y2);
 		return //
-		Op((e) -> PRED_call_1_static_exec(e), VA(a6), cont);
+		Op((Prolog e) -> PRED_call_1_static_exec(e), VA(a6), cont);
 	}
 
 	private final static Operation inferred_meta_predicate_2_2(Prolog m) {
 		// inferred_meta_predicate(A:B,C):-predicate_property(A:B,imported_from(D)),inferred_meta_pred(B,D,C)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -102,8 +78,8 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y4 = VA(ATOM_prolog_metainference, a8);
 		a9 = S(":", y4);
 		return //
-		Op((e) -> PRED_predicate_property_2_static_exec(e), VA(a5, a7), //
-				Op((e) -> PRED_call_1_static_exec(e), VA(a9), cont));
+		Op((Prolog e) -> PRED_predicate_property_2_static_exec(e), VA(a5, a7), //
+				Op((Prolog e) -> PRED_call_1_static_exec(e), VA(a9), cont));
 	}
 
 	/** PREDICATE: infer_meta_predicate/2
@@ -112,8 +88,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_infer_meta_predicate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_metainference::infer_meta_predicate_2_var, FILE_prolog_metainference::infer_meta_predicate_2_1, FILE_prolog_metainference::infer_meta_predicate_2_1,
@@ -138,7 +112,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation infer_meta_predicate_2_1(Prolog m) {
 		// infer_meta_predicate(A,B):-inferred_meta_predicate(A,B),!
 		Term a1, a2, a3, a4;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -153,14 +126,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y1 = VA(ATOM_prolog_metainference, a1);
 		a4 = S(":", y1);
 		return //
-		Op((e) -> PRED_inferred_meta_predicate_2_static_exec(e), VA(a4, a2), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), cont));
+		Op((Prolog e) -> PRED_inferred_meta_predicate_2_static_exec(e), VA(a4, a2), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), cont));
 	}
 
 	private final static Operation infer_meta_predicate_2_2(Prolog m) {
 		// infer_meta_predicate(A:B,C):-predicate_property(A:B,imported_from(D)),!,do_infer_meta_predicate(D:B,C),assertz(inferred_meta_pred(B,D,C))
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -190,16 +162,15 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y5 = VA(ATOM_prolog_metainference, a10);
 		a11 = S(":", y5);
 		return //
-		Op((e) -> PRED_predicate_property_2_static_exec(e), VA(a6, a8), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a5), //
-						Op((e) -> PRED_do_infer_meta_predicate_2_static_exec(e), VA(a9, a2), //
-								Op((e) -> PRED_assertz_1_static_exec(e), VA(a11), cont))));
+		Op((Prolog e) -> PRED_predicate_property_2_static_exec(e), VA(a6, a8), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a5), //
+						Op((Prolog e) -> PRED_do_infer_meta_predicate_2_static_exec(e), VA(a9, a2), //
+								Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a11), cont))));
 	}
 
 	private final static Operation infer_meta_predicate_2_3(Prolog m) {
 		// infer_meta_predicate(A:B,C):-do_infer_meta_predicate(A:B,C),assertz(inferred_meta_pred(B,A,C))
 		Term a1, a2, a3, a4, a5, a6, a7;
-		Operation p1;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -218,8 +189,8 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y3 = VA(ATOM_prolog_metainference, a6);
 		a7 = S(":", y3);
 		return //
-		Op((e) -> PRED_do_infer_meta_predicate_2_static_exec(e), VA(a5, a2), //
-				Op((e) -> PRED_assertz_1_static_exec(e), VA(a7), cont));
+		Op((Prolog e) -> PRED_do_infer_meta_predicate_2_static_exec(e), VA(a5, a2), //
+				Op((Prolog e) -> PRED_assertz_1_static_exec(e), VA(a7), cont));
 	}
 
 	/** PREDICATE: do_infer_meta_predicate/2
@@ -229,11 +200,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	public static Operation PRED_do_infer_meta_predicate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// do_infer_meta_predicate(A:B,C):-functor(B,D,E),functor(F,D,E),findall(C,meta_pred_args_in_clause(A,F,C),G),G\==[],combine_meta_args(G,C)
 		m.setB0();
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-		Operation p1, p2, p3, p4;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// do_infer_meta_predicate(A:B,C):-[functor(B,D,E),functor(F,D,E),findall(C,prolog_metainference:meta_pred_args_in_clause(A,F,C),G),'$inequality_of_term'(G,[]),combine_meta_args(G,C)]
@@ -247,14 +216,14 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a6 = V(m);
 		a7 = V(m);
 		a8 = Closure( //
-				Op((e) -> PRED_meta_pred_args_in_clause_3_static_exec(e), VA(a3, a7, a2), null));
+				Op((Prolog e) -> PRED_meta_pred_args_in_clause_3_static_exec(e), VA(a3, a7, a2), null));
 		a9 = V(m);
 		return //
-		Op((e) -> PRED_functor_3_static_exec(e), VA(a4, a5, a6), //
-				Op((e) -> PRED_functor_3_static_exec(e), VA(a7, a5, a6), //
-						Op((e) -> PRED_findall_3_static_exec(e), VA(a2, a8, a9), //
-								Op((e) -> PRED_$inequality_of_term_2_static_exec(e), VA(a9, Prolog.Nil), //
-										Op((e) -> PRED_combine_meta_args_2_static_exec(e), VA(a9, a2), cont)))));
+		Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a4, a5, a6), //
+				Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a7, a5, a6), //
+						Op((Prolog e) -> PRED_findall_3_static_exec(e), VA(a2, a8, a9), //
+								Op((Prolog e) -> PRED_$inequality_of_term_2_static_exec(e), VA(a9, Prolog.Nil), //
+										Op((Prolog e) -> PRED_combine_meta_args_2_static_exec(e), VA(a9, a2), cont)))));
 	}
 
 	/** PREDICATE: meta_pred_args_in_clause/3
@@ -264,11 +233,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	public static Operation PRED_meta_pred_args_in_clause_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// meta_pred_args_in_clause(A,B,C):-clause(A:B,D),annotate_meta_vars_in_body(D,A),meta_annotation(B,C)
 		m.setB0();
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		a3 = LARG[2];
@@ -277,9 +244,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a4 = S(":", y1);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_clause_2_static_exec(e), VA(a4, a5), //
-				Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a5, a1), //
-						Op((e) -> PRED_meta_annotation_2_static_exec(e), VA(a2, a3), cont)));
+		Op((Prolog e) -> PRED_clause_2_static_exec(e), VA(a4, a5), //
+				Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a5, a1), //
+						Op((Prolog e) -> PRED_meta_annotation_2_static_exec(e), VA(a2, a3), cont)));
 	}
 
 	/** PREDICATE: annotate_meta_vars_in_body/2
@@ -290,8 +257,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_annotate_meta_vars_in_body_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		return annotate_meta_vars_in_body_2_top(m);
 	}
@@ -384,10 +349,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	private final static Operation annotate_meta_vars_in_body_2_1(Prolog m) {
 		// annotate_meta_vars_in_body(A,B):-atomic(A),!
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// annotate_meta_vars_in_body(A,B):-['$get_level'(C),atomic(A),'$cut'(C)]
 		a3 = V(m);
@@ -411,10 +375,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	private final static Operation annotate_meta_vars_in_body_2_2(Prolog m) {
 		// annotate_meta_vars_in_body(A,B):-var(A),!,annotate(A,0)
-		Term a1, a2, a3;
+		Term a1, a3;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// annotate_meta_vars_in_body(A,B):-['$get_level'(C),var(A),'$cut'(C),annotate(A,0)]
 		a3 = V(m);
@@ -434,15 +397,14 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.cut(a3.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_annotate_2_static_exec(e), VA(a1, PRED_annotate_meta_vars_in_body_2_s1), cont);
+		Op((Prolog e) -> PRED_annotate_2_static_exec(e), VA(a1, PRED_annotate_meta_vars_in_body_2_s1), cont);
 	}
 
 	private final static Operation annotate_meta_vars_in_body_2_3(Prolog m) {
 		// annotate_meta_vars_in_body(A:B,C):-!,'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B)
-		Term a1, a2, a3, a4;
+		Term a1, a3, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// annotate_meta_vars_in_body(A:B,C):-['$neck_cut','$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B)]
 		a1 = a1.dref();
@@ -455,7 +417,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(e), VA(a3, a4), cont);
+		Op((Prolog e) -> PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(e), VA(a3, a4), cont);
 	}
 
 	private final static Operation annotate_meta_vars_in_body_2_4(Prolog m) {
@@ -477,7 +439,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		p1 = //
-				Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
+				Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
 		m.AREGS[0] = a4;
 		m.AREGS[1] = a2;
 		m.cont = p1;
@@ -503,7 +465,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		p1 = //
-				Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
+				Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
 		m.AREGS[0] = a4;
 		m.AREGS[1] = a2;
 		m.cont = p1;
@@ -529,7 +491,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		p1 = //
-				Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
+				Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
 		m.AREGS[0] = a4;
 		m.AREGS[1] = a2;
 		m.cont = p1;
@@ -555,7 +517,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		p1 = //
-				Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
+				Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a3, a2), cont);
 		m.AREGS[0] = a4;
 		m.AREGS[1] = a2;
 		m.cont = p1;
@@ -564,10 +526,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	private final static Operation annotate_meta_vars_in_body_2_8(Prolog m) {
 		// annotate_meta_vars_in_body(A=B,C):-var(A),var(B),!,A=B
-		Term a1, a2, a3, a4, a5;
+		Term a1, a3, a4, a5;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// annotate_meta_vars_in_body(A=B,C):-['$get_level'(D),var(A),var(B),'$cut'(D),'$unify'(A,B)]
 		a1 = a1.dref();
@@ -609,7 +570,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation annotate_meta_vars_in_body_2_9(Prolog m) {
 		// annotate_meta_vars_in_body(A,B):-predicate_property(B:A,(meta_predicate C)),!,functor(A,D,E),annotate_meta_args(1,E,A,C,B)
 		Term a1, a2, a3, a4, a5, a6, a7;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -628,16 +588,15 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a6 = S("meta_predicate", y2);
 		a7 = V(m);
 		return //
-		Op((e) -> PRED_predicate_property_2_static_exec(e), VA(a4, a6), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_functor_3_static_exec(e), VA(a1, V(m), a7), //
-								Op((e) -> PRED_annotate_meta_args_5_static_exec(e), VA(int_1, a7, a1, a5, a2), cont))));
+		Op((Prolog e) -> PRED_predicate_property_2_static_exec(e), VA(a4, a6), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a1, V(m), a7), //
+								Op((Prolog e) -> PRED_annotate_meta_args_5_static_exec(e), VA(int_1, a7, a1, a5, a2), cont))));
 	}
 
 	private final static Operation annotate_meta_vars_in_body_2_10(Prolog m) {
 		// annotate_meta_vars_in_body(A,B):-inferred_meta_predicate(B:A,C),!,functor(A,D,E),annotate_meta_args(1,E,A,C,B)
 		Term a1, a2, a3, a4, a5, a6;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -654,18 +613,14 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a5 = V(m);
 		a6 = V(m);
 		return //
-		Op((e) -> PRED_inferred_meta_predicate_2_static_exec(e), VA(a4, a5), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_functor_3_static_exec(e), VA(a1, V(m), a6), //
-								Op((e) -> PRED_annotate_meta_args_5_static_exec(e), VA(int_1, a6, a1, a5, a2), cont))));
+		Op((Prolog e) -> PRED_inferred_meta_predicate_2_static_exec(e), VA(a4, a5), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a1, V(m), a6), //
+								Op((Prolog e) -> PRED_annotate_meta_args_5_static_exec(e), VA(int_1, a6, a1, a5, a2), cont))));
 	}
 
 	private final static Operation annotate_meta_vars_in_body_2_11(Prolog m) {
-		// annotate_meta_vars_in_body(A,B):-true
-		Term a1, a2;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// annotate_meta_vars_in_body(A,B):-[]
 		return cont;
@@ -677,8 +632,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_prolog_metainference::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_sub_1);
@@ -720,27 +673,22 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.cut(a3.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a2, a1), cont);
+		Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a2, a1), cont);
 	}
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_2(Prolog m) {
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A)
-		Term a1, a2;
+		Term a1;
 		Operation cont;
 		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-['$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A)]
 		return //
-		Op((e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a1), cont);
+		Op((Prolog e) -> PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a1), cont);
 	}
 
 	private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_3(Prolog m) {
-		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-true
-		Term a1, a2;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-[]
 		return cont;
@@ -753,8 +701,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry1(null, FILE_prolog_metainference::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_sub_1);
@@ -790,15 +736,10 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.cut(a2.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_annotate_2_static_exec(e), VA(a1, PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_s1), cont);
+		Op((Prolog e) -> PRED_annotate_2_static_exec(e), VA(a1, PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_s1), cont);
 	}
 
 	private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_2(Prolog m) {
-		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-fail
-		Term a1;
-		Operation cont;
-		a1 = m.AREGS[0];
-		cont = m.cont;
 		// '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -813,8 +754,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_annotate_meta_args_5_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry5(null, FILE_prolog_metainference::annotate_meta_args_5_sub_1);
@@ -829,7 +768,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation annotate_meta_args_5_1(Prolog m) {
 		// annotate_meta_args(A,B,C,D,E):-A=<B,!,arg(A,D,F),arg(A,C,G),annotate_meta_arg(F,G,E),H is A+1,annotate_meta_args(H,B,C,D,E)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -859,22 +797,15 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y1 = VA(a1, int_1);
 		a10 = S("+", y1);
 		return //
-		Op((e) -> PRED_arg_3_static_exec(e), VA(a1, a4, a7), //
-				Op((e) -> PRED_arg_3_static_exec(e), VA(a1, a3, a8), //
-						Op((e) -> PRED_annotate_meta_arg_3_static_exec(e), VA(a7, a8, a5), //
+		Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(a1, a4, a7), //
+				Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(a1, a3, a8), //
+						Op((Prolog e) -> PRED_annotate_meta_arg_3_static_exec(e), VA(a7, a8, a5), //
 								Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
-										Op((e) -> PRED_annotate_meta_args_5_static_exec(e), VA(a9, a2, a3, a4, a5), cont)))));
+										Op((Prolog e) -> PRED_annotate_meta_args_5_static_exec(e), VA(a9, a2, a3, a4, a5), cont)))));
 	}
 
 	private final static Operation annotate_meta_args_5_2(Prolog m) {
-		// annotate_meta_args(A,B,C,D,E):-true
-		Term a1, a2, a3, a4, a5;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
 		cont = m.cont;
 		// annotate_meta_args(A,B,C,D,E):-[]
 		return cont;
@@ -888,8 +819,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_annotate_meta_arg_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_metainference::annotate_meta_arg_3_var, FILE_prolog_metainference::annotate_meta_arg_3_var, FILE_prolog_metainference::annotate_meta_arg_3_flo,
@@ -943,11 +872,10 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	private final static Operation annotate_meta_arg_3_1(Prolog m) {
 		// annotate_meta_arg(A,B,C):-var(B),!,annotate(B,A)
-		Term a1, a2, a3, a4;
+		Term a1, a2, a4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
 		cont = m.cont;
 		// annotate_meta_arg(A,B,C):-['$get_level'(D),var(B),'$cut'(D),annotate(B,A)]
 		a4 = V(m);
@@ -967,7 +895,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.cut(a4.intValue());
 		//END inline expansion
 		return //
-		Op((e) -> PRED_annotate_2_static_exec(e), VA(a2, a1), cont);
+		Op((Prolog e) -> PRED_annotate_2_static_exec(e), VA(a2, a1), cont);
 	}
 
 	private final static Operation annotate_meta_arg_3_2(Prolog m) {
@@ -985,13 +913,12 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		m.neckCut();
 		//END inline expansion
 		return //
-		Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a2, a3), cont);
+		Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a2, a3), cont);
 	}
 
 	private final static Operation annotate_meta_arg_3_3(Prolog m) {
 		// annotate_meta_arg(A,B,C):-integer(A),callable(B),!,B=..D,length(E,A),append(D,E,F),G=..F,annotate_meta_vars_in_body(G,C)
 		Term a1, a2, a3, a4, a5, a6, a7, a8;
-		Operation p1, p2, p3, p4, p5, p6;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1015,23 +942,21 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a7 = V(m);
 		a8 = V(m);
 		return //
-		Op((e) -> PRED_callable_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-						Op((e) -> PRED_$univ_2_static_exec(e), VA(a2, a5), //
-								Op((e) -> PRED_length_2_static_exec(e), VA(a6, a1), //
-										Op((e) -> PRED_append_3_static_exec(e), VA(a5, a6, a7), //
-												Op((e) -> PRED_$univ_2_static_exec(e), VA(a8, a7), //
-														Op((e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a8, a3), cont)))))));
+		Op((Prolog e) -> PRED_callable_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+						Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a2, a5), //
+								Op((Prolog e) -> PRED_length_2_static_exec(e), VA(a6, a1), //
+										Op((Prolog e) -> PRED_append_3_static_exec(e), VA(a5, a6, a7), //
+												Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a8, a7), //
+														Op((Prolog e) -> PRED_annotate_meta_vars_in_body_2_static_exec(e), VA(a8, a3), cont)))))));
 	}
 
 	private final static Operation annotate_meta_arg_3_4(Prolog m) {
 		// annotate_meta_arg(A,B,C):-is_meta(A),compound(B),B=D:E,var(D),!,annotate(D,m)
-		Term a1, a2, a3, a4, a5, a6;
-		Operation p1, p2, p3, p4, p5;
+		Term a1, a2, a4, a5, a6;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
 		cont = m.cont;
 		// annotate_meta_arg(A,B,C):-['$get_level'(D),is_meta(A),compound(B),'$unify'(B,E:F),var(E),'$cut'(D),annotate(E,m)]
 		a4 = V(m);
@@ -1044,21 +969,16 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y1 = VA(a5, V(m));
 		a6 = S(":", y1);
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_compound_1_static_exec(e), VA(a2), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a2, a6), //
-								Op((e) -> PRED_var_1_static_exec(e), VA(a5), //
-										Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-												Op((e) -> PRED_annotate_2_static_exec(e), VA(a5, ATOM_m), cont))))));
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a2), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a2, a6), //
+								Op((Prolog e) -> PRED_var_1_static_exec(e), VA(a5), //
+										Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+												Op((Prolog e) -> PRED_annotate_2_static_exec(e), VA(a5, ATOM_m), cont))))));
 	}
 
 	private final static Operation annotate_meta_arg_3_5(Prolog m) {
-		// annotate_meta_arg(A,B,C):-true
-		Term a1, a2, a3;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
 		cont = m.cont;
 		// annotate_meta_arg(A,B,C):-[]
 		return cont;
@@ -1071,8 +991,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_annotate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_prolog_metainference::annotate_2_sub_1);
@@ -1087,7 +1005,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation annotate_2_1(Prolog m) {
 		// annotate(A,B):-get_attr(A,prolog_metainference,C),!,join_annotation(C,B,D),put_attr(A,prolog_metainference,D)
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1102,10 +1019,10 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_get_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a4), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_join_annotation_3_static_exec(e), VA(a4, a2, a5), //
-								Op((e) -> PRED_put_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a5), cont))));
+		Op((Prolog e) -> PRED_get_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a4), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_join_annotation_3_static_exec(e), VA(a4, a2, a5), //
+								Op((Prolog e) -> PRED_put_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a5), cont))));
 	}
 
 	private final static Operation annotate_2_2(Prolog m) {
@@ -1117,7 +1034,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		cont = m.cont;
 		// annotate(A,B):-[put_attr(A,prolog_metainference,B)]
 		return //
-		Op((e) -> PRED_put_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a2), cont);
+		Op((Prolog e) -> PRED_put_attr_3_static_exec(e), VA(a1, PRED_annotate_2_s1, a2), cont);
 	}
 
 	/** PREDICATE: join_annotation/3
@@ -1127,8 +1044,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_join_annotation_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_prolog_metainference::join_annotation_3_sub_1);
@@ -1184,7 +1099,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		cont = m.cont;
 		// join_annotation(A,B,C):-['$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C)]
 		return //
-		Op((e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
+		Op((Prolog e) -> PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
 	}
 
 	private final static Operation join_annotation_3_3(Prolog m) {
@@ -1197,7 +1112,7 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		cont = m.cont;
 		// join_annotation(A,B,C):-['$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C)]
 		return //
-		Op((e) -> PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
+		Op((Prolog e) -> PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
 	}
 
 	private final static Operation join_annotation_3_4(Prolog m) {
@@ -1210,15 +1125,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		cont = m.cont;
 		// join_annotation(A,B,C):-['$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C)]
 		return //
-		Op((e) -> PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
+		Op((Prolog e) -> PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(e), VA(a1, a2, a3), cont);
 	}
 
 	private final static Operation join_annotation_3_5(Prolog m) {
 		// join_annotation(A,B,C):-C=(*)
-		Term a1, a2, a3;
+		Term a3;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		a3 = m.AREGS[2];
 		cont = m.cont;
 		// join_annotation(A,B,C):-['$unify'(C,*)]
@@ -1236,8 +1149,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry1(null, FILE_prolog_metainference::$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_sub_1);
@@ -1252,7 +1163,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_1(Prolog m) {
 		// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-is_meta(A),!,fail
 		Term a1, a2;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -1264,16 +1174,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a2), //
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a2), //
 						Op(fail_0, VA(), cont)));
 	}
 
 	private final static Operation $dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_2(Prolog m) {
-		// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-true
-		Term a1;
 		Operation cont;
-		a1 = m.AREGS[0];
 		cont = m.cont;
 		// '$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-[]
 		return cont;
@@ -1285,8 +1192,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_prolog_metainference::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_sub_1);
@@ -1301,7 +1206,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_1(Prolog m) {
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-(is_meta(A),'$dummy_3_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(B)),!,C=A
 		Term a1, a2, a3, a4;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1315,20 +1219,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a2), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-								Op((e) -> PRED_$unify_2_static_exec(e), VA(a3, a1), cont))));
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$dummy_3_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a2), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+								Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a3, a1), cont))));
 	}
 
 	private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_2(Prolog m) {
-		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-fail
-		Term a1, a2, a3;
-		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		cont = m.cont;
 		// '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -1341,8 +1238,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry1(null, FILE_prolog_metainference::$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_sub_1);
@@ -1357,7 +1252,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_1(Prolog m) {
 		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-is_meta(A),!,fail
 		Term a1, a2;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		cont = m.cont;
@@ -1369,16 +1263,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a2), //
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a2), //
 						Op(fail_0, VA(), cont)));
 	}
 
 	private final static Operation $dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_2(Prolog m) {
-		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-true
-		Term a1;
 		Operation cont;
-		a1 = m.AREGS[0];
 		cont = m.cont;
 		// '$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A):-[]
 		return cont;
@@ -1390,8 +1281,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_prolog_metainference::$dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_sub_1);
@@ -1406,7 +1295,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_1(Prolog m) {
 		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-('$dummy_5_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A),is_meta(B)),!,C=B
 		Term a1, a2, a3, a4;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1420,20 +1308,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-								Op((e) -> PRED_$unify_2_static_exec(e), VA(a3, a2), cont))));
+		Op((Prolog e) -> PRED_$dummy_5_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+								Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a3, a2), cont))));
 	}
 
 	private final static Operation $dummy_4_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_2(Prolog m) {
-		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-fail
-		Term a1, a2, a3;
-		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		cont = m.cont;
 		// '$dummy_4_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -1447,8 +1328,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry3(null, FILE_prolog_metainference::$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_sub_1);
@@ -1463,7 +1342,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_1(Prolog m) {
 		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-(is_meta(A),is_meta(B)),!,C=(:)
 		Term a1, a2, a3, a4;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1477,21 +1355,14 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a4), //
-								Op((e) -> PRED_$unify_2_static_exec(e), VA(a3, PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_s1),
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a4), //
+								Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a3, PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_s1),
 										cont))));
 	}
 
 	private final static Operation $dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_2(Prolog m) {
-		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-fail
-		Term a1, a2, a3;
-		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		cont = m.cont;
 		// '$dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B,C):-[fail]
 		//START inline expansion of fail
 		return m.fail();
@@ -1506,11 +1377,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	public static Operation PRED_attr_unify_hook_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// attr_unify_hook(A,B):-get_attr(B,prolog_metainference,C),!,join_annotation(A,C,D),put_attr(B,prolog_metainference,D)
 		m.setB0();
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// attr_unify_hook(A,B):-['$get_level'(C),get_attr(B,prolog_metainference,D),'$cut'(C),join_annotation(A,D,E),put_attr(B,prolog_metainference,E)]
@@ -1523,10 +1392,10 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_get_attr_3_static_exec(e), VA(a2, PRED_attr_unify_hook_2_s1, a4), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_join_annotation_3_static_exec(e), VA(a1, a4, a5), //
-								Op((e) -> PRED_put_attr_3_static_exec(e), VA(a2, PRED_attr_unify_hook_2_s1, a5), cont))));
+		Op((Prolog e) -> PRED_get_attr_3_static_exec(e), VA(a2, PRED_attr_unify_hook_2_s1, a4), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_join_annotation_3_static_exec(e), VA(a1, a4, a5), //
+								Op((Prolog e) -> PRED_put_attr_3_static_exec(e), VA(a2, PRED_attr_unify_hook_2_s1, a5), cont))));
 	}
 
 	/** PREDICATE: meta_annotation/2
@@ -1537,11 +1406,9 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	public static Operation PRED_meta_annotation_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
 		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// meta_annotation(A,B):-functor(A,C,D),functor(B,C,D),meta_args(1,D,A,B,E),E==true
 		m.setB0();
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2, p3;
 		a1 = LARG[0];
 		a2 = LARG[1];
 		// meta_annotation(A,B):-[functor(A,C,D),functor(B,C,D),meta_args(1,D,A,B,E),'$equality_of_term'(E,true)]
@@ -1549,10 +1416,10 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a4 = V(m);
 		a5 = V(m);
 		return //
-		Op((e) -> PRED_functor_3_static_exec(e), VA(a1, a3, a4), //
-				Op((e) -> PRED_functor_3_static_exec(e), VA(a2, a3, a4), //
-						Op((e) -> PRED_meta_args_5_static_exec(e), VA(PRED_meta_annotation_2_s1, a4, a1, a2, a5), //
-								Op((e) -> PRED_$equality_of_term_2_static_exec(e), VA(a5, Prolog.True), cont))));
+		Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a1, a3, a4), //
+				Op((Prolog e) -> PRED_functor_3_static_exec(e), VA(a2, a3, a4), //
+						Op((Prolog e) -> PRED_meta_args_5_static_exec(e), VA(PRED_meta_annotation_2_s1, a4, a1, a2, a5), //
+								Op((Prolog e) -> PRED_$equality_of_term_2_static_exec(e), VA(a5, Prolog.True), cont))));
 	}
 
 	/** PREDICATE: $dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl/2
@@ -1562,8 +1429,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_prolog_metainference::$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_sub_1);
@@ -1578,7 +1443,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation $dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_1(Prolog m) {
 		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-is_meta(B),!,A=true
 		Term a1, a2, a3;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1591,17 +1455,13 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
-				Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), //
-						Op((e) -> PRED_$unify_2_static_exec(e), VA(a1, PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_s1), cont)));
+		Op((Prolog e) -> PRED_is_meta_1_static_exec(e), VA(a2), //
+				Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), //
+						Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a1, PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_s1), cont)));
 	}
 
 	private final static Operation $dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_2(Prolog m) {
-		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-true
-		Term a1, a2;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
 		cont = m.cont;
 		// '$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(A,B):-[]
 		return cont;
@@ -1615,8 +1475,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_meta_args_5_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry5(null, FILE_prolog_metainference::meta_args_5_sub_1);
@@ -1631,7 +1489,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation meta_args_5_1(Prolog m) {
 		// meta_args(A,B,C,D,E):-A=<B,!,arg(A,C,F),arg(A,D,G),meta_arg(F,G),'$dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl'(E,G),H is A+1,meta_args(H,B,C,D,E)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-		Operation p1, p2, p3, p4, p5;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1661,23 +1518,16 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y1 = VA(a1, int_1);
 		a10 = S("+", y1);
 		return //
-		Op((e) -> PRED_arg_3_static_exec(e), VA(a1, a3, a7), //
-				Op((e) -> PRED_arg_3_static_exec(e), VA(a1, a4, a8), //
-						Op((e) -> PRED_meta_arg_2_static_exec(e), VA(a7, a8), //
-								Op((e) -> PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(e), VA(a5, a8), //
+		Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(a1, a3, a7), //
+				Op((Prolog e) -> PRED_arg_3_static_exec(e), VA(a1, a4, a8), //
+						Op((Prolog e) -> PRED_meta_arg_2_static_exec(e), VA(a7, a8), //
+								Op((Prolog e) -> PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(e), VA(a5, a8), //
 										Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
-												Op((e) -> PRED_meta_args_5_static_exec(e), VA(a9, a2, a3, a4, a5), cont))))));
+												Op((Prolog e) -> PRED_meta_args_5_static_exec(e), VA(a9, a2, a3, a4, a5), cont))))));
 	}
 
 	private final static Operation meta_args_5_2(Prolog m) {
-		// meta_args(A,B,C,D,E):-true
-		Term a1, a2, a3, a4, a5;
 		Operation cont;
-		a1 = m.AREGS[0];
-		a2 = m.AREGS[1];
-		a3 = m.AREGS[2];
-		a4 = m.AREGS[3];
-		a5 = m.AREGS[4];
 		cont = m.cont;
 		// meta_args(A,B,C,D,E):-[]
 		return cont;
@@ -1692,8 +1542,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_is_meta_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		return m.switch_on_term(FILE_prolog_metainference::is_meta_1_var, FILE_prolog_metainference::is_meta_1_1, FILE_prolog_metainference::is_meta_1_1, FILE_prolog_metainference::is_meta_1_var,
@@ -1791,8 +1639,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_meta_arg_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		m.setB0();
 		m.jtry2(null, FILE_prolog_metainference::meta_arg_2_sub_1);
@@ -1812,7 +1658,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation meta_arg_2_1(Prolog m) {
 		// meta_arg(A,B):-get_attr(A,prolog_metainference,B),B\==m,!
 		Term a1, a2, a3;
-		Operation p1, p2;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1825,15 +1670,14 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		}
 		//END inline expansion
 		return //
-		Op((e) -> PRED_get_attr_3_static_exec(e), VA(a1, PRED_meta_arg_2_s1, a2), //
-				Op((e) -> PRED_$inequality_of_term_2_static_exec(e), VA(a2, ATOM_m), //
-						Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), cont)));
+		Op((Prolog e) -> PRED_get_attr_3_static_exec(e), VA(a1, PRED_meta_arg_2_s1, a2), //
+				Op((Prolog e) -> PRED_$inequality_of_term_2_static_exec(e), VA(a2, ATOM_m), //
+						Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), cont)));
 	}
 
 	private final static Operation meta_arg_2_2(Prolog m) {
 		// meta_arg(A,:):-compound(A),A=B:C,get_attr(B,prolog_metainference,m),!
 		Term a1, a2, a3, a4, a5;
-		Operation p1, p2, p3;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -1851,17 +1695,16 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		Term[] y1 = VA(a4, V(m));
 		a5 = S(":", y1);
 		return //
-		Op((e) -> PRED_compound_1_static_exec(e), VA(a1), //
-				Op((e) -> PRED_$unify_2_static_exec(e), VA(a1, a5), //
-						Op((e) -> PRED_get_attr_3_static_exec(e), VA(a4, PRED_meta_arg_2_s1, ATOM_m), //
-								Op((e) -> PRED_$cut_1_static_exec(e), VA(a3), cont))));
+		Op((Prolog e) -> PRED_compound_1_static_exec(e), VA(a1), //
+				Op((Prolog e) -> PRED_$unify_2_static_exec(e), VA(a1, a5), //
+						Op((Prolog e) -> PRED_get_attr_3_static_exec(e), VA(a4, PRED_meta_arg_2_s1, ATOM_m), //
+								Op((Prolog e) -> PRED_$cut_1_static_exec(e), VA(a3), cont))));
 	}
 
 	private final static Operation meta_arg_2_3(Prolog m) {
 		// meta_arg(A,*):-true
-		Term a1, a2;
+		Term a2;
 		Operation cont;
-		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
 		cont = m.cont;
 		// meta_arg(A,*):-[]
@@ -1878,8 +1721,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_combine_meta_args_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		m.cont = cont;
 		return combine_meta_args_2_top(m);
 	}
@@ -2015,7 +1856,6 @@ public class FILE_prolog_metainference extends FILE_builtins {
 	private final static Operation combine_meta_args_2_4(Prolog m) {
 		// combine_meta_args([A,B|C],D):-A=..[E|F],B=..[E|G],maplist(join_annotation,F,G,H),I=..[E|H],combine_meta_args([I|C],D)
 		Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
-		Operation p1, p2, p3, p4;
 		Operation cont;
 		a1 = m.AREGS[0];
 		a2 = m.AREGS[1];
@@ -2055,11 +1895,11 @@ public class FILE_prolog_metainference extends FILE_builtins {
 		a14 = CONS(a7, a12);
 		a15 = CONS(a13, a6);
 		return //
-		Op((e) -> PRED_$univ_2_static_exec(e), VA(a3, a9), //
-				Op((e) -> PRED_$univ_2_static_exec(e), VA(a5, a11), //
-						Op((e) -> PRED_maplist_4_static_exec(e), VA(ATOM_join_annotation, a8, a10, a12), //
-								Op((e) -> PRED_$univ_2_static_exec(e), VA(a13, a14), //
-										Op((e) -> PRED_combine_meta_args_2_static_exec(e), VA(a15, a2), cont)))));
+		Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a3, a9), //
+				Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a5, a11), //
+						Op((Prolog e) -> PRED_maplist_4_static_exec(e), VA(ATOM_join_annotation, a8, a10, a12), //
+								Op((Prolog e) -> PRED_$univ_2_static_exec(e), VA(a13, a14), //
+										Op((Prolog e) -> PRED_combine_meta_args_2_static_exec(e), VA(a15, a2), cont)))));
 	}
 
 	/** PREDICATE: $init/0
@@ -2072,13 +1912,11 @@ public class FILE_prolog_metainference extends FILE_builtins {
 
 	public static Operation PRED_$init_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
-		Term[] LARG = m.AREGS;
-		Operation thiz = m.pred;
 		// '$init':-'$new_indexing_hash'(prolog_metainference,inferred_meta_pred/3,A)
 		m.setB0();
 		// '$init':-['$new_indexing_hash'(prolog_metainference,inferred_meta_pred/3,A)]
 		return //
-		Op((e) -> PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), cont);
+		Op((Prolog e) -> PRED_$new_indexing_hash_3_static_exec(e), VA(PRED_$init_0_s1, PRED_$init_0_s6, V(m)), cont);
 	}
 
 	static {
