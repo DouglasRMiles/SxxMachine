@@ -1,5 +1,6 @@
 package SxxMachine;
 
+import java.math.BigInteger;
 import java.util.Comparator;
 
 public class LongTerm extends DoubleTerm {
@@ -24,7 +25,11 @@ public class LongTerm extends DoubleTerm {
     // longValue() = value;
   }
 
-  public Object value() {
+  public LongTerm(BigInteger bigInteger) {
+	  super(bigInteger.doubleValue());
+  }
+
+public Object value() {
     return longValue();
   }
 

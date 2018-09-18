@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import java.math.BigInteger;
+
 public class TermData {
 
 	/**
@@ -103,6 +105,9 @@ public class TermData {
 	public static StructureTerm S(String string, Term... s3) {
 		return new StructureTerm(string, s3);
 	}
+	public static StructureTerm S(SymbolTerm string, Term... s3) {
+		return new StructureTerm(string, s3);
+	}
 
 	public static StructureTerm C(String string, Term... s3) {
 		return new StructureTerm(string, s3);
@@ -157,7 +162,9 @@ public class TermData {
 	public static Predicate Op(Operation object, Term a1, Operation cont) {
 		return new TermData.StaticPred(null, object, VA(a1), cont);
 	}
-
+	public static LongTerm Long(String s) {
+		return new LongTerm(new BigInteger(s));
+	}
 	public static LongTerm Long(long t) {
 		int i = (int) t;
 		if (((long) i) == t) {

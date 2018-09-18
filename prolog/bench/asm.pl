@@ -12,6 +12,8 @@
 :-op(300,xfx,<=).
 :-op(1000,fx,mode).
 
+determinate(_).
+
 setup_determinates :-determinate([cmp_error/1,
 	       name/2,
 	       length/2,

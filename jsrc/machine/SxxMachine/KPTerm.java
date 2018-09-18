@@ -9,28 +9,29 @@ public abstract class KPTerm extends TermData implements Undoable {
 	public void oopsy() {
 		new Exception().printStackTrace();
 	}
+
 	public static void soopsy() {
 		new Exception().printStackTrace();
 	}
 
 	abstract // @Override
 	public Term toClone() throws CloneNotSupportedException;
-	
+
 	@Override
 	public int hashCode() {
-		return termHashCode();		
+		return termHashCode();
 	}
-	
+
 	public boolean equals(Object o) {
-		return o==this;
+		return o == this;
 	}
-	
+
 	@Override
 	public String toString() {
 		return pprint();
 	}
-	public abstract int termHashCode();
 
+	public abstract int termHashCode();
 
 	/**
 	 * returns or fakes an arity for all subtypes
@@ -53,10 +54,12 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	/** Dereference and unify_to */
 	public final boolean DO_Unify(Term that, KPTrail trail) {
-	  if(that==this) return true;
-	  Term thisd = dref();
-	  Term thatd = that.dref();
-	  if(thatd==thisd) return true;
+		if (that == this)
+			return true;
+		Term thisd = dref();
+		Term thatd = that.dref();
+		if (thatd == thisd)
+			return true;
 		return thisd.Unify_TO(thatd, trail);
 	}
 
@@ -171,7 +174,8 @@ public abstract class KPTerm extends TermData implements Undoable {
 	 */
 	public String toUnquoted() {
 		Term t = numbervars();
-		if(t==this) return pprint();
+		if (t == this)
+			return pprint();
 		return t.pprint();
 	}
 
@@ -219,7 +223,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 		if (0 == s.length())
 			return Prolog.Nil;
 		ListTerm l = CONS(TermData.Long((s.charAt(0))), Prolog.Nil);
-		Term curr =  l;
+		Term curr = l;
 		for (int i = 1; i < s.length(); i++) {
 			StructureTerm tail = StructureTerm.createCons(Long((s.charAt(i))), Prolog.Nil);
 			curr.setArg(1, tail);
@@ -242,7 +246,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 			if (!(Cs.isCons()))
 				return null;
 			Nonvar head = (Nonvar) Expect.asCons(Cs).ArgDeRef(0);
-			
+
 			if (!(head.isNumber()))
 				return null;
 			char c = (char) Expect.asInt(head).longValue();
@@ -275,7 +279,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	public boolean isLong() {
 		// TODO Auto-generated method stub
-		return ((Term)this).isInteger();
+		return ((Term) this).isInteger();
 	}
 
 	public int intValue() {
@@ -339,31 +343,34 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	public double doubleValue() {
 		// TODO Auto-generated method stub
-		return 0; 
+		return 0;
 	}
 
-	abstract public boolean equalsTerm(Term aneof) ;
+	abstract public boolean equalsTerm(Term aneof);
 
 	final public SymbolTerm asConst() {
 		// TODO Auto-generated method stub
-		return (SymbolTerm)this;
+		return (SymbolTerm) this;
 	}
 
 	public Var toVar() {
 		// TODO Auto-generated method stub
-		return (Var)this;
+		return (Var) this;
 	}
 
 	public Term ArgDeRef(int i) {
-		return Expect.asStruct((Term)this).ArgDeRef(i);
+		return Expect.asStruct((Term) this).ArgDeRef(i);
 	}
 
 	public boolean isFunctor(String string) {
 		// TODO Auto-generated method stub
 		return name().equals(string);
 	}
+
 	public Source asSource() {
 		// TODO Auto-generated method stub
-		return (Source)this;
+		return (Source) this;
 	}
+
+	abstract protected void toStringImpl(int printFlags, StringBuilder sb);
 }

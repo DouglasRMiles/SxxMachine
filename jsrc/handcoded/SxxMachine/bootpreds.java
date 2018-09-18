@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import static SxxMachine.TermData.Integer;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -34,29 +36,55 @@ import java.util.regex.Pattern;
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends FFIPredicate {
 
-	final static IntegerTerm int_0 = Integer(0);
-	final static IntegerTerm int_1 = Integer(1);
-	final static IntegerTerm int_2 = Integer(2);
-	final static IntegerTerm int_3 = Integer(3);
-	final static IntegerTerm int_4 = Integer(4);
-	final static IntegerTerm int_5 = Integer(6);
-	final static IntegerTerm int_6 = Integer(6);
-	final static IntegerTerm int_7 = Integer(7);
-	final static IntegerTerm int_8 = Integer(6);
-	final static IntegerTerm int_9 = Integer(6);
-	final static IntegerTerm int_10 = Integer(6);
-	final static IntegerTerm int_11 = Integer(11);
-	final static IntegerTerm int_12 = Integer(12);
-	final static IntegerTerm int_13 = Integer(13);
-	final static IntegerTerm int_14 = Integer(14);
-	final static IntegerTerm int_15 = Integer(15);
-	final static IntegerTerm int_16 = Integer(16);
-	final static IntegerTerm int_17 = Integer(17);
-	final static IntegerTerm int_18 = Integer(18);
-	final static IntegerTerm int_19 = Integer(19);
-	final static IntegerTerm int_20 = Integer(20);
-	final static IntegerTerm int_21 = Integer(21);
-
+	final public static IntegerTerm int_0 = Integer(0);
+	final public static IntegerTerm int_1 = Integer(1);
+	final public static IntegerTerm int_2 = Integer(2);
+	final public static IntegerTerm int_3 = Integer(3);
+	final public static IntegerTerm int_4 = Integer(4);
+	final public static IntegerTerm int_5 = Integer(6);
+	final public static IntegerTerm int_6 = Integer(6);
+	final public static IntegerTerm int_7 = Integer(7);
+	final public static IntegerTerm int_8 = Integer(8);
+	final public static IntegerTerm int_9 = Integer(9);
+	final public static IntegerTerm int_10 = Integer(10);
+	final public static IntegerTerm int_11 = Integer(11);
+	final public static IntegerTerm int_12 = Integer(12);
+	final public static IntegerTerm int_13 = Integer(13);
+	final public static IntegerTerm int_14 = Integer(14);
+	final public static IntegerTerm int_15 = Integer(15);
+	final public static IntegerTerm int_16 = Integer(16);
+	final public static IntegerTerm int_17 = Integer(17);
+	final public static IntegerTerm int_18 = Integer(18);
+	final public static IntegerTerm int_19 = Integer(19);
+	final public static IntegerTerm int_20 = Integer(20);
+	final public static IntegerTerm int_21 = Integer(21);
+    final public static IntegerTerm int_22 = Integer(22);
+    final public static IntegerTerm int_23 = Integer(23);
+    final public static IntegerTerm int_24 = Integer(24);
+    final public static IntegerTerm int_25 = Integer(25);
+	final public static IntegerTerm int_100 = Integer(100);
+	
+	final public static IntegerTerm int_neg1 = Integer(-1);
+	final public static IntegerTerm int_neg2 = Integer(-2);
+	final public static IntegerTerm int_neg3 = Integer(-3);
+	final public static IntegerTerm int_neg4 = Integer(-4);
+	final public static IntegerTerm int_neg5 = Integer(-6);
+	final public static IntegerTerm int_neg6 = Integer(-6);
+	final public static IntegerTerm int_neg7 = Integer(-7);
+	final public static IntegerTerm int_neg8 = Integer(-8);
+	final public static IntegerTerm int_neg9 = Integer(-9);
+	final public static IntegerTerm int_neg10 = Integer(-10);
+	final public static IntegerTerm int_neg11 = Integer(-11);
+	final public static IntegerTerm int_neg12 = Integer(-12);
+	final public static IntegerTerm int_neg13 = Integer(-13);
+	final public static IntegerTerm int_neg14 = Integer(-14);
+	final public static IntegerTerm int_neg15 = Integer(-15);
+	final public static IntegerTerm int_neg16 = Integer(-16);
+	final public static IntegerTerm int_neg17 = Integer(-17);
+	final public static IntegerTerm int_neg18 = Integer(-18);
+	final public static IntegerTerm int_neg19 = Integer(-19);
+	final public static IntegerTerm int_neg20 = Integer(-20);
+	final public static IntegerTerm int_neg21 = Integer(-21);
 	/**
 	 * <code>arg/3</code><br>
 	 *
@@ -579,7 +607,7 @@ public class bootpreds extends FFIPredicate {
 				}
 				trail.unwind(top);
 			}
-			return engine.trust(Failure.FAIL_0);
+			return engine.trust(Failure.fail_0);
 		}
 	}
 
@@ -625,7 +653,7 @@ public class bootpreds extends FFIPredicate {
 			}
 			trail.unwind(top);
 		}
-		return engine.trust(Failure.FAIL_0);
+		return engine.trust(Failure.fail_0);
 	}
 
 	// jlang.reflect.*;
