@@ -1,10 +1,30 @@
 package SxxMachine;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_hash_map_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_illarg_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_java_1_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$builtin_member_2_static_exec;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_$get_stream_manager_1_static_exec;
+import static SxxMachine.bootpreds.PRED_close_2_static_exec;
+import static SxxMachine.bootpreds.PRED_current_input_1_static_exec;
+import static SxxMachine.bootpreds.PRED_current_output_1_static_exec;
+import static SxxMachine.bootpreds.PRED_flush_output_1_static_exec;
+import static SxxMachine.bootpreds.PRED_get_2_static_exec;
+import static SxxMachine.bootpreds.PRED_get_byte_2_static_exec;
+import static SxxMachine.bootpreds.PRED_get_char_2_static_exec;
+import static SxxMachine.bootpreds.PRED_get_code_2_static_exec;
+import static SxxMachine.bootpreds.PRED_hash_get_3_static_exec;
+import static SxxMachine.bootpreds.PRED_open_4_static_exec;
+import static SxxMachine.bootpreds.PRED_peek_byte_2_static_exec;
+import static SxxMachine.bootpreds.PRED_peek_char_2_static_exec;
+import static SxxMachine.bootpreds.PRED_peek_code_2_static_exec;
+import static SxxMachine.bootpreds.PRED_put_byte_2_static_exec;
+import static SxxMachine.bootpreds.PRED_put_char_2_static_exec;
+import static SxxMachine.bootpreds.PRED_put_code_2_static_exec;
+import static SxxMachine.bootpreds.PRED_skip_2_static_exec;
+import static SxxMachine.bootpreds.PRED_tab_2_static_exec;
 
 public class FILE_io  extends TermData {
 	/** PREDICATE: open/3

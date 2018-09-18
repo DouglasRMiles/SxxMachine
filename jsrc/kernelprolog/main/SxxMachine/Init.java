@@ -2,16 +2,6 @@ package SxxMachine;
 
 import java.util.HashMap;
 
-
-import SxxMachine.Prolog;
-import SxxMachine.Term;
-import SxxMachine.Builtins;
-import SxxMachine.DataBase;
-import SxxMachine.IO;
-import SxxMachine.Clause;
-import SxxMachine.Expect;
-import SxxMachine.Prog;
-
 /**
   Initializes Prolog. Sets up shared data areas.
   Ensures that lib.class, obtained from lib.pro->lib.java is loaded.

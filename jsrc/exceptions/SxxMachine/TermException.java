@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 /**
  * User-defined exception.<br>
  *

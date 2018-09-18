@@ -1,19 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
-import SxxMachine.KPTrail;
-import SxxMachine.Clause;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Copier;
-import SxxMachine.Expect;
-import SxxMachine.Prog;
-import SxxMachine.Source;
-import SxxMachine.Undoable;
-import SxxMachine.Var;
-import SxxMachine.VarNumberer;
-
 /**
  * Top element of the Prolog term hierarchy. Describes a simple or compound ter
  * like: X,a,13,f(X,s(X)),[a,s(X),b,c], a:-b,c(X,X),d, etc.
@@ -380,9 +366,4 @@ public abstract class KPTerm extends TermData implements Undoable {
 		// TODO Auto-generated method stub
 		return (Source)this;
 	}
-  protected void toStringImpl(int printFlags, StringBuilder sb) {
-    // TODO Auto-generated method stub
-    
-  }
-
 }

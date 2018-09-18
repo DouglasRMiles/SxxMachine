@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Representation error.<br>
  * There will be a representation error when an implementation

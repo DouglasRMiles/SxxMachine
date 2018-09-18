@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Initial continuation goal.<br>
  * That is to say, this <code>Success</code> will be executed 

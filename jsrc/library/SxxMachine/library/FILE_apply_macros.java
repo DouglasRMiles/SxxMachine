@@ -1,13 +1,44 @@
 package SxxMachine.library;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$greater_or_equal_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$new_indexing_hash_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_callable_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_compound_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_current_prolog_flag_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_length_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_nonvar_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_sub_atom_5_static_exec;
+import static SxxMachine.FILE_swi_supp.PRED_append_3_static_exec;
+import static SxxMachine.FILE_swi_supp.PRED_strip_module_3_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_$univ_2_static_exec;
+import static SxxMachine.bootpreds.PRED_arg_3_static_exec;
+import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_$expand_closure_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_$skip_list_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_compile_aux_clauses_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_compound_name_arguments_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_compound_name_arity_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_f2_pos_6_static_exec;
+import static SxxMachine.sxxtensions.PRED_format_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_predicate_property_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_prolog_load_context_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_string_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_string_codes_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_type_error_2_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.FILE_builtins;
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_apply_macros  extends TermData {
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/9

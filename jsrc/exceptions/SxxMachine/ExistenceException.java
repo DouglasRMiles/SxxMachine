@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Existence error.<br>
  * There will be an existence error when the object

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Initial backtrak point.<br>
  *

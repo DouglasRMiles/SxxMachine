@@ -2,8 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
-import SxxMachine.Term;
-
 public class ObjectStack /* extends ArrayList */ {
 	public final void push(Term var) {
 		add(var);

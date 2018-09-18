@@ -1,6 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
 /**
  * Evaluation error.<br>
  * There will be an evaluation error when the operands

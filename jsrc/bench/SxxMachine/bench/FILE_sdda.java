@@ -1,12 +1,24 @@
 package SxxMachine.bench;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_length_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_name_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_write_1_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$univ_2_static_exec;
+import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_unify_3_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.FILE_builtins;
+import SxxMachine.IntegerTerm;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_sdda  extends TermData {
 	/** PREDICATE: top/0

@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.SystemObject;
-import SxxMachine.Term;
-
 /**
  * A Fluent is a Prolog Object which has its own state, subject to changes over
  * time.

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * The <code>BlockPredicate</code> class is used to implement
  * builtin-predicates. For example,

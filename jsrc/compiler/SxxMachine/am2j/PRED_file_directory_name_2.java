@@ -3,11 +3,11 @@ package SxxMachine.am2j;
 import java.io.File;
 
 import SxxMachine.IllegalDomainException;
-import SxxMachine.PInstantiationException;
-import SxxMachine.PrologException;
 import SxxMachine.Operation;
+import SxxMachine.PInstantiationException;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
+import SxxMachine.PrologException;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;

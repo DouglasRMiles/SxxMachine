@@ -1,11 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-import SxxMachine.Predicate;
-import SxxMachine.PrologControl;
-import SxxMachine.PrologMachineCopy;
-import SxxMachine.Term;
 /**
  * Prolog thread.<br>
  * The <code>BlockingPrologControl</code> class is an implementation of

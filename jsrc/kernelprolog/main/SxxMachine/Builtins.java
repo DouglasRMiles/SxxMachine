@@ -4,42 +4,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import SxxMachine.FFIObjectTerm;
-import SxxMachine.LongTerm;
-import SxxMachine.Nonvar;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Init;
-import SxxMachine.DataBase;
-import SxxMachine.HashDict;
-import SxxMachine.IntegerSource;
-import SxxMachine.*;
-import SxxMachine.ListSource;
-import SxxMachine.SourceLoop;
-import SxxMachine.SourceMerger;
-import SxxMachine.StringSink;
-import SxxMachine.TermCollector;
-import SxxMachine.CharReader;
-import SxxMachine.CharWriter;
-import SxxMachine.ClauseReader;
-import SxxMachine.ClauseWriter;
-import SxxMachine.IO;
-import SxxMachine.TermSource;
-import SxxMachine.Clause;
-import SxxMachine.Nonvar;
-import SxxMachine.ConstBuiltin;
-import SxxMachine.Expect;
-import SxxMachine.Fluent;
-import SxxMachine.FunBuiltin;
-import SxxMachine.Prog;
-import SxxMachine.Sink;
-import SxxMachine.Source;
-import SxxMachine.Unfolder;
-import SxxMachine.fail_;
-import SxxMachine.true_;
-
 /**
  * This class contains a dictionary of all builtins i.e. Java based classes
  * callable from Prolog. They should provide a constructor and an exec method.

@@ -4,12 +4,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Trail;
-import SxxMachine.Prog;
-import SxxMachine.Source;
-
 /**
   Builds  Fluents from Java
   Streams

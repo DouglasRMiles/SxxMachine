@@ -1,10 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Term;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Expect;
-import SxxMachine.Prog;
-
 /**
  * Writer
  */

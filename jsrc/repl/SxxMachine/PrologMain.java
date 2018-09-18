@@ -1,9 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
-
 import static SxxMachine.TermData.CONS;
 
 import java.io.BufferedReader;

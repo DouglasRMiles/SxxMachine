@@ -1,8 +1,4 @@
 package SxxMachine;
-import SxxMachine.NumberTerm;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.CharReader;
 
 public class Expect {
 

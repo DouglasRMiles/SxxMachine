@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayDeque;

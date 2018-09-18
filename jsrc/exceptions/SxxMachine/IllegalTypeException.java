@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Type error.<br>
  * There will be a type error when the type of an argument or 

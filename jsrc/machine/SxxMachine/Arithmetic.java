@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * The <code>Arithmetic</code> class contains a method
  * for evaluating arithmetic expressions.<br>

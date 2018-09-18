@@ -1,10 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Prog;
-import SxxMachine.Sink;
-
 /**
   Builds  Fluents from Java
   Streams

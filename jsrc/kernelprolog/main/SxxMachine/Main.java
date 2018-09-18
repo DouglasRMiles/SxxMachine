@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Builtins;
-
 /**
    Minimal command line only Prolog main entry point
 */

@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

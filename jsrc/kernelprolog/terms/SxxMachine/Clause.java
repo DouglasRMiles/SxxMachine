@@ -2,14 +2,6 @@ package SxxMachine;
 
 import java.util.Iterator;
 
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.KPTrail;
-import SxxMachine.HashDict;
-import SxxMachine.IO;
-import SxxMachine.Parser;
-
 //!depends
 /**
  * Datatype for a Prolog clause (H:-B) having a head H and a body b

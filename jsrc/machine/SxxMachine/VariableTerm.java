@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,9 +8,6 @@ import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import SxxMachine.KPTrail;
-import SxxMachine.Var;
 
 
 /**

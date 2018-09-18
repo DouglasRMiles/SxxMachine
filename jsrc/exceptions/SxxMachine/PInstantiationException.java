@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Instantiation error.<br>
  * There will be an instantiation error 

@@ -1,13 +1,38 @@
 package SxxMachine.library;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$equality_of_term_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$inequality_of_term_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$new_indexing_hash_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_assertz_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_call_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_callable_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_clause_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_compound_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_findall_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_length_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_var_1_static_exec;
+import static SxxMachine.FILE_swi_supp.PRED_append_3_static_exec;
+import static SxxMachine.FILE_swi_supp.PRED_maplist_4_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_$univ_2_static_exec;
+import static SxxMachine.bootpreds.PRED_arg_3_static_exec;
+import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_get_attr_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_predicate_property_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_put_attr_3_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.FILE_builtins;
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_prolog_metainference  extends TermData {
 	/** PREDICATE: inferred_meta_predicate/2

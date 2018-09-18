@@ -2,10 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
-import SxxMachine.Term;
-import SxxMachine.Prog;
-import SxxMachine.Source;
-
 /**
   An Infinite Source.
   If based on a finite Source, it moves to its the first element after reaching its last element.

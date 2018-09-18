@@ -2,17 +2,6 @@ package SxxMachine;
 
 import java.util.IdentityHashMap;
 
-import SxxMachine.IntegerTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Undoable;
-import SxxMachine.VariableTerm;
-
 public class sxxtensions extends TermData {
 	public static Operation PRED_string_1_static_exec(Prolog e) {
 		// TODO Auto-generated method stub

@@ -1,15 +1,11 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.LinkedList;
-
-import SxxMachine.CompileException;
 /**
  * The <code>Compiler</code> class provides methods for
  * translating Prolog programs into Java programs.

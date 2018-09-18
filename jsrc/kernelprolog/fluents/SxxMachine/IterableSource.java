@@ -3,10 +3,6 @@ package SxxMachine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.Term;
-import SxxMachine.Prog;
-import SxxMachine.Source;
-
 /**
   Builds Prolog Iterators from Java
   Sequences and Iterator type classes

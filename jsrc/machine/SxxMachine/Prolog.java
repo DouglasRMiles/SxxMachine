@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import static SxxMachine.TermData.CONS;
 
 import java.io.BufferedReader;
@@ -21,8 +19,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
-
-import SxxMachine.SymbolTerm;
 /**
  * Prolog engine.
  *

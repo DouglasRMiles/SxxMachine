@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 public class HaltException extends SystemException {
   private final int status;
   public HaltException(int status) {

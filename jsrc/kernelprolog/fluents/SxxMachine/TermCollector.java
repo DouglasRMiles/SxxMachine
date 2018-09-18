@@ -2,10 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
-import SxxMachine.Term;
-import SxxMachine.Prog;
-import SxxMachine.Sink;
-
 /**
   Builds  Fluents from Java
   Streams

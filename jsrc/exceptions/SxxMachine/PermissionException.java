@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Permission error.<br>
  * There will be a permission error when it is not permitted

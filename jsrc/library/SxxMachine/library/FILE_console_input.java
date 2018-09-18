@@ -1,12 +1,24 @@
 package SxxMachine.library;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_atom_codes_2_static_exec;
+import static SxxMachine.bootpreds.PRED_atom_concat_3_static_exec;
+import static SxxMachine.bootpreds.PRED_reverse_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_$atom_completions_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_code_type_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_expand_file_name_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_phrase_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_string_codes_2_static_exec;
+
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_console_input  extends TermData {
 	/** PREDICATE: (:)/2

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * A trail entry for out-of-loop flag.<br>
  * This <code>OutOfLoop</code> class is used in 

@@ -1,16 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.util.StringTokenizer;
-
-import SxxMachine.HaltException;
-import SxxMachine.ListTerm;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
 /**
  * Prolog Cafe launcher.
  * The <code>PrologMain</code> class launchs the Prolog Cafe system.<br>

@@ -1,15 +1,11 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.Comparator;
 import java.util.concurrent.ConcurrentHashMap;
-
-import SxxMachine.SymbolTerm;
 
 /**
  * Atom.<br>

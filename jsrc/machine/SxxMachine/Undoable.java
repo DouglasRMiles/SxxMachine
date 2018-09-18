@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Implementing this interface allows an object to be pushed to trail stack.<br>
  * @see Trail

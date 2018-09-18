@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.util.Arrays;
 //import java.util.function.BiConsumer;
 /**

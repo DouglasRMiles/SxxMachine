@@ -3,11 +3,6 @@ package SxxMachine;
 import java.io.IOException;
 import java.io.Writer;
 
-import SxxMachine.Term;
-import SxxMachine.Expect;
-import SxxMachine.Prog;
-import SxxMachine.Sink;
-
 /**
   Writer
 */

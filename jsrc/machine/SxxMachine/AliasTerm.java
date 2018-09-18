@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.util.Comparator;
 import java.util.IdentityHashMap;
 

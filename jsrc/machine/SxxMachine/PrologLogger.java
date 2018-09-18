@@ -1,9 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
-
 import static SxxMachine.TermData.Op;
 import static SxxMachine.TermData.VA;
 

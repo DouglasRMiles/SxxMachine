@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStream;
@@ -13,9 +10,6 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.PushbackReader;
 import java.util.Set;
-
-import SxxMachine.FILE_builtins;
-import SxxMachine.sxxtensions;
 
 
 /**

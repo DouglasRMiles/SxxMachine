@@ -1,8 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 public class FrozenData {
   private Term goals = Prolog.True;
   private Term attrs = Prolog.Nil;

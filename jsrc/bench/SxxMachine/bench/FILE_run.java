@@ -1,12 +1,38 @@
 package SxxMachine.bench;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$greater_than_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$new_indexing_hash_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_call_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_findall_3_static_exec;
+import static SxxMachine.FILE_builtins.PRED_retractall_1_static_exec;
+import static SxxMachine.FILE_builtins.PRED_statistics_2_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_arg_3_static_exec;
+import static SxxMachine.bootpreds.PRED_between_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_assert_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_erase_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_forall_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_format_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_garbage_collect_0_static_exec;
+import static SxxMachine.sxxtensions.PRED_phrase_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_style_check_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_time_1_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.DoubleTerm;
+import SxxMachine.FILE_builtins;
+import SxxMachine.IntegerTerm;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
+import SxxMachine.sxxtensions;
 
 public class FILE_run  extends TermData {
 	/** PREDICATE: run/1

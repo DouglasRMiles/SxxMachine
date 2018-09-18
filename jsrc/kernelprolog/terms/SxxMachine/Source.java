@@ -2,11 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
-import SxxMachine.Nonvar;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-
 abstract public class Source extends Fluent implements Undoable {
 
 	public Source(Prog p) {

@@ -3,9 +3,6 @@ package SxxMachine;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.Term;
-import SxxMachine.IO;
-
 /**
   Generic dynamic Queue with (amortized) O(1)
   enq/deq (add and remove) operations

@@ -1,13 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.util.Comparator;
-
-import SxxMachine.IllegalTypeException;
-import SxxMachine.KPTrail;
-import SxxMachine.Expect;
 
 public class LongTerm extends DoubleTerm {
   @Override

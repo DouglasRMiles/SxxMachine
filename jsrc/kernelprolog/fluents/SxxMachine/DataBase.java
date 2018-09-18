@@ -4,18 +4,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Init;
-import SxxMachine.IO;
-import SxxMachine.Parser;
-import SxxMachine.Clause;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Expect;
-import SxxMachine.Prog;
 /**
  * Implements a Term and Clause objects based blackboard (database).
  */

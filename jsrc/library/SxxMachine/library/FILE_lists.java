@@ -1,12 +1,27 @@
 package SxxMachine.library;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$equality_of_term_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$less_or_equal_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_length_2_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.bootpreds.PRED_sort_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_$skip_list_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_memberchk_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_must_be_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_pairs_keys_2_static_exec;
+import static SxxMachine.sxxtensions.PRED_sort_4_static_exec;
+import static SxxMachine.sxxtensions.PRED_succ_2_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_lists  extends TermData {
 	/** PREDICATE: member/2

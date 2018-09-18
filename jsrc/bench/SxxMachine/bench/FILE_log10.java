@@ -1,10 +1,14 @@
 package SxxMachine.bench;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import SxxMachine.Arithmetic;
+import SxxMachine.IntegerTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_log10  extends TermData {
 	/** PREDICATE: top/0

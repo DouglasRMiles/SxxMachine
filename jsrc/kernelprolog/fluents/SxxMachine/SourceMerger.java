@@ -1,11 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Term;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Copier;
-import SxxMachine.Prog;
-import SxxMachine.Source;
-
 /**
   Merges a List of Sources into a new Source which
   (fairly) iterates over them breadth first.

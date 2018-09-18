@@ -1,8 +1,6 @@
 package SxxMachine;
 
 import SxxMachine.SymbolTerm.Dynamic;
-import SxxMachine.*;
-import SxxMachine.Term;
 
 /**
  * Special constants, used to Name variables

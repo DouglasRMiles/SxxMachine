@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Superclass any single step operation in the Prolog interpreter.
  * <p>

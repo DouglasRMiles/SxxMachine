@@ -1,10 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.KPTrail;
-
 /**
   Basic toplevel Prolog Engine. Loads and executes Prolog
   programs and can be extended to spawn threads executing on new Prolog Engine

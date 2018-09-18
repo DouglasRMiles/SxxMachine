@@ -1,18 +1,12 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-import java.nio.charset.Charset;
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.logging.Level;
-
-import SxxMachine.sxxtensions; 
+import java.util.NoSuchElementException; 
 
 /**
  * The superclass of classes for term structures.

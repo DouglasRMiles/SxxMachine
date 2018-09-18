@@ -2,14 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import SxxMachine.Nonvar;
-import SxxMachine.StructureTerm;
-import SxxMachine.SystemObject;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.HashDict;
-import SxxMachine.IO;
 //!depends
 /**
  * Term Copier agent. Has its own Variable dictionnary. Uses a generic action

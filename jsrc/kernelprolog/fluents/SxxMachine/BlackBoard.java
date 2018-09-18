@@ -6,9 +6,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import SxxMachine.Term;
-import SxxMachine.IO;
-
 /**
 This class implementes generic multiple tuples by key
 operations for use by the PrologBlackBoard class implementing

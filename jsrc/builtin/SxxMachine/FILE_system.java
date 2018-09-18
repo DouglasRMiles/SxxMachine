@@ -1,10 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
+import static SxxMachine.Failure.fail_0;
 
 public class FILE_system  extends TermData {
 	/** PREDICATE: system_predicate/1

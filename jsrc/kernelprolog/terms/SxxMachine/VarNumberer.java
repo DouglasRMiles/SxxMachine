@@ -1,9 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.SystemObject;
-import SxxMachine.Term;
-import SxxMachine.HashDict;
-
 /**
   Used in implementing uniform replacement of
   variables with new constants. useful for printing

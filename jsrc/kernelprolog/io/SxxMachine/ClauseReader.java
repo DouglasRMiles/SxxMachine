@@ -3,12 +3,6 @@ package SxxMachine;
 import java.io.IOException;
 import java.io.Reader;
 
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.Term;
-import SxxMachine.Clause;
-import SxxMachine.Prog;
-
 /**
   Builds  Fluents from Java
   Streams

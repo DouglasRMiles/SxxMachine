@@ -31,52 +31,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import SxxMachine.Arithmetic;
-import SxxMachine.BlockPredicate;
-import SxxMachine.ClosureTerm;
-import SxxMachine.DoubleTerm;
-import SxxMachine.ErrorTerm;
-import SxxMachine.FFIObjectTerm;
-import SxxMachine.FFIPredicate;
-import SxxMachine.Failure;
-import SxxMachine.HashtableOfTerm;
-import SxxMachine.IntegerTerm;
-import SxxMachine.LineNumberPushbackReader;
-import SxxMachine.ListViewTerm;
-import SxxMachine.LongTerm;
-import SxxMachine.Mutex;
-import SxxMachine.NumberTerm;
-import SxxMachine.Operation;
-import SxxMachine.OutOfLoop;
-import SxxMachine.OutOfScope;
-import SxxMachine.PredTable;
-import SxxMachine.Predicate;
-import SxxMachine.Prolog;
-import SxxMachine.PrologLogger;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.Token;
-import SxxMachine.Trail;
-import SxxMachine.Undoable;
-import SxxMachine.VariableTerm;
-import SxxMachine.BuiltinException;
-import SxxMachine.EvaluationException;
-import SxxMachine.ExistenceException;
-import SxxMachine.IllegalDomainException;
-import SxxMachine.IllegalTypeException;
-import SxxMachine.InternalException;
-import SxxMachine.JavaException;
-import SxxMachine.JavaInterruptedException;
-import SxxMachine.PInstantiationException;
-import SxxMachine.PermissionException;
-import SxxMachine.RepresentationException;
-import SxxMachine.StopEngineException;
-import SxxMachine.SyntaxException;
-import SxxMachine.SystemException;
-import SxxMachine.TermException;
-
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends FFIPredicate {
 

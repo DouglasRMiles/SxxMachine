@@ -1,10 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
-import SxxMachine.Real;
-
 /**
  * The superclass of classes for integers and floating point numbers.
  *

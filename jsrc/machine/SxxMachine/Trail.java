@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 /**

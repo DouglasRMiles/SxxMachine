@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.util.IdentityHashMap;
 import java.util.LinkedList;
 /**

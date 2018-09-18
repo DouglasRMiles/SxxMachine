@@ -1,12 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
-
 import java.util.Comparator;
-
-import SxxMachine.KPTrail;
-import SxxMachine.Expect;
 
 /**
  * Integer.<br>

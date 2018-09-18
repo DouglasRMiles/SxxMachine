@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Syntax error.<br>
  * There will be a syntax error when a sequence of characters

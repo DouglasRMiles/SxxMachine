@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Domain error.<br>
  * There will be a domain error when the type of an argument

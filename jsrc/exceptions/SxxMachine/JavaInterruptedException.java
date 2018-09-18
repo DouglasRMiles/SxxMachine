@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 /**
  * Thown when '$print_stack_trace/1' receives an InterruptedException
  *

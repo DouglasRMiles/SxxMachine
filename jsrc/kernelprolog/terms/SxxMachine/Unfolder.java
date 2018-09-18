@@ -2,10 +2,6 @@ package SxxMachine;
 
 import java.util.Iterator;
 
-import SxxMachine.Term;
-import SxxMachine.Init;
-import SxxMachine.IO;
-
 //!depends
 
 /**

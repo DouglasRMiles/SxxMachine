@@ -1,19 +1,10 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.lang.reflect.Method;
 import java.util.Comparator;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import SxxMachine.sxxtensions;
-import SxxMachine.KPTrail;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Expect;
-import SxxMachine.*;
-import SxxMachine.Prog;
 /**
  * Compound term. <br>
  * The <code>StructureTerm</code> class represents a compound term but list.<br>

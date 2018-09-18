@@ -1,13 +1,28 @@
 package SxxMachine.bench;
 
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.FILE_cafeteria.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import SxxMachine.*;
-import SxxMachine.*;
+import static SxxMachine.FILE_builtins.PRED_$greater_or_equal_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$greater_than_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$less_than_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_$unify_2_static_exec;
+import static SxxMachine.FILE_builtins.PRED_write_1_static_exec;
+import static SxxMachine.FILE_cafeteria.PRED_nl_0_static_exec;
+import static SxxMachine.Failure.fail_0;
+import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_erase_1_static_exec;
+import static SxxMachine.sxxtensions.PRED_recorda_3_static_exec;
+import static SxxMachine.sxxtensions.PRED_recorded_3_static_exec;
+
+import SxxMachine.Arithmetic;
+import SxxMachine.FILE_builtins;
+import SxxMachine.IntegerTerm;
+import SxxMachine.ListTerm;
+import SxxMachine.Operation;
+import SxxMachine.PredTable;
+import SxxMachine.Prolog;
+import SxxMachine.StructureTerm;
+import SxxMachine.SymbolTerm;
+import SxxMachine.Term;
+import SxxMachine.TermData;
 
 public class FILE_nand  extends TermData {
 	/** PREDICATE: top/0

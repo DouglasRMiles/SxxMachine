@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.*;
-
 import java.util.IdentityHashMap;
 /**
  * A term to represent errors, extends {@link StructureTerm}, 
