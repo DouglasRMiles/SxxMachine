@@ -2,9 +2,9 @@ package SxxMachine.am2j;
 
 import java.io.File;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PrologException;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;

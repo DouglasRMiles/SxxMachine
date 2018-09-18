@@ -6,10 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaException;
+import SxxMachine.PrologException;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate.P2;

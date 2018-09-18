@@ -28,13 +28,13 @@ import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.Undoable;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.InternalException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.InternalException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
 
 /**
  * <code>open/4</code><br>

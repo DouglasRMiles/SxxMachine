@@ -14,12 +14,12 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.SystemException;
-import SxxMachine.exceptions.TermException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.SystemException;
+import SxxMachine.TermException;
 /**
  * <code>close/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 /**
  * The <code>Arithmetic</code> class contains a method

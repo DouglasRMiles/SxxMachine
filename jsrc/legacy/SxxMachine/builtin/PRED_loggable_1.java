@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PrologException;
 import SxxMachine.Operation;
 import SxxMachine.Predicate.P1;
 import SxxMachine.Prolog;

@@ -14,11 +14,11 @@ import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.Token;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
 /**
  * <code>'$read_token0'/3</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

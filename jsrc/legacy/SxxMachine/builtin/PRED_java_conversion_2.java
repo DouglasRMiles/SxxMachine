@@ -14,8 +14,8 @@ import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.EvaluationException;
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.EvaluationException;
+import SxxMachine.IllegalTypeException;
 /**
  * <code>java_conversion/2</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

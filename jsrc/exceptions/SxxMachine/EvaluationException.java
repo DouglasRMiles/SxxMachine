@@ -1,4 +1,4 @@
-package SxxMachine.exceptions;
+package SxxMachine;
 
 import SxxMachine.*;
 /**

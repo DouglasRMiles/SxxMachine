@@ -2,8 +2,8 @@ package SxxMachine.builtin;
 
 import java.util.concurrent.locks.Lock;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PrologException;
 import SxxMachine.FFIObjectTerm;
 import SxxMachine.Mutex;
 import SxxMachine.Operation;

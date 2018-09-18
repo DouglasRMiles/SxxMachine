@@ -9,12 +9,12 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
-import SxxMachine.exceptions.RepresentationException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
+import SxxMachine.RepresentationException;
 /**
    <code>put_char/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

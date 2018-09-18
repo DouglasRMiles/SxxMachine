@@ -10,10 +10,10 @@ import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.RepresentationException;
-import SxxMachine.exceptions.SyntaxException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.RepresentationException;
+import SxxMachine.SyntaxException;
 /**
  * <code>number_codes/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

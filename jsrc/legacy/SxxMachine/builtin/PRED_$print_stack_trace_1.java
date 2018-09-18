@@ -6,9 +6,9 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaInterruptedException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaInterruptedException;
+import SxxMachine.PInstantiationException;
 /**
  * <code>'$print_stack_trace'/1</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

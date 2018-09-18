@@ -1,7 +1,7 @@
 package SxxMachine.builtin;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PrologException;
 import SxxMachine.NumberTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;

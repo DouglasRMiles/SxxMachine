@@ -2,7 +2,7 @@ package SxxMachine;
 
 import java.lang.reflect.Field;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 public class TermData {
 

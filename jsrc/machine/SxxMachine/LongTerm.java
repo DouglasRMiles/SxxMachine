@@ -1,11 +1,11 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 
 import java.util.Comparator;
 
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.IllegalTypeException;
 import prolog.KPTrail;
 import prolog.terms.Expect;
 

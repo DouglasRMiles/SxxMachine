@@ -5,8 +5,8 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.TermException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.TermException;
 /**
  * <code>raise_exception/1</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

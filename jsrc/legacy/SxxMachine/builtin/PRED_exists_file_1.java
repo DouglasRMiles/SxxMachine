@@ -8,9 +8,9 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PrologException;
 
 /** {@code exists_file(+File)} */
 public class PRED_exists_file_1 extends Predicate.P1 {

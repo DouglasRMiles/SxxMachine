@@ -9,9 +9,9 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
 /**
  * <code>java_set_field0/3</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

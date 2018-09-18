@@ -6,7 +6,7 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalDomainException;
+import SxxMachine.IllegalDomainException;
 /**
  * <code>current_output/1</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

@@ -13,9 +13,9 @@ import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
 /**
  * <code>functor/3</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

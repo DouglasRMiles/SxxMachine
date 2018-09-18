@@ -6,8 +6,8 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
 
 /**
  * <code>halt/1</code><br>

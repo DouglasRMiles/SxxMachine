@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 
 import prolog.terms.Real;

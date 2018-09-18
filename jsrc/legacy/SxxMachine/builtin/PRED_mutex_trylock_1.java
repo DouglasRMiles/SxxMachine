@@ -9,8 +9,8 @@ import SxxMachine.Predicate.P1;
 import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PrologException;
 /**
 
 <p>mutex_trylock(+MutexId)

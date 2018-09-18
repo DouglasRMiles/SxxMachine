@@ -5,8 +5,8 @@ import static SxxMachine.builtin.PRED_loggable_1.LEVELS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PrologException;
 import SxxMachine.Operation;
 import SxxMachine.Predicate.P2;
 import SxxMachine.Prolog;

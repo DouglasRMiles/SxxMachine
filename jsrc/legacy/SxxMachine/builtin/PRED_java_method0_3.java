@@ -11,10 +11,10 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
 /**
  * <code>java_method0/3</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

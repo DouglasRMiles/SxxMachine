@@ -1,7 +1,7 @@
 package prolog.terms;
 
 import SxxMachine.SymbolTerm.Dynamic;
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 import SxxMachine.Term;
 
 /**

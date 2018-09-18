@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

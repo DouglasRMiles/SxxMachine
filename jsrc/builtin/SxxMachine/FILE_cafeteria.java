@@ -22,7 +22,7 @@ import static SxxMachine.SymbolTerm.*;
 import static SxxMachine.TermData.*;
 import SxxMachine.*;
 import SxxMachine.builtin.*;
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 import SxxMachine.builtin.bootpreds.*;
 import SxxMachine.builtin.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.builtin.bootpreds.PRED_$begin_sync_2;

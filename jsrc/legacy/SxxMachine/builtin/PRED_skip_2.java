@@ -13,13 +13,13 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.BuiltinException;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
-import SxxMachine.exceptions.RepresentationException;
-import SxxMachine.exceptions.TermException;
+import SxxMachine.BuiltinException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
+import SxxMachine.RepresentationException;
+import SxxMachine.TermException;
 /**
    <code>skip/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

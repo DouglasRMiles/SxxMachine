@@ -1,11 +1,11 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 
 import java.util.StringTokenizer;
 
-import SxxMachine.exceptions.HaltException;
+import SxxMachine.HaltException;
 import SxxMachine.ListTerm;
 import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;

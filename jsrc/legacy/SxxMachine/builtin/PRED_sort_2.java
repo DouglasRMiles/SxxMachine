@@ -9,9 +9,9 @@ import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
 /**
  * <code>sort/2</code><br>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

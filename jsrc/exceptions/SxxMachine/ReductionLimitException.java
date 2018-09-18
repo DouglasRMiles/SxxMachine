@@ -1,4 +1,4 @@
-package SxxMachine.exceptions;
+package SxxMachine;
 
 /**
  * Thrown if a goal exceeds the configured reduction limit.

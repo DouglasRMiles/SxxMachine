@@ -6,8 +6,8 @@ import SxxMachine.OutOfScope;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.SystemException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.SystemException;
 /**
  * <code>'$end_sync'/1</code>
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

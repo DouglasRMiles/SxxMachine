@@ -8,10 +8,10 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
-import SxxMachine.exceptions.PrologException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
+import SxxMachine.PrologException;
 
 /** {@code make_directory(+Dir)} */
 public class PRED_make_directory_1 extends Predicate.P1 {

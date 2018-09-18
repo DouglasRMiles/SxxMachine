@@ -9,9 +9,9 @@ import SxxMachine.Prolog;
 import SxxMachine.PrologLogger;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.StopEngineException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.StopEngineException;
 
 /**
  * <code>'$begin_sync'/2</code>

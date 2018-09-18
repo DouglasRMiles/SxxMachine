@@ -5,7 +5,7 @@ import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.IllegalTypeException;
 /**
  <code>'$cut'/1</code><br>
  @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

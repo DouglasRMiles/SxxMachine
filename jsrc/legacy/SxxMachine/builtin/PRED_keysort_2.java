@@ -2,10 +2,10 @@ package SxxMachine.builtin;
 
 import java.util.Arrays;
 
-import SxxMachine.exceptions.BuiltinException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.BuiltinException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.JavaException;
+import SxxMachine.PInstantiationException;
 import SxxMachine.ListTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;

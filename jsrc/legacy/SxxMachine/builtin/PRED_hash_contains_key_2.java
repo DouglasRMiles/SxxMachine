@@ -8,10 +8,10 @@ import SxxMachine.Prolog;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.InternalException;
-import SxxMachine.exceptions.PInstantiationException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.InternalException;
+import SxxMachine.PInstantiationException;
 /**
    <code>hash_contains_key/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

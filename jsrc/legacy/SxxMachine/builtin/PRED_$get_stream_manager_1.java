@@ -6,7 +6,7 @@ import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalTypeException;
+import SxxMachine.IllegalTypeException;
 /**
    <code>'$get_stream_manager'/1</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

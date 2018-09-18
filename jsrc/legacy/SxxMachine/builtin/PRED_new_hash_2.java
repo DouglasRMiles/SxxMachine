@@ -10,10 +10,10 @@ import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
 /**
    <code>new_hash/2</code><br>
    @author Mutsunori Banbara (banbara@kobe-u.ac.jp)

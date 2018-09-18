@@ -61,21 +61,21 @@ import SxxMachine.Token;
 import SxxMachine.Trail;
 import SxxMachine.Undoable;
 import SxxMachine.VariableTerm;
-import SxxMachine.exceptions.BuiltinException;
-import SxxMachine.exceptions.EvaluationException;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalDomainException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.InternalException;
-import SxxMachine.exceptions.JavaException;
-import SxxMachine.exceptions.JavaInterruptedException;
-import SxxMachine.exceptions.PInstantiationException;
-import SxxMachine.exceptions.PermissionException;
-import SxxMachine.exceptions.RepresentationException;
-import SxxMachine.exceptions.StopEngineException;
-import SxxMachine.exceptions.SyntaxException;
-import SxxMachine.exceptions.SystemException;
-import SxxMachine.exceptions.TermException;
+import SxxMachine.BuiltinException;
+import SxxMachine.EvaluationException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalDomainException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.InternalException;
+import SxxMachine.JavaException;
+import SxxMachine.JavaInterruptedException;
+import SxxMachine.PInstantiationException;
+import SxxMachine.PermissionException;
+import SxxMachine.RepresentationException;
+import SxxMachine.StopEngineException;
+import SxxMachine.SyntaxException;
+import SxxMachine.SystemException;
+import SxxMachine.TermException;
 
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends FFIPredicate {

@@ -7,9 +7,9 @@ import SxxMachine.Prolog;
 import SxxMachine.StructureTerm;
 import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
-import SxxMachine.exceptions.ExistenceException;
-import SxxMachine.exceptions.IllegalTypeException;
-import SxxMachine.exceptions.SystemException;
+import SxxMachine.ExistenceException;
+import SxxMachine.IllegalTypeException;
+import SxxMachine.SystemException;
 
 /**
  * <code>'$call'/2</code><br>

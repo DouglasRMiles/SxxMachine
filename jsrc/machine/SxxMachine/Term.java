@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.exceptions.*;
+import SxxMachine.*;
 
 import java.nio.charset.Charset;
 import java.util.ArrayDeque;
