@@ -16,17 +16,7 @@ import java.util.List;
 public class ListViewTerm extends ListTerm {
 	// the class is necessary to make ListTerm.isImmutable() to return false
 
-	@Override
-	public String pprint() {
-		return super.toQuotedString();
-	}
-
-	@Override
-	public boolean isImmutable() {
-		return false;
-	}
-
-	private final static Term NOT_IMMUTABLE = new SystemObject() {
+	private static final class MutableMarkerForLists extends SystemObject {
 		@Override
 		public int type() {
 			return TYPE_LIST;
@@ -64,7 +54,19 @@ public class ListViewTerm extends ListTerm {
 		public boolean equalsTerm(Term obj, Comparator comparator) {
 			return this == obj;
 		}
-	};
+	}
+
+	@Override
+	public String pprint() {
+		return super.toQuotedString();
+	}
+
+	@Override
+	public boolean isImmutable() {
+		return false;
+	}
+
+	private final static Term NOT_IMMUTABLE = new MutableMarkerForLists();
 
 	/** the list of terms */
 	private final List<Term> list;

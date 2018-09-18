@@ -36,9 +36,9 @@ public class Expect {
 		return (CharReader) i.toValue();
 	}
 
-	public static Real asNum(Term i) {
+	public static NumberTerm asNum(Term i) {
 		// TODO Auto-generated method stub
-		return (Real) i.asNumberTerm();
+		return i.asNumberTerm();
 	}
 
 	public final static Nonvar the(Term X) {

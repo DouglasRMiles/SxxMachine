@@ -16,6 +16,11 @@ public class LongTerm extends DoubleTerm {
   }
 
   @Override
+	public boolean isFloat() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+  @Override
   public boolean isDouble() {
     return false;
   }

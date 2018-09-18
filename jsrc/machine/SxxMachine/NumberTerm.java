@@ -12,8 +12,37 @@ import SxxMachine.Real;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public abstract class NumberTerm extends Real {
+public abstract class NumberTerm extends Nonvar {	
 	
+	@Override
+	public NumberTerm toClone()  {
+		return this;
+	}
+	@Override
+	public int termHashCodeImpl() {
+		return Double.hashCode(value);
+	}
+
+	abstract public boolean isFloat();
+	
+	public double value;
+
+	abstract public String name() ;
+
+	public boolean bind(Term that, KPTrail trail) {
+		return super.bind(that, trail) && value == (((NumberTerm) that).value);
+	}
+
+	abstract public int arityOrType();
+
+	public double doubleValue() {
+		return value;//.doubleValue();
+	}
+
+	@Override
+	public String pprint() {
+		return toAtomName();
+	}
   @Override
   public NumberTerm functor() {
     return this;
@@ -41,7 +70,7 @@ public abstract class NumberTerm extends Real {
     @Override
     abstract public long longValue();
     /** Returns the numeric value represented by this object after conversion to type <code>double</code>. */
-    abstract public double doubleValue();
+    //abstract public double doubleValue();
     /** 
      * Compares two <code>NumberTerm</code> objects numerically.
      * @param t the <code>NumberTerm</code> to compare with.

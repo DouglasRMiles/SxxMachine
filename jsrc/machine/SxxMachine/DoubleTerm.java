@@ -124,8 +124,8 @@ public class DoubleTerm extends NumberTerm {
     @Override
     public long longValue() { return (long)this.value; }
 
-    @Override
-    public double doubleValue() { return this.value; }
+    //@Override
+    //public double doubleValue() { return this.value; }
 
     @Override
     public int arithCompareTo(NumberTerm t) {
@@ -319,4 +319,9 @@ public class DoubleTerm extends NumberTerm {
        }
       return TermData.Long(round);
     }
+
+	@Override
+	public boolean isFloat() {
+		return true;
+	}
  }
