@@ -304,7 +304,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 
 	/** Returns a Prolog atom for the given name. */
 	public static SymbolTerm create(String _name) {
-		return new Dynamic(_name, 0);
+		return new Dynamic(_name.intern(), 0);
 	}
 
 	/** Returns a Prolog atom for the given name. */

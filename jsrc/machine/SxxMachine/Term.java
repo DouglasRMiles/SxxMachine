@@ -2,6 +2,7 @@ package SxxMachine;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.Map;
 import java.util.Iterator;
@@ -46,7 +47,7 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
     public static final int COPY_NO_ATTRS = 2;
     public static final int COPY_SAVE_ATTRS_COPY = 4;
     
-    public static final OpVisitor StrictEquals = null;
+    public static final OpVisitor StrictEquals = new OpVisitor();
     public static final OpVisitor Unifiable = null;
     public static final OpVisitor Subsumes = null;
     
@@ -57,13 +58,13 @@ public abstract class Term extends KPTerm implements Comparable<Term> {
     }
       int loopContainsTerm = 0;
 
-    final public int containsTerm(Term variableTerm, OpVisitor comparison) {
+    final public int containsTerm(Term variableTerm, OpVisitor equalsidentical) {
         if (loopContainsTerm > 0) {
           return loopContainsTerm;
         }
         try {
           loopContainsTerm++;
-          return containsTermImpl(variableTerm, comparison);
+          return containsTermImpl(variableTerm, equalsidentical);
         } finally {
           loopContainsTerm--;
         }

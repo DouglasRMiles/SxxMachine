@@ -11,7 +11,7 @@ import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
 import SxxMachine.TermData;
 
-public class FILE_system  extends TermData {
+public class FILE_system_protect  extends TermData {
 	/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl/1
 	from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	*/
@@ -24,7 +24,7 @@ public class FILE_system  extends TermData {
 		Operation cont = m.cont;
 		m.cont = cont;
 		m.setB0();
-		m.jtry1(null, FILE_system::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1);
+		m.jtry1(null, FILE_system_protect::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_sub_1);
 		return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_1(m);
 	}
 
@@ -142,10 +142,10 @@ public class FILE_system  extends TermData {
 	static public void loadPreds() {
 		PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl",
 				"$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl", 1,
-				FILE_system::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec);
-		PredTable.registerBuiltin("system_mode", 1, FILE_system::PRED_system_mode_1_static_exec);
-		PredTable.registerBuiltin("system_module", 0, FILE_system::PRED_system_module_0_static_exec);
-		PredTable.registerBuiltin("lock_predicate", 1, FILE_system::PRED_lock_predicate_1_static_exec);
-		PredTable.registerBuiltin("unlock_predicate", 1, FILE_system::PRED_unlock_predicate_1_static_exec);
+				FILE_system_protect::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec);
+		PredTable.registerBuiltin("system_mode", 1, FILE_system_protect::PRED_system_mode_1_static_exec);
+		PredTable.registerBuiltin("system_module", 0, FILE_system_protect::PRED_system_module_0_static_exec);
+		PredTable.registerBuiltin("lock_predicate", 1, FILE_system_protect::PRED_lock_predicate_1_static_exec);
+		PredTable.registerBuiltin("unlock_predicate", 1, FILE_system_protect::PRED_unlock_predicate_1_static_exec);
 	}
 }

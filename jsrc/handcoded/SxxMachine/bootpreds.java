@@ -2163,7 +2163,7 @@ public class bootpreds extends FFIPredicate {
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		a2 = a2.dref();
 		a3 = a3.dref();
-		((Term) hash).asHashtableOfTerm().put(a2, a3);
+		((HashtableOfTerm) hash).put(a2, a3);
 		return cont;
 	}
 

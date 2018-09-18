@@ -28,11 +28,9 @@ public class VariableTerm extends Var implements Undoable {
   
   @Override
   public Var toClone() {
-    // TODO Auto-generated method stub
-    return null;
+    return this;
   }
   
-  private static final Comparator equalsIdentical = null;
   public boolean unifyInt(int i, Trail trail) {
      return unify(TermData.Integer(i), trail);
   }
@@ -124,7 +122,7 @@ public class VariableTerm extends Var implements Undoable {
   }
 
 
-  public int containsTermImpl(Term variableTerm, Comparator comparison) {
+  public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
     if(isCyclic>0) return isCyclic;
     if (variableTerm == val) { 
       return 1;
@@ -144,7 +142,7 @@ public class VariableTerm extends Var implements Undoable {
       return;
     }
     if (!value.isAtomicValue()) {
-      isCyclic = value.containsTerm(this, equalsIdentical);
+      isCyclic = value.containsTerm(this, Term.StrictEquals);
       if(isCyclic>0) {
         Prolog.Break("cyclic " + variableName());
       }
