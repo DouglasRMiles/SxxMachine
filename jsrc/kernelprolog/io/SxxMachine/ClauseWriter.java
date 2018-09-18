@@ -1,7 +1,7 @@
 package SxxMachine;
 
 import SxxMachine.Term;
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 import SxxMachine.Expect;
 import SxxMachine.Prog;
 
@@ -22,7 +22,7 @@ public class ClauseWriter extends CharWriter {
 			return 0;
 		String s = null;
 		if ((t.isStructure()) && "$string".equals(Expect.asStruct(t).name())) {
-			Const Xs = Expect.asConst(Expect.asStruct(t).ArgDeRef(0));
+			SymbolTerm Xs = Expect.asConst(Expect.asStruct(t).ArgDeRef(0));
 			s = Term.charsToString(Xs);
 		} else {
 			s = t.pprint();

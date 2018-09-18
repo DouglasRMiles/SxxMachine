@@ -26,7 +26,7 @@ public class VarNumberer extends SystemObject {
 		place = place.dref();
 		// IO.trace(">>action: "+place);
 		if (place.isVar()) {
-			Const root = (Const) dict.get(place);
+			SymbolTerm root = (SymbolTerm) dict.get(place);
 			if (null == root) {
 				root = new PseudoVar(ctr++);
 				root.name = root.name + place.name();

@@ -5,7 +5,7 @@ import SxxMachine.*;
 
 import SxxMachine.KPTrail;
 import SxxMachine.Clause;
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 import SxxMachine.Copier;
 import SxxMachine.Expect;
 import SxxMachine.Prog;
@@ -79,7 +79,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	// public abstract boolean eq(Term that);
 
-	public Term token() {
+	public Term carTokenOrSelf() {
 		return (Term) this;
 	}
 
@@ -358,9 +358,9 @@ public abstract class KPTerm extends TermData implements Undoable {
 
 	abstract public boolean equalsTerm(Term aneof) ;
 
-	final public Const asConst() {
+	final public SymbolTerm asConst() {
 		// TODO Auto-generated method stub
-		return (Const)this;
+		return (SymbolTerm)this;
 	}
 
 	public Var toVar() {

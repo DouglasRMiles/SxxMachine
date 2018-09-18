@@ -6,9 +6,9 @@ import SxxMachine.CharReader;
 
 public class Expect {
 
-	public static Const asConst(Term i) {
+	public static SymbolTerm asConst(Term i) {
 		// TODO Auto-generated method stub
-		return (Const) i.asConst();
+		return (SymbolTerm) i.asConst();
 	}
 
 	public static LongTerm asInt(Term i) {
@@ -39,6 +39,10 @@ public class Expect {
 	public static Real asNum(Term i) {
 		// TODO Auto-generated method stub
 		return (Real) i.asNumberTerm();
+	}
+
+	public final static Nonvar the(Term X) {
+		return (null == X) ? Prolog.aNo : StructureTerm.S("the", X);
 	}
 
 }

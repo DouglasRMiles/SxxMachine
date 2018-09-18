@@ -16,7 +16,7 @@ import SxxMachine.VariableTerm;
 import SxxMachine.Builtins;
 import SxxMachine.HashDict;
 import SxxMachine.Clause;
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 import SxxMachine.Expect;
 import SxxMachine.Var;
 
@@ -256,7 +256,7 @@ class LexerHIDE extends StreamTokenizer {
 }
 
 class varToken extends StructureTerm {
-	public varToken(Var X, Const C, LongTerm I) {
+	public varToken(Var X, SymbolTerm C, LongTerm I) {
 		super("varToken", 3);
 		argz = new Term[] { X, C, I };
 	}
@@ -280,7 +280,7 @@ class realToken extends StructureTerm {
 }
 
 class constToken extends StructureTerm {
-	private constToken(Const c) {
+	private constToken(SymbolTerm c) {
 		super("constToken", c);
 		setArg(0, Builtins.toConstBuiltin(c));
 	}
@@ -512,7 +512,7 @@ public class Parser extends LexerHIDE {
 	}
 
 	protected final Term getTerm(Term n) throws IOException {
-		Term t = n.token();
+		Term t = n.carTokenOrSelf();
 		if (n.isFunctor("stringToken")) {
 			t = ((Nonvar) ((stringToken) n).ArgDeRef(0)).toChars();
 			// IO.mes("getTerm:stringToken-->"+t);

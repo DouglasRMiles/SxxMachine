@@ -31,6 +31,6 @@ public class TermCollector extends Sink {
 	}
 
 	public Term collect() {
-		return new JavaSource(buffer, p);
+		return new IterableSource(buffer, p);
 	}
 }

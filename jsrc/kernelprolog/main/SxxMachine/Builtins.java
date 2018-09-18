@@ -15,7 +15,7 @@ import SxxMachine.Init;
 import SxxMachine.DataBase;
 import SxxMachine.HashDict;
 import SxxMachine.IntegerSource;
-import SxxMachine.JavaSource;
+import SxxMachine.*;
 import SxxMachine.ListSource;
 import SxxMachine.SourceLoop;
 import SxxMachine.SourceMerger;
@@ -28,7 +28,7 @@ import SxxMachine.ClauseWriter;
 import SxxMachine.IO;
 import SxxMachine.TermSource;
 import SxxMachine.Clause;
-import SxxMachine.Const;
+import SxxMachine.Nonvar;
 import SxxMachine.ConstBuiltin;
 import SxxMachine.Expect;
 import SxxMachine.Fluent;
@@ -47,6 +47,16 @@ import SxxMachine.true_;
  * @author Paul Tarau
  */
 public class Builtins extends HashDict {
+
+//	static  class STermUnused implements ISTerm {
+//		Term[] argz;
+//
+//		STermUnused(ExecProg ep, Term[] args) {
+//			exp = ep;
+//			argz = args;
+//		}
+//
+//	}
 
 	private static final Map builtinsMap = new HashMap();
 
@@ -175,19 +185,19 @@ public class Builtins extends HashDict {
 	/**
 	 * Creates a new builtin
 	 */
-	public Const asBuiltin(Const S) {
+	public Nonvar asBuiltin(NameArity S) {
 		String key = S.getKey();
 		Method b = (Method) this.get(key);
 		if (b != null) {
 			b.setAccessible(true);
 			S.setMethod(b);
 		}
-		return S;
+		return (Nonvar) S;
 	}
 
-	public static Const toConstBuiltin(Const c) {
+	public static Nonvar toConstBuiltin(NameArity c) {
 		if (c.name().length() == 0)
-			return c;
+			return (Nonvar) c;
 		if (c.name().equals(Prolog.Nil.name()))
 			return Prolog.Nil;
 		if (c.name().equals(Prolog.aNo.name()))
@@ -195,10 +205,10 @@ public class Builtins extends HashDict {
 		if (c.name().equals(Prolog.aYes.name()))
 			return Prolog.aYes;
 
-		Const B = (Const) Init.builtinDict.asBuiltin(c);
+		Nonvar B = (Nonvar) Init.builtinDict.asBuiltin(c);
 		if (null == B) {
 			// IO.mes("not a builtin:"+this);
-			return c;
+			return (Nonvar) c;
 		}
 		return B;
 	}
@@ -599,7 +609,7 @@ final class db_source extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
-		Source S = new JavaSource(db.toEnumeration(), p);
+		Source S = new IterableSource(db.toEnumeration(), p);
 		return thiz.unifyArg(1, S, p);
 	}
 }
@@ -635,7 +645,7 @@ final class pred_to_string extends FunBuiltin {
 		String listing = Init.default_db.pred_to_string(key);
 		if (null == listing)
 			return 0;
-		Const R = TermData.F(listing);
+		Nonvar R = TermData.F(listing);
 		return thiz.unifyArg(1, R, p);
 	}
 }
@@ -722,7 +732,7 @@ final class chars_to_name extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		int convert = thiz.getIntArg(0);
-		String s = Const.charsToString((Nonvar) thiz.ArgDeRef(1));
+		String s = Nonvar.charsToString((Nonvar) thiz.ArgDeRef(1));
 		Nonvar T = TermData.F(s);
 		if (convert > 0) {
 			try {
@@ -860,7 +870,7 @@ final class list_source extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		Source E = new ListSource((Const) thiz.ArgDeRef(0), p);
+		Source E = new ListSource((Nonvar) thiz.ArgDeRef(0), p);
 		return thiz.unifyArg(1, E, p);
 	}
 }
@@ -985,8 +995,8 @@ final class getfl extends FunBuiltin {
 		//IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
 		Term t = thiz.ArgDeRef(0);
 		Source S = t.asSource();
-		Term A = Const.the(S.getElement());
-		//if(null==A) A=Const.aNo;
+		Term A = Expect.the(S.getElement());
+		//if(null==A) A=Nonvar.aNo;
 		//else A=new Fun("the",A);
 		// IO.mes(">>"+A+"\n"+p+p.getTrail().pprint());
 		return thiz.unifyArg(1, A, p);
@@ -1057,7 +1067,7 @@ final class merge_sources extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		Const list = (Const) thiz.ArgDeRef(0);
+		Nonvar list = (Nonvar) thiz.ArgDeRef(0);
 		return thiz.unifyArg(1, new SourceMerger(list, p), p);
 	}
 }
@@ -1181,7 +1191,7 @@ final class set_persistent extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		Fluent F = (Fluent) thiz.ArgDeRef(0);
-		Const R = (Const) thiz.ArgDeRef(1);
+		Nonvar R = (Nonvar) thiz.ArgDeRef(1);
 		boolean yesno = !R.equalsTerm(Prolog.aNo);
 		F.setPersistent(yesno);
 		return 1;

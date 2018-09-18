@@ -11,20 +11,20 @@ import SxxMachine.Source;
   Builds Prolog Iterators from Java
   Sequences and Iterator type classes
 */
-public class JavaSource extends Source {
+public class IterableSource extends Source {
 	private Iterator e;
 
-	public JavaSource(Prog p) {
+	public IterableSource(Prog p) {
 		super(p);
 		e = null;
 	}
 
-	public JavaSource(Iterator iterator, Prog p) {
+	public IterableSource(Iterator iterator, Prog p) {
 		super(p);
 		this.e = iterator;
 	}
 
-	public JavaSource(ArrayList V, Prog p) {
+	public IterableSource(ArrayList V, Prog p) {
 		super(p);
 		this.e = V.iterator();
 	}

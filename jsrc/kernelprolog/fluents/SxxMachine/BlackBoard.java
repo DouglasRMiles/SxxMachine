@@ -12,11 +12,11 @@ import SxxMachine.IO;
 /**
 This class implementes generic multiple tuples by key
 operations for use by the PrologBlackBoard class implementing
-Linda operations on Prolog terms. It uses the Queue class for
+Linda operations on Prolog terms. It uses the O1Queue class for
 keeping elements of type Term sharing the same key.
 
 @see PrologBlackBoard
-@see Queue
+@see O1Queue
 @see Term
 */
 public class BlackBoard extends HashDict {
@@ -50,7 +50,7 @@ public class BlackBoard extends HashDict {
 			k = (String) e.next();
 			// IO.trace("$$Got key:"+k+this);
 		}
-		Queue Q = (Queue) get(k);
+		O1Queue Q = (O1Queue) get(k);
 		if (Q == null)
 			return null;
 		Term T = (Term) Q.deq();
@@ -103,13 +103,13 @@ public class BlackBoard extends HashDict {
 	*/
 	// synchronized
 	protected final void add(String k, Term value) {
-		Queue Q = (Queue) get(k);
+		O1Queue Q = (O1Queue) get(k);
 		if (Q == null) {
-			Q = new Queue();
+			Q = new O1Queue();
 			put(k, Q);
 		}
 		if (!Q.enq(value))
-			IO.errmes("Queue full, key:" + k);
+			IO.errmes("O1Queue full, key:" + k);
 		// IO.trace("$$Added key/Ref:"+k+"/"+value+"=>"+this);
 	}
 
@@ -118,7 +118,7 @@ public class BlackBoard extends HashDict {
 	*/
 	// synchronized
 	public Iterator toEnumerationFor(String k) {
-		Queue Q = (Queue) get(k);
+		O1Queue Q = (O1Queue) get(k);
 		ArrayList V = (Q == null) ? new ArrayList() : Q.toVector();
 		return V.iterator();
 	}
@@ -148,7 +148,7 @@ class BBoardEnumerator implements Iterator {
 	// synchronized
 	public boolean hasNext() {
 		if ((EQ == null || !EQ.hasNext()) && EH.hasNext()) {
-			EQ = ((Queue) EH.next()).toEnumeration();
+			EQ = ((O1Queue) EH.next()).toEnumeration();
 		}
 		return (EQ != null && EQ.hasNext());
 	}

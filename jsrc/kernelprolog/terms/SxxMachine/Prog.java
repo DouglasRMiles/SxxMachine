@@ -15,7 +15,7 @@ public class Prog extends Source implements Runnable {
 	// CONSTRUCTORS
 	
 	@Override
-	public Term toClone() {
+	public Prog toClone() {
 		return new Prog( trail, orStack, parent);
 	}
 

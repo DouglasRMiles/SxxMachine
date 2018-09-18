@@ -13,7 +13,7 @@ import SxxMachine.Init;
 import SxxMachine.IO;
 import SxxMachine.Parser;
 import SxxMachine.Clause;
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 import SxxMachine.Expect;
 import SxxMachine.Prog;
 /**
@@ -25,9 +25,9 @@ public class DataBase extends BlackBoard {
 		super(map);
 	}
 
-	private static Const yes = Prolog.aYes;
+	private static SymbolTerm yes = Prolog.aYes;
 
-	private static Const no = Prolog.aNo;
+	private static SymbolTerm no = Prolog.aNo;
 
 	/**
 	 * Removes a matching Term from the blackboards and signals failure if no such
@@ -65,7 +65,7 @@ public class DataBase extends BlackBoard {
 	private void all0(int max, ArrayList To, String k, Term FXs) {
 		if (0 == max)
 			max = -1;
-		Queue Q = (Queue) get(k);
+		O1Queue Q = (O1Queue) get(k);
 		if (Q == null)
 			return;
 		// todo: use always the same "server's" trail
@@ -115,9 +115,9 @@ public class DataBase extends BlackBoard {
 	}
 
 	/**
-	 * Gives an Iterator view to the Queue of Term or Clause objects stored at key k
+	 * Gives an Iterator view to the O1Queue of Term or Clause objects stored at key k
 	 * 
-	 * @see Queue
+	 * @see O1Queue
 	 * @see Term
 	 * @see Clause
 	 */
@@ -144,7 +144,7 @@ public class DataBase extends BlackBoard {
 	}
 
 	public String pred_to_string(String key) {
-		Queue Q = (Queue) get(key);
+		O1Queue Q = (O1Queue) get(key);
 		if (null == Q)
 			return null;
 		Iterator e = Q.toEnumeration();

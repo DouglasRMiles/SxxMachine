@@ -1,7 +1,7 @@
 package SxxMachine;
 
 import SxxMachine.Term;
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 import SxxMachine.Copier;
 import SxxMachine.Prog;
 import SxxMachine.Source;
@@ -10,14 +10,14 @@ import SxxMachine.Source;
   Merges a List of Sources into a new Source which
   (fairly) iterates over them breadth first.
 */
-public class SourceMerger extends JavaSource {
+public class SourceMerger extends IterableSource {
 
-	public SourceMerger(Const Xs, Prog p) {
+	public SourceMerger(Nonvar Xs, Prog p) {
 		super(p);
-		this.Q = new Queue(Copier.ConsToVector(Xs));
+		this.Q = new O1Queue(Copier.ConsToVector(Xs));
 	}
 
-	private Queue Q;
+	private O1Queue Q;
 
 	public Term getElement() {
 		if (null == Q)

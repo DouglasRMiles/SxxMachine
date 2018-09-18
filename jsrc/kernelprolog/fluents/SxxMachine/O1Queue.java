@@ -7,10 +7,10 @@ import SxxMachine.Term;
 import SxxMachine.IO;
 
 /**
-  Generic dynamic Queeue with (amortized) O(1)
+  Generic dynamic Queue with (amortized) O(1)
   enq/deq (add and remove) operations
 */
-public class Queue {
+public class O1Queue {
 	final static int MIN_QUEUE = 4;
 
 	final static int MAX_QUEUE = 1 << 24;
@@ -21,15 +21,15 @@ public class Queue {
 
 	private Object queue[];
 
-	public Queue(int size) {
+	public O1Queue(int size) {
 		makeIt(size);
 	}
 
-	public Queue() {
+	public O1Queue() {
 		this(0);
 	}
 
-	public Queue(ArrayList V) {
+	public O1Queue(ArrayList V) {
 		this(V.size() + MIN_QUEUE);
 		for (int i = 0; i < V.size(); i++) {
 			enq(V.get(i));
@@ -145,13 +145,13 @@ public class Queue {
 		return count() + "/" + queue.length + "=>" + toVector().toString();
 	}
 
-	synchronized public Queue toClone() {
-		Queue R = null;
+	synchronized public O1Queue toClone() {
+		O1Queue R = null;
 		try {
 			Term.soopsy();
-			R = (Queue) super.clone();
+			R = (O1Queue) super.clone();
 		} catch (CloneNotSupportedException e) {
-			IO.errmes("Queue:toClone() " + e);
+			IO.errmes("O1Queue:toClone() " + e);
 		}
 		return R;
 	}
@@ -159,11 +159,11 @@ public class Queue {
 }
 
 class QueueIterator {
-	QueueIterator(Queue Q) {		
+	QueueIterator(O1Queue Q) {		
 		this.Q = Q.toClone();
 	}
 
-	private Queue Q;
+	private O1Queue Q;
 
 	Object getNext() {
 		return Q.deq();

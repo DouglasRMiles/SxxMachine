@@ -90,7 +90,7 @@ public class Copier extends SystemObject {
 	 * being the elements of the Iterator.
 	 */
 
-	static Term toFun(Const c, Iterator e) {
+	static Term toFun(SymbolTerm c, Iterator e) {
 		ArrayList V = EnumerationToVector(e);
 		int arity = V.size(); 
 		if (arity == 0)
@@ -107,7 +107,7 @@ public class Copier extends SystemObject {
 	 */
 
 	static StructureTerm VectorToFun(ArrayList V) {
-		Const f = (Const) V.get(0);
+		SymbolTerm f = (SymbolTerm) V.get(0);
 		int arity = V.size() - 1;
 		StructureTerm T = StructureTerm.S(f.name(), arity);
 		for (int i = 0; i < arity; i++) {
@@ -120,7 +120,7 @@ public class Copier extends SystemObject {
 	 * Extracts the free variables of a Term, using a care of recursing over its
 	 * structure. It can be speeded up through specialization.
 	 */
-	final static Const anAnswer = TermData.SYM("answer");
+	final static SymbolTerm anAnswer = TermData.SYM("answer");
 
 	public Term getMyVars(Term that) {
 		/* Term */that.reaction(this);

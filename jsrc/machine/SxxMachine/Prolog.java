@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
-import SxxMachine.Const;
+import SxxMachine.SymbolTerm;
 /**
  * Prolog engine.
  *
@@ -171,9 +171,9 @@ public final class Prolog {
 	public ListTerm lastPendingGoal;
 	public Term assumptions;
   public Operation pred;
-  public final static Const anEof = TermData.F("end_of_file");
-  public final static Const aNo = TermData.F("no");
-  public final static Const aYes = TermData.F("yes");
+  public final static SymbolTerm anEof = TermData.F("end_of_file");
+  public final static SymbolTerm aNo = TermData.F("no");
+  public final static SymbolTerm aYes = TermData.F("yes");
   public final static NameArity aFail = TermData.F("fail");//new fail_();
 
   /** A functor <code>'.' /2</code>. */
