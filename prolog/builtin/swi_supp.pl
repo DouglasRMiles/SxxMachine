@@ -147,7 +147,7 @@ printAll(G):- call(G),writeq(G),nl,fail.
 printAll(_).
 
 
-random(X):- X is random.
+random(X):- X is random(0).
 
 go(1):- freeze(X,integer(X)),X=1.
 go(2):- freeze(X,integer(X)), X \= 1.0.

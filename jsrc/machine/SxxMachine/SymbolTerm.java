@@ -11,8 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * The <code>SymbolTerm</code> class represents a Prolog atom.<br>
  *
  * <pre>
- *   Term t = SymbolTerm.makeSymbol("kobe");
- *   String name = t.asSymbolTerm().name();
+ * Term t = SymbolTerm.makeSymbol("kobe");
+ * String name = t.asSymbolTerm().name();
  * </pre>
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
@@ -43,7 +43,6 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	public boolean isConst() {
 		return true;
 	}
-
 
 	@Override
 	public boolean isNil() {
@@ -83,15 +82,17 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		return this;
 	}
 
+	@Override
 	public String pprint() {
 		return qname();
 	}
 
+	@Override
 	public boolean bind(Term that, KPTrail trail) {
 		if (!super.bind(that, trail))
 			return false;
 		if (name != null) {
-			//name = name.intern();
+			// name = name.intern();
 			String thatn = Expect.asConst(that).name();
 			if (thatn == name)
 				return true;
@@ -101,6 +102,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		return thizf == thatf;
 	}
 
+	@Override
 	public String getKey() {
 		return name() + "/" + arityOrType();
 	}
@@ -110,6 +112,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	 * 
 	 * @see Term#CONST
 	 */
+	@Override
 	public int arityOrType() {
 		return Term.CONST;
 	}
@@ -120,6 +123,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	 * with no builtin code attached to it
 	 */
 
+	@Override
 	public String toUnquoted() {
 		return name();
 	}
@@ -151,6 +155,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 
 	private Method st_exec;
 
+	@Override
 	public void setMethod(Method b) {
 		st_exec = b;
 	}
@@ -167,6 +172,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 
 	/** Symbol table. */
 	private static final ConcurrentHashMap<Key, InternRef> SYMBOL_TABLE = new ConcurrentHashMap<Key, InternRef>();
+
 	private static final ReferenceQueue<Interned> DEAD = new ReferenceQueue<Interned>();
 
 	private static final class Key {
@@ -236,6 +242,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 			super(name, arity, start, finish);
 		}
 
+		@Override
 		public String toString() {
 			int arity = arity();
 			return "/*P" + start + ":" + finish + "*/" + name() + "/" + arity;
@@ -249,7 +256,8 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 				SymbolTerm that = obj.asSymbolTerm();
 				int thisLength = this.finish - this.start;
 				int thatLength = that.finish - that.start;
-				return this.arity == that.arity && (thisLength == thatLength) && this.name.regionMatches(this.start, that.name, that.start, thisLength);
+				return this.arity == that.arity && (thisLength == thatLength)
+						&& this.name.regionMatches(this.start, that.name, that.start, thisLength);
 			}
 			return false;
 		}
@@ -265,7 +273,8 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		public int termHashCodeImpl() {
 			int h = this.hash;
 			if (h == 0 && this.finish - this.start > 0) {
-				h = this.name.substring(this.start, this.finish).hashCode(); // use the same hashCode function as in SymbolTerm
+				h = this.name.substring(this.start, this.finish).hashCode(); // use the same hashCode function as in
+																				// SymbolTerm
 				this.hash = h;
 			}
 			return h;
@@ -378,8 +387,10 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		return new Dynamic(_name, _arity);
 	}
 
-	/** Holds a string representation of this <code>SymbolTerm</code>.
-	 *  The string can be shared (partially) with other <code>SymbolTerm</code> instances */
+	/**
+	 * Holds a string representation of this <code>SymbolTerm</code>. The string can
+	 * be shared (partially) with other <code>SymbolTerm</code> instances
+	 */
 	// protected final String name;
 	protected final String quoted;
 	/** Holds the arity of this <code>SymbolTerm</code>. */
@@ -389,26 +400,32 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	/** Holds end Index in name */
 	protected final int finish;
 
-	/** Constructs a new Prolog atom (or functor) with the given symbol name and arity. */
+	/**
+	 * Constructs a new Prolog atom (or functor) with the given symbol name and
+	 * arity.
+	 */
 	protected SymbolTerm(String _name, int _arity) {
-	
-			if (_name != null && _name != "." && _name != ":-") {
-				String is = _name.intern();
-				if (is != _name) {
-					throw new RuntimeException("const got uninterned string");
-				}
+
+		if (_name != null && _name != "." && _name != ":-") {
+			String is = _name.intern();
+			if (is != _name) {
+				throw new RuntimeException("const got uninterned string");
 			}
-			name = _name;
-		
+		}
+		name = _name;
+
 		quoted = Token.toQuotedString(name());
 		this.arity = _arity;
 		this.start = 0;
 		this.finish = this.name.length();
 	}
 
-	/** Constructs a new Prolog atom (or functor) with the given symbol name, arity and start/finish. */
+	/**
+	 * Constructs a new Prolog atom (or functor) with the given symbol name, arity
+	 * and start/finish.
+	 */
 	protected SymbolTerm(String _name, int _arity, int start, int finish) {
-//		super(_name);
+		// super(_name);
 		name = _name;
 		quoted = Token.toQuotedString(name());
 		this.arity = _arity;
@@ -416,7 +433,9 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		this.finish = finish;
 	}
 
-	/** Returns the arity of this <code>SymbolTerm</code>.
+	/**
+	 * Returns the arity of this <code>SymbolTerm</code>.
+	 * 
 	 * @return the value of <code>arity</code>.
 	 * @see #arity
 	 */
@@ -425,7 +444,9 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		return this.arity;
 	}
 
-	/** Returns the string representation of this <code>SymbolTerm</code>.
+	/**
+	 * Returns the string representation of this <code>SymbolTerm</code>.
+	 * 
 	 * @return the value of <code>name</code>.
 	 * @see #name
 	 */
@@ -447,8 +468,10 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	}
 
 	/**
-	 * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
-	 * but name of new instance is a substring of this name starting from given beginIndex.
+	 * Creates and return new {@link SymbolTerm} instance that shares the name
+	 * string with this instance, but name of new instance is a substring of this
+	 * name starting from given beginIndex.
+	 * 
 	 * @param beginIndex
 	 * @return
 	 */
@@ -464,8 +487,10 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	}
 
 	/**
-	 * Creates and return new {@link SymbolTerm} instance that shares the name string with this instance,
-	 * but name of new instance is a substring of this name starting from given beginIndex and ending before endIndex.
+	 * Creates and return new {@link SymbolTerm} instance that shares the name
+	 * string with this instance, but name of new instance is a substring of this
+	 * name starting from given beginIndex and ending before endIndex.
+	 * 
 	 * @param beginIndex
 	 * @param endIndex
 	 * @return
@@ -481,7 +506,8 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		if (subLen < 0) {
 			throw new StringIndexOutOfBoundsException(subLen);
 		}
-		return ((beginIndex == 0) && (endIndex == this.finish - this.start)) ? this : new Partial(this.name, this.arity, this.start + beginIndex, this.start + endIndex);
+		return ((beginIndex == 0) && (endIndex == this.finish - this.start)) ? this
+				: new Partial(this.name, this.arity, this.start + beginIndex, this.start + endIndex);
 	}
 
 	public SymbolTerm concat(SymbolTerm that) {
@@ -493,8 +519,10 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 
 	/**
 	 * Returns the name length
+	 * 
 	 * @return
 	 */
+	@Override
 	public int length() {
 		return this.finish - this.start;
 	}
@@ -504,7 +532,10 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	@Override
 	public boolean unifyImpl(Term t, Trail trail) {
 		t = t.dref(); // fast dereference
-		return (t.isVar()) ? t.bind(this, trail) : ((t instanceof Partial) ? t.unify(this, trail) : ((t.isSymbol()) && (this.arity == (t.asSymbolTerm()).arity) && this.name.equals(t.asSymbolTerm().name)));
+		return (t.isVar()) ? t.bind(this, trail)
+				: ((t instanceof Partial) ? t.unify(this, trail)
+						: ((t.isSymbol()) && (this.arity == (t.asSymbolTerm()).arity)
+								&& this.name.equals(t.asSymbolTerm().name)));
 	}
 
 	@Override
@@ -514,22 +545,24 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 
 	@Override
 	public boolean equalsTerm(Term obj, OpVisitor comparator) {
-		return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator) : ((obj.isSymbol()) && (this.arity == obj.asSymbolTerm().arity) && this.name.equals(obj.asSymbolTerm().name));
+		return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator)
+				: ((obj.isSymbol()) && (this.arity == obj.asSymbolTerm().arity)
+						&& this.name.equals(obj.asSymbolTerm().name));
 	}
 
-	//    private static boolean eq(SymbolTerm a, Term b0) {
-	//      if (a == b0) {
-	//        return true;
-	//      } else if (b0 .isSymbol() && (a instanceof Dynamic || b0 instanceof Dynamic)) {
-	//        SymbolTerm b = (SymbolTerm) b0;
-	//        return a.arity == b.arity && a.name.equals(b.name);
-	//      } else {
-	//        return false;
-	//      }
-	//    }
+	// private static boolean eq(SymbolTerm a, Term b0) {
+	// if (a == b0) {
+	//      return true;
+    //      } else if (b0 instanceof SymbolTerm && (a instanceof Dynamic || b0 instanceof Dynamic)) {
+	// SymbolTerm b = (SymbolTerm) b0;
+	// return a.arity == b.arity && a.name.equals(b.name);
+	// } else {
+	// return false;
+	// }
+	// }
 	/**
 	 * @return the <code>boolean</code> whose value is
-	 * <code>convertible(String.class, type)</code>.
+	 *         <code>convertible(String.class, type)</code>.
 	 * @see Term#convertible(Class, Class)
 	 */
 	@Override
@@ -538,10 +571,12 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	}
 
 	/**
-	 * Returns a <code>java.lang.String</code> corresponds to this <code>SymbolTerm</code>
-	 * according to <em>Prolog Cafe interoperability with Java</em>.
-	 * @return a <code>java.lang.String</code> object equivalent to
-	 * this <code>SymbolTerm</code>.
+	 * Returns a <code>java.lang.String</code> corresponds to this
+	 * <code>SymbolTerm</code> according to <em>Prolog Cafe interoperability with
+	 * Java</em>.
+	 * 
+	 * @return a <code>java.lang.String</code> object equivalent to this
+	 *         <code>SymbolTerm</code>.
 	 */
 	@Override
 	public Object toJava() {
@@ -568,10 +603,13 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 	 * Compares two terms in <em>Prolog standard order of terms</em>.<br>
 	 * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
 	 * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-	 * @param anotherTerm the term to compared with. It must be dereferenced.
-	 * @return the value <code>0</code> if two terms are identical;
-	 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
-	 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
+	 * 
+	 * @param anotherTerm
+	 *            the term to compared with. It must be dereferenced.
+	 * @return the value <code>0</code> if two terms are identical; a value less
+	 *         than <code>0</code> if this term is <em>before</em> the
+	 *         <code>anotherTerm</code>; and a value greater than <code>0</code> if
+	 *         this term is <em>after</em> the <code>anotherTerm</code>.
 	 */
 	@Override
 	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
@@ -585,9 +623,9 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		if (x != 0)
 			return x;
 		int y = this.arity - anotherTerm.asSymbolTerm().arity();
-		//	if (y != 0)
+		// if (y != 0)
 		return y;
-		//		throw new InternalException("SymbolTerm is not unique");
+		// throw new InternalException("SymbolTerm is not unique");
 	}
 
 	@Override
@@ -600,7 +638,7 @@ public abstract class SymbolTerm extends Nonvar implements NameArity, ISTerm {
 		if (Prolog.Nil == this)
 			return true;
 		if (this.name().equals("[]")) {
-			//throw
+			// throw
 		}
 		return false;
 	}

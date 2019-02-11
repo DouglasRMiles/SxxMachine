@@ -3,9 +3,9 @@ package SxxMachine;
 import java.util.HashMap;
 
 /**
-  Initializes Prolog. Sets up shared data areas.
-  Ensures that lib.class, obtained from lib.pro->lib.java is loaded.
-*/
+ * Initializes Prolog. Sets up shared data areas. Ensures that lib.class,
+ * obtained from lib.pro->lib.java is loaded.
+ */
 public class Init {
 	public static final int version = 101;
 
@@ -32,15 +32,15 @@ public class Init {
 	}
 
 	/**
-	* reads a query from input strea
-	*/
+	 * reads a query from input strea
+	 */
 	static Clause getGoal() {
 		return getGoal(IO.promptln("?- "));
 	}
 
 	/**
-	* evalutes a query
-	*/
+	 * evalutes a query
+	 */
 	public static void evalGoal(Clause Goal) {
 		Clause NamedGoal = Goal.cnumbervars(false);
 		Term Names = NamedGoal.getHead();
@@ -62,7 +62,7 @@ public class Init {
 				break;
 			}
 			if (Names.isStructure()) {
-				Term NamedR =  R.numbervars();
+				Term NamedR = R.numbervars();
 				for (int j = 0; j < Names.arityOrType(); j++) {
 					IO.println(Expect.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));
 				}
@@ -90,8 +90,8 @@ public class Init {
 	}
 
 	/**
-	*  evaluates and times a Goal querying program P
-	*/
+	 * evaluates and times a Goal querying program P
+	 */
 
 	public static void timeGoal(Clause Goal) {
 		long t1 = System.currentTimeMillis();
@@ -105,9 +105,9 @@ public class Init {
 	}
 
 	/**
-	*  (almost) standard Prolog-like toplevel in Java
-	*  (will) print out variables and values
-	*/
+	 * (almost) standard Prolog-like toplevel in Java (will) print out variables and
+	 * values
+	 */
 	public static void standardTop() {
 		standardTop("?- ");
 	}
@@ -124,30 +124,27 @@ public class Init {
 	}
 
 	/**
-	 Asks Prolog a query Answer, Goal and returns the
-	 first solution of the form "the(Answer)" or the constant
-	 "no" if no solution exists
-	*/
+	 * Asks Prolog a query Answer, Goal and returns the first solution of the form
+	 * "the(Answer)" or the constant "no" if no solution exists
+	 */
 	public static Term askProlog(Term Answer, Term Body) {
 		return Prog.firstSolution(Answer, Body);
 	}
 
 	/**
-	Asks Prolog a query Goal and returns the
-	first solution of the form "the(Answer)" , where
-	Answer is an instance of Goal or the constant
-	"no" if no solution exists
-	*/
+	 * Asks Prolog a query Goal and returns the first solution of the form
+	 * "the(Answer)" , where Answer is an instance of Goal or the constant "no" if
+	 * no solution exists
+	 */
 	public static Term askProlog(Term Goal) {
 		return askProlog(Goal, Goal);
 	}
 
 	/**
-	Asks Prolog a String query and gets back a string Answer
-	of the form "the('[]'(VarsOfQuery))" containing a binding
-	of the variables or the first solution to the query or "no"
-	if no such solution exists
-	*/
+	 * Asks Prolog a String query and gets back a string Answer of the form
+	 * "the('[]'(VarsOfQuery))" containing a binding of the variables or the first
+	 * solution to the query or "no" if no such solution exists
+	 */
 	public static String askProlog(String query) {
 		Clause Goal = getGoal(query);
 		Term Body = Goal.getBody();
@@ -169,13 +166,13 @@ public class Init {
 	}
 
 	/**
-	 Initialises key data areas. Runs a first query, which,
-	 if suceeeds a true, otherwise false is returned
-	*/
+	 * Initialises key data areas. Runs a first query, which, if suceeeds a true,
+	 * otherwise false is returned
+	 */
 	public static final boolean startProlog() {
 		// should be final for expiration mechanism (it should avoid overriding!)
 		IO.println(getInfo());
-		default_db = new DataBase( new HashMap());
+		default_db = new DataBase(new HashMap());
 		return true;
 	}
 

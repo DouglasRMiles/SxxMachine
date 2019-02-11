@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_queens_8 extends bootpreds {
+public class FILE_queens_8 extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(top/0,public)
 
@@ -56,7 +56,7 @@ m.cont = cont;
         cont = m.cont;
     // top:-[queens(8,A),fail]
         return //
- Op((e)->PRED_queens_2_static_exec(e), VA( int_8 , V(m)), fail_0);
+ Op(FILE_queens_8::PRED_queens_2_static_exec, VA( int_8 , m.DONTCARE("execute(queens(@(int_8),void,#(execute(fail(cont)))))")), fail_0);
     }
 
     private final static Operation top_0_2(Prolog m) { 
@@ -67,7 +67,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: queens/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(queens/2,public)
 
@@ -83,13 +83,13 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // queens(A,B):-[range(1,A,C),queens(C,[],B)]
-        a3 = V(m);
+        a3 = m.mkvar1();
         return //
- Op((e)->PRED_range_3_static_exec(e), VA( int_1 , a1, a3), //
- Op((e)->PRED_queens_3_static_exec(e), VA(a3,  Prolog.Nil , a2), cont));
+ Op(FILE_queens_8::PRED_range_3_static_exec, VA( int_1 , a1, a3), //
+ Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a3,  Prolog.Nil , a2), cont));
     }
 /** PREDICATE: queens/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(queens/3,public)
 
@@ -139,16 +139,16 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // queens(A,B,C):-[select(A,D,E),not_attack(B,E),queens(D,[E|B],C)]
-        a4 = V(m);
-        a5 = V(m);
+        a4 = m.mkvar1();
+        a5 = m.mkvar1();
         a6 = CONS(a5, a2);
         return //
- Op((e)->PRED_select_3_static_exec(e), VA(a1, a4, a5), //
- Op((e)->PRED_not_attack_2_static_exec(e), VA(a2, a5), //
- Op((e)->PRED_queens_3_static_exec(e), VA(a4, a6, a3), cont)));
+ Op(FILE_queens_8::PRED_select_3_static_exec, VA(a1, a4, a5), //
+ Op(FILE_queens_8::PRED_not_attack_2_static_exec, VA(a2, a5), //
+ Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a4, a6, a3), cont)));
     }
 /** PREDICATE: not_attack/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(not_attack/2,public)
 
@@ -164,10 +164,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
         a2 = LARG[1];
     // not_attack(A,B):-[not_attack(A,B,1)]
         return //
- Op((e)->PRED_not_attack_3_static_exec(e), VA(a1, a2,  int_1 ), cont);
+ Op(FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2,  int_1 ), cont);
     }
 /** PREDICATE: not_attack/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(not_attack/3,public)
         final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
@@ -225,17 +225,16 @@ m.cont = cont;
     // not_attack([A|B],C,D):-[E is A+D,'$arith_not_equal'(C,E),F is A-D,'$arith_not_equal'(C,F),G is D+1,not_attack(B,C,G)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
-        a6 = V(m);
+        a6 = m.mkvar1();
     // put_str_args([a(4),a(3)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(7))
         a7 =  S( FUNCTOR_$002B_2 , a4, a3);
  ;
@@ -249,7 +248,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
     // put_str_args([a(4),a(3)],y(2)),put_str(@('FUNCTOR_$002D_2'),y(2),a(9))
         a9 =  S( FUNCTOR_$002D_2 , a4, a3);
  ;
@@ -263,7 +262,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a10 = V(m);
+        a10 = m.mkvar1();
     // put_str_args([a(3),@(int_1)],y(3)),put_str(@('FUNCTOR_$002B_2'),y(3),a(11))
         a11 =  S( FUNCTOR_$002B_2 , a3,  int_1 );
  ;
@@ -279,7 +278,7 @@ m.cont = cont;
         return not_attack_3_top(m);
     }
 /** PREDICATE: select/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(select/3,public)
 
@@ -318,12 +317,11 @@ m.cont = cont;
     // select([A|B],B,A):-[]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
@@ -346,24 +344,22 @@ m.cont = cont;
     // select([A|B],[A|C],D):-[select(B,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            if (! a4.unify(argz[0], m.trail))
+                        if (! a4.unify(a2.car(), m.trail))
                 return m.fail();
-            a6 = argz[1];
+            a6 = a2.cdr();
         } else if (a2.isVar()){
-            a6 = V(m);
+            a6 = m.mkvar2();
              a2.bind(CONS(a4, a6), m.trail);
         } else {
             return m.fail();
@@ -375,7 +371,7 @@ m.cont = cont;
         return select_3_top(m);
     }
 /** PREDICATE: range/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/queens_8.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(range/3,public)
 
@@ -412,10 +408,9 @@ m.cont = cont;
             return m.fail();
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a1.unify(argz[0], m.trail))
+                        if (! a1.unify(a3.car(), m.trail))
                 return m.fail();
-            if (!  Prolog.Nil .unify(argz[1], m.trail))
+            if (!  Prolog.Nil .unify(a3.cdr(), m.trail))
                 return m.fail();
         } else if (a3.isVar()){
              a3.bind(CONS(a1,  Prolog.Nil ), m.trail);
@@ -439,12 +434,11 @@ m.cont = cont;
     // range(A,B,[A|C]):-['$less_than'(A,B),D is A+1,range(D,B,C)]
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a1.unify(argz[0], m.trail))
+                        if (! a1.unify(a3.car(), m.trail))
                 return m.fail();
-            a4 = argz[1];
+            a4 = a3.cdr();
         } else if (a3.isVar()){
-            a4 = V(m);
+            a4 = m.mkvar2();
              a3.bind(CONS(a1, a4), m.trail);
         } else {
             return m.fail();
@@ -454,7 +448,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(6))
         a6 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;

@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_serialise extends bootpreds {
+public class FILE_serialise extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
         m.setB0();
     // top:-[serialise]
         return //
- Op((e)->PRED_serialise_0_static_exec(e), VA(), cont);
+ Op(FILE_serialise::PRED_serialise_0_static_exec, VA(), cont);
     }
 /** PREDICATE: serialise/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(serialise/0,public)
         final static IntegerTerm int_65 = Integer(65);
@@ -92,10 +92,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
         m.setB0();
     // serialise:-[serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)]
         return //
- Op((e)->PRED_serialise_2_static_exec(e), VA(L_serialise_0_s35, V(m)), cont);
+ Op(FILE_serialise::PRED_serialise_2_static_exec, VA(L_serialise_0_s35, m.DONTCARE("execute(serialise(s(35),void,cont))")), cont);
     }
 /** PREDICATE: serialise/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(serialise/2,public)
 
@@ -111,15 +111,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // serialise(A,B):-[pairlists(A,B,C),arrange(C,D),numbered(D,1,E)]
-        a3 = V(m);
-        a4 = V(m);
+        a3 = m.mkvar1();
+        a4 = m.mkvar1();
         return //
- Op((e)->PRED_pairlists_3_static_exec(e), VA(a1, a2, a3), //
- Op((e)->PRED_arrange_2_static_exec(e), VA(a3, a4), //
- Op((e)->PRED_numbered_3_static_exec(e), VA(a4,  int_1 , V(m)), cont)));
+ Op(FILE_serialise::PRED_pairlists_3_static_exec, VA(a1, a2, a3), //
+ Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a3, a4), //
+ Op(FILE_serialise::PRED_numbered_3_static_exec, VA(a4,  int_1 , m.DONTCARE("execute(numbered(a(4),@(int_1),void,cont))")), cont)));
     }
 /** PREDICATE: pairlists/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(pairlists/3,public)
         final static SymbolTerm FUNCTOR_pair_2 = F("pair",2);
@@ -159,36 +159,33 @@ m.cont = cont;
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-[pairlists(B,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a6 = argz[0];
-            a7 = argz[1];
+                        a6 = a2.car();
+            a7 = a2.cdr();
         } else if (a2.isVar()){
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
              a2.bind(CONS(a6, a7), m.trail);
         } else {
             return m.fail();
         }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a8 = argz[0];
-            a9 = argz[1];
+                        a8 = a3.car();
+            a9 = a3.cdr();
         } else if (a3.isVar()){
-            a8 = V(m);
-            a9 = V(m);
+            a8 = m.mkvar2();
+            a9 = m.mkvar2();
              a3.bind(CONS(a8, a9), m.trail);
         } else {
             return m.fail();
@@ -222,7 +219,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: arrange/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(arrange/2,public)
         final static SymbolTerm FUNCTOR_tree_3 = F("tree",3);
@@ -259,28 +256,27 @@ m.cont = cont;
     // arrange([A|B],tree(C,A,D)):-[split(B,A,E,F),arrange(E,C),arrange(F,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
+                        a3 = a1.car();
+            a4 = a1.cdr();
         } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
              a1.bind(CONS(a3, a4), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a2.unify(C( FUNCTOR_tree_3 , a5, a3, a6), m.trail)){
                 return m.fail();
             }
-        a7 = V(m);
-        a8 = V(m);
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
         return //
- Op((e)->PRED_split_4_static_exec(e), VA(a4, a3, a7, a8), //
- Op((e)->PRED_arrange_2_static_exec(e), VA(a7, a5), //
- Op((e)->PRED_arrange_2_static_exec(e), VA(a8, a6), cont)));
+ Op(FILE_serialise::PRED_split_4_static_exec, VA(a4, a3, a7, a8), //
+ Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a7, a5), //
+ Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a8, a6), cont)));
     }
 
     private final static Operation arrange_2_2(Prolog m) { 
@@ -298,7 +294,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: split/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(split/4,public)
 
@@ -363,12 +359,11 @@ m.cont = cont;
     // split([A|B],A,C,D):-['$neck_cut',split(B,A,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
@@ -399,38 +394,36 @@ m.cont = cont;
     // split([A|B],C,[A|D],E):-['$get_level'(F),before(A,C),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a5.unify(argz[0], m.trail))
+                        if (! a5.unify(a3.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a3.cdr();
         } else if (a3.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a3.bind(CONS(a5, a7), m.trail);
         } else {
             return m.fail();
         }
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
         if (! a8.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_before_2_static_exec(e), VA(a5, a2), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a8), //
- Op((e)->PRED_split_4_static_exec(e), VA(a6, a2, a7, a4), cont)));
+ Op(FILE_serialise::PRED_before_2_static_exec, VA(a5, a2), //
+ Op(FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
+ Op(FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a7, a4), cont)));
     }
 
     private final static Operation split_4_3(Prolog m) { 
@@ -446,38 +439,36 @@ m.cont = cont;
     // split([A|B],C,D,[A|E]):-['$get_level'(F),before(C,A),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
         a4 = a4.dref();
         if (a4 .isCons()){
-            Term[] argz = VA(a4.car(), a4.cdr());
-            if (! a5.unify(argz[0], m.trail))
+                        if (! a5.unify(a4.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a4.cdr();
         } else if (a4.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a4.bind(CONS(a5, a7), m.trail);
         } else {
             return m.fail();
         }
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
         if (! a8.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_before_2_static_exec(e), VA(a2, a5), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a8), //
- Op((e)->PRED_split_4_static_exec(e), VA(a6, a2, a3, a7), cont)));
+ Op(FILE_serialise::PRED_before_2_static_exec, VA(a2, a5), //
+ Op(FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
+ Op(FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a3, a7), cont)));
     }
 
     private final static Operation split_4_4(Prolog m) { 
@@ -499,7 +490,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: before/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(before/2,public)
 
@@ -515,12 +506,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
         a2 = LARG[1];
     // before(pair(A,B),pair(C,D)):-['$less_than'(A,C)]
         a1 = a1.dref();
-            a3 = V(m);
+            a3 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_pair_2 , a3, V(m)), m.trail)){
                 return m.fail();
             }
         a2 = a2.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a2.unify(C( FUNCTOR_pair_2 , a4, V(m)), m.trail)){
                 return m.fail();
             }
@@ -532,7 +523,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
         return cont;
     }
 /** PREDICATE: numbered/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/serialise.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(numbered/3,public)
         final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
@@ -572,24 +563,24 @@ m.cont = cont;
         cont = m.cont;
     // numbered(tree(A,pair(B,C),D),E,F):-[numbered(A,E,C),G is C+1,numbered(D,G,F)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_tree_3 , a4, a5, a6), m.trail)){
                 return m.fail();
             }
         a5 = a5.dref();
-            a7 = V(m);
+            a7 = m.mkvar2();
             if (!a5.unify(C( FUNCTOR_pair_2 , V(m), a7), m.trail)){
                 return m.fail();
             }
-        a8 = V(m);
+        a8 = m.mkvar1();
     // put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(9))
         a9 =  S( FUNCTOR_$002B_2 , a7,  int_1 );
  ;
         p2 = //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
- Op((e)->PRED_numbered_3_static_exec(e), VA(a6, a8, a3), cont));
+ Op(FILE_serialise::PRED_numbered_3_static_exec, VA(a6, a8, a3), cont));
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a7;

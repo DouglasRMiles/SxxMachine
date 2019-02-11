@@ -1,13 +1,12 @@
 package SxxMachine;
 
 /**
-  Used in implementing uniform replacement of
-  variables with new constants. useful for printing
-  out with nicer variable names.
-
-  @see Var
-  @see Clause
-*/
+ * Used in implementing uniform replacement of variables with new constants.
+ * useful for printing out with nicer variable names.
+ * 
+ * @see Var
+ * @see Clause
+ */
 public class VarNumberer extends SystemObject {
 	HashDict dict;
 
@@ -18,6 +17,7 @@ public class VarNumberer extends SystemObject {
 		ctr = 0;
 	}
 
+	@Override
 	public Term action(Term place) {
 		place = place.dref();
 		// IO.trace(">>action: "+place);

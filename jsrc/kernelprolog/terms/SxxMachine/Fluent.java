@@ -49,11 +49,13 @@ abstract public class Fluent extends SystemObject {
 			p.getTrail().push(this);
 	}
 
-	public void stop() {}
+	public void stop() {
+	}
 
 	/**
 	 * applies a non-persistent Fluent's stop() method on backtracking
 	 */
+	@Override
 	public void undo() {
 		if (!persistent)
 			stop();

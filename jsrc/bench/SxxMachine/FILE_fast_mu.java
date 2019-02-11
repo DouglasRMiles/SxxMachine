@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_fast_mu extends bootpreds {
+public class FILE_fast_mu extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(top/0,public)
         final static SymbolTerm ATOM_m = SYM("m");
@@ -50,10 +50,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
         m.setB0();
     // top:-[theorem([m,u,i,i,u])]
         return //
- Op((e)->PRED_theorem_1_static_exec(e), VA(L_top_0_s9), cont);
+ Op(FILE_fast_mu::PRED_theorem_1_static_exec, VA(L_top_0_s9), cont);
     }
 /** PREDICATE: theorem/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(theorem/1,public)
         final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
@@ -71,18 +71,18 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
         Operation p1, p2;
         a1 = LARG[0];
     // theorem(A):-[length(A,B),C is B-1,derive([m,i],A,1,C,D,0)]
-        a2 = V(m);
-        a3 = V(m);
+        a2 = m.mkvar1();
+        a3 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002D_2 , a2,  int_1 );
  ;
         return //
- Op((e)->PRED_length_2_static_exec(e), VA(a1, a2), //
+ Op(FILE_fast_mu::PRED_length_2_static_exec, VA(a1, a2), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a4), //
- Op((e)->PRED_derive_6_static_exec(e), VA(L_theorem_1_s7, a1,  int_1 , a3, V(m),  int_0 ), cont)));
+ Op(FILE_fast_mu::PRED_derive_6_static_exec, VA(L_theorem_1_s7, a1,  int_1 , a3, m.DONTCARE("execute(derive(s(7),a(1),@(int_1),a(3),void,@(int_0),cont))"),  int_0 ), cont)));
     }
 /** PREDICATE: derive/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(derive/6,public)
         final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
@@ -122,7 +122,7 @@ m.cont = cont;
         cont = m.cont;
     // derive(A,B,C,D,E,F):-[derive2(A,B,C,D,1,E,F)]
         return //
- Op((e)->PRED_derive2_7_static_exec(e), VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
+ Op(FILE_fast_mu::PRED_derive2_7_static_exec, VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
     }
 
     private final static Operation derive_6_2(Prolog m) { 
@@ -137,7 +137,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // derive(A,B,C,D,E,F):-[G is F+1,derive(A,B,C,D,E,G)]
-        a7 = V(m);
+        a7 = m.mkvar1();
     // put_str_args([a(6),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(8))
         a8 =  S( FUNCTOR_$002B_2 , a6,  int_1 );
  ;
@@ -156,7 +156,7 @@ m.cont = cont;
         return derive_6_top(m);
     }
 /** PREDICATE: derive2/7
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(derive2/7,public)
         final static SymbolTerm FUNCTOR_rule_2 = F("rule",2);
@@ -217,38 +217,37 @@ m.cont = cont;
     // derive2(A,B,C,D,E,[rule(F,G)|H],I):-[lower_bound(C,D,J),'$greater_or_equal'(I,J),K is I-1,rule(A,G,C,L,E,M,F),derive2(G,B,L,D,M,H,K)]
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            a8 = argz[0];
-            a9 = argz[1];
+                        a8 = a6.car();
+            a9 = a6.cdr();
         } else if (a6.isVar()){
-            a8 = V(m);
-            a9 = V(m);
+            a8 = m.mkvar2();
+            a9 = m.mkvar2();
              a6.bind(CONS(a8, a9), m.trail);
         } else {
             return m.fail();
         }
         a8 = a8.dref();
-            a10 = V(m);
-            a11 = V(m);
+            a10 = m.mkvar2();
+            a11 = m.mkvar2();
             if (!a8.unify(C( FUNCTOR_rule_2 , a10, a11), m.trail)){
                 return m.fail();
             }
-        a12 = V(m);
-        a13 = V(m);
+        a12 = m.mkvar1();
+        a13 = m.mkvar1();
     // put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(14))
         a14 =  S( FUNCTOR_$002D_2 , a7,  int_1 );
  ;
-        a15 = V(m);
-        a16 = V(m);
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
         return //
- Op((e)->PRED_lower_bound_3_static_exec(e), VA(a3, a4, a12), //
- Op((e)->PRED_$greater_or_equal_2_static_exec(e), VA(a7, a12), //
+ Op(FILE_fast_mu::PRED_lower_bound_3_static_exec, VA(a3, a4, a12), //
+ Op(FILE_fast_mu::PRED_$greater_or_equal_2_static_exec, VA(a7, a12), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a13, a14), //
- Op((e)->PRED_rule_7_static_exec(e), VA(a1, a11, a3, a15, a5, a16, a10), //
- Op((e)->PRED_derive2_7_static_exec(e), VA(a11, a2, a15, a4, a16, a9, a13), cont)))));
+ Op(FILE_fast_mu::PRED_rule_7_static_exec, VA(a1, a11, a3, a15, a5, a16, a10), //
+ Op(FILE_fast_mu::PRED_derive2_7_static_exec, VA(a11, a2, a15, a4, a16, a9, a13), cont)))));
     }
 /** PREDICATE: rule/7
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(rule/7,public)
 
@@ -272,34 +271,32 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
     // rule([m|A],[m|B],C,D,E,F,G):-[rule(A,B,C,D,E,F,1,i,G,H,H)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            if (!  ATOM_m .unify(argz[0], m.trail))
+                        if (!  ATOM_m .unify(a1.car(), m.trail))
                 return m.fail();
-            a8 = argz[1];
+            a8 = a1.cdr();
         } else if (a1.isVar()){
-            a8 = V(m);
+            a8 = m.mkvar2();
              a1.bind(CONS( ATOM_m , a8), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            if (!  ATOM_m .unify(argz[0], m.trail))
+                        if (!  ATOM_m .unify(a2.car(), m.trail))
                 return m.fail();
-            a9 = argz[1];
+            a9 = a2.cdr();
         } else if (a2.isVar()){
-            a9 = V(m);
+            a9 = m.mkvar2();
              a2.bind(CONS( ATOM_m , a9), m.trail);
         } else {
             return m.fail();
         }
-        a10 = V(m);
+        a10 = m.mkvar1();
         return //
- Op((e)->PRED_rule_11_static_exec(e), VA(a8, a9, a3, a4, a5, a6,  int_1 ,  ATOM_i , a7, a10, a10), cont);
+ Op(FILE_fast_mu::PRED_rule_11_static_exec, VA(a8, a9, a3, a4, a5, a6,  int_1 ,  ATOM_i , a7, a10, a10), cont);
     }
 /** PREDICATE: rule/11
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(rule/11,public)
     private static final ListTerm L_rule_11_s3 = CONS( ATOM_i ,  Prolog.Nil );
@@ -471,46 +468,42 @@ m.cont = cont;
     // rule([i,i,i|A],[u|A],B,C,D,E,F,G,3,H,I):-['$greater_or_equal'(F,D),E is F-1,C is B-2]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            if (!  ATOM_i .unify(argz[0], m.trail))
+                        if (!  ATOM_i .unify(a1.car(), m.trail))
                 return m.fail();
-            a12 = argz[1];
+            a12 = a1.cdr();
         } else if (a1.isVar()){
-            a12 = V(m);
+            a12 = m.mkvar2();
              a1.bind(CONS( ATOM_i , a12), m.trail);
         } else {
             return m.fail();
         }
         a12 = a12.dref();
         if (a12 .isCons()){
-            Term[] argz = VA(a12.car(), a12.cdr());
-            if (!  ATOM_i .unify(argz[0], m.trail))
+                        if (!  ATOM_i .unify(a12.car(), m.trail))
                 return m.fail();
-            a13 = argz[1];
+            a13 = a12.cdr();
         } else if (a12.isVar()){
-            a13 = V(m);
+            a13 = m.mkvar2();
              a12.bind(CONS( ATOM_i , a13), m.trail);
         } else {
             return m.fail();
         }
         a13 = a13.dref();
         if (a13 .isCons()){
-            Term[] argz = VA(a13.car(), a13.cdr());
-            if (!  ATOM_i .unify(argz[0], m.trail))
+                        if (!  ATOM_i .unify(a13.car(), m.trail))
                 return m.fail();
-            a14 = argz[1];
+            a14 = a13.cdr();
         } else if (a13.isVar()){
-            a14 = V(m);
+            a14 = m.mkvar2();
              a13.bind(CONS( ATOM_i , a14), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            if (!  ATOM_u .unify(argz[0], m.trail))
+                        if (!  ATOM_u .unify(a2.car(), m.trail))
                 return m.fail();
-            if (! a14.unify(argz[1], m.trail))
+            if (! a14.unify(a2.cdr(), m.trail))
                 return m.fail();
         } else if (a2.isVar()){
              a2.bind(CONS( ATOM_u , a14), m.trail);
@@ -562,24 +555,22 @@ m.cont = cont;
     // rule([u,u|A],A,B,C,D,E,F,i,4,G,H):-['$greater_or_equal'(F,D),E is F-2,C is B-2]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            if (!  ATOM_u .unify(argz[0], m.trail))
+                        if (!  ATOM_u .unify(a1.car(), m.trail))
                 return m.fail();
-            a12 = argz[1];
+            a12 = a1.cdr();
         } else if (a1.isVar()){
-            a12 = V(m);
+            a12 = m.mkvar2();
              a1.bind(CONS( ATOM_u , a12), m.trail);
         } else {
             return m.fail();
         }
         a12 = a12.dref();
         if (a12 .isCons()){
-            Term[] argz = VA(a12.car(), a12.cdr());
-            if (!  ATOM_u .unify(argz[0], m.trail))
+                        if (!  ATOM_u .unify(a12.car(), m.trail))
                 return m.fail();
-            a13 = argz[1];
+            a13 = a12.cdr();
         } else if (a12.isVar()){
-            a13 = V(m);
+            a13 = m.mkvar2();
              a12.bind(CONS( ATOM_u , a13), m.trail);
         } else {
             return m.fail();
@@ -633,41 +624,38 @@ m.cont = cont;
     // rule([A|B],[A|C],D,E,F,G,H,I,J,K,[A|L]):-[M is H+1,rule(B,C,D,E,F,G,M,A,J,K,L)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a12 = argz[0];
-            a13 = argz[1];
+                        a12 = a1.car();
+            a13 = a1.cdr();
         } else if (a1.isVar()){
-            a12 = V(m);
-            a13 = V(m);
+            a12 = m.mkvar2();
+            a13 = m.mkvar2();
              a1.bind(CONS(a12, a13), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            if (! a12.unify(argz[0], m.trail))
+                        if (! a12.unify(a2.car(), m.trail))
                 return m.fail();
-            a14 = argz[1];
+            a14 = a2.cdr();
         } else if (a2.isVar()){
-            a14 = V(m);
+            a14 = m.mkvar2();
              a2.bind(CONS(a12, a14), m.trail);
         } else {
             return m.fail();
         }
         a11 = a11.dref();
         if (a11 .isCons()){
-            Term[] argz = VA(a11.car(), a11.cdr());
-            if (! a12.unify(argz[0], m.trail))
+                        if (! a12.unify(a11.car(), m.trail))
                 return m.fail();
-            a15 = argz[1];
+            a15 = a11.cdr();
         } else if (a11.isVar()){
-            a15 = V(m);
+            a15 = m.mkvar2();
              a11.bind(CONS(a12, a15), m.trail);
         } else {
             return m.fail();
         }
-        a16 = V(m);
+        a16 = m.mkvar1();
     // put_str_args([a(7),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(17))
         a17 =  S( FUNCTOR_$002B_2 , a7,  int_1 );
  ;
@@ -691,7 +679,7 @@ m.cont = cont;
         return rule_11_top(m);
     }
 /** PREDICATE: lower_bound/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(lower_bound/3,public)
         final static SymbolTerm FUNCTOR_$002F$005C_2 = F("/\\",2);
@@ -753,20 +741,20 @@ m.cont = cont;
     }
 
     private final static Operation lower_bound_3_3(Prolog m) { 
-    // lower_bound(A,B,C):-A>B,D is A-B,E is D/\1,'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)
+    // lower_bound(A,B,C):-A>B,D is A-B,E is D/\1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // lower_bound(A,B,C):-['$greater_than'(A,B),D is A-B,E is D/\1,'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)]
+    // lower_bound(A,B,C):-['$greater_than'(A,B),D is A-B,E is D/\1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(C,D,E)]
         //START inline expansion of $greater_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) <= 0) {
             return m.fail();
         }
         //END inline expansion
-        a4 = V(m);
+        a4 = m.mkvar1();
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(5))
         a5 =  S( FUNCTOR_$002D_2 , a1, a2);
  ;
@@ -775,7 +763,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
     // put_str_args([a(4),@(int_1)],y(2)),put_str(@('FUNCTOR_$002F$005C_2'),y(2),a(7))
         a7 =  S( FUNCTOR_$002F$005C_2 , a4,  int_1 );
  ;
@@ -785,46 +773,46 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op((e)->PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(e), VA(a3, a4, a6), cont);
+ Op(FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec, VA(a3, a4, a6), cont);
     }
-/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl
+/** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl/3
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
-    // main('$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'/3,public)
+    // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'/3,public)
         final static SymbolTerm FUNCTOR_$003E$003E_2 = F(">>",2);
 
 
 
 
-    public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_fast_mu::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(m);
+        m.jtry3(null, FILE_fast_mu::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(m);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-C=:=0,!,A is B>>1
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_1(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-C=:=0,!,A is B>>1
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-['$get_level'(D),E is 0,'$arith_equal'(C,E),'$cut'(D),A is B>>1]
-        a4 = V(m);
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-['$get_level'(D),E is 0,'$arith_equal'(C,E),'$cut'(D),A is B>>1]
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of a(5)is@(int_0)
         if (! a5.unify(Arithmetic.evaluate(int_0), m.trail)) {
             return m.fail();
@@ -850,15 +838,15 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-A is (B+1)>>1+1
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_2(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-A is (B+1)>>1+1
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-[A is (B+1)>>1+1]
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'(A,B,C):-[A is (B+1)>>1+1]
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
@@ -884,6 +872,6 @@ static public void loadPreds() {
    PredTable.registerBuiltin("rule",7,FILE_fast_mu::PRED_rule_7_static_exec);
    PredTable.registerBuiltin("rule",11,FILE_fast_mu::PRED_rule_11_static_exec);
    PredTable.registerBuiltin("lower_bound",3,FILE_fast_mu::PRED_lower_bound_3_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/fast_mu.pl","$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl",3,FILE_fast_mu::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec);
+   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl",3,FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec);
 }
 }

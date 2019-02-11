@@ -3,13 +3,12 @@ package SxxMachine;
 import java.util.ArrayList;
 
 /**
-  An Infinite Source.
-  If based on a finite Source, it moves to its the first element after reaching its last element.
-  A SourceLoop returns 'no' if the original Source is empty. 
-  In case the original Source is infinite, a SourceLoop will 
-  return the same elements as the original Source. 
-  (In particular, this happens if the original Source is also a Source loop).
-*/
+ * An Infinite Source. If based on a finite Source, it moves to its the first
+ * element after reaching its last element. A SourceLoop returns 'no' if the
+ * original Source is empty. In case the original Source is infinite, a
+ * SourceLoop will return the same elements as the original Source. (In
+ * particular, this happens if the original Source is also a Source loop).
+ */
 public class SourceLoop extends Source {
 	private ArrayList v;
 
@@ -32,6 +31,7 @@ public class SourceLoop extends Source {
 		return T;
 	}
 
+	@Override
 	public Term getElement() {
 		Term T = null;
 		if (null != s) { // s is alive
@@ -47,6 +47,7 @@ public class SourceLoop extends Source {
 		return T;
 	}
 
+	@Override
 	public void stop() {
 		v = null;
 		s = null;

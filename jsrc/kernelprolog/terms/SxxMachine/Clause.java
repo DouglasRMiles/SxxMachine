@@ -8,23 +8,26 @@ import java.util.Iterator;
  */
 public class Clause extends StructureTerm {
 	public Clause(Term s, Term[] args, HashDict dict, boolean ground, String fname, int begins_at, int ends_at) {
-		super(s,args);
+		super(s, args);
 		this.dict = dict;
 		this.ground = ground;
 		this.fname = fname;
 		this.begins_at = begins_at;
 		this.ends_at = ends_at;
 	}
+
+	@Override
 	public Clause toClone() {
 		//
-	   try {
-      return (Clause) clone();
-    } catch (CloneNotSupportedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-      return new Clause(functor,argz, dict, ground, fname, begins_at, ends_at);
-    }
+		try {
+			return (Clause) clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new Clause(functor, argz, dict, ground, fname, begins_at, ends_at);
+		}
 	}
+
 	/**
 	 * Builds a clause given its head and its body
 	 */
@@ -144,6 +147,7 @@ public class Clause extends StructureTerm {
 	/**
 	 * Pretty prints a clause after replacing ugly variable names
 	 */
+	@Override
 	public String pprint() {
 		return pprint(false);
 	}
@@ -160,6 +164,7 @@ public class Clause extends StructureTerm {
 	/**
 	 * Clause to Term converter: the joy of strong typing:-)
 	 */
+	@Override
 	public Clause toClause() { // overrides toClause in Term
 		return this;
 	}
@@ -196,6 +201,7 @@ public class Clause extends StructureTerm {
 	 * Converts a clause to a term. Note that Head:-true will convert to the term
 	 * Head.
 	 */
+	@Override
 	public final Term toTerm() {
 		if (getBody().isTrueProc())
 			return getHead();
@@ -277,7 +283,7 @@ public class Clause extends StructureTerm {
 			// curr.getState(this,cont);
 			return AND(curr, cont);
 		} else
-			return AND( x, y);
+			return AND(x, y);
 	}
 
 	/**
@@ -322,10 +328,12 @@ public class Clause extends StructureTerm {
 	 * Returns a key based on the principal functor of the head of the clause and
 	 * its arity.
 	 */
+	@Override
 	final public String getKey() {
 		return getHead().getKey();
 	}
 
+	@Override
 	final public boolean isClause() {
 		return true;
 	}

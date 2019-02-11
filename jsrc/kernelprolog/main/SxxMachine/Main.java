@@ -1,8 +1,8 @@
 package SxxMachine;
 
 /**
-   Minimal command line only Prolog main entry point
-*/
+ * Minimal command line only Prolog main entry point
+ */
 public class Main {
 	public static int init() {
 		if (!Init.startProlog())

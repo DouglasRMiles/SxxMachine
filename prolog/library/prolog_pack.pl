@@ -91,10 +91,11 @@ makes installed packages available as libaries.
                  /*******************************
                  *          CONSTANTS           *
                  *******************************/
-
+:- if(\+ current_predicate((package)/1)).
 :- setting(server, atom, 'http://www.swi-prolog.org/pack/',
            'Server to exchange pack information').
 
+:- endif.
 
                  /*******************************
                  *         PACKAGE INFO         *
@@ -1906,7 +1907,7 @@ ensure_slash(Dir, DirS) :-
     ).
 
 absolute_matching_href(DOM, Pattern, Match) :-
-    xpath(DOM, //a(@href), HREF),
+    xpath(DOM, '//'(a(@(href))), HREF),
     uri_normalized(HREF, Pattern, Match),
     wildcard_match(Pattern, Match).
 

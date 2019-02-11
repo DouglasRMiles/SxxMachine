@@ -1,8 +1,8 @@
 package SxxMachine;
 
 /**
-  Always fails
-*/
+ * Always fails
+ */
 public class fail_ extends ConstBuiltin {
 	fail_() {
 		super("fail");

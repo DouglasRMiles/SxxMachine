@@ -444,11 +444,11 @@ verify_safe_declaration(Module:Goal) :-
         \+ predicate_property(Module:Goal, meta_predicate(_))
     ->  true
     ;   permission_error(declare, safe_goal, Module:Goal)
-    ).
+    ).    
 verify_safe_declaration(Goal) :-
     must_be(callable, Goal),
     (   predicate_property(system:Goal, iso),
-        \+ predicate_property(system:Goal, meta_predicate())
+        ( \+ predicate_property(system:Goal, MP), compound_name_functor(MP, meta_predicate,_) )
     ->  true
     ;   permission_error(declare, safe_goal, Goal)
     ).

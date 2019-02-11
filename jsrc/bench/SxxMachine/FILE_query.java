@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_query extends bootpreds {
+public class FILE_query extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
         m.setB0();
     // top:-[query]
         return //
- Op((e)->PRED_query_0_static_exec(e), VA(), cont);
+ Op(FILE_query::PRED_query_0_static_exec, VA(), cont);
     }
 /** PREDICATE: query/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(query/0,public)
 
@@ -72,7 +72,7 @@ m.cont = cont;
         cont = m.cont;
     // query:-[query(A),fail]
         return //
- Op((e)->PRED_query_1_static_exec(e), VA(V(m)), fail_0);
+ Op(FILE_query::PRED_query_1_static_exec, VA(m.DONTCARE("execute(query(void,#(execute(fail(cont)))))")), fail_0);
     }
 
     private final static Operation query_0_2(Prolog m) { 
@@ -83,7 +83,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: query/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(query/1,public)
         final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
@@ -101,70 +101,66 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
     // query([A,B,C,D]):-[density(A,B),density(C,D),'$greater_than'(B,D),E is 20*B,F is 21*D,'$less_than'(E,F)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a2 = argz[0];
-            a3 = argz[1];
+                        a2 = a1.car();
+            a3 = a1.cdr();
         } else if (a1.isVar()){
-            a2 = V(m);
-            a3 = V(m);
+            a2 = m.mkvar2();
+            a3 = m.mkvar2();
              a1.bind(CONS(a2, a3), m.trail);
         } else {
             return m.fail();
         }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a3.car();
+            a5 = a3.cdr();
         } else if (a3.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a3.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            a6 = argz[0];
-            a7 = argz[1];
+                        a6 = a5.car();
+            a7 = a5.cdr();
         } else if (a5.isVar()){
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
              a5.bind(CONS(a6, a7), m.trail);
         } else {
             return m.fail();
         }
         a7 = a7.dref();
         if (a7 .isCons()){
-            Term[] argz = VA(a7.car(), a7.cdr());
-            a8 = argz[0];
-            if (!  Prolog.Nil .unify(argz[1], m.trail))
+                        a8 = a7.car();
+            if (!  Prolog.Nil .unify(a7.cdr(), m.trail))
                 return m.fail();
         } else if (a7.isVar()){
-            a8 = V(m);
+            a8 = m.mkvar2();
              a7.bind(CONS(a8,  Prolog.Nil ), m.trail);
         } else {
             return m.fail();
         }
-        a9 = V(m);
+        a9 = m.mkvar1();
     // put_str_args([@(int_20),a(4)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(10))
         a10 =  S( FUNCTOR_$002A_2 ,  int_20 , a4);
  ;
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([@(int_21),a(8)],y(2)),put_str(@('FUNCTOR_$002A_2'),y(2),a(12))
         a12 =  S( FUNCTOR_$002A_2 ,  int_21 , a8);
  ;
         return //
- Op((e)->PRED_density_2_static_exec(e), VA(a2, a4), //
- Op((e)->PRED_density_2_static_exec(e), VA(a6, a8), //
- Op((e)->PRED_$greater_than_2_static_exec(e), VA(a4, a8), //
+ Op(FILE_query::PRED_density_2_static_exec, VA(a2, a4), //
+ Op(FILE_query::PRED_density_2_static_exec, VA(a6, a8), //
+ Op(FILE_query::PRED_$greater_than_2_static_exec, VA(a4, a8), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op((e)->PRED_$less_than_2_static_exec(e), VA(a9, a11), cont))))));
+ Op(FILE_query::PRED_$less_than_2_static_exec, VA(a9, a11), cont))))));
     }
 /** PREDICATE: density/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(density/2,public)
         final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
@@ -182,8 +178,8 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // density(A,B):-[pop(A,C),area(A,D),B is C*100//D]
-        a3 = V(m);
-        a4 = V(m);
+        a3 = m.mkvar1();
+        a4 = m.mkvar1();
     // put_str_args([a(3),@(int_100)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(5))
         a5 =  S( FUNCTOR_$002A_2 , a3,  int_100 );
  ;
@@ -191,12 +187,12 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
         a6 =  S( FUNCTOR_$002F$002F_2 , a5, a4);
  ;
         return //
- Op((e)->PRED_pop_2_static_exec(e), VA(a1, a3), //
- Op((e)->PRED_area_2_static_exec(e), VA(a1, a4), //
+ Op(FILE_query::PRED_pop_2_static_exec, VA(a1, a3), //
+ Op(FILE_query::PRED_area_2_static_exec, VA(a1, a4), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a2, a6), cont)));
     }
 /** PREDICATE: pop/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(pop/2,public)
         final static SymbolTerm ATOM_china = SYM("china");
@@ -760,7 +756,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: area/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/query.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(area/2,public)
         final static IntegerTerm int_3380 = Integer(3380);

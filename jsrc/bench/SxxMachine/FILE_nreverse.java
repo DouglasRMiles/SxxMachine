@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_nreverse extends bootpreds {
+public class FILE_nreverse extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
         m.setB0();
     // top:-[nreverse]
         return //
- Op((e)->PRED_nreverse_0_static_exec(e), VA(), cont);
+ Op(FILE_nreverse::PRED_nreverse_0_static_exec, VA(), cont);
     }
 /** PREDICATE: nreverse/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 */
     // main(nreverse/0,public)
         final static IntegerTerm int_26 = Integer(26);
@@ -93,10 +93,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
         m.setB0();
     // nreverse:-[nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)]
         return //
- Op((e)->PRED_nreverse_2_static_exec(e), VA(L_nreverse_0_s61, V(m)), cont);
+ Op(FILE_nreverse::PRED_nreverse_2_static_exec, VA(L_nreverse_0_s61, m.DONTCARE("execute(nreverse(s(61),void,cont))")), cont);
     }
 /** PREDICATE: nreverse/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 */
     // main(nreverse/2,public)
 
@@ -135,20 +135,19 @@ m.cont = cont;
     // nreverse([A|B],C):-[nreverse(B,D),concatenate(D,[A],C)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
+                        a3 = a1.car();
+            a4 = a1.cdr();
         } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
              a1.bind(CONS(a3, a4), m.trail);
         } else {
             return m.fail();
         }
-        a5 = V(m);
+        a5 = m.mkvar1();
         a6 = CONS(a3,  Prolog.Nil );
         p1 = //
- Op((e)->PRED_concatenate_3_static_exec(e), VA(a5, a6, a2), cont);
+ Op(FILE_nreverse::PRED_concatenate_3_static_exec, VA(a5, a6, a2), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -170,7 +169,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: concatenate/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/nreverse.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 */
     // main(concatenate/3,public)
 
@@ -209,24 +208,22 @@ m.cont = cont;
     // concatenate([A|B],C,[A|D]):-[concatenate(B,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a4.unify(argz[0], m.trail))
+                        if (! a4.unify(a3.car(), m.trail))
                 return m.fail();
-            a6 = argz[1];
+            a6 = a3.cdr();
         } else if (a3.isVar()){
-            a6 = V(m);
+            a6 = m.mkvar2();
              a3.bind(CONS(a4, a6), m.trail);
         } else {
             return m.fail();

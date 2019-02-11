@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
-  Generic dynamic Queue with (amortized) O(1)
-  enq/deq (add and remove) operations
-*/
+ * Generic dynamic Queue with (amortized) O(1) enq/deq (add and remove)
+ * operations
+ */
 public class O1Queue {
 	final static int MIN_QUEUE = 4;
 
@@ -46,8 +46,8 @@ public class O1Queue {
 	}
 
 	/**
-	Dynamically resizes the queue
-	*/
+	 * Dynamically resizes the queue
+	 */
 	private final boolean requeue(String Mes) {
 		int newSize = 2 * count();
 		if (newSize > MAX_QUEUE || newSize < MIN_QUEUE)
@@ -67,7 +67,8 @@ public class O1Queue {
 		while (busy) {
 			try {
 				wait();
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException e) {
+			}
 		}
 		busy = true;
 	}
@@ -78,8 +79,8 @@ public class O1Queue {
 	}
 
 	/**
-	Adds an element to the end of the queue
-	*/
+	 * Adds an element to the end of the queue
+	 */
 	// synchronized
 	public final boolean enq(Object V) {
 		// enterCritical();
@@ -96,8 +97,8 @@ public class O1Queue {
 	}
 
 	/**
-	Removes the first element of the queue 
-	*/
+	 * Removes the first element of the queue
+	 */
 	// synchronized
 	public final Object deq() {
 		// enterCritical();
@@ -138,6 +139,7 @@ public class O1Queue {
 		return toVector().iterator();
 	}
 
+	@Override
 	public String toString() {
 		return count() + "/" + queue.length + "=>" + toVector().toString();
 	}
@@ -145,7 +147,7 @@ public class O1Queue {
 	synchronized public O1Queue toClone() {
 		O1Queue R = null;
 		try {
-			Term.soopsy();
+			KPTerm.soopsy();
 			R = (O1Queue) super.clone();
 		} catch (CloneNotSupportedException e) {
 			IO.errmes("O1Queue:toClone() " + e);
@@ -156,7 +158,7 @@ public class O1Queue {
 }
 
 class QueueIterator {
-	QueueIterator(O1Queue Q) {		
+	QueueIterator(O1Queue Q) {
 		this.Q = Q.toClone();
 	}
 

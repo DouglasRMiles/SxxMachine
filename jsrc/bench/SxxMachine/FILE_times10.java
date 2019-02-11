@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_times10 extends bootpreds {
+public class FILE_times10 extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/times10.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/times10.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/times10.pl
         m.setB0();
     // top:-[times10]
         return //
- Op((e)->PRED_times10_0_static_exec(e), VA(), cont);
+ Op(FILE_times10::PRED_times10_0_static_exec, VA(), cont);
     }
 /** PREDICATE: times10/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/times10.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/times10.pl
 */
     // main(times10/0,public)
         final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
@@ -69,10 +69,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/times10.pl
         m.setB0();
     // times10:-[d(x*x*x*x*x*x*x*x*x*x,x,A)]
         return //
- Op((e)->PRED_d_3_static_exec(e), VA(L_times10_0_s20,  ATOM_x , V(m)), cont);
+ Op(FILE_times10::PRED_d_3_static_exec, VA(L_times10_0_s20,  ATOM_x , m.DONTCARE("execute(d(s(20),@(ATOM_x),void,cont))")), cont);
     }
 /** PREDICATE: d/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/times10.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/times10.pl
 */
     // main(d/3,public)
         final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
@@ -168,14 +168,14 @@ m.cont = cont;
         cont = m.cont;
     // d(A+B,C,D+E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002B_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002B_2 , a6, a7), m.trail)){
                 return m.fail();
             }
@@ -183,7 +183,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op((e)->PRED_d_3_static_exec(e), VA(a5, a2, a7), cont);
+ Op(FILE_times10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -202,14 +202,14 @@ m.cont = cont;
         cont = m.cont;
     // d(A-B,C,D-E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002D_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002D_2 , a6, a7), m.trail)){
                 return m.fail();
             }
@@ -217,7 +217,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op((e)->PRED_d_3_static_exec(e), VA(a5, a2, a7), cont);
+ Op(FILE_times10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -236,24 +236,24 @@ m.cont = cont;
         cont = m.cont;
     // d(A*B,C,D*B+A*E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002A_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002B_2 , a6, a7), m.trail)){
                 return m.fail();
             }
         a6 = a6.dref();
-            a8 = V(m);
+            a8 = m.mkvar2();
             if (!a6.unify(C( FUNCTOR_$002A_2 , a8, a5), m.trail)){
                 return m.fail();
             }
         a7 = a7.dref();
-            a9 = V(m);
+            a9 = m.mkvar2();
             if (!a7.unify(C( FUNCTOR_$002A_2 , a4, a9), m.trail)){
                 return m.fail();
             }
@@ -261,7 +261,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op((e)->PRED_d_3_static_exec(e), VA(a5, a2, a9), cont);
+ Op(FILE_times10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
@@ -280,30 +280,30 @@ m.cont = cont;
         cont = m.cont;
     // d(A/B,C,(D*B-A*E)/B^2):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002F_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002F_2 , a6, a7), m.trail)){
                 return m.fail();
             }
         a6 = a6.dref();
-            a8 = V(m);
-            a9 = V(m);
+            a8 = m.mkvar2();
+            a9 = m.mkvar2();
             if (!a6.unify(C( FUNCTOR_$002D_2 , a8, a9), m.trail)){
                 return m.fail();
             }
         a8 = a8.dref();
-            a10 = V(m);
+            a10 = m.mkvar2();
             if (!a8.unify(C( FUNCTOR_$002A_2 , a10, a5), m.trail)){
                 return m.fail();
             }
         a9 = a9.dref();
-            a11 = V(m);
+            a11 = m.mkvar2();
             if (!a9.unify(C( FUNCTOR_$002A_2 , a4, a11), m.trail)){
                 return m.fail();
             }
@@ -315,7 +315,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op((e)->PRED_d_3_static_exec(e), VA(a5, a2, a11), cont);
+ Op(FILE_times10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;
@@ -333,24 +333,24 @@ m.cont = cont;
         cont = m.cont;
     // d(A^B,C,D*B*A^E):-['$neck_cut',integer(B),E is B-1,d(A,C,D)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$005E_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002A_2 , a6, a7), m.trail)){
                 return m.fail();
             }
         a6 = a6.dref();
-            a8 = V(m);
+            a8 = m.mkvar2();
             if (!a6.unify(C( FUNCTOR_$002A_2 , a8, a5), m.trail)){
                 return m.fail();
             }
         a7 = a7.dref();
-            a9 = V(m);
+            a9 = m.mkvar2();
             if (!a7.unify(C( FUNCTOR_$005E_2 , a4, a9), m.trail)){
                 return m.fail();
             }
@@ -388,12 +388,12 @@ m.cont = cont;
         cont = m.cont;
     // d(-A,B,-C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002D_1 , a4), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a5 = V(m);
+            a5 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002D_1 , a5), m.trail)){
                 return m.fail();
             }
@@ -417,13 +417,13 @@ m.cont = cont;
         cont = m.cont;
     // d(exp(A),B,exp(A)*C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_exp_1 , a4), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002A_2 , a5, a6), m.trail)){
                 return m.fail();
             }
@@ -451,12 +451,12 @@ m.cont = cont;
         cont = m.cont;
     // d(log(A),B,C/A):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_log_1 , a4), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a5 = V(m);
+            a5 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002F_2 , a5, a4), m.trail)){
                 return m.fail();
             }

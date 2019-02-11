@@ -108,13 +108,13 @@ translate_attrs(Rule, Attrs, Goal) :-
 rdf_name_space('http://www.w3.org/1999/02/22-rdf-syntax-ns#').
 rdf_name_space('http://www.w3.org/TR/REC-rdf-syntax').
 
-
-:- record
+:- if(\+ current_predicate((package)/1)).
+:- record(
     rdf_state(base_uri='',
               lang='',
               ignore_lang=false,
-              convert_typed_literal).
-
+              convert_typed_literal)).
+:- endif.
 
 %!  xml_to_plrdf(+RDFElementOrObject, -RDFTerm, +State)
 %

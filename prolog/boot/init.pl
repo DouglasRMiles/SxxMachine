@@ -297,7 +297,7 @@ public(Spec)             :- '$set_pattr'(Spec, pred, (public)).
 %   not backed up by predicates and   analyzers  thus cannot ask for
 %   their  properties.  Analyzers  should    hard-code  handling  of
 %   call/2..
-
+/*
 :- '$iso'((call/2,
            call/3,
            call/4,
@@ -371,7 +371,7 @@ false :-
 
 catch(_Goal, _Catcher, _Recover) :-
     '$catch'.                       % Maps to I_CATCH, I_EXITCATCH
-
+*/
 %!  prolog_cut_to(+Choice)
 %
 %   Cut all choice points after Choice

@@ -24,7 +24,7 @@ public abstract class FFIPredicate extends Predicate {
 	 *         succeeds for all <code>i</code>, otherwise <code>false</code>.
 	 * @see Term#convertible(Class)
 	 */
-  static protected boolean checkParameterTypes(Class[] paraTypes, Term[] args) {
+	static protected boolean checkParameterTypes(Class[] paraTypes, Term[] args) {
 		int arity;
 		arity = paraTypes.length;
 		if (arity != args.length)

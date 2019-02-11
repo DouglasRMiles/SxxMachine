@@ -1,4 +1,6 @@
+:- if(\+ current_predicate((package)/1)).
 :- encoding(utf8).
+:- endif/1.
 /*  Part of SWI-Prolog
 
     Author:        Torbjörn Lager and Jan Wielemaker

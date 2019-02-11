@@ -106,11 +106,13 @@ easily be used.
 
 @see library(socket), library(http/http_open), library(crypto)
 */
+:- if(\+ current_predicate((package)/1)).
 
 :- setting(secure_ciphers, atom,
            'EECDH+AESGCM:EDH+AESGCM:EECDH+AES256:EDH+AES256:EECDH+CHACHA20:EDH+CHACHA20',
            "Default set of ciphers considered secure").
 
+:- endif.
 %!  ssl_context(+Role, -SSL, :Options) is det.
 %
 %   Create an  SSL context.  The context  defines several properties

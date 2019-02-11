@@ -46,6 +46,7 @@
 :- use_module(library(option)).
 :- use_module(library(lists)).
 :- use_module(library(debug)).
+:- if(\+ current_predicate((package)/1)).
 :- use_module(pldoc(doc_wiki)).
 :- use_module(pldoc(doc_process)).
 :- use_module(pldoc(doc_modes)).
@@ -60,6 +61,7 @@
                 is_pi/1,
                 is_op_type/2
               ]).
+:- endif/1.
 
 /** <module> PlDoc LaTeX backend
 

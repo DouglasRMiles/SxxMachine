@@ -3,9 +3,8 @@ package SxxMachine;
 import java.util.ArrayList;
 
 /**
-  Builds  Fluents from Java
-  Streams
-*/
+ * Builds Fluents from Java Streams
+ */
 public class TermCollector extends Sink {
 	protected ArrayList buffer;
 
@@ -17,15 +16,18 @@ public class TermCollector extends Sink {
 		this.buffer = new ArrayList();
 	}
 
+	@Override
 	public int putElement(Term T) {
 		buffer.add(T);
 		return 1;
 	}
 
+	@Override
 	public void stop() {
 		buffer = null;
 	}
 
+	@Override
 	public Term collect() {
 		return new IterableSource(buffer, p);
 	}

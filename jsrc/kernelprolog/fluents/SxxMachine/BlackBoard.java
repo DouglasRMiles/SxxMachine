@@ -7,37 +7,37 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
-This class implementes generic multiple tuples by key
-operations for use by the PrologBlackBoard class implementing
-Linda operations on Prolog terms. It uses the O1Queue class for
-keeping elements of type Term sharing the same key.
-
-@see PrologBlackBoard
-@see O1Queue
-@see Term
-*/
+ * This class implementes generic multiple tuples by key operations for use by
+ * the PrologBlackBoard class implementing Linda operations on Prolog terms. It
+ * uses the O1Queue class for keeping elements of type Term sharing the same
+ * key.
+ * 
+ * @see PrologBlackBoard
+ * @see O1Queue
+ * @see Term
+ */
 public class BlackBoard extends HashDict {
 
 	/**
-	 creates a new BlackBoard 
-	 @see Term
-	*/
+	 * creates a new BlackBoard
+	 * 
+	 * @see Term
+	 */
 	public BlackBoard(Map map) {
 		super(map);
 	}
-	
+
 	@Override
 	public BlackBoard toClone() {
 		HashMap map2 = new HashMap();
 		BlackBoard other = new BlackBoard(map2);
-	    map.putAll(map2);
+		map.putAll(map2);
 		return other;
 	}
-	
+
 	/**
-	 Removes the first Term having key k
-	 or the first enumerated key if k is null
-	*/
+	 * Removes the first Term having key k or the first enumerated key if k is null
+	 */
 	// synchronized
 	private final Term pick(String k) {
 		if (k == null) {
@@ -66,12 +66,11 @@ public class BlackBoard extends HashDict {
 	}
 
 	/**
-	 Removes the first matching Term or Clause from the
-	 blackboard, to be used by Linda in/1 operation in
-	 PrologBlackBoard
-	
-	 @see PrologBlackBoard#in()
-	*/
+	 * Removes the first matching Term or Clause from the blackboard, to be used by
+	 * Linda in/1 operation in PrologBlackBoard
+	 * 
+	 * @see PrologBlackBoard#in()
+	 */
 
 	// synchronized
 	protected final Term take(String k, Term pattern) {
@@ -92,12 +91,12 @@ public class BlackBoard extends HashDict {
 	}
 
 	/**
-	 Adds a Term or Clause
-	 to the the blackboard, to be used by Linda out/1 operation
-	
-	 @see PrologBlackBoard
-	
-	*/
+	 * Adds a Term or Clause to the the blackboard, to be used by Linda out/1
+	 * operation
+	 * 
+	 * @see PrologBlackBoard
+	 * 
+	 */
 	// synchronized
 	protected final void add(String k, Term value) {
 		O1Queue Q = (O1Queue) get(k);
@@ -110,9 +109,9 @@ public class BlackBoard extends HashDict {
 		// IO.trace("$$Added key/Ref:"+k+"/"+value+"=>"+this);
 	}
 
-	/** This gives an enumeration view for the sequence of
-	   objects kept under key k.
-	*/
+	/**
+	 * This gives an enumeration view for the sequence of objects kept under key k.
+	 */
 	// synchronized
 	public Iterator toEnumerationFor(String k) {
 		O1Queue Q = (O1Queue) get(k);
@@ -128,9 +127,10 @@ public class BlackBoard extends HashDict {
 }
 
 /**
-   Generates an Iterator view of the blackboard
-   @see Iterator
-*/
+ * Generates an Iterator view of the blackboard
+ * 
+ * @see Iterator
+ */
 
 class BBoardEnumerator implements Iterator {
 	BBoardEnumerator(Iterator EH) {
@@ -143,6 +143,7 @@ class BBoardEnumerator implements Iterator {
 	private Iterator EH;
 
 	// synchronized
+	@Override
 	public boolean hasNext() {
 		if ((EQ == null || !EQ.hasNext()) && EH.hasNext()) {
 			EQ = ((O1Queue) EH.next()).toEnumeration();
@@ -151,12 +152,14 @@ class BBoardEnumerator implements Iterator {
 	}
 
 	// synchronized
+	@Override
 	public Object next() {
 		if (hasNext())
 			return EQ.next();
 		throw new NoSuchElementException("BBoardEnumerator");
 	}
 
+	@Override
 	public void remove() {
 	}
 }

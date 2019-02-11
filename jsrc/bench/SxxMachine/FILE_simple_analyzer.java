@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_simple_analyzer extends bootpreds {
+public class FILE_simple_analyzer extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         m.setB0();
     // top:-[main(A)]
         return //
- Op((e)->PRED_main_1_static_exec(e), VA(V(m)), cont);
+ Op(FILE_simple_analyzer::PRED_main_1_static_exec, VA(m.DONTCARE("execute(main(void,cont))")), cont);
     }
 /** PREDICATE: main/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(main/1,public)
         final static SymbolTerm FUNCTOR_stree_5 = F("stree",5);
@@ -101,24 +101,24 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // put_str_args([s(6),a(5),s(19),@('Prolog.Nil'),@(int_1)],y(5)),put_str(@('FUNCTOR_stree_5'),y(5),a(6))
         a6 =  S( FUNCTOR_stree_5 , L_main_1_s6, a5, L_main_1_s19,  Prolog.Nil ,  int_1 );
  ;
-        a7 = V(m);
-        a8 = V(m);
-        a9 = V(m);
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
+        a9 = m.mkvar1();
     // put_str_args([a(7),a(8),a(9)],y(6)),put_str(@('FUNCTOR_qsort_3'),y(6),a(10))
         a10 =  S( FUNCTOR_qsort_3 , a7, a8, a9);
  ;
-        a11 = V(m);
-        a12 = V(m);
+        a11 = m.mkvar1();
+        a12 = m.mkvar1();
         a13 = CONS(a11, a12);
     // put_str_args([a(7),a(13)],y(7)),put_str(@('FUNCTOR_$003D_2'),y(7),a(14))
         a14 =  S( FUNCTOR_$003D_2 , a7, a13);
  ;
-        a15 = V(m);
-        a16 = V(m);
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
     // put_str_args([a(12),a(11),a(15),a(16)],y(8)),put_str(@('FUNCTOR_part_4'),y(8),a(17))
         a17 =  S( FUNCTOR_part_4 , a12, a11, a15, a16);
  ;
-        a18 = V(m);
+        a18 = m.mkvar1();
     // put_str_args([a(16),a(18),a(9)],y(9)),put_str(@('FUNCTOR_qsort_3'),y(9),a(19))
         a19 =  S( FUNCTOR_qsort_3 , a16, a18, a9);
  ;
@@ -168,14 +168,14 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // put_str_args([s(23),a(32),a(34),@('Prolog.Nil'),@(int_1)],y(24)),put_str(@('FUNCTOR_stree_5'),y(24),a(35))
         a35 =  S( FUNCTOR_stree_5 , L_main_1_s23, a32, a34,  Prolog.Nil ,  int_1 );
  ;
-        a36 = V(m);
-        a37 = V(m);
-        a38 = V(m);
-        a39 = V(m);
+        a36 = m.mkvar1();
+        a37 = m.mkvar1();
+        a38 = m.mkvar1();
+        a39 = m.mkvar1();
     // put_str_args([a(36),a(37),a(38),a(39)],y(25)),put_str(@('FUNCTOR_part_4'),y(25),a(40))
         a40 =  S( FUNCTOR_part_4 , a36, a37, a38, a39);
  ;
-        a41 = V(m);
+        a41 = m.mkvar1();
     // put_str_args([a(41)],y(26)),put_str(@('FUNCTOR_$0024cut_load_1'),y(26),a(42))
         a42 =  S( FUNCTOR_$0024cut_load_1 , a41);
  ;
@@ -200,16 +200,16 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // put_str_args([a(48),@('Prolog.True')],y(33)),put_str(@('FUNCTOR_$003A$002D_2'),y(33),a(49))
         a49 =  S( FUNCTOR_$003A$002D_2 , a48,  Prolog.True );
  ;
-        a50 = V(m);
-        a51 = V(m);
-        a52 = V(m);
-        a53 = V(m);
-        a54 = V(m);
+        a50 = m.mkvar1();
+        a51 = m.mkvar1();
+        a52 = m.mkvar1();
+        a53 = m.mkvar1();
+        a54 = m.mkvar1();
     // put_str_args([a(50),a(51),a(52),a(53),a(54)],y(34)),put_str(@('FUNCTOR_$0024cut_part$002F41_5'),y(34),a(55))
         a55 =  S( FUNCTOR_$0024cut_part$002F41_5 , a50, a51, a52, a53, a54);
  ;
-        a56 = V(m);
-        a57 = V(m);
+        a56 = m.mkvar1();
+        a57 = m.mkvar1();
         a58 = CONS(a56, a57);
     // put_str_args([a(50),a(58)],y(35)),put_str(@('FUNCTOR_$003D_2'),y(35),a(59))
         a59 =  S( FUNCTOR_$003D_2 , a50, a58);
@@ -256,16 +256,16 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // put_str_args([a(72),@('Prolog.True')],y(49)),put_str(@('FUNCTOR_$003A$002D_2'),y(49),a(73))
         a73 =  S( FUNCTOR_$003A$002D_2 , a72,  Prolog.True );
  ;
-        a74 = V(m);
-        a75 = V(m);
-        a76 = V(m);
-        a77 = V(m);
-        a78 = V(m);
-        a79 = V(m);
+        a74 = m.mkvar1();
+        a75 = m.mkvar1();
+        a76 = m.mkvar1();
+        a77 = m.mkvar1();
+        a78 = m.mkvar1();
+        a79 = m.mkvar1();
     // put_str_args([a(74),a(75),a(76),a(77),a(78),a(79)],y(50)),put_str(@('FUNCTOR_$0024fac_$0024cut_part$002F4_1$002F52_6'),y(50),a(80))
         a80 =  S( FUNCTOR_$0024fac_$0024cut_part$002F4_1$002F52_6 , a74, a75, a76, a77, a78, a79);
  ;
-        a81 = V(m);
+        a81 = m.mkvar1();
         a82 = CONS(a79, a81);
     // put_str_args([a(76),a(82)],y(51)),put_str(@('FUNCTOR_$003D_2'),y(51),a(83))
         a83 =  S( FUNCTOR_$003D_2 , a76, a82);
@@ -291,7 +291,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // put_str_args([a(83),a(89)],y(58)),put_str(@('FUNCTOR_$002C_2'),y(58),a(90))
         a90 =  S( FUNCTOR_$002C_2 , a83, a89);
  ;
-        a91 = V(m);
+        a91 = m.mkvar1();
         a92 = CONS(a79, a91);
     // put_str_args([a(77),a(92)],y(59)),put_str(@('FUNCTOR_$003D_2'),y(59),a(93))
         a93 =  S( FUNCTOR_$003D_2 , a77, a92);
@@ -335,10 +335,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a108 = CONS(a35, a107);
         a109 = CONS(a6, a108);
         return //
- Op((e)->PRED_analyze_strees_2_static_exec(e), VA(a109, a1), cont);
+ Op(FILE_simple_analyzer::PRED_analyze_strees_2_static_exec, VA(a109, a1), cont);
     }
 /** PREDICATE: analyze_strees/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(analyze_strees/2,public)
 
@@ -354,14 +354,14 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // analyze_strees(A,B):-[init_strees(A,C,D),seal(D),analyze_closure(A,D,B)]
-        a3 = V(m);
+        a3 = m.mkvar1();
         return //
- Op((e)->PRED_init_strees_3_static_exec(e), VA(a1, V(m), a3), //
- Op((e)->PRED_seal_1_static_exec(e), VA(a3), //
- Op((e)->PRED_analyze_closure_3_static_exec(e), VA(a1, a3, a2), cont)));
+ Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a1, m.DONTCARE("execute(init_strees(a(1),void,a(3),#(execute(seal(a(3),#(execute(analyze_closure(a(1),a(3),a(2),cont))))))))"), a3), //
+ Op(FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), //
+ Op(FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a3, a2), cont)));
     }
 /** PREDICATE: analyze_closure/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(analyze_closure/3,public)
 
@@ -378,14 +378,14 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
         a3 = LARG[2];
     // analyze_closure(A,B,C):-[traverse_strees(A,B,D,0,E),analyze_closure(A,D,C,E)]
-        a4 = V(m);
-        a5 = V(m);
+        a4 = m.mkvar1();
+        a5 = m.mkvar1();
         return //
- Op((e)->PRED_traverse_strees_5_static_exec(e), VA(a1, a2, a4,  int_0 , a5), //
- Op((e)->PRED_analyze_closure_4_static_exec(e), VA(a1, a4, a3, a5), cont));
+ Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a1, a2, a4,  int_0 , a5), //
+ Op(FILE_simple_analyzer::PRED_analyze_closure_4_static_exec, VA(a1, a4, a3, a5), cont));
     }
 /** PREDICATE: analyze_closure/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(analyze_closure/4,public)
 
@@ -417,13 +417,13 @@ m.cont = cont;
     // analyze_closure(A,B,B,C):-['$get_level'(D),E is 0,'$less_or_equal'(C,E),'$cut'(D)]
         if (! a2.unify(a3, m.trail))
             return m.fail();
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (! a5.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of a(6)is@(int_0)
         if (! a6.unify(Arithmetic.evaluate(int_0), m.trail)) {
             return m.fail();
@@ -451,13 +451,13 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // analyze_closure(A,B,C,D):-['$get_level'(E),F is 0,'$greater_than'(D,F),'$cut'(E),analyze_closure(A,B,C)]
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (! a5.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of a(6)is@(int_0)
         if (! a6.unify(Arithmetic.evaluate(int_0), m.trail)) {
             return m.fail();
@@ -473,10 +473,10 @@ m.cont = cont;
                   m.cut( a5.intValue());
         //END inline expansion
         return //
- Op((e)->PRED_analyze_closure_3_static_exec(e), VA(a1, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a2, a3), cont);
     }
 /** PREDICATE: init_strees/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(init_strees/3,public)
         final static SymbolTerm FUNCTOR_get_2 = F("get",2);
@@ -529,22 +529,21 @@ m.cont = cont;
     // init_strees([A|B],C,D):-['$unify'(A,stree(E,(F:-G),H,I,J)),bottom_call(E,K),table_command(get(E,K),C,L),init_disj(G,L,M),init_strees(I,M,N),init_strees(B,N,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
-        a6 = V(m);
-        a7 = V(m);
+        a6 = m.mkvar1();
+        a7 = m.mkvar1();
     // put_str_args([void,a(7)],y(1)),put_str(@('FUNCTOR_$003A$002D_2'),y(1),a(8))
         a8 =  S( FUNCTOR_$003A$002D_2 , V(m), a7);
  ;
-        a9 = V(m);
+        a9 = m.mkvar1();
     // put_str_args([a(6),a(8),void,a(9),void],y(2)),put_str(@('FUNCTOR_stree_5'),y(2),a(10))
         a10 =  S( FUNCTOR_stree_5 , a6, a8, V(m), a9, V(m));
  ;
@@ -553,22 +552,22 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([a(6),a(11)],y(3)),put_str(@('FUNCTOR_get_2'),y(3),a(12))
         a12 =  S( FUNCTOR_get_2 , a6, a11);
  ;
-        a13 = V(m);
-        a14 = V(m);
-        a15 = V(m);
+        a13 = m.mkvar1();
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
         return //
- Op((e)->PRED_bottom_call_2_static_exec(e), VA(a6, a11), //
- Op((e)->PRED_table_command_3_static_exec(e), VA(a12, a2, a13), //
- Op((e)->PRED_init_disj_3_static_exec(e), VA(a7, a13, a14), //
- Op((e)->PRED_init_strees_3_static_exec(e), VA(a9, a14, a15), //
- Op((e)->PRED_init_strees_3_static_exec(e), VA(a5, a15, a3), cont)))));
+ Op(FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a6, a11), //
+ Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a2, a13), //
+ Op(FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a7, a13, a14), //
+ Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a9, a14, a15), //
+ Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a5, a15, a3), cont)))));
     }
 /** PREDICATE: init_conj/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(init_conj/3,public)
 
@@ -619,18 +618,18 @@ m.cont = cont;
         cont = m.cont;
     // init_conj((A,B),C,D):-[init_goal(A,C,E),init_conj(B,E,D)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002C_2 , a4, a5), m.trail)){
                 return m.fail();
             }
-        a6 = V(m);
+        a6 = m.mkvar1();
         return //
- Op((e)->PRED_init_goal_3_static_exec(e), VA(a4, a2, a6), //
- Op((e)->PRED_init_conj_3_static_exec(e), VA(a5, a6, a3), cont));
+ Op(FILE_simple_analyzer::PRED_init_goal_3_static_exec, VA(a4, a2, a6), //
+ Op(FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a5, a6, a3), cont));
     }
 /** PREDICATE: init_disj/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(init_disj/3,public)
 
@@ -681,18 +680,18 @@ m.cont = cont;
         cont = m.cont;
     // init_disj((A;B),C,D):-[init_conj(A,C,E),init_disj(B,E,D)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_or_2 , a4, a5), m.trail)){
                 return m.fail();
             }
-        a6 = V(m);
+        a6 = m.mkvar1();
         return //
- Op((e)->PRED_init_conj_3_static_exec(e), VA(a4, a2, a6), //
- Op((e)->PRED_init_disj_3_static_exec(e), VA(a5, a6, a3), cont));
+ Op(FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a4, a2, a6), //
+ Op(FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a5, a6, a3), cont));
     }
 /** PREDICATE: init_goal/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(init_goal/3,public)
 
@@ -722,18 +721,18 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // init_goal(A,B,C):-['$get_level'(D),call_p(A),'$cut'(D),functor(A,E,F),bottom_call(E/F,G),table_command(get(E/F,G),B,C)]
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
-        a6 = V(m);
+        a5 = m.mkvar1();
+        a6 = m.mkvar1();
     // put_str_args([a(5),a(6)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(7))
         a7 =  S( FUNCTOR_$002F_2 , a5, a6);
  ;
-        a8 = V(m);
+        a8 = m.mkvar1();
     // put_str_args([a(5),a(6)],y(2)),put_str(@('FUNCTOR_$002F_2'),y(2),a(9))
         a9 =  S( FUNCTOR_$002F_2 , a5, a6);
  ;
@@ -741,11 +740,11 @@ m.cont = cont;
         a10 =  S( FUNCTOR_get_2 , a9, a8);
  ;
         return //
- Op((e)->PRED_call_p_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a4), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, a5, a6), //
- Op((e)->PRED_bottom_call_2_static_exec(e), VA(a7, a8), //
- Op((e)->PRED_table_command_3_static_exec(e), VA(a10, a2, a3), cont)))));
+ Op(FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a5, a6), //
+ Op(FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a7, a8), //
+ Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a10, a2, a3), cont)))));
     }
 
     private final static Operation init_goal_3_2(Prolog m) { 
@@ -760,18 +759,18 @@ m.cont = cont;
     // init_goal(A,B,B):-['$get_level'(C),unify_p(A),'$cut'(C)]
         if (! a2.unify(a3, m.trail))
             return m.fail();
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_unify_p_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
+ Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 /** PREDICATE: traverse_strees/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(traverse_strees/5,public)
 
@@ -831,22 +830,21 @@ m.cont = cont;
     // traverse_strees([A|B],C,D,E,F):-['$unify'(A,stree(G,(H:-I),J,K,L)),traverse_disj(H,I,C,M,E,N),traverse_strees(K,M,O,N,P),traverse_strees(B,O,D,P,F)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a6 = argz[0];
-            a7 = argz[1];
+                        a6 = a1.car();
+            a7 = a1.cdr();
         } else if (a1.isVar()){
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
              a1.bind(CONS(a6, a7), m.trail);
         } else {
             return m.fail();
         }
-        a8 = V(m);
-        a9 = V(m);
+        a8 = m.mkvar1();
+        a9 = m.mkvar1();
     // put_str_args([a(8),a(9)],y(1)),put_str(@('FUNCTOR_$003A$002D_2'),y(1),a(10))
         a10 =  S( FUNCTOR_$003A$002D_2 , a8, a9);
  ;
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([void,a(10),void,a(11),void],y(2)),put_str(@('FUNCTOR_stree_5'),y(2),a(12))
         a12 =  S( FUNCTOR_stree_5 , V(m), a10, V(m), a11, V(m));
  ;
@@ -855,17 +853,17 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a13 = V(m);
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
+        a13 = m.mkvar1();
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
         return //
- Op((e)->PRED_traverse_disj_6_static_exec(e), VA(a8, a9, a2, a13, a4, a14), //
- Op((e)->PRED_traverse_strees_5_static_exec(e), VA(a11, a13, a15, a14, a16), //
- Op((e)->PRED_traverse_strees_5_static_exec(e), VA(a7, a15, a3, a16, a5), cont)));
+ Op(FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a8, a9, a2, a13, a4, a14), //
+ Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a11, a13, a15, a14, a16), //
+ Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a7, a15, a3, a16, a5), cont)));
     }
 /** PREDICATE: traverse_disj/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(traverse_disj/6,public)
 
@@ -922,19 +920,19 @@ m.cont = cont;
         cont = m.cont;
     // traverse_disj(A,(B;C),D,E,F,G):-[traverse_conj(A,B,D,H,F,I),traverse_disj(A,C,H,E,I,G)]
         a2 = a2.dref();
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
             if (!a2.unify(C( FUNCTOR_or_2 , a7, a8), m.trail)){
                 return m.fail();
             }
-        a9 = V(m);
-        a10 = V(m);
+        a9 = m.mkvar1();
+        a10 = m.mkvar1();
         return //
- Op((e)->PRED_traverse_conj_6_static_exec(e), VA(a1, a7, a3, a9, a5, a10), //
- Op((e)->PRED_traverse_disj_6_static_exec(e), VA(a1, a8, a9, a4, a10, a6), cont));
+ Op(FILE_simple_analyzer::PRED_traverse_conj_6_static_exec, VA(a1, a7, a3, a9, a5, a10), //
+ Op(FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a1, a8, a9, a4, a10, a6), cont));
     }
 /** PREDICATE: traverse_conj/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(traverse_conj/6,public)
         final static SymbolTerm ATOM_uninit = SYM("uninit");
@@ -958,29 +956,29 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a5 = LARG[4];
         a6 = LARG[5];
     // traverse_conj(A,B,C,D,E,F):-[varset(A,G),functor(A,H,I),table_command(get(H/I,J),C,K),get_entry_modes(uninit,A,J,L),get_entry_modes(ground,A,J,M),traverse_conj(B,K,D,E,F,M,N,L,O,G,P)]
-        a7 = V(m);
-        a8 = V(m);
-        a9 = V(m);
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
+        a9 = m.mkvar1();
     // put_str_args([a(8),a(9)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(10))
         a10 =  S( FUNCTOR_$002F_2 , a8, a9);
  ;
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([a(10),a(11)],y(2)),put_str(@('FUNCTOR_get_2'),y(2),a(12))
         a12 =  S( FUNCTOR_get_2 , a10, a11);
  ;
-        a13 = V(m);
-        a14 = V(m);
-        a15 = V(m);
+        a13 = m.mkvar1();
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
         return //
- Op((e)->PRED_varset_2_static_exec(e), VA(a1, a7), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, a8, a9), //
- Op((e)->PRED_table_command_3_static_exec(e), VA(a12, a3, a13), //
- Op((e)->PRED_get_entry_modes_4_static_exec(e), VA( ATOM_uninit , a1, a11, a14), //
- Op((e)->PRED_get_entry_modes_4_static_exec(e), VA( ATOM_ground , a1, a11, a15), //
- Op((e)->PRED_traverse_conj_11_static_exec(e), VA(a2, a13, a4, a5, a6, a15, V(m), a14, V(m), a7, V(m)), cont))))));
+ Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a7), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a8, a9), //
+ Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
+ Op(FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_uninit , a1, a11, a14), //
+ Op(FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_ground , a1, a11, a15), //
+ Op(FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a2, a13, a4, a5, a6, a15, m.DONTCARE("execute(traverse_conj(a(2),a(13),a(4),a(5),a(6),a(15),void,a(14),void,a(7),void,cont))"), a14, m.DONTCARE("execute(traverse_conj(a(2),a(13),a(4),a(5),a(6),a(15),void,a(14),void,a(7),void,cont))"), a7, m.DONTCARE("execute(traverse_conj(a(2),a(13),a(4),a(5),a(6),a(15),void,a(14),void,a(7),void,cont))")), cont))))));
     }
 /** PREDICATE: traverse_conj/11
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(traverse_conj/11,public)
 
@@ -1057,26 +1055,26 @@ m.cont = cont;
         cont = m.cont;
     // traverse_conj((A,B),C,D,E,F,G,H,I,J,K,L):-[varset(A,M),update_goal(A,M,C,N,E,O,G,P,I,Q,K,R),unionv(M,R,S),traverse_conj(B,N,D,O,F,P,H,Q,J,S,L)]
         a1 = a1.dref();
-            a12 = V(m);
-            a13 = V(m);
+            a12 = m.mkvar2();
+            a13 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002C_2 , a12, a13), m.trail)){
                 return m.fail();
             }
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
-        a17 = V(m);
-        a18 = V(m);
-        a19 = V(m);
-        a20 = V(m);
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
+        a17 = m.mkvar1();
+        a18 = m.mkvar1();
+        a19 = m.mkvar1();
+        a20 = m.mkvar1();
         return //
- Op((e)->PRED_varset_2_static_exec(e), VA(a12, a14), //
- Op((e)->PRED_update_goal_12_static_exec(e), VA(a12, a14, a2, a15, a4, a16, a6, a17, a8, a18, a10, a19), //
- Op((e)->PRED_unionv_3_static_exec(e), VA(a14, a19, a20), //
- Op((e)->PRED_traverse_conj_11_static_exec(e), VA(a13, a15, a3, a16, a5, a17, a7, a18, a9, a20, a11), cont))));
+ Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a12, a14), //
+ Op(FILE_simple_analyzer::PRED_update_goal_12_static_exec, VA(a12, a14, a2, a15, a4, a16, a6, a17, a8, a18, a10, a19), //
+ Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a14, a19, a20), //
+ Op(FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a13, a15, a3, a16, a5, a17, a7, a18, a9, a20, a11), cont))));
     }
 /** PREDICATE: update_goal/12
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(update_goal/12,public)
         final static SymbolTerm FUNCTOR_add_1 = F("add",1);
@@ -1142,15 +1140,15 @@ m.cont = cont;
             return m.fail();
         if (! a11.unify(a12, m.trail))
             return m.fail();
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
     // put_str_args([a(14)],y(1)),put_str(@('FUNCTOR_add_1'),y(1),a(17))
         a17 =  S( FUNCTOR_add_1 , a14);
  ;
@@ -1158,14 +1156,14 @@ m.cont = cont;
         a18 =  S( FUNCTOR_sub_1 , a14);
  ;
         return //
- Op((e)->PRED_split_unify_3_static_exec(e), VA(a1, a14, a15), //
- Op((e)->PRED_var_1_static_exec(e), VA(a14), //
- Op((e)->PRED_nonvar_1_static_exec(e), VA(a15), //
- Op((e)->PRED_varset_2_static_exec(e), VA(a15, a16), //
- Op((e)->PRED_subsetv_2_static_exec(e), VA(a16, a7), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a17, a7, a8), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a18, a9, a10), cont))))))));
+ Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
+ Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op(FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
+ Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a15, a16), //
+ Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a16, a7), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a17, a7, a8), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a10), cont))))))));
     }
 
     private final static Operation update_goal_12_2(Prolog m) { 
@@ -1195,40 +1193,40 @@ m.cont = cont;
             return m.fail();
         if (! a11.unify(a12, m.trail))
             return m.fail();
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
-        a17 = V(m);
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
+        a17 = m.mkvar1();
     // put_str_args([a(17)],y(1)),put_str(@('FUNCTOR_add_set_1'),y(1),a(18))
         a18 =  S( FUNCTOR_add_set_1 , a17);
  ;
-        a19 = V(m);
+        a19 = m.mkvar1();
     // put_str_args([a(14)],y(2)),put_str(@('FUNCTOR_sub_1'),y(2),a(20))
         a20 =  S( FUNCTOR_sub_1 , a14);
  ;
-        a21 = V(m);
-        a22 = V(m);
+        a21 = m.mkvar1();
+        a22 = m.mkvar1();
     // put_str_args([a(22)],y(3)),put_str(@('FUNCTOR_sub_set_1'),y(3),a(23))
         a23 =  S( FUNCTOR_sub_set_1 , a22);
  ;
         return //
- Op((e)->PRED_split_unify_3_static_exec(e), VA(a1, a14, a15), //
- Op((e)->PRED_var_1_static_exec(e), VA(a14), //
- Op((e)->PRED_nonvar_1_static_exec(e), VA(a15), //
- Op((e)->PRED_inv_2_static_exec(e), VA(a14, a9), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a2, a11, a16), //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a16, a7, a17), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a18, a9, a19), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a20, a19, a21), //
- Op((e)->PRED_intersectv_3_static_exec(e), VA(a2, a11, a22), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a23, a21, a10), cont)))))))))));
+ Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
+ Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op(FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
+ Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a9), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a11, a16), //
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a16, a7, a17), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a19), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a19, a21), //
+ Op(FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a2, a11, a22), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a23, a21, a10), cont)))))))))));
     }
 
     private final static Operation update_goal_12_3(Prolog m) { 
@@ -1256,13 +1254,13 @@ m.cont = cont;
             return m.fail();
         if (! a11.unify(a12, m.trail))
             return m.fail();
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a14 = V(m);
+        a14 = m.mkvar1();
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_add_set_1'),y(1),a(15))
         a15 =  S( FUNCTOR_add_set_1 , a2);
  ;
@@ -1270,12 +1268,12 @@ m.cont = cont;
         a16 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op((e)->PRED_split_unify_3_static_exec(e), VA(a1, a14, V(m)), //
- Op((e)->PRED_var_1_static_exec(e), VA(a14), //
- Op((e)->PRED_inv_2_static_exec(e), VA(a14, a7), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a15, a7, a8), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a16, a9, a10), cont))))));
+ Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, m.DONTCARE("execute(split_unify(a(1),a(14),void,#(execute(var(a(14),#(execute(inv(a(14),a(7),#(execute($cut(a(13),#(execute(set_command(a(15),a(7),a(8),#(execute(set_command(a(16),a(9),a(10),cont)))))))))))))))))")), //
+ Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a7), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a15, a7, a8), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a16, a9, a10), cont))))));
     }
 
     private final static Operation update_goal_12_4(Prolog m) { 
@@ -1305,7 +1303,7 @@ m.cont = cont;
             return m.fail();
         if (! a11.unify(a12, m.trail))
             return m.fail();
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -1315,9 +1313,9 @@ m.cont = cont;
         a14 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op((e)->PRED_unify_p_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a14, a9, a10), cont)));
+ Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a14, a9, a10), cont)));
     }
 
     private final static Operation update_goal_12_5(Prolog m) { 
@@ -1343,17 +1341,17 @@ m.cont = cont;
             return m.fail();
         if (! a11.unify(a12, m.trail))
             return m.fail();
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
-        a17 = V(m);
-        a18 = V(m);
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
+        a17 = m.mkvar1();
+        a18 = m.mkvar1();
     // put_str_args([a(16),a(17)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(19))
         a19 =  S( FUNCTOR_$002F_2 , a16, a17);
  ;
@@ -1361,18 +1359,18 @@ m.cont = cont;
         a20 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op((e)->PRED_call_p_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a13), //
- Op((e)->PRED_goal_dupset_2_static_exec(e), VA(a1, a14), //
- Op((e)->PRED_var_args_2_static_exec(e), VA(a1, a15), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, a16, a17), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a18, a16, a17), //
- Op((e)->PRED_create_new_call_9_static_exec(e), VA( int_1 , a17, a7, a15, a14, a9, a11, a1, a18), //
- Op((e)->PRED_update_table_6_static_exec(e), VA(a19, a18, a3, a4, a5, a6), //
- Op((e)->PRED_set_command_3_static_exec(e), VA(a20, a9, a10), cont)))))))));
+ Op(FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op(FILE_simple_analyzer::PRED_goal_dupset_2_static_exec, VA(a1, a14), //
+ Op(FILE_simple_analyzer::PRED_var_args_2_static_exec, VA(a1, a15), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a16, a17), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a18, a16, a17), //
+ Op(FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA( int_1 , a17, a7, a15, a14, a9, a11, a1, a18), //
+ Op(FILE_simple_analyzer::PRED_update_table_6_static_exec, VA(a19, a18, a3, a4, a5, a6), //
+ Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a9, a10), cont)))))))));
     }
 /** PREDICATE: update_table/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(update_table/6,public)
         final static SymbolTerm FUNCTOR_set_2 = F("set",2);
@@ -1414,12 +1412,12 @@ m.cont = cont;
         cont = m.cont;
     // update_table(A/B,C,D,E,F,G):-['$get_level'(H),table_command(get(A/B,I),D,J),lub_call(I,C,K),'$inequality_of_term'(I,K),'$cut'(H),table_command(set(A/B,K),J,E),G is F+1]
         a1 = a1.dref();
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002F_2 , a7, a8), m.trail)){
                 return m.fail();
             }
-        a9 = V(m);
+        a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
         if (! a9.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -1428,12 +1426,12 @@ m.cont = cont;
     // put_str_args([a(7),a(8)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(10))
         a10 =  S( FUNCTOR_$002F_2 , a7, a8);
  ;
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([a(10),a(11)],y(2)),put_str(@('FUNCTOR_get_2'),y(2),a(12))
         a12 =  S( FUNCTOR_get_2 , a10, a11);
  ;
-        a13 = V(m);
-        a14 = V(m);
+        a13 = m.mkvar1();
+        a14 = m.mkvar1();
     // put_str_args([a(7),a(8)],y(3)),put_str(@('FUNCTOR_$002F_2'),y(3),a(15))
         a15 =  S( FUNCTOR_$002F_2 , a7, a8);
  ;
@@ -1444,11 +1442,11 @@ m.cont = cont;
         a17 =  S( FUNCTOR_$002B_2 , a5,  int_1 );
  ;
         return //
- Op((e)->PRED_table_command_3_static_exec(e), VA(a12, a3, a13), //
- Op((e)->PRED_lub_call_3_static_exec(e), VA(a11, a2, a14), //
- Op((e)->PRED_$inequality_of_term_2_static_exec(e), VA(a11, a14), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
- Op((e)->PRED_table_command_3_static_exec(e), VA(a16, a13, a4), //
+ Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
+ Op(FILE_simple_analyzer::PRED_lub_call_3_static_exec, VA(a11, a2, a14), //
+ Op(FILE_simple_analyzer::PRED_$inequality_of_term_2_static_exec, VA(a11, a14), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
+ Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a16, a13, a4), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a17), cont))))));
     }
 
@@ -1475,7 +1473,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: create_new_call/9
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(create_new_call/9,public)
 
@@ -1512,7 +1510,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         cont = m.cont;
     // create_new_call(A,B,C,D,E,F,G,H,I):-['$get_level'(J),'$greater_than'(A,B),'$cut'(J)]
-        a10 = V(m);
+        a10 = m.mkvar1();
         //START inline expansion of $get_level(a(10))
         if (! a10.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -1546,7 +1544,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         cont = m.cont;
     // create_new_call(A,B,C,D,E,F,G,H,I):-['$get_level'(J),'$less_or_equal'(A,B),'$cut'(J),arg(A,H,K),arg(A,I,L),ground_flag(K,C,M),membership_flag(K,D,N),membership_flag(K,E,O),membership_flag(K,F,P),membership_flag(K,G,Q),create_argument(M,N,O,P,Q,L),R is A+1,create_new_call(R,B,C,D,E,F,G,H,I)]
-        a10 = V(m);
+        a10 = m.mkvar1();
         //START inline expansion of $get_level(a(10))
         if (! a10.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -1561,31 +1559,31 @@ m.cont = cont;
         a10 = a10.dref();
                   m.cut( a10.intValue());
         //END inline expansion
-        a11 = V(m);
-        a12 = V(m);
-        a13 = V(m);
-        a14 = V(m);
-        a15 = V(m);
-        a16 = V(m);
-        a17 = V(m);
-        a18 = V(m);
+        a11 = m.mkvar1();
+        a12 = m.mkvar1();
+        a13 = m.mkvar1();
+        a14 = m.mkvar1();
+        a15 = m.mkvar1();
+        a16 = m.mkvar1();
+        a17 = m.mkvar1();
+        a18 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(19))
         a19 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a8, a11), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a9, a12), //
- Op((e)->PRED_ground_flag_3_static_exec(e), VA(a11, a3, a13), //
- Op((e)->PRED_membership_flag_3_static_exec(e), VA(a11, a4, a14), //
- Op((e)->PRED_membership_flag_3_static_exec(e), VA(a11, a5, a15), //
- Op((e)->PRED_membership_flag_3_static_exec(e), VA(a11, a6, a16), //
- Op((e)->PRED_membership_flag_3_static_exec(e), VA(a11, a7, a17), //
- Op((e)->PRED_create_argument_6_static_exec(e), VA(a13, a14, a15, a16, a17, a12), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a8, a11), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a9, a12), //
+ Op(FILE_simple_analyzer::PRED_ground_flag_3_static_exec, VA(a11, a3, a13), //
+ Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a4, a14), //
+ Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a5, a15), //
+ Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a6, a16), //
+ Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a7, a17), //
+ Op(FILE_simple_analyzer::PRED_create_argument_6_static_exec, VA(a13, a14, a15, a16, a17, a12), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), //
- Op((e)->PRED_create_new_call_9_static_exec(e), VA(a18, a2, a3, a4, a5, a6, a7, a8, a9), cont))))))))));
+ Op(FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA(a18, a2, a3, a4, a5, a6, a7, a8, a9), cont))))))))));
     }
 /** PREDICATE: lub/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lub/3,public)
         final static SymbolTerm ATOM_unknown = SYM("unknown");
@@ -1811,7 +1809,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: bottom/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(bottom/1,public)
 
@@ -1830,7 +1828,7 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         return cont;
     }
 /** PREDICATE: create_argument/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(create_argument/6,public)
         final static SymbolTerm ATOM_yes = SYM("yes");
@@ -2034,7 +2032,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: lub_call/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lub_call/3,public)
 
@@ -2051,16 +2049,16 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
         a3 = LARG[2];
     // lub_call(A,B,C):-[functor(A,D,E),functor(B,D,E),functor(C,D,E),lub_call(1,E,A,B,C)]
-        a4 = V(m);
-        a5 = V(m);
+        a4 = m.mkvar1();
+        a5 = m.mkvar1();
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, a4, a5), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a2, a4, a5), //
- Op((e)->PRED_functor_3_static_exec(e), VA(a3, a4, a5), //
- Op((e)->PRED_lub_call_5_static_exec(e), VA( int_1 , a5, a1, a2, a3), cont))));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a4, a5), //
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a3, a4, a5), //
+ Op(FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA( int_1 , a5, a1, a2, a3), cont))));
     }
 /** PREDICATE: lub_call/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lub_call/5,public)
 
@@ -2093,7 +2091,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // lub_call(A,B,C,D,E):-['$get_level'(F),'$greater_than'(A,B),'$cut'(F)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2123,7 +2121,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // lub_call(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(A,B),'$cut'(F),arg(A,C,G),arg(A,D,H),arg(A,E,I),lub(G,H,I),J is A+1,lub_call(J,B,C,D,E)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2138,23 +2136,23 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        a7 = V(m);
-        a8 = V(m);
-        a9 = V(m);
-        a10 = V(m);
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
+        a9 = m.mkvar1();
+        a10 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(11))
         a11 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a3, a7), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a4, a8), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a5, a9), //
- Op((e)->PRED_lub_3_static_exec(e), VA(a7, a8, a9), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a7), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a8), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a5, a9), //
+ Op(FILE_simple_analyzer::PRED_lub_3_static_exec, VA(a7, a8, a9), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
- Op((e)->PRED_lub_call_5_static_exec(e), VA(a10, a2, a3, a4, a5), cont))))));
+ Op(FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA(a10, a2, a3, a4, a5), cont))))));
     }
 /** PREDICATE: bottom_call/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(bottom_call/2,public)
 
@@ -2171,17 +2169,17 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
     // bottom_call(A/B,C):-[functor(C,A,B),bottom_call(1,B,C)]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002F_2 , a3, a4), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a2, a3, a4), //
- Op((e)->PRED_bottom_call_3_static_exec(e), VA( int_1 , a4, a2), cont));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a3, a4), //
+ Op(FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA( int_1 , a4, a2), cont));
     }
 /** PREDICATE: bottom_call/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(bottom_call/3,public)
 
@@ -2210,7 +2208,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // bottom_call(A,B,C):-['$get_level'(D),'$greater_than'(A,B),'$cut'(D)]
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2238,7 +2236,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // bottom_call(A,B,C):-['$get_level'(D),'$less_or_equal'(A,B),'$cut'(D),bottom(E),arg(A,C,E),F is A+1,bottom_call(F,B,C)]
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2253,19 +2251,19 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        a5 = V(m);
-        a6 = V(m);
+        a5 = m.mkvar1();
+        a6 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(7))
         a7 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op((e)->PRED_bottom_1_static_exec(e), VA(a5), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a3, a5), //
+ Op(FILE_simple_analyzer::PRED_bottom_1_static_exec, VA(a5), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a5), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
- Op((e)->PRED_bottom_call_3_static_exec(e), VA(a6, a2, a3), cont))));
+ Op(FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA(a6, a2, a3), cont))));
     }
 /** PREDICATE: lattice_modes_call/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lattice_modes_call/3,public)
 
@@ -2283,28 +2281,28 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a3 = LARG[2];
     // lattice_modes_call(A/B,C,(D:-E)):-[functor(D,A,B),get(C,A/B,F),lattice_modes_call(1,B,F,D,E,true)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002F_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$003A$002D_2 , a6, a7), m.trail)){
                 return m.fail();
             }
     // put_str_args([a(4),a(5)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(8))
         a8 =  S( FUNCTOR_$002F_2 , a4, a5);
  ;
-        a9 = V(m);
+        a9 = m.mkvar1();
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a6, a4, a5), //
- Op((e)->PRED_get_3_static_exec(e), VA(a2, a8, a9), //
- Op((e)->PRED_lattice_modes_call_6_static_exec(e), VA( int_1 , a5, a9, a6, a7,  Prolog.True ), cont)));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
+ Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a8, a9), //
+ Op(FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA( int_1 , a5, a9, a6, a7,  Prolog.True ), cont)));
     }
 /** PREDICATE: lattice_modes_call/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lattice_modes_call/6,public)
 
@@ -2340,7 +2338,7 @@ m.cont = cont;
     // lattice_modes_call(A,B,C,D,E,E):-['$get_level'(F),'$greater_than'(A,B),'$cut'(F)]
         if (! a5.unify(a6, m.trail))
             return m.fail();
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2371,7 +2369,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // lattice_modes_call(A,B,C,D,E,F):-['$get_level'(G),'$less_or_equal'(A,B),'$cut'(G),arg(A,C,H),arg(A,D,I),lattice_modes_arg(H,I,E,J),K is A+1,lattice_modes_call(K,B,C,D,J,F)]
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2386,22 +2384,22 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        a8 = V(m);
-        a9 = V(m);
-        a10 = V(m);
-        a11 = V(m);
+        a8 = m.mkvar1();
+        a9 = m.mkvar1();
+        a10 = m.mkvar1();
+        a11 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(12))
         a12 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a3, a8), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a4, a9), //
- Op((e)->PRED_lattice_modes_arg_4_static_exec(e), VA(a8, a9, a5, a10), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a8), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a9), //
+ Op(FILE_simple_analyzer::PRED_lattice_modes_arg_4_static_exec, VA(a8, a9, a5, a10), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op((e)->PRED_lattice_modes_call_6_static_exec(e), VA(a11, a2, a3, a4, a10, a6), cont)))));
+ Op(FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA(a11, a2, a3, a4, a10, a6), cont)))));
     }
 /** PREDICATE: lattice_modes_arg/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lattice_modes_arg/4,public)
         final static SymbolTerm FUNCTOR_uninit_1 = F("uninit",1);
@@ -2445,8 +2443,8 @@ m.cont = cont;
         if (!  ATOM_uninit .unify(a1, m.trail))
             return m.fail();
         a3 = a3.dref();
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002C_2 , a5, a6), m.trail)){
                 return m.fail();
             }
@@ -2475,8 +2473,8 @@ m.cont = cont;
         if (!  ATOM_ground .unify(a1, m.trail))
             return m.fail();
         a3 = a3.dref();
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a3.unify(C( FUNCTOR_$002C_2 , a5, a6), m.trail)){
                 return m.fail();
             }
@@ -2507,7 +2505,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: get/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get/3,public)
         final static SymbolTerm FUNCTOR_node_4 = F("node",4);
@@ -2525,18 +2523,18 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a3 = LARG[2];
     // get(node(A,B,C,D),E,F):-[get(A,B,C,D,E,F)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
-            a7 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_node_4 , a4, a5, a6, a7), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_get_6_static_exec(e), VA(a4, a5, a6, a7, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_get_6_static_exec, VA(a4, a5, a6, a7, a2, a3), cont);
     }
 /** PREDICATE: get/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get/6,public)
 
@@ -2572,7 +2570,7 @@ m.cont = cont;
     // get(A,B,C,D,E,B):-['$get_level'(F),'$unify'(E,A),'$cut'(F)]
         if (! a2.unify(a6, m.trail))
             return m.fail();
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -2603,13 +2601,13 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // get(A,B,C,D,E,F):-[compare(G,E,A),get(G,E,F,C,D)]
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a5, a1), //
- Op((e)->PRED_get_5_static_exec(e), VA(a7, a5, a6, a3, a4), cont));
+ Op(FILE_simple_analyzer::PRED_get_5_static_exec, VA(a7, a5, a6, a3, a4), cont));
     }
 /** PREDICATE: get/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get/5,public)
         final static SymbolTerm ATOM_$003C = SYM("<");
@@ -2651,7 +2649,7 @@ m.cont = cont;
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_get_3_static_exec(e), VA(a4, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a4, a2, a3), cont);
     }
 
     private final static Operation get_5_2(Prolog m) { 
@@ -2668,10 +2666,10 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_get_3_static_exec(e), VA(a5, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a5, a2, a3), cont);
     }
 /** PREDICATE: set/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(set/4,public)
         final static SymbolTerm ATOM_leaf = SYM("leaf");
@@ -2727,27 +2725,27 @@ m.cont = cont;
         cont = m.cont;
     // set(node(A,B,C,D),E,F,node(A,G,H,I)):-[compare(J,E,A),set_2(J,E,F,B,C,D,G,H,I)]
         a1 = a1.dref();
-            a5 = V(m);
-            a6 = V(m);
-            a7 = V(m);
-            a8 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_node_4 , a5, a6, a7, a8), m.trail)){
                 return m.fail();
             }
         a4 = a4.dref();
-            a9 = V(m);
-            a10 = V(m);
-            a11 = V(m);
+            a9 = m.mkvar2();
+            a10 = m.mkvar2();
+            a11 = m.mkvar2();
             if (!a4.unify(C( FUNCTOR_node_4 , a5, a9, a10, a11), m.trail)){
                 return m.fail();
             }
-        a12 = V(m);
+        a12 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a12, a2, a5), //
- Op((e)->PRED_set_2_9_static_exec(e), VA(a12, a2, a3, a6, a7, a8, a9, a10, a11), cont));
+ Op(FILE_simple_analyzer::PRED_set_2_9_static_exec, VA(a12, a2, a3, a6, a7, a8, a9, a10, a11), cont));
     }
 /** PREDICATE: set_2/9
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(set_2/9,public)
         final static SymbolTerm ATOM_$003D = SYM("=");
@@ -2801,7 +2799,7 @@ m.cont = cont;
         if (! a6.unify(a9, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_set_4_static_exec(e), VA(a5, a2, a3, a8), cont);
+ Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a5, a2, a3, a8), cont);
     }
 
     private final static Operation set_2_9_2(Prolog m) { 
@@ -2852,10 +2850,10 @@ m.cont = cont;
         if (! a5.unify(a8, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_set_4_static_exec(e), VA(a6, a2, a3, a9), cont);
+ Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a6, a2, a3, a9), cont);
     }
 /** PREDICATE: seal/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(seal/1,public)
 
@@ -2904,19 +2902,19 @@ m.cont = cont;
         cont = m.cont;
     // seal(node(A,B,C,D)):-[seal(C),seal(D)]
         a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
+            a2 = m.mkvar2();
+            a3 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_node_4 , V(m), V(m), a2, a3), m.trail)){
                 return m.fail();
             }
         p1 = //
- Op((e)->PRED_seal_1_static_exec(e), VA(a3), cont);
+ Op(FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), cont);
         m.AREGS[0] = a2;
         m.cont = p1;
         return seal_1_top(m);
     }
 /** PREDICATE: membership_flag/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(membership_flag/3,public)
 
@@ -2948,15 +2946,15 @@ m.cont = cont;
     // membership_flag(A,B,yes):-['$get_level'(C),inv(A,B),'$cut'(C)]
         if (!  ATOM_yes .unify(a3, m.trail))
             return m.fail();
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_inv_2_static_exec(e), VA(a1, a2), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont));
+ Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a1, a2), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 
     private final static Operation membership_flag_3_2(Prolog m) { 
@@ -2973,7 +2971,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: ground_flag/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(ground_flag/3,public)
 
@@ -3005,17 +3003,17 @@ m.cont = cont;
     // ground_flag(A,B,yes):-['$get_level'(C),varset(A,D),subsetv(D,B),'$cut'(C)]
         if (!  ATOM_yes .unify(a3, m.trail))
             return m.fail();
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
         return //
- Op((e)->PRED_varset_2_static_exec(e), VA(a1, a5), //
- Op((e)->PRED_subsetv_2_static_exec(e), VA(a5, a2), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a4), cont)));
+ Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a5), //
+ Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a2), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont)));
     }
 
     private final static Operation ground_flag_3_2(Prolog m) { 
@@ -3032,7 +3030,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: get_entry_modes/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get_entry_modes/4,public)
 
@@ -3050,15 +3048,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a3 = LARG[2];
         a4 = LARG[3];
     // get_entry_modes(A,B,C,D):-[functor(B,E,F),get_entry_modes(A,1,F,B,C,G),sort(G,D)]
-        a5 = V(m);
-        a6 = V(m);
+        a5 = m.mkvar1();
+        a6 = m.mkvar1();
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a2, V(m), a5), //
- Op((e)->PRED_get_entry_modes_6_static_exec(e), VA(a1,  int_1 , a5, a2, a3, a6), //
- Op((e)->PRED_sort_2_static_exec(e), VA(a6, a4), cont)));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, m.DONTCARE("execute(functor(a(2),void,a(5),#(execute(get_entry_modes(a(1),@(int_1),a(5),a(2),a(3),a(6),#(execute(sort(a(6),a(4),cont))))))))"), a5), //
+ Op(FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1,  int_1 , a5, a2, a3, a6), //
+ Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a6, a4), cont)));
     }
 /** PREDICATE: get_entry_modes/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get_entry_modes/6,public)
 
@@ -3103,7 +3101,7 @@ m.cont = cont;
     // get_entry_modes(A,B,C,D,E,[]):-['$get_level'(F),'$greater_than'(B,C),'$cut'(F)]
         if (!  Prolog.Nil .unify(a6, m.trail))
             return m.fail();
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3136,17 +3134,16 @@ m.cont = cont;
     // get_entry_modes(A,B,C,D,E,[F|G]):-['$get_level'(H),'$less_or_equal'(B,C),arg(B,E,A),'$cut'(H),arg(B,D,F),I is B+1,get_entry_modes(A,I,C,D,E,G)]
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            a7 = argz[0];
-            a8 = argz[1];
+                        a7 = a6.car();
+            a8 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
              a6.bind(CONS(a7, a8), m.trail);
         } else {
             return m.fail();
         }
-        a9 = V(m);
+        a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
         if (! a9.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3157,16 +3154,16 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a10 = V(m);
+        a10 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(11))
         a11 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a2, a5, a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a9), //
- Op((e)->PRED_arg_3_static_exec(e), VA(a2, a4, a7), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a5, a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a4, a7), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
- Op((e)->PRED_get_entry_modes_6_static_exec(e), VA(a1, a10, a3, a4, a5, a8), cont)))));
+ Op(FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1, a10, a3, a4, a5, a8), cont)))));
     }
 
     private final static Operation get_entry_modes_6_3(Prolog m) { 
@@ -3181,7 +3178,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         cont = m.cont;
     // get_entry_modes(A,B,C,D,E,F):-['$get_level'(G),'$less_or_equal'(B,C),'$cut'(G),H is B+1,get_entry_modes(A,H,C,D,E,F)]
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (! a7.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3196,7 +3193,7 @@ m.cont = cont;
         a7 = a7.dref();
                   m.cut( a7.intValue());
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(9))
         a9 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
@@ -3215,7 +3212,7 @@ m.cont = cont;
         return get_entry_modes_6_top(m);
     }
 /** PREDICATE: var_args/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(var_args/2,public)
 
@@ -3231,15 +3228,15 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // var_args(A,B):-[functor(A,C,D),filter_vars(D,A,E),sort(E,B)]
-        a3 = V(m);
-        a4 = V(m);
+        a3 = m.mkvar1();
+        a4 = m.mkvar1();
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, V(m), a3), //
- Op((e)->PRED_filter_vars_3_static_exec(e), VA(a3, a1, a4), //
- Op((e)->PRED_sort_2_static_exec(e), VA(a4, a2), cont)));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONTCARE("execute(functor(a(1),void,a(3),#(execute(filter_vars(a(3),a(1),a(4),#(execute(sort(a(4),a(2),cont))))))))"), a3), //
+ Op(FILE_simple_analyzer::PRED_filter_vars_3_static_exec, VA(a3, a1, a4), //
+ Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a2), cont)));
     }
 /** PREDICATE: filter_vars/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_vars/3,public)
 
@@ -3256,10 +3253,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a3 = LARG[2];
     // filter_vars(A,B,C):-[filter_vars(A,B,C,[])]
         return //
- Op((e)->PRED_filter_vars_4_static_exec(e), VA(a1, a2, a3,  Prolog.Nil ), cont);
+ Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
     }
 /** PREDICATE: filter_vars/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_vars/4,public)
 
@@ -3289,13 +3286,13 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // filter_vars(A,B,C,D):-['$get_level'(E),F is 0,'$less_or_equal'(A,F),'$unify'(G,C),'$cut'(E),'$unify'(D,G)]
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (! a5.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of a(6)is@(int_0)
         if (! a6.unify(Arithmetic.evaluate(int_0), m.trail)) {
             return m.fail();
@@ -3306,7 +3303,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(3))
         if (! a7.unify(a3, m.trail)) {
             return m.fail();
@@ -3335,13 +3332,13 @@ m.cont = cont;
         a4 = m.AREGS[3];
         cont = m.cont;
     // filter_vars(A,B,C,D):-['$get_level'(E),F is 0,'$greater_than'(A,F),'$unify'(G,C),'$cut'(E),'$unify'(H,G),arg(A,B,I),'$unify'(J,H),filter_vars_arg(A,B,I,J,D)]
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (! a5.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of a(6)is@(int_0)
         if (! a6.unify(Arithmetic.evaluate(int_0), m.trail)) {
             return m.fail();
@@ -3352,7 +3349,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(3))
         if (! a7.unify(a3, m.trail)) {
             return m.fail();
@@ -3362,21 +3359,21 @@ m.cont = cont;
         a5 = a5.dref();
                   m.cut( a5.intValue());
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $unify(a(8),a(7))
         if (! a8.unify(a7, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a9 = V(m);
-        a10 = V(m);
+        a9 = m.mkvar1();
+        a10 = m.mkvar1();
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a1, a2, a9), //
- Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a8), //
- Op((e)->PRED_filter_vars_arg_5_static_exec(e), VA(a1, a2, a9, a10, a4), cont)));
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a2, a9), //
+ Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
+ Op(FILE_simple_analyzer::PRED_filter_vars_arg_5_static_exec, VA(a1, a2, a9, a10, a4), cont)));
     }
 /** PREDICATE: filter_vars_arg/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_vars_arg/5,public)
         final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
@@ -3410,7 +3407,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // filter_vars_arg(A,B,C,D,E):-['$get_level'(F),var(C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),'$unify'(H,[C|I]),J is A-1,'$unify'(K,I),filter_vars(J,B,K,E)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3422,7 +3419,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(4))
         if (! a7.unify(a4, m.trail)) {
             return m.fail();
@@ -3432,20 +3429,20 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $unify(a(8),a(7))
         if (! a8.unify(a7, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a9 = V(m);
+        a9 = m.mkvar1();
         a10 = CONS(a3, a9);
         //START inline expansion of $unify(a(8),a(10))
         if (! a8.unify(a10, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a11 = V(m);
+        a11 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(12))
         a12 =  S( FUNCTOR_$002D_2 , a1,  int_1 );
  ;
@@ -3454,14 +3451,14 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $unify(a(13),a(9))
         if (! a13.unify(a9, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_filter_vars_4_static_exec(e), VA(a11, a2, a13, a5), cont);
+ Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a11, a2, a13, a5), cont);
     }
 
     private final static Operation filter_vars_arg_5_2(Prolog m) { 
@@ -3475,7 +3472,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // filter_vars_arg(A,B,C,D,E):-['$get_level'(F),nonvar(C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),I is A-1,'$unify'(J,H),filter_vars(I,B,J,E)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3487,7 +3484,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(4))
         if (! a7.unify(a4, m.trail)) {
             return m.fail();
@@ -3497,13 +3494,13 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $unify(a(8),a(7))
         if (! a8.unify(a7, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a9 = V(m);
+        a9 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(10))
         a10 =  S( FUNCTOR_$002D_2 , a1,  int_1 );
  ;
@@ -3512,17 +3509,17 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a11 = V(m);
+        a11 = m.mkvar1();
         //START inline expansion of $unify(a(11),a(8))
         if (! a11.unify(a8, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_filter_vars_4_static_exec(e), VA(a9, a2, a11, a5), cont);
+ Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a9, a2, a11, a5), cont);
     }
 /** PREDICATE: goal_dupset/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(goal_dupset/2,public)
 
@@ -3538,10 +3535,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
     // goal_dupset(A,B):-[goal_dupset_varbag(A,B,C)]
         return //
- Op((e)->PRED_goal_dupset_varbag_3_static_exec(e), VA(a1, a2, V(m)), cont);
+ Op(FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, m.DONTCARE("execute(goal_dupset_varbag(a(1),a(2),void,cont))")), cont);
     }
 /** PREDICATE: goal_dupset_varset/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(goal_dupset_varset/3,public)
 
@@ -3558,13 +3555,13 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
         a3 = LARG[2];
     // goal_dupset_varset(A,B,C):-[goal_dupset_varbag(A,B,D),sort(D,C)]
-        a4 = V(m);
+        a4 = m.mkvar1();
         return //
- Op((e)->PRED_goal_dupset_varbag_3_static_exec(e), VA(a1, a2, a4), //
- Op((e)->PRED_sort_2_static_exec(e), VA(a4, a3), cont));
+ Op(FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, a4), //
+ Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a3), cont));
     }
 /** PREDICATE: goal_dupset_varbag/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(goal_dupset_varbag/3,public)
 
@@ -3581,16 +3578,16 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
         a3 = LARG[2];
     // goal_dupset_varbag(A,B,C):-[varbag(A,C),make_key(C,D),keysort(D,E),filter_dups(E,B)]
-        a4 = V(m);
-        a5 = V(m);
+        a4 = m.mkvar1();
+        a5 = m.mkvar1();
         return //
- Op((e)->PRED_varbag_2_static_exec(e), VA(a1, a3), //
- Op((e)->PRED_make_key_2_static_exec(e), VA(a3, a4), //
- Op((e)->PRED_keysort_2_static_exec(e), VA(a4, a5), //
- Op((e)->PRED_filter_dups_2_static_exec(e), VA(a5, a2), cont))));
+ Op(FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
+ Op(FILE_simple_analyzer::PRED_make_key_2_static_exec, VA(a3, a4), //
+ Op(FILE_simple_analyzer::PRED_keysort_2_static_exec, VA(a4, a5), //
+ Op(FILE_simple_analyzer::PRED_filter_dups_2_static_exec, VA(a5, a2), cont))));
     }
 /** PREDICATE: make_key/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(make_key/2,public)
         final static SymbolTerm ATOM_dummy = SYM("dummy");
@@ -3644,24 +3641,22 @@ m.cont = cont;
     // make_key([A|B],[A-dummy|C]):-[make_key(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
+                        a3 = a1.car();
+            a4 = a1.cdr();
         } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
              a1.bind(CONS(a3, a4), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a2.car();
+            a6 = a2.cdr();
         } else if (a2.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a2.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
@@ -3676,7 +3671,7 @@ m.cont = cont;
         return make_key_2_top(m);
     }
 /** PREDICATE: filter_dups/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_dups/2,public)
 
@@ -3692,10 +3687,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
     // filter_dups(A,B):-[filter_dups(A,B,[])]
         return //
- Op((e)->PRED_filter_dups_3_static_exec(e), VA(a1, a2,  Prolog.Nil ), cont);
+ Op(FILE_simple_analyzer::PRED_filter_dups_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: filter_dups/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_dups/3,public)
 
@@ -3781,56 +3776,53 @@ m.cont = cont;
     // filter_dups([A-B,C-D,E-F|G],H,I):-['$get_level'(J),'$equality_of_term'(A,C),'$equality_of_term'(C,E),'$unify'(K,H),'$cut'(J),'$unify'(L,K),filter_dups([C-M,E-N|G],L,I)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a4 = a4.dref();
-            a6 = V(m);
+            a6 = m.mkvar2();
             if (!a4.unify(C( FUNCTOR_$002D_2 , a6, V(m)), m.trail)){
                 return m.fail();
             }
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            a7 = argz[0];
-            a8 = argz[1];
+                        a7 = a5.car();
+            a8 = a5.cdr();
         } else if (a5.isVar()){
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
              a5.bind(CONS(a7, a8), m.trail);
         } else {
             return m.fail();
         }
         a7 = a7.dref();
-            a9 = V(m);
+            a9 = m.mkvar2();
             if (!a7.unify(C( FUNCTOR_$002D_2 , a9, V(m)), m.trail)){
                 return m.fail();
             }
         a8 = a8.dref();
         if (a8 .isCons()){
-            Term[] argz = VA(a8.car(), a8.cdr());
-            a10 = argz[0];
-            a11 = argz[1];
+                        a10 = a8.car();
+            a11 = a8.cdr();
         } else if (a8.isVar()){
-            a10 = V(m);
-            a11 = V(m);
+            a10 = m.mkvar2();
+            a11 = m.mkvar2();
              a8.bind(CONS(a10, a11), m.trail);
         } else {
             return m.fail();
         }
         a10 = a10.dref();
-            a12 = V(m);
+            a12 = m.mkvar2();
             if (!a10.unify(C( FUNCTOR_$002D_2 , a12, V(m)), m.trail)){
                 return m.fail();
             }
-        a13 = V(m);
+        a13 = m.mkvar1();
         //START inline expansion of $get_level(a(13))
         if (! a13.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3850,7 +3842,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a14 = V(m);
+        a14 = m.mkvar1();
         //START inline expansion of $unify(a(14),a(2))
         if (! a14.unify(a2, m.trail)) {
             return m.fail();
@@ -3860,7 +3852,7 @@ m.cont = cont;
         a13 = a13.dref();
                   m.cut( a13.intValue());
         //END inline expansion
-        a15 = V(m);
+        a15 = m.mkvar1();
         //START inline expansion of $unify(a(15),a(14))
         if (! a15.unify(a14, m.trail)) {
             return m.fail();
@@ -3892,39 +3884,37 @@ m.cont = cont;
     // filter_dups([A-B,C-D|E],F,G):-['$get_level'(H),'$equality_of_term'(A,C),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[A|K]),filter_dups(E,K,G)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         a4 = a4.dref();
-            a6 = V(m);
+            a6 = m.mkvar2();
             if (!a4.unify(C( FUNCTOR_$002D_2 , a6, V(m)), m.trail)){
                 return m.fail();
             }
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            a7 = argz[0];
-            a8 = argz[1];
+                        a7 = a5.car();
+            a8 = a5.cdr();
         } else if (a5.isVar()){
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
              a5.bind(CONS(a7, a8), m.trail);
         } else {
             return m.fail();
         }
         a7 = a7.dref();
-            a9 = V(m);
+            a9 = m.mkvar2();
             if (!a7.unify(C( FUNCTOR_$002D_2 , a9, V(m)), m.trail)){
                 return m.fail();
             }
-        a10 = V(m);
+        a10 = m.mkvar1();
         //START inline expansion of $get_level(a(10))
         if (! a10.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -3937,7 +3927,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a11 = V(m);
+        a11 = m.mkvar1();
         //START inline expansion of $unify(a(11),a(2))
         if (! a11.unify(a2, m.trail)) {
             return m.fail();
@@ -3947,13 +3937,13 @@ m.cont = cont;
         a10 = a10.dref();
                   m.cut( a10.intValue());
         //END inline expansion
-        a12 = V(m);
+        a12 = m.mkvar1();
         //START inline expansion of $unify(a(12),a(11))
         if (! a12.unify(a11, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a13 = V(m);
+        a13 = m.mkvar1();
         a14 = CONS(a6, a13);
         //START inline expansion of $unify(a(12),a(14))
         if (! a12.unify(a14, m.trail)) {
@@ -3978,12 +3968,11 @@ m.cont = cont;
     // filter_dups([A-B|C],D,E):-['$neck_cut','$unify'(F,D),filter_dups(C,F,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
@@ -3995,7 +3984,7 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $unify(a(6),a(2))
         if (! a6.unify(a2, m.trail)) {
             return m.fail();
@@ -4008,7 +3997,7 @@ m.cont = cont;
         return filter_dups_3_top(m);
     }
 /** PREDICATE: set_command/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(set_command/3,public)
 
@@ -4052,13 +4041,13 @@ m.cont = cont;
         cont = m.cont;
     // set_command(sub(A),B,C):-[diffv(B,[A],C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_sub_1 , a4), m.trail)){
                 return m.fail();
             }
         a5 = CONS(a4,  Prolog.Nil );
         return //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a2, a5, a3), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a5, a3), cont);
     }
 
     private final static Operation set_command_3_2(Prolog m) { 
@@ -4071,12 +4060,12 @@ m.cont = cont;
         cont = m.cont;
     // set_command(add(A),B,C):-[includev(A,B,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_add_1 , a4), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_includev_3_static_exec(e), VA(a4, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_includev_3_static_exec, VA(a4, a2, a3), cont);
     }
 
     private final static Operation set_command_3_3(Prolog m) { 
@@ -4089,12 +4078,12 @@ m.cont = cont;
         cont = m.cont;
     // set_command(sub_set(A),B,C):-[diffv(B,A,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_sub_set_1 , a4), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a2, a4, a3), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a4, a3), cont);
     }
 
     private final static Operation set_command_3_4(Prolog m) { 
@@ -4107,15 +4096,15 @@ m.cont = cont;
         cont = m.cont;
     // set_command(add_set(A),B,C):-[unionv(A,B,C)]
         a1 = a1.dref();
-            a4 = V(m);
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_add_set_1 , a4), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_unionv_3_static_exec(e), VA(a4, a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a4, a2, a3), cont);
     }
 /** PREDICATE: table_command/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(table_command/3,public)
 
@@ -4149,15 +4138,15 @@ m.cont = cont;
         cont = m.cont;
     // table_command(get(A,B),C,C):-[get(C,A,B)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_get_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         if (! a2.unify(a3, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_get_3_static_exec(e), VA(a2, a4, a5), cont);
+ Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a4, a5), cont);
     }
 
     private final static Operation table_command_3_2(Prolog m) { 
@@ -4170,16 +4159,16 @@ m.cont = cont;
         cont = m.cont;
     // table_command(set(A,B),C,D):-[set(C,A,B,D)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_set_2 , a4, a5), m.trail)){
                 return m.fail();
             }
         return //
- Op((e)->PRED_set_4_static_exec(e), VA(a2, a4, a5, a3), cont);
+ Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: inv/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(inv/2,public)
 
@@ -4197,23 +4186,22 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
     // inv(A,[B|C]):-[compare(D,A,B),inv_2(D,A,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
+                        a3 = a2.car();
+            a4 = a2.cdr();
         } else if (a2.isVar()){
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
              a2.bind(CONS(a3, a4), m.trail);
         } else {
             return m.fail();
         }
-        a5 = V(m);
+        a5 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a5, a1, a3), //
- Op((e)->PRED_inv_2_3_static_exec(e), VA(a5, a1, a4), cont));
+ Op(FILE_simple_analyzer::PRED_inv_2_3_static_exec, VA(a5, a1, a4), cont));
     }
 /** PREDICATE: inv_2/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(inv_2/3,public)
 
@@ -4263,10 +4251,10 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_inv_2_static_exec(e), VA(a2, a3), cont);
+ Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: intersectv/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(intersectv/3,public)
 
@@ -4317,21 +4305,20 @@ m.cont = cont;
     // intersectv([A|B],C,D):-[intersectv_2(C,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_intersectv_2_4_static_exec(e), VA(a2, a4, a5, a3), cont);
+ Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: intersectv_2/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(intersectv_2/4,public)
 
@@ -4385,23 +4372,22 @@ m.cont = cont;
     // intersectv_2([A|B],C,D,E):-[compare(F,C,A),intersectv_3(F,C,D,A,B,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op((e)->PRED_intersectv_3_6_static_exec(e), VA(a7, a2, a3, a5, a6, a4), cont));
+ Op(FILE_simple_analyzer::PRED_intersectv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: intersectv_3/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(intersectv_3/6,public)
 
@@ -4447,7 +4433,7 @@ m.cont = cont;
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_intersectv_2_4_static_exec(e), VA(a3, a4, a5, a6), cont);
+ Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a3, a4, a5, a6), cont);
     }
 
     private final static Operation intersectv_3_6_2(Prolog m) { 
@@ -4466,18 +4452,17 @@ m.cont = cont;
             return m.fail();
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a6.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a6.bind(CONS(a2, a7), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_intersectv_3_static_exec(e), VA(a3, a5, a7), cont);
+ Op(FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation intersectv_3_6_3(Prolog m) { 
@@ -4495,10 +4480,10 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_intersectv_2_4_static_exec(e), VA(a5, a2, a3, a6), cont);
+ Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: diffv/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(diffv/3,public)
 
@@ -4549,21 +4534,20 @@ m.cont = cont;
     // diffv([A|B],C,D):-[diffv_2(C,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_diffv_2_4_static_exec(e), VA(a2, a4, a5, a3), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: diffv_2/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(diffv_2/4,public)
 
@@ -4601,10 +4585,9 @@ m.cont = cont;
             return m.fail();
         a4 = a4.dref();
         if (a4 .isCons()){
-            Term[] argz = VA(a4.car(), a4.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a4.car(), m.trail))
                 return m.fail();
-            if (!  Prolog.Nil .unify(argz[1], m.trail))
+            if (!  Prolog.Nil .unify(a4.cdr(), m.trail))
                 return m.fail();
         } else if (a4.isVar()){
              a4.bind(CONS(a2,  Prolog.Nil ), m.trail);
@@ -4627,23 +4610,22 @@ m.cont = cont;
     // diffv_2([A|B],C,D,E):-[compare(F,C,A),diffv_3(F,C,D,A,B,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op((e)->PRED_diffv_3_6_static_exec(e), VA(a7, a2, a3, a5, a6, a4), cont));
+ Op(FILE_simple_analyzer::PRED_diffv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: diffv_3/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(diffv_3/6,public)
 
@@ -4690,19 +4672,18 @@ m.cont = cont;
             return m.fail();
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a6.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a6.bind(CONS(a2, a7), m.trail);
         } else {
             return m.fail();
         }
         a8 = CONS(a4, a5);
         return //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a3, a8, a7), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a8, a7), cont);
     }
 
     private final static Operation diffv_3_6_2(Prolog m) { 
@@ -4720,7 +4701,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_diffv_3_static_exec(e), VA(a3, a5, a6), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a5, a6), cont);
     }
 
     private final static Operation diffv_3_6_3(Prolog m) { 
@@ -4738,10 +4719,10 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_diffv_2_4_static_exec(e), VA(a5, a2, a3, a6), cont);
+ Op(FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: unionv/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(unionv/3,public)
 
@@ -4792,21 +4773,20 @@ m.cont = cont;
     // unionv([A|B],C,D):-[unionv_2(C,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_unionv_2_4_static_exec(e), VA(a2, a4, a5, a3), cont);
+ Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: unionv_2/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(unionv_2/4,public)
 
@@ -4844,10 +4824,9 @@ m.cont = cont;
             return m.fail();
         a4 = a4.dref();
         if (a4 .isCons()){
-            Term[] argz = VA(a4.car(), a4.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a4.car(), m.trail))
                 return m.fail();
-            if (! a3.unify(argz[1], m.trail))
+            if (! a3.unify(a4.cdr(), m.trail))
                 return m.fail();
         } else if (a4.isVar()){
              a4.bind(CONS(a2, a3), m.trail);
@@ -4870,23 +4849,22 @@ m.cont = cont;
     // unionv_2([A|B],C,D,E):-[compare(F,C,A),unionv_3(F,C,D,A,B,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op((e)->PRED_unionv_3_6_static_exec(e), VA(a7, a2, a3, a5, a6, a4), cont));
+ Op(FILE_simple_analyzer::PRED_unionv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: unionv_3/6
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(unionv_3/6,public)
 
@@ -4933,18 +4911,17 @@ m.cont = cont;
             return m.fail();
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a6.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a6.bind(CONS(a2, a7), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_unionv_2_4_static_exec(e), VA(a3, a4, a5, a7), cont);
+ Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a3, a4, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_2(Prolog m) { 
@@ -4963,18 +4940,17 @@ m.cont = cont;
             return m.fail();
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a6.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a6.bind(CONS(a2, a7), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_unionv_3_static_exec(e), VA(a3, a5, a7), cont);
+ Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_3(Prolog m) { 
@@ -4993,21 +4969,20 @@ m.cont = cont;
             return m.fail();
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a4.unify(argz[0], m.trail))
+                        if (! a4.unify(a6.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a6.cdr();
         } else if (a6.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a6.bind(CONS(a4, a7), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_unionv_2_4_static_exec(e), VA(a5, a2, a3, a7), cont);
+ Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a5, a2, a3, a7), cont);
     }
 /** PREDICATE: includev/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(includev/3,public)
 
@@ -5024,10 +4999,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a3 = LARG[2];
     // includev(A,B,C):-[includev_2(B,A,C)]
         return //
- Op((e)->PRED_includev_2_3_static_exec(e), VA(a2, a1, a3), cont);
+ Op(FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a2, a1, a3), cont);
     }
 /** PREDICATE: includev_2/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(includev_2/3,public)
 
@@ -5064,10 +5039,9 @@ m.cont = cont;
             return m.fail();
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a3.car(), m.trail))
                 return m.fail();
-            if (!  Prolog.Nil .unify(argz[1], m.trail))
+            if (!  Prolog.Nil .unify(a3.cdr(), m.trail))
                 return m.fail();
         } else if (a3.isVar()){
              a3.bind(CONS(a2,  Prolog.Nil ), m.trail);
@@ -5089,23 +5063,22 @@ m.cont = cont;
     // includev_2([A|B],C,D):-[compare(E,C,A),includev_3(E,C,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
-        a6 = V(m);
+        a6 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a6, a2, a4), //
- Op((e)->PRED_includev_3_5_static_exec(e), VA(a6, a2, a4, a5, a3), cont));
+ Op(FILE_simple_analyzer::PRED_includev_3_5_static_exec, VA(a6, a2, a4, a5, a3), cont));
     }
 /** PREDICATE: includev_3/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(includev_3/5,public)
 
@@ -5151,22 +5124,20 @@ m.cont = cont;
             return m.fail();
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            if (! a2.unify(argz[0], m.trail))
+                        if (! a2.unify(a5.car(), m.trail))
                 return m.fail();
-            a6 = argz[1];
+            a6 = a5.cdr();
         } else if (a5.isVar()){
-            a6 = V(m);
+            a6 = m.mkvar2();
              a5.bind(CONS(a2, a6), m.trail);
         } else {
             return m.fail();
         }
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a3.unify(argz[0], m.trail))
+                        if (! a3.unify(a6.car(), m.trail))
                 return m.fail();
-            if (! a4.unify(argz[1], m.trail))
+            if (! a4.unify(a6.cdr(), m.trail))
                 return m.fail();
         } else if (a6.isVar()){
              a6.bind(CONS(a3, a4), m.trail);
@@ -5191,10 +5162,9 @@ m.cont = cont;
             return m.fail();
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            if (! a3.unify(argz[0], m.trail))
+                        if (! a3.unify(a5.car(), m.trail))
                 return m.fail();
-            if (! a4.unify(argz[1], m.trail))
+            if (! a4.unify(a5.cdr(), m.trail))
                 return m.fail();
         } else if (a5.isVar()){
              a5.bind(CONS(a3, a4), m.trail);
@@ -5219,21 +5189,20 @@ m.cont = cont;
             return m.fail();
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            if (! a3.unify(argz[0], m.trail))
+                        if (! a3.unify(a5.car(), m.trail))
                 return m.fail();
-            a6 = argz[1];
+            a6 = a5.cdr();
         } else if (a5.isVar()){
-            a6 = V(m);
+            a6 = m.mkvar2();
              a5.bind(CONS(a3, a6), m.trail);
         } else {
             return m.fail();
         }
         return //
- Op((e)->PRED_includev_2_3_static_exec(e), VA(a4, a2, a6), cont);
+ Op(FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a4, a2, a6), cont);
     }
 /** PREDICATE: subsetv/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(subsetv/2,public)
 
@@ -5281,35 +5250,33 @@ m.cont = cont;
     // subsetv([A|B],[C|D]):-[compare(E,A,C),subsetv_2(E,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a3 = argz[0];
-            a4 = argz[1];
+                        a3 = a1.car();
+            a4 = a1.cdr();
         } else if (a1.isVar()){
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
              a1.bind(CONS(a3, a4), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
         if (a2 .isCons()){
-            Term[] argz = VA(a2.car(), a2.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a2.car();
+            a6 = a2.cdr();
         } else if (a2.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a2.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
  Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a3, a5), //
- Op((e)->PRED_subsetv_2_4_static_exec(e), VA(a7, a3, a4, a6), cont));
+ Op(FILE_simple_analyzer::PRED_subsetv_2_4_static_exec, VA(a7, a3, a4, a6), cont));
     }
 /** PREDICATE: subsetv_2/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(subsetv_2/4,public)
 
@@ -5346,7 +5313,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op((e)->PRED_subsetv_2_static_exec(e), VA(a3, a4), cont);
+ Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a3, a4), cont);
     }
 
     private final static Operation subsetv_2_4_2(Prolog m) { 
@@ -5363,10 +5330,10 @@ m.cont = cont;
             return m.fail();
         a5 = CONS(a2, a3);
         return //
- Op((e)->PRED_subsetv_2_static_exec(e), VA(a5, a4), cont);
+ Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a4), cont);
     }
 /** PREDICATE: varset/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(varset/2,public)
 
@@ -5382,13 +5349,13 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a1 = LARG[0];
         a2 = LARG[1];
     // varset(A,B):-[varbag(A,C),sort(C,B)]
-        a3 = V(m);
+        a3 = m.mkvar1();
         return //
- Op((e)->PRED_varbag_2_static_exec(e), VA(a1, a3), //
- Op((e)->PRED_sort_2_static_exec(e), VA(a3, a2), cont));
+ Op(FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
+ Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a3, a2), cont));
     }
 /** PREDICATE: varbag/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(varbag/2,public)
 
@@ -5404,10 +5371,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
         a2 = LARG[1];
     // varbag(A,B):-[varbag(A,B,[])]
         return //
- Op((e)->PRED_varbag_3_static_exec(e), VA(a1, a2,  Prolog.Nil ), cont);
+ Op(FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: varbag/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(varbag/3,public)
 
@@ -5436,7 +5403,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // varbag(A,B,C):-['$get_level'(D),var(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),'$unify'(F,[A|C])]
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -5448,7 +5415,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
         //START inline expansion of $unify(a(5),a(2))
         if (! a5.unify(a2, m.trail)) {
             return m.fail();
@@ -5458,7 +5425,7 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $unify(a(6),a(5))
         if (! a6.unify(a5, m.trail)) {
             return m.fail();
@@ -5483,7 +5450,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         cont = m.cont;
     // varbag(A,B,C):-['$get_level'(D),nonvar(A),'$cut'(D),functor(A,E,F),'$unify'(G,B),varbag(A,1,F,G,C)]
-        a4 = V(m);
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -5499,15 +5466,15 @@ m.cont = cont;
         a4 = a4.dref();
                   m.cut( a4.intValue());
         //END inline expansion
-        a5 = V(m);
-        a6 = V(m);
+        a5 = m.mkvar1();
+        a6 = m.mkvar1();
         return //
- Op((e)->PRED_functor_3_static_exec(e), VA(a1, V(m), a5), //
- Op((e)->PRED_$unify_2_static_exec(e), VA(a6, a2), //
- Op((e)->PRED_varbag_5_static_exec(e), VA(a1,  int_1 , a5, a6, a3), cont)));
+ Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONTCARE("execute(functor(a(1),void,a(5),#(execute($unify(a(6),a(2),#(execute(varbag(a(1),@(int_1),a(5),a(6),a(3),cont))))))))"), a5), //
+ Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a6, a2), //
+ Op(FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1,  int_1 , a5, a6, a3), cont)));
     }
 /** PREDICATE: varbag/5
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(varbag/5,public)
 
@@ -5540,7 +5507,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // varbag(A,B,C,D,E):-['$get_level'(F),'$greater_than'(B,C),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -5551,7 +5518,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(4))
         if (! a7.unify(a4, m.trail)) {
             return m.fail();
@@ -5581,7 +5548,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         cont = m.cont;
     // varbag(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(B,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),arg(B,A,I),'$unify'(J,H),varbag(I,J,K),L is B+1,'$unify'(M,K),varbag(A,L,C,M,E)]
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -5592,7 +5559,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         //START inline expansion of $unify(a(7),a(4))
         if (! a7.unify(a4, m.trail)) {
             return m.fail();
@@ -5602,30 +5569,30 @@ m.cont = cont;
         a6 = a6.dref();
                   m.cut( a6.intValue());
         //END inline expansion
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $unify(a(8),a(7))
         if (! a8.unify(a7, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a9 = V(m);
-        a10 = V(m);
-        a11 = V(m);
-        a12 = V(m);
+        a9 = m.mkvar1();
+        a10 = m.mkvar1();
+        a11 = m.mkvar1();
+        a12 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(13))
         a13 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
-        a14 = V(m);
+        a14 = m.mkvar1();
         return //
- Op((e)->PRED_arg_3_static_exec(e), VA(a2, a1, a9), //
- Op((e)->PRED_$unify_2_static_exec(e), VA(a10, a8), //
- Op((e)->PRED_varbag_3_static_exec(e), VA(a9, a10, a11), //
+ Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a1, a9), //
+ Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
+ Op(FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a9, a10, a11), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
- Op((e)->PRED_$unify_2_static_exec(e), VA(a14, a11), //
- Op((e)->PRED_varbag_5_static_exec(e), VA(a1, a12, a3, a14, a5), cont))))));
+ Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a14, a11), //
+ Op(FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1, a12, a3, a14, a5), cont))))));
     }
 /** PREDICATE: unify_p/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(unify_p/1,public)
 
@@ -5645,57 +5612,57 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
             }
         return cont;
     }
-/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+/** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl/1
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
-    // main('$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'/1,public)
+    // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'/1,public)
 
 
 
 
-    public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry1(null, FILE_simple_analyzer::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_sub_1);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_1(m);
+        m.jtry1(null, FILE_simple_analyzer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_sub_1);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_2(m);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_1(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-unify_p(A),!,fail
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_1(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-unify_p(A),!,fail
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-['$get_level'(B),unify_p(A),'$cut'(B),fail]
-        a2 = V(m);
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-['$get_level'(B),unify_p(A),'$cut'(B),fail]
+        a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
         if (! a2.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_unify_p_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a2), fail_0));
+ Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_2(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-true
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_2(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-true
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-[]
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A):-[]
         return cont;
     }
 /** PREDICATE: call_p/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(call_p/1,public)
 
@@ -5704,16 +5671,16 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
 
     public static Operation PRED_call_p_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // call_p(A):-'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A)
+    // call_p(A):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A)
         m.setB0();
          Term a1;
         a1 = LARG[0];
-    // call_p(A):-['$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl'(A)]
+    // call_p(A):-['$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A)]
         return //
- Op((e)->PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec(e), VA(a1), cont);
+ Op(FILE_simple_analyzer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: split_unify/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(split_unify/3,public)
 
@@ -5747,8 +5714,8 @@ m.cont = cont;
         cont = m.cont;
     // split_unify(A=B,A,B):-[]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$003D_2 , a4, a5), m.trail)){
                 return m.fail();
             }
@@ -5769,8 +5736,8 @@ m.cont = cont;
         cont = m.cont;
     // split_unify(A=B,B,A):-[]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$003D_2 , a4, a5), m.trail)){
                 return m.fail();
             }
@@ -5851,7 +5818,7 @@ static public void loadPreds() {
    PredTable.registerBuiltin("varbag",3,FILE_simple_analyzer::PRED_varbag_3_static_exec);
    PredTable.registerBuiltin("varbag",5,FILE_simple_analyzer::PRED_varbag_5_static_exec);
    PredTable.registerBuiltin("unify_p",1,FILE_simple_analyzer::PRED_unify_p_1_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/simple_analyzer.pl","$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl",1,FILE_simple_analyzer::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec);
+   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl",1,FILE_simple_analyzer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec);
    PredTable.registerBuiltin("call_p",1,FILE_simple_analyzer::PRED_call_p_1_static_exec);
    PredTable.registerBuiltin("split_unify",3,FILE_simple_analyzer::PRED_split_unify_3_static_exec);
 }

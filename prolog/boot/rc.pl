@@ -126,8 +126,9 @@ mode_options([_|Chars], T) :-
 		 /*******************************
 		 *      RESOURCES AS FILES	*
 		 *******************************/
-
+:- if(\+ current_predicate((package)/1)).
 :- register_iri_scheme(res, res_iri_hook, []).
+:- endif.
 
 %!  res_iri_hook(+Action, +IRI, -Stream) is det.
 %

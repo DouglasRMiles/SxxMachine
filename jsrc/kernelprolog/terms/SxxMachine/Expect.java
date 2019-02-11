@@ -4,7 +4,7 @@ public class Expect {
 
 	public static SymbolTerm asConst(Term i) {
 		// TODO Auto-generated method stub
-		return (SymbolTerm) i.asConst();
+		return i.asConst();
 	}
 
 	public static LongTerm asInt(Term i) {
@@ -14,17 +14,17 @@ public class Expect {
 
 	public static StructureTerm asCons(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.asListTerm();
+		return (StructureTerm) i.asListTerm();
 	}
 
 	public static StructureTerm asStruct(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.asStructureTerm();
+		return i.asStructureTerm();
 	}
- 
+
 	public static StructureTerm asConj(Term i) {
 		// TODO Auto-generated method stub
-		return  (StructureTerm) i.asStructureTerm();
+		return i.asStructureTerm();
 	}
 
 	public static CharReader asCharReader(Term i) {

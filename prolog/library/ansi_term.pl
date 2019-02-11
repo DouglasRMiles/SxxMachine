@@ -258,7 +258,7 @@ keep_line_pos(S, G) :-
     stream_property(S, position(Pos)),
     !,
     stream_position_data(line_position, Pos, LPos),
-    G,
+    call(G),
     set_stream(S, line_position(LPos)).
 keep_line_pos(_, G) :-
-    G.
+    call(G).

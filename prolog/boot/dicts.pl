@@ -108,7 +108,7 @@ get_dict_path(Key, Dict, Old, NewDict, New) :-
     get_dict(Key, Dict, Old, NewDict, New),
     is_dict(Old),
     !.
-get_dict_path(Key, Dict, _{}, NewDict, New) :-
+get_dict_path(Key, Dict, NoKeys, NewDict, New) :- dict_keys(NoKeys,[]), % dmiles
     put_dict(Key, Dict, New, NewDict).
 
 

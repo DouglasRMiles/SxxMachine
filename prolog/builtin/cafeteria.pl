@@ -6,7 +6,7 @@
 % Kobe University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-:- package 'SxxMachine.builtin'.
+:- package 'SxxMachine'.
 :- public cafeteria/0.
 :- public consult/1.
 :- public trace/0, notrace/0.
@@ -28,9 +28,9 @@ cafeteria :-
 	nl, '$fast_write'(bye), nl.
 
 '$cafeteria_init' :-
-	'$new_indexing_hash'('SxxMachine.builtin','$leap_flag'/1, _),
-	'$new_indexing_hash'('SxxMachine.builtin','$current_spypoint'/3, _),
-	'$new_indexing_hash'('SxxMachine.builtin','$current_leash'/1, _),
+	'$new_indexing_hash'('SxxMachine','$leap_flag'/1, _),
+	'$new_indexing_hash'('SxxMachine','$current_spypoint'/3, _),
+	'$new_indexing_hash'('SxxMachine','$current_leash'/1, _),
 	retractall('$leap_flag'(_)),
 	retractall('$current_leash'(_)),
 	retractall('$current_spypoint'(_,_,_)),

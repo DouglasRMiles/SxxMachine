@@ -2,13 +2,14 @@ package SxxMachine;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 //!depends
 /**
  * Term Copier agent. Has its own Variable dictionnary. Uses a generic action
  * propagator which recurses over Terms.
  */
 public class Copier extends SystemObject {
-	private HashDict dict;	
+	private HashDict dict;
 
 	/**
 	 * creates a new Copier together with its related HashDict for variables
@@ -22,6 +23,7 @@ public class Copier extends SystemObject {
 	 * mechanism will be used to recurse over Terms in a (truly:-)) OO style (well,
 	 * looks more like some Haskell stuff, but who cares).
 	 */
+	@Override
 	public Term action(Term place) {
 
 		if (place.isVar()) {
@@ -84,7 +86,7 @@ public class Copier extends SystemObject {
 
 	static Term toFun(SymbolTerm c, Iterator e) {
 		ArrayList V = EnumerationToVector(e);
-		int arity = V.size(); 
+		int arity = V.size();
 		if (arity == 0)
 			return c;
 		StructureTerm f = StructureTerm.S(c.name(), arity);

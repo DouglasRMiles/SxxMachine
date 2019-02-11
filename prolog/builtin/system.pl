@@ -1,7 +1,11 @@
 %:- op(1150,  fx, (package)).
 %package(_).
-:- package 'SxxMachine.builtin'.
+:- package('SxxMachine').
+%:- dynamic(system_predicate/1).
 :- public system_predicate/1.
+%:- multifile(system_predicate/1).
+%:- asserta(system_predicate('copy_term'(_,_,_))).
+:- dynamic(system_predicate_ext/1).
 
 system_predicate(system_predicate(_)).
 % Control constructs
@@ -271,3 +275,5 @@ system_predicate(length(_,_)).
 system_predicate(numbervars(_,_,_)).
 system_predicate(statistics(_,_)).
 % END
+
+system_predicate(X):- call(system_predicate_ext,X).

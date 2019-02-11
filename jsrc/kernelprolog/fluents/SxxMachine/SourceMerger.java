@@ -1,9 +1,9 @@
 package SxxMachine;
 
 /**
-  Merges a List of Sources into a new Source which
-  (fairly) iterates over them breadth first.
-*/
+ * Merges a List of Sources into a new Source which (fairly) iterates over them
+ * breadth first.
+ */
 public class SourceMerger extends IterableSource {
 
 	public SourceMerger(Nonvar Xs, Prog p) {
@@ -13,6 +13,7 @@ public class SourceMerger extends IterableSource {
 
 	private O1Queue Q;
 
+	@Override
 	public Term getElement() {
 		if (null == Q)
 			return null;

@@ -4,12 +4,13 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+
 /**
  * Implements a Term and Clause objects based blackboard (database).
  */
 public class DataBase extends BlackBoard {
 
-	public DataBase(HashMap map){
+	public DataBase(HashMap map) {
 		super(map);
 	}
 
@@ -103,20 +104,22 @@ public class DataBase extends BlackBoard {
 	}
 
 	/**
-	 * Gives an Iterator view to the O1Queue of Term or Clause objects stored at key k
+	 * Gives an Iterator view to the O1Queue of Term or Clause objects stored at key
+	 * k
 	 * 
 	 * @see O1Queue
 	 * @see Term
 	 * @see Clause
 	 */
+	@Override
 	public Iterator toEnumerationFor(String k) {
 		Iterator E = super.toEnumerationFor(k);
 		return E;
 	}
-	  public Iterator toEnumerationFor(Term first) {
-	    return toEnumerationFor(first.getKey());
-	  }
 
+	public Iterator toEnumerationFor(Term first) {
+		return toEnumerationFor(first.getKey());
+	}
 
 	/**
 	 * Returns a formatted String representation of this PrologBlackboard object
@@ -199,7 +202,7 @@ public class DataBase extends BlackBoard {
 	public DataBase toClone() {
 		HashMap map2 = new HashMap();
 		DataBase other = new DataBase(map2);
-	    map.putAll(map2);
+		map.putAll(map2);
 		return other;
 	}
 

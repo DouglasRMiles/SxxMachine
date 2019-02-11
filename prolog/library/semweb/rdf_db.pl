@@ -257,6 +257,8 @@ store.
 rdf_prefixes:rdf_empty_prefix_cache(_Prefix, _IRI) :-
     rdf_empty_prefix_cache.
 
+:- if(\+ current_predicate((package)/1)).
+
 :- rdf_meta
     rdf(r,r,o),
     rdf_has(r,r,o,r),
@@ -283,6 +285,8 @@ rdf_prefixes:rdf_empty_prefix_cache(_Prefix, _IRI) :-
     rdf_predicate_property(r, -),
     rdf_estimate_complexity(r,r,r,-),
     rdf_print_predicate_cloud(r,+).
+
+:- endif.
 
 %!  rdf_equal(?Resource1, ?Resource2)
 %

@@ -199,8 +199,8 @@ suspend_list([V=W|Unifier],Goal) :-
 attr_unify_hook(call(Goal), Other) :-
     (   get_attr(Other, when, call(GOTher))
     ->  del_attr(Other, when),
-        Goal, GOTher
-    ;   Goal
+        call(Goal), call(GOTher)
+    ;   call(Goal)
     ).
 
 

@@ -1,17 +1,16 @@
 package SxxMachine;
 
 /**
-  Basic toplevel Prolog Engine. Loads and executes Prolog
-  programs and can be extended to spawn threads executing on new Prolog Engine
-  objects as well as networking threads and 
-  synced local and remote Linda transactions
-*/
+ * Basic toplevel Prolog Engine. Loads and executes Prolog programs and can be
+ * extended to spawn threads executing on new Prolog Engine objects as well as
+ * networking threads and synced local and remote Linda transactions
+ */
 public class Prog extends Source implements Runnable {
 	// CONSTRUCTORS
-	
+
 	@Override
 	public Prog toClone() {
-		return new Prog( trail, orStack, parent);
+		return new Prog(trail, orStack, parent);
 	}
 
 	public Prog(KPTrail trail, ObjectStack orStack, Prog parent) {
@@ -22,8 +21,8 @@ public class Prog extends Source implements Runnable {
 	}
 
 	/**
-	Creates a Prog starting execution with argument "goal" 
-	*/
+	 * Creates a Prog starting execution with argument "goal"
+	 */
 	public Prog(Clause goal, Prog parent) {
 		super(parent);
 		this.parent = parent;
@@ -61,10 +60,11 @@ public class Prog extends Source implements Runnable {
 	// INSTANCE METHODS
 
 	/**
-	 * Here is where actual LD-resolution computation happens.
-	 * It consists of a chain of "unfolding" steps, possibly
-	 * involving backtracking, which is managed by the OrStack.
+	 * Here is where actual LD-resolution computation happens. It consists of a
+	 * chain of "unfolding" steps, possibly involving backtracking, which is managed
+	 * by the OrStack.
 	 */
+	@Override
 	public Term getElement() {
 		if (null == orStack)
 			return null;
@@ -93,6 +93,7 @@ public class Prog extends Source implements Runnable {
 		return head;
 	}
 
+	@Override
 	public void stop() {
 		if (null != trail) {
 			trail.unwind(0);
@@ -101,9 +102,9 @@ public class Prog extends Source implements Runnable {
 		orStack = null;
 	}
 
-	/** 
-	Computes a copy of the first solution X of Goal G.
-	*/
+	/**
+	 * Computes a copy of the first solution X of Goal G.
+	 */
 
 	static public Term firstSolution(Term X, Term G) {
 		Prog p = new_engine(X, G);
@@ -125,16 +126,18 @@ public class Prog extends Source implements Runnable {
 		return p;
 	}
 
-	/** asks a logic engine to return a solution
+	/**
+	 * asks a logic engine to return a solution
 	 */
 
 	static public Term ask_engine(Prog p) {
 		return p.getElement();
 	}
 
-	/** 
+	/**
 	 * usable for launching on a separate thread
 	 */
+	@Override
 	public void run() {
 		for (;;) {
 			Term Answer = getElement();

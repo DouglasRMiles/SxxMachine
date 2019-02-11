@@ -100,7 +100,7 @@ unfreeze('$and'(A,B)) :-
     unfreeze(A),
     unfreeze(B).
 unfreeze(Goal) :-
-    Goal.
+    call(Goal).
 
 %!  freeze(@Var, :Goal)
 %
@@ -113,7 +113,7 @@ freeze(Var, Goal) :-
     '$freeze'(Var, Goal),
     !.        % Succeeds if delayed
 freeze(_, Goal) :-
-    Goal.
+    call(Goal).
 
 %!  frozen(@Var, -Goals)
 %

@@ -335,8 +335,12 @@ expr_to_list(A, _) -->
 %   Evaluate  environment  variables   on    behalf   of  arithmetic
 %   expressions.
 
+:- if(\+ current_predicate((package)/1)).
+
 :- arithmetic_function(env/1).
 :- arithmetic_function(env/2).
+
+:- endif/1.
 
 env(Name, Value) :-
     (   getenv(Name, Text)

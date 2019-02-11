@@ -134,6 +134,9 @@ thread_statistics(_Thread, Key, Value) :-       % single threaded version
     statistics(Key, Value).
 :- endif.
 
+:- if(\+ current_predicate((package)/1)).
+
+
 thread_stack_statistics(Thread,
                   stacks{local:stack{name:local,
                                      allocated:Local,
@@ -158,6 +161,8 @@ thread_stack_statistics(Thread,
     thread_statistics(Thread, stack_limit, StackLimit), %
     StackUsed is LocalUsed+GlobalUsed+TrailUsed,
     StackAllocated is Local+Global+Trail.
+
+:- endif/1.
 
 gc_statistics -->
     { statistics(collections, Collections),
@@ -257,6 +262,8 @@ human_thread_id(Thread, Id) :-
 human_thread_id(Thread, Id) :-
     thread_property(Thread, id(Id)).
 
+:- if(\+ current_predicate((package)/1)).
+
 thread_stats(Thread, Stacks,
              time{cpu:CpuTime,
                   inferences:Inferences,
@@ -267,6 +274,7 @@ thread_stats(Thread, Stacks,
     thread_statistics(Thread, epoch, Epoch),
     thread_stack_statistics(Thread, Stacks).
 
+:- endif/1.
 
 %!  time(:Goal) is nondet.
 %

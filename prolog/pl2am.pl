@@ -186,15 +186,17 @@ atom_or_nil(A):- (atom(A);A==[]),!.
 :- dynamic file_base/1.
 :- dynamic file_line/2.
 
-% :- module('SxxMachine.pl2am', [main/0,pl2am/1]).
+:- set_prolog_flag(access_level,system). % allow system redefination
+swi     :- catch(current_prolog_flag(dialect, swi), _, fail), !.
+swi     :- catch(current_prolog_flag(dialect, yap), _, fail).
+sicstus :- catch(current_prolog_flag(system_type, _), _, fail).
+
 package(_).
 :- package 'SxxMachine.pl2am'.
 
 :- discontiguous((builtin_meta_predicates)/3).
 :- discontiguous((builtin_local_predicates)/3).
 
-:- multifile(system_predicate/1).
-:- dynamic(system_predicate/1).
 :- include('builtin/system.pl').
 long(X):- integer(X),(X>2147483647; X < - 2147483647).
 
@@ -281,7 +283,7 @@ pl2am_preread(File, Opts) :-
 	retractall(skip_code),
 	retractall(ifdef_flag),
 	retractall(domain_definition(_, _)),
-	assert(database_call('SxxMachine.builtin':call)),
+	assert(database_call('SxxMachine':call)),
 	assert_file_name(File),
 	assert(dummy_clause_counter(0)),
 	assert_compile_opts(Opts),
@@ -348,7 +350,7 @@ copt_expr(pif(_)).
 %%% Post-init
 pl2am_postread :-
 	assert_import('SxxMachine'),
-	assert_import('SxxMachine.builtin'),
+	assert_import('SxxMachine'),
     assert_import('SxxMachine.exceptions'),
 	assert_dummy_package,
 	assert_dummy_public.
@@ -560,7 +562,9 @@ assert_enddef:-
 	fail.
 
 %%% Include files
+assert_include_file(Why,F):- is_list(F), !, maplist(assert_include_file(Why),F).
 assert_include_file(Why,F):- prolog_file_name(F,FF)->F \== FF,!,assert_include_file(Why,FF).
+assert_include_file(Why,F):- \+ atom(F), term_to_atom(F,A), !, assert_include_file(Why,A).
 assert_include_file(Why,F):-
 	clause(file_name(BaseFile),_),
 	pl2am_resolve_file(BaseFile, F, IncludeFile),
@@ -576,12 +580,11 @@ assert_include_file(Why,F):- (Why == (include)),
 	retractall(file_name(_)),
 	assert(file_name(BaseFile)),
 	!.
-assert_include_file(Why,F):- Why== consult,
+assert_include_file(Why,F):- Why == consult,
 	clause(file_name(BaseFile),_),
 	pl2am_resolve_file(BaseFile, F, IncludeFile),
 	assert(included_file(Why,IncludeFile)),
 	!.
-
 assert_include_file(Why,F):-
 	clause(file_name(BaseFile),_),
 	pl2am_error([failed,to,Why,file,F,in,BaseFile]),
@@ -609,7 +612,7 @@ assert_database_dynamic(;(Fact,Tail)):-
 	assert_database_dynamic(Tail).
 
 assert_database_dynamic(Fact):-
-	functor(Fact,Name,Arity),
+	functor_dict(Fact,Name,Arity),
 	assert_dynamic(Name/Arity).
 
 %%% Dynamic Declaration
@@ -620,8 +623,9 @@ assert_dynamic_predicates([G|Gs]) :-
 
 assert_dynamic(user:G) :- !,assert_dynamic(G).
 assert_dynamic(system:G) :- !,assert_dynamic(G).
+assert_dynamic(prolog:G) :- !,assert_dynamic(G).
 assert_dynamic(G) :-
-	\+ clause(package_name('SxxMachine.builtin'), _),
+	\+ clause(package_name('SxxMachine'), _),
 	G = F/A,
 	functor(Head, F, A),
 	system_predicate(Head),
@@ -678,9 +682,10 @@ assert_meta(G) :-
 assert_package(G) :-
 	clause(package_name(G1), _),
 	G \== G1,
-	!,
 	pl2am_error([duplicate,package,declarations,:,G1,and,G]),
-	fail.
+	% !, fail.
+	assert(package_name(G)),
+	!.
 assert_package(G) :-
 	atom_or_nil(G),
 	!,
@@ -696,6 +701,7 @@ assert_public_predicates([G|Gs]) :-
 	assert_public(G),
 	assert_public_predicates(Gs).
 
+assert_public(op(N,X,F)):- op(N,X,F), assert_declarations(op(N,X,F)), !.
 assert_public(F/A) :-
 	predspec_expr(F/A),
 	clause(public_predicates(F, A), _),
@@ -745,7 +751,7 @@ assert_cls(Head) :- !,
 
 assert_predicate(Head) :-
         system_predicate(Head),
-	fail, \+ clause(package_name('SxxMachine.builtin'), _),	
+	fail, \+ clause(package_name('SxxMachine'), _),	
 	!,
 	functor(Head, Functor, Arity),
 	pl2am_error([can,not,redefine,builtin,predicate,Functor/Arity]),
@@ -784,7 +790,7 @@ compile_all_predicates(Out) :- % output declarations (ex. op/3)
 	writeq(Out, (:- G)), write(Out, '.'), nl(Out),
 	fail.
 compile_all_predicates(_) :-   % treat dynamic declaration
-	findall(Functor/Arity, dynamic_predicates(Functor, Arity, 'SxxMachine.builtin':call), PredSpecs),
+	findall(Functor/Arity, dynamic_predicates(Functor, Arity, 'SxxMachine':call), PredSpecs),
 	assert_init_clauses(PredSpecs),
 	fail.
 compile_all_predicates(Out) :- % compile predicate
@@ -1119,7 +1125,7 @@ get_hash(X, int, X) :- integer(X), !.
 get_hash(X, flo, X) :- float(X), !.
 get_hash(X, con, X) :- atom_or_nil(X), !.
 get_hash(X, lis, '.'/2) :- X = [_|_], !.
-get_hash(X, str, F/A) :- functor(X, F, A), !.
+get_hash(X, str, F/A) :- functor_dict(X, F, A), !.
 
 all_variable_indices([]).
 all_variable_indices([[_,_,var,_]|Is]) :-
@@ -1321,12 +1327,12 @@ pretreat_body0(halt, _)  --> !, [halt].
 pretreat_body0(abort, _) --> !, [abort].
 pretreat_body0((G1,G2), Cut) --> !, pretreat_body0(G1, Cut), pretreat_body0(G2, Cut).
 pretreat_body0(G, _) --> pretreat_builtin(G), !.
-pretreat_body0(G, _) --> {functor(G, F, A), clause(dynamic_predicates(F, A, _:Call), _), CG=..[Call,G]}, !, [CG].
+pretreat_body0(G, _) --> {functor_dict(G, F, A), clause(dynamic_predicates(F, A, _:Call), _), CG=..[Call,G]}, !, [CG].
 pretreat_body0(findall(X,G,L), Z) --> {
         nonvar(G),
-        functor(G, F, A),
+        functor_dict(G, F, A),
         clause(dynamic_predicates(F, A, Call), _),
-        Call\=='SxxMachine.builtin':call,
+        Call\=='SxxMachine':call,
         Call=P:C,
         clause(package_name(P1), _),
         CG=..[C,P1:G]
@@ -1443,7 +1449,7 @@ localize_meta_goal((X;Y), P, (X1;Y1)) :- !,
 	localize_meta_goal(X, P, X1),
 	localize_meta_goal(Y, P, Y1).
 localize_meta_goal(G, P, G1) :-
-	functor(G, F, A),
+	functor_dict(G, F, A),
 	(clause(meta_predicates(F, A, M), _) ; builtin_local_predicates(F, A, M)),
 	!,
 	G  =.. [F|As],
@@ -1510,7 +1516,7 @@ precomp_body([G|Cont]) -->
 ----------------------------------------------------------------*/
 binarize_body(G, Cont, G1) -->
 	{G  =.. [F|Args]},
-	{functor(G, F, A)},
+	{functor_dict(G, F, A)},
 	precomp_call(Args, Us, F, A),
 	%precomp_call(Args, Us), % for no closure
 	precomp_cont(Cont, V),
@@ -1534,7 +1540,7 @@ precomp_inline([], Gs1) --> !, precomp_body(Gs1).
 precomp_inline([fail|_], _) --> !, [inline(fail)].
 precomp_inline([G|Gs], Gs1) -->
 	{G  =.. [F|Args]},
-	{functor(G, F, A)},
+	{functor_dict(G, F, A)},
 	precomp_call(Args, Us, F, A),
 	%precomp_call(Args, Us),
 	{G1 =.. [F|Us]},
@@ -1573,7 +1579,7 @@ get_closure(P:G, _, Clo) :- !, get_closure(G, P, Clo).
 get_closure(G, P, P:G) :-  % ???
 	atom_or_nil(P),
 	callable(G),
-	functor(G, F, A),
+	functor_dict(G, F, A),
 	\+ clause(dynamic_predicates(F,A,_), _),
 	!.
 
@@ -1586,8 +1592,8 @@ optimize_recursive_call(_, Instrs, Instrs).
 
 optimize_rc([], _) --> !.
 optimize_rc([execute(Goal)|Xs], Head) -->
-	{functor(Head, F, A)},
-	{functor(Goal, F, A1)},
+	{functor_dict(Head, F, A)},
+	{functor_dict(Goal, F, A1)},
 	{A+1 =:= A1},
 	!,
 	{assert_copts(rc(F, A))},
@@ -1701,7 +1707,7 @@ gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
 	{assign_sreg(X:lis, R, Seen, GTI1, GTI2)},
 	gen_put_list([R1,R2], R, Seen, A, GTI2, GTI).
 gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
-	{ground(X), X =..[_|Args], functor(X,F,N)},
+	{ground(X), X =..[_|Args], functor_dict(X,F,N)},
 	!,
 	{assign_sreg(F/N:con, R0, Seen0, GTI0, GTI1)},
 	gen_put_con(F/N, R0, Seen0, _, GTI1, GTI2),
@@ -1718,7 +1724,7 @@ gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
 	{Seen = yes, R = A},
 	[put_list(R1, R2, R)].
 gen_put(X, A, LTI0, LTI, GTI0, GTI) -->
-	{X =..[_|Args], functor(X,F,N)},
+	{X =..[_|Args], functor_dict(X,F,N)},
 	!,
 	{assign_sreg(F/N:con, R0, Seen0, GTI0, GTI1)},
 	gen_put_con(F/N, R0, Seen0, _, GTI1, GTI2),
@@ -1834,7 +1840,7 @@ gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 	gen_get(Instrs1, LTI1, LTI2, GTI1, GTI2),
 	gen_get(Instrs, LTI2, LTI, GTI2, GTI).
 gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
-	{X =.. [F|Args], functor(X, F, N)},
+	{X =.. [F|Args], functor_dict(X, F, N)},
 	{assign_sreg(F/N:con, R, Seen, GTI0, GTI1)},
 	gen_put_con(F/N, R, Seen, _, GTI1, GTI2),
 	[get_str(F/N, R, A)],
@@ -1844,6 +1850,10 @@ gen_get([A=X|Instrs], LTI0, LTI, GTI0, GTI) -->
 
 gen_get_var(void, _, _) --> !.
 gen_get_var(R, _, A) --> [get_val(R, A)].
+
+
+functor_dict(X, F, N):- is_dict(X), !, F=X,N=0.
+functor_dict(X, F, N):- functor(X, F, N).
 
 %%%%%%%%%% unify instructions
 gen_unify([], [], LTI, LTI, GTI, GTI) --> !.
@@ -1910,8 +1920,8 @@ allocated([[V|X]|_], V0, X) :- V == V0, !.
 allocated([_|Alloc], V0, X) :- allocated(Alloc, V0, X).
 
 %%% S register
-assign_sreg(X, Reg, Seen, GTI0, GTI) :- \+ ground(X), !,
-	pl2am_error([X,must,be,ground,term,in,assign_sreg(X,Reg,Seen,GTI0,GTI)]),
+assign_sreg(X, Reg, Seen, GTI0, GTI) :- \+ ground(X), %dmiles !,
+	pl2am_warn([X,must,be,ground,term,in,assign_sreg(X,Reg,Seen,GTI0,GTI)]),
 	fail.
 assign_sreg(X, Reg, Seen, [SN,SAlloc,SInstrs], [SN,SAlloc,SInstrs]) :-
 	allocated(SAlloc, X, [Reg,Seen]),
@@ -2138,9 +2148,13 @@ intersect_sorted_vars([X|Xs], [Y|Ys], Rs) :- X @> Y, !,
 pl2am_error(M) :-
 	clause(file_line(File,Line),_),
 	!,
-	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]),trace.
+	pl2am_message(user_error, ['***','PL2ASM','ERROR',in,File,at,Line,':'|M]).
 
 pl2am_error(M) :- pl2am_message(user_error, ['***','PL2ASM','ERROR'|M]),trace.
+
+
+pl2am_warn(M) :- clause(file_line(File,Line),_), !, 	pl2am_message(user_error, ['***','PL2ASM','WARN',in,File,at,Line,':'|M]).
+pl2am_warn(M) :- pl2am_message(user_error, ['***','WARN','ERROR'|M]).
 
 pl2am_message(M) :- pl2am_message(user_output, M).
 

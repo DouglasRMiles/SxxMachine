@@ -135,8 +135,8 @@ user:file_search_path(chr, library(chr)).
 %	As they are not we have to   use  some heuristics. We assume any
 %	file is a CHR after we've seen :- constraints ...
 
-chr_expandable((:- constraints _)).
-chr_expandable((constraints _)).
+chr_expandable((:- (constraints _))).
+chr_expandable((constraints (_))).
 chr_expandable((:- chr_constraint _)).
 chr_expandable((:- chr_type _)).
 chr_expandable((chr_type _)).
@@ -359,7 +359,11 @@ check:trivial_fail_goal(_:Goal) :-
 
 :- create_prolog_flag(chr_toplevel_show_store, true, []).
 
+:- if(\+ current_predicate((package)/1)).
+
 :- residual_goals(chr_residuals).
+
+:- endif.
 
 %%	chr_residuals// is det.
 %

@@ -7,7 +7,7 @@ package SxxMachine;
  */
 @SuppressWarnings("serial")
 public class JavaInterruptedException extends RuntimeException {
-  public JavaInterruptedException(InterruptedException cause) {
-    super(cause);
-  }
+	public JavaInterruptedException(InterruptedException cause) {
+		super(cause);
+	}
 }

@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
-  Builds Prolog Iterators from Java
-  Sequences and Iterator type classes
-*/
+ * Builds Prolog Iterators from Java Sequences and Iterator type classes
+ */
 public class IterableSource extends Source {
 	private Iterator e;
 
@@ -25,6 +24,7 @@ public class IterableSource extends Source {
 		this.e = V.iterator();
 	}
 
+	@Override
 	public Term getElement() {
 		if (null == e || !e.hasNext())
 			return null;
@@ -32,6 +32,7 @@ public class IterableSource extends Source {
 			return (Term) e.next();
 	}
 
+	@Override
 	public void stop() {
 		e = null;
 	}

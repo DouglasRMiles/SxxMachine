@@ -35,7 +35,8 @@ public class ListViewTerm extends ListTerm {
 		}
 
 		@Override
-		public void toStringImpl(int printFlags, StringBuilder sb) {}
+		public void toStringImpl(int printFlags, StringBuilder sb) {
+		}
 
 		@Override
 		public int compareTo(Term o) {
@@ -78,11 +79,11 @@ public class ListViewTerm extends ListTerm {
 	 */
 	private Term next = null;
 
-	//final Term[] argz;
+	// final Term[] argz;
 
 	public ListViewTerm(Term head) {
 		super(head, NOT_IMMUTABLE);
-		//this.argz = VA(head, NOT_IMMUTABLE);
+		// this.argz = VA(head, NOT_IMMUTABLE);
 		this.list = new ArrayList<>();
 		this.list.add(head);
 		this.index = 0;
@@ -90,7 +91,8 @@ public class ListViewTerm extends ListTerm {
 
 	private ListViewTerm(List<Term> list, int index) {
 		super(list.get(index), NOT_IMMUTABLE);
-		//this.argz = VA(list.get(index), NOT_IMMUTABLE);//super(list.get(index), NOT_IMMUTABLE); // makes isImmutable to return false
+		// this.argz = VA(list.get(index), NOT_IMMUTABLE);//super(list.get(index),
+		// NOT_IMMUTABLE); // makes isImmutable to return false
 		this.list = list;
 		this.index = index;
 	}
@@ -179,7 +181,7 @@ public class ListViewTerm extends ListTerm {
 
 	@Override
 	public Term toClone() throws CloneNotSupportedException {
-		return new ListViewTerm(list,index);
+		return new ListViewTerm(list, index);
 	}
 
 	@Override

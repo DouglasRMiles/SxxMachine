@@ -3,16 +3,17 @@ package SxxMachine;
 import java.lang.reflect.Method;
 
 /**
-* Template for builtins of arity 0
-*/
+ * Template for builtins of arity 0
+ */
 
 abstract public class ConstBuiltin extends TermData implements NameArity {
 
 	@Override
 	public void setMethod(Method b) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public java.lang.String getKey() {
 		return Name + "/" + arityOrType();
@@ -24,16 +25,18 @@ abstract public class ConstBuiltin extends TermData implements NameArity {
 		Name = s;
 	}
 
-	//abstract public int exec(Prog p);
+	// abstract public int exec(Prog p);
 
 	public boolean isBuiltin() {
 		return true;
 	}
 
+	@Override
 	public String name() {
 		return Name;
 	}
 
+	@Override
 	public int arityOrType() {
 		return Term.CONST;
 	}

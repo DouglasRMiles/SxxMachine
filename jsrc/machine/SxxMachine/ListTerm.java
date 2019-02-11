@@ -2,7 +2,6 @@ package SxxMachine;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Deque;
 import java.util.Map;
 import java.util.Iterator;
@@ -11,7 +10,6 @@ import java.util.NoSuchElementException;
 
 @SuppressWarnings({ "rawtypes", "unused" })
 abstract public class ListTerm extends Nonvar {
-
 
 	@Override
 	public Term ArgNoDeRef(int i) {
@@ -30,39 +28,41 @@ abstract public class ListTerm extends Nonvar {
 		return false;
 	}
 
+	@Override
 	public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
 		return car().containsTerm(variableTerm, comparison) + cdr().containsTerm(variableTerm, comparison);
 	}
 
 	/** Holds the first element of this <code>ListTerm</code>. */
-	//private Term car;
+	// private Term car;
 	/**
-	 * Holds the list consisting of all the rest of the elements of 
-	 * this <code>ListTerm</code> but the first one.
+	 * Holds the list consisting of all the rest of the elements of this
+	 * <code>ListTerm</code> but the first one.
 	 */
 
-	//private Term cdr;
+	// private Term cdr;
 	/**
-	 * Constructs a new Prolog list structure
-	 * such that <code>_car</code> is the first element of this list, and 
-	 * <code>_cdr</code> is the list consisting of all the rest of the 
-	 * elements of this list but the first one.
+	 * Constructs a new Prolog list structure such that <code>_car</code> is the
+	 * first element of this list, and <code>_cdr</code> is the list consisting of
+	 * all the rest of the elements of this list but the first one.
 	 */
 	ListTerm() {
-		//super(s);
+		// super(s);
 	}
 
 	ListTerm(Term _car, Term _cdr) {
-	//	super(".");
-		//		// TODO assert _car!=null;
-		//    	// TODO assert _cdr!=null;
-		//    	//this.car = _car;
-		//		//this.cdr = _cdr;
+		// super(".");
+		// // TODO assert _car!=null;
+		// // TODO assert _cdr!=null;
+		// //this.car = _car;
+		// //this.cdr = _cdr;
 		argz = VA(_car, _cdr);
-		//		//this.immutable = this.argz[0].isImmutable() && this.argz[1].isImmutable();
+		// //this.immutable = this.argz[0].isImmutable() && this.argz[1].isImmutable();
 	}
 
-	/** Returns the value of <code>car</code>.
+	/**
+	 * Returns the value of <code>car</code>.
+	 * 
 	 * @see #car
 	 */
 	@Override
@@ -70,7 +70,9 @@ abstract public class ListTerm extends Nonvar {
 		return this.argz[0];
 	}
 
-	/** Returns the value of <code>cdr</code>.
+	/**
+	 * Returns the value of <code>cdr</code>.
+	 * 
 	 * @see #cdr
 	 */
 	@Override
@@ -94,14 +96,18 @@ abstract public class ListTerm extends Nonvar {
 		return !(t.isCons()) && !(p.isCons()) && p.unify(t, trail);
 	}
 
-	/** Sets the value to <code>car</code>.
+	/**
+	 * Sets the value to <code>car</code>.
+	 * 
 	 * @see #car
 	 */
 	public void setCar(Term t) {
 		this.argz[0] = t;
 	}
 
-	/** Sets the value to <code>cdr</code>.
+	/**
+	 * Sets the value to <code>cdr</code>.
+	 * 
 	 * @see #cdr
 	 */
 	public void setCdr(Term t) {
@@ -113,9 +119,9 @@ abstract public class ListTerm extends Nonvar {
 		return TYPE_LIST;
 	}
 
-	/** 
+	/**
 	 * @return the <code>boolean</code> whose value is
-	 * <code>convertible(List.class, type)</code>.
+	 *         <code>convertible(List.class, type)</code>.
 	 * @see Term#convertible(Class, Class)
 	 */
 	@Override
@@ -168,6 +174,7 @@ abstract public class ListTerm extends Nonvar {
 		return Prolog.SYM_DOT.name();
 	}
 
+	@Override
 	public Term arg0(int nth) {
 		return nth0(nth);
 	}
@@ -186,6 +193,7 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	/** Returns the length of this <code>ListTerm</code>. */
+	@Override
 	public int length() {
 		int count = 0;
 		Term t = this;
@@ -196,11 +204,12 @@ abstract public class ListTerm extends Nonvar {
 		return count;
 	}
 
-	/** 
+	/**
 	 * Returns a {@code java.util.List} corresponds to this <code>ListTerm</code>
 	 * according to <em>Prolog Cafe interoperability with Java</em>.
-	 * @return a {@link java.util.List} object equivalent to
-	 * this <code>IntegerTerm</code>.
+	 * 
+	 * @return a {@link java.util.List} object equivalent to this
+	 *         <code>IntegerTerm</code>.
 	 */
 	@Override
 	public Object toJava() {
@@ -216,8 +225,10 @@ abstract public class ListTerm extends Nonvar {
 		return vec;
 	}
 
-	/** Adds a string representation of this <code>ListTerm</code> to given StringBuilder instance.
-	 * Non recursive implementation */
+	/**
+	 * Adds a string representation of this <code>ListTerm</code> to given
+	 * StringBuilder instance. Non recursive implementation
+	 */
 	public void toQuotedString_old(int printFlags, StringBuilder sb) {
 		TermTreeIterator it = new TermTreeIterator(this, true);
 		while (it.hasNext()) {
@@ -246,18 +257,20 @@ abstract public class ListTerm extends Nonvar {
 
 	/* Object */
 	/**
-	 * Checks <em>term equality</em> of two terms.
-	 * The result is <code>true</code> if and only if the argument is an instance of
-	 * <code>ListTerm</code>, and 
-	 * all corresponding pairs of elements in the two lists are <em>term-equal</em>.
-	 * @param obj the object to compare with. This must be dereferenced.
+	 * Checks <em>term equality</em> of two terms. The result is <code>true</code>
+	 * if and only if the argument is an instance of <code>ListTerm</code>, and all
+	 * corresponding pairs of elements in the two lists are <em>term-equal</em>.
+	 * 
+	 * @param obj
+	 *            the object to compare with. This must be dereferenced.
 	 * @return <code>true</code> if the given object represents a Prolog list
-	 * equivalent to this <code>ListTerm</code>, false otherwise.
+	 *         equivalent to this <code>ListTerm</code>, false otherwise.
 	 * @see #compareTo
 	 */
 	@Override
 	public boolean equalsTerm(Term obj, OpVisitor comparator) {
-		return obj.isCons() && this.argz[0].equalsTerm((obj).car().dref(), comparator) && cdr().equalsTerm((obj).cdr().dref(), comparator);
+		return obj.isCons() && this.argz[0].equalsTerm((obj).car().dref(), comparator)
+				&& cdr().equalsTerm((obj).cdr().dref(), comparator);
 	}
 
 	public Term[] argz;
@@ -277,7 +290,7 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	/**
-	 * Iterator over terms that make up this ListTerm. 
+	 * Iterator over terms that make up this ListTerm.
 	 */
 	public static class ListTermIterator implements Iterator<Term> {
 		private static final SymbolTerm LEFT_BRACKET = SymbolTerm.internToken("[");
@@ -333,14 +346,17 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	/* Comparable */
-	/** 
+	/**
 	 * Compares two terms in <em>Prolog standard order of terms</em>.<br>
 	 * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
 	 * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-	 * @param otherterm the term to compared with. It must be dereferenced.
-	 * @return the value <code>0</code> if two terms are identical; 
-	 * a value less than <code>0</code> if this term is <em>before</em> the <code>otherterm</code>;
-	 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>otherterm</code>.
+	 * 
+	 * @param otherterm
+	 *            the term to compared with. It must be dereferenced.
+	 * @return the value <code>0</code> if two terms are identical; a value less
+	 *         than <code>0</code> if this term is <em>before</em> the
+	 *         <code>otherterm</code>; and a value greater than <code>0</code> if
+	 *         this term is <em>after</em> the <code>otherterm</code>.
 	 */
 	@Override
 	public int compareTo(Term otherterm) { // otherterm must be dereferenced.
@@ -380,10 +396,10 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	/**
-	 * adds given term to the end of the list.
-	 * Default implementation recreates the whole list and returns reference to new list,
-	 * because the original list can be immutable.
-	 * */
+	 * adds given term to the end of the list. Default implementation recreates the
+	 * whole list and returns reference to new list, because the original list can
+	 * be immutable.
+	 */
 	@Override
 	public ListTerm add(Term term) {
 		if (isImmutable()) {
@@ -421,10 +437,11 @@ abstract public class ListTerm extends Nonvar {
 		return (ListTerm) t;
 	}
 
+	@Override
 	public ListTerm append(Term term) {
 		if (isImmutable()) {
 			throw new NoSuchElementException("isImmutable: " + this);
-			//return addToCopy(term);
+			// return addToCopy(term);
 		}
 		final Term cdr = argz[1];
 		if (cdr.isCons())

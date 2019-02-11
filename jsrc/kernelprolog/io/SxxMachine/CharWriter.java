@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
-  Writer
-*/
+ * Writer
+ */
 public class CharWriter extends Sink {
 	protected Writer writer;
 
@@ -19,6 +19,7 @@ public class CharWriter extends Sink {
 		this.writer = IO.output;
 	}
 
+	@Override
 	public int putElement(Term t) {
 		if (null == writer)
 			return 0;
@@ -31,6 +32,7 @@ public class CharWriter extends Sink {
 		return 1;
 	}
 
+	@Override
 	public void stop() {
 		if (null != writer && IO.output != writer) {
 			try {

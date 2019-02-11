@@ -57,29 +57,48 @@ public class TermData {
 		@Override
 		public String predName() {
 			String name = this.name;
-			if (name == null) {
-				Class c = static_closure.getClass();
-				name = c.getName();
+			if (name == null)
+				name = guessname();
+			return name;
+		}
 
-				int index = name.indexOf("$$Lambda$");
-				if (index > 0) {
-					name = name.substring(0, index);
-				}
-				index = name.indexOf("PRED_");
-				if (index > 0) {
-					name = name.substring(index);
-				}
-				try {
-					name = PredicateEncoder.decodeFunctor(name);
-				} catch (Exception e) {
-					return name;
-				}
-				if (name != null) {
-					this.name = name;
-				} else {
-					name = "exec=" + static_closure;
-				}
+		private String guessname() {
+			String name;
+			Class c = static_closure.getClass();
+
+			name = c.getName();
+			int index;
+			index = name.indexOf("SxxMachine.");
+			if (index > 0) {
+				name = name.substring(index);
 			}
+			index = name.indexOf("FILE_");
+			if (index > 0) {
+				name = name.substring(index);
+			}
+			index = name.indexOf("$$Lambda$");
+			if (index > 0) {
+				name = name.substring(0, index);
+			}
+			index = name.indexOf("FILE_");
+			if (index > 0) {
+				name = name.substring(index);
+			}
+			index = name.indexOf("PRED_");
+			if (index > 0) {
+				name = name.substring(index);
+			}
+			try {
+				name = PredicateEncoder.decodeFunctor(name);
+			} catch (Exception e) {
+				return name;
+			}
+			if (name != null) {
+				this.name = name;
+			} else {
+				name = "exec=" + static_closure;
+			}
+
 			return name;
 		}
 
@@ -105,6 +124,7 @@ public class TermData {
 	public static StructureTerm S(String string, Term... s3) {
 		return new StructureTerm(string, s3);
 	}
+
 	public static StructureTerm S(SymbolTerm string, Term... s3) {
 		return new StructureTerm(string, s3);
 	}
@@ -117,13 +137,13 @@ public class TermData {
 		return new StructureTerm(string, s3);
 	}
 	//
-	//  private static ListTerm Cons(Term _car, Term _cdr) {
-	//    return TermData.CONS( _car, _cdr);
-	//    //return new StructureTerm(ListTerm.SYM_DOT, _car, _cdr);
-	//  }
+	// private static ListTerm Cons(Term _car, Term _cdr) {
+	// return TermData.CONS( _car, _cdr);
+	// //return new StructureTerm(ListTerm.SYM_DOT, _car, _cdr);
+	// }
 
 	public static ListTerm CONS(Term _car, Term _cdr) {
-		//if(false) return Cons(_car, _cdr);
+		// if(false) return Cons(_car, _cdr);
 		return new StructureTerm(Prolog.SYM_DOT, _car, _cdr);
 	}
 
@@ -162,12 +182,14 @@ public class TermData {
 	public static Predicate Op(Operation object, Term a1, Operation cont) {
 		return new TermData.StaticPred(null, object, VA(a1), cont);
 	}
+
 	public static LongTerm Long(String s) {
 		return new LongTerm(new BigInteger(s));
 	}
+
 	public static LongTerm Long(long t) {
 		int i = (int) t;
-		if (((long) i) == t) {
+		if ((i) == t) {
 			return TermData.Integer(i);
 		}
 		return new LongTerm(t);

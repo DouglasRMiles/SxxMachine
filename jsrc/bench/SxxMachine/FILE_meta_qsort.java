@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_meta_qsort extends bootpreds {
+public class FILE_meta_qsort extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
         m.setB0();
     // top:-[meta_qsort]
         return //
- Op((e)->PRED_meta_qsort_0_static_exec(e), VA(), cont);
+ Op(FILE_meta_qsort::PRED_meta_qsort_0_static_exec, VA(), cont);
     }
 /** PREDICATE: meta_qsort/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(meta_qsort/0,public)
         final static SymbolTerm ATOM_qsort = SYM("qsort");
@@ -59,37 +59,37 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
         m.setB0();
     // meta_qsort:-[interpret(qsort)]
         return //
- Op((e)->PRED_interpret_1_static_exec(e), VA( ATOM_qsort ), cont);
+ Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA( ATOM_qsort ), cont);
     }
-/** PREDICATE: $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+/** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/1
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
-    // main('$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'/1,public)
+    // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'/1,public)
 
 
 
 
-    public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry1(null, FILE_meta_qsort::$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_sub_1);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_1(m);
+        m.jtry1(null, FILE_meta_qsort::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_sub_1);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_2(m);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_1(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A):-nonvar(A),!,interpret(A)
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_1(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A):-nonvar(A),!,interpret(A)
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A):-['$get_level'(B),nonvar(A),'$cut'(B),interpret(A)]
-        a2 = V(m);
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A):-['$get_level'(B),nonvar(A),'$cut'(B),interpret(A)]
+        a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
         if (! a2.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -106,20 +106,20 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op((e)->PRED_interpret_1_static_exec(e), VA(a1), cont);
+ Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation $dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_2(Prolog m) { 
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A):-true
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_2(Prolog m) { 
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A):-true
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-    // '$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A):-[]
+    // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A):-[]
         return cont;
     }
 /** PREDICATE: interpret/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(interpret/1,public)
 
@@ -128,19 +128,19 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
 
     public static Operation PRED_interpret_1_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // interpret(A):-interpret(A,B),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B)
+    // interpret(A):-interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B)
         m.setB0();
          Term a1, a2;
         Operation p1;
         a1 = LARG[0];
-    // interpret(A):-[interpret(A,B),'$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B)]
-        a2 = V(m);
+    // interpret(A):-[interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B)]
+        a2 = m.mkvar1();
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a1, a2), //
- Op((e)->PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(e), VA(a2), cont));
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), //
+ Op(FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec, VA(a2), cont));
     }
 /** PREDICATE: interpret/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(interpret/2,public)
         final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
@@ -302,7 +302,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // interpret(A,B):-['$get_level'(C),var(A),'$cut'(C),fail]
-        a3 = V(m);
+        a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -324,26 +324,26 @@ m.cont = cont;
     }
 
     private final static Operation interpret_2_2(Prolog m) { 
-    // interpret((A,B),C):-!,interpret(A,D),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B,C,D)
+    // interpret((A,B),C):-!,interpret(A,D),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // interpret((A,B),C):-['$neck_cut',interpret(A,D),'$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B,C,D)]
+    // interpret((A,B),C):-['$neck_cut',interpret(A,D),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B,C,D)]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002C_2 , a3, a4), m.trail)){
                 return m.fail();
             }
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
         p1 = //
- Op((e)->PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(e), VA(a4, a2, a5), cont);
+ Op(FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a4, a2, a5), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -359,8 +359,8 @@ m.cont = cont;
         cont = m.cont;
     // interpret((A;B),C):-['$neck_cut',interpret_disjunction(A,B,C)]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_or_2 , a3, a4), m.trail)){
                 return m.fail();
             }
@@ -368,7 +368,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op((e)->PRED_interpret_disjunction_3_static_exec(e), VA(a3, a4, a2), cont);
+ Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation interpret_2_4(Prolog m) { 
@@ -380,8 +380,8 @@ m.cont = cont;
         cont = m.cont;
     // interpret((A->B),C):-['$neck_cut',interpret_disjunction((A->B),fail,C)]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002D$003E_2 , a3, a4), m.trail)){
                 return m.fail();
             }
@@ -392,7 +392,7 @@ m.cont = cont;
         a5 =  S( FUNCTOR_$002D$003E_2 , a3, a4);
  ;
         return //
- Op((e)->PRED_interpret_disjunction_3_static_exec(e), VA(a5,  ATOM_fail , a2), cont);
+ Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a5,  ATOM_fail , a2), cont);
     }
 
     private final static Operation interpret_2_5(Prolog m) { 
@@ -404,7 +404,7 @@ m.cont = cont;
         cont = m.cont;
     // interpret(\+A,B):-['$neck_cut',interpret_disjunction((A->fail),true,B)]
         a1 = a1.dref();
-            a3 = V(m);
+            a3 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$005C$002B_1 , a3), m.trail)){
                 return m.fail();
             }
@@ -415,7 +415,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_$002D$003E_2 , a3,  ATOM_fail );
  ;
         return //
- Op((e)->PRED_interpret_disjunction_3_static_exec(e), VA(a4,  Prolog.True , a2), cont);
+ Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a4,  Prolog.True , a2), cont);
     }
 
     private final static Operation interpret_2_6(Prolog m) { 
@@ -444,7 +444,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // interpret(A,B):-['$get_level'(C),number(A),'$cut'(C),fail]
-        a3 = V(m);
+        a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -474,16 +474,16 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // interpret(A,B):-['$get_level'(C),is_built_in(A),'$cut'(C),interpret_built_in(A)]
-        a3 = V(m);
+        a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
         return //
- Op((e)->PRED_is_built_in_1_static_exec(e), VA(a1), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a3), //
- Op((e)->PRED_interpret_built_in_1_static_exec(e), VA(a1), cont)));
+ Op(FILE_meta_qsort::PRED_is_built_in_1_static_exec, VA(a1), //
+ Op(FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a3), //
+ Op(FILE_meta_qsort::PRED_interpret_built_in_1_static_exec, VA(a1), cont)));
     }
 
     private final static Operation interpret_2_9(Prolog m) { 
@@ -495,42 +495,42 @@ m.cont = cont;
         a2 = m.AREGS[1];
         cont = m.cont;
     // interpret(A,B):-[define(A,C),interpret(C)]
-        a3 = V(m);
+        a3 = m.mkvar1();
         return //
- Op((e)->PRED_define_2_static_exec(e), VA(a1, a3), //
- Op((e)->PRED_interpret_1_static_exec(e), VA(a3), cont));
+ Op(FILE_meta_qsort::PRED_define_2_static_exec, VA(a1, a3), //
+ Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a3), cont));
     }
-/** PREDICATE: $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+/** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/3
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
-    // main('$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'/3,public)
+    // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'/3,public)
 
 
 
 
-    public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_meta_qsort::$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
-        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
+        m.jtry3(null, FILE_meta_qsort::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
+        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
+        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C,A)
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
+    // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C,A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C,A))]
-        a4 = V(m);
+    // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C,A))]
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -557,49 +557,49 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
+    // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
          Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
+    // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a1, a2), cont);
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
     }
-/** PREDICATE: $dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+/** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/3
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
-    // main('$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'/3,public)
+    // main('$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'/3,public)
 
 
 
 
-    public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
+    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_meta_qsort::$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
-        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
+        m.jtry3(null, FILE_meta_qsort::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
+        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
+        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C->A)
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
+    // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C->A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C->A))]
-        a4 = V(m);
+    // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C->A))]
+        a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (! a4.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -626,20 +626,20 @@ m.cont = cont;
         return cont;
     }
 
-    private final static Operation $dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
+    // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
          Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // '$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
+    // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a1, a2), cont);
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: interpret_disjunction/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(interpret_disjunction/3,public)
 
@@ -684,7 +684,7 @@ m.cont = cont;
     }
 
     private final static Operation interpret_disjunction_3_1(Prolog m) { 
-    // interpret_disjunction((A->B),C,D):-interpret(A,E),!,'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B,D,E)
+    // interpret_disjunction((A->B),C,D):-interpret(A,E),!,'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
@@ -692,24 +692,24 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-    // interpret_disjunction((A->B),C,D):-['$get_level'(E),interpret(A,F),'$cut'(E),'$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl'(B,D,F)]
+    // interpret_disjunction((A->B),C,D):-['$get_level'(E),interpret(A,F),'$cut'(E),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B,D,F)]
         a1 = a1.dref();
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$002D$003E_2 , a4, a5), m.trail)){
                 return m.fail();
             }
-        a6 = V(m);
+        a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (! a6.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
+        a7 = m.mkvar1();
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a4, a7), //
- Op((e)->PRED_$cut_1_static_exec(e), VA(a6), //
- Op((e)->PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(e), VA(a5, a3, a7), cont)));
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a4, a7), //
+ Op(FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a6), //
+ Op(FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a5, a3, a7), cont)));
     }
 
     private final static Operation interpret_disjunction_3_2(Prolog m) { 
@@ -729,7 +729,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a2, a3), cont);
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
     }
 
     private final static Operation interpret_disjunction_3_3(Prolog m) { 
@@ -742,7 +742,7 @@ m.cont = cont;
         cont = m.cont;
     // interpret_disjunction(A,B,C):-[interpret(A,C)]
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a1, a3), cont);
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a3), cont);
     }
 
     private final static Operation interpret_disjunction_3_4(Prolog m) { 
@@ -755,10 +755,10 @@ m.cont = cont;
         cont = m.cont;
     // interpret_disjunction(A,B,C):-[interpret(B,C)]
         return //
- Op((e)->PRED_interpret_2_static_exec(e), VA(a2, a3), cont);
+ Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: is_built_in/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(is_built_in/1,public)
         final static SymbolTerm FUNCTOR_$003D$003C_2 = F("=<",2);
@@ -809,7 +809,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: interpret_built_in/1
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(interpret_built_in/1,public)
 
@@ -853,8 +853,8 @@ m.cont = cont;
         cont = m.cont;
     // interpret_built_in(A=<B):-['$less_or_equal'(A,B)]
         a1 = a1.dref();
-            a2 = V(m);
-            a3 = V(m);
+            a2 = m.mkvar2();
+            a3 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_$003D$003C_2 , a2, a3), m.trail)){
                 return m.fail();
             }
@@ -866,7 +866,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: define/2
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(define/2,public)
         final static SymbolTerm FUNCTOR_qsort_3 = F("qsort",3);
@@ -1043,58 +1043,56 @@ m.cont = cont;
         cont = m.cont;
     // define(qsort([A|B],C,D),(partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G]))):-[]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_qsort_3 , a3, a4, a5), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a6 = argz[0];
-            a7 = argz[1];
+                        a6 = a3.car();
+            a7 = a3.cdr();
         } else if (a3.isVar()){
-            a6 = V(m);
-            a7 = V(m);
+            a6 = m.mkvar2();
+            a7 = m.mkvar2();
              a3.bind(CONS(a6, a7), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
-            a8 = V(m);
-            a9 = V(m);
+            a8 = m.mkvar2();
+            a9 = m.mkvar2();
             if (!a2.unify(C( FUNCTOR_$002C_2 , a8, a9), m.trail)){
                 return m.fail();
             }
         a8 = a8.dref();
-            a10 = V(m);
-            a11 = V(m);
+            a10 = m.mkvar2();
+            a11 = m.mkvar2();
             if (!a8.unify(C( FUNCTOR_partition_4 , a7, a6, a10, a11), m.trail)){
                 return m.fail();
             }
         a9 = a9.dref();
-            a12 = V(m);
-            a13 = V(m);
+            a12 = m.mkvar2();
+            a13 = m.mkvar2();
             if (!a9.unify(C( FUNCTOR_$002C_2 , a12, a13), m.trail)){
                 return m.fail();
             }
         a12 = a12.dref();
-            a14 = V(m);
+            a14 = m.mkvar2();
             if (!a12.unify(C( FUNCTOR_qsort_3 , a11, a14, a5), m.trail)){
                 return m.fail();
             }
         a13 = a13.dref();
-            a15 = V(m);
+            a15 = m.mkvar2();
             if (!a13.unify(C( FUNCTOR_qsort_3 , a10, a4, a15), m.trail)){
                 return m.fail();
             }
         a15 = a15.dref();
         if (a15 .isCons()){
-            Term[] argz = VA(a15.car(), a15.cdr());
-            if (! a6.unify(argz[0], m.trail))
+                        if (! a6.unify(a15.car(), m.trail))
                 return m.fail();
-            if (! a14.unify(argz[1], m.trail))
+            if (! a14.unify(a15.cdr(), m.trail))
                 return m.fail();
         } else if (a15.isVar()){
              a15.bind(CONS(a6, a14), m.trail);
@@ -1113,7 +1111,7 @@ m.cont = cont;
         cont = m.cont;
     // define(qsort([],A,A),true):-[]
         a1 = a1.dref();
-            a3 = V(m);
+            a3 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_qsort_3 ,  Prolog.Nil , a3, a3), m.trail)){
                 return m.fail();
             }
@@ -1131,40 +1129,38 @@ m.cont = cont;
         cont = m.cont;
     // define(partition([A|B],C,[A|D],E),(A=<C,!,partition(B,C,D,E))):-[]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_partition_4 , a3, a4, a5, a6), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a7 = argz[0];
-            a8 = argz[1];
+                        a7 = a3.car();
+            a8 = a3.cdr();
         } else if (a3.isVar()){
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
              a3.bind(CONS(a7, a8), m.trail);
         } else {
             return m.fail();
         }
         a5 = a5.dref();
         if (a5 .isCons()){
-            Term[] argz = VA(a5.car(), a5.cdr());
-            if (! a7.unify(argz[0], m.trail))
+                        if (! a7.unify(a5.car(), m.trail))
                 return m.fail();
-            a9 = argz[1];
+            a9 = a5.cdr();
         } else if (a5.isVar()){
-            a9 = V(m);
+            a9 = m.mkvar2();
              a5.bind(CONS(a7, a9), m.trail);
         } else {
             return m.fail();
         }
         a2 = a2.dref();
-            a10 = V(m);
-            a11 = V(m);
+            a10 = m.mkvar2();
+            a11 = m.mkvar2();
             if (!a2.unify(C( FUNCTOR_$002C_2 , a10, a11), m.trail)){
                 return m.fail();
             }
@@ -1173,7 +1169,7 @@ m.cont = cont;
                 return m.fail();
             }
         a11 = a11.dref();
-            a12 = V(m);
+            a12 = m.mkvar2();
             if (!a11.unify(C( FUNCTOR_$002C_2 ,  ATOM_$0021 , a12), m.trail)){
                 return m.fail();
             }
@@ -1193,33 +1189,31 @@ m.cont = cont;
         cont = m.cont;
     // define(partition([A|B],C,D,[A|E]),partition(B,C,D,E)):-[]
         a1 = a1.dref();
-            a3 = V(m);
-            a4 = V(m);
-            a5 = V(m);
-            a6 = V(m);
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
             if (!a1.unify(C( FUNCTOR_partition_4 , a3, a4, a5, a6), m.trail)){
                 return m.fail();
             }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            a7 = argz[0];
-            a8 = argz[1];
+                        a7 = a3.car();
+            a8 = a3.cdr();
         } else if (a3.isVar()){
-            a7 = V(m);
-            a8 = V(m);
+            a7 = m.mkvar2();
+            a8 = m.mkvar2();
              a3.bind(CONS(a7, a8), m.trail);
         } else {
             return m.fail();
         }
         a6 = a6.dref();
         if (a6 .isCons()){
-            Term[] argz = VA(a6.car(), a6.cdr());
-            if (! a7.unify(argz[0], m.trail))
+                        if (! a7.unify(a6.car(), m.trail))
                 return m.fail();
-            a9 = argz[1];
+            a9 = a6.cdr();
         } else if (a6.isVar()){
-            a9 = V(m);
+            a9 = m.mkvar2();
              a6.bind(CONS(a7, a9), m.trail);
         } else {
             return m.fail();
@@ -1251,11 +1245,11 @@ static { loadPreds(); }
 static public void loadPreds() {
    PredTable.registerBuiltin("top",0,FILE_meta_qsort::PRED_top_0_static_exec);
    PredTable.registerBuiltin("meta_qsort",0,FILE_meta_qsort::PRED_meta_qsort_0_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",1,FILE_meta_qsort::PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec);
+   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",1,FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec);
    PredTable.registerBuiltin("interpret",1,FILE_meta_qsort::PRED_interpret_1_static_exec);
    PredTable.registerBuiltin("interpret",2,FILE_meta_qsort::PRED_interpret_2_static_exec);
-   PredTable.registerBuiltin("$dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
-   PredTable.registerBuiltin("$dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
+   PredTable.registerBuiltin("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
+   PredTable.registerBuiltin("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl","$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
    PredTable.registerBuiltin("interpret_disjunction",3,FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec);
    PredTable.registerBuiltin("is_built_in",1,FILE_meta_qsort::PRED_is_built_in_1_static_exec);
    PredTable.registerBuiltin("interpret_built_in",1,FILE_meta_qsort::PRED_interpret_built_in_1_static_exec);

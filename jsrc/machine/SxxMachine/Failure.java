@@ -8,24 +8,31 @@ package SxxMachine;
  * @version 1.2
  */
 public class Failure implements Operation {
-    public static final Failure FAILURE = new Failure();
-    private Failure() {}
+	public static final Failure FAILURE = new Failure();
 
-    @Override
-    public Operation exec(Prolog engine) {
-	engine.control.fail();
-	engine.halt = 1; // halt(0)
-	return null;
-    }
-    /** Returns a string representation of this <code>Failure</code>. */
-    @Override
-    public String toString(){ return "Failure"; }
-    public static final Operation fail_0 = new PRED_fail_0();
-    private static final class PRED_fail_0 implements Operation {
-      @Override
-      public Operation exec(Prolog engine) throws PrologException {
-        engine.setB0();
-        return engine.fail();
-      }
-    }
+	private Failure() {
+	}
+
+	@Override
+	public Operation exec(Prolog engine) {
+		engine.control.fail();
+		engine.halt = 1; // halt(0)
+		return null;
+	}
+
+	/** Returns a string representation of this <code>Failure</code>. */
+	@Override
+	public String toString() {
+		return "Failure";
+	}
+
+	public static final Operation fail_0 = new PRED_fail_0();
+
+	private static final class PRED_fail_0 implements Operation {
+		@Override
+		public Operation exec(Prolog engine) throws PrologException {
+			engine.setB0();
+			return engine.fail();
+		}
+	}
 }

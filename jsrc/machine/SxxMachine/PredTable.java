@@ -16,8 +16,10 @@ public class PredTable {
 	}
 
 	public static void registerPredicate(String pkg, String functor, int arity, Operation cont, boolean forced) {
-		if (!storePred(keyString(pkg, functor, arity), cont, forced)) {}
-		if (!storePred(keyString(null, functor, arity), cont, false)) {}
+		if (!storePred(keyString(pkg, functor, arity), cont, forced)) {
+		}
+		if (!storePred(keyString(null, functor, arity), cont, false)) {
+		}
 	}
 
 	public static boolean storePred(String key, Operation cont, boolean forced) {
@@ -44,10 +46,12 @@ public class PredTable {
 		{
 			if (op.getClass() != op.getClass()) {
 				if (!forced) {
-					System.err.println("Not overriding " + key + " which is implemented at " + oldmodule + " with " + newmodule);
+					System.err.println(
+							"Not overriding " + key + " which is implemented at " + oldmodule + " with " + newmodule);
 					hiddenCache.put(key, cont);
 					return false;
-				} else {}
+				} else {
+				}
 			}
 			hiddenCache.put(key, op);
 			predicateCache.put(key, cont);
@@ -77,12 +81,12 @@ public class PredTable {
 	}
 
 	/**
-	 * @param pkg 
+	 * @param pkg
 	 * @return
 	 */
 	public static boolean isGlobal(String pkg) {
 		return pkg != null && ("system".equals(pkg) || Prolog.BUILTIN.equals(pkg));
-		// || "swi_supp".equals(pkg) || 
+		// || "swi_supp".equals(pkg) ||
 	}
 
 	public static boolean isLocal(String pkg) {
@@ -111,7 +115,8 @@ public class PredTable {
 	 */
 	private static boolean isEntryPoint(String functor) {
 
-		return functor != null && (functor.equals("main") || functor.equals("go") || functor.equals("top") || functor.equals("$init"));
+		return functor != null
+				&& (functor.equals("main") || functor.equals("go") || functor.equals("top") || functor.equals("$init"));
 	}
 
 	private static void registerFileEntryPoint(String module, String functor, int arity, Operation cont) {
@@ -152,8 +157,8 @@ public class PredTable {
 	}
 
 	public static void runInits(Prolog machine) {
-		for (Iterator iterator = initsCache.entrySet().iterator(); iterator.hasNext();) {
-			Entry<String, Operation> entry = (Entry<String, Operation>) iterator.next();
+		for (Iterator<Entry<String, Operation>> iterator = initsCache.entrySet().iterator(); iterator.hasNext();) {
+			Entry<String, Operation> entry = iterator.next();
 			String name = entry.getKey();
 			Operation oper = entry.getValue();
 			int steps = 0;
@@ -162,7 +167,7 @@ public class PredTable {
 				System.err.print(".");
 				System.err.flush();
 				steps++;
-				oper = oper.exec(machine);				
+				oper = oper.exec(machine);
 			}
 			System.err.println("\nDone " + steps);
 			System.err.flush();

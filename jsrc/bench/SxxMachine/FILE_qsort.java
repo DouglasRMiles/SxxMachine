@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_qsort extends bootpreds {
+public class FILE_qsort extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
         m.setB0();
     // top:-[qsort]
         return //
- Op((e)->PRED_qsort_0_static_exec(e), VA(), cont);
+ Op(FILE_qsort::PRED_qsort_0_static_exec, VA(), cont);
     }
 /** PREDICATE: qsort/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
 */
     // main(qsort/0,public)
         final static IntegerTerm int_27 = Integer(27);
@@ -138,10 +138,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
         m.setB0();
     // qsort:-[qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])]
         return //
- Op((e)->PRED_qsort_3_static_exec(e), VA(L_qsort_0_s92, V(m),  Prolog.Nil ), cont);
+ Op(FILE_qsort::PRED_qsort_3_static_exec, VA(L_qsort_0_s92, m.DONTCARE("execute(qsort(s(92),void,@(Prolog.Nil),cont))"),  Prolog.Nil ), cont);
     }
 /** PREDICATE: qsort/3
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
 */
     // main(qsort/3,public)
 
@@ -177,24 +177,23 @@ m.cont = cont;
     // qsort([A|B],C,D):-[partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G])]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a4 = argz[0];
-            a5 = argz[1];
+                        a4 = a1.car();
+            a5 = a1.cdr();
         } else if (a1.isVar()){
-            a4 = V(m);
-            a5 = V(m);
+            a4 = m.mkvar2();
+            a5 = m.mkvar2();
              a1.bind(CONS(a4, a5), m.trail);
         } else {
             return m.fail();
         }
-        a6 = V(m);
-        a7 = V(m);
-        a8 = V(m);
+        a6 = m.mkvar1();
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
         a9 = CONS(a4, a8);
         return //
- Op((e)->PRED_partition_4_static_exec(e), VA(a5, a4, a6, a7), //
- Op((e)->PRED_qsort_3_static_exec(e), VA(a7, a8, a3), //
- Op((e)->PRED_qsort_3_static_exec(e), VA(a6, a2, a9), cont)));
+ Op(FILE_qsort::PRED_partition_4_static_exec, VA(a5, a4, a6, a7), //
+ Op(FILE_qsort::PRED_qsort_3_static_exec, VA(a7, a8, a3), //
+ Op(FILE_qsort::PRED_qsort_3_static_exec, VA(a6, a2, a9), cont)));
     }
 
     private final static Operation qsort_3_2(Prolog m) { 
@@ -213,7 +212,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: partition/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/qsort.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
 */
     // main(partition/4,public)
 
@@ -268,29 +267,27 @@ m.cont = cont;
     // partition([A|B],C,[A|D],E):-['$get_level'(F),'$less_or_equal'(A,C),'$cut'(F),partition(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
         a3 = a3.dref();
         if (a3 .isCons()){
-            Term[] argz = VA(a3.car(), a3.cdr());
-            if (! a5.unify(argz[0], m.trail))
+                        if (! a5.unify(a3.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a3.cdr();
         } else if (a3.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a3.bind(CONS(a5, a7), m.trail);
         } else {
             return m.fail();
         }
-        a8 = V(m);
+        a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
         if (! a8.unifyInt(m.B0, m.trail)) {
             return m.fail();
@@ -325,24 +322,22 @@ m.cont = cont;
     // partition([A|B],C,D,[A|E]):-[partition(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
-            Term[] argz = VA(a1.car(), a1.cdr());
-            a5 = argz[0];
-            a6 = argz[1];
+                        a5 = a1.car();
+            a6 = a1.cdr();
         } else if (a1.isVar()){
-            a5 = V(m);
-            a6 = V(m);
+            a5 = m.mkvar2();
+            a6 = m.mkvar2();
              a1.bind(CONS(a5, a6), m.trail);
         } else {
             return m.fail();
         }
         a4 = a4.dref();
         if (a4 .isCons()){
-            Term[] argz = VA(a4.car(), a4.cdr());
-            if (! a5.unify(argz[0], m.trail))
+                        if (! a5.unify(a4.car(), m.trail))
                 return m.fail();
-            a7 = argz[1];
+            a7 = a4.cdr();
         } else if (a4.isVar()){
-            a7 = V(m);
+            a7 = m.mkvar2();
              a4.bind(CONS(a5, a7), m.trail);
         } else {
             return m.fail();

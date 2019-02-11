@@ -27,9 +27,9 @@ import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
-public class FILE_tak extends bootpreds {
+public class FILE_tak extends FILE_system {
 /** PREDICATE: top/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
 */
     // main(top/0,public)
 
@@ -42,10 +42,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
         m.setB0();
     // top:-[tak]
         return //
- Op((e)->PRED_tak_0_static_exec(e), VA(), cont);
+ Op(FILE_tak::PRED_tak_0_static_exec, VA(), cont);
     }
 /** PREDICATE: tak/0
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
 */
     // main(tak/0,public)
 
@@ -58,10 +58,10 @@ from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
         m.setB0();
     // tak:-[tak(18,12,6,A)]
         return //
- Op((e)->PRED_tak_4_static_exec(e), VA( int_18 ,  int_12 ,  int_6 , V(m)), cont);
+ Op(FILE_tak::PRED_tak_4_static_exec, VA( int_18 ,  int_12 ,  int_6 , m.DONTCARE("execute(tak(@(int_18),@(int_12),@(int_6),void,cont))")), cont);
     }
 /** PREDICATE: tak/4
-from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/bench/tak.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
 */
     // main(tak/4,public)
         final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
@@ -125,7 +125,7 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a5 = V(m);
+        a5 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(6))
         a6 =  S( FUNCTOR_$002D_2 , a1,  int_1 );
  ;
@@ -134,23 +134,23 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        a7 = V(m);
-        a8 = V(m);
+        a7 = m.mkvar1();
+        a8 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(2)),put_str(@('FUNCTOR_$002D_2'),y(2),a(9))
         a9 =  S( FUNCTOR_$002D_2 , a2,  int_1 );
  ;
-        a10 = V(m);
-        a11 = V(m);
+        a10 = m.mkvar1();
+        a11 = m.mkvar1();
     // put_str_args([a(3),@(int_1)],y(3)),put_str(@('FUNCTOR_$002D_2'),y(3),a(12))
         a12 =  S( FUNCTOR_$002D_2 , a3,  int_1 );
  ;
-        a13 = V(m);
+        a13 = m.mkvar1();
         p5 = //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
- Op((e)->PRED_tak_4_static_exec(e), VA(a8, a3, a1, a10), //
+ Op(FILE_tak::PRED_tak_4_static_exec, VA(a8, a3, a1, a10), //
  Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op((e)->PRED_tak_4_static_exec(e), VA(a11, a1, a2, a13), //
- Op((e)->PRED_tak_4_static_exec(e), VA(a7, a10, a13, a4), cont)))));
+ Op(FILE_tak::PRED_tak_4_static_exec, VA(a11, a1, a2, a13), //
+ Op(FILE_tak::PRED_tak_4_static_exec, VA(a7, a10, a13, a4), cont)))));
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;

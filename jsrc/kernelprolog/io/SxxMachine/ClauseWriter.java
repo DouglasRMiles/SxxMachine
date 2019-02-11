@@ -12,13 +12,14 @@ public class ClauseWriter extends CharWriter {
 		super(p);
 	}
 
+	@Override
 	public int putElement(Term t) {
 		if (null == writer)
 			return 0;
 		String s = null;
 		if ((t.isStructure()) && "$string".equals(Expect.asStruct(t).name())) {
 			SymbolTerm Xs = Expect.asConst(Expect.asStruct(t).ArgDeRef(0));
-			s = Term.charsToString(Xs);
+			s = KPTerm.charsToString(Xs);
 		} else {
 			s = t.pprint();
 		}

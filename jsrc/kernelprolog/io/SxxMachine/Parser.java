@@ -102,7 +102,7 @@ class LexerHIDE extends StreamTokenizer {
 		long occ;
 		if (s == anonymous) {
 			occ = 0;
-			X =  TermData.V();
+			X = TermData.V();
 			s = X.toString();
 		} else {
 			X = (VariableTerm) dict.get(s);
@@ -248,7 +248,7 @@ class varToken extends StructureTerm {
 
 	@Override
 	public StructureTerm clone() {
-		return new varToken(argz[0].toVar(), argz[1].asConst(), ( argz[2].asLongTerm()));
+		return new varToken(argz[0].toVar(), argz[1].asConst(), (argz[2].asLongTerm()));
 	}
 }
 
@@ -307,7 +307,7 @@ class iffToken extends StructureTerm {
 
 class KPToken extends SymbolTerm.Dynamic {
 	KPToken(String s) {
-		super(s,0);
+		super(s, 0);
 	}
 }
 
@@ -404,7 +404,8 @@ public class Parser extends LexerHIDE {
 		String mes = e.getMessage();
 		if (null == mes)
 			mes = "unknown_error";
-		StructureTerm f = StructureTerm.S("error", TermData.F(type), TermData.F(mes), StructureTerm.S("line", TermData.Integer(line)));
+		StructureTerm f = StructureTerm.S("error", TermData.F(type), TermData.F(mes),
+				StructureTerm.S("line", TermData.Integer(line)));
 		Clause C = new Clause(f, Prolog.True);
 		if (verbose) {
 			IO.errmes(type + " error at line:" + line);
@@ -501,15 +502,16 @@ public class Parser extends LexerHIDE {
 		if (n.isFunctor("stringToken")) {
 			t = ((Nonvar) ((stringToken) n).ArgDeRef(0)).toChars();
 			// IO.mes("getTerm:stringToken-->"+t);
-	
+
 		} else if (n.isFunctor("[")) {
 			t = getList();
 		} else if (n.isFunctor("funToken")) {
-			StructureTerm f =  (StructureTerm) t;
+			StructureTerm f = (StructureTerm) t;
 			f.argz = (getArgs());
 			t = Builtins.toFunBuiltin(f);
 		} else
-			;//throw new ParserException("var,int,real,constant,'[' or functor", "bad term", n);
+			;// throw new ParserException("var,int,real,constant,'[' or functor", "bad term",
+				// n);
 		return t;
 	}
 
@@ -519,7 +521,7 @@ public class Parser extends LexerHIDE {
 	}
 
 	private final Term[] getArgs() throws IOException {
-		 //break;
+		// break;
 		Term n = next();
 		if (!(n.isFunctor("(")))
 			throw new ParserException("'('", "in getArgs", n);
@@ -557,7 +559,7 @@ public class Parser extends LexerHIDE {
 	private final Term getListCont(Term curr) throws IOException {
 		// IO.trace("curr: "+curr);
 		Term n = next();
-		Term t = null; 
+		Term t = null;
 		if (n.isFunctor("]"))
 			t = StructureTerm.createCons(curr, Prolog.Nil);
 		else if (n.isFunctor("|")) {

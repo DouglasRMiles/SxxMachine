@@ -77,9 +77,9 @@ users of the library are:
         $ PlDoc :            The documentation framework
 */
 
-:- thread_local
+:- thread_local((
     open_source/2,          % Stream, State
-    mode/2.                 % Stream, Data
+    (mode)/2)).                 % Stream, Data
 
 :- multifile
     requires_library/2,

@@ -21,6 +21,7 @@ public class IntegerSource extends Source {
 
 	private long x;
 
+	@Override
 	public Term getElement() {
 		if (fuel <= 0)
 			return null;
@@ -30,10 +31,12 @@ public class IntegerSource extends Source {
 		return R;
 	}
 
+	@Override
 	public void stop() {
 		fuel = 0;
 	}
 
+	@Override
 	public String pprint() {
 		return "{(x->" + a + "*x+" + b + ")[" + fuel + "]=" + x + "}";
 	}

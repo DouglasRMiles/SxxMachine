@@ -14,6 +14,7 @@ public class TermSource extends Source {
 
 	private int pos;
 
+	@Override
 	public Term getElement() {
 		Term X;
 		if (null == val)
@@ -33,6 +34,7 @@ public class TermSource extends Source {
 		return X;
 	}
 
+	@Override
 	public void stop() {
 		val = null;
 	}

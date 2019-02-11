@@ -5,9 +5,8 @@ import java.io.Reader;
 import java.io.StringReader;
 
 /**
-  Builds  Fluents from Java
-  Streams
-*/
+ * Builds Fluents from Java Streams
+ */
 public class CharReader extends Source {
 
 	@Override
@@ -40,6 +39,7 @@ public class CharReader extends Source {
 		this.reader = IO.url_or_file(f);
 	}
 
+	@Override
 	public Term getElement() {
 		if (IO.input == reader) {
 			String s = IO.promptln(">:");
@@ -62,6 +62,7 @@ public class CharReader extends Source {
 			return TermData.Long(c);
 	}
 
+	@Override
 	public void stop() {
 		if (null != reader && IO.input != reader) {
 			try {
@@ -71,6 +72,5 @@ public class CharReader extends Source {
 			reader = null;
 		}
 	}
-
 
 }

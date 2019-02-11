@@ -12,15 +12,15 @@ import java.util.Map;
  */
 public class Builtins extends HashDict {
 
-//	static  class STermUnused implements ISTerm {
-//		Term[] argz;
-//
-//		STermUnused(ExecProg ep, Term[] args) {
-//			exp = ep;
-//			argz = args;
-//		}
-//
-//	}
+	// static class STermUnused implements ISTerm {
+	// Term[] argz;
+	//
+	// STermUnused(ExecProg ep, Term[] args) {
+	// exp = ep;
+	// argz = args;
+	// }
+	//
+	// }
 
 	private static final Map builtinsMap = new HashMap();
 
@@ -169,7 +169,7 @@ public class Builtins extends HashDict {
 		if (c.name().equals(Prolog.aYes.name()))
 			return Prolog.aYes;
 
-		Nonvar B = (Nonvar) Init.builtinDict.asBuiltin(c);
+		Nonvar B = Init.builtinDict.asBuiltin(c);
 		if (null == B) {
 			// IO.mes("not a builtin:"+this);
 			return (Nonvar) c;
@@ -187,8 +187,8 @@ public class Builtins extends HashDict {
 		StructureTerm B = Init.builtinDict.asBuiltin(f).asStructureTerm();
 		if (null == B)
 			return f;
-		//B = B.funClone();
-		//B.Arguments = f.Arguments;
+		// B = B.funClone();
+		// B.Arguments = f.Arguments;
 		return B;
 	}
 
@@ -696,13 +696,14 @@ final class chars_to_name extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		int convert = thiz.getIntArg(0);
-		String s = Nonvar.charsToString((Nonvar) thiz.ArgDeRef(1));
+		String s = KPTerm.charsToString((Nonvar) thiz.ArgDeRef(1));
 		Nonvar T = TermData.F(s);
 		if (convert > 0) {
 			try {
 				double r = Double.valueOf(s).doubleValue();
 				T = TermData.NarrowDouble(r);
-			} catch (NumberFormatException e) {}
+			} catch (NumberFormatException e) {
+			}
 		}
 		return thiz.unifyArg(2, T, p);
 	}
@@ -868,8 +869,9 @@ final class integer_source extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		IntegerSource E = new IntegerSource(Expect.asInt(thiz.ArgDeRef(0)).longValue(), Expect.asInt(thiz.ArgDeRef(1)).longValue(), Expect.asInt(thiz.ArgDeRef(2)).longValue(), Expect.asInt(thiz.ArgDeRef(3)).longValue(),
-				p);
+		IntegerSource E = new IntegerSource(Expect.asInt(thiz.ArgDeRef(0)).longValue(),
+				Expect.asInt(thiz.ArgDeRef(1)).longValue(), Expect.asInt(thiz.ArgDeRef(2)).longValue(),
+				Expect.asInt(thiz.ArgDeRef(3)).longValue(), p);
 		return thiz.unifyArg(4, E, p);
 	}
 }
@@ -956,12 +958,12 @@ final class getfl extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		//IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
+		// IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
 		Term t = thiz.ArgDeRef(0);
 		Source S = t.asSource();
 		Term A = Expect.the(S.getElement());
-		//if(null==A) A=Nonvar.aNo;
-		//else A=new Fun("the",A);
+		// if(null==A) A=Nonvar.aNo;
+		// else A=new Fun("the",A);
 		// IO.mes(">>"+A+"\n"+p+p.getTrail().pprint());
 		return thiz.unifyArg(1, A, p);
 	}
@@ -1017,7 +1019,8 @@ final class split_source extends FunBuiltin {
 
 		Source original = (Source) thiz.ArgDeRef(0);
 		Nonvar Xs = original.toList();
-		return (thiz.unifyArg(1, new ListSource(Xs, p), p) > 0 && thiz.unifyArg(2, new ListSource(Xs, p), p) > 0) ? 1 : 0;
+		return (thiz.unifyArg(1, new ListSource(Xs, p), p) > 0 && thiz.unifyArg(2, new ListSource(Xs, p), p) > 0) ? 1
+				: 0;
 	}
 }
 

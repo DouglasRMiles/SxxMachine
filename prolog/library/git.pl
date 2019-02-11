@@ -680,15 +680,19 @@ skip_rest(_,_).
 %
 %   @param ShortLog is a list of =git_log= records.
 
-:- record
-    git_log(commit_hash:atom,
+:- if(\+ current_predicate((package)/1)).
+
+:- record(
+    git_log((commit_hash:atom),
             author_name:atom,
             author_date_relative:atom,
             committer_name:atom,
             committer_date_relative:atom,
             committer_date_unix,
             subject:atom,
-            ref_names:list).
+            ref_names:list)).
+
+:- endif/1.
 
 git_shortlog(Dir, ShortLog, Options) :-
     (   option(revisions(Range), Options)
@@ -764,15 +768,18 @@ ref_name_list([H|T]) -->
 %   @param  Commit is a term git_commit(...)-Body.  Body is currently
 %           a list of lines, each line represented as a list of
 %           codes.
+:- if(\+ current_predicate((package)/1)).
 
-:- record
+:- record((
     git_commit(tree_hash:atom,
                parent_hashes:list,
                author_name:atom,
                author_date:atom,
                committer_name:atom,
                committer_date:atom,
-               subject:atom).
+               subject:atom))).
+
+:- endif/1.
 
 git_show(Dir, Hash, Commit, Options) :-
     git_format_string(git_commit, Fields, Format),

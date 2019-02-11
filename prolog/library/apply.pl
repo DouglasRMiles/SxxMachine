@@ -34,8 +34,8 @@
 */
 
 :- module(apply,
-          [ include/3,                  % :Pred, +List, -Ok
-            exclude/3,                  % :Pred. +List, -NotOk
+          [ (include)/3,                  % :Pred, +List, -Ok
+            (exclude)/3,                  % :Pred. +List, -NotOk
             partition/4,                % :Pred, +List, -Included, -Excluded
             partition/5,                % :Pred, +List, ?Less, ?Equal, ?Greater
             maplist/2,                  % :Pred, +List

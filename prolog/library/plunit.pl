@@ -110,7 +110,7 @@ swi     :- catch(current_prolog_flag(dialect, yap), _, fail).
 sicstus :- catch(current_prolog_flag(system_type, _), _, fail).
 
 
-:- if(swi).
+:- if(catch(current_prolog_flag(dialect, swi), _, fail)).
 throw_error(Error_term,Impldef) :-
     throw(error(Error_term,context(Impldef,_))).
 
@@ -137,7 +137,7 @@ goal_expansion(current_module(Module,File),
 :- endif.
 :- endif.
 
-:- if(sicstus).
+:- if(current_prolog_flag(system_type, _)).
 throw_error(Error_term,Impldef) :-
     throw(error(Error_term,i(Impldef))). % SICStus 3 work around
 

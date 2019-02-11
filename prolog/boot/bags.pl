@@ -84,7 +84,7 @@ SICStus algorithm to guarantee that variables will have the same names".
 %
 %   The  findall/4  variation  is  a    difference-list  version  of
 %   findall/3.
-
+:- if(\+ current_predicate((package)/1)).
 findall(Templ, Goal, List) :-
     findall(Templ, Goal, List, []).
 
@@ -99,7 +99,7 @@ findall_loop(Templ, Goal, List, Tail) :-
         '$add_findall_bag'(Templ)   % fails
     ;   '$collect_findall_bag'(List, Tail)
     ).
-
+:- endif.
 %!  findnsols(+Count, @Template, :Goal, -List) is nondet.
 %!  findnsols(+Count, @Template, :Goal, -List, ?Tail) is nondet.
 %
@@ -174,6 +174,7 @@ nsols_count(count(N), N).
 %   unified with the alternatives of Var  in Goal, Free variables of
 %   Goal are bound,  unless  asked  not   to  with  the  existential
 %   quantifier operator (^).
+:- if(\+ current_predicate((package)/1)).
 
 bagof(Templ, Goal0, List) :-
     '$free_variable_set'(Templ^Goal0, Goal, Vars),
@@ -186,6 +187,7 @@ bagof(Templ, Goal0, List) :-
         pick(Sorted, Vars, List)
     ).
 
+:- endif.
 %!  bind_bagof_keys(+VarsTemplPairs, -SharedVars)
 %
 %   Establish a canonical binding  of   the  _vars_ structures. This
@@ -236,6 +238,7 @@ pick_same(Bag, _, [], Bag).
 %   Equivalent to bagof/3, but sorts the   resulting bag and removes
 %   duplicate answers. We sort  immediately   after  the  findall/3,
 %   removing duplicate Templ-Answer pairs early.
+:- if(\+ current_predicate((package)/1)).
 
 setof(Templ, Goal0, List) :-
     '$free_variable_set'(Templ^Goal0, Goal, Vars),
@@ -253,3 +256,6 @@ setof(Templ, Goal0, List) :-
             sort(Listu,List) % Listu ordering may be nixed by Vars
         )
     ).
+
+:- endif.
+    

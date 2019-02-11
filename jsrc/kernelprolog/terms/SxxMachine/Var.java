@@ -6,6 +6,6 @@ package SxxMachine;
  */
 abstract public class Var extends Term implements Undoable {
 
-  abstract public boolean unbound();
+	abstract public boolean unbound();
 
 }

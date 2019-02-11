@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="SxxMachine/builtin/PRED_log_4.java|SxxMachine/builtin/PRED_log_5.java|SxxMachine/builtin/PRED_log_6.java|SxxMachine/builtin/PRED_log_7.java|SxxMachine/builtin/PRED_atom_concat_3.java" kind="src" path="jsrc/builtin"/>
 	<classpathentry kind="src" path="jsrc/compiler"/>
 	<classpathentry kind="src" path="jsrc/library"/>
 	<classpathentry kind="src" path="jsrc/machine"/>
 	<classpathentry kind="src" path="jsrc/repl"/>
 	<classpathentry kind="src" path="jsrc/handcoded"/>
-	<classpathentry kind="src" path="jsrc/bench"/>
-	<classpathentry kind="src" path="jsrc/boot"/>
-	<classpathentry kind="src" path="jsrc/chr"/>
-	<classpathentry kind="src" path="jsrc/semweb"/>
 	<classpathentry kind="src" path="jsrc/exceptions"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/fluents"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/io"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/terms"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/tests"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/main"/>
+	<classpathentry kind="src" path="jsrc-out/builtin"/>
+	<classpathentry kind="src" path="jsrc-out/bench"/>
+	<classpathentry kind="src" path="jsrc-out/tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

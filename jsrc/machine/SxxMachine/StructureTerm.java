@@ -1,10 +1,10 @@
 package SxxMachine;
 
 import java.lang.reflect.Method;
-import java.util.Comparator;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
+
 /**
  * Compound term. <br>
  * The <code>StructureTerm</code> class represents a compound term but list.<br>
@@ -28,6 +28,7 @@ import java.util.List;
  */
 public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
+	@Override
 	public String getKey() {
 		if (true)
 			return super.getKey();
@@ -44,17 +45,17 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return (T.isConj()) ? Expect.asConj(T).ArgDeRef(1) : Prolog.True;
 	}
 
-	//public Term argz[];
+	// public Term argz[];
 
 	@Override
 	public boolean isConj() {
 		return name == "," && arityOrType() == 2;
 	}
 
-	//  @Override
-	//  public boolean isCons() {
-	//      return name == "." && arityOrType() == 2;
-	//  }
+	// @Override
+	// public boolean isCons() {
+	// return name == "." && arityOrType() == 2;
+	// }
 
 	@Override
 	public boolean isConst() {
@@ -62,22 +63,24 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return true;
 	}
 
-	//private String Name;
+	// private String Name;
 
+	@Override
 	public final int arityOrType() {
 		return argz.length;
 	}
 
 	/*
-	 * public StructureTerm(int arity) { //setDefaultName(); Arguments=new Term[arity]; }
+	 * public StructureTerm(int arity) { //setDefaultName(); Arguments=new
+	 * Term[arity]; }
 	 */
 	public StructureTerm(String name, int arity) {
 		this(name, makeVars(arity));
 	}
-	//  public StructureTerm(String name, Term... x0) {
-	//      super(name);
-	//      argz = x0;
-	//  }
+	// public StructureTerm(String name, Term... x0) {
+	// super(name);
+	// argz = x0;
+	// }
 
 	private static Term[] makeVars(int arity) {
 		// TODO Auto-generated method stub
@@ -95,22 +98,27 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		}
 	}
 
+	@Override
 	public final Term ArgDeRef(int i) {
 		return argz[i].dref();
 	}
 
+	@Override
 	public final Term ArgNoDeRef(int i) {
 		return argz[i];
 	}
 
+	@Override
 	public final int getIntArg(int i) {
 		return (int) Expect.asInt(ArgDeRef(i)).doubleValue();
 	}
 
+	@Override
 	public final void setArg(int i, Term T) {
 		argz[i] = T;
 	}
 
+	@Override
 	public final int unifyArg(int i, Term T, Prog p) {
 		// return getArg(i).unify(T,p.getTrail())?1:0;
 		return argz[i].DO_Unify(T, p.getTrail()) ? 1 : 0;
@@ -124,6 +132,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return Token.toQuotedString(name) + (l <= 0 ? "" : "(" + show_args() + ")");
 	}
 
+	@Override
 	public String pprint() {
 		if (isCons())
 			return toListString();
@@ -131,8 +140,8 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	/**
-	List printer.
-	*/
+	 * List printer.
+	 */
 	public String toListString() {
 		Term h = ArgDeRef(0);
 		Term t = ArgDeRef(1);
@@ -182,10 +191,12 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return s.toString();
 	}
 
+	@Override
 	public boolean bind(Term that, KPTrail trail) {
 		return super.bind(that, trail) && argz.length == Expect.asStruct(that).argz.length;
 	}
 
+	@Override
 	public boolean Unify_TO(Term that, KPTrail trail) {
 		if (bind(that, trail)) {
 			Term other = that;
@@ -199,6 +210,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 			return that.bind(this, trail);
 	}
 
+	@Override
 	public Term carTokenOrSelf() {
 		return argz[0];
 	}
@@ -206,6 +218,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	// stuff allowing polymorphic cloning of StructureTerm subclasses
 	// without using reflection - should be probaly faster than
 	// reflection classes - to check
+	@Override
 	public StructureTerm toClone() {
 		StructureTerm f = null;
 		assert getClass() == StructureTerm.class;
@@ -229,6 +242,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return f;
 	}
 
+	@Override
 	public Term reaction(Term that) {
 		// IO.mes("TRACE>> "+name());
 		StructureTerm f = toClone();
@@ -239,6 +253,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return f;
 	}
 
+	@Override
 	public Nonvar listify() {
 		ListTerm l = StructureTerm.createCons(F(name()), Prolog.Nil);
 		ListTerm curr = l;
@@ -250,6 +265,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return l;
 	}
 
+	@Override
 	public boolean isClause() {
 		return arityOrType() == 2 && name().equals(":-");
 	}
@@ -277,7 +293,9 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return this.argz[0];
 	}
 
-	/** Returns the value of <code>cdr</code>.
+	/**
+	 * Returns the value of <code>cdr</code>.
+	 * 
 	 * @see #cdr
 	 */
 	@Override
@@ -302,15 +320,15 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	/** Holds the functor symbol of this <code>StructureTerm</code>. */
-	//private final String name;
-	//protected String name;
+	// private final String name;
+	// protected String name;
 	protected Term functor;
 	private String name;
 	private Method st_exec;
 
 	/** Holds the argument terms of this <code>StructureTerm</code>. */
-	//public Term[] argz;
-	//protected boolean immutable;
+	// public Term[] argz;
+	// protected boolean immutable;
 	@Override
 	public boolean isStructure() {
 		return !isCons();
@@ -322,12 +340,11 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	/**
-	 * Constructs a new Prolog compound term
-	 * such that <code>name</code> is the functor symbol, and
-	 * <code>args</code> is the argument terms respectively.
+	 * Constructs a new Prolog compound term such that <code>name</code> is the
+	 * functor symbol, and <code>args</code> is the argument terms respectively.
 	 */
 	public StructureTerm(String _name, Term... _args) {
-		//this.name = name.intern();
+		// this.name = name.intern();
 		super();
 		name = _name.intern();
 		this.argz = _args;
@@ -345,6 +362,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		}
 	}
 
+	@Override
 	public Object toJava() {
 		if (isConsOL())
 			return super.toJava();
@@ -352,18 +370,17 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	/**
-	 * Constructs a new Prolog compound term
-	 * such that <code>_functor</code> is the functor symbol, and 
-	 * <code>_args</code> is the argument terms respectively.
+	 * Constructs a new Prolog compound term such that <code>_functor</code> is the
+	 * functor symbol, and <code>_args</code> is the argument terms respectively.
 	 */
 	public StructureTerm(Term _functor, Term... _args) {
 		this(checkFunctor(_functor, _args), _args);
 		this.functor = _functor;
 	}
 
-	/** 
+	/**
 	 * @return the <code>boolean</code> whose value is
-	 * <code>convertible(List.class, type)</code>.
+	 *         <code>convertible(List.class, type)</code>.
 	 * @see Term#convertible(Class, Class)
 	 */
 	@Override
@@ -381,52 +398,41 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return _functor.name();
 	}
 
-	/*public StructureTerm(String string, Term a0,Term a1, Term a2,Term a3, Term a4, Term a5) {
-		this(string, new Term[] {a0,a1,a2,a3,a4,a5});
-	}
-	public StructureTerm(String string, Term a0,Term a1, Term a2,Term a3, Term a4) {
-		this(string, new Term[] {a0,a1,a2,a3,a4});
-	}
-	public StructureTerm(String string, Term a0,Term a1, Term a2,Term a3) {
-		this(string, new Term[] {a0,a1,a2,a3});
-	}
-	public StructureTerm(String string, Term a0,Term a1, Term a2) {
-		this(string, new Term[] {a0,a1,a2});
-	}
-	public StructureTerm(String string, Term a0,Term a1) {
-		this(string, new Term[] {a0,a1});
-	}
-	public StructureTerm(String string, Term a0) {
-		this(string, new Term[] {a0});
-	}
-	public StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2,Term a3, Term a4, Term a5) {
-		this(string, new Term[] {a0,a1,a2,a3,a4,a5});
-	}
-	public StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2,Term a3, Term a4) {
-		this(string, new Term[] {a0,a1,a2,a3,a4});
-	}
-	public StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2,Term a3) {
-		this(string, new Term[] {a0,a1,a2,a3});
-	}
-	public StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2) {
-		this(string, new Term[] {a0,a1,a2});
-	}
-	public StructureTerm(SymbolTerm string, Term a0,Term a1) {
-		this(string, new Term[] {a0,a1});
-	}
-	public StructureTerm(SymbolTerm string, Term a0) {
-		this(string, new Term[] {a0});    	
-	}
-	
-	/** Returns the functor symbol of this <code>StructureTerm</code>.
+	/*
+	 * public StructureTerm(String string, Term a0,Term a1, Term a2,Term a3, Term
+	 * a4, Term a5) { this(string, new Term[] {a0,a1,a2,a3,a4,a5}); } public
+	 * StructureTerm(String string, Term a0,Term a1, Term a2,Term a3, Term a4) {
+	 * this(string, new Term[] {a0,a1,a2,a3,a4}); } public StructureTerm(String
+	 * string, Term a0,Term a1, Term a2,Term a3) { this(string, new Term[]
+	 * {a0,a1,a2,a3}); } public StructureTerm(String string, Term a0,Term a1, Term
+	 * a2) { this(string, new Term[] {a0,a1,a2}); } public StructureTerm(String
+	 * string, Term a0,Term a1) { this(string, new Term[] {a0,a1}); } public
+	 * StructureTerm(String string, Term a0) { this(string, new Term[] {a0}); }
+	 * public StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2,Term a3,
+	 * Term a4, Term a5) { this(string, new Term[] {a0,a1,a2,a3,a4,a5}); } public
+	 * StructureTerm(SymbolTerm string, Term a0,Term a1, Term a2,Term a3, Term a4) {
+	 * this(string, new Term[] {a0,a1,a2,a3,a4}); } public StructureTerm(SymbolTerm
+	 * string, Term a0,Term a1, Term a2,Term a3) { this(string, new Term[]
+	 * {a0,a1,a2,a3}); } public StructureTerm(SymbolTerm string, Term a0,Term a1,
+	 * Term a2) { this(string, new Term[] {a0,a1,a2}); } public
+	 * StructureTerm(SymbolTerm string, Term a0,Term a1) { this(string, new Term[]
+	 * {a0,a1}); } public StructureTerm(SymbolTerm string, Term a0) { this(string,
+	 * new Term[] {a0}); }
+	 * 
+	 * /** Returns the functor symbol of this <code>StructureTerm</code>.
+	 * 
 	 * @return the value of <code>functor</code>.
+	 * 
 	 * @see #functor
 	 */
+	@Override
 	public final Term functor() {
 		return this.functor != null ? this.functor : (this.functor = SymbolTerm.intern(this.name, this.argz.length));
 	}
 
-	/** Returns the arity of this <code>StructureTerm</code>.
+	/**
+	 * Returns the arity of this <code>StructureTerm</code>.
+	 * 
 	 * @return the value of <code>arity</code>.
 	 * @see #arity
 	 */
@@ -435,7 +441,9 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return this.argz.length;
 	}
 
-	/** Returns the argument terms of this <code>StructureTerm</code>.
+	/**
+	 * Returns the argument terms of this <code>StructureTerm</code>.
+	 * 
 	 * @return the value of <code>args</code>.
 	 * @see #argsIt
 	 */
@@ -444,7 +452,10 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return this.argz;
 	}
 
-	/** Returns the string representation of functor symbol of this <code>StructureTerm</code>.
+	/**
+	 * Returns the string representation of functor symbol of this
+	 * <code>StructureTerm</code>.
+	 * 
 	 * @return a <code>String</code> whose value is <code>functor.name()</code>.
 	 * @see #functor
 	 * @see SymbolTerm#name
@@ -453,7 +464,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	public final String name() {
 		if (name == null) {
 			name = functor.name();
-			//  name = name.intern();
+			// name = name.intern();
 		}
 		return name;
 	}
@@ -475,13 +486,13 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		if (t.isVar()) {
 			return t.bind(this, trail);
 		}
-		//if ((t .isCons())) {
+		// if ((t .isCons())) {
 		// if(arity()!=2) return false;
-		//if (!name().equals("."))return false; 
-		//Prolog.M.getLogger().getJLogger().warning("Unify Cons<>Structure");
+		// if (!name().equals("."))return false;
+		// Prolog.M.getLogger().getJLogger().warning("Unify Cons<>Structure");
 
-		//return false;
-		//}
+		// return false;
+		// }
 		if (!(t.isStructure()) && !(t.isCons())) {
 			return false;
 		}
@@ -555,6 +566,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return true;
 	}
 
+	@Override
 	public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
 		int contains = 0;
 		for (Term t : this.argz) {
@@ -567,13 +579,15 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
 	/* Object */
 	/**
-	 * Checks <em>term equality</em> of two terms.
-	 * The result is <code>true</code> if and only if the argument is an instance of
-	 * <code>StructureTerm</code>, has the same functor symbol and arity, and
-	 * all corresponding pairs of arguments in the two compound terms are <em>term-equal</em>.
-	 * @param obj the object to compare with. This must be dereferenced.
-	 * @return <code>true</code> if the given object represents a Prolog compound term
-	 * equivalent to this <code>StructureTerm</code>, false otherwise.
+	 * Checks <em>term equality</em> of two terms. The result is <code>true</code>
+	 * if and only if the argument is an instance of <code>StructureTerm</code>, has
+	 * the same functor symbol and arity, and all corresponding pairs of arguments
+	 * in the two compound terms are <em>term-equal</em>.
+	 * 
+	 * @param obj
+	 *            the object to compare with. This must be dereferenced.
+	 * @return <code>true</code> if the given object represents a Prolog compound
+	 *         term equivalent to this <code>StructureTerm</code>, false otherwise.
 	 * @see #compareTo
 	 */
 	@Override
@@ -612,9 +626,10 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return h;
 	}
 
-	/** Adds a string representation of this <code>StructureTerm</code> to given StringBuilder instance. 
-	 * Non recursive implementation
-	 * */
+	/**
+	 * Adds a string representation of this <code>StructureTerm</code> to given
+	 * StringBuilder instance. Non recursive implementation
+	 */
 	@Override
 	public void toStringImpl(int printingFlags, StringBuilder sb) {
 		if (isCons()) {
@@ -726,14 +741,17 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	/* Comparable */
-	/** 
+	/**
 	 * Compares two terms in <em>Prolog standard order of terms</em>.<br>
 	 * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
 	 * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-	 * @param anotherTerm the term to compared with. It must be dereferenced.
-	 * @return the value <code>0</code> if two terms are identical; 
-	 * a value less than <code>0</code> if this term is <em>before</em> the <code>anotherTerm</code>;
-	 * and a value greater than <code>0</code> if this term is <em>after</em> the <code>anotherTerm</code>.
+	 * 
+	 * @param anotherTerm
+	 *            the term to compared with. It must be dereferenced.
+	 * @return the value <code>0</code> if two terms are identical; a value less
+	 *         than <code>0</code> if this term is <em>before</em> the
+	 *         <code>anotherTerm</code>; and a value greater than <code>0</code> if
+	 *         this term is <em>after</em> the <code>anotherTerm</code>.
 	 */
 	@Override
 	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
@@ -772,6 +790,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 		return EQUAL;
 	}
 
+	@Override
 	public void setarg0(Trail trail, int i, Term val) {
 		if (isConsOL()) {
 			super.setarg0(trail, i, val);
@@ -785,13 +804,15 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 	}
 
 	// @Override
+	@Override
 	public void setCar(Term t) {
 		assert isCons();
 		argz[0] = t;
 
 	}
 
-	//  @Override
+	// @Override
+	@Override
 	public void setCdr(Term t) {
 		assert isCons();
 		argz[1] = t;

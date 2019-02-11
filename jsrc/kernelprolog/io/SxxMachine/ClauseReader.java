@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
-  Builds  Fluents from Java
-  Streams
-*/
+ * Builds Fluents from Java Streams
+ */
 public class ClauseReader extends CharReader {
 	protected Parser parser;
 
@@ -44,6 +43,7 @@ public class ClauseReader extends CharReader {
 			this.parser = null;
 	}
 
+	@Override
 	public Term getElement() {
 		Clause C = null;
 		if (// IO.peer!=null &&
@@ -79,6 +79,7 @@ public class ClauseReader extends CharReader {
 		return StructureTerm.S("clause", C, Vs, NamedC, Ns);
 	}
 
+	@Override
 	public void stop() {
 		super.stop();
 		parser = null;

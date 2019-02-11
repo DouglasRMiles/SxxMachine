@@ -36,7 +36,7 @@ public class IO {
 	public static final Reader input = toReader(System.in);
 
 	public static Writer output = toWriter(System.out);
-	
+
 	public static Writer error = toWriter(System.err);
 
 	static Reader toReader(InputStream f) {
@@ -69,6 +69,7 @@ public class IO {
 	public static Writer getStdOutput() {
 		return output;
 	}
+
 	public static Writer getStdError() {
 		return error;
 	}

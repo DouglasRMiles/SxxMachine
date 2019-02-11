@@ -1,4 +1,6 @@
+:- if(\+ current_predicate((package)/1)).
 :- encoding(utf8).
+:- endif.
 /*  Part of SWI-Prolog
 
     Author:        Torbjörn Lager and Jan Wielemaker
@@ -726,6 +728,7 @@ current_pengine_application(Application) :-
 
 
 % Default settings for all applications
+:- if(\+ current_predicate((package)/1)).
 
 :- setting(thread_pool_size, integer, 100,
            'Maximum number of pengines this application can run.').
@@ -748,6 +751,7 @@ current_pengine_application(Application) :-
 :- setting(debug_info, boolean, false,
            'Keep information to support source-level debugging').
 
+:- endif.
 
 system:term_expansion((:- pengine_application(Application)), Expanded) :-
     must_be(atom, Application),
@@ -816,8 +820,11 @@ system:term_expansion((:- pengine_application(Application)), Expanded) :-
 
 % Register default application
 
+:- if(\+ current_predicate((package)/1)).
+
 :- pengine_application(pengine_sandbox).
 
+:- endif.
 
 /** pengine_property(?Pengine, ?Property) is nondet.
 
@@ -2042,6 +2049,8 @@ pengine_rpc_output(_ID, Term) :-
 %   call http_spawn/2 to continue waiting on   a  new thread. That would
 %   improve the performance and reduce the usage of threads.
 
+:- if(\+ current_predicate((package)/1)).
+
 :- http_handler(root(pengine),               http_404([]),
                 [ id(pengines) ]).
 :- http_handler(root(pengine/create),        http_pengine_create,
@@ -2059,6 +2068,7 @@ pengine_rpc_output(_ID, Term) :-
 :- http_handler(root(pengine/'plterm.css'),
                 http_reply_file(library('http/web/css/plterm.css'), []), []).
 
+:- endif.
 
 %%  http_pengine_create(+Request)
 %

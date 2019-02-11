@@ -7,7 +7,7 @@ package SxxMachine;
 public abstract class KPTerm extends TermData implements Undoable {
 
 	public void oopsy() {
-		new Exception().printStackTrace();
+		new Exception(""+this).printStackTrace();
 	}
 
 	public static void soopsy() {
@@ -22,6 +22,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 		return termHashCode();
 	}
 
+	@Override
 	public boolean equals(Object o) {
 		return o == this;
 	}
@@ -63,6 +64,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 		return thisd.Unify_TO(thatd, trail);
 	}
 
+	@Override
 	public void undo() { // does nothing
 	}
 
@@ -166,7 +168,7 @@ public abstract class KPTerm extends TermData implements Undoable {
 	 * back as variables.
 	 */
 	public Term numbervars() {
-		return copy().reaction((Term) new VarNumberer());
+		return copy().reaction(new VarNumberer());
 	}
 
 	/**
