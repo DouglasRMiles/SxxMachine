@@ -197,7 +197,7 @@ package(_).
 :- discontiguous((builtin_meta_predicates)/3).
 :- discontiguous((builtin_local_predicates)/3).
 
-:- include('builtin/system.pl').
+:- include('../builtin/system.pl').
 long(X):- integer(X),(X>2147483647; X < - 2147483647).
 
 :- public main/0, pl2am/1.

@@ -35,14 +35,15 @@ SEE ALSO
 legacy_functor(P,'.',A):- functor(P,'[|]',A),!.
 legacy_functor(P,F,A):- functor(P,F,A),!.
 
+:- if(false).
 :- use_module(library(logicmoo_common)).
-/*
+:- else.
 must(G):- call(G)*->true;throw(fail_must(G)).
 nop(_).
 
 fresh_line(S):- format(S,'~N',[]).
+:- endif.
 
-*/
 
 am2j_subst(I,F,R,O):- I == F,!,R=O.
 am2j_subst(I,_,_,O):- \+ compound(I),I=O.
