@@ -19,18 +19,18 @@ abstract public class TermData {
 
         @Override
         public void toString(StringBuilder sb) {
-            sb.append(predName());
+            Token.toQuotedString(predName(), sb);
             boolean first = true;
             if (LARG != null) {
                 for (int j = 0; j < LARG.length; j++) {
-                    Term val = LARG[j];
                     if (first) {
                         sb.append('(');
                         first = false;
                     } else {
                         sb.append(", ");
                     }
-                    val.toQuotedString(0, sb);
+                    Term val = LARG[j];
+                    StructureTerm.toArgString(1, sb, val);
                 }
                 if (!first) {
                     sb.append(')');
@@ -169,6 +169,10 @@ abstract public class TermData {
 
     public static Predicate Op(Operation object, Term[] LARG, Operation cont) {
         return new TermData.StaticPred(null, object, LARG, cont);
+    }
+
+    public static Predicate Op(String str, Operation object, Term[] LARG, Operation cont) {
+        return new TermData.StaticPred(str, object, LARG, cont);
     }
 
     public static Predicate Op(Operation object, Term a1, Term a2, Operation cont) {

@@ -17,9 +17,10 @@ if [ $# -eq 0 ]
     echo ""
  find -name "*.pl.am" -delete -print
     echo ""
- find ./prolog/builtin -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
- find ./prolog/tests -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
- find ./prolog/bench -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
+find ./prolog/builtin -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
+find ./prolog/tests -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
+ #find ./prolog/bench -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
+ find ./prolog/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
  #find ./prolog/compiler -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
 
  #find ./library -type f -name "*.pl" ! -path '*-*' ! -path '*/http/*' ! -path '*/pldoc/*'  ! -path '*/doc_*'  ! -path '*/semweb/*' -exec $0 "{}" \;

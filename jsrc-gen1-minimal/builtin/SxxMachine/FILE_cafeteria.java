@@ -55,19 +55,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a2 = m.mkvar1();
         a3 = m.mkvar1();
         a4 = Closure( //
- Op(FILE_system::PRED_$cafeteria_1_static_exec, VA(a3), null));
+ Op("$cafeteria", FILE_system::PRED_$cafeteria_1_static_exec, VA(a3), null));
         a5 = Closure( //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_error , a2), null));
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_error , a2), null));
         return //
- Op(FILE_system::PRED_$cafeteria_init_0_static_exec, VA(), //
- Op(FILE_system::PRED_repeat_0_static_exec, VA(), //
- Op(FILE_system::PRED_$toplvel_loop_0_static_exec, VA(), //
- Op(FILE_system::PRED_on_exception_3_static_exec, VA(a2, a4, a5), //
- Op(FILE_system::PRED_$equality_of_term_2_static_exec, VA(a3,  ATOM_end_of_file ), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_bye ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))));
+ Op("$cafeteria_init", FILE_system::PRED_$cafeteria_init_0_static_exec, VA(), //
+ Op("repeat", FILE_system::PRED_repeat_0_static_exec, VA(), //
+ Op("$toplvel_loop", FILE_system::PRED_$toplvel_loop_0_static_exec, VA(), //
+ Op("on_exception", FILE_system::PRED_on_exception_3_static_exec, VA(a2, a4, a5), //
+ Op("$equality_of_term", FILE_system::PRED_$equality_of_term_2_static_exec, VA(a3,  ATOM_end_of_file ), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_bye ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))));
     }
 /** PREDICATE: $cafeteria_init/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -157,21 +157,21 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a13 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a12);
  ;
         return //
- Op(FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s6, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s10, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s13, m.DONT_CARE2()), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a5), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a7), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a9), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a11), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a13), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s25), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s30), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s35), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s40), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s45), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))))))))))))));
+ Op("$new_indexing_hash", FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s6, m.DONT_CARE2()), //
+ Op("$new_indexing_hash", FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s10, m.DONT_CARE2()), //
+ Op("$new_indexing_hash", FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$cafeteria_init_0_s13, m.DONT_CARE2()), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a3), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a5), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a7), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a9), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a11), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a13), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s25), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s30), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s35), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s40), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$cafeteria_init_0_s45), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))))))))))))));
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -232,7 +232,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'(A):-[print_message(info,[debug])]
         return //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5), cont);
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5), cont);
     }
 /** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -280,7 +280,7 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA(a1), cont);
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_2(Prolog m) { 
@@ -291,7 +291,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'(A):-['$fast_write'(A)]
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA(a1), cont);
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: $toplvel_loop/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -318,13 +318,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a2 = m.mkvar1();
         a3 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a2), //
- Op(FILE_system::PRED_typein_module_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007C$0020$003F$002D$0020 ), //
- Op(FILE_system::PRED_flush_output_0_static_exec, VA(), cont)))))));
+ Op("current_prolog_flag", FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a2), //
+ Op("typein_module", FILE_system::PRED_typein_module_1_static_exec, VA(a3), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), //
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl", FILE_system::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_static_exec, VA(a2), //
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl", FILE_system::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_static_exec, VA(a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007C$0020$003F$002D$0020 ), //
+ Op("flush_output", FILE_system::PRED_flush_output_0_static_exec, VA(), cont)))))));
     }
 /** PREDICATE: $cafeteria/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -344,8 +344,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
     // '$cafeteria'(A):-[read_with_variables(A,B),'$process_order'(A,B)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_read_with_variables_2_static_exec, VA(a1, a2), //
- Op(FILE_system::PRED_$process_order_2_static_exec, VA(a1, a2), cont));
+ Op("read_with_variables", FILE_system::PRED_read_with_variables_2_static_exec, VA(a1, a2), //
+ Op("$process_order", FILE_system::PRED_$process_order_2_static_exec, VA(a1, a2), cont));
     }
 /** PREDICATE: $process_order/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -473,7 +473,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_$003F$002D_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a4,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a4,  int_1 ), cont);
     }
 
     private final static Operation $process_order_2_2(Prolog m) { 
@@ -516,7 +516,7 @@ m.cont = cont;
         //END inline expansion
         a5 = CONS(a3, a4);
         return //
- Op(FILE_system::PRED_consult_1_static_exec, VA(a5), cont);
+ Op("consult", FILE_system::PRED_consult_1_static_exec, VA(a5), cont);
     }
 
     private final static Operation $process_order_2_4(Prolog m) { 
@@ -538,15 +538,15 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_system::PRED_context_module_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a5), //
- Op(FILE_system::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_3_static_exec, VA(a1, a4, a5), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$rm_redundant_vars_2_static_exec, VA(a2, a6), //
- Op(FILE_system::PRED_$give_answers_with_prompt_1_static_exec, VA(a6), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_yes ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))));
+ Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a4), //
+ Op("current_prolog_flag", FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug , a5), //
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl", FILE_system::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_3_static_exec, VA(a1, a4, a5), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$rm_redundant_vars", FILE_system::PRED_$rm_redundant_vars_2_static_exec, VA(a2, a6), //
+ Op("$give_answers_with_prompt", FILE_system::PRED_$give_answers_with_prompt_1_static_exec, VA(a6), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_yes ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))));
     }
 
     private final static Operation $process_order_2_5(Prolog m) { 
@@ -559,9 +559,9 @@ m.cont = cont;
         cont = m.cont;
     // '$process_order'(A,B):-[nl,'$fast_write'(no),nl]
         return //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_no ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont)));
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_no ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont)));
     }
 /** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -613,7 +613,7 @@ m.cont = cont;
         a5 =  S( FUNCTOR_module_colon_2 , a2, a1);
  ;
         return //
- Op(FILE_system::PRED_call_1_static_exec, VA(a5), cont);
+ Op("call", FILE_system::PRED_call_1_static_exec, VA(a5), cont);
     }
 
     private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_3_2(Prolog m) { 
@@ -629,7 +629,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_module_colon_2 , a2, a1);
  ;
         return //
- Op(FILE_system::PRED_$trace_goal_1_static_exec, VA(a4), cont);
+ Op("$trace_goal", FILE_system::PRED_$trace_goal_1_static_exec, VA(a4), cont);
     }
 /** PREDICATE: $rm_redundant_vars/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -815,12 +815,12 @@ m.cont = cont;
     // '$give_answers_with_prompt'(A):-['$give_an_answer'(A),'$fast_write'(' ? '),flush_output,read_line(B),'$inequality_of_term'(B,[59]),nl]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_$give_an_answer_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), //
- Op(FILE_system::PRED_flush_output_0_static_exec, VA(), //
- Op(FILE_system::PRED_read_line_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$inequality_of_term_2_static_exec, VA(a2, L_$give_answers_with_prompt_1_s4), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont))))));
+ Op("$give_an_answer", FILE_system::PRED_$give_an_answer_1_static_exec, VA(a1), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), //
+ Op("flush_output", FILE_system::PRED_flush_output_0_static_exec, VA(), //
+ Op("read_line", FILE_system::PRED_read_line_1_static_exec, VA(a2), //
+ Op("$inequality_of_term", FILE_system::PRED_$inequality_of_term_2_static_exec, VA(a2, L_$give_answers_with_prompt_1_s4), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont))))));
     }
 /** PREDICATE: $give_an_answer/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -876,7 +876,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( Prolog.True ), cont);
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( Prolog.True ), cont);
     }
 
     private final static Operation $give_an_answer_1_2(Prolog m) { 
@@ -901,7 +901,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$print_an$0020answer_1_static_exec, VA(a2), cont);
+ Op("$print_an answer", FILE_system::PRED_$print_an$0020answer_1_static_exec, VA(a2), cont);
     }
 
     private final static Operation $give_an_answer_1_3(Prolog m) { 
@@ -924,10 +924,10 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_system::PRED_$print_an$0020answer_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002C ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$give_an_answer_1_static_exec, VA(a3), cont))));
+ Op("$print_an answer", FILE_system::PRED_$print_an$0020answer_1_static_exec, VA(a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002C ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$give_an_answer", FILE_system::PRED_$give_an_answer_1_static_exec, VA(a3), cont))));
     }
 /** PREDICATE: $print_an answer/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -953,9 +953,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
                 return m.fail();
             }
         return //
- Op(FILE_system::PRED_write_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003D$0020 ), //
- Op(FILE_system::PRED_writeq_1_static_exec, VA(a3), cont)));
+ Op("write", FILE_system::PRED_write_1_static_exec, VA(a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003D$0020 ), //
+ Op("writeq", FILE_system::PRED_writeq_1_static_exec, VA(a3), cont)));
     }
 /** PREDICATE: consult/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1064,7 +1064,7 @@ m.cont = cont;
         a3 =  S( FUNCTOR_consult_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a3,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a3,  int_1 ), cont);
     }
 
     private final static Operation consult_1_2(Prolog m) { 
@@ -1105,7 +1105,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_system::PRED_consult_1_static_exec, VA(a3), cont);
+ Op("consult", FILE_system::PRED_consult_1_static_exec, VA(a3), cont);
         m.AREGS[0] = a2;
         m.cont = p1;
         return consult_1_top(m);
@@ -1135,7 +1135,7 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$consult_1_static_exec, VA(a1), cont);
+ Op("$consult", FILE_system::PRED_$consult_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: $consult/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1177,15 +1177,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a12 = CONS( ATOM_consulted , a11);
         a13 = CONS(a4, a12);
         return //
- Op(FILE_system::PRED_$prolog_file_name_2_static_exec, VA(a1, a2), //
- Op(FILE_system::PRED_open_3_static_exec, VA(a2,  ATOM_read , a3), //
- Op(FILE_system::PRED_stream_property_2_static_exec, VA(a3, a5), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a7), //
- Op(FILE_system::PRED_statistics_2_static_exec, VA( ATOM_runtime , m.DONT_CARE2()), //
- Op(FILE_system::PRED_consult_stream_2_static_exec, VA(a4, a3), //
- Op(FILE_system::PRED_statistics_2_static_exec, VA( ATOM_runtime , a10), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a13), //
- Op(FILE_system::PRED_close_1_static_exec, VA(a3), cont)))))))));
+ Op("$prolog_file_name", FILE_system::PRED_$prolog_file_name_2_static_exec, VA(a1, a2), //
+ Op("open", FILE_system::PRED_open_3_static_exec, VA(a2,  ATOM_read , a3), //
+ Op("stream_property", FILE_system::PRED_stream_property_2_static_exec, VA(a3, a5), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a7), //
+ Op("statistics", FILE_system::PRED_statistics_2_static_exec, VA( ATOM_runtime , m.DONT_CARE2()), //
+ Op("consult_stream", FILE_system::PRED_consult_stream_2_static_exec, VA(a4, a3), //
+ Op("statistics", FILE_system::PRED_statistics_2_static_exec, VA( ATOM_runtime , a10), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a13), //
+ Op("close", FILE_system::PRED_close_1_static_exec, VA(a3), cont)))))))));
     }
 /** PREDICATE: $prolog_file_name/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1230,10 +1230,10 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_system::PRED_sub_atom_5_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), a4,  ATOM_$002E ), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a5,  int_0 ), //
- Op(FILE_system::PRED_$greater_than_2_static_exec, VA(a4, a5), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a3), cont))));
+ Op("sub_atom", FILE_system::PRED_sub_atom_5_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), a4,  ATOM_$002E ), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a5,  int_0 ), //
+ Op("$greater_than", FILE_system::PRED_$greater_than_2_static_exec, VA(a4, a5), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), cont))));
     }
 
     private final static Operation $prolog_file_name_2_2(Prolog m) { 
@@ -1245,7 +1245,7 @@ m.cont = cont;
         cont = m.cont;
     // '$prolog_file_name'(A,B):-[atom_concat(A,'.pl',B)]
         return //
- Op(FILE_system::PRED_atom_concat_3_static_exec, VA(a1,  ATOM_$002Epl , a2), cont);
+ Op("atom_concat", FILE_system::PRED_atom_concat_3_static_exec, VA(a1,  ATOM_$002Epl , a2), cont);
     }
 /** PREDICATE: trace/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1284,8 +1284,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_on ), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont));
+ Op("current_prolog_flag", FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_on ), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont));
     }
 
     private final static Operation trace_0_2(Prolog m) { 
@@ -1302,11 +1302,11 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_set_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_on ), //
- Op(FILE_system::PRED_$trace_init_0_static_exec, VA(), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))));
+ Op("set_prolog_flag", FILE_system::PRED_set_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_on ), //
+ Op("$trace_init", FILE_system::PRED_$trace_init_0_static_exec, VA(), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))));
     }
 /** PREDICATE: $trace_init/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1358,15 +1358,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a7 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a6);
  ;
         return //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a5), //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a7), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s10), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s15), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s20), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s25), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s30), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))))))));
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a3), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a5), //
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a7), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s10), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s15), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s20), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s25), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(L_$trace_init_0_s30), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont)))))))));
     }
 /** PREDICATE: notrace/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1404,8 +1404,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_off ), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont));
+ Op("current_prolog_flag", FILE_system::PRED_current_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_off ), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont));
     }
 
     private final static Operation notrace_0_2(Prolog m) { 
@@ -1422,10 +1422,10 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_set_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_off ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a1), cont))));
+ Op("set_prolog_flag", FILE_system::PRED_set_prolog_flag_2_static_exec, VA( ATOM_debug ,  ATOM_off ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a1), cont))));
     }
 /** PREDICATE: debug/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1441,7 +1441,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         m.setB0();
     // debug:-[trace]
         return //
- Op(FILE_system::PRED_trace_0_static_exec, VA(), cont);
+ Op("trace", FILE_system::PRED_trace_0_static_exec, VA(), cont);
     }
 /** PREDICATE: nodebug/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1457,7 +1457,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         m.setB0();
     // nodebug:-[notrace]
         return //
- Op(FILE_system::PRED_notrace_0_static_exec, VA(), cont);
+ Op("notrace", FILE_system::PRED_notrace_0_static_exec, VA(), cont);
     }
 /** PREDICATE: $trace_goal/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1480,10 +1480,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a2 = m.mkvar1();
         a3 = m.mkvar1();
         return //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), //
- Op(FILE_system::PRED_$get_current_B_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_context_module_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$meta_call_5_static_exec, VA(a1, a3, a2,  int_0 ,  ATOM_trace ), cont))));
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), //
+ Op("$get_current_B", FILE_system::PRED_$get_current_B_1_static_exec, VA(a2), //
+ Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a3), //
+ Op("$meta_call", FILE_system::PRED_$meta_call_5_static_exec, VA(a1, a3, a2,  int_0 ,  ATOM_trace ), cont))));
     }
 /** PREDICATE: $trace_goal/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1518,10 +1518,10 @@ m.cont = cont;
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(call,A,B,C,D),'$call_internal'(A,B,C,D,trace),print_procedure_box(exit,A,B,C,D),redo_procedure_box(A,B,C,D)]
         return //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_call , a1, a2, a3, a4), //
- Op(FILE_system::PRED_$call_internal_5_static_exec, VA(a1, a2, a3, a4,  ATOM_trace ), //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_exit , a1, a2, a3, a4), //
- Op(FILE_system::PRED_redo_procedure_box_4_static_exec, VA(a1, a2, a3, a4), cont))));
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_call , a1, a2, a3, a4), //
+ Op("$call_internal", FILE_system::PRED_$call_internal_5_static_exec, VA(a1, a2, a3, a4,  ATOM_trace ), //
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_exit , a1, a2, a3, a4), //
+ Op("redo_procedure_box", FILE_system::PRED_redo_procedure_box_4_static_exec, VA(a1, a2, a3, a4), cont))));
     }
 
     private final static Operation $trace_goal_4_2(Prolog m) { 
@@ -1536,7 +1536,7 @@ m.cont = cont;
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(fail,A,B,C,D),fail]
         return //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_fail , a1, a2, a3, a4), fail_0);
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_fail , a1, a2, a3, a4), fail_0);
     }
 /** PREDICATE: print_procedure_box/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1617,10 +1617,10 @@ m.cont = cont;
         a18 =  S( FUNCTOR_print_procedure_box_5 , a1, a2, a3, a17, a5);
  ;
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(a10, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a8), //
- Op(FILE_system::PRED_$builtin_message_1_static_exec, VA(a16), //
- Op(FILE_system::PRED_$read_blocked_1_static_exec, VA(a18), cont))));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(a10, m.DONT_CARE2()), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a8), //
+ Op("$builtin_message", FILE_system::PRED_$builtin_message_1_static_exec, VA(a16), //
+ Op("$read_blocked", FILE_system::PRED_$read_blocked_1_static_exec, VA(a18), cont))));
     }
 
     private final static Operation print_procedure_box_5_2(Prolog m) { 
@@ -1650,10 +1650,10 @@ m.cont = cont;
         a11 = CONS(a5, a10);
         a12 = CONS( ATOM_$0020 , a11);
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(L_print_procedure_box_5_s14, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_system::PRED_$builtin_message_1_static_exec, VA(a12), //
- Op(FILE_system::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, m.DONT_CARE2()), cont))));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(L_print_procedure_box_5_s14, m.DONT_CARE2()), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a6), //
+ Op("$builtin_message", FILE_system::PRED_$builtin_message_1_static_exec, VA(a12), //
+ Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl", FILE_system::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, m.DONT_CARE2()), cont))));
     }
 
     private final static Operation print_procedure_box_5_3(Prolog m) { 
@@ -1721,9 +1721,9 @@ m.cont = cont;
         a10 =  S( FUNCTOR_print_procedure_box_5 , a1, a2, a3, a4, a5);
  ;
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(a9, a6), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_system::PRED_$read_blocked_1_static_exec, VA(a10), cont)));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(a9, a6), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a7), //
+ Op("$read_blocked", FILE_system::PRED_$read_blocked_1_static_exec, VA(a10), cont)));
     }
 
     private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_6_2(Prolog m) { 
@@ -1739,7 +1739,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'(A,B,C,D,E,F):-[nl]
         return //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont);
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont);
     }
 /** PREDICATE: redo_procedure_box/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1787,7 +1787,7 @@ m.cont = cont;
         cont = m.cont;
     // redo_procedure_box(A,B,C,D):-[print_procedure_box(redo,A,B,C,D),fail]
         return //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_redo , a1, a2, a3, a4), fail_0);
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA( ATOM_redo , a1, a2, a3, a4), fail_0);
     }
 /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1880,11 +1880,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a2 = m.mkvar1();
         a3 = m.mkvar1();
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), //
- Op(FILE_system::PRED_flush_output_0_static_exec, VA(), //
- Op(FILE_system::PRED_read_line_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_3_static_exec, VA(a2, a3, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$debug_option_2_static_exec, VA(a3, a1), cont)))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020$003F$0020 ), //
+ Op("flush_output", FILE_system::PRED_flush_output_0_static_exec, VA(), //
+ Op("read_line", FILE_system::PRED_read_line_1_static_exec, VA(a2), //
+ Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl", FILE_system::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_3_static_exec, VA(a2, a3, m.DONT_CARE2()), //
+ Op("$debug_option", FILE_system::PRED_$debug_option_2_static_exec, VA(a3, a1), cont)))));
     }
 /** PREDICATE: $debug_option/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -1962,8 +1962,8 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_notrace_0_static_exec, VA(), //
- Op(FILE_system::PRED_abort_0_static_exec, VA(), cont));
+ Op("notrace", FILE_system::PRED_notrace_0_static_exec, VA(), //
+ Op("abort", FILE_system::PRED_abort_0_static_exec, VA(), cont));
     }
 
     private final static Operation $debug_option_2_2(Prolog m) { 
@@ -1980,7 +1980,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont);
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont);
     }
 
     private final static Operation $debug_option_2_3(Prolog m) { 
@@ -1997,7 +1997,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), cont);
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), cont);
     }
 
     private final static Operation $debug_option_2_4(Prolog m) { 
@@ -2027,10 +2027,10 @@ m.cont = cont;
         a8 =  S( FUNCTOR_module_colon_2 , a5, a6);
  ;
         a9 = Closure( //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
         return //
- Op(FILE_system::PRED_spy_1_static_exec, VA(a8), //
- Op(FILE_system::PRED_call_1_static_exec, VA(a9), cont));
+ Op("spy", FILE_system::PRED_spy_1_static_exec, VA(a8), //
+ Op("call", FILE_system::PRED_call_1_static_exec, VA(a9), cont));
     }
 
     private final static Operation $debug_option_2_5(Prolog m) { 
@@ -2060,10 +2060,10 @@ m.cont = cont;
         a8 =  S( FUNCTOR_module_colon_2 , a5, a6);
  ;
         a9 = Closure( //
- Op(FILE_system::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
+ Op("print_procedure_box", FILE_system::PRED_print_procedure_box_5_static_exec, VA(a3, a4, a5, a6, a7), null));
         return //
- Op(FILE_system::PRED_nospy_1_static_exec, VA(a8), //
- Op(FILE_system::PRED_call_1_static_exec, VA(a9), cont));
+ Op("nospy", FILE_system::PRED_nospy_1_static_exec, VA(a8), //
+ Op("call", FILE_system::PRED_call_1_static_exec, VA(a9), cont));
     }
 
     private final static Operation $debug_option_2_6(Prolog m) { 
@@ -2084,8 +2084,8 @@ m.cont = cont;
         a3 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a2);
  ;
         return //
- Op(FILE_system::PRED_$show_debug_option_0_static_exec, VA(), //
- Op(FILE_system::PRED_call_1_static_exec, VA(a3), cont));
+ Op("$show_debug_option", FILE_system::PRED_$show_debug_option_0_static_exec, VA(), //
+ Op("call", FILE_system::PRED_call_1_static_exec, VA(a3), cont));
     }
 
     private final static Operation $debug_option_2_7(Prolog m) { 
@@ -2106,8 +2106,8 @@ m.cont = cont;
         a3 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a2);
  ;
         return //
- Op(FILE_system::PRED_$show_debug_option_0_static_exec, VA(), //
- Op(FILE_system::PRED_call_1_static_exec, VA(a3), cont));
+ Op("$show_debug_option", FILE_system::PRED_$show_debug_option_0_static_exec, VA(), //
+ Op("call", FILE_system::PRED_call_1_static_exec, VA(a3), cont));
     }
 
     private final static Operation $debug_option_2_8(Prolog m) { 
@@ -2144,33 +2144,33 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26;
     // '$show_debug_option':-[tab(4),'$fast_write'('Debugging options:'),nl,tab(4),'$fast_write'('a      abort'),nl,tab(4),'$fast_write'('RET    creep'),nl,tab(4),'$fast_write'('c      creep'),nl,tab(4),'$fast_write'('l      leap'),nl,tab(4),'$fast_write'('+      spy this'),nl,tab(4),'$fast_write'('-      nospy this'),nl,tab(4),'$fast_write'('?      help'),nl,tab(4),'$fast_write'('h      help'),nl]
         return //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_Debugging$0020options$003A ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_a$0020$0020$0020$0020$0020$0020abort ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_RET$0020$0020$0020$0020creep ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_c$0020$0020$0020$0020$0020$0020creep ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_l$0020$0020$0020$0020$0020$0020leap ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$003F$0020$0020$0020$0020$0020$0020help ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_h$0020$0020$0020$0020$0020$0020help ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))))))))))))))))))))));
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_Debugging$0020options$003A ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_a$0020$0020$0020$0020$0020$0020abort ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_RET$0020$0020$0020$0020creep ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_c$0020$0020$0020$0020$0020$0020creep ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_l$0020$0020$0020$0020$0020$0020leap ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$003F$0020$0020$0020$0020$0020$0020help ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA( int_4 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_h$0020$0020$0020$0020$0020$0020help ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont)))))))))))))))))))))))))));
     }
 /** PREDICATE: $set_debug_flag/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2221,8 +2221,8 @@ m.cont = cont;
         a5 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a4);
  ;
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(a5, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a3), cont));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(a5, m.DONT_CARE2()), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), cont));
     }
 
     private final static Operation $set_debug_flag_2_2(Prolog m) { 
@@ -2249,8 +2249,8 @@ m.cont = cont;
         a6 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a5);
  ;
         return //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(a6), cont));
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a4), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(a6), cont));
     }
 /** PREDICATE: spy/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2280,11 +2280,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a4 =  S( FUNCTOR_spy_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), //
- Op(FILE_system::PRED_trace_0_static_exec, VA(), //
- Op(FILE_system::PRED_$assert_spypoint_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a2), cont)))));
+ Op("$term_to_predicateindicator", FILE_system::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), //
+ Op("trace", FILE_system::PRED_trace_0_static_exec, VA(), //
+ Op("$assert_spypoint", FILE_system::PRED_$assert_spypoint_1_static_exec, VA(a3), //
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_yes ), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), cont)))));
     }
 /** PREDICATE: $assert_spypoint/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2370,9 +2370,9 @@ m.cont = cont;
         a11 = CONS(a10, L_$assert_spypoint_1_s13);
         a12 = CONS( ATOM_spypoint , a11);
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(a8, m.DONT_CARE2()), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a12), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a6), cont)));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(a8, m.DONT_CARE2()), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a12), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a6), cont)));
     }
 
     private final static Operation $assert_spypoint_1_2(Prolog m) { 
@@ -2425,10 +2425,10 @@ m.cont = cont;
         a14 = CONS(a13, L_$assert_spypoint_1_s15);
         a15 = CONS( ATOM_spypoint , a14);
         return //
- Op(FILE_system::PRED_clause_2_static_exec, VA(a9, m.DONT_CARE2()), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(a11), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a15), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a6), cont))));
+ Op("clause", FILE_system::PRED_clause_2_static_exec, VA(a9, m.DONT_CARE2()), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(a11), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a15), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a6), cont))));
     }
 
     private final static Operation $assert_spypoint_1_3(Prolog m) { 
@@ -2463,7 +2463,7 @@ m.cont = cont;
         a12 = CONS( ATOM_matching , a11);
         a13 = CONS( ATOM_no , a12);
         return //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_warning , a13), cont);
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_warning , a13), cont);
     }
 /** PREDICATE: nospy/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2493,10 +2493,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a4 =  S( FUNCTOR_nospy_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), //
- Op(FILE_system::PRED_$retract_spypoint_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a2), cont))));
+ Op("$term_to_predicateindicator", FILE_system::PRED_$term_to_predicateindicator_3_static_exec, VA(a1, a3, a4), //
+ Op("$retract_spypoint", FILE_system::PRED_$retract_spypoint_1_static_exec, VA(a3), //
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), cont))));
     }
 /** PREDICATE: $retract_spypoint/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2567,9 +2567,9 @@ m.cont = cont;
         a11 = CONS(a10, L_$retract_spypoint_1_s11);
         a12 = CONS( ATOM_spypoint , a11);
         return //
- Op(FILE_system::PRED_retract_1_static_exec, VA(a8), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a12), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a6), cont)));
+ Op("retract", FILE_system::PRED_retract_1_static_exec, VA(a8), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a12), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a6), cont)));
     }
 
     private final static Operation $retract_spypoint_1_2(Prolog m) { 
@@ -2603,8 +2603,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         a2 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a1);
  ;
         return //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont));
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a2), //
+ Op("$set_debug_flag", FILE_system::PRED_$set_debug_flag_2_static_exec, VA( ATOM_leap ,  ATOM_no ), cont));
     }
 /** PREDICATE: leash/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2652,8 +2652,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_$leash_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a2), cont));
+ Op("$leash", FILE_system::PRED_$leash_1_static_exec, VA(a1), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), cont));
     }
 
     private final static Operation leash_1_2(Prolog m) { 
@@ -2667,7 +2667,7 @@ m.cont = cont;
         a2 =  S( FUNCTOR_leash_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA(L_leash_1_s4, a2,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_leash_1_s4, a2,  int_1 ), cont);
     }
 /** PREDICATE: $leash/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2718,8 +2718,8 @@ m.cont = cont;
         a3 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a2);
  ;
         return //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , L_$leash_1_s9), cont));
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a3), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , L_$leash_1_s9), cont));
     }
 
     private final static Operation $leash_1_2(Prolog m) { 
@@ -2741,9 +2741,9 @@ m.cont = cont;
         a6 = CONS( ATOM_stopping , a5);
         a7 = CONS( ATOM_leashing , a6);
         return //
- Op(FILE_system::PRED_retractall_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$assert_leash_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a7), cont)));
+ Op("retractall", FILE_system::PRED_retractall_1_static_exec, VA(a3), //
+ Op("$assert_leash", FILE_system::PRED_$assert_leash_1_static_exec, VA(a1), //
+ Op("print_message", FILE_system::PRED_print_message_2_static_exec, VA( ATOM_info , a7), cont)));
     }
 /** PREDICATE: $assert_leash/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2811,9 +2811,9 @@ m.cont = cont;
         a5 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a4);
  ;
         return //
- Op(FILE_system::PRED_$leash_specifier_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_assertz_1_static_exec, VA(a5), //
- Op(FILE_system::PRED_$assert_leash_1_static_exec, VA(a3), cont)));
+ Op("$leash_specifier", FILE_system::PRED_$leash_specifier_1_static_exec, VA(a2), //
+ Op("assertz", FILE_system::PRED_assertz_1_static_exec, VA(a5), //
+ Op("$assert_leash", FILE_system::PRED_$assert_leash_1_static_exec, VA(a3), cont)));
     }
 /** PREDICATE: $leash_specifier/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -2914,8 +2914,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
     // listing:-[context_module(A),'$listing'(B,A)]
         a1 = m.mkvar1();
         return //
- Op(FILE_system::PRED_context_module_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$listing_2_static_exec, VA(m.DONT_CARE2(), a1), cont));
+ Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a1), //
+ Op("$listing", FILE_system::PRED_$listing_2_static_exec, VA(m.DONT_CARE2(), a1), cont));
     }
 /** PREDICATE: listing/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3002,7 +3002,7 @@ m.cont = cont;
         a3 =  S( FUNCTOR_listing_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a3,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a3,  int_1 ), cont);
     }
 
     private final static Operation listing_1_2(Prolog m) { 
@@ -3029,7 +3029,7 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$listing_2_static_exec, VA(m.DONT_CARE2(), a1), cont);
+ Op("$listing", FILE_system::PRED_$listing_2_static_exec, VA(m.DONT_CARE2(), a1), cont);
     }
 
     private final static Operation listing_1_3(Prolog m) { 
@@ -3057,9 +3057,9 @@ m.cont = cont;
         a6 =  S( FUNCTOR_$002F_2 , a2, a3);
  ;
         return //
- Op(FILE_system::PRED_context_module_1_static_exec, VA(a5), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_$listing_2_static_exec, VA(a6, a5), cont)));
+ Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a5), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a4), //
+ Op("$listing", FILE_system::PRED_$listing_2_static_exec, VA(a6, a5), cont)));
     }
 
     private final static Operation listing_1_4(Prolog m) { 
@@ -3092,7 +3092,7 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$listing_2_static_exec, VA(a3, a2), cont);
+ Op("$listing", FILE_system::PRED_$listing_2_static_exec, VA(a3, a2), cont);
     }
 
     private final static Operation listing_1_5(Prolog m) { 
@@ -3106,7 +3106,7 @@ m.cont = cont;
         a2 =  S( FUNCTOR_listing_1 , a1);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA(L_listing_1_s9, a2,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_listing_1_s9, a2,  int_1 ), cont);
     }
 /** PREDICATE: $listing/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3174,7 +3174,7 @@ m.cont = cont;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, m.DONT_CARE2()), cont);
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, m.DONT_CARE2()), cont);
     }
 
     private final static Operation $listing_2_2(Prolog m) { 
@@ -3217,7 +3217,7 @@ m.cont = cont;
         a6 =  S( FUNCTOR_$002F_2 , a3, a4);
  ;
         return //
- Op(FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont);
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont);
     }
 
     private final static Operation $listing_2_3(Prolog m) { 
@@ -3235,7 +3235,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_listing_1 , a3);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA(L_$listing_2_s5, a4,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_$listing_2_s5, a4,  int_1 ), cont);
     }
 /** PREDICATE: $listing_dynamic_clause/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3276,13 +3276,13 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_system::PRED_$new_internal_database_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_hash_keys_2_static_exec, VA(a1, a3), //
- Op(FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a3), //
- Op(FILE_system::PRED_$unify_2_static_exec, VA(a2, a6), //
- Op(FILE_system::PRED_functor_3_static_exec, VA(a7, a4, a5), //
- Op(FILE_system::PRED_$clause_internal_5_static_exec, VA(a1, a2, a7, a8, m.DONT_CARE2()), //
- Op(FILE_system::PRED_$write_dynamic_clause_2_static_exec, VA(a1, a8), fail_0)))))));
+ Op("$new_internal_database", FILE_system::PRED_$new_internal_database_1_static_exec, VA(a1), //
+ Op("hash_keys", FILE_system::PRED_hash_keys_2_static_exec, VA(a1, a3), //
+ Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a3), //
+ Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, a6), //
+ Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a7, a4, a5), //
+ Op("$clause_internal", FILE_system::PRED_$clause_internal_5_static_exec, VA(a1, a2, a7, a8, m.DONT_CARE2()), //
+ Op("$write_dynamic_clause", FILE_system::PRED_$write_dynamic_clause_2_static_exec, VA(a1, a8), fail_0)))))));
     }
 
     private final static Operation $listing_dynamic_clause_2_2(Prolog m) { 
@@ -3370,10 +3370,10 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_numbervars_3_static_exec, VA(a3,  int_0 , m.DONT_CARE2()), //
- Op(FILE_system::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$002E ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont))));
+ Op("numbervars", FILE_system::PRED_numbervars_3_static_exec, VA(a3,  int_0 , m.DONT_CARE2()), //
+ Op("$write_dynamic_head", FILE_system::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$002E ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont))));
     }
 
     private final static Operation $write_dynamic_clause_2_3(Prolog m) { 
@@ -3398,13 +3398,13 @@ m.cont = cont;
         a5 =  S( FUNCTOR_$003A$002D_2 , a3, a4);
  ;
         return //
- Op(FILE_system::PRED_numbervars_3_static_exec, VA(a5,  int_0 , m.DONT_CARE2()), //
- Op(FILE_system::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$0020$003A$002D ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4,  int_8 ), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$002E ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont)))))));
+ Op("numbervars", FILE_system::PRED_numbervars_3_static_exec, VA(a5,  int_0 , m.DONT_CARE2()), //
+ Op("$write_dynamic_head", FILE_system::PRED_$write_dynamic_head_2_static_exec, VA(a1, a3), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$0020$003A$002D ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4,  int_8 ), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$002E ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont)))))));
     }
 /** PREDICATE: $write_dynamic_head/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3443,9 +3443,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_context_module_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_writeq_1_static_exec, VA(a2), cont)));
+ Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a1), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), //
+ Op("writeq", FILE_system::PRED_writeq_1_static_exec, VA(a2), cont)));
     }
 
     private final static Operation $write_dynamic_head_2_2(Prolog m) { 
@@ -3458,9 +3458,9 @@ m.cont = cont;
         cont = m.cont;
     // '$write_dynamic_head'(A,B):-[write(A),write(:),writeq(B)]
         return //
- Op(FILE_system::PRED_write_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_module_colon ), //
- Op(FILE_system::PRED_writeq_1_static_exec, VA(a2), cont)));
+ Op("write", FILE_system::PRED_write_1_static_exec, VA(a1), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_module_colon ), //
+ Op("writeq", FILE_system::PRED_writeq_1_static_exec, VA(a2), cont)));
     }
 /** PREDICATE: $write_dynamic_body/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3528,9 +3528,9 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p3 = //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$002C ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a2), cont)));
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$002C ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a2), cont)));
         m.AREGS[0] = a3;
         m.AREGS[1] = a2;
         m.cont = p3;
@@ -3565,18 +3565,18 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$0028 ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_or ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$0028 ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_or ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
     }
 
     private final static Operation $write_dynamic_body_2_3(Prolog m) { 
@@ -3607,18 +3607,18 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$0028 ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$002D$003E ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$0028 ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a3, a5), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$002D$003E ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a5), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$0029 ), cont))))))))))));
     }
 
     private final static Operation $write_dynamic_body_2_4(Prolog m) { 
@@ -3631,8 +3631,8 @@ m.cont = cont;
         cont = m.cont;
     // '$write_dynamic_body'(A,B):-[tab(B),writeq(A)]
         return //
- Op(FILE_system::PRED_tab_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_writeq_1_static_exec, VA(a1), cont));
+ Op("tab", FILE_system::PRED_tab_1_static_exec, VA(a2), //
+ Op("writeq", FILE_system::PRED_writeq_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: print_message/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3701,7 +3701,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_print_message_2 , a1, a2);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a4,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA( ATOM_var , a4,  int_1 ), cont);
     }
 
     private final static Operation print_message_2_2(Prolog m) { 
@@ -3718,7 +3718,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$error_message_1_static_exec, VA(a2), cont);
+ Op("$error_message", FILE_system::PRED_$error_message_1_static_exec, VA(a2), cont);
     }
 
     private final static Operation print_message_2_3(Prolog m) { 
@@ -3736,10 +3736,10 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007B ), //
- Op(FILE_system::PRED_$builtin_message_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007B ), //
+ Op("$builtin_message", FILE_system::PRED_$builtin_message_1_static_exec, VA(a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont))));
     }
 
     private final static Operation print_message_2_4(Prolog m) { 
@@ -3757,10 +3757,10 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BWARNING$003A$0020 ), //
- Op(FILE_system::PRED_$builtin_message_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), //
- Op(FILE_system::PRED_nl_0_static_exec, VA(), cont))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007BWARNING$003A$0020 ), //
+ Op("$builtin_message", FILE_system::PRED_$builtin_message_1_static_exec, VA(a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), cont))));
     }
 /** PREDICATE: nl/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3779,8 +3779,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
     // nl:-[current_output(A),nl(A)]
         a1 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_nl_1_static_exec, VA(a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a1), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: $builtin_message/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -3859,7 +3859,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_write_1_static_exec, VA(a2), cont);
+ Op("write", FILE_system::PRED_write_1_static_exec, VA(a2), cont);
     }
 
     private final static Operation $builtin_message_1_3(Prolog m) { 
@@ -3882,9 +3882,9 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_system::PRED_write_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020 ), //
- Op(FILE_system::PRED_$builtin_message_1_static_exec, VA(a3), cont)));
+ Op("write", FILE_system::PRED_write_1_static_exec, VA(a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_1_static_exec, VA( ATOM_$0020 ), //
+ Op("$builtin_message", FILE_system::PRED_$builtin_message_1_static_exec, VA(a3), cont)));
     }
 /** PREDICATE: $error_message/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -4019,11 +4019,11 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_2(Prolog m) { 
@@ -4044,13 +4044,13 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))));
     }
 
     private final static Operation $error_message_1_3(Prolog m) { 
@@ -4073,17 +4073,17 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BTYPE$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BTYPE$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_4(Prolog m) { 
@@ -4106,17 +4106,17 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BDOMAIN$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BDOMAIN$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_5(Prolog m) { 
@@ -4137,14 +4137,14 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))));
     }
 
     private final static Operation $error_message_1_6(Prolog m) { 
@@ -4167,18 +4167,18 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEXISTENCE$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020does$0020not$0020exist ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))))));
     }
 
     private final static Operation $error_message_1_7(Prolog m) { 
@@ -4202,19 +4202,19 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BPERMISSION$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020can$0020not$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a6), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BPERMISSION$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020can$0020not$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a6), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))))));
     }
 
     private final static Operation $error_message_1_8(Prolog m) { 
@@ -4236,16 +4236,16 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020limit$0020of$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020is$0020breached ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020limit$0020of$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020is$0020breached ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
     }
 
     private final static Operation $error_message_1_9(Prolog m) { 
@@ -4267,15 +4267,15 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEVALUATION$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BEVALUATION$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))));
     }
 
     private final static Operation $error_message_1_10(Prolog m) { 
@@ -4298,17 +4298,17 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYNTAX$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$003A$0020expected$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a5), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))))))))));
     }
 
     private final static Operation $error_message_1_11(Prolog m) { 
@@ -4328,11 +4328,11 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYSTEM$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BSYSTEM$0020ERROR$003A$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_12(Prolog m) { 
@@ -4352,11 +4352,11 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINTERNAL$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BINTERNAL$0020ERROR$003A$0020 ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
     }
 
     private final static Operation $error_message_1_13(Prolog m) { 
@@ -4378,16 +4378,16 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BJAVA$0020ERROR$003A$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
- Op(FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a4), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_$print_stack_trace_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007BJAVA$0020ERROR$003A$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a2), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$0020$002D$0020arg$0020 ), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error , a3), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$002C$0020found$0020 ), //
+ Op("$write_goal", FILE_system::PRED_$write_goal_2_static_exec, VA( ATOM_user_error , a4), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("$print_stack_trace", FILE_system::PRED_$print_stack_trace_1_static_exec, VA(a4), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont))))))))));
     }
 
     private final static Operation $error_message_1_14(Prolog m) { 
@@ -4399,11 +4399,11 @@ m.cont = cont;
         cont = m.cont;
     // '$error_message'(A):-['$fast_write'(user_error,'{'),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         return //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007B ), //
- Op(FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a1), //
- Op(FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007B ), //
+ Op("write", FILE_system::PRED_write_2_static_exec, VA( ATOM_user_error , a1), //
+ Op("$fast_write", FILE_system::PRED_$fast_write_2_static_exec, VA( ATOM_user_error ,  ATOM_$007D ), //
+ Op("nl", FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_error ), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA( ATOM_user_error ), cont)))));
     }
 /** PREDICATE: $write_goal/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -4450,7 +4450,7 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$write_toString_2_static_exec, VA( ATOM_user_error , a1), cont);
+ Op("$write_toString", FILE_system::PRED_$write_toString_2_static_exec, VA( ATOM_user_error , a1), cont);
     }
 
     private final static Operation $write_goal_1_2(Prolog m) { 
@@ -4461,7 +4461,7 @@ m.cont = cont;
         cont = m.cont;
     // '$write_goal'(A):-[write(A)]
         return //
- Op(FILE_system::PRED_write_1_static_exec, VA(a1), cont);
+ Op("write", FILE_system::PRED_write_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: $write_goal/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
@@ -4509,7 +4509,7 @@ m.cont = cont;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$write_toString_2_static_exec, VA(a1, a2), cont);
+ Op("$write_toString", FILE_system::PRED_$write_toString_2_static_exec, VA(a1, a2), cont);
     }
 
     private final static Operation $write_goal_2_2(Prolog m) { 
@@ -4521,7 +4521,7 @@ m.cont = cont;
         cont = m.cont;
     // '$write_goal'(A,B):-[write(A,B)]
         return //
- Op(FILE_system::PRED_write_2_static_exec, VA(a1, a2), cont);
+ Op("write", FILE_system::PRED_write_2_static_exec, VA(a1, a2), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

@@ -625,11 +625,6 @@ abstract class PTerm extends KPTerm implements Term {
         }
     }
 
-    @Override
-    public void oopsy() {
-        new Exception().printStackTrace();
-    }
-
     /** Returns the dereference value of this term. */
     @Override
     public Term dref() {

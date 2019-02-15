@@ -812,6 +812,7 @@ create_call_op(_P,(':')/2,[M,Call]):- functor(Call,F,A),Call=..[_|Args],!,create
 
 create_call_op(_P,F/A,Args):- is_sys_pred(F/A,Where),!,
   w('//\n Op('),
+  w('"'),w(F),w('", '),
   maybe_write_package(Where,'::'),
   write_class_name(F/A),
   w('_static_exec, VA('),
@@ -819,6 +820,7 @@ create_call_op(_P,F/A,Args):- is_sys_pred(F/A,Where),!,
 
 create_call_op(_P,F/A,Args):-
   w('//\n Op('),
+  w('"'),w(F),w('", '),
   write_invoke_from_classname(F/A),w('::'),
   write_class_name(F/A), 
   w('_static_exec, VA('),

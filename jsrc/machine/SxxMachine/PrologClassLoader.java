@@ -107,7 +107,7 @@ public class PrologClassLoader extends ClassLoader {
         try {
             Operation constructor = findPredicate(pkg, functor, arity);
             if (constructor != NOT_FOUND) {
-                Predicate pred = new TermData.StaticPred(functor, constructor, args, cont);
+                Predicate pred = new TermData.StaticPred(pkg + "::" + functor + "/" + arity, constructor, args, cont);
                 return pred;
             }
         } catch (Exception cause) {

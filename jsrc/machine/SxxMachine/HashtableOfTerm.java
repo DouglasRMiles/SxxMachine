@@ -13,7 +13,7 @@ import java.util.Set;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class HashtableOfTerm /* implements Map<Term, Term> */ {
+public class HashtableOfTerm/* implements Map<Term, Term> */ {
 	// private static final long serialVersionUID = 1L;
 	final Map<Term, Term> termMap;
 

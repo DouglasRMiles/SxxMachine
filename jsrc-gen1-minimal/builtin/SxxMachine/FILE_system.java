@@ -6130,7 +6130,7 @@ m.cont = cont;
         cont = m.cont;
     // system_predicate(A):-[call(system_predicate_ext,A)]
         return //
- Op(FILE_system::PRED_call_2_static_exec, VA( ATOM_system_predicate_ext , a1), cont);
+ Op("call", FILE_system::PRED_call_2_static_exec, VA( ATOM_system_predicate_ext , a1), cont);
     }
 /** PREDICATE: $init/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/system.pl
@@ -6149,7 +6149,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/system.pl
         m.setB0();
     // '$init':-['$new_indexing_hash'('SxxMachine',system_predicate_ext/1,A)]
         return //
- Op(FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$init_0_s6, m.DONT_CARE2()), cont);
+ Op("$new_indexing_hash", FILE_system::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$init_0_s6, m.DONT_CARE2()), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

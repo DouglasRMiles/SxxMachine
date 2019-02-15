@@ -46,7 +46,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         a3 = LARG[2];
     // open(A,B,C):-[open(A,B,C,[])]
         return //
- Op(FILE_system::PRED_open_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
+ Op("open", FILE_system::PRED_open_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
     }
 /** PREDICATE: close/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -64,7 +64,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         a1 = LARG[0];
     // close(A):-[close(A,[])]
         return //
- Op(FILE_system::PRED_close_2_static_exec, VA(a1,  Prolog.Nil ), cont);
+ Op("close", FILE_system::PRED_close_2_static_exec, VA(a1,  Prolog.Nil ), cont);
     }
 /** PREDICATE: flush_output/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -83,8 +83,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // flush_output:-[current_output(A),flush_output(A)]
         a1 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_flush_output_1_static_exec, VA(a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a1), //
+ Op("flush_output", FILE_system::PRED_flush_output_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: stream_property/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -142,7 +142,7 @@ m.cont = cont;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op(FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont);
+ Op("$stream_property", FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont);
     }
 
     private final static Operation stream_property_2_2(Prolog m) { 
@@ -161,9 +161,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_$stream_property_specifier_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont)));
+ Op("$stream_property_specifier", FILE_system::PRED_$stream_property_specifier_1_static_exec, VA(a2), //
+ Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), //
+ Op("$stream_property", FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont)));
     }
 
     private final static Operation stream_property_2_3(Prolog m) { 
@@ -178,7 +178,7 @@ m.cont = cont;
         a3 =  S( FUNCTOR_stream_property_2 , a1, a2);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA(L_stream_property_2_s5, a3,  int_2 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_stream_property_2_s5, a3,  int_2 ), cont);
     }
 /** PREDICATE: $stream_property/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -241,11 +241,11 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$002C_2 , a1, a6);
  ;
         return //
- Op(FILE_system::PRED_$get_stream_manager_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_hash_map_2_static_exec, VA(a4, a5), //
- Op(FILE_system::PRED_$builtin_member_2_static_exec, VA(a7, a5), //
- Op(FILE_system::PRED_java_1_static_exec, VA(a1), //
- Op(FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a6), cont)))));
+ Op("$get_stream_manager", FILE_system::PRED_$get_stream_manager_1_static_exec, VA(a4), //
+ Op("hash_map", FILE_system::PRED_hash_map_2_static_exec, VA(a4, a5), //
+ Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a7, a5), //
+ Op("java", FILE_system::PRED_java_1_static_exec, VA(a1), //
+ Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a6), cont)))));
     }
 
     private final static Operation $stream_property_2_2(Prolog m) { 
@@ -276,9 +276,9 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_system::PRED_$get_stream_manager_1_static_exec, VA(a4), //
- Op(FILE_system::PRED_hash_get_3_static_exec, VA(a4, a1, a5), //
- Op(FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a5), cont)));
+ Op("$get_stream_manager", FILE_system::PRED_$get_stream_manager_1_static_exec, VA(a4), //
+ Op("hash_get", FILE_system::PRED_hash_get_3_static_exec, VA(a4, a1, a5), //
+ Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a5), cont)));
     }
 
     private final static Operation $stream_property_2_3(Prolog m) { 
@@ -293,7 +293,7 @@ m.cont = cont;
         a3 =  S( FUNCTOR_stream_property_2 , a1, a2);
  ;
         return //
- Op(FILE_system::PRED_illarg_3_static_exec, VA(L_$stream_property_2_s5, a3,  int_1 ), cont);
+ Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_$stream_property_2_s5, a3,  int_1 ), cont);
     }
 /** PREDICATE: $stream_property_specifier/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -473,8 +473,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // get_char(A):-[current_input(B),get_char(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_get_char_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("get_char", FILE_system::PRED_get_char_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: get_code/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -494,8 +494,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // get_code(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_get_code_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: peek_char/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -515,8 +515,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // peek_char(A):-[current_input(B),peek_char(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_peek_char_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("peek_char", FILE_system::PRED_peek_char_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: peek_code/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -536,8 +536,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // peek_code(A):-[current_input(B),peek_code(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_peek_code_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("peek_code", FILE_system::PRED_peek_code_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: put_char/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -557,8 +557,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // put_char(A):-[current_output(B),put_char(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_put_char_2_static_exec, VA(a2, a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a2), //
+ Op("put_char", FILE_system::PRED_put_char_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: put_code/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -578,8 +578,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // put_code(A):-[current_output(B),put_code(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_put_code_2_static_exec, VA(a2, a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a2), //
+ Op("put_code", FILE_system::PRED_put_code_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: nl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -598,7 +598,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         a1 = LARG[0];
     // nl(A):-[put_char(A,'\n')]
         return //
- Op(FILE_system::PRED_put_char_2_static_exec, VA(a1,  ATOM_$000A ), cont);
+ Op("put_char", FILE_system::PRED_put_char_2_static_exec, VA(a1,  ATOM_$000A ), cont);
     }
 /** PREDICATE: get0/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -618,8 +618,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // get0(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_get_code_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: get0/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -638,7 +638,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         a2 = LARG[1];
     // get0(A,B):-[get_code(A,B)]
         return //
- Op(FILE_system::PRED_get_code_2_static_exec, VA(a1, a2), cont);
+ Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: get/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -658,8 +658,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // get(A):-[current_input(B),get(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_get_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("get", FILE_system::PRED_get_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: put/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -679,8 +679,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // put(A):-[current_output(B),put(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_put_2_static_exec, VA(a2, a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a2), //
+ Op("put", FILE_system::PRED_put_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: put/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -705,7 +705,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         }
         //END inline expansion
         return //
- Op(FILE_system::PRED_put_code_2_static_exec, VA(a1, a3), cont);
+ Op("put_code", FILE_system::PRED_put_code_2_static_exec, VA(a1, a3), cont);
     }
 /** PREDICATE: tab/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -725,8 +725,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // tab(A):-[current_output(B),tab(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_tab_2_static_exec, VA(a2, a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a2), //
+ Op("tab", FILE_system::PRED_tab_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: skip/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -746,8 +746,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // skip(A):-[current_input(B),skip(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_skip_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("skip", FILE_system::PRED_skip_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: get_byte/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -767,8 +767,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // get_byte(A):-[current_input(B),get_byte(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_get_byte_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("get_byte", FILE_system::PRED_get_byte_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: peek_byte/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -788,8 +788,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // peek_byte(A):-[current_input(B),peek_byte(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_input_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_peek_byte_2_static_exec, VA(a2, a1), cont));
+ Op("current_input", FILE_system::PRED_current_input_1_static_exec, VA(a2), //
+ Op("peek_byte", FILE_system::PRED_peek_byte_2_static_exec, VA(a2, a1), cont));
     }
 /** PREDICATE: put_byte/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -809,8 +809,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // put_byte(A):-[current_output(B),put_byte(B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_system::PRED_current_output_1_static_exec, VA(a2), //
- Op(FILE_system::PRED_put_byte_2_static_exec, VA(a2, a1), cont));
+ Op("current_output", FILE_system::PRED_current_output_1_static_exec, VA(a2), //
+ Op("put_byte", FILE_system::PRED_put_byte_2_static_exec, VA(a2, a1), cont));
     }
 static { loadPreds(); }
 static public void loadPreds() {

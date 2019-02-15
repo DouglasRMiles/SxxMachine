@@ -8,10 +8,12 @@ public abstract class KPTerm extends TermData {
 
     public void oopsy() {
         new Exception("" + this).printStackTrace();
+        Prolog.Break("oopsy!");
     }
 
     public static void soopsy() {
         new Exception().printStackTrace();
+        Prolog.Break("soopsy!");
     }
 
     abstract // @Override

@@ -173,6 +173,7 @@ public final class Prolog {
     public ListTerm lastPendingGoal;
     public Term assumptions;
     public Operation pred;
+    private Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
     public final static SymbolTerm anEof = TermData.F("end_of_file");
     public final static SymbolTerm aNo = TermData.F("no");
     public final static SymbolTerm aYes = TermData.F("yes");
@@ -813,6 +814,11 @@ public final class Prolog {
     public Term DONT_CARE2() {
         // TODO Auto-generated method stub
         return TermData.V(this);
+    }
+
+    public Map<Term, Term> getTermBlackboard() {
+        // TODO Auto-generated method stub
+        return termBlackboard;
     }
 
 }

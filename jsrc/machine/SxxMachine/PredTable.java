@@ -1,9 +1,14 @@
 package SxxMachine;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.hamcrest.core.IsSame;
 
 public class PredTable {
 
@@ -25,7 +30,21 @@ public class PredTable {
             }
     }
 
-    public static boolean storePred(String key, Operation cont, boolean forced) {
+    public static boolean storePred(final String key, final Operation cont0, boolean forced) {
+        Operation cont = new Operation() {
+
+            @Override
+            public Operation exec(Prolog engine) throws PrologException {
+                // TODO Auto-generated method stub
+                return cont0.exec(engine);
+            }
+
+            @Override
+            public String toString() {
+                // TODO Auto-generated method stub
+                return key + " " + cont0.toString();
+            }
+        };
         final Operation prev = predicateCache.get(key);
         if (prev == null) {
             predicateCache.put(key, cont);
@@ -179,6 +198,45 @@ public class PredTable {
             System.err.flush();
         }
         System.err.flush();
+    }
+
+    public static void scanPreds(Class<?> class1) {
+        final String suffix = "_static_exec";
+        for (Method m : class1.getDeclaredMethods()) {
+            if (!Modifier.isStatic(m.getModifiers()))
+                continue;
+            Class[] parms = m.getParameterTypes();
+            if (parms == null || parms.length != 1)
+                continue;
+            if (parms[0] != Prolog.class)
+                continue;
+            String string = m.getName();
+            if (!string.endsWith(suffix))
+                continue;
+            string = string.substring(0, string.length() - suffix.length());
+            String functor = PredicateEncoder.decodeFunctor(string);
+            int arity = PredicateEncoder.decodeArity(string);
+            Operation cont = new Operation() {
+
+                @Override
+                public Operation exec(Prolog engine) throws PrologException {
+                    try {
+                        return (Operation) m.invoke(null, engine);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                        throw new JavaException(e);
+                    }
+                }
+
+                @Override
+                public String toString() {
+                    return functor + "/" + arity + " " + super.toString();
+                }
+            };
+            registerBuiltin(functor, arity, cont);
+        }
+
     }
 
 }

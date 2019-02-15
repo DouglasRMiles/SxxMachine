@@ -3,9 +3,11 @@
 package(_).
 :- package 'swi_supp'.
 
+:- dynamic('$predicate_property'/4).
 :- dynamic('$current_typein_module'/1).
 :- dynamic('$current_source_module'/1).
 :- dynamic('$current_context_module'/1).
+:- dynamic('$tracing'/0).
 %:- database('$current_source_module'(user)=swi_supp).
 %:- database('$current_typein_module'(user)=swi_supp).
 %:- database('swi_supp'='$current_context_module'(user)).
@@ -13,11 +15,79 @@ package(_).
 '$current_context_module'(user).
 % :- [test].
 
+setup_call_cleanup(Setup, Goal, Cleanup) :-
+    setup_call_catcher_cleanup(Setup, Goal, _Catcher, Cleanup).
 
+
+each_call_cleanup(Setup, Goal, Cleanup) :-
+	throw_missing(each_call_cleanup(Setup, Goal, _Catcher, Cleanup)).   
+
+setup_call_catcher_cleanup(Setup, Goal, Catcher, Cleanup):-
+	throw_missing(setup_call_catcher_cleanup(Setup, Goal, Catcher, Cleanup)).
+    
+                               
+recorda(Key,Term):- recorda(Key, Term, _).
+recordz(Key,Term):- recordz(Key, Term, _).
+recorded(Key,Term):- recorded(Key, Term, _).
+
+throw_missing(G):- throw(throw_missing(G)).
+
+instance(Reference, Term):- throw_missing(instance(Reference, Term)).
+
+flag(Key, Old, New):- throw_missing(flag(Key, Old, New)).
+
+source_location(X,Y):- throw_missing(source_location(X,Y)).
+
+set_predicate_property(_:M:P,Prop):- !, nonvar(M), set_predicate_property(M:P,Prop).
+set_predicate_property(_:[],_):-!.
+set_predicate_property(M:F/A,Prop):- !, set_predicate_property(M,F,A,Prop).
+set_predicate_property(M:[X|Y],Prop):- !,
+  set_predicate_property(M:X,Prop),
+  set_predicate_property(M:Y,Prop).
+set_predicate_property(M:(X,Y),Prop):- !,
+  set_predicate_property(M:X,Prop),
+  set_predicate_property(M:Y,Prop).
+set_predicate_property(M:P,meta_predicate):- !, functor(P,F,A), set_predicate_property(M,F,A,meta_predicate(P)).
+set_predicate_property(M:P,Prop):- functor(P,F,A), set_predicate_property(M,F,A,Prop).
+set_predicate_property(MFA,Prop):-
+   strip_module(MFA,M,FA),MFA==FA,!,
+   set_predicate_property(M:FA,Prop).
+  
+asserta_if_new(G):- catch(G,_,fail)->true;asserta(G).
+set_predicate_property(M,F,A,Prop):- call('$predicate_property'(Prop,M,F,A)),!.
+set_predicate_property(M,F,A,Prop):- asserta_if_new('$predicate_property'(defined,M,F,A)),asserta('$predicate_property'(Prop,M,F,A)).
+	
+multifile(PIs):- set_predicate_property(PIs,multifile).
+discontiguous(PIs):- set_predicate_property(PIs,discontiguous).
+dynamic(PIs):- set_predicate_property(PIs,dynamic).
+module_transparent(PIs):- set_predicate_property(PIs,transparent).
+meta_predicate(PIs):- set_predicate_property(PIs,transparent).
+
+tracing:- '$tracing'.
+
+assertion(G):- quietly(G)->true;throw(assertion_failed(G)).
+
+quietly(G):- tracing -> each_call_cleanup(notrace,call(G),trace) ; call(G).
+ignore(G):- call(G) -> true; true.
+variant(X,Y):- '$term_variant'(X,Y).
 
 typein_module(User) :- '$current_typein_module'(UserO) -> User=UserO ; User=user.
 source_module(User) :- '$current_source_module'(UserO) -> User=UserO ; User=user.
 context_module(UserO) :- ('$current_context_module'(User);typein_module(User))->User=UserO.
+
+
+current_predicate(Head):- strip_module(Head,M,F/A),current_predicate_m_f_a(M,F,A).
+  ground(F/A) -> functor(P,F,A), 
+  
+current_predicate_m_f_a(M,F,A):- (var(F); var(A)), !, predicate_property(M:P,defined),functor(P,F,A).
+current_predicate_m_f_a(M,F,A):- functor(P,F,A), !, predicate_property(M:P,defined).
+
+current_predicate(Name, Head):- 
+  predicate_property(Head,_),
+  strip_module(Head,M,P),
+  functor(P,F,_),
+  strip_module(Name,M,F).
+
 
 
 

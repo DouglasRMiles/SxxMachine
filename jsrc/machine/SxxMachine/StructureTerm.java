@@ -324,6 +324,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
     // protected String name;
     protected Term functor;
     private String name;
+
     /** Holds the argument terms of this <code>StructureTerm</code>. */
     // public Term[] argz;
     // protected boolean immutable;
@@ -634,21 +635,29 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
             toListStringImpl(printingFlags, sb);
             return;
         }
-        if (this.functor != null) {
-            functor.toQuotedString(printingFlags, sb);
-        } else {
-            if (!isQuoted(printingFlags)) {
-                sb.append(name);
-            } else {
-                Token.toQuotedString(name, sb);
+        final String fname = fname();
+        if (arity() == 2) {
+            final boolean printInfix = "/".equals(fname) || ":".equals(fname) || ":-".equals(fname);
+            if (printInfix) {
+                toArgString(printingFlags, sb, this.argz[0]);
+                sb.append(fname);
+                toArgString(printingFlags, sb, this.argz[1]);
+                return;
             }
         }
+        if (!isQuoted(printingFlags)) {
+            sb.append(fname);
+        } else {
+            Token.toQuotedString(fname, sb);
+        }
         sb.append('(');
-        this.argz[0].toQuotedString(printingFlags, sb);
+        Term term = this.argz[0];
+        toArgString(printingFlags, sb, term);
         for (int i = 1; i < this.argz.length; i++) {
             sb.append(',');
-            Term term = this.argz[i];
-            term.toQuotedString(printingFlags, sb);
+            term = this.argz[i];
+            toArgString(printingFlags, sb, term);
+
         }
         sb.append(')');
         /*
@@ -657,11 +666,24 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
          */
     }
 
+    /**
+     * @param printingFlags
+     * @param sb
+     * @param term
+     */
+    public static void toArgString(int printingFlags, StringBuilder sb, Term term) {
+        if (term != null) {
+            term.toQuotedString(printingFlags, sb);
+        } else {
+            sb.append("@NULL@");
+        }
+    }
+
     public void toListStringImpl(int printingFlags, StringBuilder sb) {
         Term x = this;
         sb.append("[");
         for (;;) {
-            x.car().dref().toQuotedString(1, sb);
+            toArgString(printingFlags, sb, x.car().dref());
             x = x.cdr().dref();
             if (!(x.isCons()))
                 break;
@@ -669,7 +691,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
         }
         if (!Prolog.Nil.equals(x)) {
             sb.append("|");
-            x.toQuotedString(printingFlags, sb);
+            toArgString(printingFlags, sb, x);
         }
         sb.append("]");
     }

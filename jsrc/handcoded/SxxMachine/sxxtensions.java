@@ -5,6 +5,83 @@ import java.util.Map;
 
 public class sxxtensions extends missing_preds {
 
+    public static Operation PRED_$003A$002D_2_static_exec(Prolog m) {
+        return PRED_nb_getval_2_static_exec(m);
+    }
+
+    static {
+        PredTable.scanPreds(sxxtensions.class);
+    }
+
+    public static Operation PRED_nb_linkval_2_static_exec(Prolog m) {
+        Term a1, a2;
+        a1 = m.AREGS[0].dref();
+        a2 = m.AREGS[1].dref();
+        linkval(m, a1, a2);
+        return m.cont;
+    }
+
+    static void linkval(Prolog m, Term a1, Term a2) {
+        Map<Term, Term> saved = m.getTermBlackboard();
+        saved.put(a1.functor(), a2);
+    }
+
+    static Term currentval(Prolog m, Term a1) {
+        Map<Term, Term> saved = m.getTermBlackboard();
+        return saved.get(a1.functor());
+    }
+
+    public static Operation PRED_b_setval_2_static_exec(Prolog m) {
+        Term a1, a2;
+        a1 = m.AREGS[0].dref();
+        a2 = m.AREGS[1].dref();
+        Map<Term, Term> saved = m.getTermBlackboard();
+        Term was = saved.get(a1.functor());
+        if (was == null)
+            was = Prolog.Nil;
+        VariableTerm sav = new VariableTerm();
+        sav.val = was;
+        sav.bind(a2, m.trail);
+        linkval(m, a1, sav);
+        return m.cont;
+    }
+
+    public static Operation PRED_nb_setval_2_static_exec(Prolog m) {
+        Term a1, a2;
+        a1 = m.AREGS[0].dref();
+        a2 = m.AREGS[1].dref();
+        linkval(m, a1, a2.copy());
+        return m.cont;
+    }
+
+    public static Operation PRED_b_getval_2_static_exec(Prolog m) {
+        return PRED_nb_getval_2_static_exec(m);
+    }
+
+    public static Operation PRED_nb_getval_2_static_exec(Prolog m) {
+        Term a1, a2;
+        a1 = m.AREGS[0].dref();
+        a2 = m.AREGS[1].dref();
+        Map<Term, Term> saved = m.getTermBlackboard();
+        final Term arg0 = saved.get(a1.functor());
+        if (!a2.unify(arg0, m.trail)) {
+            return m.fail();
+        }
+        return m.cont;
+    }
+
+    public static Operation PRED_nb_current_2_static_exec(Prolog m) {
+        Term a1, a2;
+        a1 = m.AREGS[0].dref();
+        a2 = m.AREGS[1].dref();
+        Map<Term, Term> saved = m.getTermBlackboard();
+        final Term arg0 = saved.get(a1.functor());
+        if (arg0 == null || !a2.unify(arg0, m.trail)) {
+            return m.fail();
+        }
+        return m.cont;
+    }
+
     public Operation PRED_cputime_1_static_exec(Prolog m) {
         m.setB0();
         long t = java.lang.System.currentTimeMillis();

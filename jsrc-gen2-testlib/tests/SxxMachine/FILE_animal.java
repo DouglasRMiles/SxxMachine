@@ -94,8 +94,8 @@ m.cont = cont;
         cont = m.cont;
     // animal(A):-[write('please type one more animal name: '),read(A)]
         return //
- Op(FILE_animal::PRED_write_1_static_exec, VA( ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 ), //
- Op(FILE_animal::PRED_read_1_static_exec, VA(a1), cont));
+ Op("write", FILE_animal::PRED_write_1_static_exec, VA( ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 ), //
+ Op("read", FILE_animal::PRED_read_1_static_exec, VA(a1), cont));
     }
 static { loadPreds(); }
 static public void loadPreds() {
