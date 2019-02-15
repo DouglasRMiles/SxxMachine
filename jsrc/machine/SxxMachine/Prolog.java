@@ -16,7 +16,6 @@ import java.io.Writer;
 import java.util.EnumSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
@@ -385,7 +384,7 @@ public final class Prolog {
         if (a1.isCons()) {
             return lis;
         }
-        if (a1.isStructure()) {
+        if (a1.isCompound()) {
             return str;
         }
         return var;
@@ -412,9 +411,9 @@ public final class Prolog {
     public Operation switch_on_hash(Map<Term, Operation> hash, Operation otherwise) {
         Term arg1 = this.AREGS[0].dref();
         Term key;
-        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isSymbol())) {
+        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtomString())) {
             key = arg1;
-        } else if ((arg1.isStructure())) {
+        } else if ((arg1.isCompound())) {
             key = (arg1).functor();
         } else {
             throw new SystemException("Invalid argument in switch_on_hash");

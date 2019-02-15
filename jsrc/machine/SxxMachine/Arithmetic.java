@@ -77,14 +77,14 @@ public class Arithmetic {
 		else if ((t.isDouble()))
 			return (DoubleTerm) t;
 		else if (t.equalsTerm(SYM_RANDOM))
-			return new DoubleTerm(Math.random());
+			return TermData.Float(Math.random());
 		else if (t.equalsTerm(SYM_PI))
-			return new DoubleTerm(Math.PI);
+			return TermData.Float(Math.PI);
 		else if (t.equalsTerm(SYM_E))
-			return new DoubleTerm(Math.E);
+			return TermData.Float(Math.E);
 		else if ((t.isCons()))
 			return evaluate(t.asListTerm().car());
-		else if (!(t.isStructure()))
+		else if (!(t.isCompound()))
 			throw new IllegalDomainException("arithmetic expression", t);
 		SymbolTerm func = (t).functor().asSymbolTerm();
 		Term[] args = (t).args();

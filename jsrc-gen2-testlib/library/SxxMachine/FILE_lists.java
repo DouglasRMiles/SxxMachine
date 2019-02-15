@@ -8,21 +8,12 @@ import static SxxMachine.FILE_builtins.PRED_length_2_static_exec;
 import static SxxMachine.Failure.fail_0;
 import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_sort_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_$skip_list_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_memberchk_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_must_be_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_pairs_keys_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_sort_4_static_exec;
-import static SxxMachine.sxxtensions.PRED_succ_2_static_exec;
-
-import SxxMachine.Arithmetic;
-import SxxMachine.IntegerTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
+import static SxxMachine.missing_preds.PRED_$skip_list_3_static_exec;
+import static SxxMachine.missing_preds.PRED_memberchk_2_static_exec;
+import static SxxMachine.missing_preds.PRED_must_be_2_static_exec;
+import static SxxMachine.missing_preds.PRED_pairs_keys_2_static_exec;
+import static SxxMachine.missing_preds.PRED_sort_4_static_exec;
+import static SxxMachine.missing_preds.PRED_succ_2_static_exec;
 
 public class FILE_lists extends TermData {
 	/**

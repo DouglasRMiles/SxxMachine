@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 public interface NameArity {
 
-	String name();
+	String fname();
 
 	int arityOrType();
 

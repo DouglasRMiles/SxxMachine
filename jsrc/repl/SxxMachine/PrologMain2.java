@@ -35,7 +35,6 @@ public class PrologMain2 {
 
 	public static void main(String argv[]) {
 		BlockingPrologControl p;
-		String goal;
 		try {
 			System.err.println("\n" + VERSION);
 			System.err.println(COPYRIGHT);

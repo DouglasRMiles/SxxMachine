@@ -1,15 +1,8 @@
 package SxxMachine;
 
 import static SxxMachine.FILE_builtins.PRED_set_prolog_flag_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_$set_predicate_attribute_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_must_be_2_static_exec;
-
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
+import static SxxMachine.missing_preds.PRED_$set_predicate_attribute_3_static_exec;
+import static SxxMachine.missing_preds.PRED_must_be_2_static_exec;
 
 public class FILE_system_protect extends TermData {
 	/**

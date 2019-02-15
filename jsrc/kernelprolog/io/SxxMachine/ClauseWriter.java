@@ -17,7 +17,7 @@ public class ClauseWriter extends CharWriter {
 		if (null == writer)
 			return 0;
 		String s = null;
-		if ((t.isStructure()) && "$string".equals(Expect.asStruct(t).name())) {
+		if ((t.isCompound()) && "$string".equals(Expect.asStruct(t).fname())) {
 			SymbolTerm Xs = Expect.asConst(Expect.asStruct(t).ArgDeRef(0));
 			s = KPTerm.charsToString(Xs);
 		} else {

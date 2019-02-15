@@ -7,19 +7,19 @@ import java.util.ArrayList;
  * resetting a Var's Ref fiels to unbound (i.e. this).
  * 
  * 
- * @see Term
+ * @see Undoable
  * @see Var
  */
 public class KPTrail {
-    public final void push(Term var) {
+    public final void push(Undoable var) {
         add(var);
     }
 
-    public final Term pop() {
-        return (Term) remove(size() - 1);
+    public final Undoable pop() {
+        return (Undoable) remove(size() - 1);
     }
 
-    ArrayList<Term> stack = new ArrayList<Term>();
+    ArrayList<Undoable> stack = new ArrayList<Undoable>();
 
     private Object remove(int i) {
         return stack.remove(i);
@@ -33,7 +33,7 @@ public class KPTrail {
         return stack.size();
     }
 
-    private void add(Term x) {
+    private void add(Undoable x) {
         stack.add(x);
     }
 
@@ -60,7 +60,7 @@ public class KPTrail {
         // if(to>size())
         // IO.assertion("unwind attempted from smaller to larger top");
         for (int i = size() - to; i > 0; i--) {
-            Term O = pop();
+            Undoable O = pop();
             O.undo();
         }
     }

@@ -30,7 +30,7 @@ public class PRED_exists_directory_1 extends Predicate.P1 {
 		if (!(a1 instanceof SymbolTerm))
 			throw new IllegalDomainException(this, 1, "directory", a1);
 
-		File file = new File(a1.name());
+		File file = new File(a1.toString());
 		if (file.isDirectory())
 			return cont;
 		else

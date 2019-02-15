@@ -19,20 +19,9 @@ import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_$univ_2_static_exec;
 import static SxxMachine.bootpreds.PRED_arg_3_static_exec;
 import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
+import static SxxMachine.missing_preds.PRED_predicate_property_2_static_exec;
 import static SxxMachine.sxxtensions.PRED_get_attr_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_predicate_property_2_static_exec;
 import static SxxMachine.sxxtensions.PRED_put_attr_3_static_exec;
-
-import SxxMachine.Arithmetic;
-import SxxMachine.FILE_builtins;
-import SxxMachine.IntegerTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
 
 public class FILE_prolog_metainference extends TermData {
 	/**
@@ -720,7 +709,7 @@ public class FILE_prolog_metainference extends TermData {
 		// END inline expansion
 		// START inline expansion of atom(a(1))
 		a1 = a1.dref();
-		if (!(a1.isSymbol())) {
+		if (!(a1.isAtomString())) {
 			return m.fail();
 		}
 		// END inline expansion

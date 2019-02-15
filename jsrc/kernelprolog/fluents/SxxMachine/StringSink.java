@@ -13,7 +13,7 @@ public class StringSink extends Sink {
 
 	@Override
 	public int putElement(Term t) {
-		buffer.append(t.toUnquoted());
+		buffer.append(t.pprint());
 		return 1;
 	}
 

@@ -25,7 +25,7 @@ public class VarNumberer extends SystemObject {
 			SymbolTerm root = (SymbolTerm) dict.get(place);
 			if (null == root) {
 				root = new PseudoVar(ctr++);
-				root.name = root.name + place.name();
+				root.name = root.name + place.fname();
 				dict.put(place, root);
 			}
 			place = root;

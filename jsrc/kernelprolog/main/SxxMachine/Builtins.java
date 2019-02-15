@@ -124,7 +124,7 @@ public class Builtins extends HashDict {
 	 * registers a symbol as name of a builtin
 	 */
 	public void registerBI(NameArity proto) {
-		String key = proto.name() + "/" + proto.arityOrType();
+		String key = proto.fname() + "/" + proto.arityOrType();
 		try {
 			Method m = proto.getClass().getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
 			// IO.mes("registering builtin: "+key);
@@ -135,7 +135,7 @@ public class Builtins extends HashDict {
 	}
 
 	public void registerBI(NameArity proto, Class c) {
-		String key = proto.name() + "/" + proto.arityOrType();
+		String key = proto.fname() + "/" + proto.arityOrType();
 		try {
 			Method m = c.getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
 			// IO.mes("registering builtin: "+key);
@@ -160,13 +160,13 @@ public class Builtins extends HashDict {
 	}
 
 	public static Nonvar toConstBuiltin(NameArity c) {
-		if (c.name().length() == 0)
+		if (c.fname().length() == 0)
 			return (Nonvar) c;
-		if (c.name().equals(Prolog.Nil.name()))
+		if (c.fname().equals(Prolog.Nil.fname()))
 			return Prolog.Nil;
-		if (c.name().equals(Prolog.aNo.name()))
+		if (c.fname().equals(Prolog.aNo.fname()))
 			return Prolog.aNo;
-		if (c.name().equals(Prolog.aYes.name()))
+		if (c.fname().equals(Prolog.aYes.fname()))
 			return Prolog.aYes;
 
 		Nonvar B = Init.builtinDict.asBuiltin(c);
@@ -178,10 +178,10 @@ public class Builtins extends HashDict {
 	}
 
 	public static StructureTerm toFunBuiltin(StructureTerm f) {
-		if (f.name().equals(":-") && f.arityOrType() == 2) {
+		if (f.fname().equals(":-") && f.arityOrType() == 2) {
 			return new Clause(f.argz[0], f.argz[1]);
 		}
-		if (f.name().equals(",") && f.arityOrType() == 2) {
+		if (f.fname().equals(",") && f.arityOrType() == 2) {
 			return StructureTerm.createCons(",", f.argz[0], f.argz[1]);
 		}
 		StructureTerm B = Init.builtinDict.asBuiltin(f).asStructureTerm();
@@ -235,7 +235,7 @@ final class system extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		String cmd = Expect.asConst(thiz.ArgDeRef(0)).name();
+		String cmd = Expect.asConst(thiz.ArgDeRef(0)).fname();
 		return IO.system(cmd);
 	}
 }
@@ -255,7 +255,7 @@ final class file_char_reader extends FunBuiltin {
 		if (I.isCharReader())
 			f = new CharReader(Expect.asCharReader(I).reader, p);
 		else {
-			String s = Expect.asConst(I).name();
+			String s = Expect.asConst(I).fname();
 			f = new CharReader(s, p);
 		}
 		return thiz.unifyArg(1, f, p);
@@ -277,7 +277,7 @@ final class file_clause_reader extends FunBuiltin {
 		if (I.isCharReader())
 			f = new ClauseReader(Expect.asCharReader(I).reader, p);
 		else {
-			String s = Expect.asConst(thiz.ArgDeRef(0)).name();
+			String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
 			f = new ClauseReader(s, p);
 		}
 		return thiz.unifyArg(1, f, p);
@@ -294,7 +294,7 @@ final class char_file_writer extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		String s = Expect.asConst(thiz.ArgDeRef(0)).name();
+		String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
 		Fluent f = new CharWriter(s, p);
 		return thiz.unifyArg(1, f, p);
 	}
@@ -310,7 +310,7 @@ final class clause_file_writer extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		String s = Expect.asConst(thiz.ArgDeRef(0)).name();
+		String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
 		Fluent f = new ClauseWriter(s, p);
 		return thiz.unifyArg(1, f, p);
 	}
@@ -430,7 +430,7 @@ final class reconsult extends FunBuiltin {
 	static public int st_exec(Prog p, ISTerm thiz) {
 
 		Term a = thiz.ArgDeRef(0);
-		String f = Expect.asConst(a).name();
+		String f = Expect.asConst(a).fname();
 		return DataBase.fromFile(f) ? 1 : 0;
 	}
 }
@@ -448,7 +448,7 @@ final class consult extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		String f = Expect.asConst(thiz.ArgDeRef(0)).name();
+		String f = Expect.asConst(thiz.ArgDeRef(0)).fname();
 		IO.trace("consulting: " + f);
 		return DataBase.fromFile(f, false) ? 1 : 0;
 	}
@@ -640,7 +640,7 @@ final class arg extends FunBuiltin {
 
 		int i = thiz.getIntArg(0);
 		Term F = thiz.ArgDeRef(1);
-		Term A = (i == 0) ? TermData.F(F.name()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.args()[i - 1]);
+		Term A = (i == 0) ? TermData.F(F.fname()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.args()[i - 1]);
 		return thiz.unifyArg(2, A, p);
 	}
 }
@@ -656,7 +656,7 @@ final class new_fun extends FunBuiltin {
 
 	static public int st_exec(Prog p, ISTerm thiz) {
 
-		String s = Expect.asConst(thiz.ArgDeRef(0)).name();
+		String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
 		int i = thiz.getIntArg(1);
 		Term T;
 		if (i == 0)
@@ -740,7 +740,7 @@ final class compute extends FunBuiltin {
 		Term b = thiz.ArgDeRef(2);
 		if (!(o.isConst()) || !(a.isNumber()) || !(b.isNumber()))
 			IO.errmes("bad arithmetic operation (" + o + "): " + a + "," + b + "\nprog: " + p.toString());
-		String opname = Expect.asConst(o).name();
+		String opname = Expect.asConst(o).fname();
 		double x = a.doubleValue();
 		double y = b.doubleValue();
 		double r;

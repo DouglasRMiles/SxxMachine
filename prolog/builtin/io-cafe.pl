@@ -78,6 +78,7 @@ peek_code(Code) :- current_input(S), peek_code(S, Code).
 put_char(Char)  :- current_output(S), put_char(S, Char).
 put_code(Code)  :- current_output(S), put_code(S, Code).
 
+nl        :- current_output(S), nl(S).
 nl(S) :- put_char(S, '\n').
 
 :- public get0/1, get0/2.

@@ -16,29 +16,18 @@ import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_$univ_2_static_exec;
 import static SxxMachine.bootpreds.PRED_arg_3_static_exec;
 import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_$expand_closure_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_$skip_list_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_compile_aux_clauses_1_static_exec;
-import static SxxMachine.sxxtensions.PRED_compound_name_arguments_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_compound_name_arity_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_f2_pos_6_static_exec;
-import static SxxMachine.sxxtensions.PRED_format_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_predicate_property_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_prolog_load_context_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_string_1_static_exec;
-import static SxxMachine.sxxtensions.PRED_string_codes_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_type_error_2_static_exec;
-
-import SxxMachine.Arithmetic;
-import SxxMachine.FILE_builtins;
-import SxxMachine.IntegerTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
+import static SxxMachine.missing_preds.PRED_$expand_closure_3_static_exec;
+import static SxxMachine.missing_preds.PRED_$skip_list_3_static_exec;
+import static SxxMachine.missing_preds.PRED_compile_aux_clauses_1_static_exec;
+import static SxxMachine.missing_preds.PRED_compound_name_arguments_3_static_exec;
+import static SxxMachine.missing_preds.PRED_compound_name_arity_3_static_exec;
+import static SxxMachine.missing_preds.PRED_f2_pos_6_static_exec;
+import static SxxMachine.missing_preds.PRED_format_3_static_exec;
+import static SxxMachine.missing_preds.PRED_predicate_property_2_static_exec;
+import static SxxMachine.missing_preds.PRED_prolog_load_context_2_static_exec;
+import static SxxMachine.missing_preds.PRED_string_1_static_exec;
+import static SxxMachine.missing_preds.PRED_string_codes_2_static_exec;
+import static SxxMachine.missing_preds.PRED_type_error_2_static_exec;
 
 public class FILE_apply_macros extends TermData {
     /**
@@ -438,7 +427,7 @@ public class FILE_apply_macros extends TermData {
         return empty_lists_2_1(m);
     }
 
-    private final static Operation empty_lists_2_var_1(Prolog m) {
+    private final static Operation empty_lists_2_var_1(Prolog m) throws PrologException {
         m.trust(null);
         return empty_lists_2_2(m);
     }
@@ -461,7 +450,7 @@ public class FILE_apply_macros extends TermData {
         return cont;
     }
 
-    private final static Operation empty_lists_2_2(Prolog m) {
+    private final static Operation empty_lists_2_2(Prolog m) throws PrologException {
         // empty_lists(A,[[]|B]):-C is A-1,empty_lists(C,B)
         Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -543,7 +532,8 @@ public class FILE_apply_macros extends TermData {
         return cont;
     }
 
-    private final static Operation heads_and_tails_4_2(Prolog m) {
+    private final static Operation heads_and_tails_4_2(Prolog m)
+            throws PInstantiationException, IllegalDomainException {
         // heads_and_tails(A,[[B|C]|D],[B|E],[C|F]):-G is A-1,heads_and_tails(G,D,E,F)
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
@@ -1359,7 +1349,7 @@ public class FILE_apply_macros extends TermData {
         // END inline expansion
         // START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isSymbol())) {
+        if (!(a1.isAtomString())) {
             return m.fail();
         }
         // END inline expansion
@@ -2418,7 +2408,7 @@ public class FILE_apply_macros extends TermData {
         // END inline expansion
         // START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isSymbol())) {
+        if (!(a2.isAtomString())) {
             return m.fail();
         }
         // END inline expansion

@@ -79,7 +79,7 @@ cafeteria :-
 	'$give_an_answer'(Vs),
 	'$fast_write'(' ? '), flush_output,
 	read_line(Str),
-	Str \== ";",
+	Str \== [59],  % ;
 	nl.
 
 '$give_an_answer'([])  :- !, '$fast_write'(true).
@@ -363,7 +363,8 @@ tab(S)    :- tab('user_output', S).
 flush_output :- flush_output('user_output').
 '$fast_write'(M) :- '$fast_write'('user_output', M).
 */
-nl        :- nl('user_output').
+nl        :- current_output(S), nl(S).
+
 
 '$builtin_message'([]) :- !.
 '$builtin_message'([M]) :- !, write(M).

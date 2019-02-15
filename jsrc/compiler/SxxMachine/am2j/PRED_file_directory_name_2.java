@@ -31,7 +31,7 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
 		if (!(a1 instanceof SymbolTerm))
 			throw new IllegalDomainException(this, 1, "file", a1);
 
-		File file = new File(a1.name());
+		File file = new File(a1.pprint());
 		File dir = file.getParentFile();
 		if (dir == null)
 			throw new IllegalDomainException(this, 1, "file", a1);

@@ -3,12 +3,12 @@ package SxxMachine;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
-@SuppressWarnings({ "rawtypes", "unused" })
+@SuppressWarnings({ "rawtypes" })
 abstract public class ListTerm extends Nonvar {
 
 	@Override
@@ -170,8 +170,8 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	@Override
-	public String name() {
-		return Prolog.SYM_DOT.name();
+	public String fname() {
+		return Prolog.SYM_DOT.fname();
 	}
 
 	@Override
@@ -360,9 +360,9 @@ abstract public class ListTerm extends Nonvar {
 	 */
 	@Override
 	public int compareTo(Term otherterm) { // otherterm must be dereferenced.
-		if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isSymbol()))
+		if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isAtomString()))
 			return AFTER;
-		if ((otherterm.isStructure())) {
+		if ((otherterm.isCompound())) {
 			int arity = otherterm.arity();
 			if (2 != arity)
 				return (2 - arity);
@@ -374,7 +374,7 @@ abstract public class ListTerm extends Nonvar {
 		if ((otherterm.isCons())) {
 			args[0] = (otherterm).car();
 			args[1] = (otherterm).cdr();
-		} else if ((otherterm.isStructure())) {
+		} else if ((otherterm.isCompound())) {
 			args = (otherterm).args();
 		} else {
 			return BEFORE;
@@ -422,7 +422,6 @@ abstract public class ListTerm extends Nonvar {
 	}
 
 	public ListTerm addToCopy(Term term) {
-		@SuppressWarnings("unused")
 		Deque<Term> stack = new ArrayDeque<Term>();
 		Term t = this;
 		while (t.isCons()) {

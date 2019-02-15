@@ -18,7 +18,7 @@ class PseudoVar extends Dynamic {
 	 */
 	@Override
 	public String pprint() {
-		return name();
+		return fname();
 	}
 
 	@Override

@@ -888,12 +888,13 @@ read_token(S_or_a, Token) :-
 	'$read_token1'([Type], Token0, Token).
 
 '$read_token1'([-2], T, error(T))  :- !. % error('message')
-'$read_token1'("I",  T, number(T)) :- !. % number(intvalue)
-'$read_token1'("L",  T, number(T)) :- !. % number(longvalue)
-'$read_token1'("D",  T, number(T)) :- !. % number(floatvalue)
-'$read_token1'("A",  T, atom(T))   :- !. % atom('name')
-'$read_token1'("V",  T, var(T))    :- !. % var('name')
-'$read_token1'("S",  T, string(T)) :- !. % string("chars")
+'$read_token1'([0'I],  T, number(T)) :- !. % number(intvalue)
+'$read_token1'([0'L],  T, number(T)) :- !. % number(longvalue)
+'$read_token1'([0'D],  T, number(T)) :- !. % number(floatvalue)
+'$read_token1'([0'A],  T, atom(T))   :- !. % atom('name')
+'$read_token1'([0'V],  T, var(T))    :- !. % var('name')
+'$read_token1'([0'S],  T, string(T)) :- !. % string("chars")
+'$read_token1'([39],  T, number(T)) :- !. % number(char).
 '$read_token1'(_,    T, T)         :- !. % others
 
 % read_tokens(Tokens, Vs) reads tokens from the input
@@ -1187,7 +1188,7 @@ parse_tokens(X, Tokens) :-
 '$parse_tokens_error2'(X) :- write(user_error,X).
 
 '$parse_tokens_write_string'(_,[]).
-'$parse_tokens_write_string'(S,[C|Cs]) :- [C] = """", !,
+'$parse_tokens_write_string'(S,[C|Cs]) :- [C] = [0'", 0'"], !, % """", !,
 	put_code(S,C), put_code(S,C), '$parse_tokens_write_string'(S,Cs).
 '$parse_tokens_write_string'(S,[C|Cs]) :-
 	put_code(S,C), '$parse_tokens_write_string'(S,Cs).
@@ -1312,10 +1313,10 @@ write_term(_, _, _).
 '$write_space_if_needed'(_,     _,     _     ).
 
 '$write_VAR'(VN, S_or_a) :- VN < 26, !,
-	Letter is VN mod 26 + "A",
+	Letter is VN mod 26 + 0'A, % A
 	put_code(S_or_a, Letter).
 '$write_VAR'(VN, S_or_a) :-
-	Letter is VN mod 26 + "A",
+	Letter is VN mod 26 + 0'A,
 	put_code(S_or_a, Letter),
 	Rest is VN//26,
 	'$fast_write'(S_or_a, Rest).

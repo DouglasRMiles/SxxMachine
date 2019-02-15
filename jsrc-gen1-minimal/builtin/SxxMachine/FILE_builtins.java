@@ -10936,6 +10936,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
         final static IntegerTerm int_83 = Integer(83);
     private static final ListTerm L_$read_token1_3_s19 = CONS( int_83 ,  Prolog.Nil );
         final static SymbolTerm FUNCTOR_string_1 = F("string",1);
+        final static IntegerTerm int_39 = Integer(39);
+    private static final ListTerm L_$read_token1_3_s22 = CONS( int_39 ,  Prolog.Nil );
 
 
 
@@ -10944,7 +10946,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_builtins::$read_token1_3_var, FILE_builtins::$read_token1_3_8, FILE_builtins::$read_token1_3_8, FILE_builtins::$read_token1_3_8, FILE_builtins::$read_token1_3_8, FILE_builtins::$read_token1_3_var); 
+        return m.switch_on_term(FILE_builtins::$read_token1_3_var, FILE_builtins::$read_token1_3_9, FILE_builtins::$read_token1_3_9, FILE_builtins::$read_token1_3_9, FILE_builtins::$read_token1_3_9, FILE_builtins::$read_token1_3_var); 
     }
 
     private final static Operation $read_token1_3_var(Prolog m) { 
@@ -10983,8 +10985,13 @@ m.cont = cont;
     }
 
     private final static Operation $read_token1_3_var_7(Prolog m) { 
-        m.trust(null);
+        m.retry(null, FILE_builtins::$read_token1_3_var_8);
         return $read_token1_3_8(m);
+    }
+
+    private final static Operation $read_token1_3_var_8(Prolog m) { 
+        m.trust(null);
+        return $read_token1_3_9(m);
     }
 
     private final static Operation $read_token1_3_1(Prolog m) { 
@@ -11135,6 +11142,27 @@ m.cont = cont;
     }
 
     private final static Operation $read_token1_3_8(Prolog m) { 
+    // '$read_token1'([39],A,number(A)):-!
+         Term a1, a2, a3;
+        Operation cont;
+        a1 = m.AREGS[0];
+        a2 = m.AREGS[1];
+        a3 = m.AREGS[2];
+        cont = m.cont;
+    // '$read_token1'([39],A,number(A)):-['$neck_cut']
+        if (! L_$read_token1_3_s22.unify(a1, m.trail))
+            return m.fail();
+        a3 = a3.dref();
+            if (!a3.unifyS( FUNCTOR_number_1 , m.trail, a2)){
+                return m.fail();
+            }
+        //START inline expansion of $neck_cut
+        m.neckCut();
+        //END inline expansion
+        return cont;
+    }
+
+    private final static Operation $read_token1_3_9(Prolog m) { 
     // '$read_token1'(A,B,B):-!
          Term a1, a2, a3;
         Operation cont;
@@ -14758,6 +14786,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
     // main('$parse_tokens_write_string'/2,non-(public))
         final static IntegerTerm int_34 = Integer(34);
     private static final ListTerm L_$parse_tokens_write_string_2_s3 = CONS( int_34 ,  Prolog.Nil );
+    private static final ListTerm L_$parse_tokens_write_string_2_s4 = CONS( int_34 , L_$parse_tokens_write_string_2_s3);
 
 
 
@@ -14794,14 +14823,14 @@ m.cont = cont;
     }
 
     private final static Operation $parse_tokens_write_string_2_2(Prolog m) { 
-    // '$parse_tokens_write_string'(A,[B|C]):-[B]=[34],!,put_code(A,B),put_code(A,B),'$parse_tokens_write_string'(A,C)
+    // '$parse_tokens_write_string'(A,[B|C]):-[B]=[34,34],!,put_code(A,B),put_code(A,B),'$parse_tokens_write_string'(A,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$parse_tokens_write_string'(A,[B|C]):-['$get_level'(D),'$unify'([B],[34]),'$cut'(D),put_code(A,B),put_code(A,B),'$parse_tokens_write_string'(A,C)]
+    // '$parse_tokens_write_string'(A,[B|C]):-['$get_level'(D),'$unify'([B],[34,34]),'$cut'(D),put_code(A,B),put_code(A,B),'$parse_tokens_write_string'(A,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
                         a3 = a2.car();
@@ -14820,8 +14849,8 @@ m.cont = cont;
         }
         //END inline expansion
         a6 = CONS(a3,  Prolog.Nil );
-        //START inline expansion of $unify(a(6),s(3))
-        if (! a6.unify(L_$parse_tokens_write_string_2_s3, m.trail)) {
+        //START inline expansion of $unify(a(6),s(4))
+        if (! a6.unify(L_$parse_tokens_write_string_2_s4, m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -15862,7 +15891,6 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
     // main('$write_VAR'/2,non-(public))
         final static IntegerTerm int_26 = Integer(26);
         final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
-    private static final ListTerm L_$write_VAR_2_s6 = CONS( int_65 ,  Prolog.Nil );
         final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
 
 
@@ -15882,13 +15910,13 @@ m.cont = cont;
     }
 
     private final static Operation $write_VAR_2_1(Prolog m) { 
-    // '$write_VAR'(A,B):-A<26,!,C is A mod 26+[65],put_code(B,C)
+    // '$write_VAR'(A,B):-A<26,!,C is A mod 26+65,put_code(B,C)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$write_VAR'(A,B):-['$get_level'(C),D is 26,'$less_than'(A,D),'$cut'(C),E is A mod 26+[65],put_code(B,E)]
+    // '$write_VAR'(A,B):-['$get_level'(C),D is 26,'$less_than'(A,D),'$cut'(C),E is A mod 26+65,put_code(B,E)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
@@ -15914,8 +15942,8 @@ m.cont = cont;
     // put_str_args([a(1),@(int_26)],y(1)),put_str(@('FUNCTOR_mod_2'),y(1),a(6))
         a6 =  S( FUNCTOR_mod_2 , a1,  int_26 );
  ;
-    // put_str_args([a(6),s(6)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(7))
-        a7 =  S( FUNCTOR_$002B_2 , a6, L_$write_VAR_2_s6);
+    // put_str_args([a(6),@(int_65)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(7))
+        a7 =  S( FUNCTOR_$002B_2 , a6,  int_65 );
  ;
         //START inline expansion of a(5)is a(7)
         if (! a5.unify(Arithmetic.evaluate(a7), m.trail)) {
@@ -15927,20 +15955,20 @@ m.cont = cont;
     }
 
     private final static Operation $write_VAR_2_2(Prolog m) { 
-    // '$write_VAR'(A,B):-C is A mod 26+[65],put_code(B,C),D is A//26,'$fast_write'(B,D)
+    // '$write_VAR'(A,B):-C is A mod 26+65,put_code(B,C),D is A//26,'$fast_write'(B,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-    // '$write_VAR'(A,B):-[C is A mod 26+[65],put_code(B,C),D is A//26,'$fast_write'(B,D)]
+    // '$write_VAR'(A,B):-[C is A mod 26+65,put_code(B,C),D is A//26,'$fast_write'(B,D)]
         a3 = m.mkvar1();
     // put_str_args([a(1),@(int_26)],y(1)),put_str(@('FUNCTOR_mod_2'),y(1),a(4))
         a4 =  S( FUNCTOR_mod_2 , a1,  int_26 );
  ;
-    // put_str_args([a(4),s(6)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(5))
-        a5 =  S( FUNCTOR_$002B_2 , a4, L_$write_VAR_2_s6);
+    // put_str_args([a(4),@(int_65)],y(2)),put_str(@('FUNCTOR_$002B_2'),y(2),a(5))
+        a5 =  S( FUNCTOR_$002B_2 , a4,  int_65 );
  ;
         //START inline expansion of a(3)is a(5)
         if (! a3.unify(Arithmetic.evaluate(a5), m.trail)) {

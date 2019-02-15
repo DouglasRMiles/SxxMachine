@@ -5,25 +5,14 @@ import static SxxMachine.FILE_builtins.PRED_assertz_1_static_exec;
 import static SxxMachine.Failure.fail_0;
 import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_get_code_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_absolute_file_name_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_compile_predicates_1_static_exec;
-import static SxxMachine.sxxtensions.PRED_load_foreign_library_1_static_exec;
-import static SxxMachine.sxxtensions.PRED_must_be_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_option_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_read_string_5_static_exec;
-import static SxxMachine.sxxtensions.PRED_read_term_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_setup_call_cleanup_3_static_exec;
-
-import SxxMachine.FILE_builtins;
-import SxxMachine.IntegerTerm;
-import SxxMachine.ListTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.StructureTerm;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
+import static SxxMachine.missing_preds.PRED_absolute_file_name_3_static_exec;
+import static SxxMachine.missing_preds.PRED_compile_predicates_1_static_exec;
+import static SxxMachine.missing_preds.PRED_load_foreign_library_1_static_exec;
+import static SxxMachine.missing_preds.PRED_must_be_2_static_exec;
+import static SxxMachine.missing_preds.PRED_option_3_static_exec;
+import static SxxMachine.missing_preds.PRED_read_string_5_static_exec;
+import static SxxMachine.missing_preds.PRED_read_term_3_static_exec;
+import static SxxMachine.missing_preds.PRED_setup_call_cleanup_3_static_exec;
 
 public class FILE_readutil extends TermData {
 	/**

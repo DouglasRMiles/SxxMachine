@@ -7,20 +7,10 @@ import static SxxMachine.FILE_swi_supp.PRED_maplist_2_static_exec;
 import static SxxMachine.Failure.fail_0;
 import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_functor_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_format_1_static_exec;
-import static SxxMachine.sxxtensions.PRED_format_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_number_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_phrase_2_static_exec;
-
-import SxxMachine.IntegerTerm;
-import SxxMachine.ListTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
-import SxxMachine.sxxtensions;
+import static SxxMachine.missing_preds.PRED_format_1_static_exec;
+import static SxxMachine.missing_preds.PRED_format_2_static_exec;
+import static SxxMachine.missing_preds.PRED_number_3_static_exec;
+import static SxxMachine.missing_preds.PRED_phrase_2_static_exec;
 
 public class FILE_prolog_jiti extends TermData {
 	/**
@@ -113,7 +103,7 @@ public class FILE_prolog_jiti extends TermData {
 		// END inline expansion
 		// START inline expansion of atom(a(4))
 		a4 = a4.dref();
-		if (!(a4.isSymbol())) {
+		if (!(a4.isAtomString())) {
 			return m.fail();
 		}
 		// END inline expansion
@@ -162,7 +152,7 @@ public class FILE_prolog_jiti extends TermData {
 		// END inline expansion
 		// START inline expansion of atom(a(4))
 		a4 = a4.dref();
-		if (!(a4.isSymbol())) {
+		if (!(a4.isAtomString())) {
 			return m.fail();
 		}
 		// END inline expansion
@@ -207,7 +197,7 @@ public class FILE_prolog_jiti extends TermData {
 		// END inline expansion
 		// START inline expansion of atom(a(3))
 		a3 = a3.dref();
-		if (!(a3.isSymbol())) {
+		if (!(a3.isAtomString())) {
 			return m.fail();
 		}
 		// END inline expansion

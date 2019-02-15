@@ -5,7 +5,7 @@ package SxxMachine;
  * time.
  * 
  */
-abstract public class Fluent extends SystemObject {
+abstract public class Fluent extends SystemObject implements Undoable {
 	public Fluent(Prog p) {
 		trailMe(p);
 	}
@@ -46,7 +46,7 @@ abstract public class Fluent extends SystemObject {
 	 */
 	protected void trailMe(Prog p) {
 		if (null != p)
-			p.getTrail().push(this);
+			p.getTrail().push((Undoable)this);
 	}
 
 	public void stop() {

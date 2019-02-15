@@ -1,7 +1,7 @@
 package SxxMachine;
 
-import java.util.Map;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Internal database for dynamic predicates.<br>

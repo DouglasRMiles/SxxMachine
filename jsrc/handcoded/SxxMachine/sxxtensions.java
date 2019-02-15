@@ -19,7 +19,7 @@ public class sxxtensions extends missing_preds {
         arg3 = arg3.dref();
         if (!(arg1.isInteger()))
             return false;
-        if (!(arg2.isStructure()))
+        if (!(arg2.isCompound()))
             return false;
         int i = arg1.intValue();
         if (i < 1)
@@ -58,7 +58,6 @@ public class sxxtensions extends missing_preds {
 
     // A = foo(1), findall(A, (nb_setarg(1,A,2) ; true), L), [foo(2),foo(2)] = L.
 
-    @SuppressWarnings("unused")
     static boolean NonBacktrackingSetArg(Prolog m, Term arg1, Term arg2, Term arg3) {
         arg1 = arg1.dref();
         arg2 = arg2.dref();
@@ -246,7 +245,7 @@ public class sxxtensions extends missing_preds {
         a2 = m.AREGS[1].dref();
         a3 = m.AREGS[2].dref();
         Term t = a1.findOrAttrValue(m.trail, false, a2);
-        if (!t.isStructure())
+        if (!t.isCompound())
             return m.fail();
         if (!a3.unify(t.arg0(1), m.trail))
             return m.fail();

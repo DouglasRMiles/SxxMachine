@@ -31,7 +31,7 @@ public class PRED_make_directory_1 extends Predicate.P1 {
 		if (!(a1 instanceof SymbolTerm))
 			throw new IllegalDomainException(this, 1, "dir", a1);
 
-		File file = new File(a1.asSymbolTerm().name());
+		File file = new File(a1.asSymbolTerm().fname());
 		if (file.mkdir())
 			return cont;
 		else

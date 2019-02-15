@@ -9,47 +9,54 @@ import java.util.ArrayList;
  * SourceLoop will return the same elements as the original Source. (In
  * particular, this happens if the original Source is also a Source loop).
  */
-public class SourceLoop extends Source {
-	private ArrayList v;
+public class SourceLoop extends Source implements Term {
 
-	Source s;
+    @Override
+    public Object toObject() {
+        // TODO Auto-generated method stub
+        return super.toObject();
+    }
 
-	private int i;
+    private ArrayList v;
 
-	public SourceLoop(Source s, Prog p) {
-		super(p);
-		this.s = s;
-		this.v = new ArrayList();
-		this.i = 0;
-	}
+    Source s;
 
-	private final Term getMemoized() {
-		if (null == v || v.size() <= 0)
-			return null;
-		Term T = (Term) v.get(i);
-		i = (i + 1) % v.size();
-		return T;
-	}
+    private int i;
 
-	@Override
-	public Term getElement() {
-		Term T = null;
-		if (null != s) { // s is alive
-			T = s.getElement();
-			if (null != T)
-				v.add(T);
-			else {
-				s = null;
-			}
-		}
-		if (null == s)
-			T = getMemoized();
-		return T;
-	}
+    public SourceLoop(Source s, Prog p) {
+        super(p);
+        this.s = s;
+        this.v = new ArrayList();
+        this.i = 0;
+    }
 
-	@Override
-	public void stop() {
-		v = null;
-		s = null;
-	}
+    private final Term getMemoized() {
+        if (null == v || v.size() <= 0)
+            return null;
+        Term T = (Term) v.get(i);
+        i = (i + 1) % v.size();
+        return T;
+    }
+
+    @Override
+    public Term getElement() {
+        Term T = null;
+        if (null != s) { // s is alive
+            T = s.getElement();
+            if (null != T)
+                v.add(T);
+            else {
+                s = null;
+            }
+        }
+        if (null == s)
+            T = getMemoized();
+        return T;
+    }
+
+    @Override
+    public void stop() {
+        v = null;
+        s = null;
+    }
 }

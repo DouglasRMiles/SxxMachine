@@ -141,13 +141,13 @@ public class PredicateEncoder {
 
 	public static String decodeFunctor(String className) {
 		String s = decodeFunctor0(className);
-		if (s == null || s.startsWith("FILE") || s.length() == 0) {
-			new RuntimeException("decodeFunctor: " + className).printStackTrace();
+		if (s == null || s.startsWith("FILE_") || s.length() == 0) {
+			//new RuntimeException("decodeFunctor: " + className).printStackTrace();
+			return null;
 		}
 		return s;
 	}
 
-	@SuppressWarnings("fallthrough")
 	private static String decodeFunctor0(String className) {
 		int length = className.length();
 		// Remove the Java package name, if present.

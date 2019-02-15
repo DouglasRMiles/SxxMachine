@@ -36,7 +36,7 @@ public abstract class Predicate extends TermData implements Operation {
     @Override
     public Operation exec(Prolog engine) throws PrologException {
         // TODO Auto-generated method stub
-        Term.soopsy();
+        //oopsy();
         if (true)
             throw new AbstractMethodError(predName() + "/" + predArity() + " " + getClass().getName());
         throw new RuntimeException("" + this);

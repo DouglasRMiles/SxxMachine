@@ -416,7 +416,7 @@ public class Parser extends LexerHIDE {
 
 	static public final boolean isError(Clause C) {
 		Term H = C.getHead();
-		if (H.isStructure() && "error".equals(H.name()) && H.arityOrType() == 3
+		if (H.isCompound() && "error".equals(H.fname()) && H.arityOrType() == 3
 				&& !(Expect.asStruct(H).ArgDeRef(0).dref().isVar()))
 			return true;
 		return false;

@@ -32,7 +32,7 @@ abstract public class ConstBuiltin extends TermData implements NameArity {
 	}
 
 	@Override
-	public String name() {
+	public String fname() {
 		return Name;
 	}
 

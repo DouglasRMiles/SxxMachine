@@ -44,7 +44,7 @@ public class Init {
 	public static void evalGoal(Clause Goal) {
 		Clause NamedGoal = Goal.cnumbervars(false);
 		Term Names = NamedGoal.getHead();
-		if (!(Names.isStructure())) { // no vars in Goal
+		if (!(Names.isCompound())) { // no vars in Goal
 			Term Result = Prog.firstSolution(Goal.getHead(), Goal.getBody());
 			if (!Prolog.aNo.equalsTerm(Result))
 				Result = Prolog.aYes;
@@ -61,7 +61,7 @@ public class Init {
 				IO.println("no");
 				break;
 			}
-			if (Names.isStructure()) {
+			if (Names.isCompound()) {
 				Term NamedR = R.numbervars();
 				for (int j = 0; j < Names.arityOrType(); j++) {
 					IO.println(Expect.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));

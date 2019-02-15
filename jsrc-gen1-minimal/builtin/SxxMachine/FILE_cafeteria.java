@@ -3766,18 +3766,21 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(nl/0,non-(public))
-        final static SymbolTerm ATOM_user_output = SYM("user_output");
 
 
 
 
     public static Operation PRED_nl_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // nl:-nl(user_output)
+    // nl:-current_output(A),nl(A)
         m.setB0();
-    // nl:-[nl(user_output)]
+         Term a1;
+        Operation p1;
+    // nl:-[current_output(A),nl(A)]
+        a1 = m.mkvar1();
         return //
- Op(FILE_system::PRED_nl_1_static_exec, VA( ATOM_user_output ), cont);
+ Op(FILE_system::PRED_current_output_1_static_exec, VA(a1), //
+ Op(FILE_system::PRED_nl_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: $builtin_message/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl

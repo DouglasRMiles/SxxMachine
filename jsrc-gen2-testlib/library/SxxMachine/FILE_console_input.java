@@ -6,19 +6,11 @@ import static SxxMachine.bootpreds.PRED_$cut_1_static_exec;
 import static SxxMachine.bootpreds.PRED_atom_codes_2_static_exec;
 import static SxxMachine.bootpreds.PRED_atom_concat_3_static_exec;
 import static SxxMachine.bootpreds.PRED_reverse_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_$atom_completions_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_code_type_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_expand_file_name_2_static_exec;
-import static SxxMachine.sxxtensions.PRED_phrase_3_static_exec;
-import static SxxMachine.sxxtensions.PRED_string_codes_2_static_exec;
-
-import SxxMachine.IntegerTerm;
-import SxxMachine.Operation;
-import SxxMachine.PredTable;
-import SxxMachine.Prolog;
-import SxxMachine.SymbolTerm;
-import SxxMachine.Term;
-import SxxMachine.TermData;
+import static SxxMachine.missing_preds.PRED_$atom_completions_2_static_exec;
+import static SxxMachine.missing_preds.PRED_code_type_2_static_exec;
+import static SxxMachine.missing_preds.PRED_expand_file_name_2_static_exec;
+import static SxxMachine.missing_preds.PRED_phrase_3_static_exec;
+import static SxxMachine.missing_preds.PRED_string_codes_2_static_exec;
 
 public class FILE_console_input extends TermData {
 	/**

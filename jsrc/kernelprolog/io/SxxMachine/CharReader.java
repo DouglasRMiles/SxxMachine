@@ -28,7 +28,7 @@ public class CharReader extends Source {
 
 	public CharReader(Term t, Prog p) {
 		super(p);
-		this.reader = new StringReader(t.toUnquoted());
+		this.reader = new StringReader(t.pprint());
 	}
 
 	public CharReader(Prog p) {

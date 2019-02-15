@@ -3,9 +3,9 @@ package SxxMachine;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
@@ -105,7 +105,6 @@ public class MapTerm extends SystemObject {
     }
 
     /* Term */
-    @SuppressWarnings("unused")
     @Override
     public final boolean unifyImpl(Term t, Trail trail) {
         Term p = this;
@@ -211,8 +210,9 @@ public class MapTerm extends SystemObject {
     }
 
     @Override
-    public final String name() {
-        return SYM_DOT.name();
+    public final String fname() {
+        oopsy();
+        return SYM_DOT.fname();
     }
 
     @Override
@@ -396,9 +396,9 @@ public class MapTerm extends SystemObject {
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isSymbol()))
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomString()))
             return AFTER;
-        if ((anotherTerm.isStructure())) {
+        if ((anotherTerm.isCompound())) {
             int arity = anotherTerm.arity();
             if (2 != arity)
                 return (2 - arity);
@@ -410,7 +410,7 @@ public class MapTerm extends SystemObject {
         if ((anotherTerm.isMap())) {
             args[0] = (anotherTerm).car();
             args[1] = (anotherTerm).cdr();
-        } else if ((anotherTerm.isStructure())) {
+        } else if ((anotherTerm.isCompound())) {
             args = (anotherTerm).args();
         } else {
             return BEFORE;
@@ -458,7 +458,6 @@ public class MapTerm extends SystemObject {
     }
 
     public MapTerm joinToCopy(Term term) {
-        @SuppressWarnings("unused")
         Deque<Term> stack = new ArrayDeque<Term>();
         Term t = this;
         while (t.isMap()) {

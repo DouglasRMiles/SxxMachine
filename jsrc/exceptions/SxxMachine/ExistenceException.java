@@ -66,7 +66,7 @@ public class ExistenceException extends BuiltinException {
 		String s = "{EXISTENCE ERROR:";
 		if (this.argNo > 0)
 			s += " " + this.goal.toString() + " - arg " + this.argNo + ":";
-		s += this.objType + " " + this.culprit.toAtomName() + " does not exist";
+		s += this.objType + " " + this.culprit.pprint() + " does not exist";
 		s += "}";
 		return s;
 	}
