@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_nand extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         m.setB0();
     // top:-[main(0)]
         return //
- Op(FILE_nand::PRED_main_1_static_exec, VA( int_0 ), cont);
+ Op("main", FILE_nand::PRED_main_1_static_exec, VA( int_0 ), cont);
     }
 /** PREDICATE: main/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -79,10 +80,10 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_init_state_4_static_exec, VA(a1, a2, a3, a4), //
- Op(FILE_nand::PRED_add_necessary_functions_5_static_exec, VA(a2, a3, a4, a5, a6), //
- Op(FILE_nand::PRED_test_bounds_3_static_exec, VA(a2, a5, a6), //
- Op(FILE_nand::PRED_search_3_static_exec, VA(a2, a5, a6), cont))));
+ Op("init_state", FILE_nand::PRED_init_state_4_static_exec, VA(a1, a2, a3, a4), //
+ Op("add_necessary_functions", FILE_nand::PRED_add_necessary_functions_5_static_exec, VA(a2, a3, a4, a5, a6), //
+ Op("test_bounds", FILE_nand::PRED_test_bounds_3_static_exec, VA(a2, a5, a6), //
+ Op("search", FILE_nand::PRED_search_3_static_exec, VA(a2, a5, a6), cont))));
     }
 
     private final static Operation main_1_2(Prolog m) { 
@@ -98,319 +99,319 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(init_state/4,public)
-        final static SymbolTerm FUNCTOR_function_8 = F("function",8);
-    private static final ListTerm L_init_state_4_s7 = CONS( int_2 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s8 = CONS( int_1 , L_init_state_4_s7);
-    private static final ListTerm L_init_state_4_s9 = CONS( int_3 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s10 = CONS( int_0 , L_init_state_4_s9);
-    private static final StructureTerm L_init_state_4_s12 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s8, L_init_state_4_s10,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s13 = CONS( int_2 , L_init_state_4_s9);
-    private static final ListTerm L_init_state_4_s14 = CONS( int_1 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s15 = CONS( int_0 , L_init_state_4_s14);
-    private static final StructureTerm L_init_state_4_s17 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s13, L_init_state_4_s15,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s18 = CONS( int_1 , L_init_state_4_s9);
-    private static final ListTerm L_init_state_4_s19 = CONS( int_0 , L_init_state_4_s7);
-    private static final StructureTerm L_init_state_4_s21 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s18, L_init_state_4_s19,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s22 = CONS(L_init_state_4_s21,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s23 = CONS(L_init_state_4_s17, L_init_state_4_s22);
-    private static final ListTerm L_init_state_4_s24 = CONS(L_init_state_4_s12, L_init_state_4_s23);
+        final static Functor FUNCTOR_function_8 = F("function",8);
+    private static final Term L_init_state_4_s7 = CONS( int_2 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s8 = CONS( int_1 , L_init_state_4_s7);
+    private static final Term L_init_state_4_s9 = CONS( int_3 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s10 = CONS( int_0 , L_init_state_4_s9);
+    private static final Term L_init_state_4_s12 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s8, L_init_state_4_s10,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s13 = CONS( int_2 , L_init_state_4_s9);
+    private static final Term L_init_state_4_s14 = CONS( int_1 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s15 = CONS( int_0 , L_init_state_4_s14);
+    private static final Term L_init_state_4_s17 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s13, L_init_state_4_s15,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s18 = CONS( int_1 , L_init_state_4_s9);
+    private static final Term L_init_state_4_s19 = CONS( int_0 , L_init_state_4_s7);
+    private static final Term L_init_state_4_s21 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s18, L_init_state_4_s19,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s22 = CONS(L_init_state_4_s21,  Prolog.Nil );
+    private static final Term L_init_state_4_s23 = CONS(L_init_state_4_s17, L_init_state_4_s22);
+    private static final Term L_init_state_4_s24 = CONS(L_init_state_4_s12, L_init_state_4_s23);
         final static IntegerTerm int_100 = Integer(100);
-    private static final ListTerm L_init_state_4_s30 = CONS( int_7 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s31 = CONS( int_6 , L_init_state_4_s30);
-    private static final ListTerm L_init_state_4_s32 = CONS( int_5 , L_init_state_4_s31);
-    private static final ListTerm L_init_state_4_s33 = CONS( int_3 , L_init_state_4_s32);
-    private static final ListTerm L_init_state_4_s34 = CONS( int_4 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s35 = CONS( int_2 , L_init_state_4_s34);
-    private static final ListTerm L_init_state_4_s36 = CONS( int_1 , L_init_state_4_s35);
-    private static final ListTerm L_init_state_4_s37 = CONS( int_0 , L_init_state_4_s36);
-    private static final StructureTerm L_init_state_4_s39 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s33, L_init_state_4_s37,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s40 = CONS( int_4 , L_init_state_4_s32);
-    private static final ListTerm L_init_state_4_s41 = CONS( int_1 , L_init_state_4_s13);
-    private static final ListTerm L_init_state_4_s42 = CONS( int_0 , L_init_state_4_s41);
-    private static final StructureTerm L_init_state_4_s44 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s40, L_init_state_4_s42,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s45 = CONS( int_3 , L_init_state_4_s31);
-    private static final ListTerm L_init_state_4_s46 = CONS( int_2 , L_init_state_4_s45);
-    private static final ListTerm L_init_state_4_s47 = CONS( int_5 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s48 = CONS( int_4 , L_init_state_4_s47);
-    private static final ListTerm L_init_state_4_s49 = CONS( int_1 , L_init_state_4_s48);
-    private static final ListTerm L_init_state_4_s50 = CONS( int_0 , L_init_state_4_s49);
-    private static final StructureTerm L_init_state_4_s52 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s46, L_init_state_4_s50,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s53 = CONS( int_5 , L_init_state_4_s30);
-    private static final ListTerm L_init_state_4_s54 = CONS( int_3 , L_init_state_4_s53);
-    private static final ListTerm L_init_state_4_s55 = CONS( int_1 , L_init_state_4_s54);
-    private static final ListTerm L_init_state_4_s56 = CONS( int_6 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s57 = CONS( int_4 , L_init_state_4_s56);
-    private static final ListTerm L_init_state_4_s58 = CONS( int_2 , L_init_state_4_s57);
-    private static final ListTerm L_init_state_4_s59 = CONS( int_0 , L_init_state_4_s58);
-    private static final StructureTerm L_init_state_4_s61 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s55, L_init_state_4_s59,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s62 = CONS(L_init_state_4_s61,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s63 = CONS(L_init_state_4_s52, L_init_state_4_s62);
-    private static final ListTerm L_init_state_4_s64 = CONS(L_init_state_4_s44, L_init_state_4_s63);
-    private static final ListTerm L_init_state_4_s65 = CONS(L_init_state_4_s39, L_init_state_4_s64);
-    private static final ListTerm L_init_state_4_s66 = CONS( int_4 , L_init_state_4_s31);
-    private static final ListTerm L_init_state_4_s67 = CONS( int_2 , L_init_state_4_s66);
-    private static final ListTerm L_init_state_4_s68 = CONS( int_1 , L_init_state_4_s67);
-    private static final ListTerm L_init_state_4_s69 = CONS( int_3 , L_init_state_4_s47);
-    private static final ListTerm L_init_state_4_s70 = CONS( int_0 , L_init_state_4_s69);
-    private static final StructureTerm L_init_state_4_s72 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s68, L_init_state_4_s70,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s73 = CONS(L_init_state_4_s72, L_init_state_4_s64);
-    private static final ListTerm L_init_state_4_s74 = CONS( int_4 , L_init_state_4_s30);
-    private static final ListTerm L_init_state_4_s75 = CONS( int_2 , L_init_state_4_s74);
-    private static final ListTerm L_init_state_4_s76 = CONS( int_1 , L_init_state_4_s75);
-    private static final ListTerm L_init_state_4_s77 = CONS( int_5 , L_init_state_4_s56);
-    private static final ListTerm L_init_state_4_s78 = CONS( int_3 , L_init_state_4_s77);
-    private static final ListTerm L_init_state_4_s79 = CONS( int_0 , L_init_state_4_s78);
-    private static final StructureTerm L_init_state_4_s81 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s76, L_init_state_4_s79,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s82 = CONS(L_init_state_4_s81, L_init_state_4_s64);
-    private static final StructureTerm L_init_state_4_s84 = S( FUNCTOR_function_8 ,  int_4 , L_init_state_4_s33, L_init_state_4_s37,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s85 = CONS(L_init_state_4_s84, L_init_state_4_s82);
+    private static final Term L_init_state_4_s30 = CONS( int_7 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s31 = CONS( int_6 , L_init_state_4_s30);
+    private static final Term L_init_state_4_s32 = CONS( int_5 , L_init_state_4_s31);
+    private static final Term L_init_state_4_s33 = CONS( int_3 , L_init_state_4_s32);
+    private static final Term L_init_state_4_s34 = CONS( int_4 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s35 = CONS( int_2 , L_init_state_4_s34);
+    private static final Term L_init_state_4_s36 = CONS( int_1 , L_init_state_4_s35);
+    private static final Term L_init_state_4_s37 = CONS( int_0 , L_init_state_4_s36);
+    private static final Term L_init_state_4_s39 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s33, L_init_state_4_s37,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s40 = CONS( int_4 , L_init_state_4_s32);
+    private static final Term L_init_state_4_s41 = CONS( int_1 , L_init_state_4_s13);
+    private static final Term L_init_state_4_s42 = CONS( int_0 , L_init_state_4_s41);
+    private static final Term L_init_state_4_s44 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s40, L_init_state_4_s42,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s45 = CONS( int_3 , L_init_state_4_s31);
+    private static final Term L_init_state_4_s46 = CONS( int_2 , L_init_state_4_s45);
+    private static final Term L_init_state_4_s47 = CONS( int_5 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s48 = CONS( int_4 , L_init_state_4_s47);
+    private static final Term L_init_state_4_s49 = CONS( int_1 , L_init_state_4_s48);
+    private static final Term L_init_state_4_s50 = CONS( int_0 , L_init_state_4_s49);
+    private static final Term L_init_state_4_s52 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s46, L_init_state_4_s50,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s53 = CONS( int_5 , L_init_state_4_s30);
+    private static final Term L_init_state_4_s54 = CONS( int_3 , L_init_state_4_s53);
+    private static final Term L_init_state_4_s55 = CONS( int_1 , L_init_state_4_s54);
+    private static final Term L_init_state_4_s56 = CONS( int_6 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s57 = CONS( int_4 , L_init_state_4_s56);
+    private static final Term L_init_state_4_s58 = CONS( int_2 , L_init_state_4_s57);
+    private static final Term L_init_state_4_s59 = CONS( int_0 , L_init_state_4_s58);
+    private static final Term L_init_state_4_s61 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s55, L_init_state_4_s59,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s62 = CONS(L_init_state_4_s61,  Prolog.Nil );
+    private static final Term L_init_state_4_s63 = CONS(L_init_state_4_s52, L_init_state_4_s62);
+    private static final Term L_init_state_4_s64 = CONS(L_init_state_4_s44, L_init_state_4_s63);
+    private static final Term L_init_state_4_s65 = CONS(L_init_state_4_s39, L_init_state_4_s64);
+    private static final Term L_init_state_4_s66 = CONS( int_4 , L_init_state_4_s31);
+    private static final Term L_init_state_4_s67 = CONS( int_2 , L_init_state_4_s66);
+    private static final Term L_init_state_4_s68 = CONS( int_1 , L_init_state_4_s67);
+    private static final Term L_init_state_4_s69 = CONS( int_3 , L_init_state_4_s47);
+    private static final Term L_init_state_4_s70 = CONS( int_0 , L_init_state_4_s69);
+    private static final Term L_init_state_4_s72 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s68, L_init_state_4_s70,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s73 = CONS(L_init_state_4_s72, L_init_state_4_s64);
+    private static final Term L_init_state_4_s74 = CONS( int_4 , L_init_state_4_s30);
+    private static final Term L_init_state_4_s75 = CONS( int_2 , L_init_state_4_s74);
+    private static final Term L_init_state_4_s76 = CONS( int_1 , L_init_state_4_s75);
+    private static final Term L_init_state_4_s77 = CONS( int_5 , L_init_state_4_s56);
+    private static final Term L_init_state_4_s78 = CONS( int_3 , L_init_state_4_s77);
+    private static final Term L_init_state_4_s79 = CONS( int_0 , L_init_state_4_s78);
+    private static final Term L_init_state_4_s81 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s76, L_init_state_4_s79,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s82 = CONS(L_init_state_4_s81, L_init_state_4_s64);
+    private static final Term L_init_state_4_s84 = S( FUNCTOR_function_8 ,  int_4 , L_init_state_4_s33, L_init_state_4_s37,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s85 = CONS(L_init_state_4_s84, L_init_state_4_s82);
         final static IntegerTerm int_26 = Integer(26);
         final static IntegerTerm int_29 = Integer(29);
         final static IntegerTerm int_31 = Integer(31);
-    private static final ListTerm L_init_state_4_s99 = CONS( int_31 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s100 = CONS( int_29 , L_init_state_4_s99);
-    private static final ListTerm L_init_state_4_s101 = CONS( int_26 , L_init_state_4_s100);
-    private static final ListTerm L_init_state_4_s102 = CONS( int_24 , L_init_state_4_s101);
-    private static final ListTerm L_init_state_4_s103 = CONS( int_23 , L_init_state_4_s102);
-    private static final ListTerm L_init_state_4_s104 = CONS( int_21 , L_init_state_4_s103);
-    private static final ListTerm L_init_state_4_s105 = CONS( int_18 , L_init_state_4_s104);
-    private static final ListTerm L_init_state_4_s106 = CONS( int_16 , L_init_state_4_s105);
-    private static final ListTerm L_init_state_4_s107 = CONS( int_14 , L_init_state_4_s106);
-    private static final ListTerm L_init_state_4_s108 = CONS( int_12 , L_init_state_4_s107);
-    private static final ListTerm L_init_state_4_s109 = CONS( int_11 , L_init_state_4_s108);
-    private static final ListTerm L_init_state_4_s110 = CONS( int_9 , L_init_state_4_s109);
-    private static final ListTerm L_init_state_4_s111 = CONS( int_6 , L_init_state_4_s110);
-    private static final ListTerm L_init_state_4_s112 = CONS( int_4 , L_init_state_4_s111);
-    private static final ListTerm L_init_state_4_s113 = CONS( int_3 , L_init_state_4_s112);
-    private static final ListTerm L_init_state_4_s114 = CONS( int_1 , L_init_state_4_s113);
+    private static final Term L_init_state_4_s99 = CONS( int_31 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s100 = CONS( int_29 , L_init_state_4_s99);
+    private static final Term L_init_state_4_s101 = CONS( int_26 , L_init_state_4_s100);
+    private static final Term L_init_state_4_s102 = CONS( int_24 , L_init_state_4_s101);
+    private static final Term L_init_state_4_s103 = CONS( int_23 , L_init_state_4_s102);
+    private static final Term L_init_state_4_s104 = CONS( int_21 , L_init_state_4_s103);
+    private static final Term L_init_state_4_s105 = CONS( int_18 , L_init_state_4_s104);
+    private static final Term L_init_state_4_s106 = CONS( int_16 , L_init_state_4_s105);
+    private static final Term L_init_state_4_s107 = CONS( int_14 , L_init_state_4_s106);
+    private static final Term L_init_state_4_s108 = CONS( int_12 , L_init_state_4_s107);
+    private static final Term L_init_state_4_s109 = CONS( int_11 , L_init_state_4_s108);
+    private static final Term L_init_state_4_s110 = CONS( int_9 , L_init_state_4_s109);
+    private static final Term L_init_state_4_s111 = CONS( int_6 , L_init_state_4_s110);
+    private static final Term L_init_state_4_s112 = CONS( int_4 , L_init_state_4_s111);
+    private static final Term L_init_state_4_s113 = CONS( int_3 , L_init_state_4_s112);
+    private static final Term L_init_state_4_s114 = CONS( int_1 , L_init_state_4_s113);
         final static IntegerTerm int_27 = Integer(27);
         final static IntegerTerm int_28 = Integer(28);
         final static IntegerTerm int_30 = Integer(30);
-    private static final ListTerm L_init_state_4_s126 = CONS( int_30 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s127 = CONS( int_28 , L_init_state_4_s126);
-    private static final ListTerm L_init_state_4_s128 = CONS( int_27 , L_init_state_4_s127);
-    private static final ListTerm L_init_state_4_s129 = CONS( int_25 , L_init_state_4_s128);
-    private static final ListTerm L_init_state_4_s130 = CONS( int_22 , L_init_state_4_s129);
-    private static final ListTerm L_init_state_4_s131 = CONS( int_20 , L_init_state_4_s130);
-    private static final ListTerm L_init_state_4_s132 = CONS( int_19 , L_init_state_4_s131);
-    private static final ListTerm L_init_state_4_s133 = CONS( int_17 , L_init_state_4_s132);
-    private static final ListTerm L_init_state_4_s134 = CONS( int_15 , L_init_state_4_s133);
-    private static final ListTerm L_init_state_4_s135 = CONS( int_13 , L_init_state_4_s134);
-    private static final ListTerm L_init_state_4_s136 = CONS( int_10 , L_init_state_4_s135);
-    private static final ListTerm L_init_state_4_s137 = CONS( int_8 , L_init_state_4_s136);
-    private static final ListTerm L_init_state_4_s138 = CONS( int_7 , L_init_state_4_s137);
-    private static final ListTerm L_init_state_4_s139 = CONS( int_5 , L_init_state_4_s138);
-    private static final ListTerm L_init_state_4_s140 = CONS( int_2 , L_init_state_4_s139);
-    private static final ListTerm L_init_state_4_s141 = CONS( int_0 , L_init_state_4_s140);
-    private static final StructureTerm L_init_state_4_s143 = S( FUNCTOR_function_8 ,  int_7 , L_init_state_4_s114, L_init_state_4_s141,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s144 = CONS( int_30 , L_init_state_4_s99);
-    private static final ListTerm L_init_state_4_s145 = CONS( int_27 , L_init_state_4_s144);
-    private static final ListTerm L_init_state_4_s146 = CONS( int_24 , L_init_state_4_s145);
-    private static final ListTerm L_init_state_4_s147 = CONS( int_21 , L_init_state_4_s146);
-    private static final ListTerm L_init_state_4_s148 = CONS( int_20 , L_init_state_4_s147);
-    private static final ListTerm L_init_state_4_s149 = CONS( int_18 , L_init_state_4_s148);
-    private static final ListTerm L_init_state_4_s150 = CONS( int_17 , L_init_state_4_s149);
-    private static final ListTerm L_init_state_4_s151 = CONS( int_15 , L_init_state_4_s150);
-    private static final ListTerm L_init_state_4_s152 = CONS( int_12 , L_init_state_4_s151);
-    private static final ListTerm L_init_state_4_s153 = CONS( int_9 , L_init_state_4_s152);
-    private static final ListTerm L_init_state_4_s154 = CONS( int_8 , L_init_state_4_s153);
-    private static final ListTerm L_init_state_4_s155 = CONS( int_6 , L_init_state_4_s154);
-    private static final ListTerm L_init_state_4_s156 = CONS( int_5 , L_init_state_4_s155);
-    private static final ListTerm L_init_state_4_s157 = CONS( int_3 , L_init_state_4_s156);
-    private static final ListTerm L_init_state_4_s158 = CONS( int_2 , L_init_state_4_s157);
-    private static final ListTerm L_init_state_4_s159 = CONS( int_29 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s160 = CONS( int_28 , L_init_state_4_s159);
-    private static final ListTerm L_init_state_4_s161 = CONS( int_26 , L_init_state_4_s160);
-    private static final ListTerm L_init_state_4_s162 = CONS( int_25 , L_init_state_4_s161);
-    private static final ListTerm L_init_state_4_s163 = CONS( int_23 , L_init_state_4_s162);
-    private static final ListTerm L_init_state_4_s164 = CONS( int_22 , L_init_state_4_s163);
-    private static final ListTerm L_init_state_4_s165 = CONS( int_19 , L_init_state_4_s164);
-    private static final ListTerm L_init_state_4_s166 = CONS( int_16 , L_init_state_4_s165);
-    private static final ListTerm L_init_state_4_s167 = CONS( int_14 , L_init_state_4_s166);
-    private static final ListTerm L_init_state_4_s168 = CONS( int_13 , L_init_state_4_s167);
-    private static final ListTerm L_init_state_4_s169 = CONS( int_11 , L_init_state_4_s168);
-    private static final ListTerm L_init_state_4_s170 = CONS( int_10 , L_init_state_4_s169);
-    private static final ListTerm L_init_state_4_s171 = CONS( int_7 , L_init_state_4_s170);
-    private static final ListTerm L_init_state_4_s172 = CONS( int_4 , L_init_state_4_s171);
-    private static final ListTerm L_init_state_4_s173 = CONS( int_1 , L_init_state_4_s172);
-    private static final ListTerm L_init_state_4_s174 = CONS( int_0 , L_init_state_4_s173);
-    private static final StructureTerm L_init_state_4_s176 = S( FUNCTOR_function_8 ,  int_6 , L_init_state_4_s158, L_init_state_4_s174,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s177 = CONS( int_29 , L_init_state_4_s144);
-    private static final ListTerm L_init_state_4_s178 = CONS( int_28 , L_init_state_4_s177);
-    private static final ListTerm L_init_state_4_s179 = CONS( int_27 , L_init_state_4_s178);
-    private static final ListTerm L_init_state_4_s180 = CONS( int_26 , L_init_state_4_s179);
-    private static final ListTerm L_init_state_4_s181 = CONS( int_25 , L_init_state_4_s180);
-    private static final ListTerm L_init_state_4_s182 = CONS( int_23 , L_init_state_4_s181);
-    private static final ListTerm L_init_state_4_s183 = CONS( int_22 , L_init_state_4_s182);
-    private static final ListTerm L_init_state_4_s184 = CONS( int_19 , L_init_state_4_s183);
-    private static final ListTerm L_init_state_4_s185 = CONS( int_15 , L_init_state_4_s184);
-    private static final ListTerm L_init_state_4_s186 = CONS( int_14 , L_init_state_4_s185);
-    private static final ListTerm L_init_state_4_s187 = CONS( int_13 , L_init_state_4_s186);
-    private static final ListTerm L_init_state_4_s188 = CONS( int_11 , L_init_state_4_s187);
-    private static final ListTerm L_init_state_4_s189 = CONS( int_10 , L_init_state_4_s188);
-    private static final ListTerm L_init_state_4_s190 = CONS( int_7 , L_init_state_4_s189);
-    private static final ListTerm L_init_state_4_s191 = CONS( int_24 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s192 = CONS( int_21 , L_init_state_4_s191);
-    private static final ListTerm L_init_state_4_s193 = CONS( int_20 , L_init_state_4_s192);
-    private static final ListTerm L_init_state_4_s194 = CONS( int_18 , L_init_state_4_s193);
-    private static final ListTerm L_init_state_4_s195 = CONS( int_17 , L_init_state_4_s194);
-    private static final ListTerm L_init_state_4_s196 = CONS( int_16 , L_init_state_4_s195);
-    private static final ListTerm L_init_state_4_s197 = CONS( int_12 , L_init_state_4_s196);
-    private static final ListTerm L_init_state_4_s198 = CONS( int_9 , L_init_state_4_s197);
-    private static final ListTerm L_init_state_4_s199 = CONS( int_8 , L_init_state_4_s198);
-    private static final ListTerm L_init_state_4_s200 = CONS( int_6 , L_init_state_4_s199);
-    private static final ListTerm L_init_state_4_s201 = CONS( int_5 , L_init_state_4_s200);
-    private static final ListTerm L_init_state_4_s202 = CONS( int_4 , L_init_state_4_s201);
-    private static final ListTerm L_init_state_4_s203 = CONS( int_3 , L_init_state_4_s202);
-    private static final ListTerm L_init_state_4_s204 = CONS( int_2 , L_init_state_4_s203);
-    private static final ListTerm L_init_state_4_s205 = CONS( int_1 , L_init_state_4_s204);
-    private static final ListTerm L_init_state_4_s206 = CONS( int_0 , L_init_state_4_s205);
-    private static final StructureTerm L_init_state_4_s208 = S( FUNCTOR_function_8 ,  int_5 , L_init_state_4_s190, L_init_state_4_s206,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s209 = CONS( int_24 , L_init_state_4_s181);
-    private static final ListTerm L_init_state_4_s210 = CONS( int_23 , L_init_state_4_s209);
-    private static final ListTerm L_init_state_4_s211 = CONS( int_22 , L_init_state_4_s210);
-    private static final ListTerm L_init_state_4_s212 = CONS( int_21 , L_init_state_4_s211);
-    private static final ListTerm L_init_state_4_s213 = CONS( int_20 , L_init_state_4_s212);
-    private static final ListTerm L_init_state_4_s214 = CONS( int_19 , L_init_state_4_s213);
-    private static final ListTerm L_init_state_4_s215 = CONS( int_18 , L_init_state_4_s214);
-    private static final ListTerm L_init_state_4_s216 = CONS( int_17 , L_init_state_4_s215);
-    private static final ListTerm L_init_state_4_s217 = CONS( int_16 , L_init_state_4_s216);
-    private static final ListTerm L_init_state_4_s218 = CONS( int_15 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s219 = CONS( int_14 , L_init_state_4_s218);
-    private static final ListTerm L_init_state_4_s220 = CONS( int_13 , L_init_state_4_s219);
-    private static final ListTerm L_init_state_4_s221 = CONS( int_12 , L_init_state_4_s220);
-    private static final ListTerm L_init_state_4_s222 = CONS( int_11 , L_init_state_4_s221);
-    private static final ListTerm L_init_state_4_s223 = CONS( int_10 , L_init_state_4_s222);
-    private static final ListTerm L_init_state_4_s224 = CONS( int_9 , L_init_state_4_s223);
-    private static final ListTerm L_init_state_4_s225 = CONS( int_8 , L_init_state_4_s224);
-    private static final ListTerm L_init_state_4_s226 = CONS( int_7 , L_init_state_4_s225);
-    private static final ListTerm L_init_state_4_s227 = CONS( int_6 , L_init_state_4_s226);
-    private static final ListTerm L_init_state_4_s228 = CONS( int_5 , L_init_state_4_s227);
-    private static final ListTerm L_init_state_4_s229 = CONS( int_4 , L_init_state_4_s228);
-    private static final ListTerm L_init_state_4_s230 = CONS( int_3 , L_init_state_4_s229);
-    private static final ListTerm L_init_state_4_s231 = CONS( int_2 , L_init_state_4_s230);
-    private static final ListTerm L_init_state_4_s232 = CONS( int_1 , L_init_state_4_s231);
-    private static final ListTerm L_init_state_4_s233 = CONS( int_0 , L_init_state_4_s232);
-    private static final StructureTerm L_init_state_4_s235 = S( FUNCTOR_function_8 ,  int_4 , L_init_state_4_s217, L_init_state_4_s233,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s236 = CONS( int_15 , L_init_state_4_s209);
-    private static final ListTerm L_init_state_4_s237 = CONS( int_14 , L_init_state_4_s236);
-    private static final ListTerm L_init_state_4_s238 = CONS( int_13 , L_init_state_4_s237);
-    private static final ListTerm L_init_state_4_s239 = CONS( int_12 , L_init_state_4_s238);
-    private static final ListTerm L_init_state_4_s240 = CONS( int_11 , L_init_state_4_s239);
-    private static final ListTerm L_init_state_4_s241 = CONS( int_10 , L_init_state_4_s240);
-    private static final ListTerm L_init_state_4_s242 = CONS( int_9 , L_init_state_4_s241);
-    private static final ListTerm L_init_state_4_s243 = CONS( int_8 , L_init_state_4_s242);
-    private static final ListTerm L_init_state_4_s244 = CONS( int_23 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s245 = CONS( int_22 , L_init_state_4_s244);
-    private static final ListTerm L_init_state_4_s246 = CONS( int_21 , L_init_state_4_s245);
-    private static final ListTerm L_init_state_4_s247 = CONS( int_20 , L_init_state_4_s246);
-    private static final ListTerm L_init_state_4_s248 = CONS( int_19 , L_init_state_4_s247);
-    private static final ListTerm L_init_state_4_s249 = CONS( int_18 , L_init_state_4_s248);
-    private static final ListTerm L_init_state_4_s250 = CONS( int_17 , L_init_state_4_s249);
-    private static final ListTerm L_init_state_4_s251 = CONS( int_16 , L_init_state_4_s250);
-    private static final ListTerm L_init_state_4_s252 = CONS( int_7 , L_init_state_4_s251);
-    private static final ListTerm L_init_state_4_s253 = CONS( int_6 , L_init_state_4_s252);
-    private static final ListTerm L_init_state_4_s254 = CONS( int_5 , L_init_state_4_s253);
-    private static final ListTerm L_init_state_4_s255 = CONS( int_4 , L_init_state_4_s254);
-    private static final ListTerm L_init_state_4_s256 = CONS( int_3 , L_init_state_4_s255);
-    private static final ListTerm L_init_state_4_s257 = CONS( int_2 , L_init_state_4_s256);
-    private static final ListTerm L_init_state_4_s258 = CONS( int_1 , L_init_state_4_s257);
-    private static final ListTerm L_init_state_4_s259 = CONS( int_0 , L_init_state_4_s258);
-    private static final StructureTerm L_init_state_4_s261 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s243, L_init_state_4_s259,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s262 = CONS( int_23 , L_init_state_4_s178);
-    private static final ListTerm L_init_state_4_s263 = CONS( int_22 , L_init_state_4_s262);
-    private static final ListTerm L_init_state_4_s264 = CONS( int_21 , L_init_state_4_s263);
-    private static final ListTerm L_init_state_4_s265 = CONS( int_20 , L_init_state_4_s264);
-    private static final ListTerm L_init_state_4_s266 = CONS( int_15 , L_init_state_4_s265);
-    private static final ListTerm L_init_state_4_s267 = CONS( int_14 , L_init_state_4_s266);
-    private static final ListTerm L_init_state_4_s268 = CONS( int_13 , L_init_state_4_s267);
-    private static final ListTerm L_init_state_4_s269 = CONS( int_12 , L_init_state_4_s268);
-    private static final ListTerm L_init_state_4_s270 = CONS( int_7 , L_init_state_4_s269);
-    private static final ListTerm L_init_state_4_s271 = CONS( int_6 , L_init_state_4_s270);
-    private static final ListTerm L_init_state_4_s272 = CONS( int_5 , L_init_state_4_s271);
-    private static final ListTerm L_init_state_4_s273 = CONS( int_4 , L_init_state_4_s272);
-    private static final ListTerm L_init_state_4_s274 = CONS( int_27 ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s275 = CONS( int_26 , L_init_state_4_s274);
-    private static final ListTerm L_init_state_4_s276 = CONS( int_25 , L_init_state_4_s275);
-    private static final ListTerm L_init_state_4_s277 = CONS( int_24 , L_init_state_4_s276);
-    private static final ListTerm L_init_state_4_s278 = CONS( int_19 , L_init_state_4_s277);
-    private static final ListTerm L_init_state_4_s279 = CONS( int_18 , L_init_state_4_s278);
-    private static final ListTerm L_init_state_4_s280 = CONS( int_17 , L_init_state_4_s279);
-    private static final ListTerm L_init_state_4_s281 = CONS( int_16 , L_init_state_4_s280);
-    private static final ListTerm L_init_state_4_s282 = CONS( int_11 , L_init_state_4_s281);
-    private static final ListTerm L_init_state_4_s283 = CONS( int_10 , L_init_state_4_s282);
-    private static final ListTerm L_init_state_4_s284 = CONS( int_9 , L_init_state_4_s283);
-    private static final ListTerm L_init_state_4_s285 = CONS( int_8 , L_init_state_4_s284);
-    private static final ListTerm L_init_state_4_s286 = CONS( int_3 , L_init_state_4_s285);
-    private static final ListTerm L_init_state_4_s287 = CONS( int_2 , L_init_state_4_s286);
-    private static final ListTerm L_init_state_4_s288 = CONS( int_1 , L_init_state_4_s287);
-    private static final ListTerm L_init_state_4_s289 = CONS( int_0 , L_init_state_4_s288);
-    private static final StructureTerm L_init_state_4_s291 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s273, L_init_state_4_s289,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s292 = CONS( int_26 , L_init_state_4_s145);
-    private static final ListTerm L_init_state_4_s293 = CONS( int_23 , L_init_state_4_s292);
-    private static final ListTerm L_init_state_4_s294 = CONS( int_22 , L_init_state_4_s293);
-    private static final ListTerm L_init_state_4_s295 = CONS( int_19 , L_init_state_4_s294);
-    private static final ListTerm L_init_state_4_s296 = CONS( int_18 , L_init_state_4_s295);
-    private static final ListTerm L_init_state_4_s297 = CONS( int_15 , L_init_state_4_s296);
-    private static final ListTerm L_init_state_4_s298 = CONS( int_14 , L_init_state_4_s297);
-    private static final ListTerm L_init_state_4_s299 = CONS( int_11 , L_init_state_4_s298);
-    private static final ListTerm L_init_state_4_s300 = CONS( int_10 , L_init_state_4_s299);
-    private static final ListTerm L_init_state_4_s301 = CONS( int_7 , L_init_state_4_s300);
-    private static final ListTerm L_init_state_4_s302 = CONS( int_6 , L_init_state_4_s301);
-    private static final ListTerm L_init_state_4_s303 = CONS( int_3 , L_init_state_4_s302);
-    private static final ListTerm L_init_state_4_s304 = CONS( int_2 , L_init_state_4_s303);
-    private static final ListTerm L_init_state_4_s305 = CONS( int_25 , L_init_state_4_s160);
-    private static final ListTerm L_init_state_4_s306 = CONS( int_24 , L_init_state_4_s305);
-    private static final ListTerm L_init_state_4_s307 = CONS( int_21 , L_init_state_4_s306);
-    private static final ListTerm L_init_state_4_s308 = CONS( int_20 , L_init_state_4_s307);
-    private static final ListTerm L_init_state_4_s309 = CONS( int_17 , L_init_state_4_s308);
-    private static final ListTerm L_init_state_4_s310 = CONS( int_16 , L_init_state_4_s309);
-    private static final ListTerm L_init_state_4_s311 = CONS( int_13 , L_init_state_4_s310);
-    private static final ListTerm L_init_state_4_s312 = CONS( int_12 , L_init_state_4_s311);
-    private static final ListTerm L_init_state_4_s313 = CONS( int_9 , L_init_state_4_s312);
-    private static final ListTerm L_init_state_4_s314 = CONS( int_8 , L_init_state_4_s313);
-    private static final ListTerm L_init_state_4_s315 = CONS( int_5 , L_init_state_4_s314);
-    private static final ListTerm L_init_state_4_s316 = CONS( int_4 , L_init_state_4_s315);
-    private static final ListTerm L_init_state_4_s317 = CONS( int_1 , L_init_state_4_s316);
-    private static final ListTerm L_init_state_4_s318 = CONS( int_0 , L_init_state_4_s317);
-    private static final StructureTerm L_init_state_4_s320 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s304, L_init_state_4_s318,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s321 = CONS( int_27 , L_init_state_4_s100);
-    private static final ListTerm L_init_state_4_s322 = CONS( int_25 , L_init_state_4_s321);
-    private static final ListTerm L_init_state_4_s323 = CONS( int_23 , L_init_state_4_s322);
-    private static final ListTerm L_init_state_4_s324 = CONS( int_21 , L_init_state_4_s323);
-    private static final ListTerm L_init_state_4_s325 = CONS( int_19 , L_init_state_4_s324);
-    private static final ListTerm L_init_state_4_s326 = CONS( int_17 , L_init_state_4_s325);
-    private static final ListTerm L_init_state_4_s327 = CONS( int_15 , L_init_state_4_s326);
-    private static final ListTerm L_init_state_4_s328 = CONS( int_13 , L_init_state_4_s327);
-    private static final ListTerm L_init_state_4_s329 = CONS( int_11 , L_init_state_4_s328);
-    private static final ListTerm L_init_state_4_s330 = CONS( int_9 , L_init_state_4_s329);
-    private static final ListTerm L_init_state_4_s331 = CONS( int_7 , L_init_state_4_s330);
-    private static final ListTerm L_init_state_4_s332 = CONS( int_5 , L_init_state_4_s331);
-    private static final ListTerm L_init_state_4_s333 = CONS( int_3 , L_init_state_4_s332);
-    private static final ListTerm L_init_state_4_s334 = CONS( int_1 , L_init_state_4_s333);
-    private static final ListTerm L_init_state_4_s335 = CONS( int_26 , L_init_state_4_s127);
-    private static final ListTerm L_init_state_4_s336 = CONS( int_24 , L_init_state_4_s335);
-    private static final ListTerm L_init_state_4_s337 = CONS( int_22 , L_init_state_4_s336);
-    private static final ListTerm L_init_state_4_s338 = CONS( int_20 , L_init_state_4_s337);
-    private static final ListTerm L_init_state_4_s339 = CONS( int_18 , L_init_state_4_s338);
-    private static final ListTerm L_init_state_4_s340 = CONS( int_16 , L_init_state_4_s339);
-    private static final ListTerm L_init_state_4_s341 = CONS( int_14 , L_init_state_4_s340);
-    private static final ListTerm L_init_state_4_s342 = CONS( int_12 , L_init_state_4_s341);
-    private static final ListTerm L_init_state_4_s343 = CONS( int_10 , L_init_state_4_s342);
-    private static final ListTerm L_init_state_4_s344 = CONS( int_8 , L_init_state_4_s343);
-    private static final ListTerm L_init_state_4_s345 = CONS( int_6 , L_init_state_4_s344);
-    private static final ListTerm L_init_state_4_s346 = CONS( int_4 , L_init_state_4_s345);
-    private static final ListTerm L_init_state_4_s347 = CONS( int_2 , L_init_state_4_s346);
-    private static final ListTerm L_init_state_4_s348 = CONS( int_0 , L_init_state_4_s347);
-    private static final StructureTerm L_init_state_4_s350 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s334, L_init_state_4_s348,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s351 = CONS(L_init_state_4_s350,  Prolog.Nil );
-    private static final ListTerm L_init_state_4_s352 = CONS(L_init_state_4_s320, L_init_state_4_s351);
-    private static final ListTerm L_init_state_4_s353 = CONS(L_init_state_4_s291, L_init_state_4_s352);
-    private static final ListTerm L_init_state_4_s354 = CONS(L_init_state_4_s261, L_init_state_4_s353);
-    private static final ListTerm L_init_state_4_s355 = CONS(L_init_state_4_s235, L_init_state_4_s354);
-    private static final ListTerm L_init_state_4_s356 = CONS(L_init_state_4_s208, L_init_state_4_s355);
-    private static final ListTerm L_init_state_4_s357 = CONS(L_init_state_4_s176, L_init_state_4_s356);
-    private static final ListTerm L_init_state_4_s358 = CONS(L_init_state_4_s143, L_init_state_4_s357);
+    private static final Term L_init_state_4_s126 = CONS( int_30 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s127 = CONS( int_28 , L_init_state_4_s126);
+    private static final Term L_init_state_4_s128 = CONS( int_27 , L_init_state_4_s127);
+    private static final Term L_init_state_4_s129 = CONS( int_25 , L_init_state_4_s128);
+    private static final Term L_init_state_4_s130 = CONS( int_22 , L_init_state_4_s129);
+    private static final Term L_init_state_4_s131 = CONS( int_20 , L_init_state_4_s130);
+    private static final Term L_init_state_4_s132 = CONS( int_19 , L_init_state_4_s131);
+    private static final Term L_init_state_4_s133 = CONS( int_17 , L_init_state_4_s132);
+    private static final Term L_init_state_4_s134 = CONS( int_15 , L_init_state_4_s133);
+    private static final Term L_init_state_4_s135 = CONS( int_13 , L_init_state_4_s134);
+    private static final Term L_init_state_4_s136 = CONS( int_10 , L_init_state_4_s135);
+    private static final Term L_init_state_4_s137 = CONS( int_8 , L_init_state_4_s136);
+    private static final Term L_init_state_4_s138 = CONS( int_7 , L_init_state_4_s137);
+    private static final Term L_init_state_4_s139 = CONS( int_5 , L_init_state_4_s138);
+    private static final Term L_init_state_4_s140 = CONS( int_2 , L_init_state_4_s139);
+    private static final Term L_init_state_4_s141 = CONS( int_0 , L_init_state_4_s140);
+    private static final Term L_init_state_4_s143 = S( FUNCTOR_function_8 ,  int_7 , L_init_state_4_s114, L_init_state_4_s141,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s144 = CONS( int_30 , L_init_state_4_s99);
+    private static final Term L_init_state_4_s145 = CONS( int_27 , L_init_state_4_s144);
+    private static final Term L_init_state_4_s146 = CONS( int_24 , L_init_state_4_s145);
+    private static final Term L_init_state_4_s147 = CONS( int_21 , L_init_state_4_s146);
+    private static final Term L_init_state_4_s148 = CONS( int_20 , L_init_state_4_s147);
+    private static final Term L_init_state_4_s149 = CONS( int_18 , L_init_state_4_s148);
+    private static final Term L_init_state_4_s150 = CONS( int_17 , L_init_state_4_s149);
+    private static final Term L_init_state_4_s151 = CONS( int_15 , L_init_state_4_s150);
+    private static final Term L_init_state_4_s152 = CONS( int_12 , L_init_state_4_s151);
+    private static final Term L_init_state_4_s153 = CONS( int_9 , L_init_state_4_s152);
+    private static final Term L_init_state_4_s154 = CONS( int_8 , L_init_state_4_s153);
+    private static final Term L_init_state_4_s155 = CONS( int_6 , L_init_state_4_s154);
+    private static final Term L_init_state_4_s156 = CONS( int_5 , L_init_state_4_s155);
+    private static final Term L_init_state_4_s157 = CONS( int_3 , L_init_state_4_s156);
+    private static final Term L_init_state_4_s158 = CONS( int_2 , L_init_state_4_s157);
+    private static final Term L_init_state_4_s159 = CONS( int_29 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s160 = CONS( int_28 , L_init_state_4_s159);
+    private static final Term L_init_state_4_s161 = CONS( int_26 , L_init_state_4_s160);
+    private static final Term L_init_state_4_s162 = CONS( int_25 , L_init_state_4_s161);
+    private static final Term L_init_state_4_s163 = CONS( int_23 , L_init_state_4_s162);
+    private static final Term L_init_state_4_s164 = CONS( int_22 , L_init_state_4_s163);
+    private static final Term L_init_state_4_s165 = CONS( int_19 , L_init_state_4_s164);
+    private static final Term L_init_state_4_s166 = CONS( int_16 , L_init_state_4_s165);
+    private static final Term L_init_state_4_s167 = CONS( int_14 , L_init_state_4_s166);
+    private static final Term L_init_state_4_s168 = CONS( int_13 , L_init_state_4_s167);
+    private static final Term L_init_state_4_s169 = CONS( int_11 , L_init_state_4_s168);
+    private static final Term L_init_state_4_s170 = CONS( int_10 , L_init_state_4_s169);
+    private static final Term L_init_state_4_s171 = CONS( int_7 , L_init_state_4_s170);
+    private static final Term L_init_state_4_s172 = CONS( int_4 , L_init_state_4_s171);
+    private static final Term L_init_state_4_s173 = CONS( int_1 , L_init_state_4_s172);
+    private static final Term L_init_state_4_s174 = CONS( int_0 , L_init_state_4_s173);
+    private static final Term L_init_state_4_s176 = S( FUNCTOR_function_8 ,  int_6 , L_init_state_4_s158, L_init_state_4_s174,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s177 = CONS( int_29 , L_init_state_4_s144);
+    private static final Term L_init_state_4_s178 = CONS( int_28 , L_init_state_4_s177);
+    private static final Term L_init_state_4_s179 = CONS( int_27 , L_init_state_4_s178);
+    private static final Term L_init_state_4_s180 = CONS( int_26 , L_init_state_4_s179);
+    private static final Term L_init_state_4_s181 = CONS( int_25 , L_init_state_4_s180);
+    private static final Term L_init_state_4_s182 = CONS( int_23 , L_init_state_4_s181);
+    private static final Term L_init_state_4_s183 = CONS( int_22 , L_init_state_4_s182);
+    private static final Term L_init_state_4_s184 = CONS( int_19 , L_init_state_4_s183);
+    private static final Term L_init_state_4_s185 = CONS( int_15 , L_init_state_4_s184);
+    private static final Term L_init_state_4_s186 = CONS( int_14 , L_init_state_4_s185);
+    private static final Term L_init_state_4_s187 = CONS( int_13 , L_init_state_4_s186);
+    private static final Term L_init_state_4_s188 = CONS( int_11 , L_init_state_4_s187);
+    private static final Term L_init_state_4_s189 = CONS( int_10 , L_init_state_4_s188);
+    private static final Term L_init_state_4_s190 = CONS( int_7 , L_init_state_4_s189);
+    private static final Term L_init_state_4_s191 = CONS( int_24 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s192 = CONS( int_21 , L_init_state_4_s191);
+    private static final Term L_init_state_4_s193 = CONS( int_20 , L_init_state_4_s192);
+    private static final Term L_init_state_4_s194 = CONS( int_18 , L_init_state_4_s193);
+    private static final Term L_init_state_4_s195 = CONS( int_17 , L_init_state_4_s194);
+    private static final Term L_init_state_4_s196 = CONS( int_16 , L_init_state_4_s195);
+    private static final Term L_init_state_4_s197 = CONS( int_12 , L_init_state_4_s196);
+    private static final Term L_init_state_4_s198 = CONS( int_9 , L_init_state_4_s197);
+    private static final Term L_init_state_4_s199 = CONS( int_8 , L_init_state_4_s198);
+    private static final Term L_init_state_4_s200 = CONS( int_6 , L_init_state_4_s199);
+    private static final Term L_init_state_4_s201 = CONS( int_5 , L_init_state_4_s200);
+    private static final Term L_init_state_4_s202 = CONS( int_4 , L_init_state_4_s201);
+    private static final Term L_init_state_4_s203 = CONS( int_3 , L_init_state_4_s202);
+    private static final Term L_init_state_4_s204 = CONS( int_2 , L_init_state_4_s203);
+    private static final Term L_init_state_4_s205 = CONS( int_1 , L_init_state_4_s204);
+    private static final Term L_init_state_4_s206 = CONS( int_0 , L_init_state_4_s205);
+    private static final Term L_init_state_4_s208 = S( FUNCTOR_function_8 ,  int_5 , L_init_state_4_s190, L_init_state_4_s206,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s209 = CONS( int_24 , L_init_state_4_s181);
+    private static final Term L_init_state_4_s210 = CONS( int_23 , L_init_state_4_s209);
+    private static final Term L_init_state_4_s211 = CONS( int_22 , L_init_state_4_s210);
+    private static final Term L_init_state_4_s212 = CONS( int_21 , L_init_state_4_s211);
+    private static final Term L_init_state_4_s213 = CONS( int_20 , L_init_state_4_s212);
+    private static final Term L_init_state_4_s214 = CONS( int_19 , L_init_state_4_s213);
+    private static final Term L_init_state_4_s215 = CONS( int_18 , L_init_state_4_s214);
+    private static final Term L_init_state_4_s216 = CONS( int_17 , L_init_state_4_s215);
+    private static final Term L_init_state_4_s217 = CONS( int_16 , L_init_state_4_s216);
+    private static final Term L_init_state_4_s218 = CONS( int_15 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s219 = CONS( int_14 , L_init_state_4_s218);
+    private static final Term L_init_state_4_s220 = CONS( int_13 , L_init_state_4_s219);
+    private static final Term L_init_state_4_s221 = CONS( int_12 , L_init_state_4_s220);
+    private static final Term L_init_state_4_s222 = CONS( int_11 , L_init_state_4_s221);
+    private static final Term L_init_state_4_s223 = CONS( int_10 , L_init_state_4_s222);
+    private static final Term L_init_state_4_s224 = CONS( int_9 , L_init_state_4_s223);
+    private static final Term L_init_state_4_s225 = CONS( int_8 , L_init_state_4_s224);
+    private static final Term L_init_state_4_s226 = CONS( int_7 , L_init_state_4_s225);
+    private static final Term L_init_state_4_s227 = CONS( int_6 , L_init_state_4_s226);
+    private static final Term L_init_state_4_s228 = CONS( int_5 , L_init_state_4_s227);
+    private static final Term L_init_state_4_s229 = CONS( int_4 , L_init_state_4_s228);
+    private static final Term L_init_state_4_s230 = CONS( int_3 , L_init_state_4_s229);
+    private static final Term L_init_state_4_s231 = CONS( int_2 , L_init_state_4_s230);
+    private static final Term L_init_state_4_s232 = CONS( int_1 , L_init_state_4_s231);
+    private static final Term L_init_state_4_s233 = CONS( int_0 , L_init_state_4_s232);
+    private static final Term L_init_state_4_s235 = S( FUNCTOR_function_8 ,  int_4 , L_init_state_4_s217, L_init_state_4_s233,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s236 = CONS( int_15 , L_init_state_4_s209);
+    private static final Term L_init_state_4_s237 = CONS( int_14 , L_init_state_4_s236);
+    private static final Term L_init_state_4_s238 = CONS( int_13 , L_init_state_4_s237);
+    private static final Term L_init_state_4_s239 = CONS( int_12 , L_init_state_4_s238);
+    private static final Term L_init_state_4_s240 = CONS( int_11 , L_init_state_4_s239);
+    private static final Term L_init_state_4_s241 = CONS( int_10 , L_init_state_4_s240);
+    private static final Term L_init_state_4_s242 = CONS( int_9 , L_init_state_4_s241);
+    private static final Term L_init_state_4_s243 = CONS( int_8 , L_init_state_4_s242);
+    private static final Term L_init_state_4_s244 = CONS( int_23 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s245 = CONS( int_22 , L_init_state_4_s244);
+    private static final Term L_init_state_4_s246 = CONS( int_21 , L_init_state_4_s245);
+    private static final Term L_init_state_4_s247 = CONS( int_20 , L_init_state_4_s246);
+    private static final Term L_init_state_4_s248 = CONS( int_19 , L_init_state_4_s247);
+    private static final Term L_init_state_4_s249 = CONS( int_18 , L_init_state_4_s248);
+    private static final Term L_init_state_4_s250 = CONS( int_17 , L_init_state_4_s249);
+    private static final Term L_init_state_4_s251 = CONS( int_16 , L_init_state_4_s250);
+    private static final Term L_init_state_4_s252 = CONS( int_7 , L_init_state_4_s251);
+    private static final Term L_init_state_4_s253 = CONS( int_6 , L_init_state_4_s252);
+    private static final Term L_init_state_4_s254 = CONS( int_5 , L_init_state_4_s253);
+    private static final Term L_init_state_4_s255 = CONS( int_4 , L_init_state_4_s254);
+    private static final Term L_init_state_4_s256 = CONS( int_3 , L_init_state_4_s255);
+    private static final Term L_init_state_4_s257 = CONS( int_2 , L_init_state_4_s256);
+    private static final Term L_init_state_4_s258 = CONS( int_1 , L_init_state_4_s257);
+    private static final Term L_init_state_4_s259 = CONS( int_0 , L_init_state_4_s258);
+    private static final Term L_init_state_4_s261 = S( FUNCTOR_function_8 ,  int_3 , L_init_state_4_s243, L_init_state_4_s259,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s262 = CONS( int_23 , L_init_state_4_s178);
+    private static final Term L_init_state_4_s263 = CONS( int_22 , L_init_state_4_s262);
+    private static final Term L_init_state_4_s264 = CONS( int_21 , L_init_state_4_s263);
+    private static final Term L_init_state_4_s265 = CONS( int_20 , L_init_state_4_s264);
+    private static final Term L_init_state_4_s266 = CONS( int_15 , L_init_state_4_s265);
+    private static final Term L_init_state_4_s267 = CONS( int_14 , L_init_state_4_s266);
+    private static final Term L_init_state_4_s268 = CONS( int_13 , L_init_state_4_s267);
+    private static final Term L_init_state_4_s269 = CONS( int_12 , L_init_state_4_s268);
+    private static final Term L_init_state_4_s270 = CONS( int_7 , L_init_state_4_s269);
+    private static final Term L_init_state_4_s271 = CONS( int_6 , L_init_state_4_s270);
+    private static final Term L_init_state_4_s272 = CONS( int_5 , L_init_state_4_s271);
+    private static final Term L_init_state_4_s273 = CONS( int_4 , L_init_state_4_s272);
+    private static final Term L_init_state_4_s274 = CONS( int_27 ,  Prolog.Nil );
+    private static final Term L_init_state_4_s275 = CONS( int_26 , L_init_state_4_s274);
+    private static final Term L_init_state_4_s276 = CONS( int_25 , L_init_state_4_s275);
+    private static final Term L_init_state_4_s277 = CONS( int_24 , L_init_state_4_s276);
+    private static final Term L_init_state_4_s278 = CONS( int_19 , L_init_state_4_s277);
+    private static final Term L_init_state_4_s279 = CONS( int_18 , L_init_state_4_s278);
+    private static final Term L_init_state_4_s280 = CONS( int_17 , L_init_state_4_s279);
+    private static final Term L_init_state_4_s281 = CONS( int_16 , L_init_state_4_s280);
+    private static final Term L_init_state_4_s282 = CONS( int_11 , L_init_state_4_s281);
+    private static final Term L_init_state_4_s283 = CONS( int_10 , L_init_state_4_s282);
+    private static final Term L_init_state_4_s284 = CONS( int_9 , L_init_state_4_s283);
+    private static final Term L_init_state_4_s285 = CONS( int_8 , L_init_state_4_s284);
+    private static final Term L_init_state_4_s286 = CONS( int_3 , L_init_state_4_s285);
+    private static final Term L_init_state_4_s287 = CONS( int_2 , L_init_state_4_s286);
+    private static final Term L_init_state_4_s288 = CONS( int_1 , L_init_state_4_s287);
+    private static final Term L_init_state_4_s289 = CONS( int_0 , L_init_state_4_s288);
+    private static final Term L_init_state_4_s291 = S( FUNCTOR_function_8 ,  int_2 , L_init_state_4_s273, L_init_state_4_s289,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s292 = CONS( int_26 , L_init_state_4_s145);
+    private static final Term L_init_state_4_s293 = CONS( int_23 , L_init_state_4_s292);
+    private static final Term L_init_state_4_s294 = CONS( int_22 , L_init_state_4_s293);
+    private static final Term L_init_state_4_s295 = CONS( int_19 , L_init_state_4_s294);
+    private static final Term L_init_state_4_s296 = CONS( int_18 , L_init_state_4_s295);
+    private static final Term L_init_state_4_s297 = CONS( int_15 , L_init_state_4_s296);
+    private static final Term L_init_state_4_s298 = CONS( int_14 , L_init_state_4_s297);
+    private static final Term L_init_state_4_s299 = CONS( int_11 , L_init_state_4_s298);
+    private static final Term L_init_state_4_s300 = CONS( int_10 , L_init_state_4_s299);
+    private static final Term L_init_state_4_s301 = CONS( int_7 , L_init_state_4_s300);
+    private static final Term L_init_state_4_s302 = CONS( int_6 , L_init_state_4_s301);
+    private static final Term L_init_state_4_s303 = CONS( int_3 , L_init_state_4_s302);
+    private static final Term L_init_state_4_s304 = CONS( int_2 , L_init_state_4_s303);
+    private static final Term L_init_state_4_s305 = CONS( int_25 , L_init_state_4_s160);
+    private static final Term L_init_state_4_s306 = CONS( int_24 , L_init_state_4_s305);
+    private static final Term L_init_state_4_s307 = CONS( int_21 , L_init_state_4_s306);
+    private static final Term L_init_state_4_s308 = CONS( int_20 , L_init_state_4_s307);
+    private static final Term L_init_state_4_s309 = CONS( int_17 , L_init_state_4_s308);
+    private static final Term L_init_state_4_s310 = CONS( int_16 , L_init_state_4_s309);
+    private static final Term L_init_state_4_s311 = CONS( int_13 , L_init_state_4_s310);
+    private static final Term L_init_state_4_s312 = CONS( int_12 , L_init_state_4_s311);
+    private static final Term L_init_state_4_s313 = CONS( int_9 , L_init_state_4_s312);
+    private static final Term L_init_state_4_s314 = CONS( int_8 , L_init_state_4_s313);
+    private static final Term L_init_state_4_s315 = CONS( int_5 , L_init_state_4_s314);
+    private static final Term L_init_state_4_s316 = CONS( int_4 , L_init_state_4_s315);
+    private static final Term L_init_state_4_s317 = CONS( int_1 , L_init_state_4_s316);
+    private static final Term L_init_state_4_s318 = CONS( int_0 , L_init_state_4_s317);
+    private static final Term L_init_state_4_s320 = S( FUNCTOR_function_8 ,  int_1 , L_init_state_4_s304, L_init_state_4_s318,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s321 = CONS( int_27 , L_init_state_4_s100);
+    private static final Term L_init_state_4_s322 = CONS( int_25 , L_init_state_4_s321);
+    private static final Term L_init_state_4_s323 = CONS( int_23 , L_init_state_4_s322);
+    private static final Term L_init_state_4_s324 = CONS( int_21 , L_init_state_4_s323);
+    private static final Term L_init_state_4_s325 = CONS( int_19 , L_init_state_4_s324);
+    private static final Term L_init_state_4_s326 = CONS( int_17 , L_init_state_4_s325);
+    private static final Term L_init_state_4_s327 = CONS( int_15 , L_init_state_4_s326);
+    private static final Term L_init_state_4_s328 = CONS( int_13 , L_init_state_4_s327);
+    private static final Term L_init_state_4_s329 = CONS( int_11 , L_init_state_4_s328);
+    private static final Term L_init_state_4_s330 = CONS( int_9 , L_init_state_4_s329);
+    private static final Term L_init_state_4_s331 = CONS( int_7 , L_init_state_4_s330);
+    private static final Term L_init_state_4_s332 = CONS( int_5 , L_init_state_4_s331);
+    private static final Term L_init_state_4_s333 = CONS( int_3 , L_init_state_4_s332);
+    private static final Term L_init_state_4_s334 = CONS( int_1 , L_init_state_4_s333);
+    private static final Term L_init_state_4_s335 = CONS( int_26 , L_init_state_4_s127);
+    private static final Term L_init_state_4_s336 = CONS( int_24 , L_init_state_4_s335);
+    private static final Term L_init_state_4_s337 = CONS( int_22 , L_init_state_4_s336);
+    private static final Term L_init_state_4_s338 = CONS( int_20 , L_init_state_4_s337);
+    private static final Term L_init_state_4_s339 = CONS( int_18 , L_init_state_4_s338);
+    private static final Term L_init_state_4_s340 = CONS( int_16 , L_init_state_4_s339);
+    private static final Term L_init_state_4_s341 = CONS( int_14 , L_init_state_4_s340);
+    private static final Term L_init_state_4_s342 = CONS( int_12 , L_init_state_4_s341);
+    private static final Term L_init_state_4_s343 = CONS( int_10 , L_init_state_4_s342);
+    private static final Term L_init_state_4_s344 = CONS( int_8 , L_init_state_4_s343);
+    private static final Term L_init_state_4_s345 = CONS( int_6 , L_init_state_4_s344);
+    private static final Term L_init_state_4_s346 = CONS( int_4 , L_init_state_4_s345);
+    private static final Term L_init_state_4_s347 = CONS( int_2 , L_init_state_4_s346);
+    private static final Term L_init_state_4_s348 = CONS( int_0 , L_init_state_4_s347);
+    private static final Term L_init_state_4_s350 = S( FUNCTOR_function_8 ,  int_0 , L_init_state_4_s334, L_init_state_4_s348,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_init_state_4_s351 = CONS(L_init_state_4_s350,  Prolog.Nil );
+    private static final Term L_init_state_4_s352 = CONS(L_init_state_4_s320, L_init_state_4_s351);
+    private static final Term L_init_state_4_s353 = CONS(L_init_state_4_s291, L_init_state_4_s352);
+    private static final Term L_init_state_4_s354 = CONS(L_init_state_4_s261, L_init_state_4_s353);
+    private static final Term L_init_state_4_s355 = CONS(L_init_state_4_s235, L_init_state_4_s354);
+    private static final Term L_init_state_4_s356 = CONS(L_init_state_4_s208, L_init_state_4_s355);
+    private static final Term L_init_state_4_s357 = CONS(L_init_state_4_s176, L_init_state_4_s356);
+    private static final Term L_init_state_4_s358 = CONS(L_init_state_4_s143, L_init_state_4_s357);
 
 
 
@@ -471,7 +472,7 @@ m.cont = cont;
         if (! L_init_state_4_s24.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
     }
 
     private final static Operation init_state_4_2(Prolog m) { 
@@ -493,7 +494,7 @@ m.cont = cont;
         if (! L_init_state_4_s65.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
     }
 
     private final static Operation init_state_4_3(Prolog m) { 
@@ -515,7 +516,7 @@ m.cont = cont;
         if (! L_init_state_4_s73.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
     }
 
     private final static Operation init_state_4_4(Prolog m) { 
@@ -537,7 +538,7 @@ m.cont = cont;
         if (! L_init_state_4_s82.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
     }
 
     private final static Operation init_state_4_5(Prolog m) { 
@@ -559,7 +560,7 @@ m.cont = cont;
         if (! L_init_state_4_s85.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_100 , m.DONT_CARE2()), cont);
     }
 
     private final static Operation init_state_4_6(Prolog m) { 
@@ -581,7 +582,7 @@ m.cont = cont;
         if (! L_init_state_4_s358.unify(a4, m.trail))
             return m.fail();
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_21 , m.DONT_CARE2()), cont);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(m.DONT_CARE2(),  int_21 , m.DONT_CARE2()), cont);
     }
 /** PREDICATE: search/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -627,12 +628,12 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_select_vector_5_static_exec, VA(a1, a2, a3, a5, a6), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a4), //
- Op(FILE_nand::PRED_cover_vector_7_static_exec, VA(a1, a2, a3, a5, a6, a7, a8), //
- Op(FILE_nand::PRED_add_necessary_functions_5_static_exec, VA(a1, a7, a8, a9, a10), //
- Op(FILE_nand::PRED_test_bounds_3_static_exec, VA(a1, a9, a10), //
- Op(FILE_nand::PRED_search_3_static_exec, VA(a1, a9, a10), cont))))));
+ Op("select_vector", FILE_nand::PRED_select_vector_5_static_exec, VA(a1, a2, a3, a5, a6), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a4), //
+ Op("cover_vector", FILE_nand::PRED_cover_vector_7_static_exec, VA(a1, a2, a3, a5, a6, a7, a8), //
+ Op("add_necessary_functions", FILE_nand::PRED_add_necessary_functions_5_static_exec, VA(a1, a7, a8, a9, a10), //
+ Op("test_bounds", FILE_nand::PRED_test_bounds_3_static_exec, VA(a1, a9, a10), //
+ Op("search", FILE_nand::PRED_search_3_static_exec, VA(a1, a9, a10), cont))))));
     }
 
     private final static Operation search_3_2(Prolog m) { 
@@ -646,13 +647,13 @@ m.cont = cont;
         cont = m.cont;
     // search(A,B,C):-[update_bounds(A,B,C),fail]
         return //
- Op(FILE_nand::PRED_update_bounds_3_static_exec, VA(a1, a2, a3), fail_0);
+ Op("update_bounds", FILE_nand::PRED_update_bounds_3_static_exec, VA(a1, a2, a3), fail_0);
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/1,public)
-        final static SymbolTerm ATOM_cov = SYM("cov");
+        final static Functor ATOM_cov = SYM("cov");
 
 
 
@@ -710,7 +711,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/1,public)
-        final static SymbolTerm ATOM_nf = SYM("nf");
+        final static Functor ATOM_nf = SYM("nf");
 
 
 
@@ -768,7 +769,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(select_vector/5,public)
-        final static SymbolTerm ATOM_dummy = SYM("dummy");
+        final static Functor ATOM_dummy = SYM("dummy");
         final static IntegerTerm int_999 = Integer(999);
 
     // private final Term arg5;
@@ -796,10 +797,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         //END inline expansion
         a7 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_select_vector_12_static_exec, VA(a3, a1, a2, a3,  ATOM_dummy ,  int_0 ,  ATOM_nf ,  int_999 , a4, a5, a7, m.DONT_CARE2()), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_nand::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a7), cont))));
+ Op("select_vector", FILE_nand::PRED_select_vector_12_static_exec, VA(a3, a1, a2, a3,  ATOM_dummy ,  int_0 ,  ATOM_nf ,  int_999 , a4, a5, a7, m.DONT_CARE2()), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a7), //
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a7), cont))));
     }
 /** PREDICATE: select_vector/12
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -866,8 +867,8 @@ m.cont = cont;
             return m.fail();
         a14 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a13, a14), //
- Op(FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a2), cont));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a13, a14), //
+ Op("$less_than", FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a2), cont));
     }
 
     private final static Operation select_vector_12_2(Prolog m) { 
@@ -907,11 +908,11 @@ m.cont = cont;
         a19 = m.mkvar1();
         a20 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a13, a15), //
- Op(FILE_nand::PRED_$greater_or_equal_2_static_exec, VA(a15, a2), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a13, a16), //
- Op(FILE_nand::PRED_select_vector_13_static_exec, VA(a16, a13, a2, a3, a4, a5, a6, a7, a8, a17, a18, a19, a20), //
- Op(FILE_nand::PRED_select_vector_12_static_exec, VA(a14, a2, a3, a4, a17, a18, a19, a20, a9, a10, a11, a12), cont)))));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a13, a15), //
+ Op("$greater_or_equal", FILE_nand::PRED_$greater_or_equal_2_static_exec, VA(a15, a2), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a13, a16), //
+ Op("select_vector", FILE_nand::PRED_select_vector_13_static_exec, VA(a16, a13, a2, a3, a4, a5, a6, a7, a8, a17, a18, a19, a20), //
+ Op("select_vector", FILE_nand::PRED_select_vector_12_static_exec, VA(a14, a2, a3, a4, a17, a18, a19, a20, a9, a10, a11, a12), cont)))));
     }
 /** PREDICATE: select_vector/13
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -1010,9 +1011,9 @@ m.cont = cont;
         a20 = m.mkvar1();
         a21 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_vector_cover_type_6_static_exec, VA(a3, a5, a2, a14, a16, a17), //
- Op(FILE_nand::PRED_best_vector_12_static_exec, VA(a6, a7, a8, a9, a2, a14, a16, a17, a18, a19, a20, a21), //
- Op(FILE_nand::PRED_select_vector_13_static_exec, VA(a15, a2, a3, a4, a5, a18, a19, a20, a21, a10, a11, a12, a13), cont)));
+ Op("vector_cover_type", FILE_nand::PRED_vector_cover_type_6_static_exec, VA(a3, a5, a2, a14, a16, a17), //
+ Op("best_vector", FILE_nand::PRED_best_vector_12_static_exec, VA(a6, a7, a8, a9, a2, a14, a16, a17, a18, a19, a20, a21), //
+ Op("select_vector", FILE_nand::PRED_select_vector_13_static_exec, VA(a15, a2, a3, a4, a5, a18, a19, a20, a21, a10, a11, a12, a13), cont)));
     }
 /** PREDICATE: vector_cover_type/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -1043,17 +1044,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a3, a7), //
- Op(FILE_nand::PRED_conceivable_inputs_2_static_exec, VA(a3, a8), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a3, a9), //
- Op(FILE_nand::PRED_cover_type1_7_static_exec, VA(a7, a2, a4,  ATOM_nf ,  int_0 , a10, a11), //
- Op(FILE_nand::PRED_cover_type2_9_static_exec, VA(a8, a2, a1, a9, a4, a10, a11, a5, a6), cont)))));
+ Op("immediate_predecessors", FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a3, a7), //
+ Op("conceivable_inputs", FILE_nand::PRED_conceivable_inputs_2_static_exec, VA(a3, a8), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a3, a9), //
+ Op("cover_type1", FILE_nand::PRED_cover_type1_7_static_exec, VA(a7, a2, a4,  ATOM_nf ,  int_0 , a10, a11), //
+ Op("cover_type2", FILE_nand::PRED_cover_type2_9_static_exec, VA(a8, a2, a1, a9, a4, a10, a11, a5, a6), cont)))));
     }
 /** PREDICATE: cover_type1/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(cover_type1/7,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -1158,14 +1159,14 @@ m.cont = cont;
         a16 =  S( FUNCTOR_$002B_2 , a5,  int_1 );
  ;
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a8, a2, a11), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a11, a12), //
- Op(FILE_nand::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a3, a12), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a10), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a11, a13), //
- Op(FILE_nand::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a3, a4, a13, a14), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a15, a16), //
- Op(FILE_nand::PRED_cover_type1_7_static_exec, VA(a9, a2, a3, a14, a15, a6, a7), cont))))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a8, a2, a11), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a11, a12), //
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a3, a12), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a10), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a11, a13), //
+ Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a3, a4, a13, a14), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a15, a16), //
+ Op("cover_type1", FILE_nand::PRED_cover_type1_7_static_exec, VA(a9, a2, a3, a14, a15, a6, a7), cont))))))));
     }
 
     private final static Operation cover_type1_7_3(Prolog m) { 
@@ -1237,8 +1238,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -1255,7 +1256,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/4,public)
-        final static SymbolTerm ATOM_exp = SYM("exp");
+        final static Functor ATOM_exp = SYM("exp");
 
 
 
@@ -1291,9 +1292,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_cov , a4), cont)));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_cov , a4), cont)));
     }
 
     private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_2(Prolog m) { 
@@ -1307,13 +1308,13 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C,D):-[max_type(B,exp,D)]
         return //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_exp , a4), cont);
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_exp , a4), cont);
     }
 /** PREDICATE: cover_type2/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(cover_type2/9,public)
-        final static SymbolTerm ATOM_var = SYM("var");
+        final static Functor ATOM_var = SYM("var");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -1436,13 +1437,13 @@ m.cont = cont;
         a17 =  S( FUNCTOR_$002B_2 , a7,  int_1 );
  ;
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a10, a2, a13), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a13, a14), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a12), //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a6,  ATOM_var , a15), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a16, a17), //
- Op(FILE_nand::PRED_cover_type2_9_static_exec, VA(a11, a2, a3, a4, a5, a15, a16, a8, a9), cont)))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a10, a2, a13), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a13, a14), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a5, a14), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a12), //
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a6,  ATOM_var , a15), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a16, a17), //
+ Op("cover_type2", FILE_nand::PRED_cover_type2_9_static_exec, VA(a11, a2, a3, a4, a5, a15, a16, a8, a9), cont)))))));
     }
 
     private final static Operation cover_type2_9_3(Prolog m) { 
@@ -1492,14 +1493,14 @@ m.cont = cont;
         a18 =  S( FUNCTOR_$002B_2 , a7,  int_1 );
  ;
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a10, a2, a13), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a13, a14), //
- Op(FILE_nand::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a13, a15), //
- Op(FILE_nand::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a4, a5, a6, a14, a15, a16), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a17, a18), //
- Op(FILE_nand::PRED_cover_type2_9_static_exec, VA(a11, a2, a3, a4, a5, a16, a17, a8, a9), cont))))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a10, a2, a13), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a13, a14), //
+ Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a13, a15), //
+ Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a4, a5, a6, a14, a15, a16), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a17, a18), //
+ Op("cover_type2", FILE_nand::PRED_cover_type2_9_static_exec, VA(a11, a2, a3, a4, a5, a16, a17, a8, a9), cont))))))));
     }
 
     private final static Operation cover_type2_9_4(Prolog m) { 
@@ -1575,8 +1576,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -1593,8 +1594,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/4,public)
-        final static SymbolTerm ATOM_fcn = SYM("fcn");
-        final static SymbolTerm ATOM_mcf = SYM("mcf");
+        final static Functor ATOM_fcn = SYM("fcn");
+        final static Functor ATOM_mcf = SYM("mcf");
 
 
 
@@ -1630,9 +1631,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a1, a3), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_fcn , a4), cont)));
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a1, a3), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_fcn , a4), cont)));
     }
 
     private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_2(Prolog m) { 
@@ -1646,13 +1647,13 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C,D):-[max_type(B,mcf,D)]
         return //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_mcf , a4), cont);
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_mcf , a4), cont);
     }
 /** PREDICATE: $dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/6,public)
-        final static SymbolTerm ATOM_exmcf = SYM("exmcf");
+        final static Functor ATOM_exmcf = SYM("exmcf");
 
     // private final Term arg5, arg6;
 
@@ -1697,9 +1698,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a2, a5), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a1, a3, a4, a6), cont)));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a2, a5), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a1, a3, a4, a6), cont)));
     }
 
     private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_2(Prolog m) { 
@@ -1715,7 +1716,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C,D,E,F):-['$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,C,D,F)]
         return //
- Op(FILE_nand::PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a1, a3, a4, a6), cont);
+ Op("$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_static_exec, VA(a1, a3, a4, a6), cont);
     }
 
     private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_3(Prolog m) { 
@@ -1731,13 +1732,13 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C,D,E,F):-[max_type(C,exmcf,F)]
         return //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a3,  ATOM_exmcf , a6), cont);
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a3,  ATOM_exmcf , a6), cont);
     }
 /** PREDICATE: $dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main('$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'/4,public)
-        final static SymbolTerm ATOM_exf = SYM("exf");
+        final static Functor ATOM_exf = SYM("exf");
 
 
 
@@ -1773,9 +1774,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a1, a3), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_exf , a4), cont)));
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a1, a3), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a5), //
+ Op("max_type", FILE_nand::PRED_max_type_3_static_exec, VA(a2,  ATOM_exf , a4), cont)));
     }
 
     private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_4_2(Prolog m) { 
@@ -2009,10 +2010,10 @@ m.cont = cont;
         //END inline expansion
         a14 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_$less_than_2_static_exec, VA(a4, a8), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont))));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a14), //
+ Op("$less_than", FILE_nand::PRED_$less_than_2_static_exec, VA(a4, a8), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont))));
     }
 
     private final static Operation best_vector_12_4(Prolog m) { 
@@ -2052,10 +2053,10 @@ m.cont = cont;
         //END inline expansion
         a14 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_$greater_or_equal_2_static_exec, VA(a4, a8), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont))));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a14), //
+ Op("$greater_or_equal", FILE_nand::PRED_$greater_or_equal_2_static_exec, VA(a4, a8), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont))));
     }
 
     private final static Operation best_vector_12_5(Prolog m) { 
@@ -2096,11 +2097,11 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
- Op(FILE_nand::PRED_$greater_than_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
+ Op("$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
+ Op("$greater_than", FILE_nand::PRED_$greater_than_2_static_exec, VA(a14, a15), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
     }
 
     private final static Operation best_vector_12_6(Prolog m) { 
@@ -2141,11 +2142,11 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
- Op(FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
+ Op("$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
+ Op("$less_than", FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a15), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
     }
 
     private final static Operation best_vector_12_7(Prolog m) { 
@@ -2186,11 +2187,11 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
- Op(FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
+ Op("$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
+ Op("$less_than", FILE_nand::PRED_$less_than_2_static_exec, VA(a14, a15), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
     }
 
     private final static Operation best_vector_12_8(Prolog m) { 
@@ -2231,11 +2232,11 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
- Op(FILE_nand::PRED_$greater_than_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
+ Op("$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a3), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a1, a14), //
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a5, a15), //
+ Op("$greater_than", FILE_nand::PRED_$greater_than_2_static_exec, VA(a14, a15), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont)))));
     }
 
     private final static Operation best_vector_12_9(Prolog m) { 
@@ -2272,8 +2273,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_type_order_2_static_exec, VA(a7, a3), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont));
+ Op("type_order", FILE_nand::PRED_type_order_2_static_exec, VA(a7, a3), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont));
     }
 
     private final static Operation best_vector_12_10(Prolog m) { 
@@ -2310,8 +2311,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_type_order_2_static_exec, VA(a3, a7), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont));
+ Op("type_order", FILE_nand::PRED_type_order_2_static_exec, VA(a3, a7), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a13), cont));
     }
 /** PREDICATE: $dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -2499,8 +2500,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a2), fail_0));
+ Op("$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
     private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_2(Prolog m) { 
@@ -2598,8 +2599,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a2), fail_0));
+ Op("$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_static_exec, VA(a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
     private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_1_2(Prolog m) { 
@@ -2651,8 +2652,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_type_order_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a4), cont));
+ Op("type_order", FILE_nand::PRED_type_order_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 
     private final static Operation max_type_3_2(Prolog m) { 
@@ -2674,8 +2675,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a4), cont));
+ Op("$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 /** PREDICATE: $dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -2714,8 +2715,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_type_order_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("type_order", FILE_nand::PRED_type_order_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -3330,10 +3331,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a4, a8), //
- Op(FILE_nand::PRED_conceivable_inputs_2_static_exec, VA(a4, a9), //
- Op(FILE_nand::PRED_vector_types_1_static_exec, VA(a10), //
- Op(FILE_nand::PRED_cover_vector_10_static_exec, VA(a10, a8, a9, a4, a5, a1, a2, a3, a6, a7), cont))));
+ Op("immediate_predecessors", FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a4, a8), //
+ Op("conceivable_inputs", FILE_nand::PRED_conceivable_inputs_2_static_exec, VA(a4, a9), //
+ Op("vector_types", FILE_nand::PRED_vector_types_1_static_exec, VA(a10), //
+ Op("cover_vector", FILE_nand::PRED_cover_vector_10_static_exec, VA(a10, a8, a9, a4, a5, a1, a2, a3, a6, a7), cont))));
     }
 /** PREDICATE: vector_types/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -3505,8 +3506,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_15_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -3638,10 +3639,10 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_$dummy_15_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a12, a13), //
+ Op("$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_15_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))));
     }
 
     private final static Operation cover_vector_10_2(Prolog m) { 
@@ -3725,10 +3726,10 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))));
     }
 
     private final static Operation cover_vector_10_4(Prolog m) { 
@@ -3814,13 +3815,13 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a15, a14), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont)))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a15, a14), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont)))))));
     }
 
     private final static Operation cover_vector_10_6(Prolog m) { 
@@ -3906,13 +3907,13 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
- Op(FILE_nand::PRED_$dummy_16_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont)))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a5, a13), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
+ Op("$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_16_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a14, a15), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont)))))));
     }
 
     private final static Operation cover_vector_10_8(Prolog m) { 
@@ -3998,14 +3999,14 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_$dummy_17_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
- Op(FILE_nand::PRED_$dummy_18_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a15, a14), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
+ Op("$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_17_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
+ Op("$dummy_18_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_18_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a15, a14), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))))))));
     }
 
     private final static Operation cover_vector_10_10(Prolog m) { 
@@ -4091,14 +4092,14 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
- Op(FILE_nand::PRED_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
- Op(FILE_nand::PRED_$dummy_20_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
- Op(FILE_nand::PRED_$dummy_21_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a14, a15), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a11, a8, a12), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a12, a13), //
+ Op("$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a13), //
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a12, a14), //
+ Op("$dummy_20_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_20_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a5, a14), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a4, a15), //
+ Op("$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_21_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_static_exec, VA(a14, a15), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a12, a4, a5, a8, a10), cont))))))));
     }
 
     private final static Operation cover_vector_10_12(Prolog m) { 
@@ -4179,9 +4180,9 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a4, a12), //
- Op(FILE_nand::PRED_new_function_CIs_5_static_exec, VA(a8, a14, a6, a15, a16), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a15, a16, a4, a5, a15, a10), cont)));
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a4, a12), //
+ Op("new_function_CIs", FILE_nand::PRED_new_function_CIs_5_static_exec, VA(a8, a14, a6, a15, a16), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a15, a16, a4, a5, a15, a10), cont)));
     }
 /** PREDICATE: $dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -4220,8 +4221,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a2, a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a2, a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_16_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4271,8 +4272,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_17_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4322,8 +4323,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_18_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4373,8 +4374,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4424,8 +4425,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_20_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4475,8 +4476,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_subset_2_static_exec, VA(a2, a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("set_subset", FILE_nand::PRED_set_subset_2_static_exec, VA(a2, a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_21_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_2_2(Prolog m) { 
@@ -4627,21 +4628,21 @@ m.cont = cont;
         a43 = m.mkvar1();
         a44 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a36, a30, a37), //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a38, a34, a39), //
- Op(FILE_nand::PRED_$dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a10, a27, a32, a40), //
- Op(FILE_nand::PRED_$dummy_23_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a26, a33, a40, a41), //
- Op(FILE_nand::PRED_$dummy_24_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a4, a19, a28, a29, a41), //
- Op(FILE_nand::PRED_$dummy_25_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a11, a4, a20, a26), //
- Op(FILE_nand::PRED_$dummy_26_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a12, a26, a30, a39, a42), //
- Op(FILE_nand::PRED_$dummy_27_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a11, a12, a4, a26, a42, a43), //
- Op(FILE_nand::PRED_$dummy_28_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a4, a5, a26, a43, a44), //
- Op(FILE_nand::PRED_$dummy_29_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a21, a26, a32, a44), //
- Op(FILE_nand::PRED_$dummy_30_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a13, a22, a26, a32), //
- Op(FILE_nand::PRED_$dummy_31_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a14, a23, a26, a32), //
- Op(FILE_nand::PRED_$dummy_32_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a15, a24, a37, a39), //
- Op(FILE_nand::PRED_$dummy_33_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a16, a25, a37, a39), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a2, a3, a4, a5, a18), cont)))))))))))))));
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a36, a30, a37), //
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a38, a34, a39), //
+ Op("$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a10, a27, a32, a40), //
+ Op("$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_23_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a26, a33, a40, a41), //
+ Op("$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_24_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a4, a19, a28, a29, a41), //
+ Op("$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_25_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a11, a4, a20, a26), //
+ Op("$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_26_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a12, a26, a30, a39, a42), //
+ Op("$dummy_27_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_27_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a11, a12, a4, a26, a42, a43), //
+ Op("$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_28_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_static_exec, VA(a9, a4, a5, a26, a43, a44), //
+ Op("$dummy_29_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_29_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a21, a26, a32, a44), //
+ Op("$dummy_30_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_30_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a13, a22, a26, a32), //
+ Op("$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_31_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a14, a23, a26, a32), //
+ Op("$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_32_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a15, a24, a37, a39), //
+ Op("$dummy_33_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_33_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a9, a16, a25, a37, a39), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a8, a2, a3, a4, a5, a18), cont)))))))))))))));
     }
 /** PREDICATE: $dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -4693,7 +4694,7 @@ m.cont = cont;
                   m.cut( a6.intValue());
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a3, a5), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a3, a5), cont);
     }
 
     private final static Operation $dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -4764,7 +4765,7 @@ m.cont = cont;
                   m.cut( a6.intValue());
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a4, a3, a5), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a4, a3, a5), cont);
     }
 
     private final static Operation $dummy_23_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -4816,7 +4817,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C):-[set_member(A,B)]
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), cont);
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a2), cont);
     }
 
     private final static Operation $dummy_34_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_2(Prolog m) { 
@@ -4829,7 +4830,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C):-[set_member(A,C)]
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), cont);
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), cont);
     }
 /** PREDICATE: $dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -4875,9 +4876,9 @@ m.cont = cont;
         //END inline expansion
         a8 = CONS(a2,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_$dummy_34_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, a4, a5), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a6, a8, a3), cont)));
+ Op("$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_34_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, a4, a5), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a6, a8, a3), cont)));
     }
 
     private final static Operation $dummy_24_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_2(Prolog m) { 
@@ -4950,7 +4951,7 @@ m.cont = cont;
         //END inline expansion
         a7 = CONS(a3,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a4), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a4), cont);
     }
 
     private final static Operation $dummy_25_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5002,7 +5003,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,B,C):-[set_member(A,C)]
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), cont);
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a3), cont);
     }
 
     private final static Operation $dummy_35_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_2(Prolog m) { 
@@ -5064,9 +5065,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_$dummy_35_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, a3, a4), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_set_difference_3_static_exec, VA(a2, a5, a6), cont)));
+ Op("$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_35_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, a3, a4), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("set_difference", FILE_nand::PRED_set_difference_3_static_exec, VA(a2, a5, a6), cont)));
     }
 
     private final static Operation $dummy_26_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_2(Prolog m) { 
@@ -5132,10 +5133,10 @@ m.cont = cont;
         //END inline expansion
         a8 = CONS(a4,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a4, a2), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a3, a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_set_difference_3_static_exec, VA(a5, a8, a6), cont))));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a4, a2), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a3, a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("set_difference", FILE_nand::PRED_set_difference_3_static_exec, VA(a5, a8, a6), cont))));
     }
 
     private final static Operation $dummy_27_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_2(Prolog m) { 
@@ -5208,7 +5209,7 @@ m.cont = cont;
                   m.cut( a7.intValue());
         //END inline expansion
         return //
- Op(FILE_nand::PRED_exclude_if_vector_in_false_set_4_static_exec, VA(a5, a3, a2, a6), cont);
+ Op("exclude_if_vector_in_false_set", FILE_nand::PRED_exclude_if_vector_in_false_set_4_static_exec, VA(a5, a3, a2, a6), cont);
     }
 
     private final static Operation $dummy_28_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_6_2(Prolog m) { 
@@ -5281,7 +5282,7 @@ m.cont = cont;
         //END inline expansion
         a7 = CONS(a3,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_difference_3_static_exec, VA(a5, a7, a2), cont);
+ Op("set_difference", FILE_nand::PRED_set_difference_3_static_exec, VA(a5, a7, a2), cont);
     }
 
     private final static Operation $dummy_29_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5353,7 +5354,7 @@ m.cont = cont;
         //END inline expansion
         a7 = CONS(a4,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a3), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a3), cont);
     }
 
     private final static Operation $dummy_30_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5425,7 +5426,7 @@ m.cont = cont;
         //END inline expansion
         a7 = CONS(a5,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a3), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a3), cont);
     }
 
     private final static Operation $dummy_31_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5488,9 +5489,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a5), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a4, a3), cont)));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a5), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a4, a3), cont)));
     }
 
     private final static Operation $dummy_32_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5553,9 +5554,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a1, a4), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a5, a3), cont)));
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a1, a4), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a6), //
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a5, a3), cont)));
     }
 
     private final static Operation $dummy_33_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -5668,11 +5669,11 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a5, a2, a8), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a8, a9), //
- Op(FILE_nand::PRED_set_member_2_static_exec, VA(a3, a9), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_exclude_if_vector_in_false_set_4_static_exec, VA(a6, a2, a3, a4), cont)))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a5, a2, a8), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a8, a9), //
+ Op("set_member", FILE_nand::PRED_set_member_2_static_exec, VA(a3, a9), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("exclude_if_vector_in_false_set", FILE_nand::PRED_exclude_if_vector_in_false_set_4_static_exec, VA(a6, a2, a3, a4), cont)))));
     }
 
     private final static Operation exclude_if_vector_in_false_set_4_3(Prolog m) { 
@@ -5736,7 +5737,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a5 = LARG[4];
     // add_necessary_functions(A,B,C,D,E):-[add_necessary_functions(A,A,B,C,D,E)]
         return //
- Op(FILE_nand::PRED_add_necessary_functions_6_static_exec, VA(a1, a1, a2, a3, a4, a5), cont);
+ Op("add_necessary_functions", FILE_nand::PRED_add_necessary_functions_6_static_exec, VA(a1, a1, a2, a3, a4, a5), cont);
     }
 /** PREDICATE: add_necessary_functions/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -5833,16 +5834,16 @@ m.cont = cont;
         a20 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a1, a4, a8), //
- Op(FILE_nand::PRED_function_type_6_static_exec, VA(a2, a3, a4, a8,  ATOM_nf , a9), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
- Op(FILE_nand::PRED_false_set_2_static_exec, VA(a8, a10), //
- Op(FILE_nand::PRED_new_function_CIs_5_static_exec, VA(a4, a12, a2, a13, a14), //
- Op(FILE_nand::PRED_function_3_static_exec, VA(a1, a13, a15), //
- Op(FILE_nand::PRED_update_circuit_6_static_exec, VA(a13, a14, a15, a9, a13, a16), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a17, a18), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a19, a20), //
- Op(FILE_nand::PRED_add_necessary_functions_6_static_exec, VA(a19, a2, a17, a16, a5, a6), cont))))))))));
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a1, a4, a8), //
+ Op("function_type", FILE_nand::PRED_function_type_6_static_exec, VA(a2, a3, a4, a8,  ATOM_nf , a9), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a7), //
+ Op("false_set", FILE_nand::PRED_false_set_2_static_exec, VA(a8, a10), //
+ Op("new_function_CIs", FILE_nand::PRED_new_function_CIs_5_static_exec, VA(a4, a12, a2, a13, a14), //
+ Op("function", FILE_nand::PRED_function_3_static_exec, VA(a1, a13, a15), //
+ Op("update_circuit", FILE_nand::PRED_update_circuit_6_static_exec, VA(a13, a14, a15, a9, a13, a16), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a17, a18), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a19, a20), //
+ Op("add_necessary_functions", FILE_nand::PRED_add_necessary_functions_6_static_exec, VA(a19, a2, a17, a16, a5, a6), cont))))))))));
     }
 
     private final static Operation add_necessary_functions_6_3(Prolog m) { 
@@ -5926,8 +5927,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a16 =  S( FUNCTOR_function_8 , a6, a7, a8, a15, a9, a10, a11, a12);
  ;
         return //
- Op(FILE_nand::PRED_new_function_CIs_7_static_exec, VA(a1, a6, a8, a3, a14,  Prolog.Nil , a15), //
- Op(FILE_nand::PRED_$unify_2_static_exec, VA(a13, a16), cont));
+ Op("new_function_CIs", FILE_nand::PRED_new_function_CIs_7_static_exec, VA(a1, a6, a8, a3, a14,  Prolog.Nil , a15), //
+ Op("$unify", FILE_nand::PRED_$unify_2_static_exec, VA(a13, a16), cont));
     }
 /** PREDICATE: new_function_CIs/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -6058,10 +6059,10 @@ m.cont = cont;
         //END inline expansion
         a22 = CONS(a10, a6);
         return //
- Op(FILE_nand::PRED_set_intersection_3_static_exec, VA(a3, a12,  Prolog.Nil ), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a21), //
- Op(FILE_nand::PRED_$dummy_36_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a10, a13, a2, a4, a20), //
- Op(FILE_nand::PRED_new_function_CIs_7_static_exec, VA(a9, a2, a3, a4, a19, a22, a7), cont))));
+ Op("set_intersection", FILE_nand::PRED_set_intersection_3_static_exec, VA(a3, a12,  Prolog.Nil ), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a21), //
+ Op("$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_36_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_static_exec, VA(a10, a13, a2, a4, a20), //
+ Op("new_function_CIs", FILE_nand::PRED_new_function_CIs_7_static_exec, VA(a9, a2, a3, a4, a19, a22, a7), cont))));
     }
 
     private final static Operation new_function_CIs_7_3(Prolog m) { 
@@ -6160,7 +6161,7 @@ m.cont = cont;
         //END inline expansion
         a7 = CONS(a3,  Prolog.Nil );
         return //
- Op(FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a5), cont);
+ Op("set_union", FILE_nand::PRED_set_union_3_static_exec, VA(a2, a7, a5), cont);
     }
 
     private final static Operation $dummy_36_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_5_2(Prolog m) { 
@@ -6206,14 +6207,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
     // function_type(A,B,C,D,E,F):-[true_set(D,G),select_vector(G,D,A,B,C,dummy,0,nf,999,H,F,E,I)]
         a7 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_true_set_2_static_exec, VA(a4, a7), //
- Op(FILE_nand::PRED_select_vector_13_static_exec, VA(a7, a4, a1, a2, a3,  ATOM_dummy ,  int_0 ,  ATOM_nf ,  int_999 , m.DONT_CARE2(), a6, a5, m.DONT_CARE2()), cont));
+ Op("true_set", FILE_nand::PRED_true_set_2_static_exec, VA(a4, a7), //
+ Op("select_vector", FILE_nand::PRED_select_vector_13_static_exec, VA(a7, a4, a1, a2, a3,  ATOM_dummy ,  int_0 ,  ATOM_nf ,  int_999 , m.DONT_CARE2(), a6, a5, m.DONT_CARE2()), cont));
     }
 /** PREDICATE: test_bounds/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(test_bounds/3,public)
-        final static SymbolTerm ATOM_bound = SYM("bound");
+        final static Functor ATOM_bound = SYM("bound");
 
 
 
@@ -6230,8 +6231,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
     // test_bounds(A,B,C):-[access(bound,D),'$less_than'(B,D)]
         a4 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_access_2_static_exec, VA( ATOM_bound , a4), //
- Op(FILE_nand::PRED_$less_than_2_static_exec, VA(a2, a4), cont));
+ Op("access", FILE_nand::PRED_access_2_static_exec, VA( ATOM_bound , a4), //
+ Op("$less_than", FILE_nand::PRED_$less_than_2_static_exec, VA(a2, a4), cont));
     }
 /** PREDICATE: update_bounds/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -6251,7 +6252,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a3 = LARG[2];
     // update_bounds(A,B,C):-[set(bound,B)]
         return //
- Op(FILE_nand::PRED_set_2_static_exec, VA( ATOM_bound , a2), cont);
+ Op("set", FILE_nand::PRED_set_2_static_exec, VA( ATOM_bound , a2), cont);
     }
 /** PREDICATE: $dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -6291,9 +6292,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_recorded_3_static_exec, VA(a1, a2, a3), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a4), //
- Op(FILE_nand::PRED_erase_1_static_exec, VA(a3), cont)));
+ Op("recorded", FILE_nand::PRED_recorded_3_static_exec, VA(a1, a2, a3), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a4), //
+ Op("erase", FILE_nand::PRED_erase_1_static_exec, VA(a3), cont)));
     }
 
     private final static Operation $dummy_37_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_2(Prolog m) { 
@@ -6325,8 +6326,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a2 = LARG[1];
     // set(A,B):-['$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl'(A,C,D),recorda(A,B,E)]
         return //
- Op(FILE_nand::PRED_$dummy_37_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), //
- Op(FILE_nand::PRED_recorda_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont));
+ Op("$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl", FILE_nand::PRED_$dummy_37_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), //
+ Op("recorda", FILE_nand::PRED_recorda_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont));
     }
 /** PREDICATE: access/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -6345,14 +6346,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
         a2 = LARG[1];
     // access(A,B):-[recorded(A,B,C)]
         return //
- Op(FILE_nand::PRED_recorded_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
+ Op("recorded", FILE_nand::PRED_recorded_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: write_gates/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
 */
     // main(write_gates/1,public)
-        final static SymbolTerm ATOM_gate$0020$0023 = SYM("gate #");
-        final static SymbolTerm ATOM_$0020inputs$003A$0020$0020$0020 = SYM(" inputs:   ");
+        final static Functor ATOM_gate$0020$0023 = SYM("gate #");
+        final static Functor ATOM_$0020inputs$003A$0020$0020$0020 = SYM(" inputs:   ");
 
 
 
@@ -6408,14 +6409,14 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a2, a4), //
- Op(FILE_nand::PRED_write_1_static_exec, VA( ATOM_gate$0020$0023 ), //
- Op(FILE_nand::PRED_write_1_static_exec, VA(a4), //
- Op(FILE_nand::PRED_write_1_static_exec, VA( ATOM_$0020inputs$003A$0020$0020$0020 ), //
- Op(FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a2, a5), //
- Op(FILE_nand::PRED_write_1_static_exec, VA(a5), //
- Op(FILE_nand::PRED_nl_0_static_exec, VA(), //
- Op(FILE_nand::PRED_write_gates_1_static_exec, VA(a3), cont))))))));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a2, a4), //
+ Op("write", FILE_nand::PRED_write_1_static_exec, VA( ATOM_gate$0020$0023 ), //
+ Op("write", FILE_nand::PRED_write_1_static_exec, VA(a4), //
+ Op("write", FILE_nand::PRED_write_1_static_exec, VA( ATOM_$0020inputs$003A$0020$0020$0020 ), //
+ Op("immediate_predecessors", FILE_nand::PRED_immediate_predecessors_2_static_exec, VA(a2, a5), //
+ Op("write", FILE_nand::PRED_write_1_static_exec, VA(a5), //
+ Op("nl", FILE_nand::PRED_nl_0_static_exec, VA(), //
+ Op("write_gates", FILE_nand::PRED_write_gates_1_static_exec, VA(a3), cont))))))));
     }
 /** PREDICATE: function/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nand.pl
@@ -6470,8 +6471,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_nand::PRED_function_number_2_static_exec, VA(a4, a1), //
- Op(FILE_nand::PRED_$cut_1_static_exec, VA(a5), cont));
+ Op("function_number", FILE_nand::PRED_function_number_2_static_exec, VA(a4, a1), //
+ Op("$cut", FILE_nand::PRED_$cut_1_static_exec, VA(a5), cont));
     }
 
     private final static Operation function_3_2(Prolog m) { 

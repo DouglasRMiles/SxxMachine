@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
+import SxxMachine.pterm.Source;
+import SxxMachine.pterm.TermData;
+
 /**
  * Builds Fluents from Java Streams
  */

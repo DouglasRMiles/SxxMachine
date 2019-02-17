@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_prover extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
         m.setB0();
     // top:-[prover]
         return //
- Op(FILE_prover::PRED_prover_0_static_exec, VA(), cont);
+ Op("prover", FILE_prover::PRED_prover_0_static_exec, VA(), cont);
     }
 /** PREDICATE: prover/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
@@ -75,8 +76,8 @@ m.cont = cont;
         a1 = m.mkvar1();
         a2 = m.mkvar1();
         return //
- Op(FILE_prover::PRED_problem_3_static_exec, VA(m.DONT_CARE2(), a1, a2), //
- Op(FILE_prover::PRED_implies_2_static_exec, VA(a1, a2), fail_0));
+ Op("problem", FILE_prover::PRED_problem_3_static_exec, VA(m.DONT_CARE2(), a1, a2), //
+ Op("implies", FILE_prover::PRED_implies_2_static_exec, VA(a1, a2), fail_0));
     }
 
     private final static Operation prover_0_2(Prolog m) { 
@@ -90,38 +91,38 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
 */
     // main(problem/3,public)
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm ATOM_a = SYM("a");
-    private static final StructureTerm L_problem_3_s5 = S( FUNCTOR_$002D_1 ,  ATOM_a );
-        final static SymbolTerm FUNCTOR_$002B_1 = F("+",1);
-    private static final StructureTerm L_problem_3_s7 = S( FUNCTOR_$002B_1 ,  ATOM_a );
-        final static SymbolTerm FUNCTOR_$0026_2 = F("&",2);
-    private static final StructureTerm L_problem_3_s11 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s5);
-        final static SymbolTerm FUNCTOR_$0023_2 = F("#",2);
-        final static SymbolTerm ATOM_to_be = SYM("to_be");
-    private static final StructureTerm L_problem_3_s16 = S( FUNCTOR_$002B_1 ,  ATOM_to_be );
-    private static final StructureTerm L_problem_3_s17 = S( FUNCTOR_$002D_1 ,  ATOM_to_be );
-    private static final StructureTerm L_problem_3_s19 = S( FUNCTOR_$0023_2 , L_problem_3_s16, L_problem_3_s17);
-        final static SymbolTerm ATOM_b = SYM("b");
-    private static final StructureTerm L_problem_3_s24 = S( FUNCTOR_$002B_1 ,  ATOM_b );
-    private static final StructureTerm L_problem_3_s26 = S( FUNCTOR_$0023_2 , L_problem_3_s24, L_problem_3_s5);
-    private static final StructureTerm L_problem_3_s28 = S( FUNCTOR_$002D_1 ,  ATOM_b );
-    private static final StructureTerm L_problem_3_s30 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s28);
-    private static final StructureTerm L_problem_3_s32 = S( FUNCTOR_$0026_2 , L_problem_3_s28, L_problem_3_s5);
-    private static final StructureTerm L_problem_3_s34 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s5);
-    private static final StructureTerm L_problem_3_s36 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s34);
-        final static SymbolTerm ATOM_c = SYM("c");
-    private static final StructureTerm L_problem_3_s40 = S( FUNCTOR_$002B_1 ,  ATOM_c );
-    private static final StructureTerm L_problem_3_s42 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s40);
-    private static final StructureTerm L_problem_3_s44 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s42);
-    private static final StructureTerm L_problem_3_s46 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s40);
-    private static final StructureTerm L_problem_3_s48 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s46);
-    private static final StructureTerm L_problem_3_s51 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s24);
-    private static final StructureTerm L_problem_3_s52 = S( FUNCTOR_$002D_1 ,  ATOM_c );
-    private static final StructureTerm L_problem_3_s54 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s52);
-    private static final StructureTerm L_problem_3_s56 = S( FUNCTOR_$0023_2 , L_problem_3_s54, L_problem_3_s46);
-    private static final StructureTerm L_problem_3_s59 = S( FUNCTOR_$0026_2 , L_problem_3_s46, L_problem_3_s42);
-    private static final StructureTerm L_problem_3_s61 = S( FUNCTOR_$0023_2 , L_problem_3_s30, L_problem_3_s40);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor ATOM_a = SYM("a");
+    private static final Term L_problem_3_s5 = S( FUNCTOR_$002D_1 ,  ATOM_a );
+        final static Functor FUNCTOR_$002B_1 = F("+",1);
+    private static final Term L_problem_3_s7 = S( FUNCTOR_$002B_1 ,  ATOM_a );
+        final static Functor FUNCTOR_$0026_2 = F("&",2);
+    private static final Term L_problem_3_s11 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s5);
+        final static Functor FUNCTOR_$0023_2 = F("#",2);
+        final static Functor ATOM_to_be = SYM("to_be");
+    private static final Term L_problem_3_s16 = S( FUNCTOR_$002B_1 ,  ATOM_to_be );
+    private static final Term L_problem_3_s17 = S( FUNCTOR_$002D_1 ,  ATOM_to_be );
+    private static final Term L_problem_3_s19 = S( FUNCTOR_$0023_2 , L_problem_3_s16, L_problem_3_s17);
+        final static Functor ATOM_b = SYM("b");
+    private static final Term L_problem_3_s24 = S( FUNCTOR_$002B_1 ,  ATOM_b );
+    private static final Term L_problem_3_s26 = S( FUNCTOR_$0023_2 , L_problem_3_s24, L_problem_3_s5);
+    private static final Term L_problem_3_s28 = S( FUNCTOR_$002D_1 ,  ATOM_b );
+    private static final Term L_problem_3_s30 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s28);
+    private static final Term L_problem_3_s32 = S( FUNCTOR_$0026_2 , L_problem_3_s28, L_problem_3_s5);
+    private static final Term L_problem_3_s34 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s5);
+    private static final Term L_problem_3_s36 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s34);
+        final static Functor ATOM_c = SYM("c");
+    private static final Term L_problem_3_s40 = S( FUNCTOR_$002B_1 ,  ATOM_c );
+    private static final Term L_problem_3_s42 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s40);
+    private static final Term L_problem_3_s44 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s42);
+    private static final Term L_problem_3_s46 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s40);
+    private static final Term L_problem_3_s48 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s46);
+    private static final Term L_problem_3_s51 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s24);
+    private static final Term L_problem_3_s52 = S( FUNCTOR_$002D_1 ,  ATOM_c );
+    private static final Term L_problem_3_s54 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s52);
+    private static final Term L_problem_3_s56 = S( FUNCTOR_$0023_2 , L_problem_3_s54, L_problem_3_s46);
+    private static final Term L_problem_3_s59 = S( FUNCTOR_$0026_2 , L_problem_3_s46, L_problem_3_s42);
+    private static final Term L_problem_3_s61 = S( FUNCTOR_$0023_2 , L_problem_3_s30, L_problem_3_s40);
 
 
 
@@ -366,8 +367,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
 */
     // main(implies/2,public)
-        final static SymbolTerm FUNCTOR_fs_4 = F("fs",4);
-    private static final StructureTerm L_implies_2_s4 = S( FUNCTOR_fs_4 ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+        final static Functor FUNCTOR_fs_4 = F("fs",4);
+    private static final Term L_implies_2_s4 = S( FUNCTOR_fs_4 ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
 
 
 
@@ -383,8 +384,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
     // implies(A,B):-[opposite(B,C),add_conjunction(A,C,fs([],[],[],[]))]
         a3 = m.mkvar1();
         return //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a2, a3), //
- Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a1, a3, L_implies_2_s4), cont));
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a2, a3), //
+ Op("add_conjunction", FILE_prover::PRED_add_conjunction_3_static_exec, VA(a1, a3, L_implies_2_s4), cont));
     }
 /** PREDICATE: opposite/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
@@ -450,7 +451,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -482,7 +483,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -552,15 +553,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_prover::PRED_expand_3_static_exec, VA(a1, a3, a4), //
- Op(FILE_prover::PRED_expand_3_static_exec, VA(a2, a4, a5), //
- Op(FILE_prover::PRED_refute_1_static_exec, VA(a5), cont)));
+ Op("expand", FILE_prover::PRED_expand_3_static_exec, VA(a1, a3, a4), //
+ Op("expand", FILE_prover::PRED_expand_3_static_exec, VA(a2, a4, a5), //
+ Op("refute", FILE_prover::PRED_refute_1_static_exec, VA(a5), cont)));
     }
 /** PREDICATE: expand/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
 */
     // main(expand/3,public)
-        final static SymbolTerm ATOM_refuted = SYM("refuted");
+        final static Functor ATOM_refuted = SYM("refuted");
 
 
 
@@ -663,8 +664,8 @@ m.cont = cont;
         a8 =  S( FUNCTOR_$0026_2 , a4, a5);
  ;
         return //
- Op(FILE_prover::PRED_includes_2_static_exec, VA(a6, a8), //
- Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+ Op("includes", FILE_prover::PRED_includes_2_static_exec, VA(a6, a8), //
+ Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
     private final static Operation expand_3_3(Prolog m) { 
@@ -705,8 +706,8 @@ m.cont = cont;
         a11 =  S( FUNCTOR_$0026_2 , a4, a5);
  ;
         return //
- Op(FILE_prover::PRED_includes_2_static_exec, VA(a7, a11), //
- Op(FILE_prover::PRED_$cut_1_static_exec, VA(a10), cont));
+ Op("includes", FILE_prover::PRED_includes_2_static_exec, VA(a7, a11), //
+ Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a10), cont));
     }
 
     private final static Operation expand_3_4(Prolog m) { 
@@ -745,7 +746,7 @@ m.cont = cont;
  ;
         a13 = m.mkvar1();
         p1 = //
- Op(FILE_prover::PRED_expand_3_static_exec, VA(a5, a13, a3), cont);
+ Op("expand", FILE_prover::PRED_expand_3_static_exec, VA(a5, a13, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a12;
         m.AREGS[2] = a13;
@@ -789,8 +790,8 @@ m.cont = cont;
         a13 =  S( FUNCTOR_fs_4 , a12, a7, a8, a9);
  ;
         return //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a10, a11), //
- Op(FILE_prover::PRED_extend_6_static_exec, VA(a11, a6, a7, a12, a13, a3), cont));
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a10, a11), //
+ Op("extend", FILE_prover::PRED_extend_6_static_exec, VA(a11, a6, a7, a12, a13, a3), cont));
     }
 
     private final static Operation expand_3_6(Prolog m) { 
@@ -823,7 +824,7 @@ m.cont = cont;
         a10 =  S( FUNCTOR_fs_4 , a5, a6, a9, a8);
  ;
         return //
- Op(FILE_prover::PRED_extend_6_static_exec, VA(a4, a7, a8, a9, a10, a3), cont);
+ Op("extend", FILE_prover::PRED_extend_6_static_exec, VA(a4, a7, a8, a9, a10, a3), cont);
     }
 
     private final static Operation expand_3_7(Prolog m) { 
@@ -853,7 +854,7 @@ m.cont = cont;
         a10 =  S( FUNCTOR_fs_4 , a5, a6, a7, a9);
  ;
         return //
- Op(FILE_prover::PRED_extend_6_static_exec, VA(a4, a8, a7, a9, a10, a3), cont);
+ Op("extend", FILE_prover::PRED_extend_6_static_exec, VA(a4, a8, a7, a9, a10, a3), cont);
     }
 /** PREDICATE: includes/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
@@ -981,8 +982,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_prover::PRED_includes_2_static_exec, VA(a3, a1), //
- Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+ Op("includes", FILE_prover::PRED_includes_2_static_exec, VA(a3, a1), //
+ Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
     private final static Operation extend_6_2(Prolog m) { 
@@ -1009,8 +1010,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_prover::PRED_includes_2_static_exec, VA(a2, a1), //
- Op(FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
+ Op("includes", FILE_prover::PRED_includes_2_static_exec, VA(a2, a1), //
+ Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
     private final static Operation extend_6_3(Prolog m) { 
@@ -1120,12 +1121,12 @@ m.cont = cont;
         a13 =  S( FUNCTOR_fs_4 , a7, a3, a4, a5);
  ;
         return //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a8, a10), //
- Op(FILE_prover::PRED_opposite_2_static_exec, VA(a9, a11), //
- Op(FILE_prover::PRED_$unify_2_static_exec, VA(a12, a13), //
- Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a9, a12), //
- Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a11, a12), //
- Op(FILE_prover::PRED_add_conjunction_3_static_exec, VA(a8, a11, a12), cont))))));
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a8, a10), //
+ Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a9, a11), //
+ Op("$unify", FILE_prover::PRED_$unify_2_static_exec, VA(a12, a13), //
+ Op("add_conjunction", FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a9, a12), //
+ Op("add_conjunction", FILE_prover::PRED_add_conjunction_3_static_exec, VA(a10, a11, a12), //
+ Op("add_conjunction", FILE_prover::PRED_add_conjunction_3_static_exec, VA(a8, a11, a12), cont))))));
     }
 static { loadPreds(); }
 static public void loadPreds() {

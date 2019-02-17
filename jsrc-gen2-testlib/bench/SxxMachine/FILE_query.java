@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_query extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
         m.setB0();
     // top:-[query]
         return //
- Op(FILE_query::PRED_query_0_static_exec, VA(), cont);
+ Op("query", FILE_query::PRED_query_0_static_exec, VA(), cont);
     }
 /** PREDICATE: query/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
@@ -72,7 +73,7 @@ m.cont = cont;
         cont = m.cont;
     // query:-[query(A),fail]
         return //
- Op(FILE_query::PRED_query_1_static_exec, VA(m.DONT_CARE2()), fail_0);
+ Op("query", FILE_query::PRED_query_1_static_exec, VA(m.DONT_CARE2()), fail_0);
     }
 
     private final static Operation query_0_2(Prolog m) { 
@@ -86,7 +87,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(query/1,public)
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
 
 
 
@@ -152,18 +153,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
         a12 =  S( FUNCTOR_$002A_2 ,  int_21 , a8);
  ;
         return //
- Op(FILE_query::PRED_density_2_static_exec, VA(a2, a4), //
- Op(FILE_query::PRED_density_2_static_exec, VA(a6, a8), //
- Op(FILE_query::PRED_$greater_than_2_static_exec, VA(a4, a8), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op(FILE_query::PRED_$less_than_2_static_exec, VA(a9, a11), cont))))));
+ Op("density", FILE_query::PRED_density_2_static_exec, VA(a2, a4), //
+ Op("density", FILE_query::PRED_density_2_static_exec, VA(a6, a8), //
+ Op("$greater_than", FILE_query::PRED_$greater_than_2_static_exec, VA(a4, a8), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
+ Op("$less_than", FILE_query::PRED_$less_than_2_static_exec, VA(a9, a11), cont))))));
     }
 /** PREDICATE: density/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(density/2,public)
-        final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
+        final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
         final static IntegerTerm int_100 = Integer(100);
 
 
@@ -187,63 +188,63 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
         a6 =  S( FUNCTOR_$002F$002F_2 , a5, a4);
  ;
         return //
- Op(FILE_query::PRED_pop_2_static_exec, VA(a1, a3), //
- Op(FILE_query::PRED_area_2_static_exec, VA(a1, a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a2, a6), cont)));
+ Op("pop", FILE_query::PRED_pop_2_static_exec, VA(a1, a3), //
+ Op("area", FILE_query::PRED_area_2_static_exec, VA(a1, a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a2, a6), cont)));
     }
 /** PREDICATE: pop/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(pop/2,public)
-        final static SymbolTerm ATOM_china = SYM("china");
+        final static Functor ATOM_china = SYM("china");
         final static IntegerTerm int_8250 = Integer(8250);
-        final static SymbolTerm ATOM_india = SYM("india");
+        final static Functor ATOM_india = SYM("india");
         final static IntegerTerm int_5863 = Integer(5863);
-        final static SymbolTerm ATOM_ussr = SYM("ussr");
+        final static Functor ATOM_ussr = SYM("ussr");
         final static IntegerTerm int_2521 = Integer(2521);
-        final static SymbolTerm ATOM_usa = SYM("usa");
+        final static Functor ATOM_usa = SYM("usa");
         final static IntegerTerm int_2119 = Integer(2119);
-        final static SymbolTerm ATOM_indonesia = SYM("indonesia");
+        final static Functor ATOM_indonesia = SYM("indonesia");
         final static IntegerTerm int_1276 = Integer(1276);
-        final static SymbolTerm ATOM_japan = SYM("japan");
+        final static Functor ATOM_japan = SYM("japan");
         final static IntegerTerm int_1097 = Integer(1097);
-        final static SymbolTerm ATOM_brazil = SYM("brazil");
+        final static Functor ATOM_brazil = SYM("brazil");
         final static IntegerTerm int_1042 = Integer(1042);
-        final static SymbolTerm ATOM_bangladesh = SYM("bangladesh");
+        final static Functor ATOM_bangladesh = SYM("bangladesh");
         final static IntegerTerm int_750 = Integer(750);
-        final static SymbolTerm ATOM_pakistan = SYM("pakistan");
+        final static Functor ATOM_pakistan = SYM("pakistan");
         final static IntegerTerm int_682 = Integer(682);
-        final static SymbolTerm ATOM_w_germany = SYM("w_germany");
+        final static Functor ATOM_w_germany = SYM("w_germany");
         final static IntegerTerm int_620 = Integer(620);
-        final static SymbolTerm ATOM_nigeria = SYM("nigeria");
+        final static Functor ATOM_nigeria = SYM("nigeria");
         final static IntegerTerm int_613 = Integer(613);
-        final static SymbolTerm ATOM_mexico = SYM("mexico");
+        final static Functor ATOM_mexico = SYM("mexico");
         final static IntegerTerm int_581 = Integer(581);
-        final static SymbolTerm ATOM_uk = SYM("uk");
+        final static Functor ATOM_uk = SYM("uk");
         final static IntegerTerm int_559 = Integer(559);
-        final static SymbolTerm ATOM_italy = SYM("italy");
+        final static Functor ATOM_italy = SYM("italy");
         final static IntegerTerm int_554 = Integer(554);
-        final static SymbolTerm ATOM_france = SYM("france");
+        final static Functor ATOM_france = SYM("france");
         final static IntegerTerm int_525 = Integer(525);
-        final static SymbolTerm ATOM_philippines = SYM("philippines");
+        final static Functor ATOM_philippines = SYM("philippines");
         final static IntegerTerm int_415 = Integer(415);
-        final static SymbolTerm ATOM_thailand = SYM("thailand");
+        final static Functor ATOM_thailand = SYM("thailand");
         final static IntegerTerm int_410 = Integer(410);
-        final static SymbolTerm ATOM_turkey = SYM("turkey");
+        final static Functor ATOM_turkey = SYM("turkey");
         final static IntegerTerm int_383 = Integer(383);
-        final static SymbolTerm ATOM_egypt = SYM("egypt");
+        final static Functor ATOM_egypt = SYM("egypt");
         final static IntegerTerm int_364 = Integer(364);
-        final static SymbolTerm ATOM_spain = SYM("spain");
+        final static Functor ATOM_spain = SYM("spain");
         final static IntegerTerm int_352 = Integer(352);
-        final static SymbolTerm ATOM_poland = SYM("poland");
+        final static Functor ATOM_poland = SYM("poland");
         final static IntegerTerm int_337 = Integer(337);
-        final static SymbolTerm ATOM_s_korea = SYM("s_korea");
+        final static Functor ATOM_s_korea = SYM("s_korea");
         final static IntegerTerm int_335 = Integer(335);
-        final static SymbolTerm ATOM_iran = SYM("iran");
+        final static Functor ATOM_iran = SYM("iran");
         final static IntegerTerm int_320 = Integer(320);
-        final static SymbolTerm ATOM_ethiopia = SYM("ethiopia");
+        final static Functor ATOM_ethiopia = SYM("ethiopia");
         final static IntegerTerm int_272 = Integer(272);
-        final static SymbolTerm ATOM_argentina = SYM("argentina");
+        final static Functor ATOM_argentina = SYM("argentina");
         final static IntegerTerm int_251 = Integer(251);
 
 

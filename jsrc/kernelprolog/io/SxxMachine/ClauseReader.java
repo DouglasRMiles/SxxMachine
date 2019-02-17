@@ -1,7 +1,12 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.S;
+
 import java.io.IOException;
 import java.io.Reader;
+
+import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.Parser; 
 
 /**
  * Builds Fluents from Java Streams
@@ -67,7 +72,7 @@ public class ClauseReader extends CharReader {
 		return extract_info(C);
 	}
 
-	static StructureTerm extract_info(Clause C) {
+	static Term extract_info(Clause C) {
 		if (null == C)
 			return null;
 		Term Vs = C.varsOf();
@@ -76,7 +81,7 @@ public class ClauseReader extends CharReader {
 		Clause NamedSuperC = SuperC.cnumbervars(false);
 		Term Ns = NamedSuperC.getHead();
 		Term NamedC = NamedSuperC.getBody();
-		return StructureTerm.S("clause", C, Vs, NamedC, Ns);
+		return S("clause", C, Vs, NamedC, Ns);
 	}
 
 	@Override

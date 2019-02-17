@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_ops8 extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/ops8.pl
@@ -42,23 +43,23 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/ops8.pl
         m.setB0();
     // top:-[ops8]
         return //
- Op(FILE_ops8::PRED_ops8_0_static_exec, VA(), cont);
+ Op("ops8", FILE_ops8::PRED_ops8_0_static_exec, VA(), cont);
     }
 /** PREDICATE: ops8/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/ops8.pl
 */
     // main(ops8/0,public)
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm ATOM_x = SYM("x");
-    private static final StructureTerm L_ops8_0_s6 = S( FUNCTOR_$002B_2 ,  ATOM_x ,  int_1 );
-        final static SymbolTerm FUNCTOR_$005E_2 = F("^",2);
-    private static final StructureTerm L_ops8_0_s10 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_2 );
-    private static final StructureTerm L_ops8_0_s12 = S( FUNCTOR_$002B_2 , L_ops8_0_s10,  int_2 );
-    private static final StructureTerm L_ops8_0_s15 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_3 );
-    private static final StructureTerm L_ops8_0_s17 = S( FUNCTOR_$002B_2 , L_ops8_0_s15,  int_3 );
-    private static final StructureTerm L_ops8_0_s19 = S( FUNCTOR_$002A_2 , L_ops8_0_s12, L_ops8_0_s17);
-    private static final StructureTerm L_ops8_0_s21 = S( FUNCTOR_$002A_2 , L_ops8_0_s6, L_ops8_0_s19);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor ATOM_x = SYM("x");
+    private static final Term L_ops8_0_s6 = S( FUNCTOR_$002B_2 ,  ATOM_x ,  int_1 );
+        final static Functor FUNCTOR_$005E_2 = F("^",2);
+    private static final Term L_ops8_0_s10 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_2 );
+    private static final Term L_ops8_0_s12 = S( FUNCTOR_$002B_2 , L_ops8_0_s10,  int_2 );
+    private static final Term L_ops8_0_s15 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_3 );
+    private static final Term L_ops8_0_s17 = S( FUNCTOR_$002B_2 , L_ops8_0_s15,  int_3 );
+    private static final Term L_ops8_0_s19 = S( FUNCTOR_$002A_2 , L_ops8_0_s12, L_ops8_0_s17);
+    private static final Term L_ops8_0_s21 = S( FUNCTOR_$002A_2 , L_ops8_0_s6, L_ops8_0_s19);
 
 
 
@@ -69,17 +70,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/ops8.pl
         m.setB0();
     // ops8:-[d((x+1)*((x^2+2)*(x^3+3)),x,A)]
         return //
- Op(FILE_ops8::PRED_d_3_static_exec, VA(L_ops8_0_s21,  ATOM_x , m.DONT_CARE2()), cont);
+ Op("d", FILE_ops8::PRED_d_3_static_exec, VA(L_ops8_0_s21,  ATOM_x , m.DONT_CARE2()), cont);
     }
 /** PREDICATE: d/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/ops8.pl
 */
     // main(d/3,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm FUNCTOR_exp_1 = F("exp",1);
-        final static SymbolTerm FUNCTOR_log_1 = F("log",1);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor FUNCTOR_exp_1 = F("exp",1);
+        final static Functor FUNCTOR_log_1 = F("log",1);
 
 
 
@@ -181,7 +182,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -215,7 +216,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -259,7 +260,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
+ Op("d", FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
@@ -313,7 +314,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
+ Op("d", FILE_ops8::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;

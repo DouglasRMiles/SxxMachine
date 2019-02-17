@@ -2,6 +2,9 @@ package SxxMachine;
 
 import java.util.HashMap;
 
+import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.Expect;
+
 /**
  * Initializes Prolog. Sets up shared data areas. Ensures that lib.class,
  * obtained from lib.pro->lib.java is loaded.

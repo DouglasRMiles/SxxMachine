@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import static SxxMachine.TermData.CONS;
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.S;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import SxxMachine.pterm.TermData;
 
 /**
  * Prolog Cafe launcher. The <code>PrologMain</code> class launchs the Prolog
@@ -86,7 +89,7 @@ public class PrologMain {
                 try (FileReader src = new FileReader(file);
                         BufferedReader buf = new BufferedReader(src);
                         PushbackReader in = new PushbackReader(buf, Prolog.PUSHBACK_SIZE)) {
-                    Term path = SymbolTerm.create(file.getPath());
+                    Term path = TermData.createAtomic(file.getPath());
                     if (!p.execute(Prolog.BUILTIN, "consult_stream", path, TermData.FFIObject(in))) {
                         System.err.println();
                         System.err.flush();
@@ -100,8 +103,8 @@ public class PrologMain {
             if (goal == null) {
                 System.err.println();
                 System.err.flush();
-                goal = new StructureTerm(SymbolTerm.intern(":", 2),
-                        new Term[] { SymbolTerm.intern(Prolog.BUILTIN), SymbolTerm.create("cafeteria") });
+                goal = S(TermData
+                        .F(":", 2), new Term[] { TermData.SYM(Prolog.BUILTIN), TermData.createAtomic("cafeteria") });
             }
 
             p.setReductionLimit(reductionLimit);
@@ -134,11 +137,10 @@ public class PrologMain {
         StringTokenizer st = new StringTokenizer(s, ":");
         int i = st.countTokens();
         if (i == 1) {
-            Term[] args = { SymbolTerm.intern("user"), SymbolTerm.create(st.nextToken()) };
-            return new StructureTerm(SymbolTerm.intern(":", 2), args);
+
+            return S(TermData.F(":", 2), TermData.SYM("user"), TermData.createAtomic(st.nextToken()));
         } else if (i == 2) {
-            Term[] args = { SymbolTerm.create(st.nextToken()), SymbolTerm.create(st.nextToken()) };
-            return new StructureTerm(SymbolTerm.intern(":", 2), args);
+            return TermData.S(":", TermData.SYM(st.nextToken()), TermData.SYM(st.nextToken()));
         } else {
             return null;
         }
@@ -153,10 +155,10 @@ public class PrologMain {
         }
 
         List<String> list = new ArrayList<>(set);
-        Term done = SymbolTerm.intern("true");
+        Term done = TermData.SYM("true");
         Term head = Prolog.Nil;
         for (int i = list.size() - 1; 0 <= i; i--) {
-            head = CONS(SymbolTerm.intern(list.get(i)), head);
+            head = CONS(TermData.SYM(list.get(i)), head);
         }
         p.execute(Prolog.BUILTIN, "initialization", head, done);
         PredTable.runInits(p.engine);

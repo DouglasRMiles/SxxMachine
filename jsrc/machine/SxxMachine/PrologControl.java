@@ -11,6 +11,9 @@ import java.io.PrintWriter;
 import java.io.PushbackReader;
 import java.util.Set;
 
+import SxxMachine.pterm.HashtableOfTerm;
+import SxxMachine.pterm.TermData;
+
 /**
  * Tracks current evaluation goal and results.
  * <p>
@@ -27,7 +30,7 @@ public abstract class PrologControl {
     /** Holds a Prolog engine. */
     protected final Prolog engine;
     /** Holds a Prolog goal to be executed. */
-    protected Operation code;
+    public Operation code;
 
     /** How many operations can be executed before exceeding cost limit. */
     private long reductionLimit = 1 << 20;
@@ -134,15 +137,15 @@ public abstract class PrologControl {
             this.engine.streamManager = new HashtableOfTerm(7);
         }
         if (in != null) {
-            this.engine.streamManager.put(SymbolTerm.intern("user_input"), TermData.FFIObject(new PushbackReader(
+            this.engine.streamManager.put(TermData.SYM("user_input"), TermData.FFIObject(new PushbackReader(
                     new BufferedReader(new InputStreamReader(in)), Prolog.PUSHBACK_SIZE)));
         }
         if (out != null) {
-            this.engine.streamManager.put(SymbolTerm.intern("user_output"), TermData
+            this.engine.streamManager.put(TermData.SYM("user_output"), TermData
                     .FFIObject(new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)), true)));
         }
         if (err != null) {
-            this.engine.streamManager.put(SymbolTerm.intern("user_error"), TermData
+            this.engine.streamManager.put(TermData.SYM("user_error"), TermData
                     .FFIObject(new PrintWriter(new BufferedWriter(new OutputStreamWriter(err)), true)));
         }
     }
@@ -271,7 +274,7 @@ public abstract class PrologControl {
             }
 
             if (isOutter) {
-                SymbolTerm.gc();
+                TermData.gc();
                 logger.close();
             }
         }
@@ -331,7 +334,7 @@ public abstract class PrologControl {
         } finally {
             this.reductionsUsed = this.reductionLimit - reductionsRemaining;
             this.code = code;
-            SymbolTerm.gc();
+            TermData.gc();
         }
     }
 

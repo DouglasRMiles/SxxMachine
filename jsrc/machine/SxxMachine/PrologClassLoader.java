@@ -1,7 +1,11 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.S;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import SxxMachine.pterm.TermData;
 
 /**
  * Prolog class loader.
@@ -121,9 +125,8 @@ public class PrologClassLoader extends ClassLoader {
         throw new ExistenceException("procedure", term(pkg, functor, arity), "NOT_FOUND");
     }
 
-    private static StructureTerm term(String pkg, String functor, int arity) {
-        return new StructureTerm(":", SymbolTerm.create(pkg),
-                new StructureTerm("/", SymbolTerm.create(functor), TermData.Integer(arity)));
+    private static Term term(String pkg, String functor, int arity) {
+        return S(":", TermData.SYM(pkg), S("/", TermData.SYM(functor), TermData.Integer(arity)));
     }
 
     // private Constructor<? extends Predicate> getConstructor(String pkg, String functor, int arity) throws ClassNotFoundException {

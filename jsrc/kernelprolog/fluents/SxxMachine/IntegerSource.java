@@ -1,5 +1,10 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Long;
+
+import SxxMachine.pterm.LongTerm;
+import SxxMachine.pterm.Source; 
+
 /**
  * creates a source of integers based on x=a*x+b formula
  */

@@ -1,5 +1,8 @@
 package SxxMachine;
 
+import SxxMachine.pterm.Sink;
+import SxxMachine.pterm.TermData;
+
 /**
  * Builds Fluents from Java Streams
  */

@@ -2,15 +2,16 @@ package SxxMachine.am2j;
 
 import java.io.File;
 
+import SxxMachine.Functor;
 import SxxMachine.IllegalDomainException;
 import SxxMachine.Operation;
 import SxxMachine.PInstantiationException;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
 import SxxMachine.PrologException;
-import SxxMachine.SymbolTerm;
 import SxxMachine.Term;
-import SxxMachine.VariableTerm;
+import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.VariableTerm;
 
 /** {@code file_directory_name(+File, -Directory)} */
 public class PRED_file_directory_name_2 extends Predicate.P2 {
@@ -28,7 +29,7 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
 		Term a1 = LARG[0].dref();
 		if (a1 instanceof VariableTerm)
 			throw new PInstantiationException(this, 1);
-		if (!(a1 instanceof SymbolTerm))
+		if (!(a1 instanceof Functor))
 			throw new IllegalDomainException(this, 1, "file", a1);
 
 		File file = new File(a1.pprint());
@@ -37,7 +38,7 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
 			throw new IllegalDomainException(this, 1, "file", a1);
 
 		Term a2 = LARG[1].dref();
-		if (a2.unify(SymbolTerm.create(dir.getPath()), engine.trail))
+		if (a2.unify(TermData.createAtomic(dir.getPath()), engine.trail))
 			return cont;
 		else
 			return engine.fail();

@@ -3,6 +3,8 @@ package SxxMachine;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
+import SxxMachine.pterm.HashtableOfTerm;
+
 /**
  * Backup of a Prolog interpreter that can later create a new interpreter.
  * <p>

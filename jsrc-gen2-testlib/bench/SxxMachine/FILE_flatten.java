@@ -18,26 +18,27 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_flatten extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(top/0,public)
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static SymbolTerm FUNCTOR_a_3 = F("a",3);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_b_1 = F("b",1);
-        final static SymbolTerm FUNCTOR_c_1 = F("c",1);
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor FUNCTOR_a_3 = F("a",3);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_b_1 = F("b",1);
+        final static Functor FUNCTOR_c_1 = F("c",1);
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
 
 
 
@@ -86,8 +87,8 @@ m.cont = cont;
         a11 =  S( FUNCTOR_$002C_2 , a9, a10);
  ;
         return //
- Op(FILE_flatten::PRED_eliminate_disjunctions_4_static_exec, VA(a8, a9, a10,  Prolog.Nil ), //
- Op(FILE_flatten::PRED_inst_vars_1_static_exec, VA(a11), cont));
+ Op("eliminate_disjunctions", FILE_flatten::PRED_eliminate_disjunctions_4_static_exec, VA(a8, a9, a10,  Prolog.Nil ), //
+ Op("inst_vars", FILE_flatten::PRED_inst_vars_1_static_exec, VA(a11), cont));
     }
 
     private final static Operation top_0_2(Prolog m) { 
@@ -118,8 +119,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
     // eliminate_disjunctions(A,B,C,D):-[gather_disj(A,B,E,[]),treat_disj(E,C,D)]
         a5 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_gather_disj_4_static_exec, VA(a1, a2, a5,  Prolog.Nil ), //
- Op(FILE_flatten::PRED_treat_disj_3_static_exec, VA(a5, a3, a4), cont));
+ Op("gather_disj", FILE_flatten::PRED_gather_disj_4_static_exec, VA(a1, a2, a5,  Prolog.Nil ), //
+ Op("treat_disj", FILE_flatten::PRED_treat_disj_3_static_exec, VA(a5, a3, a4), cont));
     }
 /** PREDICATE: gather_disj/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -192,9 +193,9 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = CONS(a7, a9);
         return //
- Op(FILE_flatten::PRED_extract_disj_4_static_exec, VA(a5, a7, a3, a8), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a2, a10), //
- Op(FILE_flatten::PRED_gather_disj_4_static_exec, VA(a6, a9, a8, a4), cont)));
+ Op("extract_disj", FILE_flatten::PRED_extract_disj_4_static_exec, VA(a5, a7, a3, a8), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a2, a10), //
+ Op("gather_disj", FILE_flatten::PRED_gather_disj_4_static_exec, VA(a6, a9, a8, a4), cont)));
     }
 /** PREDICATE: extract_disj/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -259,7 +260,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_flatten::PRED_extract_disj_7_static_exec, VA(a8, a6, a3, a4, a1, a10, m.DONT_CARE2()), cont);
+ Op("extract_disj", FILE_flatten::PRED_extract_disj_7_static_exec, VA(a8, a6, a3, a4, a1, a10, m.DONT_CARE2()), cont);
     }
 
     private final static Operation extract_disj_4_2(Prolog m) { 
@@ -282,8 +283,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(extract_disj/7,public)
-        final static SymbolTerm FUNCTOR_disj_4 = F("disj",4);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_disj_4 = F("disj",4);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -355,7 +356,7 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         p1 = //
- Op(FILE_flatten::PRED_extract_disj_7_static_exec, VA(a9, a11, a12, a4, a5, a13, a7), cont);
+ Op("extract_disj", FILE_flatten::PRED_extract_disj_7_static_exec, VA(a9, a11, a12, a4, a5, a13, a7), cont);
         m.AREGS[0] = a8;
         m.AREGS[1] = a10;
         m.AREGS[2] = a3;
@@ -396,10 +397,10 @@ m.cont = cont;
         a12 =  S( FUNCTOR_$002B_2 , a6,  int_1 );
  ;
         return //
- Op(FILE_flatten::PRED_is_disj_2_static_exec, VA(a1, a9), //
- Op(FILE_flatten::PRED_$cut_1_static_exec, VA(a8), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a3, a11), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a7, a12), cont))));
+ Op("is_disj", FILE_flatten::PRED_is_disj_2_static_exec, VA(a1, a9), //
+ Op("$cut", FILE_flatten::PRED_$cut_1_static_exec, VA(a8), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a3, a11), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a7, a12), cont))));
     }
 
     private final static Operation extract_disj_7_3(Prolog m) { 
@@ -427,14 +428,14 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(is_disj/2,public)
-        final static SymbolTerm FUNCTOR_$002D$003E_2 = F("->",2);
-        final static SymbolTerm ATOM_$0021 = SYM("!");
-        final static SymbolTerm FUNCTOR_not_1 = F("not",1);
-        final static SymbolTerm ATOM_fail = SYM("fail");
-    private static final StructureTerm L_is_disj_2_s9 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
-        final static SymbolTerm FUNCTOR_$005C$002B_1 = F("\\+",1);
-        final static SymbolTerm FUNCTOR_$005C$003D_2 = F("\\=",2);
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
+        final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
+        final static Functor ATOM_$0021 = SYM("!");
+        final static Functor FUNCTOR_not_1 = F("not",1);
+        final static Functor ATOM_fail = SYM("fail");
+    private static final Term L_is_disj_2_s9 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
+        final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
+        final static Functor FUNCTOR_$005C$003D_2 = F("\\=",2);
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
 
 
 
@@ -701,13 +702,13 @@ m.cont = cont;
  ;
         a19 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_find_vars_2_static_exec, VA(a12, a13), //
- Op(FILE_flatten::PRED_find_vars_2_static_exec, VA(a9, a14), //
- Op(FILE_flatten::PRED_intersect_vars_3_static_exec, VA(a13, a14, a15), //
- Op(FILE_flatten::PRED_make_dummy_name_2_static_exec, VA(a7, a16), //
- Op(FILE_flatten::PRED_$univ_2_static_exec, VA(a8, a17), //
- Op(FILE_flatten::PRED_make_dummy_clauses_4_static_exec, VA(a18, a8, a2, a19), //
- Op(FILE_flatten::PRED_treat_disj_3_static_exec, VA(a5, a19, a3), cont)))))));
+ Op("find_vars", FILE_flatten::PRED_find_vars_2_static_exec, VA(a12, a13), //
+ Op("find_vars", FILE_flatten::PRED_find_vars_2_static_exec, VA(a9, a14), //
+ Op("intersect_vars", FILE_flatten::PRED_intersect_vars_3_static_exec, VA(a13, a14, a15), //
+ Op("make_dummy_name", FILE_flatten::PRED_make_dummy_name_2_static_exec, VA(a7, a16), //
+ Op("$univ", FILE_flatten::PRED_$univ_2_static_exec, VA(a8, a17), //
+ Op("make_dummy_clauses", FILE_flatten::PRED_make_dummy_clauses_4_static_exec, VA(a18, a8, a2, a19), //
+ Op("treat_disj", FILE_flatten::PRED_treat_disj_3_static_exec, VA(a5, a19, a3), cont)))))));
     }
 /** PREDICATE: make_dummy_clauses/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -769,8 +770,8 @@ m.cont = cont;
         a9 =  S( FUNCTOR_$003A$002D_2 , a2, a5);
  ;
         return //
- Op(FILE_flatten::PRED_copy_2_static_exec, VA(a9, a7), //
- Op(FILE_flatten::PRED_make_dummy_clauses_4_static_exec, VA(a6, a2, a8, a4), cont));
+ Op("copy", FILE_flatten::PRED_copy_2_static_exec, VA(a9, a7), //
+ Op("make_dummy_clauses", FILE_flatten::PRED_make_dummy_clauses_4_static_exec, VA(a6, a2, a8, a4), cont));
     }
 
     private final static Operation make_dummy_clauses_4_2(Prolog m) { 
@@ -800,7 +801,7 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$003A$002D_2 , a2, a1);
  ;
         return //
- Op(FILE_flatten::PRED_copy_2_static_exec, VA(a7, a5), cont);
+ Op("copy", FILE_flatten::PRED_copy_2_static_exec, VA(a7, a5), cont);
     }
 /** PREDICATE: find_vars/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -821,8 +822,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
     // find_vars(A,B):-[find_vars(A,B,C),'$unify'(C,[])]
         a3 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_find_vars_3_static_exec, VA(a1, a2, a3), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a3,  Prolog.Nil ), cont));
+ Op("find_vars", FILE_flatten::PRED_find_vars_3_static_exec, VA(a1, a2, a3), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a3,  Prolog.Nil ), cont));
     }
 /** PREDICATE: find_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -975,7 +976,7 @@ m.cont = cont;
         //END inline expansion
         a6 = m.mkvar1();
         p1 = //
- Op(FILE_flatten::PRED_find_vars_3_static_exec, VA(a5, a6, a3), cont);
+ Op("find_vars", FILE_flatten::PRED_find_vars_3_static_exec, VA(a5, a6, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -996,8 +997,8 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = CONS(m.DONT_CARE1(), a4);
         return //
- Op(FILE_flatten::PRED_$univ_2_static_exec, VA(a1, a5), //
- Op(FILE_flatten::PRED_find_vars_3_static_exec, VA(a4, a2, a3), cont));
+ Op("$univ", FILE_flatten::PRED_$univ_2_static_exec, VA(a1, a5), //
+ Op("find_vars", FILE_flatten::PRED_find_vars_3_static_exec, VA(a4, a2, a3), cont));
     }
 /** PREDICATE: intersect_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1020,15 +1021,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_sort_vars_2_static_exec, VA(a1, a4), //
- Op(FILE_flatten::PRED_sort_vars_2_static_exec, VA(a2, a5), //
- Op(FILE_flatten::PRED_intersect_sorted_vars_3_static_exec, VA(a4, a5, a3), cont)));
+ Op("sort_vars", FILE_flatten::PRED_sort_vars_2_static_exec, VA(a1, a4), //
+ Op("sort_vars", FILE_flatten::PRED_sort_vars_2_static_exec, VA(a2, a5), //
+ Op("intersect_sorted_vars", FILE_flatten::PRED_intersect_sorted_vars_3_static_exec, VA(a4, a5, a3), cont)));
     }
 /** PREDICATE: make_dummy_name/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(make_dummy_name/2,public)
-        final static SymbolTerm ATOM__dummy_ = SYM("_dummy_");
+        final static Functor ATOM__dummy_ = SYM("_dummy_");
 
 
 
@@ -1046,10 +1047,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_name_2_static_exec, VA( ATOM__dummy_ , a3), //
- Op(FILE_flatten::PRED_name_2_static_exec, VA(a1, a4), //
- Op(FILE_flatten::PRED_append_3_static_exec, VA(a3, a4, a5), //
- Op(FILE_flatten::PRED_name_2_static_exec, VA(a2, a5), cont))));
+ Op("name", FILE_flatten::PRED_name_2_static_exec, VA( ATOM__dummy_ , a3), //
+ Op("name", FILE_flatten::PRED_name_2_static_exec, VA(a1, a4), //
+ Op("append", FILE_flatten::PRED_append_3_static_exec, VA(a3, a4, a5), //
+ Op("name", FILE_flatten::PRED_name_2_static_exec, VA(a2, a5), cont))));
     }
 /** PREDICATE: append/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1159,10 +1160,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_varset_2_static_exec, VA(a1, a4), //
- Op(FILE_flatten::PRED_make_sym_2_static_exec, VA(a4, a5), //
- Op(FILE_flatten::PRED_copy2_3_static_exec, VA(a1, a2, a5), //
- Op(FILE_flatten::PRED_$cut_1_static_exec, VA(a3), cont))));
+ Op("varset", FILE_flatten::PRED_varset_2_static_exec, VA(a1, a4), //
+ Op("make_sym", FILE_flatten::PRED_make_sym_2_static_exec, VA(a4, a5), //
+ Op("copy2", FILE_flatten::PRED_copy2_3_static_exec, VA(a1, a2, a5), //
+ Op("$cut", FILE_flatten::PRED_$cut_1_static_exec, VA(a3), cont))));
     }
 /** PREDICATE: copy2/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1211,7 +1212,7 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_flatten::PRED_retrieve_sym_3_static_exec, VA(a1, a3, a2), cont);
+ Op("retrieve_sym", FILE_flatten::PRED_retrieve_sym_3_static_exec, VA(a1, a3, a2), cont);
     }
 
     private final static Operation copy2_3_2(Prolog m) { 
@@ -1243,9 +1244,9 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_functor_3_static_exec, VA(a1, a5, a6), //
- Op(FILE_flatten::PRED_functor_3_static_exec, VA(a2, a5, a6), //
- Op(FILE_flatten::PRED_copy2_5_static_exec, VA(a1, a2, a3,  int_1 , a6), cont)));
+ Op("functor", FILE_flatten::PRED_functor_3_static_exec, VA(a1, a5, a6), //
+ Op("functor", FILE_flatten::PRED_functor_3_static_exec, VA(a2, a5, a6), //
+ Op("copy2", FILE_flatten::PRED_copy2_5_static_exec, VA(a1, a2, a3,  int_1 , a6), cont)));
     }
 /** PREDICATE: copy2/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1333,17 +1334,17 @@ m.cont = cont;
         a10 =  S( FUNCTOR_$002B_2 , a4,  int_1 );
  ;
         return //
- Op(FILE_flatten::PRED_arg_3_static_exec, VA(a4, a1, a7), //
- Op(FILE_flatten::PRED_arg_3_static_exec, VA(a4, a2, a8), //
- Op(FILE_flatten::PRED_copy2_3_static_exec, VA(a7, a8, a3), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
- Op(FILE_flatten::PRED_copy2_5_static_exec, VA(a1, a2, a3, a9, a5), cont)))));
+ Op("arg", FILE_flatten::PRED_arg_3_static_exec, VA(a4, a1, a7), //
+ Op("arg", FILE_flatten::PRED_arg_3_static_exec, VA(a4, a2, a8), //
+ Op("copy2", FILE_flatten::PRED_copy2_3_static_exec, VA(a7, a8, a3), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
+ Op("copy2", FILE_flatten::PRED_copy2_5_static_exec, VA(a1, a2, a3, a9, a5), cont)))));
     }
 /** PREDICATE: retrieve_sym/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(retrieve_sym/3,public)
-        final static SymbolTerm FUNCTOR_p_2 = F("p",2);
+        final static Functor FUNCTOR_p_2 = F("p",2);
 
 
 
@@ -1537,8 +1538,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
     // varset(A,B):-[varbag(A,C),sort(C,B)]
         a3 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_varbag_2_static_exec, VA(a1, a3), //
- Op(FILE_flatten::PRED_sort_2_static_exec, VA(a3, a2), cont));
+ Op("varbag", FILE_flatten::PRED_varbag_2_static_exec, VA(a1, a3), //
+ Op("sort", FILE_flatten::PRED_sort_2_static_exec, VA(a3, a2), cont));
     }
 /** PREDICATE: varbag/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1557,7 +1558,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a2 = LARG[1];
     // varbag(A,B):-[varbag(A,B,[])]
         return //
- Op(FILE_flatten::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
+ Op("varbag", FILE_flatten::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: varbag/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1655,9 +1656,9 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a5), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a6, a2), //
- Op(FILE_flatten::PRED_varbag_5_static_exec, VA(a1,  int_1 , a5, a6, a3), cont)));
+ Op("functor", FILE_flatten::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a5), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a6, a2), //
+ Op("varbag", FILE_flatten::PRED_varbag_5_static_exec, VA(a1,  int_1 , a5, a6, a3), cont)));
     }
 /** PREDICATE: varbag/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1770,19 +1771,19 @@ m.cont = cont;
  ;
         a14 = m.mkvar1();
         return //
- Op(FILE_flatten::PRED_arg_3_static_exec, VA(a2, a1, a9), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a10, a8), //
- Op(FILE_flatten::PRED_varbag_3_static_exec, VA(a9, a10, a11), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a14, a11), //
- Op(FILE_flatten::PRED_varbag_5_static_exec, VA(a1, a12, a3, a14, a5), cont))))));
+ Op("arg", FILE_flatten::PRED_arg_3_static_exec, VA(a2, a1, a9), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a10, a8), //
+ Op("varbag", FILE_flatten::PRED_varbag_3_static_exec, VA(a9, a10, a11), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a14, a11), //
+ Op("varbag", FILE_flatten::PRED_varbag_5_static_exec, VA(a1, a12, a3, a14, a5), cont))))));
     }
 /** PREDICATE: inst_vars/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(inst_vars/1,public)
         final static IntegerTerm int_65 = Integer(65);
-    private static final ListTerm L_inst_vars_1_s3 = CONS( int_65 ,  Prolog.Nil );
+    private static final Term L_inst_vars_1_s3 = CONS( int_65 ,  Prolog.Nil );
 
 
 
@@ -1799,9 +1800,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a3 = m.mkvar1();
         a4 = CONS(a3,  Prolog.Nil );
         return //
- Op(FILE_flatten::PRED_varset_2_static_exec, VA(a1, a2), //
- Op(FILE_flatten::PRED_$unify_2_static_exec, VA(a4, L_inst_vars_1_s3), //
- Op(FILE_flatten::PRED_inst_vars_list_2_static_exec, VA(a2, a3), cont)));
+ Op("varset", FILE_flatten::PRED_varset_2_static_exec, VA(a1, a2), //
+ Op("$unify", FILE_flatten::PRED_$unify_2_static_exec, VA(a4, L_inst_vars_1_s3), //
+ Op("inst_vars_list", FILE_flatten::PRED_inst_vars_list_2_static_exec, VA(a2, a3), cont)));
     }
 /** PREDICATE: inst_vars_list/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1867,9 +1868,9 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
         return //
- Op(FILE_flatten::PRED_name_2_static_exec, VA(a3, a5), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
- Op(FILE_flatten::PRED_inst_vars_list_2_static_exec, VA(a4, a6), cont)));
+ Op("name", FILE_flatten::PRED_name_2_static_exec, VA(a3, a5), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
+ Op("inst_vars_list", FILE_flatten::PRED_inst_vars_list_2_static_exec, VA(a4, a6), cont)));
     }
 /** PREDICATE: sort_vars/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1888,7 +1889,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         a2 = LARG[1];
     // sort_vars(A,B):-[sort_vars(A,B,[])]
         return //
- Op(FILE_flatten::PRED_sort_vars_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
+ Op("sort_vars", FILE_flatten::PRED_sort_vars_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: sort_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
@@ -1957,9 +1958,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = CONS(a4, a8);
         return //
- Op(FILE_flatten::PRED_split_vars_4_static_exec, VA(a5, a4, a6, a7), //
- Op(FILE_flatten::PRED_sort_vars_3_static_exec, VA(a6, a2, a9), //
- Op(FILE_flatten::PRED_sort_vars_3_static_exec, VA(a7, a8, a3), cont)));
+ Op("split_vars", FILE_flatten::PRED_split_vars_4_static_exec, VA(a5, a4, a6, a7), //
+ Op("sort_vars", FILE_flatten::PRED_sort_vars_3_static_exec, VA(a6, a2, a9), //
+ Op("sort_vars", FILE_flatten::PRED_sort_vars_3_static_exec, VA(a7, a8, a3), cont)));
     }
 /** PREDICATE: intersect_sorted_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl

@@ -18,23 +18,24 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_boyer extends FILE_system {
 /** PREDICATE: go/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(go/0,public)
-        final static SymbolTerm ATOM_runtime = SYM("runtime");
-        final static SymbolTerm ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
-        final static SymbolTerm ATOM_$0020milliseconds = SYM(" milliseconds");
+        final static Functor ATOM_runtime = SYM("runtime");
+        final static Functor ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
+        final static Functor ATOM_$0020milliseconds = SYM(" milliseconds");
 
 
 
@@ -54,14 +55,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
         a6 = CONS(a5,  Prolog.Nil );
         a7 = CONS(m.DONT_CARE1(), a6);
         return //
- Op(FILE_boyer::PRED_statistics_2_static_exec, VA( ATOM_runtime , a2), //
- Op(FILE_boyer::PRED_wff_1_static_exec, VA(a3), //
- Op(FILE_boyer::PRED_rewrite_2_static_exec, VA(a3, a4), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a4,  Prolog.Nil ,  Prolog.Nil ), //
- Op(FILE_boyer::PRED_statistics_2_static_exec, VA( ATOM_runtime , a7), //
- Op(FILE_boyer::PRED_write_1_static_exec, VA( ATOM_execution$0020time$0020is$0020 ), //
- Op(FILE_boyer::PRED_write_1_static_exec, VA(a5), //
- Op(FILE_boyer::PRED_write_1_static_exec, VA( ATOM_$0020milliseconds ), cont))))))));
+ Op("statistics", FILE_boyer::PRED_statistics_2_static_exec, VA( ATOM_runtime , a2), //
+ Op("wff", FILE_boyer::PRED_wff_1_static_exec, VA(a3), //
+ Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a3, a4), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4,  Prolog.Nil ,  Prolog.Nil ), //
+ Op("statistics", FILE_boyer::PRED_statistics_2_static_exec, VA( ATOM_runtime , a7), //
+ Op("write", FILE_boyer::PRED_write_1_static_exec, VA( ATOM_execution$0020time$0020is$0020 ), //
+ Op("write", FILE_boyer::PRED_write_1_static_exec, VA(a5), //
+ Op("write", FILE_boyer::PRED_write_1_static_exec, VA( ATOM_$0020milliseconds ), cont))))))));
     }
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -81,52 +82,52 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
         a1 = m.mkvar1();
         a2 = m.mkvar1();
         return //
- Op(FILE_boyer::PRED_wff_1_static_exec, VA(a1), //
- Op(FILE_boyer::PRED_rewrite_2_static_exec, VA(a1, a2), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a2,  Prolog.Nil ,  Prolog.Nil ), cont)));
+ Op("wff", FILE_boyer::PRED_wff_1_static_exec, VA(a1), //
+ Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a1, a2), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a2,  Prolog.Nil ,  Prolog.Nil ), cont)));
     }
 /** PREDICATE: wff/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(wff/1,public)
-        final static SymbolTerm FUNCTOR_implies_2 = F("implies",2);
-        final static SymbolTerm FUNCTOR_and_2 = F("and",2);
-        final static SymbolTerm FUNCTOR_f_1 = F("f",1);
-        final static SymbolTerm FUNCTOR_myplus_2 = F("myplus",2);
-        final static SymbolTerm ATOM_a = SYM("a");
-        final static SymbolTerm ATOM_b = SYM("b");
-    private static final StructureTerm L_wff_1_s8 = S( FUNCTOR_myplus_2 ,  ATOM_a ,  ATOM_b );
-        final static SymbolTerm ATOM_c = SYM("c");
-        final static SymbolTerm ATOM_zero = SYM("zero");
-    private static final StructureTerm L_wff_1_s12 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_zero );
-    private static final StructureTerm L_wff_1_s14 = S( FUNCTOR_myplus_2 , L_wff_1_s8, L_wff_1_s12);
-    private static final StructureTerm L_wff_1_s16 = S( FUNCTOR_f_1 , L_wff_1_s14);
-        final static SymbolTerm FUNCTOR_times_2 = F("times",2);
-    private static final StructureTerm L_wff_1_s18 = S( FUNCTOR_times_2 ,  ATOM_a ,  ATOM_b );
-        final static SymbolTerm ATOM_d = SYM("d");
-    private static final StructureTerm L_wff_1_s21 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_d );
-    private static final StructureTerm L_wff_1_s23 = S( FUNCTOR_times_2 , L_wff_1_s18, L_wff_1_s21);
-    private static final StructureTerm L_wff_1_s25 = S( FUNCTOR_f_1 , L_wff_1_s23);
-        final static SymbolTerm FUNCTOR_reverse_1 = F("reverse",1);
-        final static SymbolTerm FUNCTOR_append_2 = F("append",2);
-    private static final StructureTerm L_wff_1_s28 = S( FUNCTOR_append_2 ,  ATOM_a ,  ATOM_b );
-    private static final StructureTerm L_wff_1_s31 = S( FUNCTOR_append_2 , L_wff_1_s28,  Prolog.Nil );
-    private static final StructureTerm L_wff_1_s33 = S( FUNCTOR_reverse_1 , L_wff_1_s31);
-    private static final StructureTerm L_wff_1_s35 = S( FUNCTOR_f_1 , L_wff_1_s33);
-        final static SymbolTerm FUNCTOR_equal_2 = F("equal",2);
-        final static SymbolTerm FUNCTOR_boyer_difference_2 = F("boyer_difference",2);
-        final static SymbolTerm ATOM_x = SYM("x");
-        final static SymbolTerm ATOM_y = SYM("y");
-    private static final StructureTerm L_wff_1_s41 = S( FUNCTOR_boyer_difference_2 ,  ATOM_x ,  ATOM_y );
-    private static final StructureTerm L_wff_1_s43 = S( FUNCTOR_equal_2 , L_wff_1_s8, L_wff_1_s41);
-        final static SymbolTerm FUNCTOR_lessp_2 = F("lessp",2);
-        final static SymbolTerm FUNCTOR_remainder_2 = F("remainder",2);
-    private static final StructureTerm L_wff_1_s46 = S( FUNCTOR_remainder_2 ,  ATOM_a ,  ATOM_b );
-        final static SymbolTerm FUNCTOR_boyer_member_2 = F("boyer_member",2);
-        final static SymbolTerm FUNCTOR_length_1 = F("length",1);
-    private static final StructureTerm L_wff_1_s50 = S( FUNCTOR_length_1 ,  ATOM_b );
-    private static final StructureTerm L_wff_1_s52 = S( FUNCTOR_boyer_member_2 ,  ATOM_a , L_wff_1_s50);
-    private static final StructureTerm L_wff_1_s54 = S( FUNCTOR_lessp_2 , L_wff_1_s46, L_wff_1_s52);
+        final static Functor FUNCTOR_implies_2 = F("implies",2);
+        final static Functor FUNCTOR_and_2 = F("and",2);
+        final static Functor FUNCTOR_f_1 = F("f",1);
+        final static Functor FUNCTOR_myplus_2 = F("myplus",2);
+        final static Functor ATOM_a = SYM("a");
+        final static Functor ATOM_b = SYM("b");
+    private static final Term L_wff_1_s8 = S( FUNCTOR_myplus_2 ,  ATOM_a ,  ATOM_b );
+        final static Functor ATOM_c = SYM("c");
+        final static Functor ATOM_zero = SYM("zero");
+    private static final Term L_wff_1_s12 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_zero );
+    private static final Term L_wff_1_s14 = S( FUNCTOR_myplus_2 , L_wff_1_s8, L_wff_1_s12);
+    private static final Term L_wff_1_s16 = S( FUNCTOR_f_1 , L_wff_1_s14);
+        final static Functor FUNCTOR_times_2 = F("times",2);
+    private static final Term L_wff_1_s18 = S( FUNCTOR_times_2 ,  ATOM_a ,  ATOM_b );
+        final static Functor ATOM_d = SYM("d");
+    private static final Term L_wff_1_s21 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_d );
+    private static final Term L_wff_1_s23 = S( FUNCTOR_times_2 , L_wff_1_s18, L_wff_1_s21);
+    private static final Term L_wff_1_s25 = S( FUNCTOR_f_1 , L_wff_1_s23);
+        final static Functor FUNCTOR_reverse_1 = F("reverse",1);
+        final static Functor FUNCTOR_append_2 = F("append",2);
+    private static final Term L_wff_1_s28 = S( FUNCTOR_append_2 ,  ATOM_a ,  ATOM_b );
+    private static final Term L_wff_1_s31 = S( FUNCTOR_append_2 , L_wff_1_s28,  Prolog.Nil );
+    private static final Term L_wff_1_s33 = S( FUNCTOR_reverse_1 , L_wff_1_s31);
+    private static final Term L_wff_1_s35 = S( FUNCTOR_f_1 , L_wff_1_s33);
+        final static Functor FUNCTOR_equal_2 = F("equal",2);
+        final static Functor FUNCTOR_boyer_difference_2 = F("boyer_difference",2);
+        final static Functor ATOM_x = SYM("x");
+        final static Functor ATOM_y = SYM("y");
+    private static final Term L_wff_1_s41 = S( FUNCTOR_boyer_difference_2 ,  ATOM_x ,  ATOM_y );
+    private static final Term L_wff_1_s43 = S( FUNCTOR_equal_2 , L_wff_1_s8, L_wff_1_s41);
+        final static Functor FUNCTOR_lessp_2 = F("lessp",2);
+        final static Functor FUNCTOR_remainder_2 = F("remainder",2);
+    private static final Term L_wff_1_s46 = S( FUNCTOR_remainder_2 ,  ATOM_a ,  ATOM_b );
+        final static Functor FUNCTOR_boyer_member_2 = F("boyer_member",2);
+        final static Functor FUNCTOR_length_1 = F("length",1);
+    private static final Term L_wff_1_s50 = S( FUNCTOR_length_1 ,  ATOM_b );
+    private static final Term L_wff_1_s52 = S( FUNCTOR_boyer_member_2 ,  ATOM_a , L_wff_1_s50);
+    private static final Term L_wff_1_s54 = S( FUNCTOR_lessp_2 , L_wff_1_s46, L_wff_1_s52);
 
 
 
@@ -232,8 +233,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
     // tautology(A):-[rewrite(A,B),tautology(B,[],[])]
         a2 = m.mkvar1();
         return //
- Op(FILE_boyer::PRED_rewrite_2_static_exec, VA(a1, a2), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a2,  Prolog.Nil ,  Prolog.Nil ), cont));
+ Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a1, a2), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a2,  Prolog.Nil ,  Prolog.Nil ), cont));
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -283,8 +284,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_truep_2_static_exec, VA(a1, a2), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a7), cont));
+ Op("truep", FILE_boyer::PRED_truep_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_2(Prolog m) { 
@@ -300,7 +301,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,C)]
         return //
- Op(FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_2_static_exec, VA(a1, a3), cont);
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_2_static_exec, VA(a1, a3), cont);
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_3(Prolog m) { 
@@ -316,7 +317,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C,D,E,F)]
         return //
- Op(FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
     }
 /** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -355,8 +356,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_falsep_2_static_exec, VA(a1, a2), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("falsep", FILE_boyer::PRED_falsep_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_2_2(Prolog m) { 
@@ -418,9 +419,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_truep_2_static_exec, VA(a3, a1), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
+ Op("truep", FILE_boyer::PRED_truep_2_static_exec, VA(a3, a1), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a6), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
     }
 
     private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_5_2(Prolog m) { 
@@ -435,7 +436,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C,D,E):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C,E)]
         return //
- Op(FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_4_static_exec, VA(a1, a2, a3, a5), cont);
+ Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_4_static_exec, VA(a1, a2, a3, a5), cont);
     }
 
     private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_5_3(Prolog m) { 
@@ -453,8 +454,8 @@ m.cont = cont;
         a6 = CONS(a3, a1);
         a7 = CONS(a3, a2);
         return //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a6, a2), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a5, a1, a7), cont));
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a6, a2), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a5, a1, a7), cont));
     }
 /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -495,9 +496,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_falsep_2_static_exec, VA(a3, a2), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
+ Op("falsep", FILE_boyer::PRED_falsep_2_static_exec, VA(a3, a2), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a5), //
+ Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
     }
 
     private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_4_2(Prolog m) { 
@@ -518,7 +519,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main('$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'/6,public)
-        final static SymbolTerm FUNCTOR_if_3 = F("if",3);
+        final static Functor FUNCTOR_if_3 = F("if",3);
 
     // private final Term arg5, arg6;
 
@@ -569,7 +570,7 @@ m.cont = cont;
                   m.cut( a7.intValue());
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_5_static_exec, VA(a2, a3, a4, a5, a6), cont);
+ Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_5_static_exec, VA(a2, a3, a4, a5, a6), cont);
     }
 
     private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_2(Prolog m) { 
@@ -613,8 +614,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
         }
         //END inline expansion
         return //
- Op(FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a4), cont));
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 /** PREDICATE: rewrite/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -685,11 +686,11 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_boyer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
- Op(FILE_boyer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
- Op(FILE_boyer::PRED_rewrite_args_3_static_exec, VA(a5, a1, a6), //
- Op(FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_3_static_exec, VA(a2, a6, m.DONT_CARE2()), //
- Op(FILE_boyer::PRED_$cut_1_static_exec, VA(a3), cont)))));
+ Op("functor", FILE_boyer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
+ Op("functor", FILE_boyer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
+ Op("rewrite_args", FILE_boyer::PRED_rewrite_args_3_static_exec, VA(a5, a1, a6), //
+ Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl", FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_3_static_exec, VA(a2, a6, m.DONT_CARE2()), //
+ Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a3), cont)))));
     }
 /** PREDICATE: $dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -723,8 +724,8 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl'(A,B,C):-[equal(B,C),rewrite(C,A)]
         return //
- Op(FILE_boyer::PRED_equal_2_static_exec, VA(a2, a3), //
- Op(FILE_boyer::PRED_rewrite_2_static_exec, VA(a3, a1), cont));
+ Op("equal", FILE_boyer::PRED_equal_2_static_exec, VA(a2, a3), //
+ Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a3, a1), cont));
     }
 
     private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fboyer$002Epl_3_2(Prolog m) { 
@@ -747,7 +748,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(rewrite_args/3,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -803,17 +804,17 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$002D_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_boyer::PRED_arg_3_static_exec, VA(a1, a2, a4), //
- Op(FILE_boyer::PRED_arg_3_static_exec, VA(a1, a3, a5), //
- Op(FILE_boyer::PRED_rewrite_2_static_exec, VA(a4, a5), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
- Op(FILE_boyer::PRED_rewrite_args_3_static_exec, VA(a6, a2, a3), cont)))));
+ Op("arg", FILE_boyer::PRED_arg_3_static_exec, VA(a1, a2, a4), //
+ Op("arg", FILE_boyer::PRED_arg_3_static_exec, VA(a1, a3, a5), //
+ Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a4, a5), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
+ Op("rewrite_args", FILE_boyer::PRED_rewrite_args_3_static_exec, VA(a6, a2, a3), cont)))));
     }
 /** PREDICATE: truep/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(truep/2,public)
-        final static SymbolTerm ATOM_t = SYM("t");
+        final static Functor ATOM_t = SYM("t");
 
 
 
@@ -860,13 +861,13 @@ m.cont = cont;
         cont = m.cont;
     // truep(A,B):-[boyer_member(A,B)]
         return //
- Op(FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
+ Op("boyer_member", FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: falsep/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(falsep/2,public)
-        final static SymbolTerm ATOM_f = SYM("f");
+        final static Functor ATOM_f = SYM("f");
 
 
 
@@ -913,7 +914,7 @@ m.cont = cont;
         cont = m.cont;
     // falsep(A,B):-[boyer_member(A,B)]
         return //
- Op(FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
+ Op("boyer_member", FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: boyer_member/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
@@ -989,75 +990,75 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(equal/2,public)
-        final static SymbolTerm FUNCTOR_assignment_2 = F("assignment",2);
-        final static SymbolTerm FUNCTOR_assignedp_2 = F("assignedp",2);
-        final static SymbolTerm FUNCTOR_assume_false_2 = F("assume_false",2);
-        final static SymbolTerm FUNCTOR_cons_2 = F("cons",2);
-        final static SymbolTerm FUNCTOR_assume_true_2 = F("assume_true",2);
-        final static SymbolTerm FUNCTOR_boolean_1 = F("boolean",1);
-        final static SymbolTerm FUNCTOR_or_2 = F("or",2);
-        final static SymbolTerm FUNCTOR_car_1 = F("car",1);
-        final static SymbolTerm FUNCTOR_gopher_1 = F("gopher",1);
-        final static SymbolTerm FUNCTOR_listp_1 = F("listp",1);
-        final static SymbolTerm FUNCTOR_flatten_1 = F("flatten",1);
-        final static SymbolTerm FUNCTOR_compile_1 = F("compile",1);
-        final static SymbolTerm FUNCTOR_codegen_2 = F("codegen",2);
-        final static SymbolTerm FUNCTOR_optimize_1 = F("optimize",1);
-        final static SymbolTerm FUNCTOR_count_list_2 = F("count_list",2);
-        final static SymbolTerm FUNCTOR_sort_lp_2 = F("sort_lp",2);
-        final static SymbolTerm FUNCTOR_countps__2 = F("countps_",2);
-        final static SymbolTerm FUNCTOR_countps_loop_3 = F("countps_loop",3);
-        final static SymbolTerm FUNCTOR_divides_2 = F("divides",2);
-        final static SymbolTerm FUNCTOR_zerop_1 = F("zerop",1);
-        final static SymbolTerm FUNCTOR_dsort_1 = F("dsort",1);
-        final static SymbolTerm FUNCTOR_sort2_1 = F("sort2",1);
-        final static SymbolTerm FUNCTOR_eqp_2 = F("eqp",2);
-        final static SymbolTerm FUNCTOR_fix_1 = F("fix",1);
-        final static SymbolTerm FUNCTOR_even1_1 = F("even1",1);
-        final static SymbolTerm FUNCTOR_odd_1 = F("odd",1);
-        final static SymbolTerm FUNCTOR_decr_1 = F("decr",1);
-        final static SymbolTerm FUNCTOR_exec_3 = F("exec",3);
-        final static SymbolTerm FUNCTOR_exp_2 = F("exp",2);
-        final static SymbolTerm FUNCTOR_fact__1 = F("fact_",1);
-        final static SymbolTerm FUNCTOR_fact_loop_2 = F("fact_loop",2);
-        final static SymbolTerm FUNCTOR_falsify_1 = F("falsify",1);
-        final static SymbolTerm FUNCTOR_falsify1_2 = F("falsify1",2);
-        final static SymbolTerm FUNCTOR_normalize_1 = F("normalize",1);
-        final static SymbolTerm FUNCTOR_numberp_1 = F("numberp",1);
-        final static SymbolTerm FUNCTOR_cdr_1 = F("cdr",1);
-    private static final StructureTerm L_equal_2_s51 = S( FUNCTOR_cons_2 ,  ATOM_zero ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_gcd_2 = F("gcd",2);
-        final static SymbolTerm FUNCTOR_get_2 = F("get",2);
-        final static SymbolTerm FUNCTOR_set_3 = F("set",3);
-        final static SymbolTerm FUNCTOR_greatereqp_2 = F("greatereqp",2);
-        final static SymbolTerm FUNCTOR_not_1 = F("not",1);
-        final static SymbolTerm FUNCTOR_greatereqpr_2 = F("greatereqpr",2);
-        final static SymbolTerm FUNCTOR_greaterp_2 = F("greaterp",2);
-        final static SymbolTerm FUNCTOR_iff_2 = F("iff",2);
-        final static SymbolTerm FUNCTOR_last_1 = F("last",1);
-        final static SymbolTerm FUNCTOR_cons_1 = F("cons",1);
-        final static SymbolTerm FUNCTOR_lesseqp_2 = F("lesseqp",2);
-        final static SymbolTerm FUNCTOR_mc_flatten_2 = F("mc_flatten",2);
-        final static SymbolTerm FUNCTOR_meaning_2 = F("meaning",2);
-        final static SymbolTerm FUNCTOR_nth_2 = F("nth",2);
-        final static SymbolTerm FUNCTOR_greatest_factor_2 = F("greatest_factor",2);
-        final static SymbolTerm FUNCTOR_if_4 = F("if",4);
-        final static SymbolTerm FUNCTOR_power_eval_2 = F("power_eval",2);
-        final static SymbolTerm FUNCTOR_prime_1 = F("prime",1);
-        final static SymbolTerm FUNCTOR_add1_1 = F("add1",1);
-    private static final StructureTerm L_equal_2_s76 = S( FUNCTOR_add1_1 ,  ATOM_zero );
-        final static SymbolTerm FUNCTOR_prime1_2 = F("prime1",2);
-        final static SymbolTerm FUNCTOR_prime_list_1 = F("prime_list",1);
-        final static SymbolTerm FUNCTOR_quotient_2 = F("quotient",2);
-        final static SymbolTerm FUNCTOR_reverse__1 = F("reverse_",1);
-        final static SymbolTerm FUNCTOR_reverse_loop_2 = F("reverse_loop",2);
-        final static SymbolTerm FUNCTOR_samefringe_2 = F("samefringe",2);
-        final static SymbolTerm FUNCTOR_sigma_2 = F("sigma",2);
-        final static SymbolTerm FUNCTOR_delete_2 = F("delete",2);
-        final static SymbolTerm FUNCTOR_tautology_checker_1 = F("tautology_checker",1);
-        final static SymbolTerm FUNCTOR_tautologyp_2 = F("tautologyp",2);
-        final static SymbolTerm FUNCTOR_times_list_1 = F("times_list",1);
-        final static SymbolTerm FUNCTOR_value_2 = F("value",2);
+        final static Functor FUNCTOR_assignment_2 = F("assignment",2);
+        final static Functor FUNCTOR_assignedp_2 = F("assignedp",2);
+        final static Functor FUNCTOR_assume_false_2 = F("assume_false",2);
+        final static Functor FUNCTOR_cons_2 = F("cons",2);
+        final static Functor FUNCTOR_assume_true_2 = F("assume_true",2);
+        final static Functor FUNCTOR_boolean_1 = F("boolean",1);
+        final static Functor FUNCTOR_or_2 = F("or",2);
+        final static Functor FUNCTOR_car_1 = F("car",1);
+        final static Functor FUNCTOR_gopher_1 = F("gopher",1);
+        final static Functor FUNCTOR_listp_1 = F("listp",1);
+        final static Functor FUNCTOR_flatten_1 = F("flatten",1);
+        final static Functor FUNCTOR_compile_1 = F("compile",1);
+        final static Functor FUNCTOR_codegen_2 = F("codegen",2);
+        final static Functor FUNCTOR_optimize_1 = F("optimize",1);
+        final static Functor FUNCTOR_count_list_2 = F("count_list",2);
+        final static Functor FUNCTOR_sort_lp_2 = F("sort_lp",2);
+        final static Functor FUNCTOR_countps__2 = F("countps_",2);
+        final static Functor FUNCTOR_countps_loop_3 = F("countps_loop",3);
+        final static Functor FUNCTOR_divides_2 = F("divides",2);
+        final static Functor FUNCTOR_zerop_1 = F("zerop",1);
+        final static Functor FUNCTOR_dsort_1 = F("dsort",1);
+        final static Functor FUNCTOR_sort2_1 = F("sort2",1);
+        final static Functor FUNCTOR_eqp_2 = F("eqp",2);
+        final static Functor FUNCTOR_fix_1 = F("fix",1);
+        final static Functor FUNCTOR_even1_1 = F("even1",1);
+        final static Functor FUNCTOR_odd_1 = F("odd",1);
+        final static Functor FUNCTOR_decr_1 = F("decr",1);
+        final static Functor FUNCTOR_exec_3 = F("exec",3);
+        final static Functor FUNCTOR_exp_2 = F("exp",2);
+        final static Functor FUNCTOR_fact__1 = F("fact_",1);
+        final static Functor FUNCTOR_fact_loop_2 = F("fact_loop",2);
+        final static Functor FUNCTOR_falsify_1 = F("falsify",1);
+        final static Functor FUNCTOR_falsify1_2 = F("falsify1",2);
+        final static Functor FUNCTOR_normalize_1 = F("normalize",1);
+        final static Functor FUNCTOR_numberp_1 = F("numberp",1);
+        final static Functor FUNCTOR_cdr_1 = F("cdr",1);
+    private static final Term L_equal_2_s51 = S( FUNCTOR_cons_2 ,  ATOM_zero ,  Prolog.Nil );
+        final static Functor FUNCTOR_gcd_2 = F("gcd",2);
+        final static Functor FUNCTOR_get_2 = F("get",2);
+        final static Functor FUNCTOR_set_3 = F("set",3);
+        final static Functor FUNCTOR_greatereqp_2 = F("greatereqp",2);
+        final static Functor FUNCTOR_not_1 = F("not",1);
+        final static Functor FUNCTOR_greatereqpr_2 = F("greatereqpr",2);
+        final static Functor FUNCTOR_greaterp_2 = F("greaterp",2);
+        final static Functor FUNCTOR_iff_2 = F("iff",2);
+        final static Functor FUNCTOR_last_1 = F("last",1);
+        final static Functor FUNCTOR_cons_1 = F("cons",1);
+        final static Functor FUNCTOR_lesseqp_2 = F("lesseqp",2);
+        final static Functor FUNCTOR_mc_flatten_2 = F("mc_flatten",2);
+        final static Functor FUNCTOR_meaning_2 = F("meaning",2);
+        final static Functor FUNCTOR_nth_2 = F("nth",2);
+        final static Functor FUNCTOR_greatest_factor_2 = F("greatest_factor",2);
+        final static Functor FUNCTOR_if_4 = F("if",4);
+        final static Functor FUNCTOR_power_eval_2 = F("power_eval",2);
+        final static Functor FUNCTOR_prime_1 = F("prime",1);
+        final static Functor FUNCTOR_add1_1 = F("add1",1);
+    private static final Term L_equal_2_s76 = S( FUNCTOR_add1_1 ,  ATOM_zero );
+        final static Functor FUNCTOR_prime1_2 = F("prime1",2);
+        final static Functor FUNCTOR_prime_list_1 = F("prime_list",1);
+        final static Functor FUNCTOR_quotient_2 = F("quotient",2);
+        final static Functor FUNCTOR_reverse__1 = F("reverse_",1);
+        final static Functor FUNCTOR_reverse_loop_2 = F("reverse_loop",2);
+        final static Functor FUNCTOR_samefringe_2 = F("samefringe",2);
+        final static Functor FUNCTOR_sigma_2 = F("sigma",2);
+        final static Functor FUNCTOR_delete_2 = F("delete",2);
+        final static Functor FUNCTOR_tautology_checker_1 = F("tautology_checker",1);
+        final static Functor FUNCTOR_tautologyp_2 = F("tautologyp",2);
+        final static Functor FUNCTOR_times_list_1 = F("times_list",1);
+        final static Functor FUNCTOR_value_2 = F("value",2);
 
 
 
@@ -1689,7 +1690,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_boyer_difference_3_static_exec, VA(a3, a4, a2), cont);
+ Op("boyer_difference", FILE_boyer::PRED_boyer_difference_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_12(Prolog m) { 
@@ -1784,7 +1785,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_eq_3_static_exec, VA(a3, a4, a2), cont);
+ Op("eq", FILE_boyer::PRED_eq_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_16(Prolog m) { 
@@ -1870,7 +1871,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_exp_3_static_exec, VA(a3, a4, a2), cont);
+ Op("exp", FILE_boyer::PRED_exp_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_19(Prolog m) { 
@@ -2003,7 +2004,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_gcd_3_static_exec, VA(a3, a4, a2), cont);
+ Op("gcd", FILE_boyer::PRED_gcd_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_24(Prolog m) { 
@@ -2288,7 +2289,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_mylength_2_static_exec, VA(a3, a2), cont);
+ Op("mylength", FILE_boyer::PRED_mylength_2_static_exec, VA(a3, a2), cont);
     }
 
     private final static Operation equal_2_33(Prolog m) { 
@@ -2332,7 +2333,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_lessp_3_static_exec, VA(a3, a4, a2), cont);
+ Op("lessp", FILE_boyer::PRED_lessp_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_35(Prolog m) { 
@@ -2401,7 +2402,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_meaning_3_static_exec, VA(a3, a4, a2), cont);
+ Op("meaning", FILE_boyer::PRED_meaning_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_38(Prolog m) { 
@@ -2419,7 +2420,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_myboyer_member_3_static_exec, VA(a3, a4, a2), cont);
+ Op("myboyer_member", FILE_boyer::PRED_myboyer_member_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_39(Prolog m) { 
@@ -2457,7 +2458,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_nth_3_static_exec, VA(a3, a4, a2), cont);
+ Op("nth", FILE_boyer::PRED_nth_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_41(Prolog m) { 
@@ -2557,7 +2558,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_myplus_3_static_exec, VA(a3, a4, a2), cont);
+ Op("myplus", FILE_boyer::PRED_myplus_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_44(Prolog m) { 
@@ -2575,7 +2576,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_power_eval_3_static_exec, VA(a3, a4, a2), cont);
+ Op("power_eval", FILE_boyer::PRED_power_eval_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_45(Prolog m) { 
@@ -2684,7 +2685,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_quotient_3_static_exec, VA(a3, a4, a2), cont);
+ Op("quotient", FILE_boyer::PRED_quotient_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_48(Prolog m) { 
@@ -2702,7 +2703,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_remainder_3_static_exec, VA(a3, a4, a2), cont);
+ Op("remainder", FILE_boyer::PRED_remainder_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_49(Prolog m) { 
@@ -2776,7 +2777,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_reverse_loop_3_static_exec, VA(a3, a4, a2), cont);
+ Op("reverse_loop", FILE_boyer::PRED_reverse_loop_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_52(Prolog m) { 
@@ -2911,7 +2912,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_boyer::PRED_times_3_static_exec, VA(a3, a4, a2), cont);
+ Op("times", FILE_boyer::PRED_times_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation equal_2_57(Prolog m) { 
@@ -3259,8 +3260,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(eq/3,public)
-        final static SymbolTerm FUNCTOR_and_1 = F("and",1);
-        final static SymbolTerm FUNCTOR_nlistp_1 = F("nlistp",1);
+        final static Functor FUNCTOR_and_1 = F("and",1);
+        final static Functor FUNCTOR_nlistp_1 = F("nlistp",1);
 
 
 
@@ -4669,8 +4670,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(meaning/3,public)
-        final static SymbolTerm FUNCTOR_plus_tree_1 = F("plus_tree",1);
-        final static SymbolTerm FUNCTOR_plus_fringe_1 = F("plus_fringe",1);
+        final static Functor FUNCTOR_plus_tree_1 = F("plus_tree",1);
+        final static Functor FUNCTOR_plus_fringe_1 = F("plus_fringe",1);
 
 
 
@@ -4846,7 +4847,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(myboyer_member/3,public)
-        final static SymbolTerm FUNCTOR_intersect_2 = F("intersect",2);
+        final static Functor FUNCTOR_intersect_2 = F("intersect",2);
 
 
 
@@ -5217,9 +5218,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/boyer.pl
 */
     // main(power_eval/3,public)
-        final static SymbolTerm FUNCTOR_big_plus1_3 = F("big_plus1",3);
-        final static SymbolTerm FUNCTOR_power_rep_2 = F("power_rep",2);
-        final static SymbolTerm FUNCTOR_big_plus_4 = F("big_plus",4);
+        final static Functor FUNCTOR_big_plus1_3 = F("big_plus1",3);
+        final static Functor FUNCTOR_power_rep_2 = F("power_rep",2);
+        final static Functor FUNCTOR_big_plus_4 = F("big_plus",4);
 
 
 

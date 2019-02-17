@@ -1,5 +1,10 @@
 package SxxMachine;
 
+import SxxMachine.pterm.Expect;
+import SxxMachine.pterm.Nonvar;
+import SxxMachine.pterm.Source;
+import SxxMachine.pterm.TermData;
+
 /**
  * Maps a Term to an Source for iterating over its arguments
  */

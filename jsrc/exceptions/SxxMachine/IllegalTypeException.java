@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Type error.<br>
  * There will be a type error when the type of an argument or one of its
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class IllegalTypeException extends BuiltinException {
 	/** A functor symbol of <code>type_error/4</code>. */
-	public static final SymbolTerm TYPE_ERROR = SymbolTerm.intern("type_error", 4);
+	public static final Functor TYPE_ERROR = TermData.F("type_error", 4);
 	/*
 	 * type ::= atom | atomic | byte | callable | character | compound | evaluable |
 	 * in_byte | in_character | integer | list | number | predicate_indicator |
@@ -47,8 +49,8 @@ public class IllegalTypeException extends BuiltinException {
 	 */
 	@Override
 	public Term getMessageTerm() {
-		Term[] args = { (this.goal == null) ? SymbolTerm.create("<Goal unknown>") : TermData.FFIObject(this.goal),
-				TermData.Integer(this.argNo), SymbolTerm.create(this.type), this.culprit };
+		Term[] args = { (this.goal == null) ? TermData.createAtomic("<Goal unknown>") : TermData.FFIObject(this.goal),
+				TermData.Integer(this.argNo), TermData.createAtomic(this.type), this.culprit };
 		return TermData.createErrorTerm(this, TYPE_ERROR, args);
 	}
 

@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_meta_qsort extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
@@ -42,13 +43,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.
         m.setB0();
     // top:-[meta_qsort]
         return //
- Op(FILE_meta_qsort::PRED_meta_qsort_0_static_exec, VA(), cont);
+ Op("meta_qsort", FILE_meta_qsort::PRED_meta_qsort_0_static_exec, VA(), cont);
     }
 /** PREDICATE: meta_qsort/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(meta_qsort/0,public)
-        final static SymbolTerm ATOM_qsort = SYM("qsort");
+        final static Functor ATOM_qsort = SYM("qsort");
 
 
 
@@ -59,7 +60,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.
         m.setB0();
     // meta_qsort:-[interpret(qsort)]
         return //
- Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA( ATOM_qsort ), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_1_static_exec, VA( ATOM_qsort ), cont);
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
@@ -106,7 +107,7 @@ m.cont = cont;
                   m.cut( a2.intValue());
         //END inline expansion
         return //
- Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a1), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_2(Prolog m) { 
@@ -136,19 +137,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.
     // interpret(A):-[interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(B)]
         a2 = m.mkvar1();
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), //
- Op(FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec, VA(a2), cont));
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), //
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl", FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_1_static_exec, VA(a2), cont));
     }
 /** PREDICATE: interpret/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(interpret/2,public)
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_$002D$003E_2 = F("->",2);
-        final static SymbolTerm ATOM_fail = SYM("fail");
-        final static SymbolTerm FUNCTOR_$005C$002B_1 = F("\\+",1);
-        final static SymbolTerm ATOM_$0021 = SYM("!");
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
+        final static Functor ATOM_fail = SYM("fail");
+        final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
+        final static Functor ATOM_$0021 = SYM("!");
 
 
 
@@ -343,7 +344,7 @@ m.cont = cont;
         //END inline expansion
         a5 = m.mkvar1();
         p1 = //
- Op(FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a4, a2, a5), cont);
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl", FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a4, a2, a5), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -368,7 +369,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a3, a4, a2), cont);
+ Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a3, a4, a2), cont);
     }
 
     private final static Operation interpret_2_4(Prolog m) { 
@@ -392,7 +393,7 @@ m.cont = cont;
         a5 =  S( FUNCTOR_$002D$003E_2 , a3, a4);
  ;
         return //
- Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a5,  ATOM_fail , a2), cont);
+ Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a5,  ATOM_fail , a2), cont);
     }
 
     private final static Operation interpret_2_5(Prolog m) { 
@@ -415,7 +416,7 @@ m.cont = cont;
         a4 =  S( FUNCTOR_$002D$003E_2 , a3,  ATOM_fail );
  ;
         return //
- Op(FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a4,  Prolog.True , a2), cont);
+ Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a4,  Prolog.True , a2), cont);
     }
 
     private final static Operation interpret_2_6(Prolog m) { 
@@ -481,9 +482,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_meta_qsort::PRED_is_built_in_1_static_exec, VA(a1), //
- Op(FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_meta_qsort::PRED_interpret_built_in_1_static_exec, VA(a1), cont)));
+ Op("is_built_in", FILE_meta_qsort::PRED_is_built_in_1_static_exec, VA(a1), //
+ Op("$cut", FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a3), //
+ Op("interpret_built_in", FILE_meta_qsort::PRED_interpret_built_in_1_static_exec, VA(a1), cont)));
     }
 
     private final static Operation interpret_2_9(Prolog m) { 
@@ -497,8 +498,8 @@ m.cont = cont;
     // interpret(A,B):-[define(A,C),interpret(C)]
         a3 = m.mkvar1();
         return //
- Op(FILE_meta_qsort::PRED_define_2_static_exec, VA(a1, a3), //
- Op(FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a3), cont));
+ Op("define", FILE_meta_qsort::PRED_define_2_static_exec, VA(a1, a3), //
+ Op("interpret", FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a3), cont));
     }
 /** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
@@ -567,7 +568,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
@@ -636,7 +637,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
     }
 /** PREDICATE: interpret_disjunction/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
@@ -707,9 +708,9 @@ m.cont = cont;
         //END inline expansion
         a7 = m.mkvar1();
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a4, a7), //
- Op(FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a6), //
- Op(FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a5, a3, a7), cont)));
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a4, a7), //
+ Op("$cut", FILE_meta_qsort::PRED_$cut_1_static_exec, VA(a6), //
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl", FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a5, a3, a7), cont)));
     }
 
     private final static Operation interpret_disjunction_3_2(Prolog m) { 
@@ -729,7 +730,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
     }
 
     private final static Operation interpret_disjunction_3_3(Prolog m) { 
@@ -742,7 +743,7 @@ m.cont = cont;
         cont = m.cont;
     // interpret_disjunction(A,B,C):-[interpret(A,C)]
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a3), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a3), cont);
     }
 
     private final static Operation interpret_disjunction_3_4(Prolog m) { 
@@ -755,13 +756,13 @@ m.cont = cont;
         cont = m.cont;
     // interpret_disjunction(A,B,C):-[interpret(B,C)]
         return //
- Op(FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
+ Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: is_built_in/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(is_built_in/1,public)
-        final static SymbolTerm FUNCTOR_$003D$003C_2 = F("=<",2);
+        final static Functor FUNCTOR_$003D$003C_2 = F("=<",2);
 
 
 
@@ -869,7 +870,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.pl
 */
     // main(define/2,public)
-        final static SymbolTerm FUNCTOR_qsort_3 = F("qsort",3);
+        final static Functor FUNCTOR_qsort_3 = F("qsort",3);
         final static IntegerTerm int_27 = Integer(27);
         final static IntegerTerm int_74 = Integer(74);
         final static IntegerTerm int_33 = Integer(33);
@@ -900,57 +901,57 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/meta_qsort.
         final static IntegerTerm int_92 = Integer(92);
         final static IntegerTerm int_40 = Integer(40);
         final static IntegerTerm int_59 = Integer(59);
-    private static final ListTerm L_define_2_s45 = CONS( int_8 ,  Prolog.Nil );
-    private static final ListTerm L_define_2_s46 = CONS( int_59 , L_define_2_s45);
-    private static final ListTerm L_define_2_s47 = CONS( int_53 , L_define_2_s46);
-    private static final ListTerm L_define_2_s48 = CONS( int_40 , L_define_2_s47);
-    private static final ListTerm L_define_2_s49 = CONS( int_92 , L_define_2_s48);
-    private static final ListTerm L_define_2_s50 = CONS( int_18 , L_define_2_s49);
-    private static final ListTerm L_define_2_s51 = CONS( int_74 , L_define_2_s50);
-    private static final ListTerm L_define_2_s52 = CONS( int_61 , L_define_2_s51);
-    private static final ListTerm L_define_2_s53 = CONS( int_28 , L_define_2_s52);
-    private static final ListTerm L_define_2_s54 = CONS( int_11 , L_define_2_s53);
-    private static final ListTerm L_define_2_s55 = CONS( int_99 , L_define_2_s54);
-    private static final ListTerm L_define_2_s56 = CONS( int_95 , L_define_2_s55);
-    private static final ListTerm L_define_2_s57 = CONS( int_4 , L_define_2_s56);
-    private static final ListTerm L_define_2_s58 = CONS( int_75 , L_define_2_s57);
-    private static final ListTerm L_define_2_s59 = CONS( int_63 , L_define_2_s58);
-    private static final ListTerm L_define_2_s60 = CONS( int_31 , L_define_2_s59);
-    private static final ListTerm L_define_2_s61 = CONS( int_27 , L_define_2_s60);
-    private static final ListTerm L_define_2_s62 = CONS( int_85 , L_define_2_s61);
-    private static final ListTerm L_define_2_s63 = CONS( int_21 , L_define_2_s62);
-    private static final ListTerm L_define_2_s64 = CONS( int_7 , L_define_2_s63);
-    private static final ListTerm L_define_2_s65 = CONS( int_51 , L_define_2_s64);
-    private static final ListTerm L_define_2_s66 = CONS( int_66 , L_define_2_s65);
-    private static final ListTerm L_define_2_s67 = CONS( int_0 , L_define_2_s66);
-    private static final ListTerm L_define_2_s68 = CONS( int_10 , L_define_2_s67);
-    private static final ListTerm L_define_2_s69 = CONS( int_37 , L_define_2_s68);
-    private static final ListTerm L_define_2_s70 = CONS( int_90 , L_define_2_s69);
-    private static final ListTerm L_define_2_s71 = CONS( int_81 , L_define_2_s70);
-    private static final ListTerm L_define_2_s72 = CONS( int_39 , L_define_2_s71);
-    private static final ListTerm L_define_2_s73 = CONS( int_29 , L_define_2_s72);
-    private static final ListTerm L_define_2_s74 = CONS( int_55 , L_define_2_s73);
-    private static final ListTerm L_define_2_s75 = CONS( int_11 , L_define_2_s74);
-    private static final ListTerm L_define_2_s76 = CONS( int_6 , L_define_2_s75);
-    private static final ListTerm L_define_2_s77 = CONS( int_82 , L_define_2_s76);
-    private static final ListTerm L_define_2_s78 = CONS( int_28 , L_define_2_s77);
-    private static final ListTerm L_define_2_s79 = CONS( int_47 , L_define_2_s78);
-    private static final ListTerm L_define_2_s80 = CONS( int_99 , L_define_2_s79);
-    private static final ListTerm L_define_2_s81 = CONS( int_85 , L_define_2_s80);
-    private static final ListTerm L_define_2_s82 = CONS( int_28 , L_define_2_s81);
-    private static final ListTerm L_define_2_s83 = CONS( int_53 , L_define_2_s82);
-    private static final ListTerm L_define_2_s84 = CONS( int_32 , L_define_2_s83);
-    private static final ListTerm L_define_2_s85 = CONS( int_2 , L_define_2_s84);
-    private static final ListTerm L_define_2_s86 = CONS( int_65 , L_define_2_s85);
-    private static final ListTerm L_define_2_s87 = CONS( int_83 , L_define_2_s86);
-    private static final ListTerm L_define_2_s88 = CONS( int_46 , L_define_2_s87);
-    private static final ListTerm L_define_2_s89 = CONS( int_18 , L_define_2_s88);
-    private static final ListTerm L_define_2_s90 = CONS( int_94 , L_define_2_s89);
-    private static final ListTerm L_define_2_s91 = CONS( int_33 , L_define_2_s90);
-    private static final ListTerm L_define_2_s92 = CONS( int_17 , L_define_2_s91);
-    private static final ListTerm L_define_2_s93 = CONS( int_74 , L_define_2_s92);
-    private static final ListTerm L_define_2_s94 = CONS( int_27 , L_define_2_s93);
-        final static SymbolTerm FUNCTOR_partition_4 = F("partition",4);
+    private static final Term L_define_2_s45 = CONS( int_8 ,  Prolog.Nil );
+    private static final Term L_define_2_s46 = CONS( int_59 , L_define_2_s45);
+    private static final Term L_define_2_s47 = CONS( int_53 , L_define_2_s46);
+    private static final Term L_define_2_s48 = CONS( int_40 , L_define_2_s47);
+    private static final Term L_define_2_s49 = CONS( int_92 , L_define_2_s48);
+    private static final Term L_define_2_s50 = CONS( int_18 , L_define_2_s49);
+    private static final Term L_define_2_s51 = CONS( int_74 , L_define_2_s50);
+    private static final Term L_define_2_s52 = CONS( int_61 , L_define_2_s51);
+    private static final Term L_define_2_s53 = CONS( int_28 , L_define_2_s52);
+    private static final Term L_define_2_s54 = CONS( int_11 , L_define_2_s53);
+    private static final Term L_define_2_s55 = CONS( int_99 , L_define_2_s54);
+    private static final Term L_define_2_s56 = CONS( int_95 , L_define_2_s55);
+    private static final Term L_define_2_s57 = CONS( int_4 , L_define_2_s56);
+    private static final Term L_define_2_s58 = CONS( int_75 , L_define_2_s57);
+    private static final Term L_define_2_s59 = CONS( int_63 , L_define_2_s58);
+    private static final Term L_define_2_s60 = CONS( int_31 , L_define_2_s59);
+    private static final Term L_define_2_s61 = CONS( int_27 , L_define_2_s60);
+    private static final Term L_define_2_s62 = CONS( int_85 , L_define_2_s61);
+    private static final Term L_define_2_s63 = CONS( int_21 , L_define_2_s62);
+    private static final Term L_define_2_s64 = CONS( int_7 , L_define_2_s63);
+    private static final Term L_define_2_s65 = CONS( int_51 , L_define_2_s64);
+    private static final Term L_define_2_s66 = CONS( int_66 , L_define_2_s65);
+    private static final Term L_define_2_s67 = CONS( int_0 , L_define_2_s66);
+    private static final Term L_define_2_s68 = CONS( int_10 , L_define_2_s67);
+    private static final Term L_define_2_s69 = CONS( int_37 , L_define_2_s68);
+    private static final Term L_define_2_s70 = CONS( int_90 , L_define_2_s69);
+    private static final Term L_define_2_s71 = CONS( int_81 , L_define_2_s70);
+    private static final Term L_define_2_s72 = CONS( int_39 , L_define_2_s71);
+    private static final Term L_define_2_s73 = CONS( int_29 , L_define_2_s72);
+    private static final Term L_define_2_s74 = CONS( int_55 , L_define_2_s73);
+    private static final Term L_define_2_s75 = CONS( int_11 , L_define_2_s74);
+    private static final Term L_define_2_s76 = CONS( int_6 , L_define_2_s75);
+    private static final Term L_define_2_s77 = CONS( int_82 , L_define_2_s76);
+    private static final Term L_define_2_s78 = CONS( int_28 , L_define_2_s77);
+    private static final Term L_define_2_s79 = CONS( int_47 , L_define_2_s78);
+    private static final Term L_define_2_s80 = CONS( int_99 , L_define_2_s79);
+    private static final Term L_define_2_s81 = CONS( int_85 , L_define_2_s80);
+    private static final Term L_define_2_s82 = CONS( int_28 , L_define_2_s81);
+    private static final Term L_define_2_s83 = CONS( int_53 , L_define_2_s82);
+    private static final Term L_define_2_s84 = CONS( int_32 , L_define_2_s83);
+    private static final Term L_define_2_s85 = CONS( int_2 , L_define_2_s84);
+    private static final Term L_define_2_s86 = CONS( int_65 , L_define_2_s85);
+    private static final Term L_define_2_s87 = CONS( int_83 , L_define_2_s86);
+    private static final Term L_define_2_s88 = CONS( int_46 , L_define_2_s87);
+    private static final Term L_define_2_s89 = CONS( int_18 , L_define_2_s88);
+    private static final Term L_define_2_s90 = CONS( int_94 , L_define_2_s89);
+    private static final Term L_define_2_s91 = CONS( int_33 , L_define_2_s90);
+    private static final Term L_define_2_s92 = CONS( int_17 , L_define_2_s91);
+    private static final Term L_define_2_s93 = CONS( int_74 , L_define_2_s92);
+    private static final Term L_define_2_s94 = CONS( int_27 , L_define_2_s93);
+        final static Functor FUNCTOR_partition_4 = F("partition",4);
 
 
 

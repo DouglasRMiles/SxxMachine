@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 public class missing_preds extends TermData {
 
     public static Operation PRED_$compile_aux_clauses_2_static_exec(Prolog e) {

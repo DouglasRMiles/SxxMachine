@@ -3,7 +3,7 @@ package SxxMachine;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-import SxxMachine.TermData.StaticPred;
+import SxxMachine.pterm.TermData.StaticPred;
 
 /**
  * The superclass of classes for Prolog exceptions.<br>

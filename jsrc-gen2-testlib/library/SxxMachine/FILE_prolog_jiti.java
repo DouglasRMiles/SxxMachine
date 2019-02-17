@@ -12,6 +12,10 @@ import static SxxMachine.missing_preds.PRED_format_2_static_exec;
 import static SxxMachine.missing_preds.PRED_number_3_static_exec;
 import static SxxMachine.missing_preds.PRED_phrase_2_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.ListTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_prolog_jiti extends TermData {
 	/**
 	 * PREDICATE: jiti_list/0 from:
@@ -34,18 +38,18 @@ public class FILE_prolog_jiti extends TermData {
 	 * PREDICATE: jiti_list/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	final static SymbolTerm ATOM_Predicate$007E46$007C$007Ew$0020$007Et$007E8$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E5$002B$007En = SYM(
+	final static Functor ATOM_Predicate$007E46$007C$007Ew$0020$007Et$007E8$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E6$002B$0020$007Et$007Ew$007E5$002B$007En = SYM(
 			"Predicate~46|~w ~t~8+ ~t~w~6+ ~t~w~6+ ~t~w~5+~n");
-	final static SymbolTerm ATOM_Indexed = SYM("Indexed");
-	final static SymbolTerm ATOM_Buckets = SYM("Buckets");
-	final static SymbolTerm ATOM_Speedup = SYM("Speedup");
-	final static SymbolTerm ATOM_Flags = SYM("Flags");
+	final static Functor ATOM_Indexed = SYM("Indexed");
+	final static Functor ATOM_Buckets = SYM("Buckets");
+	final static Functor ATOM_Speedup = SYM("Speedup");
+	final static Functor ATOM_Flags = SYM("Flags");
 	private static final ListTerm PRED_jiti_list_1_s14 = CONS(ATOM_Flags, Prolog.Nil);
 	private static final ListTerm PRED_jiti_list_1_s15 = CONS(ATOM_Speedup, PRED_jiti_list_1_s14);
 	private static final ListTerm PRED_jiti_list_1_s16 = CONS(ATOM_Buckets, PRED_jiti_list_1_s15);
 	private static final ListTerm PRED_jiti_list_1_s17 = CONS(ATOM_Indexed, PRED_jiti_list_1_s16);
-	final static SymbolTerm ATOM_$007E$0060$003Dt$007E76$007C$007En = SYM("~`=t~76|~n");
-	final static SymbolTerm ATOM_print_indexed = SYM("print_indexed");
+	final static Functor ATOM_$007E$0060$003Dt$007E76$007C$007En = SYM("~`=t~76|~n");
+	final static Functor ATOM_print_indexed = SYM("print_indexed");
 
 	public static Operation PRED_jiti_list_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -255,10 +259,10 @@ public class FILE_prolog_jiti extends TermData {
 	 * PREDICATE: print_indexed/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	final static SymbolTerm ATOM_$007Eq$0020$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En = SYM(
+	final static Functor ATOM_$007Eq$0020$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En = SYM(
 			"~q ~t~48|~s ~t~8+ ~t~D~6+ ~t~1f~8+ ~t~s~3+~n");
-	final static SymbolTerm ATOM_print_secondary_index = SYM("print_secondary_index");
-	final static SymbolTerm ATOM_Failed$003A$0020$007Ep$007En = SYM("Failed: ~p~n");
+	final static Functor ATOM_print_secondary_index = SYM("print_secondary_index");
+	final static Functor ATOM_Failed$003A$0020$007Ep$007En = SYM("Failed: ~p~n");
 
 	public static Operation PRED_print_indexed_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -379,9 +383,9 @@ public class FILE_prolog_jiti extends TermData {
 	 * PREDICATE: print_secondary_index/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	final static SymbolTerm ATOM_$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En = SYM(
+	final static Functor ATOM_$007Et$007E48$007C$007Es$0020$007Et$007E8$002B$0020$007Et$007ED$007E6$002B$0020$007Et$007E1f$007E8$002B$0020$007Et$007Es$007E3$002B$007En = SYM(
 			"~t~48|~s ~t~8+ ~t~D~6+ ~t~1f~8+ ~t~s~3+~n");
-	final static SymbolTerm ATOM_Secondary$0020failed$003A$0020$007Ep$007En = SYM("Secondary failed: ~p~n");
+	final static Functor ATOM_Secondary$0020failed$003A$0020$007Ep$007En = SYM("Secondary failed: ~p~n");
 
 	public static Operation PRED_print_secondary_index_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -549,7 +553,7 @@ public class FILE_prolog_jiti extends TermData {
 	 * $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl/5
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_s1 = SYM(
+	private static final Functor PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_jiti$002Epl_5_s1 = SYM(
 			"[]");
 	final static IntegerTerm int_43 = Integer(43);
 
@@ -673,7 +677,7 @@ public class FILE_prolog_jiti extends TermData {
 	 * PREDICATE: deep_list/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	private static final SymbolTerm PRED_deep_list_3_s1 = SYM("[]");
+	private static final Functor PRED_deep_list_3_s1 = SYM("[]");
 	final static IntegerTerm int_47 = Integer(47);
 
 	public static Operation PRED_deep_list_3_static_exec(Prolog m) {
@@ -762,9 +766,9 @@ public class FILE_prolog_jiti extends TermData {
 	 * PREDICATE: iflags/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_jiti.pl
 	 */
-	private static final SymbolTerm PRED_iflags_3_s1 = SYM("true");
+	private static final Functor PRED_iflags_3_s1 = SYM("true");
 	final static IntegerTerm int_76 = Integer(76);
-	final static SymbolTerm ATOM_false = SYM("false");
+	final static Functor ATOM_false = SYM("false");
 
 	public static Operation PRED_iflags_3_static_exec(Prolog m) {
 		Operation cont = m.cont;

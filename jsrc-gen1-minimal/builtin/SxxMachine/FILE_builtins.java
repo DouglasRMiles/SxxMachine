@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_builtins extends bootpreds {
 /** PREDICATE: (package)/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
@@ -128,8 +129,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main((^)/2,public)
-        final static SymbolTerm FUNCTOR_module_colon_2 = F(":",2);
-        final static SymbolTerm ATOM_SxxMachine = SYM("SxxMachine");
+        final static Functor FUNCTOR_module_colon_2 = F(":",2);
+        final static Functor ATOM_SxxMachine = SYM("SxxMachine");
 
 
 
@@ -179,7 +180,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main((;)/2,public)
-        final static SymbolTerm FUNCTOR_$002D$003E_2 = F("->",2);
+        final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
 
 
 
@@ -356,8 +357,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(call/1,public)
-        final static SymbolTerm ATOM_user = SYM("user");
-        final static SymbolTerm ATOM_interpret = SYM("interpret");
+        final static Functor ATOM_user = SYM("user");
+        final static Functor ATOM_interpret = SYM("interpret");
 
 
 
@@ -379,43 +380,43 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$meta_call'/5,non-(public))
-        final static SymbolTerm ATOM_var = SYM("var");
-        final static SymbolTerm FUNCTOR_call_1 = F("call",1);
-        final static SymbolTerm ATOM_trace = SYM("trace");
-        final static SymbolTerm ATOM_debug = SYM("debug");
-        final static SymbolTerm ATOM_notrace = SYM("notrace");
-        final static SymbolTerm ATOM_nodebug = SYM("nodebug");
-        final static SymbolTerm FUNCTOR_spy_1 = F("spy",1);
-        final static SymbolTerm FUNCTOR_nospy_1 = F("nospy",1);
-        final static SymbolTerm ATOM_nospyall = SYM("nospyall");
-        final static SymbolTerm FUNCTOR_leash_1 = F("leash",1);
-        final static SymbolTerm FUNCTOR_$005E_2 = F("^",2);
-        final static SymbolTerm ATOM_$0021 = SYM("!");
-        final static SymbolTerm ATOM_no = SYM("no");
-        final static SymbolTerm FUNCTOR_context_2 = F("context",2);
-        final static SymbolTerm ATOM_if = SYM("if");
-        final static SymbolTerm ATOM_cut = SYM("cut");
-    private static final StructureTerm L_$meta_call_5_s21 = S( FUNCTOR_context_2 ,  ATOM_if ,  ATOM_cut );
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_$005C$002B_1 = F("\\+",1);
-        final static SymbolTerm FUNCTOR_findall_3 = F("findall",3);
-        final static SymbolTerm FUNCTOR_bagof_3 = F("bagof",3);
-        final static SymbolTerm FUNCTOR_setof_3 = F("setof",3);
-        final static SymbolTerm FUNCTOR_once_1 = F("once",1);
-        final static SymbolTerm FUNCTOR_on_exception_3 = F("on_exception",3);
-        final static SymbolTerm FUNCTOR_catch_3 = F("catch",3);
-        final static SymbolTerm FUNCTOR_synchronized_2 = F("synchronized",2);
-        final static SymbolTerm FUNCTOR_clause_2 = F("clause",2);
-        final static SymbolTerm FUNCTOR_assert_1 = F("assert",1);
-        final static SymbolTerm FUNCTOR_assertz_1 = F("assertz",1);
-        final static SymbolTerm FUNCTOR_asserta_1 = F("asserta",1);
-        final static SymbolTerm FUNCTOR_retract_1 = F("retract",1);
-        final static SymbolTerm FUNCTOR_abolish_1 = F("abolish",1);
-        final static SymbolTerm FUNCTOR_retractall_1 = F("retractall",1);
-        final static SymbolTerm FUNCTOR_type_1 = F("type",1);
-        final static SymbolTerm ATOM_callable = SYM("callable");
-    private static final StructureTerm L_$meta_call_5_s44 = S( FUNCTOR_type_1 ,  ATOM_callable );
+        final static Functor ATOM_var = SYM("var");
+        final static Functor FUNCTOR_call_1 = F("call",1);
+        final static Functor ATOM_trace = SYM("trace");
+        final static Functor ATOM_debug = SYM("debug");
+        final static Functor ATOM_notrace = SYM("notrace");
+        final static Functor ATOM_nodebug = SYM("nodebug");
+        final static Functor FUNCTOR_spy_1 = F("spy",1);
+        final static Functor FUNCTOR_nospy_1 = F("nospy",1);
+        final static Functor ATOM_nospyall = SYM("nospyall");
+        final static Functor FUNCTOR_leash_1 = F("leash",1);
+        final static Functor FUNCTOR_$005E_2 = F("^",2);
+        final static Functor ATOM_$0021 = SYM("!");
+        final static Functor ATOM_no = SYM("no");
+        final static Functor FUNCTOR_context_2 = F("context",2);
+        final static Functor ATOM_if = SYM("if");
+        final static Functor ATOM_cut = SYM("cut");
+    private static final Term L_$meta_call_5_s21 = S( FUNCTOR_context_2 ,  ATOM_if ,  ATOM_cut );
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
+        final static Functor FUNCTOR_findall_3 = F("findall",3);
+        final static Functor FUNCTOR_bagof_3 = F("bagof",3);
+        final static Functor FUNCTOR_setof_3 = F("setof",3);
+        final static Functor FUNCTOR_once_1 = F("once",1);
+        final static Functor FUNCTOR_on_exception_3 = F("on_exception",3);
+        final static Functor FUNCTOR_catch_3 = F("catch",3);
+        final static Functor FUNCTOR_synchronized_2 = F("synchronized",2);
+        final static Functor FUNCTOR_clause_2 = F("clause",2);
+        final static Functor FUNCTOR_assert_1 = F("assert",1);
+        final static Functor FUNCTOR_assertz_1 = F("assertz",1);
+        final static Functor FUNCTOR_asserta_1 = F("asserta",1);
+        final static Functor FUNCTOR_retract_1 = F("retract",1);
+        final static Functor FUNCTOR_abolish_1 = F("abolish",1);
+        final static Functor FUNCTOR_retractall_1 = F("retractall",1);
+        final static Functor FUNCTOR_type_1 = F("type",1);
+        final static Functor ATOM_callable = SYM("callable");
+    private static final Term L_$meta_call_5_s44 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
     // private final Term arg5;
 
@@ -2051,7 +2052,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$meta_call'/4,non-(public))
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
 
 
 
@@ -2125,7 +2126,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$call_internal'/5,non-(public))
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5;
 
@@ -2244,7 +2245,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(on_exception/3,public)
-    private static final StructureTerm L_on_exception_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_on_exception_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -2303,7 +2304,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$on_exception'/3,non-(public))
-        final static SymbolTerm ATOM_$0024none = SYM("$none");
+        final static Functor ATOM_$0024none = SYM("$none");
 
 
 
@@ -2707,7 +2708,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
     // java(A):-[java(A)]
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -2731,10 +2732,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
     // java(A,B):-[java(A,B)]
         //START inline expansion of java(a(1),a(2))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
-        if (! a2.unify(SYM(((FFIObjectTerm) a1).object().getClass().getName()), m.trail)) {
+        if (! a2.unify(SYM(((JavaObjectTerm) a1).object().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -3278,9 +3279,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$map_compare_op'/2,non-(public))
-        final static SymbolTerm ATOM_$003D = SYM("=");
-        final static SymbolTerm ATOM_$003C = SYM("<");
-        final static SymbolTerm ATOM_$003E = SYM(">");
+        final static Functor ATOM_$003D = SYM("=");
+        final static Functor ATOM_$003C = SYM("<");
+        final static Functor ATOM_$003E = SYM(">");
 
 
 
@@ -4601,9 +4602,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(clause/2,public)
-        final static SymbolTerm ATOM_access = SYM("access");
-        final static SymbolTerm ATOM_private_procedure = SYM("private_procedure");
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor ATOM_access = SYM("access");
+        final static Functor ATOM_private_procedure = SYM("private_procedure");
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
 
 
 
@@ -4682,7 +4683,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$head_to_term'/5,non-(public))
-    private static final StructureTerm L_$head_to_term_5_s7 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_$head_to_term_5_s7 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
     // private final Term arg5;
 
@@ -4868,7 +4869,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$new_internal_database'/2,non-(public))
-        final static SymbolTerm FUNCTOR_alias_1 = F("alias",1);
+        final static Functor FUNCTOR_alias_1 = F("alias",1);
 
 
 
@@ -4927,7 +4928,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$init_internal_database'/1,non-(public))
-        final static SymbolTerm ATOM_$0024init = SYM("$init");
+        final static Functor ATOM_$0024init = SYM("$init");
 
 
 
@@ -5236,9 +5237,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$new_indexing_hash'/3,public)
-        final static SymbolTerm ATOM_all = SYM("all");
-        final static SymbolTerm ATOM_lis = SYM("lis");
-        final static SymbolTerm ATOM_str = SYM("str");
+        final static Functor ATOM_all = SYM("all");
+        final static Functor ATOM_lis = SYM("lis");
+        final static Functor ATOM_str = SYM("str");
 
 
 
@@ -5364,9 +5365,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$calc_indexing_key0'/2,non-(public))
-        final static SymbolTerm ATOM_term = SYM("term");
-    private static final StructureTerm L_$calc_indexing_key0_2_s7 = S( FUNCTOR_type_1 ,  ATOM_term );
-        final static SymbolTerm FUNCTOR_$0024calc_indexing_key0_2 = F("$calc_indexing_key0",2);
+        final static Functor ATOM_term = SYM("term");
+    private static final Term L_$calc_indexing_key0_2_s7 = S( FUNCTOR_type_1 ,  ATOM_term );
+        final static Functor FUNCTOR_$0024calc_indexing_key0_2 = F("$calc_indexing_key0",2);
 
 
 
@@ -5525,7 +5526,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$check_procedure_permission'/4,non-(public))
-        final static SymbolTerm FUNCTOR_permission_4 = F("permission",4);
+        final static Functor FUNCTOR_permission_4 = F("permission",4);
 
 
 
@@ -5739,9 +5740,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(assertz/1,public)
-        final static SymbolTerm ATOM_modify = SYM("modify");
-        final static SymbolTerm ATOM_static_procedure = SYM("static_procedure");
-        final static SymbolTerm ATOM_z = SYM("z");
+        final static Functor ATOM_modify = SYM("modify");
+        final static Functor ATOM_static_procedure = SYM("static_procedure");
+        final static Functor ATOM_z = SYM("z");
 
 
 
@@ -5806,7 +5807,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(asserta/1,public)
-        final static SymbolTerm ATOM_a = SYM("a");
+        final static Functor ATOM_a = SYM("a");
 
 
 
@@ -6090,8 +6091,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$term_to_clause'/5,non-(public))
-        final static SymbolTerm ATOM_atom = SYM("atom");
-    private static final StructureTerm L_$term_to_clause_5_s7 = S( FUNCTOR_type_1 ,  ATOM_atom );
+        final static Functor ATOM_atom = SYM("atom");
+    private static final Term L_$term_to_clause_5_s7 = S( FUNCTOR_type_1 ,  ATOM_atom );
 
     // private final Term arg5;
 
@@ -6391,7 +6392,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$term_to_head'/4,non-(public))
-    private static final StructureTerm L_$term_to_head_4_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_$term_to_head_4_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -6894,7 +6895,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$localize_args'/4,non-(public))
-        final static SymbolTerm ATOM_module_colon = SYM(":");
+        final static Functor ATOM_module_colon = SYM(":");
 
 
 
@@ -7127,26 +7128,26 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$builtin_meta_predicates'/3,non-(public))
-        final static SymbolTerm ATOM_$005E = SYM("^");
-        final static SymbolTerm ATOM_$003F = SYM("?");
-    private static final ListTerm L_$builtin_meta_predicates_3_s6 = CONS( ATOM_module_colon ,  Prolog.Nil );
-    private static final ListTerm L_$builtin_meta_predicates_3_s7 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s6);
-        final static SymbolTerm ATOM_call = SYM("call");
-        final static SymbolTerm ATOM_once = SYM("once");
-        final static SymbolTerm ATOM_$005C$002B = SYM("\\+");
-        final static SymbolTerm ATOM_findall = SYM("findall");
-    private static final ListTerm L_$builtin_meta_predicates_3_s14 = CONS( ATOM_$003F ,  Prolog.Nil );
-    private static final ListTerm L_$builtin_meta_predicates_3_s15 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s14);
-    private static final ListTerm L_$builtin_meta_predicates_3_s16 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s15);
-        final static SymbolTerm ATOM_setof = SYM("setof");
-        final static SymbolTerm ATOM_bagof = SYM("bagof");
-        final static SymbolTerm ATOM_on_exception = SYM("on_exception");
-    private static final ListTerm L_$builtin_meta_predicates_3_s20 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s6);
-    private static final ListTerm L_$builtin_meta_predicates_3_s21 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s20);
-        final static SymbolTerm ATOM_catch = SYM("catch");
-    private static final ListTerm L_$builtin_meta_predicates_3_s23 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s7);
-        final static SymbolTerm ATOM_synchronized = SYM("synchronized");
-        final static SymbolTerm ATOM_freeze = SYM("freeze");
+        final static Functor ATOM_$005E = SYM("^");
+        final static Functor ATOM_$003F = SYM("?");
+    private static final Term L_$builtin_meta_predicates_3_s6 = CONS( ATOM_module_colon ,  Prolog.Nil );
+    private static final Term L_$builtin_meta_predicates_3_s7 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s6);
+        final static Functor ATOM_call = SYM("call");
+        final static Functor ATOM_once = SYM("once");
+        final static Functor ATOM_$005C$002B = SYM("\\+");
+        final static Functor ATOM_findall = SYM("findall");
+    private static final Term L_$builtin_meta_predicates_3_s14 = CONS( ATOM_$003F ,  Prolog.Nil );
+    private static final Term L_$builtin_meta_predicates_3_s15 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s14);
+    private static final Term L_$builtin_meta_predicates_3_s16 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s15);
+        final static Functor ATOM_setof = SYM("setof");
+        final static Functor ATOM_bagof = SYM("bagof");
+        final static Functor ATOM_on_exception = SYM("on_exception");
+    private static final Term L_$builtin_meta_predicates_3_s20 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s6);
+    private static final Term L_$builtin_meta_predicates_3_s21 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s20);
+        final static Functor ATOM_catch = SYM("catch");
+    private static final Term L_$builtin_meta_predicates_3_s23 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s7);
+        final static Functor ATOM_synchronized = SYM("synchronized");
+        final static Functor ATOM_freeze = SYM("freeze");
 
 
 
@@ -7454,7 +7455,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$clause_to_term'/5,non-(public))
-    private static final StructureTerm L_$clause_to_term_5_s7 = S( FUNCTOR_type_1 ,  ATOM_atom );
+    private static final Term L_$clause_to_term_5_s7 = S( FUNCTOR_type_1 ,  ATOM_atom );
 
     // private final Term arg5;
 
@@ -7777,11 +7778,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$term_to_predicateindicator'/5,non-(public))
-        final static SymbolTerm ATOM_predicate_indicator = SYM("predicate_indicator");
-    private static final StructureTerm L_$term_to_predicateindicator_5_s8 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
-    private static final StructureTerm L_$term_to_predicateindicator_5_s11 = S( FUNCTOR_type_1 ,  ATOM_atom );
-        final static SymbolTerm ATOM_integer = SYM("integer");
-    private static final StructureTerm L_$term_to_predicateindicator_5_s14 = S( FUNCTOR_type_1 ,  ATOM_integer );
+        final static Functor ATOM_predicate_indicator = SYM("predicate_indicator");
+    private static final Term L_$term_to_predicateindicator_5_s8 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
+    private static final Term L_$term_to_predicateindicator_5_s11 = S( FUNCTOR_type_1 ,  ATOM_atom );
+        final static Functor ATOM_integer = SYM("integer");
+    private static final Term L_$term_to_predicateindicator_5_s14 = S( FUNCTOR_type_1 ,  ATOM_integer );
 
     // private final Term arg5;
 
@@ -8202,7 +8203,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$gen_indexing_keys'/3,non-(public))
-    private static final ListTerm L_$gen_indexing_keys_3_s4 = CONS( ATOM_all ,  Prolog.Nil );
+    private static final Term L_$gen_indexing_keys_3_s4 = CONS( ATOM_all ,  Prolog.Nil );
 
 
 
@@ -8283,12 +8284,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$gen_indexing_keys0'/3,non-(public))
-    private static final ListTerm L_$gen_indexing_keys0_3_s4 = CONS( ATOM_lis ,  Prolog.Nil );
-    private static final ListTerm L_$gen_indexing_keys0_3_s5 = CONS( ATOM_all , L_$gen_indexing_keys0_3_s4);
-    private static final ListTerm L_$gen_indexing_keys0_3_s7 = CONS( ATOM_str ,  Prolog.Nil );
-    private static final ListTerm L_$gen_indexing_keys0_3_s8 = CONS( ATOM_all , L_$gen_indexing_keys0_3_s7);
-    private static final StructureTerm L_$gen_indexing_keys0_3_s12 = S( FUNCTOR_type_1 ,  ATOM_term );
-        final static SymbolTerm FUNCTOR_$0024gen_indexing_keys0_3 = F("$gen_indexing_keys0",3);
+    private static final Term L_$gen_indexing_keys0_3_s4 = CONS( ATOM_lis ,  Prolog.Nil );
+    private static final Term L_$gen_indexing_keys0_3_s5 = CONS( ATOM_all , L_$gen_indexing_keys0_3_s4);
+    private static final Term L_$gen_indexing_keys0_3_s7 = CONS( ATOM_str ,  Prolog.Nil );
+    private static final Term L_$gen_indexing_keys0_3_s8 = CONS( ATOM_all , L_$gen_indexing_keys0_3_s7);
+    private static final Term L_$gen_indexing_keys0_3_s12 = S( FUNCTOR_type_1 ,  ATOM_term );
+        final static Functor FUNCTOR_$0024gen_indexing_keys0_3 = F("$gen_indexing_keys0",3);
 
 
 
@@ -8882,7 +8883,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(findall/3,public)
-    private static final StructureTerm L_findall_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_findall_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -8943,7 +8944,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$findall'/4,non-(public))
-        final static SymbolTerm ATOM_$0024FINDALL = SYM("$FINDALL");
+        final static Functor ATOM_$0024FINDALL = SYM("$FINDALL");
 
 
 
@@ -8999,7 +9000,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(bagof/3,public)
-    private static final StructureTerm L_bagof_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_bagof_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -9058,7 +9059,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(setof/3,public)
-    private static final StructureTerm L_setof_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_setof_3_s4 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -9119,7 +9120,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$bagof'/3,non-(public))
-        final static SymbolTerm ATOM_$0024witness = SYM("$witness");
+        final static Functor ATOM_$0024witness = SYM("$witness");
 
 
 
@@ -10217,7 +10218,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$existential_variables_set'/3,non-(public))
-        final static SymbolTerm FUNCTOR_$0024meta_call_5 = F("$meta_call",5);
+        final static Functor FUNCTOR_$0024meta_call_5 = F("$meta_call",5);
 
 
 
@@ -10918,26 +10919,26 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$read_token1'/3,non-(public))
-    private static final ListTerm L_$read_token1_3_s3 = CONS( int_neg2 ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_error_1 = F("error",1);
+    private static final Term L_$read_token1_3_s3 = CONS( int_neg2 ,  Prolog.Nil );
+        final static Functor FUNCTOR_error_1 = F("error",1);
         final static IntegerTerm int_73 = Integer(73);
-    private static final ListTerm L_$read_token1_3_s6 = CONS( int_73 ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_number_1 = F("number",1);
+    private static final Term L_$read_token1_3_s6 = CONS( int_73 ,  Prolog.Nil );
+        final static Functor FUNCTOR_number_1 = F("number",1);
         final static IntegerTerm int_76 = Integer(76);
-    private static final ListTerm L_$read_token1_3_s9 = CONS( int_76 ,  Prolog.Nil );
+    private static final Term L_$read_token1_3_s9 = CONS( int_76 ,  Prolog.Nil );
         final static IntegerTerm int_68 = Integer(68);
-    private static final ListTerm L_$read_token1_3_s11 = CONS( int_68 ,  Prolog.Nil );
+    private static final Term L_$read_token1_3_s11 = CONS( int_68 ,  Prolog.Nil );
         final static IntegerTerm int_65 = Integer(65);
-    private static final ListTerm L_$read_token1_3_s13 = CONS( int_65 ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_atom_1 = F("atom",1);
+    private static final Term L_$read_token1_3_s13 = CONS( int_65 ,  Prolog.Nil );
+        final static Functor FUNCTOR_atom_1 = F("atom",1);
         final static IntegerTerm int_86 = Integer(86);
-    private static final ListTerm L_$read_token1_3_s16 = CONS( int_86 ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_var_1 = F("var",1);
+    private static final Term L_$read_token1_3_s16 = CONS( int_86 ,  Prolog.Nil );
+        final static Functor FUNCTOR_var_1 = F("var",1);
         final static IntegerTerm int_83 = Integer(83);
-    private static final ListTerm L_$read_token1_3_s19 = CONS( int_83 ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_string_1 = F("string",1);
+    private static final Term L_$read_token1_3_s19 = CONS( int_83 ,  Prolog.Nil );
+        final static Functor FUNCTOR_string_1 = F("string",1);
         final static IntegerTerm int_39 = Integer(39);
-    private static final ListTerm L_$read_token1_3_s22 = CONS( int_39 ,  Prolog.Nil );
+    private static final Term L_$read_token1_3_s22 = CONS( int_39 ,  Prolog.Nil );
 
 
 
@@ -11234,18 +11235,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$read_tokens1'/5,non-(public))
-        final static SymbolTerm ATOM_user_error = SYM("user_error");
-        final static SymbolTerm ATOM_$007BSYNTAX$0020ERROR$007D = SYM("{SYNTAX ERROR}");
-        final static SymbolTerm ATOM_$002A$002A$0020 = SYM("** ");
-        final static SymbolTerm ATOM_$0020$002A$002A = SYM(" **");
-        final static SymbolTerm ATOM_end_of_file = SYM("end_of_file");
-        final static SymbolTerm ATOM_$002E = SYM(".");
-    private static final ListTerm L_$read_tokens1_5_s9 = CONS( ATOM_$002E ,  Prolog.Nil );
-    private static final ListTerm L_$read_tokens1_5_s10 = CONS( ATOM_end_of_file , L_$read_tokens1_5_s9);
-        final static SymbolTerm ATOM__ = SYM("_");
-    private static final StructureTerm L_$read_tokens1_5_s14 = S( FUNCTOR_var_1 ,  ATOM__ );
-        final static SymbolTerm FUNCTOR_var_2 = F("var",2);
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
+        final static Functor ATOM_user_error = SYM("user_error");
+        final static Functor ATOM_$007BSYNTAX$0020ERROR$007D = SYM("{SYNTAX ERROR}");
+        final static Functor ATOM_$002A$002A$0020 = SYM("** ");
+        final static Functor ATOM_$0020$002A$002A = SYM(" **");
+        final static Functor ATOM_end_of_file = SYM("end_of_file");
+        final static Functor ATOM_$002E = SYM(".");
+    private static final Term L_$read_tokens1_5_s9 = CONS( ATOM_$002E ,  Prolog.Nil );
+    private static final Term L_$read_tokens1_5_s10 = CONS( ATOM_end_of_file , L_$read_tokens1_5_s9);
+        final static Functor ATOM__ = SYM("_");
+    private static final Term L_$read_tokens1_5_s14 = S( FUNCTOR_var_1 ,  ATOM__ );
+        final static Functor FUNCTOR_var_2 = F("var",2);
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
 
     // private final Term arg5;
 
@@ -11757,9 +11758,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(parse_tokens/2,non-(public))
-        final static SymbolTerm FUNCTOR_$0024tokens_1 = F("$tokens",1);
+        final static Functor FUNCTOR_$0024tokens_1 = F("$tokens",1);
         final static IntegerTerm int_1201 = Integer(1201);
-    private static final ListTerm L_parse_tokens_2_s7 = CONS( ATOM_$002E ,  Prolog.Nil );
+    private static final Term L_parse_tokens_2_s7 = CONS( ATOM_$002E ,  Prolog.Nil );
 
 
 
@@ -11850,14 +11851,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens1'/5,non-(public))
-        final static SymbolTerm ATOM_cannot = SYM("cannot");
-        final static SymbolTerm ATOM_start = SYM("start");
-        final static SymbolTerm ATOM_an = SYM("an");
-        final static SymbolTerm ATOM_expression = SYM("expression");
-    private static final ListTerm L_$parse_tokens1_5_s6 = CONS( ATOM_expression ,  Prolog.Nil );
-    private static final ListTerm L_$parse_tokens1_5_s7 = CONS( ATOM_an , L_$parse_tokens1_5_s6);
-    private static final ListTerm L_$parse_tokens1_5_s8 = CONS( ATOM_start , L_$parse_tokens1_5_s7);
-    private static final ListTerm L_$parse_tokens1_5_s9 = CONS( ATOM_cannot , L_$parse_tokens1_5_s8);
+        final static Functor ATOM_cannot = SYM("cannot");
+        final static Functor ATOM_start = SYM("start");
+        final static Functor ATOM_an = SYM("an");
+        final static Functor ATOM_expression = SYM("expression");
+    private static final Term L_$parse_tokens1_5_s6 = CONS( ATOM_expression ,  Prolog.Nil );
+    private static final Term L_$parse_tokens1_5_s7 = CONS( ATOM_an , L_$parse_tokens1_5_s6);
+    private static final Term L_$parse_tokens1_5_s8 = CONS( ATOM_start , L_$parse_tokens1_5_s7);
+    private static final Term L_$parse_tokens1_5_s9 = CONS( ATOM_cannot , L_$parse_tokens1_5_s8);
 
     // private final Term arg5;
 
@@ -11931,13 +11932,13 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens2'/7,non-(public))
-        final static SymbolTerm ATOM_operator = SYM("operator");
-        final static SymbolTerm ATOM_expected = SYM("expected");
-        final static SymbolTerm ATOM_after = SYM("after");
-    private static final ListTerm L_$parse_tokens2_7_s6 = CONS( ATOM_expression ,  Prolog.Nil );
-    private static final ListTerm L_$parse_tokens2_7_s7 = CONS( ATOM_after , L_$parse_tokens2_7_s6);
-    private static final ListTerm L_$parse_tokens2_7_s8 = CONS( ATOM_expected , L_$parse_tokens2_7_s7);
-    private static final ListTerm L_$parse_tokens2_7_s9 = CONS( ATOM_operator , L_$parse_tokens2_7_s8);
+        final static Functor ATOM_operator = SYM("operator");
+        final static Functor ATOM_expected = SYM("expected");
+        final static Functor ATOM_after = SYM("after");
+    private static final Term L_$parse_tokens2_7_s6 = CONS( ATOM_expression ,  Prolog.Nil );
+    private static final Term L_$parse_tokens2_7_s7 = CONS( ATOM_after , L_$parse_tokens2_7_s6);
+    private static final Term L_$parse_tokens2_7_s8 = CONS( ATOM_expected , L_$parse_tokens2_7_s7);
+    private static final Term L_$parse_tokens2_7_s9 = CONS( ATOM_operator , L_$parse_tokens2_7_s8);
 
     // private final Term arg5, arg6, arg7;
 
@@ -12053,17 +12054,17 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_before_op'/5,non-(public))
-        final static SymbolTerm ATOM_$0020 = SYM(" ");
-        final static SymbolTerm ATOM_$002D = SYM("-");
-    private static final StructureTerm L_$parse_tokens_before_op_5_s8 = S( FUNCTOR_atom_1 ,  ATOM_$002D );
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm ATOM_$0028 = SYM("(");
-        final static SymbolTerm ATOM_$0029 = SYM(")");
-        final static SymbolTerm ATOM_$007B = SYM("{");
-        final static SymbolTerm ATOM_$005B = SYM("[");
-        final static SymbolTerm ATOM_fx = SYM("fx");
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm ATOM_fy = SYM("fy");
+        final static Functor ATOM_$0020 = SYM(" ");
+        final static Functor ATOM_$002D = SYM("-");
+    private static final Term L_$parse_tokens_before_op_5_s8 = S( FUNCTOR_atom_1 ,  ATOM_$002D );
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor ATOM_$0028 = SYM("(");
+        final static Functor ATOM_$0029 = SYM(")");
+        final static Functor ATOM_$007B = SYM("{");
+        final static Functor ATOM_$005B = SYM("[");
+        final static Functor ATOM_fx = SYM("fx");
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor ATOM_fy = SYM("fy");
 
     // private final Term arg5;
 
@@ -12858,9 +12859,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_brace'/3,non-(public))
-        final static SymbolTerm ATOM_$007B$007D = SYM("{}");
-        final static SymbolTerm ATOM_$007D = SYM("}");
-        final static SymbolTerm FUNCTOR_$007B$007D_1 = F("{}",1);
+        final static Functor ATOM_$007B$007D = SYM("{}");
+        final static Functor ATOM_$007D = SYM("}");
+        final static Functor FUNCTOR_$007B$007D_1 = F("{}",1);
 
 
 
@@ -12941,8 +12942,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_list'/3,non-(public))
-        final static SymbolTerm ATOM_Nil = SYM("[]");
-        final static SymbolTerm ATOM_$005D = SYM("]");
+        final static Functor ATOM_Nil = SYM("[]");
+        final static Functor ATOM_$005D = SYM("]");
         final static IntegerTerm int_999 = Integer(999);
 
 
@@ -13030,8 +13031,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_list_rest'/3,non-(public))
-        final static SymbolTerm ATOM_$007C = SYM("|");
-        final static SymbolTerm ATOM_$002C = SYM(",");
+        final static Functor ATOM_$007C = SYM("|");
+        final static Functor ATOM_$002C = SYM(",");
 
 
 
@@ -13435,14 +13436,14 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_op'/8,non-(public))
-    private static final StructureTerm L_$parse_tokens_op_8_s4 = S( FUNCTOR_atom_1 ,  ATOM_$002C );
-        final static SymbolTerm ATOM_or = SYM(";");
-    private static final StructureTerm L_$parse_tokens_op_8_s8 = S( FUNCTOR_atom_1 ,  ATOM_or );
-        final static SymbolTerm ATOM_xf = SYM("xf");
-        final static SymbolTerm ATOM_yf = SYM("yf");
-        final static SymbolTerm ATOM_xfx = SYM("xfx");
-        final static SymbolTerm ATOM_xfy = SYM("xfy");
-        final static SymbolTerm ATOM_yfx = SYM("yfx");
+    private static final Term L_$parse_tokens_op_8_s4 = S( FUNCTOR_atom_1 ,  ATOM_$002C );
+        final static Functor ATOM_or = SYM(";");
+    private static final Term L_$parse_tokens_op_8_s8 = S( FUNCTOR_atom_1 ,  ATOM_or );
+        final static Functor ATOM_xf = SYM("xf");
+        final static Functor ATOM_yf = SYM("yf");
+        final static Functor ATOM_xfx = SYM("xfx");
+        final static Functor ATOM_xfy = SYM("xfy");
+        final static Functor ATOM_yfx = SYM("yfx");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -14329,7 +14330,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_expect'/3,non-(public))
-    private static final ListTerm L_$parse_tokens_expect_3_s3 = CONS( ATOM_expected ,  Prolog.Nil );
+    private static final Term L_$parse_tokens_expect_3_s3 = CONS( ATOM_expected ,  Prolog.Nil );
 
 
 
@@ -14529,7 +14530,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_error1'/2,non-(public))
-        final static SymbolTerm ATOM_$002A$002A$0020here$0020$002A$002A = SYM("** here **");
+        final static Functor ATOM_$002A$002A$0020here$0020$002A$002A = SYM("** here **");
 
 
 
@@ -14654,7 +14655,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$parse_tokens_error2'/1,non-(public))
-        final static SymbolTerm ATOM_$0022 = SYM("\"");
+        final static Functor ATOM_$0022 = SYM("\"");
 
 
 
@@ -14785,8 +14786,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 */
     // main('$parse_tokens_write_string'/2,non-(public))
         final static IntegerTerm int_34 = Integer(34);
-    private static final ListTerm L_$parse_tokens_write_string_2_s3 = CONS( int_34 ,  Prolog.Nil );
-    private static final ListTerm L_$parse_tokens_write_string_2_s4 = CONS( int_34 , L_$parse_tokens_write_string_2_s3);
+    private static final Term L_$parse_tokens_write_string_2_s3 = CONS( int_34 ,  Prolog.Nil );
+    private static final Term L_$parse_tokens_write_string_2_s4 = CONS( int_34 , L_$parse_tokens_write_string_2_s3);
 
 
 
@@ -14951,9 +14952,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(write/1,public)
-        final static SymbolTerm FUNCTOR_numbervars_1 = F("numbervars",1);
-    private static final StructureTerm L_write_1_s4 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-    private static final ListTerm L_write_1_s6 = CONS(L_write_1_s4,  Prolog.Nil );
+        final static Functor FUNCTOR_numbervars_1 = F("numbervars",1);
+    private static final Term L_write_1_s4 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
+    private static final Term L_write_1_s6 = CONS(L_write_1_s4,  Prolog.Nil );
 
 
 
@@ -14975,8 +14976,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(write/2,public)
-    private static final StructureTerm L_write_2_s4 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-    private static final ListTerm L_write_2_s6 = CONS(L_write_2_s4,  Prolog.Nil );
+    private static final Term L_write_2_s4 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
+    private static final Term L_write_2_s6 = CONS(L_write_2_s4,  Prolog.Nil );
 
 
 
@@ -14996,11 +14997,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(writeq/1,public)
-        final static SymbolTerm FUNCTOR_quoted_1 = F("quoted",1);
-    private static final StructureTerm L_writeq_1_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
-    private static final StructureTerm L_writeq_1_s6 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-    private static final ListTerm L_writeq_1_s8 = CONS(L_writeq_1_s6,  Prolog.Nil );
-    private static final ListTerm L_writeq_1_s9 = CONS(L_writeq_1_s4, L_writeq_1_s8);
+        final static Functor FUNCTOR_quoted_1 = F("quoted",1);
+    private static final Term L_writeq_1_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
+    private static final Term L_writeq_1_s6 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
+    private static final Term L_writeq_1_s8 = CONS(L_writeq_1_s6,  Prolog.Nil );
+    private static final Term L_writeq_1_s9 = CONS(L_writeq_1_s4, L_writeq_1_s8);
 
 
 
@@ -15022,10 +15023,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(writeq/2,public)
-    private static final StructureTerm L_writeq_2_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
-    private static final StructureTerm L_writeq_2_s6 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-    private static final ListTerm L_writeq_2_s8 = CONS(L_writeq_2_s6,  Prolog.Nil );
-    private static final ListTerm L_writeq_2_s9 = CONS(L_writeq_2_s4, L_writeq_2_s8);
+    private static final Term L_writeq_2_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
+    private static final Term L_writeq_2_s6 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
+    private static final Term L_writeq_2_s8 = CONS(L_writeq_2_s6,  Prolog.Nil );
+    private static final Term L_writeq_2_s9 = CONS(L_writeq_2_s4, L_writeq_2_s8);
 
 
 
@@ -15045,11 +15046,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(write_canonical/1,public)
-    private static final StructureTerm L_write_canonical_1_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
-        final static SymbolTerm FUNCTOR_ignore_ops_1 = F("ignore_ops",1);
-    private static final StructureTerm L_write_canonical_1_s6 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
-    private static final ListTerm L_write_canonical_1_s8 = CONS(L_write_canonical_1_s6,  Prolog.Nil );
-    private static final ListTerm L_write_canonical_1_s9 = CONS(L_write_canonical_1_s4, L_write_canonical_1_s8);
+    private static final Term L_write_canonical_1_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
+        final static Functor FUNCTOR_ignore_ops_1 = F("ignore_ops",1);
+    private static final Term L_write_canonical_1_s6 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
+    private static final Term L_write_canonical_1_s8 = CONS(L_write_canonical_1_s6,  Prolog.Nil );
+    private static final Term L_write_canonical_1_s9 = CONS(L_write_canonical_1_s4, L_write_canonical_1_s8);
 
 
 
@@ -15071,10 +15072,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(write_canonical/2,public)
-    private static final StructureTerm L_write_canonical_2_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
-    private static final StructureTerm L_write_canonical_2_s6 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
-    private static final ListTerm L_write_canonical_2_s8 = CONS(L_write_canonical_2_s6,  Prolog.Nil );
-    private static final ListTerm L_write_canonical_2_s9 = CONS(L_write_canonical_2_s4, L_write_canonical_2_s8);
+    private static final Term L_write_canonical_2_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
+    private static final Term L_write_canonical_2_s6 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
+    private static final Term L_write_canonical_2_s8 = CONS(L_write_canonical_2_s6,  Prolog.Nil );
+    private static final Term L_write_canonical_2_s9 = CONS(L_write_canonical_2_s4, L_write_canonical_2_s8);
 
 
 
@@ -15163,7 +15164,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 */
     // main('$write_term'/3,non-(public))
         final static IntegerTerm int_1200 = Integer(1200);
-        final static SymbolTerm ATOM_punct = SYM("punct");
+        final static Functor ATOM_punct = SYM("punct");
 
 
 
@@ -15192,10 +15193,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$write_term0'/6,non-(public))
-        final static SymbolTerm ATOM_alpha = SYM("alpha");
-        final static SymbolTerm FUNCTOR_$0024VAR_1 = F("$VAR",1);
-    private static final StructureTerm L_$write_term0_6_s7 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-        final static SymbolTerm ATOM_symbol = SYM("symbol");
+        final static Functor ATOM_alpha = SYM("alpha");
+        final static Functor FUNCTOR_$0024VAR_1 = F("$VAR",1);
+    private static final Term L_$write_term0_6_s7 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
+        final static Functor ATOM_symbol = SYM("symbol");
 
     // private final Term arg5, arg6;
 
@@ -15314,7 +15315,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -15627,7 +15628,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/1,non-(public))
-    private static final StructureTerm L_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
+    private static final Term L_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
 
 
 
@@ -15677,7 +15678,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/1,non-(public))
-    private static final StructureTerm L_$dummy_15_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
+    private static final Term L_$dummy_15_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
 
 
 
@@ -15727,7 +15728,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/1,non-(public))
-    private static final StructureTerm L_$dummy_16_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
+    private static final Term L_$dummy_16_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_1_s4 = S( FUNCTOR_ignore_ops_1 ,  Prolog.True );
 
 
 
@@ -15777,7 +15778,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$write_space_if_needed'/3,non-(public))
-        final static SymbolTerm ATOM_other = SYM("other");
+        final static Functor ATOM_other = SYM("other");
 
 
 
@@ -15890,8 +15891,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 */
     // main('$write_VAR'/2,non-(public))
         final static IntegerTerm int_26 = Integer(26);
-        final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
-        final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
+        final static Functor FUNCTOR_mod_2 = F("mod",2);
+        final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
 
 
 
@@ -15988,7 +15989,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$write_atom'/5,non-(public))
-    private static final StructureTerm L_$write_atom_5_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
+    private static final Term L_$write_atom_5_s4 = S( FUNCTOR_quoted_1 ,  Prolog.True );
 
     // private final Term arg5;
 
@@ -17205,10 +17206,10 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(op/3,public)
-        final static SymbolTerm FUNCTOR_domain_2 = F("domain",2);
-    private static final StructureTerm L_op_3_s7 = S( FUNCTOR_$002D_2 ,  int_0 ,  int_1200 );
-    private static final StructureTerm L_op_3_s9 = S( FUNCTOR_domain_2 ,  ATOM_integer , L_op_3_s7);
-        final static SymbolTerm FUNCTOR_op_3 = F("op",3);
+        final static Functor FUNCTOR_domain_2 = F("domain",2);
+    private static final Term L_op_3_s7 = S( FUNCTOR_$002D_2 ,  int_0 ,  int_1200 );
+    private static final Term L_op_3_s9 = S( FUNCTOR_domain_2 ,  ATOM_integer , L_op_3_s7);
+        final static Functor FUNCTOR_op_3 = F("op",3);
 
 
 
@@ -17369,9 +17370,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$op2'/3,non-(public))
-        final static SymbolTerm FUNCTOR_list_1 = F("list",1);
-    private static final StructureTerm L_$op2_3_s6 = S( FUNCTOR_list_1 ,  ATOM_atom );
-    private static final StructureTerm L_$op2_3_s8 = S( FUNCTOR_type_1 , L_$op2_3_s6);
+        final static Functor FUNCTOR_list_1 = F("list",1);
+    private static final Term L_$op2_3_s6 = S( FUNCTOR_list_1 ,  ATOM_atom );
+    private static final Term L_$op2_3_s8 = S( FUNCTOR_type_1 , L_$op2_3_s6);
 
 
 
@@ -17533,7 +17534,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$add_op'/3,non-(public))
-        final static SymbolTerm FUNCTOR_$0024current_operator_3 = F("$current_operator",3);
+        final static Functor FUNCTOR_$0024current_operator_3 = F("$current_operator",3);
 
 
 
@@ -17676,9 +17677,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$op_specifier'/2,non-(public))
-        final static SymbolTerm ATOM_prefix = SYM("prefix");
-        final static SymbolTerm ATOM_infix = SYM("infix");
-        final static SymbolTerm ATOM_postfix = SYM("postfix");
+        final static Functor ATOM_prefix = SYM("prefix");
+        final static Functor ATOM_infix = SYM("infix");
+        final static Functor ATOM_postfix = SYM("postfix");
 
 
 
@@ -18165,9 +18166,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/2,non-(public))
-        final static SymbolTerm ATOM_atomic = SYM("atomic");
-    private static final StructureTerm L_$dummy_17_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atomic );
-        final static SymbolTerm FUNCTOR_name_2 = F("name",2);
+        final static Functor ATOM_atomic = SYM("atomic");
+    private static final Term L_$dummy_17_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atomic );
+        final static Functor FUNCTOR_name_2 = F("name",2);
 
 
 
@@ -18365,9 +18366,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/3,non-(public))
-        final static SymbolTerm ATOM_char = SYM("char");
-    private static final StructureTerm L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s5 = S( FUNCTOR_list_1 ,  ATOM_char );
-    private static final StructureTerm L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s7 = S( FUNCTOR_type_1 , L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s5);
+        final static Functor ATOM_char = SYM("char");
+    private static final Term L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s5 = S( FUNCTOR_list_1 ,  ATOM_char );
+    private static final Term L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s7 = S( FUNCTOR_type_1 , L_$dummy_19_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_3_s5);
 
 
 
@@ -18687,8 +18688,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(set_prolog_flag/2,public)
-        final static SymbolTerm FUNCTOR_set_prolog_flag_2 = F("set_prolog_flag",2);
-    private static final StructureTerm L_set_prolog_flag_2_s8 = S( FUNCTOR_type_1 ,  ATOM_atom );
+        final static Functor FUNCTOR_set_prolog_flag_2 = F("set_prolog_flag",2);
+    private static final Term L_set_prolog_flag_2_s8 = S( FUNCTOR_type_1 ,  ATOM_atom );
 
 
 
@@ -18824,9 +18825,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$set_prolog_flag0'/2,non-(public))
-        final static SymbolTerm FUNCTOR_changeable_1 = F("changeable",1);
-        final static SymbolTerm ATOM_prolog_flag = SYM("prolog_flag");
-    private static final StructureTerm L_$set_prolog_flag0_2_s6 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_prolog_flag );
+        final static Functor FUNCTOR_changeable_1 = F("changeable",1);
+        final static Functor ATOM_prolog_flag = SYM("prolog_flag");
+    private static final Term L_$set_prolog_flag0_2_s6 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_prolog_flag );
 
 
 
@@ -18888,9 +18889,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$set_prolog_flag0'/4,non-(public))
-        final static SymbolTerm ATOM_flag = SYM("flag");
-        final static SymbolTerm ATOM_flag_value = SYM("flag_value");
-    private static final StructureTerm L_$set_prolog_flag0_4_s10 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_flag_value );
+        final static Functor ATOM_flag = SYM("flag");
+        final static Functor ATOM_flag_value = SYM("flag_value");
+    private static final Term L_$set_prolog_flag0_4_s10 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_flag_value );
 
 
 
@@ -18995,8 +18996,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(current_prolog_flag/2,public)
-    private static final StructureTerm L_current_prolog_flag_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atom );
-        final static SymbolTerm FUNCTOR_current_prolog_flag_2 = F("current_prolog_flag",2);
+    private static final Term L_current_prolog_flag_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atom );
+        final static Functor FUNCTOR_current_prolog_flag_2 = F("current_prolog_flag",2);
 
 
 
@@ -19095,7 +19096,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/4,non-(public))
-    private static final StructureTerm L_$dummy_21_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_4_s5 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_prolog_flag );
+    private static final Term L_$dummy_21_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fbuiltins$002Epl_4_s5 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_prolog_flag );
 
 
 
@@ -19156,30 +19157,30 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$prolog_impl_flag'/3,non-(public))
-        final static SymbolTerm ATOM_max_integer = SYM("max_integer");
-    private static final StructureTerm L_$prolog_impl_flag_3_s5 = S( FUNCTOR_changeable_1 ,  ATOM_no );
-        final static SymbolTerm ATOM_min_integer = SYM("min_integer");
-        final static SymbolTerm ATOM_on = SYM("on");
-        final static SymbolTerm ATOM_off = SYM("off");
-    private static final ListTerm L_$prolog_impl_flag_3_s11 = CONS( ATOM_off ,  Prolog.Nil );
-    private static final ListTerm L_$prolog_impl_flag_3_s12 = CONS( ATOM_on , L_$prolog_impl_flag_3_s11);
-        final static SymbolTerm ATOM_yes = SYM("yes");
-    private static final StructureTerm L_$prolog_impl_flag_3_s15 = S( FUNCTOR_changeable_1 ,  ATOM_yes );
-        final static SymbolTerm ATOM_max_arity = SYM("max_arity");
-        final static SymbolTerm ATOM_unknown = SYM("unknown");
-        final static SymbolTerm ATOM_error = SYM("error");
-        final static SymbolTerm ATOM_fail = SYM("fail");
-        final static SymbolTerm ATOM_warning = SYM("warning");
-    private static final ListTerm L_$prolog_impl_flag_3_s21 = CONS( ATOM_warning ,  Prolog.Nil );
-    private static final ListTerm L_$prolog_impl_flag_3_s22 = CONS( ATOM_fail , L_$prolog_impl_flag_3_s21);
-    private static final ListTerm L_$prolog_impl_flag_3_s23 = CONS( ATOM_error , L_$prolog_impl_flag_3_s22);
-        final static SymbolTerm ATOM_double_quotes = SYM("double_quotes");
-        final static SymbolTerm ATOM_chars = SYM("chars");
-        final static SymbolTerm ATOM_codes = SYM("codes");
-    private static final ListTerm L_$prolog_impl_flag_3_s28 = CONS( ATOM_atom ,  Prolog.Nil );
-    private static final ListTerm L_$prolog_impl_flag_3_s29 = CONS( ATOM_codes , L_$prolog_impl_flag_3_s28);
-    private static final ListTerm L_$prolog_impl_flag_3_s30 = CONS( ATOM_chars , L_$prolog_impl_flag_3_s29);
-        final static SymbolTerm ATOM_print_stack_trace = SYM("print_stack_trace");
+        final static Functor ATOM_max_integer = SYM("max_integer");
+    private static final Term L_$prolog_impl_flag_3_s5 = S( FUNCTOR_changeable_1 ,  ATOM_no );
+        final static Functor ATOM_min_integer = SYM("min_integer");
+        final static Functor ATOM_on = SYM("on");
+        final static Functor ATOM_off = SYM("off");
+    private static final Term L_$prolog_impl_flag_3_s11 = CONS( ATOM_off ,  Prolog.Nil );
+    private static final Term L_$prolog_impl_flag_3_s12 = CONS( ATOM_on , L_$prolog_impl_flag_3_s11);
+        final static Functor ATOM_yes = SYM("yes");
+    private static final Term L_$prolog_impl_flag_3_s15 = S( FUNCTOR_changeable_1 ,  ATOM_yes );
+        final static Functor ATOM_max_arity = SYM("max_arity");
+        final static Functor ATOM_unknown = SYM("unknown");
+        final static Functor ATOM_error = SYM("error");
+        final static Functor ATOM_fail = SYM("fail");
+        final static Functor ATOM_warning = SYM("warning");
+    private static final Term L_$prolog_impl_flag_3_s21 = CONS( ATOM_warning ,  Prolog.Nil );
+    private static final Term L_$prolog_impl_flag_3_s22 = CONS( ATOM_fail , L_$prolog_impl_flag_3_s21);
+    private static final Term L_$prolog_impl_flag_3_s23 = CONS( ATOM_error , L_$prolog_impl_flag_3_s22);
+        final static Functor ATOM_double_quotes = SYM("double_quotes");
+        final static Functor ATOM_chars = SYM("chars");
+        final static Functor ATOM_codes = SYM("codes");
+    private static final Term L_$prolog_impl_flag_3_s28 = CONS( ATOM_atom ,  Prolog.Nil );
+    private static final Term L_$prolog_impl_flag_3_s29 = CONS( ATOM_codes , L_$prolog_impl_flag_3_s28);
+    private static final Term L_$prolog_impl_flag_3_s30 = CONS( ATOM_chars , L_$prolog_impl_flag_3_s29);
+        final static Functor ATOM_print_stack_trace = SYM("print_stack_trace");
 
 
 
@@ -19365,7 +19366,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(abort/0,public)
-        final static SymbolTerm ATOM_Execution$0020aborted = SYM("Execution aborted");
+        final static Functor ATOM_Execution$0020aborted = SYM("Execution aborted");
 
 
 
@@ -19508,7 +19509,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dcg_expansion'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$002D$002D$003E_2 = F("-->",2);
+        final static Functor FUNCTOR_$002D$002D$003E_2 = F("-->",2);
 
 
 
@@ -19666,7 +19667,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dcg_translation_atom'/4,non-(public))
-        final static SymbolTerm FUNCTOR_phrase_3 = F("phrase",3);
+        final static Functor FUNCTOR_phrase_3 = F("phrase",3);
 
 
 
@@ -20012,7 +20013,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dcg_trans'/5,non-(public))
-        final static SymbolTerm FUNCTOR_C_3 = F("C",3);
+        final static Functor FUNCTOR_C_3 = F("C",3);
 
     // private final Term arg5;
 
@@ -20769,12 +20770,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$consult_init'/1,non-(public))
-        final static SymbolTerm FUNCTOR_$0024consulted_file_1 = F("$consulted_file",1);
-        final static SymbolTerm FUNCTOR_$0024consulted_package_1 = F("$consulted_package",1);
-        final static SymbolTerm FUNCTOR_$0024consulted_import_2 = F("$consulted_import",2);
-        final static SymbolTerm FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate",3);
-    private static final StructureTerm L_$consult_init_1_s9 = S( FUNCTOR_$0024consulted_package_1 ,  ATOM_user );
-    private static final StructureTerm L_$consult_init_1_s11 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$consult_init_1_s9);
+        final static Functor FUNCTOR_$0024consulted_file_1 = F("$consulted_file",1);
+        final static Functor FUNCTOR_$0024consulted_package_1 = F("$consulted_package",1);
+        final static Functor FUNCTOR_$0024consulted_import_2 = F("$consulted_import",2);
+        final static Functor FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate",3);
+    private static final Term L_$consult_init_1_s9 = S( FUNCTOR_$0024consulted_package_1 ,  ATOM_user );
+    private static final Term L_$consult_init_1_s11 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$consult_init_1_s9);
 
 
 
@@ -20859,16 +20860,16 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$consult_clause'/1,non-(public))
-        final static SymbolTerm FUNCTOR_$003A$002D_1 = F(":-",1);
-        final static SymbolTerm FUNCTOR_module_2 = F("module",2);
-        final static SymbolTerm FUNCTOR_package_1 = F("package",1);
-        final static SymbolTerm FUNCTOR_import_1 = F("import",1);
-        final static SymbolTerm FUNCTOR_dynamic_1 = F("dynamic",1);
-        final static SymbolTerm FUNCTOR_public_1 = F("public",1);
-        final static SymbolTerm FUNCTOR_meta_predicate_1 = F("meta_predicate",1);
-        final static SymbolTerm FUNCTOR_mode_1 = F("mode",1);
-        final static SymbolTerm FUNCTOR_multifile_1 = F("multifile",1);
-        final static SymbolTerm FUNCTOR_block_1 = F("block",1);
+        final static Functor FUNCTOR_$003A$002D_1 = F(":-",1);
+        final static Functor FUNCTOR_module_2 = F("module",2);
+        final static Functor FUNCTOR_package_1 = F("package",1);
+        final static Functor FUNCTOR_import_1 = F("import",1);
+        final static Functor FUNCTOR_dynamic_1 = F("dynamic",1);
+        final static Functor FUNCTOR_public_1 = F("public",1);
+        final static Functor FUNCTOR_meta_predicate_1 = F("meta_predicate",1);
+        final static Functor FUNCTOR_mode_1 = F("mode",1);
+        final static Functor FUNCTOR_multifile_1 = F("multifile",1);
+        final static Functor FUNCTOR_block_1 = F("block",1);
 
 
 
@@ -21913,7 +21914,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -22013,7 +22014,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(statistics/2,public)
-        final static SymbolTerm FUNCTOR_statistics_2 = F("statistics",2);
+        final static Functor FUNCTOR_statistics_2 = F("statistics",2);
 
 
 
@@ -22085,9 +22086,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$statistics_mode'/1,non-(public))
-        final static SymbolTerm ATOM_runtime = SYM("runtime");
-        final static SymbolTerm ATOM_trail = SYM("trail");
-        final static SymbolTerm ATOM_choice = SYM("choice");
+        final static Functor ATOM_runtime = SYM("runtime");
+        final static Functor ATOM_trail = SYM("trail");
+        final static Functor ATOM_choice = SYM("choice");
 
 
 
@@ -22153,22 +22154,22 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(illarg/3,non-(public))
-        final static SymbolTerm FUNCTOR_instantiation_error_2 = F("instantiation_error",2);
-        final static SymbolTerm FUNCTOR_existence_3 = F("existence",3);
-        final static SymbolTerm FUNCTOR_existence_error_5 = F("existence_error",5);
-        final static SymbolTerm FUNCTOR_permission_error_5 = F("permission_error",5);
-        final static SymbolTerm FUNCTOR_representation_1 = F("representation",1);
-        final static SymbolTerm FUNCTOR_representation_error_3 = F("representation_error",3);
-        final static SymbolTerm FUNCTOR_evaluation_1 = F("evaluation",1);
-        final static SymbolTerm FUNCTOR_evaluation_error_3 = F("evaluation_error",3);
-        final static SymbolTerm FUNCTOR_syntax_3 = F("syntax",3);
-        final static SymbolTerm FUNCTOR_syntax_error_5 = F("syntax_error",5);
-        final static SymbolTerm FUNCTOR_system_1 = F("system",1);
-        final static SymbolTerm FUNCTOR_system_error_1 = F("system_error",1);
-        final static SymbolTerm FUNCTOR_internal_1 = F("internal",1);
-        final static SymbolTerm FUNCTOR_internal_error_1 = F("internal_error",1);
-        final static SymbolTerm FUNCTOR_java_1 = F("java",1);
-        final static SymbolTerm FUNCTOR_java_error_3 = F("java_error",3);
+        final static Functor FUNCTOR_instantiation_error_2 = F("instantiation_error",2);
+        final static Functor FUNCTOR_existence_3 = F("existence",3);
+        final static Functor FUNCTOR_existence_error_5 = F("existence_error",5);
+        final static Functor FUNCTOR_permission_error_5 = F("permission_error",5);
+        final static Functor FUNCTOR_representation_1 = F("representation",1);
+        final static Functor FUNCTOR_representation_error_3 = F("representation_error",3);
+        final static Functor FUNCTOR_evaluation_1 = F("evaluation",1);
+        final static Functor FUNCTOR_evaluation_error_3 = F("evaluation_error",3);
+        final static Functor FUNCTOR_syntax_3 = F("syntax",3);
+        final static Functor FUNCTOR_syntax_error_5 = F("syntax_error",5);
+        final static Functor FUNCTOR_system_1 = F("system",1);
+        final static Functor FUNCTOR_system_error_1 = F("system_error",1);
+        final static Functor FUNCTOR_internal_1 = F("internal",1);
+        final static Functor FUNCTOR_internal_error_1 = F("internal_error",1);
+        final static Functor FUNCTOR_java_1 = F("java",1);
+        final static Functor FUNCTOR_java_error_3 = F("java_error",3);
 
 
 
@@ -22622,7 +22623,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/5,non-(public))
-        final static SymbolTerm FUNCTOR_type_error_4 = F("type_error",4);
+        final static Functor FUNCTOR_type_error_4 = F("type_error",4);
 
     // private final Term arg5;
 
@@ -22705,7 +22706,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl'/6,non-(public))
-        final static SymbolTerm FUNCTOR_domain_error_4 = F("domain_error",4);
+        final static Functor FUNCTOR_domain_error_4 = F("domain_error",4);
 
     // private final Term arg5, arg6;
 
@@ -22876,25 +22877,25 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$match_type'/2,non-(public))
-        final static SymbolTerm ATOM_variable = SYM("variable");
-        final static SymbolTerm ATOM_byte = SYM("byte");
+        final static Functor ATOM_variable = SYM("variable");
+        final static Functor ATOM_byte = SYM("byte");
         final static IntegerTerm int_255 = Integer(255);
-        final static SymbolTerm ATOM_in_byte = SYM("in_byte");
-        final static SymbolTerm ATOM_character = SYM("character");
-        final static SymbolTerm ATOM_in_character = SYM("in_character");
-        final static SymbolTerm ATOM_number = SYM("number");
-        final static SymbolTerm ATOM_long = SYM("long");
-        final static SymbolTerm ATOM_float = SYM("float");
-        final static SymbolTerm ATOM_compound = SYM("compound");
-        final static SymbolTerm ATOM_list = SYM("list");
-        final static SymbolTerm ATOM_java = SYM("java");
-        final static SymbolTerm ATOM_stream = SYM("stream");
-        final static SymbolTerm ATOM_java$002Eio$002EPushbackReader = SYM("java.io.PushbackReader");
-        final static SymbolTerm ATOM_java$002Eio$002EPrintWriter = SYM("java.io.PrintWriter");
-        final static SymbolTerm ATOM_stream_or_alias = SYM("stream_or_alias");
-        final static SymbolTerm ATOM_hash = SYM("hash");
-        final static SymbolTerm ATOM_SxxMachine$002EHashtableOfTerm = SYM("SxxMachine.HashtableOfTerm");
-        final static SymbolTerm ATOM_hash_or_alias = SYM("hash_or_alias");
+        final static Functor ATOM_in_byte = SYM("in_byte");
+        final static Functor ATOM_character = SYM("character");
+        final static Functor ATOM_in_character = SYM("in_character");
+        final static Functor ATOM_number = SYM("number");
+        final static Functor ATOM_long = SYM("long");
+        final static Functor ATOM_float = SYM("float");
+        final static Functor ATOM_compound = SYM("compound");
+        final static Functor ATOM_list = SYM("list");
+        final static Functor ATOM_java = SYM("java");
+        final static Functor ATOM_stream = SYM("stream");
+        final static Functor ATOM_java$002Eio$002EPushbackReader = SYM("java.io.PushbackReader");
+        final static Functor ATOM_java$002Eio$002EPrintWriter = SYM("java.io.PrintWriter");
+        final static Functor ATOM_stream_or_alias = SYM("stream_or_alias");
+        final static Functor ATOM_hash = SYM("hash");
+        final static Functor ATOM_SxxMachine$002EHashtableOfTerm = SYM("SxxMachine.HashtableOfTerm");
+        final static Functor ATOM_hash_or_alias = SYM("hash_or_alias");
 
 
 
@@ -23378,7 +23379,7 @@ m.cont = cont;
             return m.fail();
         //START inline expansion of java(a(2))
         a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
+        if (! (a2 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -23397,10 +23398,10 @@ m.cont = cont;
             return m.fail();
         //START inline expansion of java(a(2),@(ATOM_java$002Eio$002EPushbackReader))
         a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
+        if (! (a2 .isJavaObject())) {
             return m.fail();
         }
-        if (! ATOM_java$002Eio$002EPushbackReader.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+        if (! ATOM_java$002Eio$002EPushbackReader.unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -23419,10 +23420,10 @@ m.cont = cont;
             return m.fail();
         //START inline expansion of java(a(2),@(ATOM_java$002Eio$002EPrintWriter))
         a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
+        if (! (a2 .isJavaObject())) {
             return m.fail();
         }
-        if (! ATOM_java$002Eio$002EPrintWriter.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+        if (! ATOM_java$002Eio$002EPrintWriter.unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -23476,10 +23477,10 @@ m.cont = cont;
             return m.fail();
         //START inline expansion of jinstanceof(a(2),@(ATOM_SxxMachine$002EHashtableOfTerm))
         a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
+        if (! (a2 .isJavaObject())) {
             return m.fail();
         }
-        if (! ATOM_SxxMachine$002EHashtableOfTerm.unify(SYM(((FFIObjectTerm) a2).object().getClass().getName()), m.trail)) {
+        if (! ATOM_SxxMachine$002EHashtableOfTerm.unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -23869,7 +23870,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -23895,9 +23896,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main(with_mutex/2,public)
-    private static final StructureTerm L_with_mutex_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atom );
-        final static SymbolTerm FUNCTOR_with_mutex_2 = F("with_mutex",2);
-    private static final StructureTerm L_with_mutex_2_s11 = S( FUNCTOR_type_1 ,  ATOM_callable );
+    private static final Term L_with_mutex_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atom );
+        final static Functor FUNCTOR_with_mutex_2 = F("with_mutex",2);
+    private static final Term L_with_mutex_2_s11 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
 
 
@@ -24412,247 +24413,247 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/builtins.pl
 */
     // main('$init'/0,public)
-        final static SymbolTerm ATOM_$0024tokens = SYM("$tokens");
-    private static final StructureTerm L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tokens ,  int_1 );
-        final static SymbolTerm ATOM_$003A$002D = SYM(":-");
-    private static final StructureTerm L_$init_0_s14 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$003A$002D );
-    private static final StructureTerm L_$init_0_s17 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s14,  Prolog.True );
-    private static final StructureTerm L_$init_0_s19 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s17);
-        final static SymbolTerm ATOM_$002D$002D$003E = SYM("-->");
-    private static final StructureTerm L_$init_0_s22 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$002D$002D$003E );
-    private static final StructureTerm L_$init_0_s24 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s22,  Prolog.True );
-    private static final StructureTerm L_$init_0_s26 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s24);
-    private static final StructureTerm L_$init_0_s29 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003A$002D );
-    private static final StructureTerm L_$init_0_s31 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s29,  Prolog.True );
-    private static final StructureTerm L_$init_0_s33 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s31);
-        final static SymbolTerm ATOM_$003F$002D = SYM("?-");
-    private static final StructureTerm L_$init_0_s36 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003F$002D );
-    private static final StructureTerm L_$init_0_s38 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s36,  Prolog.True );
-    private static final StructureTerm L_$init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s38);
+        final static Functor ATOM_$0024tokens = SYM("$tokens");
+    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tokens ,  int_1 );
+        final static Functor ATOM_$003A$002D = SYM(":-");
+    private static final Term L_$init_0_s14 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$003A$002D );
+    private static final Term L_$init_0_s17 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s14,  Prolog.True );
+    private static final Term L_$init_0_s19 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s17);
+        final static Functor ATOM_$002D$002D$003E = SYM("-->");
+    private static final Term L_$init_0_s22 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$002D$002D$003E );
+    private static final Term L_$init_0_s24 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s22,  Prolog.True );
+    private static final Term L_$init_0_s26 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s24);
+    private static final Term L_$init_0_s29 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003A$002D );
+    private static final Term L_$init_0_s31 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s29,  Prolog.True );
+    private static final Term L_$init_0_s33 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s31);
+        final static Functor ATOM_$003F$002D = SYM("?-");
+    private static final Term L_$init_0_s36 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003F$002D );
+    private static final Term L_$init_0_s38 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s36,  Prolog.True );
+    private static final Term L_$init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s38);
         final static IntegerTerm int_1150 = Integer(1150);
-        final static SymbolTerm ATOM_package = SYM("package");
-    private static final StructureTerm L_$init_0_s44 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_package );
-    private static final StructureTerm L_$init_0_s46 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s44,  Prolog.True );
-    private static final StructureTerm L_$init_0_s48 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s46);
-        final static SymbolTerm ATOM_import = SYM("import");
-    private static final StructureTerm L_$init_0_s51 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_import );
-    private static final StructureTerm L_$init_0_s53 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s51,  Prolog.True );
-    private static final StructureTerm L_$init_0_s55 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s53);
-        final static SymbolTerm ATOM_include = SYM("include");
-    private static final StructureTerm L_$init_0_s58 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include );
-    private static final StructureTerm L_$init_0_s60 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s58,  Prolog.True );
-    private static final StructureTerm L_$init_0_s62 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s60);
-        final static SymbolTerm ATOM_include_resource = SYM("include_resource");
-    private static final StructureTerm L_$init_0_s65 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include_resource );
-    private static final StructureTerm L_$init_0_s67 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s65,  Prolog.True );
-    private static final StructureTerm L_$init_0_s69 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s67);
-        final static SymbolTerm ATOM_constant = SYM("constant");
-    private static final StructureTerm L_$init_0_s72 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_constant );
-    private static final StructureTerm L_$init_0_s74 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s72,  Prolog.True );
-    private static final StructureTerm L_$init_0_s76 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s74);
-        final static SymbolTerm ATOM_public = SYM("public");
-    private static final StructureTerm L_$init_0_s79 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_public );
-    private static final StructureTerm L_$init_0_s81 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s79,  Prolog.True );
-    private static final StructureTerm L_$init_0_s83 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s81);
-        final static SymbolTerm ATOM_dynamic = SYM("dynamic");
-    private static final StructureTerm L_$init_0_s86 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_dynamic );
-    private static final StructureTerm L_$init_0_s88 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s86,  Prolog.True );
-    private static final StructureTerm L_$init_0_s90 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s88);
-        final static SymbolTerm ATOM_meta_predicate = SYM("meta_predicate");
-    private static final StructureTerm L_$init_0_s93 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_meta_predicate );
-    private static final StructureTerm L_$init_0_s95 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s93,  Prolog.True );
-    private static final StructureTerm L_$init_0_s97 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s95);
-        final static SymbolTerm ATOM_mode = SYM("mode");
-    private static final StructureTerm L_$init_0_s100 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_mode );
-    private static final StructureTerm L_$init_0_s102 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s100,  Prolog.True );
-    private static final StructureTerm L_$init_0_s104 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s102);
-        final static SymbolTerm ATOM_multifile = SYM("multifile");
-    private static final StructureTerm L_$init_0_s107 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_multifile );
-    private static final StructureTerm L_$init_0_s109 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s107,  Prolog.True );
-    private static final StructureTerm L_$init_0_s111 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s109);
-        final static SymbolTerm ATOM_block = SYM("block");
-    private static final StructureTerm L_$init_0_s114 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_block );
-    private static final StructureTerm L_$init_0_s116 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s114,  Prolog.True );
-    private static final StructureTerm L_$init_0_s118 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s116);
-        final static SymbolTerm ATOM_ifdef = SYM("ifdef");
-    private static final StructureTerm L_$init_0_s121 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifdef );
-    private static final StructureTerm L_$init_0_s123 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s121,  Prolog.True );
-    private static final StructureTerm L_$init_0_s125 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s123);
-        final static SymbolTerm ATOM_ifndef = SYM("ifndef");
-    private static final StructureTerm L_$init_0_s128 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifndef );
-    private static final StructureTerm L_$init_0_s130 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s128,  Prolog.True );
-    private static final StructureTerm L_$init_0_s132 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s130);
-        final static SymbolTerm ATOM_domain = SYM("domain");
-    private static final StructureTerm L_$init_0_s135 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_domain );
-    private static final StructureTerm L_$init_0_s137 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s135,  Prolog.True );
-    private static final StructureTerm L_$init_0_s139 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s137);
-        final static SymbolTerm ATOM_database = SYM("database");
-    private static final StructureTerm L_$init_0_s142 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_database );
-    private static final StructureTerm L_$init_0_s144 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s142,  Prolog.True );
-    private static final StructureTerm L_$init_0_s146 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s144);
+        final static Functor ATOM_package = SYM("package");
+    private static final Term L_$init_0_s44 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_package );
+    private static final Term L_$init_0_s46 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s44,  Prolog.True );
+    private static final Term L_$init_0_s48 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s46);
+        final static Functor ATOM_import = SYM("import");
+    private static final Term L_$init_0_s51 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_import );
+    private static final Term L_$init_0_s53 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s51,  Prolog.True );
+    private static final Term L_$init_0_s55 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s53);
+        final static Functor ATOM_include = SYM("include");
+    private static final Term L_$init_0_s58 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include );
+    private static final Term L_$init_0_s60 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s58,  Prolog.True );
+    private static final Term L_$init_0_s62 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s60);
+        final static Functor ATOM_include_resource = SYM("include_resource");
+    private static final Term L_$init_0_s65 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include_resource );
+    private static final Term L_$init_0_s67 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s65,  Prolog.True );
+    private static final Term L_$init_0_s69 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s67);
+        final static Functor ATOM_constant = SYM("constant");
+    private static final Term L_$init_0_s72 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_constant );
+    private static final Term L_$init_0_s74 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s72,  Prolog.True );
+    private static final Term L_$init_0_s76 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s74);
+        final static Functor ATOM_public = SYM("public");
+    private static final Term L_$init_0_s79 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_public );
+    private static final Term L_$init_0_s81 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s79,  Prolog.True );
+    private static final Term L_$init_0_s83 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s81);
+        final static Functor ATOM_dynamic = SYM("dynamic");
+    private static final Term L_$init_0_s86 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_dynamic );
+    private static final Term L_$init_0_s88 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s86,  Prolog.True );
+    private static final Term L_$init_0_s90 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s88);
+        final static Functor ATOM_meta_predicate = SYM("meta_predicate");
+    private static final Term L_$init_0_s93 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_meta_predicate );
+    private static final Term L_$init_0_s95 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s93,  Prolog.True );
+    private static final Term L_$init_0_s97 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s95);
+        final static Functor ATOM_mode = SYM("mode");
+    private static final Term L_$init_0_s100 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_mode );
+    private static final Term L_$init_0_s102 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s100,  Prolog.True );
+    private static final Term L_$init_0_s104 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s102);
+        final static Functor ATOM_multifile = SYM("multifile");
+    private static final Term L_$init_0_s107 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_multifile );
+    private static final Term L_$init_0_s109 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s107,  Prolog.True );
+    private static final Term L_$init_0_s111 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s109);
+        final static Functor ATOM_block = SYM("block");
+    private static final Term L_$init_0_s114 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_block );
+    private static final Term L_$init_0_s116 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s114,  Prolog.True );
+    private static final Term L_$init_0_s118 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s116);
+        final static Functor ATOM_ifdef = SYM("ifdef");
+    private static final Term L_$init_0_s121 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifdef );
+    private static final Term L_$init_0_s123 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s121,  Prolog.True );
+    private static final Term L_$init_0_s125 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s123);
+        final static Functor ATOM_ifndef = SYM("ifndef");
+    private static final Term L_$init_0_s128 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifndef );
+    private static final Term L_$init_0_s130 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s128,  Prolog.True );
+    private static final Term L_$init_0_s132 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s130);
+        final static Functor ATOM_domain = SYM("domain");
+    private static final Term L_$init_0_s135 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_domain );
+    private static final Term L_$init_0_s137 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s135,  Prolog.True );
+    private static final Term L_$init_0_s139 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s137);
+        final static Functor ATOM_database = SYM("database");
+    private static final Term L_$init_0_s142 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_database );
+    private static final Term L_$init_0_s144 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s142,  Prolog.True );
+    private static final Term L_$init_0_s146 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s144);
         final static IntegerTerm int_1100 = Integer(1100);
-    private static final StructureTerm L_$init_0_s151 = S( FUNCTOR_$0024current_operator_3 ,  int_1100 ,  ATOM_xfy ,  ATOM_or );
-    private static final StructureTerm L_$init_0_s153 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s151,  Prolog.True );
-    private static final StructureTerm L_$init_0_s155 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s153);
+    private static final Term L_$init_0_s151 = S( FUNCTOR_$0024current_operator_3 ,  int_1100 ,  ATOM_xfy ,  ATOM_or );
+    private static final Term L_$init_0_s153 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s151,  Prolog.True );
+    private static final Term L_$init_0_s155 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s153);
         final static IntegerTerm int_1050 = Integer(1050);
-        final static SymbolTerm ATOM_$002D$003E = SYM("->");
-    private static final StructureTerm L_$init_0_s159 = S( FUNCTOR_$0024current_operator_3 ,  int_1050 ,  ATOM_xfy ,  ATOM_$002D$003E );
-    private static final StructureTerm L_$init_0_s161 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s159,  Prolog.True );
-    private static final StructureTerm L_$init_0_s163 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s161);
+        final static Functor ATOM_$002D$003E = SYM("->");
+    private static final Term L_$init_0_s159 = S( FUNCTOR_$0024current_operator_3 ,  int_1050 ,  ATOM_xfy ,  ATOM_$002D$003E );
+    private static final Term L_$init_0_s161 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s159,  Prolog.True );
+    private static final Term L_$init_0_s163 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s161);
         final static IntegerTerm int_1000 = Integer(1000);
-    private static final StructureTerm L_$init_0_s167 = S( FUNCTOR_$0024current_operator_3 ,  int_1000 ,  ATOM_xfy ,  ATOM_$002C );
-    private static final StructureTerm L_$init_0_s169 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s167,  Prolog.True );
-    private static final StructureTerm L_$init_0_s171 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s169);
+    private static final Term L_$init_0_s167 = S( FUNCTOR_$0024current_operator_3 ,  int_1000 ,  ATOM_xfy ,  ATOM_$002C );
+    private static final Term L_$init_0_s169 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s167,  Prolog.True );
+    private static final Term L_$init_0_s171 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s169);
         final static IntegerTerm int_900 = Integer(900);
-    private static final StructureTerm L_$init_0_s176 = S( FUNCTOR_$0024current_operator_3 ,  int_900 ,  ATOM_fy ,  ATOM_$005C$002B );
-    private static final StructureTerm L_$init_0_s178 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s176,  Prolog.True );
-    private static final StructureTerm L_$init_0_s180 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s178);
+    private static final Term L_$init_0_s176 = S( FUNCTOR_$0024current_operator_3 ,  int_900 ,  ATOM_fy ,  ATOM_$005C$002B );
+    private static final Term L_$init_0_s178 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s176,  Prolog.True );
+    private static final Term L_$init_0_s180 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s178);
         final static IntegerTerm int_700 = Integer(700);
-    private static final StructureTerm L_$init_0_s184 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D );
-    private static final StructureTerm L_$init_0_s186 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s184,  Prolog.True );
-    private static final StructureTerm L_$init_0_s188 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s186);
-        final static SymbolTerm ATOM_$005C$003D = SYM("\\=");
-    private static final StructureTerm L_$init_0_s191 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D );
-    private static final StructureTerm L_$init_0_s193 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s191,  Prolog.True );
-    private static final StructureTerm L_$init_0_s195 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s193);
-        final static SymbolTerm ATOM_$003D$003D = SYM("==");
-    private static final StructureTerm L_$init_0_s198 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003D );
-    private static final StructureTerm L_$init_0_s200 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s198,  Prolog.True );
-    private static final StructureTerm L_$init_0_s202 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s200);
-        final static SymbolTerm ATOM_$005C$003D$003D = SYM("\\==");
-    private static final StructureTerm L_$init_0_s205 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D$003D );
-    private static final StructureTerm L_$init_0_s207 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s205,  Prolog.True );
-    private static final StructureTerm L_$init_0_s209 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s207);
-        final static SymbolTerm ATOM_$0040$003C = SYM("@<");
-    private static final StructureTerm L_$init_0_s212 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003C );
-    private static final StructureTerm L_$init_0_s214 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s212,  Prolog.True );
-    private static final StructureTerm L_$init_0_s216 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s214);
-        final static SymbolTerm ATOM_$0040$003E = SYM("@>");
-    private static final StructureTerm L_$init_0_s219 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E );
-    private static final StructureTerm L_$init_0_s221 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s219,  Prolog.True );
-    private static final StructureTerm L_$init_0_s223 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s221);
-        final static SymbolTerm ATOM_$0040$003D$003C = SYM("@=<");
-    private static final StructureTerm L_$init_0_s226 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003D$003C );
-    private static final StructureTerm L_$init_0_s228 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s226,  Prolog.True );
-    private static final StructureTerm L_$init_0_s230 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s228);
-        final static SymbolTerm ATOM_$0040$003E$003D = SYM("@>=");
-    private static final StructureTerm L_$init_0_s233 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E$003D );
-    private static final StructureTerm L_$init_0_s235 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s233,  Prolog.True );
-    private static final StructureTerm L_$init_0_s237 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s235);
-        final static SymbolTerm ATOM_$003D$002E$002E = SYM("=..");
-    private static final StructureTerm L_$init_0_s240 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$002E$002E );
-    private static final StructureTerm L_$init_0_s242 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s240,  Prolog.True );
-    private static final StructureTerm L_$init_0_s244 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s242);
-        final static SymbolTerm ATOM_is = SYM("is");
-    private static final StructureTerm L_$init_0_s247 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_is );
-    private static final StructureTerm L_$init_0_s249 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s247,  Prolog.True );
-    private static final StructureTerm L_$init_0_s251 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s249);
-        final static SymbolTerm ATOM_$003D$003A$003D = SYM("=:=");
-    private static final StructureTerm L_$init_0_s254 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003A$003D );
-    private static final StructureTerm L_$init_0_s256 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s254,  Prolog.True );
-    private static final StructureTerm L_$init_0_s258 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s256);
-        final static SymbolTerm ATOM_$003D$005C$003D = SYM("=\\=");
-    private static final StructureTerm L_$init_0_s261 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$005C$003D );
-    private static final StructureTerm L_$init_0_s263 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s261,  Prolog.True );
-    private static final StructureTerm L_$init_0_s265 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s263);
-    private static final StructureTerm L_$init_0_s268 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003C );
-    private static final StructureTerm L_$init_0_s270 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s268,  Prolog.True );
-    private static final StructureTerm L_$init_0_s272 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s270);
-    private static final StructureTerm L_$init_0_s275 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E );
-    private static final StructureTerm L_$init_0_s277 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s275,  Prolog.True );
-    private static final StructureTerm L_$init_0_s279 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s277);
-        final static SymbolTerm ATOM_$003D$003C = SYM("=<");
-    private static final StructureTerm L_$init_0_s282 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003C );
-    private static final StructureTerm L_$init_0_s284 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s282,  Prolog.True );
-    private static final StructureTerm L_$init_0_s286 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s284);
-        final static SymbolTerm ATOM_$003E$003D = SYM(">=");
-    private static final StructureTerm L_$init_0_s289 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E$003D );
-    private static final StructureTerm L_$init_0_s291 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s289,  Prolog.True );
-    private static final StructureTerm L_$init_0_s293 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s291);
+    private static final Term L_$init_0_s184 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D );
+    private static final Term L_$init_0_s186 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s184,  Prolog.True );
+    private static final Term L_$init_0_s188 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s186);
+        final static Functor ATOM_$005C$003D = SYM("\\=");
+    private static final Term L_$init_0_s191 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D );
+    private static final Term L_$init_0_s193 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s191,  Prolog.True );
+    private static final Term L_$init_0_s195 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s193);
+        final static Functor ATOM_$003D$003D = SYM("==");
+    private static final Term L_$init_0_s198 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003D );
+    private static final Term L_$init_0_s200 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s198,  Prolog.True );
+    private static final Term L_$init_0_s202 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s200);
+        final static Functor ATOM_$005C$003D$003D = SYM("\\==");
+    private static final Term L_$init_0_s205 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D$003D );
+    private static final Term L_$init_0_s207 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s205,  Prolog.True );
+    private static final Term L_$init_0_s209 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s207);
+        final static Functor ATOM_$0040$003C = SYM("@<");
+    private static final Term L_$init_0_s212 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003C );
+    private static final Term L_$init_0_s214 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s212,  Prolog.True );
+    private static final Term L_$init_0_s216 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s214);
+        final static Functor ATOM_$0040$003E = SYM("@>");
+    private static final Term L_$init_0_s219 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E );
+    private static final Term L_$init_0_s221 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s219,  Prolog.True );
+    private static final Term L_$init_0_s223 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s221);
+        final static Functor ATOM_$0040$003D$003C = SYM("@=<");
+    private static final Term L_$init_0_s226 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003D$003C );
+    private static final Term L_$init_0_s228 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s226,  Prolog.True );
+    private static final Term L_$init_0_s230 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s228);
+        final static Functor ATOM_$0040$003E$003D = SYM("@>=");
+    private static final Term L_$init_0_s233 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E$003D );
+    private static final Term L_$init_0_s235 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s233,  Prolog.True );
+    private static final Term L_$init_0_s237 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s235);
+        final static Functor ATOM_$003D$002E$002E = SYM("=..");
+    private static final Term L_$init_0_s240 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$002E$002E );
+    private static final Term L_$init_0_s242 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s240,  Prolog.True );
+    private static final Term L_$init_0_s244 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s242);
+        final static Functor ATOM_is = SYM("is");
+    private static final Term L_$init_0_s247 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_is );
+    private static final Term L_$init_0_s249 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s247,  Prolog.True );
+    private static final Term L_$init_0_s251 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s249);
+        final static Functor ATOM_$003D$003A$003D = SYM("=:=");
+    private static final Term L_$init_0_s254 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003A$003D );
+    private static final Term L_$init_0_s256 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s254,  Prolog.True );
+    private static final Term L_$init_0_s258 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s256);
+        final static Functor ATOM_$003D$005C$003D = SYM("=\\=");
+    private static final Term L_$init_0_s261 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$005C$003D );
+    private static final Term L_$init_0_s263 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s261,  Prolog.True );
+    private static final Term L_$init_0_s265 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s263);
+    private static final Term L_$init_0_s268 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003C );
+    private static final Term L_$init_0_s270 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s268,  Prolog.True );
+    private static final Term L_$init_0_s272 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s270);
+    private static final Term L_$init_0_s275 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E );
+    private static final Term L_$init_0_s277 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s275,  Prolog.True );
+    private static final Term L_$init_0_s279 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s277);
+        final static Functor ATOM_$003D$003C = SYM("=<");
+    private static final Term L_$init_0_s282 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003C );
+    private static final Term L_$init_0_s284 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s282,  Prolog.True );
+    private static final Term L_$init_0_s286 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s284);
+        final static Functor ATOM_$003E$003D = SYM(">=");
+    private static final Term L_$init_0_s289 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E$003D );
+    private static final Term L_$init_0_s291 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s289,  Prolog.True );
+    private static final Term L_$init_0_s293 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s291);
         final static IntegerTerm int_550 = Integer(550);
-    private static final StructureTerm L_$init_0_s297 = S( FUNCTOR_$0024current_operator_3 ,  int_550 ,  ATOM_xfy ,  ATOM_module_colon );
-    private static final StructureTerm L_$init_0_s299 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s297,  Prolog.True );
-    private static final StructureTerm L_$init_0_s301 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s299);
+    private static final Term L_$init_0_s297 = S( FUNCTOR_$0024current_operator_3 ,  int_550 ,  ATOM_xfy ,  ATOM_module_colon );
+    private static final Term L_$init_0_s299 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s297,  Prolog.True );
+    private static final Term L_$init_0_s301 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s299);
         final static IntegerTerm int_500 = Integer(500);
-        final static SymbolTerm ATOM_$002B = SYM("+");
-    private static final StructureTerm L_$init_0_s306 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002B );
-    private static final StructureTerm L_$init_0_s308 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s306,  Prolog.True );
-    private static final StructureTerm L_$init_0_s310 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s308);
-    private static final StructureTerm L_$init_0_s313 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002D );
-    private static final StructureTerm L_$init_0_s315 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s313,  Prolog.True );
-    private static final StructureTerm L_$init_0_s317 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s315);
-        final static SymbolTerm ATOM_$0023 = SYM("#");
-    private static final StructureTerm L_$init_0_s320 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$0023 );
-    private static final StructureTerm L_$init_0_s322 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s320,  Prolog.True );
-    private static final StructureTerm L_$init_0_s324 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s322);
-        final static SymbolTerm ATOM_$002F$005C = SYM("/\\");
-    private static final StructureTerm L_$init_0_s327 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002F$005C );
-    private static final StructureTerm L_$init_0_s329 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s327,  Prolog.True );
-    private static final StructureTerm L_$init_0_s331 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s329);
-        final static SymbolTerm ATOM_$005C$002F = SYM("\\/");
-    private static final StructureTerm L_$init_0_s334 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$005C$002F );
-    private static final StructureTerm L_$init_0_s336 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s334,  Prolog.True );
-    private static final StructureTerm L_$init_0_s338 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s336);
-    private static final StructureTerm L_$init_0_s340 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_fx ,  ATOM_$002B );
-    private static final StructureTerm L_$init_0_s342 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s340,  Prolog.True );
-    private static final StructureTerm L_$init_0_s344 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s342);
+        final static Functor ATOM_$002B = SYM("+");
+    private static final Term L_$init_0_s306 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002B );
+    private static final Term L_$init_0_s308 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s306,  Prolog.True );
+    private static final Term L_$init_0_s310 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s308);
+    private static final Term L_$init_0_s313 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002D );
+    private static final Term L_$init_0_s315 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s313,  Prolog.True );
+    private static final Term L_$init_0_s317 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s315);
+        final static Functor ATOM_$0023 = SYM("#");
+    private static final Term L_$init_0_s320 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$0023 );
+    private static final Term L_$init_0_s322 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s320,  Prolog.True );
+    private static final Term L_$init_0_s324 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s322);
+        final static Functor ATOM_$002F$005C = SYM("/\\");
+    private static final Term L_$init_0_s327 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002F$005C );
+    private static final Term L_$init_0_s329 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s327,  Prolog.True );
+    private static final Term L_$init_0_s331 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s329);
+        final static Functor ATOM_$005C$002F = SYM("\\/");
+    private static final Term L_$init_0_s334 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$005C$002F );
+    private static final Term L_$init_0_s336 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s334,  Prolog.True );
+    private static final Term L_$init_0_s338 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s336);
+    private static final Term L_$init_0_s340 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_fx ,  ATOM_$002B );
+    private static final Term L_$init_0_s342 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s340,  Prolog.True );
+    private static final Term L_$init_0_s344 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s342);
         final static IntegerTerm int_400 = Integer(400);
-        final static SymbolTerm ATOM_$002A = SYM("*");
-    private static final StructureTerm L_$init_0_s348 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002A );
-    private static final StructureTerm L_$init_0_s350 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s348,  Prolog.True );
-    private static final StructureTerm L_$init_0_s352 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s350);
-        final static SymbolTerm ATOM_$002F = SYM("/");
-    private static final StructureTerm L_$init_0_s355 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F );
-    private static final StructureTerm L_$init_0_s357 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s355,  Prolog.True );
-    private static final StructureTerm L_$init_0_s359 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s357);
-        final static SymbolTerm ATOM_$002F$002F = SYM("//");
-    private static final StructureTerm L_$init_0_s362 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F$002F );
-    private static final StructureTerm L_$init_0_s364 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s362,  Prolog.True );
-    private static final StructureTerm L_$init_0_s366 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s364);
-        final static SymbolTerm ATOM_mod = SYM("mod");
-    private static final StructureTerm L_$init_0_s369 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_mod );
-    private static final StructureTerm L_$init_0_s371 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s369,  Prolog.True );
-    private static final StructureTerm L_$init_0_s373 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s371);
-        final static SymbolTerm ATOM_rem = SYM("rem");
-    private static final StructureTerm L_$init_0_s376 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_rem );
-    private static final StructureTerm L_$init_0_s378 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s376,  Prolog.True );
-    private static final StructureTerm L_$init_0_s380 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s378);
-        final static SymbolTerm ATOM_$003C$003C = SYM("<<");
-    private static final StructureTerm L_$init_0_s383 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003C$003C );
-    private static final StructureTerm L_$init_0_s385 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s383,  Prolog.True );
-    private static final StructureTerm L_$init_0_s387 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s385);
-        final static SymbolTerm ATOM_$003E$003E = SYM(">>");
-    private static final StructureTerm L_$init_0_s390 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003E$003E );
-    private static final StructureTerm L_$init_0_s392 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s390,  Prolog.True );
-    private static final StructureTerm L_$init_0_s394 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s392);
+        final static Functor ATOM_$002A = SYM("*");
+    private static final Term L_$init_0_s348 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002A );
+    private static final Term L_$init_0_s350 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s348,  Prolog.True );
+    private static final Term L_$init_0_s352 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s350);
+        final static Functor ATOM_$002F = SYM("/");
+    private static final Term L_$init_0_s355 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F );
+    private static final Term L_$init_0_s357 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s355,  Prolog.True );
+    private static final Term L_$init_0_s359 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s357);
+        final static Functor ATOM_$002F$002F = SYM("//");
+    private static final Term L_$init_0_s362 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F$002F );
+    private static final Term L_$init_0_s364 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s362,  Prolog.True );
+    private static final Term L_$init_0_s366 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s364);
+        final static Functor ATOM_mod = SYM("mod");
+    private static final Term L_$init_0_s369 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_mod );
+    private static final Term L_$init_0_s371 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s369,  Prolog.True );
+    private static final Term L_$init_0_s373 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s371);
+        final static Functor ATOM_rem = SYM("rem");
+    private static final Term L_$init_0_s376 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_rem );
+    private static final Term L_$init_0_s378 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s376,  Prolog.True );
+    private static final Term L_$init_0_s380 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s378);
+        final static Functor ATOM_$003C$003C = SYM("<<");
+    private static final Term L_$init_0_s383 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003C$003C );
+    private static final Term L_$init_0_s385 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s383,  Prolog.True );
+    private static final Term L_$init_0_s387 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s385);
+        final static Functor ATOM_$003E$003E = SYM(">>");
+    private static final Term L_$init_0_s390 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003E$003E );
+    private static final Term L_$init_0_s392 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s390,  Prolog.True );
+    private static final Term L_$init_0_s394 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s392);
         final static IntegerTerm int_300 = Integer(300);
-        final static SymbolTerm ATOM_$007E = SYM("~");
-    private static final StructureTerm L_$init_0_s398 = S( FUNCTOR_$0024current_operator_3 ,  int_300 ,  ATOM_xfx ,  ATOM_$007E );
-    private static final StructureTerm L_$init_0_s400 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s398,  Prolog.True );
-    private static final StructureTerm L_$init_0_s402 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s400);
+        final static Functor ATOM_$007E = SYM("~");
+    private static final Term L_$init_0_s398 = S( FUNCTOR_$0024current_operator_3 ,  int_300 ,  ATOM_xfx ,  ATOM_$007E );
+    private static final Term L_$init_0_s400 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s398,  Prolog.True );
+    private static final Term L_$init_0_s402 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s400);
         final static IntegerTerm int_200 = Integer(200);
-        final static SymbolTerm ATOM_$002A$002A = SYM("**");
-    private static final StructureTerm L_$init_0_s406 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfx ,  ATOM_$002A$002A );
-    private static final StructureTerm L_$init_0_s408 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s406,  Prolog.True );
-    private static final StructureTerm L_$init_0_s410 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s408);
-    private static final StructureTerm L_$init_0_s413 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfy ,  ATOM_$005E );
-    private static final StructureTerm L_$init_0_s415 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s413,  Prolog.True );
-    private static final StructureTerm L_$init_0_s417 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s415);
-        final static SymbolTerm ATOM_$005C = SYM("\\");
-    private static final StructureTerm L_$init_0_s420 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$005C );
-    private static final StructureTerm L_$init_0_s422 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s420,  Prolog.True );
-    private static final StructureTerm L_$init_0_s424 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s422);
-    private static final StructureTerm L_$init_0_s426 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$002D );
-    private static final StructureTerm L_$init_0_s428 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s426,  Prolog.True );
-    private static final StructureTerm L_$init_0_s430 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s428);
-        final static SymbolTerm ATOM_$0024consulted_file = SYM("$consulted_file");
-    private static final StructureTerm L_$init_0_s433 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_file ,  int_1 );
-        final static SymbolTerm ATOM_$0024consulted_import = SYM("$consulted_import");
-    private static final StructureTerm L_$init_0_s437 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_import ,  int_2 );
-        final static SymbolTerm ATOM_$0024consulted_package = SYM("$consulted_package");
-    private static final StructureTerm L_$init_0_s440 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_package ,  int_1 );
-        final static SymbolTerm ATOM_$0024consulted_predicate = SYM("$consulted_predicate");
-    private static final StructureTerm L_$init_0_s444 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_predicate ,  int_3 );
+        final static Functor ATOM_$002A$002A = SYM("**");
+    private static final Term L_$init_0_s406 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfx ,  ATOM_$002A$002A );
+    private static final Term L_$init_0_s408 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s406,  Prolog.True );
+    private static final Term L_$init_0_s410 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s408);
+    private static final Term L_$init_0_s413 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfy ,  ATOM_$005E );
+    private static final Term L_$init_0_s415 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s413,  Prolog.True );
+    private static final Term L_$init_0_s417 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s415);
+        final static Functor ATOM_$005C = SYM("\\");
+    private static final Term L_$init_0_s420 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$005C );
+    private static final Term L_$init_0_s422 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s420,  Prolog.True );
+    private static final Term L_$init_0_s424 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s422);
+    private static final Term L_$init_0_s426 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$002D );
+    private static final Term L_$init_0_s428 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s426,  Prolog.True );
+    private static final Term L_$init_0_s430 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s428);
+        final static Functor ATOM_$0024consulted_file = SYM("$consulted_file");
+    private static final Term L_$init_0_s433 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_file ,  int_1 );
+        final static Functor ATOM_$0024consulted_import = SYM("$consulted_import");
+    private static final Term L_$init_0_s437 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_import ,  int_2 );
+        final static Functor ATOM_$0024consulted_package = SYM("$consulted_package");
+    private static final Term L_$init_0_s440 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_package ,  int_1 );
+        final static Functor ATOM_$0024consulted_predicate = SYM("$consulted_predicate");
+    private static final Term L_$init_0_s444 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_predicate ,  int_3 );
 
 
 

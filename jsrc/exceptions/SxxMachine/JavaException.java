@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Java error.<br>
  * There will be a Java error when a Java exception is threw during
@@ -13,7 +15,7 @@ package SxxMachine;
 public class JavaException extends BuiltinException {
 	private static final long serialVersionUID = -7510890457700984457L;
 	/** A functor symbol of <code>java_error/3</code>. */
-	public static final SymbolTerm JAVA_ERROR = SymbolTerm.intern("java_error", 3);
+	public static final Functor JAVA_ERROR = TermData.F("java_error", 3);
 	/** Holds a Java exception. */
 	protected final Exception e;
 
@@ -36,7 +38,7 @@ public class JavaException extends BuiltinException {
 	 */
 	@Override
 	public Term getMessageTerm() {
-		Term[] args = { (this.goal == null) ? SymbolTerm.create("<Goal unknown>") : TermData.FFIObject(this.goal),
+		Term[] args = { (this.goal == null) ? TermData.createAtomic("<Goal unknown>") : TermData.FFIObject(this.goal),
 				TermData.Integer(this.argNo), TermData.FFIObject(this.e) };
 		return TermData.createErrorTerm(this, JAVA_ERROR, args);
 	}

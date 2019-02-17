@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_crypt extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
@@ -88,28 +89,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
         a43 = CONS(a37, a42);
         a44 = CONS(a36, a43);
         return //
- Op(FILE_crypt::PRED_odd_1_static_exec, VA(a1), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a2), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a3), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a4), //
- Op(FILE_crypt::PRED_mult_3_static_exec, VA(a7, a4, a16), //
- Op(FILE_crypt::PRED_lefteven_1_static_exec, VA(a11), //
- Op(FILE_crypt::PRED_odd_1_static_exec, VA(a10), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a9), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a8), //
- Op(FILE_crypt::PRED_zero_1_static_exec, VA(a12), //
- Op(FILE_crypt::PRED_lefteven_1_static_exec, VA(a17), //
- Op(FILE_crypt::PRED_mult_3_static_exec, VA(a20, a17, a27), //
- Op(FILE_crypt::PRED_lefteven_1_static_exec, VA(a23), //
- Op(FILE_crypt::PRED_odd_1_static_exec, VA(a22), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a21), //
- Op(FILE_crypt::PRED_zero_1_static_exec, VA(a24), //
- Op(FILE_crypt::PRED_sum_3_static_exec, VA(a31, a35, a44), //
- Op(FILE_crypt::PRED_odd_1_static_exec, VA(a39), //
- Op(FILE_crypt::PRED_odd_1_static_exec, VA(a38), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a37), //
- Op(FILE_crypt::PRED_even_1_static_exec, VA(a36), //
- Op(FILE_crypt::PRED_zero_1_static_exec, VA(a40), cont))))))))))))))))))))));
+ Op("odd", FILE_crypt::PRED_odd_1_static_exec, VA(a1), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a2), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a3), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a4), //
+ Op("mult", FILE_crypt::PRED_mult_3_static_exec, VA(a7, a4, a16), //
+ Op("lefteven", FILE_crypt::PRED_lefteven_1_static_exec, VA(a11), //
+ Op("odd", FILE_crypt::PRED_odd_1_static_exec, VA(a10), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a9), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a8), //
+ Op("zero", FILE_crypt::PRED_zero_1_static_exec, VA(a12), //
+ Op("lefteven", FILE_crypt::PRED_lefteven_1_static_exec, VA(a17), //
+ Op("mult", FILE_crypt::PRED_mult_3_static_exec, VA(a20, a17, a27), //
+ Op("lefteven", FILE_crypt::PRED_lefteven_1_static_exec, VA(a23), //
+ Op("odd", FILE_crypt::PRED_odd_1_static_exec, VA(a22), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a21), //
+ Op("zero", FILE_crypt::PRED_zero_1_static_exec, VA(a24), //
+ Op("sum", FILE_crypt::PRED_sum_3_static_exec, VA(a31, a35, a44), //
+ Op("odd", FILE_crypt::PRED_odd_1_static_exec, VA(a39), //
+ Op("odd", FILE_crypt::PRED_odd_1_static_exec, VA(a38), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a37), //
+ Op("even", FILE_crypt::PRED_even_1_static_exec, VA(a36), //
+ Op("zero", FILE_crypt::PRED_zero_1_static_exec, VA(a40), cont))))))))))))))))))))));
     }
 /** PREDICATE: sum/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
@@ -129,15 +130,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
         a3 = LARG[2];
     // sum(A,B,C):-[sum(A,B,0,C)]
         return //
- Op(FILE_crypt::PRED_sum_4_static_exec, VA(a1, a2,  int_0 , a3), cont);
+ Op("sum", FILE_crypt::PRED_sum_4_static_exec, VA(a1, a2,  int_0 , a3), cont);
     }
 /** PREDICATE: sum/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
 */
     // main(sum/4,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
-        final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_mod_2 = F("mod",2);
+        final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
 
 
 
@@ -532,13 +533,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
         a3 = LARG[2];
     // mult(A,B,C):-[mult(A,B,0,C)]
         return //
- Op(FILE_crypt::PRED_mult_4_static_exec, VA(a1, a2,  int_0 , a3), cont);
+ Op("mult", FILE_crypt::PRED_mult_4_static_exec, VA(a1, a2,  int_0 , a3), cont);
     }
 /** PREDICATE: mult/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/crypt.pl
 */
     // main(mult/4,public)
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
 
 
 

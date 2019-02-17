@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_asm extends FILE_system {
 /** PREDICATE: determinate/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/asm.pl
@@ -49,19 +50,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/asm.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/asm.pl
 */
     // main(setup_determinates/0,public)
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_cmp_error = SYM("cmp_error");
-    private static final StructureTerm L_setup_determinates_0_s5 = S( FUNCTOR_$002F_2 ,  ATOM_cmp_error ,  int_1 );
-        final static SymbolTerm ATOM_name = SYM("name");
-    private static final StructureTerm L_setup_determinates_0_s9 = S( FUNCTOR_$002F_2 ,  ATOM_name ,  int_2 );
-        final static SymbolTerm ATOM_length = SYM("length");
-    private static final StructureTerm L_setup_determinates_0_s12 = S( FUNCTOR_$002F_2 ,  ATOM_length ,  int_2 );
-        final static SymbolTerm ATOM_asm_hash_value = SYM("asm_hash_value");
-    private static final StructureTerm L_setup_determinates_0_s15 = S( FUNCTOR_$002F_2 ,  ATOM_asm_hash_value ,  int_2 );
-    private static final ListTerm L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15,  Prolog.Nil );
-    private static final ListTerm L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
-    private static final ListTerm L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
-    private static final ListTerm L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_cmp_error = SYM("cmp_error");
+    private static final Term L_setup_determinates_0_s5 = S( FUNCTOR_$002F_2 ,  ATOM_cmp_error ,  int_1 );
+        final static Functor ATOM_name = SYM("name");
+    private static final Term L_setup_determinates_0_s9 = S( FUNCTOR_$002F_2 ,  ATOM_name ,  int_2 );
+        final static Functor ATOM_length = SYM("length");
+    private static final Term L_setup_determinates_0_s12 = S( FUNCTOR_$002F_2 ,  ATOM_length ,  int_2 );
+        final static Functor ATOM_asm_hash_value = SYM("asm_hash_value");
+    private static final Term L_setup_determinates_0_s15 = S( FUNCTOR_$002F_2 ,  ATOM_asm_hash_value ,  int_2 );
+    private static final Term L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15,  Prolog.Nil );
+    private static final Term L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
+    private static final Term L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
+    private static final Term L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
 
 
 
@@ -72,7 +73,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/asm.pl
         m.setB0();
     // setup_determinates:-[determinate([cmp_error/1,name/2,length/2,asm_hash_value/2])]
         return //
- Op(FILE_asm::PRED_determinate_1_static_exec, VA(L_setup_determinates_0_s20), cont);
+ Op("determinate", FILE_asm::PRED_determinate_1_static_exec, VA(L_setup_determinates_0_s20), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

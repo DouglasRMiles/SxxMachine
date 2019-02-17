@@ -3,6 +3,9 @@ package SxxMachine;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
+import SxxMachine.pterm.StructureTerm;
+import SxxMachine.pterm.VariableTerm;
+
 public class sxxtensions extends missing_preds {
 
     public static Operation PRED_$003A$002D_2_static_exec(Prolog m) {
@@ -181,12 +184,18 @@ public class sxxtensions extends missing_preds {
 
     }
 
-    public final static class PopPendingGoals extends StructureTerm implements Undoable {
+    public final static class PopPendingGoals implements Undoable {
         Prolog m;
         Term old;
 
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return "$PopPendingGoals " + old;
+        }
+
         public PopPendingGoals(Prolog m, Term o) {
-            super("$PopPendingGoals", o);
+            //super("$PopPendingGoals", o);
             this.m = m;
             this.old = o;
         }
@@ -198,12 +207,18 @@ public class sxxtensions extends missing_preds {
 
     }
 
-    public final static class PopAssumptions extends StructureTerm implements Undoable {
+    public final static class PopAssumptions implements Undoable {
         Prolog m;
         Term old;
 
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return "$PopAssumptions " + old;
+        }
+
         PopAssumptions(Prolog m, Term o) {
-            super("$PopAssumptions", o);
+            // super("$PopAssumptions", o);
             this.m = m;
             this.old = o;
         }
@@ -268,7 +283,7 @@ public class sxxtensions extends missing_preds {
         if (!a2.unify(a1.copy(saved, Term.COPY_SAVE_ATTRS_COPY), m.trail)) {
             return m.fail();
         }
-        Term copyGoals = saved.get(SymbolTerm.GOALS);
+        Term copyGoals = saved.get(Prolog.GOALS);
         if (sxxtensions.isNoGoal(copyGoals)) {
             if (!a3.unify(Prolog.Nil, m.trail)) {
                 return m.fail();

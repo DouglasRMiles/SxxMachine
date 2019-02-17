@@ -23,12 +23,15 @@ import static SxxMachine.missing_preds.PRED_predicate_property_2_static_exec;
 import static SxxMachine.sxxtensions.PRED_get_attr_3_static_exec;
 import static SxxMachine.sxxtensions.PRED_put_attr_3_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_prolog_metainference extends TermData {
 	/**
 	 * PREDICATE: inferred_meta_predicate/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	final static SymbolTerm ATOM_prolog_metainference = SYM("prolog_metainference");
+	final static Functor ATOM_prolog_metainference = SYM("prolog_metainference");
 
 	public static Operation PRED_inferred_meta_predicate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -748,7 +751,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_s1 = SYM(
+	private static final Functor PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_s1 = SYM(
 			"m");
 
 	public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_1_static_exec(
@@ -881,7 +884,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
 	private static final /**/ IntegerTerm PRED_annotate_meta_arg_3_s1 = Integer(0);
-	final static SymbolTerm ATOM_m = SYM("m");
+	final static Functor ATOM_m = SYM("m");
 
 	public static Operation PRED_annotate_meta_arg_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1058,7 +1061,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: annotate/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_annotate_2_s1 = SYM("prolog_metainference");
+	private static final Functor PRED_annotate_2_s1 = SYM("prolog_metainference");
 
 	public static Operation PRED_annotate_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1113,7 +1116,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: join_annotation/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_join_annotation_3_s1 = SYM("*");
+	private static final Functor PRED_join_annotation_3_s1 = SYM("*");
 
 	public static Operation PRED_join_annotation_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1445,7 +1448,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_s1 = SYM(
+	private static final Functor PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_s1 = SYM(
 			":");
 
 	public static Operation PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_3_static_exec(
@@ -1503,7 +1506,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: attr_unify_hook/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_attr_unify_hook_2_s1 = SYM("prolog_metainference");
+	private static final Functor PRED_attr_unify_hook_2_s1 = SYM("prolog_metainference");
 
 	public static Operation PRED_attr_unify_hook_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1561,7 +1564,7 @@ public class FILE_prolog_metainference extends TermData {
 	 * from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_s1 = SYM(
+	private static final Functor PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_s1 = SYM(
 			"true");
 
 	public static Operation PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fprolog_metainference$002Epl_2_static_exec(
@@ -1688,9 +1691,9 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: is_meta/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_is_meta_1_s1 = SYM(":");
-	final static SymbolTerm ATOM_$005E = SYM("^");
-	final static SymbolTerm ATOM_$002F$002F = SYM("//");
+	private static final Functor PRED_is_meta_1_s1 = SYM(":");
+	final static Functor ATOM_$005E = SYM("^");
+	final static Functor ATOM_$002F$002F = SYM("//");
 
 	public static Operation PRED_is_meta_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1787,9 +1790,9 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: meta_arg/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_meta_arg_2_s1 = SYM("prolog_metainference");
-	final static SymbolTerm ATOM_module_colon = SYM(":");
-	final static SymbolTerm ATOM_$002A = SYM("*");
+	private static final Functor PRED_meta_arg_2_s1 = SYM("prolog_metainference");
+	final static Functor ATOM_module_colon = SYM(":");
+	final static Functor ATOM_$002A = SYM("*");
 
 	public static Operation PRED_meta_arg_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1871,8 +1874,8 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: combine_meta_args/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_combine_meta_args_2_s1 = SYM("[]");
-	final static SymbolTerm ATOM_join_annotation = SYM("join_annotation");
+	private static final Functor PRED_combine_meta_args_2_s1 = SYM("[]");
+	final static Functor ATOM_join_annotation = SYM("join_annotation");
 
 	public static Operation PRED_combine_meta_args_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2064,10 +2067,10 @@ public class FILE_prolog_metainference extends TermData {
 	 * PREDICATE: $init/0 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/prolog_metainference.pl
 	 */
-	private static final SymbolTerm PRED_$init_0_s1 = SYM("prolog_metainference");
-	final static SymbolTerm ATOM_inferred_meta_pred = SYM("inferred_meta_pred");
+	private static final Functor PRED_$init_0_s1 = SYM("prolog_metainference");
+	final static Functor ATOM_inferred_meta_pred = SYM("inferred_meta_pred");
 	final static IntegerTerm int_3 = Integer(3);
-	private static final StructureTerm PRED_$init_0_s6 = S("/", ATOM_inferred_meta_pred, int_3);
+	private static final Term PRED_$init_0_s6 = S("/", ATOM_inferred_meta_pred, int_3);
 
 	public static Operation PRED_$init_0_static_exec(Prolog m) {
 		Operation cont = m.cont;

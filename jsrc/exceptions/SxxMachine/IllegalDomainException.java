@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Domain error.<br>
  * There will be a domain error when the type of an argument is correct, but the
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class IllegalDomainException extends BuiltinException {
 	/** A functor symbol of <code>domain_error/4</code>. */
-	public static final SymbolTerm DOMAIN_ERROR = SymbolTerm.intern("domain_error", 4);
+	public static final Functor DOMAIN_ERROR = TermData.F("domain_error", 4);
 	/*
 	 * domain ::= character_code_list | close_option | flag_value | io_mode |
 	 * non_empty_list | not_less_than_zero | operator_priority | operator_specifier
@@ -50,7 +52,7 @@ public class IllegalDomainException extends BuiltinException {
 	 */
 	@Override
 	public Term getMessageTerm() {
-		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), SymbolTerm.create(this.domain),
+		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), TermData.createAtomic(this.domain),
 				this.culprit };
 		return TermData.createErrorTerm(this, DOMAIN_ERROR, args);
 	}

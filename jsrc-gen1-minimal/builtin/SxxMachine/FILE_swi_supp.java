@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_swi_supp extends FILE_io {
 /** PREDICATE: (package)/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
@@ -69,7 +70,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(each_call_cleanup/3,non-(public))
-        final static SymbolTerm FUNCTOR_each_call_cleanup_4 = F("each_call_cleanup",4);
+        final static Functor FUNCTOR_each_call_cleanup_4 = F("each_call_cleanup",4);
 
 
 
@@ -93,7 +94,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(setup_call_catcher_cleanup/4,non-(public))
-        final static SymbolTerm FUNCTOR_setup_call_catcher_cleanup_4 = F("setup_call_catcher_cleanup",4);
+        final static Functor FUNCTOR_setup_call_catcher_cleanup_4 = F("setup_call_catcher_cleanup",4);
 
 
 
@@ -175,7 +176,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(throw_missing/1,non-(public))
-        final static SymbolTerm FUNCTOR_throw_missing_1 = F("throw_missing",1);
+        final static Functor FUNCTOR_throw_missing_1 = F("throw_missing",1);
 
 
 
@@ -197,7 +198,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(instance/2,non-(public))
-        final static SymbolTerm FUNCTOR_instance_2 = F("instance",2);
+        final static Functor FUNCTOR_instance_2 = F("instance",2);
 
 
 
@@ -220,7 +221,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(flag/3,non-(public))
-        final static SymbolTerm FUNCTOR_flag_3 = F("flag",3);
+        final static Functor FUNCTOR_flag_3 = F("flag",3);
 
 
 
@@ -244,7 +245,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(source_location/2,non-(public))
-        final static SymbolTerm FUNCTOR_source_location_2 = F("source_location",2);
+        final static Functor FUNCTOR_source_location_2 = F("source_location",2);
 
 
 
@@ -267,11 +268,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(set_predicate_property/2,non-(public))
-        final static SymbolTerm FUNCTOR_module_colon_2 = F(":",2);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm ATOM_meta_predicate = SYM("meta_predicate");
-        final static SymbolTerm FUNCTOR_meta_predicate_1 = F("meta_predicate",1);
+        final static Functor FUNCTOR_module_colon_2 = F(":",2);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor ATOM_meta_predicate = SYM("meta_predicate");
+        final static Functor FUNCTOR_meta_predicate_1 = F("meta_predicate",1);
 
 
 
@@ -572,7 +573,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/2,non-(public))
-        final static SymbolTerm ATOM_swi_supp = SYM("swi_supp");
+        final static Functor ATOM_swi_supp = SYM("swi_supp");
 
 
 
@@ -675,8 +676,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(set_predicate_property/4,non-(public))
-        final static SymbolTerm FUNCTOR_$0024predicate_property_4 = F("$predicate_property",4);
-        final static SymbolTerm ATOM_defined = SYM("defined");
+        final static Functor FUNCTOR_$0024predicate_property_4 = F("$predicate_property",4);
+        final static Functor ATOM_defined = SYM("defined");
 
 
 
@@ -750,7 +751,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((multifile)/1,non-(public))
-        final static SymbolTerm ATOM_multifile = SYM("multifile");
+        final static Functor ATOM_multifile = SYM("multifile");
 
 
 
@@ -769,7 +770,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((discontiguous)/1,non-(public))
-        final static SymbolTerm ATOM_discontiguous = SYM("discontiguous");
+        final static Functor ATOM_discontiguous = SYM("discontiguous");
 
 
 
@@ -788,7 +789,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((dynamic)/1,non-(public))
-        final static SymbolTerm ATOM_dynamic = SYM("dynamic");
+        final static Functor ATOM_dynamic = SYM("dynamic");
 
 
 
@@ -807,7 +808,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((module_transparent)/1,non-(public))
-        final static SymbolTerm ATOM_transparent = SYM("transparent");
+        final static Functor ATOM_transparent = SYM("transparent");
 
 
 
@@ -844,8 +845,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(tracing/0,non-(public))
-        final static SymbolTerm ATOM_$0024tracing = SYM("$tracing");
-    private static final StructureTerm L_tracing_0_s5 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp ,  ATOM_$0024tracing );
+        final static Functor ATOM_$0024tracing = SYM("$tracing");
+    private static final Term L_tracing_0_s5 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp ,  ATOM_$0024tracing );
 
 
 
@@ -913,7 +914,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(assertion/1,non-(public))
-        final static SymbolTerm FUNCTOR_assertion_failed_1 = F("assertion_failed",1);
+        final static Functor FUNCTOR_assertion_failed_1 = F("assertion_failed",1);
 
 
 
@@ -959,9 +960,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/1,non-(public))
-        final static SymbolTerm ATOM_notrace = SYM("notrace");
-        final static SymbolTerm FUNCTOR_call_1 = F("call",1);
-        final static SymbolTerm ATOM_trace = SYM("trace");
+        final static Functor ATOM_notrace = SYM("notrace");
+        final static Functor FUNCTOR_call_1 = F("call",1);
+        final static Functor ATOM_trace = SYM("trace");
 
 
 
@@ -1176,7 +1177,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$0024current_typein_module_1 = F("$current_typein_module",1);
+        final static Functor FUNCTOR_$0024current_typein_module_1 = F("$current_typein_module",1);
 
 
 
@@ -1237,7 +1238,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(typein_module/1,non-(public))
-        final static SymbolTerm ATOM_user = SYM("user");
+        final static Functor ATOM_user = SYM("user");
 
 
 
@@ -1284,7 +1285,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$0024current_source_module_1 = F("$current_source_module",1);
+        final static Functor FUNCTOR_$0024current_source_module_1 = F("$current_source_module",1);
 
 
 
@@ -1391,7 +1392,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/1,non-(public))
-        final static SymbolTerm FUNCTOR_$0024current_context_module_1 = F("$current_context_module",1);
+        final static Functor FUNCTOR_$0024current_context_module_1 = F("$current_context_module",1);
 
 
 
@@ -1592,9 +1593,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((->)/2,non-(public))
-        final static SymbolTerm FUNCTOR_ground_1 = F("ground",1);
-        final static SymbolTerm FUNCTOR_functor_3 = F("functor",3);
-        final static SymbolTerm FUNCTOR_current_predicate_m_f_a_3 = F("current_predicate_m_f_a",3);
+        final static Functor FUNCTOR_ground_1 = F("ground",1);
+        final static Functor FUNCTOR_functor_3 = F("functor",3);
+        final static Functor FUNCTOR_current_predicate_m_f_a_3 = F("current_predicate_m_f_a",3);
 
 
 
@@ -1823,9 +1824,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'/4,non-(public))
-        final static SymbolTerm ATOM_some = SYM("some");
-        final static SymbolTerm FUNCTOR_sols_1 = F("sols",1);
-    private static final StructureTerm L_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_4_s8 = S( FUNCTOR_sols_1 ,  int_0 );
+        final static Functor ATOM_some = SYM("some");
+        final static Functor FUNCTOR_sols_1 = F("sols",1);
+    private static final Term L_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_4_s8 = S( FUNCTOR_sols_1 ,  int_0 );
 
 
 
@@ -1891,8 +1892,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main((*->)/2,public)
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-    private static final StructureTerm L_$002A$002D$003E_2_s5 = S( FUNCTOR_sols_1 ,  int_0 );
+        final static Functor FUNCTOR_or_2 = F(";",2);
+    private static final Term L_$002A$002D$003E_2_s5 = S( FUNCTOR_sols_1 ,  int_0 );
 
 
 
@@ -2834,8 +2835,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main(random/1,non-(public))
-        final static SymbolTerm FUNCTOR_random_1 = F("random",1);
-    private static final StructureTerm L_random_1_s4 = S( FUNCTOR_random_1 ,  int_0 );
+        final static Functor FUNCTOR_random_1 = F("random",1);
+    private static final Term L_random_1_s4 = S( FUNCTOR_random_1 ,  int_0 );
 
 
 
@@ -2859,8 +2860,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.
 */
     // main(go/1,non-(public))
     private static final DoubleTerm sf3 = Float(1.0);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_frozen_2 = F("frozen",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_frozen_2 = F("frozen",2);
 
 
 
@@ -3463,18 +3464,18 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
 */
     // main('$init'/0,public)
-        final static SymbolTerm ATOM_$0024predicate_property = SYM("$predicate_property");
-    private static final StructureTerm L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024predicate_property ,  int_4 );
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-    private static final StructureTerm L_$init_0_s11 = S( FUNCTOR_$0024current_typein_module_1 ,  ATOM_swi_supp );
-    private static final StructureTerm L_$init_0_s14 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s11,  Prolog.True );
-    private static final StructureTerm L_$init_0_s16 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp , L_$init_0_s14);
-        final static SymbolTerm ATOM_$0024current_source_module = SYM("$current_source_module");
-    private static final StructureTerm L_$init_0_s20 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_source_module ,  int_1 );
-    private static final StructureTerm L_$init_0_s24 = S( FUNCTOR_$0024current_context_module_1 ,  ATOM_user );
-    private static final StructureTerm L_$init_0_s26 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s24,  Prolog.True );
-    private static final StructureTerm L_$init_0_s28 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp , L_$init_0_s26);
-    private static final StructureTerm L_$init_0_s32 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tracing ,  int_0 );
+        final static Functor ATOM_$0024predicate_property = SYM("$predicate_property");
+    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024predicate_property ,  int_4 );
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+    private static final Term L_$init_0_s11 = S( FUNCTOR_$0024current_typein_module_1 ,  ATOM_swi_supp );
+    private static final Term L_$init_0_s14 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s11,  Prolog.True );
+    private static final Term L_$init_0_s16 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp , L_$init_0_s14);
+        final static Functor ATOM_$0024current_source_module = SYM("$current_source_module");
+    private static final Term L_$init_0_s20 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_source_module ,  int_1 );
+    private static final Term L_$init_0_s24 = S( FUNCTOR_$0024current_context_module_1 ,  ATOM_user );
+    private static final Term L_$init_0_s26 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s24,  Prolog.True );
+    private static final Term L_$init_0_s28 = S( FUNCTOR_module_colon_2 ,  ATOM_swi_supp , L_$init_0_s26);
+    private static final Term L_$init_0_s32 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tracing ,  int_0 );
 
 
 

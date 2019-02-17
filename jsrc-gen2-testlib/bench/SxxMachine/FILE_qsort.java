@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_qsort extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
         m.setB0();
     // top:-[qsort]
         return //
- Op(FILE_qsort::PRED_qsort_0_static_exec, VA(), cont);
+ Op("qsort", FILE_qsort::PRED_qsort_0_static_exec, VA(), cont);
     }
 /** PREDICATE: qsort/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
@@ -78,56 +79,56 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
         final static IntegerTerm int_92 = Integer(92);
         final static IntegerTerm int_40 = Integer(40);
         final static IntegerTerm int_59 = Integer(59);
-    private static final ListTerm L_qsort_0_s43 = CONS( int_8 ,  Prolog.Nil );
-    private static final ListTerm L_qsort_0_s44 = CONS( int_59 , L_qsort_0_s43);
-    private static final ListTerm L_qsort_0_s45 = CONS( int_53 , L_qsort_0_s44);
-    private static final ListTerm L_qsort_0_s46 = CONS( int_40 , L_qsort_0_s45);
-    private static final ListTerm L_qsort_0_s47 = CONS( int_92 , L_qsort_0_s46);
-    private static final ListTerm L_qsort_0_s48 = CONS( int_18 , L_qsort_0_s47);
-    private static final ListTerm L_qsort_0_s49 = CONS( int_74 , L_qsort_0_s48);
-    private static final ListTerm L_qsort_0_s50 = CONS( int_61 , L_qsort_0_s49);
-    private static final ListTerm L_qsort_0_s51 = CONS( int_28 , L_qsort_0_s50);
-    private static final ListTerm L_qsort_0_s52 = CONS( int_11 , L_qsort_0_s51);
-    private static final ListTerm L_qsort_0_s53 = CONS( int_99 , L_qsort_0_s52);
-    private static final ListTerm L_qsort_0_s54 = CONS( int_95 , L_qsort_0_s53);
-    private static final ListTerm L_qsort_0_s55 = CONS( int_4 , L_qsort_0_s54);
-    private static final ListTerm L_qsort_0_s56 = CONS( int_75 , L_qsort_0_s55);
-    private static final ListTerm L_qsort_0_s57 = CONS( int_63 , L_qsort_0_s56);
-    private static final ListTerm L_qsort_0_s58 = CONS( int_31 , L_qsort_0_s57);
-    private static final ListTerm L_qsort_0_s59 = CONS( int_27 , L_qsort_0_s58);
-    private static final ListTerm L_qsort_0_s60 = CONS( int_85 , L_qsort_0_s59);
-    private static final ListTerm L_qsort_0_s61 = CONS( int_21 , L_qsort_0_s60);
-    private static final ListTerm L_qsort_0_s62 = CONS( int_7 , L_qsort_0_s61);
-    private static final ListTerm L_qsort_0_s63 = CONS( int_51 , L_qsort_0_s62);
-    private static final ListTerm L_qsort_0_s64 = CONS( int_66 , L_qsort_0_s63);
-    private static final ListTerm L_qsort_0_s65 = CONS( int_0 , L_qsort_0_s64);
-    private static final ListTerm L_qsort_0_s66 = CONS( int_10 , L_qsort_0_s65);
-    private static final ListTerm L_qsort_0_s67 = CONS( int_37 , L_qsort_0_s66);
-    private static final ListTerm L_qsort_0_s68 = CONS( int_90 , L_qsort_0_s67);
-    private static final ListTerm L_qsort_0_s69 = CONS( int_81 , L_qsort_0_s68);
-    private static final ListTerm L_qsort_0_s70 = CONS( int_39 , L_qsort_0_s69);
-    private static final ListTerm L_qsort_0_s71 = CONS( int_29 , L_qsort_0_s70);
-    private static final ListTerm L_qsort_0_s72 = CONS( int_55 , L_qsort_0_s71);
-    private static final ListTerm L_qsort_0_s73 = CONS( int_11 , L_qsort_0_s72);
-    private static final ListTerm L_qsort_0_s74 = CONS( int_6 , L_qsort_0_s73);
-    private static final ListTerm L_qsort_0_s75 = CONS( int_82 , L_qsort_0_s74);
-    private static final ListTerm L_qsort_0_s76 = CONS( int_28 , L_qsort_0_s75);
-    private static final ListTerm L_qsort_0_s77 = CONS( int_47 , L_qsort_0_s76);
-    private static final ListTerm L_qsort_0_s78 = CONS( int_99 , L_qsort_0_s77);
-    private static final ListTerm L_qsort_0_s79 = CONS( int_85 , L_qsort_0_s78);
-    private static final ListTerm L_qsort_0_s80 = CONS( int_28 , L_qsort_0_s79);
-    private static final ListTerm L_qsort_0_s81 = CONS( int_53 , L_qsort_0_s80);
-    private static final ListTerm L_qsort_0_s82 = CONS( int_32 , L_qsort_0_s81);
-    private static final ListTerm L_qsort_0_s83 = CONS( int_2 , L_qsort_0_s82);
-    private static final ListTerm L_qsort_0_s84 = CONS( int_65 , L_qsort_0_s83);
-    private static final ListTerm L_qsort_0_s85 = CONS( int_83 , L_qsort_0_s84);
-    private static final ListTerm L_qsort_0_s86 = CONS( int_46 , L_qsort_0_s85);
-    private static final ListTerm L_qsort_0_s87 = CONS( int_18 , L_qsort_0_s86);
-    private static final ListTerm L_qsort_0_s88 = CONS( int_94 , L_qsort_0_s87);
-    private static final ListTerm L_qsort_0_s89 = CONS( int_33 , L_qsort_0_s88);
-    private static final ListTerm L_qsort_0_s90 = CONS( int_17 , L_qsort_0_s89);
-    private static final ListTerm L_qsort_0_s91 = CONS( int_74 , L_qsort_0_s90);
-    private static final ListTerm L_qsort_0_s92 = CONS( int_27 , L_qsort_0_s91);
+    private static final Term L_qsort_0_s43 = CONS( int_8 ,  Prolog.Nil );
+    private static final Term L_qsort_0_s44 = CONS( int_59 , L_qsort_0_s43);
+    private static final Term L_qsort_0_s45 = CONS( int_53 , L_qsort_0_s44);
+    private static final Term L_qsort_0_s46 = CONS( int_40 , L_qsort_0_s45);
+    private static final Term L_qsort_0_s47 = CONS( int_92 , L_qsort_0_s46);
+    private static final Term L_qsort_0_s48 = CONS( int_18 , L_qsort_0_s47);
+    private static final Term L_qsort_0_s49 = CONS( int_74 , L_qsort_0_s48);
+    private static final Term L_qsort_0_s50 = CONS( int_61 , L_qsort_0_s49);
+    private static final Term L_qsort_0_s51 = CONS( int_28 , L_qsort_0_s50);
+    private static final Term L_qsort_0_s52 = CONS( int_11 , L_qsort_0_s51);
+    private static final Term L_qsort_0_s53 = CONS( int_99 , L_qsort_0_s52);
+    private static final Term L_qsort_0_s54 = CONS( int_95 , L_qsort_0_s53);
+    private static final Term L_qsort_0_s55 = CONS( int_4 , L_qsort_0_s54);
+    private static final Term L_qsort_0_s56 = CONS( int_75 , L_qsort_0_s55);
+    private static final Term L_qsort_0_s57 = CONS( int_63 , L_qsort_0_s56);
+    private static final Term L_qsort_0_s58 = CONS( int_31 , L_qsort_0_s57);
+    private static final Term L_qsort_0_s59 = CONS( int_27 , L_qsort_0_s58);
+    private static final Term L_qsort_0_s60 = CONS( int_85 , L_qsort_0_s59);
+    private static final Term L_qsort_0_s61 = CONS( int_21 , L_qsort_0_s60);
+    private static final Term L_qsort_0_s62 = CONS( int_7 , L_qsort_0_s61);
+    private static final Term L_qsort_0_s63 = CONS( int_51 , L_qsort_0_s62);
+    private static final Term L_qsort_0_s64 = CONS( int_66 , L_qsort_0_s63);
+    private static final Term L_qsort_0_s65 = CONS( int_0 , L_qsort_0_s64);
+    private static final Term L_qsort_0_s66 = CONS( int_10 , L_qsort_0_s65);
+    private static final Term L_qsort_0_s67 = CONS( int_37 , L_qsort_0_s66);
+    private static final Term L_qsort_0_s68 = CONS( int_90 , L_qsort_0_s67);
+    private static final Term L_qsort_0_s69 = CONS( int_81 , L_qsort_0_s68);
+    private static final Term L_qsort_0_s70 = CONS( int_39 , L_qsort_0_s69);
+    private static final Term L_qsort_0_s71 = CONS( int_29 , L_qsort_0_s70);
+    private static final Term L_qsort_0_s72 = CONS( int_55 , L_qsort_0_s71);
+    private static final Term L_qsort_0_s73 = CONS( int_11 , L_qsort_0_s72);
+    private static final Term L_qsort_0_s74 = CONS( int_6 , L_qsort_0_s73);
+    private static final Term L_qsort_0_s75 = CONS( int_82 , L_qsort_0_s74);
+    private static final Term L_qsort_0_s76 = CONS( int_28 , L_qsort_0_s75);
+    private static final Term L_qsort_0_s77 = CONS( int_47 , L_qsort_0_s76);
+    private static final Term L_qsort_0_s78 = CONS( int_99 , L_qsort_0_s77);
+    private static final Term L_qsort_0_s79 = CONS( int_85 , L_qsort_0_s78);
+    private static final Term L_qsort_0_s80 = CONS( int_28 , L_qsort_0_s79);
+    private static final Term L_qsort_0_s81 = CONS( int_53 , L_qsort_0_s80);
+    private static final Term L_qsort_0_s82 = CONS( int_32 , L_qsort_0_s81);
+    private static final Term L_qsort_0_s83 = CONS( int_2 , L_qsort_0_s82);
+    private static final Term L_qsort_0_s84 = CONS( int_65 , L_qsort_0_s83);
+    private static final Term L_qsort_0_s85 = CONS( int_83 , L_qsort_0_s84);
+    private static final Term L_qsort_0_s86 = CONS( int_46 , L_qsort_0_s85);
+    private static final Term L_qsort_0_s87 = CONS( int_18 , L_qsort_0_s86);
+    private static final Term L_qsort_0_s88 = CONS( int_94 , L_qsort_0_s87);
+    private static final Term L_qsort_0_s89 = CONS( int_33 , L_qsort_0_s88);
+    private static final Term L_qsort_0_s90 = CONS( int_17 , L_qsort_0_s89);
+    private static final Term L_qsort_0_s91 = CONS( int_74 , L_qsort_0_s90);
+    private static final Term L_qsort_0_s92 = CONS( int_27 , L_qsort_0_s91);
 
 
 
@@ -138,7 +139,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
         m.setB0();
     // qsort:-[qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])]
         return //
- Op(FILE_qsort::PRED_qsort_3_static_exec, VA(L_qsort_0_s92, m.DONT_CARE2(),  Prolog.Nil ), cont);
+ Op("qsort", FILE_qsort::PRED_qsort_3_static_exec, VA(L_qsort_0_s92, m.DONT_CARE2(),  Prolog.Nil ), cont);
     }
 /** PREDICATE: qsort/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/qsort.pl
@@ -191,9 +192,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = CONS(a4, a8);
         return //
- Op(FILE_qsort::PRED_partition_4_static_exec, VA(a5, a4, a6, a7), //
- Op(FILE_qsort::PRED_qsort_3_static_exec, VA(a7, a8, a3), //
- Op(FILE_qsort::PRED_qsort_3_static_exec, VA(a6, a2, a9), cont)));
+ Op("partition", FILE_qsort::PRED_partition_4_static_exec, VA(a5, a4, a6, a7), //
+ Op("qsort", FILE_qsort::PRED_qsort_3_static_exec, VA(a7, a8, a3), //
+ Op("qsort", FILE_qsort::PRED_qsort_3_static_exec, VA(a6, a2, a9), cont)));
     }
 
     private final static Operation qsort_3_2(Prolog m) { 

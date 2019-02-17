@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_perfect extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
@@ -46,11 +47,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
     // top:-[findall(A,user:perfect(100,A),B),ok(B)]
         a1 = m.mkvar1();
         a2 = Closure( //
- Op(FILE_perfect::PRED_perfect_2_static_exec, VA( int_100 , a1), null));
+ Op("perfect", FILE_perfect::PRED_perfect_2_static_exec, VA( int_100 , a1), null));
         a3 = m.mkvar1();
         return //
- Op(FILE_perfect::PRED_findall_3_static_exec, VA(a1, a2, a3), //
- Op(FILE_perfect::PRED_ok_1_static_exec, VA(a3), cont));
+ Op("findall", FILE_perfect::PRED_findall_3_static_exec, VA(a1, a2, a3), //
+ Op("ok", FILE_perfect::PRED_ok_1_static_exec, VA(a3), cont));
     }
 /** PREDICATE: ok/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
@@ -81,32 +82,32 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
         final static IntegerTerm int_8128 = Integer(8128);
         final static IntegerTerm int_496 = Integer(496);
         final static IntegerTerm int_28 = Integer(28);
-    private static final ListTerm L_ok_1_s28 = CONS( int_6 ,  Prolog.Nil );
-    private static final ListTerm L_ok_1_s29 = CONS( int_28 , L_ok_1_s28);
-    private static final ListTerm L_ok_1_s30 = CONS( int_496 , L_ok_1_s29);
-    private static final ListTerm L_ok_1_s31 = CONS( int_8128 , L_ok_1_s30);
-    private static final ListTerm L_ok_1_s32 = CONS( int_2096128 , L_ok_1_s31);
-    private static final ListTerm L_ok_1_s33 = CONS( int_33550336 , L_ok_1_s32);
-    private static final ListTerm L_ok_1_s34 = CONS( int_8589869056 , L_ok_1_s33);
-    private static final ListTerm L_ok_1_s35 = CONS( int_137438691328 , L_ok_1_s34);
-    private static final ListTerm L_ok_1_s36 = CONS( int_35184367894528 , L_ok_1_s35);
-    private static final ListTerm L_ok_1_s37 = CONS( int_144115187807420416 , L_ok_1_s36);
-    private static final ListTerm L_ok_1_s38 = CONS( int_2305843008139952128 , L_ok_1_s37);
-    private static final ListTerm L_ok_1_s39 = CONS( int_9444732965670570950656 , L_ok_1_s38);
-    private static final ListTerm L_ok_1_s40 = CONS( int_2417851639228158837784576 , L_ok_1_s39);
-    private static final ListTerm L_ok_1_s41 = CONS( int_38685626227663735544086528 , L_ok_1_s40);
-    private static final ListTerm L_ok_1_s42 = CONS( int_9903520314282971830448816128 , L_ok_1_s41);
-    private static final ListTerm L_ok_1_s43 = CONS( int_40564819207303336344294875201536 , L_ok_1_s42);
-    private static final ListTerm L_ok_1_s44 = CONS( int_166153499473114483824745506383331328 , L_ok_1_s43);
-    private static final ListTerm L_ok_1_s45 = CONS( int_2658455991569831744654692615953842176 , L_ok_1_s44);
-    private static final ListTerm L_ok_1_s46 = CONS( int_10889035741470030830754200461521744560128 , L_ok_1_s45);
-    private static final ListTerm L_ok_1_s47 = CONS( int_2787593149816327892690784192460327776944128 , L_ok_1_s46);
-    private static final ListTerm L_ok_1_s48 = CONS( int_44601490397061246283066714178813853366747136 , L_ok_1_s47);
-    private static final ListTerm L_ok_1_s49 = CONS( int_182687704666362864775460301858080473799697891328 , L_ok_1_s48);
-    private static final ListTerm L_ok_1_s50 = CONS( int_46768052394588893382517909811217778170473142550528 , L_ok_1_s49);
-    private static final ListTerm L_ok_1_s51 = CONS( int_191561942608236107294793378084303638130997321548169216 , L_ok_1_s50);
-    private static final ListTerm L_ok_1_s52 = CONS( int_12554203470773361527671578846336104669690446551334525075456 , L_ok_1_s51);
-    private static final ListTerm L_ok_1_s53 = CONS( int_3213876088517980551083924184681057554444177758164088967397376 , L_ok_1_s52);
+    private static final Term L_ok_1_s28 = CONS( int_6 ,  Prolog.Nil );
+    private static final Term L_ok_1_s29 = CONS( int_28 , L_ok_1_s28);
+    private static final Term L_ok_1_s30 = CONS( int_496 , L_ok_1_s29);
+    private static final Term L_ok_1_s31 = CONS( int_8128 , L_ok_1_s30);
+    private static final Term L_ok_1_s32 = CONS( int_2096128 , L_ok_1_s31);
+    private static final Term L_ok_1_s33 = CONS( int_33550336 , L_ok_1_s32);
+    private static final Term L_ok_1_s34 = CONS( int_8589869056 , L_ok_1_s33);
+    private static final Term L_ok_1_s35 = CONS( int_137438691328 , L_ok_1_s34);
+    private static final Term L_ok_1_s36 = CONS( int_35184367894528 , L_ok_1_s35);
+    private static final Term L_ok_1_s37 = CONS( int_144115187807420416 , L_ok_1_s36);
+    private static final Term L_ok_1_s38 = CONS( int_2305843008139952128 , L_ok_1_s37);
+    private static final Term L_ok_1_s39 = CONS( int_9444732965670570950656 , L_ok_1_s38);
+    private static final Term L_ok_1_s40 = CONS( int_2417851639228158837784576 , L_ok_1_s39);
+    private static final Term L_ok_1_s41 = CONS( int_38685626227663735544086528 , L_ok_1_s40);
+    private static final Term L_ok_1_s42 = CONS( int_9903520314282971830448816128 , L_ok_1_s41);
+    private static final Term L_ok_1_s43 = CONS( int_40564819207303336344294875201536 , L_ok_1_s42);
+    private static final Term L_ok_1_s44 = CONS( int_166153499473114483824745506383331328 , L_ok_1_s43);
+    private static final Term L_ok_1_s45 = CONS( int_2658455991569831744654692615953842176 , L_ok_1_s44);
+    private static final Term L_ok_1_s46 = CONS( int_10889035741470030830754200461521744560128 , L_ok_1_s45);
+    private static final Term L_ok_1_s47 = CONS( int_2787593149816327892690784192460327776944128 , L_ok_1_s46);
+    private static final Term L_ok_1_s48 = CONS( int_44601490397061246283066714178813853366747136 , L_ok_1_s47);
+    private static final Term L_ok_1_s49 = CONS( int_182687704666362864775460301858080473799697891328 , L_ok_1_s48);
+    private static final Term L_ok_1_s50 = CONS( int_46768052394588893382517909811217778170473142550528 , L_ok_1_s49);
+    private static final Term L_ok_1_s51 = CONS( int_191561942608236107294793378084303638130997321548169216 , L_ok_1_s50);
+    private static final Term L_ok_1_s52 = CONS( int_12554203470773361527671578846336104669690446551334525075456 , L_ok_1_s51);
+    private static final Term L_ok_1_s53 = CONS( int_3213876088517980551083924184681057554444177758164088967397376 , L_ok_1_s52);
 
 
 
@@ -126,9 +127,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 */
     // main(divisible/2,public)
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
-        final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_mod_2 = F("mod",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -259,8 +260,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_perfect::PRED_divisible_2_static_exec, VA(a1, a2), //
- Op(FILE_perfect::PRED_$cut_1_static_exec, VA(a3), fail_0));
+ Op("divisible", FILE_perfect::PRED_divisible_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_perfect::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fperfect$002Epl_2_2(Prolog m) { 
@@ -339,7 +340,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_perfect::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fperfect$002Epl_2_static_exec, VA(a3, a4), cont);
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl", FILE_perfect::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fperfect$002Epl_2_static_exec, VA(a3, a4), cont);
     }
 
     private final static Operation isprime_2_2(Prolog m) { 
@@ -368,7 +369,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 */
     // main(power/3,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -433,7 +434,7 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$002A_2 , a6, a1);
  ;
         p1 = //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a7), cont);
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a7), cont);
         m.AREGS[0] = a1;
         m.AREGS[1] = a4;
         m.AREGS[2] = a6;
@@ -473,10 +474,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
         a9 =  S( FUNCTOR_$002A_2 , a5, a8);
  ;
         return //
- Op(FILE_perfect::PRED_power_3_static_exec, VA( int_2 , a2, a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
- Op(FILE_perfect::PRED_power_3_static_exec, VA( int_2 , a7, a8), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a9), cont))));
+ Op("power", FILE_perfect::PRED_power_3_static_exec, VA( int_2 , a2, a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
+ Op("power", FILE_perfect::PRED_power_3_static_exec, VA( int_2 , a7, a8), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a9), cont))));
     }
 /** PREDICATE: listperf/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
@@ -525,7 +526,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_perfect::PRED_calc_3_static_exec, VA( int_2 , a3, a2), cont);
+ Op("calc", FILE_perfect::PRED_calc_3_static_exec, VA( int_2 , a3, a2), cont);
     }
 
     private final static Operation listperf_2_2(Prolog m) { 
@@ -666,12 +667,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
         a3 = m.mkvar1();
         a4 = m.mkvar1();
         a5 = Closure( //
- Op(FILE_perfect::PRED_isprime_2_static_exec, VA(a3, a4), null));
+ Op("isprime", FILE_perfect::PRED_isprime_2_static_exec, VA(a3, a4), null));
         a6 = m.mkvar1();
         return //
- Op(FILE_perfect::PRED_generateList_2_static_exec, VA(a1, a3), //
- Op(FILE_perfect::PRED_findall_3_static_exec, VA(a4, a5, a6), //
- Op(FILE_perfect::PRED_listperf_2_static_exec, VA(a6, a2), cont)));
+ Op("generateList", FILE_perfect::PRED_generateList_2_static_exec, VA(a1, a3), //
+ Op("findall", FILE_perfect::PRED_findall_3_static_exec, VA(a4, a5, a6), //
+ Op("listperf", FILE_perfect::PRED_listperf_2_static_exec, VA(a6, a2), cont)));
     }
 static { loadPreds(); }
 static public void loadPreds() {

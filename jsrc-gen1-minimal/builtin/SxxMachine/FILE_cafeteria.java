@@ -18,23 +18,24 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_cafeteria extends FILE_builtins {
 /** PREDICATE: cafeteria/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(cafeteria/0,public)
-        final static SymbolTerm ATOM_error = SYM("error");
-        final static SymbolTerm ATOM_end_of_file = SYM("end_of_file");
-        final static SymbolTerm ATOM_bye = SYM("bye");
+        final static Functor ATOM_error = SYM("error");
+        final static Functor ATOM_end_of_file = SYM("end_of_file");
+        final static Functor ATOM_bye = SYM("bye");
 
 
 
@@ -73,36 +74,36 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$cafeteria_init'/0,non-(public))
-        final static SymbolTerm ATOM_SxxMachine = SYM("SxxMachine");
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_$0024leap_flag = SYM("$leap_flag");
-    private static final StructureTerm L_$cafeteria_init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024leap_flag ,  int_1 );
-        final static SymbolTerm ATOM_$0024current_spypoint = SYM("$current_spypoint");
-    private static final StructureTerm L_$cafeteria_init_0_s10 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_spypoint ,  int_3 );
-        final static SymbolTerm ATOM_$0024current_leash = SYM("$current_leash");
-    private static final StructureTerm L_$cafeteria_init_0_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_leash ,  int_1 );
-        final static SymbolTerm FUNCTOR_module_colon_2 = F(":",2);
-        final static SymbolTerm FUNCTOR_$0024leap_flag_1 = F("$leap_flag",1);
-        final static SymbolTerm FUNCTOR_$0024current_leash_1 = F("$current_leash",1);
-        final static SymbolTerm FUNCTOR_$0024current_spypoint_3 = F("$current_spypoint",3);
-        final static SymbolTerm FUNCTOR_$0024consulted_file_1 = F("$consulted_file",1);
-        final static SymbolTerm FUNCTOR_$0024consulted_package_1 = F("$consulted_package",1);
-        final static SymbolTerm FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate",3);
-        final static SymbolTerm ATOM_no = SYM("no");
-    private static final StructureTerm L_$cafeteria_init_0_s23 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final StructureTerm L_$cafeteria_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s23);
-        final static SymbolTerm ATOM_call = SYM("call");
-    private static final StructureTerm L_$cafeteria_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
-    private static final StructureTerm L_$cafeteria_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s28);
-        final static SymbolTerm ATOM_exit = SYM("exit");
-    private static final StructureTerm L_$cafeteria_init_0_s33 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
-    private static final StructureTerm L_$cafeteria_init_0_s35 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s33);
-        final static SymbolTerm ATOM_redo = SYM("redo");
-    private static final StructureTerm L_$cafeteria_init_0_s38 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
-    private static final StructureTerm L_$cafeteria_init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s38);
-        final static SymbolTerm ATOM_fail = SYM("fail");
-    private static final StructureTerm L_$cafeteria_init_0_s43 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
-    private static final StructureTerm L_$cafeteria_init_0_s45 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s43);
+        final static Functor ATOM_SxxMachine = SYM("SxxMachine");
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_$0024leap_flag = SYM("$leap_flag");
+    private static final Term L_$cafeteria_init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024leap_flag ,  int_1 );
+        final static Functor ATOM_$0024current_spypoint = SYM("$current_spypoint");
+    private static final Term L_$cafeteria_init_0_s10 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_spypoint ,  int_3 );
+        final static Functor ATOM_$0024current_leash = SYM("$current_leash");
+    private static final Term L_$cafeteria_init_0_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_leash ,  int_1 );
+        final static Functor FUNCTOR_module_colon_2 = F(":",2);
+        final static Functor FUNCTOR_$0024leap_flag_1 = F("$leap_flag",1);
+        final static Functor FUNCTOR_$0024current_leash_1 = F("$current_leash",1);
+        final static Functor FUNCTOR_$0024current_spypoint_3 = F("$current_spypoint",3);
+        final static Functor FUNCTOR_$0024consulted_file_1 = F("$consulted_file",1);
+        final static Functor FUNCTOR_$0024consulted_package_1 = F("$consulted_package",1);
+        final static Functor FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate",3);
+        final static Functor ATOM_no = SYM("no");
+    private static final Term L_$cafeteria_init_0_s23 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Term L_$cafeteria_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s23);
+        final static Functor ATOM_call = SYM("call");
+    private static final Term L_$cafeteria_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
+    private static final Term L_$cafeteria_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s28);
+        final static Functor ATOM_exit = SYM("exit");
+    private static final Term L_$cafeteria_init_0_s33 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
+    private static final Term L_$cafeteria_init_0_s35 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s33);
+        final static Functor ATOM_redo = SYM("redo");
+    private static final Term L_$cafeteria_init_0_s38 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
+    private static final Term L_$cafeteria_init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s38);
+        final static Functor ATOM_fail = SYM("fail");
+    private static final Term L_$cafeteria_init_0_s43 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
+    private static final Term L_$cafeteria_init_0_s45 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s43);
 
 
 
@@ -177,10 +178,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'/1,non-(public))
-        final static SymbolTerm ATOM_off = SYM("off");
-        final static SymbolTerm ATOM_info = SYM("info");
-        final static SymbolTerm ATOM_debug = SYM("debug");
-    private static final ListTerm L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
+        final static Functor ATOM_off = SYM("off");
+        final static Functor ATOM_info = SYM("info");
+        final static Functor ATOM_debug = SYM("debug");
+    private static final Term L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
 
 
 
@@ -238,7 +239,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'/1,non-(public))
-        final static SymbolTerm ATOM_user = SYM("user");
+        final static Functor ATOM_user = SYM("user");
 
 
 
@@ -297,7 +298,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$toplvel_loop'/0,non-(public))
-        final static SymbolTerm ATOM_$007C$0020$003F$002D$0020 = SYM("| ?- ");
+        final static Functor ATOM_$007C$0020$003F$002D$0020 = SYM("| ?- ");
 
 
 
@@ -351,9 +352,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$process_order'/2,non-(public))
-        final static SymbolTerm ATOM_var = SYM("var");
-        final static SymbolTerm FUNCTOR_$003F$002D_1 = F("?-",1);
-        final static SymbolTerm ATOM_yes = SYM("yes");
+        final static Functor ATOM_var = SYM("var");
+        final static Functor FUNCTOR_$003F$002D_1 = F("?-",1);
+        final static Functor ATOM_yes = SYM("yes");
 
 
 
@@ -635,8 +636,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$rm_redundant_vars'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
-        final static SymbolTerm ATOM__ = SYM("_");
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
+        final static Functor ATOM__ = SYM("_");
 
 
 
@@ -766,9 +767,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$give_answers_with_prompt'/1,non-(public))
-        final static SymbolTerm ATOM_$0020$003F$0020 = SYM(" ? ");
+        final static Functor ATOM_$0020$003F$0020 = SYM(" ? ");
         final static IntegerTerm int_59 = Integer(59);
-    private static final ListTerm L_$give_answers_with_prompt_1_s4 = CONS( int_59 ,  Prolog.Nil );
+    private static final Term L_$give_answers_with_prompt_1_s4 = CONS( int_59 ,  Prolog.Nil );
 
 
 
@@ -826,7 +827,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$give_an_answer'/1,non-(public))
-        final static SymbolTerm ATOM_$002C = SYM(",");
+        final static Functor ATOM_$002C = SYM(",");
 
 
 
@@ -933,7 +934,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$print_an answer'/1,non-(public))
-        final static SymbolTerm ATOM_$0020$003D$0020 = SYM(" = ");
+        final static Functor ATOM_$0020$003D$0020 = SYM(" = ");
 
 
 
@@ -961,7 +962,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(consult/1,public)
-        final static SymbolTerm FUNCTOR_consult_1 = F("consult",1);
+        final static Functor FUNCTOR_consult_1 = F("consult",1);
 
 
 
@@ -1141,15 +1142,15 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$consult'/1,non-(public))
-        final static SymbolTerm ATOM_read = SYM("read");
-        final static SymbolTerm FUNCTOR_file_name_1 = F("file_name",1);
-        final static SymbolTerm ATOM_consulting = SYM("consulting");
-        final static SymbolTerm ATOM_$002E$002E$002E = SYM("...");
-    private static final ListTerm L_$consult_1_s7 = CONS( ATOM_$002E$002E$002E ,  Prolog.Nil );
-        final static SymbolTerm ATOM_runtime = SYM("runtime");
-        final static SymbolTerm ATOM_consulted = SYM("consulted");
-        final static SymbolTerm ATOM_msec = SYM("msec");
-    private static final ListTerm L_$consult_1_s11 = CONS( ATOM_msec ,  Prolog.Nil );
+        final static Functor ATOM_read = SYM("read");
+        final static Functor FUNCTOR_file_name_1 = F("file_name",1);
+        final static Functor ATOM_consulting = SYM("consulting");
+        final static Functor ATOM_$002E$002E$002E = SYM("...");
+    private static final Term L_$consult_1_s7 = CONS( ATOM_$002E$002E$002E ,  Prolog.Nil );
+        final static Functor ATOM_runtime = SYM("runtime");
+        final static Functor ATOM_consulted = SYM("consulted");
+        final static Functor ATOM_msec = SYM("msec");
+    private static final Term L_$consult_1_s11 = CONS( ATOM_msec ,  Prolog.Nil );
 
 
 
@@ -1191,8 +1192,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$prolog_file_name'/2,non-(public))
-        final static SymbolTerm ATOM_$002E = SYM(".");
-        final static SymbolTerm ATOM_$002Epl = SYM(".pl");
+        final static Functor ATOM_$002E = SYM(".");
+        final static Functor ATOM_$002Epl = SYM(".pl");
 
 
 
@@ -1251,8 +1252,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(trace/0,public)
-        final static SymbolTerm ATOM_on = SYM("on");
-        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D = SYM("{Small debugger is switch on}");
+        final static Functor ATOM_on = SYM("on");
+        final static Functor ATOM_$007BSmall$0020debugger$0020is$0020switch$0020on$007D = SYM("{Small debugger is switch on}");
 
 
 
@@ -1312,16 +1313,16 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$trace_init'/0,non-(public))
-    private static final StructureTerm L_$trace_init_0_s8 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final StructureTerm L_$trace_init_0_s10 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s8);
-    private static final StructureTerm L_$trace_init_0_s13 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
-    private static final StructureTerm L_$trace_init_0_s15 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s13);
-    private static final StructureTerm L_$trace_init_0_s18 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
-    private static final StructureTerm L_$trace_init_0_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s18);
-    private static final StructureTerm L_$trace_init_0_s23 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
-    private static final StructureTerm L_$trace_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s23);
-    private static final StructureTerm L_$trace_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
-    private static final StructureTerm L_$trace_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s28);
+    private static final Term L_$trace_init_0_s8 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Term L_$trace_init_0_s10 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s8);
+    private static final Term L_$trace_init_0_s13 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
+    private static final Term L_$trace_init_0_s15 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s13);
+    private static final Term L_$trace_init_0_s18 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
+    private static final Term L_$trace_init_0_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s18);
+    private static final Term L_$trace_init_0_s23 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
+    private static final Term L_$trace_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s23);
+    private static final Term L_$trace_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
+    private static final Term L_$trace_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s28);
 
 
 
@@ -1372,7 +1373,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(notrace/0,public)
-        final static SymbolTerm ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D = SYM("{Small debugger is switch off}");
+        final static Functor ATOM_$007BSmall$0020debugger$0020is$0020switch$0020off$007D = SYM("{Small debugger is switch off}");
 
 
 
@@ -1463,8 +1464,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$trace_goal'/1,non-(public))
-        final static SymbolTerm ATOM_leap = SYM("leap");
-        final static SymbolTerm ATOM_trace = SYM("trace");
+        final static Functor ATOM_leap = SYM("leap");
+        final static Functor ATOM_trace = SYM("trace");
 
 
 
@@ -1542,12 +1543,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(print_procedure_box/5,non-(public))
-        final static SymbolTerm ATOM_$002B = SYM("+");
-        final static SymbolTerm ATOM_module_colon = SYM(":");
-        final static SymbolTerm FUNCTOR_print_procedure_box_5 = F("print_procedure_box",5);
-    private static final StructureTerm L_print_procedure_box_5_s12 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final StructureTerm L_print_procedure_box_5_s14 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_print_procedure_box_5_s12);
-        final static SymbolTerm ATOM_$0020 = SYM(" ");
+        final static Functor ATOM_$002B = SYM("+");
+        final static Functor ATOM_module_colon = SYM(":");
+        final static Functor FUNCTOR_print_procedure_box_5 = F("print_procedure_box",5);
+    private static final Term L_print_procedure_box_5_s12 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Term L_print_procedure_box_5_s14 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_print_procedure_box_5_s12);
+        final static Functor ATOM_$0020 = SYM(" ");
 
     // private final Term arg5;
 
@@ -2124,15 +2125,15 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$show_debug_option'/0,non-(public))
-        final static SymbolTerm ATOM_Debugging$0020options$003A = SYM("Debugging options:");
-        final static SymbolTerm ATOM_a$0020$0020$0020$0020$0020$0020abort = SYM("a      abort");
-        final static SymbolTerm ATOM_RET$0020$0020$0020$0020creep = SYM("RET    creep");
-        final static SymbolTerm ATOM_c$0020$0020$0020$0020$0020$0020creep = SYM("c      creep");
-        final static SymbolTerm ATOM_l$0020$0020$0020$0020$0020$0020leap = SYM("l      leap");
-        final static SymbolTerm ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this = SYM("+      spy this");
-        final static SymbolTerm ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this = SYM("-      nospy this");
-        final static SymbolTerm ATOM_$003F$0020$0020$0020$0020$0020$0020help = SYM("?      help");
-        final static SymbolTerm ATOM_h$0020$0020$0020$0020$0020$0020help = SYM("h      help");
+        final static Functor ATOM_Debugging$0020options$003A = SYM("Debugging options:");
+        final static Functor ATOM_a$0020$0020$0020$0020$0020$0020abort = SYM("a      abort");
+        final static Functor ATOM_RET$0020$0020$0020$0020creep = SYM("RET    creep");
+        final static Functor ATOM_c$0020$0020$0020$0020$0020$0020creep = SYM("c      creep");
+        final static Functor ATOM_l$0020$0020$0020$0020$0020$0020leap = SYM("l      leap");
+        final static Functor ATOM_$002B$0020$0020$0020$0020$0020$0020spy$0020this = SYM("+      spy this");
+        final static Functor ATOM_$002D$0020$0020$0020$0020$0020$0020nospy$0020this = SYM("-      nospy this");
+        final static Functor ATOM_$003F$0020$0020$0020$0020$0020$0020help = SYM("?      help");
+        final static Functor ATOM_h$0020$0020$0020$0020$0020$0020help = SYM("h      help");
 
 
 
@@ -2256,7 +2257,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(spy/1,public)
-        final static SymbolTerm FUNCTOR_spy_1 = F("spy",1);
+        final static Functor FUNCTOR_spy_1 = F("spy",1);
 
 
 
@@ -2290,19 +2291,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$assert_spypoint'/1,non-(public))
-        final static SymbolTerm ATOM_spypoint = SYM("spypoint");
-        final static SymbolTerm ATOM_is = SYM("is");
-        final static SymbolTerm ATOM_already = SYM("already");
-        final static SymbolTerm ATOM_added = SYM("added");
-    private static final ListTerm L_$assert_spypoint_1_s11 = CONS( ATOM_added ,  Prolog.Nil );
-    private static final ListTerm L_$assert_spypoint_1_s12 = CONS( ATOM_already , L_$assert_spypoint_1_s11);
-    private static final ListTerm L_$assert_spypoint_1_s13 = CONS( ATOM_is , L_$assert_spypoint_1_s12);
-    private static final ListTerm L_$assert_spypoint_1_s15 = CONS( ATOM_is , L_$assert_spypoint_1_s11);
-        final static SymbolTerm ATOM_warning = SYM("warning");
-        final static SymbolTerm ATOM_matching = SYM("matching");
-        final static SymbolTerm ATOM_predicate = SYM("predicate");
-        final static SymbolTerm ATOM_for = SYM("for");
-        final static SymbolTerm ATOM_spy = SYM("spy");
+        final static Functor ATOM_spypoint = SYM("spypoint");
+        final static Functor ATOM_is = SYM("is");
+        final static Functor ATOM_already = SYM("already");
+        final static Functor ATOM_added = SYM("added");
+    private static final Term L_$assert_spypoint_1_s11 = CONS( ATOM_added ,  Prolog.Nil );
+    private static final Term L_$assert_spypoint_1_s12 = CONS( ATOM_already , L_$assert_spypoint_1_s11);
+    private static final Term L_$assert_spypoint_1_s13 = CONS( ATOM_is , L_$assert_spypoint_1_s12);
+    private static final Term L_$assert_spypoint_1_s15 = CONS( ATOM_is , L_$assert_spypoint_1_s11);
+        final static Functor ATOM_warning = SYM("warning");
+        final static Functor ATOM_matching = SYM("matching");
+        final static Functor ATOM_predicate = SYM("predicate");
+        final static Functor ATOM_for = SYM("for");
+        final static Functor ATOM_spy = SYM("spy");
 
 
 
@@ -2469,7 +2470,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(nospy/1,public)
-        final static SymbolTerm FUNCTOR_nospy_1 = F("nospy",1);
+        final static Functor FUNCTOR_nospy_1 = F("nospy",1);
 
 
 
@@ -2502,9 +2503,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$retract_spypoint'/1,non-(public))
-        final static SymbolTerm ATOM_removed = SYM("removed");
-    private static final ListTerm L_$retract_spypoint_1_s10 = CONS( ATOM_removed ,  Prolog.Nil );
-    private static final ListTerm L_$retract_spypoint_1_s11 = CONS( ATOM_is , L_$retract_spypoint_1_s10);
+        final static Functor ATOM_removed = SYM("removed");
+    private static final Term L_$retract_spypoint_1_s10 = CONS( ATOM_removed ,  Prolog.Nil );
+    private static final Term L_$retract_spypoint_1_s11 = CONS( ATOM_is , L_$retract_spypoint_1_s10);
 
 
 
@@ -2610,10 +2611,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(leash/1,public)
-        final static SymbolTerm FUNCTOR_type_1 = F("type",1);
-        final static SymbolTerm ATOM_leash_specifier = SYM("leash_specifier");
-    private static final StructureTerm L_leash_1_s4 = S( FUNCTOR_type_1 ,  ATOM_leash_specifier );
-        final static SymbolTerm FUNCTOR_leash_1 = F("leash",1);
+        final static Functor FUNCTOR_type_1 = F("type",1);
+        final static Functor ATOM_leash_specifier = SYM("leash_specifier");
+    private static final Term L_leash_1_s4 = S( FUNCTOR_type_1 ,  ATOM_leash_specifier );
+        final static Functor FUNCTOR_leash_1 = F("leash",1);
 
 
 
@@ -2673,10 +2674,10 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$leash'/1,non-(public))
-        final static SymbolTerm ATOM_leashing = SYM("leashing");
-    private static final ListTerm L_$leash_1_s8 = CONS( ATOM_leashing ,  Prolog.Nil );
-    private static final ListTerm L_$leash_1_s9 = CONS( ATOM_no , L_$leash_1_s8);
-        final static SymbolTerm ATOM_stopping = SYM("stopping");
+        final static Functor ATOM_leashing = SYM("leashing");
+    private static final Term L_$leash_1_s8 = CONS( ATOM_leashing ,  Prolog.Nil );
+    private static final Term L_$leash_1_s9 = CONS( ATOM_no , L_$leash_1_s8);
+        final static Functor ATOM_stopping = SYM("stopping");
 
 
 
@@ -2921,9 +2922,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(listing/1,public)
-        final static SymbolTerm FUNCTOR_listing_1 = F("listing",1);
-        final static SymbolTerm ATOM_predicate_indicator = SYM("predicate_indicator");
-    private static final StructureTerm L_listing_1_s9 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
+        final static Functor FUNCTOR_listing_1 = F("listing",1);
+        final static Functor ATOM_predicate_indicator = SYM("predicate_indicator");
+    private static final Term L_listing_1_s9 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
 
 
 
@@ -3112,7 +3113,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$listing'/2,non-(public))
-    private static final StructureTerm L_$listing_2_s5 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
+    private static final Term L_$listing_2_s5 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
 
 
 
@@ -3299,8 +3300,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$write_dynamic_clause'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static SymbolTerm ATOM_$0020$003A$002D = SYM(" :-");
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor ATOM_$0020$003A$002D = SYM(" :-");
 
 
 
@@ -3466,14 +3467,14 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$write_dynamic_body'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm ATOM_$0028 = SYM("(");
-        final static SymbolTerm ATOM_or = SYM(";");
-        final static SymbolTerm ATOM_$0029 = SYM(")");
-        final static SymbolTerm FUNCTOR_$002D$003E_2 = F("->",2);
-        final static SymbolTerm ATOM_$002D$003E = SYM("->");
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor ATOM_$0028 = SYM("(");
+        final static Functor ATOM_or = SYM(";");
+        final static Functor ATOM_$0029 = SYM(")");
+        final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
+        final static Functor ATOM_$002D$003E = SYM("->");
 
 
 
@@ -3638,10 +3639,10 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main(print_message/2,non-(public))
-        final static SymbolTerm FUNCTOR_print_message_2 = F("print_message",2);
-        final static SymbolTerm ATOM_$007B = SYM("{");
-        final static SymbolTerm ATOM_$007D = SYM("}");
-        final static SymbolTerm ATOM_$007BWARNING$003A$0020 = SYM("{WARNING: ");
+        final static Functor FUNCTOR_print_message_2 = F("print_message",2);
+        final static Functor ATOM_$007B = SYM("{");
+        final static Functor ATOM_$007D = SYM("}");
+        final static Functor ATOM_$007BWARNING$003A$0020 = SYM("{WARNING: ");
 
 
 
@@ -3890,37 +3891,37 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$error_message'/1,non-(public))
-        final static SymbolTerm FUNCTOR_instantiation_error_2 = F("instantiation_error",2);
-        final static SymbolTerm ATOM_user_error = SYM("user_error");
-        final static SymbolTerm ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 = SYM("{INSTANTIATION ERROR: ");
-        final static SymbolTerm ATOM_$0020$002D$0020arg$0020 = SYM(" - arg ");
-        final static SymbolTerm FUNCTOR_type_error_4 = F("type_error",4);
-        final static SymbolTerm ATOM_$007BTYPE$0020ERROR$003A$0020 = SYM("{TYPE ERROR: ");
-        final static SymbolTerm ATOM_$003A$0020expected$0020 = SYM(": expected ");
-        final static SymbolTerm ATOM_$002C$0020found$0020 = SYM(", found ");
-        final static SymbolTerm FUNCTOR_domain_error_4 = F("domain_error",4);
-        final static SymbolTerm ATOM_$007BDOMAIN$0020ERROR$003A$0020 = SYM("{DOMAIN ERROR: ");
-        final static SymbolTerm FUNCTOR_existence_error_5 = F("existence_error",5);
-        final static SymbolTerm ATOM_$007BEXISTENCE$0020ERROR$003A$0020 = SYM("{EXISTENCE ERROR: ");
-        final static SymbolTerm ATOM_$0020does$0020not$0020exist = SYM(" does not exist");
-        final static SymbolTerm ATOM_$003A$0020 = SYM(": ");
-        final static SymbolTerm FUNCTOR_permission_error_5 = F("permission_error",5);
-        final static SymbolTerm ATOM_$007BPERMISSION$0020ERROR$003A$0020 = SYM("{PERMISSION ERROR: ");
-        final static SymbolTerm ATOM_$0020$002D$0020can$0020not$0020 = SYM(" - can not ");
-        final static SymbolTerm FUNCTOR_representation_error_3 = F("representation_error",3);
-        final static SymbolTerm ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 = SYM("{REPRESENTATION ERROR: ");
-        final static SymbolTerm ATOM_$003A$0020limit$0020of$0020 = SYM(": limit of ");
-        final static SymbolTerm ATOM_$0020is$0020breached = SYM(" is breached");
-        final static SymbolTerm FUNCTOR_evaluation_error_3 = F("evaluation_error",3);
-        final static SymbolTerm ATOM_$007BEVALUATION$0020ERROR$003A$0020 = SYM("{EVALUATION ERROR: ");
-        final static SymbolTerm FUNCTOR_syntax_error_5 = F("syntax_error",5);
-        final static SymbolTerm ATOM_$007BSYNTAX$0020ERROR$003A$0020 = SYM("{SYNTAX ERROR: ");
-        final static SymbolTerm FUNCTOR_system_error_1 = F("system_error",1);
-        final static SymbolTerm ATOM_$007BSYSTEM$0020ERROR$003A$0020 = SYM("{SYSTEM ERROR: ");
-        final static SymbolTerm FUNCTOR_internal_error_1 = F("internal_error",1);
-        final static SymbolTerm ATOM_$007BINTERNAL$0020ERROR$003A$0020 = SYM("{INTERNAL ERROR: ");
-        final static SymbolTerm FUNCTOR_java_error_3 = F("java_error",3);
-        final static SymbolTerm ATOM_$007BJAVA$0020ERROR$003A$0020 = SYM("{JAVA ERROR: ");
+        final static Functor FUNCTOR_instantiation_error_2 = F("instantiation_error",2);
+        final static Functor ATOM_user_error = SYM("user_error");
+        final static Functor ATOM_$007BINSTANTIATION$0020ERROR$003A$0020 = SYM("{INSTANTIATION ERROR: ");
+        final static Functor ATOM_$0020$002D$0020arg$0020 = SYM(" - arg ");
+        final static Functor FUNCTOR_type_error_4 = F("type_error",4);
+        final static Functor ATOM_$007BTYPE$0020ERROR$003A$0020 = SYM("{TYPE ERROR: ");
+        final static Functor ATOM_$003A$0020expected$0020 = SYM(": expected ");
+        final static Functor ATOM_$002C$0020found$0020 = SYM(", found ");
+        final static Functor FUNCTOR_domain_error_4 = F("domain_error",4);
+        final static Functor ATOM_$007BDOMAIN$0020ERROR$003A$0020 = SYM("{DOMAIN ERROR: ");
+        final static Functor FUNCTOR_existence_error_5 = F("existence_error",5);
+        final static Functor ATOM_$007BEXISTENCE$0020ERROR$003A$0020 = SYM("{EXISTENCE ERROR: ");
+        final static Functor ATOM_$0020does$0020not$0020exist = SYM(" does not exist");
+        final static Functor ATOM_$003A$0020 = SYM(": ");
+        final static Functor FUNCTOR_permission_error_5 = F("permission_error",5);
+        final static Functor ATOM_$007BPERMISSION$0020ERROR$003A$0020 = SYM("{PERMISSION ERROR: ");
+        final static Functor ATOM_$0020$002D$0020can$0020not$0020 = SYM(" - can not ");
+        final static Functor FUNCTOR_representation_error_3 = F("representation_error",3);
+        final static Functor ATOM_$007BREPRESENTATION$0020ERROR$003A$0020 = SYM("{REPRESENTATION ERROR: ");
+        final static Functor ATOM_$003A$0020limit$0020of$0020 = SYM(": limit of ");
+        final static Functor ATOM_$0020is$0020breached = SYM(" is breached");
+        final static Functor FUNCTOR_evaluation_error_3 = F("evaluation_error",3);
+        final static Functor ATOM_$007BEVALUATION$0020ERROR$003A$0020 = SYM("{EVALUATION ERROR: ");
+        final static Functor FUNCTOR_syntax_error_5 = F("syntax_error",5);
+        final static Functor ATOM_$007BSYNTAX$0020ERROR$003A$0020 = SYM("{SYNTAX ERROR: ");
+        final static Functor FUNCTOR_system_error_1 = F("system_error",1);
+        final static Functor ATOM_$007BSYSTEM$0020ERROR$003A$0020 = SYM("{SYSTEM ERROR: ");
+        final static Functor FUNCTOR_internal_error_1 = F("internal_error",1);
+        final static Functor ATOM_$007BINTERNAL$0020ERROR$003A$0020 = SYM("{INTERNAL ERROR: ");
+        final static Functor FUNCTOR_java_error_3 = F("java_error",3);
+        final static Functor ATOM_$007BJAVA$0020ERROR$003A$0020 = SYM("{JAVA ERROR: ");
 
 
 
@@ -4441,7 +4442,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -4500,7 +4501,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(2))
         a2 = a2.dref();
-        if (! (a2 .isFFIObject())) {
+        if (! (a2 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion

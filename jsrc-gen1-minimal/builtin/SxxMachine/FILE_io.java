@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_io extends FILE_cafeteria {
 /** PREDICATE: open/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
@@ -90,11 +91,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 */
     // main(stream_property/2,public)
-        final static SymbolTerm FUNCTOR_domain_2 = F("domain",2);
-        final static SymbolTerm ATOM_term = SYM("term");
-        final static SymbolTerm ATOM_stream_property = SYM("stream_property");
-    private static final StructureTerm L_stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_term ,  ATOM_stream_property );
-        final static SymbolTerm FUNCTOR_stream_property_2 = F("stream_property",2);
+        final static Functor FUNCTOR_domain_2 = F("domain",2);
+        final static Functor ATOM_term = SYM("term");
+        final static Functor ATOM_stream_property = SYM("stream_property");
+    private static final Term L_stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_term ,  ATOM_stream_property );
+        final static Functor FUNCTOR_stream_property_2 = F("stream_property",2);
 
 
 
@@ -184,9 +185,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 */
     // main('$stream_property'/2,non-(public))
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm ATOM_stream = SYM("stream");
-    private static final StructureTerm L_$stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_stream ,  ATOM_stream );
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor ATOM_stream = SYM("stream");
+    private static final Term L_$stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_stream ,  ATOM_stream );
 
 
 
@@ -265,7 +266,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of java(a(1))
         a1 = a1.dref();
-        if (! (a1 .isFFIObject())) {
+        if (! (a1 .isJavaObject())) {
             return m.fail();
         }
         //END inline expansion
@@ -299,12 +300,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 */
     // main('$stream_property_specifier'/1,non-(public))
-        final static SymbolTerm ATOM_input = SYM("input");
-        final static SymbolTerm ATOM_output = SYM("output");
-        final static SymbolTerm FUNCTOR_alias_1 = F("alias",1);
-        final static SymbolTerm FUNCTOR_mode_1 = F("mode",1);
-        final static SymbolTerm FUNCTOR_type_1 = F("type",1);
-        final static SymbolTerm FUNCTOR_file_name_1 = F("file_name",1);
+        final static Functor ATOM_input = SYM("input");
+        final static Functor ATOM_output = SYM("output");
+        final static Functor FUNCTOR_alias_1 = F("alias",1);
+        final static Functor FUNCTOR_mode_1 = F("mode",1);
+        final static Functor FUNCTOR_type_1 = F("type",1);
+        final static Functor FUNCTOR_file_name_1 = F("file_name",1);
 
 
 
@@ -585,7 +586,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
 */
     // main(nl/1,public)
-        final static SymbolTerm ATOM_$000A = SYM("\n");
+        final static Functor ATOM_$000A = SYM("\n");
 
 
 

@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Existence error.<br>
  * There will be an existence error when the object on which an operation is to
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class ExistenceException extends BuiltinException {
 	/** A functor symbol of <code>existence_error/5</code>. */
-	public static final SymbolTerm EXISTENCE_ERROR = SymbolTerm.intern("existence_error", 5);
+	public static final Functor EXISTENCE_ERROR = TermData.F("existence_error", 5);
 	/* objType ::= procedure | source_sink | stream | hash */
 	/** Holds a string representation of object type. */
 	public final String objType;
@@ -54,7 +56,7 @@ public class ExistenceException extends BuiltinException {
 	public Term getMessageTerm() {
 		if (messageTerm == null) {
 			Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo),
-					SymbolTerm.create(this.objType), this.culprit, SymbolTerm.create(this.message) };
+					TermData.createAtomic(this.objType), this.culprit, TermData.createAtomic(this.message) };
 			messageTerm = TermData.createErrorTerm(this, EXISTENCE_ERROR, args);
 		}
 		return messageTerm;

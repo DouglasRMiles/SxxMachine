@@ -18,21 +18,22 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_run extends FILE_system {
 /** PREDICATE: run/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(run/1,public)
-        final static SymbolTerm ATOM_current_output = SYM("current_output");
+        final static Functor ATOM_current_output = SYM("current_output");
 
 
 
@@ -45,27 +46,27 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a1 = LARG[0];
     // run(A):-[run(current_output,A)]
         return //
- Op(FILE_run::PRED_run_2_static_exec, VA( ATOM_current_output , a1), cont);
+ Op("run", FILE_run::PRED_run_2_static_exec, VA( ATOM_current_output , a1), cont);
     }
 /** PREDICATE: run/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(run/2,public)
-        final static SymbolTerm ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007Ew$007E25$007C$0020$007Et$007Ew$007E32$007C$007En = SYM("~p~t~18| ~t~w~25| ~t~w~32|~n");
-        final static SymbolTerm ATOM_Program = SYM("Program");
-        final static SymbolTerm ATOM_Time = SYM("Time");
-        final static SymbolTerm ATOM_GC = SYM("GC");
-    private static final ListTerm L_run_2_s6 = CONS( ATOM_GC ,  Prolog.Nil );
-    private static final ListTerm L_run_2_s7 = CONS( ATOM_Time , L_run_2_s6);
-    private static final ListTerm L_run_2_s8 = CONS( ATOM_Program , L_run_2_s7);
-        final static SymbolTerm ATOM_$007E$0060$003Dt$007E32$007C$007En = SYM("~`=t~32|~n");
-        final static SymbolTerm FUNCTOR_total_3 = F("total",3);
-    private static final StructureTerm L_run_2_s13 = S( FUNCTOR_total_3 ,  int_0 ,  int_0 ,  int_0 );
-        final static SymbolTerm FUNCTOR_program_3 = F("program",3);
-        final static SymbolTerm FUNCTOR_run_program_4 = F("run_program",4);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_$007Et$007Ew$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En = SYM("~t~w~18| ~t~3f~25| ~t~3f~32|~n");
-        final static SymbolTerm ATOM_average = SYM("average");
+        final static Functor ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007Ew$007E25$007C$0020$007Et$007Ew$007E32$007C$007En = SYM("~p~t~18| ~t~w~25| ~t~w~32|~n");
+        final static Functor ATOM_Program = SYM("Program");
+        final static Functor ATOM_Time = SYM("Time");
+        final static Functor ATOM_GC = SYM("GC");
+    private static final Term L_run_2_s6 = CONS( ATOM_GC ,  Prolog.Nil );
+    private static final Term L_run_2_s7 = CONS( ATOM_Time , L_run_2_s6);
+    private static final Term L_run_2_s8 = CONS( ATOM_Program , L_run_2_s7);
+        final static Functor ATOM_$007E$0060$003Dt$007E32$007C$007En = SYM("~`=t~32|~n");
+        final static Functor FUNCTOR_total_3 = F("total",3);
+    private static final Term L_run_2_s13 = S( FUNCTOR_total_3 ,  int_0 ,  int_0 ,  int_0 );
+        final static Functor FUNCTOR_program_3 = F("program",3);
+        final static Functor FUNCTOR_run_program_4 = F("run_program",4);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_$007Et$007Ew$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En = SYM("~t~w~18| ~t~3f~25| ~t~3f~32|~n");
+        final static Functor ATOM_average = SYM("average");
 
 
 
@@ -106,34 +107,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a17 = CONS(a12, a16);
         a18 = CONS( ATOM_average , a17);
         return //
- Op(FILE_run::PRED_compile_programs_0_static_exec, VA(), //
- Op(FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007Ew$007E25$007C$0020$007Et$007Ew$007E32$007C$007En , L_run_2_s8), //
- Op(FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007E$0060$003Dt$007E32$007C$007En ,  Prolog.Nil ), //
- Op(FILE_run::PRED_$unify_2_static_exec, VA(a3, L_run_2_s13), //
- Op(FILE_run::PRED_forall_2_static_exec, VA(a6, a7), //
- Op(FILE_run::PRED_$unify_2_static_exec, VA(a3, a11), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), //
- Op(FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007Et$007Ew$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a18), cont)))))))));
+ Op("compile_programs", FILE_run::PRED_compile_programs_0_static_exec, VA(), //
+ Op("format", FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007Ew$007E25$007C$0020$007Et$007Ew$007E32$007C$007En , L_run_2_s8), //
+ Op("format", FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007E$0060$003Dt$007E32$007C$007En ,  Prolog.Nil ), //
+ Op("$unify", FILE_run::PRED_$unify_2_static_exec, VA(a3, L_run_2_s13), //
+ Op("forall", FILE_run::PRED_forall_2_static_exec, VA(a6, a7), //
+ Op("$unify", FILE_run::PRED_$unify_2_static_exec, VA(a3, a11), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a14, a15), //
+ Op("format", FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007Et$007Ew$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a18), cont)))))))));
     }
 /** PREDICATE: compile_programs/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(compile_programs/0,public)
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm ATOM_singleton = SYM("singleton");
-    private static final StructureTerm L_compile_programs_0_s4 = S( FUNCTOR_$002D_1 ,  ATOM_singleton );
-        final static SymbolTerm FUNCTOR_program_2 = F("program",2);
-        final static SymbolTerm FUNCTOR_load_files_2 = F("load_files",2);
-        final static SymbolTerm FUNCTOR_module_colon_2 = F(":",2);
-        final static SymbolTerm FUNCTOR_bench_1 = F("bench",1);
-        final static SymbolTerm FUNCTOR_silent_1 = F("silent",1);
-    private static final StructureTerm L_compile_programs_0_s12 = S( FUNCTOR_silent_1 ,  Prolog.True );
-        final static SymbolTerm FUNCTOR_if_1 = F("if",1);
-        final static SymbolTerm ATOM_changed = SYM("changed");
-    private static final StructureTerm L_compile_programs_0_s16 = S( FUNCTOR_if_1 ,  ATOM_changed );
-    private static final ListTerm L_compile_programs_0_s18 = CONS(L_compile_programs_0_s16,  Prolog.Nil );
-    private static final ListTerm L_compile_programs_0_s19 = CONS(L_compile_programs_0_s12, L_compile_programs_0_s18);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor ATOM_singleton = SYM("singleton");
+    private static final Term L_compile_programs_0_s4 = S( FUNCTOR_$002D_1 ,  ATOM_singleton );
+        final static Functor FUNCTOR_program_2 = F("program",2);
+        final static Functor FUNCTOR_load_files_2 = F("load_files",2);
+        final static Functor FUNCTOR_module_colon_2 = F(":",2);
+        final static Functor FUNCTOR_bench_1 = F("bench",1);
+        final static Functor FUNCTOR_silent_1 = F("silent",1);
+    private static final Term L_compile_programs_0_s12 = S( FUNCTOR_silent_1 ,  Prolog.True );
+        final static Functor FUNCTOR_if_1 = F("if",1);
+        final static Functor ATOM_changed = SYM("changed");
+    private static final Term L_compile_programs_0_s16 = S( FUNCTOR_if_1 ,  ATOM_changed );
+    private static final Term L_compile_programs_0_s18 = CONS(L_compile_programs_0_s16,  Prolog.Nil );
+    private static final Term L_compile_programs_0_s19 = CONS(L_compile_programs_0_s12, L_compile_programs_0_s18);
 
 
 
@@ -159,14 +160,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a5 =  S( FUNCTOR_load_files_2 , a4, L_compile_programs_0_s19);
  ;
         return //
- Op(FILE_run::PRED_style_check_1_static_exec, VA(L_compile_programs_0_s4), //
- Op(FILE_run::PRED_forall_2_static_exec, VA(a2, a5), cont));
+ Op("style_check", FILE_run::PRED_style_check_1_static_exec, VA(L_compile_programs_0_s4), //
+ Op("forall", FILE_run::PRED_forall_2_static_exec, VA(a2, a5), cont));
     }
 /** PREDICATE: run_program/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(run_program/4,public)
-        final static SymbolTerm ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En = SYM("~p~t~18| ~t~3f~25| ~t~3f~32|~n");
+        final static Functor ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En = SYM("~p~t~18| ~t~3f~25| ~t~3f~32|~n");
 
 
 
@@ -194,18 +195,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a9 = CONS(a6, a8);
         a10 = CONS(a1, a9);
         return //
- Op(FILE_run::PRED_ntimes_4_static_exec, VA(a1, a2, a6, a7), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_run::PRED_add_3_static_exec, VA( int_1 , a4,  int_1 ), //
- Op(FILE_run::PRED_add_3_static_exec, VA( int_2 , a4, a6), //
- Op(FILE_run::PRED_add_3_static_exec, VA( int_3 , a4, a7), //
- Op(FILE_run::PRED_format_3_static_exec, VA(a3,  ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a10), cont))))));
+ Op("ntimes", FILE_run::PRED_ntimes_4_static_exec, VA(a1, a2, a6, a7), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a5), //
+ Op("add", FILE_run::PRED_add_3_static_exec, VA( int_1 , a4,  int_1 ), //
+ Op("add", FILE_run::PRED_add_3_static_exec, VA( int_2 , a4, a6), //
+ Op("add", FILE_run::PRED_add_3_static_exec, VA( int_3 , a4, a7), //
+ Op("format", FILE_run::PRED_format_3_static_exec, VA(a3,  ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a10), cont))))));
     }
 /** PREDICATE: add/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(add/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -226,16 +227,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a6 =  S( FUNCTOR_$002B_2 , a4, a3);
  ;
         return //
- Op(FILE_run::PRED_arg_3_static_exec, VA(a1, a2, a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
- Op(sxxtensions::PRED_nb_setarg_3_static_exec, VA(a1, a2, a5), cont)));
+ Op("arg", FILE_run::PRED_arg_3_static_exec, VA(a1, a2, a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
+ Op("nb_setarg", sxxtensions::PRED_nb_setarg_3_static_exec, VA(a1, a2, a5), cont)));
     }
 /** PREDICATE: get_performance_stats/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(get_performance_stats/2,public)
-        final static SymbolTerm ATOM_gctime = SYM("gctime");
-        final static SymbolTerm ATOM_cputime = SYM("cputime");
+        final static Functor ATOM_gctime = SYM("gctime");
+        final static Functor ATOM_cputime = SYM("cputime");
 
 
 
@@ -250,14 +251,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a2 = LARG[1];
     // get_performance_stats(A,B):-[statistics(gctime,A),statistics(cputime,B)]
         return //
- Op(FILE_run::PRED_statistics_2_static_exec, VA( ATOM_gctime , a1), //
- Op(FILE_run::PRED_statistics_2_static_exec, VA( ATOM_cputime , a2), cont));
+ Op("statistics", FILE_run::PRED_statistics_2_static_exec, VA( ATOM_gctime , a1), //
+ Op("statistics", FILE_run::PRED_statistics_2_static_exec, VA( ATOM_cputime , a2), cont));
     }
 /** PREDICATE: ntimes/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(ntimes/4,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -298,13 +299,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a16 =  S( FUNCTOR_$002D_2 , a14, a15);
  ;
         return //
- Op(FILE_run::PRED_get_performance_stats_2_static_exec, VA(a5, a6), //
- Op(FILE_run::PRED_ntimes_2_static_exec, VA(a1, a2), //
- Op(FILE_run::PRED_get_performance_stats_2_static_exec, VA(a7, a8), //
- Op(FILE_run::PRED_ntimes_dummy_1_static_exec, VA(a2), //
- Op(FILE_run::PRED_get_performance_stats_2_static_exec, VA(a9, a10), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a13), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a4, a16), cont)))))));
+ Op("get_performance_stats", FILE_run::PRED_get_performance_stats_2_static_exec, VA(a5, a6), //
+ Op("ntimes", FILE_run::PRED_ntimes_2_static_exec, VA(a1, a2), //
+ Op("get_performance_stats", FILE_run::PRED_get_performance_stats_2_static_exec, VA(a7, a8), //
+ Op("ntimes_dummy", FILE_run::PRED_ntimes_dummy_1_static_exec, VA(a2), //
+ Op("get_performance_stats", FILE_run::PRED_get_performance_stats_2_static_exec, VA(a9, a10), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a13), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a4, a16), cont)))))));
     }
 /** PREDICATE: ntimes/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -379,10 +380,10 @@ m.cont = cont;
         a5 =  S( FUNCTOR_$002D_2 , a2,  int_1 );
  ;
         return //
- Op(FILE_run::PRED_not_not_top_1_static_exec, VA(a1), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a4, a5), //
- Op(FILE_run::PRED_ntimes_2_static_exec, VA(a1, a4), cont))));
+ Op("not_not_top", FILE_run::PRED_not_not_top_1_static_exec, VA(a1), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a3), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a4, a5), //
+ Op("ntimes", FILE_run::PRED_ntimes_2_static_exec, VA(a1, a4), cont))));
     }
 /** PREDICATE: ntimes_dummy/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -455,10 +456,10 @@ m.cont = cont;
         a4 =  S( FUNCTOR_$002D_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_run::PRED_not_not_dummy_0_static_exec, VA(), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a2), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a4), //
- Op(FILE_run::PRED_ntimes_dummy_1_static_exec, VA(a3), cont))));
+ Op("not_not_dummy", FILE_run::PRED_not_not_dummy_0_static_exec, VA(), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a2), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a4), //
+ Op("ntimes_dummy", FILE_run::PRED_ntimes_dummy_1_static_exec, VA(a3), cont))));
     }
 /** PREDICATE: not_not_top/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -496,8 +497,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_run::PRED_not_top_1_static_exec, VA(a1), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a2), fail_0));
+ Op("not_top", FILE_run::PRED_not_top_1_static_exec, VA(a1), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
     private final static Operation not_not_top_1_2(Prolog m) { 
@@ -513,7 +514,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(not_top/1,public)
-        final static SymbolTerm ATOM_top = SYM("top");
+        final static Functor ATOM_top = SYM("top");
 
 
 
@@ -549,8 +550,8 @@ m.cont = cont;
         a3 =  S( FUNCTOR_module_colon_2 , a1,  ATOM_top );
  ;
         return //
- Op(FILE_run::PRED_call_1_static_exec, VA(a3), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a2), fail_0));
+ Op("call", FILE_run::PRED_call_1_static_exec, VA(a3), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
     private final static Operation not_top_1_2(Prolog m) { 
@@ -597,8 +598,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_run::PRED_not_dummy_0_static_exec, VA(), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a1), fail_0));
+ Op("not_dummy", FILE_run::PRED_not_dummy_0_static_exec, VA(), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a1), fail_0));
     }
 
     private final static Operation not_not_dummy_0_2(Prolog m) { 
@@ -643,8 +644,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_run::PRED_dummy_0_static_exec, VA(), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a1), fail_0));
+ Op("dummy", FILE_run::PRED_dummy_0_static_exec, VA(), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a1), fail_0));
     }
 
     private final static Operation not_dummy_0_2(Prolog m) { 
@@ -673,10 +674,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(tune_counts/0,public)
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_tune_count_2 = F("tune_count",2);
-        final static SymbolTerm FUNCTOR_format_2 = F("format",2);
-        final static SymbolTerm ATOM_$007Eq$002E$007En = SYM("~q.~n");
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_tune_count_2 = F("tune_count",2);
+        final static Functor FUNCTOR_format_2 = F("format",2);
+        final static Functor ATOM_$007Eq$002E$007En = SYM("~q.~n");
 
 
 
@@ -706,17 +707,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a8 =  S( FUNCTOR_$002C_2 , a4, a7);
  ;
         return //
- Op(FILE_run::PRED_forall_2_static_exec, VA(a2, a8), cont);
+ Op("forall", FILE_run::PRED_forall_2_static_exec, VA(a2, a8), cont);
     }
 /** PREDICATE: tune_count/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(tune_count/2,public)
         final static IntegerTerm int_100 = Integer(100);
-        final static SymbolTerm FUNCTOR_$003C$003C_2 = F("<<",2);
+        final static Functor FUNCTOR_$003C$003C_2 = F("<<",2);
     private static final DoubleTerm sf4 = Float(0.5);
-        final static SymbolTerm FUNCTOR_round_1 = F("round",1);
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_round_1 = F("round",1);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
 
 
 
@@ -753,19 +754,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a11 =  S( FUNCTOR_round_1 , a10);
  ;
         return //
- Op(FILE_run::PRED_between_3_static_exec, VA( int_1 ,  int_100 , a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
- Op(FILE_run::PRED_ntimes_4_static_exec, VA(a1, a5, a7, m.DONT_CARE2()), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, sf4), //
- Op(FILE_run::PRED_$greater_than_2_static_exec, VA(a7, a8), //
- Op(FILE_run::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a2, a11), cont)))))));
+ Op("between", FILE_run::PRED_between_3_static_exec, VA( int_1 ,  int_100 , a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a5, a6), //
+ Op("ntimes", FILE_run::PRED_ntimes_4_static_exec, VA(a1, a5, a7, m.DONT_CARE2()), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a8, sf4), //
+ Op("$greater_than", FILE_run::PRED_$greater_than_2_static_exec, VA(a7, a8), //
+ Op("$cut", FILE_run::PRED_$cut_1_static_exec, VA(a3), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a2, a11), cont)))))));
     }
 /** PREDICATE: program/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(program/3,public)
-        final static SymbolTerm FUNCTOR_max_2 = F("max",2);
+        final static Functor FUNCTOR_max_2 = F("max",2);
 
 
 
@@ -791,48 +792,48 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a7 =  S( FUNCTOR_max_2 ,  int_1 , a6);
  ;
         return //
- Op(FILE_run::PRED_program_2_static_exec, VA(a1, a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a2, a7), cont));
+ Op("program", FILE_run::PRED_program_2_static_exec, VA(a1, a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a2, a7), cont));
     }
 /** PREDICATE: program/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(program/2,public)
-        final static SymbolTerm ATOM_boyer = SYM("boyer");
-        final static SymbolTerm ATOM_browse = SYM("browse");
-        final static SymbolTerm ATOM_chat_parser = SYM("chat_parser");
+        final static Functor ATOM_boyer = SYM("boyer");
+        final static Functor ATOM_browse = SYM("browse");
+        final static Functor ATOM_chat_parser = SYM("chat_parser");
         final static IntegerTerm int_46 = Integer(46);
-        final static SymbolTerm ATOM_crypt = SYM("crypt");
+        final static Functor ATOM_crypt = SYM("crypt");
         final static IntegerTerm int_868 = Integer(868);
-        final static SymbolTerm ATOM_fast_mu = SYM("fast_mu");
+        final static Functor ATOM_fast_mu = SYM("fast_mu");
         final static IntegerTerm int_4819 = Integer(4819);
-        final static SymbolTerm ATOM_flatten = SYM("flatten");
+        final static Functor ATOM_flatten = SYM("flatten");
         final static IntegerTerm int_8275 = Integer(8275);
-        final static SymbolTerm ATOM_meta_qsort = SYM("meta_qsort");
+        final static Functor ATOM_meta_qsort = SYM("meta_qsort");
         final static IntegerTerm int_966 = Integer(966);
-        final static SymbolTerm ATOM_mu = SYM("mu");
+        final static Functor ATOM_mu = SYM("mu");
         final static IntegerTerm int_6827 = Integer(6827);
-        final static SymbolTerm ATOM_nreverse = SYM("nreverse");
+        final static Functor ATOM_nreverse = SYM("nreverse");
         final static IntegerTerm int_11378 = Integer(11378);
-        final static SymbolTerm ATOM_poly_10 = SYM("poly_10");
+        final static Functor ATOM_poly_10 = SYM("poly_10");
         final static IntegerTerm int_105 = Integer(105);
-        final static SymbolTerm ATOM_prover = SYM("prover");
+        final static Functor ATOM_prover = SYM("prover");
         final static IntegerTerm int_6400 = Integer(6400);
-        final static SymbolTerm ATOM_qsort = SYM("qsort");
+        final static Functor ATOM_qsort = SYM("qsort");
         final static IntegerTerm int_8445 = Integer(8445);
-        final static SymbolTerm ATOM_queens_8 = SYM("queens_8");
+        final static Functor ATOM_queens_8 = SYM("queens_8");
         final static IntegerTerm int_63 = Integer(63);
-        final static SymbolTerm ATOM_query = SYM("query");
+        final static Functor ATOM_query = SYM("query");
         final static IntegerTerm int_1219 = Integer(1219);
-        final static SymbolTerm ATOM_reducer = SYM("reducer");
+        final static Functor ATOM_reducer = SYM("reducer");
         final static IntegerTerm int_164 = Integer(164);
-        final static SymbolTerm ATOM_sendmore = SYM("sendmore");
+        final static Functor ATOM_sendmore = SYM("sendmore");
         final static IntegerTerm int_44 = Integer(44);
-        final static SymbolTerm ATOM_simple_analyzer = SYM("simple_analyzer");
+        final static Functor ATOM_simple_analyzer = SYM("simple_analyzer");
         final static IntegerTerm int_320 = Integer(320);
-        final static SymbolTerm ATOM_tak = SYM("tak");
+        final static Functor ATOM_tak = SYM("tak");
         final static IntegerTerm int_35 = Integer(35);
-        final static SymbolTerm ATOM_zebra = SYM("zebra");
+        final static Functor ATOM_zebra = SYM("zebra");
         final static IntegerTerm int_166 = Integer(166);
 
 
@@ -1228,11 +1229,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(run_interleaved/1,public)
-        final static SymbolTerm FUNCTOR_seq_interleaved_1 = F("seq_interleaved",1);
-        final static SymbolTerm ATOM_user = SYM("user");
-        final static SymbolTerm ATOM_rni = SYM("rni");
-    private static final StructureTerm L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_user ,  ATOM_rni );
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor FUNCTOR_seq_interleaved_1 = F("seq_interleaved",1);
+        final static Functor ATOM_user = SYM("user");
+        final static Functor ATOM_rni = SYM("rni");
+    private static final Term L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_user ,  ATOM_rni );
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
 
 
 
@@ -1251,7 +1252,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a4 =  S( FUNCTOR_$002D_2 , a2, a3);
  ;
         a5 = Closure( //
- Op(FILE_run::PRED_program_3_static_exec, VA(a3, a2, a1), null));
+ Op("program", FILE_run::PRED_program_3_static_exec, VA(a3, a2, a1), null));
         a6 = m.mkvar1();
     // put_str_args([a(6)],y(2)),put_str(@('FUNCTOR_seq_interleaved_1'),y(2),a(7))
         a7 =  S( FUNCTOR_seq_interleaved_1 , a6);
@@ -1266,15 +1267,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
  ;
         a12 = m.mkvar1();
         return //
- Op(FILE_run::PRED_compile_programs_0_static_exec, VA(), //
- Op(FILE_run::PRED_findall_3_static_exec, VA(a4, a5, a6), //
- Op(FILE_run::PRED_phrase_2_static_exec, VA(a7, a8), //
- Op(FILE_run::PRED_seq_clause_2_static_exec, VA(a8, a9), //
- Op(FILE_run::PRED_retractall_1_static_exec, VA(L_run_interleaved_1_s7), //
- Op(FILE_run::PRED_assert_2_static_exec, VA(a11, a12), //
- Op(FILE_run::PRED_garbage_collect_0_static_exec, VA(), //
- Op(FILE_run::PRED_time_1_static_exec, VA( ATOM_rni ), //
- Op(FILE_run::PRED_erase_1_static_exec, VA(a12), cont)))))))));
+ Op("compile_programs", FILE_run::PRED_compile_programs_0_static_exec, VA(), //
+ Op("findall", FILE_run::PRED_findall_3_static_exec, VA(a4, a5, a6), //
+ Op("phrase", FILE_run::PRED_phrase_2_static_exec, VA(a7, a8), //
+ Op("seq_clause", FILE_run::PRED_seq_clause_2_static_exec, VA(a8, a9), //
+ Op("retractall", FILE_run::PRED_retractall_1_static_exec, VA(L_run_interleaved_1_s7), //
+ Op("assert", FILE_run::PRED_assert_2_static_exec, VA(a11, a12), //
+ Op("garbage_collect", FILE_run::PRED_garbage_collect_0_static_exec, VA(), //
+ Op("time", FILE_run::PRED_time_1_static_exec, VA( ATOM_rni ), //
+ Op("erase", FILE_run::PRED_erase_1_static_exec, VA(a12), cont)))))))));
     }
 /** PREDICATE: seq_interleaved/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -1336,8 +1337,8 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_run::PRED_seq_interleaved_4_static_exec, VA(a1, a4, a2, a5), //
- Op(FILE_run::PRED_seq_interleaved_3_static_exec, VA(a4, a5, a3), cont));
+ Op("seq_interleaved", FILE_run::PRED_seq_interleaved_4_static_exec, VA(a1, a4, a2, a5), //
+ Op("seq_interleaved", FILE_run::PRED_seq_interleaved_3_static_exec, VA(a4, a5, a3), cont));
     }
 /** PREDICATE: seq_interleaved/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -1531,7 +1532,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(seq_clause/2,public)
-        final static SymbolTerm FUNCTOR_$005C$002B_1 = F("\\+",1);
+        final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
 
 
 
@@ -1620,7 +1621,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(run_non_interleaved/1,public)
-        final static SymbolTerm FUNCTOR_seq_non_interleaved_1 = F("seq_non_interleaved",1);
+        final static Functor FUNCTOR_seq_non_interleaved_1 = F("seq_non_interleaved",1);
 
 
 
@@ -1639,7 +1640,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         a4 =  S( FUNCTOR_$002D_2 , a2, a3);
  ;
         a5 = Closure( //
- Op(FILE_run::PRED_program_3_static_exec, VA(a3, a2, a1), null));
+ Op("program", FILE_run::PRED_program_3_static_exec, VA(a3, a2, a1), null));
         a6 = m.mkvar1();
     // put_str_args([a(6)],y(2)),put_str(@('FUNCTOR_seq_non_interleaved_1'),y(2),a(7))
         a7 =  S( FUNCTOR_seq_non_interleaved_1 , a6);
@@ -1654,14 +1655,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
  ;
         a12 = m.mkvar1();
         return //
- Op(FILE_run::PRED_compile_programs_0_static_exec, VA(), //
- Op(FILE_run::PRED_findall_3_static_exec, VA(a4, a5, a6), //
- Op(FILE_run::PRED_phrase_2_static_exec, VA(a7, a8), //
- Op(FILE_run::PRED_seq_clause_2_static_exec, VA(a8, a9), //
- Op(FILE_run::PRED_assert_2_static_exec, VA(a11, a12), //
- Op(FILE_run::PRED_garbage_collect_0_static_exec, VA(), //
- Op(FILE_run::PRED_time_1_static_exec, VA( ATOM_rni ), //
- Op(FILE_run::PRED_erase_1_static_exec, VA(a12), cont))))))));
+ Op("compile_programs", FILE_run::PRED_compile_programs_0_static_exec, VA(), //
+ Op("findall", FILE_run::PRED_findall_3_static_exec, VA(a4, a5, a6), //
+ Op("phrase", FILE_run::PRED_phrase_2_static_exec, VA(a7, a8), //
+ Op("seq_clause", FILE_run::PRED_seq_clause_2_static_exec, VA(a8, a9), //
+ Op("assert", FILE_run::PRED_assert_2_static_exec, VA(a11, a12), //
+ Op("garbage_collect", FILE_run::PRED_garbage_collect_0_static_exec, VA(), //
+ Op("time", FILE_run::PRED_time_1_static_exec, VA( ATOM_rni ), //
+ Op("erase", FILE_run::PRED_erase_1_static_exec, VA(a12), cont))))))));
     }
 /** PREDICATE: seq_non_interleaved/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
@@ -1829,7 +1830,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main('$init'/0,public)
-    private static final StructureTerm L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_rni ,  int_0 );
+    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_rni ,  int_0 );
 
 
 
@@ -1840,7 +1841,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         m.setB0();
     // '$init':-['$new_indexing_hash'(user,rni/0,A)]
         return //
- Op(FILE_run::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_user , L_$init_0_s6, m.DONT_CARE2()), cont);
+ Op("$new_indexing_hash", FILE_run::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_user , L_$init_0_s6, m.DONT_CARE2()), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

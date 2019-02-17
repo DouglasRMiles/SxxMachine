@@ -8,8 +8,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.hamcrest.core.IsSame;
-
 public class PredTable {
 
     public static Map<String, Operation> predicateCache = new HashMap<String, Operation>();
@@ -31,7 +29,7 @@ public class PredTable {
     }
 
     public static boolean storePred(final String key, final Operation cont0, boolean forced) {
-        Operation cont = new Operation() {
+        Operation cont = cont0 == null ? cont = cont0 : new Operation() {
 
             @Override
             public Operation exec(Prolog engine) throws PrologException {
@@ -189,10 +187,14 @@ public class PredTable {
             int steps = 0;
             System.err.println("Running: " + name + " as " + oper);
             while (oper != null && oper != Success.SUCCESS) {
-                System.err.print(".");
+                //System.err.print(".");
                 System.err.flush();
                 steps++;
-                oper = oper.exec(machine);
+
+                Operation next = oper.exec(machine);
+                System.err.println(" O: " + oper);
+                oper = next;
+                //  System.err.println(" R: " + next);
             }
             System.err.println("\nDone " + steps);
             System.err.flush();

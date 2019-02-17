@@ -3,6 +3,9 @@ package SxxMachine;
 import java.util.ArrayList;
 import java.util.List;
 
+import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.VariableTerm;
+
 /**
  * Executes Prolog on the current thread, buffering all solutions.
  * <p>
@@ -32,10 +35,10 @@ public class BufferingPrologControl extends PrologControl {
 	 * @return true if initialization was successful.
 	 */
 	public boolean initialize(String... pkgs) {
-		Term goal = SymbolTerm.intern("true");
+		Term goal = TermData.SYM("true");
 		Term head = Prolog.Nil;
 		for (int i = pkgs.length - 1; 0 <= i; i--)
-			head = TermData.CONS(SymbolTerm.intern(pkgs[i]), head);
+			head = TermData.CONS(TermData.SYM(pkgs[i]), head);
 		return execute(Prolog.BUILTIN, "initialization", head, goal);
 	}
 

@@ -18,21 +18,22 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_sdda extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(top/0,public)
-        final static SymbolTerm ATOM_test = SYM("test");
+        final static Functor ATOM_test = SYM("test");
 
 
 
@@ -43,7 +44,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         m.setB0();
     // top:-[do_sdda(test,A,B,C)]
         return //
- Op(FILE_sdda::PRED_do_sdda_4_static_exec, VA( ATOM_test , m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("do_sdda", FILE_sdda::PRED_do_sdda_4_static_exec, VA( ATOM_test , m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 /** PREDICATE: do_sdda/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -67,21 +68,21 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_sdda::PRED_read_procedures_3_static_exec, VA(a5, a2, a6), //
- Op(FILE_sdda::PRED_entry_exit_modes_list_3_static_exec, VA(a5, a2, a6), cont));
+ Op("read_procedures", FILE_sdda::PRED_read_procedures_3_static_exec, VA(a5, a2, a6), //
+ Op("entry_exit_modes_list", FILE_sdda::PRED_entry_exit_modes_list_3_static_exec, VA(a5, a2, a6), cont));
     }
 /** PREDICATE: read_procedures/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(read_procedures/3,public)
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_a = SYM("a");
-    private static final StructureTerm L_read_procedures_3_s5 = S( FUNCTOR_$002F_2 ,  ATOM_a ,  int_2 );
-        final static SymbolTerm FUNCTOR_a_2 = F("a",2);
-        final static SymbolTerm ATOM_c = SYM("c");
-    private static final StructureTerm L_read_procedures_3_s10 = S( FUNCTOR_$002F_2 ,  ATOM_c ,  int_3 );
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static SymbolTerm FUNCTOR_c_3 = F("c",3);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_a = SYM("a");
+    private static final Term L_read_procedures_3_s5 = S( FUNCTOR_$002F_2 ,  ATOM_a ,  int_2 );
+        final static Functor FUNCTOR_a_2 = F("a",2);
+        final static Functor ATOM_c = SYM("c");
+    private static final Term L_read_procedures_3_s10 = S( FUNCTOR_$002F_2 ,  ATOM_c ,  int_3 );
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor FUNCTOR_c_3 = F("c",3);
 
 
 
@@ -277,10 +278,10 @@ m.cont = cont;
         a10 =  S( FUNCTOR_$002F_2 , a6, a9);
  ;
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a4, a8), //
- Op(FILE_sdda::PRED_length_2_static_exec, VA(a7, a9), //
- Op(FILE_sdda::PRED_proc_exit_mode_6_static_exec, VA(a1, a2,  Prolog.Nil , a10, a7, m.DONT_CARE2()), //
- Op(FILE_sdda::PRED_entry_exit_modes_list_3_static_exec, VA(a1, a2, a5), cont))));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a4, a8), //
+ Op("length", FILE_sdda::PRED_length_2_static_exec, VA(a7, a9), //
+ Op("proc_exit_mode", FILE_sdda::PRED_proc_exit_mode_6_static_exec, VA(a1, a2,  Prolog.Nil , a10, a7, m.DONT_CARE2()), //
+ Op("entry_exit_modes_list", FILE_sdda::PRED_entry_exit_modes_list_3_static_exec, VA(a1, a2, a5), cont))));
     }
 /** PREDICATE: proc_exit_mode/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -337,7 +338,7 @@ m.cont = cont;
         a9 =  S( FUNCTOR_$002F_2 , a7, a8);
  ;
         return //
- Op(FILE_sdda::PRED_built_in_3_static_exec, VA(a9, a5, a6), cont);
+ Op("built_in", FILE_sdda::PRED_built_in_3_static_exec, VA(a9, a5, a6), cont);
     }
 
     private final static Operation proc_exit_mode_6_2(Prolog m) { 
@@ -365,7 +366,7 @@ m.cont = cont;
         a11 = CONS(a5, a10);
         a12 = CONS(a9, a11);
         return //
- Op(FILE_sdda::PRED_look_up_act_2_static_exec, VA(a12, a2), cont);
+ Op("look_up_act", FILE_sdda::PRED_look_up_act_2_static_exec, VA(a12, a2), cont);
     }
 
     private final static Operation proc_exit_mode_6_3(Prolog m) { 
@@ -402,13 +403,13 @@ m.cont = cont;
         a17 = CONS(a14, a16);
         a18 = CONS(a15, a17);
         return //
- Op(FILE_sdda::PRED_umember_2_static_exec, VA(a11, a1), //
- Op(FILE_sdda::PRED_dup_2_static_exec, VA(a10, a12), //
- Op(FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a12, a5, a13), //
- Op(FILE_sdda::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a13), //
- Op(FILE_sdda::PRED_worst_case_2_static_exec, VA(a13, a6), //
- Op(FILE_sdda::PRED_dup_2_static_exec, VA(a5, a14), //
- Op(FILE_sdda::PRED_add_to_list_2_static_exec, VA(a18, a2), cont)))))));
+ Op("umember", FILE_sdda::PRED_umember_2_static_exec, VA(a11, a1), //
+ Op("dup", FILE_sdda::PRED_dup_2_static_exec, VA(a10, a12), //
+ Op("clause_exit_modes_list", FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a12, a5, a13), //
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a13), //
+ Op("worst_case", FILE_sdda::PRED_worst_case_2_static_exec, VA(a13, a6), //
+ Op("dup", FILE_sdda::PRED_dup_2_static_exec, VA(a5, a14), //
+ Op("add_to_list", FILE_sdda::PRED_add_to_list_2_static_exec, VA(a18, a2), cont)))))));
     }
 
     private final static Operation proc_exit_mode_6_4(Prolog m) { 
@@ -438,9 +439,9 @@ m.cont = cont;
         a12 = CONS(a5, a11);
         a13 = CONS(a10, a12);
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(m.DONT_CARE2(), a9), //
- Op(FILE_sdda::PRED_all_shared_2_static_exec, VA(a5, a6), //
- Op(FILE_sdda::PRED_add_to_list_2_static_exec, VA(a13, a2), cont)));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(m.DONT_CARE2(), a9), //
+ Op("all_shared", FILE_sdda::PRED_all_shared_2_static_exec, VA(a5, a6), //
+ Op("add_to_list", FILE_sdda::PRED_add_to_list_2_static_exec, VA(a13, a2), cont)));
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -596,8 +597,8 @@ m.cont = cont;
         a9 = CONS(a5,  Prolog.Nil );
         a10 = CONS(a7, a9);
         return //
- Op(FILE_sdda::PRED_eqmember_2_static_exec, VA(a10, a3), //
- Op(FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a8, a5, a6), cont));
+ Op("eqmember", FILE_sdda::PRED_eqmember_2_static_exec, VA(a10, a3), //
+ Op("clause_exit_modes_list", FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a8, a5, a6), cont));
     }
 
     private final static Operation clause_exit_modes_list_6_3(Prolog m) { 
@@ -639,9 +640,9 @@ m.cont = cont;
         a12 = CONS(a7, a11);
         a13 = CONS(a12, a3);
         return //
- Op(FILE_sdda::PRED_dup_2_static_exec, VA(a5, a9), //
- Op(FILE_sdda::PRED_clause_exit_mode_5_static_exec, VA(a1, a2, a13, a7, a9), //
- Op(FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a8, a5, a10), cont)));
+ Op("dup", FILE_sdda::PRED_dup_2_static_exec, VA(a5, a9), //
+ Op("clause_exit_mode", FILE_sdda::PRED_clause_exit_mode_5_static_exec, VA(a1, a2, a13, a7, a9), //
+ Op("clause_exit_modes_list", FILE_sdda::PRED_clause_exit_modes_list_6_static_exec, VA(a1, a2, a3, a8, a5, a10), cont)));
     }
 
     private final static Operation clause_exit_modes_list_6_4(Prolog m) { 
@@ -763,16 +764,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         a8 = m.mkvar1();
         a9 = CONS(m.DONT_CARE1(), a8);
         return //
- Op(FILE_sdda::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_3_static_exec, VA(a4, a6, a7), //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a6, a9), //
- Op(FILE_sdda::PRED_unify_2_static_exec, VA(a8, a5), //
- Op(FILE_sdda::PRED_body_exit_mode_4_static_exec, VA(a1, a2, a3, a7), cont))));
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_3_static_exec, VA(a4, a6, a7), //
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a6, a9), //
+ Op("unify", FILE_sdda::PRED_unify_2_static_exec, VA(a8, a5), //
+ Op("body_exit_mode", FILE_sdda::PRED_body_exit_mode_4_static_exec, VA(a1, a2, a3, a7), cont))));
     }
 /** PREDICATE: body_exit_mode/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(body_exit_mode/4,public)
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
 
 
 
@@ -812,7 +813,7 @@ m.cont = cont;
                 return m.fail();
             }
         p1 = //
- Op(FILE_sdda::PRED_body_exit_mode_4_static_exec, VA(a1, a2, a3, a6), cont);
+ Op("body_exit_mode", FILE_sdda::PRED_body_exit_mode_4_static_exec, VA(a1, a2, a3, a6), cont);
         m.AREGS[0] = a1;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
@@ -841,16 +842,16 @@ m.cont = cont;
  ;
         a10 = m.mkvar1();
         return //
- Op(FILE_sdda::PRED_functor_3_static_exec, VA(a4, a5, a6), //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a4, a8), //
- Op(FILE_sdda::PRED_proc_exit_mode_6_static_exec, VA(a1, a2, a3, a9, a7, a10), //
- Op(FILE_sdda::PRED_unify_2_static_exec, VA(a7, a10), cont))));
+ Op("functor", FILE_sdda::PRED_functor_3_static_exec, VA(a4, a5, a6), //
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a4, a8), //
+ Op("proc_exit_mode", FILE_sdda::PRED_proc_exit_mode_6_static_exec, VA(a1, a2, a3, a9, a7, a10), //
+ Op("unify", FILE_sdda::PRED_unify_2_static_exec, VA(a7, a10), cont))));
     }
 /** PREDICATE: unify/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(unify/2,public)
-        final static SymbolTerm ATOM_g = SYM("g");
+        final static Functor ATOM_g = SYM("g");
 
 
 
@@ -989,7 +990,7 @@ m.cont = cont;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a1), cont);
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation unify_2_3(Prolog m) { 
@@ -1019,7 +1020,7 @@ m.cont = cont;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a2), cont);
+ Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a2), cont);
     }
 
     private final static Operation unify_2_4(Prolog m) { 
@@ -1057,7 +1058,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_sdda::PRED_unify_2_static_exec, VA(a4, a6), cont);
+ Op("unify", FILE_sdda::PRED_unify_2_static_exec, VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
         m.cont = p1;
@@ -1079,9 +1080,9 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = CONS(a3, a6);
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a5), //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a7), //
- Op(FILE_sdda::PRED_unify_2_static_exec, VA(a4, a6), cont)));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a5), //
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a7), //
+ Op("unify", FILE_sdda::PRED_unify_2_static_exec, VA(a4, a6), cont)));
     }
 /** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -1214,7 +1215,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         a2 = LARG[1];
     // equiv(A,B):-[equiv(A,B,C)]
         return //
- Op(FILE_sdda::PRED_equiv_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
+ Op("equiv", FILE_sdda::PRED_equiv_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: equiv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -1412,7 +1413,7 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a2), cont);
+ Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a2), cont);
     }
 
     private final static Operation equiv_3_3(Prolog m) { 
@@ -1443,7 +1444,7 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a1), cont);
+ Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation equiv_3_4(Prolog m) { 
@@ -1478,7 +1479,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_equiv_vars_3_static_exec, VA(a1, a2, a3), cont);
+ Op("equiv_vars", FILE_sdda::PRED_equiv_vars_3_static_exec, VA(a1, a2, a3), cont);
     }
 
     private final static Operation equiv_3_5(Prolog m) { 
@@ -1513,7 +1514,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_equiv_vars_3_static_exec, VA(a1, a2, a3), cont);
+ Op("equiv_vars", FILE_sdda::PRED_equiv_vars_3_static_exec, VA(a1, a2, a3), cont);
     }
 
     private final static Operation equiv_3_6(Prolog m) { 
@@ -1552,7 +1553,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_sdda::PRED_equiv_3_static_exec, VA(a5, a7, a3), cont);
+ Op("equiv", FILE_sdda::PRED_equiv_3_static_exec, VA(a5, a7, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a6;
         m.AREGS[2] = a3;
@@ -1576,9 +1577,9 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = CONS(a4, a7);
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a6), //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a8), //
- Op(FILE_sdda::PRED_equiv_3_static_exec, VA(a5, a7, a3), cont)));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a6), //
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a8), //
+ Op("equiv", FILE_sdda::PRED_equiv_3_static_exec, VA(a5, a7, a3), cont)));
     }
 /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -1940,7 +1941,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         a2 = LARG[1];
     // dup(A,B):-[dup(A,B,C)]
         return //
- Op(FILE_sdda::PRED_dup_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
+ Op("dup", FILE_sdda::PRED_dup_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: dup/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -2022,7 +2023,7 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_dup_var_3_static_exec, VA(a1, a2, a3), cont);
+ Op("dup_var", FILE_sdda::PRED_dup_var_3_static_exec, VA(a1, a2, a3), cont);
     }
 
     private final static Operation dup_3_2(Prolog m) { 
@@ -2091,7 +2092,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_sdda::PRED_dup_3_static_exec, VA(a5, a7, a3), cont);
+ Op("dup", FILE_sdda::PRED_dup_3_static_exec, VA(a5, a7, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a6;
         m.AREGS[2] = a3;
@@ -2115,9 +2116,9 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = CONS(a4, a7);
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a6), //
- Op(FILE_sdda::PRED_dup_3_static_exec, VA(a5, a7, a3), //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a8), cont)));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a6), //
+ Op("dup", FILE_sdda::PRED_dup_3_static_exec, VA(a5, a7, a3), //
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a2, a8), cont)));
     }
 /** PREDICATE: dup_var/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -2273,27 +2274,27 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(built_in/3,public)
-    private static final StructureTerm L_built_in_3_s5 = S( FUNCTOR_$002F_2 ,  Prolog.True ,  int_0 );
-        final static SymbolTerm ATOM_fail = SYM("fail");
-    private static final StructureTerm L_built_in_3_s9 = S( FUNCTOR_$002F_2 ,  ATOM_fail ,  int_0 );
-        final static SymbolTerm ATOM_$003D = SYM("=");
-    private static final StructureTerm L_built_in_3_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$003D ,  int_2 );
-    private static final ListTerm L_built_in_3_s15 = CONS( ATOM_g ,  Prolog.Nil );
-    private static final ListTerm L_built_in_3_s16 = CONS( ATOM_g , L_built_in_3_s15);
-        final static SymbolTerm ATOM_$002B = SYM("+");
-    private static final StructureTerm L_built_in_3_s19 = S( FUNCTOR_$002F_2 ,  ATOM_$002B ,  int_2 );
-        final static SymbolTerm ATOM_$002D = SYM("-");
-    private static final StructureTerm L_built_in_3_s22 = S( FUNCTOR_$002F_2 ,  ATOM_$002D ,  int_2 );
-        final static SymbolTerm ATOM_$002A = SYM("*");
-    private static final StructureTerm L_built_in_3_s25 = S( FUNCTOR_$002F_2 ,  ATOM_$002A ,  int_2 );
-        final static SymbolTerm ATOM_$002F = SYM("/");
-    private static final StructureTerm L_built_in_3_s28 = S( FUNCTOR_$002F_2 ,  ATOM_$002F ,  int_2 );
-        final static SymbolTerm ATOM_$003E$003D = SYM(">=");
-    private static final StructureTerm L_built_in_3_s31 = S( FUNCTOR_$002F_2 ,  ATOM_$003E$003D ,  int_2 );
-        final static SymbolTerm ATOM_$003C = SYM("<");
-    private static final StructureTerm L_built_in_3_s34 = S( FUNCTOR_$002F_2 ,  ATOM_$003C ,  int_2 );
-        final static SymbolTerm ATOM_is = SYM("is");
-    private static final StructureTerm L_built_in_3_s37 = S( FUNCTOR_$002F_2 ,  ATOM_is ,  int_2 );
+    private static final Term L_built_in_3_s5 = S( FUNCTOR_$002F_2 ,  Prolog.True ,  int_0 );
+        final static Functor ATOM_fail = SYM("fail");
+    private static final Term L_built_in_3_s9 = S( FUNCTOR_$002F_2 ,  ATOM_fail ,  int_0 );
+        final static Functor ATOM_$003D = SYM("=");
+    private static final Term L_built_in_3_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$003D ,  int_2 );
+    private static final Term L_built_in_3_s15 = CONS( ATOM_g ,  Prolog.Nil );
+    private static final Term L_built_in_3_s16 = CONS( ATOM_g , L_built_in_3_s15);
+        final static Functor ATOM_$002B = SYM("+");
+    private static final Term L_built_in_3_s19 = S( FUNCTOR_$002F_2 ,  ATOM_$002B ,  int_2 );
+        final static Functor ATOM_$002D = SYM("-");
+    private static final Term L_built_in_3_s22 = S( FUNCTOR_$002F_2 ,  ATOM_$002D ,  int_2 );
+        final static Functor ATOM_$002A = SYM("*");
+    private static final Term L_built_in_3_s25 = S( FUNCTOR_$002F_2 ,  ATOM_$002A ,  int_2 );
+        final static Functor ATOM_$002F = SYM("/");
+    private static final Term L_built_in_3_s28 = S( FUNCTOR_$002F_2 ,  ATOM_$002F ,  int_2 );
+        final static Functor ATOM_$003E$003D = SYM(">=");
+    private static final Term L_built_in_3_s31 = S( FUNCTOR_$002F_2 ,  ATOM_$003E$003D ,  int_2 );
+        final static Functor ATOM_$003C = SYM("<");
+    private static final Term L_built_in_3_s34 = S( FUNCTOR_$002F_2 ,  ATOM_$003C ,  int_2 );
+        final static Functor ATOM_is = SYM("is");
+    private static final Term L_built_in_3_s37 = S( FUNCTOR_$002F_2 ,  ATOM_is ,  int_2 );
 
 
 
@@ -3003,8 +3004,8 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_sdda::PRED_unify_2_static_exec, VA(a3, a2), //
- Op(FILE_sdda::PRED_worst_case_2_static_exec, VA(a4, a2), cont));
+ Op("unify", FILE_sdda::PRED_unify_2_static_exec, VA(a3, a2), //
+ Op("worst_case", FILE_sdda::PRED_worst_case_2_static_exec, VA(a4, a2), cont));
     }
 /** PREDICATE: look_up_act/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -3163,7 +3164,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_sdda::PRED_equiv_2_static_exec, VA(a7, a13), cont);
+ Op("equiv", FILE_sdda::PRED_equiv_2_static_exec, VA(a7, a13), cont);
     }
 
     private final static Operation look_up_act_2_3(Prolog m) { 
@@ -3252,9 +3253,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
     // all_shared(A,B):-[unify(A,C,D),bind_all(E,D),unify(A,B,D)]
         a3 = m.mkvar1();
         return //
- Op(FILE_sdda::PRED_unify_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
- Op(FILE_sdda::PRED_bind_all_2_static_exec, VA(m.DONT_CARE2(), a3), //
- Op(FILE_sdda::PRED_unify_3_static_exec, VA(a1, a2, a3), cont)));
+ Op("unify", FILE_sdda::PRED_unify_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
+ Op("bind_all", FILE_sdda::PRED_bind_all_2_static_exec, VA(m.DONT_CARE2(), a3), //
+ Op("unify", FILE_sdda::PRED_unify_3_static_exec, VA(a1, a2, a3), cont)));
     }
 /** PREDICATE: bind_all/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
@@ -3859,7 +3860,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_sdda::PRED_equiv_2_static_exec, VA(a1, a3), cont);
+ Op("equiv", FILE_sdda::PRED_equiv_2_static_exec, VA(a1, a3), cont);
     }
 
     private final static Operation eqmember_2_2(Prolog m) { 
@@ -3985,8 +3986,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl'/3,public)
-        final static SymbolTerm ATOM_$002C = SYM(",");
-        final static SymbolTerm ATOM_$0020 = SYM(" ");
+        final static Functor ATOM_$002C = SYM(",");
+        final static Functor ATOM_$0020 = SYM(" ");
 
 
 
@@ -4031,10 +4032,10 @@ m.cont = cont;
                   m.cut( a4.intValue());
         //END inline expansion
         return //
- Op(FILE_sdda::PRED_write_1_static_exec, VA( ATOM_$002C ), //
- Op(FILE_sdda::PRED_nl_0_static_exec, VA(), //
- Op(FILE_sdda::PRED_write_1_static_exec, VA( ATOM_$0020 ), //
- Op(FILE_sdda::PRED_write_list2_3_static_exec, VA(a1, a3, a2), cont))));
+ Op("write", FILE_sdda::PRED_write_1_static_exec, VA( ATOM_$002C ), //
+ Op("nl", FILE_sdda::PRED_nl_0_static_exec, VA(), //
+ Op("write", FILE_sdda::PRED_write_1_static_exec, VA( ATOM_$0020 ), //
+ Op("write_list2", FILE_sdda::PRED_write_list2_3_static_exec, VA(a1, a3, a2), cont))));
     }
 
     private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_3_2(Prolog m) { 
@@ -4084,15 +4085,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         }
         a6 = m.mkvar1();
         return //
- Op(FILE_sdda::PRED_name_vars_3_static_exec, VA(a4, a2, a6), //
- Op(FILE_sdda::PRED_write_1_static_exec, VA(a4), //
- Op(FILE_sdda::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_3_static_exec, VA(a5, a3, a6), cont)));
+ Op("name_vars", FILE_sdda::PRED_name_vars_3_static_exec, VA(a4, a2, a6), //
+ Op("write", FILE_sdda::PRED_write_1_static_exec, VA(a4), //
+ Op("$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl", FILE_sdda::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsdda$002Epl_3_static_exec, VA(a5, a3, a6), cont)));
     }
 /** PREDICATE: name_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(name_vars/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -4173,8 +4174,8 @@ m.cont = cont;
         a5 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
         return //
- Op(FILE_sdda::PRED_make_name_2_static_exec, VA(a2, a1), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a5), cont));
+ Op("make_name", FILE_sdda::PRED_make_name_2_static_exec, VA(a2, a1), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a5), cont));
     }
 
     private final static Operation name_vars_3_2(Prolog m) { 
@@ -4233,7 +4234,7 @@ m.cont = cont;
         //END inline expansion
         a6 = m.mkvar1();
         p1 = //
- Op(FILE_sdda::PRED_name_vars_3_static_exec, VA(a5, a6, a3), cont);
+ Op("name_vars", FILE_sdda::PRED_name_vars_3_static_exec, VA(a5, a6, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -4254,18 +4255,18 @@ m.cont = cont;
         a4 = m.mkvar1();
         a5 = CONS(m.DONT_CARE1(), a4);
         return //
- Op(FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a5), //
- Op(FILE_sdda::PRED_name_vars_3_static_exec, VA(a4, a2, a3), cont));
+ Op("$univ", FILE_sdda::PRED_$univ_2_static_exec, VA(a1, a5), //
+ Op("name_vars", FILE_sdda::PRED_name_vars_3_static_exec, VA(a4, a2, a3), cont));
     }
 /** PREDICATE: make_name/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(make_name/2,public)
-        final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
+        final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
         final static IntegerTerm int_26 = Integer(26);
-        final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
+        final static Functor FUNCTOR_mod_2 = F("mod",2);
         final static IntegerTerm int_65 = Integer(65);
-    private static final ListTerm L_make_name_2_s7 = CONS( int_65 ,  Prolog.Nil );
+    private static final Term L_make_name_2_s7 = CONS( int_65 ,  Prolog.Nil );
 
 
 
@@ -4302,14 +4303,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
         //END inline expansion
         a8 = m.mkvar1();
         return //
- Op(FILE_sdda::PRED_build_name_3_static_exec, VA(a3, a5, a8), //
- Op(FILE_sdda::PRED_name_2_static_exec, VA(a2, a8), cont));
+ Op("build_name", FILE_sdda::PRED_build_name_3_static_exec, VA(a3, a5, a8), //
+ Op("name", FILE_sdda::PRED_name_2_static_exec, VA(a2, a8), cont));
     }
 /** PREDICATE: build_name/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(build_name/3,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 

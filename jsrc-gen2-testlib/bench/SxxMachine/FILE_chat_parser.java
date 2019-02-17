@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_chat_parser extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -42,15 +43,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         m.setB0();
     // top:-[chat_parser]
         return //
- Op(FILE_chat_parser::PRED_chat_parser_0_static_exec, VA(), cont);
+ Op("chat_parser", FILE_chat_parser::PRED_chat_parser_0_static_exec, VA(), cont);
     }
 /** PREDICATE: go/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(go/0,public)
-        final static SymbolTerm ATOM_runtime = SYM("runtime");
-        final static SymbolTerm ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
-        final static SymbolTerm ATOM_milliseconds = SYM("milliseconds");
+        final static Functor ATOM_runtime = SYM("runtime");
+        final static Functor ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
+        final static Functor ATOM_milliseconds = SYM("milliseconds");
 
 
 
@@ -68,12 +69,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a4 = CONS(a3,  Prolog.Nil );
         a5 = CONS(m.DONT_CARE1(), a4);
         return //
- Op(FILE_chat_parser::PRED_statistics_2_static_exec, VA( ATOM_runtime , a2), //
- Op(FILE_chat_parser::PRED_chat_parser_0_static_exec, VA(), //
- Op(FILE_chat_parser::PRED_statistics_2_static_exec, VA( ATOM_runtime , a5), //
- Op(FILE_chat_parser::PRED_write_1_static_exec, VA( ATOM_execution$0020time$0020is$0020 ), //
- Op(FILE_chat_parser::PRED_write_1_static_exec, VA(a3), //
- Op(FILE_chat_parser::PRED_write_1_static_exec, VA( ATOM_milliseconds ), cont))))));
+ Op("statistics", FILE_chat_parser::PRED_statistics_2_static_exec, VA( ATOM_runtime , a2), //
+ Op("chat_parser", FILE_chat_parser::PRED_chat_parser_0_static_exec, VA(), //
+ Op("statistics", FILE_chat_parser::PRED_statistics_2_static_exec, VA( ATOM_runtime , a5), //
+ Op("write", FILE_chat_parser::PRED_write_1_static_exec, VA( ATOM_execution$0020time$0020is$0020 ), //
+ Op("write", FILE_chat_parser::PRED_write_1_static_exec, VA(a3), //
+ Op("write", FILE_chat_parser::PRED_write_1_static_exec, VA( ATOM_milliseconds ), cont))))));
     }
 /** PREDICATE: chat_parser/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -105,8 +106,8 @@ m.cont = cont;
     // chat_parser:-[my_string(A),determinate_say(A,B),fail]
         a1 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_my_string_1_static_exec, VA(a1), //
- Op(FILE_chat_parser::PRED_determinate_say_2_static_exec, VA(a1, m.DONT_CARE2()), fail_0));
+ Op("my_string", FILE_chat_parser::PRED_my_string_1_static_exec, VA(a1), //
+ Op("determinate_say", FILE_chat_parser::PRED_determinate_say_2_static_exec, VA(a1, m.DONT_CARE2()), fail_0));
     }
 
     private final static Operation chat_parser_0_2(Prolog m) { 
@@ -120,199 +121,199 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(my_string/1,public)
-        final static SymbolTerm ATOM_what = SYM("what");
-        final static SymbolTerm ATOM_rivers = SYM("rivers");
-        final static SymbolTerm ATOM_are = SYM("are");
-        final static SymbolTerm ATOM_there = SYM("there");
-        final static SymbolTerm ATOM_$003F = SYM("?");
-    private static final ListTerm L_my_string_1_s7 = CONS( ATOM_$003F ,  Prolog.Nil );
-    private static final ListTerm L_my_string_1_s8 = CONS( ATOM_there , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s9 = CONS( ATOM_are , L_my_string_1_s8);
-    private static final ListTerm L_my_string_1_s10 = CONS( ATOM_rivers , L_my_string_1_s9);
-    private static final ListTerm L_my_string_1_s11 = CONS( ATOM_what , L_my_string_1_s10);
-        final static SymbolTerm ATOM_does = SYM("does");
-        final static SymbolTerm ATOM_afghanistan = SYM("afghanistan");
-        final static SymbolTerm ATOM_border = SYM("border");
-        final static SymbolTerm ATOM_china = SYM("china");
-    private static final ListTerm L_my_string_1_s16 = CONS( ATOM_china , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s17 = CONS( ATOM_border , L_my_string_1_s16);
-    private static final ListTerm L_my_string_1_s18 = CONS( ATOM_afghanistan , L_my_string_1_s17);
-    private static final ListTerm L_my_string_1_s19 = CONS( ATOM_does , L_my_string_1_s18);
-        final static SymbolTerm ATOM_is = SYM("is");
-        final static SymbolTerm ATOM_the = SYM("the");
-        final static SymbolTerm ATOM_capital = SYM("capital");
-        final static SymbolTerm ATOM_of = SYM("of");
-        final static SymbolTerm ATOM_upper_volta = SYM("upper_volta");
-    private static final ListTerm L_my_string_1_s25 = CONS( ATOM_upper_volta , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s26 = CONS( ATOM_of , L_my_string_1_s25);
-    private static final ListTerm L_my_string_1_s27 = CONS( ATOM_capital , L_my_string_1_s26);
-    private static final ListTerm L_my_string_1_s28 = CONS( ATOM_the , L_my_string_1_s27);
-    private static final ListTerm L_my_string_1_s29 = CONS( ATOM_is , L_my_string_1_s28);
-    private static final ListTerm L_my_string_1_s30 = CONS( ATOM_what , L_my_string_1_s29);
-        final static SymbolTerm ATOM_where = SYM("where");
-        final static SymbolTerm ATOM_largest = SYM("largest");
-        final static SymbolTerm ATOM_country = SYM("country");
-    private static final ListTerm L_my_string_1_s34 = CONS( ATOM_country , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s35 = CONS( ATOM_largest , L_my_string_1_s34);
-    private static final ListTerm L_my_string_1_s36 = CONS( ATOM_the , L_my_string_1_s35);
-    private static final ListTerm L_my_string_1_s37 = CONS( ATOM_is , L_my_string_1_s36);
-    private static final ListTerm L_my_string_1_s38 = CONS( ATOM_where , L_my_string_1_s37);
-        final static SymbolTerm ATOM_which = SYM("which");
-        final static SymbolTerm ATOM_$007E = SYM("~");
-        final static SymbolTerm ATOM_s = SYM("s");
-        final static SymbolTerm ATOM_london = SYM("london");
-    private static final ListTerm L_my_string_1_s43 = CONS( ATOM_london , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s44 = CONS( ATOM_is , L_my_string_1_s43);
-    private static final ListTerm L_my_string_1_s45 = CONS( ATOM_capital , L_my_string_1_s44);
-    private static final ListTerm L_my_string_1_s46 = CONS( ATOM_s , L_my_string_1_s45);
-    private static final ListTerm L_my_string_1_s47 = CONS( ATOM_$007E , L_my_string_1_s46);
-    private static final ListTerm L_my_string_1_s48 = CONS( ATOM_country , L_my_string_1_s47);
-    private static final ListTerm L_my_string_1_s49 = CONS( ATOM_which , L_my_string_1_s48);
-        final static SymbolTerm ATOM_countries = SYM("countries");
-        final static SymbolTerm ATOM_european = SYM("european");
-    private static final ListTerm L_my_string_1_s52 = CONS( ATOM_european , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s53 = CONS( ATOM_are , L_my_string_1_s52);
-    private static final ListTerm L_my_string_1_s54 = CONS( ATOM_countries , L_my_string_1_s53);
-    private static final ListTerm L_my_string_1_s55 = CONS( ATOM_which , L_my_string_1_s54);
-        final static SymbolTerm ATOM_how = SYM("how");
-        final static SymbolTerm ATOM_large = SYM("large");
-        final static SymbolTerm ATOM_smallest = SYM("smallest");
-        final static SymbolTerm ATOM_american = SYM("american");
-    private static final ListTerm L_my_string_1_s60 = CONS( ATOM_american , L_my_string_1_s34);
-    private static final ListTerm L_my_string_1_s61 = CONS( ATOM_smallest , L_my_string_1_s60);
-    private static final ListTerm L_my_string_1_s62 = CONS( ATOM_the , L_my_string_1_s61);
-    private static final ListTerm L_my_string_1_s63 = CONS( ATOM_is , L_my_string_1_s62);
-    private static final ListTerm L_my_string_1_s64 = CONS( ATOM_large , L_my_string_1_s63);
-    private static final ListTerm L_my_string_1_s65 = CONS( ATOM_how , L_my_string_1_s64);
-        final static SymbolTerm ATOM_ocean = SYM("ocean");
-        final static SymbolTerm ATOM_that = SYM("that");
-        final static SymbolTerm ATOM_borders = SYM("borders");
-        final static SymbolTerm ATOM_african = SYM("african");
-        final static SymbolTerm ATOM_and = SYM("and");
-        final static SymbolTerm ATOM_asian = SYM("asian");
-    private static final ListTerm L_my_string_1_s72 = CONS( ATOM_countries , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s73 = CONS( ATOM_asian , L_my_string_1_s72);
-    private static final ListTerm L_my_string_1_s74 = CONS( ATOM_borders , L_my_string_1_s73);
-    private static final ListTerm L_my_string_1_s75 = CONS( ATOM_that , L_my_string_1_s74);
-    private static final ListTerm L_my_string_1_s76 = CONS( ATOM_and , L_my_string_1_s75);
-    private static final ListTerm L_my_string_1_s77 = CONS( ATOM_countries , L_my_string_1_s76);
-    private static final ListTerm L_my_string_1_s78 = CONS( ATOM_african , L_my_string_1_s77);
-    private static final ListTerm L_my_string_1_s79 = CONS( ATOM_borders , L_my_string_1_s78);
-    private static final ListTerm L_my_string_1_s80 = CONS( ATOM_that , L_my_string_1_s79);
-    private static final ListTerm L_my_string_1_s81 = CONS( ATOM_ocean , L_my_string_1_s80);
-    private static final ListTerm L_my_string_1_s82 = CONS( ATOM_the , L_my_string_1_s81);
-    private static final ListTerm L_my_string_1_s83 = CONS( ATOM_is , L_my_string_1_s82);
-    private static final ListTerm L_my_string_1_s84 = CONS( ATOM_what , L_my_string_1_s83);
-        final static SymbolTerm ATOM_capitals = SYM("capitals");
-        final static SymbolTerm ATOM_bordering = SYM("bordering");
-        final static SymbolTerm ATOM_baltic = SYM("baltic");
-    private static final ListTerm L_my_string_1_s88 = CONS( ATOM_baltic , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s89 = CONS( ATOM_the , L_my_string_1_s88);
-    private static final ListTerm L_my_string_1_s90 = CONS( ATOM_bordering , L_my_string_1_s89);
-    private static final ListTerm L_my_string_1_s91 = CONS( ATOM_countries , L_my_string_1_s90);
-    private static final ListTerm L_my_string_1_s92 = CONS( ATOM_the , L_my_string_1_s91);
-    private static final ListTerm L_my_string_1_s93 = CONS( ATOM_of , L_my_string_1_s92);
-    private static final ListTerm L_my_string_1_s94 = CONS( ATOM_capitals , L_my_string_1_s93);
-    private static final ListTerm L_my_string_1_s95 = CONS( ATOM_the , L_my_string_1_s94);
-    private static final ListTerm L_my_string_1_s96 = CONS( ATOM_are , L_my_string_1_s95);
-    private static final ListTerm L_my_string_1_s97 = CONS( ATOM_what , L_my_string_1_s96);
-        final static SymbolTerm ATOM_bordered = SYM("bordered");
-        final static SymbolTerm ATOM_by = SYM("by");
-        final static SymbolTerm ATOM_two = SYM("two");
-        final static SymbolTerm ATOM_seas = SYM("seas");
-    private static final ListTerm L_my_string_1_s102 = CONS( ATOM_seas , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s103 = CONS( ATOM_two , L_my_string_1_s102);
-    private static final ListTerm L_my_string_1_s104 = CONS( ATOM_by , L_my_string_1_s103);
-    private static final ListTerm L_my_string_1_s105 = CONS( ATOM_bordered , L_my_string_1_s104);
-    private static final ListTerm L_my_string_1_s106 = CONS( ATOM_are , L_my_string_1_s105);
-    private static final ListTerm L_my_string_1_s107 = CONS( ATOM_countries , L_my_string_1_s106);
-    private static final ListTerm L_my_string_1_s108 = CONS( ATOM_which , L_my_string_1_s107);
-        final static SymbolTerm ATOM_many = SYM("many");
-        final static SymbolTerm ATOM_danube = SYM("danube");
-        final static SymbolTerm ATOM_flow = SYM("flow");
-        final static SymbolTerm ATOM_through = SYM("through");
-    private static final ListTerm L_my_string_1_s113 = CONS( ATOM_through , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s114 = CONS( ATOM_flow , L_my_string_1_s113);
-    private static final ListTerm L_my_string_1_s115 = CONS( ATOM_danube , L_my_string_1_s114);
-    private static final ListTerm L_my_string_1_s116 = CONS( ATOM_the , L_my_string_1_s115);
-    private static final ListTerm L_my_string_1_s117 = CONS( ATOM_does , L_my_string_1_s116);
-    private static final ListTerm L_my_string_1_s118 = CONS( ATOM_countries , L_my_string_1_s117);
-    private static final ListTerm L_my_string_1_s119 = CONS( ATOM_many , L_my_string_1_s118);
-    private static final ListTerm L_my_string_1_s120 = CONS( ATOM_how , L_my_string_1_s119);
-        final static SymbolTerm ATOM_total = SYM("total");
-        final static SymbolTerm ATOM_area = SYM("area");
-        final static SymbolTerm ATOM_south = SYM("south");
-        final static SymbolTerm ATOM_equator = SYM("equator");
-        final static SymbolTerm ATOM_not = SYM("not");
-        final static SymbolTerm ATOM_in = SYM("in");
-        final static SymbolTerm ATOM_australasia = SYM("australasia");
-    private static final ListTerm L_my_string_1_s128 = CONS( ATOM_australasia , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s129 = CONS( ATOM_in , L_my_string_1_s128);
-    private static final ListTerm L_my_string_1_s130 = CONS( ATOM_not , L_my_string_1_s129);
-    private static final ListTerm L_my_string_1_s131 = CONS( ATOM_and , L_my_string_1_s130);
-    private static final ListTerm L_my_string_1_s132 = CONS( ATOM_equator , L_my_string_1_s131);
-    private static final ListTerm L_my_string_1_s133 = CONS( ATOM_the , L_my_string_1_s132);
-    private static final ListTerm L_my_string_1_s134 = CONS( ATOM_of , L_my_string_1_s133);
-    private static final ListTerm L_my_string_1_s135 = CONS( ATOM_south , L_my_string_1_s134);
-    private static final ListTerm L_my_string_1_s136 = CONS( ATOM_countries , L_my_string_1_s135);
-    private static final ListTerm L_my_string_1_s137 = CONS( ATOM_of , L_my_string_1_s136);
-    private static final ListTerm L_my_string_1_s138 = CONS( ATOM_area , L_my_string_1_s137);
-    private static final ListTerm L_my_string_1_s139 = CONS( ATOM_total , L_my_string_1_s138);
-    private static final ListTerm L_my_string_1_s140 = CONS( ATOM_the , L_my_string_1_s139);
-    private static final ListTerm L_my_string_1_s141 = CONS( ATOM_is , L_my_string_1_s140);
-    private static final ListTerm L_my_string_1_s142 = CONS( ATOM_what , L_my_string_1_s141);
-        final static SymbolTerm ATOM_average = SYM("average");
-        final static SymbolTerm ATOM_each = SYM("each");
-        final static SymbolTerm ATOM_continent = SYM("continent");
-    private static final ListTerm L_my_string_1_s146 = CONS( ATOM_continent , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s147 = CONS( ATOM_each , L_my_string_1_s146);
-    private static final ListTerm L_my_string_1_s148 = CONS( ATOM_in , L_my_string_1_s147);
-    private static final ListTerm L_my_string_1_s149 = CONS( ATOM_countries , L_my_string_1_s148);
-    private static final ListTerm L_my_string_1_s150 = CONS( ATOM_the , L_my_string_1_s149);
-    private static final ListTerm L_my_string_1_s151 = CONS( ATOM_of , L_my_string_1_s150);
-    private static final ListTerm L_my_string_1_s152 = CONS( ATOM_area , L_my_string_1_s151);
-    private static final ListTerm L_my_string_1_s153 = CONS( ATOM_average , L_my_string_1_s152);
-    private static final ListTerm L_my_string_1_s154 = CONS( ATOM_the , L_my_string_1_s153);
-    private static final ListTerm L_my_string_1_s155 = CONS( ATOM_is , L_my_string_1_s154);
-    private static final ListTerm L_my_string_1_s156 = CONS( ATOM_what , L_my_string_1_s155);
-        final static SymbolTerm ATOM_more = SYM("more");
-        final static SymbolTerm ATOM_than = SYM("than");
-        final static SymbolTerm ATOM_one = SYM("one");
-    private static final ListTerm L_my_string_1_s160 = CONS( ATOM_country , L_my_string_1_s148);
-    private static final ListTerm L_my_string_1_s161 = CONS( ATOM_one , L_my_string_1_s160);
-    private static final ListTerm L_my_string_1_s162 = CONS( ATOM_than , L_my_string_1_s161);
-    private static final ListTerm L_my_string_1_s163 = CONS( ATOM_more , L_my_string_1_s162);
-    private static final ListTerm L_my_string_1_s164 = CONS( ATOM_there , L_my_string_1_s163);
-    private static final ListTerm L_my_string_1_s165 = CONS( ATOM_is , L_my_string_1_s164);
-        final static SymbolTerm ATOM_some = SYM("some");
-        final static SymbolTerm ATOM_any = SYM("any");
-    private static final ListTerm L_my_string_1_s168 = CONS( ATOM_any , L_my_string_1_s34);
-    private static final ListTerm L_my_string_1_s169 = CONS( ATOM_border , L_my_string_1_s168);
-    private static final ListTerm L_my_string_1_s170 = CONS( ATOM_not , L_my_string_1_s169);
-    private static final ListTerm L_my_string_1_s171 = CONS( ATOM_does , L_my_string_1_s170);
-    private static final ListTerm L_my_string_1_s172 = CONS( ATOM_that , L_my_string_1_s171);
-    private static final ListTerm L_my_string_1_s173 = CONS( ATOM_ocean , L_my_string_1_s172);
-    private static final ListTerm L_my_string_1_s174 = CONS( ATOM_some , L_my_string_1_s173);
-    private static final ListTerm L_my_string_1_s175 = CONS( ATOM_there , L_my_string_1_s174);
-    private static final ListTerm L_my_string_1_s176 = CONS( ATOM_is , L_my_string_1_s175);
-        final static SymbolTerm ATOM_from = SYM("from");
-        final static SymbolTerm ATOM_a = SYM("a");
-        final static SymbolTerm ATOM_river = SYM("river");
-        final static SymbolTerm ATOM_flows = SYM("flows");
-        final static SymbolTerm ATOM_into = SYM("into");
-        final static SymbolTerm ATOM_black_sea = SYM("black_sea");
-    private static final ListTerm L_my_string_1_s183 = CONS( ATOM_black_sea , L_my_string_1_s7);
-    private static final ListTerm L_my_string_1_s184 = CONS( ATOM_the , L_my_string_1_s183);
-    private static final ListTerm L_my_string_1_s185 = CONS( ATOM_into , L_my_string_1_s184);
-    private static final ListTerm L_my_string_1_s186 = CONS( ATOM_flows , L_my_string_1_s185);
-    private static final ListTerm L_my_string_1_s187 = CONS( ATOM_river , L_my_string_1_s186);
-    private static final ListTerm L_my_string_1_s188 = CONS( ATOM_a , L_my_string_1_s187);
-    private static final ListTerm L_my_string_1_s189 = CONS( ATOM_which , L_my_string_1_s188);
-    private static final ListTerm L_my_string_1_s190 = CONS( ATOM_from , L_my_string_1_s189);
-    private static final ListTerm L_my_string_1_s191 = CONS( ATOM_countries , L_my_string_1_s190);
-    private static final ListTerm L_my_string_1_s192 = CONS( ATOM_the , L_my_string_1_s191);
-    private static final ListTerm L_my_string_1_s193 = CONS( ATOM_are , L_my_string_1_s192);
-    private static final ListTerm L_my_string_1_s194 = CONS( ATOM_what , L_my_string_1_s193);
+        final static Functor ATOM_what = SYM("what");
+        final static Functor ATOM_rivers = SYM("rivers");
+        final static Functor ATOM_are = SYM("are");
+        final static Functor ATOM_there = SYM("there");
+        final static Functor ATOM_$003F = SYM("?");
+    private static final Term L_my_string_1_s7 = CONS( ATOM_$003F ,  Prolog.Nil );
+    private static final Term L_my_string_1_s8 = CONS( ATOM_there , L_my_string_1_s7);
+    private static final Term L_my_string_1_s9 = CONS( ATOM_are , L_my_string_1_s8);
+    private static final Term L_my_string_1_s10 = CONS( ATOM_rivers , L_my_string_1_s9);
+    private static final Term L_my_string_1_s11 = CONS( ATOM_what , L_my_string_1_s10);
+        final static Functor ATOM_does = SYM("does");
+        final static Functor ATOM_afghanistan = SYM("afghanistan");
+        final static Functor ATOM_border = SYM("border");
+        final static Functor ATOM_china = SYM("china");
+    private static final Term L_my_string_1_s16 = CONS( ATOM_china , L_my_string_1_s7);
+    private static final Term L_my_string_1_s17 = CONS( ATOM_border , L_my_string_1_s16);
+    private static final Term L_my_string_1_s18 = CONS( ATOM_afghanistan , L_my_string_1_s17);
+    private static final Term L_my_string_1_s19 = CONS( ATOM_does , L_my_string_1_s18);
+        final static Functor ATOM_is = SYM("is");
+        final static Functor ATOM_the = SYM("the");
+        final static Functor ATOM_capital = SYM("capital");
+        final static Functor ATOM_of = SYM("of");
+        final static Functor ATOM_upper_volta = SYM("upper_volta");
+    private static final Term L_my_string_1_s25 = CONS( ATOM_upper_volta , L_my_string_1_s7);
+    private static final Term L_my_string_1_s26 = CONS( ATOM_of , L_my_string_1_s25);
+    private static final Term L_my_string_1_s27 = CONS( ATOM_capital , L_my_string_1_s26);
+    private static final Term L_my_string_1_s28 = CONS( ATOM_the , L_my_string_1_s27);
+    private static final Term L_my_string_1_s29 = CONS( ATOM_is , L_my_string_1_s28);
+    private static final Term L_my_string_1_s30 = CONS( ATOM_what , L_my_string_1_s29);
+        final static Functor ATOM_where = SYM("where");
+        final static Functor ATOM_largest = SYM("largest");
+        final static Functor ATOM_country = SYM("country");
+    private static final Term L_my_string_1_s34 = CONS( ATOM_country , L_my_string_1_s7);
+    private static final Term L_my_string_1_s35 = CONS( ATOM_largest , L_my_string_1_s34);
+    private static final Term L_my_string_1_s36 = CONS( ATOM_the , L_my_string_1_s35);
+    private static final Term L_my_string_1_s37 = CONS( ATOM_is , L_my_string_1_s36);
+    private static final Term L_my_string_1_s38 = CONS( ATOM_where , L_my_string_1_s37);
+        final static Functor ATOM_which = SYM("which");
+        final static Functor ATOM_$007E = SYM("~");
+        final static Functor ATOM_s = SYM("s");
+        final static Functor ATOM_london = SYM("london");
+    private static final Term L_my_string_1_s43 = CONS( ATOM_london , L_my_string_1_s7);
+    private static final Term L_my_string_1_s44 = CONS( ATOM_is , L_my_string_1_s43);
+    private static final Term L_my_string_1_s45 = CONS( ATOM_capital , L_my_string_1_s44);
+    private static final Term L_my_string_1_s46 = CONS( ATOM_s , L_my_string_1_s45);
+    private static final Term L_my_string_1_s47 = CONS( ATOM_$007E , L_my_string_1_s46);
+    private static final Term L_my_string_1_s48 = CONS( ATOM_country , L_my_string_1_s47);
+    private static final Term L_my_string_1_s49 = CONS( ATOM_which , L_my_string_1_s48);
+        final static Functor ATOM_countries = SYM("countries");
+        final static Functor ATOM_european = SYM("european");
+    private static final Term L_my_string_1_s52 = CONS( ATOM_european , L_my_string_1_s7);
+    private static final Term L_my_string_1_s53 = CONS( ATOM_are , L_my_string_1_s52);
+    private static final Term L_my_string_1_s54 = CONS( ATOM_countries , L_my_string_1_s53);
+    private static final Term L_my_string_1_s55 = CONS( ATOM_which , L_my_string_1_s54);
+        final static Functor ATOM_how = SYM("how");
+        final static Functor ATOM_large = SYM("large");
+        final static Functor ATOM_smallest = SYM("smallest");
+        final static Functor ATOM_american = SYM("american");
+    private static final Term L_my_string_1_s60 = CONS( ATOM_american , L_my_string_1_s34);
+    private static final Term L_my_string_1_s61 = CONS( ATOM_smallest , L_my_string_1_s60);
+    private static final Term L_my_string_1_s62 = CONS( ATOM_the , L_my_string_1_s61);
+    private static final Term L_my_string_1_s63 = CONS( ATOM_is , L_my_string_1_s62);
+    private static final Term L_my_string_1_s64 = CONS( ATOM_large , L_my_string_1_s63);
+    private static final Term L_my_string_1_s65 = CONS( ATOM_how , L_my_string_1_s64);
+        final static Functor ATOM_ocean = SYM("ocean");
+        final static Functor ATOM_that = SYM("that");
+        final static Functor ATOM_borders = SYM("borders");
+        final static Functor ATOM_african = SYM("african");
+        final static Functor ATOM_and = SYM("and");
+        final static Functor ATOM_asian = SYM("asian");
+    private static final Term L_my_string_1_s72 = CONS( ATOM_countries , L_my_string_1_s7);
+    private static final Term L_my_string_1_s73 = CONS( ATOM_asian , L_my_string_1_s72);
+    private static final Term L_my_string_1_s74 = CONS( ATOM_borders , L_my_string_1_s73);
+    private static final Term L_my_string_1_s75 = CONS( ATOM_that , L_my_string_1_s74);
+    private static final Term L_my_string_1_s76 = CONS( ATOM_and , L_my_string_1_s75);
+    private static final Term L_my_string_1_s77 = CONS( ATOM_countries , L_my_string_1_s76);
+    private static final Term L_my_string_1_s78 = CONS( ATOM_african , L_my_string_1_s77);
+    private static final Term L_my_string_1_s79 = CONS( ATOM_borders , L_my_string_1_s78);
+    private static final Term L_my_string_1_s80 = CONS( ATOM_that , L_my_string_1_s79);
+    private static final Term L_my_string_1_s81 = CONS( ATOM_ocean , L_my_string_1_s80);
+    private static final Term L_my_string_1_s82 = CONS( ATOM_the , L_my_string_1_s81);
+    private static final Term L_my_string_1_s83 = CONS( ATOM_is , L_my_string_1_s82);
+    private static final Term L_my_string_1_s84 = CONS( ATOM_what , L_my_string_1_s83);
+        final static Functor ATOM_capitals = SYM("capitals");
+        final static Functor ATOM_bordering = SYM("bordering");
+        final static Functor ATOM_baltic = SYM("baltic");
+    private static final Term L_my_string_1_s88 = CONS( ATOM_baltic , L_my_string_1_s7);
+    private static final Term L_my_string_1_s89 = CONS( ATOM_the , L_my_string_1_s88);
+    private static final Term L_my_string_1_s90 = CONS( ATOM_bordering , L_my_string_1_s89);
+    private static final Term L_my_string_1_s91 = CONS( ATOM_countries , L_my_string_1_s90);
+    private static final Term L_my_string_1_s92 = CONS( ATOM_the , L_my_string_1_s91);
+    private static final Term L_my_string_1_s93 = CONS( ATOM_of , L_my_string_1_s92);
+    private static final Term L_my_string_1_s94 = CONS( ATOM_capitals , L_my_string_1_s93);
+    private static final Term L_my_string_1_s95 = CONS( ATOM_the , L_my_string_1_s94);
+    private static final Term L_my_string_1_s96 = CONS( ATOM_are , L_my_string_1_s95);
+    private static final Term L_my_string_1_s97 = CONS( ATOM_what , L_my_string_1_s96);
+        final static Functor ATOM_bordered = SYM("bordered");
+        final static Functor ATOM_by = SYM("by");
+        final static Functor ATOM_two = SYM("two");
+        final static Functor ATOM_seas = SYM("seas");
+    private static final Term L_my_string_1_s102 = CONS( ATOM_seas , L_my_string_1_s7);
+    private static final Term L_my_string_1_s103 = CONS( ATOM_two , L_my_string_1_s102);
+    private static final Term L_my_string_1_s104 = CONS( ATOM_by , L_my_string_1_s103);
+    private static final Term L_my_string_1_s105 = CONS( ATOM_bordered , L_my_string_1_s104);
+    private static final Term L_my_string_1_s106 = CONS( ATOM_are , L_my_string_1_s105);
+    private static final Term L_my_string_1_s107 = CONS( ATOM_countries , L_my_string_1_s106);
+    private static final Term L_my_string_1_s108 = CONS( ATOM_which , L_my_string_1_s107);
+        final static Functor ATOM_many = SYM("many");
+        final static Functor ATOM_danube = SYM("danube");
+        final static Functor ATOM_flow = SYM("flow");
+        final static Functor ATOM_through = SYM("through");
+    private static final Term L_my_string_1_s113 = CONS( ATOM_through , L_my_string_1_s7);
+    private static final Term L_my_string_1_s114 = CONS( ATOM_flow , L_my_string_1_s113);
+    private static final Term L_my_string_1_s115 = CONS( ATOM_danube , L_my_string_1_s114);
+    private static final Term L_my_string_1_s116 = CONS( ATOM_the , L_my_string_1_s115);
+    private static final Term L_my_string_1_s117 = CONS( ATOM_does , L_my_string_1_s116);
+    private static final Term L_my_string_1_s118 = CONS( ATOM_countries , L_my_string_1_s117);
+    private static final Term L_my_string_1_s119 = CONS( ATOM_many , L_my_string_1_s118);
+    private static final Term L_my_string_1_s120 = CONS( ATOM_how , L_my_string_1_s119);
+        final static Functor ATOM_total = SYM("total");
+        final static Functor ATOM_area = SYM("area");
+        final static Functor ATOM_south = SYM("south");
+        final static Functor ATOM_equator = SYM("equator");
+        final static Functor ATOM_not = SYM("not");
+        final static Functor ATOM_in = SYM("in");
+        final static Functor ATOM_australasia = SYM("australasia");
+    private static final Term L_my_string_1_s128 = CONS( ATOM_australasia , L_my_string_1_s7);
+    private static final Term L_my_string_1_s129 = CONS( ATOM_in , L_my_string_1_s128);
+    private static final Term L_my_string_1_s130 = CONS( ATOM_not , L_my_string_1_s129);
+    private static final Term L_my_string_1_s131 = CONS( ATOM_and , L_my_string_1_s130);
+    private static final Term L_my_string_1_s132 = CONS( ATOM_equator , L_my_string_1_s131);
+    private static final Term L_my_string_1_s133 = CONS( ATOM_the , L_my_string_1_s132);
+    private static final Term L_my_string_1_s134 = CONS( ATOM_of , L_my_string_1_s133);
+    private static final Term L_my_string_1_s135 = CONS( ATOM_south , L_my_string_1_s134);
+    private static final Term L_my_string_1_s136 = CONS( ATOM_countries , L_my_string_1_s135);
+    private static final Term L_my_string_1_s137 = CONS( ATOM_of , L_my_string_1_s136);
+    private static final Term L_my_string_1_s138 = CONS( ATOM_area , L_my_string_1_s137);
+    private static final Term L_my_string_1_s139 = CONS( ATOM_total , L_my_string_1_s138);
+    private static final Term L_my_string_1_s140 = CONS( ATOM_the , L_my_string_1_s139);
+    private static final Term L_my_string_1_s141 = CONS( ATOM_is , L_my_string_1_s140);
+    private static final Term L_my_string_1_s142 = CONS( ATOM_what , L_my_string_1_s141);
+        final static Functor ATOM_average = SYM("average");
+        final static Functor ATOM_each = SYM("each");
+        final static Functor ATOM_continent = SYM("continent");
+    private static final Term L_my_string_1_s146 = CONS( ATOM_continent , L_my_string_1_s7);
+    private static final Term L_my_string_1_s147 = CONS( ATOM_each , L_my_string_1_s146);
+    private static final Term L_my_string_1_s148 = CONS( ATOM_in , L_my_string_1_s147);
+    private static final Term L_my_string_1_s149 = CONS( ATOM_countries , L_my_string_1_s148);
+    private static final Term L_my_string_1_s150 = CONS( ATOM_the , L_my_string_1_s149);
+    private static final Term L_my_string_1_s151 = CONS( ATOM_of , L_my_string_1_s150);
+    private static final Term L_my_string_1_s152 = CONS( ATOM_area , L_my_string_1_s151);
+    private static final Term L_my_string_1_s153 = CONS( ATOM_average , L_my_string_1_s152);
+    private static final Term L_my_string_1_s154 = CONS( ATOM_the , L_my_string_1_s153);
+    private static final Term L_my_string_1_s155 = CONS( ATOM_is , L_my_string_1_s154);
+    private static final Term L_my_string_1_s156 = CONS( ATOM_what , L_my_string_1_s155);
+        final static Functor ATOM_more = SYM("more");
+        final static Functor ATOM_than = SYM("than");
+        final static Functor ATOM_one = SYM("one");
+    private static final Term L_my_string_1_s160 = CONS( ATOM_country , L_my_string_1_s148);
+    private static final Term L_my_string_1_s161 = CONS( ATOM_one , L_my_string_1_s160);
+    private static final Term L_my_string_1_s162 = CONS( ATOM_than , L_my_string_1_s161);
+    private static final Term L_my_string_1_s163 = CONS( ATOM_more , L_my_string_1_s162);
+    private static final Term L_my_string_1_s164 = CONS( ATOM_there , L_my_string_1_s163);
+    private static final Term L_my_string_1_s165 = CONS( ATOM_is , L_my_string_1_s164);
+        final static Functor ATOM_some = SYM("some");
+        final static Functor ATOM_any = SYM("any");
+    private static final Term L_my_string_1_s168 = CONS( ATOM_any , L_my_string_1_s34);
+    private static final Term L_my_string_1_s169 = CONS( ATOM_border , L_my_string_1_s168);
+    private static final Term L_my_string_1_s170 = CONS( ATOM_not , L_my_string_1_s169);
+    private static final Term L_my_string_1_s171 = CONS( ATOM_does , L_my_string_1_s170);
+    private static final Term L_my_string_1_s172 = CONS( ATOM_that , L_my_string_1_s171);
+    private static final Term L_my_string_1_s173 = CONS( ATOM_ocean , L_my_string_1_s172);
+    private static final Term L_my_string_1_s174 = CONS( ATOM_some , L_my_string_1_s173);
+    private static final Term L_my_string_1_s175 = CONS( ATOM_there , L_my_string_1_s174);
+    private static final Term L_my_string_1_s176 = CONS( ATOM_is , L_my_string_1_s175);
+        final static Functor ATOM_from = SYM("from");
+        final static Functor ATOM_a = SYM("a");
+        final static Functor ATOM_river = SYM("river");
+        final static Functor ATOM_flows = SYM("flows");
+        final static Functor ATOM_into = SYM("into");
+        final static Functor ATOM_black_sea = SYM("black_sea");
+    private static final Term L_my_string_1_s183 = CONS( ATOM_black_sea , L_my_string_1_s7);
+    private static final Term L_my_string_1_s184 = CONS( ATOM_the , L_my_string_1_s183);
+    private static final Term L_my_string_1_s185 = CONS( ATOM_into , L_my_string_1_s184);
+    private static final Term L_my_string_1_s186 = CONS( ATOM_flows , L_my_string_1_s185);
+    private static final Term L_my_string_1_s187 = CONS( ATOM_river , L_my_string_1_s186);
+    private static final Term L_my_string_1_s188 = CONS( ATOM_a , L_my_string_1_s187);
+    private static final Term L_my_string_1_s189 = CONS( ATOM_which , L_my_string_1_s188);
+    private static final Term L_my_string_1_s190 = CONS( ATOM_from , L_my_string_1_s189);
+    private static final Term L_my_string_1_s191 = CONS( ATOM_countries , L_my_string_1_s190);
+    private static final Term L_my_string_1_s192 = CONS( ATOM_the , L_my_string_1_s191);
+    private static final Term L_my_string_1_s193 = CONS( ATOM_are , L_my_string_1_s192);
+    private static final Term L_my_string_1_s194 = CONS( ATOM_what , L_my_string_1_s193);
 
 
 
@@ -619,15 +620,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         }
         //END inline expansion
         return //
- Op(FILE_chat_parser::PRED_say_2_static_exec, VA(a1, a2), //
- Op(FILE_chat_parser::PRED_$cut_1_static_exec, VA(a3), cont));
+ Op("say", FILE_chat_parser::PRED_say_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_chat_parser::PRED_$cut_1_static_exec, VA(a3), cont));
     }
 /** PREDICATE: terminal/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(terminal/5,public)
-        final static SymbolTerm FUNCTOR_x_4 = F("x",4);
-        final static SymbolTerm ATOM_terminal = SYM("terminal");
+        final static Functor FUNCTOR_x_4 = F("x",4);
+        final static Functor ATOM_terminal = SYM("terminal");
 
     // private final Term arg5;
 
@@ -697,13 +698,13 @@ m.cont = cont;
         if (! a4.unify(a5, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_gap_1_static_exec, VA(a4), cont);
+ Op("gap", FILE_chat_parser::PRED_gap_1_static_exec, VA(a4), cont);
     }
 /** PREDICATE: gap/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(gap/1,public)
-        final static SymbolTerm ATOM_gap = SYM("gap");
+        final static Functor ATOM_gap = SYM("gap");
 
 
 
@@ -754,7 +755,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(virtual/3,public)
-        final static SymbolTerm ATOM_nonterminal = SYM("nonterminal");
+        final static Functor ATOM_nonterminal = SYM("nonterminal");
 
 
 
@@ -781,7 +782,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(is_pp/1,public)
-        final static SymbolTerm FUNCTOR_$0023_4 = F("#",4);
+        final static Functor FUNCTOR_$0023_4 = F("#",4);
 
 
 
@@ -866,7 +867,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(trace1/2,public)
-    private static final StructureTerm L_trace1_2_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
+    private static final Term L_trace1_2_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
 
 
 
@@ -891,7 +892,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(trace1/1,public)
-    private static final StructureTerm L_trace1_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_1 ,  int_0 );
+    private static final Term L_trace1_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_1 ,  int_0 );
 
 
 
@@ -911,7 +912,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adv/1,public)
-    private static final StructureTerm L_adv_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_1 );
+    private static final Term L_adv_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_1 );
 
 
 
@@ -931,7 +932,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(empty/1,public)
-    private static final StructureTerm L_empty_1_s4 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
+    private static final Term L_empty_1_s4 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
 
 
 
@@ -951,7 +952,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np_all/1,public)
-    private static final StructureTerm L_np_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_1 ,  int_0 );
+    private static final Term L_np_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_1 ,  int_0 );
 
 
 
@@ -971,7 +972,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(s_all/1,public)
-    private static final StructureTerm L_s_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_0 ,  int_1 ,  int_1 );
+    private static final Term L_s_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_0 ,  int_1 ,  int_1 );
 
 
 
@@ -991,7 +992,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np_no_trace/1,public)
-    private static final StructureTerm L_np_no_trace_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_0 ,  int_0 );
+    private static final Term L_np_no_trace_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_0 ,  int_0 );
 
 
 
@@ -1050,10 +1051,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_or_3_static_exec, VA(a4, a8, a12), //
- Op(FILE_chat_parser::PRED_or_3_static_exec, VA(a5, a9, a13), //
- Op(FILE_chat_parser::PRED_or_3_static_exec, VA(a6, a10, a14), //
- Op(FILE_chat_parser::PRED_or_3_static_exec, VA(a7, a11, a15), cont))));
+ Op("or", FILE_chat_parser::PRED_or_3_static_exec, VA(a4, a8, a12), //
+ Op("or", FILE_chat_parser::PRED_or_3_static_exec, VA(a5, a9, a13), //
+ Op("or", FILE_chat_parser::PRED_or_3_static_exec, VA(a6, a10, a14), //
+ Op("or", FILE_chat_parser::PRED_or_3_static_exec, VA(a7, a11, a15), cont))));
     }
 /** PREDICATE: minus/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -1098,10 +1099,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_anot_3_static_exec, VA(a4, a8, a12), //
- Op(FILE_chat_parser::PRED_anot_3_static_exec, VA(a5, a9, a13), //
- Op(FILE_chat_parser::PRED_anot_3_static_exec, VA(a6, a10, a14), //
- Op(FILE_chat_parser::PRED_anot_3_static_exec, VA(a7, a11, a15), cont))));
+ Op("anot", FILE_chat_parser::PRED_anot_3_static_exec, VA(a4, a8, a12), //
+ Op("anot", FILE_chat_parser::PRED_anot_3_static_exec, VA(a5, a9, a13), //
+ Op("anot", FILE_chat_parser::PRED_anot_3_static_exec, VA(a6, a10, a14), //
+ Op("anot", FILE_chat_parser::PRED_anot_3_static_exec, VA(a7, a11, a15), cont))));
     }
 /** PREDICATE: or/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -1240,15 +1241,15 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(role/3,public)
-        final static SymbolTerm ATOM_subj = SYM("subj");
-        final static SymbolTerm FUNCTOR_$0023_3 = F("#",3);
-    private static final StructureTerm L_role_3_s6 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
-        final static SymbolTerm ATOM_compl = SYM("compl");
-        final static SymbolTerm ATOM_undef = SYM("undef");
-        final static SymbolTerm ATOM_main = SYM("main");
-        final static SymbolTerm ATOM_aux = SYM("aux");
-        final static SymbolTerm ATOM_decl = SYM("decl");
-        final static SymbolTerm ATOM_nil = SYM("nil");
+        final static Functor ATOM_subj = SYM("subj");
+        final static Functor FUNCTOR_$0023_3 = F("#",3);
+    private static final Term L_role_3_s6 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
+        final static Functor ATOM_compl = SYM("compl");
+        final static Functor ATOM_undef = SYM("undef");
+        final static Functor ATOM_main = SYM("main");
+        final static Functor ATOM_aux = SYM("aux");
+        final static Functor ATOM_decl = SYM("decl");
+        final static Functor ATOM_nil = SYM("nil");
 
 
 
@@ -1397,7 +1398,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(subj_case/1,public)
-    private static final StructureTerm L_subj_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
+    private static final Term L_subj_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
 
 
 
@@ -1417,7 +1418,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_case/1,public)
-    private static final StructureTerm L_verb_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_1 ,  int_0 );
+    private static final Term L_verb_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_1 ,  int_0 );
 
 
 
@@ -1437,7 +1438,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(prep_case/1,public)
-    private static final StructureTerm L_prep_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_0 ,  int_1 );
+    private static final Term L_prep_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_0 ,  int_1 );
 
 
 
@@ -1491,14 +1492,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a2 = LARG[1];
     // say(A,B):-[sentence(B,A,[],[],[])]
         return //
- Op(FILE_chat_parser::PRED_sentence_5_static_exec, VA(a2, a1,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ), cont);
+ Op("sentence", FILE_chat_parser::PRED_sentence_5_static_exec, VA(a2, a1,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ), cont);
     }
 /** PREDICATE: sentence/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(sentence/5,public)
-        final static SymbolTerm ATOM_$002E = SYM(".");
-        final static SymbolTerm ATOM_$0021 = SYM("!");
+        final static Functor ATOM_$002E = SYM(".");
+        final static Functor ATOM_$0021 = SYM("!");
 
     // private final Term arg5;
 
@@ -1548,8 +1549,8 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_declarative_5_static_exec, VA(a1, a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$002E , a6, a3, a7, a5), cont));
+ Op("declarative", FILE_chat_parser::PRED_declarative_5_static_exec, VA(a1, a2, a6, a4, a7), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$002E , a6, a3, a7, a5), cont));
     }
 
     private final static Operation sentence_5_2(Prolog m) { 
@@ -1567,8 +1568,8 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_wh_question_5_static_exec, VA(a1, a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
+ Op("wh_question", FILE_chat_parser::PRED_wh_question_5_static_exec, VA(a1, a2, a6, a4, a7), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
     }
 
     private final static Operation sentence_5_3(Prolog m) { 
@@ -1588,9 +1589,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_topic_4_static_exec, VA(a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_wh_question_5_static_exec, VA(a1, a6, a8, a7, a9), //
- Op(FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a8, a3, a9, a5), cont)));
+ Op("topic", FILE_chat_parser::PRED_topic_4_static_exec, VA(a2, a6, a4, a7), //
+ Op("wh_question", FILE_chat_parser::PRED_wh_question_5_static_exec, VA(a1, a6, a8, a7, a9), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a8, a3, a9, a5), cont)));
     }
 
     private final static Operation sentence_5_4(Prolog m) { 
@@ -1608,8 +1609,8 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_yn_question_5_static_exec, VA(a1, a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
+ Op("yn_question", FILE_chat_parser::PRED_yn_question_5_static_exec, VA(a1, a2, a6, a4, a7), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
     }
 
     private final static Operation sentence_5_5(Prolog m) { 
@@ -1627,15 +1628,15 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_imperative_5_static_exec, VA(a1, a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$0021 , a6, a3, a7, a5), cont));
+ Op("imperative", FILE_chat_parser::PRED_imperative_5_static_exec, VA(a1, a2, a6, a4, a7), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$0021 , a6, a3, a7, a5), cont));
     }
 /** PREDICATE: pp/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(pp/8,public)
-        final static SymbolTerm FUNCTOR_pp_4 = F("pp",4);
-        final static SymbolTerm FUNCTOR_pp_2 = F("pp",2);
+        final static Functor FUNCTOR_pp_4 = F("pp",4);
+        final static Functor FUNCTOR_pp_2 = F("pp",2);
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -1679,7 +1680,7 @@ m.cont = cont;
         a9 =  S( FUNCTOR_pp_4 , a1, a2, a3, a4);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
     private final static Operation pp_8_2(Prolog m) { 
@@ -1707,9 +1708,9 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_prep_5_static_exec, VA(a9, a5, a11, a7, a12), //
- Op(FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a13), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a10, m.DONT_CARE2(), a13, m.DONT_CARE2(), a2, a3, a4, a11, a6, a12, a8), cont)));
+ Op("prep", FILE_chat_parser::PRED_prep_5_static_exec, VA(a9, a5, a11, a7, a12), //
+ Op("prep_case", FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a13), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a10, m.DONT_CARE2(), a13, m.DONT_CARE2(), a2, a3, a4, a11, a6, a12, a8), cont)));
     }
 /** PREDICATE: topic/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -1746,14 +1747,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_pp_8_static_exec, VA(a7,  ATOM_compl , a8, a9, a1, a10, a3, a11), //
- Op(FILE_chat_parser::PRED_opt_comma_4_static_exec, VA(a10, a2, a11, a6), cont));
+ Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a7,  ATOM_compl , a8, a9, a1, a10, a3, a11), //
+ Op("opt_comma", FILE_chat_parser::PRED_opt_comma_4_static_exec, VA(a10, a2, a11, a6), cont));
     }
 /** PREDICATE: opt_comma/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(opt_comma/4,public)
-        final static SymbolTerm ATOM_$002C = SYM(",");
+        final static Functor ATOM_$002C = SYM(",");
 
 
 
@@ -1782,7 +1783,7 @@ m.cont = cont;
         cont = m.cont;
     // opt_comma(A,B,C,D):-[~(',',A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_$002C , a1, a2, a3, a4), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_$002C , a1, a2, a3, a4), cont);
     }
 
     private final static Operation opt_comma_4_2(Prolog m) { 
@@ -1805,7 +1806,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(declarative/5,public)
-        final static SymbolTerm FUNCTOR_decl_1 = F("decl",1);
+        final static Functor FUNCTOR_decl_1 = F("decl",1);
 
     // private final Term arg5;
 
@@ -1829,13 +1830,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a2, a3, a4, a5), cont);
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a2, a3, a4, a5), cont);
     }
 /** PREDICATE: wh_question/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(wh_question/5,public)
-        final static SymbolTerm FUNCTOR_whq_2 = F("whq",2);
+        final static Functor FUNCTOR_whq_2 = F("whq",2);
 
     // private final Term arg5;
 
@@ -1865,21 +1866,21 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_variable_q_8_static_exec, VA(a6, m.DONT_CARE2(), a8, a9, a2, a10, a4, a11), //
- Op(FILE_chat_parser::PRED_question_7_static_exec, VA(a8, a9, a7, a10, a3, a11, a5), cont));
+ Op("variable_q", FILE_chat_parser::PRED_variable_q_8_static_exec, VA(a6, m.DONT_CARE2(), a8, a9, a2, a10, a4, a11), //
+ Op("question", FILE_chat_parser::PRED_question_7_static_exec, VA(a8, a9, a7, a10, a3, a11, a5), cont));
     }
 /** PREDICATE: np/11
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np/11,public)
-        final static SymbolTerm FUNCTOR_np_7 = F("np",7);
-        final static SymbolTerm FUNCTOR_np_3 = F("np",3);
-        final static SymbolTerm ATOM_def = SYM("def");
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_part_2 = F("part",2);
-        final static SymbolTerm ATOM_indef = SYM("indef");
-        final static SymbolTerm ATOM_plu = SYM("plu");
-    private static final StructureTerm L_np_11_s13 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
+        final static Functor FUNCTOR_np_7 = F("np",7);
+        final static Functor FUNCTOR_np_3 = F("np",3);
+        final static Functor ATOM_def = SYM("def");
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_part_2 = F("part",2);
+        final static Functor ATOM_indef = SYM("indef");
+        final static Functor ATOM_plu = SYM("plu");
+    private static final Term L_np_11_s13 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11;
 
@@ -1936,7 +1937,7 @@ m.cont = cont;
         a12 =  S( FUNCTOR_np_7 , a1, a2, a3, a4, a5, a6, a7);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a12, a10, a11), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a12, a10, a11), cont);
     }
 
     private final static Operation np_11_2(Prolog m) { 
@@ -1969,10 +1970,10 @@ m.cont = cont;
             return m.fail();
         a14 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
- Op(FILE_chat_parser::PRED_pers_pron_7_static_exec, VA(a13, a12, a14, a8, a9, a10, a11), //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a7), //
- Op(FILE_chat_parser::PRED_role_3_static_exec, VA(a14,  ATOM_decl , a3), cont))));
+ Op("is_pp", FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
+ Op("pers_pron", FILE_chat_parser::PRED_pers_pron_7_static_exec, VA(a13, a12, a14, a8, a9, a10, a11), //
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a7), //
+ Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA(a14,  ATOM_decl , a3), cont))));
     }
 
     private final static Operation np_11_3(Prolog m) { 
@@ -2011,10 +2012,10 @@ m.cont = cont;
         a19 = m.mkvar1();
         a20 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
- Op(FILE_chat_parser::PRED_np_head_9_static_exec, VA(a13, a12, a16, a17, a14, a8, a18, a10, a19), //
- Op(FILE_chat_parser::PRED_np_all_1_static_exec, VA(a20), //
- Op(FILE_chat_parser::PRED_np_compls_10_static_exec, VA(a15, a12, a5, a17, a20, a7, a18, a9, a19, a11), cont))));
+ Op("is_pp", FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
+ Op("np_head", FILE_chat_parser::PRED_np_head_9_static_exec, VA(a13, a12, a16, a17, a14, a8, a18, a10, a19), //
+ Op("np_all", FILE_chat_parser::PRED_np_all_1_static_exec, VA(a20), //
+ Op("np_compls", FILE_chat_parser::PRED_np_compls_10_static_exec, VA(a15, a12, a5, a17, a20, a7, a18, a9, a19, a11), cont))));
     }
 
     private final static Operation np_11_4(Prolog m) { 
@@ -2055,25 +2056,25 @@ m.cont = cont;
         a19 = m.mkvar1();
         a20 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
- Op(FILE_chat_parser::PRED_determiner_7_static_exec, VA(a12, a14,  ATOM_indef , a8, a15, a10, a16), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_of , a15, a17, a16, a18), //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a19), //
- Op(FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a20), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a13, L_np_11_s13, a20,  ATOM_def , a5, a19, a7, a17, a9, a18, a11), cont))))));
+ Op("is_pp", FILE_chat_parser::PRED_is_pp_1_static_exec, VA(a6), //
+ Op("determiner", FILE_chat_parser::PRED_determiner_7_static_exec, VA(a12, a14,  ATOM_indef , a8, a15, a10, a16), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_of , a15, a17, a16, a18), //
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a19), //
+ Op("prep_case", FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a20), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a13, L_np_11_s13, a20,  ATOM_def , a5, a19, a7, a17, a9, a18, a11), cont))))));
     }
 /** PREDICATE: variable_q/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(variable_q/8,public)
-        final static SymbolTerm FUNCTOR_adv_phrase_3 = F("adv_phrase",3);
-        final static SymbolTerm FUNCTOR_np_head_3 = F("np_head",3);
-        final static SymbolTerm FUNCTOR_int_det_1 = F("int_det",1);
-        final static SymbolTerm FUNCTOR_predicate_3 = F("predicate",3);
-        final static SymbolTerm ATOM_adj = SYM("adj");
-        final static SymbolTerm FUNCTOR_value_2 = F("value",2);
-        final static SymbolTerm FUNCTOR_wh_1 = F("wh",1);
-        final static SymbolTerm ATOM_quant = SYM("quant");
+        final static Functor FUNCTOR_adv_phrase_3 = F("adv_phrase",3);
+        final static Functor FUNCTOR_np_head_3 = F("np_head",3);
+        final static Functor FUNCTOR_int_det_1 = F("int_det",1);
+        final static Functor FUNCTOR_predicate_3 = F("predicate",3);
+        final static Functor ATOM_adj = SYM("adj");
+        final static Functor FUNCTOR_value_2 = F("value",2);
+        final static Functor FUNCTOR_wh_1 = F("wh",1);
+        final static Functor ATOM_quant = SYM("quant");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -2132,8 +2133,8 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_whq_8_static_exec, VA(a1, a2, a11, a3, a5, a6, a7, a10), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
+ Op("whq", FILE_chat_parser::PRED_whq_8_static_exec, VA(a1, a2, a11, a3, a5, a6, a7, a10), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
     }
 
     private final static Operation variable_q_8_2(Prolog m) { 
@@ -2175,10 +2176,10 @@ m.cont = cont;
         a16 = m.mkvar1();
         a17 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_prep_5_static_exec, VA(a14, a5, a16, a7, a17), //
- Op(FILE_chat_parser::PRED_whq_8_static_exec, VA(a1, a2, a15, m.DONT_CARE2(), a16, a6, a17, a10), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), //
- Op(FILE_chat_parser::PRED_compl_case_1_static_exec, VA(a4), cont))));
+ Op("prep", FILE_chat_parser::PRED_prep_5_static_exec, VA(a14, a5, a16, a7, a17), //
+ Op("whq", FILE_chat_parser::PRED_whq_8_static_exec, VA(a1, a2, a15, m.DONT_CARE2(), a16, a6, a17, a10), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), //
+ Op("compl_case", FILE_chat_parser::PRED_compl_case_1_static_exec, VA(a4), cont))));
     }
 
     private final static Operation variable_q_8_3(Prolog m) { 
@@ -2233,9 +2234,9 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_context_pron_6_static_exec, VA(a14, a18, a5, a6, a7, a10), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), //
- Op(FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a4), cont)));
+ Op("context_pron", FILE_chat_parser::PRED_context_pron_6_static_exec, VA(a14, a18, a5, a6, a7, a10), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), //
+ Op("verb_case", FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a4), cont)));
     }
 
     private final static Operation variable_q_8_4(Prolog m) { 
@@ -2280,17 +2281,17 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_how , a5, a15, a7, a16), //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a13, a15, a6, a16, a10), //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a12), //
- Op(FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a4), cont))));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_how , a5, a15, a7, a16), //
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a13, a15, a6, a16, a10), //
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a12), //
+ Op("verb_case", FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a4), cont))));
     }
 /** PREDICATE: adv_phrase/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adv_phrase/7,public)
-        final static SymbolTerm FUNCTOR_prep_1 = F("prep",1);
-    private static final StructureTerm L_adv_phrase_7_s6 = S( FUNCTOR_prep_1 ,  ATOM_of );
+        final static Functor FUNCTOR_prep_1 = F("prep",1);
+    private static final Term L_adv_phrase_7_s6 = S( FUNCTOR_prep_1 ,  ATOM_of );
 
     // private final Term arg5, arg6, arg7;
 
@@ -2333,7 +2334,7 @@ m.cont = cont;
         a8 =  S( FUNCTOR_adv_phrase_3 , a1, a2, a3);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
     private final static Operation adv_phrase_7_2(Prolog m) { 
@@ -2362,14 +2363,14 @@ m.cont = cont;
         a12 =  S( FUNCTOR_pp_2 , L_adv_phrase_7_s6, a9);
  ;
         return //
- Op(FILE_chat_parser::PRED_loc_pred_5_static_exec, VA(a8, a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_pp_8_static_exec, VA(a12,  ATOM_compl , a2, a3, a10, a5, a11, a7), cont));
+ Op("loc_pred", FILE_chat_parser::PRED_loc_pred_5_static_exec, VA(a8, a4, a10, a6, a11), //
+ Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a12,  ATOM_compl , a2, a3, a10, a5, a11, a7), cont));
     }
 /** PREDICATE: predicate/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(predicate/7,public)
-        final static SymbolTerm ATOM_neg = SYM("neg");
+        final static Functor ATOM_neg = SYM("neg");
 
     // private final Term arg5, arg6, arg7;
 
@@ -2437,7 +2438,7 @@ m.cont = cont;
         a8 =  S( FUNCTOR_predicate_3 , a1, a2, a3);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
     private final static Operation predicate_7_2(Prolog m) { 
@@ -2454,7 +2455,7 @@ m.cont = cont;
         cont = m.cont;
     // predicate(A,B,C,D,E,F,G):-[adj_phrase(B,C,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_adj_phrase_6_static_exec, VA(a2, a3, a4, a5, a6, a7), cont);
+ Op("adj_phrase", FILE_chat_parser::PRED_adj_phrase_6_static_exec, VA(a2, a3, a4, a5, a6, a7), cont);
     }
 
     private final static Operation predicate_7_3(Prolog m) { 
@@ -2475,8 +2476,8 @@ m.cont = cont;
             return m.fail();
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
- Op(FILE_chat_parser::PRED_pp_8_static_exec, VA(a2,  ATOM_compl , a8, a3, a4, a5, a6, a7), cont));
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
+ Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a2,  ATOM_compl , a8, a3, a4, a5, a6, a7), cont));
     }
 
     private final static Operation predicate_7_4(Prolog m) { 
@@ -2495,8 +2496,8 @@ m.cont = cont;
     // predicate(A,B,C,D,E,F,G):-[s_all(H),adv_phrase(B,H,C,D,E,F,G)]
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
- Op(FILE_chat_parser::PRED_adv_phrase_7_static_exec, VA(a2, a8, a3, a4, a5, a6, a7), cont));
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
+ Op("adv_phrase", FILE_chat_parser::PRED_adv_phrase_7_static_exec, VA(a2, a8, a3, a4, a5, a6, a7), cont));
     }
 /** PREDICATE: whq/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -2542,9 +2543,9 @@ m.cont = cont;
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_int_det_6_static_exec, VA(a1, a2, a5, a9, a7, a10), //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a11), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a3, a2, m.DONT_CARE2(), m.DONT_CARE2(),  ATOM_subj , a11, m.DONT_CARE2(), a9, a6, a10, a8), cont)));
+ Op("int_det", FILE_chat_parser::PRED_int_det_6_static_exec, VA(a1, a2, a5, a9, a7, a10), //
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a11), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a3, a2, m.DONT_CARE2(), m.DONT_CARE2(),  ATOM_subj , a11, m.DONT_CARE2(), a9, a6, a10, a8), cont)));
     }
 
     private final static Operation whq_8_2(Prolog m) { 
@@ -2581,7 +2582,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_int_pron_5_static_exec, VA(a4, a5, a6, a7, a8), cont);
+ Op("int_pron", FILE_chat_parser::PRED_int_pron_5_static_exec, VA(a4, a5, a6, a7, a8), cont);
     }
 /** PREDICATE: int_det/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -2624,7 +2625,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_whose_6_static_exec, VA(a1, a7, a3, a4, a5, a6), cont);
+ Op("whose", FILE_chat_parser::PRED_whose_6_static_exec, VA(a1, a7, a3, a4, a5, a6), cont);
     }
 
     private final static Operation int_det_6_2(Prolog m) { 
@@ -2645,13 +2646,13 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_int_art_6_static_exec, VA(a1, a7, a3, a4, a5, a6), cont);
+ Op("int_art", FILE_chat_parser::PRED_int_art_6_static_exec, VA(a1, a7, a3, a4, a5, a6), cont);
     }
 /** PREDICATE: gen_marker/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(gen_marker/4,public)
-        final static SymbolTerm ATOM_gen_marker = SYM("gen_marker");
+        final static Functor ATOM_gen_marker = SYM("gen_marker");
 
 
 
@@ -2682,7 +2683,7 @@ m.cont = cont;
         if (! a1.unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA( ATOM_gen_marker , a3, a4), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA( ATOM_gen_marker , a3, a4), cont);
     }
 
     private final static Operation gen_marker_4_2(Prolog m) { 
@@ -2699,17 +2700,17 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_$007E , a1, a5, a3, a6), //
- Op(FILE_chat_parser::PRED_an_s_4_static_exec, VA(a5, a2, a6, a4), cont));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_$007E , a1, a5, a3, a6), //
+ Op("an_s", FILE_chat_parser::PRED_an_s_4_static_exec, VA(a5, a2, a6, a4), cont));
     }
 /** PREDICATE: whose/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(whose/6,public)
-        final static SymbolTerm ATOM_nogap = SYM("nogap");
-        final static SymbolTerm FUNCTOR_np_head0_3 = F("np_head0",3);
-        final static SymbolTerm ATOM_proper = SYM("proper");
-        final static SymbolTerm ATOM_whose = SYM("whose");
+        final static Functor ATOM_nogap = SYM("nogap");
+        final static Functor FUNCTOR_np_head0_3 = F("np_head0",3);
+        final static Functor ATOM_proper = SYM("proper");
+        final static Functor ATOM_whose = SYM("whose");
 
     // private final Term arg5, arg6;
 
@@ -2749,7 +2750,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_whose , a3, a4, a5, a10), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_whose , a3, a4, a5, a10), cont);
     }
 /** PREDICATE: question/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -2789,9 +2790,9 @@ m.cont = cont;
         cont = m.cont;
     // question(A,B,C,D,E,F,G):-[subj_question(A),role(subj,H,B),s(C,I,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_subj_question_1_static_exec, VA(a1), //
- Op(FILE_chat_parser::PRED_role_3_static_exec, VA( ATOM_subj , m.DONT_CARE2(), a2), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a3, m.DONT_CARE2(), a4, a5, a6, a7), cont)));
+ Op("subj_question", FILE_chat_parser::PRED_subj_question_1_static_exec, VA(a1), //
+ Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA( ATOM_subj , m.DONT_CARE2(), a2), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a3, m.DONT_CARE2(), a4, a5, a6, a7), cont)));
     }
 
     private final static Operation question_7_2(Prolog m) { 
@@ -2811,16 +2812,16 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_fronted_verb_6_static_exec, VA(a1, a2, a4, a8, a6, a9), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a3, m.DONT_CARE2(), a8, a5, a9, a7), cont));
+ Op("fronted_verb", FILE_chat_parser::PRED_fronted_verb_6_static_exec, VA(a1, a2, a4, a8, a6, a9), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a3, m.DONT_CARE2(), a8, a5, a9, a7), cont));
     }
 /** PREDICATE: det/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(det/7,public)
-        final static SymbolTerm FUNCTOR_det_3 = F("det",3);
-        final static SymbolTerm FUNCTOR_det_1 = F("det",1);
-        final static SymbolTerm ATOM_generic = SYM("generic");
+        final static Functor FUNCTOR_det_3 = F("det",3);
+        final static Functor FUNCTOR_det_1 = F("det",1);
+        final static Functor ATOM_generic = SYM("generic");
 
     // private final Term arg5, arg6, arg7;
 
@@ -2888,7 +2889,7 @@ m.cont = cont;
         a8 =  S( FUNCTOR_det_3 , a1, a2, a3);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
     private final static Operation det_7_2(Prolog m) { 
@@ -2912,8 +2913,8 @@ m.cont = cont;
             }
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a9, a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_det_4_static_exec, VA(a9, a2, a8, a3), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a9, a4, a5, a6, a7), //
+ Op("det", FILE_chat_parser::PRED_det_4_static_exec, VA(a9, a2, a8, a3), cont));
     }
 
     private final static Operation det_7_3(Prolog m) { 
@@ -2973,7 +2974,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_int_art_7_static_exec, VA(a1, a2, a9, a3, a4, a5, a8), cont);
+ Op("int_art", FILE_chat_parser::PRED_int_art_7_static_exec, VA(a1, a2, a9, a3, a4, a5, a8), cont);
     }
 /** PREDICATE: subj_question/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -3027,7 +3028,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(yn_question/5,public)
-        final static SymbolTerm FUNCTOR_q_1 = F("q",1);
+        final static Functor FUNCTOR_q_1 = F("q",1);
 
     // private final Term arg5;
 
@@ -3054,14 +3055,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_fronted_verb_6_static_exec, VA( ATOM_nil , m.DONT_CARE2(), a2, a7, a4, a8), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a7, a3, a8, a5), cont));
+ Op("fronted_verb", FILE_chat_parser::PRED_fronted_verb_6_static_exec, VA( ATOM_nil , m.DONT_CARE2(), a2, a7, a4, a8), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a7, a3, a8, a5), cont));
     }
 /** PREDICATE: verb_form/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_form/8,public)
-        final static SymbolTerm FUNCTOR_verb_form_4 = F("verb_form",4);
+        final static Functor FUNCTOR_verb_form_4 = F("verb_form",4);
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -3101,7 +3102,7 @@ m.cont = cont;
         a9 =  S( FUNCTOR_verb_form_4 , a1, a2, a3, a4);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
     private final static Operation verb_form_8_2(Prolog m) { 
@@ -3121,15 +3122,15 @@ m.cont = cont;
     // verb_form(A,B,C,D,E,F,G,H):-[terminal(I,E,F,G,H),verb_form(I,A,B,C)]
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a9, a5, a6, a7, a8), //
- Op(FILE_chat_parser::PRED_verb_form_4_static_exec, VA(a9, a1, a2, a3), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a9, a5, a6, a7, a8), //
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_4_static_exec, VA(a9, a1, a2, a3), cont));
     }
 /** PREDICATE: neg/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(neg/6,public)
-        final static SymbolTerm FUNCTOR_neg_2 = F("neg",2);
-        final static SymbolTerm ATOM_pos = SYM("pos");
+        final static Functor FUNCTOR_neg_2 = F("neg",2);
+        final static Functor ATOM_pos = SYM("pos");
 
     // private final Term arg5, arg6;
 
@@ -3186,7 +3187,7 @@ m.cont = cont;
         a7 =  S( FUNCTOR_neg_2 , a1, a2);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a7, a5, a6), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a7, a5, a6), cont);
     }
 
     private final static Operation neg_6_2(Prolog m) { 
@@ -3208,7 +3209,7 @@ m.cont = cont;
         if (!  ATOM_neg .unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
     }
 
     private final static Operation neg_6_3(Prolog m) { 
@@ -3285,16 +3286,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a18 =  S( FUNCTOR_$002B_2 ,  ATOM_aux , m.mkvar3());
  ;
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a9, a10, a11, m.DONT_CARE2(), a3, a16, a5, a17), //
- Op(FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a9, a18), //
- Op(FILE_chat_parser::PRED_role_3_static_exec, VA(a1, a12, a2), //
- Op(FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a15, a16, a4, a17, a14), cont))));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a9, a10, a11, m.DONT_CARE2(), a3, a16, a5, a17), //
+ Op("verb_type", FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a9, a18), //
+ Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA(a1, a12, a2), //
+ Op("neg", FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a15, a16, a4, a17, a14), cont))));
     }
 /** PREDICATE: imperative/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(imperative/5,public)
-        final static SymbolTerm FUNCTOR_imp_1 = F("imp",1);
+        final static Functor FUNCTOR_imp_1 = F("imp",1);
 
     // private final Term arg5;
 
@@ -3321,20 +3322,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_imperative_verb_4_static_exec, VA(a2, a7, a4, a8), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a7, a3, a8, a5), cont));
+ Op("imperative_verb", FILE_chat_parser::PRED_imperative_verb_4_static_exec, VA(a2, a7, a4, a8), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a6, m.DONT_CARE2(), a7, a3, a8, a5), cont));
     }
 /** PREDICATE: imperative_verb/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(imperative_verb/4,public)
-        final static SymbolTerm ATOM_you = SYM("you");
-        final static SymbolTerm ATOM_imp = SYM("imp");
-        final static SymbolTerm ATOM_fin = SYM("fin");
-    private static final StructureTerm L_imperative_verb_4_s11 = S( FUNCTOR_$002B_2 ,  ATOM_imp ,  ATOM_fin );
-        final static SymbolTerm ATOM_sin = SYM("sin");
-    private static final StructureTerm L_imperative_verb_4_s15 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
-        final static SymbolTerm ATOM_inf = SYM("inf");
+        final static Functor ATOM_you = SYM("you");
+        final static Functor ATOM_imp = SYM("imp");
+        final static Functor ATOM_fin = SYM("fin");
+    private static final Term L_imperative_verb_4_s11 = S( FUNCTOR_$002B_2 ,  ATOM_imp ,  ATOM_fin );
+        final static Functor ATOM_sin = SYM("sin");
+    private static final Term L_imperative_verb_4_s15 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
+        final static Functor ATOM_inf = SYM("inf");
 
 
 
@@ -3366,13 +3367,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a8,  ATOM_inf , m.DONT_CARE2(), m.DONT_CARE2(), a1, a2, a3, a7), cont);
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a8,  ATOM_inf , m.DONT_CARE2(), m.DONT_CARE2(), a1, a2, a3, a7), cont);
     }
 /** PREDICATE: s/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(s/6,public)
-        final static SymbolTerm FUNCTOR_s_4 = F("s",4);
+        final static Functor FUNCTOR_s_4 = F("s",4);
 
     // private final Term arg5, arg6;
 
@@ -3415,20 +3416,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a23 = m.mkvar1();
         a24 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_subj_7_static_exec, VA(a7, a11, a12, a3, a13, a5, a14), //
- Op(FILE_chat_parser::PRED_verb_8_static_exec, VA(a8, a11, a12, a15, a13, a16, a14, a17), //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a18), //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a19), //
- Op(FILE_chat_parser::PRED_verb_args_9_static_exec, VA(a12, a15, a9, a18, a20, a16, a21, a17, a22), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a19, a20, a23), //
- Op(FILE_chat_parser::PRED_myplus_3_static_exec, VA(a19, a20, a24), //
- Op(FILE_chat_parser::PRED_verb_mods_8_static_exec, VA(a10, a23, a24, a2, a21, a4, a22, a6), cont))))))));
+ Op("subj", FILE_chat_parser::PRED_subj_7_static_exec, VA(a7, a11, a12, a3, a13, a5, a14), //
+ Op("verb", FILE_chat_parser::PRED_verb_8_static_exec, VA(a8, a11, a12, a15, a13, a16, a14, a17), //
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a18), //
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a19), //
+ Op("verb_args", FILE_chat_parser::PRED_verb_args_9_static_exec, VA(a12, a15, a9, a18, a20, a16, a21, a17, a22), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a19, a20, a23), //
+ Op("myplus", FILE_chat_parser::PRED_myplus_3_static_exec, VA(a19, a20, a24), //
+ Op("verb_mods", FILE_chat_parser::PRED_verb_mods_8_static_exec, VA(a10, a23, a24, a2, a21, a4, a22, a6), cont))))))));
     }
 /** PREDICATE: subj/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(subj/7,public)
-        final static SymbolTerm ATOM_be = SYM("be");
+        final static Functor ATOM_be = SYM("be");
 
     // private final Term arg5, arg6, arg7;
 
@@ -3472,7 +3473,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_there , a4, a5, a6, a7), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_there , a4, a5, a6, a7), cont);
     }
 
     private final static Operation subj_7_2(Prolog m) { 
@@ -3492,9 +3493,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
- Op(FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a9), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a1, a2, a9, m.DONT_CARE2(),  ATOM_subj , a8, m.DONT_CARE2(), a4, a5, a6, a7), cont)));
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
+ Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a9), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a1, a2, a9, m.DONT_CARE2(),  ATOM_subj , a8, m.DONT_CARE2(), a4, a5, a6, a7), cont)));
     }
 /** PREDICATE: np_head/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -3529,18 +3530,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a10, a11, a12, a6, a13, a8, a14), //
- Op(FILE_chat_parser::PRED_possessive_14_static_exec, VA(a10, a11, a12, a15, a15, a1, a2, a3, a4, a5, a13, a7, a14, a9), cont));
+ Op("np_head0", FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a10, a11, a12, a6, a13, a8, a14), //
+ Op("possessive", FILE_chat_parser::PRED_possessive_14_static_exec, VA(a10, a11, a12, a15, a15, a1, a2, a3, a4, a5, a13, a7, a14, a9), cont));
     }
 /** PREDICATE: np_head0/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np_head0/7,public)
-        final static SymbolTerm FUNCTOR_name_1 = F("name",1);
-    private static final StructureTerm L_np_head0_7_s7 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
-    private static final StructureTerm L_np_head0_7_s11 = S( FUNCTOR_$002B_2 ,  ATOM_def ,  ATOM_proper );
-        final static SymbolTerm ATOM_common = SYM("common");
-    private static final StructureTerm L_np_head0_7_s21 = S( FUNCTOR_$002B_2 ,  ATOM_indef ,  ATOM_common );
+        final static Functor FUNCTOR_name_1 = F("name",1);
+    private static final Term L_np_head0_7_s7 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
+    private static final Term L_np_head0_7_s11 = S( FUNCTOR_$002B_2 ,  ATOM_def ,  ATOM_proper );
+        final static Functor ATOM_common = SYM("common");
+    private static final Term L_np_head0_7_s21 = S( FUNCTOR_$002B_2 ,  ATOM_indef ,  ATOM_common );
 
     // private final Term arg5, arg6, arg7;
 
@@ -3608,7 +3609,7 @@ m.cont = cont;
         a8 =  S( FUNCTOR_np_head0_3 , a1, a2, a3);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
     private final static Operation np_head0_7_2(Prolog m) { 
@@ -3634,7 +3635,7 @@ m.cont = cont;
         if (! L_np_head0_7_s11.unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_name_5_static_exec, VA(a8, a4, a5, a6, a7), cont);
+ Op("name", FILE_chat_parser::PRED_name_5_static_exec, VA(a8, a4, a5, a6, a7), cont);
     }
 
     private final static Operation np_head0_7_3(Prolog m) { 
@@ -3673,9 +3674,9 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_determiner_7_static_exec, VA(a8, a11, a12, a4, a13, a6, a14), //
- Op(FILE_chat_parser::PRED_adjs_5_static_exec, VA(a9, a13, a15, a14, a16), //
- Op(FILE_chat_parser::PRED_noun_6_static_exec, VA(a10, a11, a15, a5, a16, a7), cont)));
+ Op("determiner", FILE_chat_parser::PRED_determiner_7_static_exec, VA(a8, a11, a12, a4, a13, a6, a14), //
+ Op("adjs", FILE_chat_parser::PRED_adjs_5_static_exec, VA(a9, a13, a15, a14, a16), //
+ Op("noun", FILE_chat_parser::PRED_noun_6_static_exec, VA(a10, a11, a15, a5, a16, a7), cont)));
     }
 
     private final static Operation np_head0_7_4(Prolog m) { 
@@ -3699,7 +3700,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_poss_pron_6_static_exec, VA(a1, a2, a4, a5, a6, a8), cont);
+ Op("poss_pron", FILE_chat_parser::PRED_poss_pron_6_static_exec, VA(a1, a2, a4, a5, a6, a8), cont);
     }
 
     private final static Operation np_head0_7_5(Prolog m) { 
@@ -3726,7 +3727,7 @@ m.cont = cont;
         if (! L_np_head0_7_s21.unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_quantifier_pron_6_static_exec, VA(a8, a9, a4, a5, a6, a7), cont);
+ Op("quantifier_pron", FILE_chat_parser::PRED_quantifier_pron_6_static_exec, VA(a8, a9, a4, a5, a6, a7), cont);
     }
 /** PREDICATE: np_compls/10
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -3780,7 +3781,7 @@ m.cont = cont;
         if (! a9.unify(a10, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a6), cont);
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a6), cont);
     }
 
     private final static Operation np_compls_10_2(Prolog m) { 
@@ -3809,15 +3810,15 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_np_all_1_static_exec, VA(a11), //
- Op(FILE_chat_parser::PRED_np_mods_12_static_exec, VA(a2, a3, a12, a4, a5, a13, a11, a14, a7, a15, a9, a16), //
- Op(FILE_chat_parser::PRED_relative_9_static_exec, VA(a2, a12, a13, a14, a6, a15, a8, a16, a10), cont)));
+ Op("np_all", FILE_chat_parser::PRED_np_all_1_static_exec, VA(a11), //
+ Op("np_mods", FILE_chat_parser::PRED_np_mods_12_static_exec, VA(a2, a3, a12, a4, a5, a13, a11, a14, a7, a15, a9, a16), //
+ Op("relative", FILE_chat_parser::PRED_relative_9_static_exec, VA(a2, a12, a13, a14, a6, a15, a8, a16, a10), cont)));
     }
 /** PREDICATE: possessive/14
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(possessive/14,public)
-        final static SymbolTerm ATOM_poss = SYM("poss");
+        final static Functor ATOM_poss = SYM("poss");
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14;
 
@@ -3876,9 +3877,9 @@ m.cont = cont;
  ;
         a25 = CONS(a24, a22);
         return //
- Op(FILE_chat_parser::PRED_gen_case_4_static_exec, VA(a11, a15, a13, a16), //
- Op(FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a17, a18, a19, a15, a20, a16, a21), //
- Op(FILE_chat_parser::PRED_possessive_14_static_exec, VA(a17, a18, a19, a22, a25, a6, a7, a8, a9, a10, a20, a12, a21, a14), cont)));
+ Op("gen_case", FILE_chat_parser::PRED_gen_case_4_static_exec, VA(a11, a15, a13, a16), //
+ Op("np_head0", FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a17, a18, a19, a15, a20, a16, a21), //
+ Op("possessive", FILE_chat_parser::PRED_possessive_14_static_exec, VA(a17, a18, a19, a22, a25, a6, a7, a8, a9, a10, a20, a12, a21, a14), cont)));
     }
 
     private final static Operation possessive_14_2(Prolog m) { 
@@ -3941,7 +3942,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_gen_marker_4_static_exec, VA(a1, a2, a3, a5), cont);
+ Op("gen_marker", FILE_chat_parser::PRED_gen_marker_4_static_exec, VA(a1, a2, a3, a5), cont);
     }
 /** PREDICATE: an_s/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -3975,7 +3976,7 @@ m.cont = cont;
         cont = m.cont;
     // an_s(A,B,C,D):-[~(s,A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_s , a1, a2, a3, a4), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_s , a1, a2, a3, a4), cont);
     }
 
     private final static Operation an_s_4_2(Prolog m) { 
@@ -4031,7 +4032,7 @@ m.cont = cont;
         cont = m.cont;
     // determiner(A,B,C,D,E,F,G):-[det(A,B,C,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_det_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
+ Op("det", FILE_chat_parser::PRED_det_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
     }
 
     private final static Operation determiner_7_2(Prolog m) { 
@@ -4048,13 +4049,13 @@ m.cont = cont;
         cont = m.cont;
     // determiner(A,B,C,D,E,F,G):-[quant_phrase(A,B,C,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_quant_phrase_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
+ Op("quant_phrase", FILE_chat_parser::PRED_quant_phrase_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
     }
 /** PREDICATE: quant_phrase/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(quant_phrase/7,public)
-        final static SymbolTerm FUNCTOR_quant_2 = F("quant",2);
+        final static Functor FUNCTOR_quant_2 = F("quant",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -4084,15 +4085,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_quant_6_static_exec, VA(a8, a3, a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_number_6_static_exec, VA(a9, a2, a10, a5, a11, a7), cont));
+ Op("quant", FILE_chat_parser::PRED_quant_6_static_exec, VA(a8, a3, a4, a10, a6, a11), //
+ Op("number", FILE_chat_parser::PRED_number_6_static_exec, VA(a9, a2, a10, a5, a11, a7), cont));
     }
 /** PREDICATE: quant/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(quant/6,public)
-        final static SymbolTerm ATOM_at = SYM("at");
-        final static SymbolTerm ATOM_same = SYM("same");
+        final static Functor ATOM_at = SYM("at");
+        final static Functor ATOM_same = SYM("same");
 
     // private final Term arg5, arg6;
 
@@ -4157,9 +4158,9 @@ m.cont = cont;
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_neg_adv_6_static_exec, VA(a7, a1, a3, a8, a5, a9), //
- Op(FILE_chat_parser::PRED_comp_adv_5_static_exec, VA(a7, a8, a10, a9, a11), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a10, a4, a11, a6), cont)));
+ Op("neg_adv", FILE_chat_parser::PRED_neg_adv_6_static_exec, VA(a7, a1, a3, a8, a5, a9), //
+ Op("comp_adv", FILE_chat_parser::PRED_comp_adv_5_static_exec, VA(a7, a8, a10, a9, a11), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a10, a4, a11, a6), cont)));
     }
 
     private final static Operation quant_6_2(Prolog m) { 
@@ -4181,9 +4182,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_at , a3, a7, a5, a8), //
- Op(FILE_chat_parser::PRED_sup_adv_5_static_exec, VA(a9, a7, a4, a8, a6), //
- Op(FILE_chat_parser::PRED_sup_op_2_static_exec, VA(a9, a1), cont)));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_at , a3, a7, a5, a8), //
+ Op("sup_adv", FILE_chat_parser::PRED_sup_adv_5_static_exec, VA(a9, a7, a4, a8, a6), //
+ Op("sup_op", FILE_chat_parser::PRED_sup_op_2_static_exec, VA(a9, a1), cont)));
     }
 
     private final static Operation quant_6_3(Prolog m) { 
@@ -4203,7 +4204,7 @@ m.cont = cont;
         if (!  ATOM_def .unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_the , a3, a4, a5, a6), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_the , a3, a4, a5, a6), cont);
     }
 
     private final static Operation quant_6_4(Prolog m) { 
@@ -4268,7 +4269,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
     }
 
     private final static Operation neg_adv_6_2(Prolog m) { 
@@ -4295,11 +4296,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(sup_op/2,public)
-        final static SymbolTerm ATOM_least = SYM("least");
-        final static SymbolTerm ATOM_less = SYM("less");
-    private static final StructureTerm L_sup_op_2_s6 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_less );
-        final static SymbolTerm ATOM_most = SYM("most");
-    private static final StructureTerm L_sup_op_2_s10 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_more );
+        final static Functor ATOM_least = SYM("least");
+        final static Functor ATOM_less = SYM("less");
+    private static final Term L_sup_op_2_s6 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_less );
+        final static Functor ATOM_most = SYM("most");
+    private static final Term L_sup_op_2_s10 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_more );
 
 
 
@@ -4411,12 +4412,12 @@ m.cont = cont;
         a20 = m.mkvar1();
         a21 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_np_mod_9_static_exec, VA(a1, a2, a13, a5, a15, a9, a16, a11, a17), //
- Op(FILE_chat_parser::PRED_trace1_1_static_exec, VA(a18), //
- Op(FILE_chat_parser::PRED_myplus_3_static_exec, VA(a18, a15, a19), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a5, a19, a20), //
- Op(FILE_chat_parser::PRED_myplus_3_static_exec, VA(a15, a5, a21), //
- Op(FILE_chat_parser::PRED_np_mods_12_static_exec, VA(a1, a2, a3, a14, a20, a6, a21, a8, a16, a10, a17, a12), cont))))));
+ Op("np_mod", FILE_chat_parser::PRED_np_mod_9_static_exec, VA(a1, a2, a13, a5, a15, a9, a16, a11, a17), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_1_static_exec, VA(a18), //
+ Op("myplus", FILE_chat_parser::PRED_myplus_3_static_exec, VA(a18, a15, a19), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a5, a19, a20), //
+ Op("myplus", FILE_chat_parser::PRED_myplus_3_static_exec, VA(a15, a5, a21), //
+ Op("np_mods", FILE_chat_parser::PRED_np_mods_12_static_exec, VA(a1, a2, a3, a14, a20, a6, a21, a8, a16, a10, a17, a12), cont))))));
     }
 
     private final static Operation np_mods_12_2(Prolog m) { 
@@ -4488,7 +4489,7 @@ m.cont = cont;
         cont = m.cont;
     // np_mod(A,B,C,D,E,F,G,H,I):-[pp(C,B,D,E,F,G,H,I)]
         return //
- Op(FILE_chat_parser::PRED_pp_8_static_exec, VA(a3, a2, a4, a5, a6, a7, a8, a9), cont);
+ Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a3, a2, a4, a5, a6, a7, a8, a9), cont);
     }
 
     private final static Operation np_mod_9_2(Prolog m) { 
@@ -4507,7 +4508,7 @@ m.cont = cont;
         cont = m.cont;
     // np_mod(A,B,C,D,E,F,G,H,I):-[reduced_relative(A,C,D,E,F,G,H,I)]
         return //
- Op(FILE_chat_parser::PRED_reduced_relative_8_static_exec, VA(a1, a3, a4, a5, a6, a7, a8, a9), cont);
+ Op("reduced_relative", FILE_chat_parser::PRED_reduced_relative_8_static_exec, VA(a1, a3, a4, a5, a6, a7, a8, a9), cont);
     }
 /** PREDICATE: verb_mods/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -4570,12 +4571,12 @@ m.cont = cont;
         a16 = m.mkvar1();
         a17 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_mod_7_static_exec, VA(a9, a2, a11, a5, a12, a7, a13), //
- Op(FILE_chat_parser::PRED_trace1_1_static_exec, VA(a14), //
- Op(FILE_chat_parser::PRED_myplus_3_static_exec, VA(a14, a11, a15), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a2, a15, a16), //
- Op(FILE_chat_parser::PRED_myplus_3_static_exec, VA(a11, a2, a17), //
- Op(FILE_chat_parser::PRED_verb_mods_8_static_exec, VA(a10, a16, a17, a4, a12, a6, a13, a8), cont))))));
+ Op("verb_mod", FILE_chat_parser::PRED_verb_mod_7_static_exec, VA(a9, a2, a11, a5, a12, a7, a13), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_1_static_exec, VA(a14), //
+ Op("myplus", FILE_chat_parser::PRED_myplus_3_static_exec, VA(a14, a11, a15), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a2, a15, a16), //
+ Op("myplus", FILE_chat_parser::PRED_myplus_3_static_exec, VA(a11, a2, a17), //
+ Op("verb_mods", FILE_chat_parser::PRED_verb_mods_8_static_exec, VA(a10, a16, a17, a4, a12, a6, a13, a8), cont))))));
     }
 
     private final static Operation verb_mods_8_2(Prolog m) { 
@@ -4644,7 +4645,7 @@ m.cont = cont;
         cont = m.cont;
     // verb_mod(A,B,C,D,E,F,G):-[adv_phrase(A,B,C,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_adv_phrase_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
+ Op("adv_phrase", FILE_chat_parser::PRED_adv_phrase_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
     }
 
     private final static Operation verb_mod_7_2(Prolog m) { 
@@ -4662,9 +4663,9 @@ m.cont = cont;
         cont = m.cont;
     // verb_mod(A,B,C,D,E,F,G):-[is_adv(B),adverb(A,D,E,F,G),empty(C)]
         return //
- Op(FILE_chat_parser::PRED_is_adv_1_static_exec, VA(a2), //
- Op(FILE_chat_parser::PRED_adverb_5_static_exec, VA(a1, a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a3), cont)));
+ Op("is_adv", FILE_chat_parser::PRED_is_adv_1_static_exec, VA(a2), //
+ Op("adverb", FILE_chat_parser::PRED_adverb_5_static_exec, VA(a1, a4, a5, a6, a7), //
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a3), cont)));
     }
 
     private final static Operation verb_mod_7_3(Prolog m) { 
@@ -4681,7 +4682,7 @@ m.cont = cont;
         cont = m.cont;
     // verb_mod(A,B,C,D,E,F,G):-[pp(A,compl,B,C,D,E,F,G)]
         return //
- Op(FILE_chat_parser::PRED_pp_8_static_exec, VA(a1,  ATOM_compl , a2, a3, a4, a5, a6, a7), cont);
+ Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a1,  ATOM_compl , a2, a3, a4, a5, a6, a7), cont);
     }
 /** PREDICATE: adjs/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -4736,8 +4737,8 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_pre_adj_5_static_exec, VA(a6, a2, a8, a4, a9), //
- Op(FILE_chat_parser::PRED_adjs_5_static_exec, VA(a7, a8, a3, a9, a5), cont));
+ Op("pre_adj", FILE_chat_parser::PRED_pre_adj_5_static_exec, VA(a6, a2, a8, a4, a9), //
+ Op("adjs", FILE_chat_parser::PRED_adjs_5_static_exec, VA(a7, a8, a3, a9, a5), cont));
     }
 
     private final static Operation adjs_5_2(Prolog m) { 
@@ -4794,7 +4795,7 @@ m.cont = cont;
         cont = m.cont;
     // pre_adj(A,B,C,D,E):-[adj(F,A,B,C,D,E)]
         return //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA(m.DONT_CARE2(), a1, a2, a3, a4, a5), cont);
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA(m.DONT_CARE2(), a1, a2, a3, a4, a5), cont);
     }
 
     private final static Operation pre_adj_5_2(Prolog m) { 
@@ -4809,13 +4810,13 @@ m.cont = cont;
         cont = m.cont;
     // pre_adj(A,B,C,D,E):-[sup_phrase(A,B,C,D,E)]
         return //
- Op(FILE_chat_parser::PRED_sup_phrase_5_static_exec, VA(a1, a2, a3, a4, a5), cont);
+ Op("sup_phrase", FILE_chat_parser::PRED_sup_phrase_5_static_exec, VA(a1, a2, a3, a4, a5), cont);
     }
 /** PREDICATE: sup_phrase/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(sup_phrase/5,public)
-        final static SymbolTerm FUNCTOR_sup_2 = F("sup",2);
+        final static Functor FUNCTOR_sup_2 = F("sup",2);
 
     // private final Term arg5;
 
@@ -4856,7 +4857,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_sup_adj_5_static_exec, VA(a6, a2, a3, a4, a5), cont);
+ Op("sup_adj", FILE_chat_parser::PRED_sup_adj_5_static_exec, VA(a6, a2, a3, a4, a5), cont);
     }
 
     private final static Operation sup_phrase_5_2(Prolog m) { 
@@ -4880,14 +4881,14 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_sup_adv_5_static_exec, VA(a6, a2, a8, a4, a9), //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a7, a8, a3, a9, a5), cont));
+ Op("sup_adv", FILE_chat_parser::PRED_sup_adv_5_static_exec, VA(a6, a2, a8, a4, a9), //
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a7, a8, a3, a9, a5), cont));
     }
 /** PREDICATE: comp_phrase/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(comp_phrase/6,public)
-        final static SymbolTerm FUNCTOR_comp_3 = F("comp",3);
+        final static Functor FUNCTOR_comp_3 = F("comp",3);
 
     // private final Term arg5, arg6;
 
@@ -4919,16 +4920,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_comp_6_static_exec, VA(a7, a8, a3, a10, a5, a11), //
- Op(FILE_chat_parser::PRED_np_no_trace_1_static_exec, VA(a12), //
- Op(FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a13), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a9, m.DONT_CARE2(), a13, m.DONT_CARE2(),  ATOM_compl , a12, a2, a10, a4, a11, a6), cont))));
+ Op("comp", FILE_chat_parser::PRED_comp_6_static_exec, VA(a7, a8, a3, a10, a5, a11), //
+ Op("np_no_trace", FILE_chat_parser::PRED_np_no_trace_1_static_exec, VA(a12), //
+ Op("prep_case", FILE_chat_parser::PRED_prep_case_1_static_exec, VA(a13), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a9, m.DONT_CARE2(), a13, m.DONT_CARE2(),  ATOM_compl , a12, a2, a10, a4, a11, a6), cont))));
     }
 /** PREDICATE: comp/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(comp/6,public)
-        final static SymbolTerm ATOM_as = SYM("as");
+        final static Functor ATOM_as = SYM("as");
 
     // private final Term arg5, arg6;
 
@@ -4975,9 +4976,9 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_comp_adv_5_static_exec, VA(a1, a3, a7, a5, a8), //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a2, a7, a9, a8, a10), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a9, a4, a10, a6), cont)));
+ Op("comp_adv", FILE_chat_parser::PRED_comp_adv_5_static_exec, VA(a1, a3, a7, a5, a8), //
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a2, a7, a9, a8, a10), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a9, a4, a10, a6), cont)));
     }
 
     private final static Operation comp_6_2(Prolog m) { 
@@ -4998,8 +4999,8 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_rel_adj_5_static_exec, VA(a2, a3, a7, a5, a8), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a7, a4, a8, a6), cont));
+ Op("rel_adj", FILE_chat_parser::PRED_rel_adj_5_static_exec, VA(a2, a3, a7, a5, a8), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a7, a4, a8, a6), cont));
     }
 
     private final static Operation comp_6_3(Prolog m) { 
@@ -5022,9 +5023,9 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_as , a3, a7, a5, a8), //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a2, a7, a9, a8, a10), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_as , a9, a4, a10, a6), cont)));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_as , a3, a7, a5, a8), //
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA( ATOM_quant , a2, a7, a9, a8, a10), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_as , a9, a4, a10, a6), cont)));
     }
 /** PREDICATE: relative/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5077,8 +5078,8 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_chat_parser::PRED_is_pred_1_static_exec, VA(a3), //
- Op(FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, m.DONT_CARE2(), a10, a5, a6, a7, a8, a9), cont));
+ Op("is_pred", FILE_chat_parser::PRED_is_pred_1_static_exec, VA(a3), //
+ Op("rel_conj", FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, m.DONT_CARE2(), a10, a5, a6, a7, a8, a9), cont));
     }
 
     private final static Operation relative_9_2(Prolog m) { 
@@ -5136,8 +5137,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a11 = m.mkvar1();
         a12 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_rel_7_static_exec, VA(a1, a9, a10, a5, a11, a7, a12), //
- Op(FILE_chat_parser::PRED_rel_rest_10_static_exec, VA(a1, a2, a9, a3, a10, a4, a11, a6, a12, a8), cont));
+ Op("rel", FILE_chat_parser::PRED_rel_7_static_exec, VA(a1, a9, a10, a5, a11, a7, a12), //
+ Op("rel_rest", FILE_chat_parser::PRED_rel_rest_10_static_exec, VA(a1, a2, a9, a3, a10, a4, a11, a6, a12, a8), cont));
     }
 /** PREDICATE: rel_rest/10
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5184,8 +5185,8 @@ m.cont = cont;
         a13 = m.mkvar1();
         a14 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_conj_9_static_exec, VA(a2, a11, a3, a12, a4, a7, a13, a9, a14), //
- Op(FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
+ Op("conj", FILE_chat_parser::PRED_conj_9_static_exec, VA(a2, a11, a3, a12, a4, a7, a13, a9, a14), //
+ Op("rel_conj", FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
     }
 
     private final static Operation rel_rest_10_2(Prolog m) { 
@@ -5218,7 +5219,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(rel/7,public)
-        final static SymbolTerm FUNCTOR_rel_2 = F("rel",2);
+        final static Functor FUNCTOR_rel_2 = F("rel",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -5254,12 +5255,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a16 = m.mkvar1();
         a17 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_myopen_4_static_exec, VA(a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_variable_6_static_exec, VA(a1, a8, a10, a12, a11, a13), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a9, a14, a12, a15, a13, a16), //
- Op(FILE_chat_parser::PRED_trace1_1_static_exec, VA(a17), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a14, a17, a3), //
- Op(FILE_chat_parser::PRED_close_4_static_exec, VA(a15, a5, a16, a7), cont))))));
+ Op("myopen", FILE_chat_parser::PRED_myopen_4_static_exec, VA(a4, a10, a6, a11), //
+ Op("variable", FILE_chat_parser::PRED_variable_6_static_exec, VA(a1, a8, a10, a12, a11, a13), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a9, a14, a12, a15, a13, a16), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_1_static_exec, VA(a17), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a14, a17, a3), //
+ Op("close", FILE_chat_parser::PRED_close_4_static_exec, VA(a15, a5, a16, a7), cont))))));
     }
 /** PREDICATE: variable/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5325,8 +5326,8 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_that , a3, a4, a5, a8), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a10, a11), cont));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_that , a3, a4, a5, a8), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a10, a11), cont));
     }
 
     private final static Operation variable_6_2(Prolog m) { 
@@ -5358,8 +5359,8 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_wh_9_static_exec, VA(a2, a1, a9, a10, a11, a3, a4, a5, a8), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
+ Op("wh", FILE_chat_parser::PRED_wh_9_static_exec, VA(a2, a1, a9, a10, a11, a3, a4, a5, a8), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
     }
 
     private final static Operation variable_6_3(Prolog m) { 
@@ -5398,10 +5399,10 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_prep_5_static_exec, VA(a12, a3, a14, a5, a15), //
- Op(FILE_chat_parser::PRED_wh_9_static_exec, VA(a2, a1, a13, m.DONT_CARE2(), a16, a14, a4, a15, a8), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a10, a11), //
- Op(FILE_chat_parser::PRED_compl_case_1_static_exec, VA(a16), cont))));
+ Op("prep", FILE_chat_parser::PRED_prep_5_static_exec, VA(a12, a3, a14, a5, a15), //
+ Op("wh", FILE_chat_parser::PRED_wh_9_static_exec, VA(a2, a1, a13, m.DONT_CARE2(), a16, a14, a4, a15, a8), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a10, a11), //
+ Op("compl_case", FILE_chat_parser::PRED_compl_case_1_static_exec, VA(a16), cont))));
     }
 /** PREDICATE: wh/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5460,8 +5461,8 @@ m.cont = cont;
             return m.fail();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_rel_pron_5_static_exec, VA(a11, a6, a7, a8, a9), //
- Op(FILE_chat_parser::PRED_role_3_static_exec, VA(a11,  ATOM_decl , a5), cont));
+ Op("rel_pron", FILE_chat_parser::PRED_rel_pron_5_static_exec, VA(a11, a6, a7, a8, a9), //
+ Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA(a11,  ATOM_decl , a5), cont));
     }
 
     private final static Operation wh_9_2(Prolog m) { 
@@ -5514,9 +5515,9 @@ m.cont = cont;
         a19 = m.mkvar1();
         a20 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a11, a10, a16, a6, a17, a8, a18), //
- Op(FILE_chat_parser::PRED_prep_5_static_exec, VA(a14, a17, a19, a18, a20), //
- Op(FILE_chat_parser::PRED_wh_9_static_exec, VA(a1, a2, a15, m.DONT_CARE2(), m.DONT_CARE2(), a19, a7, a20, a9), cont)));
+ Op("np_head0", FILE_chat_parser::PRED_np_head0_7_static_exec, VA(a11, a10, a16, a6, a17, a8, a18), //
+ Op("prep", FILE_chat_parser::PRED_prep_5_static_exec, VA(a14, a17, a19, a18, a20), //
+ Op("wh", FILE_chat_parser::PRED_wh_9_static_exec, VA(a1, a2, a15, m.DONT_CARE2(), m.DONT_CARE2(), a19, a7, a20, a9), cont)));
     }
 
     private final static Operation wh_9_3(Prolog m) { 
@@ -5539,9 +5540,9 @@ m.cont = cont;
         a11 = m.mkvar1();
         a12 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_whose_6_static_exec, VA(a1, a2, a6, a10, a8, a11), //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a12), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a3, a4, a5,  ATOM_def ,  ATOM_subj , a12, m.DONT_CARE2(), a10, a7, a11, a9), cont)));
+ Op("whose", FILE_chat_parser::PRED_whose_6_static_exec, VA(a1, a2, a6, a10, a8, a11), //
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a12), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a3, a4, a5,  ATOM_def ,  ATOM_subj , a12, m.DONT_CARE2(), a10, a7, a11, a9), cont)));
     }
 /** PREDICATE: reduced_relative/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5569,8 +5570,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a8 = LARG[7];
     // reduced_relative(A,B,C,D,E,F,G,H):-[is_pred(C),reduced_rel_conj(A,I,B,D,E,F,G,H)]
         return //
- Op(FILE_chat_parser::PRED_is_pred_1_static_exec, VA(a3), //
- Op(FILE_chat_parser::PRED_reduced_rel_conj_8_static_exec, VA(a1, m.DONT_CARE2(), a2, a4, a5, a6, a7, a8), cont));
+ Op("is_pred", FILE_chat_parser::PRED_is_pred_1_static_exec, VA(a3), //
+ Op("reduced_rel_conj", FILE_chat_parser::PRED_reduced_rel_conj_8_static_exec, VA(a1, m.DONT_CARE2(), a2, a4, a5, a6, a7, a8), cont));
     }
 /** PREDICATE: reduced_rel_conj/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5602,8 +5603,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a11 = m.mkvar1();
         a12 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_reduced_rel_7_static_exec, VA(a1, a9, a10, a5, a11, a7, a12), //
- Op(FILE_chat_parser::PRED_reduced_rel_rest_10_static_exec, VA(a1, a2, a9, a3, a10, a4, a11, a6, a12, a8), cont));
+ Op("reduced_rel", FILE_chat_parser::PRED_reduced_rel_7_static_exec, VA(a1, a9, a10, a5, a11, a7, a12), //
+ Op("reduced_rel_rest", FILE_chat_parser::PRED_reduced_rel_rest_10_static_exec, VA(a1, a2, a9, a3, a10, a4, a11, a6, a12, a8), cont));
     }
 /** PREDICATE: reduced_rel_rest/10
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -5650,8 +5651,8 @@ m.cont = cont;
         a13 = m.mkvar1();
         a14 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_conj_9_static_exec, VA(a2, a11, a3, a12, a4, a7, a13, a9, a14), //
- Op(FILE_chat_parser::PRED_reduced_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
+ Op("conj", FILE_chat_parser::PRED_conj_9_static_exec, VA(a2, a11, a3, a12, a4, a7, a13, a9, a14), //
+ Op("reduced_rel_conj", FILE_chat_parser::PRED_reduced_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
     }
 
     private final static Operation reduced_rel_rest_10_2(Prolog m) { 
@@ -5684,7 +5685,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(reduced_rel/7,public)
-        final static SymbolTerm FUNCTOR_reduced_rel_2 = F("reduced_rel",2);
+        final static Functor FUNCTOR_reduced_rel_2 = F("reduced_rel",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -5720,20 +5721,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a16 = m.mkvar1();
         a17 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_myopen_4_static_exec, VA(a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_reduced_wh_6_static_exec, VA(a1, a8, a10, a12, a11, a13), //
- Op(FILE_chat_parser::PRED_s_6_static_exec, VA(a9, a14, a12, a15, a13, a16), //
- Op(FILE_chat_parser::PRED_trace1_1_static_exec, VA(a17), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a14, a17, a3), //
- Op(FILE_chat_parser::PRED_close_4_static_exec, VA(a15, a5, a16, a7), cont))))));
+ Op("myopen", FILE_chat_parser::PRED_myopen_4_static_exec, VA(a4, a10, a6, a11), //
+ Op("reduced_wh", FILE_chat_parser::PRED_reduced_wh_6_static_exec, VA(a1, a8, a10, a12, a11, a13), //
+ Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a9, a14, a12, a15, a13, a16), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_1_static_exec, VA(a17), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a14, a17, a3), //
+ Op("close", FILE_chat_parser::PRED_close_4_static_exec, VA(a15, a5, a16, a7), cont))))));
     }
 /** PREDICATE: reduced_wh/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(reduced_wh/6,public)
-        final static SymbolTerm ATOM_pres = SYM("pres");
-    private static final StructureTerm L_reduced_wh_6_s14 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
-        final static SymbolTerm FUNCTOR_verb_4 = F("verb",4);
+        final static Functor ATOM_pres = SYM("pres");
+    private static final Term L_reduced_wh_6_s14 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
+        final static Functor FUNCTOR_verb_4 = F("verb",4);
 
     // private final Term arg5, arg6;
 
@@ -5830,10 +5831,10 @@ m.cont = cont;
         a23 = m.mkvar1();
         a24 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a18, a3, a23, a5, a24), //
- Op(FILE_chat_parser::PRED_predicate_7_static_exec, VA(a18, a21, a22, a23, a4, a24, a20), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a11, a12), //
- Op(FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont))));
+ Op("neg", FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a18, a3, a23, a5, a24), //
+ Op("predicate", FILE_chat_parser::PRED_predicate_7_static_exec, VA(a18, a21, a22, a23, a4, a24, a20), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a11, a12), //
+ Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont))));
     }
 
     private final static Operation reduced_wh_6_2(Prolog m) { 
@@ -5886,9 +5887,9 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_participle_7_static_exec, VA(a16, a17, a18, a3, a4, a5, a15), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a11, a12), //
- Op(FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont)));
+ Op("participle", FILE_chat_parser::PRED_participle_7_static_exec, VA(a16, a17, a18, a3, a4, a5, a15), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a11, a12), //
+ Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont)));
     }
 
     private final static Operation reduced_wh_6_3(Prolog m) { 
@@ -5945,18 +5946,18 @@ m.cont = cont;
             }
         a22 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a22), //
- Op(FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a11), //
- Op(FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a18), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a9, a10, m.DONT_CARE2(), a12,  ATOM_subj , a22, m.DONT_CARE2(), a3, a4, a5, a16), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a13, a14), //
- Op(FILE_chat_parser::PRED_trace1_2_static_exec, VA(a19, a20), cont))))));
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a22), //
+ Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a11), //
+ Op("verb_case", FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a18), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a9, a10, m.DONT_CARE2(), a12,  ATOM_subj , a22, m.DONT_CARE2(), a3, a4, a5, a16), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a13, a14), //
+ Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a19, a20), cont))))));
     }
 /** PREDICATE: verb/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb/8,public)
-        final static SymbolTerm FUNCTOR_verb_5 = F("verb",5);
+        final static Functor FUNCTOR_verb_5 = F("verb",5);
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -6000,7 +6001,7 @@ m.cont = cont;
         a9 =  S( FUNCTOR_verb_4 , a1, a2, a3, a4);
  ;
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
     private final static Operation verb_8_2(Prolog m) { 
@@ -6045,23 +6046,23 @@ m.cont = cont;
         a21 = m.mkvar1();
         a22 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a15, a16, a2, a17, a5, a18, a7, a19), //
- Op(FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a15, a20), //
- Op(FILE_chat_parser::PRED_neg_6_static_exec, VA(a20, a13, a18, a21, a19, a22), //
- Op(FILE_chat_parser::PRED_rest_verb_9_static_exec, VA(a17, a15, a9, a10, a12, a21, a6, a22, a8), //
- Op(FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a9, a3), cont)))));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a15, a16, a2, a17, a5, a18, a7, a19), //
+ Op("verb_type", FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a15, a20), //
+ Op("neg", FILE_chat_parser::PRED_neg_6_static_exec, VA(a20, a13, a18, a21, a19, a22), //
+ Op("rest_verb", FILE_chat_parser::PRED_rest_verb_9_static_exec, VA(a17, a15, a9, a10, a12, a21, a6, a22, a8), //
+ Op("verb_type", FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a9, a3), cont)))));
     }
 /** PREDICATE: rest_verb/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(rest_verb/9,public)
-        final static SymbolTerm ATOM_have = SYM("have");
-        final static SymbolTerm ATOM_perf = SYM("perf");
-        final static SymbolTerm ATOM_past = SYM("past");
-        final static SymbolTerm ATOM_part = SYM("part");
-    private static final StructureTerm L_rest_verb_9_s8 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static SymbolTerm ATOM_do = SYM("do");
-        final static SymbolTerm ATOM_active = SYM("active");
+        final static Functor ATOM_have = SYM("have");
+        final static Functor ATOM_perf = SYM("perf");
+        final static Functor ATOM_past = SYM("past");
+        final static Functor ATOM_part = SYM("part");
+    private static final Term L_rest_verb_9_s8 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+        final static Functor ATOM_do = SYM("do");
+        final static Functor ATOM_active = SYM("active");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -6130,8 +6131,8 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a11, L_rest_verb_9_s8, m.DONT_CARE2(), m.DONT_CARE2(), a6, a12, a8, a13), //
- Op(FILE_chat_parser::PRED_have_8_static_exec, VA(a11, a3, a4, a10, a12, a7, a13, a9), cont));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a11, L_rest_verb_9_s8, m.DONT_CARE2(), m.DONT_CARE2(), a6, a12, a8, a13), //
+ Op("have", FILE_chat_parser::PRED_have_8_static_exec, VA(a11, a3, a4, a10, a12, a7, a13, a9), cont));
     }
 
     private final static Operation rest_verb_9_2(Prolog m) { 
@@ -6159,8 +6160,8 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a10, a11, m.DONT_CARE2(), m.DONT_CARE2(), a6, a12, a8, a13), //
- Op(FILE_chat_parser::PRED_be_9_static_exec, VA(a11, a10, a3, a4, a5, a12, a7, a13, a9), cont));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a10, a11, m.DONT_CARE2(), m.DONT_CARE2(), a6, a12, a8, a13), //
+ Op("be", FILE_chat_parser::PRED_be_9_static_exec, VA(a11, a10, a3, a4, a5, a12, a7, a13, a9), cont));
     }
 
     private final static Operation rest_verb_9_3(Prolog m) { 
@@ -6187,7 +6188,7 @@ m.cont = cont;
         if (!  Prolog.Nil .unify(a5, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a3,  ATOM_inf , m.DONT_CARE2(), m.DONT_CARE2(), a6, a7, a8, a9), cont);
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a3,  ATOM_inf , m.DONT_CARE2(), m.DONT_CARE2(), a6, a7, a8, a9), cont);
     }
 
     private final static Operation rest_verb_9_4(Prolog m) { 
@@ -6268,8 +6269,8 @@ m.cont = cont;
         a11 = m.mkvar1();
         a12 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a9, a10, m.DONT_CARE2(), m.DONT_CARE2(), a5, a11, a7, a12), //
- Op(FILE_chat_parser::PRED_be_9_static_exec, VA(a10, a9, a2, a3, a4, a11, a6, a12, a8), cont));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a9, a10, m.DONT_CARE2(), m.DONT_CARE2(), a5, a11, a7, a12), //
+ Op("be", FILE_chat_parser::PRED_be_9_static_exec, VA(a10, a9, a2, a3, a4, a11, a6, a12, a8), cont));
     }
 
     private final static Operation have_8_2(Prolog m) { 
@@ -6302,11 +6303,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(be/9,public)
-    private static final StructureTerm L_be_9_s5 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static SymbolTerm ATOM_passive = SYM("passive");
-    private static final StructureTerm L_be_9_s10 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-        final static SymbolTerm ATOM_prog = SYM("prog");
-    private static final ListTerm L_be_9_s12 = CONS( ATOM_prog ,  Prolog.Nil );
+    private static final Term L_be_9_s5 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+        final static Functor ATOM_passive = SYM("passive");
+    private static final Term L_be_9_s10 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+        final static Functor ATOM_prog = SYM("prog");
+    private static final Term L_be_9_s12 = CONS( ATOM_prog ,  Prolog.Nil );
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -6380,13 +6381,13 @@ m.cont = cont;
         if (! L_be_9_s12.unify(a5, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_passive_7_static_exec, VA(a2, a3, a4, a6, a7, a8, a9), cont);
+ Op("passive", FILE_chat_parser::PRED_passive_7_static_exec, VA(a2, a3, a4, a6, a7, a8, a9), cont);
     }
 /** PREDICATE: passive/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(passive/7,public)
-    private static final StructureTerm L_passive_7_s7 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Term L_passive_7_s7 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
 
     // private final Term arg5, arg6, arg7;
 
@@ -6430,9 +6431,9 @@ m.cont = cont;
             return m.fail();
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a2, L_passive_7_s7, m.DONT_CARE2(), m.DONT_CARE2(), a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a2, a8), //
- Op(FILE_chat_parser::PRED_passive_1_static_exec, VA(a8), cont)));
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a2, L_passive_7_s7, m.DONT_CARE2(), m.DONT_CARE2(), a4, a5, a6, a7), //
+ Op("verb_type", FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a2, a8), //
+ Op("passive", FILE_chat_parser::PRED_passive_1_static_exec, VA(a8), cont)));
     }
 
     private final static Operation passive_7_2(Prolog m) { 
@@ -6496,17 +6497,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a13 = m.mkvar1();
         a14 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a11, a4, a12, a6, a13), //
- Op(FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a8, a14, m.DONT_CARE2(), m.DONT_CARE2(), a12, a5, a13, a7), //
- Op(FILE_chat_parser::PRED_participle_3_static_exec, VA(a14, a9, a10), //
- Op(FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a8, a2), cont))));
+ Op("neg", FILE_chat_parser::PRED_neg_6_static_exec, VA(m.DONT_CARE2(), a11, a4, a12, a6, a13), //
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a8, a14, m.DONT_CARE2(), m.DONT_CARE2(), a12, a5, a13, a7), //
+ Op("participle", FILE_chat_parser::PRED_participle_3_static_exec, VA(a14, a9, a10), //
+ Op("verb_type", FILE_chat_parser::PRED_verb_type_2_static_exec, VA(a8, a2), cont))));
     }
 /** PREDICATE: passive/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(passive/1,public)
-        final static SymbolTerm ATOM_trans = SYM("trans");
-        final static SymbolTerm ATOM_ditrans = SYM("ditrans");
+        final static Functor ATOM_trans = SYM("trans");
+        final static Functor ATOM_ditrans = SYM("ditrans");
 
 
 
@@ -6559,9 +6560,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(participle/3,public)
-    private static final StructureTerm L_participle_3_s5 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-    private static final ListTerm L_participle_3_s9 = CONS( ATOM_prog ,  Prolog.Nil );
-    private static final StructureTerm L_participle_3_s12 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Term L_participle_3_s5 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+    private static final Term L_participle_3_s9 = CONS( ATOM_prog ,  Prolog.Nil );
+    private static final Term L_participle_3_s12 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
 
 
 
@@ -6622,7 +6623,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(close/4,public)
-        final static SymbolTerm ATOM_close = SYM("close");
+        final static Functor ATOM_close = SYM("close");
 
 
 
@@ -6640,7 +6641,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         if (! a1.unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_virtual_3_static_exec, VA( ATOM_close , a3, a4), cont);
+ Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA( ATOM_close , a3, a4), cont);
     }
 /** PREDICATE: myopen/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -6672,12 +6673,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_args/9,public)
-        final static SymbolTerm FUNCTOR_arg_2 = F("arg",2);
-        final static SymbolTerm ATOM_dir = SYM("dir");
-        final static SymbolTerm ATOM_np = SYM("np");
-        final static SymbolTerm ATOM_void = SYM("void");
-    private static final ListTerm L_verb_args_9_s11 = CONS( ATOM_void ,  Prolog.Nil );
-        final static SymbolTerm ATOM_predicate = SYM("predicate");
+        final static Functor FUNCTOR_arg_2 = F("arg",2);
+        final static Functor ATOM_dir = SYM("dir");
+        final static Functor ATOM_np = SYM("np");
+        final static Functor ATOM_void = SYM("void");
+    private static final Term L_verb_args_9_s11 = CONS( ATOM_void ,  Prolog.Nil );
+        final static Functor ATOM_predicate = SYM("predicate");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -6801,8 +6802,8 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_advs_7_static_exec, VA(a3, a11, m.DONT_CARE2(), a6, a12, a8, a13), //
- Op(FILE_chat_parser::PRED_verb_args_9_static_exec, VA(a10, a2, a11, a4, a5, a12, a7, a13, a9), cont));
+ Op("advs", FILE_chat_parser::PRED_advs_7_static_exec, VA(a3, a11, m.DONT_CARE2(), a6, a12, a8, a13), //
+ Op("verb_args", FILE_chat_parser::PRED_verb_args_9_static_exec, VA(a10, a2, a11, a4, a5, a12, a7, a13, a9), cont));
     }
 
     private final static Operation verb_args_9_2(Prolog m) { 
@@ -6841,7 +6842,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
+ Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
     private final static Operation verb_args_9_3(Prolog m) { 
@@ -6883,8 +6884,8 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a13, a14, a6, a15, a8, a16), //
- Op(FILE_chat_parser::PRED_object_8_static_exec, VA(a12, a11, a14, a5, a15, a7, a16, a9), cont));
+ Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a13, a14, a6, a15, a8, a16), //
+ Op("object", FILE_chat_parser::PRED_object_8_static_exec, VA(a12, a11, a14, a5, a15, a7, a16, a9), cont));
     }
 
     private final static Operation verb_args_9_4(Prolog m) { 
@@ -6909,7 +6910,7 @@ m.cont = cont;
         if (! a4.unify(a5, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_there , a6, a7, a8, a9), cont);
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_there , a6, a7, a8, a9), cont);
     }
 
     private final static Operation verb_args_9_5(Prolog m) { 
@@ -6946,7 +6947,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(m.DONT_CARE2(), a11, a5, a6, a7, a8, a9), cont);
+ Op("pred_conj", FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(m.DONT_CARE2(), a11, a5, a6, a7, a8, a9), cont);
     }
 
     private final static Operation verb_args_9_6(Prolog m) { 
@@ -6983,7 +6984,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
+ Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
     private final static Operation verb_args_9_7(Prolog m) { 
@@ -7022,7 +7023,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
+ Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
     private final static Operation verb_args_9_8(Prolog m) { 
@@ -7049,7 +7050,7 @@ m.cont = cont;
         if (! a8.unify(a9, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_no_args_1_static_exec, VA(a1), cont);
+ Op("no_args", FILE_chat_parser::PRED_no_args_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: object/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7082,16 +7083,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_adv_1_static_exec, VA(a9), //
- Op(FILE_chat_parser::PRED_minus_3_static_exec, VA(a9, a3, a10), //
- Op(FILE_chat_parser::PRED_advs_7_static_exec, VA(a2, a11, a10, a5, a12, a7, a13), //
- Op(FILE_chat_parser::PRED_obj_8_static_exec, VA(a1, a11, a3, a4, a12, a6, a13, a8), cont))));
+ Op("adv", FILE_chat_parser::PRED_adv_1_static_exec, VA(a9), //
+ Op("minus", FILE_chat_parser::PRED_minus_3_static_exec, VA(a9, a3, a10), //
+ Op("advs", FILE_chat_parser::PRED_advs_7_static_exec, VA(a2, a11, a10, a5, a12, a7, a13), //
+ Op("obj", FILE_chat_parser::PRED_obj_8_static_exec, VA(a1, a11, a3, a4, a12, a6, a13, a8), cont))));
     }
 /** PREDICATE: obj/8
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(obj/8,public)
-        final static SymbolTerm ATOM_ind = SYM("ind");
+        final static Functor ATOM_ind = SYM("ind");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -7148,7 +7149,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a10, a4, a5, a6, a7, a8), cont);
+ Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a10, a4, a5, a6, a7, a8), cont);
     }
 
     private final static Operation obj_8_2(Prolog m) { 
@@ -7206,8 +7207,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_predicate_7_static_exec, VA(m.DONT_CARE2(), a8, a9, a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_pred_rest_9_static_exec, VA(a1, a8, a2, a9, a3, a10, a5, a11, a7), cont));
+ Op("predicate", FILE_chat_parser::PRED_predicate_7_static_exec, VA(m.DONT_CARE2(), a8, a9, a4, a10, a6, a11), //
+ Op("pred_rest", FILE_chat_parser::PRED_pred_rest_9_static_exec, VA(a1, a8, a2, a9, a3, a10, a5, a11, a7), cont));
     }
 /** PREDICATE: pred_rest/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7253,8 +7254,8 @@ m.cont = cont;
         a12 = m.mkvar1();
         a13 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_conj_9_static_exec, VA(a1, a10, a2, a11, a3, a6, a12, a8, a13), //
- Op(FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(a10, a11, a5, a12, a7, a13, a9), cont));
+ Op("conj", FILE_chat_parser::PRED_conj_9_static_exec, VA(a1, a10, a2, a11, a3, a6, a12, a8, a13), //
+ Op("pred_conj", FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(a10, a11, a5, a12, a7, a13, a9), cont));
     }
 
     private final static Operation pred_rest_9_2(Prolog m) { 
@@ -7311,9 +7312,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
- Op(FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a9), //
- Op(FILE_chat_parser::PRED_np_11_static_exec, VA(a2, m.DONT_CARE2(), a9, m.DONT_CARE2(),  ATOM_compl , a8, a3, a4, a5, a6, a7), cont)));
+ Op("s_all", FILE_chat_parser::PRED_s_all_1_static_exec, VA(a8), //
+ Op("verb_case", FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a9), //
+ Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a2, m.DONT_CARE2(), a9, m.DONT_CARE2(),  ATOM_compl , a8, a3, a4, a5, a6, a7), cont)));
     }
 /** PREDICATE: advs/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7370,9 +7371,9 @@ m.cont = cont;
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_is_adv_1_static_exec, VA(a3), //
- Op(FILE_chat_parser::PRED_adverb_5_static_exec, VA(a8, a4, a10, a6, a11), //
- Op(FILE_chat_parser::PRED_advs_7_static_exec, VA(a9, a2, a3, a10, a5, a11, a7), cont)));
+ Op("is_adv", FILE_chat_parser::PRED_is_adv_1_static_exec, VA(a3), //
+ Op("adverb", FILE_chat_parser::PRED_adverb_5_static_exec, VA(a8, a4, a10, a6, a11), //
+ Op("advs", FILE_chat_parser::PRED_advs_7_static_exec, VA(a9, a2, a3, a10, a5, a11, a7), cont)));
     }
 
     private final static Operation advs_7_2(Prolog m) { 
@@ -7433,8 +7434,8 @@ m.cont = cont;
         cont = m.cont;
     // adj_phrase(A,B,C,D,E,F):-[adj(G,A,C,D,E,F),empty(B)]
         return //
- Op(FILE_chat_parser::PRED_adj_6_static_exec, VA(m.DONT_CARE2(), a1, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_empty_1_static_exec, VA(a2), cont));
+ Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA(m.DONT_CARE2(), a1, a3, a4, a5, a6), //
+ Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a2), cont));
     }
 
     private final static Operation adj_phrase_6_2(Prolog m) { 
@@ -7450,13 +7451,13 @@ m.cont = cont;
         cont = m.cont;
     // adj_phrase(A,B,C,D,E,F):-[comp_phrase(A,B,C,D,E,F)]
         return //
- Op(FILE_chat_parser::PRED_comp_phrase_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
+ Op("comp_phrase", FILE_chat_parser::PRED_comp_phrase_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
     }
 /** PREDICATE: no_args/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(no_args/1,public)
-        final static SymbolTerm ATOM_intrans = SYM("intrans");
+        final static Functor ATOM_intrans = SYM("intrans");
 
 
 
@@ -7522,8 +7523,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(conj/9,public)
-        final static SymbolTerm FUNCTOR_conj_2 = F("conj",2);
-        final static SymbolTerm FUNCTOR_conj_3 = F("conj",3);
+        final static Functor FUNCTOR_conj_2 = F("conj",2);
+        final static Functor FUNCTOR_conj_3 = F("conj",3);
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -7561,7 +7562,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_conj_7_static_exec, VA(a10, a11, a12, a6, a7, a8, a9), cont);
+ Op("conj", FILE_chat_parser::PRED_conj_7_static_exec, VA(a10, a11, a12, a6, a7, a8, a9), cont);
     }
 /** PREDICATE: noun/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7588,14 +7589,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // noun(A,B,C,D,E,F):-[terminal(G,C,D,E,F),noun_form(G,A,B)]
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_noun_form_3_static_exec, VA(a7, a1, a2), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
+ Op("noun_form", FILE_chat_parser::PRED_noun_form_3_static_exec, VA(a7, a1, a2), cont));
     }
 /** PREDICATE: adj/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adj/6,public)
-        final static SymbolTerm FUNCTOR_adj_1 = F("adj",1);
+        final static Functor FUNCTOR_adj_1 = F("adj",1);
 
     // private final Term arg5, arg6;
 
@@ -7621,8 +7622,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_adj_2_static_exec, VA(a7, a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
+ Op("adj", FILE_chat_parser::PRED_adj_2_static_exec, VA(a7, a1), cont));
     }
 /** PREDICATE: prep/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7652,8 +7653,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_prep_1_static_exec, VA(a6), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("prep", FILE_chat_parser::PRED_prep_1_static_exec, VA(a6), cont));
     }
 /** PREDICATE: rel_adj/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7684,8 +7685,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
             }
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_rel_adj_2_static_exec, VA(a7, a6), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a2, a3, a4, a5), //
+ Op("rel_adj", FILE_chat_parser::PRED_rel_adj_2_static_exec, VA(a7, a6), cont));
     }
 /** PREDICATE: sup_adj/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7716,8 +7717,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
             }
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_sup_adj_2_static_exec, VA(a7, a6), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a2, a3, a4, a5), //
+ Op("sup_adj", FILE_chat_parser::PRED_sup_adj_2_static_exec, VA(a7, a6), cont));
     }
 /** PREDICATE: comp_adv/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7760,7 +7761,7 @@ m.cont = cont;
         if (!  ATOM_less .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_less , a2, a3, a4, a5), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_less , a2, a3, a4, a5), cont);
     }
 
     private final static Operation comp_adv_5_2(Prolog m) { 
@@ -7777,7 +7778,7 @@ m.cont = cont;
         if (!  ATOM_more .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_more , a2, a3, a4, a5), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_more , a2, a3, a4, a5), cont);
     }
 /** PREDICATE: sup_adv/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7820,7 +7821,7 @@ m.cont = cont;
         if (!  ATOM_least .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_least , a2, a3, a4, a5), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_least , a2, a3, a4, a5), cont);
     }
 
     private final static Operation sup_adv_5_2(Prolog m) { 
@@ -7837,7 +7838,7 @@ m.cont = cont;
         if (!  ATOM_most .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_most , a2, a3, a4, a5), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_most , a2, a3, a4, a5), cont);
     }
 /** PREDICATE: rel_pron/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7863,8 +7864,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // rel_pron(A,B,C,D,E):-[terminal(F,B,C,D,E),rel_pron(F,A)]
         a6 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_rel_pron_2_static_exec, VA(a6, a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("rel_pron", FILE_chat_parser::PRED_rel_pron_2_static_exec, VA(a6, a1), cont));
     }
 /** PREDICATE: name/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7891,9 +7892,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_opt_the_4_static_exec, VA(a2, a6, a4, a7), //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a6, a3, a7, a5), //
- Op(FILE_chat_parser::PRED_name_1_static_exec, VA(a1), cont)));
+ Op("opt_the", FILE_chat_parser::PRED_opt_the_4_static_exec, VA(a2, a6, a4, a7), //
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a6, a3, a7, a5), //
+ Op("name", FILE_chat_parser::PRED_name_1_static_exec, VA(a1), cont)));
     }
 /** PREDICATE: int_art/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7946,8 +7947,8 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_how , a4, a9, a6, a10), //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_many , a9, a5, a10, a7), cont));
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_how , a4, a9, a6, a10), //
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_many , a9, a5, a10, a7), cont));
     }
 
     private final static Operation int_art_7_2(Prolog m) { 
@@ -7966,8 +7967,8 @@ m.cont = cont;
     // int_art(A,B,C,D,E,F,G):-[terminal(H,D,E,F,G),int_art(H,A,B,C)]
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a8, a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_int_art_4_static_exec, VA(a8, a1, a2, a3), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a8, a4, a5, a6, a7), //
+ Op("int_art", FILE_chat_parser::PRED_int_art_4_static_exec, VA(a8, a1, a2, a3), cont));
     }
 /** PREDICATE: int_pron/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -7993,14 +7994,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // int_pron(A,B,C,D,E):-[terminal(F,B,C,D,E),int_pron(F,A)]
         a6 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_int_pron_2_static_exec, VA(a6, a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("int_pron", FILE_chat_parser::PRED_int_pron_2_static_exec, VA(a6, a1), cont));
     }
 /** PREDICATE: adverb/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adverb/5,public)
-        final static SymbolTerm FUNCTOR_adv_1 = F("adv",1);
+        final static Functor FUNCTOR_adv_1 = F("adv",1);
 
     // private final Term arg5;
 
@@ -8025,14 +8026,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_adverb_1_static_exec, VA(a6), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("adverb", FILE_chat_parser::PRED_adverb_1_static_exec, VA(a6), cont));
     }
 /** PREDICATE: poss_pron/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(poss_pron/6,public)
-        final static SymbolTerm FUNCTOR_pronoun_1 = F("pronoun",1);
+        final static Functor FUNCTOR_pronoun_1 = F("pronoun",1);
 
     // private final Term arg5, arg6;
 
@@ -8065,8 +8066,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
             }
         a10 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a10, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_poss_pron_4_static_exec, VA(a10, a7, a8, a9), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a10, a3, a4, a5, a6), //
+ Op("poss_pron", FILE_chat_parser::PRED_poss_pron_4_static_exec, VA(a10, a7, a8, a9), cont));
     }
 /** PREDICATE: pers_pron/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8105,8 +8106,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
             }
         a11 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a11, a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_pers_pron_5_static_exec, VA(a11, a8, a9, a10, a3), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a11, a4, a5, a6, a7), //
+ Op("pers_pron", FILE_chat_parser::PRED_pers_pron_5_static_exec, VA(a11, a8, a9, a10, a3), cont));
     }
 /** PREDICATE: quantifier_pron/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8133,18 +8134,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // quantifier_pron(A,B,C,D,E,F):-[terminal(G,C,D,E,F),quantifier_pron(G,A,B)]
         a7 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_quantifier_pron_3_static_exec, VA(a7, a1, a2), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a7, a3, a4, a5, a6), //
+ Op("quantifier_pron", FILE_chat_parser::PRED_quantifier_pron_3_static_exec, VA(a7, a1, a2), cont));
     }
 /** PREDICATE: context_pron/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(context_pron/6,public)
-    private static final StructureTerm L_context_pron_6_s4 = S( FUNCTOR_prep_1 ,  ATOM_in );
-        final static SymbolTerm ATOM_place = SYM("place");
-    private static final StructureTerm L_context_pron_6_s9 = S( FUNCTOR_prep_1 ,  ATOM_at );
-        final static SymbolTerm ATOM_time = SYM("time");
-        final static SymbolTerm ATOM_when = SYM("when");
+    private static final Term L_context_pron_6_s4 = S( FUNCTOR_prep_1 ,  ATOM_in );
+        final static Functor ATOM_place = SYM("place");
+    private static final Term L_context_pron_6_s9 = S( FUNCTOR_prep_1 ,  ATOM_at );
+        final static Functor ATOM_time = SYM("time");
+        final static Functor ATOM_when = SYM("when");
 
     // private final Term arg5, arg6;
 
@@ -8185,7 +8186,7 @@ m.cont = cont;
         if (!  ATOM_place .unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_where , a3, a4, a5, a6), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_where , a3, a4, a5, a6), cont);
     }
 
     private final static Operation context_pron_6_2(Prolog m) { 
@@ -8205,13 +8206,13 @@ m.cont = cont;
         if (!  ATOM_time .unify(a2, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_when , a3, a4, a5, a6), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_when , a3, a4, a5, a6), cont);
     }
 /** PREDICATE: number/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(number/6,public)
-        final static SymbolTerm FUNCTOR_nb_1 = F("nb",1);
+        final static Functor FUNCTOR_nb_1 = F("nb",1);
 
     // private final Term arg5, arg6;
 
@@ -8238,8 +8239,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
             }
         a8 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a8, a3, a4, a5, a6), //
- Op(FILE_chat_parser::PRED_number_3_static_exec, VA(a8, a7, a2), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a8, a3, a4, a5, a6), //
+ Op("number", FILE_chat_parser::PRED_number_3_static_exec, VA(a8, a7, a2), cont));
     }
 /** PREDICATE: terminator/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8265,8 +8266,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // terminator(A,B,C,D,E):-[terminal(F,B,C,D,E),terminator(F,A)]
         a6 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_terminator_2_static_exec, VA(a6, a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("terminator", FILE_chat_parser::PRED_terminator_2_static_exec, VA(a6, a1), cont));
     }
 /** PREDICATE: opt_the/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8317,14 +8318,14 @@ m.cont = cont;
         cont = m.cont;
     // opt_the(A,B,C,D):-[~(the,A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_the , a1, a2, a3, a4), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_the , a1, a2, a3, a4), cont);
     }
 /** PREDICATE: conj/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(conj/7,public)
-        final static SymbolTerm ATOM_list = SYM("list");
-        final static SymbolTerm ATOM_end = SYM("end");
+        final static Functor ATOM_list = SYM("list");
+        final static Functor ATOM_end = SYM("end");
 
     // private final Term arg5, arg6, arg7;
 
@@ -8362,7 +8363,7 @@ m.cont = cont;
         if (!  ATOM_list .unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_$002C , a4, a5, a6, a7), cont);
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_$002C , a4, a5, a6, a7), cont);
     }
 
     private final static Operation conj_7_2(Prolog m) { 
@@ -8384,8 +8385,8 @@ m.cont = cont;
         if (!  ATOM_end .unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a4, a5, a6, a7), //
- Op(FILE_chat_parser::PRED_conj_1_static_exec, VA(a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a4, a5, a6, a7), //
+ Op("conj", FILE_chat_parser::PRED_conj_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: loc_pred/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8411,8 +8412,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // loc_pred(A,B,C,D,E):-[terminal(F,B,C,D,E),loc_pred(F,A)]
         a6 = m.mkvar1();
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_loc_pred_2_static_exec, VA(a6, a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a6, a2, a3, a4, a5), //
+ Op("loc_pred", FILE_chat_parser::PRED_loc_pred_2_static_exec, VA(a6, a1), cont));
     }
 /** PREDICATE: ~ / 5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8437,8 +8438,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a5 = LARG[4];
     // ~(A,B,C,D,E):-[terminal(A,B,C,D,E),~(A)]
         return //
- Op(FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a2, a3, a4, a5), //
- Op(FILE_chat_parser::PRED_$007E_1_static_exec, VA(a1), cont));
+ Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA(a1, a2, a3, a4, a5), //
+ Op("~", FILE_chat_parser::PRED_$007E_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: word/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -8559,7 +8560,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[~(A)]
         return //
- Op(FILE_chat_parser::PRED_$007E_1_static_exec, VA(a1), cont);
+ Op("~", FILE_chat_parser::PRED_$007E_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation word_1_2(Prolog m) { 
@@ -8570,7 +8571,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[conj(A)]
         return //
- Op(FILE_chat_parser::PRED_conj_1_static_exec, VA(a1), cont);
+ Op("conj", FILE_chat_parser::PRED_conj_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation word_1_3(Prolog m) { 
@@ -8581,7 +8582,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[adverb(A)]
         return //
- Op(FILE_chat_parser::PRED_adverb_1_static_exec, VA(a1), cont);
+ Op("adverb", FILE_chat_parser::PRED_adverb_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation word_1_4(Prolog m) { 
@@ -8592,7 +8593,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[sup_adj(A,B)]
         return //
- Op(FILE_chat_parser::PRED_sup_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("sup_adj", FILE_chat_parser::PRED_sup_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_5(Prolog m) { 
@@ -8603,7 +8604,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[rel_adj(A,B)]
         return //
- Op(FILE_chat_parser::PRED_rel_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("rel_adj", FILE_chat_parser::PRED_rel_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_6(Prolog m) { 
@@ -8614,7 +8615,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[adj(A,B)]
         return //
- Op(FILE_chat_parser::PRED_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("adj", FILE_chat_parser::PRED_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_7(Prolog m) { 
@@ -8625,7 +8626,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[name(A)]
         return //
- Op(FILE_chat_parser::PRED_name_1_static_exec, VA(a1), cont);
+ Op("name", FILE_chat_parser::PRED_name_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation word_1_8(Prolog m) { 
@@ -8636,7 +8637,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[terminator(A,B)]
         return //
- Op(FILE_chat_parser::PRED_terminator_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("terminator", FILE_chat_parser::PRED_terminator_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_9(Prolog m) { 
@@ -8647,7 +8648,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[pers_pron(A,B,C,D,E)]
         return //
- Op(FILE_chat_parser::PRED_pers_pron_5_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("pers_pron", FILE_chat_parser::PRED_pers_pron_5_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_10(Prolog m) { 
@@ -8658,7 +8659,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[poss_pron(A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_poss_pron_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("poss_pron", FILE_chat_parser::PRED_poss_pron_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_11(Prolog m) { 
@@ -8669,7 +8670,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[rel_pron(A,B)]
         return //
- Op(FILE_chat_parser::PRED_rel_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("rel_pron", FILE_chat_parser::PRED_rel_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_12(Prolog m) { 
@@ -8680,7 +8681,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[verb_form(A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_verb_form_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("verb_form", FILE_chat_parser::PRED_verb_form_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_13(Prolog m) { 
@@ -8691,7 +8692,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[noun_form(A,B,C)]
         return //
- Op(FILE_chat_parser::PRED_noun_form_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("noun_form", FILE_chat_parser::PRED_noun_form_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_14(Prolog m) { 
@@ -8702,7 +8703,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[prep(A)]
         return //
- Op(FILE_chat_parser::PRED_prep_1_static_exec, VA(a1), cont);
+ Op("prep", FILE_chat_parser::PRED_prep_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation word_1_15(Prolog m) { 
@@ -8713,7 +8714,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[quantifier_pron(A,B,C)]
         return //
- Op(FILE_chat_parser::PRED_quantifier_pron_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("quantifier_pron", FILE_chat_parser::PRED_quantifier_pron_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_16(Prolog m) { 
@@ -8724,7 +8725,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[number(A,B,C)]
         return //
- Op(FILE_chat_parser::PRED_number_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("number", FILE_chat_parser::PRED_number_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_17(Prolog m) { 
@@ -8735,7 +8736,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[det(A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_det_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("det", FILE_chat_parser::PRED_det_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_18(Prolog m) { 
@@ -8746,7 +8747,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[int_art(A,B,C,D)]
         return //
- Op(FILE_chat_parser::PRED_int_art_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
+ Op("int_art", FILE_chat_parser::PRED_int_art_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_19(Prolog m) { 
@@ -8757,7 +8758,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[int_pron(A,B)]
         return //
- Op(FILE_chat_parser::PRED_int_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("int_pron", FILE_chat_parser::PRED_int_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
     private final static Operation word_1_20(Prolog m) { 
@@ -8768,7 +8769,7 @@ m.cont = cont;
         cont = m.cont;
     // word(A):-[loc_pred(A,B)]
         return //
- Op(FILE_chat_parser::PRED_loc_pred_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
+ Op("loc_pred", FILE_chat_parser::PRED_loc_pred_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: ~ / 1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
@@ -9128,7 +9129,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(conj/1,public)
-        final static SymbolTerm ATOM_or = SYM("or");
+        final static Functor ATOM_or = SYM("or");
 
 
 
@@ -9177,8 +9178,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(int_pron/2,public)
-        final static SymbolTerm ATOM_who = SYM("who");
-        final static SymbolTerm ATOM_whom = SYM("whom");
+        final static Functor ATOM_who = SYM("who");
+        final static Functor ATOM_whom = SYM("whom");
 
 
 
@@ -9335,11 +9336,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(det/4,public)
-        final static SymbolTerm FUNCTOR_the_1 = F("the",1);
-        final static SymbolTerm ATOM_an = SYM("an");
-        final static SymbolTerm ATOM_every = SYM("every");
-        final static SymbolTerm ATOM_all = SYM("all");
-        final static SymbolTerm ATOM_no = SYM("no");
+        final static Functor FUNCTOR_the_1 = F("the",1);
+        final static Functor ATOM_an = SYM("an");
+        final static Functor ATOM_every = SYM("every");
+        final static Functor ATOM_all = SYM("all");
+        final static Functor ATOM_no = SYM("no");
 
 
 
@@ -9597,21 +9598,21 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         a3 = LARG[2];
     // number(A,B,C):-[tr_number(A,B),ag_number(B,C)]
         return //
- Op(FILE_chat_parser::PRED_tr_number_2_static_exec, VA(a1, a2), //
- Op(FILE_chat_parser::PRED_ag_number_2_static_exec, VA(a2, a3), cont));
+ Op("tr_number", FILE_chat_parser::PRED_tr_number_2_static_exec, VA(a1, a2), //
+ Op("ag_number", FILE_chat_parser::PRED_ag_number_2_static_exec, VA(a2, a3), cont));
     }
 /** PREDICATE: tr_number/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(tr_number/2,public)
-        final static SymbolTerm ATOM_three = SYM("three");
-        final static SymbolTerm ATOM_four = SYM("four");
-        final static SymbolTerm ATOM_five = SYM("five");
-        final static SymbolTerm ATOM_six = SYM("six");
-        final static SymbolTerm ATOM_seven = SYM("seven");
-        final static SymbolTerm ATOM_eight = SYM("eight");
-        final static SymbolTerm ATOM_nine = SYM("nine");
-        final static SymbolTerm ATOM_ten = SYM("ten");
+        final static Functor ATOM_three = SYM("three");
+        final static Functor ATOM_four = SYM("four");
+        final static Functor ATOM_five = SYM("five");
+        final static Functor ATOM_six = SYM("six");
+        final static Functor ATOM_seven = SYM("seven");
+        final static Functor ATOM_eight = SYM("eight");
+        final static Functor ATOM_nine = SYM("nine");
+        final static Functor ATOM_ten = SYM("ten");
 
 
 
@@ -9962,19 +9963,19 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(quantifier_pron/3,public)
-        final static SymbolTerm ATOM_everybody = SYM("everybody");
-        final static SymbolTerm ATOM_person = SYM("person");
-        final static SymbolTerm ATOM_everyone = SYM("everyone");
-        final static SymbolTerm ATOM_everything = SYM("everything");
-        final static SymbolTerm ATOM_thing = SYM("thing");
-        final static SymbolTerm ATOM_somebody = SYM("somebody");
-        final static SymbolTerm ATOM_someone = SYM("someone");
-        final static SymbolTerm ATOM_something = SYM("something");
-        final static SymbolTerm ATOM_anybody = SYM("anybody");
-        final static SymbolTerm ATOM_anyone = SYM("anyone");
-        final static SymbolTerm ATOM_anything = SYM("anything");
-        final static SymbolTerm ATOM_nobody = SYM("nobody");
-        final static SymbolTerm ATOM_nothing = SYM("nothing");
+        final static Functor ATOM_everybody = SYM("everybody");
+        final static Functor ATOM_person = SYM("person");
+        final static Functor ATOM_everyone = SYM("everyone");
+        final static Functor ATOM_everything = SYM("everything");
+        final static Functor ATOM_thing = SYM("thing");
+        final static Functor ATOM_somebody = SYM("somebody");
+        final static Functor ATOM_someone = SYM("someone");
+        final static Functor ATOM_something = SYM("something");
+        final static Functor ATOM_anybody = SYM("anybody");
+        final static Functor ATOM_anyone = SYM("anyone");
+        final static Functor ATOM_anything = SYM("anything");
+        final static Functor ATOM_nobody = SYM("nobody");
+        final static Functor ATOM_nothing = SYM("nothing");
 
 
 
@@ -10242,9 +10243,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(prep/1,public)
-        final static SymbolTerm ATOM_to = SYM("to");
-        final static SymbolTerm ATOM_with = SYM("with");
-        final static SymbolTerm ATOM_on = SYM("on");
+        final static Functor ATOM_to = SYM("to");
+        final static Functor ATOM_with = SYM("with");
+        final static Functor ATOM_on = SYM("on");
 
 
 
@@ -10446,8 +10447,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(noun_form/3,public)
-        final static SymbolTerm ATOM_proportion = SYM("proportion");
-        final static SymbolTerm ATOM_percentage = SYM("percentage");
+        final static Functor ATOM_proportion = SYM("proportion");
+        final static Functor ATOM_percentage = SYM("percentage");
 
 
 
@@ -10501,7 +10502,7 @@ m.cont = cont;
         if (!  ATOM_plu .unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_noun_plu_2_static_exec, VA(a1, a2), cont);
+ Op("noun_plu", FILE_chat_parser::PRED_noun_plu_2_static_exec, VA(a1, a2), cont);
     }
 
     private final static Operation noun_form_3_2(Prolog m) { 
@@ -10518,7 +10519,7 @@ m.cont = cont;
         if (!  ATOM_sin .unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_noun_sin_1_static_exec, VA(a1), cont);
+ Op("noun_sin", FILE_chat_parser::PRED_noun_sin_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation noun_form_3_3(Prolog m) { 
@@ -10556,9 +10557,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(root_form/1,public)
-    private static final StructureTerm L_root_form_1_s5 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
-    private static final StructureTerm L_root_form_1_s9 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_plu );
-    private static final StructureTerm L_root_form_1_s12 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
+    private static final Term L_root_form_1_s5 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
+    private static final Term L_root_form_1_s9 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_plu );
+    private static final Term L_root_form_1_s12 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
 
 
 
@@ -10643,10 +10644,10 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_root/1,public)
-        final static SymbolTerm ATOM_contain = SYM("contain");
-        final static SymbolTerm ATOM_drain = SYM("drain");
-        final static SymbolTerm ATOM_exceed = SYM("exceed");
-        final static SymbolTerm ATOM_rise = SYM("rise");
+        final static Functor ATOM_contain = SYM("contain");
+        final static Functor ATOM_drain = SYM("drain");
+        final static Functor ATOM_exceed = SYM("exceed");
+        final static Functor ATOM_rise = SYM("rise");
 
 
 
@@ -10964,11 +10965,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(regular_past/2,public)
-        final static SymbolTerm ATOM_had = SYM("had");
-        final static SymbolTerm ATOM_contained = SYM("contained");
-        final static SymbolTerm ATOM_drained = SYM("drained");
-        final static SymbolTerm ATOM_exceeded = SYM("exceeded");
-        final static SymbolTerm ATOM_flowed = SYM("flowed");
+        final static Functor ATOM_had = SYM("had");
+        final static Functor ATOM_contained = SYM("contained");
+        final static Functor ATOM_drained = SYM("drained");
+        final static Functor ATOM_exceeded = SYM("exceeded");
+        final static Functor ATOM_flowed = SYM("flowed");
 
 
 
@@ -11177,16 +11178,16 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(poss_pron/4,public)
-        final static SymbolTerm ATOM_my = SYM("my");
-        final static SymbolTerm ATOM_your = SYM("your");
-        final static SymbolTerm ATOM_his = SYM("his");
-        final static SymbolTerm ATOM_masc = SYM("masc");
-        final static SymbolTerm ATOM_her = SYM("her");
-        final static SymbolTerm ATOM_fem = SYM("fem");
-        final static SymbolTerm ATOM_its = SYM("its");
-        final static SymbolTerm ATOM_neut = SYM("neut");
-        final static SymbolTerm ATOM_our = SYM("our");
-        final static SymbolTerm ATOM_their = SYM("their");
+        final static Functor ATOM_my = SYM("my");
+        final static Functor ATOM_your = SYM("your");
+        final static Functor ATOM_his = SYM("his");
+        final static Functor ATOM_masc = SYM("masc");
+        final static Functor ATOM_her = SYM("her");
+        final static Functor ATOM_fem = SYM("fem");
+        final static Functor ATOM_its = SYM("its");
+        final static Functor ATOM_neut = SYM("neut");
+        final static Functor ATOM_our = SYM("our");
+        final static Functor ATOM_their = SYM("their");
 
 
 
@@ -11373,16 +11374,16 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(pers_pron/5,public)
-        final static SymbolTerm ATOM_i = SYM("i");
-        final static SymbolTerm ATOM_he = SYM("he");
-        final static SymbolTerm ATOM_she = SYM("she");
-        final static SymbolTerm ATOM_it = SYM("it");
-        final static SymbolTerm ATOM_we = SYM("we");
-        final static SymbolTerm ATOM_them = SYM("them");
-        final static SymbolTerm ATOM_me = SYM("me");
-        final static SymbolTerm FUNCTOR_compl_1 = F("compl",1);
-        final static SymbolTerm ATOM_him = SYM("him");
-        final static SymbolTerm ATOM_us = SYM("us");
+        final static Functor ATOM_i = SYM("i");
+        final static Functor ATOM_he = SYM("he");
+        final static Functor ATOM_she = SYM("she");
+        final static Functor ATOM_it = SYM("it");
+        final static Functor ATOM_we = SYM("we");
+        final static Functor ATOM_them = SYM("them");
+        final static Functor ATOM_me = SYM("me");
+        final static Functor FUNCTOR_compl_1 = F("compl",1);
+        final static Functor ATOM_him = SYM("him");
+        final static Functor ATOM_us = SYM("us");
 
     // private final Term arg5;
 
@@ -11826,17 +11827,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(loc_pred/2,public)
-        final static SymbolTerm ATOM_east = SYM("east");
-        final static SymbolTerm ATOM_eastof = SYM("eastof");
-    private static final StructureTerm L_loc_pred_2_s5 = S( FUNCTOR_prep_1 ,  ATOM_eastof );
-        final static SymbolTerm ATOM_west = SYM("west");
-        final static SymbolTerm ATOM_westof = SYM("westof");
-    private static final StructureTerm L_loc_pred_2_s9 = S( FUNCTOR_prep_1 ,  ATOM_westof );
-        final static SymbolTerm ATOM_north = SYM("north");
-        final static SymbolTerm ATOM_northof = SYM("northof");
-    private static final StructureTerm L_loc_pred_2_s13 = S( FUNCTOR_prep_1 ,  ATOM_northof );
-        final static SymbolTerm ATOM_southof = SYM("southof");
-    private static final StructureTerm L_loc_pred_2_s17 = S( FUNCTOR_prep_1 ,  ATOM_southof );
+        final static Functor ATOM_east = SYM("east");
+        final static Functor ATOM_eastof = SYM("eastof");
+    private static final Term L_loc_pred_2_s5 = S( FUNCTOR_prep_1 ,  ATOM_eastof );
+        final static Functor ATOM_west = SYM("west");
+        final static Functor ATOM_westof = SYM("westof");
+    private static final Term L_loc_pred_2_s9 = S( FUNCTOR_prep_1 ,  ATOM_westof );
+        final static Functor ATOM_north = SYM("north");
+        final static Functor ATOM_northof = SYM("northof");
+    private static final Term L_loc_pred_2_s13 = S( FUNCTOR_prep_1 ,  ATOM_northof );
+        final static Functor ATOM_southof = SYM("southof");
+    private static final Term L_loc_pred_2_s17 = S( FUNCTOR_prep_1 ,  ATOM_southof );
 
 
 
@@ -11931,15 +11932,15 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adj/2,public)
-        final static SymbolTerm ATOM_minimum = SYM("minimum");
-        final static SymbolTerm ATOM_restr = SYM("restr");
-        final static SymbolTerm ATOM_maximum = SYM("maximum");
-        final static SymbolTerm ATOM_great = SYM("great");
-        final static SymbolTerm ATOM_big = SYM("big");
-        final static SymbolTerm ATOM_small = SYM("small");
-        final static SymbolTerm ATOM_old = SYM("old");
-        final static SymbolTerm ATOM_new = SYM("new");
-        final static SymbolTerm ATOM_populous = SYM("populous");
+        final static Functor ATOM_minimum = SYM("minimum");
+        final static Functor ATOM_restr = SYM("restr");
+        final static Functor ATOM_maximum = SYM("maximum");
+        final static Functor ATOM_great = SYM("great");
+        final static Functor ATOM_big = SYM("big");
+        final static Functor ATOM_small = SYM("small");
+        final static Functor ATOM_old = SYM("old");
+        final static Functor ATOM_new = SYM("new");
+        final static Functor ATOM_populous = SYM("populous");
 
 
 
@@ -12254,12 +12255,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(rel_adj/2,public)
-        final static SymbolTerm ATOM_greater = SYM("greater");
-        final static SymbolTerm ATOM_bigger = SYM("bigger");
-        final static SymbolTerm ATOM_smaller = SYM("smaller");
-        final static SymbolTerm ATOM_larger = SYM("larger");
-        final static SymbolTerm ATOM_older = SYM("older");
-        final static SymbolTerm ATOM_newer = SYM("newer");
+        final static Functor ATOM_greater = SYM("greater");
+        final static Functor ATOM_bigger = SYM("bigger");
+        final static Functor ATOM_smaller = SYM("smaller");
+        final static Functor ATOM_larger = SYM("larger");
+        final static Functor ATOM_older = SYM("older");
+        final static Functor ATOM_newer = SYM("newer");
 
 
 
@@ -12414,9 +12415,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(sup_adj/2,public)
-        final static SymbolTerm ATOM_biggest = SYM("biggest");
-        final static SymbolTerm ATOM_oldest = SYM("oldest");
-        final static SymbolTerm ATOM_newest = SYM("newest");
+        final static Functor ATOM_biggest = SYM("biggest");
+        final static Functor ATOM_oldest = SYM("oldest");
+        final static Functor ATOM_newest = SYM("newest");
 
 
 
@@ -12531,20 +12532,20 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(noun_sin/1,public)
-        final static SymbolTerm ATOM_sum = SYM("sum");
-        final static SymbolTerm ATOM_degree = SYM("degree");
-        final static SymbolTerm ATOM_sqmile = SYM("sqmile");
-        final static SymbolTerm ATOM_ksqmile = SYM("ksqmile");
-        final static SymbolTerm ATOM_thousand = SYM("thousand");
-        final static SymbolTerm ATOM_million = SYM("million");
-        final static SymbolTerm ATOM_city = SYM("city");
-        final static SymbolTerm ATOM_latitude = SYM("latitude");
-        final static SymbolTerm ATOM_longitude = SYM("longitude");
-        final static SymbolTerm ATOM_population = SYM("population");
-        final static SymbolTerm ATOM_region = SYM("region");
-        final static SymbolTerm ATOM_sea = SYM("sea");
-        final static SymbolTerm ATOM_seamass = SYM("seamass");
-        final static SymbolTerm ATOM_number = SYM("number");
+        final static Functor ATOM_sum = SYM("sum");
+        final static Functor ATOM_degree = SYM("degree");
+        final static Functor ATOM_sqmile = SYM("sqmile");
+        final static Functor ATOM_ksqmile = SYM("ksqmile");
+        final static Functor ATOM_thousand = SYM("thousand");
+        final static Functor ATOM_million = SYM("million");
+        final static Functor ATOM_city = SYM("city");
+        final static Functor ATOM_latitude = SYM("latitude");
+        final static Functor ATOM_longitude = SYM("longitude");
+        final static Functor ATOM_population = SYM("population");
+        final static Functor ATOM_region = SYM("region");
+        final static Functor ATOM_sea = SYM("sea");
+        final static Functor ATOM_seamass = SYM("seamass");
+        final static Functor ATOM_number = SYM("number");
 
 
 
@@ -12984,26 +12985,26 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(noun_plu/2,public)
-        final static SymbolTerm ATOM_averages = SYM("averages");
-        final static SymbolTerm ATOM_totals = SYM("totals");
-        final static SymbolTerm ATOM_sums = SYM("sums");
-        final static SymbolTerm ATOM_degrees = SYM("degrees");
-        final static SymbolTerm ATOM_sqmiles = SYM("sqmiles");
-        final static SymbolTerm ATOM_ksqmiles = SYM("ksqmiles");
-        final static SymbolTerm ATOM_times = SYM("times");
-        final static SymbolTerm ATOM_places = SYM("places");
-        final static SymbolTerm ATOM_areas = SYM("areas");
-        final static SymbolTerm ATOM_cities = SYM("cities");
-        final static SymbolTerm ATOM_continents = SYM("continents");
-        final static SymbolTerm ATOM_latitudes = SYM("latitudes");
-        final static SymbolTerm ATOM_longitudes = SYM("longitudes");
-        final static SymbolTerm ATOM_oceans = SYM("oceans");
-        final static SymbolTerm ATOM_persons = SYM("persons");
-        final static SymbolTerm ATOM_people = SYM("people");
-        final static SymbolTerm ATOM_populations = SYM("populations");
-        final static SymbolTerm ATOM_regions = SYM("regions");
-        final static SymbolTerm ATOM_seamasses = SYM("seamasses");
-        final static SymbolTerm ATOM_numbers = SYM("numbers");
+        final static Functor ATOM_averages = SYM("averages");
+        final static Functor ATOM_totals = SYM("totals");
+        final static Functor ATOM_sums = SYM("sums");
+        final static Functor ATOM_degrees = SYM("degrees");
+        final static Functor ATOM_sqmiles = SYM("sqmiles");
+        final static Functor ATOM_ksqmiles = SYM("ksqmiles");
+        final static Functor ATOM_times = SYM("times");
+        final static Functor ATOM_places = SYM("places");
+        final static Functor ATOM_areas = SYM("areas");
+        final static Functor ATOM_cities = SYM("cities");
+        final static Functor ATOM_continents = SYM("continents");
+        final static Functor ATOM_latitudes = SYM("latitudes");
+        final static Functor ATOM_longitudes = SYM("longitudes");
+        final static Functor ATOM_oceans = SYM("oceans");
+        final static Functor ATOM_persons = SYM("persons");
+        final static Functor ATOM_people = SYM("people");
+        final static Functor ATOM_populations = SYM("populations");
+        final static Functor ATOM_regions = SYM("regions");
+        final static Functor ATOM_seamasses = SYM("seamasses");
+        final static Functor ATOM_numbers = SYM("numbers");
 
 
 
@@ -13538,33 +13539,33 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_form/4,public)
-    private static final StructureTerm L_verb_form_4_s6 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
-        final static SymbolTerm ATOM_am = SYM("am");
-    private static final StructureTerm L_verb_form_4_s13 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
-    private static final StructureTerm L_verb_form_4_s17 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
-    private static final StructureTerm L_verb_form_4_s21 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
-        final static SymbolTerm ATOM_was = SYM("was");
-    private static final StructureTerm L_verb_form_4_s25 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_fin );
-        final static SymbolTerm ATOM_were = SYM("were");
-        final static SymbolTerm ATOM_been = SYM("been");
-    private static final StructureTerm L_verb_form_4_s30 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static SymbolTerm ATOM_being = SYM("being");
-    private static final StructureTerm L_verb_form_4_s33 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-        final static SymbolTerm ATOM_has = SYM("has");
-        final static SymbolTerm ATOM_having = SYM("having");
-        final static SymbolTerm ATOM_did = SYM("did");
-        final static SymbolTerm ATOM_doing = SYM("doing");
-        final static SymbolTerm ATOM_done = SYM("done");
-        final static SymbolTerm ATOM_flowing = SYM("flowing");
-        final static SymbolTerm ATOM_rises = SYM("rises");
-        final static SymbolTerm ATOM_rose = SYM("rose");
-        final static SymbolTerm ATOM_risen = SYM("risen");
-        final static SymbolTerm ATOM_contains = SYM("contains");
-        final static SymbolTerm ATOM_containing = SYM("containing");
-        final static SymbolTerm ATOM_drains = SYM("drains");
-        final static SymbolTerm ATOM_draining = SYM("draining");
-        final static SymbolTerm ATOM_exceeds = SYM("exceeds");
-        final static SymbolTerm ATOM_exceeding = SYM("exceeding");
+    private static final Term L_verb_form_4_s6 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
+        final static Functor ATOM_am = SYM("am");
+    private static final Term L_verb_form_4_s13 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
+    private static final Term L_verb_form_4_s17 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
+    private static final Term L_verb_form_4_s21 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
+        final static Functor ATOM_was = SYM("was");
+    private static final Term L_verb_form_4_s25 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_fin );
+        final static Functor ATOM_were = SYM("were");
+        final static Functor ATOM_been = SYM("been");
+    private static final Term L_verb_form_4_s30 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+        final static Functor ATOM_being = SYM("being");
+    private static final Term L_verb_form_4_s33 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+        final static Functor ATOM_has = SYM("has");
+        final static Functor ATOM_having = SYM("having");
+        final static Functor ATOM_did = SYM("did");
+        final static Functor ATOM_doing = SYM("doing");
+        final static Functor ATOM_done = SYM("done");
+        final static Functor ATOM_flowing = SYM("flowing");
+        final static Functor ATOM_rises = SYM("rises");
+        final static Functor ATOM_rose = SYM("rose");
+        final static Functor ATOM_risen = SYM("risen");
+        final static Functor ATOM_contains = SYM("contains");
+        final static Functor ATOM_containing = SYM("containing");
+        final static Functor ATOM_drains = SYM("drains");
+        final static Functor ATOM_draining = SYM("draining");
+        final static Functor ATOM_exceeds = SYM("exceeds");
+        final static Functor ATOM_exceeding = SYM("exceeding");
 
 
 
@@ -13766,7 +13767,7 @@ m.cont = cont;
         if (!  ATOM_inf .unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont);
+ Op("verb_root", FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation verb_form_4_2(Prolog m) { 
@@ -13785,9 +13786,9 @@ m.cont = cont;
         if (! L_verb_form_4_s6.unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_chat_parser::PRED_regular_pres_1_static_exec, VA(a1), //
- Op(FILE_chat_parser::PRED_root_form_1_static_exec, VA(a4), //
- Op(FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont)));
+ Op("regular_pres", FILE_chat_parser::PRED_regular_pres_1_static_exec, VA(a1), //
+ Op("root_form", FILE_chat_parser::PRED_root_form_1_static_exec, VA(a4), //
+ Op("verb_root", FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont)));
     }
 
     private final static Operation verb_form_4_3(Prolog m) { 
@@ -13805,7 +13806,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_chat_parser::PRED_regular_past_2_static_exec, VA(a1, a2), cont);
+ Op("regular_past", FILE_chat_parser::PRED_regular_past_2_static_exec, VA(a1, a2), cont);
     }
 
     private final static Operation verb_form_4_4(Prolog m) { 
@@ -14398,11 +14399,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_type/2,public)
-    private static final StructureTerm L_verb_type_2_s5 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_have );
-    private static final StructureTerm L_verb_type_2_s8 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_be );
-    private static final StructureTerm L_verb_type_2_s12 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_ditrans );
-    private static final StructureTerm L_verb_type_2_s17 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_intrans );
-    private static final StructureTerm L_verb_type_2_s21 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_trans );
+    private static final Term L_verb_type_2_s5 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_have );
+    private static final Term L_verb_type_2_s8 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_be );
+    private static final Term L_verb_type_2_s12 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_ditrans );
+    private static final Term L_verb_type_2_s17 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_intrans );
+    private static final Term L_verb_type_2_s21 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_trans );
 
 
 
@@ -14597,8 +14598,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adverb/1,public)
-        final static SymbolTerm ATOM_yesterday = SYM("yesterday");
-        final static SymbolTerm ATOM_tomorrow = SYM("tomorrow");
+        final static Functor ATOM_yesterday = SYM("yesterday");
+        final static Functor ATOM_tomorrow = SYM("tomorrow");
 
 
 

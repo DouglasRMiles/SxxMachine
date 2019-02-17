@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Representation error.<br>
  * There will be a representation error when an implementation defined limit has
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class RepresentationException extends BuiltinException {
 	/** A functor symbol of <code>representation_error/3</code>. */
-	public static final SymbolTerm REPRESENTATION_ERROR = SymbolTerm.intern("representation_error", 3);
+	public static final Functor REPRESENTATION_ERROR = TermData.F("representation_error", 3);
 	/*
 	 * flag ::= character | character_code | in_character_code | max_arity |
 	 * max_integer | min_integer
@@ -40,7 +42,7 @@ public class RepresentationException extends BuiltinException {
 	 */
 	@Override
 	public Term getMessageTerm() {
-		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), SymbolTerm.create(this.flag) };
+		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), TermData.createAtomic(this.flag) };
 		return TermData.createErrorTerm(this, REPRESENTATION_ERROR, args);
 	}
 

@@ -146,7 +146,7 @@ write_java(X, _) :- var(X), !,
 	am2j_error([unbound,variable,is,found]),
 	fail.
 write_java(end_of_file, _) :- !.
-write_java((:- G), _) :- !, must(call(G)).
+write_java((:- G), _) :- !, catch(must(call(G)),E,dmsg(E)).
 write_java(begin_predicate(P00, F/A), In) :- !,
   ((
 	%clause(dest_dir(Dir), _),        
@@ -237,11 +237,11 @@ combine3_1l([put_con([],INTO)|More],List):- am2j_subst(More,INTO,'@'('Prolog.Nil
 combine3_1l([put_con(true,INTO)|More],List):- am2j_subst(More,INTO,'@'('Prolog.True'),List),!.
 combine3_1l([put_con(S,INTO)|More],[inline('@'(DECL))|List]):- atom(S),symbol_to_name(S,Var),
   am2j_subst(More,INTO,'@'(Var),List),!,
-  constant_encoding(S,SC),format(atom(DECL),'final static SymbolTerm ~w = SYM("~s");',[Var,SC]),!.
+  constant_encoding(S,SC),format(atom(DECL),'final static Functor ~w = SYM("~s");',[Var,SC]),!.
 
 combine3_1l([put_con(F/A,INTO)|More],[inline('@'(DECL))|List]):- atom(F),integer(A),symbol_to_name(F/A,Var),
   am2j_subst(More,INTO,'@'(Var),List),!,
-  constant_encoding(F,SC),format(atom(DECL),'final static SymbolTerm ~w = F("~s",~w);',[Var,SC,A]),!.
+  constant_encoding(F,SC),format(atom(DECL),'final static Functor ~w = F("~s",~w);',[Var,SC,A]),!.
 
 combine3_1l([put_int(S,INTO)|More],List):- S> -19,S<26, must(symbol_to_name(S,Var)),
   am2j_subst(More,INTO,'@'(Var),List),!.
@@ -486,7 +486,7 @@ write_java0(put_con(C,X), _) :- atomic(C),must((declare_symbol(X,C))),!.
 write_java0(put_con(C,X), _) :- !, must((declare_symbol(X,C))),!.
 write_java0(put_list(Xi,Xj,Xk), _) :- !,
 	(Xk = s(_) ->
-	    tab(4), w('private static final ListTerm ')
+	    tab(4), w('private static final Term ')
 	    ;
 	    tab(8)
 	),
@@ -498,7 +498,7 @@ write_java0(put_list(Xi,Xj,Xk), _) :- !,
 	w(');'), nl.
 write_java0(put_str(Xi,Y,Xj), _) :- !,
 	((Xj = s(_) ->
-	    (tab(4), w('private static final StructureTerm '))
+	    (tab(4), w('private static final Term '))
 	    ;
 	    tab(8)
 	)),
@@ -674,36 +674,7 @@ write_java0(after_get_str(_F/_A,Xi,Xj,Us), In) :- !,
  	    w('}'), nl.
 
 
-/*	% read mode
-	tab(8),
-	w('if ('), write_reg(Xj), w(' .isStructure()){'), nl, %??? == F
-	tab(12),
-	w('if (! '), write_reg(Xi),
-	w('.equals(((StructureTerm)'), write_reg(Xj),
-	w(').functor()))'), nl,
-	tab(16),
-	w('return m.fail();'), nl,
-	tab(12),
-	w('Term[] argz = ('),
-	write_reg(Xj), w(').args0();'), nl,
-	write_unify_read(Us, 0),
-	% w mode
-	tab(8),
-	w('} else if ('), write_reg(Xj), w(' instanceof VariableTerm){'), nl,
-	write_unify_write(Us, Rs),
-	tab(12),
-	w('Term[] argz = {'), write_reg_args(Rs), w('};'), nl,
-	tab(12),
-	w('((VariableTerm) '), write_reg(Xj), w(').bind(new StructureTerm('),
-	write_reg(Xi), w(', argz), m.trail);'), nl,
-	% otherwise fail
-	tab(8),
- 	w('} else {'), nl,
-	tab(12),
- 	w('return m.fail();'), nl,
-	tab(8),
- 	w('}'), nl.
- */
+
 %%% Choice Instructions
 write_java0(try(Li,Lj), _) :- !,
 	clause(current_arity(A), _),
@@ -1105,7 +1076,7 @@ write_inline0(number(X), _)  :- !,
 	NL = op('!', instanceof(X, 'LongTerm')),
 	ND = op('!', instanceof(X, 'DoubleTerm')),
 	write_if_fail(op('&&', op('&&', NI, ND), NL) , [X], 8).
-write_inline0(java(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'FFIObjectTerm')), [X], 8).
+write_inline0(java(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'JavaObjectTerm')), [X], 8).
 write_inline0(closure(X), _) :- !, write_if_fail(op('!', instanceof(X, 'ClosureTerm')), [X], 8).
 
 write_inline0(cons(X), _) :- !, write_if_fail(op('!', @('isCons'(X))), [X], 8).
@@ -1120,8 +1091,8 @@ write_inline0(atomic(X), _) :- !,
 	write_if_fail(op('&&', NL, op('&&', NS, op('&&', NI, ND))) , [X], 8).
 
 write_inline0(java(X,Y), _) :- !,       
-	write_if_fail(op('!', instanceof(X, 'FFIObjectTerm')), [X], 8),
-	EXP = '#'('SYM'(@(getName(@(getClass(@(object(cast('FFIObjectTerm',X))))))))),
+	write_if_fail(op('!', instanceof(X, 'JavaObjectTerm')), [X], 8),
+	EXP = '#'('SYM'(@(getName(@(getClass(@(object(cast('JavaObjectTerm',X))))))))),
 	write_if_fail(op('!', unify(Y,EXP)), [], 8).
 write_inline0(jinstanceof(X,Y), In) :- !, write_inline0(java(X,Y), In).
 write_inline0(ground(X), _) :- !, write_if_fail(op('!', @('isGround'(X))), [X], 8).
@@ -1881,7 +1852,7 @@ wrargs(N,T,Komma) :-
 
 declare_symbol(X,C):-
 	tab(4),
-	w('private static final SymbolTerm '),        
+	w('private static final Functor '),        
 	write_reg_remembered(X,C),
 	w(' = SYM('),
 	(C = F/A ->
@@ -2005,15 +1976,16 @@ bi:-
    wln('import static SxxMachine.Predicate.*;'),
    wln('import static SxxMachine.Prolog.*;'),
    wln('import static SxxMachine.Success.*;'),
-   wln('import static SxxMachine.SymbolTerm.*;'),
-   wln('import static SxxMachine.TermData.*;'),
+   wln('import static SxxMachine.pterm.TermData.*;'),
    wln('import SxxMachine.*;'),
+   wln('import SxxMachine.pterm.*;'),
    wln('import SxxMachine.bootpreds.*;'),
    wln('import SxxMachine.bootpreds.PRED_$begin_exception_1;'),
    wln('import SxxMachine.bootpreds.PRED_$begin_sync_2;'),
    wln('import SxxMachine.bootpreds.PRED_$builtin_member_2;'),
    wln('import SxxMachine.FILE_builtins.*;'),
    wln('import SxxMachine.sxxtensions.*;'),
+   wln('@SuppressWarnings("unused")'),
   wln(['public class FILE_',Base,' extends ',Sxx,' {']),
   pl2j(Name),
   wln('static { loadPreds(); }\nstatic public void loadPreds() {'),

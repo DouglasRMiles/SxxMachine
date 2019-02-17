@@ -4,17 +4,19 @@ import static SxxMachine.FILE_builtins.PRED_set_prolog_flag_2_static_exec;
 import static SxxMachine.missing_preds.PRED_$set_predicate_attribute_3_static_exec;
 import static SxxMachine.missing_preds.PRED_must_be_2_static_exec;
 
+import SxxMachine.pterm.TermData;
+
 public class FILE_system_protect extends TermData {
 	/**
 	 * PREDICATE:
 	 * $dummy_0_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl/1
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1 = SYM(
+	private static final Functor PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_s1 = SYM(
 			"true");
-	final static SymbolTerm ATOM_access_level = SYM("access_level");
-	final static SymbolTerm ATOM_system = SYM("system");
-	final static SymbolTerm ATOM_user = SYM("user");
+	final static Functor ATOM_access_level = SYM("access_level");
+	final static Functor ATOM_system = SYM("system");
+	final static Functor ATOM_user = SYM("user");
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fsystem$002Epl_1_static_exec(
 			Prolog m) {
@@ -76,7 +78,7 @@ public class FILE_system_protect extends TermData {
 	 * PREDICATE: system_mode/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	 */
-	private static final SymbolTerm PRED_system_mode_1_s1 = SYM("boolean");
+	private static final Functor PRED_system_mode_1_s1 = SYM("boolean");
 
 	public static Operation PRED_system_mode_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -96,8 +98,8 @@ public class FILE_system_protect extends TermData {
 	 * PREDICATE: system_module/0 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	 */
-	private static final SymbolTerm PRED_system_module_0_s1 = SYM("generate_debug_info");
-	final static SymbolTerm ATOM_false = SYM("false");
+	private static final Functor PRED_system_module_0_s1 = SYM("generate_debug_info");
+	final static Functor ATOM_false = SYM("false");
 
 	public static Operation PRED_system_module_0_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -112,7 +114,7 @@ public class FILE_system_protect extends TermData {
 	 * PREDICATE: lock_predicate/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	 */
-	private static final SymbolTerm PRED_lock_predicate_1_s1 = SYM("system");
+	private static final Functor PRED_lock_predicate_1_s1 = SYM("system");
 
 	public static Operation PRED_lock_predicate_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -131,7 +133,7 @@ public class FILE_system_protect extends TermData {
 	 * PREDICATE: unlock_predicate/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/system.pl
 	 */
-	private static final SymbolTerm PRED_unlock_predicate_1_s1 = SYM("system");
+	private static final Functor PRED_unlock_predicate_1_s1 = SYM("system");
 
     public static Operation PRED_unlock_predicate_1_static_exec(Prolog m) {
 		Operation cont = m.cont;

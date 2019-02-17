@@ -2,6 +2,9 @@ package SxxMachine;
 
 import java.util.Iterator;
 
+import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.Source;
+
 //!depends
 
 /**

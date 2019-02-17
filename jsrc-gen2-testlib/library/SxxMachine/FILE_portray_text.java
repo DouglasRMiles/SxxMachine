@@ -17,13 +17,16 @@ import static SxxMachine.missing_preds.PRED_format_2_static_exec;
 import static SxxMachine.missing_preds.PRED_must_be_2_static_exec;
 import static SxxMachine.missing_preds.PRED_succ_2_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_portray_text extends TermData {
 	/**
 	 * PREDICATE: portray_text/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_portray_text_1_s1 = SYM("boolean");
-	final static SymbolTerm ATOM_portray_text = SYM("portray_text");
+	private static final Functor PRED_portray_text_1_s1 = SYM("boolean");
+	final static Functor ATOM_portray_text = SYM("portray_text");
 
 	public static Operation PRED_portray_text_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -51,9 +54,9 @@ public class FILE_portray_text extends TermData {
 	 * PREDICATE: set_portray_text/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_set_portray_text_2_s1 = SYM("min_length");
-	final static SymbolTerm ATOM_nonneg = SYM("nonneg");
-	final static SymbolTerm ATOM_ellipsis = SYM("ellipsis");
+	private static final Functor PRED_set_portray_text_2_s1 = SYM("min_length");
+	final static Functor ATOM_nonneg = SYM("nonneg");
+	final static Functor ATOM_ellipsis = SYM("ellipsis");
 
 	public static Operation PRED_set_portray_text_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -127,7 +130,7 @@ public class FILE_portray_text extends TermData {
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
 	final static IntegerTerm int_5 = Integer(5);
-	final static SymbolTerm ATOM_$002E$002E$002E = SYM("...");
+	final static Functor ATOM_$002E$002E$002E = SYM("...");
 
 	// private final Term arg5, arg6;
 
@@ -221,7 +224,7 @@ public class FILE_portray_text extends TermData {
 	 * $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl/2
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fportray_text$002Epl_2_s1 = SYM(
+	private static final Functor PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fportray_text$002Epl_2_s1 = SYM(
 			"~s");
 
 	public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fportray_text$002Epl_2_static_exec(
@@ -282,11 +285,11 @@ public class FILE_portray_text extends TermData {
 	 * PREDICATE: (:)/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_$003A_2_s1 = SYM("user");
-	private static final StructureTerm PRED_$003A_2_s8 = S("do_portray_text", Prolog.True);
-	private static final StructureTerm PRED_$003A_2_s10 = S(":", ATOM_portray_text, PRED_$003A_2_s8);
-	final static SymbolTerm ATOM_min_length = SYM("min_length");
-	final static SymbolTerm ATOM_$0022 = SYM("\"");
+	private static final Functor PRED_$003A_2_s1 = SYM("user");
+	private static final Term PRED_$003A_2_s8 = S("do_portray_text", Prolog.True);
+	private static final Term PRED_$003A_2_s10 = S(":", ATOM_portray_text, PRED_$003A_2_s8);
+	final static Functor ATOM_min_length = SYM("min_length");
+	final static Functor ATOM_$0022 = SYM("\"");
 
 	public static Operation PRED_$003A_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -479,7 +482,7 @@ public class FILE_portray_text extends TermData {
 	 * PREDICATE: put_var_codes/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_put_var_codes_1_s1 = SYM("|~p");
+	private static final Functor PRED_put_var_codes_1_s1 = SYM("|~p");
 
 	public static Operation PRED_put_var_codes_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -586,13 +589,13 @@ public class FILE_portray_text extends TermData {
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
 	private static final /**/ IntegerTerm PRED_emit_code_1_s1 = Integer(8);
-	final static SymbolTerm ATOM_$005Cb = SYM("\\b");
+	final static Functor ATOM_$005Cb = SYM("\\b");
 	final static IntegerTerm int_13 = Integer(13);
-	final static SymbolTerm ATOM_$005Cr = SYM("\\r");
+	final static Functor ATOM_$005Cr = SYM("\\r");
 	final static IntegerTerm int_10 = Integer(10);
-	final static SymbolTerm ATOM_$005Cn = SYM("\\n");
+	final static Functor ATOM_$005Cn = SYM("\\n");
 	final static IntegerTerm int_9 = Integer(9);
-	final static SymbolTerm ATOM_$005Ct = SYM("\\t");
+	final static Functor ATOM_$005Ct = SYM("\\t");
 
 	public static Operation PRED_emit_code_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -707,7 +710,7 @@ public class FILE_portray_text extends TermData {
 	 * PREDICATE: all_ascii/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final SymbolTerm PRED_all_ascii_1_s1 = SYM("[]");
+	private static final Functor PRED_all_ascii_1_s1 = SYM("[]");
 
 	public static Operation PRED_all_ascii_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -989,19 +992,19 @@ public class FILE_portray_text extends TermData {
 	 * PREDICATE: $init/0 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/portray_text.pl
 	 */
-	private static final StructureTerm PRED_$init_0_s7 = S("do_portray_text", Prolog.True);
-	private static final StructureTerm PRED_$init_0_s9 = S(":-", PRED_$init_0_s7, Prolog.True);
-	private static final StructureTerm PRED_$init_0_s11 = S(":", ATOM_portray_text, PRED_$init_0_s9);
+	private static final Term PRED_$init_0_s7 = S("do_portray_text", Prolog.True);
+	private static final Term PRED_$init_0_s9 = S(":-", PRED_$init_0_s7, Prolog.True);
+	private static final Term PRED_$init_0_s11 = S(":", ATOM_portray_text, PRED_$init_0_s9);
 	final static IntegerTerm int_3 = Integer(3);
-	private static final StructureTerm PRED_$init_0_s16 = S("portray_text_option", ATOM_min_length, int_3);
-	private static final StructureTerm PRED_$init_0_s18 = S(":-", PRED_$init_0_s16, Prolog.True);
-	private static final StructureTerm PRED_$init_0_s20 = S(":", ATOM_portray_text, PRED_$init_0_s18);
+	private static final Term PRED_$init_0_s16 = S("portray_text_option", ATOM_min_length, int_3);
+	private static final Term PRED_$init_0_s18 = S(":-", PRED_$init_0_s16, Prolog.True);
+	private static final Term PRED_$init_0_s20 = S(":", ATOM_portray_text, PRED_$init_0_s18);
 	final static IntegerTerm int_30 = Integer(30);
-	private static final StructureTerm PRED_$init_0_s24 = S("portray_text_option", ATOM_ellipsis, int_30);
-	private static final StructureTerm PRED_$init_0_s26 = S(":-", PRED_$init_0_s24, Prolog.True);
-	private static final StructureTerm PRED_$init_0_s28 = S(":", ATOM_portray_text, PRED_$init_0_s26);
-	final static SymbolTerm ATOM_portray = SYM("portray");
-	private static final StructureTerm PRED_$init_0_s33 = S("/", ATOM_portray, int_1);
+	private static final Term PRED_$init_0_s24 = S("portray_text_option", ATOM_ellipsis, int_30);
+	private static final Term PRED_$init_0_s26 = S(":-", PRED_$init_0_s24, Prolog.True);
+	private static final Term PRED_$init_0_s28 = S(":", ATOM_portray_text, PRED_$init_0_s26);
+	final static Functor ATOM_portray = SYM("portray");
+	private static final Term PRED_$init_0_s33 = S("/", ATOM_portray, int_1);
 
 	public static Operation PRED_$init_0_static_exec(Prolog m) {
 		Operation cont = m.cont;

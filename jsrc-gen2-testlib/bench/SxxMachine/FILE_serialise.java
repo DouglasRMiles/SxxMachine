@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_serialise extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
         m.setB0();
     // top:-[serialise]
         return //
- Op(FILE_serialise::PRED_serialise_0_static_exec, VA(), cont);
+ Op("serialise", FILE_serialise::PRED_serialise_0_static_exec, VA(), cont);
     }
 /** PREDICATE: serialise/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
@@ -57,31 +58,31 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
         final static IntegerTerm int_83 = Integer(83);
         final static IntegerTerm int_73 = Integer(73);
         final static IntegerTerm int_82 = Integer(82);
-    private static final ListTerm L_serialise_0_s11 = CONS( int_65 ,  Prolog.Nil );
-    private static final ListTerm L_serialise_0_s12 = CONS( int_66 , L_serialise_0_s11);
-    private static final ListTerm L_serialise_0_s13 = CONS( int_76 , L_serialise_0_s12);
-    private static final ListTerm L_serialise_0_s14 = CONS( int_69 , L_serialise_0_s13);
-    private static final ListTerm L_serialise_0_s15 = CONS( int_32 , L_serialise_0_s14);
-    private static final ListTerm L_serialise_0_s16 = CONS( int_87 , L_serialise_0_s15);
-    private static final ListTerm L_serialise_0_s17 = CONS( int_65 , L_serialise_0_s16);
-    private static final ListTerm L_serialise_0_s18 = CONS( int_83 , L_serialise_0_s17);
-    private static final ListTerm L_serialise_0_s19 = CONS( int_32 , L_serialise_0_s18);
-    private static final ListTerm L_serialise_0_s20 = CONS( int_73 , L_serialise_0_s19);
-    private static final ListTerm L_serialise_0_s21 = CONS( int_32 , L_serialise_0_s20);
-    private static final ListTerm L_serialise_0_s22 = CONS( int_69 , L_serialise_0_s21);
-    private static final ListTerm L_serialise_0_s23 = CONS( int_82 , L_serialise_0_s22);
-    private static final ListTerm L_serialise_0_s24 = CONS( int_69 , L_serialise_0_s23);
-    private static final ListTerm L_serialise_0_s25 = CONS( int_32 , L_serialise_0_s24);
-    private static final ListTerm L_serialise_0_s26 = CONS( int_73 , L_serialise_0_s25);
-    private static final ListTerm L_serialise_0_s27 = CONS( int_32 , L_serialise_0_s26);
-    private static final ListTerm L_serialise_0_s28 = CONS( int_83 , L_serialise_0_s27);
-    private static final ListTerm L_serialise_0_s29 = CONS( int_65 , L_serialise_0_s28);
-    private static final ListTerm L_serialise_0_s30 = CONS( int_87 , L_serialise_0_s29);
-    private static final ListTerm L_serialise_0_s31 = CONS( int_32 , L_serialise_0_s30);
-    private static final ListTerm L_serialise_0_s32 = CONS( int_69 , L_serialise_0_s31);
-    private static final ListTerm L_serialise_0_s33 = CONS( int_76 , L_serialise_0_s32);
-    private static final ListTerm L_serialise_0_s34 = CONS( int_66 , L_serialise_0_s33);
-    private static final ListTerm L_serialise_0_s35 = CONS( int_65 , L_serialise_0_s34);
+    private static final Term L_serialise_0_s11 = CONS( int_65 ,  Prolog.Nil );
+    private static final Term L_serialise_0_s12 = CONS( int_66 , L_serialise_0_s11);
+    private static final Term L_serialise_0_s13 = CONS( int_76 , L_serialise_0_s12);
+    private static final Term L_serialise_0_s14 = CONS( int_69 , L_serialise_0_s13);
+    private static final Term L_serialise_0_s15 = CONS( int_32 , L_serialise_0_s14);
+    private static final Term L_serialise_0_s16 = CONS( int_87 , L_serialise_0_s15);
+    private static final Term L_serialise_0_s17 = CONS( int_65 , L_serialise_0_s16);
+    private static final Term L_serialise_0_s18 = CONS( int_83 , L_serialise_0_s17);
+    private static final Term L_serialise_0_s19 = CONS( int_32 , L_serialise_0_s18);
+    private static final Term L_serialise_0_s20 = CONS( int_73 , L_serialise_0_s19);
+    private static final Term L_serialise_0_s21 = CONS( int_32 , L_serialise_0_s20);
+    private static final Term L_serialise_0_s22 = CONS( int_69 , L_serialise_0_s21);
+    private static final Term L_serialise_0_s23 = CONS( int_82 , L_serialise_0_s22);
+    private static final Term L_serialise_0_s24 = CONS( int_69 , L_serialise_0_s23);
+    private static final Term L_serialise_0_s25 = CONS( int_32 , L_serialise_0_s24);
+    private static final Term L_serialise_0_s26 = CONS( int_73 , L_serialise_0_s25);
+    private static final Term L_serialise_0_s27 = CONS( int_32 , L_serialise_0_s26);
+    private static final Term L_serialise_0_s28 = CONS( int_83 , L_serialise_0_s27);
+    private static final Term L_serialise_0_s29 = CONS( int_65 , L_serialise_0_s28);
+    private static final Term L_serialise_0_s30 = CONS( int_87 , L_serialise_0_s29);
+    private static final Term L_serialise_0_s31 = CONS( int_32 , L_serialise_0_s30);
+    private static final Term L_serialise_0_s32 = CONS( int_69 , L_serialise_0_s31);
+    private static final Term L_serialise_0_s33 = CONS( int_76 , L_serialise_0_s32);
+    private static final Term L_serialise_0_s34 = CONS( int_66 , L_serialise_0_s33);
+    private static final Term L_serialise_0_s35 = CONS( int_65 , L_serialise_0_s34);
 
 
 
@@ -92,7 +93,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
         m.setB0();
     // serialise:-[serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)]
         return //
- Op(FILE_serialise::PRED_serialise_2_static_exec, VA(L_serialise_0_s35, m.DONT_CARE2()), cont);
+ Op("serialise", FILE_serialise::PRED_serialise_2_static_exec, VA(L_serialise_0_s35, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: serialise/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
@@ -114,15 +115,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
         a3 = m.mkvar1();
         a4 = m.mkvar1();
         return //
- Op(FILE_serialise::PRED_pairlists_3_static_exec, VA(a1, a2, a3), //
- Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a3, a4), //
- Op(FILE_serialise::PRED_numbered_3_static_exec, VA(a4,  int_1 , m.DONT_CARE2()), cont)));
+ Op("pairlists", FILE_serialise::PRED_pairlists_3_static_exec, VA(a1, a2, a3), //
+ Op("arrange", FILE_serialise::PRED_arrange_2_static_exec, VA(a3, a4), //
+ Op("numbered", FILE_serialise::PRED_numbered_3_static_exec, VA(a4,  int_1 , m.DONT_CARE2()), cont)));
     }
 /** PREDICATE: pairlists/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(pairlists/3,public)
-        final static SymbolTerm FUNCTOR_pair_2 = F("pair",2);
+        final static Functor FUNCTOR_pair_2 = F("pair",2);
 
 
 
@@ -222,8 +223,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(arrange/2,public)
-        final static SymbolTerm FUNCTOR_tree_3 = F("tree",3);
-        final static SymbolTerm ATOM_void = SYM("void");
+        final static Functor FUNCTOR_tree_3 = F("tree",3);
+        final static Functor ATOM_void = SYM("void");
 
 
 
@@ -274,9 +275,9 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_serialise::PRED_split_4_static_exec, VA(a4, a3, a7, a8), //
- Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a7, a5), //
- Op(FILE_serialise::PRED_arrange_2_static_exec, VA(a8, a6), cont)));
+ Op("split", FILE_serialise::PRED_split_4_static_exec, VA(a4, a3, a7, a8), //
+ Op("arrange", FILE_serialise::PRED_arrange_2_static_exec, VA(a7, a5), //
+ Op("arrange", FILE_serialise::PRED_arrange_2_static_exec, VA(a8, a6), cont)));
     }
 
     private final static Operation arrange_2_2(Prolog m) { 
@@ -421,9 +422,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_serialise::PRED_before_2_static_exec, VA(a5, a2), //
- Op(FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
- Op(FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a7, a4), cont)));
+ Op("before", FILE_serialise::PRED_before_2_static_exec, VA(a5, a2), //
+ Op("$cut", FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
+ Op("split", FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a7, a4), cont)));
     }
 
     private final static Operation split_4_3(Prolog m) { 
@@ -466,9 +467,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_serialise::PRED_before_2_static_exec, VA(a2, a5), //
- Op(FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
- Op(FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a3, a7), cont)));
+ Op("before", FILE_serialise::PRED_before_2_static_exec, VA(a2, a5), //
+ Op("$cut", FILE_serialise::PRED_$cut_1_static_exec, VA(a8), //
+ Op("split", FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a3, a7), cont)));
     }
 
     private final static Operation split_4_4(Prolog m) { 
@@ -526,7 +527,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(numbered/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -579,8 +580,8 @@ m.cont = cont;
         a9 =  S( FUNCTOR_$002B_2 , a7,  int_1 );
  ;
         p2 = //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
- Op(FILE_serialise::PRED_numbered_3_static_exec, VA(a6, a8, a3), cont));
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
+ Op("numbered", FILE_serialise::PRED_numbered_3_static_exec, VA(a6, a8, a3), cont));
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a7;

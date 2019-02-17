@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Evaluation error.<br>
  * There will be an evaluation error when the operands of an evaluable functor
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class EvaluationException extends BuiltinException {
 	/** A functor symbol of <code>evaluation_error/3</code>. */
-	public static final SymbolTerm EVALUATION_ERROR = SymbolTerm.intern("evaluation_error", 3);
+	public static final Functor EVALUATION_ERROR = TermData.F("evaluation_error", 3);
 	/*
 	 * errorType ::= float_overflow | int_overflow | undefined | underflow |
 	 * zero_devisor
@@ -40,8 +42,8 @@ public class EvaluationException extends BuiltinException {
 	@Override
 	public Term getMessageTerm() {
 		Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo),
-				SymbolTerm.create(this.errorType) };
-		return TermData.createErrorTerm(this, EVALUATION_ERROR, args);
+				TermData.createAtomic(this.errorType) };
+		return (Term) TermData.createErrorTerm(this, EVALUATION_ERROR, args);
 	}
 
 	/** Returns a string representation of this <code>EvaluationException</code>. */

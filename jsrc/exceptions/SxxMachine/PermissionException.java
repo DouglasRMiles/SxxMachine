@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Permission error.<br>
  * There will be a permission error when it is not permitted to perform a
@@ -11,7 +13,7 @@ package SxxMachine;
  */
 public class PermissionException extends BuiltinException {
 	/** A functor symbol of <code>permission_error/5</code>. */
-	public static final SymbolTerm PERMISSION_ERROR = SymbolTerm.intern("permission_error", 5);
+	public static final Functor PERMISSION_ERROR = TermData.F("permission_error", 5);
 	/*
 	 * operation ::= access | create | input | modify | open | output | reposition |
 	 * new
@@ -52,8 +54,8 @@ public class PermissionException extends BuiltinException {
 	 */
 	@Override
 	public Term getMessageTerm() {
-		Term[] args = { TermData.FFIObject(this.goal), SymbolTerm.create(this.operation),
-				SymbolTerm.create(this.permissionType), this.culprit, SymbolTerm.create(this.message) };
+		Term[] args = { TermData.FFIObject(this.goal), TermData.createAtomic(this.operation),
+				TermData.createAtomic(this.permissionType), this.culprit, TermData.createAtomic(this.message) };
 		return TermData.createErrorTerm(this, PERMISSION_ERROR, args);
 	}
 

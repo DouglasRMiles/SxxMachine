@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.LinkedList;
 
+import SxxMachine.pterm.ListTerm;
+import SxxMachine.pterm.TermData;
+
 /**
  * The <code>Compiler</code> class provides methods for translating Prolog
  * programs into Java programs.
@@ -76,11 +79,11 @@ public class Compiler {
     public static enum Option {
         eliminateDisjunctions("ed", true), arithmeticCompilation("ac", true), inlineExpansion("ie",
                 true), optimiseRecursiveCall("rc", true), switchOnHash("idx", true), generateClosure("clo", false);
-        final SymbolTerm symbol;
+        final Functor symbol;
         final boolean onByDefault;
 
         Option(String symbol, boolean onByDefault) {
-            this.symbol = SymbolTerm.intern(symbol);
+            this.symbol = TermData.SYM(symbol);
             this.onByDefault = onByDefault;
         }
     }
@@ -109,8 +112,8 @@ public class Compiler {
         if (!fileExists(_prolog))
             throw new CompileException(new FileNotFoundException(_prolog));
         // Create arguments
-        Term prolog = SymbolTerm.create(_prolog);
-        Term wam = SymbolTerm.create(_wam);
+        Term prolog = TermData.createAtomic(_prolog);
+        Term wam = TermData.createAtomic(_wam);
         Term op = Prolog.Nil;
         for (Option opt : this.options)
             op = TermData.CONS(opt.symbol, op);
@@ -138,8 +141,8 @@ public class Compiler {
         if (!fileExists(_dir) && !new File(_dir).mkdirs())
             throw new CompileException(new FileNotFoundException(_dir));
         // Create arguments
-        Term wam = SymbolTerm.create(_wam);
-        Term dir = SymbolTerm.create(_dir);
+        Term wam = TermData.createAtomic(_wam);
+        Term dir = TermData.createAtomic(_dir);
         ListTerm args = TermData.LIST(wam, dir);
         try {
             if (!this.pcl.execute("SxxMachine.compiler.am2j", "am2j", args))

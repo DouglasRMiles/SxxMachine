@@ -1,5 +1,11 @@
 package SxxMachine;
 
+import SxxMachine.pterm.DoubleTerm;
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.LongTerm;
+import SxxMachine.pterm.NumberTerm;
+import SxxMachine.pterm.TermData;
+
 /**
  * The <code>Arithmetic</code> class contains a method for evaluating arithmetic
  * expressions.<br>
@@ -10,48 +16,48 @@ package SxxMachine;
  * @version 1.0
  */
 public class Arithmetic {
-	static final SymbolTerm SYM_RANDOM = SymbolTerm.intern("random");
-	static final SymbolTerm SYM_PI = SymbolTerm.intern("pi");
-	static final SymbolTerm SYM_E = SymbolTerm.intern("e");
-	static final SymbolTerm SYM_ADD_1 = SymbolTerm.intern("+", 1);
-	static final SymbolTerm SYM_NEGATE_1 = SymbolTerm.intern("-", 1);
-	static final SymbolTerm SYM_ADD_2 = SymbolTerm.intern("+", 2);
-	static final SymbolTerm SYM_SUBTRACT_2 = SymbolTerm.intern("-", 2);
-	static final SymbolTerm SYM_MULTIPLY_2 = SymbolTerm.intern("*", 2);
-	static final SymbolTerm SYM_DIVIDE_2 = SymbolTerm.intern("/", 2);
-	static final SymbolTerm SYM_INTDIVIDE_2 = SymbolTerm.intern("//", 2);
-	static final SymbolTerm SYM_MOD_2 = SymbolTerm.intern("mod", 2);
-	static final SymbolTerm SYM_SHIFTLEFT_2 = SymbolTerm.intern("<<", 2);
-	static final SymbolTerm SYM_SHIFTRIGHT_2 = SymbolTerm.intern(">>", 2);
-	static final SymbolTerm SYM_NOT_1 = SymbolTerm.intern("\\", 1);
-	static final SymbolTerm SYM_AND_2 = SymbolTerm.intern("/\\", 2);
-	static final SymbolTerm SYM_OR_2 = SymbolTerm.intern("\\/", 2);
-	static final SymbolTerm SYM_XOR_2 = SymbolTerm.intern("#", 2);
-	static final SymbolTerm SYM_POW_2 = SymbolTerm.intern("**", 2);
-	static final SymbolTerm SYM_ABS_1 = SymbolTerm.intern("abs", 1);
-	static final SymbolTerm SYM_ACOS_1 = SymbolTerm.intern("acos", 1);
-	static final SymbolTerm SYM_ASIN_1 = SymbolTerm.intern("asin", 1);
-	static final SymbolTerm SYM_ATAN_1 = SymbolTerm.intern("atan", 1);
-	static final SymbolTerm SYM_CEIL_1 = SymbolTerm.intern("ceiling", 1);
-	static final SymbolTerm SYM_COS_1 = SymbolTerm.intern("cos", 1);
-	static final SymbolTerm SYM_DEGREES_1 = SymbolTerm.intern("degrees", 1);
-	static final SymbolTerm SYM_EXP_1 = SymbolTerm.intern("exp", 1);
-	static final SymbolTerm SYM_FLOOR_1 = SymbolTerm.intern("floor", 1);
-	static final SymbolTerm SYM_LOG_1 = SymbolTerm.intern("log", 1);
-	static final SymbolTerm SYM_MAX_2 = SymbolTerm.intern("max", 2);
-	static final SymbolTerm SYM_MIN_2 = SymbolTerm.intern("min", 2);
-	static final SymbolTerm SYM_RADIANS_1 = SymbolTerm.intern("radians", 1);
-	static final SymbolTerm SYM_RINT_1 = SymbolTerm.intern("rint", 1);
-	static final SymbolTerm SYM_ROUND_1 = SymbolTerm.intern("round", 1);
-	static final SymbolTerm SYM_SIN_1 = SymbolTerm.intern("sin", 1);
-	static final SymbolTerm SYM_SQRT_1 = SymbolTerm.intern("sqrt", 1);
-	static final SymbolTerm SYM_TAN_1 = SymbolTerm.intern("tan", 1);
-	static final SymbolTerm SYM_REM_2 = SymbolTerm.intern("rem", 2);
-	static final SymbolTerm SYM_SIGN_1 = SymbolTerm.intern("sign", 1);
-	static final SymbolTerm SYM_FLOAT_1 = SymbolTerm.intern("float", 1);
-	static final SymbolTerm SYM_INTPART_1 = SymbolTerm.intern("float_integer_part", 1);
-	static final SymbolTerm SYM_FRACTPART_1 = SymbolTerm.intern("float_fractional_part", 1);
-	static final SymbolTerm SYM_TRUNCATE_1 = SymbolTerm.intern("truncate", 1);
+	static final Functor SYM_RANDOM = TermData.SYM("random");
+	static final Functor SYM_PI = TermData.SYM("pi");
+	static final Functor SYM_E = TermData.SYM("e");
+	static final Functor SYM_ADD_1 = TermData.F("+", 1);
+	static final Functor SYM_NEGATE_1 = TermData.F("-", 1);
+	static final Functor SYM_ADD_2 = TermData.F("+", 2);
+	static final Functor SYM_SUBTRACT_2 = TermData.F("-", 2);
+	static final Functor SYM_MULTIPLY_2 = TermData.F("*", 2);
+	static final Functor SYM_DIVIDE_2 = TermData.F("/", 2);
+	static final Functor SYM_INTDIVIDE_2 = TermData.F("//", 2);
+	static final Functor SYM_MOD_2 = TermData.F("mod", 2);
+	static final Functor SYM_SHIFTLEFT_2 = TermData.F("<<", 2);
+	static final Functor SYM_SHIFTRIGHT_2 = TermData.F(">>", 2);
+	static final Functor SYM_NOT_1 = TermData.F("\\", 1);
+	static final Functor SYM_AND_2 = TermData.F("/\\", 2);
+	static final Functor SYM_OR_2 = TermData.F("\\/", 2);
+	static final Functor SYM_XOR_2 = TermData.F("#", 2);
+	static final Functor SYM_POW_2 = TermData.F("**", 2);
+	static final Functor SYM_ABS_1 = TermData.F("abs", 1);
+	static final Functor SYM_ACOS_1 = TermData.F("acos", 1);
+	static final Functor SYM_ASIN_1 = TermData.F("asin", 1);
+	static final Functor SYM_ATAN_1 = TermData.F("atan", 1);
+	static final Functor SYM_CEIL_1 = TermData.F("ceiling", 1);
+	static final Functor SYM_COS_1 = TermData.F("cos", 1);
+	static final Functor SYM_DEGREES_1 = TermData.F("degrees", 1);
+	static final Functor SYM_EXP_1 = TermData.F("exp", 1);
+	static final Functor SYM_FLOOR_1 = TermData.F("floor", 1);
+	static final Functor SYM_LOG_1 = TermData.F("log", 1);
+	static final Functor SYM_MAX_2 = TermData.F("max", 2);
+	static final Functor SYM_MIN_2 = TermData.F("min", 2);
+	static final Functor SYM_RADIANS_1 = TermData.F("radians", 1);
+	static final Functor SYM_RINT_1 = TermData.F("rint", 1);
+	static final Functor SYM_ROUND_1 = TermData.F("round", 1);
+	static final Functor SYM_SIN_1 = TermData.F("sin", 1);
+	static final Functor SYM_SQRT_1 = TermData.F("sqrt", 1);
+	static final Functor SYM_TAN_1 = TermData.F("tan", 1);
+	static final Functor SYM_REM_2 = TermData.F("rem", 2);
+	static final Functor SYM_SIGN_1 = TermData.F("sign", 1);
+	static final Functor SYM_FLOAT_1 = TermData.F("float", 1);
+	static final Functor SYM_INTPART_1 = TermData.F("float_integer_part", 1);
+	static final Functor SYM_FRACTPART_1 = TermData.F("float_fractional_part", 1);
+	static final Functor SYM_TRUNCATE_1 = TermData.F("truncate", 1);
 
 	/**
 	 * Evaluates <code>_t</code> as an arithmetic expression, and returns the
@@ -86,7 +92,7 @@ public class Arithmetic {
 			return evaluate(t.asListTerm().car());
 		else if (!(t.isCompound()))
 			throw new IllegalDomainException("arithmetic expression", t);
-		SymbolTerm func = (t).functor().asSymbolTerm();
+		Functor func = (t).functor().asSymbolTerm();
 		Term[] args = (t).args();
 		if (func.equalsTerm(SYM_ADD_1))
 			return evaluate(args[0]);

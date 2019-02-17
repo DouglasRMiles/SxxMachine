@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_mu extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
@@ -42,20 +43,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
         m.setB0();
     // top:-[mu]
         return //
- Op(FILE_mu::PRED_mu_0_static_exec, VA(), cont);
+ Op("mu", FILE_mu::PRED_mu_0_static_exec, VA(), cont);
     }
 /** PREDICATE: mu/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 */
     // main(mu/0,public)
-        final static SymbolTerm ATOM_m = SYM("m");
-        final static SymbolTerm ATOM_u = SYM("u");
-        final static SymbolTerm ATOM_i = SYM("i");
-    private static final ListTerm L_mu_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final ListTerm L_mu_0_s6 = CONS( ATOM_i , L_mu_0_s5);
-    private static final ListTerm L_mu_0_s7 = CONS( ATOM_i , L_mu_0_s6);
-    private static final ListTerm L_mu_0_s8 = CONS( ATOM_u , L_mu_0_s7);
-    private static final ListTerm L_mu_0_s9 = CONS( ATOM_m , L_mu_0_s8);
+        final static Functor ATOM_m = SYM("m");
+        final static Functor ATOM_u = SYM("u");
+        final static Functor ATOM_i = SYM("i");
+    private static final Term L_mu_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Term L_mu_0_s6 = CONS( ATOM_i , L_mu_0_s5);
+    private static final Term L_mu_0_s7 = CONS( ATOM_i , L_mu_0_s6);
+    private static final Term L_mu_0_s8 = CONS( ATOM_u , L_mu_0_s7);
+    private static final Term L_mu_0_s9 = CONS( ATOM_m , L_mu_0_s8);
 
 
 
@@ -74,19 +75,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
         }
         //END inline expansion
         return //
- Op(FILE_mu::PRED_theorem_3_static_exec, VA(L_mu_0_s9,  int_5 , m.DONT_CARE2()), //
- Op(FILE_mu::PRED_$cut_1_static_exec, VA(a1), cont));
+ Op("theorem", FILE_mu::PRED_theorem_3_static_exec, VA(L_mu_0_s9,  int_5 , m.DONT_CARE2()), //
+ Op("$cut", FILE_mu::PRED_$cut_1_static_exec, VA(a1), cont));
     }
 /** PREDICATE: theorem/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 */
     // main(theorem/3,public)
-    private static final ListTerm L_theorem_3_s4 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final ListTerm L_theorem_3_s5 = CONS( ATOM_m , L_theorem_3_s4);
-        final static SymbolTerm ATOM_a = SYM("a");
-    private static final ListTerm L_theorem_3_s7 = CONS( ATOM_a , L_theorem_3_s5);
-    private static final ListTerm L_theorem_3_s8 = CONS(L_theorem_3_s7,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+    private static final Term L_theorem_3_s4 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Term L_theorem_3_s5 = CONS( ATOM_m , L_theorem_3_s4);
+        final static Functor ATOM_a = SYM("a");
+    private static final Term L_theorem_3_s7 = CONS( ATOM_a , L_theorem_3_s5);
+    private static final Term L_theorem_3_s8 = CONS(L_theorem_3_s7,  Prolog.Nil );
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -182,7 +183,7 @@ m.cont = cont;
         //END inline expansion
         a10 = m.mkvar1();
         p1 = //
- Op(FILE_mu::PRED_rule_3_static_exec, VA(a6, a10, a1), cont);
+ Op("rule", FILE_mu::PRED_rule_3_static_exec, VA(a6, a10, a1), cont);
         m.AREGS[0] = a10;
         m.AREGS[1] = a8;
         m.AREGS[2] = a5;
@@ -236,7 +237,7 @@ m.cont = cont;
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_mu::PRED_rule1_2_static_exec, VA(a2, a3), cont);
+ Op("rule1", FILE_mu::PRED_rule1_2_static_exec, VA(a2, a3), cont);
     }
 
     private final static Operation rule_3_2(Prolog m) { 
@@ -251,7 +252,7 @@ m.cont = cont;
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_mu::PRED_rule2_2_static_exec, VA(a2, a3), cont);
+ Op("rule2", FILE_mu::PRED_rule2_2_static_exec, VA(a2, a3), cont);
     }
 
     private final static Operation rule_3_3(Prolog m) { 
@@ -266,7 +267,7 @@ m.cont = cont;
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_mu::PRED_rule3_2_static_exec, VA(a2, a3), cont);
+ Op("rule3", FILE_mu::PRED_rule3_2_static_exec, VA(a2, a3), cont);
     }
 
     private final static Operation rule_3_4(Prolog m) { 
@@ -281,15 +282,15 @@ m.cont = cont;
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_mu::PRED_rule4_2_static_exec, VA(a2, a3), cont);
+ Op("rule4", FILE_mu::PRED_rule4_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: rule1/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 */
     // main(rule1/2,public)
-    private static final ListTerm L_rule1_2_s3 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final ListTerm L_rule1_2_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final ListTerm L_rule1_2_s6 = CONS( ATOM_i , L_rule1_2_s5);
+    private static final Term L_rule1_2_s3 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Term L_rule1_2_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Term L_rule1_2_s6 = CONS( ATOM_i , L_rule1_2_s5);
 
 
 
@@ -404,7 +405,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
             return m.fail();
         }
         return //
- Op(FILE_mu::PRED_append_3_static_exec, VA(a3, a3, a4), cont);
+ Op("append", FILE_mu::PRED_append_3_static_exec, VA(a3, a3, a4), cont);
     }
 /** PREDICATE: rule3/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl

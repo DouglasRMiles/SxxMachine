@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_poly_10 extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
         m.setB0();
     // top:-[poly_10]
         return //
- Op(FILE_poly_10::PRED_poly_10_0_static_exec, VA(), cont);
+ Op("poly_10", FILE_poly_10::PRED_poly_10_0_static_exec, VA(), cont);
     }
 /** PREDICATE: poly_10/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
@@ -61,25 +62,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
     // poly_10:-[test_poly(A),poly_exp(10,A,B)]
         a1 = m.mkvar1();
         return //
- Op(FILE_poly_10::PRED_test_poly_1_static_exec, VA(a1), //
- Op(FILE_poly_10::PRED_poly_exp_3_static_exec, VA( int_10 , a1, m.DONT_CARE2()), cont));
+ Op("test_poly", FILE_poly_10::PRED_test_poly_1_static_exec, VA(a1), //
+ Op("poly_exp", FILE_poly_10::PRED_poly_exp_3_static_exec, VA( int_10 , a1, m.DONT_CARE2()), cont));
     }
 /** PREDICATE: test_poly/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
 */
     // main(test_poly/1,public)
-        final static SymbolTerm FUNCTOR_poly_2 = F("poly",2);
-        final static SymbolTerm ATOM_x = SYM("x");
-        final static SymbolTerm FUNCTOR_term_2 = F("term",2);
-    private static final StructureTerm L_test_poly_1_s7 = S( FUNCTOR_term_2 ,  int_0 ,  int_1 );
-    private static final StructureTerm L_test_poly_1_s9 = S( FUNCTOR_term_2 ,  int_1 ,  int_1 );
-    private static final ListTerm L_test_poly_1_s11 = CONS(L_test_poly_1_s9,  Prolog.Nil );
-    private static final ListTerm L_test_poly_1_s12 = CONS(L_test_poly_1_s7, L_test_poly_1_s11);
-    private static final StructureTerm L_test_poly_1_s14 = S( FUNCTOR_poly_2 ,  ATOM_x , L_test_poly_1_s12);
-        final static SymbolTerm ATOM_y = SYM("y");
-    private static final StructureTerm L_test_poly_1_s17 = S( FUNCTOR_poly_2 ,  ATOM_y , L_test_poly_1_s11);
-        final static SymbolTerm ATOM_z = SYM("z");
-    private static final StructureTerm L_test_poly_1_s20 = S( FUNCTOR_poly_2 ,  ATOM_z , L_test_poly_1_s11);
+        final static Functor FUNCTOR_poly_2 = F("poly",2);
+        final static Functor ATOM_x = SYM("x");
+        final static Functor FUNCTOR_term_2 = F("term",2);
+    private static final Term L_test_poly_1_s7 = S( FUNCTOR_term_2 ,  int_0 ,  int_1 );
+    private static final Term L_test_poly_1_s9 = S( FUNCTOR_term_2 ,  int_1 ,  int_1 );
+    private static final Term L_test_poly_1_s11 = CONS(L_test_poly_1_s9,  Prolog.Nil );
+    private static final Term L_test_poly_1_s12 = CONS(L_test_poly_1_s7, L_test_poly_1_s11);
+    private static final Term L_test_poly_1_s14 = S( FUNCTOR_poly_2 ,  ATOM_x , L_test_poly_1_s12);
+        final static Functor ATOM_y = SYM("y");
+    private static final Term L_test_poly_1_s17 = S( FUNCTOR_poly_2 ,  ATOM_y , L_test_poly_1_s11);
+        final static Functor ATOM_z = SYM("z");
+    private static final Term L_test_poly_1_s20 = S( FUNCTOR_poly_2 ,  ATOM_z , L_test_poly_1_s11);
 
 
 
@@ -94,8 +95,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
     // test_poly(A):-[poly_add(poly(x,[term(0,1),term(1,1)]),poly(y,[term(1,1)]),B),poly_add(poly(z,[term(1,1)]),B,A)]
         a2 = m.mkvar1();
         return //
- Op(FILE_poly_10::PRED_poly_add_3_static_exec, VA(L_test_poly_1_s14, L_test_poly_1_s17, a2), //
- Op(FILE_poly_10::PRED_poly_add_3_static_exec, VA(L_test_poly_1_s20, a2, a1), cont));
+ Op("poly_add", FILE_poly_10::PRED_poly_add_3_static_exec, VA(L_test_poly_1_s14, L_test_poly_1_s17, a2), //
+ Op("poly_add", FILE_poly_10::PRED_poly_add_3_static_exec, VA(L_test_poly_1_s20, a2, a1), cont));
     }
 /** PREDICATE: (less_than)/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
@@ -175,7 +176,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
 */
     // main(poly_add/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -251,7 +252,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a6, a7), cont);
+ Op("term_add", FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a6, a7), cont);
     }
 
     private final static Operation poly_add_3_2(Prolog m) { 
@@ -291,9 +292,9 @@ m.cont = cont;
         a10 =  S( FUNCTOR_poly_2 , a6, a7);
  ;
         return //
- Op(FILE_poly_10::PRED_less_than_2_static_exec, VA(a4, a6), //
- Op(FILE_poly_10::PRED_$cut_1_static_exec, VA(a9), //
- Op(FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a10, a8), cont)));
+ Op("less_than", FILE_poly_10::PRED_less_than_2_static_exec, VA(a4, a6), //
+ Op("$cut", FILE_poly_10::PRED_$cut_1_static_exec, VA(a9), //
+ Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a10, a8), cont)));
     }
 
     private final static Operation poly_add_3_3(Prolog m) { 
@@ -320,7 +321,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a1, a6), cont);
+ Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a1, a6), cont);
     }
 
     private final static Operation poly_add_3_4(Prolog m) { 
@@ -347,7 +348,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a2, a6), cont);
+ Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a2, a6), cont);
     }
 
     private final static Operation poly_add_3_5(Prolog m) { 
@@ -559,8 +560,8 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_poly_add_3_static_exec, VA(a7, a10, a13), //
- Op(FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a9, a12), cont));
+ Op("poly_add", FILE_poly_10::PRED_poly_add_3_static_exec, VA(a7, a10, a13), //
+ Op("term_add", FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a9, a12), cont));
     }
 
     private final static Operation term_add_3_4(Prolog m) { 
@@ -764,7 +765,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_poly_add_3_static_exec, VA(a6, a2, a8), cont);
+ Op("poly_add", FILE_poly_10::PRED_poly_add_3_static_exec, VA(a6, a2, a8), cont);
     }
 
     private final static Operation add_to_order_zero_term_3_2(Prolog m) { 
@@ -797,9 +798,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
 */
     // main(poly_exp/3,public)
-        final static SymbolTerm FUNCTOR_$003E$003E_2 = F(">>",2);
-        final static SymbolTerm FUNCTOR_$003C$003C_2 = F("<<",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$003E$003E_2 = F(">>",2);
+        final static Functor FUNCTOR_$003C$003C_2 = F("<<",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -898,7 +899,7 @@ m.cont = cont;
         //END inline expansion
         a8 = m.mkvar1();
         p1 = //
- Op(FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a8, a8, a3), cont);
+ Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a8, a8, a3), cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
@@ -927,7 +928,7 @@ m.cont = cont;
         //END inline expansion
         a6 = m.mkvar1();
         p1 = //
- Op(FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a2, a6, a3), cont);
+ Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a2, a6, a3), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -938,7 +939,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
 */
     // main(poly_mul/3,public)
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
 
 
 
@@ -1014,7 +1015,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_term_mul_3_static_exec, VA(a5, a6, a7), cont);
+ Op("term_mul", FILE_poly_10::PRED_term_mul_3_static_exec, VA(a5, a6, a7), cont);
     }
 
     private final static Operation poly_mul_3_2(Prolog m) { 
@@ -1054,9 +1055,9 @@ m.cont = cont;
         a10 =  S( FUNCTOR_poly_2 , a6, a7);
  ;
         return //
- Op(FILE_poly_10::PRED_less_than_2_static_exec, VA(a4, a6), //
- Op(FILE_poly_10::PRED_$cut_1_static_exec, VA(a9), //
- Op(FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a10, a8), cont)));
+ Op("less_than", FILE_poly_10::PRED_less_than_2_static_exec, VA(a4, a6), //
+ Op("$cut", FILE_poly_10::PRED_$cut_1_static_exec, VA(a9), //
+ Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a10, a8), cont)));
     }
 
     private final static Operation poly_mul_3_3(Prolog m) { 
@@ -1083,7 +1084,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a1, a6), cont);
+ Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a1, a6), cont);
     }
 
     private final static Operation poly_mul_3_4(Prolog m) { 
@@ -1110,7 +1111,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a2, a6), cont);
+ Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a2, a6), cont);
     }
 
     private final static Operation poly_mul_3_5(Prolog m) { 
@@ -1244,9 +1245,9 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_poly_10::PRED_single_term_mul_3_static_exec, VA(a2, a4, a6), //
- Op(FILE_poly_10::PRED_term_mul_3_static_exec, VA(a5, a2, a7), //
- Op(FILE_poly_10::PRED_term_add_3_static_exec, VA(a6, a7, a3), cont)));
+ Op("single_term_mul", FILE_poly_10::PRED_single_term_mul_3_static_exec, VA(a2, a4, a6), //
+ Op("term_mul", FILE_poly_10::PRED_term_mul_3_static_exec, VA(a5, a2, a7), //
+ Op("term_add", FILE_poly_10::PRED_term_add_3_static_exec, VA(a6, a7, a3), cont)));
     }
 /** PREDICATE: single_term_mul/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
@@ -1354,8 +1355,8 @@ m.cont = cont;
         a15 =  S( FUNCTOR_term_2 , a8, a9);
  ;
         return //
- Op(FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a7, a9, a13), //
- Op(FILE_poly_10::PRED_single_term_mul_3_static_exec, VA(a5, a15, a11), cont));
+ Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a7, a9, a13), //
+ Op("single_term_mul", FILE_poly_10::PRED_single_term_mul_3_static_exec, VA(a5, a15, a11), cont));
     }
 /** PREDICATE: mul_through/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/poly_10.pl
@@ -1445,8 +1446,8 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a7, a2, a10), //
- Op(FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a2, a9), cont));
+ Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a7, a2, a10), //
+ Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a2, a9), cont));
     }
 static { loadPreds(); }
 static public void loadPreds() {

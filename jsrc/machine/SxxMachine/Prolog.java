@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import static SxxMachine.TermData.CONS;
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.S;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,6 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
+import SxxMachine.pterm.HashtableOfTerm;
+import SxxMachine.pterm.ListTerm;
+import SxxMachine.pterm.TermData;
+
 /**
  * Prolog engine.
  *
@@ -31,7 +36,7 @@ import java.util.logging.Logger;
 public final class Prolog {
     private final PrologLogger logger;
     private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
-    private static final SymbolTerm NONE = SymbolTerm.intern("$none");
+    private static final Functor NONE = TermData.SYM("$none");
     private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<>();
     /** Prolog thread */
     public final PrologControl control;
@@ -113,20 +118,20 @@ public final class Prolog {
     /** Name of the builtin package. */
     public static final String BUILTIN = "SxxMachine";
     /** Holds an atom <code>[]<code> (empty list). */
-    public static final SymbolTerm Nil = SymbolTerm.intern("[]");
-    public static final SymbolTerm True = SymbolTerm.intern("true");
+    public static final Term Nil = TermData.SYM("[]");
+    public static final Functor True = TermData.SYM("true");
     /* Some symbols for stream options */
-    private static final SymbolTerm SYM_MODE_1 = SymbolTerm.intern("mode", 1);
-    private static final SymbolTerm SYM_ALIAS_1 = SymbolTerm.intern("alias", 1);
-    private static final SymbolTerm SYM_TYPE_1 = SymbolTerm.intern("type", 1);
-    private static final SymbolTerm SYM_READ = SymbolTerm.intern("read");
-    private static final SymbolTerm SYM_APPEND = SymbolTerm.intern("append");
-    private static final SymbolTerm SYM_INPUT = SymbolTerm.intern("input");
-    private static final SymbolTerm SYM_OUTPUT = SymbolTerm.intern("output");
-    private static final SymbolTerm SYM_TEXT = SymbolTerm.intern("text");
-    private static final SymbolTerm SYM_USERINPUT = SymbolTerm.intern("user_input");
-    private static final SymbolTerm SYM_USEROUTPUT = SymbolTerm.intern("user_output");
-    private static final SymbolTerm SYM_USERERROR = SymbolTerm.intern("user_error");
+    private static final Functor SYM_MODE_1 = TermData.F("mode", 1);
+    private static final Functor SYM_ALIAS_1 = TermData.F("alias", 1);
+    private static final Functor SYM_TYPE_1 = TermData.F("type", 1);
+    private static final Functor SYM_READ = TermData.SYM("read");
+    private static final Functor SYM_APPEND = TermData.SYM("append");
+    private static final Functor SYM_INPUT = TermData.SYM("input");
+    private static final Functor SYM_OUTPUT = TermData.SYM("output");
+    private static final Functor SYM_TEXT = TermData.SYM("text");
+    private static final Functor SYM_USERINPUT = TermData.SYM("user_input");
+    private static final Functor SYM_USEROUTPUT = TermData.SYM("user_output");
+    private static final Functor SYM_USERERROR = TermData.SYM("user_error");
     private static final PrintWriter NO_OUTPUT = new PrintWriter(new Writer() {
         @Override
         public void write(char[] cbuf, int off, int len) throws IOException {
@@ -174,15 +179,16 @@ public final class Prolog {
     public Term assumptions;
     public Operation pred;
     private Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
-    public final static SymbolTerm anEof = TermData.F("end_of_file");
-    public final static SymbolTerm aNo = TermData.F("no");
-    public final static SymbolTerm aYes = TermData.F("yes");
-    public final static NameArity aFail = TermData.F("fail");//new fail_();
+    public final static Functor anEof = TermData.SYM("end_of_file");
+    public final static Functor aNo = TermData.SYM("no");
+    public final static Functor aYes = TermData.SYM("yes");
+    public final static NameArity aFail = TermData.SYM("fail");//new fail_();
 
     /** A functor <code>'.' /2</code>. */
-    public static final SymbolTerm SYM_DOT = SymbolTerm.intern(".", 2);
-    public static final SymbolTerm SYM_CONJ = SymbolTerm.intern(",", 2);
-    public static final SymbolTerm SYM_NECK = SymbolTerm.intern(":-", 2);
+    public static final Functor SYM_DOT = TermData.F(".", 2);
+    public static final Functor SYM_CONJ = TermData.F(",", 2);
+    public static final Functor SYM_NECK = TermData.F(":-", 2);
+    public static final Functor GOALS = TermData.SYM("$goals");
 
     Prolog(PrologControl c) {
         M = this;
@@ -515,15 +521,15 @@ public final class Prolog {
         return p;
     }
 
-    private Term makeStreamProperty(SymbolTerm _mode, SymbolTerm io, SymbolTerm _alias, SymbolTerm _type) {
+    private Term makeStreamProperty(Functor _mode, Functor io, Functor _alias, Functor _type) {
         Term[] mode = { _mode };
         Term[] alias = { _alias };
         Term[] type = { _type };
         Term t = Nil;
-        t = CONS(new StructureTerm(SYM_MODE_1, mode), t);
+        t = CONS(S(SYM_MODE_1, mode), t);
         t = CONS(io, t);
-        t = CONS(new StructureTerm(SYM_ALIAS_1, alias), t);
-        t = CONS(new StructureTerm(SYM_TYPE_1, type), t);
+        t = CONS(S(SYM_ALIAS_1, alias), t);
+        t = CONS(TermData.S(SYM_TYPE_1, type), t);
         return t;
     }
 

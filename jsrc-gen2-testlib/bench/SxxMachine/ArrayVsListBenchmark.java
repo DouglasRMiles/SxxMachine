@@ -13,15 +13,12 @@ package SxxMachine;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-// import com.eclipsesource.json.performancetest.caliper.CaliperRunner;
-import com.google.caliper.Benchmark;
 import com.google.caliper.Param;
 import com.google.caliper.SimpleBenchmark;
 
@@ -129,7 +126,7 @@ public class ArrayVsListBenchmark extends SimpleBenchmark {
         a[20] = "foo20";
     }
 
-    private String foo() {
+    String foo() {
         return "foo";
     }
 

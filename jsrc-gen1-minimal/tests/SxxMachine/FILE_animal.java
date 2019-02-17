@@ -5,9 +5,9 @@ public class FILE_animal extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tests/animal.pl
 */
     // main(animal/1,public)
-    final static SymbolTerm ATOM_goat = SYM("goat");
-        final static SymbolTerm ATOM_elephant = SYM("elephant");
-        final static SymbolTerm ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
+    final static Functor ATOM_goat = SYM("goat");
+        final static Functor ATOM_elephant = SYM("elephant");
+        final static Functor ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
 

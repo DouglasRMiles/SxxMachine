@@ -14,22 +14,26 @@ import static SxxMachine.missing_preds.PRED_read_string_5_static_exec;
 import static SxxMachine.missing_preds.PRED_read_term_3_static_exec;
 import static SxxMachine.missing_preds.PRED_setup_call_cleanup_3_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.ListTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_readutil extends TermData {
 	/**
 	 * PREDICATE: link_foreign/0 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	final static SymbolTerm ATOM_readutil = SYM("readutil");
-	private static final StructureTerm PRED_link_foreign_0_s4 = S("foreign", ATOM_readutil);
-	final static SymbolTerm ATOM_read_util = SYM("read_util");
-	final static SymbolTerm ATOM_read_line_to_codes = SYM("read_line_to_codes");
+	final static Functor ATOM_readutil = SYM("readutil");
+	private static final Term PRED_link_foreign_0_s4 = S("foreign", ATOM_readutil);
+	final static Functor ATOM_read_util = SYM("read_util");
+	final static Functor ATOM_read_line_to_codes = SYM("read_line_to_codes");
 	final static IntegerTerm int_2 = Integer(2);
-	private static final StructureTerm PRED_link_foreign_0_s20 = S("/", ATOM_read_line_to_codes, int_2);
+	private static final Term PRED_link_foreign_0_s20 = S("/", ATOM_read_line_to_codes, int_2);
 	final static IntegerTerm int_3 = Integer(3);
-	private static final StructureTerm PRED_link_foreign_0_s23 = S("/", ATOM_read_line_to_codes, int_3);
-	final static SymbolTerm ATOM_read_stream_to_codes = SYM("read_stream_to_codes");
-	private static final StructureTerm PRED_link_foreign_0_s26 = S("/", ATOM_read_stream_to_codes, int_2);
-	private static final StructureTerm PRED_link_foreign_0_s28 = S("/", ATOM_read_stream_to_codes, int_3);
+	private static final Term PRED_link_foreign_0_s23 = S("/", ATOM_read_line_to_codes, int_3);
+	final static Functor ATOM_read_stream_to_codes = SYM("read_stream_to_codes");
+	private static final Term PRED_link_foreign_0_s26 = S("/", ATOM_read_stream_to_codes, int_2);
+	private static final Term PRED_link_foreign_0_s28 = S("/", ATOM_read_stream_to_codes, int_3);
 	private static final ListTerm PRED_link_foreign_0_s30 = CONS(PRED_link_foreign_0_s28, Prolog.Nil);
 	private static final ListTerm PRED_link_foreign_0_s31 = CONS(PRED_link_foreign_0_s26, PRED_link_foreign_0_s30);
 	private static final ListTerm PRED_link_foreign_0_s32 = CONS(PRED_link_foreign_0_s23, PRED_link_foreign_0_s31);
@@ -127,7 +131,7 @@ public class FILE_readutil extends TermData {
 	 */
 	private static final /**/ IntegerTerm PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_s1 = Integer(
 			-1);
-	final static SymbolTerm ATOM_end_of_file = SYM("end_of_file");
+	final static Functor ATOM_end_of_file = SYM("end_of_file");
 
 	public static Operation PRED_$dummy_0_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_3_static_exec(
 			Prolog m) {
@@ -581,7 +585,7 @@ public class FILE_readutil extends TermData {
 	 * $dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl/2
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_s1 = SYM(
+	private static final Functor PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_s1 = SYM(
 			"[]");
 
 	public static Operation PRED_$dummy_2_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Freadutil$002Epl_2_static_exec(
@@ -648,8 +652,8 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: read_line_to_string/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_read_line_to_string_2_s1 = SYM("\n");
-	final static SymbolTerm ATOM_$000D = SYM("\r");
+	private static final Functor PRED_read_line_to_string_2_s1 = SYM("\n");
+	final static Functor ATOM_$000D = SYM("\r");
 
 	public static Operation PRED_read_line_to_string_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -672,7 +676,7 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: pl_read_stream_to_codes/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_pl_read_stream_to_codes_2_s1 = SYM("[]");
+	private static final Functor PRED_pl_read_stream_to_codes_2_s1 = SYM("[]");
 
 	public static Operation PRED_pl_read_stream_to_codes_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -811,7 +815,7 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: read_stream_to_terms/5 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_read_stream_to_terms_5_s1 = SYM("end_of_file");
+	private static final Functor PRED_read_stream_to_terms_5_s1 = SYM("end_of_file");
 
 	// private final Term arg5;
 
@@ -886,9 +890,9 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: read_file_to_codes/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_read_file_to_codes_3_s1 = SYM("list");
-	final static SymbolTerm ATOM_read = SYM("read");
-	private static final StructureTerm PRED_read_file_to_codes_3_s7 = S("access", ATOM_read);
+	private static final Functor PRED_read_file_to_codes_3_s1 = SYM("list");
+	final static Functor ATOM_read = SYM("read");
+	private static final Term PRED_read_file_to_codes_3_s7 = S("access", ATOM_read);
 
 	public static Operation PRED_read_file_to_codes_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -923,8 +927,8 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: read_file_to_string/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_read_file_to_string_3_s1 = SYM("list");
-	private static final StructureTerm PRED_read_file_to_string_3_s5 = S("access", ATOM_read);
+	private static final Functor PRED_read_file_to_string_3_s1 = SYM("list");
+	private static final Term PRED_read_file_to_string_3_s5 = S("access", ATOM_read);
 
 	public static Operation PRED_read_file_to_string_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -955,8 +959,8 @@ public class FILE_readutil extends TermData {
 	 * PREDICATE: read_file_to_terms/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/readutil.pl
 	 */
-	private static final SymbolTerm PRED_read_file_to_terms_3_s1 = SYM("list");
-	private static final StructureTerm PRED_read_file_to_terms_3_s7 = S("access", ATOM_read);
+	private static final Functor PRED_read_file_to_terms_3_s1 = SYM("list");
+	private static final Term PRED_read_file_to_terms_3_s7 = S("access", ATOM_read);
 
 	public static Operation PRED_read_file_to_terms_3_static_exec(Prolog m) {
 		Operation cont = m.cont;

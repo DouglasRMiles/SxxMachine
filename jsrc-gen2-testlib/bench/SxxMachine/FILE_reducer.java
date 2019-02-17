@@ -18,27 +18,28 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_reducer extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(top/0,public)
-        final static SymbolTerm FUNCTOR_fac_1 = F("fac",1);
-    private static final StructureTerm L_top_0_s4 = S( FUNCTOR_fac_1 ,  int_3 );
-        final static SymbolTerm FUNCTOR_quick_1 = F("quick",1);
-    private static final ListTerm L_top_0_s9 = CONS( int_2 ,  Prolog.Nil );
-    private static final ListTerm L_top_0_s10 = CONS( int_1 , L_top_0_s9);
-    private static final ListTerm L_top_0_s11 = CONS( int_3 , L_top_0_s10);
-    private static final StructureTerm L_top_0_s13 = S( FUNCTOR_quick_1 , L_top_0_s11);
+        final static Functor FUNCTOR_fac_1 = F("fac",1);
+    private static final Term L_top_0_s4 = S( FUNCTOR_fac_1 ,  int_3 );
+        final static Functor FUNCTOR_quick_1 = F("quick",1);
+    private static final Term L_top_0_s9 = CONS( int_2 ,  Prolog.Nil );
+    private static final Term L_top_0_s10 = CONS( int_1 , L_top_0_s9);
+    private static final Term L_top_0_s11 = CONS( int_3 , L_top_0_s10);
+    private static final Term L_top_0_s13 = S( FUNCTOR_quick_1 , L_top_0_s11);
 
 
 
@@ -50,8 +51,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         Operation p1;
     // top:-[try(fac(3),A),try(quick([3,1,2]),B)]
         return //
- Op(FILE_reducer::PRED_try_2_static_exec, VA(L_top_0_s4, m.DONT_CARE2()), //
- Op(FILE_reducer::PRED_try_2_static_exec, VA(L_top_0_s13, m.DONT_CARE2()), cont));
+ Op("try", FILE_reducer::PRED_try_2_static_exec, VA(L_top_0_s4, m.DONT_CARE2()), //
+ Op("try", FILE_reducer::PRED_try_2_static_exec, VA(L_top_0_s13, m.DONT_CARE2()), cont));
     }
 /** PREDICATE: try/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -74,10 +75,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_listify_2_static_exec, VA(a1, a3), //
- Op(FILE_reducer::PRED_curry_2_static_exec, VA(a3, a4), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a4, a5), //
- Op(FILE_reducer::PRED_make_list_2_static_exec, VA(a5, a2), cont))));
+ Op("listify", FILE_reducer::PRED_listify_2_static_exec, VA(a1, a3), //
+ Op("curry", FILE_reducer::PRED_curry_2_static_exec, VA(a3, a4), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a4, a5), //
+ Op("make_list", FILE_reducer::PRED_make_list_2_static_exec, VA(a5, a2), cont))));
     }
 /** PREDICATE: end/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -158,31 +159,31 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
     // list_functor_name(A):-[functor([B|C],A,D)]
         a2 = CONS(m.DONT_CARE1(), m.DONT_CARE1());
         return //
- Op(FILE_reducer::PRED_functor_3_static_exec, VA(a2, a1, m.DONT_CARE2()), cont);
+ Op("functor", FILE_reducer::PRED_functor_3_static_exec, VA(a2, a1, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: t_def/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(t_def/3,public)
-        final static SymbolTerm ATOM_fac = SYM("fac");
-        final static SymbolTerm FUNCTOR_cond_3 = F("cond",3);
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm ATOM_quick = SYM("quick");
-        final static SymbolTerm FUNCTOR_tl_1 = F("tl",1);
-        final static SymbolTerm FUNCTOR_quick2_1 = F("quick2",1);
-        final static SymbolTerm FUNCTOR_split_2 = F("split",2);
-        final static SymbolTerm FUNCTOR_hd_1 = F("hd",1);
-        final static SymbolTerm ATOM_quick2 = SYM("quick2");
-        final static SymbolTerm FUNCTOR_append_2 = F("append",2);
-        final static SymbolTerm ATOM_split = SYM("split");
-        final static SymbolTerm FUNCTOR_$003D$003C_2 = F("=<",2);
-        final static SymbolTerm FUNCTOR_inserthead_2 = F("inserthead",2);
-        final static SymbolTerm FUNCTOR_inserttail_2 = F("inserttail",2);
-        final static SymbolTerm ATOM_inserthead = SYM("inserthead");
-        final static SymbolTerm ATOM_inserttail = SYM("inserttail");
-        final static SymbolTerm ATOM_append = SYM("append");
+        final static Functor ATOM_fac = SYM("fac");
+        final static Functor FUNCTOR_cond_3 = F("cond",3);
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor ATOM_quick = SYM("quick");
+        final static Functor FUNCTOR_tl_1 = F("tl",1);
+        final static Functor FUNCTOR_quick2_1 = F("quick2",1);
+        final static Functor FUNCTOR_split_2 = F("split",2);
+        final static Functor FUNCTOR_hd_1 = F("hd",1);
+        final static Functor ATOM_quick2 = SYM("quick2");
+        final static Functor FUNCTOR_append_2 = F("append",2);
+        final static Functor ATOM_split = SYM("split");
+        final static Functor FUNCTOR_$003D$003C_2 = F("=<",2);
+        final static Functor FUNCTOR_inserthead_2 = F("inserthead",2);
+        final static Functor FUNCTOR_inserttail_2 = F("inserttail",2);
+        final static Functor ATOM_inserthead = SYM("inserthead");
+        final static Functor ATOM_inserttail = SYM("inserttail");
+        final static Functor ATOM_append = SYM("append");
 
 
 
@@ -852,11 +853,11 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a6), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a9), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a10), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a7), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a10), cont)))));
+ Op("list_functor_name", FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a6), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a9), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a10), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a7), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a10), cont)))));
     }
 
     private final static Operation t_reduce_2_3(Prolog m) { 
@@ -878,11 +879,11 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_t_append_4_static_exec, VA(a4, a5, a6, a1), //
- Op(FILE_reducer::PRED_t_redex_2_static_exec, VA(a6, a5), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a3), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a4, a2), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont)))));
+ Op("t_append", FILE_reducer::PRED_t_append_4_static_exec, VA(a4, a5, a6, a1), //
+ Op("t_redex", FILE_reducer::PRED_t_redex_2_static_exec, VA(a6, a5), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a3), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a4, a2), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont)))));
     }
 /** PREDICATE: t_append/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -973,42 +974,42 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(t_redex/2,public)
-        final static SymbolTerm ATOM_sp = SYM("sp");
-        final static SymbolTerm ATOM_bp = SYM("bp");
-        final static SymbolTerm ATOM_cp = SYM("cp");
-        final static SymbolTerm ATOM_s = SYM("s");
-        final static SymbolTerm ATOM_b = SYM("b");
-        final static SymbolTerm ATOM_c = SYM("c");
-        final static SymbolTerm ATOM_k = SYM("k");
-        final static SymbolTerm ATOM_i = SYM("i");
-        final static SymbolTerm ATOM_cond = SYM("cond");
-        final static SymbolTerm ATOM_apply = SYM("apply");
-        final static SymbolTerm ATOM_hd = SYM("hd");
-        final static SymbolTerm ATOM_tl = SYM("tl");
-        final static SymbolTerm ATOM_$002B = SYM("+");
-        final static SymbolTerm ATOM_$002D = SYM("-");
-        final static SymbolTerm ATOM_$002A = SYM("*");
-        final static SymbolTerm ATOM_$002F$002F = SYM("//");
-        final static SymbolTerm ATOM_mod = SYM("mod");
-    private static final ListTerm L_t_redex_2_s20 = CONS( ATOM_mod ,  Prolog.Nil );
-    private static final ListTerm L_t_redex_2_s21 = CONS( ATOM_$002F$002F , L_t_redex_2_s20);
-    private static final ListTerm L_t_redex_2_s22 = CONS( ATOM_$002A , L_t_redex_2_s21);
-    private static final ListTerm L_t_redex_2_s23 = CONS( ATOM_$002D , L_t_redex_2_s22);
-    private static final ListTerm L_t_redex_2_s24 = CONS( ATOM_$002B , L_t_redex_2_s23);
-        final static SymbolTerm ATOM_$003C = SYM("<");
-        final static SymbolTerm ATOM_$003E = SYM(">");
-        final static SymbolTerm ATOM_$003D$003C = SYM("=<");
-        final static SymbolTerm ATOM_$003E$003D = SYM(">=");
-        final static SymbolTerm ATOM_$003D$005C$003D = SYM("=\\=");
-        final static SymbolTerm ATOM_$003D$003A$003D = SYM("=:=");
-    private static final ListTerm L_t_redex_2_s31 = CONS( ATOM_$003D$003A$003D ,  Prolog.Nil );
-    private static final ListTerm L_t_redex_2_s32 = CONS( ATOM_$003D$005C$003D , L_t_redex_2_s31);
-    private static final ListTerm L_t_redex_2_s33 = CONS( ATOM_$003E$003D , L_t_redex_2_s32);
-    private static final ListTerm L_t_redex_2_s34 = CONS( ATOM_$003D$003C , L_t_redex_2_s33);
-    private static final ListTerm L_t_redex_2_s35 = CONS( ATOM_$003E , L_t_redex_2_s34);
-    private static final ListTerm L_t_redex_2_s36 = CONS( ATOM_$003C , L_t_redex_2_s35);
-        final static SymbolTerm ATOM_$003D = SYM("=");
-    private static final ListTerm L_t_redex_2_s38 = CONS( ATOM_$002D ,  Prolog.Nil );
+        final static Functor ATOM_sp = SYM("sp");
+        final static Functor ATOM_bp = SYM("bp");
+        final static Functor ATOM_cp = SYM("cp");
+        final static Functor ATOM_s = SYM("s");
+        final static Functor ATOM_b = SYM("b");
+        final static Functor ATOM_c = SYM("c");
+        final static Functor ATOM_k = SYM("k");
+        final static Functor ATOM_i = SYM("i");
+        final static Functor ATOM_cond = SYM("cond");
+        final static Functor ATOM_apply = SYM("apply");
+        final static Functor ATOM_hd = SYM("hd");
+        final static Functor ATOM_tl = SYM("tl");
+        final static Functor ATOM_$002B = SYM("+");
+        final static Functor ATOM_$002D = SYM("-");
+        final static Functor ATOM_$002A = SYM("*");
+        final static Functor ATOM_$002F$002F = SYM("//");
+        final static Functor ATOM_mod = SYM("mod");
+    private static final Term L_t_redex_2_s20 = CONS( ATOM_mod ,  Prolog.Nil );
+    private static final Term L_t_redex_2_s21 = CONS( ATOM_$002F$002F , L_t_redex_2_s20);
+    private static final Term L_t_redex_2_s22 = CONS( ATOM_$002A , L_t_redex_2_s21);
+    private static final Term L_t_redex_2_s23 = CONS( ATOM_$002D , L_t_redex_2_s22);
+    private static final Term L_t_redex_2_s24 = CONS( ATOM_$002B , L_t_redex_2_s23);
+        final static Functor ATOM_$003C = SYM("<");
+        final static Functor ATOM_$003E = SYM(">");
+        final static Functor ATOM_$003D$003C = SYM("=<");
+        final static Functor ATOM_$003E$003D = SYM(">=");
+        final static Functor ATOM_$003D$005C$003D = SYM("=\\=");
+        final static Functor ATOM_$003D$003A$003D = SYM("=:=");
+    private static final Term L_t_redex_2_s31 = CONS( ATOM_$003D$003A$003D ,  Prolog.Nil );
+    private static final Term L_t_redex_2_s32 = CONS( ATOM_$003D$005C$003D , L_t_redex_2_s31);
+    private static final Term L_t_redex_2_s33 = CONS( ATOM_$003E$003D , L_t_redex_2_s32);
+    private static final Term L_t_redex_2_s34 = CONS( ATOM_$003D$003C , L_t_redex_2_s33);
+    private static final Term L_t_redex_2_s35 = CONS( ATOM_$003E , L_t_redex_2_s34);
+    private static final Term L_t_redex_2_s36 = CONS( ATOM_$003C , L_t_redex_2_s35);
+        final static Functor ATOM_$003D = SYM("=");
+    private static final Term L_t_redex_2_s38 = CONS( ATOM_$002D ,  Prolog.Nil );
 
 
 
@@ -1207,7 +1208,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a12), cont);
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a12), cont);
     }
 
     private final static Operation t_redex_2_2(Prolog m) { 
@@ -1461,7 +1462,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a10), cont);
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a10), cont);
     }
 
     private final static Operation t_redex_2_5(Prolog m) { 
@@ -1703,9 +1704,9 @@ m.cont = cont;
         //END inline expansion
         a8 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a6, a8), //
- Op(FILE_reducer::PRED_$unify_2_static_exec, VA(a8,  Prolog.True ), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a7), cont)));
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a6, a8), //
+ Op("$unify", FILE_reducer::PRED_$unify_2_static_exec, VA(a8,  Prolog.True ), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a7), cont)));
     }
 
     private final static Operation t_redex_2_10(Prolog m) { 
@@ -1770,7 +1771,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a2), cont);
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a2), cont);
     }
 
     private final static Operation t_redex_2_12(Prolog m) { 
@@ -1797,8 +1798,8 @@ m.cont = cont;
         a5 = CONS(a2, a4);
         a6 = CONS(m.DONT_CARE1(), a5);
         return //
- Op(FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a4), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a6), cont));
+ Op("list_functor_name", FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a4), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a6), cont));
     }
 
     private final static Operation t_redex_2_13(Prolog m) { 
@@ -1825,8 +1826,8 @@ m.cont = cont;
         a5 = CONS(m.DONT_CARE1(), a4);
         a6 = CONS(a2, a5);
         return //
- Op(FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a4), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a6), cont));
+ Op("list_functor_name", FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a4), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a6), cont));
     }
 
     private final static Operation t_redex_2_14(Prolog m) { 
@@ -1863,13 +1864,13 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_end_1_static_exec, VA(a6), //
- Op(FILE_reducer::PRED_member_2_static_exec, VA(a6, L_t_redex_2_s24), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a7), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a8), //
- Op(FILE_reducer::PRED_number_1_static_exec, VA(a7), //
- Op(FILE_reducer::PRED_number_1_static_exec, VA(a8), //
- Op(FILE_reducer::PRED_eval_4_static_exec, VA(a6, a2, a7, a8), cont)))))));
+ Op("end", FILE_reducer::PRED_end_1_static_exec, VA(a6), //
+ Op("member", FILE_reducer::PRED_member_2_static_exec, VA(a6, L_t_redex_2_s24), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a7), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a8), //
+ Op("number", FILE_reducer::PRED_number_1_static_exec, VA(a7), //
+ Op("number", FILE_reducer::PRED_number_1_static_exec, VA(a8), //
+ Op("eval", FILE_reducer::PRED_eval_4_static_exec, VA(a6, a2, a7, a8), cont)))))));
     }
 
     private final static Operation t_redex_2_15(Prolog m) { 
@@ -1912,14 +1913,14 @@ m.cont = cont;
         a8 = m.mkvar1();
         a9 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_end_1_static_exec, VA(a6), //
- Op(FILE_reducer::PRED_member_2_static_exec, VA(a6, L_t_redex_2_s36), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a8), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a9), //
- Op(FILE_reducer::PRED_number_1_static_exec, VA(a8), //
- Op(FILE_reducer::PRED_number_1_static_exec, VA(a9), //
- Op(FILE_reducer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_static_exec, VA(a6, a2, a8, a9), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a7), cont))))))));
+ Op("end", FILE_reducer::PRED_end_1_static_exec, VA(a6), //
+ Op("member", FILE_reducer::PRED_member_2_static_exec, VA(a6, L_t_redex_2_s36), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a8), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a9), //
+ Op("number", FILE_reducer::PRED_number_1_static_exec, VA(a8), //
+ Op("number", FILE_reducer::PRED_number_1_static_exec, VA(a9), //
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_static_exec, VA(a6, a2, a8, a9), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a7), cont))))))));
     }
 
     private final static Operation t_redex_2_16(Prolog m) { 
@@ -1962,10 +1963,10 @@ m.cont = cont;
         a7 = m.mkvar1();
         a8 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a7), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a8), //
- Op(FILE_reducer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_static_exec, VA(a2, a7, a8), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a6), cont))));
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a5, a7), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a8), //
+ Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_3_static_exec, VA(a2, a7, a8), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a6), cont))));
     }
 
     private final static Operation t_redex_2_17(Prolog m) { 
@@ -1990,11 +1991,11 @@ m.cont = cont;
         }
         a5 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_end_1_static_exec, VA(a4), //
- Op(FILE_reducer::PRED_member_2_static_exec, VA(a4, L_t_redex_2_s38), //
- Op(FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a5), //
- Op(FILE_reducer::PRED_number_1_static_exec, VA(a5), //
- Op(FILE_reducer::PRED_eval1_3_static_exec, VA(a4, m.DONT_CARE2(), a5), cont)))));
+ Op("end", FILE_reducer::PRED_end_1_static_exec, VA(a4), //
+ Op("member", FILE_reducer::PRED_member_2_static_exec, VA(a4, L_t_redex_2_s38), //
+ Op("t_reduce", FILE_reducer::PRED_t_reduce_2_static_exec, VA(a3, a5), //
+ Op("number", FILE_reducer::PRED_number_1_static_exec, VA(a5), //
+ Op("eval1", FILE_reducer::PRED_eval1_3_static_exec, VA(a4, m.DONT_CARE2(), a5), cont)))));
     }
 
     private final static Operation t_redex_2_18(Prolog m) { 
@@ -2012,17 +2013,17 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_append_3_static_exec, VA(a3, a4, a1), //
- Op(FILE_reducer::PRED_end_1_static_exec, VA(a4), //
- Op(FILE_reducer::PRED_t_def_3_static_exec, VA(a4, a5, a6), //
- Op(FILE_reducer::PRED_t_3_static_exec, VA(a5, a6, a7), //
- Op(FILE_reducer::PRED_append_3_static_exec, VA(a3, a7, a2), cont)))));
+ Op("append", FILE_reducer::PRED_append_3_static_exec, VA(a3, a4, a1), //
+ Op("end", FILE_reducer::PRED_end_1_static_exec, VA(a4), //
+ Op("t_def", FILE_reducer::PRED_t_def_3_static_exec, VA(a4, a5, a6), //
+ Op("t", FILE_reducer::PRED_t_3_static_exec, VA(a5, a6, a7), //
+ Op("append", FILE_reducer::PRED_append_3_static_exec, VA(a3, a7, a2), cont)))));
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl'/4,public)
-        final static SymbolTerm ATOM_false = SYM("false");
+        final static Functor ATOM_false = SYM("false");
 
 
 
@@ -2058,9 +2059,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_relop_3_static_exec, VA(a1, a3, a4), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a5), //
- Op(FILE_reducer::PRED_$unify_2_static_exec, VA(a2,  Prolog.True ), cont)));
+ Op("relop", FILE_reducer::PRED_relop_3_static_exec, VA(a1, a3, a4), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a5), //
+ Op("$unify", FILE_reducer::PRED_$unify_2_static_exec, VA(a2,  Prolog.True ), cont)));
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_4_2(Prolog m) { 
@@ -2153,9 +2154,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(eval/4,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_$002F$002F_2 = F("//",2);
-        final static SymbolTerm FUNCTOR_mod_2 = F("mod",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
+        final static Functor FUNCTOR_mod_2 = F("mod",2);
 
 
 
@@ -2310,7 +2311,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(eval1/3,public)
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
 
 
 
@@ -2521,10 +2522,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_listify_2_static_exec, VA(a2, a5), //
- Op(FILE_reducer::PRED_curry_2_static_exec, VA(a5, a6), //
- Op(FILE_reducer::PRED_t_argvars_3_static_exec, VA(a1, a6, a3), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a4), cont))));
+ Op("listify", FILE_reducer::PRED_listify_2_static_exec, VA(a2, a5), //
+ Op("curry", FILE_reducer::PRED_curry_2_static_exec, VA(a5, a6), //
+ Op("t_argvars", FILE_reducer::PRED_t_argvars_3_static_exec, VA(a1, a6, a3), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a4), cont))));
     }
 /** PREDICATE: t_argvars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -2595,8 +2596,8 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = m.mkvar1();
         p2 = //
- Op(FILE_reducer::PRED_t_vars_2_static_exec, VA(a6, a7), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a4, a6, a7, a3), cont));
+ Op("t_vars", FILE_reducer::PRED_t_vars_2_static_exec, VA(a6, a7), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a4, a6, a7, a3), cont));
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -2698,8 +2699,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec, VA(a1), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont));
+ Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec, VA(a1), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont));
     }
 
     private final static Operation curry_2_2(Prolog m) { 
@@ -2722,7 +2723,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_currylist_3_static_exec, VA(a4, a2, a3), cont);
+ Op("currylist", FILE_reducer::PRED_currylist_3_static_exec, VA(a4, a2, a3), cont);
     }
 /** PREDICATE: currylist/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -2792,14 +2793,14 @@ m.cont = cont;
         a6 = m.mkvar1();
         a7 = CONS(a6, a3);
         return //
- Op(FILE_reducer::PRED_curry_2_static_exec, VA(a4, a6), //
- Op(FILE_reducer::PRED_currylist_3_static_exec, VA(a5, a2, a7), cont));
+ Op("curry", FILE_reducer::PRED_curry_2_static_exec, VA(a4, a6), //
+ Op("currylist", FILE_reducer::PRED_currylist_3_static_exec, VA(a5, a2, a7), cont));
     }
 /** PREDICATE: t_vars/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(t_vars/2,public)
-    private static final ListTerm L_t_vars_2_s2 = CONS( Prolog.Nil ,  Prolog.Nil );
+    private static final Term L_t_vars_2_s2 = CONS( Prolog.Nil ,  Prolog.Nil );
 
 
 
@@ -3041,8 +3042,8 @@ m.cont = cont;
         a14 = CONS(a9, a10);
         a15 = CONS(a12, a13);
         p2 = //
- Op(FILE_reducer::PRED_t_vars_2_static_exec, VA(a4, a15), //
- Op(FILE_reducer::PRED_unionv_3_static_exec, VA(a9, a12, a5), cont));
+ Op("t_vars", FILE_reducer::PRED_t_vars_2_static_exec, VA(a4, a15), //
+ Op("unionv", FILE_reducer::PRED_unionv_3_static_exec, VA(a9, a12, a5), cont));
         m.AREGS[0] = a3;
         m.AREGS[1] = a14;
         m.cont = p2;
@@ -3174,8 +3175,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_static_exec, VA(a1, a2), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a5), cont));
+ Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a5), cont));
     }
 
     private final static Operation t_trans_4_2(Prolog m) { 
@@ -3241,7 +3242,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a5), cont);
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a5), cont);
     }
 
     private final static Operation t_trans_4_4(Prolog m) { 
@@ -3313,8 +3314,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_static_exec, VA(a6, a14, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), //
- Op(FILE_reducer::PRED_t_rule1_8_static_exec, VA(a1, a6, a13, a10, a5, a11, a8, a4), cont));
+ Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_static_exec, VA(a6, a14, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), //
+ Op("t_rule1", FILE_reducer::PRED_t_rule1_8_static_exec, VA(a1, a6, a13, a10, a5, a11, a8, a4), cont));
     }
 
     private final static Operation t_trans_4_5(Prolog m) { 
@@ -3411,7 +3412,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_t_rule2_9_static_exec, VA(a1, a8, a7, a21, a15, a5, a13, a10, a4), cont);
+ Op("t_rule2", FILE_reducer::PRED_t_rule2_9_static_exec, VA(a1, a8, a7, a21, a15, a5, a13, a10, a4), cont);
     }
 /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -3448,7 +3449,7 @@ m.cont = cont;
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl'(A,B,C,D,E):-[end(A)]
         return //
- Op(FILE_reducer::PRED_end_1_static_exec, VA(a1), cont);
+ Op("end", FILE_reducer::PRED_end_1_static_exec, VA(a1), cont);
     }
 
     private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_5_2(Prolog m) { 
@@ -3535,9 +3536,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a3), //
- Op(FILE_reducer::PRED_$equality_of_term_2_static_exec, VA(a1, a5), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a9), cont)));
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a3), //
+ Op("$equality_of_term", FILE_reducer::PRED_$equality_of_term_2_static_exec, VA(a1, a5), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a9), cont)));
     }
 
     private final static Operation t_rule1_8_2(Prolog m) { 
@@ -3584,11 +3585,11 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a3), //
- Op(FILE_reducer::PRED_inv_2_static_exec, VA(a1, a6), //
- Op(FILE_reducer::PRED_$inequality_of_term_2_static_exec, VA(a1, a5), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a11), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a5, a7, a9), cont)))));
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a3), //
+ Op("inv", FILE_reducer::PRED_inv_2_static_exec, VA(a1, a6), //
+ Op("$inequality_of_term", FILE_reducer::PRED_$inequality_of_term_2_static_exec, VA(a1, a5), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a11), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a5, a7, a9), cont)))));
     }
 
     private final static Operation t_rule1_8_3(Prolog m) { 
@@ -3635,9 +3636,9 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a6), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a11), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a2, a4, a10), cont)));
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a6), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a11), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a2, a4, a10), cont)));
     }
 
     private final static Operation t_rule1_8_4(Prolog m) { 
@@ -3678,8 +3679,8 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a2, a4, a11), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a5, a7, a9), cont));
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a2, a4, a11), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a5, a7, a9), cont));
     }
 /** PREDICATE: t_rule2/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -3776,8 +3777,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a7), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a11), cont));
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a7), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a11), cont));
     }
 
     private final static Operation t_rule2_9_2(Prolog m) { 
@@ -3835,7 +3836,7 @@ m.cont = cont;
                   m.cut( a12.intValue());
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont);
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont);
     }
 
     private final static Operation t_rule2_9_3(Prolog m) { 
@@ -3894,10 +3895,10 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_inv_2_static_exec, VA(a1, a4), //
- Op(FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a7), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a3, a5, a11), cont))));
+ Op("inv", FILE_reducer::PRED_inv_2_static_exec, VA(a1, a4), //
+ Op("notinv", FILE_reducer::PRED_notinv_2_static_exec, VA(a1, a7), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a3, a5, a11), cont))));
     }
 
     private final static Operation t_rule2_9_4(Prolog m) { 
@@ -3956,10 +3957,10 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_inv_2_static_exec, VA(a1, a4), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a14), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a3, a5, a12), //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont))));
+ Op("inv", FILE_reducer::PRED_inv_2_static_exec, VA(a1, a4), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a14), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a3, a5, a12), //
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont))));
     }
 
     private final static Operation t_rule2_9_5(Prolog m) { 
@@ -4057,7 +4058,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont);
+ Op("t_trans", FILE_reducer::PRED_t_trans_4_static_exec, VA(a1, a6, a8, a10), cont);
     }
 /** PREDICATE: make_list/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4146,8 +4147,8 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a6), //
- Op(FILE_reducer::PRED_make_list_2_static_exec, VA(a3, a7), cont));
+ Op("list_functor_name", FILE_reducer::PRED_list_functor_name_1_static_exec, VA(a6), //
+ Op("make_list", FILE_reducer::PRED_make_list_2_static_exec, VA(a3, a7), cont));
     }
 /** PREDICATE: $dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4240,8 +4241,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_reducer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec, VA(a1), //
- Op(FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont));
+ Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl", FILE_reducer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Freducer$002Epl_1_static_exec, VA(a1), //
+ Op("$cut", FILE_reducer::PRED_$cut_1_static_exec, VA(a3), cont));
     }
 
     private final static Operation listify_2_2(Prolog m) { 
@@ -4266,8 +4267,8 @@ m.cont = cont;
         }
         a5 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_functor_3_static_exec, VA(a1, a3, a5), //
- Op(FILE_reducer::PRED_listify_list_4_static_exec, VA( int_1 , a5, a1, a4), cont));
+ Op("functor", FILE_reducer::PRED_functor_3_static_exec, VA(a1, a3, a5), //
+ Op("listify_list", FILE_reducer::PRED_listify_list_4_static_exec, VA( int_1 , a5, a1, a4), cont));
     }
 /** PREDICATE: listify_list/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4363,10 +4364,10 @@ m.cont = cont;
         a10 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_reducer::PRED_arg_3_static_exec, VA(a1, a3, a8), //
- Op(FILE_reducer::PRED_listify_2_static_exec, VA(a8, a5), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
- Op(FILE_reducer::PRED_listify_list_4_static_exec, VA(a9, a2, a3, a6), cont))));
+ Op("arg", FILE_reducer::PRED_arg_3_static_exec, VA(a1, a3, a8), //
+ Op("listify", FILE_reducer::PRED_listify_2_static_exec, VA(a8, a5), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a9, a10), //
+ Op("listify_list", FILE_reducer::PRED_listify_list_4_static_exec, VA(a9, a2, a3, a6), cont))));
     }
 /** PREDICATE: member/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4579,7 +4580,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("intersectv_2", FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: intersectv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4647,8 +4648,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_reducer::PRED_intersectv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("intersectv_3", FILE_reducer::PRED_intersectv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: intersectv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4697,7 +4698,7 @@ m.cont = cont;
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a3, a4, a5, a6), cont);
+ Op("intersectv_2", FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a3, a4, a5, a6), cont);
     }
 
     private final static Operation intersectv_3_6_2(Prolog m) { 
@@ -4726,7 +4727,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_intersectv_3_static_exec, VA(a3, a5, a7), cont);
+ Op("intersectv", FILE_reducer::PRED_intersectv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation intersectv_3_6_3(Prolog m) { 
@@ -4744,7 +4745,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
+ Op("intersectv_2", FILE_reducer::PRED_intersectv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: intersectv_list/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4806,7 +4807,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_intersectv_list_3_static_exec, VA(a4, a3, a2), cont);
+ Op("intersectv_list", FILE_reducer::PRED_intersectv_list_3_static_exec, VA(a4, a3, a2), cont);
     }
 /** PREDICATE: intersectv_list/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4872,8 +4873,8 @@ m.cont = cont;
         }
         a6 = m.mkvar1();
         return //
- Op(FILE_reducer::PRED_intersectv_3_static_exec, VA(a4, a2, a6), //
- Op(FILE_reducer::PRED_intersectv_list_3_static_exec, VA(a5, a6, a3), cont));
+ Op("intersectv", FILE_reducer::PRED_intersectv_3_static_exec, VA(a4, a2, a6), //
+ Op("intersectv_list", FILE_reducer::PRED_intersectv_list_3_static_exec, VA(a5, a6, a3), cont));
     }
 /** PREDICATE: diffv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -4937,7 +4938,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_diffv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("diffv_2", FILE_reducer::PRED_diffv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: diffv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5014,8 +5015,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_reducer::PRED_diffv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("diffv_3", FILE_reducer::PRED_diffv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: diffv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5076,7 +5077,7 @@ m.cont = cont;
         }
         a8 = CONS(a4, a5);
         return //
- Op(FILE_reducer::PRED_diffv_3_static_exec, VA(a3, a8, a7), cont);
+ Op("diffv", FILE_reducer::PRED_diffv_3_static_exec, VA(a3, a8, a7), cont);
     }
 
     private final static Operation diffv_3_6_2(Prolog m) { 
@@ -5094,7 +5095,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_diffv_3_static_exec, VA(a3, a5, a6), cont);
+ Op("diffv", FILE_reducer::PRED_diffv_3_static_exec, VA(a3, a5, a6), cont);
     }
 
     private final static Operation diffv_3_6_3(Prolog m) { 
@@ -5112,7 +5113,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_diffv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
+ Op("diffv_2", FILE_reducer::PRED_diffv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: unionv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5176,7 +5177,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_unionv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("unionv_2", FILE_reducer::PRED_unionv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: unionv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5253,8 +5254,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_reducer::PRED_unionv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("unionv_3", FILE_reducer::PRED_unionv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: unionv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5314,7 +5315,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_unionv_2_4_static_exec, VA(a3, a4, a5, a7), cont);
+ Op("unionv_2", FILE_reducer::PRED_unionv_2_4_static_exec, VA(a3, a4, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_2(Prolog m) { 
@@ -5343,7 +5344,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_unionv_3_static_exec, VA(a3, a5, a7), cont);
+ Op("unionv", FILE_reducer::PRED_unionv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_3(Prolog m) { 
@@ -5372,7 +5373,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_unionv_2_4_static_exec, VA(a5, a2, a3, a7), cont);
+ Op("unionv_2", FILE_reducer::PRED_unionv_2_4_static_exec, VA(a5, a2, a3, a7), cont);
     }
 /** PREDICATE: subsetv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5445,8 +5446,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a3, a5), //
- Op(FILE_reducer::PRED_subsetv_2_4_static_exec, VA(a7, a3, a4, a6), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a3, a5), //
+ Op("subsetv_2", FILE_reducer::PRED_subsetv_2_4_static_exec, VA(a7, a3, a4, a6), cont));
     }
 /** PREDICATE: subsetv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5486,7 +5487,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_subsetv_2_static_exec, VA(a3, a4), cont);
+ Op("subsetv", FILE_reducer::PRED_subsetv_2_static_exec, VA(a3, a4), cont);
     }
 
     private final static Operation subsetv_2_4_2(Prolog m) { 
@@ -5503,7 +5504,7 @@ m.cont = cont;
             return m.fail();
         a5 = CONS(a2, a3);
         return //
- Op(FILE_reducer::PRED_subsetv_2_static_exec, VA(a5, a4), cont);
+ Op("subsetv", FILE_reducer::PRED_subsetv_2_static_exec, VA(a5, a4), cont);
     }
 /** PREDICATE: small_subsetv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5564,8 +5565,8 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_reducer::PRED_inv_2_static_exec, VA(a3, a2), //
- Op(FILE_reducer::PRED_small_subsetv_2_static_exec, VA(a4, a2), cont));
+ Op("inv", FILE_reducer::PRED_inv_2_static_exec, VA(a3, a2), //
+ Op("small_subsetv", FILE_reducer::PRED_small_subsetv_2_static_exec, VA(a4, a2), cont));
     }
 /** PREDICATE: inv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5597,8 +5598,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         }
         a5 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a5, a1, a3), //
- Op(FILE_reducer::PRED_inv_2_3_static_exec, VA(a5, a1, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a5, a1, a3), //
+ Op("inv_2", FILE_reducer::PRED_inv_2_3_static_exec, VA(a5, a1, a4), cont));
     }
 /** PREDICATE: inv_2/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5651,7 +5652,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_inv_2_static_exec, VA(a2, a3), cont);
+ Op("inv", FILE_reducer::PRED_inv_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: notinv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5670,7 +5671,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         a2 = LARG[1];
     // notinv(A,B):-[notinv_2(B,A)]
         return //
- Op(FILE_reducer::PRED_notinv_2_2_static_exec, VA(a2, a1), cont);
+ Op("notinv_2", FILE_reducer::PRED_notinv_2_2_static_exec, VA(a2, a1), cont);
     }
 /** PREDICATE: notinv_2/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5732,8 +5733,8 @@ m.cont = cont;
         }
         a5 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a5, a2, a3), //
- Op(FILE_reducer::PRED_notinv_3_3_static_exec, VA(a5, a2, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a5, a2, a3), //
+ Op("notinv_3", FILE_reducer::PRED_notinv_3_3_static_exec, VA(a5, a2, a4), cont));
     }
 /** PREDICATE: notinv_3/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
@@ -5786,7 +5787,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_reducer::PRED_notinv_2_2_static_exec, VA(a3, a2), cont);
+ Op("notinv_2", FILE_reducer::PRED_notinv_2_2_static_exec, VA(a3, a2), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

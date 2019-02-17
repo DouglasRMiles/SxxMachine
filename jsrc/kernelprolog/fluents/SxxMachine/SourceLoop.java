@@ -2,6 +2,8 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
+import SxxMachine.pterm.Source;
+
 /**
  * An Infinite Source. If based on a finite Source, it moves to its the first
  * element after reaching its last element. A SourceLoop returns 'no' if the

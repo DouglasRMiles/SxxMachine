@@ -29,6 +29,9 @@ import static SxxMachine.missing_preds.PRED_string_1_static_exec;
 import static SxxMachine.missing_preds.PRED_string_codes_2_static_exec;
 import static SxxMachine.missing_preds.PRED_type_error_2_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_apply_macros extends TermData {
     /**
      * PREDICATE:
@@ -132,7 +135,7 @@ public class FILE_apply_macros extends TermData {
      * $dummy_1_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/2
      * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    final static SymbolTerm ATOM_transparent = SYM("transparent");
+    final static Functor ATOM_transparent = SYM("transparent");
 
     public static Operation PRED_$dummy_1_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_2_static_exec(
             Prolog m) {
@@ -185,7 +188,7 @@ public class FILE_apply_macros extends TermData {
      * $dummy_2_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/22
      * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    final static SymbolTerm ATOM_defined = SYM("defined");
+    final static Functor ATOM_defined = SYM("defined");
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13,
     // arg14, arg15, arg16, arg17, arg18, arg19, arg20, arg21, arg22;
@@ -286,8 +289,8 @@ public class FILE_apply_macros extends TermData {
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
     final static IntegerTerm int_1 = Integer(1);
-    final static SymbolTerm ATOM___aux_maplist$002F$007Ed_$007Ew$002B$007Ed = SYM("__aux_maplist/~d_~w+~d");
-    final static SymbolTerm ATOM_module = SYM("module");
+    final static Functor ATOM___aux_maplist$002F$007Ed_$007Ew$002B$007Ed = SYM("__aux_maplist/~d_~w+~d");
+    final static Functor ATOM_module = SYM("module");
 
     public static Operation PRED_expand_maplist_3_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -611,7 +614,7 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: expand_apply/2 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_expand_apply_2_s1 = SYM("maplist");
+    private static final Functor PRED_expand_apply_2_s1 = SYM("maplist");
     final static IntegerTerm int_2 = Integer(2);
 
     public static Operation PRED_expand_apply_2_static_exec(Prolog m) {
@@ -1478,7 +1481,7 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: dcg_control/1 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_dcg_control_1_s1 = SYM("!");
+    private static final Functor PRED_dcg_control_1_s1 = SYM("!");
 
     public static Operation PRED_dcg_control_1_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -1703,7 +1706,7 @@ public class FILE_apply_macros extends TermData {
      * $dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/4
      * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1 = SYM("list");
+    private static final Functor PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1 = SYM("list");
 
     public static Operation PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(
             Prolog m) {
@@ -1798,7 +1801,7 @@ public class FILE_apply_macros extends TermData {
      * $dummy_9_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/4
      * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1 = SYM("[]");
+    private static final Functor PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_s1 = SYM("[]");
 
     public static Operation PRED_$dummy_9_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_4_static_exec(
             Prolog m) {
@@ -1858,7 +1861,7 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: terminal/3 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_terminal_3_s1 = SYM("[]");
+    private static final Functor PRED_terminal_3_s1 = SYM("[]");
 
     public static Operation PRED_terminal_3_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -2431,11 +2434,11 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: (:)/2 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_$003A_2_s1 = SYM("prolog_clause");
-    final static SymbolTerm ATOM_prolog_colour = SYM("prolog_colour");
-    final static SymbolTerm ATOM_maplist = SYM("maplist");
-    final static SymbolTerm ATOM_expanded = SYM("expanded");
-    final static SymbolTerm ATOM_system = SYM("system");
+    private static final Functor PRED_$003A_2_s1 = SYM("prolog_clause");
+    final static Functor ATOM_prolog_colour = SYM("prolog_colour");
+    final static Functor ATOM_maplist = SYM("maplist");
+    final static Functor ATOM_expanded = SYM("expanded");
+    final static Functor ATOM_system = SYM("system");
 
     public static Operation PRED_$003A_2_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -2576,7 +2579,7 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: is_maplist/1 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_is_maplist_1_s1 = SYM("maplist");
+    private static final Functor PRED_is_maplist_1_s1 = SYM("maplist");
 
     public static Operation PRED_is_maplist_1_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -2601,7 +2604,7 @@ public class FILE_apply_macros extends TermData {
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
     private static final /**/ IntegerTerm PRED_maplist_expansion_1_s1 = Integer(0);
-    final static SymbolTerm ATOM___aux_maplist$002F = SYM("__aux_maplist/");
+    final static Functor ATOM___aux_maplist$002F = SYM("__aux_maplist/");
 
     public static Operation PRED_maplist_expansion_1_static_exec(Prolog m) {
         Operation cont = m.cont;
@@ -2623,7 +2626,7 @@ public class FILE_apply_macros extends TermData {
      * $dummy_10_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl/0
      * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_s1 = SYM("xref");
+    private static final Functor PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_s1 = SYM("xref");
 
     public static Operation PRED_$dummy_10_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Fapply_macros$002Epl_0_static_exec(
             Prolog m) {
@@ -2672,9 +2675,9 @@ public class FILE_apply_macros extends TermData {
      * PREDICATE: $init/0 from:
      * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/apply_macros.pl
      */
-    private static final SymbolTerm PRED_$init_0_s1 = SYM("apply_macros");
-    final static SymbolTerm ATOM_goal_expansion = SYM("goal_expansion");
-    private static final StructureTerm PRED_$init_0_s6 = S("/", ATOM_goal_expansion, int_2);
+    private static final Functor PRED_$init_0_s1 = SYM("apply_macros");
+    final static Functor ATOM_goal_expansion = SYM("goal_expansion");
+    private static final Term PRED_$init_0_s6 = S("/", ATOM_goal_expansion, int_2);
 
     public static Operation PRED_$init_0_static_exec(Prolog m) {
         Operation cont = m.cont;

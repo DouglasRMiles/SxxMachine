@@ -5,6 +5,8 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import SxxMachine.pterm.TermData;
+
 /**
  * Superclass of any predicate's implementation class.
  * <p>

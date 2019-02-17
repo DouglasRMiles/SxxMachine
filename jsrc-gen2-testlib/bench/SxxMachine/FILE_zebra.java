@@ -18,46 +18,47 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_zebra extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/zebra.pl
 */
     // main(top/0,public)
-        final static SymbolTerm FUNCTOR_house_5 = F("house",5);
-        final static SymbolTerm ATOM_red = SYM("red");
-        final static SymbolTerm ATOM_english = SYM("english");
-        final static SymbolTerm ATOM_spanish = SYM("spanish");
-        final static SymbolTerm ATOM_dog = SYM("dog");
-        final static SymbolTerm ATOM_green = SYM("green");
-        final static SymbolTerm ATOM_coffee = SYM("coffee");
-        final static SymbolTerm ATOM_ukrainian = SYM("ukrainian");
-        final static SymbolTerm ATOM_tea = SYM("tea");
-        final static SymbolTerm ATOM_ivory = SYM("ivory");
-        final static SymbolTerm ATOM_snails = SYM("snails");
-        final static SymbolTerm ATOM_winstons = SYM("winstons");
-        final static SymbolTerm ATOM_yellow = SYM("yellow");
-        final static SymbolTerm ATOM_kools = SYM("kools");
-        final static SymbolTerm ATOM_milk = SYM("milk");
-        final static SymbolTerm ATOM_norwegian = SYM("norwegian");
-        final static SymbolTerm ATOM_chesterfields = SYM("chesterfields");
-        final static SymbolTerm ATOM_fox = SYM("fox");
-        final static SymbolTerm ATOM_horse = SYM("horse");
-        final static SymbolTerm ATOM_orange_juice = SYM("orange_juice");
-        final static SymbolTerm ATOM_lucky_strikes = SYM("lucky_strikes");
-        final static SymbolTerm ATOM_japanese = SYM("japanese");
-        final static SymbolTerm ATOM_parliaments = SYM("parliaments");
-        final static SymbolTerm ATOM_blue = SYM("blue");
-        final static SymbolTerm ATOM_zebra = SYM("zebra");
-        final static SymbolTerm ATOM_water = SYM("water");
+        final static Functor FUNCTOR_house_5 = F("house",5);
+        final static Functor ATOM_red = SYM("red");
+        final static Functor ATOM_english = SYM("english");
+        final static Functor ATOM_spanish = SYM("spanish");
+        final static Functor ATOM_dog = SYM("dog");
+        final static Functor ATOM_green = SYM("green");
+        final static Functor ATOM_coffee = SYM("coffee");
+        final static Functor ATOM_ukrainian = SYM("ukrainian");
+        final static Functor ATOM_tea = SYM("tea");
+        final static Functor ATOM_ivory = SYM("ivory");
+        final static Functor ATOM_snails = SYM("snails");
+        final static Functor ATOM_winstons = SYM("winstons");
+        final static Functor ATOM_yellow = SYM("yellow");
+        final static Functor ATOM_kools = SYM("kools");
+        final static Functor ATOM_milk = SYM("milk");
+        final static Functor ATOM_norwegian = SYM("norwegian");
+        final static Functor ATOM_chesterfields = SYM("chesterfields");
+        final static Functor ATOM_fox = SYM("fox");
+        final static Functor ATOM_horse = SYM("horse");
+        final static Functor ATOM_orange_juice = SYM("orange_juice");
+        final static Functor ATOM_lucky_strikes = SYM("lucky_strikes");
+        final static Functor ATOM_japanese = SYM("japanese");
+        final static Functor ATOM_parliaments = SYM("parliaments");
+        final static Functor ATOM_blue = SYM("blue");
+        final static Functor ATOM_zebra = SYM("zebra");
+        final static Functor ATOM_water = SYM("water");
 
 
 
@@ -137,23 +138,23 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/zebra.pl
         a27 =  S( FUNCTOR_house_5 , m.mkvar3(), m.mkvar3(), m.mkvar3(),  ATOM_water , m.mkvar3());
  ;
         return //
- Op(FILE_zebra::PRED_houses_1_static_exec, VA(a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a2, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a3, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a4, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a5, a1), //
- Op(FILE_zebra::PRED_right_of_3_static_exec, VA(a6, a7, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a8, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a9, a1), //
- Op(FILE_zebra::PRED_$unify_2_static_exec, VA(a1, a15), //
- Op(FILE_zebra::PRED_$unify_2_static_exec, VA(a1, a17), //
- Op(FILE_zebra::PRED_next_to_3_static_exec, VA(a18, a19, a1), //
- Op(FILE_zebra::PRED_next_to_3_static_exec, VA(a20, a21, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a22, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a23, a1), //
- Op(FILE_zebra::PRED_next_to_3_static_exec, VA(a24, a25, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a26, a1), //
- Op(FILE_zebra::PRED_member_2_static_exec, VA(a27, a1), cont)))))))))))))))));
+ Op("houses", FILE_zebra::PRED_houses_1_static_exec, VA(a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a2, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a3, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a4, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a5, a1), //
+ Op("right_of", FILE_zebra::PRED_right_of_3_static_exec, VA(a6, a7, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a8, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a9, a1), //
+ Op("$unify", FILE_zebra::PRED_$unify_2_static_exec, VA(a1, a15), //
+ Op("$unify", FILE_zebra::PRED_$unify_2_static_exec, VA(a1, a17), //
+ Op("next_to", FILE_zebra::PRED_next_to_3_static_exec, VA(a18, a19, a1), //
+ Op("next_to", FILE_zebra::PRED_next_to_3_static_exec, VA(a20, a21, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a22, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a23, a1), //
+ Op("next_to", FILE_zebra::PRED_next_to_3_static_exec, VA(a24, a25, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a26, a1), //
+ Op("member", FILE_zebra::PRED_member_2_static_exec, VA(a27, a1), cont)))))))))))))))));
     }
 /** PREDICATE: houses/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/zebra.pl
@@ -561,9 +562,9 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         return //
- Op(FILE_zebra::PRED_write_1_static_exec, VA(a2), //
- Op(FILE_zebra::PRED_nl_0_static_exec, VA(), //
- Op(FILE_zebra::PRED_print_houses_1_static_exec, VA(a3), cont)));
+ Op("write", FILE_zebra::PRED_write_1_static_exec, VA(a2), //
+ Op("nl", FILE_zebra::PRED_nl_0_static_exec, VA(), //
+ Op("print_houses", FILE_zebra::PRED_print_houses_1_static_exec, VA(a3), cont)));
     }
 
     private final static Operation print_houses_1_2(Prolog m) { 

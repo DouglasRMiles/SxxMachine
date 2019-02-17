@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_queens_8 extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
@@ -56,7 +57,7 @@ m.cont = cont;
         cont = m.cont;
     // top:-[queens(8,A),fail]
         return //
- Op(FILE_queens_8::PRED_queens_2_static_exec, VA( int_8 , m.DONT_CARE2()), fail_0);
+ Op("queens", FILE_queens_8::PRED_queens_2_static_exec, VA( int_8 , m.DONT_CARE2()), fail_0);
     }
 
     private final static Operation top_0_2(Prolog m) { 
@@ -85,8 +86,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
     // queens(A,B):-[range(1,A,C),queens(C,[],B)]
         a3 = m.mkvar1();
         return //
- Op(FILE_queens_8::PRED_range_3_static_exec, VA( int_1 , a1, a3), //
- Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a3,  Prolog.Nil , a2), cont));
+ Op("range", FILE_queens_8::PRED_range_3_static_exec, VA( int_1 , a1, a3), //
+ Op("queens", FILE_queens_8::PRED_queens_3_static_exec, VA(a3,  Prolog.Nil , a2), cont));
     }
 /** PREDICATE: queens/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
@@ -143,9 +144,9 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = CONS(a5, a2);
         return //
- Op(FILE_queens_8::PRED_select_3_static_exec, VA(a1, a4, a5), //
- Op(FILE_queens_8::PRED_not_attack_2_static_exec, VA(a2, a5), //
- Op(FILE_queens_8::PRED_queens_3_static_exec, VA(a4, a6, a3), cont)));
+ Op("select", FILE_queens_8::PRED_select_3_static_exec, VA(a1, a4, a5), //
+ Op("not_attack", FILE_queens_8::PRED_not_attack_2_static_exec, VA(a2, a5), //
+ Op("queens", FILE_queens_8::PRED_queens_3_static_exec, VA(a4, a6, a3), cont)));
     }
 /** PREDICATE: not_attack/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
@@ -164,14 +165,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
         a2 = LARG[1];
     // not_attack(A,B):-[not_attack(A,B,1)]
         return //
- Op(FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2,  int_1 ), cont);
+ Op("not_attack", FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2,  int_1 ), cont);
     }
 /** PREDICATE: not_attack/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/queens_8.pl
 */
     // main(not_attack/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 

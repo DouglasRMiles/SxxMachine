@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_log10 extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
@@ -42,24 +43,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
         m.setB0();
     // top:-[log10]
         return //
- Op(FILE_log10::PRED_log10_0_static_exec, VA(), cont);
+ Op("log10", FILE_log10::PRED_log10_0_static_exec, VA(), cont);
     }
 /** PREDICATE: log10/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
 */
     // main(log10/0,public)
-        final static SymbolTerm FUNCTOR_log_1 = F("log",1);
-        final static SymbolTerm ATOM_x = SYM("x");
-    private static final StructureTerm L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
-    private static final StructureTerm L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
-    private static final StructureTerm L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
-    private static final StructureTerm L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
-    private static final StructureTerm L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
-    private static final StructureTerm L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
-    private static final StructureTerm L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
-    private static final StructureTerm L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
-    private static final StructureTerm L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
-    private static final StructureTerm L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
+        final static Functor FUNCTOR_log_1 = F("log",1);
+        final static Functor ATOM_x = SYM("x");
+    private static final Term L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
+    private static final Term L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
+    private static final Term L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
+    private static final Term L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
+    private static final Term L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
+    private static final Term L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
+    private static final Term L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
+    private static final Term L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
+    private static final Term L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
+    private static final Term L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
 
 
 
@@ -70,19 +71,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
         m.setB0();
     // log10:-[d(log(log(log(log(log(log(log(log(log(log(x)))))))))),x,A)]
         return //
- Op(FILE_log10::PRED_d_3_static_exec, VA(L_log10_0_s22,  ATOM_x , m.DONT_CARE2()), cont);
+ Op("d", FILE_log10::PRED_d_3_static_exec, VA(L_log10_0_s22,  ATOM_x , m.DONT_CARE2()), cont);
     }
 /** PREDICATE: d/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
 */
     // main(d/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm FUNCTOR_$005E_2 = F("^",2);
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm FUNCTOR_exp_1 = F("exp",1);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor FUNCTOR_$005E_2 = F("^",2);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor FUNCTOR_exp_1 = F("exp",1);
 
 
 
@@ -184,7 +185,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -218,7 +219,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -262,7 +263,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
+ Op("d", FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
@@ -316,7 +317,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
+ Op("d", FILE_log10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;

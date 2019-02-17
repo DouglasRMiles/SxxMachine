@@ -18,28 +18,29 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_fast_mu extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(top/0,public)
-        final static SymbolTerm ATOM_m = SYM("m");
-        final static SymbolTerm ATOM_u = SYM("u");
-        final static SymbolTerm ATOM_i = SYM("i");
-    private static final ListTerm L_top_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final ListTerm L_top_0_s6 = CONS( ATOM_i , L_top_0_s5);
-    private static final ListTerm L_top_0_s7 = CONS( ATOM_i , L_top_0_s6);
-    private static final ListTerm L_top_0_s8 = CONS( ATOM_u , L_top_0_s7);
-    private static final ListTerm L_top_0_s9 = CONS( ATOM_m , L_top_0_s8);
+        final static Functor ATOM_m = SYM("m");
+        final static Functor ATOM_u = SYM("u");
+        final static Functor ATOM_i = SYM("i");
+    private static final Term L_top_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Term L_top_0_s6 = CONS( ATOM_i , L_top_0_s5);
+    private static final Term L_top_0_s7 = CONS( ATOM_i , L_top_0_s6);
+    private static final Term L_top_0_s8 = CONS( ATOM_u , L_top_0_s7);
+    private static final Term L_top_0_s9 = CONS( ATOM_m , L_top_0_s8);
 
 
 
@@ -50,15 +51,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
         m.setB0();
     // top:-[theorem([m,u,i,i,u])]
         return //
- Op(FILE_fast_mu::PRED_theorem_1_static_exec, VA(L_top_0_s9), cont);
+ Op("theorem", FILE_fast_mu::PRED_theorem_1_static_exec, VA(L_top_0_s9), cont);
     }
 /** PREDICATE: theorem/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(theorem/1,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-    private static final ListTerm L_theorem_1_s6 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final ListTerm L_theorem_1_s7 = CONS( ATOM_m , L_theorem_1_s6);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+    private static final Term L_theorem_1_s6 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Term L_theorem_1_s7 = CONS( ATOM_m , L_theorem_1_s6);
 
 
 
@@ -77,15 +78,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
         a4 =  S( FUNCTOR_$002D_2 , a2,  int_1 );
  ;
         return //
- Op(FILE_fast_mu::PRED_length_2_static_exec, VA(a1, a2), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a3, a4), //
- Op(FILE_fast_mu::PRED_derive_6_static_exec, VA(L_theorem_1_s7, a1,  int_1 , a3, m.DONT_CARE2(),  int_0 ), cont)));
+ Op("length", FILE_fast_mu::PRED_length_2_static_exec, VA(a1, a2), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a4), //
+ Op("derive", FILE_fast_mu::PRED_derive_6_static_exec, VA(L_theorem_1_s7, a1,  int_1 , a3, m.DONT_CARE2(),  int_0 ), cont)));
     }
 /** PREDICATE: derive/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(derive/6,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5, arg6;
 
@@ -122,7 +123,7 @@ m.cont = cont;
         cont = m.cont;
     // derive(A,B,C,D,E,F):-[derive2(A,B,C,D,1,E,F)]
         return //
- Op(FILE_fast_mu::PRED_derive2_7_static_exec, VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
+ Op("derive2", FILE_fast_mu::PRED_derive2_7_static_exec, VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
     }
 
     private final static Operation derive_6_2(Prolog m) { 
@@ -159,7 +160,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(derive2/7,public)
-        final static SymbolTerm FUNCTOR_rule_2 = F("rule",2);
+        final static Functor FUNCTOR_rule_2 = F("rule",2);
 
     // private final Term arg5, arg6, arg7;
 
@@ -240,11 +241,11 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_fast_mu::PRED_lower_bound_3_static_exec, VA(a3, a4, a12), //
- Op(FILE_fast_mu::PRED_$greater_or_equal_2_static_exec, VA(a7, a12), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a13, a14), //
- Op(FILE_fast_mu::PRED_rule_7_static_exec, VA(a1, a11, a3, a15, a5, a16, a10), //
- Op(FILE_fast_mu::PRED_derive2_7_static_exec, VA(a11, a2, a15, a4, a16, a9, a13), cont)))));
+ Op("lower_bound", FILE_fast_mu::PRED_lower_bound_3_static_exec, VA(a3, a4, a12), //
+ Op("$greater_or_equal", FILE_fast_mu::PRED_$greater_or_equal_2_static_exec, VA(a7, a12), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a13, a14), //
+ Op("rule", FILE_fast_mu::PRED_rule_7_static_exec, VA(a1, a11, a3, a15, a5, a16, a10), //
+ Op("derive2", FILE_fast_mu::PRED_derive2_7_static_exec, VA(a11, a2, a15, a4, a16, a9, a13), cont)))));
     }
 /** PREDICATE: rule/7
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
@@ -293,15 +294,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
         }
         a10 = m.mkvar1();
         return //
- Op(FILE_fast_mu::PRED_rule_11_static_exec, VA(a8, a9, a3, a4, a5, a6,  int_1 ,  ATOM_i , a7, a10, a10), cont);
+ Op("rule", FILE_fast_mu::PRED_rule_11_static_exec, VA(a8, a9, a3, a4, a5, a6,  int_1 ,  ATOM_i , a7, a10, a10), cont);
     }
 /** PREDICATE: rule/11
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(rule/11,public)
-    private static final ListTerm L_rule_11_s3 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final ListTerm L_rule_11_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final ListTerm L_rule_11_s6 = CONS( ATOM_i , L_rule_11_s5);
+    private static final Term L_rule_11_s3 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Term L_rule_11_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Term L_rule_11_s6 = CONS( ATOM_i , L_rule_11_s5);
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11;
 
@@ -682,7 +683,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(lower_bound/3,public)
-        final static SymbolTerm FUNCTOR_$002F$005C_2 = F("/\\",2);
+        final static Functor FUNCTOR_$002F$005C_2 = F("/\\",2);
 
 
 
@@ -773,13 +774,13 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec, VA(a3, a4, a6), cont);
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl", FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Ffast_mu$002Epl_3_static_exec, VA(a3, a4, a6), cont);
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl'/3,public)
-        final static SymbolTerm FUNCTOR_$003E$003E_2 = F(">>",2);
+        final static Functor FUNCTOR_$003E$003E_2 = F(">>",2);
 
 
 

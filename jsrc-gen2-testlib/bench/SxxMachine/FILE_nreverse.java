@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_nreverse extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
         m.setB0();
     // top:-[nreverse]
         return //
- Op(FILE_nreverse::PRED_nreverse_0_static_exec, VA(), cont);
+ Op("nreverse", FILE_nreverse::PRED_nreverse_0_static_exec, VA(), cont);
     }
 /** PREDICATE: nreverse/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
@@ -53,36 +54,36 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
         final static IntegerTerm int_28 = Integer(28);
         final static IntegerTerm int_29 = Integer(29);
         final static IntegerTerm int_30 = Integer(30);
-    private static final ListTerm L_nreverse_0_s32 = CONS( int_30 ,  Prolog.Nil );
-    private static final ListTerm L_nreverse_0_s33 = CONS( int_29 , L_nreverse_0_s32);
-    private static final ListTerm L_nreverse_0_s34 = CONS( int_28 , L_nreverse_0_s33);
-    private static final ListTerm L_nreverse_0_s35 = CONS( int_27 , L_nreverse_0_s34);
-    private static final ListTerm L_nreverse_0_s36 = CONS( int_26 , L_nreverse_0_s35);
-    private static final ListTerm L_nreverse_0_s37 = CONS( int_25 , L_nreverse_0_s36);
-    private static final ListTerm L_nreverse_0_s38 = CONS( int_24 , L_nreverse_0_s37);
-    private static final ListTerm L_nreverse_0_s39 = CONS( int_23 , L_nreverse_0_s38);
-    private static final ListTerm L_nreverse_0_s40 = CONS( int_22 , L_nreverse_0_s39);
-    private static final ListTerm L_nreverse_0_s41 = CONS( int_21 , L_nreverse_0_s40);
-    private static final ListTerm L_nreverse_0_s42 = CONS( int_20 , L_nreverse_0_s41);
-    private static final ListTerm L_nreverse_0_s43 = CONS( int_19 , L_nreverse_0_s42);
-    private static final ListTerm L_nreverse_0_s44 = CONS( int_18 , L_nreverse_0_s43);
-    private static final ListTerm L_nreverse_0_s45 = CONS( int_17 , L_nreverse_0_s44);
-    private static final ListTerm L_nreverse_0_s46 = CONS( int_16 , L_nreverse_0_s45);
-    private static final ListTerm L_nreverse_0_s47 = CONS( int_15 , L_nreverse_0_s46);
-    private static final ListTerm L_nreverse_0_s48 = CONS( int_14 , L_nreverse_0_s47);
-    private static final ListTerm L_nreverse_0_s49 = CONS( int_13 , L_nreverse_0_s48);
-    private static final ListTerm L_nreverse_0_s50 = CONS( int_12 , L_nreverse_0_s49);
-    private static final ListTerm L_nreverse_0_s51 = CONS( int_11 , L_nreverse_0_s50);
-    private static final ListTerm L_nreverse_0_s52 = CONS( int_10 , L_nreverse_0_s51);
-    private static final ListTerm L_nreverse_0_s53 = CONS( int_9 , L_nreverse_0_s52);
-    private static final ListTerm L_nreverse_0_s54 = CONS( int_8 , L_nreverse_0_s53);
-    private static final ListTerm L_nreverse_0_s55 = CONS( int_7 , L_nreverse_0_s54);
-    private static final ListTerm L_nreverse_0_s56 = CONS( int_6 , L_nreverse_0_s55);
-    private static final ListTerm L_nreverse_0_s57 = CONS( int_5 , L_nreverse_0_s56);
-    private static final ListTerm L_nreverse_0_s58 = CONS( int_4 , L_nreverse_0_s57);
-    private static final ListTerm L_nreverse_0_s59 = CONS( int_3 , L_nreverse_0_s58);
-    private static final ListTerm L_nreverse_0_s60 = CONS( int_2 , L_nreverse_0_s59);
-    private static final ListTerm L_nreverse_0_s61 = CONS( int_1 , L_nreverse_0_s60);
+    private static final Term L_nreverse_0_s32 = CONS( int_30 ,  Prolog.Nil );
+    private static final Term L_nreverse_0_s33 = CONS( int_29 , L_nreverse_0_s32);
+    private static final Term L_nreverse_0_s34 = CONS( int_28 , L_nreverse_0_s33);
+    private static final Term L_nreverse_0_s35 = CONS( int_27 , L_nreverse_0_s34);
+    private static final Term L_nreverse_0_s36 = CONS( int_26 , L_nreverse_0_s35);
+    private static final Term L_nreverse_0_s37 = CONS( int_25 , L_nreverse_0_s36);
+    private static final Term L_nreverse_0_s38 = CONS( int_24 , L_nreverse_0_s37);
+    private static final Term L_nreverse_0_s39 = CONS( int_23 , L_nreverse_0_s38);
+    private static final Term L_nreverse_0_s40 = CONS( int_22 , L_nreverse_0_s39);
+    private static final Term L_nreverse_0_s41 = CONS( int_21 , L_nreverse_0_s40);
+    private static final Term L_nreverse_0_s42 = CONS( int_20 , L_nreverse_0_s41);
+    private static final Term L_nreverse_0_s43 = CONS( int_19 , L_nreverse_0_s42);
+    private static final Term L_nreverse_0_s44 = CONS( int_18 , L_nreverse_0_s43);
+    private static final Term L_nreverse_0_s45 = CONS( int_17 , L_nreverse_0_s44);
+    private static final Term L_nreverse_0_s46 = CONS( int_16 , L_nreverse_0_s45);
+    private static final Term L_nreverse_0_s47 = CONS( int_15 , L_nreverse_0_s46);
+    private static final Term L_nreverse_0_s48 = CONS( int_14 , L_nreverse_0_s47);
+    private static final Term L_nreverse_0_s49 = CONS( int_13 , L_nreverse_0_s48);
+    private static final Term L_nreverse_0_s50 = CONS( int_12 , L_nreverse_0_s49);
+    private static final Term L_nreverse_0_s51 = CONS( int_11 , L_nreverse_0_s50);
+    private static final Term L_nreverse_0_s52 = CONS( int_10 , L_nreverse_0_s51);
+    private static final Term L_nreverse_0_s53 = CONS( int_9 , L_nreverse_0_s52);
+    private static final Term L_nreverse_0_s54 = CONS( int_8 , L_nreverse_0_s53);
+    private static final Term L_nreverse_0_s55 = CONS( int_7 , L_nreverse_0_s54);
+    private static final Term L_nreverse_0_s56 = CONS( int_6 , L_nreverse_0_s55);
+    private static final Term L_nreverse_0_s57 = CONS( int_5 , L_nreverse_0_s56);
+    private static final Term L_nreverse_0_s58 = CONS( int_4 , L_nreverse_0_s57);
+    private static final Term L_nreverse_0_s59 = CONS( int_3 , L_nreverse_0_s58);
+    private static final Term L_nreverse_0_s60 = CONS( int_2 , L_nreverse_0_s59);
+    private static final Term L_nreverse_0_s61 = CONS( int_1 , L_nreverse_0_s60);
 
 
 
@@ -93,7 +94,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
         m.setB0();
     // nreverse:-[nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)]
         return //
- Op(FILE_nreverse::PRED_nreverse_2_static_exec, VA(L_nreverse_0_s61, m.DONT_CARE2()), cont);
+ Op("nreverse", FILE_nreverse::PRED_nreverse_2_static_exec, VA(L_nreverse_0_s61, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: nreverse/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
@@ -147,7 +148,7 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = CONS(a3,  Prolog.Nil );
         p1 = //
- Op(FILE_nreverse::PRED_concatenate_3_static_exec, VA(a5, a6, a2), cont);
+ Op("concatenate", FILE_nreverse::PRED_concatenate_3_static_exec, VA(a5, a6, a2), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a5;
         m.cont = p1;

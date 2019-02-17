@@ -1,5 +1,8 @@
 package SxxMachine;
 
+import SxxMachine.pterm.Nonvar;
+import SxxMachine.pterm.Source;
+
 /**
  * Merges a List of Sources into a new Source which (fairly) iterates over them
  * breadth first.

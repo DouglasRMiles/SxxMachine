@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_divide10 extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/divide10.pl
@@ -42,23 +43,23 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/divide10.pl
         m.setB0();
     // top:-[divide10]
         return //
- Op(FILE_divide10::PRED_divide10_0_static_exec, VA(), cont);
+ Op("divide10", FILE_divide10::PRED_divide10_0_static_exec, VA(), cont);
     }
 /** PREDICATE: divide10/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/divide10.pl
 */
     // main(divide10/0,public)
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_x = SYM("x");
-    private static final StructureTerm L_divide10_0_s4 = S( FUNCTOR_$002F_2 ,  ATOM_x ,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s6 = S( FUNCTOR_$002F_2 , L_divide10_0_s4,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s8 = S( FUNCTOR_$002F_2 , L_divide10_0_s6,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s10 = S( FUNCTOR_$002F_2 , L_divide10_0_s8,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s12 = S( FUNCTOR_$002F_2 , L_divide10_0_s10,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s14 = S( FUNCTOR_$002F_2 , L_divide10_0_s12,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s16 = S( FUNCTOR_$002F_2 , L_divide10_0_s14,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s18 = S( FUNCTOR_$002F_2 , L_divide10_0_s16,  ATOM_x );
-    private static final StructureTerm L_divide10_0_s20 = S( FUNCTOR_$002F_2 , L_divide10_0_s18,  ATOM_x );
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_x = SYM("x");
+    private static final Term L_divide10_0_s4 = S( FUNCTOR_$002F_2 ,  ATOM_x ,  ATOM_x );
+    private static final Term L_divide10_0_s6 = S( FUNCTOR_$002F_2 , L_divide10_0_s4,  ATOM_x );
+    private static final Term L_divide10_0_s8 = S( FUNCTOR_$002F_2 , L_divide10_0_s6,  ATOM_x );
+    private static final Term L_divide10_0_s10 = S( FUNCTOR_$002F_2 , L_divide10_0_s8,  ATOM_x );
+    private static final Term L_divide10_0_s12 = S( FUNCTOR_$002F_2 , L_divide10_0_s10,  ATOM_x );
+    private static final Term L_divide10_0_s14 = S( FUNCTOR_$002F_2 , L_divide10_0_s12,  ATOM_x );
+    private static final Term L_divide10_0_s16 = S( FUNCTOR_$002F_2 , L_divide10_0_s14,  ATOM_x );
+    private static final Term L_divide10_0_s18 = S( FUNCTOR_$002F_2 , L_divide10_0_s16,  ATOM_x );
+    private static final Term L_divide10_0_s20 = S( FUNCTOR_$002F_2 , L_divide10_0_s18,  ATOM_x );
 
 
 
@@ -69,19 +70,19 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/divide10.pl
         m.setB0();
     // divide10:-[d(x/x/x/x/x/x/x/x/x/x,x,A)]
         return //
- Op(FILE_divide10::PRED_d_3_static_exec, VA(L_divide10_0_s20,  ATOM_x , m.DONT_CARE2()), cont);
+ Op("d", FILE_divide10::PRED_d_3_static_exec, VA(L_divide10_0_s20,  ATOM_x , m.DONT_CARE2()), cont);
     }
 /** PREDICATE: d/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/divide10.pl
 */
     // main(d/3,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm FUNCTOR_$002A_2 = F("*",2);
-        final static SymbolTerm FUNCTOR_$005E_2 = F("^",2);
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
-        final static SymbolTerm FUNCTOR_exp_1 = F("exp",1);
-        final static SymbolTerm FUNCTOR_log_1 = F("log",1);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002A_2 = F("*",2);
+        final static Functor FUNCTOR_$005E_2 = F("^",2);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
+        final static Functor FUNCTOR_exp_1 = F("exp",1);
+        final static Functor FUNCTOR_log_1 = F("log",1);
 
 
 
@@ -183,7 +184,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -217,7 +218,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
+ Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
@@ -261,7 +262,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
+ Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
@@ -315,7 +316,7 @@ m.cont = cont;
         m.neckCut();
         //END inline expansion
         p1 = //
- Op(FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
+ Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;

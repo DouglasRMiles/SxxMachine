@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_simple_analyzer extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -42,39 +43,39 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         m.setB0();
     // top:-[main(A)]
         return //
- Op(FILE_simple_analyzer::PRED_main_1_static_exec, VA(m.DONT_CARE2()), cont);
+ Op("main", FILE_simple_analyzer::PRED_main_1_static_exec, VA(m.DONT_CARE2()), cont);
     }
 /** PREDICATE: main/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(main/1,public)
-        final static SymbolTerm FUNCTOR_stree_5 = F("stree",5);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm ATOM_main = SYM("main");
-    private static final StructureTerm L_main_1_s6 = S( FUNCTOR_$002F_2 ,  ATOM_main ,  int_0 );
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_qsort_3 = F("qsort",3);
-    private static final ListTerm L_main_1_s14 = CONS( int_2 ,  Prolog.Nil );
-    private static final ListTerm L_main_1_s15 = CONS( int_1 , L_main_1_s14);
-        final static SymbolTerm ATOM_fail = SYM("fail");
-    private static final StructureTerm L_main_1_s19 = S( FUNCTOR_$003A$002D_2 ,  ATOM_main ,  Prolog.True );
-        final static SymbolTerm ATOM_qsort = SYM("qsort");
-    private static final StructureTerm L_main_1_s23 = S( FUNCTOR_$002F_2 ,  ATOM_qsort ,  int_3 );
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
-        final static SymbolTerm FUNCTOR_part_4 = F("part",4);
-        final static SymbolTerm ATOM_part = SYM("part");
-    private static final StructureTerm L_main_1_s29 = S( FUNCTOR_$002F_2 ,  ATOM_part ,  int_4 );
-        final static SymbolTerm FUNCTOR_$0024cut_load_1 = F("$cut_load",1);
-        final static SymbolTerm FUNCTOR_$0024cut_part$002F41_5 = F("$cut_part/4_1",5);
-        final static SymbolTerm ATOM_$0024cut_part$002F41 = SYM("$cut_part/4_1");
-    private static final StructureTerm L_main_1_s35 = S( FUNCTOR_$002F_2 ,  ATOM_$0024cut_part$002F41 ,  int_5 );
-        final static SymbolTerm FUNCTOR_$0024fac_$0024cut_part$002F4_1$002F52_6 = F("$fac_$cut_part/4_1/5_2",6);
-        final static SymbolTerm ATOM_$0024fac_$0024cut_part$002F4_1$002F52 = SYM("$fac_$cut_part/4_1/5_2");
-    private static final StructureTerm L_main_1_s40 = S( FUNCTOR_$002F_2 ,  ATOM_$0024fac_$0024cut_part$002F4_1$002F52 ,  int_6 );
-        final static SymbolTerm FUNCTOR_$003D$003C_2 = F("=<",2);
-        final static SymbolTerm FUNCTOR_$0024cut_shallow_1 = F("$cut_shallow",1);
+        final static Functor FUNCTOR_stree_5 = F("stree",5);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor ATOM_main = SYM("main");
+    private static final Term L_main_1_s6 = S( FUNCTOR_$002F_2 ,  ATOM_main ,  int_0 );
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_qsort_3 = F("qsort",3);
+    private static final Term L_main_1_s14 = CONS( int_2 ,  Prolog.Nil );
+    private static final Term L_main_1_s15 = CONS( int_1 , L_main_1_s14);
+        final static Functor ATOM_fail = SYM("fail");
+    private static final Term L_main_1_s19 = S( FUNCTOR_$003A$002D_2 ,  ATOM_main ,  Prolog.True );
+        final static Functor ATOM_qsort = SYM("qsort");
+    private static final Term L_main_1_s23 = S( FUNCTOR_$002F_2 ,  ATOM_qsort ,  int_3 );
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
+        final static Functor FUNCTOR_part_4 = F("part",4);
+        final static Functor ATOM_part = SYM("part");
+    private static final Term L_main_1_s29 = S( FUNCTOR_$002F_2 ,  ATOM_part ,  int_4 );
+        final static Functor FUNCTOR_$0024cut_load_1 = F("$cut_load",1);
+        final static Functor FUNCTOR_$0024cut_part$002F41_5 = F("$cut_part/4_1",5);
+        final static Functor ATOM_$0024cut_part$002F41 = SYM("$cut_part/4_1");
+    private static final Term L_main_1_s35 = S( FUNCTOR_$002F_2 ,  ATOM_$0024cut_part$002F41 ,  int_5 );
+        final static Functor FUNCTOR_$0024fac_$0024cut_part$002F4_1$002F52_6 = F("$fac_$cut_part/4_1/5_2",6);
+        final static Functor ATOM_$0024fac_$0024cut_part$002F4_1$002F52 = SYM("$fac_$cut_part/4_1/5_2");
+    private static final Term L_main_1_s40 = S( FUNCTOR_$002F_2 ,  ATOM_$0024fac_$0024cut_part$002F4_1$002F52 ,  int_6 );
+        final static Functor FUNCTOR_$003D$003C_2 = F("=<",2);
+        final static Functor FUNCTOR_$0024cut_shallow_1 = F("$cut_shallow",1);
 
 
 
@@ -335,7 +336,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a108 = CONS(a35, a107);
         a109 = CONS(a6, a108);
         return //
- Op(FILE_simple_analyzer::PRED_analyze_strees_2_static_exec, VA(a109, a1), cont);
+ Op("analyze_strees", FILE_simple_analyzer::PRED_analyze_strees_2_static_exec, VA(a109, a1), cont);
     }
 /** PREDICATE: analyze_strees/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -356,9 +357,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
     // analyze_strees(A,B):-[init_strees(A,C,D),seal(D),analyze_closure(A,D,B)]
         a3 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
- Op(FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), //
- Op(FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a3, a2), cont)));
+ Op("init_strees", FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
+ Op("seal", FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), //
+ Op("analyze_closure", FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a3, a2), cont)));
     }
 /** PREDICATE: analyze_closure/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -381,8 +382,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a1, a2, a4,  int_0 , a5), //
- Op(FILE_simple_analyzer::PRED_analyze_closure_4_static_exec, VA(a1, a4, a3, a5), cont));
+ Op("traverse_strees", FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a1, a2, a4,  int_0 , a5), //
+ Op("analyze_closure", FILE_simple_analyzer::PRED_analyze_closure_4_static_exec, VA(a1, a4, a3, a5), cont));
     }
 /** PREDICATE: analyze_closure/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -473,13 +474,13 @@ m.cont = cont;
                   m.cut( a5.intValue());
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a2, a3), cont);
+ Op("analyze_closure", FILE_simple_analyzer::PRED_analyze_closure_3_static_exec, VA(a1, a2, a3), cont);
     }
 /** PREDICATE: init_strees/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(init_strees/3,public)
-        final static SymbolTerm FUNCTOR_get_2 = F("get",2);
+        final static Functor FUNCTOR_get_2 = F("get",2);
 
 
 
@@ -560,11 +561,11 @@ m.cont = cont;
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a6, a11), //
- Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a2, a13), //
- Op(FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a7, a13, a14), //
- Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a9, a14, a15), //
- Op(FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a5, a15, a3), cont)))));
+ Op("bottom_call", FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a6, a11), //
+ Op("table_command", FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a2, a13), //
+ Op("init_disj", FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a7, a13, a14), //
+ Op("init_strees", FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a9, a14, a15), //
+ Op("init_strees", FILE_simple_analyzer::PRED_init_strees_3_static_exec, VA(a5, a15, a3), cont)))));
     }
 /** PREDICATE: init_conj/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -625,8 +626,8 @@ m.cont = cont;
             }
         a6 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_init_goal_3_static_exec, VA(a4, a2, a6), //
- Op(FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a5, a6, a3), cont));
+ Op("init_goal", FILE_simple_analyzer::PRED_init_goal_3_static_exec, VA(a4, a2, a6), //
+ Op("init_conj", FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a5, a6, a3), cont));
     }
 /** PREDICATE: init_disj/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -687,8 +688,8 @@ m.cont = cont;
             }
         a6 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a4, a2, a6), //
- Op(FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a5, a6, a3), cont));
+ Op("init_conj", FILE_simple_analyzer::PRED_init_conj_3_static_exec, VA(a4, a2, a6), //
+ Op("init_disj", FILE_simple_analyzer::PRED_init_disj_3_static_exec, VA(a5, a6, a3), cont));
     }
 /** PREDICATE: init_goal/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -740,11 +741,11 @@ m.cont = cont;
         a10 =  S( FUNCTOR_get_2 , a9, a8);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a5, a6), //
- Op(FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a7, a8), //
- Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a10, a2, a3), cont)))));
+ Op("call_p", FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a5, a6), //
+ Op("bottom_call", FILE_simple_analyzer::PRED_bottom_call_2_static_exec, VA(a7, a8), //
+ Op("table_command", FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a10, a2, a3), cont)))));
     }
 
     private final static Operation init_goal_3_2(Prolog m) { 
@@ -766,8 +767,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
+ Op("unify_p", FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 /** PREDICATE: traverse_strees/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -858,9 +859,9 @@ m.cont = cont;
         a15 = m.mkvar1();
         a16 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a8, a9, a2, a13, a4, a14), //
- Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a11, a13, a15, a14, a16), //
- Op(FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a7, a15, a3, a16, a5), cont)));
+ Op("traverse_disj", FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a8, a9, a2, a13, a4, a14), //
+ Op("traverse_strees", FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a11, a13, a15, a14, a16), //
+ Op("traverse_strees", FILE_simple_analyzer::PRED_traverse_strees_5_static_exec, VA(a7, a15, a3, a16, a5), cont)));
     }
 /** PREDICATE: traverse_disj/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -928,15 +929,15 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_traverse_conj_6_static_exec, VA(a1, a7, a3, a9, a5, a10), //
- Op(FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a1, a8, a9, a4, a10, a6), cont));
+ Op("traverse_conj", FILE_simple_analyzer::PRED_traverse_conj_6_static_exec, VA(a1, a7, a3, a9, a5, a10), //
+ Op("traverse_disj", FILE_simple_analyzer::PRED_traverse_disj_6_static_exec, VA(a1, a8, a9, a4, a10, a6), cont));
     }
 /** PREDICATE: traverse_conj/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(traverse_conj/6,public)
-        final static SymbolTerm ATOM_uninit = SYM("uninit");
-        final static SymbolTerm ATOM_ground = SYM("ground");
+        final static Functor ATOM_uninit = SYM("uninit");
+        final static Functor ATOM_ground = SYM("ground");
 
     // private final Term arg5, arg6;
 
@@ -970,12 +971,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a14 = m.mkvar1();
         a15 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a7), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a8, a9), //
- Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
- Op(FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_uninit , a1, a11, a14), //
- Op(FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_ground , a1, a11, a15), //
- Op(FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a2, a13, a4, a5, a6, a15, m.DONT_CARE2(), a14, m.DONT_CARE2(), a7, m.DONT_CARE2()), cont))))));
+ Op("varset", FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a7), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a8, a9), //
+ Op("table_command", FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
+ Op("get_entry_modes", FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_uninit , a1, a11, a14), //
+ Op("get_entry_modes", FILE_simple_analyzer::PRED_get_entry_modes_4_static_exec, VA( ATOM_ground , a1, a11, a15), //
+ Op("traverse_conj", FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a2, a13, a4, a5, a6, a15, m.DONT_CARE2(), a14, m.DONT_CARE2(), a7, m.DONT_CARE2()), cont))))));
     }
 /** PREDICATE: traverse_conj/11
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -1068,19 +1069,19 @@ m.cont = cont;
         a19 = m.mkvar1();
         a20 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a12, a14), //
- Op(FILE_simple_analyzer::PRED_update_goal_12_static_exec, VA(a12, a14, a2, a15, a4, a16, a6, a17, a8, a18, a10, a19), //
- Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a14, a19, a20), //
- Op(FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a13, a15, a3, a16, a5, a17, a7, a18, a9, a20, a11), cont))));
+ Op("varset", FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a12, a14), //
+ Op("update_goal", FILE_simple_analyzer::PRED_update_goal_12_static_exec, VA(a12, a14, a2, a15, a4, a16, a6, a17, a8, a18, a10, a19), //
+ Op("unionv", FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a14, a19, a20), //
+ Op("traverse_conj", FILE_simple_analyzer::PRED_traverse_conj_11_static_exec, VA(a13, a15, a3, a16, a5, a17, a7, a18, a9, a20, a11), cont))));
     }
 /** PREDICATE: update_goal/12
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(update_goal/12,public)
-        final static SymbolTerm FUNCTOR_add_1 = F("add",1);
-        final static SymbolTerm FUNCTOR_sub_1 = F("sub",1);
-        final static SymbolTerm FUNCTOR_add_set_1 = F("add_set",1);
-        final static SymbolTerm FUNCTOR_sub_set_1 = F("sub_set",1);
+        final static Functor FUNCTOR_add_1 = F("add",1);
+        final static Functor FUNCTOR_sub_1 = F("sub",1);
+        final static Functor FUNCTOR_add_set_1 = F("add_set",1);
+        final static Functor FUNCTOR_sub_set_1 = F("sub_set",1);
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12;
 
@@ -1156,14 +1157,14 @@ m.cont = cont;
         a18 =  S( FUNCTOR_sub_1 , a14);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
- Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
- Op(FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
- Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a15, a16), //
- Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a16, a7), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a17, a7, a8), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a10), cont))))))));
+ Op("split_unify", FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
+ Op("var", FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op("nonvar", FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
+ Op("varset", FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a15, a16), //
+ Op("subsetv", FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a16, a7), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a17, a7, a8), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a10), cont))))))));
     }
 
     private final static Operation update_goal_12_2(Prolog m) { 
@@ -1216,17 +1217,17 @@ m.cont = cont;
         a23 =  S( FUNCTOR_sub_set_1 , a22);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
- Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
- Op(FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
- Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a9), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a11, a16), //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a16, a7, a17), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a19), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a19, a21), //
- Op(FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a2, a11, a22), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a23, a21, a10), cont)))))))))));
+ Op("split_unify", FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, a15), //
+ Op("var", FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op("nonvar", FILE_simple_analyzer::PRED_nonvar_1_static_exec, VA(a15), //
+ Op("inv", FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a9), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a11, a16), //
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a16, a7, a17), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a18, a9, a19), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a19, a21), //
+ Op("intersectv", FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a2, a11, a22), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a23, a21, a10), cont)))))))))));
     }
 
     private final static Operation update_goal_12_3(Prolog m) { 
@@ -1268,12 +1269,12 @@ m.cont = cont;
         a16 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, m.DONT_CARE2()), //
- Op(FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
- Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a7), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a15, a7, a8), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a16, a9, a10), cont))))));
+ Op("split_unify", FILE_simple_analyzer::PRED_split_unify_3_static_exec, VA(a1, a14, m.DONT_CARE2()), //
+ Op("var", FILE_simple_analyzer::PRED_var_1_static_exec, VA(a14), //
+ Op("inv", FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a14, a7), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a15, a7, a8), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a16, a9, a10), cont))))));
     }
 
     private final static Operation update_goal_12_4(Prolog m) { 
@@ -1313,9 +1314,9 @@ m.cont = cont;
         a14 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a14, a9, a10), cont)));
+ Op("unify_p", FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a14, a9, a10), cont)));
     }
 
     private final static Operation update_goal_12_5(Prolog m) { 
@@ -1359,22 +1360,22 @@ m.cont = cont;
         a20 =  S( FUNCTOR_sub_set_1 , a2);
  ;
         return //
- Op(FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
- Op(FILE_simple_analyzer::PRED_goal_dupset_2_static_exec, VA(a1, a14), //
- Op(FILE_simple_analyzer::PRED_var_args_2_static_exec, VA(a1, a15), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a16, a17), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a18, a16, a17), //
- Op(FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA( int_1 , a17, a7, a15, a14, a9, a11, a1, a18), //
- Op(FILE_simple_analyzer::PRED_update_table_6_static_exec, VA(a19, a18, a3, a4, a5, a6), //
- Op(FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a9, a10), cont)))))))));
+ Op("call_p", FILE_simple_analyzer::PRED_call_p_1_static_exec, VA(a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a13), //
+ Op("goal_dupset", FILE_simple_analyzer::PRED_goal_dupset_2_static_exec, VA(a1, a14), //
+ Op("var_args", FILE_simple_analyzer::PRED_var_args_2_static_exec, VA(a1, a15), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a16, a17), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a18, a16, a17), //
+ Op("create_new_call", FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA( int_1 , a17, a7, a15, a14, a9, a11, a1, a18), //
+ Op("update_table", FILE_simple_analyzer::PRED_update_table_6_static_exec, VA(a19, a18, a3, a4, a5, a6), //
+ Op("set_command", FILE_simple_analyzer::PRED_set_command_3_static_exec, VA(a20, a9, a10), cont)))))))));
     }
 /** PREDICATE: update_table/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(update_table/6,public)
-        final static SymbolTerm FUNCTOR_set_2 = F("set",2);
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_set_2 = F("set",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5, arg6;
 
@@ -1442,12 +1443,12 @@ m.cont = cont;
         a17 =  S( FUNCTOR_$002B_2 , a5,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
- Op(FILE_simple_analyzer::PRED_lub_call_3_static_exec, VA(a11, a2, a14), //
- Op(FILE_simple_analyzer::PRED_$inequality_of_term_2_static_exec, VA(a11, a14), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
- Op(FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a16, a13, a4), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a17), cont))))));
+ Op("table_command", FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a12, a3, a13), //
+ Op("lub_call", FILE_simple_analyzer::PRED_lub_call_3_static_exec, VA(a11, a2, a14), //
+ Op("$inequality_of_term", FILE_simple_analyzer::PRED_$inequality_of_term_2_static_exec, VA(a11, a14), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
+ Op("table_command", FILE_simple_analyzer::PRED_table_command_3_static_exec, VA(a16, a13, a4), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a6, a17), cont))))));
     }
 
     private final static Operation update_table_6_2(Prolog m) { 
@@ -1571,23 +1572,23 @@ m.cont = cont;
         a19 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a8, a11), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a9, a12), //
- Op(FILE_simple_analyzer::PRED_ground_flag_3_static_exec, VA(a11, a3, a13), //
- Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a4, a14), //
- Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a5, a15), //
- Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a6, a16), //
- Op(FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a7, a17), //
- Op(FILE_simple_analyzer::PRED_create_argument_6_static_exec, VA(a13, a14, a15, a16, a17, a12), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), //
- Op(FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA(a18, a2, a3, a4, a5, a6, a7, a8, a9), cont))))))))));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a8, a11), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a9, a12), //
+ Op("ground_flag", FILE_simple_analyzer::PRED_ground_flag_3_static_exec, VA(a11, a3, a13), //
+ Op("membership_flag", FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a4, a14), //
+ Op("membership_flag", FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a5, a15), //
+ Op("membership_flag", FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a6, a16), //
+ Op("membership_flag", FILE_simple_analyzer::PRED_membership_flag_3_static_exec, VA(a11, a7, a17), //
+ Op("create_argument", FILE_simple_analyzer::PRED_create_argument_6_static_exec, VA(a13, a14, a15, a16, a17, a12), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a18, a19), //
+ Op("create_new_call", FILE_simple_analyzer::PRED_create_new_call_9_static_exec, VA(a18, a2, a3, a4, a5, a6, a7, a8, a9), cont))))))))));
     }
 /** PREDICATE: lub/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lub/3,public)
-        final static SymbolTerm ATOM_unknown = SYM("unknown");
-        final static SymbolTerm ATOM_any = SYM("any");
+        final static Functor ATOM_unknown = SYM("unknown");
+        final static Functor ATOM_any = SYM("any");
 
 
 
@@ -1831,8 +1832,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(create_argument/6,public)
-        final static SymbolTerm ATOM_yes = SYM("yes");
-        final static SymbolTerm ATOM_no = SYM("no");
+        final static Functor ATOM_yes = SYM("yes");
+        final static Functor ATOM_no = SYM("no");
 
     // private final Term arg5, arg6;
 
@@ -2052,10 +2053,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a4, a5), //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a3, a4, a5), //
- Op(FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA( int_1 , a5, a1, a2, a3), cont))));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a4, a5), //
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a3, a4, a5), //
+ Op("lub_call", FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA( int_1 , a5, a1, a2, a3), cont))));
     }
 /** PREDICATE: lub_call/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2144,12 +2145,12 @@ m.cont = cont;
         a11 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a7), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a8), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a5, a9), //
- Op(FILE_simple_analyzer::PRED_lub_3_static_exec, VA(a7, a8, a9), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
- Op(FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA(a10, a2, a3, a4, a5), cont))))));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a7), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a8), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a5, a9), //
+ Op("lub", FILE_simple_analyzer::PRED_lub_3_static_exec, VA(a7, a8, a9), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
+ Op("lub_call", FILE_simple_analyzer::PRED_lub_call_5_static_exec, VA(a10, a2, a3, a4, a5), cont))))));
     }
 /** PREDICATE: bottom_call/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2175,8 +2176,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a3, a4), //
- Op(FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA( int_1 , a4, a2), cont));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, a3, a4), //
+ Op("bottom_call", FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA( int_1 , a4, a2), cont));
     }
 /** PREDICATE: bottom_call/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2257,10 +2258,10 @@ m.cont = cont;
         a7 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_bottom_1_static_exec, VA(a5), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a5), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
- Op(FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA(a6, a2, a3), cont))));
+ Op("bottom", FILE_simple_analyzer::PRED_bottom_1_static_exec, VA(a5), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a5), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a6, a7), //
+ Op("bottom_call", FILE_simple_analyzer::PRED_bottom_call_3_static_exec, VA(a6, a2, a3), cont))));
     }
 /** PREDICATE: lattice_modes_call/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2297,9 +2298,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
  ;
         a9 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
- Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a8, a9), //
- Op(FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA( int_1 , a5, a9, a6, a7,  Prolog.True ), cont)));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
+ Op("get", FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a8, a9), //
+ Op("lattice_modes_call", FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA( int_1 , a5, a9, a6, a7,  Prolog.True ), cont)));
     }
 /** PREDICATE: lattice_modes_call/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2392,18 +2393,18 @@ m.cont = cont;
         a12 =  S( FUNCTOR_$002B_2 , a1,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a8), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a9), //
- Op(FILE_simple_analyzer::PRED_lattice_modes_arg_4_static_exec, VA(a8, a9, a5, a10), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op(FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA(a11, a2, a3, a4, a10, a6), cont)))));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a3, a8), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a4, a9), //
+ Op("lattice_modes_arg", FILE_simple_analyzer::PRED_lattice_modes_arg_4_static_exec, VA(a8, a9, a5, a10), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
+ Op("lattice_modes_call", FILE_simple_analyzer::PRED_lattice_modes_call_6_static_exec, VA(a11, a2, a3, a4, a10, a6), cont)))));
     }
 /** PREDICATE: lattice_modes_arg/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(lattice_modes_arg/4,public)
-        final static SymbolTerm FUNCTOR_uninit_1 = F("uninit",1);
-        final static SymbolTerm FUNCTOR_ground_1 = F("ground",1);
+        final static Functor FUNCTOR_uninit_1 = F("uninit",1);
+        final static Functor FUNCTOR_ground_1 = F("ground",1);
 
 
 
@@ -2508,7 +2509,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get/3,public)
-        final static SymbolTerm FUNCTOR_node_4 = F("node",4);
+        final static Functor FUNCTOR_node_4 = F("node",4);
 
 
 
@@ -2531,7 +2532,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_get_6_static_exec, VA(a4, a5, a6, a7, a2, a3), cont);
+ Op("get", FILE_simple_analyzer::PRED_get_6_static_exec, VA(a4, a5, a6, a7, a2, a3), cont);
     }
 /** PREDICATE: get/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2603,15 +2604,15 @@ m.cont = cont;
     // get(A,B,C,D,E,F):-[compare(G,E,A),get(G,E,F,C,D)]
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a5, a1), //
- Op(FILE_simple_analyzer::PRED_get_5_static_exec, VA(a7, a5, a6, a3, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a5, a1), //
+ Op("get", FILE_simple_analyzer::PRED_get_5_static_exec, VA(a7, a5, a6, a3, a4), cont));
     }
 /** PREDICATE: get/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(get/5,public)
-        final static SymbolTerm ATOM_$003C = SYM("<");
-        final static SymbolTerm ATOM_$003E = SYM(">");
+        final static Functor ATOM_$003C = SYM("<");
+        final static Functor ATOM_$003E = SYM(">");
 
     // private final Term arg5;
 
@@ -2649,7 +2650,7 @@ m.cont = cont;
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a4, a2, a3), cont);
+ Op("get", FILE_simple_analyzer::PRED_get_3_static_exec, VA(a4, a2, a3), cont);
     }
 
     private final static Operation get_5_2(Prolog m) { 
@@ -2666,13 +2667,13 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a5, a2, a3), cont);
+ Op("get", FILE_simple_analyzer::PRED_get_3_static_exec, VA(a5, a2, a3), cont);
     }
 /** PREDICATE: set/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(set/4,public)
-        final static SymbolTerm ATOM_leaf = SYM("leaf");
+        final static Functor ATOM_leaf = SYM("leaf");
 
 
 
@@ -2741,14 +2742,14 @@ m.cont = cont;
             }
         a12 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a12, a2, a5), //
- Op(FILE_simple_analyzer::PRED_set_2_9_static_exec, VA(a12, a2, a3, a6, a7, a8, a9, a10, a11), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a12, a2, a5), //
+ Op("set_2", FILE_simple_analyzer::PRED_set_2_9_static_exec, VA(a12, a2, a3, a6, a7, a8, a9, a10, a11), cont));
     }
 /** PREDICATE: set_2/9
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(set_2/9,public)
-        final static SymbolTerm ATOM_$003D = SYM("=");
+        final static Functor ATOM_$003D = SYM("=");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -2799,7 +2800,7 @@ m.cont = cont;
         if (! a6.unify(a9, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a5, a2, a3, a8), cont);
+ Op("set", FILE_simple_analyzer::PRED_set_4_static_exec, VA(a5, a2, a3, a8), cont);
     }
 
     private final static Operation set_2_9_2(Prolog m) { 
@@ -2850,7 +2851,7 @@ m.cont = cont;
         if (! a5.unify(a8, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a6, a2, a3, a9), cont);
+ Op("set", FILE_simple_analyzer::PRED_set_4_static_exec, VA(a6, a2, a3, a9), cont);
     }
 /** PREDICATE: seal/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -2908,7 +2909,7 @@ m.cont = cont;
                 return m.fail();
             }
         p1 = //
- Op(FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), cont);
+ Op("seal", FILE_simple_analyzer::PRED_seal_1_static_exec, VA(a3), cont);
         m.AREGS[0] = a2;
         m.cont = p1;
         return seal_1_top(m);
@@ -2953,8 +2954,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a1, a2), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
+ Op("inv", FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a1, a2), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 
     private final static Operation membership_flag_3_2(Prolog m) { 
@@ -3011,9 +3012,9 @@ m.cont = cont;
         //END inline expansion
         a5 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a5), //
- Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a2), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont)));
+ Op("varset", FILE_simple_analyzer::PRED_varset_2_static_exec, VA(a1, a5), //
+ Op("subsetv", FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a2), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a4), cont)));
     }
 
     private final static Operation ground_flag_3_2(Prolog m) { 
@@ -3051,9 +3052,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, m.DONT_CARE2(), a5), //
- Op(FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1,  int_1 , a5, a2, a3, a6), //
- Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a6, a4), cont)));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a2, m.DONT_CARE2(), a5), //
+ Op("get_entry_modes", FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1,  int_1 , a5, a2, a3, a6), //
+ Op("sort", FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a6, a4), cont)));
     }
 /** PREDICATE: get_entry_modes/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3159,11 +3160,11 @@ m.cont = cont;
         a11 =  S( FUNCTOR_$002B_2 , a2,  int_1 );
  ;
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a5, a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a4, a7), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
- Op(FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1, a10, a3, a4, a5, a8), cont)))));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a5, a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a9), //
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a4, a7), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a10, a11), //
+ Op("get_entry_modes", FILE_simple_analyzer::PRED_get_entry_modes_6_static_exec, VA(a1, a10, a3, a4, a5, a8), cont)))));
     }
 
     private final static Operation get_entry_modes_6_3(Prolog m) { 
@@ -3231,9 +3232,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a3 = m.mkvar1();
         a4 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
- Op(FILE_simple_analyzer::PRED_filter_vars_3_static_exec, VA(a3, a1, a4), //
- Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a2), cont)));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a3), //
+ Op("filter_vars", FILE_simple_analyzer::PRED_filter_vars_3_static_exec, VA(a3, a1, a4), //
+ Op("sort", FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a2), cont)));
     }
 /** PREDICATE: filter_vars/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3253,7 +3254,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a3 = LARG[2];
     // filter_vars(A,B,C):-[filter_vars(A,B,C,[])]
         return //
- Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
+ Op("filter_vars", FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
     }
 /** PREDICATE: filter_vars/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3368,15 +3369,15 @@ m.cont = cont;
         a9 = m.mkvar1();
         a10 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a2, a9), //
- Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
- Op(FILE_simple_analyzer::PRED_filter_vars_arg_5_static_exec, VA(a1, a2, a9, a10, a4), cont)));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a1, a2, a9), //
+ Op("$unify", FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
+ Op("filter_vars_arg", FILE_simple_analyzer::PRED_filter_vars_arg_5_static_exec, VA(a1, a2, a9, a10, a4), cont)));
     }
 /** PREDICATE: filter_vars_arg/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(filter_vars_arg/5,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
     // private final Term arg5;
 
@@ -3458,7 +3459,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a11, a2, a13, a5), cont);
+ Op("filter_vars", FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a11, a2, a13, a5), cont);
     }
 
     private final static Operation filter_vars_arg_5_2(Prolog m) { 
@@ -3516,7 +3517,7 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a9, a2, a11, a5), cont);
+ Op("filter_vars", FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a9, a2, a11, a5), cont);
     }
 /** PREDICATE: goal_dupset/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3535,7 +3536,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a2 = LARG[1];
     // goal_dupset(A,B):-[goal_dupset_varbag(A,B,C)]
         return //
- Op(FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
+ Op("goal_dupset_varbag", FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
     }
 /** PREDICATE: goal_dupset_varset/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3557,8 +3558,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
     // goal_dupset_varset(A,B,C):-[goal_dupset_varbag(A,B,D),sort(D,C)]
         a4 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, a4), //
- Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a3), cont));
+ Op("goal_dupset_varbag", FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, a4), //
+ Op("sort", FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a4, a3), cont));
     }
 /** PREDICATE: goal_dupset_varbag/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -3581,16 +3582,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a4 = m.mkvar1();
         a5 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
- Op(FILE_simple_analyzer::PRED_make_key_2_static_exec, VA(a3, a4), //
- Op(FILE_simple_analyzer::PRED_keysort_2_static_exec, VA(a4, a5), //
- Op(FILE_simple_analyzer::PRED_filter_dups_2_static_exec, VA(a5, a2), cont))));
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
+ Op("make_key", FILE_simple_analyzer::PRED_make_key_2_static_exec, VA(a3, a4), //
+ Op("keysort", FILE_simple_analyzer::PRED_keysort_2_static_exec, VA(a4, a5), //
+ Op("filter_dups", FILE_simple_analyzer::PRED_filter_dups_2_static_exec, VA(a5, a2), cont))));
     }
 /** PREDICATE: make_key/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
 */
     // main(make_key/2,public)
-        final static SymbolTerm ATOM_dummy = SYM("dummy");
+        final static Functor ATOM_dummy = SYM("dummy");
 
 
 
@@ -3687,7 +3688,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a2 = LARG[1];
     // filter_dups(A,B):-[filter_dups(A,B,[])]
         return //
- Op(FILE_simple_analyzer::PRED_filter_dups_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
+ Op("filter_dups", FILE_simple_analyzer::PRED_filter_dups_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: filter_dups/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4047,7 +4048,7 @@ m.cont = cont;
             }
         a5 = CONS(a4,  Prolog.Nil );
         return //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a5, a3), cont);
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a5, a3), cont);
     }
 
     private final static Operation set_command_3_2(Prolog m) { 
@@ -4065,7 +4066,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_includev_3_static_exec, VA(a4, a2, a3), cont);
+ Op("includev", FILE_simple_analyzer::PRED_includev_3_static_exec, VA(a4, a2, a3), cont);
     }
 
     private final static Operation set_command_3_3(Prolog m) { 
@@ -4083,7 +4084,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a4, a3), cont);
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a2, a4, a3), cont);
     }
 
     private final static Operation set_command_3_4(Prolog m) { 
@@ -4101,7 +4102,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a4, a2, a3), cont);
+ Op("unionv", FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a4, a2, a3), cont);
     }
 /** PREDICATE: table_command/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4146,7 +4147,7 @@ m.cont = cont;
         if (! a2.unify(a3, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a4, a5), cont);
+ Op("get", FILE_simple_analyzer::PRED_get_3_static_exec, VA(a2, a4, a5), cont);
     }
 
     private final static Operation table_command_3_2(Prolog m) { 
@@ -4165,7 +4166,7 @@ m.cont = cont;
                 return m.fail();
             }
         return //
- Op(FILE_simple_analyzer::PRED_set_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("set", FILE_simple_analyzer::PRED_set_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: inv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4197,8 +4198,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         }
         a5 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a5, a1, a3), //
- Op(FILE_simple_analyzer::PRED_inv_2_3_static_exec, VA(a5, a1, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a5, a1, a3), //
+ Op("inv_2", FILE_simple_analyzer::PRED_inv_2_3_static_exec, VA(a5, a1, a4), cont));
     }
 /** PREDICATE: inv_2/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4251,7 +4252,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a2, a3), cont);
+ Op("inv", FILE_simple_analyzer::PRED_inv_2_static_exec, VA(a2, a3), cont);
     }
 /** PREDICATE: intersectv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4315,7 +4316,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("intersectv_2", FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: intersectv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4383,8 +4384,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_simple_analyzer::PRED_intersectv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("intersectv_3", FILE_simple_analyzer::PRED_intersectv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: intersectv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4433,7 +4434,7 @@ m.cont = cont;
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a3, a4, a5, a6), cont);
+ Op("intersectv_2", FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a3, a4, a5, a6), cont);
     }
 
     private final static Operation intersectv_3_6_2(Prolog m) { 
@@ -4462,7 +4463,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a3, a5, a7), cont);
+ Op("intersectv", FILE_simple_analyzer::PRED_intersectv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation intersectv_3_6_3(Prolog m) { 
@@ -4480,7 +4481,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
+ Op("intersectv_2", FILE_simple_analyzer::PRED_intersectv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: diffv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4544,7 +4545,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("diffv_2", FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: diffv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4621,8 +4622,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_simple_analyzer::PRED_diffv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("diffv_3", FILE_simple_analyzer::PRED_diffv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: diffv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4683,7 +4684,7 @@ m.cont = cont;
         }
         a8 = CONS(a4, a5);
         return //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a8, a7), cont);
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a8, a7), cont);
     }
 
     private final static Operation diffv_3_6_2(Prolog m) { 
@@ -4701,7 +4702,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a5, a6), cont);
+ Op("diffv", FILE_simple_analyzer::PRED_diffv_3_static_exec, VA(a3, a5, a6), cont);
     }
 
     private final static Operation diffv_3_6_3(Prolog m) { 
@@ -4719,7 +4720,7 @@ m.cont = cont;
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
+ Op("diffv_2", FILE_simple_analyzer::PRED_diffv_2_4_static_exec, VA(a5, a2, a3, a6), cont);
     }
 /** PREDICATE: unionv/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4783,7 +4784,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
+ Op("unionv_2", FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a2, a4, a5, a3), cont);
     }
 /** PREDICATE: unionv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4860,8 +4861,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
- Op(FILE_simple_analyzer::PRED_unionv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a2, a5), //
+ Op("unionv_3", FILE_simple_analyzer::PRED_unionv_3_6_static_exec, VA(a7, a2, a3, a5, a6, a4), cont));
     }
 /** PREDICATE: unionv_3/6
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4921,7 +4922,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a3, a4, a5, a7), cont);
+ Op("unionv_2", FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a3, a4, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_2(Prolog m) { 
@@ -4950,7 +4951,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a3, a5, a7), cont);
+ Op("unionv", FILE_simple_analyzer::PRED_unionv_3_static_exec, VA(a3, a5, a7), cont);
     }
 
     private final static Operation unionv_3_6_3(Prolog m) { 
@@ -4979,7 +4980,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a5, a2, a3, a7), cont);
+ Op("unionv_2", FILE_simple_analyzer::PRED_unionv_2_4_static_exec, VA(a5, a2, a3, a7), cont);
     }
 /** PREDICATE: includev/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -4999,7 +5000,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a3 = LARG[2];
     // includev(A,B,C):-[includev_2(B,A,C)]
         return //
- Op(FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a2, a1, a3), cont);
+ Op("includev_2", FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a2, a1, a3), cont);
     }
 /** PREDICATE: includev_2/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5074,8 +5075,8 @@ m.cont = cont;
         }
         a6 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a6, a2, a4), //
- Op(FILE_simple_analyzer::PRED_includev_3_5_static_exec, VA(a6, a2, a4, a5, a3), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a6, a2, a4), //
+ Op("includev_3", FILE_simple_analyzer::PRED_includev_3_5_static_exec, VA(a6, a2, a4, a5, a3), cont));
     }
 /** PREDICATE: includev_3/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5199,7 +5200,7 @@ m.cont = cont;
             return m.fail();
         }
         return //
- Op(FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a4, a2, a6), cont);
+ Op("includev_2", FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a4, a2, a6), cont);
     }
 /** PREDICATE: subsetv/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5272,8 +5273,8 @@ m.cont = cont;
         }
         a7 = m.mkvar1();
         return //
- Op(FILE_builtins::PRED_compare_3_static_exec, VA(a7, a3, a5), //
- Op(FILE_simple_analyzer::PRED_subsetv_2_4_static_exec, VA(a7, a3, a4, a6), cont));
+ Op("compare", FILE_builtins::PRED_compare_3_static_exec, VA(a7, a3, a5), //
+ Op("subsetv_2", FILE_simple_analyzer::PRED_subsetv_2_4_static_exec, VA(a7, a3, a4, a6), cont));
     }
 /** PREDICATE: subsetv_2/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5313,7 +5314,7 @@ m.cont = cont;
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
         return //
- Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a3, a4), cont);
+ Op("subsetv", FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a3, a4), cont);
     }
 
     private final static Operation subsetv_2_4_2(Prolog m) { 
@@ -5330,7 +5331,7 @@ m.cont = cont;
             return m.fail();
         a5 = CONS(a2, a3);
         return //
- Op(FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a4), cont);
+ Op("subsetv", FILE_simple_analyzer::PRED_subsetv_2_static_exec, VA(a5, a4), cont);
     }
 /** PREDICATE: varset/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5351,8 +5352,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
     // varset(A,B):-[varbag(A,C),sort(C,B)]
         a3 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
- Op(FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a3, a2), cont));
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_2_static_exec, VA(a1, a3), //
+ Op("sort", FILE_simple_analyzer::PRED_sort_2_static_exec, VA(a3, a2), cont));
     }
 /** PREDICATE: varbag/2
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5371,7 +5372,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a2 = LARG[1];
     // varbag(A,B):-[varbag(A,B,[])]
         return //
- Op(FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
     }
 /** PREDICATE: varbag/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5469,9 +5470,9 @@ m.cont = cont;
         a5 = m.mkvar1();
         a6 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a5), //
- Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a6, a2), //
- Op(FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1,  int_1 , a5, a6, a3), cont)));
+ Op("functor", FILE_simple_analyzer::PRED_functor_3_static_exec, VA(a1, m.DONT_CARE2(), a5), //
+ Op("$unify", FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a6, a2), //
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1,  int_1 , a5, a6, a3), cont)));
     }
 /** PREDICATE: varbag/5
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5584,12 +5585,12 @@ m.cont = cont;
  ;
         a14 = m.mkvar1();
         return //
- Op(FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a1, a9), //
- Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
- Op(FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a9, a10, a11), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
- Op(FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a14, a11), //
- Op(FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1, a12, a3, a14, a5), cont))))));
+ Op("arg", FILE_simple_analyzer::PRED_arg_3_static_exec, VA(a2, a1, a9), //
+ Op("$unify", FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a10, a8), //
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a9, a10, a11), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a12, a13), //
+ Op("$unify", FILE_simple_analyzer::PRED_$unify_2_static_exec, VA(a14, a11), //
+ Op("varbag", FILE_simple_analyzer::PRED_varbag_5_static_exec, VA(a1, a12, a3, a14, a5), cont))))));
     }
 /** PREDICATE: unify_p/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl
@@ -5648,8 +5649,8 @@ m.cont = cont;
         }
         //END inline expansion
         return //
- Op(FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
- Op(FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a2), fail_0));
+ Op("unify_p", FILE_simple_analyzer::PRED_unify_p_1_static_exec, VA(a1), //
+ Op("$cut", FILE_simple_analyzer::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
     private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_2(Prolog m) { 
@@ -5677,7 +5678,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_anal
         a1 = LARG[0];
     // call_p(A):-['$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl'(A)]
         return //
- Op(FILE_simple_analyzer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec, VA(a1), cont);
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl", FILE_simple_analyzer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec, VA(a1), cont);
     }
 /** PREDICATE: split_unify/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/simple_analyzer.pl

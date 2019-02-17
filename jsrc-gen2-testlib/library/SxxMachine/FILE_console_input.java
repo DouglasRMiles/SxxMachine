@@ -12,12 +12,15 @@ import static SxxMachine.missing_preds.PRED_expand_file_name_2_static_exec;
 import static SxxMachine.missing_preds.PRED_phrase_3_static_exec;
 import static SxxMachine.missing_preds.PRED_string_codes_2_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_console_input extends TermData {
 	/**
 	 * PREDICATE: (:)/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	private static final SymbolTerm PRED_$003A_2_s1 = SYM("prolog");
+	private static final Functor PRED_$003A_2_s1 = SYM("prolog");
 
 	public static Operation PRED_$003A_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -49,7 +52,7 @@ public class FILE_console_input extends TermData {
 	 * PREDICATE: complete/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	final static SymbolTerm ATOM_$002A = SYM("*");
+	final static Functor ATOM_$002A = SYM("*");
 
 	public static Operation PRED_complete_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -141,7 +144,7 @@ public class FILE_console_input extends TermData {
 	 * PREDICATE: atom_chars/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	private static final SymbolTerm PRED_atom_chars_3_s1 = SYM("[]");
+	private static final Functor PRED_atom_chars_3_s1 = SYM("[]");
 
 	public static Operation PRED_atom_chars_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -249,7 +252,7 @@ public class FILE_console_input extends TermData {
 	 * PREDICATE: atom_char/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	private static final SymbolTerm PRED_atom_char_1_s1 = SYM("csym");
+	private static final Functor PRED_atom_char_1_s1 = SYM("csym");
 
 	public static Operation PRED_atom_char_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -296,7 +299,7 @@ public class FILE_console_input extends TermData {
 	 * PREDICATE: file_chars/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	private static final SymbolTerm PRED_file_chars_3_s1 = SYM("[]");
+	private static final Functor PRED_file_chars_3_s1 = SYM("[]");
 
 	public static Operation PRED_file_chars_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -404,7 +407,7 @@ public class FILE_console_input extends TermData {
 	 * PREDICATE: file_char/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/console_input.pl
 	 */
-	private static final SymbolTerm PRED_file_char_1_s1 = SYM("csym");
+	private static final Functor PRED_file_char_1_s1 = SYM("csym");
 	final static IntegerTerm int_47 = Integer(47);
 	final static IntegerTerm int_46 = Integer(46);
 	final static IntegerTerm int_45 = Integer(45);

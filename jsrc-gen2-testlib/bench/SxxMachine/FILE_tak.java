@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_tak extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
@@ -42,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
         m.setB0();
     // top:-[tak]
         return //
- Op(FILE_tak::PRED_tak_0_static_exec, VA(), cont);
+ Op("tak", FILE_tak::PRED_tak_0_static_exec, VA(), cont);
     }
 /** PREDICATE: tak/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
@@ -58,13 +59,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
         m.setB0();
     // tak:-[tak(18,12,6,A)]
         return //
- Op(FILE_tak::PRED_tak_4_static_exec, VA( int_18 ,  int_12 ,  int_6 , m.DONT_CARE2()), cont);
+ Op("tak", FILE_tak::PRED_tak_4_static_exec, VA( int_18 ,  int_12 ,  int_6 , m.DONT_CARE2()), cont);
     }
 /** PREDICATE: tak/4
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/tak.pl
 */
     // main(tak/4,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -146,11 +147,11 @@ m.cont = cont;
  ;
         a13 = m.mkvar1();
         p5 = //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
- Op(FILE_tak::PRED_tak_4_static_exec, VA(a8, a3, a1, a10), //
- Op(FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
- Op(FILE_tak::PRED_tak_4_static_exec, VA(a11, a1, a2, a13), //
- Op(FILE_tak::PRED_tak_4_static_exec, VA(a7, a10, a13, a4), cont)))));
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
+ Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a8, a3, a1, a10), //
+ Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
+ Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a11, a1, a2, a13), //
+ Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a7, a10, a13, a4), cont)))));
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;

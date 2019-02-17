@@ -18,15 +18,16 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_sendmore extends FILE_system {
 /** PREDICATE: top/0
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl
@@ -68,43 +69,43 @@ m.cont = cont;
         a10 = m.mkvar1();
         a11 = m.mkvar1();
         return //
- Op(FILE_sendmore::PRED_digit_1_static_exec, VA(a1), //
- Op(FILE_sendmore::PRED_digit_1_static_exec, VA(a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a1, a2), //
- Op(FILE_sendmore::PRED_sumdigit_5_static_exec, VA( int_0 , a1, a2, a3, a4), //
- Op(FILE_sendmore::PRED_digit_1_static_exec, VA(a5), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a3), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a1), //
- Op(FILE_sendmore::PRED_digit_1_static_exec, VA(a6), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a5), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a3), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a1), //
- Op(FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a4, a5, a6, a2, a7), //
- Op(FILE_sendmore::PRED_digit_1_static_exec, VA(a8), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a6), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a5), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a3), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a1), //
- Op(FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a7, a2, a8, a5, a9), //
- Op(FILE_sendmore::PRED_leftdigit_1_static_exec, VA(a10), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a8), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a6), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a5), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a3), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a1), //
- Op(FILE_sendmore::PRED_leftdigit_1_static_exec, VA(a11), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a10), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a8), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a6), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a5), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a3), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a2), //
- Op(FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a1), //
- Op(FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a9, a10, a11, a8, a11), fail_0)))))))))))))))))))))))))))))))))))));
+ Op("digit", FILE_sendmore::PRED_digit_1_static_exec, VA(a1), //
+ Op("digit", FILE_sendmore::PRED_digit_1_static_exec, VA(a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a1, a2), //
+ Op("sumdigit", FILE_sendmore::PRED_sumdigit_5_static_exec, VA( int_0 , a1, a2, a3, a4), //
+ Op("digit", FILE_sendmore::PRED_digit_1_static_exec, VA(a5), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a3), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a5, a1), //
+ Op("digit", FILE_sendmore::PRED_digit_1_static_exec, VA(a6), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a5), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a3), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a6, a1), //
+ Op("sumdigit", FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a4, a5, a6, a2, a7), //
+ Op("digit", FILE_sendmore::PRED_digit_1_static_exec, VA(a8), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a6), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a5), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a3), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a8, a1), //
+ Op("sumdigit", FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a7, a2, a8, a5, a9), //
+ Op("leftdigit", FILE_sendmore::PRED_leftdigit_1_static_exec, VA(a10), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a8), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a6), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a5), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a3), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a10, a1), //
+ Op("leftdigit", FILE_sendmore::PRED_leftdigit_1_static_exec, VA(a11), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a10), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a8), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a6), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a5), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a3), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a2), //
+ Op("$arith_not_equal", FILE_sendmore::PRED_$arith_not_equal_2_static_exec, VA(a11, a1), //
+ Op("sumdigit", FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a9, a10, a11, a8, a11), fail_0)))))))))))))))))))))))))))))))))))));
     }
 
     private final static Operation top_0_2(Prolog m) { 
@@ -118,7 +119,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl'/3,public)
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
 
@@ -207,7 +208,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl
 */
     // main(sumdigit/5,public)
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5;
 
@@ -238,7 +239,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl
         }
         //END inline expansion
         return //
- Op(FILE_sendmore::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsendmore$002Epl_3_static_exec, VA(a4, a5, a6), cont);
+ Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl", FILE_sendmore::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbench$002Fsendmore$002Epl_3_static_exec, VA(a4, a5, a6), cont);
     }
 /** PREDICATE: digit/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sendmore.pl

@@ -18,23 +18,24 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_animal extends FILE_system {
 /** PREDICATE: animal/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tests/animal.pl
 */
     // main(animal/1,public)
-        final static SymbolTerm ATOM_goat = SYM("goat");
-        final static SymbolTerm ATOM_elephant = SYM("elephant");
-        final static SymbolTerm ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
+        final static Functor ATOM_goat = SYM("goat");
+        final static Functor ATOM_elephant = SYM("elephant");
+        final static Functor ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
 

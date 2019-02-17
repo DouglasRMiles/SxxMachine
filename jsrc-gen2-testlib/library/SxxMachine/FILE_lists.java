@@ -15,6 +15,9 @@ import static SxxMachine.missing_preds.PRED_pairs_keys_2_static_exec;
 import static SxxMachine.missing_preds.PRED_sort_4_static_exec;
 import static SxxMachine.missing_preds.PRED_succ_2_static_exec;
 
+import SxxMachine.pterm.IntegerTerm;
+import SxxMachine.pterm.TermData;
+
 public class FILE_lists extends TermData {
 	/**
 	 * PREDICATE: member/2 from:
@@ -117,7 +120,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: append/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_append_3_s1 = SYM("[]");
+	private static final Functor PRED_append_3_s1 = SYM("[]");
 
 	public static Operation PRED_append_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -201,7 +204,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: append/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_append_2_s1 = SYM("list");
+	private static final Functor PRED_append_2_s1 = SYM("list");
 
 	public static Operation PRED_append_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -221,7 +224,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: append_/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_append__2_s1 = SYM("[]");
+	private static final Functor PRED_append__2_s1 = SYM("[]");
 
 	public static Operation PRED_append__2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -286,7 +289,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: prefix/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_prefix_2_s1 = SYM("[]");
+	private static final Functor PRED_prefix_2_s1 = SYM("[]");
 
 	public static Operation PRED_prefix_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -716,7 +719,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: delete/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_delete_3_s1 = SYM("[]");
+	private static final Functor PRED_delete_3_s1 = SYM("[]");
 
 	public static Operation PRED_delete_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1012,7 +1015,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: nth0/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_nth0_3_s1 = SYM("integer");
+	private static final Functor PRED_nth0_3_s1 = SYM("integer");
 
 	public static Operation PRED_nth0_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1772,7 +1775,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: nth1/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_nth1_3_s1 = SYM("integer");
+	private static final Functor PRED_nth1_3_s1 = SYM("integer");
 
 	public static Operation PRED_nth1_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1912,7 +1915,7 @@ public class FILE_lists extends TermData {
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
 	private static final /**/ IntegerTerm PRED_nth0_4_s1 = Integer(0);
-	final static SymbolTerm ATOM_nonneg = SYM("nonneg");
+	final static Functor ATOM_nonneg = SYM("nonneg");
 
 	public static Operation PRED_nth0_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -1977,7 +1980,7 @@ public class FILE_lists extends TermData {
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
 	private static final /**/ IntegerTerm PRED_nth1_4_s1 = Integer(1);
-	final static SymbolTerm ATOM_positive_integer = SYM("positive_integer");
+	final static Functor ATOM_positive_integer = SYM("positive_integer");
 
 	public static Operation PRED_nth1_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2293,7 +2296,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: last_/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_last__3_s1 = SYM("[]");
+	private static final Functor PRED_last__3_s1 = SYM("[]");
 
 	public static Operation PRED_last__3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2364,7 +2367,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: proper_length/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_proper_length_2_s1 = SYM("[]");
+	private static final Functor PRED_proper_length_2_s1 = SYM("[]");
 
 	public static Operation PRED_proper_length_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2387,7 +2390,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: same_length/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_same_length_2_s1 = SYM("[]");
+	private static final Functor PRED_same_length_2_s1 = SYM("[]");
 
 	public static Operation PRED_same_length_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2464,7 +2467,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: reverse/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_reverse_2_s1 = SYM("[]");
+	private static final Functor PRED_reverse_2_s1 = SYM("[]");
 
 	public static Operation PRED_reverse_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2483,7 +2486,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: reverse/4 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_reverse_4_s1 = SYM("[]");
+	private static final Functor PRED_reverse_4_s1 = SYM("[]");
 
 	public static Operation PRED_reverse_4_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -2572,9 +2575,9 @@ public class FILE_lists extends TermData {
 	 * $dummy_6_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl/7
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_7_s1 = SYM(
+	private static final Functor PRED_$dummy_6_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_7_s1 = SYM(
 			"[]");
-	final static SymbolTerm ATOM_list = SYM("list");
+	final static Functor ATOM_list = SYM("list");
 
 	// private final Term arg5, arg6, arg7;
 
@@ -2733,7 +2736,7 @@ public class FILE_lists extends TermData {
 	 * $dummy_7_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl/4
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_s1 = SYM(
+	private static final Functor PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_s1 = SYM(
 			"[]");
 
 	public static Operation PRED_$dummy_7_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_static_exec(
@@ -2805,7 +2808,7 @@ public class FILE_lists extends TermData {
 	 * $dummy_8_/opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl/4
 	 * from: /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_s1 = SYM(
+	private static final Functor PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_s1 = SYM(
 			"[]");
 
 	public static Operation PRED_$dummy_8_$002Fopt$002Flogicmoo_workspace$002Ftaupl$002FSxxMachine$002Fprolog$002Flibrary$002Flists$002Epl_4_static_exec(
@@ -2975,7 +2978,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: perm/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_perm_2_s1 = SYM("[]");
+	private static final Functor PRED_perm_2_s1 = SYM("[]");
 
 	public static Operation PRED_perm_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3040,7 +3043,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: flatten/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_flatten_2_s1 = SYM("[]");
+	private static final Functor PRED_flatten_2_s1 = SYM("[]");
 
 	public static Operation PRED_flatten_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3068,7 +3071,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: flatten/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_flatten_3_s1 = SYM("[]");
+	private static final Functor PRED_flatten_3_s1 = SYM("[]");
 
 	public static Operation PRED_flatten_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3294,7 +3297,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: max_member_/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_max_member__3_s1 = SYM("[]");
+	private static final Functor PRED_max_member__3_s1 = SYM("[]");
 
 	public static Operation PRED_max_member__3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3500,7 +3503,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: min_member_/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_min_member__3_s1 = SYM("[]");
+	private static final Functor PRED_min_member__3_s1 = SYM("[]");
 
 	public static Operation PRED_min_member__3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3695,7 +3698,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: sum_list/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_sum_list_3_s1 = SYM("[]");
+	private static final Functor PRED_sum_list_3_s1 = SYM("[]");
 
 	public static Operation PRED_sum_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3805,7 +3808,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: max_list/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_max_list_3_s1 = SYM("[]");
+	private static final Functor PRED_max_list_3_s1 = SYM("[]");
 
 	public static Operation PRED_max_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3915,7 +3918,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: min_list/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_min_list_3_s1 = SYM("[]");
+	private static final Functor PRED_min_list_3_s1 = SYM("[]");
 
 	public static Operation PRED_min_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -3995,7 +3998,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: numlist/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_numlist_3_s1 = SYM("integer");
+	private static final Functor PRED_numlist_3_s1 = SYM("integer");
 
 	public static Operation PRED_numlist_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4018,7 +4021,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: numlist_/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_numlist__3_s1 = SYM("[]");
+	private static final Functor PRED_numlist__3_s1 = SYM("[]");
 
 	public static Operation PRED_numlist__3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4100,7 +4103,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: is_set/1 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_is_set_1_s1 = SYM("[]");
+	private static final Functor PRED_is_set_1_s1 = SYM("[]");
 
 	public static Operation PRED_is_set_1_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4124,8 +4127,8 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: list_to_set/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_list_to_set_2_s1 = SYM("list");
-	final static SymbolTerm ATOM_termsmallerequal = SYM("@=<");
+	private static final Functor PRED_list_to_set_2_s1 = SYM("list");
+	final static Functor ATOM_termsmallerequal = SYM("@=<");
 
 	public static Operation PRED_list_to_set_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4155,7 +4158,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: number_list/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_number_list_3_s1 = SYM("[]");
+	private static final Functor PRED_number_list_3_s1 = SYM("[]");
 
 	public static Operation PRED_number_list_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4250,7 +4253,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: remove_dup_keys/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_remove_dup_keys_2_s1 = SYM("[]");
+	private static final Functor PRED_remove_dup_keys_2_s1 = SYM("[]");
 
 	public static Operation PRED_remove_dup_keys_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4426,7 +4429,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: intersection/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_intersection_3_s1 = SYM("[]");
+	private static final Functor PRED_intersection_3_s1 = SYM("[]");
 
 	public static Operation PRED_intersection_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4549,7 +4552,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: union/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_union_3_s1 = SYM("[]");
+	private static final Functor PRED_union_3_s1 = SYM("[]");
 
 	public static Operation PRED_union_3_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4684,7 +4687,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: subset/2 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_subset_2_s1 = SYM("[]");
+	private static final Functor PRED_subset_2_s1 = SYM("[]");
 
 	public static Operation PRED_subset_2_static_exec(Prolog m) {
 		Operation cont = m.cont;
@@ -4748,7 +4751,7 @@ public class FILE_lists extends TermData {
 	 * PREDICATE: subtract/3 from:
 	 * /opt/logicmoo_workspace/taupl/SxxMachine/prolog/library/lists.pl
 	 */
-	private static final SymbolTerm PRED_subtract_3_s1 = SYM("[]");
+	private static final Functor PRED_subtract_3_s1 = SYM("[]");
 
 	public static Operation PRED_subtract_3_static_exec(Prolog m) {
 		Operation cont = m.cont;

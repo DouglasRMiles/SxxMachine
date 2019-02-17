@@ -18,49 +18,50 @@ import static SxxMachine.Failure.*;
 import static SxxMachine.Predicate.*;
 import static SxxMachine.Prolog.*;
 import static SxxMachine.Success.*;
-import static SxxMachine.SymbolTerm.*;
-import static SxxMachine.TermData.*;
+import static SxxMachine.pterm.TermData.*;
 import SxxMachine.*;
+import SxxMachine.pterm.*;
 import SxxMachine.bootpreds.*;
 import SxxMachine.bootpreds.PRED_$begin_exception_1;
 import SxxMachine.bootpreds.PRED_$begin_sync_2;
 import SxxMachine.bootpreds.PRED_$builtin_member_2;
 import SxxMachine.FILE_builtins.*;
 import SxxMachine.sxxtensions.*;
+@SuppressWarnings("unused")
 public class FILE_dra extends FILE_system {
 /** PREDICATE: init_dra/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(init_dra/1,non-(public))
-        final static SymbolTerm ATOM_file0 = SYM("file0");
-        final static SymbolTerm ATOM_access_level = SYM("access_level");
-        final static SymbolTerm FUNCTOR_module_colon_2 = F(":",2);
-        final static SymbolTerm ATOM_$0024dra = SYM("$dra");
-        final static SymbolTerm FUNCTOR_was_access_level_1 = F("was_access_level",1);
-        final static SymbolTerm ATOM_file1 = SYM("file1");
-        final static SymbolTerm ATOM_user = SYM("user");
-        final static SymbolTerm FUNCTOR_property_pred_2 = F("property_pred",2);
-        final static SymbolTerm FUNCTOR_make_db_pred_2 = F("make_db_pred",2);
-        final static SymbolTerm ATOM_number_of_answers = SYM("number_of_answers");
-        final static SymbolTerm ATOM_unique_index = SYM("unique_index");
-        final static SymbolTerm ATOM_$0024tabling_exec = SYM("$tabling_exec");
-        final static SymbolTerm FUNCTOR_dra_state_4 = F("dra_state",4);
-        final static SymbolTerm ATOM_file7 = SYM("file7");
-        final static SymbolTerm ATOM_module = SYM("module");
-        final static SymbolTerm FUNCTOR_source_file_2 = F("source_file",2);
-        final static SymbolTerm FUNCTOR_ignore_1 = F("ignore",1);
-        final static SymbolTerm FUNCTOR_$002C_2 = F(",",2);
-        final static SymbolTerm FUNCTOR_functor_3 = F("functor",3);
-        final static SymbolTerm FUNCTOR_$005C$002B_1 = F("\\+",1);
-        final static SymbolTerm FUNCTOR_atom_concat_3 = F("atom_concat",3);
-        final static SymbolTerm ATOM_$0024 = SYM("$");
-        final static SymbolTerm FUNCTOR_export_1 = F("export",1);
-        final static SymbolTerm FUNCTOR_$002F_2 = F("/",2);
-        final static SymbolTerm FUNCTOR_predicate_property_2 = F("predicate_property",2);
-        final static SymbolTerm ATOM_transparent = SYM("transparent");
-        final static SymbolTerm ATOM___aux = SYM("__aux");
-        final static SymbolTerm FUNCTOR_module_transparent_1 = F("module_transparent",1);
-        final static SymbolTerm ATOM_file = SYM("file");
+        final static Functor ATOM_file0 = SYM("file0");
+        final static Functor ATOM_access_level = SYM("access_level");
+        final static Functor FUNCTOR_module_colon_2 = F(":",2);
+        final static Functor ATOM_$0024dra = SYM("$dra");
+        final static Functor FUNCTOR_was_access_level_1 = F("was_access_level",1);
+        final static Functor ATOM_file1 = SYM("file1");
+        final static Functor ATOM_user = SYM("user");
+        final static Functor FUNCTOR_property_pred_2 = F("property_pred",2);
+        final static Functor FUNCTOR_make_db_pred_2 = F("make_db_pred",2);
+        final static Functor ATOM_number_of_answers = SYM("number_of_answers");
+        final static Functor ATOM_unique_index = SYM("unique_index");
+        final static Functor ATOM_$0024tabling_exec = SYM("$tabling_exec");
+        final static Functor FUNCTOR_dra_state_4 = F("dra_state",4);
+        final static Functor ATOM_file7 = SYM("file7");
+        final static Functor ATOM_module = SYM("module");
+        final static Functor FUNCTOR_source_file_2 = F("source_file",2);
+        final static Functor FUNCTOR_ignore_1 = F("ignore",1);
+        final static Functor FUNCTOR_$002C_2 = F(",",2);
+        final static Functor FUNCTOR_functor_3 = F("functor",3);
+        final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
+        final static Functor FUNCTOR_atom_concat_3 = F("atom_concat",3);
+        final static Functor ATOM_$0024 = SYM("$");
+        final static Functor FUNCTOR_export_1 = F("export",1);
+        final static Functor FUNCTOR_$002F_2 = F("/",2);
+        final static Functor FUNCTOR_predicate_property_2 = F("predicate_property",2);
+        final static Functor ATOM_transparent = SYM("transparent");
+        final static Functor ATOM___aux = SYM("__aux");
+        final static Functor FUNCTOR_module_transparent_1 = F("module_transparent",1);
+        final static Functor ATOM_file = SYM("file");
 
 
 
@@ -383,7 +384,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(std_trace_stream/1,non-(public))
-        final static SymbolTerm ATOM_user_error = SYM("user_error");
+        final static Functor ATOM_user_error = SYM("user_error");
 
 
 
@@ -403,7 +404,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_w/1,non-(public))
-        final static SymbolTerm ATOM_$007Eq = SYM("~q");
+        final static Functor ATOM_$007Eq = SYM("~q");
 
 
 
@@ -427,16 +428,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_wln/1,non-(public))
-        final static SymbolTerm ATOM_notrace = SYM("notrace");
-        final static SymbolTerm FUNCTOR_current_predicate_1 = F("current_predicate",1);
-        final static SymbolTerm ATOM_logicmoo_util_dmsg = SYM("logicmoo_util_dmsg");
-        final static SymbolTerm ATOM_dmsg = SYM("dmsg");
-    private static final StructureTerm L_dra_wln_1_s10 = S( FUNCTOR_$002F_2 ,  ATOM_dmsg ,  int_1 );
-    private static final StructureTerm L_dra_wln_1_s12 = S( FUNCTOR_module_colon_2 ,  ATOM_logicmoo_util_dmsg , L_dra_wln_1_s10);
-    private static final StructureTerm L_dra_wln_1_s14 = S( FUNCTOR_current_predicate_1 , L_dra_wln_1_s12);
-        final static SymbolTerm ATOM_$0021 = SYM("!");
-        final static SymbolTerm FUNCTOR_dmsg_1 = F("dmsg",1);
-        final static SymbolTerm ATOM_$007Eq$002E$007En = SYM("~q.~n");
+        final static Functor ATOM_notrace = SYM("notrace");
+        final static Functor FUNCTOR_current_predicate_1 = F("current_predicate",1);
+        final static Functor ATOM_logicmoo_util_dmsg = SYM("logicmoo_util_dmsg");
+        final static Functor ATOM_dmsg = SYM("dmsg");
+    private static final Term L_dra_wln_1_s10 = S( FUNCTOR_$002F_2 ,  ATOM_dmsg ,  int_1 );
+    private static final Term L_dra_wln_1_s12 = S( FUNCTOR_module_colon_2 ,  ATOM_logicmoo_util_dmsg , L_dra_wln_1_s10);
+    private static final Term L_dra_wln_1_s14 = S( FUNCTOR_current_predicate_1 , L_dra_wln_1_s12);
+        final static Functor ATOM_$0021 = SYM("!");
+        final static Functor FUNCTOR_dmsg_1 = F("dmsg",1);
+        final static Functor ATOM_$007Eq$002E$007En = SYM("~q.~n");
 
 
 
@@ -504,8 +505,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_retract_all/1,non-(public))
-        final static SymbolTerm FUNCTOR_retract_1 = F("retract",1);
-        final static SymbolTerm ATOM_fail = SYM("fail");
+        final static Functor FUNCTOR_retract_1 = F("retract",1);
+        final static Functor ATOM_fail = SYM("fail");
 
 
 
@@ -582,7 +583,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_must/1,non-(public))
-        final static SymbolTerm FUNCTOR_failed_dra_must_1 = F("failed_dra_must",1);
+        final static Functor FUNCTOR_failed_dra_must_1 = F("failed_dra_must",1);
 
 
 
@@ -675,7 +676,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_error/1,non-(public))
-        final static SymbolTerm FUNCTOR_dra_error_1 = F("dra_error",1);
+        final static Functor FUNCTOR_dra_error_1 = F("dra_error",1);
 
 
 
@@ -697,12 +698,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(add_clauses/2,non-(public))
-        final static SymbolTerm ATOM_xref = SYM("xref");
-        final static SymbolTerm ATOM_dynamic = SYM("dynamic");
-        final static SymbolTerm FUNCTOR_number_of_clauses_1 = F("number_of_clauses",1);
-        final static SymbolTerm ATOM_static = SYM("static");
-        final static SymbolTerm FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static SymbolTerm ATOM_undefined = SYM("undefined");
+        final static Functor ATOM_xref = SYM("xref");
+        final static Functor ATOM_dynamic = SYM("dynamic");
+        final static Functor FUNCTOR_number_of_clauses_1 = F("number_of_clauses",1);
+        final static Functor ATOM_static = SYM("static");
+        final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
+        final static Functor ATOM_undefined = SYM("undefined");
 
 
 
@@ -1036,7 +1037,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(directive_source_file/1,non-(public))
-        final static SymbolTerm ATOM_source = SYM("source");
+        final static Functor ATOM_source = SYM("source");
 
 
 
@@ -1095,24 +1096,24 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(property_pred/2,non-(public))
-        final static SymbolTerm ATOM_table = SYM("table");
-        final static SymbolTerm ATOM_is_tabled = SYM("is_tabled");
-        final static SymbolTerm ATOM_coinductive0 = SYM("coinductive0");
-        final static SymbolTerm ATOM_is_coinductive0 = SYM("is_coinductive0");
-        final static SymbolTerm ATOM_coinductive1 = SYM("coinductive1");
-        final static SymbolTerm ATOM_is_coinductive1 = SYM("is_coinductive1");
-        final static SymbolTerm ATOM_traces = SYM("traces");
-        final static SymbolTerm ATOM_is_traced = SYM("is_traced");
-        final static SymbolTerm ATOM_cut_ok = SYM("cut_ok");
-        final static SymbolTerm ATOM_is_cut_ok = SYM("is_cut_ok");
-        final static SymbolTerm ATOM_old_first = SYM("old_first");
-        final static SymbolTerm ATOM_is_old_first = SYM("is_old_first");
-        final static SymbolTerm ATOM_never_tabled = SYM("never_tabled");
-        final static SymbolTerm ATOM_is_never_tabled = SYM("is_never_tabled");
-        final static SymbolTerm ATOM_hilog = SYM("hilog");
-        final static SymbolTerm ATOM_is_hilog = SYM("is_hilog");
-        final static SymbolTerm ATOM_topl = SYM("topl");
-        final static SymbolTerm ATOM_is_topl = SYM("is_topl");
+        final static Functor ATOM_table = SYM("table");
+        final static Functor ATOM_is_tabled = SYM("is_tabled");
+        final static Functor ATOM_coinductive0 = SYM("coinductive0");
+        final static Functor ATOM_is_coinductive0 = SYM("is_coinductive0");
+        final static Functor ATOM_coinductive1 = SYM("coinductive1");
+        final static Functor ATOM_is_coinductive1 = SYM("is_coinductive1");
+        final static Functor ATOM_traces = SYM("traces");
+        final static Functor ATOM_is_traced = SYM("is_traced");
+        final static Functor ATOM_cut_ok = SYM("cut_ok");
+        final static Functor ATOM_is_cut_ok = SYM("is_cut_ok");
+        final static Functor ATOM_old_first = SYM("old_first");
+        final static Functor ATOM_is_old_first = SYM("is_old_first");
+        final static Functor ATOM_never_tabled = SYM("never_tabled");
+        final static Functor ATOM_is_never_tabled = SYM("is_never_tabled");
+        final static Functor ATOM_hilog = SYM("hilog");
+        final static Functor ATOM_is_hilog = SYM("is_hilog");
+        final static Functor ATOM_topl = SYM("topl");
+        final static Functor ATOM_is_topl = SYM("is_topl");
 
 
 
@@ -1307,7 +1308,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main((table)/1,public)
-        final static SymbolTerm FUNCTOR_table_1 = F("table",1);
+        final static Functor FUNCTOR_table_1 = F("table",1);
 
 
 
@@ -1329,7 +1330,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main((coinductive0)/1,public)
-        final static SymbolTerm FUNCTOR_coinductive0_1 = F("coinductive0",1);
+        final static Functor FUNCTOR_coinductive0_1 = F("coinductive0",1);
 
 
 
@@ -1351,7 +1352,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main((coinductive1)/1,public)
-        final static SymbolTerm FUNCTOR_coinductive1_1 = F("coinductive1",1);
+        final static Functor FUNCTOR_coinductive1_1 = F("coinductive1",1);
 
 
 
@@ -1373,7 +1374,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(topl/1,non-(public))
-        final static SymbolTerm FUNCTOR_topl_1 = F("topl",1);
+        final static Functor FUNCTOR_topl_1 = F("topl",1);
 
 
 
@@ -1395,7 +1396,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/3,non-(public))
-        final static SymbolTerm ATOM_system = SYM("system");
+        final static Functor ATOM_system = SYM("system");
 
 
 
@@ -1475,7 +1476,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/2,non-(public))
-        final static SymbolTerm FUNCTOR_imported_from_1 = F("imported_from",1);
+        final static Functor FUNCTOR_imported_from_1 = F("imported_from",1);
 
 
 
@@ -1532,7 +1533,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/2,non-(public))
-        final static SymbolTerm ATOM_fy = SYM("fy");
+        final static Functor ATOM_fy = SYM("fy");
 
 
 
@@ -1643,7 +1644,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(make_db_pred/2,non-(public))
-        final static SymbolTerm FUNCTOR_process_dra_ective_1 = F("process_dra_ective",1);
+        final static Functor FUNCTOR_process_dra_ective_1 = F("process_dra_ective",1);
 
 
 
@@ -1689,14 +1690,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(set_meta/2,non-(public))
-        final static SymbolTerm FUNCTOR_dra_call_coind0_1 = F("dra_call_coind0",1);
-        final static SymbolTerm FUNCTOR_is_coinductive0_1 = F("is_coinductive0",1);
-        final static SymbolTerm FUNCTOR_dra_call_coind1_1 = F("dra_call_coind1",1);
-        final static SymbolTerm FUNCTOR_is_coinductive1_1 = F("is_coinductive1",1);
-        final static SymbolTerm FUNCTOR_is_tabled_1 = F("is_tabled",1);
-        final static SymbolTerm FUNCTOR_is_old_first_1 = F("is_old_first",1);
-        final static SymbolTerm FUNCTOR_dra_call_tabled_1 = F("dra_call_tabled",1);
-        final static SymbolTerm FUNCTOR_is_never_tabled_1 = F("is_never_tabled",1);
+        final static Functor FUNCTOR_dra_call_coind0_1 = F("dra_call_coind0",1);
+        final static Functor FUNCTOR_is_coinductive0_1 = F("is_coinductive0",1);
+        final static Functor FUNCTOR_dra_call_coind1_1 = F("dra_call_coind1",1);
+        final static Functor FUNCTOR_is_coinductive1_1 = F("is_coinductive1",1);
+        final static Functor FUNCTOR_is_tabled_1 = F("is_tabled",1);
+        final static Functor FUNCTOR_is_old_first_1 = F("is_old_first",1);
+        final static Functor FUNCTOR_dra_call_tabled_1 = F("dra_call_tabled",1);
+        final static Functor FUNCTOR_is_never_tabled_1 = F("is_never_tabled",1);
 
 
 
@@ -2062,9 +2063,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(predspecs_to_patterns/2,non-(public))
-        final static SymbolTerm ATOM_A$0020variable$0020instead$0020of$0020predicate$0020specifications$003A$0020$0022 = SYM("A variable instead of predicate specifications: \"");
-        final static SymbolTerm ATOM_$0022 = SYM("\"");
-    private static final ListTerm L_predspecs_to_patterns_2_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
+        final static Functor ATOM_A$0020variable$0020instead$0020of$0020predicate$0020specifications$003A$0020$0022 = SYM("A variable instead of predicate specifications: \"");
+        final static Functor ATOM_$0022 = SYM("\"");
+    private static final Term L_predspecs_to_patterns_2_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
 
 
 
@@ -2267,8 +2268,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(predspec_to_pattern/2,non-(public))
-        final static SymbolTerm FUNCTOR_$002B_1 = F("+",1);
-        final static SymbolTerm FUNCTOR_$002D_1 = F("-",1);
+        final static Functor FUNCTOR_$002B_1 = F("+",1);
+        final static Functor FUNCTOR_$002D_1 = F("-",1);
 
 
 
@@ -2458,9 +2459,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(check_predspec/1,non-(public))
-        final static SymbolTerm ATOM_A$0020variable$0020instead$0020of$0020a$0020predicate$0020specification$003A$0020$0022 = SYM("A variable instead of a predicate specification: \"");
-    private static final ListTerm L_check_predspec_1_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
-        final static SymbolTerm ATOM_An$0020incorrect$0020predicate$0020specification$003A$0020$0022 = SYM("An incorrect predicate specification: \"");
+        final static Functor ATOM_A$0020variable$0020instead$0020of$0020a$0020predicate$0020specification$003A$0020$0022 = SYM("A variable instead of a predicate specification: \"");
+    private static final Term L_check_predspec_1_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
+        final static Functor ATOM_An$0020incorrect$0020predicate$0020specification$003A$0020$0022 = SYM("An incorrect predicate specification: \"");
 
 
 
@@ -2612,7 +2613,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(write_shallow/3,non-(public))
-        final static SymbolTerm FUNCTOR_max_depth_1 = F("max_depth",1);
+        final static Functor FUNCTOR_max_depth_1 = F("max_depth",1);
 
 
 
@@ -2637,7 +2638,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/1,non-(public))
-        final static SymbolTerm ATOM_built_in = SYM("built_in");
+        final static Functor ATOM_built_in = SYM("built_in");
 
 
 
@@ -2793,7 +2794,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_incval_flag/1,non-(public))
-        final static SymbolTerm FUNCTOR_$002B_2 = F("+",2);
+        final static Functor FUNCTOR_$002B_2 = F("+",2);
 
 
 
@@ -2816,7 +2817,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(empty_tree/1,non-(public))
-        final static SymbolTerm ATOM_empty = SYM("empty");
+        final static Functor ATOM_empty = SYM("empty");
 
 
 
@@ -2995,7 +2996,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(is_in_tree/4,non-(public))
-        final static SymbolTerm FUNCTOR_t_4 = F("t",4);
+        final static Functor FUNCTOR_t_4 = F("t",4);
 
 
 
@@ -3379,8 +3380,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(goal_table_member/2,non-(public))
-        final static SymbolTerm ATOM_$0040$003C = SYM("@<");
-        final static SymbolTerm FUNCTOR_essence_hook_2 = F("essence_hook",2);
+        final static Functor ATOM_$0040$003C = SYM("@<");
+        final static Functor FUNCTOR_essence_hook_2 = F("essence_hook",2);
 
 
 
@@ -3545,7 +3546,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(goal_table_add/3,non-(public))
-        final static SymbolTerm ATOM_add_to_list = SYM("add_to_list");
+        final static Functor ATOM_add_to_list = SYM("add_to_list");
 
 
 
@@ -3672,7 +3673,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(empty_stack/1,non-(public))
-        final static SymbolTerm FUNCTOR_tstack_2 = F("tstack",2);
+        final static Functor FUNCTOR_tstack_2 = F("tstack",2);
 
 
 
@@ -3696,7 +3697,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(push_is_tabled/5,non-(public))
-        final static SymbolTerm FUNCTOR_triple_3 = F("triple",3);
+        final static Functor FUNCTOR_triple_3 = F("triple",3);
 
     // private final Term arg5;
 
@@ -3791,7 +3792,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_version/1,non-(public))
-        final static SymbolTerm ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO = SYM("DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO");
+        final static Functor ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO = SYM("DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO");
 
 
 
@@ -3811,8 +3812,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(initialize_table/0,public)
-        final static SymbolTerm FUNCTOR_dra_version_1 = F("dra_version",1);
-        final static SymbolTerm FUNCTOR_dra_w_1 = F("dra_w",1);
+        final static Functor FUNCTOR_dra_version_1 = F("dra_version",1);
+        final static Functor FUNCTOR_dra_w_1 = F("dra_w",1);
 
 
 
@@ -3870,24 +3871,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(abolish_tables/0,public)
-        final static SymbolTerm ATOM_reinitialise_answer = SYM("reinitialise_answer");
-        final static SymbolTerm ATOM_reinitialise_result = SYM("reinitialise_result");
-        final static SymbolTerm ATOM_reinitialise_pioneer = SYM("reinitialise_pioneer");
-        final static SymbolTerm ATOM_reinitialise_loop = SYM("reinitialise_loop");
-        final static SymbolTerm ATOM_reinitialise_looping_alternative = SYM("reinitialise_looping_alternative");
-        final static SymbolTerm ATOM_reinitialise_completed = SYM("reinitialise_completed");
-        final static SymbolTerm FUNCTOR_retractall_1 = F("retractall",1);
-        final static SymbolTerm FUNCTOR_is_traced_1 = F("is_traced",1);
-        final static SymbolTerm FUNCTOR_dra_setval_flag_2 = F("dra_setval_flag",2);
-    private static final StructureTerm L_abolish_tables_0_s14 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_number_of_answers ,  int_0 );
-    private static final StructureTerm L_abolish_tables_0_s17 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_unique_index ,  int_0 );
-        final static SymbolTerm ATOM_step_counter = SYM("step_counter");
-    private static final StructureTerm L_abolish_tables_0_s20 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_step_counter ,  int_0 );
-        final static SymbolTerm ATOM_old_table_size = SYM("old_table_size");
-    private static final StructureTerm L_abolish_tables_0_s23 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_old_table_size ,  int_0 );
-    private static final StructureTerm L_abolish_tables_0_s25 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s20, L_abolish_tables_0_s23);
-    private static final StructureTerm L_abolish_tables_0_s27 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s17, L_abolish_tables_0_s25);
-    private static final StructureTerm L_abolish_tables_0_s29 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s14, L_abolish_tables_0_s27);
+        final static Functor ATOM_reinitialise_answer = SYM("reinitialise_answer");
+        final static Functor ATOM_reinitialise_result = SYM("reinitialise_result");
+        final static Functor ATOM_reinitialise_pioneer = SYM("reinitialise_pioneer");
+        final static Functor ATOM_reinitialise_loop = SYM("reinitialise_loop");
+        final static Functor ATOM_reinitialise_looping_alternative = SYM("reinitialise_looping_alternative");
+        final static Functor ATOM_reinitialise_completed = SYM("reinitialise_completed");
+        final static Functor FUNCTOR_retractall_1 = F("retractall",1);
+        final static Functor FUNCTOR_is_traced_1 = F("is_traced",1);
+        final static Functor FUNCTOR_dra_setval_flag_2 = F("dra_setval_flag",2);
+    private static final Term L_abolish_tables_0_s14 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_number_of_answers ,  int_0 );
+    private static final Term L_abolish_tables_0_s17 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_unique_index ,  int_0 );
+        final static Functor ATOM_step_counter = SYM("step_counter");
+    private static final Term L_abolish_tables_0_s20 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_step_counter ,  int_0 );
+        final static Functor ATOM_old_table_size = SYM("old_table_size");
+    private static final Term L_abolish_tables_0_s23 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_old_table_size ,  int_0 );
+    private static final Term L_abolish_tables_0_s25 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s20, L_abolish_tables_0_s23);
+    private static final Term L_abolish_tables_0_s27 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s17, L_abolish_tables_0_s25);
+    private static final Term L_abolish_tables_0_s29 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s14, L_abolish_tables_0_s27);
 
 
 
@@ -3940,16 +3941,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(legal_directive/1,non-(public))
-        final static SymbolTerm FUNCTOR_coinductive_1 = F("coinductive",1);
-        final static SymbolTerm FUNCTOR_dynamic_1 = F("dynamic",1);
-        final static SymbolTerm FUNCTOR_old_first_1 = F("old_first",1);
-        final static SymbolTerm FUNCTOR_multifile_1 = F("multifile",1);
-        final static SymbolTerm FUNCTOR_answers_2 = F("answers",2);
-        final static SymbolTerm ATOM_answers = SYM("answers");
-        final static SymbolTerm FUNCTOR_call_1 = F("call",1);
-        final static SymbolTerm FUNCTOR_hilog_1 = F("hilog",1);
-        final static SymbolTerm ATOM_trace = SYM("trace");
-        final static SymbolTerm FUNCTOR_legal_directive_1 = F("legal_directive",1);
+        final static Functor FUNCTOR_coinductive_1 = F("coinductive",1);
+        final static Functor FUNCTOR_dynamic_1 = F("dynamic",1);
+        final static Functor FUNCTOR_old_first_1 = F("old_first",1);
+        final static Functor FUNCTOR_multifile_1 = F("multifile",1);
+        final static Functor FUNCTOR_answers_2 = F("answers",2);
+        final static Functor ATOM_answers = SYM("answers");
+        final static Functor FUNCTOR_call_1 = F("call",1);
+        final static Functor FUNCTOR_hilog_1 = F("hilog",1);
+        final static Functor ATOM_trace = SYM("trace");
+        final static Functor FUNCTOR_legal_directive_1 = F("legal_directive",1);
 
 
 
@@ -4364,12 +4365,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(process_dra_ective/1,public)
-        final static SymbolTerm FUNCTOR_lines_1 = F("lines",1);
-        final static SymbolTerm ATOM_Unknown$0020directive$003A = SYM("Unknown directive:");
-        final static SymbolTerm FUNCTOR_$003A$002D_1 = F(":-",1);
-        final static SymbolTerm ATOM_$002E = SYM(".");
-    private static final ListTerm L_process_dra_ective_1_s6 = CONS( ATOM_$002E ,  Prolog.Nil );
-        final static SymbolTerm FUNCTOR_print_required_answers_2 = F("print_required_answers",2);
+        final static Functor FUNCTOR_lines_1 = F("lines",1);
+        final static Functor ATOM_Unknown$0020directive$003A = SYM("Unknown directive:");
+        final static Functor FUNCTOR_$003A$002D_1 = F(":-",1);
+        final static Functor ATOM_$002E = SYM(".");
+    private static final Term L_process_dra_ective_1_s6 = CONS( ATOM_$002E ,  Prolog.Nil );
+        final static Functor FUNCTOR_print_required_answers_2 = F("print_required_answers",2);
 
 
 
@@ -4662,7 +4663,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main((tnot)/1,public)
-        final static SymbolTerm FUNCTOR_tnot_1 = F("tnot",1);
+        final static Functor FUNCTOR_tnot_1 = F("tnot",1);
 
 
 
@@ -4684,7 +4685,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_call_tabled/1,public)
-        final static SymbolTerm ATOM_dra_call_tabled = SYM("dra_call_tabled");
+        final static Functor ATOM_dra_call_tabled = SYM("dra_call_tabled");
 
 
 
@@ -4703,7 +4704,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_call_coind0/1,public)
-        final static SymbolTerm ATOM_dra_interp = SYM("dra_interp");
+        final static Functor ATOM_dra_interp = SYM("dra_interp");
 
 
 
@@ -4758,22 +4759,22 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_use_interp/2,non-(public))
-        final static SymbolTerm FUNCTOR_b_getval_2 = F("b_getval",2);
-        final static SymbolTerm FUNCTOR_or_2 = F(";",2);
-        final static SymbolTerm FUNCTOR_$002D$003E_2 = F("->",2);
-        final static SymbolTerm FUNCTOR_$003C_2 = F("<",2);
-        final static SymbolTerm ATOM_init_dra_call = SYM("init_dra_call");
-    private static final StructureTerm L_dra_use_interp_2_s13 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_init_dra_call );
-        final static SymbolTerm FUNCTOR_$003D_2 = F("=",2);
-        final static SymbolTerm ATOM_exit_dra_call = SYM("exit_dra_call");
-    private static final StructureTerm L_dra_use_interp_2_s17 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_exit_dra_call );
-        final static SymbolTerm ATOM_cont_dra_call = SYM("cont_dra_call");
-    private static final StructureTerm L_dra_use_interp_2_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_cont_dra_call );
-        final static SymbolTerm FUNCTOR_is_2 = F("is",2);
-        final static SymbolTerm FUNCTOR_call_6 = F("call",6);
-        final static SymbolTerm FUNCTOR_var_1 = F("var",1);
-        final static SymbolTerm FUNCTOR_non_cutted_3 = F("non_cutted",3);
-    private static final StructureTerm L_dra_use_interp_2_s32 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
+        final static Functor FUNCTOR_b_getval_2 = F("b_getval",2);
+        final static Functor FUNCTOR_or_2 = F(";",2);
+        final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
+        final static Functor FUNCTOR_$003C_2 = F("<",2);
+        final static Functor ATOM_init_dra_call = SYM("init_dra_call");
+    private static final Term L_dra_use_interp_2_s13 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_init_dra_call );
+        final static Functor FUNCTOR_$003D_2 = F("=",2);
+        final static Functor ATOM_exit_dra_call = SYM("exit_dra_call");
+    private static final Term L_dra_use_interp_2_s17 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_exit_dra_call );
+        final static Functor ATOM_cont_dra_call = SYM("cont_dra_call");
+    private static final Term L_dra_use_interp_2_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_cont_dra_call );
+        final static Functor FUNCTOR_is_2 = F("is",2);
+        final static Functor FUNCTOR_call_6 = F("call",6);
+        final static Functor FUNCTOR_var_1 = F("var",1);
+        final static Functor FUNCTOR_non_cutted_3 = F("non_cutted",3);
+    private static final Term L_dra_use_interp_2_s32 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
 
 
 
@@ -4937,13 +4938,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(print_statistics/0,non-(public))
-        final static SymbolTerm FUNCTOR_dra_getval_flag_2 = F("dra_getval_flag",2);
-        final static SymbolTerm FUNCTOR_$002D_2 = F("-",2);
-        final static SymbolTerm FUNCTOR_$003E_2 = F(">",2);
-        final static SymbolTerm FUNCTOR_dra_wln_1 = F("dra_wln",1);
-        final static SymbolTerm ATOM_step = SYM("step");
-        final static SymbolTerm ATOM_growth = SYM("growth");
-        final static SymbolTerm ATOM_tabled = SYM("tabled");
+        final static Functor FUNCTOR_dra_getval_flag_2 = F("dra_getval_flag",2);
+        final static Functor FUNCTOR_$002D_2 = F("-",2);
+        final static Functor FUNCTOR_$003E_2 = F(">",2);
+        final static Functor FUNCTOR_dra_wln_1 = F("dra_wln",1);
+        final static Functor ATOM_step = SYM("step");
+        final static Functor ATOM_growth = SYM("growth");
+        final static Functor ATOM_tabled = SYM("tabled");
 
 
 
@@ -5125,12 +5126,12 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_interp/5,non-(public))
-        final static SymbolTerm FUNCTOR_nonvar_1 = F("nonvar",1);
-        final static SymbolTerm ATOM_normal = SYM("normal");
-        final static SymbolTerm ATOM_$003F = SYM("?");
-        final static SymbolTerm FUNCTOR_once_1 = F("once",1);
-        final static SymbolTerm FUNCTOR_findall_3 = F("findall",3);
-        final static SymbolTerm FUNCTOR_$0021_1 = F("!",1);
+        final static Functor FUNCTOR_nonvar_1 = F("nonvar",1);
+        final static Functor ATOM_normal = SYM("normal");
+        final static Functor ATOM_$003F = SYM("?");
+        final static Functor FUNCTOR_once_1 = F("once",1);
+        final static Functor FUNCTOR_findall_3 = F("findall",3);
+        final static Functor FUNCTOR_$0021_1 = F("!",1);
 
     // private final Term arg5;
 
@@ -6066,7 +6067,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/1,non-(public))
-        final static SymbolTerm ATOM_cut = SYM("cut");
+        final static Functor ATOM_cut = SYM("cut");
 
 
 
@@ -6118,7 +6119,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/2,non-(public))
-        final static SymbolTerm FUNCTOR_cut_to_1 = F("cut_to",1);
+        final static Functor FUNCTOR_cut_to_1 = F("cut_to",1);
 
 
 
@@ -6230,8 +6231,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/2,non-(public))
-        final static SymbolTerm ATOM_coinductive$0020$0028hypothesis$0029 = SYM("coinductive (hypothesis)");
-        final static SymbolTerm ATOM_coinductive = SYM("coinductive");
+        final static Functor ATOM_coinductive$0020$0028hypothesis$0029 = SYM("coinductive (hypothesis)");
+        final static Functor ATOM_coinductive = SYM("coinductive");
 
 
 
@@ -6277,8 +6278,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/8,non-(public))
-        final static SymbolTerm ATOM_coinductive0$0028hypothesis$0029 = SYM("coinductive0(hypothesis)");
-        final static SymbolTerm ATOM_coinductive$0020$0028clause$0029 = SYM("coinductive (clause)");
+        final static Functor ATOM_coinductive0$0028hypothesis$0029 = SYM("coinductive0(hypothesis)");
+        final static Functor ATOM_coinductive$0020$0028clause$0029 = SYM("coinductive (clause)");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -6791,7 +6792,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/2,non-(public))
-        final static SymbolTerm ATOM_completed = SYM("completed");
+        final static Functor ATOM_completed = SYM("completed");
 
 
 
@@ -6837,8 +6838,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(dra_call_tabled/5,non-(public))
-        final static SymbolTerm ATOM_variant = SYM("variant");
-        final static SymbolTerm ATOM_pioneer = SYM("pioneer");
+        final static Functor ATOM_variant = SYM("variant");
+        final static Functor ATOM_pioneer = SYM("pioneer");
 
     // private final Term arg5;
 
@@ -7015,8 +7016,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/6,non-(public))
-        final static SymbolTerm ATOM_variant$0020$0028coinductive0$0029 = SYM("variant (coinductive0)");
-        final static SymbolTerm FUNCTOR_result_2 = F("result",2);
+        final static Functor ATOM_variant$0020$0028coinductive0$0029 = SYM("variant (coinductive0)");
+        final static Functor FUNCTOR_result_2 = F("result",2);
 
     // private final Term arg5, arg6;
 
@@ -7344,7 +7345,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/14,non-(public))
-        final static SymbolTerm ATOM_$0028no$0020longer$0020a$0020pioneer$0029 = SYM("(no longer a pioneer)");
+        final static Functor ATOM_$0028no$0020longer$0020a$0020pioneer$0029 = SYM("(no longer a pioneer)");
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14;
 
@@ -7659,8 +7660,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/3,non-(public))
-        final static SymbolTerm ATOM_Removing$0020completed$0020pioneer = SYM("Removing completed pioneer");
-        final static SymbolTerm ATOM_completed$0020now = SYM("completed now");
+        final static Functor ATOM_Removing$0020completed$0020pioneer = SYM("Removing completed pioneer");
+        final static Functor ATOM_completed$0020now = SYM("completed now");
 
 
 
@@ -7770,9 +7771,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/6,non-(public))
-        final static SymbolTerm ATOM_Computing$0020fixed$0020point$0020for = SYM("Computing fixed point for");
-        final static SymbolTerm ATOM_Fixed$0020point$0020computed = SYM("Fixed point computed");
-        final static SymbolTerm ATOM_Removing$0020pioneer = SYM("Removing pioneer");
+        final static Functor ATOM_Computing$0020fixed$0020point$0020for = SYM("Computing fixed point for");
+        final static Functor ATOM_Fixed$0020point$0020computed = SYM("Fixed point computed");
+        final static Functor ATOM_Removing$0020pioneer = SYM("Removing pioneer");
 
     // private final Term arg5, arg6;
 
@@ -8338,8 +8339,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/1,non-(public))
-        final static SymbolTerm ATOM_warning = SYM("warning");
-        final static SymbolTerm ATOM_cutted$0020at$0020 = SYM("cutted at ");
+        final static Functor ATOM_warning = SYM("warning");
+        final static Functor ATOM_cutted$0020at$0020 = SYM("cutted at ");
 
 
 
@@ -8746,7 +8747,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(trace_entry/4,non-(public))
-        final static SymbolTerm ATOM_Entering$0020 = SYM("Entering ");
+        final static Functor ATOM_Entering$0020 = SYM("Entering ");
 
 
 
@@ -8814,8 +8815,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$dummy_52_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl'/5,non-(public))
-        final static SymbolTerm ATOM_Success$0020 = SYM("Success ");
-        final static SymbolTerm ATOM_Retrying$0020 = SYM("Retrying ");
+        final static Functor ATOM_Success$0020 = SYM("Success ");
+        final static Functor ATOM_Retrying$0020 = SYM("Retrying ");
 
     // private final Term arg5;
 
@@ -8940,7 +8941,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(trace_failure/4,non-(public))
-        final static SymbolTerm ATOM_Failing$0020 = SYM("Failing ");
+        final static Functor ATOM_Failing$0020 = SYM("Failing ");
 
 
 
@@ -9093,8 +9094,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(write_label_and_goal/3,non-(public))
-        final static SymbolTerm FUNCTOR_print_depth_1 = F("print_depth",1);
-        final static SymbolTerm ATOM_$003A$0020 = SYM(": ");
+        final static Functor FUNCTOR_print_depth_1 = F("print_depth",1);
+        final static Functor ATOM_$003A$0020 = SYM(": ");
 
 
 
@@ -9129,8 +9130,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(write_goal_number/1,non-(public))
-        final static SymbolTerm ATOM_$003C = SYM("<");
-        final static SymbolTerm ATOM_$003E$0020 = SYM("> ");
+        final static Functor ATOM_$003C = SYM("<");
+        final static Functor ATOM_$003E$0020 = SYM("> ");
 
 
 
@@ -9184,7 +9185,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(optional_trace/4,non-(public))
-        final static SymbolTerm ATOM_$0020$003A$0020 = SYM(" : ");
+        final static Functor ATOM_$0020$003A$0020 = SYM(" : ");
 
 
 
@@ -9359,11 +9360,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(print_tables/0,public)
-        final static SymbolTerm FUNCTOR_answer_3 = F("answer",3);
-        final static SymbolTerm FUNCTOR_pioneer_3 = F("pioneer",3);
-        final static SymbolTerm FUNCTOR_loop_2 = F("loop",2);
-        final static SymbolTerm FUNCTOR_looping_alternative_2 = F("looping_alternative",2);
-        final static SymbolTerm FUNCTOR_completed_2 = F("completed",2);
+        final static Functor FUNCTOR_answer_3 = F("answer",3);
+        final static Functor FUNCTOR_pioneer_3 = F("pioneer",3);
+        final static Functor FUNCTOR_loop_2 = F("loop",2);
+        final static Functor FUNCTOR_looping_alternative_2 = F("looping_alternative",2);
+        final static Functor FUNCTOR_completed_2 = F("completed",2);
 
 
 
@@ -9457,7 +9458,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(recorded_listing/1,non-(public))
-        final static SymbolTerm FUNCTOR_recorded_2 = F("recorded",2);
+        final static Functor FUNCTOR_recorded_2 = F("recorded",2);
 
 
 
@@ -9505,11 +9506,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_answer/0,non-(public))
-        final static SymbolTerm FUNCTOR_tabling_store_1 = F("tabling_store",1);
-        final static SymbolTerm ATOM_assert = SYM("assert");
-    private static final StructureTerm L_reinitialise_answer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_answer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_answer_0_s6);
-        final static SymbolTerm ATOM_answer_key = SYM("answer_key");
+        final static Functor FUNCTOR_tabling_store_1 = F("tabling_store",1);
+        final static Functor ATOM_assert = SYM("assert");
+    private static final Term L_reinitialise_answer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_answer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_answer_0_s6);
+        final static Functor ATOM_answer_key = SYM("answer_key");
 
 
 
@@ -9588,8 +9589,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(is_answer_known/2,non-(public))
-    private static final StructureTerm L_is_answer_known_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_is_answer_known_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_answer_known_2_s6);
+    private static final Term L_is_answer_known_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_is_answer_known_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_answer_known_2_s6);
 
 
 
@@ -9694,9 +9695,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(memo/3,non-(public))
-    private static final StructureTerm L_memo_3_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_memo_3_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_memo_3_s6);
-        final static SymbolTerm ATOM_Storing$0020answer$003A$0020 = SYM("Storing answer: ");
+    private static final Term L_memo_3_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_memo_3_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_memo_3_s6);
+        final static Functor ATOM_Storing$0020answer$003A$0020 = SYM("Storing answer: ");
 
 
 
@@ -9838,8 +9839,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(get_answer/1,non-(public))
-    private static final StructureTerm L_get_answer_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_get_answer_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_answer_1_s6);
+    private static final Term L_get_answer_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_get_answer_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_answer_1_s6);
 
 
 
@@ -9984,8 +9985,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(get_all_tabled_goals/1,public)
-    private static final StructureTerm L_get_all_tabled_goals_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_get_all_tabled_goals_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_all_tabled_goals_1_s6);
+    private static final Term L_get_all_tabled_goals_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_get_all_tabled_goals_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_all_tabled_goals_1_s6);
 
 
 
@@ -10057,10 +10058,10 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_result/0,non-(public))
-    private static final StructureTerm L_reinitialise_result_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_result_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_result_0_s6);
-        final static SymbolTerm ATOM_result_key = SYM("result_key");
-        final static SymbolTerm FUNCTOR_result_1 = F("result",1);
+    private static final Term L_reinitialise_result_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_result_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_result_0_s6);
+        final static Functor ATOM_result_key = SYM("result_key");
+        final static Functor FUNCTOR_result_1 = F("result",1);
 
 
 
@@ -10139,8 +10140,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(is_result_known/2,non-(public))
-    private static final StructureTerm L_is_result_known_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_is_result_known_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_result_known_2_s6);
+    private static final Term L_is_result_known_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_is_result_known_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_result_known_2_s6);
 
 
 
@@ -10267,8 +10268,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(new_result_or_fail/2,non-(public))
-    private static final StructureTerm L_new_result_or_fail_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_new_result_or_fail_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_new_result_or_fail_2_s6);
+    private static final Term L_new_result_or_fail_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_new_result_or_fail_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_new_result_or_fail_2_s6);
 
 
 
@@ -10386,9 +10387,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_pioneer/0,non-(public))
-    private static final StructureTerm L_reinitialise_pioneer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_pioneer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_pioneer_0_s6);
-        final static SymbolTerm ATOM_pioneer_key = SYM("pioneer_key");
+    private static final Term L_reinitialise_pioneer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_pioneer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_pioneer_0_s6);
+        final static Functor ATOM_pioneer_key = SYM("pioneer_key");
 
 
 
@@ -10467,8 +10468,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(is_a_variant_of_a_pioneer/2,non-(public))
-    private static final StructureTerm L_is_a_variant_of_a_pioneer_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_is_a_variant_of_a_pioneer_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_a_variant_of_a_pioneer_2_s6);
+    private static final Term L_is_a_variant_of_a_pioneer_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_is_a_variant_of_a_pioneer_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_a_variant_of_a_pioneer_2_s6);
 
 
 
@@ -10569,9 +10570,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(add_pioneer/2,non-(public))
-    private static final StructureTerm L_add_pioneer_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_add_pioneer_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_pioneer_2_s6);
-        final static SymbolTerm FUNCTOR_pioneer_goal_1 = F("pioneer_goal",1);
+    private static final Term L_add_pioneer_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_add_pioneer_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_pioneer_2_s6);
+        final static Functor FUNCTOR_pioneer_goal_1 = F("pioneer_goal",1);
 
 
 
@@ -10664,8 +10665,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(delete_pioneer/1,non-(public))
-    private static final StructureTerm L_delete_pioneer_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_delete_pioneer_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_pioneer_1_s6);
+    private static final Term L_delete_pioneer_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_delete_pioneer_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_pioneer_1_s6);
 
 
 
@@ -10736,9 +10737,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_loop/0,non-(public))
-    private static final StructureTerm L_reinitialise_loop_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_loop_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_loop_0_s6);
-        final static SymbolTerm ATOM_loop_key = SYM("loop_key");
+    private static final Term L_reinitialise_loop_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_loop_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_loop_0_s6);
+        final static Functor ATOM_loop_key = SYM("loop_key");
 
 
 
@@ -10812,9 +10813,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(add_loop/2,non-(public))
-    private static final StructureTerm L_add_loop_2_s7 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_add_loop_2_s9 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_loop_2_s7);
-        final static SymbolTerm FUNCTOR_loop_1 = F("loop",1);
+    private static final Term L_add_loop_2_s7 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_add_loop_2_s9 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_loop_2_s7);
+        final static Functor FUNCTOR_loop_1 = F("loop",1);
 
 
 
@@ -10927,8 +10928,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(delete_loops/1,non-(public))
-    private static final StructureTerm L_delete_loops_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_delete_loops_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_loops_1_s6);
+    private static final Term L_delete_loops_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_delete_loops_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_loops_1_s6);
 
 
 
@@ -11007,8 +11008,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(get_loop/2,non-(public))
-    private static final StructureTerm L_get_loop_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_get_loop_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_loop_2_s6);
+    private static final Term L_get_loop_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_get_loop_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_loop_2_s6);
 
 
 
@@ -11071,9 +11072,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_looping_alternative/0,non-(public))
-    private static final StructureTerm L_reinitialise_looping_alternative_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_looping_alternative_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_looping_alternative_0_s6);
-        final static SymbolTerm ATOM_looping_alternative_key = SYM("looping_alternative_key");
+    private static final Term L_reinitialise_looping_alternative_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_looping_alternative_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_looping_alternative_0_s6);
+        final static Functor ATOM_looping_alternative_key = SYM("looping_alternative_key");
 
 
 
@@ -11147,9 +11148,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(add_looping_alternative/2,non-(public))
-    private static final StructureTerm L_add_looping_alternative_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_add_looping_alternative_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_looping_alternative_2_s6);
-        final static SymbolTerm FUNCTOR_looping_alternative_1 = F("looping_alternative",1);
+    private static final Term L_add_looping_alternative_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_add_looping_alternative_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_add_looping_alternative_2_s6);
+        final static Functor FUNCTOR_looping_alternative_1 = F("looping_alternative",1);
 
 
 
@@ -11241,8 +11242,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(delete_looping_alternatives/1,non-(public))
-    private static final StructureTerm L_delete_looping_alternatives_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_delete_looping_alternatives_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_looping_alternatives_1_s6);
+    private static final Term L_delete_looping_alternatives_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_delete_looping_alternatives_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_delete_looping_alternatives_1_s6);
 
 
 
@@ -11321,8 +11322,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(get_looping_alternative/2,non-(public))
-    private static final StructureTerm L_get_looping_alternative_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_get_looping_alternative_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_looping_alternative_2_s6);
+    private static final Term L_get_looping_alternative_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_get_looping_alternative_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_get_looping_alternative_2_s6);
 
 
 
@@ -11385,9 +11386,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(reinitialise_completed/0,non-(public))
-    private static final StructureTerm L_reinitialise_completed_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_reinitialise_completed_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_completed_0_s6);
-        final static SymbolTerm ATOM_completed_key = SYM("completed_key");
+    private static final Term L_reinitialise_completed_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_reinitialise_completed_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_completed_0_s6);
+        final static Functor ATOM_completed_key = SYM("completed_key");
 
 
 
@@ -11466,8 +11467,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(is_completed/1,non-(public))
-    private static final StructureTerm L_is_completed_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_is_completed_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_completed_1_s6);
+    private static final Term L_is_completed_1_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_is_completed_1_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_is_completed_1_s6);
 
 
 
@@ -11558,9 +11559,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main(complete_goal/2,non-(public))
-    private static final StructureTerm L_complete_goal_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
-    private static final StructureTerm L_complete_goal_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_complete_goal_2_s6);
-        final static SymbolTerm ATOM_Completing = SYM("Completing");
+    private static final Term L_complete_goal_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
+    private static final Term L_complete_goal_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_complete_goal_2_s6);
+        final static Functor ATOM_Completing = SYM("Completing");
 
 
 
@@ -11679,36 +11680,36 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/tabling_dra/dra.pl
 */
     // main('$init'/0,public)
-        final static SymbolTerm ATOM_was_access_level = SYM("was_access_level");
-    private static final StructureTerm L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_was_access_level ,  int_1 );
-        final static SymbolTerm FUNCTOR_is_table_ok_1 = F("is_table_ok",1);
-    private static final StructureTerm L_$init_0_s15 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
-        final static SymbolTerm FUNCTOR_is_builtin_1 = F("is_builtin",1);
-        final static SymbolTerm FUNCTOR_asserta_1 = F("asserta",1);
-        final static SymbolTerm ATOM_is_table_ok = SYM("is_table_ok");
-    private static final StructureTerm L_$init_0_s21 = S( FUNCTOR_$002F_2 ,  ATOM_is_table_ok ,  int_1 );
-    private static final StructureTerm L_$init_0_s26 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive0 ,  int_1 );
-    private static final StructureTerm L_$init_0_s29 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive1 ,  int_1 );
-    private static final StructureTerm L_$init_0_s32 = S( FUNCTOR_$002F_2 ,  ATOM_is_tabled ,  int_1 );
-    private static final StructureTerm L_$init_0_s35 = S( FUNCTOR_$002F_2 ,  ATOM_is_old_first ,  int_1 );
-    private static final StructureTerm L_$init_0_s38 = S( FUNCTOR_$002F_2 ,  ATOM_is_traced ,  int_1 );
-    private static final StructureTerm L_$init_0_s42 = S( FUNCTOR_print_depth_1 ,  int_10 );
-    private static final StructureTerm L_$init_0_s44 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s42,  Prolog.True );
-    private static final StructureTerm L_$init_0_s46 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s44);
-        final static SymbolTerm ATOM_hybrid = SYM("hybrid");
-    private static final StructureTerm L_$init_0_s50 = S( FUNCTOR_tabling_store_1 ,  ATOM_hybrid );
-    private static final StructureTerm L_$init_0_s52 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s50,  Prolog.True );
-    private static final StructureTerm L_$init_0_s54 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s52);
-        final static SymbolTerm ATOM_answer = SYM("answer");
-    private static final StructureTerm L_$init_0_s58 = S( FUNCTOR_$002F_2 ,  ATOM_answer ,  int_3 );
-    private static final StructureTerm L_$init_0_s61 = S( FUNCTOR_$002F_2 ,  ATOM_pioneer ,  int_3 );
-        final static SymbolTerm ATOM_result = SYM("result");
-    private static final StructureTerm L_$init_0_s65 = S( FUNCTOR_$002F_2 ,  ATOM_result ,  int_2 );
-        final static SymbolTerm ATOM_loop = SYM("loop");
-    private static final StructureTerm L_$init_0_s68 = S( FUNCTOR_$002F_2 ,  ATOM_loop ,  int_2 );
-        final static SymbolTerm ATOM_looping_alternative = SYM("looping_alternative");
-    private static final StructureTerm L_$init_0_s71 = S( FUNCTOR_$002F_2 ,  ATOM_looping_alternative ,  int_2 );
-    private static final StructureTerm L_$init_0_s74 = S( FUNCTOR_$002F_2 ,  ATOM_completed ,  int_2 );
+        final static Functor ATOM_was_access_level = SYM("was_access_level");
+    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_was_access_level ,  int_1 );
+        final static Functor FUNCTOR_is_table_ok_1 = F("is_table_ok",1);
+    private static final Term L_$init_0_s15 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
+        final static Functor FUNCTOR_is_builtin_1 = F("is_builtin",1);
+        final static Functor FUNCTOR_asserta_1 = F("asserta",1);
+        final static Functor ATOM_is_table_ok = SYM("is_table_ok");
+    private static final Term L_$init_0_s21 = S( FUNCTOR_$002F_2 ,  ATOM_is_table_ok ,  int_1 );
+    private static final Term L_$init_0_s26 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive0 ,  int_1 );
+    private static final Term L_$init_0_s29 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive1 ,  int_1 );
+    private static final Term L_$init_0_s32 = S( FUNCTOR_$002F_2 ,  ATOM_is_tabled ,  int_1 );
+    private static final Term L_$init_0_s35 = S( FUNCTOR_$002F_2 ,  ATOM_is_old_first ,  int_1 );
+    private static final Term L_$init_0_s38 = S( FUNCTOR_$002F_2 ,  ATOM_is_traced ,  int_1 );
+    private static final Term L_$init_0_s42 = S( FUNCTOR_print_depth_1 ,  int_10 );
+    private static final Term L_$init_0_s44 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s42,  Prolog.True );
+    private static final Term L_$init_0_s46 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s44);
+        final static Functor ATOM_hybrid = SYM("hybrid");
+    private static final Term L_$init_0_s50 = S( FUNCTOR_tabling_store_1 ,  ATOM_hybrid );
+    private static final Term L_$init_0_s52 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s50,  Prolog.True );
+    private static final Term L_$init_0_s54 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s52);
+        final static Functor ATOM_answer = SYM("answer");
+    private static final Term L_$init_0_s58 = S( FUNCTOR_$002F_2 ,  ATOM_answer ,  int_3 );
+    private static final Term L_$init_0_s61 = S( FUNCTOR_$002F_2 ,  ATOM_pioneer ,  int_3 );
+        final static Functor ATOM_result = SYM("result");
+    private static final Term L_$init_0_s65 = S( FUNCTOR_$002F_2 ,  ATOM_result ,  int_2 );
+        final static Functor ATOM_loop = SYM("loop");
+    private static final Term L_$init_0_s68 = S( FUNCTOR_$002F_2 ,  ATOM_loop ,  int_2 );
+        final static Functor ATOM_looping_alternative = SYM("looping_alternative");
+    private static final Term L_$init_0_s71 = S( FUNCTOR_$002F_2 ,  ATOM_looping_alternative ,  int_2 );
+    private static final Term L_$init_0_s74 = S( FUNCTOR_$002F_2 ,  ATOM_completed ,  int_2 );
 
 
 
