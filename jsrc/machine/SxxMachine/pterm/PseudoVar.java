@@ -6,7 +6,7 @@ import SxxMachine.Var;
 
 /**
  * Special constants, used to Name variables
- * 
+ *
  * @see Term
  * @see Var
  */

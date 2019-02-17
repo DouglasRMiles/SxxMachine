@@ -6,9 +6,9 @@ package SxxMachine;
  * @see SxxMachine.PrologControl#setReductionLimit(long)
  */
 public class ReductionLimitException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public ReductionLimitException(long limit) {
-		super(String.format("exceeded reduction limit of %d", limit));
-	}
+    public ReductionLimitException(long limit) {
+        super(String.format("exceeded reduction limit of %d", limit));
+    }
 }

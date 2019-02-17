@@ -11,14 +11,14 @@ package SxxMachine;
  * @version 1.0
  */
 public class OutOfScope implements Undoable {
-	final BlockPredicate p;
+    final BlockPredicate p;
 
-	public OutOfScope(BlockPredicate _p) {
-		this.p = _p;
-	}
+    public OutOfScope(BlockPredicate _p) {
+        this.p = _p;
+    }
 
-	@Override
-	public void undo() {
-		this.p.outOfScope = false;
-	}
+    @Override
+    public void undo() {
+        this.p.outOfScope = false;
+    }
 }

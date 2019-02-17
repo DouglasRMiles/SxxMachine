@@ -8,10 +8,10 @@ import java.util.Arrays;
 
 /*
  * import org.openjdk.jmh.annotations.Benchmark;
- 
+
 import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.Runner; 
+import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.*;
 */
@@ -32,7 +32,7 @@ public class ArrayVsFieldsBenchmark extends SimpleBenchmark {
     private Bench list;
 
     //@Setup(org.openjdk.jmh.annotations.Level.Trial)
-    //@BeforeExperiment 
+    //@BeforeExperiment
     @Override
     protected void setUp() throws IOException {
         if ("ArrayList".equals(type)) {
@@ -58,10 +58,10 @@ public class ArrayVsFieldsBenchmark extends SimpleBenchmark {
         args = new String[] { //"--debug",
                 "--measureMemory", };
         {
-//            new CaliperRunner(ArrayVsFieldsBenchmark.class) //
-//                    .addParameterDefault("type", "Fields", "Array", "FieldList") // "ArrayList",
-//                    .addParameterDefault("size", "19") // , "100"
-//                    .exec(args);
+            //            new CaliperRunner(ArrayVsFieldsBenchmark.class) //
+            //                    .addParameterDefault("type", "Fields", "Array", "FieldList") // "ArrayList",
+            //                    .addParameterDefault("size", "19") // , "100"
+            //                    .exec(args);
         }
     }
 
@@ -959,6 +959,7 @@ class FieldList<T> extends AbstractList<T> implements Cloneable, Serializable {
         return size;
     }
 
+    @Override
     public FieldList<T> clone() {
         try {
             return (FieldList<T>) super.clone();

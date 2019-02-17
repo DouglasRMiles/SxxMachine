@@ -9,6 +9,7 @@ import SxxMachine.Var;
  */
 abstract class AVar extends PTerm implements Var, Undoable {
 
+    @Override
     abstract public boolean unbound();
 
 }

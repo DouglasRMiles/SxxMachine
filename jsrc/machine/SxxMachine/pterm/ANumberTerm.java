@@ -17,6 +17,7 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
         nvalue = n;
     }
 
+    @Override
     public Class getIntendedClass() {
         return value().getClass();
     }

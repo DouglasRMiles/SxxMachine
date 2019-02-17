@@ -9,7 +9,7 @@ import SxxMachine.IO;
 import SxxMachine.KPTrail;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
-import SxxMachine.Var; 
+import SxxMachine.Var;
 
 //!depends
 /**
@@ -263,7 +263,7 @@ public class Clause extends StructureTerm {
      * Gets all but the leftmost goal in the body of a clause, i.e. from
      * H:-B1,B2,...,Bn it will extract B2,...,Bn. Note that the returned Term is
      * either Conj or True, the last one meaning an empty body.
-     * 
+     *
      * @see True
      * @see Conj
      */
@@ -277,7 +277,7 @@ public class Clause extends StructureTerm {
 
     /**
      * Concatenates 2 Conjunctions
-     * 
+     *
      * @see Clause#unfold
      */
     public static final Term appendConj(Term x, Term y) {
@@ -301,9 +301,9 @@ public class Clause extends StructureTerm {
      * Prolog is based on. From A0:-A1,A2...An and B0:-B1...Bm it builds
      * (A0:-B1,..Bm,A2,...An) mgu(A1,B0). Note that it returns null if A1 and B0 do
      * not unify.
-     * 
+     *
      * @see Term#unify()
-     * 
+     *
      */
     private final Clause unfold(final Clause that, KPTrail trail) {
         Clause result = null;

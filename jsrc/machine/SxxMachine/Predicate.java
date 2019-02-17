@@ -16,7 +16,7 @@ import SxxMachine.pterm.TermData;
  * <p>
  * To be compatible with the {@code am2j} compiler implementations must define a
  * constructor matching the signature:
- * 
+ *
  * <pre>
  *   public ClassName(Term arg1, Term arg2, ..., Operation cont) {
  *     // save arg1, arg2

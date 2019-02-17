@@ -3,9 +3,9 @@ package SxxMachine.pterm;
 import static SxxMachine.pterm.TermData.CONS;
 import static SxxMachine.pterm.TermData.Long;
 
+import SxxMachine.Compound;
 import SxxMachine.Copier;
 import SxxMachine.Functor;
-import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
@@ -108,7 +108,7 @@ abstract class KPTerm {
      * the test. This should be used with the shared term as this and the new term
      * as that. Synchronization makes sure that side effects on the shared term are
      * not interfering, i.e as in: SHARED.matches(NONSHARED,trail).
-     * 
+     *
      */
     // synchronized
     public boolean matches(Term that) {
@@ -145,7 +145,7 @@ abstract class KPTerm {
      * <b>This</b> is passed to the agent and the result of the action is returned.
      * Through overriding, for instance, a Fun term will provide the recursion over
      * its arguments, by applying the action to each of them.
-     * 
+     *
      * @see Term
      */
     public Term reaction(Term agent) {
@@ -230,7 +230,7 @@ abstract class KPTerm {
      */
 
     public int exec(Prog p) {
-        // IO.println("this should be overriden, prog="+p);       
+        // IO.println("this should be overriden, prog="+p);
         return -1;
     }
 

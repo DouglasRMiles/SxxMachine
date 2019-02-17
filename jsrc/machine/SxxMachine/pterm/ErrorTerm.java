@@ -7,7 +7,7 @@ import SxxMachine.Term;
 /**
  * A term to represent errors, extends {@link Term}, additionally holds
  * reference to {@link Throwable}, which this term represents.
- * 
+ *
  * @author a.semenov@unipro.ru
  *
  */

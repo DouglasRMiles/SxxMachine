@@ -11,26 +11,26 @@ package SxxMachine;
  * @version 1.0
  */
 public class TermException extends PrologException {
-	/** Message as term. */
-	Term messageTerm;
+    /** Message as term. */
+    Term messageTerm;
 
-	/** Constructs a new <code>TermException</code>. */
-	public TermException() {
-	}
+    /** Constructs a new <code>TermException</code>. */
+    public TermException() {
+    }
 
-	/** Constructs a new <code>TermException</code> with a given message term. */
-	public TermException(Term _message) {
-		super(_message.pprint());
-		this.messageTerm = _message;
-	}
+    /** Constructs a new <code>TermException</code> with a given message term. */
+    public TermException(Term _message) {
+        super(_message.pprint());
+        this.messageTerm = _message;
+    }
 
-	@Override
-	public Term getMessageTerm() {
-		return this.messageTerm;
-	}
+    @Override
+    public Term getMessageTerm() {
+        return this.messageTerm;
+    }
 
-	@Override
-	public String getMessage() {
-		return messageTerm.pprint();
-	}
+    @Override
+    public String getMessage() {
+        return messageTerm.pprint();
+    }
 }

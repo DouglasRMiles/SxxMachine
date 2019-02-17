@@ -11,12 +11,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import SxxMachine.Compound;
 import SxxMachine.Functor;
-import SxxMachine.IO;
 import SxxMachine.ISTerm;
 import SxxMachine.Init;
-import SxxMachine.Builtins;
-import SxxMachine.Compound;
 import SxxMachine.InternalException;
 import SxxMachine.KPTrail;
 import SxxMachine.NameArity;
@@ -39,7 +37,7 @@ import SxxMachine.sxxtensions;
  *  Term[] a3 = {a1, a2};
  *  Term a4 = SymbolTerm.makeSymbol("father", 2);
  *  Term  t = new StructureTerm(a4, a3);
- *  
+ *
  *  Term functor = (t).functor();
  *  Term[]  args = (t).args();
  *  int    arity = (t).arity();
@@ -56,8 +54,9 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
      * warning if this is forgotten.
      */
 
+    @Override
     public int exec(Prog p) {
-        //IO.println("this should be overriden, prog="+p.to);  
+        //IO.println("this should be overriden, prog="+p.to);
         Method m = getBuiltin();
         try {
             if (m == null)
@@ -137,6 +136,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
         return t;
     }
 
+    @Override
     public void init(int arity) {
         argz = new Term[arity];
         for (int i = 0; i < arity; i++) {
@@ -341,7 +341,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
 
     /**
      * Returns the value of <code>cdr</code>.
-     * 
+     *
      * @see #cdr
      */
     @Override
@@ -463,11 +463,11 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
      * StructureTerm(SymbolTerm string, Term a0,Term a1) { this(string, new Term[]
      * {a0,a1}); } public StructureTerm(SymbolTerm string, Term a0) { this(string,
      * new Term[] {a0}); }
-     * 
+     *
      * /** Returns the functor symbol of this <code>StructureTerm</code>.
-     * 
+     *
      * @return the value of <code>functor</code>.
-     * 
+     *
      * @see #functor
      */
     @Override
@@ -477,7 +477,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
 
     /**
      * Returns the arity of this <code>StructureTerm</code>.
-     * 
+     *
      * @return the value of <code>arity</code>.
      * @see #arity
      */
@@ -488,7 +488,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
 
     /**
      * Returns the argument terms of this <code>StructureTerm</code>.
-     * 
+     *
      * @return the value of <code>args</code>.
      * @see #argsIt
      */
@@ -500,7 +500,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
     /**
      * Returns the string representation of functor symbol of this
      * <code>StructureTerm</code>.
-     * 
+     *
      * @return a <code>String</code> whose value is <code>functor.name()</code>.
      * @see #functor
      * @see Functor#name
@@ -628,7 +628,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
      * if and only if the argument is an instance of <code>StructureTerm</code>, has
      * the same functor symbol and arity, and all corresponding pairs of arguments
      * in the two compound terms are <em>term-equal</em>.
-     * 
+     *
      * @param obj
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if the given object represents a Prolog compound
@@ -815,7 +815,7 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * 
+     *
      * @param anotherTerm
      *            the term to compared with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; a value less

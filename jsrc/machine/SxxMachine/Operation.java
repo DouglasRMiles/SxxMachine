@@ -12,14 +12,14 @@ package SxxMachine;
  */
 @FunctionalInterface
 public interface Operation {
-	/**
-	 * Executes this operation and returns a continuation goal.
-	 *
-	 * @param engine
-	 *            current Prolog engine
-	 * @exception PrologException
-	 *                if a Prolog exception is raised.
-	 * @see Prolog
-	 */
-	Operation exec(Prolog engine) throws PrologException;
+    /**
+     * Executes this operation and returns a continuation goal.
+     *
+     * @param engine
+     *            current Prolog engine
+     * @exception PrologException
+     *                if a Prolog exception is raised.
+     * @see Prolog
+     */
+    Operation exec(Prolog engine) throws PrologException;
 }

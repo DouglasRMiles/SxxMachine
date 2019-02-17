@@ -110,7 +110,7 @@ public class DataBase extends BlackBoard {
     /**
      * Gives an Iterator view to the O1Queue of Term or Clause objects stored at key
      * k
-     * 
+     *
      * @see O1Queue
      * @see Term
      * @see Clause
@@ -256,7 +256,7 @@ public class DataBase extends BlackBoard {
 
     /**
      * adds a Clause to the joint Linda and Predicate table
-     * 
+     *
      * @see Clause
      */
     static public void processClause(Clause C, HashDict ktable) {

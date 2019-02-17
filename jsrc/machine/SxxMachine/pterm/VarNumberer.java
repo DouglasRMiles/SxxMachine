@@ -7,7 +7,7 @@ import SxxMachine.Var;
 /**
  * Used in implementing uniform replacement of variables with new constants.
  * useful for printing out with nicer variable names.
- * 
+ *
  * @see Var
  * @see Clause
  */

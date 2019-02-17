@@ -18,7 +18,7 @@ import java.util.Arrays;
  *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
- * @version 1.0 
+ * @version 1.0
  */
 public final class ChoicePointStack {
     /** Trail of the associated Prolog instance. */

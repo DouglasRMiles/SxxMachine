@@ -97,7 +97,7 @@ public final class Trail {
 
     /**
      * Returns the value of <code>top</code>.
-     * 
+     *
      * @see #top
      */
     public int top() {

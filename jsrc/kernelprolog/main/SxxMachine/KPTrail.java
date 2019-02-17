@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Implements a stack of undo actions for backtracking, and in particular,
  * resetting a Var's Ref fiels to unbound (i.e. this).
- * 
- * 
+ *
+ *
  * @see Undoable
  * @see Var
  */

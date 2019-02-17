@@ -92,7 +92,7 @@ class DoubleTerm extends ANumberTerm {
      * Returns a <code>java.lang.Double</code> corresponds to this
      * <code>DoubleTerm</code> according to <em>Prolog Cafe interoperability with
      * Java</em>.
-     * 
+     *
      * @return a <code>java.lang.Double</code> object equivalent to this
      *         <code>DoubleTerm</code>.
      */
@@ -117,7 +117,7 @@ class DoubleTerm extends ANumberTerm {
      * Checks <em>term equality</em> of two terms. The result is <code>true</code>
      * if and only if the argument is an instance of <code>DoubleTerm</code> and has
      * the same <code>double</code> value as this object.
-     * 
+     *
      * @param obj
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if the given object represents a Prolog floating
@@ -141,7 +141,7 @@ class DoubleTerm extends ANumberTerm {
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * 
+     *
      * @param anotherTerm
      *            the term to compared with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; a value less
@@ -194,7 +194,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -258,7 +258,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -291,7 +291,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -313,7 +313,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -324,7 +324,7 @@ class DoubleTerm extends ANumberTerm {
     // public NumberTerm not() { return new IntegerTerm(~ this.intValue()); }
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -351,7 +351,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -361,7 +361,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override
@@ -430,7 +430,7 @@ class DoubleTerm extends ANumberTerm {
 
     /**
      * Throws a <code>type_error</code>.
-     * 
+     *
      * @exception IllegalTypeException
      */
     @Override

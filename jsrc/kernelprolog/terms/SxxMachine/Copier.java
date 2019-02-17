@@ -50,7 +50,7 @@ public class Copier extends SystemObject {
     /**
      * Reifies an Iterator as a ArrayList. ArrayList.iterator() can give back the
      * ArrayList.iterator() can give back the iterator if needed.
-     * 
+     *
      * @see Copier
      */
     static ArrayList EnumerationToVector(Iterator e) {

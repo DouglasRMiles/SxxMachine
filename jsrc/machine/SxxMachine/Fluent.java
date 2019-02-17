@@ -2,6 +2,7 @@ package SxxMachine;
 
 public interface Fluent extends Term {
 
+    @Override
     Term toClone();
 
     boolean isFluent();

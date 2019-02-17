@@ -123,7 +123,7 @@ abstract public class TermData {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see SxxMachine.Operation#exec(SxxMachine.Prolog)
          */
         @Override

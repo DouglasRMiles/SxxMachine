@@ -100,7 +100,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean unify(Term arg0, Trail trail);
 
-    public boolean unify(Compound arg0, Trail trail) ;
+    public boolean unify(Compound arg0, Trail trail);
 
     public Term getAttrs();
 

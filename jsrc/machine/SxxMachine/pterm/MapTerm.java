@@ -17,21 +17,21 @@ import SxxMachine.Trail;
 /**
  * List.<br>
  * The class <code>ListTerm</code> represents a list structure.<br>
- * 
+ *
  * <pre>
  *  % [1,2]
  *  Term Nil = SymbolTerm.makeSymbol("[]");
  *  Term  n1 = IntegerTerm(1);
  *  Term  n2 = IntegerTerm(2);
  *  Term   t = TermData.CONS(n1, TermData.CONS(n2, Nil));
- *  
+ *
  *  Term car = ( t).car();
  *  Term cdr = ( t).cdr();
  * </pre>
  *
  * Here is sample program for creating a list from <code>1</code> to
  * <code>n</code>.
- * 
+ *
  * <pre>
  * public static Term makeList(int n) {
  * 	Term t = SymbolTerm.makeSymbol("[]");
@@ -92,7 +92,7 @@ public class MapTerm extends SystemObject {
 
     /**
      * Returns the value of <code>car</code>.
-     * 
+     *
      * @see #car
      */
     @Override
@@ -102,7 +102,7 @@ public class MapTerm extends SystemObject {
 
     /**
      * Returns the value of <code>cdr</code>.
-     * 
+     *
      * @see #cdr
      */
     @Override
@@ -144,7 +144,7 @@ public class MapTerm extends SystemObject {
 
     /**
      * Sets the value to <code>car</code>.
-     * 
+     *
      * @see #car
      */
     public void setCar(Term t) {
@@ -153,7 +153,7 @@ public class MapTerm extends SystemObject {
 
     /**
      * Sets the value to <code>cdr</code>.
-     * 
+     *
      * @see #cdr
      */
     public void setCdr(Term t) {
@@ -249,7 +249,7 @@ public class MapTerm extends SystemObject {
     /**
      * Returns a {@code java.util.List} corresponds to this <code>ListTerm</code>
      * according to <em>Prolog Cafe interoperability with Java</em>.
-     * 
+     *
      * @return a {@link java.util.List} object equivalent to this
      *         <code>IntegerTerm</code>.
      */
@@ -302,7 +302,7 @@ public class MapTerm extends SystemObject {
      * Checks <em>term equality</em> of two terms. The result is <code>true</code>
      * if and only if the argument is an instance of <code>ListTerm</code>, and all
      * corresponding pairs of elements in the two lists are <em>term-equal</em>.
-     * 
+     *
      * @param obj
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if the given object represents a Prolog list
@@ -392,7 +392,7 @@ public class MapTerm extends SystemObject {
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * 
+     *
      * @param anotherTerm
      *            the term to compared with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; a value less

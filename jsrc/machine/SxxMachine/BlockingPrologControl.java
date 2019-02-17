@@ -35,14 +35,14 @@ package SxxMachine;
  * </pre>
  *
  * <pre>
- * 
+ *
  * // An example of parallel execution
  * // calls <code>queens(4,X)</code> and <code>queens(8,Y)</code> in parallel.
  * // Usage:
  * // % plcafe -cp queens.jar T
  * //
  * import SxxMachine.*;
- * 
+ *
  * public class T {
  * 	public static void main(String args[]) {
  * 		long t = System.currentTimeMillis();
@@ -135,7 +135,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>engine.init()</code>, allocates a new <code>Thread</code> object, and
      * start the execution of the given goal. And then it stops the thread and
      * returns <code>true</code> if the goal succeeds, <code>false</code> otherwise.
-     * 
+     *
      * @see #run
      */
     @Override
@@ -153,7 +153,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>engine.init()</code>, allocates a new <code>Thread</code> object, and
      * start the execution of the given goal. And then it stops the thread and
      * returns <code>true</code> if the goal succeeds, <code>false</code> otherwise.
-     * 
+     *
      * @see #run
      */
     public synchronized boolean execute(Predicate p) {
@@ -177,7 +177,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * Prolog engine, allocates a new <code>Thread</code> object, and start the
      * execution. And then it returns the <code>boolean</code> whose value is
      * <code>next()</code>.
-     * 
+     *
      * @see #start
      * @see #next
      */
@@ -194,7 +194,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>resultReady</code> to <code>false</code> and wakes up all threads that
      * are waiting on this object's monitor. And then it returns the
      * <code>boolean</code> whose value is <code>next()</code>.
-     * 
+     *
      * @see #cont
      * @see #next
      */
@@ -215,7 +215,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>null</code> and the <code>resultReady</code> is <code>true</code>, it
      * waits until another thread invokes the <code>notify()</code> method or the
      * <code>notifyAll()</code> method for this object.
-     * 
+     *
      * @see #resultReady
      * @see #result
      * @see #thread
@@ -245,7 +245,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>resultReady</code> is <code>true</code>, it waits until another thread
      * invokes the <code>notify()</code> method or the <code>notifyAll()</code>
      * method for this object.
-     * 
+     *
      * @see #resultReady
      * @see #result
      * @see #thread
@@ -286,7 +286,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * This method first sets the <code>resultReady</code> and <code>thread</code>
      * to <code>false</code> and <code>null</code> respectively. And then it wakes
      * up all threads that are waiting by <code>notifyAll()</code>.
-     * 
+     *
      * @see #resultReady
      * @see #thread
      */
@@ -303,7 +303,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>engine.init()</code>, allocates a new <code>Thread</code> object, and
      * start the execution. The Java Virtual Machine calls the <code>run</code>
      * method of this thread.
-     * 
+     *
      * @see #run
      */
     public synchronized void start() {
@@ -317,7 +317,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      *
      * This method sets the <code>resultReady</code> to <code>false</code>, and then
      * wakes up all threads that are waiting by <code>notifyAll()</code>.
-     * 
+     *
      * @see #resultReady
      */
     public synchronized void cont() {
@@ -328,7 +328,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
     /**
      * Returns <code>true</code> if the result of goal is ready, <code>false</code>
      * otherwise.
-     * 
+     *
      * @return a <code>boolean</code> whose value is <code>resultReady</code>.
      * @see #resultReady
      */
@@ -339,7 +339,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
     /**
      * Returns <code>true</code> if the result of goal is ready and true, otherwise
      * <code>false</code>.
-     * 
+     *
      * @return a <code>boolean</code> whose value is
      *         <code>(ready() &amp;&amp; result)</code>.
      * @see #ready
@@ -352,7 +352,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
     /**
      * Returns <code>true</code> if the result of goal is ready and false, otherwise
      * <code>false</code>.
-     * 
+     *
      * @return a <code>boolean</code> whose value is
      *         <code>(ready() &amp;&amp; !result)</code>.
      * @see #ready
@@ -372,7 +372,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * <code>resultReady</code> is <code>false</code>. And then invokes the
      * <code>stop()</code> if the <code>result</code> is <code>false</code>.
      * Finally, returns the <code>result</code>.
-     * 
+     *
      * @see #resultReady
      * @see #result
      * @see #thread
@@ -397,7 +397,7 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
      * And then the <code>fail</code> method is invoked after failure of all trials.
      * Finally, the <code>stop</code> method is invoked at the end of this
      * <code>run</code>.
-     * 
+     *
      * @see #success
      * @see #fail
      * @see #stop

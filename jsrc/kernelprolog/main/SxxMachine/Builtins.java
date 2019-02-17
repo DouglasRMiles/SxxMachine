@@ -12,7 +12,7 @@ import SxxMachine.pterm.TermData;
 /**
  * This class contains a dictionary of all builtins i.e. Java based classes
  * callable from Prolog. They should provide a constructor and an exec method.
- * 
+ *
  * @author Paul Tarau
  */
 public class Builtins extends HashDict {
@@ -367,7 +367,7 @@ final class get_stdout extends FunBuiltin {
  * gets an arity for any term: n>0 for f(A1,...,An) 0 for a constant like a -1
  * for a variable like X -2 for an integer like 13 -3 for real like 3.14 -4 for
  * a wrapped JavaObject;
- * 
+ *
  * @see Term#getArity
  */
 final class get_arity extends FunBuiltin {
@@ -436,9 +436,9 @@ final class set_max_answers extends FunBuiltin {
 
 /**
  * reconsults a file of clauses while overwriting old predicate definitions
- * 
+ *
  * @see consult
- * 
+ *
  */
 
 final class reconsult extends FunBuiltin {
@@ -457,7 +457,7 @@ final class reconsult extends FunBuiltin {
 /**
  * consults a file of clauses while adding clauses to existing predicate
  * definitions
- * 
+ *
  * @see reconsult
  */
 final class consult extends FunBuiltin {
@@ -561,7 +561,7 @@ final class db_remove extends FunBuiltin {
 
 /**
  * collects all matching terms in a (possibly empty) list
- * 
+ *
  * @see out
  * @see in
  */
@@ -1167,7 +1167,7 @@ final class string_clause_reader extends FunBuiltin {
  * set_persistent(Fluent,yes) makes a Fluent persistent - i.e. likely to keep
  * its state on backtracking. This assumes that the Fluent remains accessible by
  * being saved in a Database or as element of a Fluent with longer life span.
- * 
+ *
  * set_persistent(Fluent,no) makes the Fluent perish on backtracking (default
  * behavior)
  */

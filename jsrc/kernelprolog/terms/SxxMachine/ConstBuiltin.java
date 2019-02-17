@@ -10,37 +10,37 @@ import SxxMachine.pterm.TermData;
 
 abstract public class ConstBuiltin extends TermData implements NameArity {
 
-	@Override
-	public void setMethod(Method b) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setMethod(Method b) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public java.lang.String getKey() {
-		return Name + "/" + arityOrType();
-	}
+    @Override
+    public java.lang.String getKey() {
+        return Name + "/" + arityOrType();
+    }
 
-	String Name;
+    String Name;
 
-	public ConstBuiltin(String s) {
-		Name = s;
-	}
+    public ConstBuiltin(String s) {
+        Name = s;
+    }
 
-	// abstract public int exec(Prog p);
+    // abstract public int exec(Prog p);
 
-	public boolean isBuiltin() {
-		return true;
-	}
+    public boolean isBuiltin() {
+        return true;
+    }
 
-	@Override
-	public String fname() {
-		return Name;
-	}
+    @Override
+    public String fname() {
+        return Name;
+    }
 
-	@Override
-	public int arityOrType() {
-		return Term.CONST;
-	}
+    @Override
+    public int arityOrType() {
+        return Term.CONST;
+    }
 
 }

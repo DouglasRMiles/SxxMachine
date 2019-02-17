@@ -156,7 +156,7 @@ public class Token {
                             s.append(s1);
                             return TOKEN_LONG;
                         }
-                        if (rc == TOKEN_CHAR && Long.parseLong(s1.toString()) == Long.MIN_VALUE) {                            
+                        if (rc == TOKEN_CHAR && Long.parseLong(s1.toString()) == Long.MIN_VALUE) {
                             s.append(s1);
                             return TOKEN_LONG;
                         }

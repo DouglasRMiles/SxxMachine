@@ -2,8 +2,8 @@ package SxxMachine.pterm;
 
 import java.util.Map;
 
-import SxxMachine.Functor;
 import SxxMachine.Compound;
+import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
@@ -28,7 +28,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     }
 
     /**
-     * 
+     *
      * @return value //true if this term is immutable, i.e. can not be changed
      */
     @Override
@@ -94,9 +94,9 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     @Override
     public abstract void toStringImpl(int printFlags, StringBuilder sb);
 
-    /** @return value //the name of this Term, if {@link #isCompound()}. 
-     * @throws Exception 
-     * @throws PrologException 
+    /** @return value //the name of this Term, if {@link #isCompound()}.
+     * @throws Exception
+     * @throws PrologException
      * @throws IllegalTypeException */
     @Override
     public String fname() throws IllegalTypeException {
@@ -105,7 +105,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a logical variable.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isVariable()</code>,
      *         otherwise <code>false</code>.
      * @see VariableTerm
@@ -117,7 +117,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is an integer.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isInteger()</code>,
      *         otherwise <code>false</code>.
      * @see IntegerTerm
@@ -129,7 +129,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a float.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isDouble()</code>, otherwise
      *         <code>false</code>.
      * @see DoubleTerm
@@ -141,7 +141,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a long.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isLong()</code>, otherwise
      *         <code>false</code>.
      * @see LongTerm
@@ -154,7 +154,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a number.
-     * 
+     *
      * @return value //<code>true</code> if
      *         <code>this .isInteger() || this .isDouble()</code>, otherwise
      *         <code>false</code>.
@@ -175,7 +175,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is an atom.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isSymbol()</code>, otherwise
      *         <code>false</code>.
      * @see Functor
@@ -188,7 +188,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a list structure.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isList()</code>, otherwise
      *         <code>false</code>. []/0 == false;
      * @see Compound
@@ -201,7 +201,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a compound term.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isStructure()</code>,
      *         otherwise <code>false</code>.
      * @see Term
@@ -214,7 +214,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a java term.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isJavaObject()</code>,
      *         otherwise <code>false</code>.
      * @see JavaObjectTerm
@@ -227,7 +227,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a closure term.
-     * 
+     *
      * @return value //<code>true</code> if <code>this .isClosure()</code>,
      *         otherwise <code>false</code>.
      * @see ClosureTerm
@@ -312,7 +312,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /**
      * Check whether this term is a ground term.
-     * 
+     *
      * @return value //<code>true</code> if ground, otherwise <code>false</code>.
      */
     @Override
@@ -324,7 +324,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     /**
      * Returns a Java object that corresponds to this term if defined in <em>Prolog
      * Cafe interoperability with Java</em>. Otherwise, returns <code>this</code>.
-     * 
+     *
      * @return value //a Java object if defined in <em>Prolog Cafe interoperability
      *         with Java</em>, otherwise <code>this</code>.
      */

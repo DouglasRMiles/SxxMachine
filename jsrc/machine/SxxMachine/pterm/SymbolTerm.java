@@ -39,6 +39,7 @@ import SxxMachine.Trail;
 @SuppressWarnings({ "unused", "rawtypes" })
 abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Functor {
 
+    @Override
     public SymbolTerm asSymbolTerm() {
         return this;
     }
@@ -348,13 +349,13 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     private static final Functor colon2 = TermData.F(":", 2);
 
-    /** Returns a Prolog atom for the given name. 
+    /** Returns a Prolog atom for the given name.
      * Use {@link TermData#createAtomic(String)} instead*/
     public static Term screateDynamic(String _name) {
         return new SymbolTerm.Dynamic(_name.intern(), 0);
     }
 
-    /** Returns a Prolog atom for the given name. 
+    /** Returns a Prolog atom for the given name.
      * Use {@link TermData#createF(String,int)} instead*/
     static Functor screateF(String _name, int arity) {
         // For a non-zero arity try to reuse the term, its probable this is a
@@ -423,7 +424,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     /**
      * @param _name
-     * @param arity2 
+     * @param arity2
      * @throws RuntimeException
      */
     static String checkName(String _name, int _arity) throws RuntimeException {

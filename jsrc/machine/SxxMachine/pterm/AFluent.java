@@ -8,7 +8,7 @@ import SxxMachine.Undoable;
 /**
  * A Fluent is a Prolog Object which has its own state, subject to changes over
  * time.
- * 
+ *
  */
 abstract class AFluent extends SystemObject implements Undoable, Fluent {
     public AFluent(Prog p) {

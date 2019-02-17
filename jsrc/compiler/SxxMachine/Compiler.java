@@ -29,7 +29,7 @@ import SxxMachine.pterm.TermData;
  * <code>nrev/2</code>, and <code>range/3</code>.
  * <ul>
  * <li>From Command line<br>
- * 
+ *
  * <pre>
  *    % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.compiler.Compiler:$CLASSPATH $PLCAFEDIR/examples/prolog/list.pl
  *    Prolog Cafe X.X.X (YYY)
@@ -37,12 +37,12 @@ import SxxMachine.pterm.TermData;
  *    % ls
  *    PRED_append_3.java      PRED_nrev_2.java        PRED_range_3.java
  * </pre>
- * 
+ *
  * <li>From Java program<br>
- * 
+ *
  * <pre>
  * import SxxMachine.compiler.Compiler;
- * 
+ *
  * public class T {
  * 	public static void main(String argv[]) {
  * 		Compiler comp = new Compiler();
@@ -50,7 +50,7 @@ import SxxMachine.pterm.TermData;
  * 	}
  * }
  * </pre>
- * 
+ *
  * <pre>
  *    % javac -classpath $PLCAFEDIR/plcafe.jar:$CLASSPATH T.java
  *    % java -classpath $PLCAFEDIR/plcafe.jar:$CLASSPATH T $PLCAFEDIR/examples/prolog/list.pl

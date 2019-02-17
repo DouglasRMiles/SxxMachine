@@ -10,8 +10,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import SxxMachine.Functor;
 import SxxMachine.Compound;
+import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
@@ -43,6 +43,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     int loopContainsTerm = 0;
 
+    @Override
     final public int containsTerm(Term variableTerm, OpVisitor equalsidentical) {
         if (loopContainsTerm > 0) {
             return loopContainsTerm;
@@ -56,6 +57,7 @@ abstract class PTerm extends KPTerm implements Term {
     }
 
     /** One of the {@code TYPE_*} constants from {@code Term}. */
+    @Override
     public abstract int type();
 
     @Override
@@ -90,7 +92,7 @@ abstract class PTerm extends KPTerm implements Term {
     // public Term val = this;
     /**
      * Checks whether the argument term is unified with this one.
-     * 
+     *
      * @param t
      *            the term to be unified with.
      * @param trail
@@ -99,6 +101,7 @@ abstract class PTerm extends KPTerm implements Term {
      */
     int loopedUnifyTerm = 0;
 
+    @Override
     final public boolean unify(Term t, Trail trail) {
         Term dref = drefAttrs();
         if (dref != this) {
@@ -120,14 +123,15 @@ abstract class PTerm extends KPTerm implements Term {
     abstract public boolean unifyImpl(Term t, Trail trail);
 
     /**
-     * 
+     *
      * @return true if this term is immutable, i.e. can not be changed
      */
+    @Override
     public abstract boolean isImmutable();
 
     /**
      * Check whether this term is a logical variable.
-     * 
+     *
      * @return <code>true</code> if <code>this .isVariable()</code>, otherwise
      *         <code>false</code>.
      * @see VariableTerm
@@ -139,29 +143,31 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is an integer.
-     * 
+     *
      * @return <code>true</code> if <code>this .isInteger()</code>, otherwise
      *         <code>false</code>.
      * @see IntegerTerm
      */
+    @Override
     public boolean isInteger() {
         return false;
     }
 
     /**
      * Check whether this term is a float.
-     * 
+     *
      * @return <code>true</code> if <code>this .isDouble()</code>, otherwise
      *         <code>false</code>.
      * @see DoubleTerm
      */
+    @Override
     public boolean isDouble() {
         return false;
     }
 
     /**
      * Check whether this term is a long.
-     * 
+     *
      * @return <code>true</code> if <code>this .isLong()</code>, otherwise
      *         <code>false</code>.
      * @see LongTerm
@@ -173,7 +179,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is a number.
-     * 
+     *
      * @return <code>true</code> if
      *         <code>this .isInteger() || this .isDouble()</code>, otherwise
      *         <code>false</code>.
@@ -185,17 +191,19 @@ abstract class PTerm extends KPTerm implements Term {
         return false;
     }
 
+    @Override
     public boolean isAtomicValue() {
         return true;
     }
 
     /**
      * Check whether this term is an atom.
-     * 
+     *
      * @return <code>true</code> if <code>this .isSymbol()</code>, otherwise
      *         <code>false</code>.
      * @see Functor
      */
+    @Override
     public boolean isAtom() {
         return false;
     }
@@ -208,7 +216,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is a list structure.
-     * 
+     *
      * @return <code>true</code> if <code>this .isList()</code>, otherwise
      *         <code>false</code>. []/0 == false;
      * @see Compound
@@ -220,7 +228,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is a compound term.
-     * 
+     *
      * @return <code>true</code> if <code>this .isStructure()</code>, otherwise
      *         <code>false</code>.
      * @see Term
@@ -232,41 +240,46 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is a java term.
-     * 
+     *
      * @return <code>true</code> if <code>this .isJavaObject()</code>, otherwise
      *         <code>false</code>.
      * @see JavaObjectTerm
      */
+    @Override
     public boolean isJavaObject() {
         return false;
     }
 
     /**
      * Check whether this term is a closure term.
-     * 
+     *
      * @return <code>true</code> if <code>this .isClosure()</code>, otherwise
      *         <code>false</code>.
      * @see ClosureTerm
      */
+    @Override
     public boolean isClosure() {
         return false;
     }
 
-    /** @return the name of this Term, if {@link #isCompound()}. 
+    /** @return the name of this Term, if {@link #isCompound()}.
      * @throws Exception */
     @Override
     public abstract String fname() throws IllegalTypeException;
 
     /** @return the arity of this Term, if {@link #isCompound()}. */
+    @Override
     public int arity() {
         oopsy();
         return 0;
     }
 
+    @Override
     public Term[] args() {
         throw new ArrayIndexOutOfBoundsException(666);
     }
 
+    @Override
     public Term arg0(int nth) {
         throw new ArrayIndexOutOfBoundsException(nth);
     }
@@ -278,26 +291,31 @@ abstract class PTerm extends KPTerm implements Term {
         throw new ArrayIndexOutOfBoundsException(nth);
     }
 
+    @Override
     public Term car() {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-1);
     }
 
+    @Override
     public Term cdr() {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-2);
     }
 
+    @Override
     public int length() {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-3);
     }
 
+    @Override
     public Compound add(Term t) {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-5);
     }
 
+    @Override
     public Compound append(Term t) {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-5);
@@ -305,7 +323,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this object is convertible with the given Java class type.
-     * 
+     *
      * @param type
      *            the Java class type to compare with.
      * @return <code>true</code> if this is convertible with <code>type</code>.
@@ -313,13 +331,14 @@ abstract class PTerm extends KPTerm implements Term {
      * @see #convertible(Class, Class)
      */
 
+    @Override
     public boolean convertible(Class type) {
         return convertible(getClass(), type);
     }
 
     /**
      * Returns a copy of this object.
-     * 
+     *
      * @param deeply
      *            TODO
      */
@@ -329,6 +348,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     int loopingCopyTerm = 0;
 
+    @Override
     final public Term copy(Map<Object, Term> copyHash, int deeply) {
         Term copy = copyHash.get(this);
         if (copy != null)
@@ -396,9 +416,10 @@ abstract class PTerm extends KPTerm implements Term {
 
     /**
      * Check whether this term is a ground term.
-     * 
+     *
      * @return <code>true</code> if ground, otherwise <code>false</code>.
      */
+    @Override
     public boolean isGround() {
         return true;
     }
@@ -406,10 +427,11 @@ abstract class PTerm extends KPTerm implements Term {
     /**
      * Returns a Java object that corresponds to this term if defined in <em>Prolog
      * Cafe interoperability with Java</em>. Otherwise, returns <code>this</code>.
-     * 
+     *
      * @return a Java object if defined in <em>Prolog Cafe interoperability with
      *         Java</em>, otherwise <code>this</code>.
      */
+    @Override
     public Object toJava() {
         return this;
     }
@@ -456,16 +478,18 @@ abstract class PTerm extends KPTerm implements Term {
      * <p>
      * The method is used in non-recursive implementation of {@link #toString()}
      */
+    @Override
     public Iterator<Term> iterator(boolean includeSyntax) {
         return Collections.<Term>emptyIterator();
     }
 
     /**
      * Adds a string representation of this term to given StringBuilder instance.
-     * 
+     *
      * @param printFlags
      *            && 1 = quoted
      */
+    @Override
     public String toQuotedString() throws PrologException {
         if (loopPrintingTerm > 0) {
             return "/*looped " + this.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(this))
@@ -505,6 +529,7 @@ abstract class PTerm extends KPTerm implements Term {
     protected abstract void toStringImpl(int printFlags, StringBuilder sb);
 
     /** Returns a string representation of this term. */
+    @Override
     final public void toQuotedString(int printFlags, StringBuilder sb) {
         if (loopPrintingTerm > 0) {
             sb.append("/*looped*/");
@@ -526,6 +551,7 @@ abstract class PTerm extends KPTerm implements Term {
     }
 
     /** Returns a unquoted string representation of this term. */
+    @Override
     public String pprint() throws PrologException {
         StringBuilder sb = new StringBuilder();
         toStringImpl(0, sb);
@@ -580,6 +606,7 @@ abstract class PTerm extends KPTerm implements Term {
         return equalsTerm(head, StrictEquals);
     }
 
+    @Override
     abstract public boolean equalsTerm(Term obj, OpVisitor comparator);
 
     @Override
@@ -590,20 +617,24 @@ abstract class PTerm extends KPTerm implements Term {
         return false;
     }
 
+    @Override
     public boolean isVariable() {
         return isVar();
     }
 
+    @Override
     public boolean isNonvar() {
         return true;
     }
 
+    @Override
     public boolean bind(Term partial, Trail trail) {
         if (partial == this)
             return true;
         throw new NoSuchElementException("no bind on genral terms");
     }
 
+    @Override
     public boolean equalsIdentical(Term t) {
         return equalsTerm(t, StrictEquals);
     }
@@ -623,6 +654,7 @@ abstract class PTerm extends KPTerm implements Term {
         }
     }
 
+    @Override
     public Term drefAttrs() {
         // TODO Auto-generated method stub
         if (fdata != null)
@@ -637,6 +669,7 @@ abstract class PTerm extends KPTerm implements Term {
         return this.arg0(i);
     }
 
+    @Override
     public Term findOrAttrValue(Trail trail, boolean createIfMissing, Term name) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -671,6 +704,7 @@ abstract class PTerm extends KPTerm implements Term {
         }
     }
 
+    @Override
     public Term freeze(Trail trail, Term newval) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -686,6 +720,7 @@ abstract class PTerm extends KPTerm implements Term {
         return this.setGoals(newgoals);
     }
 
+    @Override
     public Term frozenGoals() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -693,6 +728,7 @@ abstract class PTerm extends KPTerm implements Term {
         return nullIs(this.getGoals(), Prolog.True);
     }
 
+    @Override
     public boolean isAttvar() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -702,6 +738,7 @@ abstract class PTerm extends KPTerm implements Term {
         return this.getAttrs() != null && this.getAttrs() != Prolog.Nil;
     }
 
+    @Override
     public boolean isFrozen() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -715,7 +752,7 @@ abstract class PTerm extends KPTerm implements Term {
         return false;
     }
 
-   
+    @Override
     public long longValue() {
         Term deref = this.drefAttrs();
         if (deref != this)
@@ -728,6 +765,7 @@ abstract class PTerm extends KPTerm implements Term {
         return attrs2 == null ? valeu : attrs2;
     }
 
+    @Override
     public void putAttrValue(Trail trail, Term name, Term val) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this) {
@@ -766,6 +804,7 @@ abstract class PTerm extends KPTerm implements Term {
         }
     }
 
+    @Override
     public void setAttrs(Trail trail, Term newval) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this) {
@@ -783,6 +822,7 @@ abstract class PTerm extends KPTerm implements Term {
         this.setAttrs(newval);
     }
 
+    @Override
     public void setGoals(Trail trail, Term newval) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this) {
@@ -799,10 +839,12 @@ abstract class PTerm extends KPTerm implements Term {
         this.setGoals(newval);
     }
 
+    @Override
     public void setarg0(Trail trail, int i0, Term value) {
         System.out.println("general SetArg on terms not available");
     }
 
+    @Override
     public Term setGoals(Term newval) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -810,6 +852,7 @@ abstract class PTerm extends KPTerm implements Term {
         return getFdata().setGoals(newval);
     }
 
+    @Override
     public Term getGoals() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -819,6 +862,7 @@ abstract class PTerm extends KPTerm implements Term {
         return getFdata().getGoals();
     }
 
+    @Override
     public void setAttrs(Term newval) {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this) {
@@ -828,6 +872,7 @@ abstract class PTerm extends KPTerm implements Term {
         getFdata().setAttrs(newval);
     }
 
+    @Override
     public Term getAttrs() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -837,6 +882,7 @@ abstract class PTerm extends KPTerm implements Term {
         return getFdata().getAttrs();
     }
 
+    @Override
     public boolean isFVar() {
         Term drefAttrs = drefAttrs();
         if (drefAttrs != this)
@@ -849,10 +895,12 @@ abstract class PTerm extends KPTerm implements Term {
         return (int) longValue();
     }
 
+    @Override
     public boolean unifyInt(int i, Trail trail) {
         return intValue() == i;
     }
 
+    @Override
     public SxxMachine.Functor asSymbolTerm() {
         return (SxxMachine.Functor) this;
     }
@@ -882,6 +930,7 @@ abstract class PTerm extends KPTerm implements Term {
     // public void setFdata(FrozenData fdata) {
     // this.fdata = fdata;
     // }
+    @Override
     public boolean isAlias() {
         return false;
     }
@@ -891,6 +940,7 @@ abstract class PTerm extends KPTerm implements Term {
         return longValue();
     }
 
+    @Override
     public Term functor() {
         // TODO Auto-generated method stub
         System.out.println("general functor on terms not available");
@@ -899,16 +949,19 @@ abstract class PTerm extends KPTerm implements Term {
 
     Term zowner;
 
+    @Override
     public MapTerm join(Term term) {
         // TODO Auto-generated method stub
         return null;
     }
 
+    @Override
     public boolean isMap() {
         // TODO Auto-generated method stub
         return false;
     }
 
+    @Override
     public boolean pbind(Term variableTerm, Trail trail) {
         // TODO Auto-generated method stub
         oopsy();
@@ -919,45 +972,54 @@ abstract class PTerm extends KPTerm implements Term {
         toStringImpl(1, sb);
     }
 
+    @Override
     public Object object() {
         // TODO Auto-generated method stub
         return this;
     }
 
+    @Override
     public Class getIntendedClass() {
         return object().getClass();
     }
 
+    @Override
     public Term asStructureTerm() {
         // TODO Auto-generated method stub
         return (Term) this;
     }
 
+    @Override
     public void setArg(int i, Term value) {
         setarg0(null, i, value);
     }
     //
 
+    @Override
     public Compound asListTerm() {
         // TODO Auto-generated method stub
         return (Compound) object();
     }
 
+    @Override
     public LongTerm asIntegerTerm() {
         // TODO Auto-generated method stub
         return (LongTerm) object();
     }
 
+    @Override
     public ClosureTerm asClosureTerm() {
         // TODO Auto-generated method stub
         return (ClosureTerm) object();
     }
 
+    @Override
     public Var asVariableTerm() {
         // TODO Auto-generated method stub
         return (VariableTerm) object();
     }
 
+    @Override
     public NumberTerm asLongTerm() {
         // TODO Auto-generated method stub
         return (LongTerm) object();
@@ -968,16 +1030,19 @@ abstract class PTerm extends KPTerm implements Term {
         return (HashtableOfTerm) object();
     }
 
+    @Override
     public NumberTerm asNumberTerm() {
         // TODO Auto-generated method stub
         return (NumberTerm) object();
     }
 
+    @Override
     public MapTerm asMapTerm() {
         // TODO Auto-generated method stub
         return (MapTerm) object();
     }
 
+    @Override
     public boolean unifyS(Functor f, Trail trail, Term... va) {
         // TODO Auto-generated method stub
         return unify(S(f, va), trail);

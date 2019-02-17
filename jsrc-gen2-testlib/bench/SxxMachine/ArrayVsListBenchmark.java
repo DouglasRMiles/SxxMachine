@@ -209,7 +209,7 @@ public class ArrayVsListBenchmark extends SimpleBenchmark {
 class ObjectList<T> extends ArrayList<T> {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 2792925993642564894L;
     T[] data;

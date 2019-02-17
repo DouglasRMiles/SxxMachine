@@ -246,7 +246,7 @@ public final class Prolog extends PrologFlags {
         this.B0 = this.stack.top();
         this.CPFTimeStamp = Long.MIN_VALUE;
         // Creates an initial choice point frame.
-        //ChoicePointFrame initialFrame = new ChoicePointFrame(this, Failure.FAILURE, ++CPFTimeStamp);  
+        //ChoicePointFrame initialFrame = new ChoicePointFrame(this, Failure.FAILURE, ++CPFTimeStamp);
         //ChoicePointFrame.S0(null);
         this.trail.timeStamp = ++this.CPFTimeStamp;
         this.stack.push(this, Failure.FAILURE, ChoicePointStack::restore0);
@@ -641,7 +641,7 @@ public final class Prolog extends PrologFlags {
                 pendingGoals = goal;
                 lastPendingGoal = null;
             } else {
-                // lastPendingGoal = lastPendingGoal; 
+                // lastPendingGoal = lastPendingGoal;
                 this.pendingGoals = CONS(goal, this.pendingGoals);
             }
         }

@@ -2,7 +2,7 @@ package SxxMachine;
 
 public class PrologFlags {
     /**
-     * 
+     *
      */
 
     /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>bounded</code>. */

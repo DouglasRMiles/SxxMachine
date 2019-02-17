@@ -20,15 +20,15 @@ import SxxMachine.pterm.TermData;
  * Cafe system.<br>
  * The usage is as follows, where <code>package</code> is a package name, and
  * <code>predicate</code> is a predicate name (only atom).
- * 
+ *
  * <pre>
  *   % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.PrologMain package:predicate
  *   % java -cp $PLCAFEDIR/plcafe.jar SxxMachine.PrologMain predicate
  * </pre>
- * 
+ *
  * Let us show a sample session for launching a small Prolog interpreter:
  * <code>SxxMachine:cafeteria/0</code>.<br>
- * 
+ *
  * <pre>
  *    % java  -cp $PLCAFEDIR/plcafe.jar:$CLASSPATH SxxMachine.PrologMain SxxMachine:cafeteria
  *    Prolog Cafe X.X.X (YYY)
@@ -127,7 +127,7 @@ public class PrologMain {
     /**
      * Returns a term for given string representation of atom goal, or
      * <code>null</code> if parsing fails.
-     * 
+     *
      * @param s
      *            a string representation of initial goal (ex. foge:main).
      * @return a term which corresponds to a given string, or <code>null</code> if

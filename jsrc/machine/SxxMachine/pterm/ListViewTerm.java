@@ -196,6 +196,7 @@ public class ListViewTerm extends ListTerm implements Term {
         return type();
     }
 
+    @Override
     public void init(int arity) {
         argz = new Term[arity];
         for (int i = 0; i < arity; i++) {

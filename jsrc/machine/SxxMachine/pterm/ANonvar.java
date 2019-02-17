@@ -12,7 +12,7 @@ import SxxMachine.Term;
 
 /**
  * Part of the Prolog Term hierarchy
- * 
+ *
  * @see Term
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
@@ -77,6 +77,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     /**
      * returns a list representation of the object
      */
+    @Override
     public Compound listify() {
         return CONS(this, Prolog.Nil);
     }

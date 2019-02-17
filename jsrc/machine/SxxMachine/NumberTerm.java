@@ -4,36 +4,46 @@ public interface NumberTerm extends Atomic {
 
     Object value();
 
+    @Override
     NumberTerm toClone();
 
     boolean isFloat();
 
+    @Override
     String fname();
 
+    @Override
     int arityOrType();
 
     int termHashCodeImpl();
 
+    @Override
     NumberTerm functor();
 
+    @Override
     String pprint();
 
+    @Override
     void toStringImpl(int printFlags, StringBuilder sb);
 
+    @Override
     boolean isNumber();
 
+    @Override
     boolean isNonvar();
 
     /**
      * Returns the numeric value represented by this object after conversion to type
      * <code>int</code>.
      */
+    @Override
     int intValue();
 
     /**
      * Returns the numeric value represented by this object after conversion to type
      * <code>long</code>.
      */
+    @Override
     long longValue();
 
     /**
@@ -43,7 +53,7 @@ public interface NumberTerm extends Atomic {
     // abstract public double doubleValue();
     /**
      * Compares two <code>NumberTerm</code> objects numerically.
-     * 
+     *
      * @param t
      *            the <code>NumberTerm</code> to compare with.
      * @return the value <code>0</code> if this object is numerically equal to the
@@ -208,6 +218,7 @@ public interface NumberTerm extends Atomic {
     /** Returns a <code>NumberTerm</code> whose value is <code>(this ^ t)</code>. */
     NumberTerm xor(NumberTerm t);
 
+    @Override
     boolean isImmutable();
 
 }

@@ -14,6 +14,6 @@ package SxxMachine;
  * @version 1.0
  */
 public abstract class BlockPredicate extends Predicate {
-	public boolean outOfScope = false;
-	public boolean outOfLoop = false;
+    public boolean outOfScope = false;
+    public boolean outOfLoop = false;
 }

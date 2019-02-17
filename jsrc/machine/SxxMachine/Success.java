@@ -18,7 +18,7 @@ public class Success extends Predicate.P0 implements Operation {
     /**
      * Backtracks and returns a next clause after invoking the
      * <code>PrologControl.success()</code>.
-     * 
+     *
      * @param engine
      *            Prolog engine
      * @see PrologControl#success

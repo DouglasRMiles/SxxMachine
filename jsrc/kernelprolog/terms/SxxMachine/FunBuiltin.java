@@ -5,30 +5,30 @@ package SxxMachine;
  */
 
 abstract public class FunBuiltin extends ConstBuiltin {
-	// public StructureTerm thiz = this;
+    // public StructureTerm thiz = this;
 
-	int arity;
+    int arity;
 
-	public FunBuiltin(String f, int i) {
-		super(f);
-		arity = i;
-	}
+    public FunBuiltin(String f, int i) {
+        super(f);
+        arity = i;
+    }
 
-	// @Override
-	// public int exec(Prog p) {s
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
-	// //abstract public int exec(Prog p);
-	//
-	@Override
-	public boolean isBuiltin() {
-		return true;
-	}
+    // @Override
+    // public int exec(Prog p) {s
+    // // TODO Auto-generated method stub
+    // return 0;
+    // }
+    // //abstract public int exec(Prog p);
+    //
+    @Override
+    public boolean isBuiltin() {
+        return true;
+    }
 
-	@Override
-	public int arityOrType() {
-		return arity;
-	}
+    @Override
+    public int arityOrType() {
+        return arity;
+    }
 
 }

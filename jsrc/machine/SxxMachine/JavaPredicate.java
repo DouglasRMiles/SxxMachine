@@ -9,7 +9,7 @@ package SxxMachine;
  * <li><code>java_constructor</code>
  * <li><code>java_method</code>.
  * </ul>
- * 
+ *
  * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
@@ -18,7 +18,7 @@ public abstract class JavaPredicate extends Predicate {
     /**
      * Checks whether all terms in <code>args</code> are convertible to the
      * corresponding Java types in <code>paraTypes</code>.
-     * 
+     *
      * @return <code>true</code> if <code>args[i].convertible(paraTypes[i])</code>
      *         succeeds for all <code>i</code>, otherwise <code>false</code>.
      * @see Term#convertible(Class)

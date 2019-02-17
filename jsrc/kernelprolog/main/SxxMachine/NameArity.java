@@ -4,12 +4,12 @@ import java.lang.reflect.Method;
 
 public interface NameArity {
 
-	String fname();
+    String fname();
 
-	int arityOrType();
+    int arityOrType();
 
-	String getKey();
+    String getKey();
 
-	void setMethod(Method b);
+    void setMethod(Method b);
 
 }

@@ -13,7 +13,7 @@ import SxxMachine.Trail;
  * Integer.<br>
  * The class <code>IntegerTerm</code> wraps a value of primitive type
  * <code>int</code>.
- * 
+ *
  * <pre>
  * Term t = new IntegerTerm(100);
  * int i = t.asIntegerlTerm().intValue();
@@ -56,7 +56,6 @@ class IntegerTerm extends LongTerm {
         }
     }
 
-
     /* Term */
     @Override
     public boolean unifyImpl(Term t, Trail trail) {
@@ -86,7 +85,7 @@ class IntegerTerm extends LongTerm {
      * Returns a <code>java.lang.Integer</code> corresponds to this
      * <code>IntegerTerm</code> according to <em>Prolog Cafe interoperability with
      * Java</em>.
-     * 
+     *
      * @return a <code>java.lang.Integer</code> object equivalent to this
      *         <code>IntegerTerm</code>.
      */
@@ -110,7 +109,7 @@ class IntegerTerm extends LongTerm {
      * Checks <em>term equality</em> of two terms. The result is <code>true</code>
      * if and only if the argument is an instance of <code>IntegerTerm</code> and
      * has the same <code>int</code> value as this object.
-     * 
+     *
      * @param obj
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if the given object represents a Prolog integer
@@ -132,7 +131,7 @@ class IntegerTerm extends LongTerm {
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * 
+     *
      * @param anotherTerm
      *            the term to compared with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; a value less

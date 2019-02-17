@@ -4,8 +4,8 @@ import static SxxMachine.pterm.TermData.CONS;
 
 import java.util.ArrayList;
 
-import SxxMachine.Copier;
 import SxxMachine.Compound;
+import SxxMachine.Copier;
 import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;

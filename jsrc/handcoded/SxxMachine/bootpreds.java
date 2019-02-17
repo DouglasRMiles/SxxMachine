@@ -433,7 +433,7 @@ public class bootpreds extends sxxtensions {
 
     /**
      * <code>'$begin_exception'/1</code><br>
-     * 
+     *
      * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
      * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
      * @version 1.2

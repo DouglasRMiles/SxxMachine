@@ -25,7 +25,7 @@ import SxxMachine.Var;
  * Variable.<br>
  * The <code>VariableTerm</code> class represents a logical variable.<br>
  * For example,
- * 
+ *
  * <pre>
  * Term t = new VariableTerm();
  * </pre>
@@ -98,7 +98,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * Constructs a new logical variable so that the <code>timeStamp</code> field is
      * set to the current value of <code>CPFTimeStamp</code> of the specified Prolog
      * engine.
-     * 
+     *
      * @param engine
      *            Current Prolog engine.
      * @see Prolog#getCPFTimeStamp
@@ -134,7 +134,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * <code>bind(t.dereference(), trail)</code>, and returns <code>true</code>.
      * Otherwise, it returns a <code>boolean</code> whose value is
      * <code>val.unify(t, trail)</code>.
-     * 
+     *
      * @param t
      *            the term to be unified with.
      * @param trail
@@ -312,7 +312,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
     /**
      * Binds this variable to a given term. And pushs this variable to trail stack
      * if necessary.
-     * 
+     *
      * @param p
      *            a term to be bound.
      * @param trail
@@ -355,7 +355,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * Checks whether this object is convertible with the given Java class type if
      * this variable is unbound. Otherwise, returns the value of
      * <code>val.convertible(type)</code>.
-     * 
+     *
      * @param type
      *            the Java class type to compare with.
      * @return <code>true</code> if this (or dereferenced term) is convertible with
@@ -370,7 +370,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
     /**
      * Returns a copy of this object if unbound variable. Otherwise, returns the
      * value of <code>val.copy(engine)</code>.
-     * 
+     *
      * @see #val
      */
     @Override
@@ -404,7 +404,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * Returns <code>this</code> if this variable is unbound. Otherwise, returns a
      * Java object that corresponds to the dereferenced term:
      * <code>val.toJava()</code>.
-     * 
+     *
      * @return a Java object defined in <em>Prolog Cafe interoperability with
      *         Java</em>.
      * @see #val
@@ -422,7 +422,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * <code>boolean</code> whose value is (<code>this == obj</code>) if this
      * variable is unbound. Otherwise, it returns the value of
      * <code>val.equals(obj)</code>.
-     * 
+     *
      * @param obj
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if this (or dereferenced term) is the same as the
@@ -450,7 +450,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
     /**
      * Returns a string representation of this term if unbound. Otherwise, returns
      * the value of dereferenced term: <code>val.toString()</code>
-     * 
+     *
      * @see #val
      */
     int loopPrintingVar = 0;
@@ -508,7 +508,7 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
      * It is noted that <code>t1.compareTo(t2) == 0</code> has the same
      * <code>boolean</code> value as <code>t1.equals(t2)</code>.
-     * 
+     *
      * @param anotherTerm
      *            the term to compare with. It must be dereferenced.
      * @return the value <code>0</code> if two terms are identical; a value less

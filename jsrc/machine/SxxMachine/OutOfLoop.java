@@ -11,14 +11,14 @@ package SxxMachine;
  * @version 1.0
  */
 public class OutOfLoop implements Undoable {
-	final BlockPredicate p;
+    final BlockPredicate p;
 
-	public OutOfLoop(BlockPredicate _p) {
-		this.p = _p;
-	}
+    public OutOfLoop(BlockPredicate _p) {
+        this.p = _p;
+    }
 
-	@Override
-	public void undo() {
-		this.p.outOfLoop = true;
-	}
+    @Override
+    public void undo() {
+        this.p.outOfLoop = true;
+    }
 }
