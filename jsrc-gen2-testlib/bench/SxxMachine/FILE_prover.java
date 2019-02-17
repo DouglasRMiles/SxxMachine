@@ -93,36 +93,36 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
     // main(problem/3,public)
         final static Functor FUNCTOR_$002D_1 = F("-",1);
         final static Functor ATOM_a = SYM("a");
-    private static final Term L_problem_3_s5 = S( FUNCTOR_$002D_1 ,  ATOM_a );
+    private static final Compound L_problem_3_s5 = S( FUNCTOR_$002D_1 ,  ATOM_a );
         final static Functor FUNCTOR_$002B_1 = F("+",1);
-    private static final Term L_problem_3_s7 = S( FUNCTOR_$002B_1 ,  ATOM_a );
+    private static final Compound L_problem_3_s7 = S( FUNCTOR_$002B_1 ,  ATOM_a );
         final static Functor FUNCTOR_$0026_2 = F("&",2);
-    private static final Term L_problem_3_s11 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s5);
+    private static final Compound L_problem_3_s11 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s5);
         final static Functor FUNCTOR_$0023_2 = F("#",2);
         final static Functor ATOM_to_be = SYM("to_be");
-    private static final Term L_problem_3_s16 = S( FUNCTOR_$002B_1 ,  ATOM_to_be );
-    private static final Term L_problem_3_s17 = S( FUNCTOR_$002D_1 ,  ATOM_to_be );
-    private static final Term L_problem_3_s19 = S( FUNCTOR_$0023_2 , L_problem_3_s16, L_problem_3_s17);
+    private static final Compound L_problem_3_s16 = S( FUNCTOR_$002B_1 ,  ATOM_to_be );
+    private static final Compound L_problem_3_s17 = S( FUNCTOR_$002D_1 ,  ATOM_to_be );
+    private static final Compound L_problem_3_s19 = S( FUNCTOR_$0023_2 , L_problem_3_s16, L_problem_3_s17);
         final static Functor ATOM_b = SYM("b");
-    private static final Term L_problem_3_s24 = S( FUNCTOR_$002B_1 ,  ATOM_b );
-    private static final Term L_problem_3_s26 = S( FUNCTOR_$0023_2 , L_problem_3_s24, L_problem_3_s5);
-    private static final Term L_problem_3_s28 = S( FUNCTOR_$002D_1 ,  ATOM_b );
-    private static final Term L_problem_3_s30 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s28);
-    private static final Term L_problem_3_s32 = S( FUNCTOR_$0026_2 , L_problem_3_s28, L_problem_3_s5);
-    private static final Term L_problem_3_s34 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s5);
-    private static final Term L_problem_3_s36 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s34);
+    private static final Compound L_problem_3_s24 = S( FUNCTOR_$002B_1 ,  ATOM_b );
+    private static final Compound L_problem_3_s26 = S( FUNCTOR_$0023_2 , L_problem_3_s24, L_problem_3_s5);
+    private static final Compound L_problem_3_s28 = S( FUNCTOR_$002D_1 ,  ATOM_b );
+    private static final Compound L_problem_3_s30 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s28);
+    private static final Compound L_problem_3_s32 = S( FUNCTOR_$0026_2 , L_problem_3_s28, L_problem_3_s5);
+    private static final Compound L_problem_3_s34 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s5);
+    private static final Compound L_problem_3_s36 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s34);
         final static Functor ATOM_c = SYM("c");
-    private static final Term L_problem_3_s40 = S( FUNCTOR_$002B_1 ,  ATOM_c );
-    private static final Term L_problem_3_s42 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s40);
-    private static final Term L_problem_3_s44 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s42);
-    private static final Term L_problem_3_s46 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s40);
-    private static final Term L_problem_3_s48 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s46);
-    private static final Term L_problem_3_s51 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s24);
-    private static final Term L_problem_3_s52 = S( FUNCTOR_$002D_1 ,  ATOM_c );
-    private static final Term L_problem_3_s54 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s52);
-    private static final Term L_problem_3_s56 = S( FUNCTOR_$0023_2 , L_problem_3_s54, L_problem_3_s46);
-    private static final Term L_problem_3_s59 = S( FUNCTOR_$0026_2 , L_problem_3_s46, L_problem_3_s42);
-    private static final Term L_problem_3_s61 = S( FUNCTOR_$0023_2 , L_problem_3_s30, L_problem_3_s40);
+    private static final Compound L_problem_3_s40 = S( FUNCTOR_$002B_1 ,  ATOM_c );
+    private static final Compound L_problem_3_s42 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s40);
+    private static final Compound L_problem_3_s44 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s42);
+    private static final Compound L_problem_3_s46 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s40);
+    private static final Compound L_problem_3_s48 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s46);
+    private static final Compound L_problem_3_s51 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s24);
+    private static final Compound L_problem_3_s52 = S( FUNCTOR_$002D_1 ,  ATOM_c );
+    private static final Compound L_problem_3_s54 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s52);
+    private static final Compound L_problem_3_s56 = S( FUNCTOR_$0023_2 , L_problem_3_s54, L_problem_3_s46);
+    private static final Compound L_problem_3_s59 = S( FUNCTOR_$0026_2 , L_problem_3_s46, L_problem_3_s42);
+    private static final Compound L_problem_3_s61 = S( FUNCTOR_$0023_2 , L_problem_3_s30, L_problem_3_s40);
 
 
 
@@ -368,7 +368,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/prover.pl
 */
     // main(implies/2,public)
         final static Functor FUNCTOR_fs_4 = F("fs",4);
-    private static final Term L_implies_2_s4 = S( FUNCTOR_fs_4 ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
+    private static final Compound L_implies_2_s4 = S( FUNCTOR_fs_4 ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil ,  Prolog.Nil );
 
 
 

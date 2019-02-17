@@ -552,12 +552,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/unify.pl
     // main(unify_var/6,public)
         final static Functor FUNCTOR_unify_3 = F("unify",3);
         final static Functor ATOM_tvar = SYM("tvar");
-    private static final Term L_unify_var_6_s8 = S( FUNCTOR_$005E_2 ,  ATOM_tvar ,  ATOM_h );
+    private static final Compound L_unify_var_6_s8 = S( FUNCTOR_$005E_2 ,  ATOM_tvar ,  ATOM_h );
         final static Functor FUNCTOR_add_2 = F("add",2);
-    private static final Term L_unify_var_6_s12 = S( FUNCTOR_add_2 ,  int_1 ,  ATOM_h );
+    private static final Compound L_unify_var_6_s12 = S( FUNCTOR_add_2 ,  int_1 ,  ATOM_h );
         final static Functor FUNCTOR_$002D_2 = F("-",2);
-    private static final Term L_unify_var_6_s15 = S( FUNCTOR_$002D_2 ,  ATOM_h ,  int_1 );
-    private static final Term L_unify_var_6_s17 = CONS(L_unify_var_6_s15,  Prolog.Nil );
+    private static final Compound L_unify_var_6_s15 = S( FUNCTOR_$002D_2 ,  ATOM_h ,  int_1 );
+    private static final Compound L_unify_var_6_s17 = CONS(L_unify_var_6_s15,  Prolog.Nil );
 
     // private final Term arg5, arg6;
 

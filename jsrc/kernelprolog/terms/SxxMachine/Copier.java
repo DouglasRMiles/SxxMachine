@@ -5,12 +5,8 @@ import static SxxMachine.pterm.TermData.V;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.pterm.Expect;
-import SxxMachine.pterm.Nonvar;
-import SxxMachine.pterm.StructureTerm;
 import SxxMachine.pterm.SystemObject;
 import SxxMachine.pterm.TermData;
-import SxxMachine.pterm.Var;
 
 //!depends
 /**
@@ -72,7 +68,7 @@ public class Copier extends SystemObject {
             if (t.isNil()) {
                 break;
             } else if (t.isCons()) {
-                Term c = Expect.asCons(t);
+                Term c = TermData.asCons(t);
                 V.add(c.ArgDeRef(0));
                 t = c.ArgDeRef(1);
             } else if (t.isConst()) {
@@ -98,7 +94,7 @@ public class Copier extends SystemObject {
         int arity = V.size();
         if (arity == 0)
             return c;
-        Term f = StructureTerm.createStructureTerm(c.fname(), arity);
+        Term f = TermData.createStructureTerm(c.fname(), arity);
         for (int i = 0; i < arity; i++) {
             f.setArg(i, (Term) V.get(i));
         }
@@ -112,7 +108,7 @@ public class Copier extends SystemObject {
     public static Term VectorToFun(ArrayList V) {
         Functor f = (Functor) V.get(0);
         int arity = V.size() - 1;
-        Term T = StructureTerm.createStructureTerm(f.fname(), arity);
+        Term T = TermData.createStructureTerm(f.fname(), arity);
         for (int i = 0; i < arity; i++) {
             T.setArg(i, (Term) V.get(i + 1));
         }

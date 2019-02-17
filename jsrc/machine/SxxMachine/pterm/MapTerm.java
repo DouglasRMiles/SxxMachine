@@ -49,7 +49,7 @@ import SxxMachine.Trail;
 @SuppressWarnings({ "rawtypes", "unused" })
 public class MapTerm extends SystemObject {
     /** A functor <code>'.' /2</code>. */
-    protected static final Functor SYM_DOT = TermData.F(".", 2);
+    protected static final Functor SYM_DOT_2 = TermData.F(".", 2);
 
     private boolean immutable;
 
@@ -212,13 +212,13 @@ public class MapTerm extends SystemObject {
 
     @Override
     public Functor functor() {
-        return SYM_DOT;
+        return SYM_DOT_2;
     }
 
     @Override
     public final String fname() {
         oopsy();
-        return SYM_DOT.fname();
+        return SYM_DOT_2.fname();
     }
 
     @Override
@@ -320,7 +320,7 @@ public class MapTerm extends SystemObject {
     @Override
     public int termHashCodeImpl() {
         int h = 1;
-        h = 31 * h + SYM_DOT.termHashCode();
+        h = 31 * h + SYM_DOT_2.termHashCode();
         h = 31 * h + this.argz[0].dref().termHashCode();
         h = 31 * h + cdr().dref().termHashCode();
         return h;
@@ -402,15 +402,15 @@ public class MapTerm extends SystemObject {
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomString()))
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()))
             return AFTER;
         if ((anotherTerm.isCompound())) {
             int arity = anotherTerm.arity();
             if (2 != arity)
                 return (2 - arity);
             Term functor = (anotherTerm).functor();
-            if (!SYM_DOT.equalsTerm(functor))
-                return SYM_DOT.compareTo(functor);
+            if (!SYM_DOT_2.equalsTerm(functor))
+                return SYM_DOT_2.compareTo(functor);
         }
         Term[] args = new Term[2];
         if ((anotherTerm.isMap())) {

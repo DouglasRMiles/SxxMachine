@@ -8,7 +8,7 @@ import SxxMachine.Trail;
  * A SystemObject is a Nonvar with system assigned name
  * 
  */
-abstract public class SystemObject extends Nonvar {
+abstract public class SystemObject extends ANonvar {
     @Override
     public int type() {
         return TYPE_JAVA_OBJECT;

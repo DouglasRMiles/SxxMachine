@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Expect;
-import SxxMachine.pterm.Nonvar;
 import SxxMachine.pterm.Source;
 import SxxMachine.pterm.TermData;
 
@@ -29,8 +27,8 @@ public class TermSource extends Source {
             val = null;
         } else if (0 == pos)
             X = TermData.SYM(val.pprint());
-        else if (pos <= Expect.asStruct(val).arityOrType())
-            X = Expect.asStruct(val).ArgDeRef(pos - 1);
+        else if (pos <= TermData.asStruct(val).arityOrType())
+            X = TermData.asStruct(val).ArgDeRef(pos - 1);
         else {
             X = null;
             val = null;

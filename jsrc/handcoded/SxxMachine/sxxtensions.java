@@ -3,7 +3,6 @@ package SxxMachine;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
-import SxxMachine.pterm.StructureTerm;
 import SxxMachine.pterm.VariableTerm;
 
 public class sxxtensions extends missing_preds {
@@ -164,15 +163,21 @@ public class sxxtensions extends missing_preds {
         return m.cont;
     }
 
-    public final static class SetArgTrail extends StructureTerm implements Undoable {
+    public final static class SetArgTrail implements Undoable {
         Term OldValue;
         VariableTerm Which;
         Prolog m;
 
-        SetArgTrail(Term old, VariableTerm changed, Prolog m) {
-            super("$SetArgTrail", old, changed);
+        @Override
+        public String toString() {
+            // TODO Auto-generated method stub
+            return "$SetArgTrail " + OldValue + " " + Which;
+        }
+
+        SetArgTrail(Term old, Var changed, Prolog m) {
+            //  super("$SetArgTrail", old, changed);
             this.OldValue = old;
-            this.Which = changed;
+            this.Which = (VariableTerm) changed;
             this.m = m;
         }
 
@@ -350,7 +355,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.AREGS[0].dref();
         a2 = m.AREGS[1].dref();
-        Term attrs = a1.getFdata().getAttrs();
+        Term attrs = a1.getAttrs();
         if (!a2.unify(attrs, m.trail)) {
             return m.fail();
         }

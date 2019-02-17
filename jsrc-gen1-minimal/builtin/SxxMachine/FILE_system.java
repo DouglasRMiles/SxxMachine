@@ -6139,7 +6139,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/system.pl
     // main('$init'/0,public)
         final static Functor ATOM_SxxMachine = SYM("SxxMachine");
         final static Functor FUNCTOR_$002F_2 = F("/",2);
-    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_system_predicate_ext ,  int_1 );
+    private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_system_predicate_ext ,  int_1 );
 
 
 

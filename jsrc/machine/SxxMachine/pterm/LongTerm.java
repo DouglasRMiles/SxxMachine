@@ -8,12 +8,13 @@ import java.math.BigInteger;
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
+import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
 import SxxMachine.Term;
-import SxxMachine.Trail; 
+import SxxMachine.Trail;
 
-public class LongTerm extends NumberTerm {
+class LongTerm extends ANumberTerm {
     @Override
     public boolean isLong() {
         return true;
@@ -55,13 +56,9 @@ public class LongTerm extends NumberTerm {
         super(bigInteger.doubleValue());
     }
 
-    public Object value() {
-        return longValue();
-    }
-
     @Override
     public boolean bind(Term that, KPTrail trail) {
-        return super.bind(that, trail) && ((double) longValue() == (double) Expect.asInt(that).longValue());
+        return super.bind(that, trail) && ((double) longValue() == (double) TermData.asInt(that).longValue());
         // unbelievable but true: converting
         // to double is the only way to convince
         // Microsoft's jview that 1==1

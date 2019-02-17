@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.LinkedList;
 
-import SxxMachine.pterm.ListTerm;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -117,7 +116,7 @@ public class Compiler {
         Term op = Prolog.Nil;
         for (Option opt : this.options)
             op = TermData.CONS(opt.symbol, op);
-        ListTerm args = TermData.LIST(prolog, wam, op);
+        Compound args = TermData.LIST(prolog, wam, op);
         try {
             if (!this.pcl.execute("SxxMachine.compiler.pl2am", "pl2am", args))
                 throw new CompileException("Unknown Error");
@@ -143,7 +142,7 @@ public class Compiler {
         // Create arguments
         Term wam = TermData.createAtomic(_wam);
         Term dir = TermData.createAtomic(_dir);
-        ListTerm args = TermData.LIST(wam, dir);
+        Compound args = TermData.LIST(wam, dir);
         try {
             if (!this.pcl.execute("SxxMachine.compiler.am2j", "am2j", args))
                 throw new CompileException("Unknown Error");

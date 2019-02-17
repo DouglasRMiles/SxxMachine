@@ -1,7 +1,7 @@
 
 :- op(1150,  fx, (package)).
 package(_).
-:- package 'swi_supp'.
+:- package 'SxxMachine'.
 
 :- dynamic('$predicate_property'/4).
 :- dynamic('$current_typein_module'/1).
@@ -11,9 +11,14 @@ package(_).
 %:- database('$current_source_module'(user)=swi_supp).
 %:- database('$current_typein_module'(user)=swi_supp).
 %:- database('swi_supp'='$current_context_module'(user)).
-'$current_typein_module'(swi_supp).
+'$current_typein_module'(user).
 '$current_context_module'(user).
 % :- [test].
+
+:- public(reorder/3).
+reorder(IF, First, Second):- 
+  call(IF) -> (call(First),call(Second)) ; (call(Second),call(First)). 
+
 
 setup_call_cleanup(Setup, Goal, Cleanup) :-
     setup_call_catcher_cleanup(Setup, Goal, _Catcher, Cleanup).
@@ -77,10 +82,15 @@ context_module(UserO) :- ('$current_context_module'(User);typein_module(User))->
 
 
 current_predicate(Head):- strip_module(Head,M,F/A),current_predicate_m_f_a(M,F,A).
-  ground(F/A) -> functor(P,F,A), 
-  
-current_predicate_m_f_a(M,F,A):- (var(F); var(A)), !, predicate_property(M:P,defined),functor(P,F,A).
-current_predicate_m_f_a(M,F,A):- functor(P,F,A), !, predicate_property(M:P,defined).
+
+current_predicate_m_f_a(M,F,A):- '$predicate_property'(defined,M,F,A).
+/*
+current_predicate_m_f_a(M,F,A):- 
+ reorder(    
+   (var(F) ; var(A)), 
+   predicate_property(':'(M,P),defined), 
+   functor(P,F,A) ).
+*/
 
 current_predicate(Name, Head):- 
   predicate_property(Head,_),
@@ -89,7 +99,10 @@ current_predicate(Name, Head):-
   strip_module(Name,M,F).
 
 
+predicate_property(MPred,Prop):- strip_module(MPred,M,Pred), 
+  reorder(var(Pred), '$predicate_property'(Prop,M,F,A),functor(Pred,F,A)).   
 
+  
 
 strip_module(T,M,T):- var(T),!,context_module(M).
 strip_module(M:Cl,M,Cl):- !.

@@ -19,6 +19,7 @@ import SxxMachine.PrologMachineCopy;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 import SxxMachine.Undoable;
+import SxxMachine.Var;
 
 /**
  * Variable.<br>
@@ -34,7 +35,7 @@ import SxxMachine.Undoable;
  * @version 1.0
  */
 @SuppressWarnings({ "rawtypes", "unused" })
-public class VariableTerm extends Var implements Undoable, Term {
+public class VariableTerm extends AVar implements Undoable, Term, Var {
 
     @Override
     public Var toClone() {

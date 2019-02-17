@@ -11,13 +11,16 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import SxxMachine.Functor;
+import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
+import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
 import SxxMachine.PrologException;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 import SxxMachine.Undoable;
+import SxxMachine.Var;
 import SxxMachine.sxxtensions;
 
 @SuppressWarnings({ "rawtypes" })
@@ -31,7 +34,7 @@ abstract class PTerm extends KPTerm implements Term {
 
     @Override
     public boolean isSymbol() {
-        return isAtomString();
+        return isAtom();
     }
 
     protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
@@ -193,7 +196,7 @@ abstract class PTerm extends KPTerm implements Term {
      *         <code>false</code>.
      * @see Functor
      */
-    public boolean isAtomString() {
+    public boolean isAtom() {
         return false;
     }
 
@@ -208,7 +211,7 @@ abstract class PTerm extends KPTerm implements Term {
      * 
      * @return <code>true</code> if <code>this .isList()</code>, otherwise
      *         <code>false</code>. []/0 == false;
-     * @see ListTerm
+     * @see Compound
      */
     @Override
     public boolean isCons() {
@@ -290,12 +293,12 @@ abstract class PTerm extends KPTerm implements Term {
         throw new ArrayIndexOutOfBoundsException(-3);
     }
 
-    public ListTerm add(Term t) {
+    public Compound add(Term t) {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-5);
     }
 
-    public ListTerm append(Term t) {
+    public Compound append(Term t) {
         oopsy();
         throw new ArrayIndexOutOfBoundsException(-5);
     }
@@ -712,6 +715,7 @@ abstract class PTerm extends KPTerm implements Term {
         return false;
     }
 
+   
     public long longValue() {
         Term deref = this.drefAttrs();
         if (deref != this)
@@ -934,9 +938,9 @@ abstract class PTerm extends KPTerm implements Term {
     }
     //
 
-    public ListTerm asListTerm() {
+    public Compound asListTerm() {
         // TODO Auto-generated method stub
-        return (ListTerm) object();
+        return (Compound) object();
     }
 
     public LongTerm asIntegerTerm() {
@@ -954,7 +958,7 @@ abstract class PTerm extends KPTerm implements Term {
         return (VariableTerm) object();
     }
 
-    public LongTerm asLongTerm() {
+    public NumberTerm asLongTerm() {
         // TODO Auto-generated method stub
         return (LongTerm) object();
     }
@@ -977,5 +981,11 @@ abstract class PTerm extends KPTerm implements Term {
     public boolean unifyS(Functor f, Trail trail, Term... va) {
         // TODO Auto-generated method stub
         return unify(S(f, va), trail);
+    }
+
+    @Override
+    public boolean unify(Compound arg0, Trail trail) {
+        // TODO Auto-generated method stub
+        return unify((Term) arg0, trail);
     }
 }

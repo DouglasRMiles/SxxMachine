@@ -2,22 +2,27 @@ package SxxMachine.pterm;
 
 import static SxxMachine.pterm.TermData.CONS;
 
+import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
+import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
-import SxxMachine.Term; 
+import SxxMachine.Term;
 
 /**
  * Part of the Prolog Term hierarchy
  * 
  * @see Term
  */
-public abstract class Nonvar extends PTerm {
+public abstract class ANonvar extends PTerm implements Nonvar {
 
     // public boolean equalsTerm(Term ano2) {
     // return this==ano2;
     // }
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.INonVar#isNonvar()
+     */
     @Override
     public boolean isNonvar() {
         return true;
@@ -33,13 +38,21 @@ public abstract class Nonvar extends PTerm {
         return arg0(i);
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.INonVar#unifyArg(int, SxxMachine.Term, SxxMachine.Prog)
+     */
+    @Override
     public int unifyArg(int i, Term a, Prog p) {
         a = a.dref();
         return ArgDeRef(i).Unify_TO(a.dref(), p.getTrail()) ? 1 : 0;
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.INonVar#getIntArg(int)
+     */
+    @Override
     public int getIntArg(int i) {
-        return (int) Expect.asInt(ArgDeRef(i)).doubleValue();
+        return (int) TermData.asInt(ArgDeRef(i)).doubleValue();
     }
 
     @Override
@@ -64,7 +77,7 @@ public abstract class Nonvar extends PTerm {
     /**
      * returns a list representation of the object
      */
-    public Nonvar listify() {
+    public Compound listify() {
         return CONS(this, Prolog.Nil);
     }
 }

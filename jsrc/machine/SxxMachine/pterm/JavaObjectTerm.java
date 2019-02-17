@@ -184,7 +184,7 @@ public class JavaObjectTerm extends AtomicConst {
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomString()) || (anotherTerm.isCons())
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()) || (anotherTerm.isCons())
                 || (anotherTerm.isCompound()))
             return AFTER;
         if (!(anotherTerm.isJavaObject()))

@@ -49,40 +49,40 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/serialise.pl
 */
     // main(serialise/0,public)
-        final static IntegerTerm int_65 = Integer(65);
-        final static IntegerTerm int_66 = Integer(66);
-        final static IntegerTerm int_76 = Integer(76);
-        final static IntegerTerm int_69 = Integer(69);
-        final static IntegerTerm int_32 = Integer(32);
-        final static IntegerTerm int_87 = Integer(87);
-        final static IntegerTerm int_83 = Integer(83);
-        final static IntegerTerm int_73 = Integer(73);
-        final static IntegerTerm int_82 = Integer(82);
-    private static final Term L_serialise_0_s11 = CONS( int_65 ,  Prolog.Nil );
-    private static final Term L_serialise_0_s12 = CONS( int_66 , L_serialise_0_s11);
-    private static final Term L_serialise_0_s13 = CONS( int_76 , L_serialise_0_s12);
-    private static final Term L_serialise_0_s14 = CONS( int_69 , L_serialise_0_s13);
-    private static final Term L_serialise_0_s15 = CONS( int_32 , L_serialise_0_s14);
-    private static final Term L_serialise_0_s16 = CONS( int_87 , L_serialise_0_s15);
-    private static final Term L_serialise_0_s17 = CONS( int_65 , L_serialise_0_s16);
-    private static final Term L_serialise_0_s18 = CONS( int_83 , L_serialise_0_s17);
-    private static final Term L_serialise_0_s19 = CONS( int_32 , L_serialise_0_s18);
-    private static final Term L_serialise_0_s20 = CONS( int_73 , L_serialise_0_s19);
-    private static final Term L_serialise_0_s21 = CONS( int_32 , L_serialise_0_s20);
-    private static final Term L_serialise_0_s22 = CONS( int_69 , L_serialise_0_s21);
-    private static final Term L_serialise_0_s23 = CONS( int_82 , L_serialise_0_s22);
-    private static final Term L_serialise_0_s24 = CONS( int_69 , L_serialise_0_s23);
-    private static final Term L_serialise_0_s25 = CONS( int_32 , L_serialise_0_s24);
-    private static final Term L_serialise_0_s26 = CONS( int_73 , L_serialise_0_s25);
-    private static final Term L_serialise_0_s27 = CONS( int_32 , L_serialise_0_s26);
-    private static final Term L_serialise_0_s28 = CONS( int_83 , L_serialise_0_s27);
-    private static final Term L_serialise_0_s29 = CONS( int_65 , L_serialise_0_s28);
-    private static final Term L_serialise_0_s30 = CONS( int_87 , L_serialise_0_s29);
-    private static final Term L_serialise_0_s31 = CONS( int_32 , L_serialise_0_s30);
-    private static final Term L_serialise_0_s32 = CONS( int_69 , L_serialise_0_s31);
-    private static final Term L_serialise_0_s33 = CONS( int_76 , L_serialise_0_s32);
-    private static final Term L_serialise_0_s34 = CONS( int_66 , L_serialise_0_s33);
-    private static final Term L_serialise_0_s35 = CONS( int_65 , L_serialise_0_s34);
+        final static NumberTerm int_65 = Integer(65);
+        final static NumberTerm int_66 = Integer(66);
+        final static NumberTerm int_76 = Integer(76);
+        final static NumberTerm int_69 = Integer(69);
+        final static NumberTerm int_32 = Integer(32);
+        final static NumberTerm int_87 = Integer(87);
+        final static NumberTerm int_83 = Integer(83);
+        final static NumberTerm int_73 = Integer(73);
+        final static NumberTerm int_82 = Integer(82);
+    private static final Compound L_serialise_0_s11 = CONS( int_65 ,  Prolog.Nil );
+    private static final Compound L_serialise_0_s12 = CONS( int_66 , L_serialise_0_s11);
+    private static final Compound L_serialise_0_s13 = CONS( int_76 , L_serialise_0_s12);
+    private static final Compound L_serialise_0_s14 = CONS( int_69 , L_serialise_0_s13);
+    private static final Compound L_serialise_0_s15 = CONS( int_32 , L_serialise_0_s14);
+    private static final Compound L_serialise_0_s16 = CONS( int_87 , L_serialise_0_s15);
+    private static final Compound L_serialise_0_s17 = CONS( int_65 , L_serialise_0_s16);
+    private static final Compound L_serialise_0_s18 = CONS( int_83 , L_serialise_0_s17);
+    private static final Compound L_serialise_0_s19 = CONS( int_32 , L_serialise_0_s18);
+    private static final Compound L_serialise_0_s20 = CONS( int_73 , L_serialise_0_s19);
+    private static final Compound L_serialise_0_s21 = CONS( int_32 , L_serialise_0_s20);
+    private static final Compound L_serialise_0_s22 = CONS( int_69 , L_serialise_0_s21);
+    private static final Compound L_serialise_0_s23 = CONS( int_82 , L_serialise_0_s22);
+    private static final Compound L_serialise_0_s24 = CONS( int_69 , L_serialise_0_s23);
+    private static final Compound L_serialise_0_s25 = CONS( int_32 , L_serialise_0_s24);
+    private static final Compound L_serialise_0_s26 = CONS( int_73 , L_serialise_0_s25);
+    private static final Compound L_serialise_0_s27 = CONS( int_32 , L_serialise_0_s26);
+    private static final Compound L_serialise_0_s28 = CONS( int_83 , L_serialise_0_s27);
+    private static final Compound L_serialise_0_s29 = CONS( int_65 , L_serialise_0_s28);
+    private static final Compound L_serialise_0_s30 = CONS( int_87 , L_serialise_0_s29);
+    private static final Compound L_serialise_0_s31 = CONS( int_32 , L_serialise_0_s30);
+    private static final Compound L_serialise_0_s32 = CONS( int_69 , L_serialise_0_s31);
+    private static final Compound L_serialise_0_s33 = CONS( int_76 , L_serialise_0_s32);
+    private static final Compound L_serialise_0_s34 = CONS( int_66 , L_serialise_0_s33);
+    private static final Compound L_serialise_0_s35 = CONS( int_65 , L_serialise_0_s34);
 
 
 

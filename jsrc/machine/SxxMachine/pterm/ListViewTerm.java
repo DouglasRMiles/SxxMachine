@@ -1,5 +1,7 @@
 package SxxMachine.pterm;
 
+import static SxxMachine.pterm.TermData.V;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -181,7 +183,7 @@ public class ListViewTerm extends ListTerm implements Term {
 
     @Override
     public String fname() {
-        return Prolog.SYM_DOT.fname();
+        return Prolog.FUNCTOR_DOT_2.fname();
     }
 
     @Override
@@ -192,5 +194,12 @@ public class ListViewTerm extends ListTerm implements Term {
     @Override
     public int arityOrType() {
         return type();
+    }
+
+    public void init(int arity) {
+        argz = new Term[arity];
+        for (int i = 0; i < arity; i++) {
+            argz[i] = V();
+        }
     }
 }

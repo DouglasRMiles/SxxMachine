@@ -14,8 +14,9 @@
 	<classpathentry kind="src" path="jsrc-gen1-minimal/prolog"/>
 	<classpathentry kind="src" path="jsrc-gen1-minimal/tests"/>
 	<classpathentry kind="src" path="jsrc-gen2-testlib/bench"/>
-	<classpathentry kind="src" path="jsrc-gen2-testlib/library"/>
+	<classpathentry excluding="SxxMachine/" kind="src" path="jsrc-gen2-testlib/library"/>
 	<classpathentry kind="src" path="jsrc-gen2-testlib/tabling_dra"/>
+	<classpathentry kind="src" path="jsrc-gen2-testlib/tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

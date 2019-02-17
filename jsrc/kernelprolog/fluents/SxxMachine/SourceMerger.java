@@ -1,6 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Nonvar;
 import SxxMachine.pterm.Source;
 
 /**

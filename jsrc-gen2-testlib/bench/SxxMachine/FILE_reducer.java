@@ -34,12 +34,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(top/0,public)
         final static Functor FUNCTOR_fac_1 = F("fac",1);
-    private static final Term L_top_0_s4 = S( FUNCTOR_fac_1 ,  int_3 );
+    private static final Compound L_top_0_s4 = S( FUNCTOR_fac_1 ,  int_3 );
         final static Functor FUNCTOR_quick_1 = F("quick",1);
-    private static final Term L_top_0_s9 = CONS( int_2 ,  Prolog.Nil );
-    private static final Term L_top_0_s10 = CONS( int_1 , L_top_0_s9);
-    private static final Term L_top_0_s11 = CONS( int_3 , L_top_0_s10);
-    private static final Term L_top_0_s13 = S( FUNCTOR_quick_1 , L_top_0_s11);
+    private static final Compound L_top_0_s9 = CONS( int_2 ,  Prolog.Nil );
+    private static final Compound L_top_0_s10 = CONS( int_1 , L_top_0_s9);
+    private static final Compound L_top_0_s11 = CONS( int_3 , L_top_0_s10);
+    private static final Compound L_top_0_s13 = S( FUNCTOR_quick_1 , L_top_0_s11);
 
 
 
@@ -116,7 +116,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
+        if (! (a1 .isAtom())) {
             return m.fail();
         }
         //END inline expansion
@@ -991,25 +991,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
         final static Functor ATOM_$002A = SYM("*");
         final static Functor ATOM_$002F$002F = SYM("//");
         final static Functor ATOM_mod = SYM("mod");
-    private static final Term L_t_redex_2_s20 = CONS( ATOM_mod ,  Prolog.Nil );
-    private static final Term L_t_redex_2_s21 = CONS( ATOM_$002F$002F , L_t_redex_2_s20);
-    private static final Term L_t_redex_2_s22 = CONS( ATOM_$002A , L_t_redex_2_s21);
-    private static final Term L_t_redex_2_s23 = CONS( ATOM_$002D , L_t_redex_2_s22);
-    private static final Term L_t_redex_2_s24 = CONS( ATOM_$002B , L_t_redex_2_s23);
+    private static final Compound L_t_redex_2_s20 = CONS( ATOM_mod ,  Prolog.Nil );
+    private static final Compound L_t_redex_2_s21 = CONS( ATOM_$002F$002F , L_t_redex_2_s20);
+    private static final Compound L_t_redex_2_s22 = CONS( ATOM_$002A , L_t_redex_2_s21);
+    private static final Compound L_t_redex_2_s23 = CONS( ATOM_$002D , L_t_redex_2_s22);
+    private static final Compound L_t_redex_2_s24 = CONS( ATOM_$002B , L_t_redex_2_s23);
         final static Functor ATOM_$003C = SYM("<");
         final static Functor ATOM_$003E = SYM(">");
         final static Functor ATOM_$003D$003C = SYM("=<");
         final static Functor ATOM_$003E$003D = SYM(">=");
         final static Functor ATOM_$003D$005C$003D = SYM("=\\=");
         final static Functor ATOM_$003D$003A$003D = SYM("=:=");
-    private static final Term L_t_redex_2_s31 = CONS( ATOM_$003D$003A$003D ,  Prolog.Nil );
-    private static final Term L_t_redex_2_s32 = CONS( ATOM_$003D$005C$003D , L_t_redex_2_s31);
-    private static final Term L_t_redex_2_s33 = CONS( ATOM_$003E$003D , L_t_redex_2_s32);
-    private static final Term L_t_redex_2_s34 = CONS( ATOM_$003D$003C , L_t_redex_2_s33);
-    private static final Term L_t_redex_2_s35 = CONS( ATOM_$003E , L_t_redex_2_s34);
-    private static final Term L_t_redex_2_s36 = CONS( ATOM_$003C , L_t_redex_2_s35);
+    private static final Compound L_t_redex_2_s31 = CONS( ATOM_$003D$003A$003D ,  Prolog.Nil );
+    private static final Compound L_t_redex_2_s32 = CONS( ATOM_$003D$005C$003D , L_t_redex_2_s31);
+    private static final Compound L_t_redex_2_s33 = CONS( ATOM_$003E$003D , L_t_redex_2_s32);
+    private static final Compound L_t_redex_2_s34 = CONS( ATOM_$003D$003C , L_t_redex_2_s33);
+    private static final Compound L_t_redex_2_s35 = CONS( ATOM_$003E , L_t_redex_2_s34);
+    private static final Compound L_t_redex_2_s36 = CONS( ATOM_$003C , L_t_redex_2_s35);
         final static Functor ATOM_$003D = SYM("=");
-    private static final Term L_t_redex_2_s38 = CONS( ATOM_$002D ,  Prolog.Nil );
+    private static final Compound L_t_redex_2_s38 = CONS( ATOM_$002D ,  Prolog.Nil );
 
 
 
@@ -2800,7 +2800,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/reducer.pl
 */
     // main(t_vars/2,public)
-    private static final Term L_t_vars_2_s2 = CONS( Prolog.Nil ,  Prolog.Nil );
+    private static final Compound L_t_vars_2_s2 = CONS( Prolog.Nil ,  Prolog.Nil );
 
 
 

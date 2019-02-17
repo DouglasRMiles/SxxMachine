@@ -8,7 +8,8 @@ import SxxMachine.HashDict;
 import SxxMachine.IO;
 import SxxMachine.KPTrail;
 import SxxMachine.Prolog;
-import SxxMachine.Term; 
+import SxxMachine.Term;
+import SxxMachine.Var; 
 
 //!depends
 /**
@@ -40,7 +41,7 @@ public class Clause extends StructureTerm {
      * Builds a clause given its head and its body
      */
     public Clause(Term head, Term body) {
-        super(Prolog.SYM_NECK, head, body);
+        super(Prolog.FUNCTOR_NECK_2, head, body);
     }
 
     /**
@@ -142,7 +143,7 @@ public class Clause extends StructureTerm {
         Term h = c.getHead();
         Term t = c.getBody();
         if (t.isConj())
-            return h + ":-" + ((StructureTerm) Expect.asConj(t)).conjToString();
+            return h + ":-" + ((StructureTerm) TermData.asConj(t)).conjToString();
         return h.pprint() + ":-" + t.pprint();
     }
 
@@ -194,7 +195,7 @@ public class Clause extends StructureTerm {
             Object X = e.next();
             if (X instanceof String) {
                 Var V = (Var) dict.get(X);
-                long occNb = Expect.asInt((Term) dict.get(V)).longValue();
+                long occNb = TermData.asInt((Term) dict.get(V)).longValue();
                 String s = (occNb < 2 && replaceAnonymous) ? "_" : (String) X;
                 // bug: occNb not accurate when adding artif. '[]' head
                 V.DO_Unify(new PseudoVar(s), trail);
@@ -251,7 +252,7 @@ public class Clause extends StructureTerm {
     public final Term getFirst() {
         Term body = getBody();
         if (body.isConj())
-            return Expect.asConj(body).car().dref();
+            return TermData.asConj(body).car().dref();
         else if (body.isTrueProc())
             return null;
         else
@@ -269,7 +270,7 @@ public class Clause extends StructureTerm {
     public final Term getRest() {
         Term body = getBody();
         if (body.isConj())
-            return Expect.asConj(body).cdr().dref();
+            return TermData.asConj(body).cdr().dref();
         else
             return Prolog.True;
     }
@@ -286,7 +287,7 @@ public class Clause extends StructureTerm {
         if (y.isTrueProc())
             return x; // comment out if using getState
         if (x.isConj()) {
-            final Term asConj = Expect.asConj(x);
+            final Term asConj = TermData.asConj(x);
             Term curr = asConj.car().dref();
             Term cont = appendConj(asConj.cdr(), y);
             // curr.getState(this,cont);

@@ -1,6 +1,6 @@
 package SxxMachine;
 
-public interface IFluent {
+public interface Fluent extends Term {
 
     Term toClone();
 

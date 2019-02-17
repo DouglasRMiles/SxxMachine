@@ -17,13 +17,16 @@ import SxxMachine.pterm.TermData;
 public class PrologClassLoader extends ClassLoader {
 
     static {
+        Prolog.startLevel = 1;
         bootpreds.loadFile();
         sxxtensions.loadFile();
-        FILE_builtins.loadPreds();
-        FILE_swi_supp.loadPreds();
+        FILE_builtins.loadPreds();       
         FILE_cafeteria.loadPreds();
         FILE_io.loadPreds();
         FILE_system.loadPreds();
+        FILE_swi_supp.loadPreds();
+      //  FILE_dra.loadPreds();
+        Prolog.startLevel = 2;
     }
     // private final static Logger logger = 
     // Logger.getLogger(PrologClassLoader.class.getName());

@@ -52,11 +52,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
         final static Functor ATOM_m = SYM("m");
         final static Functor ATOM_u = SYM("u");
         final static Functor ATOM_i = SYM("i");
-    private static final Term L_mu_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final Term L_mu_0_s6 = CONS( ATOM_i , L_mu_0_s5);
-    private static final Term L_mu_0_s7 = CONS( ATOM_i , L_mu_0_s6);
-    private static final Term L_mu_0_s8 = CONS( ATOM_u , L_mu_0_s7);
-    private static final Term L_mu_0_s9 = CONS( ATOM_m , L_mu_0_s8);
+    private static final Compound L_mu_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Compound L_mu_0_s6 = CONS( ATOM_i , L_mu_0_s5);
+    private static final Compound L_mu_0_s7 = CONS( ATOM_i , L_mu_0_s6);
+    private static final Compound L_mu_0_s8 = CONS( ATOM_u , L_mu_0_s7);
+    private static final Compound L_mu_0_s9 = CONS( ATOM_m , L_mu_0_s8);
 
 
 
@@ -82,11 +82,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 */
     // main(theorem/3,public)
-    private static final Term L_theorem_3_s4 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final Term L_theorem_3_s5 = CONS( ATOM_m , L_theorem_3_s4);
+    private static final Compound L_theorem_3_s4 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Compound L_theorem_3_s5 = CONS( ATOM_m , L_theorem_3_s4);
         final static Functor ATOM_a = SYM("a");
-    private static final Term L_theorem_3_s7 = CONS( ATOM_a , L_theorem_3_s5);
-    private static final Term L_theorem_3_s8 = CONS(L_theorem_3_s7,  Prolog.Nil );
+    private static final Compound L_theorem_3_s7 = CONS( ATOM_a , L_theorem_3_s5);
+    private static final Compound L_theorem_3_s8 = CONS(L_theorem_3_s7,  Prolog.Nil );
         final static Functor FUNCTOR_$002D_2 = F("-",2);
 
 
@@ -288,9 +288,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/mu.pl
 */
     // main(rule1/2,public)
-    private static final Term L_rule1_2_s3 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final Term L_rule1_2_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final Term L_rule1_2_s6 = CONS( ATOM_i , L_rule1_2_s5);
+    private static final Compound L_rule1_2_s3 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Compound L_rule1_2_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Compound L_rule1_2_s6 = CONS( ATOM_i , L_rule1_2_s5);
 
 
 

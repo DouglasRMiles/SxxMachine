@@ -432,7 +432,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
         final static Functor ATOM_$0021 = SYM("!");
         final static Functor FUNCTOR_not_1 = F("not",1);
         final static Functor ATOM_fail = SYM("fail");
-    private static final Term L_is_disj_2_s9 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
+    private static final Compound L_is_disj_2_s9 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
         final static Functor FUNCTOR_$005C$003D_2 = F("\\=",2);
         final static Functor FUNCTOR_$003D_2 = F("=",2);
@@ -1782,8 +1782,8 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/flatten.pl
 */
     // main(inst_vars/1,public)
-        final static IntegerTerm int_65 = Integer(65);
-    private static final Term L_inst_vars_1_s3 = CONS( int_65 ,  Prolog.Nil );
+        final static NumberTerm int_65 = Integer(65);
+    private static final Compound L_inst_vars_1_s3 = CONS( int_65 ,  Prolog.Nil );
 
 
 

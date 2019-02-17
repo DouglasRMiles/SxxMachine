@@ -1,78 +1,40 @@
-package SxxMachine.pterm;
+package SxxMachine;
 
-/**
- * The superclass of classes for integers and floating point numbers.
- *
- * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
- * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
- * @version 1.0
- */
-public abstract class NumberTerm extends AtomicConst {
+public interface NumberTerm extends Atomic {
 
-  
-    final Number nvalue;
+    Object value();
 
-    public NumberTerm(Number n) {
-        nvalue = n;
-    }
+    NumberTerm toClone();
 
-    abstract public Object value();
+    boolean isFloat();
 
-    @Override
-    public NumberTerm toClone() {
-        return this;
-    }
+    String fname();
 
-    @Override
-    abstract public boolean isFloat();
+    int arityOrType();
 
-    @Override
-    abstract public String fname();
+    int termHashCodeImpl();
 
-    @Override
-    abstract public int arityOrType();
+    NumberTerm functor();
 
-    @Override
-    public int termHashCodeImpl() {
-        return value().hashCode();
-    }
+    String pprint();
 
-    @Override
-    public NumberTerm functor() {
-        return this;
-    }
+    void toStringImpl(int printFlags, StringBuilder sb);
 
-    @Override
-    abstract public String pprint();
+    boolean isNumber();
 
-    @Override
-    public void toStringImpl(int printFlags, StringBuilder sb) {
-        sb.append(pprint());
-    }
-
-    @Override
-    public boolean isNumber() {
-        return true;
-    }
-
-    @Override
-    public boolean isNonvar() {
-        return true;
-    }
+    boolean isNonvar();
 
     /**
      * Returns the numeric value represented by this object after conversion to type
      * <code>int</code>.
      */
-    @Override
-    abstract public int intValue();
+    int intValue();
 
     /**
      * Returns the numeric value represented by this object after conversion to type
      * <code>long</code>.
      */
-    @Override
-    abstract public long longValue();
+    long longValue();
 
     /**
      * Returns the numeric value represented by this object after conversion to type
@@ -91,163 +53,161 @@ public abstract class NumberTerm extends AtomicConst {
      *         this object is numerically greater than the argument
      *         <code>NumberTerm</code>.
      */
-    abstract public int arithCompareTo(NumberTerm t);
+    int arithCompareTo(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>abs(this)</code>. */
-    abstract public NumberTerm abs();
+    NumberTerm abs();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>acos(this)</code>. */
-    abstract public NumberTerm acos();
+    NumberTerm acos();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this + t)</code>. */
-    abstract public NumberTerm add(NumberTerm t);
+    NumberTerm add(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>(this &amp; t)</code>.
      */
-    abstract public NumberTerm and(NumberTerm t);
+    NumberTerm and(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>asin(this)</code>. */
-    abstract public NumberTerm asin();
+    NumberTerm asin();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>tan(this)</code>. */
-    abstract public NumberTerm atan();
+    NumberTerm atan();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>ceil(this)</code>. */
-    abstract public NumberTerm ceil();
+    NumberTerm ceil();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>cos(this)</code>. */
-    abstract public NumberTerm cos();
+    NumberTerm cos();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this / t)</code>. */
-    abstract public NumberTerm divide(NumberTerm t);
+    NumberTerm divide(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>exp(this)</code>. */
-    abstract public NumberTerm exp();
+    NumberTerm exp();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is the float-integer-part of
      * <code>this</code>.
      */
-    abstract public NumberTerm floatIntPart();
+    NumberTerm floatIntPart();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is the float-fractional-part of
      * <code>this</code>.
      */
-    abstract public NumberTerm floatFractPart();
+    NumberTerm floatFractPart();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>floor(this)</code>.
      */
-    abstract public NumberTerm floor();
+    NumberTerm floor();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is
      * <code>(int)(this / t)</code>.
      */
-    abstract public NumberTerm intDivide(NumberTerm t);
+    NumberTerm intDivide(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>log(this)</code>. */
-    abstract public NumberTerm log();
+    NumberTerm log();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>max(this, t)</code>.
      */
-    abstract public NumberTerm max(NumberTerm t);
+    NumberTerm max(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>min(this, t)</code>.
      */
-    abstract public NumberTerm min(NumberTerm t);
+    NumberTerm min(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>(this mod t)</code>.
      */
-    abstract public NumberTerm mod(NumberTerm t);
+    NumberTerm mod(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this * t)</code>. */
-    abstract public NumberTerm multiply(NumberTerm t);
+    NumberTerm multiply(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(- this)</code>. */
-    abstract public NumberTerm negate();
+    NumberTerm negate();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(~ this)</code>. */
-    abstract public NumberTerm not();
+    NumberTerm not();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this | t)</code>. */
-    abstract public NumberTerm or(NumberTerm t);
+    NumberTerm or(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is
      * <code>(this<sup>t</sup>)</code>.
      */
-    abstract public NumberTerm pow(NumberTerm t);
+    NumberTerm pow(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>rint(this)</code>. */
-    abstract public NumberTerm rint();
+    NumberTerm rint();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>round(this)</code>.
      */
-    abstract public NumberTerm round();
+    NumberTerm round();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is
      * <code>(this &lt;&lt; t)</code>.
      */
-    abstract public NumberTerm shiftLeft(NumberTerm t);
+    NumberTerm shiftLeft(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>(this >> t)</code>.
      */
-    abstract public NumberTerm shiftRight(NumberTerm t);
+    NumberTerm shiftRight(NumberTerm t);
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>signum(this)</code>.
      */
-    abstract public NumberTerm signum();
+    NumberTerm signum();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>sin(this)</code>. */
-    abstract public NumberTerm sin();
+    NumberTerm sin();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>sqrt(this)</code>. */
-    abstract public NumberTerm sqrt();
+    NumberTerm sqrt();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this - t)</code>. */
-    abstract public NumberTerm subtract(NumberTerm t);
+    NumberTerm subtract(NumberTerm t);
 
     /** Returns a <code>NumberTerm</code> whose value is <code>tan(this)</code>. */
-    abstract public NumberTerm tan();
+    NumberTerm tan();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is
      * <code>toDegrees(this)</code>.
      */
-    abstract public NumberTerm toDegrees();
+    NumberTerm toDegrees();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is <code>(double)(this)</code>.
      */
-    abstract public NumberTerm toFloat();
+    NumberTerm toFloat();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is
      * <code>toRadians(this)</code>.
      */
-    abstract public NumberTerm toRadians();
+    NumberTerm toRadians();
 
     /**
      * Returns a <code>NumberTerm</code> whose value is the truncate of
      * <code>this</code>.
      */
-    abstract public NumberTerm truncate();
+    NumberTerm truncate();
 
     /** Returns a <code>NumberTerm</code> whose value is <code>(this ^ t)</code>. */
-    abstract public NumberTerm xor(NumberTerm t);
+    NumberTerm xor(NumberTerm t);
 
-    @Override
-    public final boolean isImmutable() {
-        return true;
-    }
+    boolean isImmutable();
+
 }

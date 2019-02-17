@@ -3,16 +3,22 @@ package SxxMachine.pterm;
 import SxxMachine.Prog;
 import SxxMachine.Term;
 import SxxMachine.Undoable;
+import SxxMachine.Var;
 
-abstract public class Sink extends Fluent implements Undoable {
+abstract public class Sink extends AFluent implements Undoable, Var {
 
-	public Sink(Prog p) {
-		super(p);
-	}
+    @Override
+    public boolean unbound() {
+        return true;
+    }
 
-	abstract public int putElement(Term T);
+    public Sink(Prog p) {
+        super(p);
+    }
 
-	public Term collect() {
-		return null;
-	}
+    abstract public int putElement(Term T);
+
+    public Term collect() {
+        return null;
+    }
 }

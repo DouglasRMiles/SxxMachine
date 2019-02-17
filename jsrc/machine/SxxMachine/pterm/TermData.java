@@ -2,10 +2,16 @@ package SxxMachine.pterm;
 
 import java.math.BigInteger;
 
+import SxxMachine.CharReader;
+import SxxMachine.Compound;
+import SxxMachine.Functor;
+import SxxMachine.Nonvar;
+import SxxMachine.NumberTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.PredicateEncoder;
 import SxxMachine.Prolog;
+import SxxMachine.PrologFlags;
 import SxxMachine.Term;
 import SxxMachine.Token;
 
@@ -128,11 +134,11 @@ abstract public class TermData {
 
     }
 
-    public static Term S(String string, Term... s3) {
+    public static Compound S(String string, Term... s3) {
         return new StructureTerm(string, s3);
     }
 
-    public static Term S(SxxMachine.Functor f, Term... s3) {
+    public static Compound S(SxxMachine.Functor f, Term... s3) {
         return new StructureTerm(f, s3);
     }
 
@@ -149,14 +155,14 @@ abstract public class TermData {
     // //return new StructureTerm(ListTerm.SYM_DOT, _car, _cdr);
     // }
 
-    public static ListTerm CONS(Term _car, Term _cdr) {
+    public static Compound CONS(Term _car, Term _cdr) {
         // if(false) return Cons(_car, _cdr);
-        return (ListTerm) S(Prolog.SYM_DOT, _car, _cdr);
+        return S(Prolog.FUNCTOR_DOT_2, _car, _cdr);
     }
 
     /** Returns a Prolog atom for the given name. */
     public static SxxMachine.Functor SYM(String _name) {
-        return SymbolTerm.intern(_name, 0);
+        return SymbolTerm.intern(_name.intern(), 0);
     }
 
     /** Returns a Prolog functor for the given name and arity. */
@@ -259,12 +265,12 @@ abstract public class TermData {
         return new ErrorTerm(error, _functor, _args);
     }
 
-    public static ListTerm LIST(Term a1, Term... items) {
+    public static Compound LIST(Term a1, Term... items) {
         int len = items.length;
         if (len == 0) {
             return CONS(a1, Prolog.Nil);
         }
-        ListTerm t = CONS(items[len - 1], Prolog.Nil);
+        Compound t = CONS(items[len - 1], Prolog.Nil);
         for (int i = len - 2; i >= 0; i--) {
             t = CONS(items[i], t);
         }
@@ -276,7 +282,7 @@ abstract public class TermData {
     }
 
     public static Term AND(Term a1, Term a2) {
-        return StructureTerm.createCons(Prolog.SYM_CONJ.fname(), a1, a2);
+        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.fname(), a1, a2);
     }
 
     /**
@@ -327,7 +333,7 @@ abstract public class TermData {
         if (!(obj0 instanceof Term))
             return false;
         Term obj = (Term) obj0;
-        return obj.isVar() || obj.isInteger() || obj.isLong() || obj.isDouble() || obj.isAtomString() || obj.isCons()
+        return obj.isVar() || obj.isInteger() || obj.isLong() || obj.isDouble() || obj.isAtom() || obj.isCons()
                 || obj.isCompound() || obj.isJavaObject() || obj.isClosure();
     }
 
@@ -340,16 +346,21 @@ abstract public class TermData {
         while (!(Cs.isNil())) {
             if (!(Cs.isCons()))
                 return null;
-            Nonvar head = (Nonvar) Expect.asCons(Cs).ArgDeRef(0);
-
-            if (!(head.isNumber()))
-                return null;
-            char c = (char) Expect.asInt(head).longValue();
+            final Compound asCons = TermData.asCons(Cs);
+            Nonvar head = (Nonvar) asCons.ArgDeRef(0);
+            char c = asChar(head);
             s.append(c);
-            Cs = (Nonvar) Expect.asCons(Cs).ArgDeRef(1);
+            Cs = (Nonvar) asCons.ArgDeRef(1);
         }
 
         return s.toString();
+    }
+
+    private static char asChar(Nonvar head) {
+        if (head.isNumber())
+            return (char) head.longValue();
+        final String fname = head.fname();
+        return fname.charAt(fname.length() - 1);
     }
 
     public static void soopsy() {
@@ -359,6 +370,9 @@ abstract public class TermData {
 
     /** Returns a Prolog atom for the given character. */
     public static Term CHAR(char c) {
+        if (PrologFlags.current.getDoubleQuotes().contentEquals("codes")) {
+            return Integer(c);
+        }
         if (0 <= c && c <= 127)
             return SYM(Character.toString(c));
         else
@@ -382,6 +396,50 @@ abstract public class TermData {
 
     public static void gc() {
         SymbolTerm.atom_gc();
+    }
+
+    public static NumberTerm asInt(Term i) {
+        // TODO Auto-generated method stub
+        return i.asLongTerm();
+    }
+
+    public static Functor asConst(Term i) {
+        // TODO Auto-generated method stub
+        return i.asConst();
+    }
+
+    public static Compound asConj(Term i) {
+        // TODO Auto-generated method stub
+        return (StructureTerm) i.asStructureTerm();
+    }
+
+    public static Compound asCons(Term i) {
+        // TODO Auto-generated method stub
+        return (StructureTerm) i.asListTerm();
+    }
+
+    public static NumberTerm asNum(Term i) {
+        // TODO Auto-generated method stub
+        return i.asNumberTerm();
+    }
+
+    public static Compound asStruct(Term i) {
+        // TODO Auto-generated method stub
+        return (StructureTerm) i.asStructureTerm();
+    }
+
+    public final static Nonvar the(Term X) {
+        return (null == X) ? (Nonvar) Prolog.aNo : StructureTerm.S("the", X);
+    }
+
+    public static CharReader asCharReader(Term i) {
+        // TODO Auto-generated method stub
+        return (CharReader) i.toValue();
+    }
+
+    public static Term createStructureTerm(String name, int arity) {
+        // TODO Auto-generated method stub
+        return new StructureTerm(name, arity);
     }
 
 }

@@ -12,68 +12,73 @@ import SxxMachine.pterm.TermData;
  */
 public class CharReader extends Source {
 
-	@Override
-	public boolean isCharReader() {
-		return true;
-	}
+    @Override
+    public CharReader toValue() {
+        return this;
+    }
 
-	public Reader reader;
+    @Override
+    public boolean isCharReader() {
+        return true;
+    }
 
-	public CharReader(Reader reader, Prog p) {
-		super(p);
-		this.reader = reader;
-	}
+    public Reader reader;
 
-	public CharReader(String f, Prog p) {
-		super(p);
-		makeReader(f);
-	}
+    public CharReader(Reader reader, Prog p) {
+        super(p);
+        this.reader = reader;
+    }
 
-	public CharReader(Term t, Prog p) {
-		super(p);
-		this.reader = new StringReader(t.pprint());
-	}
+    public CharReader(String f, Prog p) {
+        super(p);
+        makeReader(f);
+    }
 
-	public CharReader(Prog p) {
-		this(IO.input, p);
-	}
+    public CharReader(Term t, Prog p) {
+        super(p);
+        this.reader = new StringReader(t.pprint());
+    }
 
-	protected void makeReader(String f) {
-		this.reader = IO.url_or_file(f);
-	}
+    public CharReader(Prog p) {
+        this(IO.input, p);
+    }
 
-	@Override
-	public Term getElement() {
-		if (IO.input == reader) {
-			String s = IO.promptln(">:");
-			if (null == s || s.length() == 0)
-				return null;
-			return TermData.SYM(s);
-		}
+    protected void makeReader(String f) {
+        this.reader = IO.url_or_file(f);
+    }
 
-		if (null == reader)
-			return null;
-		int c = -1;
-		try {
-			c = reader.read();
-		} catch (IOException e) {
-		}
-		if (-1 == c) {
-			stop();
-			return null;
-		} else
-			return TermData.Long(c);
-	}
+    @Override
+    public Term getElement() {
+        if (IO.input == reader) {
+            String s = IO.promptln(">:");
+            if (null == s || s.length() == 0)
+                return null;
+            return TermData.SYM(s);
+        }
 
-	@Override
-	public void stop() {
-		if (null != reader && IO.input != reader) {
-			try {
-				reader.close();
-			} catch (IOException e) {
-			}
-			reader = null;
-		}
-	}
+        if (null == reader)
+            return null;
+        int c = -1;
+        try {
+            c = reader.read();
+        } catch (IOException e) {
+        }
+        if (-1 == c) {
+            stop();
+            return null;
+        } else
+            return TermData.Long(c);
+    }
+
+    @Override
+    public void stop() {
+        if (null != reader && IO.input != reader) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+            }
+            reader = null;
+        }
+    }
 
 }

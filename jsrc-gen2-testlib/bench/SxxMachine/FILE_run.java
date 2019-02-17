@@ -56,12 +56,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         final static Functor ATOM_Program = SYM("Program");
         final static Functor ATOM_Time = SYM("Time");
         final static Functor ATOM_GC = SYM("GC");
-    private static final Term L_run_2_s6 = CONS( ATOM_GC ,  Prolog.Nil );
-    private static final Term L_run_2_s7 = CONS( ATOM_Time , L_run_2_s6);
-    private static final Term L_run_2_s8 = CONS( ATOM_Program , L_run_2_s7);
+    private static final Compound L_run_2_s6 = CONS( ATOM_GC ,  Prolog.Nil );
+    private static final Compound L_run_2_s7 = CONS( ATOM_Time , L_run_2_s6);
+    private static final Compound L_run_2_s8 = CONS( ATOM_Program , L_run_2_s7);
         final static Functor ATOM_$007E$0060$003Dt$007E32$007C$007En = SYM("~`=t~32|~n");
         final static Functor FUNCTOR_total_3 = F("total",3);
-    private static final Term L_run_2_s13 = S( FUNCTOR_total_3 ,  int_0 ,  int_0 ,  int_0 );
+    private static final Compound L_run_2_s13 = S( FUNCTOR_total_3 ,  int_0 ,  int_0 ,  int_0 );
         final static Functor FUNCTOR_program_3 = F("program",3);
         final static Functor FUNCTOR_run_program_4 = F("run_program",4);
         final static Functor FUNCTOR_$002F_2 = F("/",2);
@@ -123,18 +123,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
     // main(compile_programs/0,public)
         final static Functor FUNCTOR_$002D_1 = F("-",1);
         final static Functor ATOM_singleton = SYM("singleton");
-    private static final Term L_compile_programs_0_s4 = S( FUNCTOR_$002D_1 ,  ATOM_singleton );
+    private static final Compound L_compile_programs_0_s4 = S( FUNCTOR_$002D_1 ,  ATOM_singleton );
         final static Functor FUNCTOR_program_2 = F("program",2);
         final static Functor FUNCTOR_load_files_2 = F("load_files",2);
         final static Functor FUNCTOR_module_colon_2 = F(":",2);
         final static Functor FUNCTOR_bench_1 = F("bench",1);
         final static Functor FUNCTOR_silent_1 = F("silent",1);
-    private static final Term L_compile_programs_0_s12 = S( FUNCTOR_silent_1 ,  Prolog.True );
+    private static final Compound L_compile_programs_0_s12 = S( FUNCTOR_silent_1 ,  Prolog.True );
         final static Functor FUNCTOR_if_1 = F("if",1);
         final static Functor ATOM_changed = SYM("changed");
-    private static final Term L_compile_programs_0_s16 = S( FUNCTOR_if_1 ,  ATOM_changed );
-    private static final Term L_compile_programs_0_s18 = CONS(L_compile_programs_0_s16,  Prolog.Nil );
-    private static final Term L_compile_programs_0_s19 = CONS(L_compile_programs_0_s12, L_compile_programs_0_s18);
+    private static final Compound L_compile_programs_0_s16 = S( FUNCTOR_if_1 ,  ATOM_changed );
+    private static final Compound L_compile_programs_0_s18 = CONS(L_compile_programs_0_s16,  Prolog.Nil );
+    private static final Compound L_compile_programs_0_s19 = CONS(L_compile_programs_0_s12, L_compile_programs_0_s18);
 
 
 
@@ -713,9 +713,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main(tune_count/2,public)
-        final static IntegerTerm int_100 = Integer(100);
+        final static NumberTerm int_100 = Integer(100);
         final static Functor FUNCTOR_$003C$003C_2 = F("<<",2);
-    private static final DoubleTerm sf4 = Float(0.5);
+    private static final NumberTerm sf4 = Float(0.5);
         final static Functor FUNCTOR_round_1 = F("round",1);
         final static Functor FUNCTOR_$002A_2 = F("*",2);
 
@@ -802,39 +802,39 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         final static Functor ATOM_boyer = SYM("boyer");
         final static Functor ATOM_browse = SYM("browse");
         final static Functor ATOM_chat_parser = SYM("chat_parser");
-        final static IntegerTerm int_46 = Integer(46);
+        final static NumberTerm int_46 = Integer(46);
         final static Functor ATOM_crypt = SYM("crypt");
-        final static IntegerTerm int_868 = Integer(868);
+        final static NumberTerm int_868 = Integer(868);
         final static Functor ATOM_fast_mu = SYM("fast_mu");
-        final static IntegerTerm int_4819 = Integer(4819);
+        final static NumberTerm int_4819 = Integer(4819);
         final static Functor ATOM_flatten = SYM("flatten");
-        final static IntegerTerm int_8275 = Integer(8275);
+        final static NumberTerm int_8275 = Integer(8275);
         final static Functor ATOM_meta_qsort = SYM("meta_qsort");
-        final static IntegerTerm int_966 = Integer(966);
+        final static NumberTerm int_966 = Integer(966);
         final static Functor ATOM_mu = SYM("mu");
-        final static IntegerTerm int_6827 = Integer(6827);
+        final static NumberTerm int_6827 = Integer(6827);
         final static Functor ATOM_nreverse = SYM("nreverse");
-        final static IntegerTerm int_11378 = Integer(11378);
+        final static NumberTerm int_11378 = Integer(11378);
         final static Functor ATOM_poly_10 = SYM("poly_10");
-        final static IntegerTerm int_105 = Integer(105);
+        final static NumberTerm int_105 = Integer(105);
         final static Functor ATOM_prover = SYM("prover");
-        final static IntegerTerm int_6400 = Integer(6400);
+        final static NumberTerm int_6400 = Integer(6400);
         final static Functor ATOM_qsort = SYM("qsort");
-        final static IntegerTerm int_8445 = Integer(8445);
+        final static NumberTerm int_8445 = Integer(8445);
         final static Functor ATOM_queens_8 = SYM("queens_8");
-        final static IntegerTerm int_63 = Integer(63);
+        final static NumberTerm int_63 = Integer(63);
         final static Functor ATOM_query = SYM("query");
-        final static IntegerTerm int_1219 = Integer(1219);
+        final static NumberTerm int_1219 = Integer(1219);
         final static Functor ATOM_reducer = SYM("reducer");
-        final static IntegerTerm int_164 = Integer(164);
+        final static NumberTerm int_164 = Integer(164);
         final static Functor ATOM_sendmore = SYM("sendmore");
-        final static IntegerTerm int_44 = Integer(44);
+        final static NumberTerm int_44 = Integer(44);
         final static Functor ATOM_simple_analyzer = SYM("simple_analyzer");
-        final static IntegerTerm int_320 = Integer(320);
+        final static NumberTerm int_320 = Integer(320);
         final static Functor ATOM_tak = SYM("tak");
-        final static IntegerTerm int_35 = Integer(35);
+        final static NumberTerm int_35 = Integer(35);
         final static Functor ATOM_zebra = SYM("zebra");
-        final static IntegerTerm int_166 = Integer(166);
+        final static NumberTerm int_166 = Integer(166);
 
 
 
@@ -1232,7 +1232,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
         final static Functor FUNCTOR_seq_interleaved_1 = F("seq_interleaved",1);
         final static Functor ATOM_user = SYM("user");
         final static Functor ATOM_rni = SYM("rni");
-    private static final Term L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_user ,  ATOM_rni );
+    private static final Compound L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_user ,  ATOM_rni );
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
 
 
@@ -1830,7 +1830,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/run.pl
 */
     // main('$init'/0,public)
-    private static final Term L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_rni ,  int_0 );
+    private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_rni ,  int_0 );
 
 
 

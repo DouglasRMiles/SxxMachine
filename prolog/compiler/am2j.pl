@@ -249,15 +249,15 @@ combine3_1l([put_int(S,INTO)|More],List):- S> -19,S<26, must(symbol_to_name(S,Va
 
 combine3_1l([put_int(S,INTO)|More],[inline('@'(DECL))|List]):- integer(S), big_int(S), symbol_to_name(S,Var),
   am2j_subst(More,INTO,'@'(Var),List),!,
-  format(atom(DECL),'final static LongTerm ~w = Long("~w");',[Var,S]),!.
+  format(atom(DECL),'final static NumberTerm ~w = Long("~w");',[Var,S]),!.
 
 combine3_1l([put_int(S,INTO)|More],[inline('@'(DECL))|List]):- integer(S), long(S), symbol_to_name(S,Var),
   am2j_subst(More,INTO,'@'(Var),List),!,
-  format(atom(DECL),'final static LongTerm ~w = Long(~wL);',[Var,S]),!.
+  format(atom(DECL),'final static NumberTerm ~w = Long(~wL);',[Var,S]),!.
 
 combine3_1l([put_int(S,INTO)|More],[inline('@'(DECL))|List]):-  must(symbol_to_name(S,Var)),
   am2j_subst(More,INTO,'@'(Var),List),!,
-  format(atom(DECL),'final static IntegerTerm ~w = Integer(~w);',[Var,S]),!.
+  format(atom(DECL),'final static NumberTerm ~w = Integer(~w);',[Var,S]),!.
 
 combine3_1l([deref(Ri,Rj)|Rest],RestO):-
   until_end_of_proc(Rest,RealRest,Next),  
@@ -451,7 +451,7 @@ write_java0(put_int(I,X), _) :-
 	long(I),
 	!,
 	tab(4),
-	w('private static final LongTerm '),	
+	w('private static final NumberTerm '),	
         write_as_field_value(I),
         assertz(is_remembered(I,X)),
 	w(' = Long('),
@@ -461,7 +461,7 @@ write_java0(put_int(I,X), _) :-
 
 write_java0(put_int(I,X), _) :- !,
 	tab(4),
-	w('private static final /**/ IntegerTerm '),
+	w('private static final /**/ NumberTerm '),
    %write_as_field_value(I),
         write_reg(X),
          assertz(is_remembered(I,X)),
@@ -472,7 +472,7 @@ write_java0(put_int(I,X), _) :- !,
 	w(');'), nl.
 write_java0(put_float(F,X), _) :- !,
 	tab(4),
-	w('private static final DoubleTerm '),
+	w('private static final NumberTerm '),
 	write_reg(X),
 	w(' = Float('),
 	w(F),
@@ -486,7 +486,7 @@ write_java0(put_con(C,X), _) :- atomic(C),must((declare_symbol(X,C))),!.
 write_java0(put_con(C,X), _) :- !, must((declare_symbol(X,C))),!.
 write_java0(put_list(Xi,Xj,Xk), _) :- !,
 	(Xk = s(_) ->
-	    tab(4), w('private static final Term ')
+	    tab(4), w('private static final Compound ')
 	    ;
 	    tab(8)
 	),
@@ -498,7 +498,7 @@ write_java0(put_list(Xi,Xj,Xk), _) :- !,
 	w(');'), nl.
 write_java0(put_str(Xi,Y,Xj), _) :- !,
 	((Xj = s(_) ->
-	    (tab(4), w('private static final Term '))
+	    (tab(4), w('private static final Compound '))
 	    ;
 	    tab(8)
 	)),
@@ -559,7 +559,7 @@ write_java0(get_int(N,Xi,Xj), In) :- !,
 	tab(8),
 	w('} else if ('), write_reg(Xj), w('.isVar()){'), nl,
 	tab(12),
-	w('((VariableTerm) '), write_reg(Xj), w(').bind('),
+	w('((Var) '), write_reg(Xj), w(').bind('),
 	write_reg(Xi), w(', m.trail);'), nl,
 	tab(8),
 	% otherwise fail
@@ -578,7 +578,7 @@ write_java0(get_float(N,Xi,Xj), In) :- !,
 	tab(8),
 	w('if ('), write_reg(Xj), w(' .isDouble()){'), nl,
 	tab(12),
-	w('if (((DoubleTerm) '), write_reg(Xj), w(').doubleValue() != '),
+	w('if (((NumberTerm) '), write_reg(Xj), w(').doubleValue() != '),
 	w(N), w(')'), nl,
 	tab(16),
  	w('return m.fail();'), nl,
@@ -586,7 +586,7 @@ write_java0(get_float(N,Xi,Xj), In) :- !,
 	tab(8),
 	w('} else if ('), write_reg(Xj), w('.isVar()){'), nl,
 	tab(12),
-	w('((VariableTerm) '), write_reg(Xj), w(').bind('),
+	w('((Var) '), write_reg(Xj), w(').bind('),
 	write_reg(Xi), w(', m.trail);'), nl,
 	tab(8),
 	% otherwise fail
@@ -604,7 +604,7 @@ write_java0(get_con(_,Xi,Xj), In) :- !,
 	write_java0(deref(Xj,Xj), In),
 	% read mode
 	tab(8),
-	w('if ('), write_reg(Xj), w(' .isSymbol()){'), nl,
+	w('if ('), write_reg(Xj), w(' .isAtom()){'), nl,
 	tab(12),
 	w('if (! '),
 	write_reg(Xj), w('.equals('), write_reg(Xi),
@@ -615,7 +615,7 @@ write_java0(get_con(_,Xi,Xj), In) :- !,
 	tab(8),
 	w('} else if ('), write_reg(Xj), w('.isVar()){'), nl,
 	tab(12),
-	w('((VariableTerm) '), write_reg(Xj), w(').bind('),
+	w('((Var) '), write_reg(Xj), w(').bind('),
 	write_reg(Xi), w(', m.trail);'), nl,
 	tab(8),
 	% otherwise fail
@@ -722,9 +722,9 @@ write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _) :- !,
     write_if_method_call('x .isVar()', Lv),
     write_if_method_call('x .isCons()', Ll),
     write_if_method_call('x .isStructure()', Ls),
-    write_if_method_call('x .isSymbol()', Lc),
+    write_if_method_call('x .isAtom()', Lc),
     write_if_method_call('x .isInteger()', Li),
-    write_if_method_call('x .isDouble()', Lf),   
+    write_if_method_call('x .isConst()', Lf),   
     tab(12),
     w('return '), write_index(Lv), w('(m);'), nl,
 	tab(8),
@@ -1063,7 +1063,7 @@ write_inline0('$unify'(X,Y), _)         :- !, write_if_fail(op('!', unify(X,Y)),
 write_inline0('$not_unifiable'(X,Y), _) :- !,must( write_if_fail(unify(X,Y), [], 8)).
 % Type testing
 write_inline0(var(X), _)     :- !, write_if_fail(op('!', instanceof(X, 'VariableTerm')), [X], 8).
-write_inline0(atom(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'SymbolTerm')), [X], 8).
+write_inline0(atom(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'AtomTerm')), [X], 8).
 write_inline0(integer(X), _) :- !, write_if_fail(op('!', instanceof(X, 'IntegerTerm')), [X], 8).
 write_inline0(long(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'LongTerm')), [X], 8).
 write_inline0(float(X), _)   :- !, write_if_fail(op('!', instanceof(X, 'DoubleTerm')), [X], 8).
@@ -1084,10 +1084,10 @@ write_inline0(string(X), _) :- !, write_if_fail(op('!', @('isString'(X))), [X], 
 write_inline0(atomic(X), _) :- !, write_if_fail(op('!', @('isAtomicValue'(X))), [X], 8).
 % unused
 write_inline0(atomic(X), _) :- !,
-	NS = op('!', instanceof(X, 'SymbolTerm')),
+	NS = op('!', instanceof(X, 'AtomTerm')),
 	NI = op('!', instanceof(X, 'IntegerTerm')),
 	NL = op('!', instanceof(X, 'LongTerm')),
-	ND = op('!', instanceof(X, 'DoubleTerm')),
+	ND = op('!', instanceof(X, 'ConstTerm')),
 	write_if_fail(op('&&', NL, op('&&', NS, op('&&', NI, ND))) , [X], 8).
 
 write_inline0(java(X,Y), _) :- !,       

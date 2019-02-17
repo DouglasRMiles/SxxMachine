@@ -55,14 +55,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/derive.pl
         final static Functor FUNCTOR_$002A_2 = F("*",2);
         final static Functor FUNCTOR_$002B_2 = F("+",2);
         final static Functor ATOM_x = SYM("x");
-    private static final Term L_ops8_0_s6 = S( FUNCTOR_$002B_2 ,  ATOM_x ,  int_1 );
+    private static final Compound L_ops8_0_s6 = S( FUNCTOR_$002B_2 ,  ATOM_x ,  int_1 );
         final static Functor FUNCTOR_$005E_2 = F("^",2);
-    private static final Term L_ops8_0_s10 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_2 );
-    private static final Term L_ops8_0_s12 = S( FUNCTOR_$002B_2 , L_ops8_0_s10,  int_2 );
-    private static final Term L_ops8_0_s15 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_3 );
-    private static final Term L_ops8_0_s17 = S( FUNCTOR_$002B_2 , L_ops8_0_s15,  int_3 );
-    private static final Term L_ops8_0_s19 = S( FUNCTOR_$002A_2 , L_ops8_0_s12, L_ops8_0_s17);
-    private static final Term L_ops8_0_s21 = S( FUNCTOR_$002A_2 , L_ops8_0_s6, L_ops8_0_s19);
+    private static final Compound L_ops8_0_s10 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_2 );
+    private static final Compound L_ops8_0_s12 = S( FUNCTOR_$002B_2 , L_ops8_0_s10,  int_2 );
+    private static final Compound L_ops8_0_s15 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_3 );
+    private static final Compound L_ops8_0_s17 = S( FUNCTOR_$002B_2 , L_ops8_0_s15,  int_3 );
+    private static final Compound L_ops8_0_s19 = S( FUNCTOR_$002A_2 , L_ops8_0_s12, L_ops8_0_s17);
+    private static final Compound L_ops8_0_s21 = S( FUNCTOR_$002A_2 , L_ops8_0_s6, L_ops8_0_s19);
 
 
 
@@ -80,16 +80,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/derive.pl
 */
     // main(log10/0,public)
         final static Functor FUNCTOR_log_1 = F("log",1);
-    private static final Term L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
-    private static final Term L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
-    private static final Term L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
-    private static final Term L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
-    private static final Term L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
-    private static final Term L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
-    private static final Term L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
-    private static final Term L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
-    private static final Term L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
-    private static final Term L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
+    private static final Compound L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
+    private static final Compound L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
+    private static final Compound L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
+    private static final Compound L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
+    private static final Compound L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
+    private static final Compound L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
+    private static final Compound L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
+    private static final Compound L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
+    private static final Compound L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
+    private static final Compound L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
 
 
 
@@ -107,15 +107,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/derive.pl
 */
     // main(divide10/0,public)
         final static Functor FUNCTOR_$002F_2 = F("/",2);
-    private static final Term L_divide10_0_s4 = S( FUNCTOR_$002F_2 ,  ATOM_x ,  ATOM_x );
-    private static final Term L_divide10_0_s6 = S( FUNCTOR_$002F_2 , L_divide10_0_s4,  ATOM_x );
-    private static final Term L_divide10_0_s8 = S( FUNCTOR_$002F_2 , L_divide10_0_s6,  ATOM_x );
-    private static final Term L_divide10_0_s10 = S( FUNCTOR_$002F_2 , L_divide10_0_s8,  ATOM_x );
-    private static final Term L_divide10_0_s12 = S( FUNCTOR_$002F_2 , L_divide10_0_s10,  ATOM_x );
-    private static final Term L_divide10_0_s14 = S( FUNCTOR_$002F_2 , L_divide10_0_s12,  ATOM_x );
-    private static final Term L_divide10_0_s16 = S( FUNCTOR_$002F_2 , L_divide10_0_s14,  ATOM_x );
-    private static final Term L_divide10_0_s18 = S( FUNCTOR_$002F_2 , L_divide10_0_s16,  ATOM_x );
-    private static final Term L_divide10_0_s20 = S( FUNCTOR_$002F_2 , L_divide10_0_s18,  ATOM_x );
+    private static final Compound L_divide10_0_s4 = S( FUNCTOR_$002F_2 ,  ATOM_x ,  ATOM_x );
+    private static final Compound L_divide10_0_s6 = S( FUNCTOR_$002F_2 , L_divide10_0_s4,  ATOM_x );
+    private static final Compound L_divide10_0_s8 = S( FUNCTOR_$002F_2 , L_divide10_0_s6,  ATOM_x );
+    private static final Compound L_divide10_0_s10 = S( FUNCTOR_$002F_2 , L_divide10_0_s8,  ATOM_x );
+    private static final Compound L_divide10_0_s12 = S( FUNCTOR_$002F_2 , L_divide10_0_s10,  ATOM_x );
+    private static final Compound L_divide10_0_s14 = S( FUNCTOR_$002F_2 , L_divide10_0_s12,  ATOM_x );
+    private static final Compound L_divide10_0_s16 = S( FUNCTOR_$002F_2 , L_divide10_0_s14,  ATOM_x );
+    private static final Compound L_divide10_0_s18 = S( FUNCTOR_$002F_2 , L_divide10_0_s16,  ATOM_x );
+    private static final Compound L_divide10_0_s20 = S( FUNCTOR_$002F_2 , L_divide10_0_s18,  ATOM_x );
 
 
 

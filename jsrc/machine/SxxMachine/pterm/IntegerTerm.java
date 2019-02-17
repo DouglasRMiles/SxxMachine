@@ -4,6 +4,7 @@ import static SxxMachine.pterm.TermData.Float;
 
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
+import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.Term;
 import SxxMachine.Trail;
@@ -22,7 +23,7 @@ import SxxMachine.Trail;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class IntegerTerm extends LongTerm {
+class IntegerTerm extends LongTerm {
     /**
      * Holds an <code>int</code> value that this <code>IntegerTerm</code>
      * represents.
@@ -55,15 +56,6 @@ public class IntegerTerm extends LongTerm {
         }
     }
 
-    /**
-     * Returns the value of <code>intValue()</code>.
-     * 
-     * @see #intValue()
-     */
-    @Override
-    public Object value() {
-        return this.intValue();
-    }
 
     /* Term */
     @Override

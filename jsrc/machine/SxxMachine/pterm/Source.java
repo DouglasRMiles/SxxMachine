@@ -5,12 +5,20 @@ import static SxxMachine.pterm.TermData.CONS;
 import java.util.ArrayList;
 
 import SxxMachine.Copier;
+import SxxMachine.Compound;
+import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
-import SxxMachine.Undoable; 
+import SxxMachine.Undoable;
+import SxxMachine.Var;
 
-abstract public class Source extends Fluent implements Undoable {
+abstract public class Source extends AFluent implements Undoable, Var {
+
+    @Override
+    public boolean unbound() {
+        return false;
+    }
 
     public Source(Prog p) {
         super(p);
@@ -26,17 +34,17 @@ abstract public class Source extends Fluent implements Undoable {
         Term head = getElement();
         if (null == head)
             return (Nonvar) Prolog.Nil;
-        Nonvar l = CONS(head, Prolog.Nil);
-        Nonvar curr = l;
+        Compound l = CONS(head, Prolog.Nil);
+        Compound curr = l;
         for (;;) {
             head = getElement();
             if (null == head)
                 break;
-            Nonvar tail = CONS(head, Prolog.Nil);
+            Compound tail = CONS(head, Prolog.Nil);
             curr.setArg(1, tail);
             curr = tail;
         }
-        return l;
+        return l.toNonVar();
     }
 
     public Term toFun() {

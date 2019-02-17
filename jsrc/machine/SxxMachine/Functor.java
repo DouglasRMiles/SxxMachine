@@ -2,7 +2,7 @@ package SxxMachine;
 
 import java.lang.reflect.Method;
 
-public interface Functor extends NameArity, Term {
+public interface Functor extends NameArity, Atomic {
 
     int exec(Prog p);
 
@@ -45,7 +45,7 @@ public interface Functor extends NameArity, Term {
 
     int type();
 
-    boolean isAtomString();
+    boolean isAtom();
 
     /**
      * Returns the arity of this <code>SymbolTerm</code>.

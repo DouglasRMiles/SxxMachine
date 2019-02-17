@@ -3,7 +3,7 @@ package SxxMachine;
 import java.util.HashMap;
 
 import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Expect;
+import SxxMachine.pterm.TermData;
 
 /**
  * Initializes Prolog. Sets up shared data areas. Ensures that lib.class,
@@ -67,7 +67,7 @@ public class Init {
 			if (Names.isCompound()) {
 				Term NamedR = R.numbervars();
 				for (int j = 0; j < Names.arityOrType(); j++) {
-					IO.println(Expect.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));
+					IO.println(TermData.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));
 				}
 				// IO.println(";");
 				if (!moreAnswers(i)) {

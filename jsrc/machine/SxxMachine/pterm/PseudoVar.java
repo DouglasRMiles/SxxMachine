@@ -2,6 +2,7 @@ package SxxMachine.pterm;
 
 import SxxMachine.PrologException;
 import SxxMachine.Term;
+import SxxMachine.Var;
 
 /**
  * Special constants, used to Name variables
@@ -31,8 +32,7 @@ public class PseudoVar extends SymbolTerm.Dynamic {
 
     @Override
     public void toStringImpl(int printingFlags, StringBuilder sb) {
-        // TODO Auto-generated method stub
-        sb.append(toQuotedString());
+        sb.append(pprint());
     }
 
     @Override

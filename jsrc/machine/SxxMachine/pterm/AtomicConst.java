@@ -1,42 +1,43 @@
 package SxxMachine.pterm;
 
+import SxxMachine.Atomic;
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
 import SxxMachine.Term;
 
-abstract class AtomicConst extends Nonvar {
+abstract class AtomicConst extends ANonvar implements Atomic {
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#type()
+     */
     @Override
     abstract public int type();
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#arityOrType()
+     */
     @Override
     public int arityOrType() {
         return type();
     }
 
-    /**
-     * Adds a string representation of this <code>SystemObject</code> to given
-     * StringBuilder instance
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#toStringImpl(int, java.lang.StringBuilder)
      */
     @Override
     public void toStringImpl(int printFlags, StringBuilder sb) {
         sb.append(pprint());
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#isImmutable()
+     */
     @Override
     public boolean isImmutable() {
         return true;
     }
 
-    /**
-     * Checks <em>term equality</em> of two terms. The result is <code>true</code>
-     * if and only if the argument is an instance of <code>SystemObject</code>, and
-     * the pairs of goals in the two closures are <em>equal</em>.
-     * 
-     * @param obj
-     *            the object to compare with. This must be dereferenced.
-     * @return <code>true</code> if the given object represents a closure equivalent
-     *         to this <code>SystemObject</code>, false otherwise.
-     * @see #compareTo
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#equalsTerm(SxxMachine.Term, SxxMachine.OpVisitor)
      */
 
     @Override
@@ -44,6 +45,9 @@ abstract class AtomicConst extends Nonvar {
         return equalsIdentical(obj);
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IConst#pprint()
+     */
     @Override
     public String pprint() throws PrologException {
         return fname();

@@ -77,11 +77,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor ATOM_SxxMachine = SYM("SxxMachine");
         final static Functor FUNCTOR_$002F_2 = F("/",2);
         final static Functor ATOM_$0024leap_flag = SYM("$leap_flag");
-    private static final Term L_$cafeteria_init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024leap_flag ,  int_1 );
+    private static final Compound L_$cafeteria_init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024leap_flag ,  int_1 );
         final static Functor ATOM_$0024current_spypoint = SYM("$current_spypoint");
-    private static final Term L_$cafeteria_init_0_s10 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_spypoint ,  int_3 );
+    private static final Compound L_$cafeteria_init_0_s10 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_spypoint ,  int_3 );
         final static Functor ATOM_$0024current_leash = SYM("$current_leash");
-    private static final Term L_$cafeteria_init_0_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_leash ,  int_1 );
+    private static final Compound L_$cafeteria_init_0_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$0024current_leash ,  int_1 );
         final static Functor FUNCTOR_module_colon_2 = F(":",2);
         final static Functor FUNCTOR_$0024leap_flag_1 = F("$leap_flag",1);
         final static Functor FUNCTOR_$0024current_leash_1 = F("$current_leash",1);
@@ -90,20 +90,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor FUNCTOR_$0024consulted_package_1 = F("$consulted_package",1);
         final static Functor FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate",3);
         final static Functor ATOM_no = SYM("no");
-    private static final Term L_$cafeteria_init_0_s23 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final Term L_$cafeteria_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s23);
+    private static final Compound L_$cafeteria_init_0_s23 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Compound L_$cafeteria_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s23);
         final static Functor ATOM_call = SYM("call");
-    private static final Term L_$cafeteria_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
-    private static final Term L_$cafeteria_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s28);
+    private static final Compound L_$cafeteria_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
+    private static final Compound L_$cafeteria_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s28);
         final static Functor ATOM_exit = SYM("exit");
-    private static final Term L_$cafeteria_init_0_s33 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
-    private static final Term L_$cafeteria_init_0_s35 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s33);
+    private static final Compound L_$cafeteria_init_0_s33 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
+    private static final Compound L_$cafeteria_init_0_s35 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s33);
         final static Functor ATOM_redo = SYM("redo");
-    private static final Term L_$cafeteria_init_0_s38 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
-    private static final Term L_$cafeteria_init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s38);
+    private static final Compound L_$cafeteria_init_0_s38 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
+    private static final Compound L_$cafeteria_init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s38);
         final static Functor ATOM_fail = SYM("fail");
-    private static final Term L_$cafeteria_init_0_s43 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
-    private static final Term L_$cafeteria_init_0_s45 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s43);
+    private static final Compound L_$cafeteria_init_0_s43 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
+    private static final Compound L_$cafeteria_init_0_s45 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$cafeteria_init_0_s43);
 
 
 
@@ -181,7 +181,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor ATOM_off = SYM("off");
         final static Functor ATOM_info = SYM("info");
         final static Functor ATOM_debug = SYM("debug");
-    private static final Term L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
+    private static final Compound L_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fcafeteria$002Epl_1_s5 = CONS( ATOM_debug ,  Prolog.Nil );
 
 
 
@@ -768,8 +768,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 */
     // main('$give_answers_with_prompt'/1,non-(public))
         final static Functor ATOM_$0020$003F$0020 = SYM(" ? ");
-        final static IntegerTerm int_59 = Integer(59);
-    private static final Term L_$give_answers_with_prompt_1_s4 = CONS( int_59 ,  Prolog.Nil );
+        final static NumberTerm int_59 = Integer(59);
+    private static final Compound L_$give_answers_with_prompt_1_s4 = CONS( int_59 ,  Prolog.Nil );
 
 
 
@@ -1127,7 +1127,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
+        if (! (a1 .isAtom())) {
             return m.fail();
         }
         //END inline expansion
@@ -1146,11 +1146,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor FUNCTOR_file_name_1 = F("file_name",1);
         final static Functor ATOM_consulting = SYM("consulting");
         final static Functor ATOM_$002E$002E$002E = SYM("...");
-    private static final Term L_$consult_1_s7 = CONS( ATOM_$002E$002E$002E ,  Prolog.Nil );
+    private static final Compound L_$consult_1_s7 = CONS( ATOM_$002E$002E$002E ,  Prolog.Nil );
         final static Functor ATOM_runtime = SYM("runtime");
         final static Functor ATOM_consulted = SYM("consulted");
         final static Functor ATOM_msec = SYM("msec");
-    private static final Term L_$consult_1_s11 = CONS( ATOM_msec ,  Prolog.Nil );
+    private static final Compound L_$consult_1_s11 = CONS( ATOM_msec ,  Prolog.Nil );
 
 
 
@@ -1313,16 +1313,16 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$trace_init'/0,non-(public))
-    private static final Term L_$trace_init_0_s8 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final Term L_$trace_init_0_s10 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s8);
-    private static final Term L_$trace_init_0_s13 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
-    private static final Term L_$trace_init_0_s15 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s13);
-    private static final Term L_$trace_init_0_s18 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
-    private static final Term L_$trace_init_0_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s18);
-    private static final Term L_$trace_init_0_s23 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
-    private static final Term L_$trace_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s23);
-    private static final Term L_$trace_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
-    private static final Term L_$trace_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s28);
+    private static final Compound L_$trace_init_0_s8 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Compound L_$trace_init_0_s10 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s8);
+    private static final Compound L_$trace_init_0_s13 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_call );
+    private static final Compound L_$trace_init_0_s15 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s13);
+    private static final Compound L_$trace_init_0_s18 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_exit );
+    private static final Compound L_$trace_init_0_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s18);
+    private static final Compound L_$trace_init_0_s23 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_redo );
+    private static final Compound L_$trace_init_0_s25 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s23);
+    private static final Compound L_$trace_init_0_s28 = S( FUNCTOR_$0024current_leash_1 ,  ATOM_fail );
+    private static final Compound L_$trace_init_0_s30 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$trace_init_0_s28);
 
 
 
@@ -1546,8 +1546,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor ATOM_$002B = SYM("+");
         final static Functor ATOM_module_colon = SYM(":");
         final static Functor FUNCTOR_print_procedure_box_5 = F("print_procedure_box",5);
-    private static final Term L_print_procedure_box_5_s12 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
-    private static final Term L_print_procedure_box_5_s14 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_print_procedure_box_5_s12);
+    private static final Compound L_print_procedure_box_5_s12 = S( FUNCTOR_$0024leap_flag_1 ,  ATOM_no );
+    private static final Compound L_print_procedure_box_5_s14 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_print_procedure_box_5_s12);
         final static Functor ATOM_$0020 = SYM(" ");
 
     // private final Term arg5;
@@ -1794,7 +1794,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl'/3,non-(public))
-        final static IntegerTerm int_99 = Integer(99);
+        final static NumberTerm int_99 = Integer(99);
 
 
 
@@ -1891,12 +1891,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$debug_option'/2,non-(public))
-        final static IntegerTerm int_97 = Integer(97);
-        final static IntegerTerm int_108 = Integer(108);
-        final static IntegerTerm int_43 = Integer(43);
-        final static IntegerTerm int_45 = Integer(45);
-        final static IntegerTerm int_63 = Integer(63);
-        final static IntegerTerm int_104 = Integer(104);
+        final static NumberTerm int_97 = Integer(97);
+        final static NumberTerm int_108 = Integer(108);
+        final static NumberTerm int_43 = Integer(43);
+        final static NumberTerm int_45 = Integer(45);
+        final static NumberTerm int_63 = Integer(63);
+        final static NumberTerm int_104 = Integer(104);
 
 
 
@@ -2295,10 +2295,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
         final static Functor ATOM_is = SYM("is");
         final static Functor ATOM_already = SYM("already");
         final static Functor ATOM_added = SYM("added");
-    private static final Term L_$assert_spypoint_1_s11 = CONS( ATOM_added ,  Prolog.Nil );
-    private static final Term L_$assert_spypoint_1_s12 = CONS( ATOM_already , L_$assert_spypoint_1_s11);
-    private static final Term L_$assert_spypoint_1_s13 = CONS( ATOM_is , L_$assert_spypoint_1_s12);
-    private static final Term L_$assert_spypoint_1_s15 = CONS( ATOM_is , L_$assert_spypoint_1_s11);
+    private static final Compound L_$assert_spypoint_1_s11 = CONS( ATOM_added ,  Prolog.Nil );
+    private static final Compound L_$assert_spypoint_1_s12 = CONS( ATOM_already , L_$assert_spypoint_1_s11);
+    private static final Compound L_$assert_spypoint_1_s13 = CONS( ATOM_is , L_$assert_spypoint_1_s12);
+    private static final Compound L_$assert_spypoint_1_s15 = CONS( ATOM_is , L_$assert_spypoint_1_s11);
         final static Functor ATOM_warning = SYM("warning");
         final static Functor ATOM_matching = SYM("matching");
         final static Functor ATOM_predicate = SYM("predicate");
@@ -2504,8 +2504,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 */
     // main('$retract_spypoint'/1,non-(public))
         final static Functor ATOM_removed = SYM("removed");
-    private static final Term L_$retract_spypoint_1_s10 = CONS( ATOM_removed ,  Prolog.Nil );
-    private static final Term L_$retract_spypoint_1_s11 = CONS( ATOM_is , L_$retract_spypoint_1_s10);
+    private static final Compound L_$retract_spypoint_1_s10 = CONS( ATOM_removed ,  Prolog.Nil );
+    private static final Compound L_$retract_spypoint_1_s11 = CONS( ATOM_is , L_$retract_spypoint_1_s10);
 
 
 
@@ -2613,7 +2613,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
     // main(leash/1,public)
         final static Functor FUNCTOR_type_1 = F("type",1);
         final static Functor ATOM_leash_specifier = SYM("leash_specifier");
-    private static final Term L_leash_1_s4 = S( FUNCTOR_type_1 ,  ATOM_leash_specifier );
+    private static final Compound L_leash_1_s4 = S( FUNCTOR_type_1 ,  ATOM_leash_specifier );
         final static Functor FUNCTOR_leash_1 = F("leash",1);
 
 
@@ -2675,8 +2675,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
 */
     // main('$leash'/1,non-(public))
         final static Functor ATOM_leashing = SYM("leashing");
-    private static final Term L_$leash_1_s8 = CONS( ATOM_leashing ,  Prolog.Nil );
-    private static final Term L_$leash_1_s9 = CONS( ATOM_no , L_$leash_1_s8);
+    private static final Compound L_$leash_1_s8 = CONS( ATOM_leashing ,  Prolog.Nil );
+    private static final Compound L_$leash_1_s9 = CONS( ATOM_no , L_$leash_1_s8);
         final static Functor ATOM_stopping = SYM("stopping");
 
 
@@ -2924,7 +2924,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria
     // main(listing/1,public)
         final static Functor FUNCTOR_listing_1 = F("listing",1);
         final static Functor ATOM_predicate_indicator = SYM("predicate_indicator");
-    private static final Term L_listing_1_s9 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
+    private static final Compound L_listing_1_s9 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
 
 
 
@@ -3021,7 +3021,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
+        if (! (a1 .isAtom())) {
             return m.fail();
         }
         //END inline expansion
@@ -3084,7 +3084,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (! (a2 .isSymbol())) {
+        if (! (a2 .isAtom())) {
             return m.fail();
         }
         //END inline expansion
@@ -3113,7 +3113,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/cafeteria.pl
 */
     // main('$listing'/2,non-(public))
-    private static final Term L_$listing_2_s5 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
+    private static final Compound L_$listing_2_s5 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
 
 
 
@@ -3200,7 +3200,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(3))
         a3 = a3.dref();
-        if (! (a3 .isSymbol())) {
+        if (! (a3 .isAtom())) {
             return m.fail();
         }
         //END inline expansion

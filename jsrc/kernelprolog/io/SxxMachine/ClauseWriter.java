@@ -1,6 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Expect;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -20,9 +19,8 @@ public class ClauseWriter extends CharWriter {
         if (null == writer)
             return 0;
         String s = null;
-        if ((t.isCompound()) && "$string".equals(Expect.asStruct(t).fname())) {
-            Term Xs = Expect.asConst(Expect.asStruct(t).ArgDeRef(0));
-            s = TermData.charsToString(Xs);
+        if (t.isCompound() && "$string".equals(t.fname())) {
+            s = TermData.charsToString(t.ArgDeRef(0));
         } else {
             s = t.pprint();
         }

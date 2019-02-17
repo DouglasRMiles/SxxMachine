@@ -5,12 +5,18 @@ import static SxxMachine.pterm.TermData.SYM;
 import static SxxMachine.pterm.TermData.V;
 import static SxxMachine.pterm.TermData.isQuoted;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import SxxMachine.Functor;
+import SxxMachine.IO;
+import SxxMachine.ISTerm;
+import SxxMachine.Init;
+import SxxMachine.Builtins;
+import SxxMachine.Compound;
 import SxxMachine.InternalException;
 import SxxMachine.KPTrail;
 import SxxMachine.NameArity;
@@ -43,23 +49,45 @@ import SxxMachine.sxxtensions;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class StructureTerm extends ListTerm implements Cloneable, NameArity {
+class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, ISTerm {
+
+    /**
+     * Executed when a builtin is called. Needs to be overriden. Returns a run-time
+     * warning if this is forgotten.
+     */
+
+    public int exec(Prog p) {
+        //IO.println("this should be overriden, prog="+p.to);  
+        Method m = getBuiltin();
+        try {
+            if (m == null)
+                return -1;
+            final Object invoke = m.invoke(null, p, this);
+            return (int) (Integer) invoke;
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public Method getBuiltin() {
+        return Init.builtinDict.getBuiltin((NameArity) this);
+    }
 
     @Override
     public String getKey() {
-        if (true)
-            return super.getKey();
-        return fname() + "/" + arityOrType();
+        return fname() + "/" + arity();
     }
 
     static public final Term getHead(Term T) {
         T = T.dref();
-        return (T.isConj()) ? Expect.asConj(T).ArgDeRef(0) : T;
+        return (T.isConj()) ? TermData.asConj(T).ArgDeRef(0) : T;
     }
 
     static public final Term getTail(Term T) {
         T = T.dref();
-        return (T.isConj()) ? Expect.asConj(T).ArgDeRef(1) : Prolog.True;
+        return (T.isConj()) ? TermData.asConj(T).ArgDeRef(1) : Prolog.True;
     }
 
     // public Term argz[];
@@ -128,7 +156,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
     @Override
     public final int getIntArg(int i) {
-        return (int) Expect.asInt(ArgDeRef(i)).doubleValue();
+        return (int) TermData.asInt(ArgDeRef(i)).doubleValue();
     }
 
     @Override
@@ -170,7 +198,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
                 break;
             } else if (t.isCons()) {
                 h = t.ArgDeRef(0);
-                t = Expect.asCons(t).ArgDeRef(1);
+                t = TermData.asCons(t).ArgDeRef(1);
                 s.append("," + watchNull(h));
             } else {
                 s.append("|" + watchNull(t) + "]");
@@ -189,8 +217,8 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
                 s.append("," + t);
                 break;
             } else {
-                h = Expect.asConj(t).argz[0].dref();
-                t = Expect.asConj(t).argz[1].dref();
+                h = TermData.asConj(t).car().dref();
+                t = TermData.asConj(t).cdr().dref();
                 s.append("," + watchNull(h));
             }
         }
@@ -211,7 +239,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
     @Override
     public boolean bind(Term that, KPTrail trail) {
-        return super.bind(that, trail) && argz.length == Expect.asStruct(that).argz.length;
+        return super.bind(that, trail) && argz.length == TermData.asStruct(that).arity();
     }
 
     @Override
@@ -272,12 +300,12 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
     }
 
     @Override
-    public Nonvar listify() {
-        ListTerm l = CONS(SYM(fname()), Prolog.Nil);
-        ListTerm curr = l;
+    public Compound listify() {
+        Compound l = CONS(SYM(fname()), Prolog.Nil);
+        Compound curr = l;
         for (int i = 0; i < argz.length; i++) {
-            ListTerm tail = CONS(argz[i], Prolog.Nil);
-            curr.argz[1] = tail;
+            Compound tail = CONS(argz[i], Prolog.Nil);
+            curr.setCdr(tail);
             curr = tail;
         }
         return l;
@@ -323,7 +351,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
     @Override
     public boolean isCons() {
-        return argz.length == 2 && (functor() == Prolog.SYM_DOT);
+        return argz.length == 2 && (functor() == Prolog.FUNCTOR_DOT_2);
     }
 
     @Override
@@ -802,11 +830,11 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
         Term functor, functor2;
         Term[] args2;
         int arity2, rc;
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomString()))
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()))
             return AFTER;
         if ((anotherTerm.isCons())) {
             ListTerm t = (ListTerm) anotherTerm;
-            functor2 = Prolog.SYM_DOT;
+            functor2 = Prolog.FUNCTOR_DOT_2;
             args2 = new Term[2];
             args2[0] = t.car();
             args2[1] = t.cdr();
@@ -863,6 +891,7 @@ public class StructureTerm extends ListTerm implements Cloneable, NameArity {
 
     @Override
     public void setMethod(Method b) {
+        ((NameArity) functor()).setMethod(b);
     }
 
 }

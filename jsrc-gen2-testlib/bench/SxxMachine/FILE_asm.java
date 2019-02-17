@@ -52,17 +52,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/asm.pl
     // main(setup_determinates/0,public)
         final static Functor FUNCTOR_$002F_2 = F("/",2);
         final static Functor ATOM_cmp_error = SYM("cmp_error");
-    private static final Term L_setup_determinates_0_s5 = S( FUNCTOR_$002F_2 ,  ATOM_cmp_error ,  int_1 );
+    private static final Compound L_setup_determinates_0_s5 = S( FUNCTOR_$002F_2 ,  ATOM_cmp_error ,  int_1 );
         final static Functor ATOM_name = SYM("name");
-    private static final Term L_setup_determinates_0_s9 = S( FUNCTOR_$002F_2 ,  ATOM_name ,  int_2 );
+    private static final Compound L_setup_determinates_0_s9 = S( FUNCTOR_$002F_2 ,  ATOM_name ,  int_2 );
         final static Functor ATOM_length = SYM("length");
-    private static final Term L_setup_determinates_0_s12 = S( FUNCTOR_$002F_2 ,  ATOM_length ,  int_2 );
+    private static final Compound L_setup_determinates_0_s12 = S( FUNCTOR_$002F_2 ,  ATOM_length ,  int_2 );
         final static Functor ATOM_asm_hash_value = SYM("asm_hash_value");
-    private static final Term L_setup_determinates_0_s15 = S( FUNCTOR_$002F_2 ,  ATOM_asm_hash_value ,  int_2 );
-    private static final Term L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15,  Prolog.Nil );
-    private static final Term L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
-    private static final Term L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
-    private static final Term L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
+    private static final Compound L_setup_determinates_0_s15 = S( FUNCTOR_$002F_2 ,  ATOM_asm_hash_value ,  int_2 );
+    private static final Compound L_setup_determinates_0_s17 = CONS(L_setup_determinates_0_s15,  Prolog.Nil );
+    private static final Compound L_setup_determinates_0_s18 = CONS(L_setup_determinates_0_s12, L_setup_determinates_0_s17);
+    private static final Compound L_setup_determinates_0_s19 = CONS(L_setup_determinates_0_s9, L_setup_determinates_0_s18);
+    private static final Compound L_setup_determinates_0_s20 = CONS(L_setup_determinates_0_s5, L_setup_determinates_0_s19);
 
 
 

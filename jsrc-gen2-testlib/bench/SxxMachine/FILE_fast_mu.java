@@ -36,11 +36,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
         final static Functor ATOM_m = SYM("m");
         final static Functor ATOM_u = SYM("u");
         final static Functor ATOM_i = SYM("i");
-    private static final Term L_top_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final Term L_top_0_s6 = CONS( ATOM_i , L_top_0_s5);
-    private static final Term L_top_0_s7 = CONS( ATOM_i , L_top_0_s6);
-    private static final Term L_top_0_s8 = CONS( ATOM_u , L_top_0_s7);
-    private static final Term L_top_0_s9 = CONS( ATOM_m , L_top_0_s8);
+    private static final Compound L_top_0_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Compound L_top_0_s6 = CONS( ATOM_i , L_top_0_s5);
+    private static final Compound L_top_0_s7 = CONS( ATOM_i , L_top_0_s6);
+    private static final Compound L_top_0_s8 = CONS( ATOM_u , L_top_0_s7);
+    private static final Compound L_top_0_s9 = CONS( ATOM_m , L_top_0_s8);
 
 
 
@@ -58,8 +58,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(theorem/1,public)
         final static Functor FUNCTOR_$002D_2 = F("-",2);
-    private static final Term L_theorem_1_s6 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final Term L_theorem_1_s7 = CONS( ATOM_m , L_theorem_1_s6);
+    private static final Compound L_theorem_1_s6 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Compound L_theorem_1_s7 = CONS( ATOM_m , L_theorem_1_s6);
 
 
 
@@ -300,9 +300,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/fast_mu.pl
 */
     // main(rule/11,public)
-    private static final Term L_rule_11_s3 = CONS( ATOM_i ,  Prolog.Nil );
-    private static final Term L_rule_11_s5 = CONS( ATOM_u ,  Prolog.Nil );
-    private static final Term L_rule_11_s6 = CONS( ATOM_i , L_rule_11_s5);
+    private static final Compound L_rule_11_s3 = CONS( ATOM_i ,  Prolog.Nil );
+    private static final Compound L_rule_11_s5 = CONS( ATOM_u ,  Prolog.Nil );
+    private static final Compound L_rule_11_s6 = CONS( ATOM_i , L_rule_11_s5);
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11;
 

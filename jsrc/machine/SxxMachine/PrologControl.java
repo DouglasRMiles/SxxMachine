@@ -13,6 +13,7 @@ import java.util.Set;
 
 import SxxMachine.pterm.HashtableOfTerm;
 import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.TermData.StaticPred;
 
 /**
  * Tracks current evaluation goal and results.
@@ -40,6 +41,7 @@ public abstract class PrologControl {
     private PrintStream userOuput = System.out;
 
     private PrintStream userError = System.err;
+    private int steps;
 
     /** Constructs a new <code>PrologControl</code>. */
     public PrologControl() {
@@ -223,6 +225,8 @@ public abstract class PrologControl {
         PrologLogger logger = engine.getLogger();
         Operation code = this.code;
         Operation nextCode = this.code;
+        System.err.flush();
+
         try {
             if (isOutter) {
                 engine.init(this.userInput, this.userOuput, this.userError);
@@ -241,6 +245,20 @@ public abstract class PrologControl {
                         engine.pred = code;
                         //code.toString();
                         nextCode = code.exec(engine);
+                        if (false) {
+                            Class c = code.getClass();
+                            steps++;
+                            if (c == StaticPred.class) {
+                                System.err.println(" O: " + code);
+                            } else {
+                                if (!c.getName().contains("$$Lambda$")) {
+                                    Class c2 = c.getDeclaringClass();
+                                    c2 = c.getSuperclass();
+                                    System.err.println(" CC: " + code);
+                                }
+
+                            }
+                        }
                         if (nextCode == code || nextCode == null) {
                             break;
                         }
@@ -262,7 +280,7 @@ public abstract class PrologControl {
                         throw e;
                     }
                 }
-                if (engine.halt != 1) {
+                if (engine.halt > 0) {
                     throw new HaltException(engine.halt - 1);
                 }
             } while (code != null);
@@ -290,7 +308,7 @@ public abstract class PrologControl {
         // pendingGoals = SymbolTerm.intern("[]");
         // code = Prolog.Call1;
 
-        if (engine.halt != 1)
+        if (engine.halt != 0)
             return after;
         Term pendingGoals = engine.popPendingGoals();
         if (pendingGoals == Prolog.Nil)

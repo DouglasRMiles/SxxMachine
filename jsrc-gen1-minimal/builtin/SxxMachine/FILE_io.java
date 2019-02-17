@@ -94,7 +94,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
         final static Functor FUNCTOR_domain_2 = F("domain",2);
         final static Functor ATOM_term = SYM("term");
         final static Functor ATOM_stream_property = SYM("stream_property");
-    private static final Term L_stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_term ,  ATOM_stream_property );
+    private static final Compound L_stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_term ,  ATOM_stream_property );
         final static Functor FUNCTOR_stream_property_2 = F("stream_property",2);
 
 
@@ -187,7 +187,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/io.pl
     // main('$stream_property'/2,non-(public))
         final static Functor FUNCTOR_$002C_2 = F(",",2);
         final static Functor ATOM_stream = SYM("stream");
-    private static final Term L_$stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_stream ,  ATOM_stream );
+    private static final Compound L_$stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_stream ,  ATOM_stream );
 
 
 

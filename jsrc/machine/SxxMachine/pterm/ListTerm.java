@@ -11,13 +11,20 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import SxxMachine.Functor;
+import SxxMachine.Compound;
+import SxxMachine.Nonvar;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 
 @SuppressWarnings({ "rawtypes" })
-abstract public class ListTerm extends Nonvar {
+abstract class ListTerm extends ANonvar implements Compound {
+
+    @Override
+    public Nonvar toNonVar() {
+        return this;
+    }
 
     @Override
     public Term ArgNoDeRef(int i) {
@@ -104,20 +111,18 @@ abstract public class ListTerm extends Nonvar {
         return !(t.isCons()) && !(p.isCons()) && p.unify(t, trail);
     }
 
-    /**
-     * Sets the value to <code>car</code>.
-     * 
-     * @see #car
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#setCar(SxxMachine.Term)
      */
+    @Override
     public void setCar(Term t) {
         this.argz[0] = t;
     }
 
-    /**
-     * Sets the value to <code>cdr</code>.
-     * 
-     * @see #cdr
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#setCdr(SxxMachine.Term)
      */
+    @Override
     public void setCdr(Term t) {
         this.argz[1] = t;
     }
@@ -144,7 +149,7 @@ abstract public class ListTerm extends Nonvar {
         }
         Deque<ListTerm> stack = new ArrayDeque<ListTerm>();
         Term p = this;
-        while (p.isCons() && !p.asListTerm().immutable) {
+        while (p.isCons() && !p.asListTerm().isImmutable()) {
             ListTerm lt = (ListTerm) p;
             stack.push(lt);
             p = lt.cdr().dref();
@@ -174,12 +179,12 @@ abstract public class ListTerm extends Nonvar {
 
     @Override
     public Term functor() {
-        return Prolog.SYM_DOT;
+        return Prolog.FUNCTOR_DOT_2;
     }
 
     @Override
     public String fname() {
-        return Prolog.SYM_DOT.fname();
+        return Prolog.FUNCTOR_DOT_2.fname();
     }
 
     @Override
@@ -187,6 +192,9 @@ abstract public class ListTerm extends Nonvar {
         return nth0(nth);
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#nth0(int)
+     */
     @Override
     public Term nth0(int nth) {
         Term t = this;
@@ -286,7 +294,7 @@ abstract public class ListTerm extends Nonvar {
     @Override
     public int termHashCodeImpl() {
         int h = 1;
-        h = 31 * h + Prolog.SYM_DOT.termHashCode();
+        h = 31 * h + Prolog.FUNCTOR_DOT_2.termHashCode();
         h = 31 * h + this.car().dref().termHashCode();
         h = 31 * h + cdr().dref().termHashCode();
         return h;
@@ -368,15 +376,15 @@ abstract public class ListTerm extends Nonvar {
      */
     @Override
     public int compareTo(Term otherterm) { // otherterm must be dereferenced.
-        if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isAtomString()))
+        if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isAtom()))
             return AFTER;
         if ((otherterm.isCompound())) {
             int arity = otherterm.arity();
             if (2 != arity)
                 return (2 - arity);
             Term functor = (otherterm).functor();
-            if (!Prolog.SYM_DOT.equalsTerm(functor, StrictEquals))
-                return Prolog.SYM_DOT.compareTo(functor);
+            if (!Prolog.FUNCTOR_DOT_2.equalsTerm(functor, StrictEquals))
+                return Prolog.FUNCTOR_DOT_2.compareTo(functor);
         }
         Term[] args = new Term[2];
         if ((otherterm.isCons())) {
@@ -398,18 +406,19 @@ abstract public class ListTerm extends Nonvar {
         return EQUAL;
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#isImmutable()
+     */
     @Override
     public boolean isImmutable() {
         return this.immutable;
     }
 
-    /**
-     * adds given term to the end of the list. Default implementation recreates the
-     * whole list and returns reference to new list, because the original list can
-     * be immutable.
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#add(SxxMachine.Term)
      */
     @Override
-    public ListTerm add(Term term) {
+    public Compound add(Term term) {
         if (isImmutable()) {
             return addToCopy(term);
         }
@@ -418,18 +427,22 @@ abstract public class ListTerm extends Nonvar {
             return cdr.add(term);
         if (cdr == Prolog.Nil) {
             // proper list
-            ListTerm acdr = CONS(term, cdr);
+            Compound acdr = CONS(term, cdr);
             argz[1] = acdr;
 
         } else {
             // improper list?
-            ListTerm acdr = CONS(term, cdr);
+            Compound acdr = CONS(term, cdr);
             argz[1] = acdr;
         }
         return this;
     }
 
-    public ListTerm addToCopy(Term term) {
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#addToCopy(SxxMachine.Term)
+     */
+    @Override
+    public Compound addToCopy(Term term) {
         Deque<Term> stack = new ArrayDeque<Term>();
         Term t = this;
         while (t.isCons()) {
@@ -441,11 +454,14 @@ abstract public class ListTerm extends Nonvar {
         while (!stack.isEmpty()) {
             t = CONS(stack.pop(), t);
         }
-        return (ListTerm) t;
+        return (Compound) t;
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.IStruct#append(SxxMachine.Term)
+     */
     @Override
-    public ListTerm append(Term term) {
+    public Compound append(Term term) {
         if (isImmutable()) {
             throw new NoSuchElementException("isImmutable: " + this);
             // return addToCopy(term);
@@ -455,12 +471,12 @@ abstract public class ListTerm extends Nonvar {
             return cdr.add(term);
         if (cdr == Prolog.Nil) {
             // proper list
-            ListTerm acdr = CONS(term, cdr);
+            Compound acdr = CONS(term, cdr);
             argz[1] = acdr;
             return acdr;
         } else {
             // improper list?
-            ListTerm acdr = CONS(cdr, term);
+            Compound acdr = CONS(cdr, term);
             argz[1] = acdr;
             return acdr;
         }

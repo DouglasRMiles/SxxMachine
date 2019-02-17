@@ -5,13 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Expect;
-import SxxMachine.pterm.Fluent;
-import SxxMachine.pterm.LongTerm;
-import SxxMachine.pterm.Nonvar;
 import SxxMachine.pterm.Sink;
 import SxxMachine.pterm.Source;
-import SxxMachine.pterm.StructureTerm;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -160,13 +155,22 @@ public class Builtins extends HashDict {
      * Creates a new builtin
      */
     public Nonvar asBuiltin(NameArity S) {
-        String key = S.getKey();
-        Method b = (Method) this.get(key);
+        Method b = getBuiltin(S);
         if (b != null) {
             b.setAccessible(true);
             S.setMethod(b);
         }
         return (Nonvar) S;
+    }
+
+    /**
+     * @param S
+     * @return
+     */
+    public Method getBuiltin(NameArity S) {
+        String key = S.getKey();
+        Method b = (Method) this.get(key);
+        return b;
     }
 
     public static Nonvar toConstBuiltin(NameArity c) {
@@ -187,19 +191,24 @@ public class Builtins extends HashDict {
         return B;
     }
 
-    public static Term toFunBuiltin(StructureTerm f) {
+    public static Term toFunBuiltin(Compound f) {
         if (f.fname().equals(":-") && f.arityOrType() == 2) {
-            return new Clause(f.argz[0], f.argz[1]);
+            return new Clause(f.car(), f.cdr());
         }
         if (f.fname().equals(",") && f.arityOrType() == 2) {
-            return StructureTerm.createCons(",", f.argz[0], f.argz[1]);
+            return TermData.AND(f.car(), f.cdr());
         }
-        Term B = Init.builtinDict.asBuiltin(f).asStructureTerm();
+        final Nonvar asBuiltin = Init.builtinDict.asBuiltin((NameArity) f);
+        Term B = (Compound) asBuiltin.asStructureTerm();
         if (null == B)
             return f;
-        // B = B.funClone();
+        //B = B.toClone();
         // B.Arguments = f.Arguments;
         return B;
+    }
+
+    public static Method getBuiltin(Compound f) {
+        return Init.builtinDict.getBuiltin((NameArity) f);
     }
 
 } // end Builtins
@@ -245,7 +254,7 @@ final class system extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String cmd = Expect.asConst(thiz.ArgDeRef(0)).fname();
+        String cmd = TermData.asConst(thiz.ArgDeRef(0)).fname();
         return IO.system(cmd);
     }
 }
@@ -263,9 +272,9 @@ final class file_char_reader extends FunBuiltin {
         Term I = thiz.ArgDeRef(0);
         Fluent f;
         if (I.isCharReader())
-            f = new CharReader(Expect.asCharReader(I).reader, p);
+            f = new CharReader(TermData.asCharReader(I).reader, p);
         else {
-            String s = Expect.asConst(I).fname();
+            String s = TermData.asConst(I).fname();
             f = new CharReader(s, p);
         }
         return thiz.unifyArg(1, f, p);
@@ -285,9 +294,9 @@ final class file_clause_reader extends FunBuiltin {
         Term I = thiz.ArgDeRef(0);
         Fluent f;
         if (I.isCharReader())
-            f = new ClauseReader(Expect.asCharReader(I).reader, p);
+            f = new ClauseReader(TermData.asCharReader(I).reader, p);
         else {
-            String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
+            String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
             f = new ClauseReader(s, p);
         }
         return thiz.unifyArg(1, f, p);
@@ -304,7 +313,7 @@ final class char_file_writer extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
         Fluent f = new CharWriter(s, p);
         return thiz.unifyArg(1, f, p);
     }
@@ -320,7 +329,7 @@ final class clause_file_writer extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
         Fluent f = new ClauseWriter(s, p);
         return thiz.unifyArg(1, f, p);
     }
@@ -368,7 +377,7 @@ final class get_arity extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        LongTerm N = TermData.Integer(thiz.ArgDeRef(0).arityOrType());
+        NumberTerm N = TermData.Integer(thiz.ArgDeRef(0).arityOrType());
         return thiz.unifyArg(1, N, p);
     }
 }
@@ -440,7 +449,7 @@ final class reconsult extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         Term a = thiz.ArgDeRef(0);
-        String f = Expect.asConst(a).fname();
+        String f = TermData.asConst(a).fname();
         return DataBase.fromFile(f) ? 1 : 0;
     }
 }
@@ -458,7 +467,7 @@ final class consult extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String f = Expect.asConst(thiz.ArgDeRef(0)).fname();
+        String f = TermData.asConst(thiz.ArgDeRef(0)).fname();
         IO.trace("consulting: " + f);
         return DataBase.fromFile(f, false) ? 1 : 0;
     }
@@ -634,7 +643,9 @@ final class db_to_string extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        return thiz.unifyArg(0, TermData.SYM(Init.default_db.pprint()), p);
+        final String pprint = Init.default_db.pprint();
+        final Term sym = TermData.createAtomic(pprint);
+        return thiz.unifyArg(0, sym, p);
     }
 }
 
@@ -666,13 +677,13 @@ final class new_fun extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = Expect.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
         int i = thiz.getIntArg(1);
         Term T;
         if (i == 0)
             T = Builtins.toConstBuiltin(TermData.SYM(s));
         else {
-            StructureTerm F = StructureTerm.S(s);
+            Compound F = TermData.S(s);
             F.init(i);
             T = Builtins.toFunBuiltin(F);
         }
@@ -706,7 +717,8 @@ final class chars_to_name extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         int convert = thiz.getIntArg(0);
-        String s = TermData.charsToString((Nonvar) thiz.ArgDeRef(1));
+        final Nonvar argDeRef = (Nonvar) thiz.ArgDeRef(1);
+        String s = TermData.charsToString(argDeRef);
         Nonvar T = (Nonvar) TermData.SYM(s);
         if (convert > 0) {
             try {
@@ -750,7 +762,7 @@ final class compute extends FunBuiltin {
         Term b = thiz.ArgDeRef(2);
         if (!(o.isConst()) || !(a.isNumber()) || !(b.isNumber()))
             IO.errmes("bad arithmetic operation (" + o + "): " + a + "," + b + "\nprog: " + p.toString());
-        String opname = Expect.asConst(o).fname();
+        String opname = TermData.asConst(o).fname();
         double x = a.doubleValue();
         double y = b.doubleValue();
         double r;
@@ -879,9 +891,9 @@ final class integer_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        IntegerSource E = new IntegerSource(Expect.asInt(thiz.ArgDeRef(0)).longValue(),
-                Expect.asInt(thiz.ArgDeRef(1)).longValue(), Expect.asInt(thiz.ArgDeRef(2)).longValue(),
-                Expect.asInt(thiz.ArgDeRef(3)).longValue(), p);
+        IntegerSource E = new IntegerSource(TermData.asInt(thiz.ArgDeRef(0)).longValue(),
+                TermData.asInt(thiz.ArgDeRef(1)).longValue(), TermData.asInt(thiz.ArgDeRef(2)).longValue(),
+                TermData.asInt(thiz.ArgDeRef(3)).longValue(), p);
         return thiz.unifyArg(4, E, p);
     }
 }
@@ -913,7 +925,7 @@ final class source_term extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         Source S = (Source) thiz.ArgDeRef(0);
-        Term Xs = Builtins.toFunBuiltin(Expect.asStruct(S.toFun()));
+        Term Xs = Builtins.toFunBuiltin(TermData.asStruct(S.toFun()));
         return thiz.unifyArg(1, Xs, p);
     }
 }
@@ -971,7 +983,7 @@ final class getfl extends FunBuiltin {
         // IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
         Term t = thiz.ArgDeRef(0);
         Source S = t.asSource();
-        Term A = Expect.the(S.getElement());
+        Term A = TermData.the(S.getElement());
         // if(null==A) A=Nonvar.aNo;
         // else A=new Fun("the",A);
         // IO.mes(">>"+A+"\n"+p+p.getTrail().pprint());
@@ -1010,7 +1022,7 @@ final class stop extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        IFluent S = (IFluent) thiz.ArgDeRef(0);
+        Fluent S = (Fluent) thiz.ArgDeRef(0);
         S.stop();
         return 1;
     }
@@ -1029,8 +1041,7 @@ final class split_source extends FunBuiltin {
 
         Source original = (Source) thiz.ArgDeRef(0);
         Nonvar Xs = original.toList();
-        return (thiz.unifyArg(1, new ListSource(Xs, p), p) > 0 && thiz.unifyArg(2, new ListSource(Xs, p), p) > 0) ? 1
-                : 0;
+        return (thiz.unifyArg(1, CONS(Xs, p), p) > 0 && thiz.unifyArg(2, CONS(Xs, p), p) > 0) ? 1 : 0;
     }
 }
 
@@ -1167,7 +1178,7 @@ final class set_persistent extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        IFluent F = (IFluent) thiz.ArgDeRef(0);
+        Fluent F = (Fluent) thiz.ArgDeRef(0);
         Nonvar R = (Nonvar) thiz.ArgDeRef(1);
         boolean yesno = !R.equalsTerm(Prolog.aNo);
         F.setPersistent(yesno);
@@ -1185,7 +1196,7 @@ final class get_persistent extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        IFluent F = (IFluent) thiz.ArgDeRef(0);
+        Fluent F = (Fluent) thiz.ArgDeRef(0);
         Term R = F.getPersistent() ? Prolog.aYes : Prolog.aNo;
         return thiz.unifyArg(1, R, p);
     }

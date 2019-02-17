@@ -51,16 +51,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/log10.pl
     // main(log10/0,public)
         final static Functor FUNCTOR_log_1 = F("log",1);
         final static Functor ATOM_x = SYM("x");
-    private static final Term L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
-    private static final Term L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
-    private static final Term L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
-    private static final Term L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
-    private static final Term L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
-    private static final Term L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
-    private static final Term L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
-    private static final Term L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
-    private static final Term L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
-    private static final Term L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
+    private static final Compound L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
+    private static final Compound L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
+    private static final Compound L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);
+    private static final Compound L_log10_0_s10 = S( FUNCTOR_log_1 , L_log10_0_s8);
+    private static final Compound L_log10_0_s12 = S( FUNCTOR_log_1 , L_log10_0_s10);
+    private static final Compound L_log10_0_s14 = S( FUNCTOR_log_1 , L_log10_0_s12);
+    private static final Compound L_log10_0_s16 = S( FUNCTOR_log_1 , L_log10_0_s14);
+    private static final Compound L_log10_0_s18 = S( FUNCTOR_log_1 , L_log10_0_s16);
+    private static final Compound L_log10_0_s20 = S( FUNCTOR_log_1 , L_log10_0_s18);
+    private static final Compound L_log10_0_s22 = S( FUNCTOR_log_1 , L_log10_0_s20);
 
 
 

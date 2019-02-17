@@ -1,4 +1,4 @@
-package SxxMachine.pterm;
+package SxxMachine;
 
 import SxxMachine.Undoable;
 
@@ -6,7 +6,7 @@ import SxxMachine.Undoable;
  * Part of the Term hierarchy implmenting logical variables. They are subject to
  * reset by application of and undo action keep on the trail stack.
  */
-abstract public class Var extends PTerm implements Undoable {
+public interface Var extends Term, Undoable {
 
     abstract public boolean unbound();
 

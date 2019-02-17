@@ -1,5 +1,15 @@
 package SxxMachine.pterm;
 
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.Float;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Long;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.SYM;
+import static SxxMachine.pterm.TermData.V;
+import static SxxMachine.pterm.TermData.asInt;
+import static SxxMachine.pterm.TermData.asStruct;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
@@ -9,8 +19,11 @@ import SxxMachine.Builtins;
 import SxxMachine.Functor;
 import SxxMachine.HashDict;
 import SxxMachine.IO;
+import SxxMachine.Nonvar;
+import SxxMachine.NumberTerm;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.Var;
 
 /**
  * Lexicographic analyser reading from a stream
@@ -109,23 +122,23 @@ class LexerHIDE extends StreamTokenizer {
         long occ;
         if (s == anonymous) {
             occ = 0;
-            X = TermData.V();
+            X = V();
             s = X.toString();
         } else {
             X = (VariableTerm) dict.get(s);
             if (X == null) {
                 occ = 1;
-                X = TermData.V();
+                X = V();
                 X.varName = s;
             } else {
-                occ = Expect.asInt((Term) dict.get(X)).longValue();
+                occ = asInt((Term) dict.get(X)).longValue();
                 occ++;
             }
         }
-        LongTerm I = TermData.Long(occ);
+        LongTerm I = Long(occ);
         dict.put(X, I);
         dict.put(s, X);
-        return new varToken(X, TermData.SYM(s), I);
+        return new varToken(X, SYM(s), I);
     }
 
     private final void wordChar(char c) {
@@ -248,7 +261,7 @@ class LexerHIDE extends StreamTokenizer {
 }
 
 class varToken extends StructureTerm {
-    public varToken(Var X, Functor functor, LongTerm I) {
+    public varToken(Var X, Functor functor, NumberTerm I) {
         super("varToken", 3);
         argz = new Term[] { X, functor, I };
     }
@@ -261,13 +274,13 @@ class varToken extends StructureTerm {
 
 class intToken extends StructureTerm {
     public intToken(int i) {
-        super("intToken", TermData.Long(i));
+        super("intToken", Long(i));
     }
 }
 
 class realToken extends StructureTerm {
     public realToken(double i) {
-        super("realToken", TermData.Float(i));
+        super("realToken", Float(i));
     }
 }
 
@@ -278,25 +291,25 @@ class constToken extends StructureTerm {
     }
 
     public constToken(String s) {
-        this(TermData.SYM(s));
+        this(SYM(s.intern()));
     }
 }
 
 class stringToken extends StructureTerm {
     public stringToken(constToken c) {
-        super("stringToken", (c.ArgDeRef(0)));
+        super("stringToken", c.ArgDeRef(0));
     }
 }
 
 class funToken extends StructureTerm {
     public funToken(String s) {
-        super("funToken", TermData.S(s.intern()));
+        super("funToken", S(s.intern()));
     }
 }
 
 class eocToken extends StructureTerm {
     public eocToken() {
-        super("eocToken", TermData.SYM("end_of_clause"));
+        super("eocToken", SYM("end_of_clause"));
     }
 }
 
@@ -308,7 +321,7 @@ class eofToken extends StructureTerm {
 
 class iffToken extends StructureTerm {
     public iffToken(String s) {
-        super("iffToken", TermData.SYM(s));
+        super("iffToken", SYM(s));
     }
 }
 
@@ -411,7 +424,7 @@ public class Parser extends LexerHIDE {
         String mes = e.getMessage();
         if (null == mes)
             mes = "unknown_error";
-        Term f = TermData.S("error", TermData.SYM(type), TermData.SYM(mes), TermData.S("line", TermData.Integer(line)));
+        Term f = S("error", SYM(type), SYM(mes), S("line", Integer(line)));
         Clause C = new Clause(f, Prolog.True);
         if (verbose) {
             IO.errmes(type + " error at line:" + line);
@@ -423,7 +436,7 @@ public class Parser extends LexerHIDE {
     static public final boolean isError(Clause C) {
         Term H = C.getHead();
         if (H.isCompound() && "error".equals(H.fname()) && H.arityOrType() == 3
-                && !(Expect.asStruct(H).ArgDeRef(0).dref().isVar()))
+                && !(asStruct(H).ArgDeRef(0).dref().isVar()))
             return true;
         return false;
     }
@@ -453,7 +466,7 @@ public class Parser extends LexerHIDE {
             n = next();
             Term t = getTerm(n);
             Term bs = getConjCont(t);
-            Clause C = new Clause(TermData.SYM("init"), bs);
+            Clause C = new Clause(SYM("init"), bs);
             C.dict = dict;
             return C;
         }
@@ -567,16 +580,16 @@ public class Parser extends LexerHIDE {
         Term n = next();
         Term t = null;
         if (n.isFunctor("]"))
-            t = TermData.CONS(curr, Prolog.Nil);
+            t = CONS(curr, Prolog.Nil);
         else if (n.isFunctor("|")) {
-            t = TermData.CONS(curr, getTerm());
+            t = CONS(curr, getTerm());
             n = next();
             if (!(n.isFunctor("]"))) {
                 throw new ParserException("']'", "bad list end after '|'", n);
             }
         } else if (n.isFunctor(",")) {
             Term other = getTerm();
-            t = TermData.CONS(curr, getListCont(other));
+            t = CONS(curr, getListCont(other));
         }
         if (t == null)
             throw new ParserException("| or ]", "bad list continuation", n);

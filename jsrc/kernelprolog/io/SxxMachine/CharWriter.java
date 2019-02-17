@@ -3,8 +3,8 @@ package SxxMachine;
 import java.io.IOException;
 import java.io.Writer;
 
-import SxxMachine.pterm.Expect;
 import SxxMachine.pterm.Sink;
+import SxxMachine.pterm.TermData;
 
 /**
  * Writer
@@ -27,7 +27,7 @@ public class CharWriter extends Sink {
 		if (null == writer)
 			return 0;
 		try {
-			char c = (char) Expect.asInt(t).intValue();
+			char c = (char) TermData.asInt(t).intValue();
 			writer.write(c);
 		} catch (IOException e) {
 			return 0;

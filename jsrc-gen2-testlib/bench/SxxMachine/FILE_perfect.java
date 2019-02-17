@@ -33,7 +33,7 @@ public class FILE_perfect extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 */
     // main(top/0,public)
-        final static IntegerTerm int_100 = Integer(100);
+        final static NumberTerm int_100 = Integer(100);
 
 
 
@@ -57,57 +57,57 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/perfect.pl
 */
     // main(ok/1,public)
-        final static LongTerm int_3213876088517980551083924184681057554444177758164088967397376 = Long("3213876088517980551083924184681057554444177758164088967397376");
-        final static LongTerm int_12554203470773361527671578846336104669690446551334525075456 = Long("12554203470773361527671578846336104669690446551334525075456");
-        final static LongTerm int_191561942608236107294793378084303638130997321548169216 = Long("191561942608236107294793378084303638130997321548169216");
-        final static LongTerm int_46768052394588893382517909811217778170473142550528 = Long("46768052394588893382517909811217778170473142550528");
-        final static LongTerm int_182687704666362864775460301858080473799697891328 = Long("182687704666362864775460301858080473799697891328");
-        final static LongTerm int_44601490397061246283066714178813853366747136 = Long("44601490397061246283066714178813853366747136");
-        final static LongTerm int_2787593149816327892690784192460327776944128 = Long("2787593149816327892690784192460327776944128");
-        final static LongTerm int_10889035741470030830754200461521744560128 = Long("10889035741470030830754200461521744560128");
-        final static LongTerm int_2658455991569831744654692615953842176 = Long("2658455991569831744654692615953842176");
-        final static LongTerm int_166153499473114483824745506383331328 = Long("166153499473114483824745506383331328");
-        final static LongTerm int_40564819207303336344294875201536 = Long("40564819207303336344294875201536");
-        final static LongTerm int_9903520314282971830448816128 = Long("9903520314282971830448816128");
-        final static LongTerm int_38685626227663735544086528 = Long("38685626227663735544086528");
-        final static LongTerm int_2417851639228158837784576 = Long("2417851639228158837784576");
-        final static LongTerm int_9444732965670570950656 = Long("9444732965670570950656");
-        final static LongTerm int_2305843008139952128 = Long(2305843008139952128L);
-        final static LongTerm int_144115187807420416 = Long(144115187807420416L);
-        final static LongTerm int_35184367894528 = Long(35184367894528L);
-        final static LongTerm int_137438691328 = Long(137438691328L);
-        final static LongTerm int_8589869056 = Long(8589869056L);
-        final static IntegerTerm int_33550336 = Integer(33550336);
-        final static IntegerTerm int_2096128 = Integer(2096128);
-        final static IntegerTerm int_8128 = Integer(8128);
-        final static IntegerTerm int_496 = Integer(496);
-        final static IntegerTerm int_28 = Integer(28);
-    private static final Term L_ok_1_s28 = CONS( int_6 ,  Prolog.Nil );
-    private static final Term L_ok_1_s29 = CONS( int_28 , L_ok_1_s28);
-    private static final Term L_ok_1_s30 = CONS( int_496 , L_ok_1_s29);
-    private static final Term L_ok_1_s31 = CONS( int_8128 , L_ok_1_s30);
-    private static final Term L_ok_1_s32 = CONS( int_2096128 , L_ok_1_s31);
-    private static final Term L_ok_1_s33 = CONS( int_33550336 , L_ok_1_s32);
-    private static final Term L_ok_1_s34 = CONS( int_8589869056 , L_ok_1_s33);
-    private static final Term L_ok_1_s35 = CONS( int_137438691328 , L_ok_1_s34);
-    private static final Term L_ok_1_s36 = CONS( int_35184367894528 , L_ok_1_s35);
-    private static final Term L_ok_1_s37 = CONS( int_144115187807420416 , L_ok_1_s36);
-    private static final Term L_ok_1_s38 = CONS( int_2305843008139952128 , L_ok_1_s37);
-    private static final Term L_ok_1_s39 = CONS( int_9444732965670570950656 , L_ok_1_s38);
-    private static final Term L_ok_1_s40 = CONS( int_2417851639228158837784576 , L_ok_1_s39);
-    private static final Term L_ok_1_s41 = CONS( int_38685626227663735544086528 , L_ok_1_s40);
-    private static final Term L_ok_1_s42 = CONS( int_9903520314282971830448816128 , L_ok_1_s41);
-    private static final Term L_ok_1_s43 = CONS( int_40564819207303336344294875201536 , L_ok_1_s42);
-    private static final Term L_ok_1_s44 = CONS( int_166153499473114483824745506383331328 , L_ok_1_s43);
-    private static final Term L_ok_1_s45 = CONS( int_2658455991569831744654692615953842176 , L_ok_1_s44);
-    private static final Term L_ok_1_s46 = CONS( int_10889035741470030830754200461521744560128 , L_ok_1_s45);
-    private static final Term L_ok_1_s47 = CONS( int_2787593149816327892690784192460327776944128 , L_ok_1_s46);
-    private static final Term L_ok_1_s48 = CONS( int_44601490397061246283066714178813853366747136 , L_ok_1_s47);
-    private static final Term L_ok_1_s49 = CONS( int_182687704666362864775460301858080473799697891328 , L_ok_1_s48);
-    private static final Term L_ok_1_s50 = CONS( int_46768052394588893382517909811217778170473142550528 , L_ok_1_s49);
-    private static final Term L_ok_1_s51 = CONS( int_191561942608236107294793378084303638130997321548169216 , L_ok_1_s50);
-    private static final Term L_ok_1_s52 = CONS( int_12554203470773361527671578846336104669690446551334525075456 , L_ok_1_s51);
-    private static final Term L_ok_1_s53 = CONS( int_3213876088517980551083924184681057554444177758164088967397376 , L_ok_1_s52);
+        final static NumberTerm int_3213876088517980551083924184681057554444177758164088967397376 = Long("3213876088517980551083924184681057554444177758164088967397376");
+        final static NumberTerm int_12554203470773361527671578846336104669690446551334525075456 = Long("12554203470773361527671578846336104669690446551334525075456");
+        final static NumberTerm int_191561942608236107294793378084303638130997321548169216 = Long("191561942608236107294793378084303638130997321548169216");
+        final static NumberTerm int_46768052394588893382517909811217778170473142550528 = Long("46768052394588893382517909811217778170473142550528");
+        final static NumberTerm int_182687704666362864775460301858080473799697891328 = Long("182687704666362864775460301858080473799697891328");
+        final static NumberTerm int_44601490397061246283066714178813853366747136 = Long("44601490397061246283066714178813853366747136");
+        final static NumberTerm int_2787593149816327892690784192460327776944128 = Long("2787593149816327892690784192460327776944128");
+        final static NumberTerm int_10889035741470030830754200461521744560128 = Long("10889035741470030830754200461521744560128");
+        final static NumberTerm int_2658455991569831744654692615953842176 = Long("2658455991569831744654692615953842176");
+        final static NumberTerm int_166153499473114483824745506383331328 = Long("166153499473114483824745506383331328");
+        final static NumberTerm int_40564819207303336344294875201536 = Long("40564819207303336344294875201536");
+        final static NumberTerm int_9903520314282971830448816128 = Long("9903520314282971830448816128");
+        final static NumberTerm int_38685626227663735544086528 = Long("38685626227663735544086528");
+        final static NumberTerm int_2417851639228158837784576 = Long("2417851639228158837784576");
+        final static NumberTerm int_9444732965670570950656 = Long("9444732965670570950656");
+        final static NumberTerm int_2305843008139952128 = Long(2305843008139952128L);
+        final static NumberTerm int_144115187807420416 = Long(144115187807420416L);
+        final static NumberTerm int_35184367894528 = Long(35184367894528L);
+        final static NumberTerm int_137438691328 = Long(137438691328L);
+        final static NumberTerm int_8589869056 = Long(8589869056L);
+        final static NumberTerm int_33550336 = Integer(33550336);
+        final static NumberTerm int_2096128 = Integer(2096128);
+        final static NumberTerm int_8128 = Integer(8128);
+        final static NumberTerm int_496 = Integer(496);
+        final static NumberTerm int_28 = Integer(28);
+    private static final Compound L_ok_1_s28 = CONS( int_6 ,  Prolog.Nil );
+    private static final Compound L_ok_1_s29 = CONS( int_28 , L_ok_1_s28);
+    private static final Compound L_ok_1_s30 = CONS( int_496 , L_ok_1_s29);
+    private static final Compound L_ok_1_s31 = CONS( int_8128 , L_ok_1_s30);
+    private static final Compound L_ok_1_s32 = CONS( int_2096128 , L_ok_1_s31);
+    private static final Compound L_ok_1_s33 = CONS( int_33550336 , L_ok_1_s32);
+    private static final Compound L_ok_1_s34 = CONS( int_8589869056 , L_ok_1_s33);
+    private static final Compound L_ok_1_s35 = CONS( int_137438691328 , L_ok_1_s34);
+    private static final Compound L_ok_1_s36 = CONS( int_35184367894528 , L_ok_1_s35);
+    private static final Compound L_ok_1_s37 = CONS( int_144115187807420416 , L_ok_1_s36);
+    private static final Compound L_ok_1_s38 = CONS( int_2305843008139952128 , L_ok_1_s37);
+    private static final Compound L_ok_1_s39 = CONS( int_9444732965670570950656 , L_ok_1_s38);
+    private static final Compound L_ok_1_s40 = CONS( int_2417851639228158837784576 , L_ok_1_s39);
+    private static final Compound L_ok_1_s41 = CONS( int_38685626227663735544086528 , L_ok_1_s40);
+    private static final Compound L_ok_1_s42 = CONS( int_9903520314282971830448816128 , L_ok_1_s41);
+    private static final Compound L_ok_1_s43 = CONS( int_40564819207303336344294875201536 , L_ok_1_s42);
+    private static final Compound L_ok_1_s44 = CONS( int_166153499473114483824745506383331328 , L_ok_1_s43);
+    private static final Compound L_ok_1_s45 = CONS( int_2658455991569831744654692615953842176 , L_ok_1_s44);
+    private static final Compound L_ok_1_s46 = CONS( int_10889035741470030830754200461521744560128 , L_ok_1_s45);
+    private static final Compound L_ok_1_s47 = CONS( int_2787593149816327892690784192460327776944128 , L_ok_1_s46);
+    private static final Compound L_ok_1_s48 = CONS( int_44601490397061246283066714178813853366747136 , L_ok_1_s47);
+    private static final Compound L_ok_1_s49 = CONS( int_182687704666362864775460301858080473799697891328 , L_ok_1_s48);
+    private static final Compound L_ok_1_s50 = CONS( int_46768052394588893382517909811217778170473142550528 , L_ok_1_s49);
+    private static final Compound L_ok_1_s51 = CONS( int_191561942608236107294793378084303638130997321548169216 , L_ok_1_s50);
+    private static final Compound L_ok_1_s52 = CONS( int_12554203470773361527671578846336104669690446551334525075456 , L_ok_1_s51);
+    private static final Compound L_ok_1_s53 = CONS( int_3213876088517980551083924184681057554444177758164088967397376 , L_ok_1_s52);
 
 
 

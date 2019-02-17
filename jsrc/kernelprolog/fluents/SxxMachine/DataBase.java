@@ -6,9 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Expect;
 import SxxMachine.pterm.Parser;
-import SxxMachine.pterm.StructureTerm;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -80,10 +78,10 @@ public class DataBase extends BlackBoard {
             all0(max, To, (String) e.next(), FXs);
         }
         Object O = To.toArray(new Term[0]);
-        Term R = (StructureTerm) TermData.S("$", (Term[]) O);
+        Term R = TermData.S("$", (Term[]) O);
         // IO.mes("RR"+R);
         // To.copyInto(R.args);
-        return Expect.asCons(R.listify()).argz[1];
+        return TermData.asCons(R.listify()).arg0(1);
     }
 
     private Term all2(int max, String k, Term FXs) {
@@ -95,9 +93,9 @@ public class DataBase extends BlackBoard {
         all0(max, To, k, FXs);
         if (To.size() == 0)
             return Prolog.Nil;
-        StructureTerm R = StructureTerm.S("$", (Term[]) To.toArray());
+        Nonvar R = TermData.S("$", (Term[]) To.toArray());
         // To.copyInto(R.args);
-        Term T = Expect.asCons(R.listify()).argz[1];
+        Term T = TermData.asCons(R.listify()).arg0(1);
         return T;
     }
 

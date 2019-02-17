@@ -165,7 +165,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(density/2,public)
         final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
-        final static IntegerTerm int_100 = Integer(100);
+        final static NumberTerm int_100 = Integer(100);
 
 
 
@@ -197,55 +197,55 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(pop/2,public)
         final static Functor ATOM_china = SYM("china");
-        final static IntegerTerm int_8250 = Integer(8250);
+        final static NumberTerm int_8250 = Integer(8250);
         final static Functor ATOM_india = SYM("india");
-        final static IntegerTerm int_5863 = Integer(5863);
+        final static NumberTerm int_5863 = Integer(5863);
         final static Functor ATOM_ussr = SYM("ussr");
-        final static IntegerTerm int_2521 = Integer(2521);
+        final static NumberTerm int_2521 = Integer(2521);
         final static Functor ATOM_usa = SYM("usa");
-        final static IntegerTerm int_2119 = Integer(2119);
+        final static NumberTerm int_2119 = Integer(2119);
         final static Functor ATOM_indonesia = SYM("indonesia");
-        final static IntegerTerm int_1276 = Integer(1276);
+        final static NumberTerm int_1276 = Integer(1276);
         final static Functor ATOM_japan = SYM("japan");
-        final static IntegerTerm int_1097 = Integer(1097);
+        final static NumberTerm int_1097 = Integer(1097);
         final static Functor ATOM_brazil = SYM("brazil");
-        final static IntegerTerm int_1042 = Integer(1042);
+        final static NumberTerm int_1042 = Integer(1042);
         final static Functor ATOM_bangladesh = SYM("bangladesh");
-        final static IntegerTerm int_750 = Integer(750);
+        final static NumberTerm int_750 = Integer(750);
         final static Functor ATOM_pakistan = SYM("pakistan");
-        final static IntegerTerm int_682 = Integer(682);
+        final static NumberTerm int_682 = Integer(682);
         final static Functor ATOM_w_germany = SYM("w_germany");
-        final static IntegerTerm int_620 = Integer(620);
+        final static NumberTerm int_620 = Integer(620);
         final static Functor ATOM_nigeria = SYM("nigeria");
-        final static IntegerTerm int_613 = Integer(613);
+        final static NumberTerm int_613 = Integer(613);
         final static Functor ATOM_mexico = SYM("mexico");
-        final static IntegerTerm int_581 = Integer(581);
+        final static NumberTerm int_581 = Integer(581);
         final static Functor ATOM_uk = SYM("uk");
-        final static IntegerTerm int_559 = Integer(559);
+        final static NumberTerm int_559 = Integer(559);
         final static Functor ATOM_italy = SYM("italy");
-        final static IntegerTerm int_554 = Integer(554);
+        final static NumberTerm int_554 = Integer(554);
         final static Functor ATOM_france = SYM("france");
-        final static IntegerTerm int_525 = Integer(525);
+        final static NumberTerm int_525 = Integer(525);
         final static Functor ATOM_philippines = SYM("philippines");
-        final static IntegerTerm int_415 = Integer(415);
+        final static NumberTerm int_415 = Integer(415);
         final static Functor ATOM_thailand = SYM("thailand");
-        final static IntegerTerm int_410 = Integer(410);
+        final static NumberTerm int_410 = Integer(410);
         final static Functor ATOM_turkey = SYM("turkey");
-        final static IntegerTerm int_383 = Integer(383);
+        final static NumberTerm int_383 = Integer(383);
         final static Functor ATOM_egypt = SYM("egypt");
-        final static IntegerTerm int_364 = Integer(364);
+        final static NumberTerm int_364 = Integer(364);
         final static Functor ATOM_spain = SYM("spain");
-        final static IntegerTerm int_352 = Integer(352);
+        final static NumberTerm int_352 = Integer(352);
         final static Functor ATOM_poland = SYM("poland");
-        final static IntegerTerm int_337 = Integer(337);
+        final static NumberTerm int_337 = Integer(337);
         final static Functor ATOM_s_korea = SYM("s_korea");
-        final static IntegerTerm int_335 = Integer(335);
+        final static NumberTerm int_335 = Integer(335);
         final static Functor ATOM_iran = SYM("iran");
-        final static IntegerTerm int_320 = Integer(320);
+        final static NumberTerm int_320 = Integer(320);
         final static Functor ATOM_ethiopia = SYM("ethiopia");
-        final static IntegerTerm int_272 = Integer(272);
+        final static NumberTerm int_272 = Integer(272);
         final static Functor ATOM_argentina = SYM("argentina");
-        final static IntegerTerm int_251 = Integer(251);
+        final static NumberTerm int_251 = Integer(251);
 
 
 
@@ -760,31 +760,31 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/query.pl
 */
     // main(area/2,public)
-        final static IntegerTerm int_3380 = Integer(3380);
-        final static IntegerTerm int_1139 = Integer(1139);
-        final static IntegerTerm int_8708 = Integer(8708);
-        final static IntegerTerm int_3609 = Integer(3609);
-        final static IntegerTerm int_570 = Integer(570);
-        final static IntegerTerm int_148 = Integer(148);
-        final static IntegerTerm int_3288 = Integer(3288);
-        final static IntegerTerm int_55 = Integer(55);
-        final static IntegerTerm int_311 = Integer(311);
-        final static IntegerTerm int_96 = Integer(96);
-        final static IntegerTerm int_373 = Integer(373);
-        final static IntegerTerm int_764 = Integer(764);
-        final static IntegerTerm int_86 = Integer(86);
-        final static IntegerTerm int_116 = Integer(116);
-        final static IntegerTerm int_213 = Integer(213);
-        final static IntegerTerm int_90 = Integer(90);
-        final static IntegerTerm int_200 = Integer(200);
-        final static IntegerTerm int_296 = Integer(296);
-        final static IntegerTerm int_386 = Integer(386);
-        final static IntegerTerm int_190 = Integer(190);
-        final static IntegerTerm int_121 = Integer(121);
-        final static IntegerTerm int_37 = Integer(37);
-        final static IntegerTerm int_628 = Integer(628);
-        final static IntegerTerm int_350 = Integer(350);
-        final static IntegerTerm int_1080 = Integer(1080);
+        final static NumberTerm int_3380 = Integer(3380);
+        final static NumberTerm int_1139 = Integer(1139);
+        final static NumberTerm int_8708 = Integer(8708);
+        final static NumberTerm int_3609 = Integer(3609);
+        final static NumberTerm int_570 = Integer(570);
+        final static NumberTerm int_148 = Integer(148);
+        final static NumberTerm int_3288 = Integer(3288);
+        final static NumberTerm int_55 = Integer(55);
+        final static NumberTerm int_311 = Integer(311);
+        final static NumberTerm int_96 = Integer(96);
+        final static NumberTerm int_373 = Integer(373);
+        final static NumberTerm int_764 = Integer(764);
+        final static NumberTerm int_86 = Integer(86);
+        final static NumberTerm int_116 = Integer(116);
+        final static NumberTerm int_213 = Integer(213);
+        final static NumberTerm int_90 = Integer(90);
+        final static NumberTerm int_200 = Integer(200);
+        final static NumberTerm int_296 = Integer(296);
+        final static NumberTerm int_386 = Integer(386);
+        final static NumberTerm int_190 = Integer(190);
+        final static NumberTerm int_121 = Integer(121);
+        final static NumberTerm int_37 = Integer(37);
+        final static NumberTerm int_628 = Integer(628);
+        final static NumberTerm int_350 = Integer(350);
+        final static NumberTerm int_1080 = Integer(1080);
 
 
 

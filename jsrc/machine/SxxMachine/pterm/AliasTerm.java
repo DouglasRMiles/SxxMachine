@@ -3,6 +3,7 @@ package SxxMachine.pterm;
 import java.util.Map;
 
 import SxxMachine.Functor;
+import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
@@ -180,9 +181,9 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      * @see Functor
      */
     @Override
-    public boolean isAtomString() {
+    public boolean isAtom() {
 
-        return (useAlias() ? getValue().isAtomString() : super.isAtomString());
+        return (useAlias() ? getValue().isAtom() : super.isAtom());
     }
 
     /**
@@ -190,7 +191,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      * 
      * @return value //<code>true</code> if <code>this .isList()</code>, otherwise
      *         <code>false</code>. []/0 == false;
-     * @see ListTerm
+     * @see Compound
      */
     @Override
     public boolean isCons() {
@@ -278,13 +279,13 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     }
 
     @Override
-    public ListTerm add(Term t) {
+    public Compound add(Term t) {
 
         return (useAlias() ? getValue().add(t) : super.add(t));
     }
 
     @Override
-    public ListTerm append(Term t) {
+    public Compound append(Term t) {
 
         return (useAlias() ? getValue().append(t) : super.append(t));
     }

@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Nonvar;
-
 /**
  * Builds an iterator from a list
  */

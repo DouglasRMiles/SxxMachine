@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
 import SxxMachine.pterm.HashtableOfTerm;
-import SxxMachine.pterm.ListTerm;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -33,7 +32,7 @@ import SxxMachine.pterm.TermData;
  * @version 1.2
  */
 @SuppressWarnings("unused")
-public final class Prolog {
+public final class Prolog extends PrologFlags {
     private final PrologLogger logger;
     private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
     private static final Functor NONE = TermData.SYM("$none");
@@ -71,32 +70,7 @@ public final class Prolog {
      * </ul>
      */
     public int halt;
-    /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>bounded</code>. */
-    private final boolean bounded = false;
-    /** Prolog implementation flag: <code>max_integer</code>. */
-    private static final int maxInteger = Integer.MAX_VALUE;
-    /** Prolog implementation flag: <code>min_integer</code>. */
-    private static final int minInteger = Integer.MIN_VALUE;
-    /** Prolog implementation flag: <code>integer_rounding_function</code>. */
-    private final String integerRoundingFunction = "down";
-    /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>char_conversion</code>. */
-    private String charConversion;
-    /** Prolog implementation flag: <code>debug</code>. */
-    private String debug;
-    /** Prolog implementation flag: <code>max_arity</code>. */
-    int maxArity = 255;
-    /** Prolog implementation flag: <code>unknown</code>. */
-    private String unknown;
-    /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>double_quotes</code>. */
-    private String doubleQuotes;
-    /** Prolog implementation flag: <code>print_stack_trace</code>. */
-    private String printStackTrace;
-    /** Holds an exception term for <code>catch/3</code> and <code>throw/1</code>. */
-    private Term exception;
-    /** Holds the start time as <code>long</code> for <code>statistics/2</code>. */
-    private long startRuntime;
-    /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
-    private long previousRuntime;
+
     //    /** Hashtable for creating a copy of term. */
     //    protected Map<Object, Term> copyHash;
     /** The size of the pushback buffer used for creating input streams. */
@@ -175,7 +149,7 @@ public final class Prolog {
     public Term pendingGoals;
     public int PENDING_INTERUPTS;
     public Object INTERUPT_LOCK;
-    public ListTerm lastPendingGoal;
+    public Compound lastPendingGoal;
     public Term assumptions;
     public Operation pred;
     private Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
@@ -185,13 +159,14 @@ public final class Prolog {
     public final static NameArity aFail = TermData.SYM("fail");//new fail_();
 
     /** A functor <code>'.' /2</code>. */
-    public static final Functor SYM_DOT = TermData.F(".", 2);
-    public static final Functor SYM_CONJ = TermData.F(",", 2);
-    public static final Functor SYM_NECK = TermData.F(":-", 2);
+    public static final Functor FUNCTOR_DOT_2 = TermData.F(".", 2);
+    public static final Functor FUNCTOR_CONJ_2 = TermData.F(",", 2);
+    public static final Functor FUNCTOR_NECK_2 = TermData.F(":-", 2);
     public static final Functor GOALS = TermData.SYM("$goals");
 
     Prolog(PrologControl c) {
         M = this;
+        current = this;
         this.assumptions = this.pendingGoals = Nil;
         this.logger = new PrologLogger(javaUtilLogger);
         this.control = c;
@@ -282,11 +257,9 @@ public final class Prolog {
         PENDING_INTERUPTS = 0;
         INTERUPT_LOCK = new Object();
         lastPendingGoal = null;
-        this.charConversion = "off";
-        this.debug = "off";
-        this.unknown = "error";
-        this.doubleQuotes = "codes";
-        this.printStackTrace = "off";
+
+        setFlags();
+
         this.exception = NONE;
         this.startRuntime = this.features.contains(Feature.STATISTICS_RUNTIME) ? System.currentTimeMillis() : 0;
         this.previousRuntime = 0;
@@ -381,7 +354,7 @@ public final class Prolog {
                 return var;
             case Term.TYPE_INTEGER:
                 return Int;
-            case Term.TYPE_DOUBLE:
+            case Term.TYPE_DOUBLE_OR_CONST:
                 return flo;
             case Term.TYPE_SYMBOL:
                 return con;
@@ -418,7 +391,7 @@ public final class Prolog {
     public Operation switch_on_hash(Map<Term, Operation> hash, Operation otherwise) {
         Term arg1 = this.AREGS[0].dref();
         Term key;
-        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtomString())) {
+        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtom())) {
             key = arg1;
         } else if ((arg1.isCompound())) {
             key = (arg1).functor();
@@ -538,80 +511,12 @@ public final class Prolog {
         return this.CPFTimeStamp;
     }
 
-    /** Returns the value of Prolog implementation flag: <code>bounded</code>. */
-    public boolean isBounded() {
-        return this.bounded;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>max_integer</code>. */
-    public int getMaxInteger() {
-        return maxInteger;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>min_integer</code>. */
-    public int getMinInteger() {
-        return minInteger;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>integer_rounding_function</code>. */
-    public String getIntegerRoundingFunction() {
-        return this.integerRoundingFunction;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>char_conversion</code>. */
-    public String getCharConversion() {
-        return this.charConversion;
-    }
-
-    /** Sets the value of Prolog implementation flag: <code>char_conversion</code>. */
-    public void setCharConversion(String mode) {
-        this.charConversion = mode;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>debug</code>. */
-    public String getDebug() {
-        return this.debug;
-    }
-
-    /** Sets the value of Prolog implementation flag: <code>debug</code>. */
-    public void setDebug(String mode) {
-        this.debug = mode;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>max_arity</code>. */
-    public int getMaxArity() {
-        return this.maxArity;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>unknown</code>. */
-    public String getUnknown() {
-        return this.unknown;
-    }
-
-    /** Sets the value of Prolog implementation flag: <code>unknown</code>. */
-    public void setUnknown(String mode) {
-        this.unknown = mode;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>double_quotes</code>. */
-    public String getDoubleQuotes() {
-        return this.doubleQuotes;
-    }
-
-    /** Sets the value of Prolog implementation flag: <code>double_quotes</code>. */
-    public void setDoubleQuotes(String mode) {
-        this.doubleQuotes = mode;
-    }
-
-    /** Returns the value of Prolog implementation flag: <code>print_stack_trace</code>. */
-    public String getPrintStackTrace() {
-        return "on";
-        /*return printStackTrace;*/ }
-
-    /** Sets the value of Prolog implementation flag: <code>print_stack_trace</code>. */
-    public void setPrintStackTrace(String mode) {
-        this.printStackTrace = mode;
-    }
+    /** Holds an exception term for <code>catch/3</code> and <code>throw/1</code>. */
+    private Term exception;
+    /** Holds the start time as <code>long</code> for <code>statistics/2</code>. */
+    private long startRuntime;
+    /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
+    private long previousRuntime;
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {
@@ -708,7 +613,7 @@ public final class Prolog {
     }
 
     public Term popPendingGoals() {
-        if (halt != 1)
+        if (halt != 0)
             return Nil;
         synchronized (INTERUPT_LOCK) {
             if (PENDING_INTERUPTS == 0)
@@ -807,7 +712,7 @@ public final class Prolog {
         return TermData.V(this);
     }
 
-    public Term DONTCARE(String string) {
+    public Term DONTCARE(String _string) {
         // TODO Auto-generated method stub
         return TermData.V(this);
     }
@@ -825,6 +730,11 @@ public final class Prolog {
     public Map<Term, Term> getTermBlackboard() {
         // TODO Auto-generated method stub
         return termBlackboard;
+    }
+
+    public static void setPrologFlag(String string, boolean b) {
+        // TODO Auto-generated method stub
+
     }
 
 }

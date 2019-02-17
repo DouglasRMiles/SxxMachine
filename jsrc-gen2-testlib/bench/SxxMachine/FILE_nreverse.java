@@ -49,41 +49,41 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/nreverse.pl
 */
     // main(nreverse/0,public)
-        final static IntegerTerm int_26 = Integer(26);
-        final static IntegerTerm int_27 = Integer(27);
-        final static IntegerTerm int_28 = Integer(28);
-        final static IntegerTerm int_29 = Integer(29);
-        final static IntegerTerm int_30 = Integer(30);
-    private static final Term L_nreverse_0_s32 = CONS( int_30 ,  Prolog.Nil );
-    private static final Term L_nreverse_0_s33 = CONS( int_29 , L_nreverse_0_s32);
-    private static final Term L_nreverse_0_s34 = CONS( int_28 , L_nreverse_0_s33);
-    private static final Term L_nreverse_0_s35 = CONS( int_27 , L_nreverse_0_s34);
-    private static final Term L_nreverse_0_s36 = CONS( int_26 , L_nreverse_0_s35);
-    private static final Term L_nreverse_0_s37 = CONS( int_25 , L_nreverse_0_s36);
-    private static final Term L_nreverse_0_s38 = CONS( int_24 , L_nreverse_0_s37);
-    private static final Term L_nreverse_0_s39 = CONS( int_23 , L_nreverse_0_s38);
-    private static final Term L_nreverse_0_s40 = CONS( int_22 , L_nreverse_0_s39);
-    private static final Term L_nreverse_0_s41 = CONS( int_21 , L_nreverse_0_s40);
-    private static final Term L_nreverse_0_s42 = CONS( int_20 , L_nreverse_0_s41);
-    private static final Term L_nreverse_0_s43 = CONS( int_19 , L_nreverse_0_s42);
-    private static final Term L_nreverse_0_s44 = CONS( int_18 , L_nreverse_0_s43);
-    private static final Term L_nreverse_0_s45 = CONS( int_17 , L_nreverse_0_s44);
-    private static final Term L_nreverse_0_s46 = CONS( int_16 , L_nreverse_0_s45);
-    private static final Term L_nreverse_0_s47 = CONS( int_15 , L_nreverse_0_s46);
-    private static final Term L_nreverse_0_s48 = CONS( int_14 , L_nreverse_0_s47);
-    private static final Term L_nreverse_0_s49 = CONS( int_13 , L_nreverse_0_s48);
-    private static final Term L_nreverse_0_s50 = CONS( int_12 , L_nreverse_0_s49);
-    private static final Term L_nreverse_0_s51 = CONS( int_11 , L_nreverse_0_s50);
-    private static final Term L_nreverse_0_s52 = CONS( int_10 , L_nreverse_0_s51);
-    private static final Term L_nreverse_0_s53 = CONS( int_9 , L_nreverse_0_s52);
-    private static final Term L_nreverse_0_s54 = CONS( int_8 , L_nreverse_0_s53);
-    private static final Term L_nreverse_0_s55 = CONS( int_7 , L_nreverse_0_s54);
-    private static final Term L_nreverse_0_s56 = CONS( int_6 , L_nreverse_0_s55);
-    private static final Term L_nreverse_0_s57 = CONS( int_5 , L_nreverse_0_s56);
-    private static final Term L_nreverse_0_s58 = CONS( int_4 , L_nreverse_0_s57);
-    private static final Term L_nreverse_0_s59 = CONS( int_3 , L_nreverse_0_s58);
-    private static final Term L_nreverse_0_s60 = CONS( int_2 , L_nreverse_0_s59);
-    private static final Term L_nreverse_0_s61 = CONS( int_1 , L_nreverse_0_s60);
+        final static NumberTerm int_26 = Integer(26);
+        final static NumberTerm int_27 = Integer(27);
+        final static NumberTerm int_28 = Integer(28);
+        final static NumberTerm int_29 = Integer(29);
+        final static NumberTerm int_30 = Integer(30);
+    private static final Compound L_nreverse_0_s32 = CONS( int_30 ,  Prolog.Nil );
+    private static final Compound L_nreverse_0_s33 = CONS( int_29 , L_nreverse_0_s32);
+    private static final Compound L_nreverse_0_s34 = CONS( int_28 , L_nreverse_0_s33);
+    private static final Compound L_nreverse_0_s35 = CONS( int_27 , L_nreverse_0_s34);
+    private static final Compound L_nreverse_0_s36 = CONS( int_26 , L_nreverse_0_s35);
+    private static final Compound L_nreverse_0_s37 = CONS( int_25 , L_nreverse_0_s36);
+    private static final Compound L_nreverse_0_s38 = CONS( int_24 , L_nreverse_0_s37);
+    private static final Compound L_nreverse_0_s39 = CONS( int_23 , L_nreverse_0_s38);
+    private static final Compound L_nreverse_0_s40 = CONS( int_22 , L_nreverse_0_s39);
+    private static final Compound L_nreverse_0_s41 = CONS( int_21 , L_nreverse_0_s40);
+    private static final Compound L_nreverse_0_s42 = CONS( int_20 , L_nreverse_0_s41);
+    private static final Compound L_nreverse_0_s43 = CONS( int_19 , L_nreverse_0_s42);
+    private static final Compound L_nreverse_0_s44 = CONS( int_18 , L_nreverse_0_s43);
+    private static final Compound L_nreverse_0_s45 = CONS( int_17 , L_nreverse_0_s44);
+    private static final Compound L_nreverse_0_s46 = CONS( int_16 , L_nreverse_0_s45);
+    private static final Compound L_nreverse_0_s47 = CONS( int_15 , L_nreverse_0_s46);
+    private static final Compound L_nreverse_0_s48 = CONS( int_14 , L_nreverse_0_s47);
+    private static final Compound L_nreverse_0_s49 = CONS( int_13 , L_nreverse_0_s48);
+    private static final Compound L_nreverse_0_s50 = CONS( int_12 , L_nreverse_0_s49);
+    private static final Compound L_nreverse_0_s51 = CONS( int_11 , L_nreverse_0_s50);
+    private static final Compound L_nreverse_0_s52 = CONS( int_10 , L_nreverse_0_s51);
+    private static final Compound L_nreverse_0_s53 = CONS( int_9 , L_nreverse_0_s52);
+    private static final Compound L_nreverse_0_s54 = CONS( int_8 , L_nreverse_0_s53);
+    private static final Compound L_nreverse_0_s55 = CONS( int_7 , L_nreverse_0_s54);
+    private static final Compound L_nreverse_0_s56 = CONS( int_6 , L_nreverse_0_s55);
+    private static final Compound L_nreverse_0_s57 = CONS( int_5 , L_nreverse_0_s56);
+    private static final Compound L_nreverse_0_s58 = CONS( int_4 , L_nreverse_0_s57);
+    private static final Compound L_nreverse_0_s59 = CONS( int_3 , L_nreverse_0_s58);
+    private static final Compound L_nreverse_0_s60 = CONS( int_2 , L_nreverse_0_s59);
+    private static final Compound L_nreverse_0_s61 = CONS( int_1 , L_nreverse_0_s60);
 
 
 

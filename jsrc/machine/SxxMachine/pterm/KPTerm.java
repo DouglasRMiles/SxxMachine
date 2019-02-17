@@ -5,11 +5,14 @@ import static SxxMachine.pterm.TermData.Long;
 
 import SxxMachine.Copier;
 import SxxMachine.Functor;
+import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
+import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.Var;
 
 /**
  * Top element of the Prolog term hierarchy. Describes a simple or compound ter
@@ -227,21 +230,21 @@ abstract class KPTerm {
      */
 
     public int exec(Prog p) {
-        // IO.println("this should be overriden, prog="+p);
+        // IO.println("this should be overriden, prog="+p);       
         return -1;
     }
 
     static final Nonvar stringToChars(String s) {
         if (0 == s.length())
             return (Nonvar) Prolog.Nil;
-        ListTerm l = CONS(TermData.Long((s.charAt(0))), Prolog.Nil);
+        Compound l = CONS(TermData.Long((s.charAt(0))), Prolog.Nil);
         Term curr = l;
         for (int i = 1; i < s.length(); i++) {
-            Nonvar tail = CONS(Long((s.charAt(i))), Prolog.Nil);
+            Compound tail = CONS(Long((s.charAt(i))), Prolog.Nil);
             curr.setArg(1, tail);
             curr = tail;
         }
-        return l;
+        return (Nonvar) l;
     }
 
     public Nonvar toChars() {
@@ -328,8 +331,7 @@ abstract class KPTerm {
     }
 
     public Term toValue() {
-        // TODO Auto-generated method stub
-        return (Term) this;
+        return dref();
     }
 
     public double doubleValue() {
@@ -350,7 +352,7 @@ abstract class KPTerm {
     }
 
     public Term ArgDeRef(int i) {
-        return Expect.asStruct((Term) this).ArgDeRef(i);
+        return TermData.asStruct((Term) this).ArgDeRef(i);
     }
 
     public boolean isFunctor(String string) throws IllegalTypeException {

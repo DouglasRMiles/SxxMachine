@@ -126,120 +126,120 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor ATOM_are = SYM("are");
         final static Functor ATOM_there = SYM("there");
         final static Functor ATOM_$003F = SYM("?");
-    private static final Term L_my_string_1_s7 = CONS( ATOM_$003F ,  Prolog.Nil );
-    private static final Term L_my_string_1_s8 = CONS( ATOM_there , L_my_string_1_s7);
-    private static final Term L_my_string_1_s9 = CONS( ATOM_are , L_my_string_1_s8);
-    private static final Term L_my_string_1_s10 = CONS( ATOM_rivers , L_my_string_1_s9);
-    private static final Term L_my_string_1_s11 = CONS( ATOM_what , L_my_string_1_s10);
+    private static final Compound L_my_string_1_s7 = CONS( ATOM_$003F ,  Prolog.Nil );
+    private static final Compound L_my_string_1_s8 = CONS( ATOM_there , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s9 = CONS( ATOM_are , L_my_string_1_s8);
+    private static final Compound L_my_string_1_s10 = CONS( ATOM_rivers , L_my_string_1_s9);
+    private static final Compound L_my_string_1_s11 = CONS( ATOM_what , L_my_string_1_s10);
         final static Functor ATOM_does = SYM("does");
         final static Functor ATOM_afghanistan = SYM("afghanistan");
         final static Functor ATOM_border = SYM("border");
         final static Functor ATOM_china = SYM("china");
-    private static final Term L_my_string_1_s16 = CONS( ATOM_china , L_my_string_1_s7);
-    private static final Term L_my_string_1_s17 = CONS( ATOM_border , L_my_string_1_s16);
-    private static final Term L_my_string_1_s18 = CONS( ATOM_afghanistan , L_my_string_1_s17);
-    private static final Term L_my_string_1_s19 = CONS( ATOM_does , L_my_string_1_s18);
+    private static final Compound L_my_string_1_s16 = CONS( ATOM_china , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s17 = CONS( ATOM_border , L_my_string_1_s16);
+    private static final Compound L_my_string_1_s18 = CONS( ATOM_afghanistan , L_my_string_1_s17);
+    private static final Compound L_my_string_1_s19 = CONS( ATOM_does , L_my_string_1_s18);
         final static Functor ATOM_is = SYM("is");
         final static Functor ATOM_the = SYM("the");
         final static Functor ATOM_capital = SYM("capital");
         final static Functor ATOM_of = SYM("of");
         final static Functor ATOM_upper_volta = SYM("upper_volta");
-    private static final Term L_my_string_1_s25 = CONS( ATOM_upper_volta , L_my_string_1_s7);
-    private static final Term L_my_string_1_s26 = CONS( ATOM_of , L_my_string_1_s25);
-    private static final Term L_my_string_1_s27 = CONS( ATOM_capital , L_my_string_1_s26);
-    private static final Term L_my_string_1_s28 = CONS( ATOM_the , L_my_string_1_s27);
-    private static final Term L_my_string_1_s29 = CONS( ATOM_is , L_my_string_1_s28);
-    private static final Term L_my_string_1_s30 = CONS( ATOM_what , L_my_string_1_s29);
+    private static final Compound L_my_string_1_s25 = CONS( ATOM_upper_volta , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s26 = CONS( ATOM_of , L_my_string_1_s25);
+    private static final Compound L_my_string_1_s27 = CONS( ATOM_capital , L_my_string_1_s26);
+    private static final Compound L_my_string_1_s28 = CONS( ATOM_the , L_my_string_1_s27);
+    private static final Compound L_my_string_1_s29 = CONS( ATOM_is , L_my_string_1_s28);
+    private static final Compound L_my_string_1_s30 = CONS( ATOM_what , L_my_string_1_s29);
         final static Functor ATOM_where = SYM("where");
         final static Functor ATOM_largest = SYM("largest");
         final static Functor ATOM_country = SYM("country");
-    private static final Term L_my_string_1_s34 = CONS( ATOM_country , L_my_string_1_s7);
-    private static final Term L_my_string_1_s35 = CONS( ATOM_largest , L_my_string_1_s34);
-    private static final Term L_my_string_1_s36 = CONS( ATOM_the , L_my_string_1_s35);
-    private static final Term L_my_string_1_s37 = CONS( ATOM_is , L_my_string_1_s36);
-    private static final Term L_my_string_1_s38 = CONS( ATOM_where , L_my_string_1_s37);
+    private static final Compound L_my_string_1_s34 = CONS( ATOM_country , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s35 = CONS( ATOM_largest , L_my_string_1_s34);
+    private static final Compound L_my_string_1_s36 = CONS( ATOM_the , L_my_string_1_s35);
+    private static final Compound L_my_string_1_s37 = CONS( ATOM_is , L_my_string_1_s36);
+    private static final Compound L_my_string_1_s38 = CONS( ATOM_where , L_my_string_1_s37);
         final static Functor ATOM_which = SYM("which");
         final static Functor ATOM_$007E = SYM("~");
         final static Functor ATOM_s = SYM("s");
         final static Functor ATOM_london = SYM("london");
-    private static final Term L_my_string_1_s43 = CONS( ATOM_london , L_my_string_1_s7);
-    private static final Term L_my_string_1_s44 = CONS( ATOM_is , L_my_string_1_s43);
-    private static final Term L_my_string_1_s45 = CONS( ATOM_capital , L_my_string_1_s44);
-    private static final Term L_my_string_1_s46 = CONS( ATOM_s , L_my_string_1_s45);
-    private static final Term L_my_string_1_s47 = CONS( ATOM_$007E , L_my_string_1_s46);
-    private static final Term L_my_string_1_s48 = CONS( ATOM_country , L_my_string_1_s47);
-    private static final Term L_my_string_1_s49 = CONS( ATOM_which , L_my_string_1_s48);
+    private static final Compound L_my_string_1_s43 = CONS( ATOM_london , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s44 = CONS( ATOM_is , L_my_string_1_s43);
+    private static final Compound L_my_string_1_s45 = CONS( ATOM_capital , L_my_string_1_s44);
+    private static final Compound L_my_string_1_s46 = CONS( ATOM_s , L_my_string_1_s45);
+    private static final Compound L_my_string_1_s47 = CONS( ATOM_$007E , L_my_string_1_s46);
+    private static final Compound L_my_string_1_s48 = CONS( ATOM_country , L_my_string_1_s47);
+    private static final Compound L_my_string_1_s49 = CONS( ATOM_which , L_my_string_1_s48);
         final static Functor ATOM_countries = SYM("countries");
         final static Functor ATOM_european = SYM("european");
-    private static final Term L_my_string_1_s52 = CONS( ATOM_european , L_my_string_1_s7);
-    private static final Term L_my_string_1_s53 = CONS( ATOM_are , L_my_string_1_s52);
-    private static final Term L_my_string_1_s54 = CONS( ATOM_countries , L_my_string_1_s53);
-    private static final Term L_my_string_1_s55 = CONS( ATOM_which , L_my_string_1_s54);
+    private static final Compound L_my_string_1_s52 = CONS( ATOM_european , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s53 = CONS( ATOM_are , L_my_string_1_s52);
+    private static final Compound L_my_string_1_s54 = CONS( ATOM_countries , L_my_string_1_s53);
+    private static final Compound L_my_string_1_s55 = CONS( ATOM_which , L_my_string_1_s54);
         final static Functor ATOM_how = SYM("how");
         final static Functor ATOM_large = SYM("large");
         final static Functor ATOM_smallest = SYM("smallest");
         final static Functor ATOM_american = SYM("american");
-    private static final Term L_my_string_1_s60 = CONS( ATOM_american , L_my_string_1_s34);
-    private static final Term L_my_string_1_s61 = CONS( ATOM_smallest , L_my_string_1_s60);
-    private static final Term L_my_string_1_s62 = CONS( ATOM_the , L_my_string_1_s61);
-    private static final Term L_my_string_1_s63 = CONS( ATOM_is , L_my_string_1_s62);
-    private static final Term L_my_string_1_s64 = CONS( ATOM_large , L_my_string_1_s63);
-    private static final Term L_my_string_1_s65 = CONS( ATOM_how , L_my_string_1_s64);
+    private static final Compound L_my_string_1_s60 = CONS( ATOM_american , L_my_string_1_s34);
+    private static final Compound L_my_string_1_s61 = CONS( ATOM_smallest , L_my_string_1_s60);
+    private static final Compound L_my_string_1_s62 = CONS( ATOM_the , L_my_string_1_s61);
+    private static final Compound L_my_string_1_s63 = CONS( ATOM_is , L_my_string_1_s62);
+    private static final Compound L_my_string_1_s64 = CONS( ATOM_large , L_my_string_1_s63);
+    private static final Compound L_my_string_1_s65 = CONS( ATOM_how , L_my_string_1_s64);
         final static Functor ATOM_ocean = SYM("ocean");
         final static Functor ATOM_that = SYM("that");
         final static Functor ATOM_borders = SYM("borders");
         final static Functor ATOM_african = SYM("african");
         final static Functor ATOM_and = SYM("and");
         final static Functor ATOM_asian = SYM("asian");
-    private static final Term L_my_string_1_s72 = CONS( ATOM_countries , L_my_string_1_s7);
-    private static final Term L_my_string_1_s73 = CONS( ATOM_asian , L_my_string_1_s72);
-    private static final Term L_my_string_1_s74 = CONS( ATOM_borders , L_my_string_1_s73);
-    private static final Term L_my_string_1_s75 = CONS( ATOM_that , L_my_string_1_s74);
-    private static final Term L_my_string_1_s76 = CONS( ATOM_and , L_my_string_1_s75);
-    private static final Term L_my_string_1_s77 = CONS( ATOM_countries , L_my_string_1_s76);
-    private static final Term L_my_string_1_s78 = CONS( ATOM_african , L_my_string_1_s77);
-    private static final Term L_my_string_1_s79 = CONS( ATOM_borders , L_my_string_1_s78);
-    private static final Term L_my_string_1_s80 = CONS( ATOM_that , L_my_string_1_s79);
-    private static final Term L_my_string_1_s81 = CONS( ATOM_ocean , L_my_string_1_s80);
-    private static final Term L_my_string_1_s82 = CONS( ATOM_the , L_my_string_1_s81);
-    private static final Term L_my_string_1_s83 = CONS( ATOM_is , L_my_string_1_s82);
-    private static final Term L_my_string_1_s84 = CONS( ATOM_what , L_my_string_1_s83);
+    private static final Compound L_my_string_1_s72 = CONS( ATOM_countries , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s73 = CONS( ATOM_asian , L_my_string_1_s72);
+    private static final Compound L_my_string_1_s74 = CONS( ATOM_borders , L_my_string_1_s73);
+    private static final Compound L_my_string_1_s75 = CONS( ATOM_that , L_my_string_1_s74);
+    private static final Compound L_my_string_1_s76 = CONS( ATOM_and , L_my_string_1_s75);
+    private static final Compound L_my_string_1_s77 = CONS( ATOM_countries , L_my_string_1_s76);
+    private static final Compound L_my_string_1_s78 = CONS( ATOM_african , L_my_string_1_s77);
+    private static final Compound L_my_string_1_s79 = CONS( ATOM_borders , L_my_string_1_s78);
+    private static final Compound L_my_string_1_s80 = CONS( ATOM_that , L_my_string_1_s79);
+    private static final Compound L_my_string_1_s81 = CONS( ATOM_ocean , L_my_string_1_s80);
+    private static final Compound L_my_string_1_s82 = CONS( ATOM_the , L_my_string_1_s81);
+    private static final Compound L_my_string_1_s83 = CONS( ATOM_is , L_my_string_1_s82);
+    private static final Compound L_my_string_1_s84 = CONS( ATOM_what , L_my_string_1_s83);
         final static Functor ATOM_capitals = SYM("capitals");
         final static Functor ATOM_bordering = SYM("bordering");
         final static Functor ATOM_baltic = SYM("baltic");
-    private static final Term L_my_string_1_s88 = CONS( ATOM_baltic , L_my_string_1_s7);
-    private static final Term L_my_string_1_s89 = CONS( ATOM_the , L_my_string_1_s88);
-    private static final Term L_my_string_1_s90 = CONS( ATOM_bordering , L_my_string_1_s89);
-    private static final Term L_my_string_1_s91 = CONS( ATOM_countries , L_my_string_1_s90);
-    private static final Term L_my_string_1_s92 = CONS( ATOM_the , L_my_string_1_s91);
-    private static final Term L_my_string_1_s93 = CONS( ATOM_of , L_my_string_1_s92);
-    private static final Term L_my_string_1_s94 = CONS( ATOM_capitals , L_my_string_1_s93);
-    private static final Term L_my_string_1_s95 = CONS( ATOM_the , L_my_string_1_s94);
-    private static final Term L_my_string_1_s96 = CONS( ATOM_are , L_my_string_1_s95);
-    private static final Term L_my_string_1_s97 = CONS( ATOM_what , L_my_string_1_s96);
+    private static final Compound L_my_string_1_s88 = CONS( ATOM_baltic , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s89 = CONS( ATOM_the , L_my_string_1_s88);
+    private static final Compound L_my_string_1_s90 = CONS( ATOM_bordering , L_my_string_1_s89);
+    private static final Compound L_my_string_1_s91 = CONS( ATOM_countries , L_my_string_1_s90);
+    private static final Compound L_my_string_1_s92 = CONS( ATOM_the , L_my_string_1_s91);
+    private static final Compound L_my_string_1_s93 = CONS( ATOM_of , L_my_string_1_s92);
+    private static final Compound L_my_string_1_s94 = CONS( ATOM_capitals , L_my_string_1_s93);
+    private static final Compound L_my_string_1_s95 = CONS( ATOM_the , L_my_string_1_s94);
+    private static final Compound L_my_string_1_s96 = CONS( ATOM_are , L_my_string_1_s95);
+    private static final Compound L_my_string_1_s97 = CONS( ATOM_what , L_my_string_1_s96);
         final static Functor ATOM_bordered = SYM("bordered");
         final static Functor ATOM_by = SYM("by");
         final static Functor ATOM_two = SYM("two");
         final static Functor ATOM_seas = SYM("seas");
-    private static final Term L_my_string_1_s102 = CONS( ATOM_seas , L_my_string_1_s7);
-    private static final Term L_my_string_1_s103 = CONS( ATOM_two , L_my_string_1_s102);
-    private static final Term L_my_string_1_s104 = CONS( ATOM_by , L_my_string_1_s103);
-    private static final Term L_my_string_1_s105 = CONS( ATOM_bordered , L_my_string_1_s104);
-    private static final Term L_my_string_1_s106 = CONS( ATOM_are , L_my_string_1_s105);
-    private static final Term L_my_string_1_s107 = CONS( ATOM_countries , L_my_string_1_s106);
-    private static final Term L_my_string_1_s108 = CONS( ATOM_which , L_my_string_1_s107);
+    private static final Compound L_my_string_1_s102 = CONS( ATOM_seas , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s103 = CONS( ATOM_two , L_my_string_1_s102);
+    private static final Compound L_my_string_1_s104 = CONS( ATOM_by , L_my_string_1_s103);
+    private static final Compound L_my_string_1_s105 = CONS( ATOM_bordered , L_my_string_1_s104);
+    private static final Compound L_my_string_1_s106 = CONS( ATOM_are , L_my_string_1_s105);
+    private static final Compound L_my_string_1_s107 = CONS( ATOM_countries , L_my_string_1_s106);
+    private static final Compound L_my_string_1_s108 = CONS( ATOM_which , L_my_string_1_s107);
         final static Functor ATOM_many = SYM("many");
         final static Functor ATOM_danube = SYM("danube");
         final static Functor ATOM_flow = SYM("flow");
         final static Functor ATOM_through = SYM("through");
-    private static final Term L_my_string_1_s113 = CONS( ATOM_through , L_my_string_1_s7);
-    private static final Term L_my_string_1_s114 = CONS( ATOM_flow , L_my_string_1_s113);
-    private static final Term L_my_string_1_s115 = CONS( ATOM_danube , L_my_string_1_s114);
-    private static final Term L_my_string_1_s116 = CONS( ATOM_the , L_my_string_1_s115);
-    private static final Term L_my_string_1_s117 = CONS( ATOM_does , L_my_string_1_s116);
-    private static final Term L_my_string_1_s118 = CONS( ATOM_countries , L_my_string_1_s117);
-    private static final Term L_my_string_1_s119 = CONS( ATOM_many , L_my_string_1_s118);
-    private static final Term L_my_string_1_s120 = CONS( ATOM_how , L_my_string_1_s119);
+    private static final Compound L_my_string_1_s113 = CONS( ATOM_through , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s114 = CONS( ATOM_flow , L_my_string_1_s113);
+    private static final Compound L_my_string_1_s115 = CONS( ATOM_danube , L_my_string_1_s114);
+    private static final Compound L_my_string_1_s116 = CONS( ATOM_the , L_my_string_1_s115);
+    private static final Compound L_my_string_1_s117 = CONS( ATOM_does , L_my_string_1_s116);
+    private static final Compound L_my_string_1_s118 = CONS( ATOM_countries , L_my_string_1_s117);
+    private static final Compound L_my_string_1_s119 = CONS( ATOM_many , L_my_string_1_s118);
+    private static final Compound L_my_string_1_s120 = CONS( ATOM_how , L_my_string_1_s119);
         final static Functor ATOM_total = SYM("total");
         final static Functor ATOM_area = SYM("area");
         final static Functor ATOM_south = SYM("south");
@@ -247,73 +247,73 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor ATOM_not = SYM("not");
         final static Functor ATOM_in = SYM("in");
         final static Functor ATOM_australasia = SYM("australasia");
-    private static final Term L_my_string_1_s128 = CONS( ATOM_australasia , L_my_string_1_s7);
-    private static final Term L_my_string_1_s129 = CONS( ATOM_in , L_my_string_1_s128);
-    private static final Term L_my_string_1_s130 = CONS( ATOM_not , L_my_string_1_s129);
-    private static final Term L_my_string_1_s131 = CONS( ATOM_and , L_my_string_1_s130);
-    private static final Term L_my_string_1_s132 = CONS( ATOM_equator , L_my_string_1_s131);
-    private static final Term L_my_string_1_s133 = CONS( ATOM_the , L_my_string_1_s132);
-    private static final Term L_my_string_1_s134 = CONS( ATOM_of , L_my_string_1_s133);
-    private static final Term L_my_string_1_s135 = CONS( ATOM_south , L_my_string_1_s134);
-    private static final Term L_my_string_1_s136 = CONS( ATOM_countries , L_my_string_1_s135);
-    private static final Term L_my_string_1_s137 = CONS( ATOM_of , L_my_string_1_s136);
-    private static final Term L_my_string_1_s138 = CONS( ATOM_area , L_my_string_1_s137);
-    private static final Term L_my_string_1_s139 = CONS( ATOM_total , L_my_string_1_s138);
-    private static final Term L_my_string_1_s140 = CONS( ATOM_the , L_my_string_1_s139);
-    private static final Term L_my_string_1_s141 = CONS( ATOM_is , L_my_string_1_s140);
-    private static final Term L_my_string_1_s142 = CONS( ATOM_what , L_my_string_1_s141);
+    private static final Compound L_my_string_1_s128 = CONS( ATOM_australasia , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s129 = CONS( ATOM_in , L_my_string_1_s128);
+    private static final Compound L_my_string_1_s130 = CONS( ATOM_not , L_my_string_1_s129);
+    private static final Compound L_my_string_1_s131 = CONS( ATOM_and , L_my_string_1_s130);
+    private static final Compound L_my_string_1_s132 = CONS( ATOM_equator , L_my_string_1_s131);
+    private static final Compound L_my_string_1_s133 = CONS( ATOM_the , L_my_string_1_s132);
+    private static final Compound L_my_string_1_s134 = CONS( ATOM_of , L_my_string_1_s133);
+    private static final Compound L_my_string_1_s135 = CONS( ATOM_south , L_my_string_1_s134);
+    private static final Compound L_my_string_1_s136 = CONS( ATOM_countries , L_my_string_1_s135);
+    private static final Compound L_my_string_1_s137 = CONS( ATOM_of , L_my_string_1_s136);
+    private static final Compound L_my_string_1_s138 = CONS( ATOM_area , L_my_string_1_s137);
+    private static final Compound L_my_string_1_s139 = CONS( ATOM_total , L_my_string_1_s138);
+    private static final Compound L_my_string_1_s140 = CONS( ATOM_the , L_my_string_1_s139);
+    private static final Compound L_my_string_1_s141 = CONS( ATOM_is , L_my_string_1_s140);
+    private static final Compound L_my_string_1_s142 = CONS( ATOM_what , L_my_string_1_s141);
         final static Functor ATOM_average = SYM("average");
         final static Functor ATOM_each = SYM("each");
         final static Functor ATOM_continent = SYM("continent");
-    private static final Term L_my_string_1_s146 = CONS( ATOM_continent , L_my_string_1_s7);
-    private static final Term L_my_string_1_s147 = CONS( ATOM_each , L_my_string_1_s146);
-    private static final Term L_my_string_1_s148 = CONS( ATOM_in , L_my_string_1_s147);
-    private static final Term L_my_string_1_s149 = CONS( ATOM_countries , L_my_string_1_s148);
-    private static final Term L_my_string_1_s150 = CONS( ATOM_the , L_my_string_1_s149);
-    private static final Term L_my_string_1_s151 = CONS( ATOM_of , L_my_string_1_s150);
-    private static final Term L_my_string_1_s152 = CONS( ATOM_area , L_my_string_1_s151);
-    private static final Term L_my_string_1_s153 = CONS( ATOM_average , L_my_string_1_s152);
-    private static final Term L_my_string_1_s154 = CONS( ATOM_the , L_my_string_1_s153);
-    private static final Term L_my_string_1_s155 = CONS( ATOM_is , L_my_string_1_s154);
-    private static final Term L_my_string_1_s156 = CONS( ATOM_what , L_my_string_1_s155);
+    private static final Compound L_my_string_1_s146 = CONS( ATOM_continent , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s147 = CONS( ATOM_each , L_my_string_1_s146);
+    private static final Compound L_my_string_1_s148 = CONS( ATOM_in , L_my_string_1_s147);
+    private static final Compound L_my_string_1_s149 = CONS( ATOM_countries , L_my_string_1_s148);
+    private static final Compound L_my_string_1_s150 = CONS( ATOM_the , L_my_string_1_s149);
+    private static final Compound L_my_string_1_s151 = CONS( ATOM_of , L_my_string_1_s150);
+    private static final Compound L_my_string_1_s152 = CONS( ATOM_area , L_my_string_1_s151);
+    private static final Compound L_my_string_1_s153 = CONS( ATOM_average , L_my_string_1_s152);
+    private static final Compound L_my_string_1_s154 = CONS( ATOM_the , L_my_string_1_s153);
+    private static final Compound L_my_string_1_s155 = CONS( ATOM_is , L_my_string_1_s154);
+    private static final Compound L_my_string_1_s156 = CONS( ATOM_what , L_my_string_1_s155);
         final static Functor ATOM_more = SYM("more");
         final static Functor ATOM_than = SYM("than");
         final static Functor ATOM_one = SYM("one");
-    private static final Term L_my_string_1_s160 = CONS( ATOM_country , L_my_string_1_s148);
-    private static final Term L_my_string_1_s161 = CONS( ATOM_one , L_my_string_1_s160);
-    private static final Term L_my_string_1_s162 = CONS( ATOM_than , L_my_string_1_s161);
-    private static final Term L_my_string_1_s163 = CONS( ATOM_more , L_my_string_1_s162);
-    private static final Term L_my_string_1_s164 = CONS( ATOM_there , L_my_string_1_s163);
-    private static final Term L_my_string_1_s165 = CONS( ATOM_is , L_my_string_1_s164);
+    private static final Compound L_my_string_1_s160 = CONS( ATOM_country , L_my_string_1_s148);
+    private static final Compound L_my_string_1_s161 = CONS( ATOM_one , L_my_string_1_s160);
+    private static final Compound L_my_string_1_s162 = CONS( ATOM_than , L_my_string_1_s161);
+    private static final Compound L_my_string_1_s163 = CONS( ATOM_more , L_my_string_1_s162);
+    private static final Compound L_my_string_1_s164 = CONS( ATOM_there , L_my_string_1_s163);
+    private static final Compound L_my_string_1_s165 = CONS( ATOM_is , L_my_string_1_s164);
         final static Functor ATOM_some = SYM("some");
         final static Functor ATOM_any = SYM("any");
-    private static final Term L_my_string_1_s168 = CONS( ATOM_any , L_my_string_1_s34);
-    private static final Term L_my_string_1_s169 = CONS( ATOM_border , L_my_string_1_s168);
-    private static final Term L_my_string_1_s170 = CONS( ATOM_not , L_my_string_1_s169);
-    private static final Term L_my_string_1_s171 = CONS( ATOM_does , L_my_string_1_s170);
-    private static final Term L_my_string_1_s172 = CONS( ATOM_that , L_my_string_1_s171);
-    private static final Term L_my_string_1_s173 = CONS( ATOM_ocean , L_my_string_1_s172);
-    private static final Term L_my_string_1_s174 = CONS( ATOM_some , L_my_string_1_s173);
-    private static final Term L_my_string_1_s175 = CONS( ATOM_there , L_my_string_1_s174);
-    private static final Term L_my_string_1_s176 = CONS( ATOM_is , L_my_string_1_s175);
+    private static final Compound L_my_string_1_s168 = CONS( ATOM_any , L_my_string_1_s34);
+    private static final Compound L_my_string_1_s169 = CONS( ATOM_border , L_my_string_1_s168);
+    private static final Compound L_my_string_1_s170 = CONS( ATOM_not , L_my_string_1_s169);
+    private static final Compound L_my_string_1_s171 = CONS( ATOM_does , L_my_string_1_s170);
+    private static final Compound L_my_string_1_s172 = CONS( ATOM_that , L_my_string_1_s171);
+    private static final Compound L_my_string_1_s173 = CONS( ATOM_ocean , L_my_string_1_s172);
+    private static final Compound L_my_string_1_s174 = CONS( ATOM_some , L_my_string_1_s173);
+    private static final Compound L_my_string_1_s175 = CONS( ATOM_there , L_my_string_1_s174);
+    private static final Compound L_my_string_1_s176 = CONS( ATOM_is , L_my_string_1_s175);
         final static Functor ATOM_from = SYM("from");
         final static Functor ATOM_a = SYM("a");
         final static Functor ATOM_river = SYM("river");
         final static Functor ATOM_flows = SYM("flows");
         final static Functor ATOM_into = SYM("into");
         final static Functor ATOM_black_sea = SYM("black_sea");
-    private static final Term L_my_string_1_s183 = CONS( ATOM_black_sea , L_my_string_1_s7);
-    private static final Term L_my_string_1_s184 = CONS( ATOM_the , L_my_string_1_s183);
-    private static final Term L_my_string_1_s185 = CONS( ATOM_into , L_my_string_1_s184);
-    private static final Term L_my_string_1_s186 = CONS( ATOM_flows , L_my_string_1_s185);
-    private static final Term L_my_string_1_s187 = CONS( ATOM_river , L_my_string_1_s186);
-    private static final Term L_my_string_1_s188 = CONS( ATOM_a , L_my_string_1_s187);
-    private static final Term L_my_string_1_s189 = CONS( ATOM_which , L_my_string_1_s188);
-    private static final Term L_my_string_1_s190 = CONS( ATOM_from , L_my_string_1_s189);
-    private static final Term L_my_string_1_s191 = CONS( ATOM_countries , L_my_string_1_s190);
-    private static final Term L_my_string_1_s192 = CONS( ATOM_the , L_my_string_1_s191);
-    private static final Term L_my_string_1_s193 = CONS( ATOM_are , L_my_string_1_s192);
-    private static final Term L_my_string_1_s194 = CONS( ATOM_what , L_my_string_1_s193);
+    private static final Compound L_my_string_1_s183 = CONS( ATOM_black_sea , L_my_string_1_s7);
+    private static final Compound L_my_string_1_s184 = CONS( ATOM_the , L_my_string_1_s183);
+    private static final Compound L_my_string_1_s185 = CONS( ATOM_into , L_my_string_1_s184);
+    private static final Compound L_my_string_1_s186 = CONS( ATOM_flows , L_my_string_1_s185);
+    private static final Compound L_my_string_1_s187 = CONS( ATOM_river , L_my_string_1_s186);
+    private static final Compound L_my_string_1_s188 = CONS( ATOM_a , L_my_string_1_s187);
+    private static final Compound L_my_string_1_s189 = CONS( ATOM_which , L_my_string_1_s188);
+    private static final Compound L_my_string_1_s190 = CONS( ATOM_from , L_my_string_1_s189);
+    private static final Compound L_my_string_1_s191 = CONS( ATOM_countries , L_my_string_1_s190);
+    private static final Compound L_my_string_1_s192 = CONS( ATOM_the , L_my_string_1_s191);
+    private static final Compound L_my_string_1_s193 = CONS( ATOM_are , L_my_string_1_s192);
+    private static final Compound L_my_string_1_s194 = CONS( ATOM_what , L_my_string_1_s193);
 
 
 
@@ -867,7 +867,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(trace1/2,public)
-    private static final Term L_trace1_2_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
+    private static final Compound L_trace1_2_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
 
 
 
@@ -892,7 +892,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(trace1/1,public)
-    private static final Term L_trace1_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_1 ,  int_0 );
+    private static final Compound L_trace1_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_1 ,  int_0 );
 
 
 
@@ -912,7 +912,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(adv/1,public)
-    private static final Term L_adv_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_1 );
+    private static final Compound L_adv_1_s5 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_1 );
 
 
 
@@ -932,7 +932,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(empty/1,public)
-    private static final Term L_empty_1_s4 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
+    private static final Compound L_empty_1_s4 = S( FUNCTOR_$0023_4 ,  int_0 ,  int_0 ,  int_0 ,  int_0 );
 
 
 
@@ -952,7 +952,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np_all/1,public)
-    private static final Term L_np_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_1 ,  int_0 );
+    private static final Compound L_np_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_1 ,  int_0 );
 
 
 
@@ -972,7 +972,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(s_all/1,public)
-    private static final Term L_s_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_0 ,  int_1 ,  int_1 );
+    private static final Compound L_s_all_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_0 ,  int_1 ,  int_1 );
 
 
 
@@ -992,7 +992,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(np_no_trace/1,public)
-    private static final Term L_np_no_trace_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_0 ,  int_0 );
+    private static final Compound L_np_no_trace_1_s5 = S( FUNCTOR_$0023_4 ,  int_1 ,  int_1 ,  int_0 ,  int_0 );
 
 
 
@@ -1243,7 +1243,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // main(role/3,public)
         final static Functor ATOM_subj = SYM("subj");
         final static Functor FUNCTOR_$0023_3 = F("#",3);
-    private static final Term L_role_3_s6 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
+    private static final Compound L_role_3_s6 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
         final static Functor ATOM_compl = SYM("compl");
         final static Functor ATOM_undef = SYM("undef");
         final static Functor ATOM_main = SYM("main");
@@ -1398,7 +1398,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(subj_case/1,public)
-    private static final Term L_subj_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
+    private static final Compound L_subj_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
 
 
 
@@ -1418,7 +1418,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_case/1,public)
-    private static final Term L_verb_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_1 ,  int_0 );
+    private static final Compound L_verb_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_1 ,  int_0 );
 
 
 
@@ -1438,7 +1438,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(prep_case/1,public)
-    private static final Term L_prep_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_0 ,  int_1 );
+    private static final Compound L_prep_case_1_s5 = S( FUNCTOR_$0023_3 ,  int_0 ,  int_0 ,  int_1 );
 
 
 
@@ -1880,7 +1880,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor FUNCTOR_part_2 = F("part",2);
         final static Functor ATOM_indef = SYM("indef");
         final static Functor ATOM_plu = SYM("plu");
-    private static final Term L_np_11_s13 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
+    private static final Compound L_np_11_s13 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11;
 
@@ -2291,7 +2291,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 */
     // main(adv_phrase/7,public)
         final static Functor FUNCTOR_prep_1 = F("prep",1);
-    private static final Term L_adv_phrase_7_s6 = S( FUNCTOR_prep_1 ,  ATOM_of );
+    private static final Compound L_adv_phrase_7_s6 = S( FUNCTOR_prep_1 ,  ATOM_of );
 
     // private final Term arg5, arg6, arg7;
 
@@ -3332,9 +3332,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor ATOM_you = SYM("you");
         final static Functor ATOM_imp = SYM("imp");
         final static Functor ATOM_fin = SYM("fin");
-    private static final Term L_imperative_verb_4_s11 = S( FUNCTOR_$002B_2 ,  ATOM_imp ,  ATOM_fin );
+    private static final Compound L_imperative_verb_4_s11 = S( FUNCTOR_$002B_2 ,  ATOM_imp ,  ATOM_fin );
         final static Functor ATOM_sin = SYM("sin");
-    private static final Term L_imperative_verb_4_s15 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
+    private static final Compound L_imperative_verb_4_s15 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
         final static Functor ATOM_inf = SYM("inf");
 
 
@@ -3538,10 +3538,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 */
     // main(np_head0/7,public)
         final static Functor FUNCTOR_name_1 = F("name",1);
-    private static final Term L_np_head0_7_s7 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
-    private static final Term L_np_head0_7_s11 = S( FUNCTOR_$002B_2 ,  ATOM_def ,  ATOM_proper );
+    private static final Compound L_np_head0_7_s7 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
+    private static final Compound L_np_head0_7_s11 = S( FUNCTOR_$002B_2 ,  ATOM_def ,  ATOM_proper );
         final static Functor ATOM_common = SYM("common");
-    private static final Term L_np_head0_7_s21 = S( FUNCTOR_$002B_2 ,  ATOM_indef ,  ATOM_common );
+    private static final Compound L_np_head0_7_s21 = S( FUNCTOR_$002B_2 ,  ATOM_indef ,  ATOM_common );
 
     // private final Term arg5, arg6, arg7;
 
@@ -4298,9 +4298,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // main(sup_op/2,public)
         final static Functor ATOM_least = SYM("least");
         final static Functor ATOM_less = SYM("less");
-    private static final Term L_sup_op_2_s6 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_less );
+    private static final Compound L_sup_op_2_s6 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_less );
         final static Functor ATOM_most = SYM("most");
-    private static final Term L_sup_op_2_s10 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_more );
+    private static final Compound L_sup_op_2_s10 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_more );
 
 
 
@@ -5733,7 +5733,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 */
     // main(reduced_wh/6,public)
         final static Functor ATOM_pres = SYM("pres");
-    private static final Term L_reduced_wh_6_s14 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
+    private static final Compound L_reduced_wh_6_s14 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
         final static Functor FUNCTOR_verb_4 = F("verb",4);
 
     // private final Term arg5, arg6;
@@ -6060,7 +6060,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor ATOM_perf = SYM("perf");
         final static Functor ATOM_past = SYM("past");
         final static Functor ATOM_part = SYM("part");
-    private static final Term L_rest_verb_9_s8 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Compound L_rest_verb_9_s8 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
         final static Functor ATOM_do = SYM("do");
         final static Functor ATOM_active = SYM("active");
 
@@ -6303,11 +6303,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(be/9,public)
-    private static final Term L_be_9_s5 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Compound L_be_9_s5 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
         final static Functor ATOM_passive = SYM("passive");
-    private static final Term L_be_9_s10 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+    private static final Compound L_be_9_s10 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
         final static Functor ATOM_prog = SYM("prog");
-    private static final Term L_be_9_s12 = CONS( ATOM_prog ,  Prolog.Nil );
+    private static final Compound L_be_9_s12 = CONS( ATOM_prog ,  Prolog.Nil );
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -6387,7 +6387,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(passive/7,public)
-    private static final Term L_passive_7_s7 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Compound L_passive_7_s7 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
 
     // private final Term arg5, arg6, arg7;
 
@@ -6560,9 +6560,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(participle/3,public)
-    private static final Term L_participle_3_s5 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-    private static final Term L_participle_3_s9 = CONS( ATOM_prog ,  Prolog.Nil );
-    private static final Term L_participle_3_s12 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Compound L_participle_3_s5 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+    private static final Compound L_participle_3_s9 = CONS( ATOM_prog ,  Prolog.Nil );
+    private static final Compound L_participle_3_s12 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
 
 
 
@@ -6677,7 +6677,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
         final static Functor ATOM_dir = SYM("dir");
         final static Functor ATOM_np = SYM("np");
         final static Functor ATOM_void = SYM("void");
-    private static final Term L_verb_args_9_s11 = CONS( ATOM_void ,  Prolog.Nil );
+    private static final Compound L_verb_args_9_s11 = CONS( ATOM_void ,  Prolog.Nil );
         final static Functor ATOM_predicate = SYM("predicate");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
@@ -8141,9 +8141,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(context_pron/6,public)
-    private static final Term L_context_pron_6_s4 = S( FUNCTOR_prep_1 ,  ATOM_in );
+    private static final Compound L_context_pron_6_s4 = S( FUNCTOR_prep_1 ,  ATOM_in );
         final static Functor ATOM_place = SYM("place");
-    private static final Term L_context_pron_6_s9 = S( FUNCTOR_prep_1 ,  ATOM_at );
+    private static final Compound L_context_pron_6_s9 = S( FUNCTOR_prep_1 ,  ATOM_at );
         final static Functor ATOM_time = SYM("time");
         final static Functor ATOM_when = SYM("when");
 
@@ -10557,9 +10557,9 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(root_form/1,public)
-    private static final Term L_root_form_1_s5 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
-    private static final Term L_root_form_1_s9 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_plu );
-    private static final Term L_root_form_1_s12 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
+    private static final Compound L_root_form_1_s5 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
+    private static final Compound L_root_form_1_s9 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_plu );
+    private static final Compound L_root_form_1_s12 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
 
 
 
@@ -11829,15 +11829,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser
     // main(loc_pred/2,public)
         final static Functor ATOM_east = SYM("east");
         final static Functor ATOM_eastof = SYM("eastof");
-    private static final Term L_loc_pred_2_s5 = S( FUNCTOR_prep_1 ,  ATOM_eastof );
+    private static final Compound L_loc_pred_2_s5 = S( FUNCTOR_prep_1 ,  ATOM_eastof );
         final static Functor ATOM_west = SYM("west");
         final static Functor ATOM_westof = SYM("westof");
-    private static final Term L_loc_pred_2_s9 = S( FUNCTOR_prep_1 ,  ATOM_westof );
+    private static final Compound L_loc_pred_2_s9 = S( FUNCTOR_prep_1 ,  ATOM_westof );
         final static Functor ATOM_north = SYM("north");
         final static Functor ATOM_northof = SYM("northof");
-    private static final Term L_loc_pred_2_s13 = S( FUNCTOR_prep_1 ,  ATOM_northof );
+    private static final Compound L_loc_pred_2_s13 = S( FUNCTOR_prep_1 ,  ATOM_northof );
         final static Functor ATOM_southof = SYM("southof");
-    private static final Term L_loc_pred_2_s17 = S( FUNCTOR_prep_1 ,  ATOM_southof );
+    private static final Compound L_loc_pred_2_s17 = S( FUNCTOR_prep_1 ,  ATOM_southof );
 
 
 
@@ -13539,18 +13539,18 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_form/4,public)
-    private static final Term L_verb_form_4_s6 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
+    private static final Compound L_verb_form_4_s6 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
         final static Functor ATOM_am = SYM("am");
-    private static final Term L_verb_form_4_s13 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
-    private static final Term L_verb_form_4_s17 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
-    private static final Term L_verb_form_4_s21 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
+    private static final Compound L_verb_form_4_s13 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
+    private static final Compound L_verb_form_4_s17 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
+    private static final Compound L_verb_form_4_s21 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
         final static Functor ATOM_was = SYM("was");
-    private static final Term L_verb_form_4_s25 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_fin );
+    private static final Compound L_verb_form_4_s25 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_fin );
         final static Functor ATOM_were = SYM("were");
         final static Functor ATOM_been = SYM("been");
-    private static final Term L_verb_form_4_s30 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
+    private static final Compound L_verb_form_4_s30 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
         final static Functor ATOM_being = SYM("being");
-    private static final Term L_verb_form_4_s33 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
+    private static final Compound L_verb_form_4_s33 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
         final static Functor ATOM_has = SYM("has");
         final static Functor ATOM_having = SYM("having");
         final static Functor ATOM_did = SYM("did");
@@ -14399,11 +14399,11 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/chat_parser.pl
 */
     // main(verb_type/2,public)
-    private static final Term L_verb_type_2_s5 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_have );
-    private static final Term L_verb_type_2_s8 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_be );
-    private static final Term L_verb_type_2_s12 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_ditrans );
-    private static final Term L_verb_type_2_s17 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_intrans );
-    private static final Term L_verb_type_2_s21 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_trans );
+    private static final Compound L_verb_type_2_s5 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_have );
+    private static final Compound L_verb_type_2_s8 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_be );
+    private static final Compound L_verb_type_2_s12 = S( FUNCTOR_$002B_2 ,  ATOM_aux ,  ATOM_ditrans );
+    private static final Compound L_verb_type_2_s17 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_intrans );
+    private static final Compound L_verb_type_2_s21 = S( FUNCTOR_$002B_2 ,  ATOM_main ,  ATOM_trans );
 
 
 

@@ -1188,7 +1188,7 @@ parse_tokens(X, Tokens) :-
 '$parse_tokens_error2'(X) :- write(user_error,X).
 
 '$parse_tokens_write_string'(_,[]).
-'$parse_tokens_write_string'(S,[C|Cs]) :- [C] = [0'", 0'"], !, % """", !,
+'$parse_tokens_write_string'(S,[C|Cs]) :- [C] = [34], !, % """", !,
 	put_code(S,C), put_code(S,C), '$parse_tokens_write_string'(S,Cs).
 '$parse_tokens_write_string'(S,[C|Cs]) :-
 	put_code(S,C), '$parse_tokens_write_string'(S,Cs).
@@ -1313,10 +1313,10 @@ write_term(_, _, _).
 '$write_space_if_needed'(_,     _,     _     ).
 
 '$write_VAR'(VN, S_or_a) :- VN < 26, !,
-	Letter is VN mod 26 + 0'A, % A
+	Letter is VN mod 26 + 0'A,    % "A"
 	put_code(S_or_a, Letter).
 '$write_VAR'(VN, S_or_a) :-
-	Letter is VN mod 26 + 0'A,
+	Letter is VN mod 26 + 0'A,    % "A"
 	put_code(S_or_a, Letter),
 	Rest is VN//26,
 	'$fast_write'(S_or_a, Rest).

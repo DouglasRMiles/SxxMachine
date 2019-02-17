@@ -33,11 +33,11 @@ public class missing_preds extends TermData {
         exec_missing();
         return null;
     }
-
-    public static Operation PRED_predicate_property_2_static_exec(Prolog e) {
-        exec_missing();
-        return null;
-    }
+    //
+    //    public static Operation PRED_predicate_property_2_static_exec(Prolog e) {
+    //        exec_missing();
+    //        return null;
+    //    }
 
     public static Operation PRED_memberchk_2_static_exec(Prolog e) {
         exec_missing();
@@ -82,7 +82,8 @@ public class missing_preds extends TermData {
     /**
      * @throws Error
      */
-    private static void exec_missing() throws Error {       
+    private static void exec_missing() throws Error {
+        Prolog.Break("@TODO");
         throw new AbstractMethodError("not impled"); //
     }
 

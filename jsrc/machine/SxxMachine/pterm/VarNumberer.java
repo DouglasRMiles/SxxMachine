@@ -2,6 +2,7 @@ package SxxMachine.pterm;
 
 import SxxMachine.HashDict;
 import SxxMachine.Term;
+import SxxMachine.Var;
 
 /**
  * Used in implementing uniform replacement of variables with new constants.

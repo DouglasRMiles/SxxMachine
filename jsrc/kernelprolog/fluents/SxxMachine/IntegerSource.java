@@ -2,8 +2,8 @@ package SxxMachine;
 
 import static SxxMachine.pterm.TermData.Long;
 
-import SxxMachine.pterm.LongTerm;
-import SxxMachine.pterm.Source; 
+import SxxMachine.pterm.Source;
+
 
 /**
  * creates a source of integers based on x=a*x+b formula
@@ -30,7 +30,7 @@ public class IntegerSource extends Source {
 	public Term getElement() {
 		if (fuel <= 0)
 			return null;
-		LongTerm R = Long(x);
+		NumberTerm R = Long(x);
 		x = a * x + b;
 		--fuel;
 		return R;

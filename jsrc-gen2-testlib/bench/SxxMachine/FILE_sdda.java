@@ -77,10 +77,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
     // main(read_procedures/3,public)
         final static Functor FUNCTOR_$002F_2 = F("/",2);
         final static Functor ATOM_a = SYM("a");
-    private static final Term L_read_procedures_3_s5 = S( FUNCTOR_$002F_2 ,  ATOM_a ,  int_2 );
+    private static final Compound L_read_procedures_3_s5 = S( FUNCTOR_$002F_2 ,  ATOM_a ,  int_2 );
         final static Functor FUNCTOR_a_2 = F("a",2);
         final static Functor ATOM_c = SYM("c");
-    private static final Term L_read_procedures_3_s10 = S( FUNCTOR_$002F_2 ,  ATOM_c ,  int_3 );
+    private static final Compound L_read_procedures_3_s10 = S( FUNCTOR_$002F_2 ,  ATOM_c ,  int_3 );
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
         final static Functor FUNCTOR_c_3 = F("c",3);
 
@@ -2274,27 +2274,27 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(built_in/3,public)
-    private static final Term L_built_in_3_s5 = S( FUNCTOR_$002F_2 ,  Prolog.True ,  int_0 );
+    private static final Compound L_built_in_3_s5 = S( FUNCTOR_$002F_2 ,  Prolog.True ,  int_0 );
         final static Functor ATOM_fail = SYM("fail");
-    private static final Term L_built_in_3_s9 = S( FUNCTOR_$002F_2 ,  ATOM_fail ,  int_0 );
+    private static final Compound L_built_in_3_s9 = S( FUNCTOR_$002F_2 ,  ATOM_fail ,  int_0 );
         final static Functor ATOM_$003D = SYM("=");
-    private static final Term L_built_in_3_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$003D ,  int_2 );
-    private static final Term L_built_in_3_s15 = CONS( ATOM_g ,  Prolog.Nil );
-    private static final Term L_built_in_3_s16 = CONS( ATOM_g , L_built_in_3_s15);
+    private static final Compound L_built_in_3_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$003D ,  int_2 );
+    private static final Compound L_built_in_3_s15 = CONS( ATOM_g ,  Prolog.Nil );
+    private static final Compound L_built_in_3_s16 = CONS( ATOM_g , L_built_in_3_s15);
         final static Functor ATOM_$002B = SYM("+");
-    private static final Term L_built_in_3_s19 = S( FUNCTOR_$002F_2 ,  ATOM_$002B ,  int_2 );
+    private static final Compound L_built_in_3_s19 = S( FUNCTOR_$002F_2 ,  ATOM_$002B ,  int_2 );
         final static Functor ATOM_$002D = SYM("-");
-    private static final Term L_built_in_3_s22 = S( FUNCTOR_$002F_2 ,  ATOM_$002D ,  int_2 );
+    private static final Compound L_built_in_3_s22 = S( FUNCTOR_$002F_2 ,  ATOM_$002D ,  int_2 );
         final static Functor ATOM_$002A = SYM("*");
-    private static final Term L_built_in_3_s25 = S( FUNCTOR_$002F_2 ,  ATOM_$002A ,  int_2 );
+    private static final Compound L_built_in_3_s25 = S( FUNCTOR_$002F_2 ,  ATOM_$002A ,  int_2 );
         final static Functor ATOM_$002F = SYM("/");
-    private static final Term L_built_in_3_s28 = S( FUNCTOR_$002F_2 ,  ATOM_$002F ,  int_2 );
+    private static final Compound L_built_in_3_s28 = S( FUNCTOR_$002F_2 ,  ATOM_$002F ,  int_2 );
         final static Functor ATOM_$003E$003D = SYM(">=");
-    private static final Term L_built_in_3_s31 = S( FUNCTOR_$002F_2 ,  ATOM_$003E$003D ,  int_2 );
+    private static final Compound L_built_in_3_s31 = S( FUNCTOR_$002F_2 ,  ATOM_$003E$003D ,  int_2 );
         final static Functor ATOM_$003C = SYM("<");
-    private static final Term L_built_in_3_s34 = S( FUNCTOR_$002F_2 ,  ATOM_$003C ,  int_2 );
+    private static final Compound L_built_in_3_s34 = S( FUNCTOR_$002F_2 ,  ATOM_$003C ,  int_2 );
         final static Functor ATOM_is = SYM("is");
-    private static final Term L_built_in_3_s37 = S( FUNCTOR_$002F_2 ,  ATOM_is ,  int_2 );
+    private static final Compound L_built_in_3_s37 = S( FUNCTOR_$002F_2 ,  ATOM_is ,  int_2 );
 
 
 
@@ -4197,7 +4197,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (! (a1 .isSymbol())) {
+        if (! (a1 .isAtom())) {
             return m.fail();
         }
         //END inline expansion
@@ -4263,10 +4263,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/bench/sdda.pl
 */
     // main(make_name/2,public)
         final static Functor FUNCTOR_$002F$002F_2 = F("//",2);
-        final static IntegerTerm int_26 = Integer(26);
+        final static NumberTerm int_26 = Integer(26);
         final static Functor FUNCTOR_mod_2 = F("mod",2);
-        final static IntegerTerm int_65 = Integer(65);
-    private static final Term L_make_name_2_s7 = CONS( int_65 ,  Prolog.Nil );
+        final static NumberTerm int_65 = Integer(65);
+    private static final Compound L_make_name_2_s7 = CONS( int_65 ,  Prolog.Nil );
 
 
 

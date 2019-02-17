@@ -5,13 +5,8 @@ import java.util.Map;
 
 import SxxMachine.pterm.Clause;
 import SxxMachine.pterm.ClosureTerm;
-import SxxMachine.pterm.FrozenData;
-import SxxMachine.pterm.ListTerm;
-import SxxMachine.pterm.LongTerm;
 import SxxMachine.pterm.MapTerm;
-import SxxMachine.pterm.NumberTerm;
 import SxxMachine.pterm.Source;
-import SxxMachine.pterm.Var;
 
 /**
  * The superclass of classes for term structures. The subclasses of
@@ -37,7 +32,7 @@ public interface Term extends Comparable<Term> {
 
     public static final int TYPE_CLOSURE = -6;
     public static final int TYPE_JAVA_OBJECT = -4;
-    public static final int TYPE_DOUBLE = -3;
+    public static final int TYPE_DOUBLE_OR_CONST = -3;
     public static final int TYPE_INTEGER = -2;
     public static final int TYPE_VARIABLE = -1;
     public static final int TYPE_SYMBOL = 0;
@@ -77,11 +72,11 @@ public interface Term extends Comparable<Term> {
 
     public Term car();
 
-    public LongTerm asLongTerm();
+    public NumberTerm asLongTerm();
 
     public boolean isCompound();
 
-    public LongTerm asIntegerTerm();
+    public NumberTerm asIntegerTerm();
 
     public SxxMachine.Functor asConst();
 
@@ -105,6 +100,8 @@ public interface Term extends Comparable<Term> {
 
     public boolean unify(Term arg0, Trail trail);
 
+    public boolean unify(Compound arg0, Trail trail) ;
+
     public Term getAttrs();
 
     public void setAttrs(Term newval);
@@ -117,7 +114,7 @@ public interface Term extends Comparable<Term> {
 
     public int intValue();
 
-    public FrozenData getFdata();
+    //public FrozenData getFdata();
 
     public int arity();
 
@@ -147,7 +144,7 @@ public interface Term extends Comparable<Term> {
 
     public int type();
 
-    public boolean unifyS(SxxMachine.Functor functorPrime1, Trail trail, Term... a3);
+    public boolean unifyS(Functor functorPrime1, Trail trail, Term... a3);
 
     public boolean unifyInt(int b0, Trail trail);
 
@@ -155,7 +152,7 @@ public interface Term extends Comparable<Term> {
 
     public Object toJava();
 
-    public Object toValue();
+    public Term toValue();
 
     public void toQuotedString(int i, StringBuilder sb);
 
@@ -183,7 +180,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isLong();
 
-    public ListTerm append(Term goal);
+    public Compound append(Term goal);
 
     public long longValue();
 
@@ -191,7 +188,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isConst();
 
-    public boolean isAtomString();
+    public boolean isAtom();
 
     public boolean isAtomicValue();
 
@@ -199,13 +196,13 @@ public interface Term extends Comparable<Term> {
 
     public Term ArgDeRef(int j);
 
-    public ListTerm asListTerm();
+    public Compound asListTerm();
 
     public NumberTerm asNumberTerm();
 
     public void setarg0(Trail trail, int i0, Term value);
 
-    public ListTerm add(Term term);
+    public Compound add(Term term);
 
     public boolean bind(Term that, KPTrail trail);
 
