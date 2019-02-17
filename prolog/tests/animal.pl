@@ -1,3 +1,5 @@
+
+
 animal(goat).
 animal(elephant).
 animal(X) :-

@@ -13,8 +13,6 @@ public interface Functor extends NameArity, Atomic {
     @Override
     boolean isTrueProc();
 
-    String qname();
-
     @Override
     Functor toClone() throws CloneNotSupportedException;
 

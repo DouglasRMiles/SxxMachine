@@ -11,7 +11,7 @@ package SxxMachine;
 public interface Undoable {
     /**
      * Undoes this object.<br>
-     * 
+     *
      * @see Trail#unwind(int)
      */
     public void undo();

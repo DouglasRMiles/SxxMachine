@@ -35,7 +35,7 @@ public class PredicateEncoder {
     /**
      * Returns a string representation of class for the predicate with the given
      * arguments.
-     * 
+     *
      * @param pkg
      *            package name
      * @param functor

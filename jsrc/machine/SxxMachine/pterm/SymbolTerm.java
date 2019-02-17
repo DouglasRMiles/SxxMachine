@@ -74,21 +74,24 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     public String name;
 
+    private String _quoted_cache;
+
     /* (non-Javadoc)
      * @see SxxMachine.pterm.Functor#isTrueProc()
      */
     @Override
     public boolean isTrueProc() {
         // TODO Auto-generated method stub
-        return fname() == "true";
+        return fname() == "true" && arity == 0;
     }
 
     /* (non-Javadoc)
      * @see SxxMachine.pterm.Functor#qname()
      */
-    @Override
     public String qname() {
-        return MaybeQuoted(atomString());
+        if (_quoted_cache == null)
+            _quoted_cache = MaybeQuoted(atomString());
+        return _quoted_cache;
     }
 
     static public String MaybeQuoted(String sym) {
@@ -715,6 +718,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public boolean isNil() {
+        if (arity != 0)
+            return false;
         if (Prolog.Nil == this)
             return true;
         if (this.fname().equals("[]")) {

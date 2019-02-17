@@ -385,6 +385,11 @@ abstract public class TermData {
     }
 
     /** Returns a Prolog atom for the given name. */
+    public static Term BLOB(String _type, String _name) {
+        return SymbolTerm.screateDynamic(_name.intern());
+    }
+
+    /** Returns a Prolog atom for the given name. */
     public static SxxMachine.Functor createF(String _name, int arity) {
         return SymbolTerm.screateF(_name, arity);
     }

@@ -20,7 +20,7 @@ public class BlackBoard extends HashDict {
 
     /**
      * creates a new BlackBoard
-     * 
+     *
      * @see Term
      */
     public BlackBoard(Map map) {
@@ -68,7 +68,7 @@ public class BlackBoard extends HashDict {
     /**
      * Removes the first matching Term or Clause from the blackboard, to be used by
      * Linda in/1 operation in PrologBlackBoard
-     * 
+     *
      * @see PrologBlackBoard#in()
      */
 
@@ -93,9 +93,9 @@ public class BlackBoard extends HashDict {
     /**
      * Adds a Term or Clause to the the blackboard, to be used by Linda out/1
      * operation
-     * 
+     *
      * @see PrologBlackBoard
-     * 
+     *
      */
     // synchronized
     protected final void add(String k, Term value) {

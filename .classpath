@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="jsrc/compiler"/>
+	<classpathentry excluding="library/|tabling_dra/t/|tabling_dra/t/Bench/|tabling_dra/t/Bench/aspclp/|tabling_dra/t/Bench/clpfd/|tabling_dra/t/Bench/prolog/|tabling_dra/t/Bench/tabling/|tabling_dra/t/examples/|tabling_dra/t/examples/LTL/|tabling_dra/t/examples/XSB/|tabling_dra/t/mttests/|tabling_dra/t/negation_tests/|tabling_dra/t/table_tests/|boot/|bench/" including="*.cafe|*.pl|*/*.cafe|*/*.pl" kind="src" path="prolog"/>
+	<classpathentry kind="src" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="jsrc/machine"/>
-	<classpathentry kind="src" path="jsrc/repl"/>
-	<classpathentry kind="src" path="jsrc/handcoded"/>
-	<classpathentry kind="src" path="jsrc/exceptions"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/fluents"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/io"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/terms"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/tests"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/main"/>
+	<classpathentry kind="src" path="jsrc/exceptions"/>
+	<classpathentry kind="src" path="jsrc/repl"/>
+	<classpathentry kind="src" path="jsrc/handcoded"/>
+	<classpathentry kind="src" path="jsrc/compiler"/>
 	<classpathentry kind="src" path="jsrc-gen1-minimal/builtin"/>
 	<classpathentry kind="src" path="jsrc-gen1-minimal/prolog"/>
 	<classpathentry kind="src" path="jsrc-gen1-minimal/tests"/>
-	<classpathentry kind="src" path="jsrc-gen2-testlib/bench"/>
-	<classpathentry excluding="SxxMachine/" kind="src" path="jsrc-gen2-testlib/library"/>
 	<classpathentry kind="src" path="jsrc-gen2-testlib/tabling_dra"/>
 	<classpathentry kind="src" path="jsrc-gen2-testlib/tests"/>
+	<classpathentry excluding="SxxMachine/" kind="src" path="jsrc-gen2-testlib/library"/>
+	<classpathentry kind="src" path="jsrc-gen2-testlib/bench"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/classes" path="src/main/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
