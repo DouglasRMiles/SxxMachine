@@ -694,23 +694,22 @@ public class FILE_swi_supp extends FILE_io {
 
     private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_2_1(
             Prolog m) {
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'(A,B):-catch(A,B,fail),!,true
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'(A,B):-catch(call(A),B,fail),!,true
         Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'(A,B):-['$get_level'(C),catch('SxxMachine':A,B,'SxxMachine':fail),'$cut'(C)]
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl'(A,B):-['$get_level'(C),catch('SxxMachine':call(A),B,'SxxMachine':fail),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (!a3.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(4))
-        a4 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
-        ;
+        a4 = Closure( //
+                Op("call", FILE_system::PRED_call_1_static_exec, VA(a1), null));
         a5 = Closure(fail_0);
         return //
         Op("catch", FILE_builtins::PRED_catch_3_static_exec, VA(a4, a2, a5), //
@@ -781,6 +780,7 @@ public class FILE_swi_supp extends FILE_io {
     from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
     */
     // main(set_predicate_property/4,non-(public))
+    final static Functor ATOM_system = SYM("system");
     final static Functor FUNCTOR_$0024predicate_property_4 = F("$predicate_property", 4);
     final static Functor ATOM_defined = SYM("defined");
 
@@ -800,7 +800,7 @@ public class FILE_swi_supp extends FILE_io {
     }
 
     private final static Operation set_predicate_property_4_1(Prolog m) {
-        // set_predicate_property(A,B,C,D):-call('$predicate_property'(D,A,B,C)),!
+        // set_predicate_property(A,B,C,D):-call(system:'$predicate_property'(D,A,B,C)),!
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
@@ -809,7 +809,7 @@ public class FILE_swi_supp extends FILE_io {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         cont = m.cont;
-        // set_predicate_property(A,B,C,D):-['$get_level'(E),call('SxxMachine':'$predicate_property'(D,A,B,C)),'$cut'(E)]
+        // set_predicate_property(A,B,C,D):-['$get_level'(E),call(system:'$predicate_property'(D,A,B,C)),'$cut'(E)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (!a5.unifyInt(m.B0, m.trail)) {
@@ -819,8 +819,8 @@ public class FILE_swi_supp extends FILE_io {
         // put_str_args([a(4),a(1),a(2),a(3)],y(1)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(1),a(6))
         a6 = S(FUNCTOR_$0024predicate_property_4, a4, a1, a2, a3);
         ;
-        // put_str_args([@('ATOM_SxxMachine'),a(6)],y(2)),put_str(@('FUNCTOR_module_colon_2'),y(2),a(7))
-        a7 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a6);
+        // put_str_args([@('ATOM_system'),a(6)],y(2)),put_str(@('FUNCTOR_module_colon_2'),y(2),a(7))
+        a7 = S(FUNCTOR_module_colon_2, ATOM_system, a6);
         ;
         return //
         Op("call", FILE_system::PRED_call_1_static_exec, VA(a7), //
@@ -828,8 +828,8 @@ public class FILE_swi_supp extends FILE_io {
     }
 
     private final static Operation set_predicate_property_4_2(Prolog m) {
-        // set_predicate_property(A,B,C,D):-asserta_if_new('$predicate_property'(defined,A,B,C)),asserta('$predicate_property'(D,A,B,C))
-        Term a1, a2, a3, a4, a5, a6, a7;
+        // set_predicate_property(A,B,C,D):-asserta_if_new(system:'$predicate_property'(defined,A,B,C)),asserta(system:'$predicate_property'(D,A,B,C))
+        Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
@@ -837,19 +837,22 @@ public class FILE_swi_supp extends FILE_io {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         cont = m.cont;
-        // set_predicate_property(A,B,C,D):-[asserta_if_new('$predicate_property'(defined,A,B,C)),asserta('SxxMachine':'$predicate_property'(D,A,B,C))]
+        // set_predicate_property(A,B,C,D):-[asserta_if_new(system:'$predicate_property'(defined,A,B,C)),asserta(system:'$predicate_property'(D,A,B,C))]
         // put_str_args([@('ATOM_defined'),a(1),a(2),a(3)],y(1)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(1),a(5))
         a5 = S(FUNCTOR_$0024predicate_property_4, ATOM_defined, a1, a2, a3);
         ;
-        // put_str_args([a(4),a(1),a(2),a(3)],y(2)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(2),a(6))
-        a6 = S(FUNCTOR_$0024predicate_property_4, a4, a1, a2, a3);
+        // put_str_args([@('ATOM_system'),a(5)],y(2)),put_str(@('FUNCTOR_module_colon_2'),y(2),a(6))
+        a6 = S(FUNCTOR_module_colon_2, ATOM_system, a5);
         ;
-        // put_str_args([@('ATOM_SxxMachine'),a(6)],y(3)),put_str(@('FUNCTOR_module_colon_2'),y(3),a(7))
-        a7 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a6);
+        // put_str_args([a(4),a(1),a(2),a(3)],y(3)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(3),a(7))
+        a7 = S(FUNCTOR_$0024predicate_property_4, a4, a1, a2, a3);
+        ;
+        // put_str_args([@('ATOM_system'),a(7)],y(4)),put_str(@('FUNCTOR_module_colon_2'),y(4),a(8))
+        a8 = S(FUNCTOR_module_colon_2, ATOM_system, a7);
         ;
         return //
-        Op("asserta_if_new", FILE_system::PRED_asserta_if_new_1_static_exec, VA(a5), //
-                Op("asserta", FILE_system::PRED_asserta_1_static_exec, VA(a7), cont));
+        Op("asserta_if_new", FILE_system::PRED_asserta_if_new_1_static_exec, VA(a6), //
+                Op("asserta", FILE_system::PRED_asserta_1_static_exec, VA(a8), cont));
     }
 
     /** PREDICATE: (multifile)/1
@@ -1680,18 +1683,18 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // current_predicate_m_f_a(A,B,C):-'$predicate_property'(defined,A,B,C)
+        // current_predicate_m_f_a(A,B,C):-call(system:'$predicate_property'(defined,A,B,C))
         m.setB0();
         Term a1, a2, a3, a4, a5;
         a1 = LARG[0];
         a2 = LARG[1];
         a3 = LARG[2];
-        // current_predicate_m_f_a(A,B,C):-[call('SxxMachine':'$predicate_property'(defined,A,B,C))]
+        // current_predicate_m_f_a(A,B,C):-[call(system:'$predicate_property'(defined,A,B,C))]
         // put_str_args([@('ATOM_defined'),a(1),a(2),a(3)],y(1)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(1),a(4))
         a4 = S(FUNCTOR_$0024predicate_property_4, ATOM_defined, a1, a2, a3);
         ;
-        // put_str_args([@('ATOM_SxxMachine'),a(4)],y(2)),put_str(@('FUNCTOR_module_colon_2'),y(2),a(5))
-        a5 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a4);
+        // put_str_args([@('ATOM_system'),a(4)],y(2)),put_str(@('FUNCTOR_module_colon_2'),y(2),a(5))
+        a5 = S(FUNCTOR_module_colon_2, ATOM_system, a4);
         ;
         return //
         Op("call", FILE_system::PRED_call_1_static_exec, VA(a5), cont);
@@ -1734,13 +1737,13 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // predicate_property(A,B):-strip_module(A,C,D),reorder(var(D),'$predicate_property'(B,C,E,F),functor(D,E,F))
+        // predicate_property(A,B):-strip_module(A,C,D),reorder(var(D),call(system:'$predicate_property'(B,C,E,F)),functor(D,E,F))
         m.setB0();
-        Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
+        Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
         a1 = LARG[0];
         a2 = LARG[1];
-        // predicate_property(A,B):-[strip_module(A,C,D),reorder(var(D),'$predicate_property'(B,C,E,F),functor(D,E,F))]
+        // predicate_property(A,B):-[strip_module(A,C,D),reorder(var(D),call(system:'$predicate_property'(B,C,E,F)),functor(D,E,F))]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
         // put_str_args([a(4)],y(1)),put_str(@('FUNCTOR_var_1'),y(1),a(5))
@@ -1751,12 +1754,18 @@ public class FILE_swi_supp extends FILE_io {
         // put_str_args([a(2),a(3),a(6),a(7)],y(2)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(2),a(8))
         a8 = S(FUNCTOR_$0024predicate_property_4, a2, a3, a6, a7);
         ;
-        // put_str_args([a(4),a(6),a(7)],y(3)),put_str(@('FUNCTOR_functor_3'),y(3),a(9))
-        a9 = S(FUNCTOR_functor_3, a4, a6, a7);
+        // put_str_args([@('ATOM_system'),a(8)],y(3)),put_str(@('FUNCTOR_module_colon_2'),y(3),a(9))
+        a9 = S(FUNCTOR_module_colon_2, ATOM_system, a8);
+        ;
+        // put_str_args([a(9)],y(4)),put_str(@('FUNCTOR_call_1'),y(4),a(10))
+        a10 = S(FUNCTOR_call_1, a9);
+        ;
+        // put_str_args([a(4),a(6),a(7)],y(5)),put_str(@('FUNCTOR_functor_3'),y(5),a(11))
+        a11 = S(FUNCTOR_functor_3, a4, a6, a7);
         ;
         return //
         Op("strip_module", FILE_system::PRED_strip_module_3_static_exec, VA(a1, a3, a4), //
-                Op("reorder", FILE_system::PRED_reorder_3_static_exec, VA(a5, a8, a9), cont));
+                Op("reorder", FILE_system::PRED_reorder_3_static_exec, VA(a5, a10, a11), cont));
     }
 
     /** PREDICATE: strip_module/3
@@ -3535,6 +3544,28 @@ public class FILE_swi_supp extends FILE_io {
         return cont;
     }
 
+    /** PREDICATE: initpp/0
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
+    */
+    // main(initpp/0,non-(public))
+    final static Functor FUNCTOR_is_cons_1 = F("is_cons", 1);
+    final static Functor ATOM_builtin = SYM("builtin");
+
+    public static Operation PRED_initpp_0_static_exec(Prolog m) {
+        Operation cont = m.cont;
+        Term[] LARG = m.AREGS;
+        Operation thiz = m.pred;
+        // initpp:-set_predicate_property(is_cons(A),builtin)
+        m.setB0();
+        Term a1;
+        // initpp:-[set_predicate_property(is_cons(A),builtin)]
+        // put_str_args([void],y(1)),put_str(@('FUNCTOR_is_cons_1'),y(1),a(1))
+        a1 = S(FUNCTOR_is_cons_1, m.mkvar3());
+        ;
+        return //
+        Op("set_predicate_property", FILE_system::PRED_set_predicate_property_2_static_exec, VA(a1, ATOM_builtin), cont);
+    }
+
     /** PREDICATE: $init/0
     from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl
     */
@@ -3660,6 +3691,7 @@ public class FILE_swi_supp extends FILE_io {
                 .registerBuiltin("$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl", "$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl", 1, FILE_swi_supp::PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec);
         PredTable
                 .registerBuiltin("$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/prolog/builtin/swi_supp.pl", "$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl", 1, FILE_swi_supp::PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fprolog$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec);
+        PredTable.registerBuiltin("initpp", 0, FILE_swi_supp::PRED_initpp_0_static_exec);
         PredTable.registerBuiltin("$init", 0, FILE_swi_supp::PRED_$init_0_static_exec);
     }
 }

@@ -3,7 +3,7 @@
 package(_).
 :- package 'SxxMachine'.
 
-:- dynamic('$predicate_property'/4).
+:- dynamic(user:'$predicate_property'/4).
 :- dynamic('$current_typein_module'/1).
 :- dynamic('$current_source_module'/1).
 :- dynamic('$current_context_module'/1).
@@ -58,9 +58,9 @@ set_predicate_property(MFA,Prop):-
    strip_module(MFA,M,FA),MFA==FA,!,
    set_predicate_property(M:FA,Prop).
   
-asserta_if_new(G):- catch(G,_,fail)->true;asserta(G).
-set_predicate_property(M,F,A,Prop):- call('$predicate_property'(Prop,M,F,A)),!.
-set_predicate_property(M,F,A,Prop):- asserta_if_new('$predicate_property'(defined,M,F,A)),asserta('$predicate_property'(Prop,M,F,A)).
+asserta_if_new(G):- catch(call(G),_,fail)->true;asserta(G).
+set_predicate_property(M,F,A,Prop):- call(user:'$predicate_property'(Prop,M,F,A)),!.
+set_predicate_property(M,F,A,Prop):- asserta_if_new(user:'$predicate_property'(defined,M,F,A)),asserta(user:'$predicate_property'(Prop,M,F,A)).
 	
 multifile(PIs):- set_predicate_property(PIs,multifile).
 discontiguous(PIs):- set_predicate_property(PIs,discontiguous).
@@ -83,7 +83,7 @@ context_module(UserO) :- ('$current_context_module'(User);typein_module(User))->
 
 current_predicate(Head):- strip_module(Head,M,F/A),current_predicate_m_f_a(M,F,A).
 
-current_predicate_m_f_a(M,F,A):- '$predicate_property'(defined,M,F,A).
+current_predicate_m_f_a(M,F,A):- call(user:'$predicate_property'(defined,M,F,A)).
 /*
 current_predicate_m_f_a(M,F,A):- 
  reorder(    
@@ -100,7 +100,7 @@ current_predicate(Name, Head):-
 
 
 predicate_property(MPred,Prop):- strip_module(MPred,M,Pred), 
-  reorder(var(Pred), '$predicate_property'(Prop,M,F,A),functor(Pred,F,A)).   
+  reorder(var(Pred), call(user:'$predicate_property'(Prop,M,F,A)),functor(Pred,F,A)).   
 
   
 
@@ -147,6 +147,7 @@ call(P,A,B,C) :- P=..[F|ARGS],append(ARGS,[A,B,C],ARGSA),G=..[F|ARGSA],call(G).
 
 %:- requires('$skip_list'/3).
 is_cons(C):-compound(C),C=[_|_].
+
 
 %:- requires(is_list/1).
 is_list(C):- \+ compound(C),!, C==[].
@@ -265,3 +266,4 @@ go(21):- freeze(X,integer(X)),freeze(X2,integer(X2)),copy_term(X+X2,Y,Z).
 
 %:-  listing(lists:_).
 
+initpp:- set_predicate_property(is_cons(_), builtin).
