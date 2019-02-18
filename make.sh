@@ -19,12 +19,9 @@ if [ $# -eq 0 ]
     echo ""
 
 find ./jsrc-gen1 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
-
-find ./jsrc-gen1/builtin -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
-find ./jsrc/repl -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
-find ./jsrc-gen2/tests -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
-find ./jsrc-gen2/bench -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
-find ./jsrc-gen2/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
+find ./jsrc-gen2 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
+#find ./jsrc-gen1 -type f -name "*.pl" -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
+#find ./jsrc-gen2/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
  #find ./prolog/compiler -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
 
  #find ./library -type f -name "*.pl" ! -path '*-*' ! -path '*/http/*' ! -path '*/pldoc/*'  ! -path '*/doc_*'  ! -path '*/semweb/*' -exec $0 "{}" \;

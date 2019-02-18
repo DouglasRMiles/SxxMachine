@@ -35,8 +35,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="jsrc-gen2/tabling_dra"/>
+	<classpathentry excluding="SxxMachine/FILE_dra.java" kind="src" path="jsrc-gen2/tabling_dra"/>
 	<classpathentry kind="src" path="jsrc-gen2/tests"/>
-	<classpathentry kind="src" path="jsrc-gen2/bench"/>
+	<classpathentry excluding="SxxMachine/FILE_run.java|SxxMachine/FILE_sdda.java" kind="src" path="jsrc-gen2/bench"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

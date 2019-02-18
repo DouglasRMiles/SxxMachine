@@ -909,7 +909,7 @@ setof(Template, Goal, Instances) :-
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
-:- ensure_loaded('./jsrc/repl/io.pl').
+:- ensure_loaded('./jsrc-gen1/repl/io.pl').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Term input/output (read)
@@ -2184,4 +2184,4 @@ synchronized(Object, Goal) :-
 	'$end_sync'(Ref).
 
 
-:- ensure_loaded('./jsrc/repl/cafeteria.pl').
+:- ensure_loaded('./jsrc-gen1/repl/cafeteria.pl').
