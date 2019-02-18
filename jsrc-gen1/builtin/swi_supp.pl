@@ -11,6 +11,9 @@ package(_).
 :- dynamic('$current_context_module'/1).
 
 % :- [test].
+forall(A,B) :- \+ (call(A), \+ call(B)).
+
+format(S,A,B) :- writeq(S,fmt(A,B)).
 
 :- public(reorder/3).
 reorder(IF, First, Second):- 

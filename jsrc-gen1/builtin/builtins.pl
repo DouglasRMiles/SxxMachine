@@ -342,9 +342,58 @@ X >= Y :- X >= Y.
 '$greater_or_equal'(X, Y) :- '$greater_or_equal'(X, Y).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Record(a|z|ed) database
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- dynamic('$recorded_key'/1).
+
+:- public current_key/1.
+current_key(Key):- '$recorded_key'(Key).
+
+
+'$into_key'(Key,KeyF):-functor(Key,F,A),functor(KeyF,F,A).
+
+into_key(Key,KeyF):- '$into_key'(Key,KeyF), '$recorded_key'(KeyF).
+
+ensure_key(Key,KeyF):- '$into_key'(Key,KeyF), ( \+ '$recorded_key'(KeyF) -> assert('$recorded_key'(KeyF)) ; true). 
+
+
+:- dynamic('$recorded'/2).
+
+:- public recorded/2.
+:- public recorded/3.
+recorded(Key,Value):- into_key(Key, KeyF), clause('$recorded'(KeyF),value(Value)).
+recorded(Key,Value,'$reclz'(Ref)):-  into_key(Key, KeyF),  clause('$recorded'(KeyF),value(Value),Ref).
+
+
+:- public recorda/2.
+:- public recorda/3.
+recorda(Key,Value):- ensure_key(Key,KeyF), asserta(('$recorded'(KeyF):-value(Value))).
+recorda(Key,Value,'$reclz'(Ref)):- ensure_key(Key,KeyF), asserta(('$recorded'(KeyF):-value(Value)),Ref).
+
+:- public recordz/2.
+:- public recordz/3.
+ 
+recordz(Key,Value):- ensure_key(Key,KeyF), assertz(('$recorded'(KeyF):-value(Value))).
+recordz(Key,Value,'$reclz'(Ref)):- ensure_key(Key,KeyF), assertz(('$recorded'(KeyF):-value(Value)),Ref).
+
+:- public instance/2.
+instance('$reclz'(Ref),B):- !, clause(_H,B,Ref).
+instance(Ref,(H:-B)):- !, clause(H,B,Ref).
+
+:- public erase/1.
+erase('$reclz'(Ref)) :- !, erase(Ref). 
+erase('$clzref'(P,Ref)) :- !,
+	%'$fast_write'([erase,Cl0,Ref]), nl, %???
+	'$clause_internal'(P, PI, _H, _Cl0, Ref),
+	'$erase'(Ref),
+	'$rehash_indexing'(P, PI, Ref).
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Clause retrieval and information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 :- public clause/2.
+:- public clause/3.
 :- public (initialization)/2.
 :- public '$new_indexing_hash'/3.
 
@@ -355,6 +404,15 @@ clause(Head, B) :-
 	'$clause_internal'(P, PI, H, Cl, _),
 	%(ground(Cl) -> Cl = (H :- B) ; copy_term(Cl, (H :- B))). ???
 	copy_term(Cl, (H :- B)).
+
+clause(Head, B, '$clzref'(P,Ref)) :-
+	'$head_to_term'(Head, H, P:PI, clause(Head,B)),
+	'$new_internal_database'(P),
+	'$check_procedure_permission'(P:PI, access, private_procedure, clause(Head, B)),
+	'$clause_internal'(P, PI, H, Cl, Ref),
+	%(ground(Cl) -> Cl = (H :- B) ; copy_term(Cl, (H :- B))). ???
+	copy_term(Cl, (H :- B)).
+		 	
 
 % head --> term
 '$head_to_term'(H, T, Pkg:F/A, Goal) :-
@@ -468,29 +526,38 @@ initialization([P|Ps], Goal) :-
 :- public abolish/1.
 :- public retractall/1.
 
-assert(T) :-assertz(T).
+:- public assert/2.
+:- public assertz/2.
+:- public asserta/2.
 
-assertz(T) :-
-	'$term_to_clause'(T, Cl, P:PI, assertz(T)),
+assert(T) :-assertz(T).
+assert(T,ClRef) :-assertz(T,ClRef).
+
+asserta(T) :-asserta(_P,T,_Ref).
+asserta(T,'$clzref'(P,Ref)) :-asserta(P,T,Ref).
+
+assertz(T) :-assertz(_P,T,_Ref).
+assertz(T,'$clzref'(P,Ref)) :-assertz(P,T,Ref).
+
+asserta(P,T,Ref) :-  AZ = asserta(T), 
+	'$term_to_clause'(T, Cl, P:PI, AZ), !,
 	'$new_internal_database'(P),
-	'$check_procedure_permission'(P:PI, modify, static_procedure, assertz(T)),
+	'$check_procedure_permission'(P:PI, modify, static_procedure, AZ),
 	copy_term(Cl, NewCl),
 	'$insert'(NewCl, Ref),
 	%'$fast_write'([intert,NewCl,Ref]), nl, %???
-	'$update_indexing'(P, PI, Cl, Ref, 'z'),
-	fail.
-assertz(_).
-
-asserta(T) :-
-	'$term_to_clause'(T, Cl, P:PI, asserta(T)),
+	ignore(('$update_indexing'(P, PI, Cl, Ref, 'a'),fail)).
+assertz(P,T,Ref) :-  AZ = assertz(T), 
+	'$term_to_clause'(T, Cl, P:PI, AZ), !,
 	'$new_internal_database'(P),
-	'$check_procedure_permission'(P:PI, modify, static_procedure, asserta(T)),
+	'$check_procedure_permission'(P:PI, modify, static_procedure, AZ),
 	copy_term(Cl, NewCl),
 	'$insert'(NewCl, Ref),
-	%'$fast_write'([insert,NewCl,Ref]), nl, %???
-	'$update_indexing'(P, PI, Cl, Ref, 'a'),
-	fail.
-asserta(_).
+	%'$fast_write'([intert,NewCl,Ref]), nl, %???
+	ignore(('$update_indexing'(P, PI, Cl, Ref, 'z'),fail)).
+
+
+
 
 abolish(T) :-
 	'$term_to_predicateindicator'(T, P:PI, abolish(T)),
@@ -842,7 +909,7 @@ setof(Template, Goal, Instances) :-
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
-:- ensure_loaded('io.pl').
+:- ensure_loaded('./jsrc/repl/io.pl').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Term input/output (read)
@@ -2117,4 +2184,4 @@ synchronized(Object, Goal) :-
 	'$end_sync'(Ref).
 
 
-:- ensure_loaded('cafeteria.pl').
+:- ensure_loaded('./jsrc/repl/cafeteria.pl').

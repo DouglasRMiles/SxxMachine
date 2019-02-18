@@ -22,21 +22,21 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="library/|tabling_dra/t/|tabling_dra/t/Bench/|tabling_dra/t/Bench/aspclp/|tabling_dra/t/Bench/clpfd/|tabling_dra/t/Bench/prolog/|tabling_dra/t/Bench/tabling/|tabling_dra/t/examples/|tabling_dra/t/examples/LTL/|tabling_dra/t/examples/XSB/|tabling_dra/t/mttests/|tabling_dra/t/negation_tests/|tabling_dra/t/table_tests/|boot/|bench/" including="*.cafe|*.pl|*/*.cafe|*/*.pl" kind="src" path="prolog"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="jsrc-gen1-minimal/builtin"/>
-	<classpathentry kind="src" path="jsrc-gen2-testlib/tabling_dra"/>
-	<classpathentry kind="src" path="jsrc-gen2-testlib/tests"/>
+	<classpathentry kind="src" path="jsrc-gen1/builtin"/>
+	<classpathentry kind="src" path="jsrc-gen1/repl"/>
+	<classpathentry kind="src" path="jsrc-gen1/compiler"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="SxxMachine/" kind="src" path="jsrc-gen2-testlib/library"/>
-	<classpathentry kind="src" path="jsrc-gen2-testlib/bench"/>
+	<classpathentry kind="src" path="jsrc-gen2/tabling_dra"/>
+	<classpathentry kind="src" path="jsrc-gen2/tests"/>
+	<classpathentry kind="src" path="jsrc-gen2/bench"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

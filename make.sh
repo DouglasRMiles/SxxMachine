@@ -15,12 +15,16 @@ if [ $# -eq 0 ]
     echo ""
     #find $JSRCDIR -name "*.java" -delete -print
     echo ""
- find -name "*.pl.am" -delete -print
+ find jsrc*/ -name "*.pl.am" -delete -print
     echo ""
-find ./prolog/builtin -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
-find ./prolog/tests -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
-#find ./prolog/bench -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
-#find ./prolog/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2-testlib \;
+
+find ./jsrc-gen1 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
+
+find ./jsrc-gen1/builtin -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
+find ./jsrc/repl -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
+find ./jsrc-gen2/tests -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
+find ./jsrc-gen2/bench -type f -name "*.pl" ! -path '*~*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
+find ./jsrc-gen2/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
  #find ./prolog/compiler -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
 
  #find ./library -type f -name "*.pl" ! -path '*-*' ! -path '*/http/*' ! -path '*/pldoc/*'  ! -path '*/doc_*'  ! -path '*/semweb/*' -exec $0 "{}" \;
@@ -32,7 +36,7 @@ find ./prolog/tests -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" js
  
   else
 
-    export BCMD="swipl -l ./prolog/compiler/am2j.pl -- --plfile $2 --dir $1/$3"	  
+    export BCMD="swipl -l ./jsrc-gen1/compiler/am2j.pl -- --plfile $2 --dir $1/$3"	  
     echo "$BCMD"
     stty sane
     $BCMD
