@@ -1,18 +1,15 @@
 
+:- module('SxxMachine',[]).
 :- op(1150,  fx, (package)).
 package(_).
 :- package 'SxxMachine'.
 
-:- dynamic(user:'$predicate_property'/4).
+:- dynamic('$predicate_property'/4).
+
 :- dynamic('$current_typein_module'/1).
 :- dynamic('$current_source_module'/1).
 :- dynamic('$current_context_module'/1).
-:- dynamic('$tracing'/0).
-%:- database('$current_source_module'(user)=swi_supp).
-%:- database('$current_typein_module'(user)=swi_supp).
-%:- database('swi_supp'='$current_context_module'(user)).
-'$current_typein_module'(user).
-'$current_context_module'(user).
+
 % :- [test].
 
 :- public(reorder/3).
@@ -20,29 +17,39 @@ reorder(IF, First, Second):-
   call(IF) -> (call(First),call(Second)) ; (call(Second),call(First)). 
 
 
+:- public setup_call_cleanup/3.
 setup_call_cleanup(Setup, Goal, Cleanup) :-
     setup_call_catcher_cleanup(Setup, Goal, _Catcher, Cleanup).
 
-
+:- public each_call_cleanup/3.
 each_call_cleanup(Setup, Goal, Cleanup) :-
 	throw_missing(each_call_cleanup(Setup, Goal, _Catcher, Cleanup)).   
 
+:- public setup_call_catcher_cleanup/4.
 setup_call_catcher_cleanup(Setup, Goal, Catcher, Cleanup):-
 	throw_missing(setup_call_catcher_cleanup(Setup, Goal, Catcher, Cleanup)).
     
+    
+:- public recorda/2.
+:- public recordz/2.
+:- public recorded/2.
                                
 recorda(Key,Term):- recorda(Key, Term, _).
 recordz(Key,Term):- recordz(Key, Term, _).
 recorded(Key,Term):- recorded(Key, Term, _).
 
+:- public throw_missing/2.
 throw_missing(G):- throw(throw_missing(G)).
 
 instance(Reference, Term):- throw_missing(instance(Reference, Term)).
 
+:- public flag/3.
 flag(Key, Old, New):- throw_missing(flag(Key, Old, New)).
 
+:- public source_location/2.
 source_location(X,Y):- throw_missing(source_location(X,Y)).
 
+:- public set_predicate_property/2.
 set_predicate_property(_:M:P,Prop):- !, nonvar(M), set_predicate_property(M:P,Prop).
 set_predicate_property(_:[],_):-!.
 set_predicate_property(M:F/A,Prop):- !, set_predicate_property(M,F,A,Prop).
@@ -58,32 +65,49 @@ set_predicate_property(MFA,Prop):-
    strip_module(MFA,M,FA),MFA==FA,!,
    set_predicate_property(M:FA,Prop).
   
-asserta_if_new(G):- catch(call(G),_,fail)->true;asserta(G).
-set_predicate_property(M,F,A,Prop):- call(user:'$predicate_property'(Prop,M,F,A)),!.
-set_predicate_property(M,F,A,Prop):- asserta_if_new(user:'$predicate_property'(defined,M,F,A)),asserta(user:'$predicate_property'(Prop,M,F,A)).
+:- public ccall/1.  
+ccall(G):- clause(:('SxxMachine',G),true).
+  
+:- public assertz_if_new/1.  
+assertz_if_new(G):- ( ccall(G)-> true ; (:('SxxMachine',assertz(G))) ).
+
+:- public((set_predicate_property)/4).
+set_predicate_property(M,F,A,Prop):- ccall('$predicate_property'(Prop,M,F,A)),!.
+set_predicate_property(M,F,A,Prop):- 
+   assertz_if_new('$predicate_property'(defined,M,F,A)),
+   assertz_if_new('$predicate_property'(Prop,M,F,A)).
 	
+:- public((multifile)/1).
 multifile(PIs):- set_predicate_property(PIs,multifile).
+:- public((discontiguous)/1).
 discontiguous(PIs):- set_predicate_property(PIs,discontiguous).
-dynamic(PIs):- set_predicate_property(PIs,dynamic).
+:- public((module_transparent)/1).
 module_transparent(PIs):- set_predicate_property(PIs,transparent).
-meta_predicate(PIs):- set_predicate_property(PIs,transparent).
+:- public((meta_predicate)/1).
+meta_predicate(PIs):- set_predicate_property(PIs,meta_predicate).
 
-tracing:- '$tracing'.
+%:- public dynamic/1.
+%dynamic(PIs):- set_predicate_property(PIs,dynamic).
 
-assertion(G):- quietly(G)->true;throw(assertion_failed(G)).
 
-quietly(G):- tracing -> each_call_cleanup(notrace,call(G),trace) ; call(G).
+
+:- public(ignore/1).
 ignore(G):- call(G) -> true; true.
+
+:- public(variant/2).
 variant(X,Y):- '$term_variant'(X,Y).
 
-typein_module(User) :- '$current_typein_module'(UserO) -> User=UserO ; User=user.
-source_module(User) :- '$current_source_module'(UserO) -> User=UserO ; User=user.
+:- public(typein_module/1).
+typein_module(User) :- '$current_typein_module'(UserO) -> User=UserO ; User='SxxMachine'.
+:- public(source_module/1).
+source_module(User) :- '$current_source_module'(UserO) -> User=UserO ; User='SxxMachine'.
+:- public((context_module)/1).
 context_module(UserO) :- ('$current_context_module'(User);typein_module(User))->User=UserO.
 
-
+:- public((current_predicate)/1).
 current_predicate(Head):- strip_module(Head,M,F/A),current_predicate_m_f_a(M,F,A).
 
-current_predicate_m_f_a(M,F,A):- call(user:'$predicate_property'(defined,M,F,A)).
+current_predicate_m_f_a(M,F,A):- ccall('$predicate_property'(defined,M,F,A)).
 /*
 current_predicate_m_f_a(M,F,A):- 
  reorder(    
@@ -92,15 +116,16 @@ current_predicate_m_f_a(M,F,A):-
    functor(P,F,A) ).
 */
 
+:- public((current_predicate)/2).
 current_predicate(Name, Head):- 
   predicate_property(Head,_),
   strip_module(Head,M,P),
   functor(P,F,_),
   strip_module(Name,M,F).
 
-
+:- public((predicate_property)/2).
 predicate_property(MPred,Prop):- strip_module(MPred,M,Pred), 
-  reorder(var(Pred), call(user:'$predicate_property'(Prop,M,F,A)),functor(Pred,F,A)).   
+  reorder(var(Pred), ccall('$predicate_property'(Prop,M,F,A)),functor(Pred,F,A)).   
 
   
 
@@ -267,3 +292,6 @@ go(21):- freeze(X,integer(X)),freeze(X2,integer(X2)),copy_term(X+X2,Y,Z).
 %:-  listing(lists:_).
 
 initpp:- set_predicate_property(is_cons(_), builtin).
+
+'$current_typein_module'('SxxMachine').
+'$current_context_module'('SxxMachine').

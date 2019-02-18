@@ -171,11 +171,9 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
     }
 
     protected final String funToString() {
-        String name = fname();
-        if (argz == null)
-            return Token.toQuotedString(name) + "()";
-        int l = argz.length;
-        return Token.toQuotedString(name) + (l <= 0 ? "" : "(" + show_args() + ")");
+        StringBuilder sb = new StringBuilder();
+        toStringImpl(1, sb);
+        return sb.toString();
     }
 
     @Override
@@ -227,14 +225,6 @@ class StructureTerm extends ListTerm implements Cloneable, NameArity, Compound, 
 
     protected static String watchNull(Term x) {
         return ((null == x) ? "null" : x.pprint());
-    }
-
-    private String show_args() {
-        StringBuffer s = new StringBuffer(watchNull(argz[0]));
-        for (int i = 1; i < argz.length; i++) {
-            s.append("," + watchNull(argz[i]));
-        }
-        return s.toString();
     }
 
     @Override

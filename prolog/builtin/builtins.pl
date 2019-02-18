@@ -1265,16 +1265,16 @@ write_term(_, _, _).
 	!,
 	'$write_space_if_needed'(Type0, alpha, S_or_a),
 	'$fast_write'(S_or_a, Term).
-%'$write_term0'(Term, Prec, Type0, punct, _, S_or_a) :-
-%	atom(Term),
-%	current_op(PrecOp, OpType, Term),
-%	(OpType = fx ; OpType = fy),
-%	PrecOp =< Prec,
-%	!,
-%	'$write_space_if_needed'(Type0, punct, S_or_a),
-%	put_char(S_or_a, '('),
-%	'$write_atom'(Term, punct, _, _, S_or_a),
-%	put_char(S_or_a, ')').
+'$write_term0'(Term, Prec, Type0, punct, _, S_or_a) :-
+	atom(Term),
+	current_op(PrecOp, OpType, Term),
+	(OpType = fx ; OpType = fy),
+	PrecOp =< Prec,
+	!,
+	'$write_space_if_needed'(Type0, punct, S_or_a),
+	put_char(S_or_a, '('),
+	'$write_atom'(Term, punct, _, _, S_or_a),
+	put_char(S_or_a, ')').
 '$write_term0'(Term, _Prec, Type0, Type, Style, S_or_a) :-
 	atom(Term),
 	!,

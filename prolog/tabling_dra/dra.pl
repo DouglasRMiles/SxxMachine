@@ -2870,3 +2870,14 @@ init_dra(file)
 :- listing(tnot).
 :- listing(table).
 :- endif.
+
+
+:- public((assertion)/1).
+assertion(G):- quietly(G)->true;throw(assertion_failed(G)).
+:- public((quietly)/1).
+quietly(G):- tracing -> each_call_cleanup(notrace,call(G),trace) ; call(G).
+:- public((dynamic)/1).
+dynamic(G):- tracing -> each_call_cleanup(notrace,call(G),trace) ; call(G).
+:- dynamic('$tracing'/0).
+tracing:- :('SxxMachine','$tracing').
+:- public((tracing)/0).
