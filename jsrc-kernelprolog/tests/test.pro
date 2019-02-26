@@ -1,6 +1,6 @@
- :- ['jsrc/kernelprolog/tests/nrev'].
- :- ['jsrc/kernelprolog/tests/q8'].
- :- ['jsrc/kernelprolog/tests/allperms'].
+ :- ['jsrc-kernelprolog/tests/nrev'].
+ :- ['jsrc-kernelprolog/tests/q8'].
+ :- ['jsrc-kernelprolog/tests/allperms'].
  
 
 go1:-
