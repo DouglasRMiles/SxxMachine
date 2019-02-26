@@ -37,7 +37,7 @@ public class ErrorTerm extends StructureTerm {
     protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
         Term[] a = new Term[arity()];
         for (int i = 0; i < a.length; i++) {
-            a[i] = arg0(i).copy(copyHash, deeply);
+            a[i] = getPlainArg(i).copy(copyHash, deeply);
         }
         return TermData.createErrorTerm(this.error, functor(), a);
     }

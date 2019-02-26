@@ -32,11 +32,11 @@ public class RuleManager {
     }
 
     public Object tryToConvert(Class<?> target, Object current) throws NoSuchConvertionException {
-        for (ConvertRuleIF rule : rules) {
+        for (final ConvertRuleIF rule : rules) {
             if (rule.canConvert(target, current.getClass())) {
                 try {
                     return rule.doConvert(target, current);
-                } catch (Exception ex) {
+                } catch (final Exception ex) {
                     throw new NoSuchConvertionException(ex);
                 }
             }

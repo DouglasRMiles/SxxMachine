@@ -1,6 +1,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
@@ -14,19 +20,19 @@ public class pred_nrev_2 extends Code {
 
     static Code cut2cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern(".");
+    static String string1 = internS(".");
 
-    static String string2 = Const.strIntern("[]");
+    static String string2 = internS("[]");
 
-    static String string3 = Const.strIntern("append");
+    static String string3 = internS("append");
 
-    static String string4 = Const.strIntern("cut");
+    static String string4 = internS("cut");
 
-    static String string5 = Const.strIntern("nrev");
+    static String string5 = internS("nrev");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -40,7 +46,7 @@ public class pred_nrev_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -50,13 +56,13 @@ class pred_nrev_2_1 extends pred_nrev_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(JpFactory.CONST(string2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        if (!((areg0).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -70,22 +76,21 @@ class pred_nrev_2_2 extends pred_nrev_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string1, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string1, var1, var2))))
             return mach.Fail0;
         if (!((areg1).unify(var3)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var4;
-        local_aregs[2] = JpFactory.S(string3, var4.dref(), JpFactory
-                .S(string1, var1.dref(), JpFactory.CONST(string2)), var3.dref(), continuation);
+        local_aregs[2] = S(string3, var4.dref(), S(string1, var1.dref(), CONST(string2)), var3.dref(), continuation);
         mach.updateCUTB();
         return entry_code;
     }

@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.internS;
+
 /**
   * Backtrackable global variables module, features:
   *     b_setval/2
@@ -9,13 +11,13 @@ package SxxMachine;
   */
 public class GlobalVarsModule extends JpModule {
 
-    public final static String MAP = Const.strIntern("map");
+    public final static String MAP = internS("map");
 
     private final VarTableIF variableTable;
 
     public GlobalVarsModule() {
         super(new Code[] { new pred_b_setval_2(), new pred_b_getval_2() },
-                new String[] { Const.strIntern("b_setval"), Const.strIntern("b_getval") });
+                new String[] { internS("b_setval"), internS("b_getval") });
         variableTable = createTable();
     }
 
@@ -24,8 +26,8 @@ public class GlobalVarsModule extends JpModule {
     }
 
     protected VarTableIF getCurrentTable(ModulePrologMachine mach) {
-        ModuleRunStackInfo mod = mach.getModuleInfo(this);
-        VarTableIF table = mod.getSetting(MAP, VarTableIF.class);
+        final ModuleRunStackInfo mod = mach.getModuleInfo(this);
+        final VarTableIF table = mod.getSetting(MAP, VarTableIF.class);
         if (table != null)
             return table;
         return variableTable;

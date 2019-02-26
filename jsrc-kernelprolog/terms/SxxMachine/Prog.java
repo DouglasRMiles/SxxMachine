@@ -1,7 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.HornClause;
+import SxxMachine.pterm.SourceFluentTerm;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -9,7 +9,7 @@ import SxxMachine.pterm.TermData;
  * extended to spawn threads executing on new Prolog Engine objects as well as
  * networking threads and synced local and remote Linda transactions
  */
-public class Prog extends Source implements Runnable {
+public class Prog extends SourceFluentTerm implements Runnable {
     // CONSTRUCTORS
 
     @Override
@@ -27,7 +27,7 @@ public class Prog extends Source implements Runnable {
     /**
      * Creates a Prog starting execution with argument "goal"
      */
-    public Prog(Clause goal, Prog parent) {
+    public Prog(HornClause goal, Prog parent) {
         super(parent);
         this.parent = parent;
         goal = goal.ccopy();
@@ -78,7 +78,7 @@ public class Prog extends Source implements Runnable {
             answer = I.getAnswer();
             if (null != answer)
                 break;
-            Clause nextgoal = I.getElement();
+            HornClause nextgoal = I.getElement();
             if (null != nextgoal) {
                 if (I.notLastClause())
                     orStack.push(I);
@@ -125,7 +125,7 @@ public class Prog extends Source implements Runnable {
      * creates a new logic engine
      */
     static public Prog new_engine(Term X, Term G) {
-        Clause C = new Clause(X, G);
+        HornClause C = new HornClause(X, G);
         Prog p = new Prog(C, null);
         return p;
     }
@@ -148,6 +148,15 @@ public class Prog extends Source implements Runnable {
             if (null == Answer)
                 break;
         }
+    }
+
+    /**
+     * @return
+     */
+    public BlackBoard getBlackboard() {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("Prog.getBlackboard");
+        return null;
     }
 
 }

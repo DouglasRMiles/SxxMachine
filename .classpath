@@ -1,42 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="jsrc/machine"/>
+	<classpathentry kind="src" path="jsrc/compiler"/>
+	<classpathentry kind="src" path="jsrc/exceptions"/>
+	<classpathentry kind="src" path="jsrc/handcoded"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/fluents"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/io"/>
+	<classpathentry kind="src" path="jsrc/kernelprolog/main"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/terms"/>
 	<classpathentry kind="src" path="jsrc/kernelprolog/tests"/>
-	<classpathentry kind="src" path="jsrc/kernelprolog/main"/>
-	<classpathentry kind="src" path="jsrc/exceptions"/>
+	<classpathentry kind="src" path="jsrc/machine"/>
 	<classpathentry kind="src" path="jsrc/repl"/>
-	<classpathentry kind="src" path="jsrc/handcoded"/>
-	<classpathentry kind="src" path="jsrc/compiler"/>
-	<classpathentry kind="src" path="src/main/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" path="src/test/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="src" path="jsrc-gen1/builtin"/>
+	<classpathentry kind="src" path="jsrc-gen1/compiler"/>
+	<classpathentry kind="src" path="jsrc-gen1/repl"/>
+	<classpathentry kind="src" path="jprolog/attvars"/>
+	<classpathentry kind="src" path="jprolog/builtins"/>
+	<classpathentry kind="src" path="jprolog/chr"/>
+	<classpathentry kind="src" path="jprolog/comp"/>
+	<classpathentry kind="src" path="jprolog/exceptions"/>
+	<classpathentry kind="src" path="jprolog/globalvars"/>
+	<classpathentry kind="src" path="jprolog/javaconnection"/>
+	<classpathentry kind="src" path="jprolog/jprolog"/>
+	<classpathentry excluding="pred_animal_1.java|pred_noteq_2.java|pred_notmore_0.java|pred_top_0.java|pred_toplevel_0.java|pred_untilend_1.java|pred_writevars_1.java" kind="src" path="jprolog/prolog"/>
+	<classpathentry kind="src" path="jprolog/scriptEngine"/>
+	<classpathentry kind="src" path="jprolog/support"/>
+	<classpathentry kind="src" path="jprolog/test"/>
+	<classpathentry kind="src" path="jprolog/toplevel1"/>
+	<classpathentry kind="src" path="jprolog/util"/>
+	<classpathentry kind="src" path="jsrc-gen2/tests"/>
+	<classpathentry kind="src" path="jsrc-cafe/compiler"/>
+	<classpathentry kind="src" path="jsrc-cafe/exceptions"/>
+	<classpathentry kind="src" path="jsrc-cafe/handcoded"/>
+	<classpathentry kind="src" path="jsrc-cafe/machine"/>
+	<classpathentry kind="src" path="jsrc-cafe/repl"/>
+	<classpathentry kind="src" path="jsrc-kernel-tarau/fluents"/>
+	<classpathentry kind="src" path="jsrc-kernel-tarau/io"/>
+	<classpathentry kind="src" path="jsrc-kernel-tarau/main"/>
+	<classpathentry kind="src" path="jsrc-kernel-tarau/terms"/>
+	<classpathentry kind="src" path="jsrc-kernel-tarau/tests"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/attvars"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/builtins"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/chr"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/comp"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/exceptions"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/globalvars"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/javaconnection"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/jprolog"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/prolog"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/scriptEngine"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/support"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/test"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/toplevel1"/>
+	<classpathentry kind="src" path="jsrc-kuleuven/util"/>
+	<classpathentry kind="src" path="jsrc-pass10/builtin"/>
+	<classpathentry kind="src" path="jsrc-pass10/compiler"/>
+	<classpathentry kind="src" path="jsrc-pass10/repl"/>
+	<classpathentry kind="src" path="jsrc-pass20/bench"/>
+	<classpathentry kind="src" path="jsrc-pass20/tabling_dra"/>
+	<classpathentry kind="src" path="jsrc-pass20/tests"/>
+	<classpathentry kind="src" path="jsrc-kernelprolog/fluents"/>
+	<classpathentry kind="src" path="jsrc-kernelprolog/io"/>
+	<classpathentry kind="src" path="jsrc-kernelprolog/main"/>
+	<classpathentry kind="src" path="jsrc-kernelprolog/terms"/>
+	<classpathentry kind="src" path="jsrc-kernelprolog/tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="jsrc-gen1/builtin"/>
-	<classpathentry kind="src" path="jsrc-gen1/repl"/>
-	<classpathentry kind="src" path="jsrc-gen1/compiler"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="SxxMachine/FILE_dra.java" kind="src" path="jsrc-gen2/tabling_dra"/>
-	<classpathentry kind="src" path="jsrc-gen2/tests"/>
-	<classpathentry excluding="SxxMachine/FILE_run.java|SxxMachine/FILE_sdda.java" kind="src" path="jsrc-gen2/bench"/>
+	<classpathentry kind="lib" path="lib/bddbddb-full.jar"/>
+	<classpathentry kind="lib" path="lib/lprolog.jar"/>
+	<classpathentry kind="lib" path="lib/nanoxml-2.2.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

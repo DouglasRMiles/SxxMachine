@@ -592,5 +592,5 @@ time(G):-
   println(time(T)),
   nl. 
   
- :- ['jsrc/kernelprolog/tests/test'].
+ :- ['jsrc-kernelprolog/tests/test'].
   

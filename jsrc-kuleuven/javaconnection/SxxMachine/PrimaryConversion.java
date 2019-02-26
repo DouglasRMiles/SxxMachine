@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+
 public class PrimaryConversion {
 
     public static Term convert2Prolog(Object javaObject) {
@@ -8,18 +11,18 @@ public class PrimaryConversion {
             return Const.javaNull();
         ;
         if (javaObject instanceof String)
-            return JpFactory.CONST(javaObject);
+            return CONST(javaObject);
         if (javaObject instanceof Iterable)
             return ListConverter.convert2prolog((Iterable<?>) javaObject);
         if (javaObject instanceof Object[])
             return ArrayConverter.convert2prolog((Object[]) javaObject);
         if (javaObject instanceof Number) {
-            Number nb = (Number) javaObject;
+            final Number nb = (Number) javaObject;
             if (couldBeLong(nb))
-                return JpFactory.Long(nb.longValue());
-            return JpFactory.CONST(nb); //nu kan een int wel gelijk zijn aan een const
+                return Integer(nb.longValue());
+            return CONST(nb); //nu kan een int wel gelijk zijn aan een const
         }
-        return JpFactory.CONST(javaObject);
+        return CONST(javaObject);
     }
 
     private static boolean couldBeLong(Number nb) {
@@ -35,14 +38,14 @@ public class PrimaryConversion {
         if (prologObject instanceof Const)
             return ((Const) prologObject).getValue();
         if (prologObject instanceof AFunct) {
-            AFunct f = (AFunct) prologObject;
+            final AFunct f = (AFunct) prologObject;
             if (f.isCons() || f.isNil())
                 return ListConverter.convert2java(f);
             if (f.arity() > 0)
                 throw new JPrologScriptException("can not convert a function to a java-object");
             return f.fname();
         }
-        return ((Int) prologObject).longValue();
+        return ((NumberTerm) prologObject).longValue();
     }
 
 }

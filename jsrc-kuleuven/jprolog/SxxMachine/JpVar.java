@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-public final class JpVar extends AbstractVar implements UnTrailOperation {
+public final class JpVar extends AbstractVar {
 
     public Term Refers;
 
@@ -16,12 +16,12 @@ public final class JpVar extends AbstractVar implements UnTrailOperation {
         timestamp = machin.getTimestamp();
     }
 
-    //    public JpVar(RunStackItem machin) {
-    //        this.machin = null;
-    //        Refers = this;
-    //        timestamp = machin.getTimestamp();
-    //        mach = machin;
-    //    }
+    public JpVar(RunStackItem machin) {
+        this.machin = null;
+        Refers = this;
+        timestamp = machin.getTimestamp();
+        mach = machin;
+    }
 
     private JpVar(RunStackItem machin, long t) {
         this.machin = null;
@@ -38,8 +38,8 @@ public final class JpVar extends AbstractVar implements UnTrailOperation {
 
     @Override
     public Term copy(RunningPrologMachine m, long t) {
-        JpVar newv = new JpVar(m.getCurrentStackItem(), t);
-        VarDict newdict = new VarDict(this, newv);
+        final JpVar newv = new JpVar(m.getCurrentStackItem(), t);
+        final VarDict newdict = new VarDict(this, newv);
         Refers = newdict;
         getStack().trailEntry(this);
         return newv;
@@ -64,7 +64,7 @@ public final class JpVar extends AbstractVar implements UnTrailOperation {
         }
         JpVar v2;
         if (that instanceof JpVar) {
-            JpVar v1 = (JpVar) that;
+            final JpVar v1 = (JpVar) that;
             if (timestamp < v1.timestamp) {
                 v1.Refers = this;
                 v2 = v1;
@@ -73,7 +73,7 @@ public final class JpVar extends AbstractVar implements UnTrailOperation {
                 v2 = this;
             }
         } else {
-            this.Refers = that;
+            Refers = that;
             v2 = this;
         }
         //if (v2.timestamp < mach.getCurrentChoiceTimeStamp()) {

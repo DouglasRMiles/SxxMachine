@@ -13,7 +13,7 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
             throw new NullPointerException();
         this.exception = exception;
         this.exceptionAction = exceptionAction;
-        this.continuation = cont;
+        continuation = cont;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
             throws JPrologInternalException {
         if (!exception.unify(this.exception))
             return super.handlePrologException(exception, mach);
-        Term[] args = mach.getAreg();
+        final Term[] args = mach.getAreg();
         args[0] = exceptionAction;
         args[1] = continuation;
         return mach.getMachine().Call2;

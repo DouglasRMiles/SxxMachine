@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
+@SuppressWarnings("rawtypes")
 public class ClassPred extends Code {
 
     private final static Logger log = Logger.getLogger(ClassPred.class);
@@ -12,10 +15,10 @@ public class ClassPred extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] args = mach.getAreg();
-        Term classConst = args[0];
-        Term className = args[1];
-        Term c = args[2];
+        final Term[] args = mach.getAreg();
+        final Term classConst = args[0];
+        final Term className = args[1];
+        final Term c = args[2];
         if (!find(classConst, className))
             return mach.Fail0;
         args[1] = args[2] = null;
@@ -27,21 +30,21 @@ public class ClassPred extends Code {
         classConst = classConst.dref();
         className = className.dref();
         if (classConst instanceof Const) {
-            Const cct = (Const) classConst;
+            final Const cct = (Const) classConst;
             if (cct.getValue() instanceof Class) {
-                Class cc = (Class) cct.getValue();
-                return className.unify(JpFactory.CONST(cc.getName()));
+                final Class cc = (Class) cct.getValue();
+                return className.unify(CONST(cc.getName()));
             } else
                 return false;
         }
         if (className instanceof Const) {
-            Const ccn = (Const) className;
+            final Const ccn = (Const) className;
             if (ccn.getValue() instanceof String) {
                 return find(classConst, (String) ccn.getValue());
             }
         }
         if (className instanceof AFunct) {
-            AFunct ccnf = (AFunct) className;
+            final AFunct ccnf = (AFunct) className;
             if (ccnf.arity() > 0)
                 return false;
             return find(classConst, ccnf.fname());
@@ -53,11 +56,11 @@ public class ClassPred extends Code {
         Class type;
         try {
             type = Class.forName(className);
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             log.debug("Could not find class", e);
             return false;
         }
-        return classConst.unify(JpFactory.CONST(type));
+        return classConst.unify(CONST(type));
     }
 
 }

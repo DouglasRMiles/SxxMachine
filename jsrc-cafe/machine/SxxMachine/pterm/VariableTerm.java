@@ -35,7 +35,7 @@ import SxxMachine.Var;
  * @version 1.0
  */
 @SuppressWarnings({ "rawtypes", "unused" })
-public class VariableTerm extends AVar implements Undoable, Term, Var {
+public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     public Var toClone() {
@@ -395,9 +395,9 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
     }
 
     @Override
-    public final String fname() {
-        oopsy();
-        return (this.unbound()) ? "" : this.val.dref().fname();
+    public final String getString() {
+        oopsy("unknown reason");
+        return (this.unbound()) ? "" : this.val.dref().getString();
     }
 
     /**
@@ -626,12 +626,12 @@ public class VariableTerm extends AVar implements Undoable, Term, Var {
     }
 
     @Override
-    public String getKey() {
+    public String getFAKey() {
         Term t = dref();
         if (t.isVar())
             return null;
         else
-            return t.getKey();
+            return t.getFAKey();
     }
 
     @Override

@@ -4,6 +4,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_fixClauses_2_consts {
@@ -11,16 +17,16 @@ class pred_fixClauses_2_consts {
     Code not2cont;
     Code cut2cont;
     Code var2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("fixClauses");
-    final static String string2 = Const.strIntern("call");
-    final static String string3 = Const.strIntern("not");
-    final static String string4 = Const.strIntern("var");
-    final static String string5 = Const.strIntern("cut");
-    final static String string6 = Const.strIntern("fixNotVar");
-    final static String string7 = Const.strIntern(".");
-    final static String string8 = Const.strIntern("[]");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("fixClauses");
+    final static String string2 = internS("call");
+    final static String string3 = internS("not");
+    final static String string4 = internS("var");
+    final static String string5 = internS("cut");
+    final static String string6 = internS("fixNotVar");
+    final static String string7 = internS(".");
+    final static String string8 = internS("[]");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_fixClauses_2 extends Code {
@@ -67,9 +73,9 @@ public class pred_fixClauses_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -84,27 +90,28 @@ class pred_fixClauses_2_1 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var1.dref();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var1.dref();
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = JpFactory.S(getConsts().string0, new HeapChoice(mach.getCUTB()), continuation);
+
+        local_aregs[1] = S(pred_fixClauses_2_consts.string0, new HeapChoice(mach.getCUTB()), continuation);
         mach.updateCUTB();
         local_aregs[2] = null;
         return getConsts().var2cont;
@@ -119,21 +126,25 @@ class pred_fixClauses_2_2 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = JpFactory.CONST(getConsts().string8);
-        Term arg1 = JpFactory.CONST(getConsts().string8);
+
+        final Term arg0 = CONST(pred_fixClauses_2_consts.string8);
+
+        final Term arg1 = CONST(pred_fixClauses_2_consts.string8);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string8))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(CONST(pred_fixClauses_2_consts.string8))))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.CONST(getConsts().string8))))
+
+        if (!(areg1.unify(CONST(pred_fixClauses_2_consts.string8))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -151,37 +162,42 @@ class pred_fixClauses_2_3 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var4 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string7, var1, var2);
-        Term arg1 = JpFactory.S(getConsts().string7, var3, var4);
+
+        final Term var4 = new DummyVar();
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_fixClauses_2_consts.string7, var1, var2);
+
+        final Term arg1 = S(pred_fixClauses_2_consts.string7, var3, var4);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string7, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_fixClauses_2_consts.string7, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.S(getConsts().string7, var3.dref(), var4.dref()))))
+
+        if (!(areg1.unify(S(pred_fixClauses_2_consts.string7, var3.dref(), var4.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = JpFactory.S(getConsts().string1, var1.dref(), var3.dref(), JpFactory
-                .S(getConsts().string1, var2.dref(), var4.dref(), continuation));
+
+        local_aregs[0] = S(pred_fixClauses_2_consts.string1, var1.dref(), var3
+                .dref(), S(pred_fixClauses_2_consts.string1, var2.dref(), var4.dref(), continuation));
         mach.updateCUTB();
         local_aregs[2] = null;
         return mach.Call1;
@@ -196,31 +212,33 @@ class pred_fixClauses_2_4 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var2;
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var2;
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string4, var1.dref());
-        local_aregs[1] = JpFactory.S(getConsts().string0, new HeapChoice(mach.getCUTB()), JpFactory
-                .S(getConsts().string6, var1.dref(), var2.dref(), continuation));
+
+        local_aregs[0] = S(pred_fixClauses_2_consts.string4, var1.dref());
+
+        local_aregs[1] = S(pred_fixClauses_2_consts.string0, new HeapChoice(
+                mach.getCUTB()), S(pred_fixClauses_2_consts.string6, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
         local_aregs[2] = null;
         return getConsts().not2cont;
@@ -235,31 +253,33 @@ class pred_fixClauses_2_5 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var2;
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var2;
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string4, var2.dref());
-        local_aregs[1] = JpFactory.S(getConsts().string0, new HeapChoice(mach.getCUTB()), JpFactory
-                .S(getConsts().string6, var1.dref(), var2.dref(), continuation));
+
+        local_aregs[0] = S(pred_fixClauses_2_consts.string4, var2.dref());
+
+        local_aregs[1] = S(pred_fixClauses_2_consts.string0, new HeapChoice(
+                mach.getCUTB()), S(pred_fixClauses_2_consts.string6, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
         local_aregs[2] = null;
         return getConsts().not2cont;
@@ -274,21 +294,21 @@ class pred_fixClauses_2_6 extends pred_fixClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var1.dref();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var1.dref();
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var1.dref())))

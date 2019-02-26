@@ -45,10 +45,10 @@ public class PrologScriptEngineFactory implements ScriptEngineFactory {
     public String getMethodCallSyntax(String obj, String m, String... args) {
         if (obj != null && !obj.isEmpty())
             throw new IllegalArgumentException("OO not supported in JProlog");
-        StringBuilder builder = new StringBuilder(m.length() + args.length * 5);
+        final StringBuilder builder = new StringBuilder(m.length() + args.length * 5);
         builder.append(m).append("(");
         boolean first = true;
-        for (String arg : args) {
+        for (final String arg : args) {
             if (first)
                 first = false;
             else
@@ -96,9 +96,9 @@ public class PrologScriptEngineFactory implements ScriptEngineFactory {
 
     @Override
     public String getProgram(String... statements) {
-        StringBuilder b = new StringBuilder(statements.length * 10);
+        final StringBuilder b = new StringBuilder(statements.length * 10);
         boolean first = true;
-        for (String str : statements) {
+        for (final String str : statements) {
             if (first)
                 first = false;
             else
@@ -109,8 +109,8 @@ public class PrologScriptEngineFactory implements ScriptEngineFactory {
     }
 
     @Override
-    public PrologScriptEngine getScriptEngine() {
-        return new PrologScriptEngine(this);
+    public PrologEngine getScriptEngine() {
+        return new PrologEngine(this);
     }
 
 }

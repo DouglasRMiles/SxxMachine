@@ -9,7 +9,7 @@ import SxxMachine.Var;
  * useful for printing out with nicer variable names.
  *
  * @see Var
- * @see Clause
+ * @see HornClause
  */
 public class VarNumberer extends SystemObject {
     HashDict dict;
@@ -29,7 +29,7 @@ public class VarNumberer extends SystemObject {
             SymbolTerm root = (SymbolTerm) dict.get(place);
             if (null == root) {
                 root = new PseudoVar(ctr++);
-                root.name = root.name + place.fname();
+                root.name = root.name + place.getString();
                 dict.put(place, root);
             }
             place = root;

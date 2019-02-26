@@ -1,9 +1,14 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
+
+import SxxMachine.pterm.StructureTerm;
 
 class ParameterConverter2Prolog {
 
@@ -16,7 +21,7 @@ class ParameterConverter2Prolog {
             //Speciale behandeling nodig,
             //int[] a = {...}
             //Object[] b = a; //gaat namelijk niet
-            Object[] ar = new Object[Array.getLength(o)];
+            final Object[] ar = new Object[Array.getLength(o)];
             for (int i = 0; i < ar.length; i++)
                 ar[i] = Array.get(o, i);
             return ar;
@@ -28,36 +33,36 @@ class ParameterConverter2Prolog {
         if (o != null && Object.class.equals(o.getClass())) {
             JpVar v = obj2Var.get(o);
             if (v == null) {
-                v = JpFactory.JVAR(pMachine);
+                v = Jv(pMachine);
                 obj2Var.put(o, v);
             }
             return v;
         } else if (o != null && o.getClass().isArray()) {
-            Object[] ar = getArray(o);
+            final Object[] ar = getArray(o);
 
             if (ar.length == 0)
-                return Const.NIL;
-            StructureTerm head = new StructureTerm(".", 2);
+                return Prolog.Nil;
+            final StructureTerm head = (StructureTerm) S(".", 2);
             StructureTerm tail = head;
             boolean add = false;
-            for (Object obj : ar) {
+            for (final Object obj : ar) {
                 if (add) {
-                    StructureTerm f = new StructureTerm(".", 2);
-                    tail.args()[1] = f;
+                    final StructureTerm f = (StructureTerm) S(".", 2);
+                    tail.setarg0(1, f);
                     tail = f;
                 }
-                tail.args()[0] = makeParam(obj, obj2Var, pMachine);
+                tail.setarg0(0, makeParam(obj, obj2Var, pMachine));
                 add = true;
             }
-            tail.args()[1] = Const.NIL;
+            tail.setarg0(1, Prolog.Nil);
             return head;
         }
         return PrimaryConversion.convert2Prolog(o);
     }
 
     ConvertieData makeParams(Object[] args, PrologMachine pMachine) {
-        Term[] res = new Term[args.length];
-        Map<Object, JpVar> obj2Var = new HashMap<Object, JpVar>();
+        final Term[] res = new Term[args.length];
+        final Map<Object, JpVar> obj2Var = new HashMap<Object, JpVar>();
         for (int i = 0; i < args.length; i++) {
             res[i] = makeParam(args[i], obj2Var, pMachine);
         }

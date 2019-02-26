@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-final public class CodeObject extends JpATerm {
+public class CodeObject extends JPrologObject {
 
     private final Code fCode;
 

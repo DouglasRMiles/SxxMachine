@@ -13,7 +13,7 @@ public abstract class JpModule {
 
     protected JpModule(Code[] code, String[] functors) {
         super();
-        this.codes = code;
+        codes = code;
         this.functors = functors;
     }
 
@@ -24,7 +24,7 @@ public abstract class JpModule {
             log.info("Registering " + functors[i]);
             machine.registerCode(codes[i], functors[i]);
         }
-        for (Code c : codes) {
+        for (final Code c : codes) {
             c.init(machine);
         }
         return true;

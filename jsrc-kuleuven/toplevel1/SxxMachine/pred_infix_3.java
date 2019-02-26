@@ -5,54 +5,58 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 public class pred_infix_3 extends Code {
     static Code entry_code;
-    static String string0 = Const.strIntern("cut");
-    static String string1 = Const.strIntern("infix");
-    static String string2 = Const.strIntern("xfy");
-    static String string3 = Const.strIntern("^");
-    static String string4 = Const.strIntern("call");
-    static String string5 = Const.strIntern("xfx");
-    static String string6 = Const.strIntern("mod");
-    static String string7 = Const.strIntern("yfx");
-    static String string8 = Const.strIntern(">>");
-    static String string9 = Const.strIntern("<<");
-    static String string10 = Const.strIntern("//");
-    static String string11 = Const.strIntern("/");
-    static String string12 = Const.strIntern("*");
-    static String string13 = Const.strIntern("#");
-    static String string14 = Const.strIntern("-");
-    static String string15 = Const.strIntern("+");
-    static String string16 = Const.strIntern(":");
-    static String string17 = Const.strIntern(">=");
-    static String string18 = Const.strIntern(">");
-    static String string19 = Const.strIntern("=<");
-    static String string20 = Const.strIntern("<");
-    static String string21 = Const.strIntern("@>=");
-    static String string22 = Const.strIntern("@=<");
-    static String string23 = Const.strIntern("@>");
-    static String string24 = Const.strIntern("@<");
-    static String string25 = Const.strIntern("==");
-    static String string26 = Const.strIntern("=..");
-    static String string27 = Const.strIntern("is");
-    static String string28 = Const.strIntern("=");
-    static String string29 = Const.strIntern("->");
-    static String string30 = Const.strIntern(";");
-    static String string31 = Const.strIntern(",");
-    static String string32 = Const.strIntern(":-");
-    static String string33 = Const.strIntern("=:=");
-    static Int posint200 = JpFactory.Long(200);
-    static Int posint300 = JpFactory.Long(300);
-    static Int posint400 = JpFactory.Long(400);
-    static Int posint500 = JpFactory.Long(500);
-    static Int posint550 = JpFactory.Long(550);
-    static Int posint700 = JpFactory.Long(700);
-    static Int posint1050 = JpFactory.Long(1050);
-    static Int posint1100 = JpFactory.Long(1100);
-    static Int posint1000 = JpFactory.Long(1000);
-    static Int posint1200 = JpFactory.Long(1200);
+    static String string0 = internS("cut");
+    static String string1 = internS("infix");
+    static String string2 = internS("xfy");
+    static String string3 = internS("^");
+    static String string4 = internS("call");
+    static String string5 = internS("xfx");
+    static String string6 = internS("mod");
+    static String string7 = internS("yfx");
+    static String string8 = internS(">>");
+    static String string9 = internS("<<");
+    static String string10 = internS("//");
+    static String string11 = internS("/");
+    static String string12 = internS("*");
+    static String string13 = internS("#");
+    static String string14 = internS("-");
+    static String string15 = internS("+");
+    static String string16 = internS(":");
+    static String string17 = internS(">=");
+    static String string18 = internS(">");
+    static String string19 = internS("=<");
+    static String string20 = internS("<");
+    static String string21 = internS("@>=");
+    static String string22 = internS("@=<");
+    static String string23 = internS("@>");
+    static String string24 = internS("@<");
+    static String string25 = internS("==");
+    static String string26 = internS("=..");
+    static String string27 = internS("is");
+    static String string28 = internS("=");
+    static String string29 = internS("->");
+    static String string30 = internS(";");
+    static String string31 = internS(",");
+    static String string32 = internS(":-");
+    static String string33 = internS("=:=");
+    static NumberTerm posint200 = Integer(200);
+    static NumberTerm posint300 = Integer(300);
+    static NumberTerm posint400 = Integer(400);
+    static NumberTerm posint500 = Integer(500);
+    static NumberTerm posint550 = Integer(550);
+    static NumberTerm posint700 = Integer(700);
+    static NumberTerm posint1050 = Integer(1050);
+    static NumberTerm posint1100 = Integer(1100);
+    static NumberTerm posint1000 = Integer(1000);
+    static NumberTerm posint1200 = Integer(1200);
     private final static Alternatives ALT = new Alternatives();
     static {
         ALT.addAlternative(new pred_infix_3_1());
@@ -99,9 +103,9 @@ public class pred_infix_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(4);
+        final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
     }
@@ -110,24 +114,24 @@ public class pred_infix_3 extends Code {
 class pred_infix_3_1 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1200;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string32);
+        final Term arg0 = posint1200;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string32);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string32))))
+        if (!((areg2).unify(CONST(string32))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -139,24 +143,24 @@ class pred_infix_3_1 extends pred_infix_3 {
 class pred_infix_3_2 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1000;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string31);
+        final Term arg0 = posint1000;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string31);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1000)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string31))))
+        if (!((areg2).unify(CONST(string31))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -168,24 +172,24 @@ class pred_infix_3_2 extends pred_infix_3 {
 class pred_infix_3_3 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1100;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string30);
+        final Term arg0 = posint1100;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string30);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1100)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string30))))
+        if (!((areg2).unify(CONST(string30))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -197,24 +201,24 @@ class pred_infix_3_3 extends pred_infix_3 {
 class pred_infix_3_4 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1050;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string29);
+        final Term arg0 = posint1050;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string29);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1050)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string29))))
+        if (!((areg2).unify(CONST(string29))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -226,24 +230,24 @@ class pred_infix_3_4 extends pred_infix_3 {
 class pred_infix_3_5 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string28);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string28);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string28))))
+        if (!((areg2).unify(CONST(string28))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -255,24 +259,24 @@ class pred_infix_3_5 extends pred_infix_3 {
 class pred_infix_3_6 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string27);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string27);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string27))))
+        if (!((areg2).unify(CONST(string27))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -284,24 +288,24 @@ class pred_infix_3_6 extends pred_infix_3 {
 class pred_infix_3_7 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string26);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string26);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string26))))
+        if (!((areg2).unify(CONST(string26))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -313,24 +317,24 @@ class pred_infix_3_7 extends pred_infix_3 {
 class pred_infix_3_8 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string25);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string25);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string25))))
+        if (!((areg2).unify(CONST(string25))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -342,24 +346,24 @@ class pred_infix_3_8 extends pred_infix_3 {
 class pred_infix_3_8b extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string33);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string33);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string33))))
+        if (!((areg2).unify(CONST(string33))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -371,24 +375,24 @@ class pred_infix_3_8b extends pred_infix_3 {
 class pred_infix_3_9 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string24);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string24);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string24))))
+        if (!((areg2).unify(CONST(string24))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -400,24 +404,24 @@ class pred_infix_3_9 extends pred_infix_3 {
 class pred_infix_3_10 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string23);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string23);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string23))))
+        if (!((areg2).unify(CONST(string23))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -429,24 +433,24 @@ class pred_infix_3_10 extends pred_infix_3 {
 class pred_infix_3_11 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string22);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string22);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string22))))
+        if (!((areg2).unify(CONST(string22))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -458,24 +462,24 @@ class pred_infix_3_11 extends pred_infix_3 {
 class pred_infix_3_12 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string21);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string21);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string21))))
+        if (!((areg2).unify(CONST(string21))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -487,24 +491,24 @@ class pred_infix_3_12 extends pred_infix_3 {
 class pred_infix_3_13 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string17);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string17);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string17))))
+        if (!((areg2).unify(CONST(string17))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -516,24 +520,24 @@ class pred_infix_3_13 extends pred_infix_3 {
 class pred_infix_3_14 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string20);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string20);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string20))))
+        if (!((areg2).unify(CONST(string20))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -545,24 +549,24 @@ class pred_infix_3_14 extends pred_infix_3 {
 class pred_infix_3_15 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string19);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string19);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string19))))
+        if (!((areg2).unify(CONST(string19))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -574,24 +578,24 @@ class pred_infix_3_15 extends pred_infix_3 {
 class pred_infix_3_16 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string18);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string18);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string18))))
+        if (!((areg2).unify(CONST(string18))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -603,24 +607,24 @@ class pred_infix_3_16 extends pred_infix_3 {
 class pred_infix_3_17 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint700;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string17);
+        final Term arg0 = posint700;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string17);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string17))))
+        if (!((areg2).unify(CONST(string17))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -632,24 +636,24 @@ class pred_infix_3_17 extends pred_infix_3 {
 class pred_infix_3_18 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint550;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string16);
+        final Term arg0 = posint550;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string16);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint550)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string16))))
+        if (!((areg2).unify(CONST(string16))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -661,24 +665,24 @@ class pred_infix_3_18 extends pred_infix_3 {
 class pred_infix_3_19 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint500;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string15);
+        final Term arg0 = posint500;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string15);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string15))))
+        if (!((areg2).unify(CONST(string15))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -690,24 +694,24 @@ class pred_infix_3_19 extends pred_infix_3 {
 class pred_infix_3_20 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint500;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string14);
+        final Term arg0 = posint500;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string14);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string14))))
+        if (!((areg2).unify(CONST(string14))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -719,24 +723,24 @@ class pred_infix_3_20 extends pred_infix_3 {
 class pred_infix_3_21 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint500;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string13);
+        final Term arg0 = posint500;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string13);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string13))))
+        if (!((areg2).unify(CONST(string13))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -748,24 +752,24 @@ class pred_infix_3_21 extends pred_infix_3 {
 class pred_infix_3_22 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint400;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string12);
+        final Term arg0 = posint400;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string12);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string12))))
+        if (!((areg2).unify(CONST(string12))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -777,24 +781,24 @@ class pred_infix_3_22 extends pred_infix_3 {
 class pred_infix_3_23 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint400;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string11);
+        final Term arg0 = posint400;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string11);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string11))))
+        if (!((areg2).unify(CONST(string11))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -806,24 +810,24 @@ class pred_infix_3_23 extends pred_infix_3 {
 class pred_infix_3_24 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint400;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string10);
+        final Term arg0 = posint400;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string10);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string10))))
+        if (!((areg2).unify(CONST(string10))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -835,24 +839,24 @@ class pred_infix_3_24 extends pred_infix_3 {
 class pred_infix_3_25 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint400;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string9);
+        final Term arg0 = posint400;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string9);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string9))))
+        if (!((areg2).unify(CONST(string9))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -864,24 +868,24 @@ class pred_infix_3_25 extends pred_infix_3 {
 class pred_infix_3_26 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint400;
-        Term arg1 = JpFactory.CONST(string7);
-        Term arg2 = JpFactory.CONST(string8);
+        final Term arg0 = posint400;
+        final Term arg1 = CONST(string7);
+        final Term arg2 = CONST(string8);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string7))))
+        if (!((areg1).unify(CONST(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string8))))
+        if (!((areg2).unify(CONST(string8))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -893,24 +897,24 @@ class pred_infix_3_26 extends pred_infix_3 {
 class pred_infix_3_27 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint300;
-        Term arg1 = JpFactory.CONST(string5);
-        Term arg2 = JpFactory.CONST(string6);
+        final Term arg0 = posint300;
+        final Term arg1 = CONST(string5);
+        final Term arg2 = CONST(string6);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint300)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string5))))
+        if (!((areg1).unify(CONST(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string6))))
+        if (!((areg2).unify(CONST(string6))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -922,24 +926,24 @@ class pred_infix_3_27 extends pred_infix_3 {
 class pred_infix_3_28 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint200;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string3);
+        final Term arg0 = posint200;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string3);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint200)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string3))))
+        if (!((areg2).unify(CONST(string3))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

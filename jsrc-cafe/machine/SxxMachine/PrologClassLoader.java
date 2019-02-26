@@ -5,6 +5,7 @@ import static SxxMachine.pterm.TermData.S;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import SxxMachine.pterm.StaticPred;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -23,8 +24,11 @@ public class PrologClassLoader extends ClassLoader {
         FILE_builtins.loadPreds();
         FILE_cafeteria.loadPreds();
         FILE_io.loadPreds();
-        FILE_system.loadPreds();
         FILE_swi_supp.loadPreds();
+        FILE_system.loadPreds();
+        FILE_animal_string.loadPreds();
+        FILE_animal.loadPreds();
+
         //  FILE_dra.loadPreds();
         Prolog.startLevel = 2;
     }
@@ -114,7 +118,7 @@ public class PrologClassLoader extends ClassLoader {
         try {
             Operation constructor = findPredicate(pkg, functor, arity);
             if (constructor != NOT_FOUND) {
-                Predicate pred = new TermData.StaticPred(pkg + "::" + functor + "/" + arity, constructor, args, cont);
+                Predicate pred = new StaticPred(pkg + "::" + functor + "/" + arity, constructor, args, cont);
                 return pred;
             }
         } catch (Exception cause) {

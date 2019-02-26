@@ -7,7 +7,7 @@ import java.util.Map;
 class ParameterConverter2java {
 
     Object[] getParamRes(Term[] ar, Map<JpVar, Object> var2Object) throws JPrologScriptException {
-        Object[] res = new Object[ar.length];
+        final Object[] res = new Object[ar.length];
         if (var2Object == null)
             var2Object = new HashMap<JpVar, Object>();
         for (int i = 0; i < res.length; i++) {

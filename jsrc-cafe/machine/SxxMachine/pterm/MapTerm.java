@@ -216,13 +216,14 @@ public class MapTerm extends SystemObject {
     }
 
     @Override
-    public final String fname() {
-        oopsy();
-        return SYM_DOT_2.fname();
+    public final String pprint() {
+        StringBuilder sb = new StringBuilder();
+        toStringImpl(1, sb);
+        return sb.toString();
     }
 
     @Override
-    public Term arg0(int nth) {
+    public Term getPlainArg(int nth) {
         Term t = this;
         int old_nth = nth;
         while ((t.isMap()) && 0 < nth) {

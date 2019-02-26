@@ -4,24 +4,29 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_declforeachclause2_3_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("declforeachclause2");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("writel");
-    final static String string4 = Const.strIntern("ALT.addAlternative(");
-    final static String string5 = Const.strIntern("new ");
-    final static String string6 = Const.strIntern("_");
-    final static String string7 = Const.strIntern("(this));");
-    final static String string8 = Const.strIntern("wr");
-    final static String string9 = Const.strIntern("nl");
-    final static String string10 = Const.strIntern("[]");
-    final static String string11 = Const.strIntern("inc");
-    final static String string12 = Const.strIntern("call");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("declforeachclause2");
+    final static String string2 = internS(".");
+    final static String string3 = internS("writel");
+    final static String string4 = internS("ALT.addAlternative(");
+    final static String string5 = internS("new ");
+    final static String string6 = internS("_");
+    final static String string7 = internS("(this));");
+    final static String string8 = internS("wr");
+    final static String string9 = internS("nl");
+    final static String string10 = internS("[]");
+    final static String string11 = internS("inc");
+    final static String string12 = internS("call");
 }
 
 public class pred_declforeachclause2_3 extends Code {
@@ -64,9 +69,9 @@ public class pred_declforeachclause2_3 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(4);
+        final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -81,27 +86,29 @@ class pred_declforeachclause2_3_1 extends pred_declforeachclause2_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.CONST(getConsts().string10);
-        Term arg1 = var1;
-        Term arg2 = var2;
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = CONST(pred_declforeachclause2_3_consts.string10);
+        final Term arg1 = var1;
+        final Term arg2 = var2;
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string10))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(CONST(pred_declforeachclause2_3_consts.string10))))
             return mach.Fail0;
         if (!(areg1.unify(var1.dref())))
             return mach.Fail0;
@@ -122,53 +129,49 @@ class pred_declforeachclause2_3_2 extends pred_declforeachclause2_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var5 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var4 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string2, var1, var2);
-        Term arg1 = var3;
-        Term arg2 = var4;
+
+        final Term var4 = new DummyVar();
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_declforeachclause2_3_consts.string2, var1, var2);
+        final Term arg1 = var3;
+        final Term arg2 = var4;
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var5 = JpFactory.JVAR(mach);
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var5 = Jv(mach);
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_declforeachclause2_3_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         if (!(areg1.unify(var3.dref())))
             return mach.Fail0;
         if (!(areg2.unify(var4.dref())))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string2, JpFactory.CONST(getConsts().string4), JpFactory
-                .S(getConsts().string2, JpFactory.CONST(getConsts().string5), JpFactory
-                        .S(getConsts().string2, var4.dref(), JpFactory.S(getConsts().string2, JpFactory
-                                .CONST(getConsts().string6), JpFactory.S(getConsts().string2, var3
-                                        .dref(), JpFactory.S(getConsts().string2, JpFactory
-                                                .CONST(getConsts().string7), JpFactory
-                                                        .S(getConsts().string2, JpFactory
-                                                                .S(getConsts().string8, JpFactory
-                                                                        .CONST(getConsts().string9)), JpFactory
-                                                                                .CONST(getConsts().string10))))))));
-        local_aregs[1] = JpFactory.S(getConsts().string11, var5, var3.dref(), JpFactory
-                .S(getConsts().string1, var2.dref(), var5.dref(), var4.dref(), continuation));
+
+        local_aregs[0] = S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string4), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string5), S(pred_declforeachclause2_3_consts.string2, var4
+                .dref(), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string6), S(pred_declforeachclause2_3_consts.string2, var3
+                        .dref(), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string7), S(pred_declforeachclause2_3_consts.string2, S(pred_declforeachclause2_3_consts.string8, CONST(pred_declforeachclause2_3_consts.string9)), CONST(pred_declforeachclause2_3_consts.string10))))))));
+
+        local_aregs[1] = S(pred_declforeachclause2_3_consts.string11, var5, var3
+                .dref(), S(pred_declforeachclause2_3_consts.string1, var2.dref(), var5.dref(), var4
+                        .dref(), continuation));
         mach.updateCUTB();
         local_aregs[3] = local_aregs[2] = null;
         return getConsts().writel2cont;

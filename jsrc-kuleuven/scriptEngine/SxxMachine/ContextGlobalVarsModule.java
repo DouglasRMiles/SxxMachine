@@ -5,9 +5,9 @@ import javax.script.ScriptContext;
 
 public class ContextGlobalVarsModule extends GlobalVarsModule {
 
-    private final PrologScriptEngine engine;
+    private final PrologEngine engine;
 
-    protected ContextGlobalVarsModule(PrologScriptEngine eng) {
+    protected ContextGlobalVarsModule(PrologEngine eng) {
         super();
         if (eng == null)
             throw new NullPointerException();

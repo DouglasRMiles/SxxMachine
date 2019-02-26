@@ -59,16 +59,17 @@ public class FILE_animal extends FILE_system {
     }
 
     private final static Operation animal_1_3(Prolog m) {
-        // animal(A):-write('please type one more animal name: '),read(A)
+        // animal(A):-write('please type one more animal name: '),flush_output,read(A)
         Term a1;
-        Operation p1;
+        Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-        // animal(A):-[write('please type one more animal name: '),read(A)]
+        // animal(A):-[write('please type one more animal name: '),flush_output,read(A)]
         return //
         Op("write", FILE_animal::PRED_write_1_static_exec, VA(ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020), //
-                Op("read", FILE_animal::PRED_read_1_static_exec, VA(a1), cont));
+                Op("flush_output", FILE_animal::PRED_flush_output_0_static_exec, VA(), //
+                        Op("read", FILE_animal::PRED_read_1_static_exec, VA(a1), cont)));
     }
 
     static {

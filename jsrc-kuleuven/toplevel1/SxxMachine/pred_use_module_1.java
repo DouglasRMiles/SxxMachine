@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
+@SuppressWarnings("rawtypes")
 public class pred_use_module_1 extends Code {
 
     private final static Logger log = Logger.getLogger(pred_use_module_1.class);
@@ -14,29 +17,30 @@ public class pred_use_module_1 extends Code {
         if (moduleName == null)
             return false;
         moduleName = moduleName.replace('/', '.').replace('\\', '.');
-        PredikaatLoader l = mach.getPredikaatLoader();
+        final PredikaatLoader l = mach.getPredikaatLoader();
         try {
             return loadModule(l.locateClass(moduleName), mach);
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             try {
                 return loadModule(l.locateClass(PredikaatLoader.class.getPackage().getName() + "." + moduleName), mach);
-            } catch (ClassNotFoundException e1) {
+            } catch (final ClassNotFoundException e1) {
             }
         }
         log.info("Could not locate module: " + moduleName);
         return false;
     }
 
+    @SuppressWarnings({ "unchecked" })
     private boolean loadModule(Class module, PrologMachine mach) {
         if (!JpModule.class.isAssignableFrom(module))
             return false;
-        if (mach.isModuleRegistered((Class<? extends JpModule>) module))
+        if (mach.isModuleRegistered(module))
             return true;
         try {
             return loadModule((JpModule) module.newInstance(), mach);
-        } catch (InstantiationException e) {
+        } catch (final InstantiationException e) {
             log.error("Could not init module", e);
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             log.error("Could not access module", e);
         }
         return false;
@@ -52,13 +56,13 @@ public class pred_use_module_1 extends Code {
 
     private boolean load(Term param, PrologMachine mach) {
         if (param instanceof AFunct) {
-            AFunct f = (AFunct) param;
+            final AFunct f = (AFunct) param;
             if (f.arity() == 0) {
-                param = JpFactory.CONST(f.fname());
+                param = CONST(f.fname());
             }
         }
         if (param instanceof Const) {
-            Object o = ((Const) param).getValue();
+            final Object o = ((Const) param).getValue();
             if (o instanceof String) {
                 //Naam vd te laden module
                 if (!loadModule((String) o, mach))
@@ -79,14 +83,14 @@ public class pred_use_module_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         Term param = areg[0].dref();
         if (param.isCons()) {
             while (param.isCons()) {
-                AFunct f = (AFunct) param;
-                if (!load(f.args()[0].dref(), mach))
+                final AFunct f = (AFunct) param;
+                if (!load(f.getPlainArg(0).dref(), mach))
                     return mach.Fail0;
-                param = f.args()[1].dref();
+                param = f.getPlainArg(1).dref();
             }
             if (!param.isNil())
                 return mach.Fail0;

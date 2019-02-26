@@ -4,15 +4,20 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_doAdd_3_consts {
     Code entry_code;
     Code univ4cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("doAdd");
-    final static String string2 = Const.strIntern("univ");
-    final static String string3 = Const.strIntern("append");
-    final static String string4 = Const.strIntern(".");
-    final static String string5 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("doAdd");
+    final static String string2 = internS("univ");
+    final static String string3 = internS("append");
+    final static String string4 = internS(".");
+    final static String string5 = internS("[]");
 }
 
 public class pred_doAdd_3 extends Code {
@@ -20,21 +25,10 @@ public class pred_doAdd_3 extends Code {
 
     public pred_doAdd_3() {
         consts = new pred_doAdd_3_consts();
-        initAlternatives();
     }
 
     protected pred_doAdd_3(pred_doAdd_3 c) {
-        consts = c.getConsts();
-        ALT = null;
-    }
-
-    protected final pred_doAdd_3_consts getConsts() {
-        return consts;
-    }
-
-    private static Alternatives ALT = null;
-
-    private void initAlternatives() {
+        consts = c.consts;
     }
 
     @Override
@@ -51,17 +45,17 @@ public class pred_doAdd_3 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var6 = JpFactory.JVAR(mach);
-        Term var5 = JpFactory.JVAR(mach);
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var6 = Jv(mach);
+        final Term var5 = Jv(mach);
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
@@ -71,11 +65,12 @@ public class pred_doAdd_3 extends Code {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var4;
         local_aregs[2] = var5;
-        local_aregs[3] = JpFactory.S(getConsts().string3, var5.dref(), JpFactory
-                .S(getConsts().string4, var2.dref(), JpFactory.CONST(getConsts().string5)), var6, JpFactory
-                        .S(getConsts().string2, var3.dref(), var4.dref(), var6.dref(), continuation));
+
+        local_aregs[3] = S(pred_doAdd_3_consts.string3, var5.dref(), S(pred_doAdd_3_consts.string4, var2
+                .dref(), CONST(pred_doAdd_3_consts.string5)), var6, S(pred_doAdd_3_consts.string2, var3
+                        .dref(), var4.dref(), var6.dref(), continuation));
         mach.updateCUTB();
-        return getConsts().univ4cont;
+        return consts.univ4cont;
 
     }
 }

@@ -4,19 +4,24 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_animal_1_consts {
     Code entry_code;
     Code write2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("animal");
-    final static String string2 = Const.strIntern("write");
-    final static String string3 = Const.strIntern("please type one more animal name: ");
-    final static String string4 = Const.strIntern("read");
-    final static String string5 = Const.strIntern("elephant");
-    final static String string6 = Const.strIntern("call");
-    final static String string7 = Const.strIntern("goat");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("animal");
+    final static String string2 = internS("write");
+    final static String string3 = internS("please type one more animal name: ");
+    final static String string4 = internS("read");
+    final static String string5 = internS("elephant");
+    final static String string6 = internS("call");
+    final static String string7 = internS("goat");
 }
 
 public class pred_animal_1 extends Code {
@@ -60,9 +65,9 @@ public class pred_animal_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -77,19 +82,21 @@ class pred_animal_1_1 extends pred_animal_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = JpFactory.CONST(getConsts().string7);
+
+        final Term arg0 = CONST(pred_animal_1_consts.string7);
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Continuation continuation = local_aregs[1].asContinuation();
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string7))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(CONST(pred_animal_1_consts.string7))))
             return mach.Fail0;
-        local_aregs[0] = continuation.asTerm();
+        local_aregs[0] = continuation;
         mach.updateCUTB();
         local_aregs[1] = null;
         return mach.Call1;
@@ -104,17 +111,19 @@ class pred_animal_1_2 extends pred_animal_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = JpFactory.CONST(getConsts().string5);
+
+        final Term arg0 = CONST(pred_animal_1_consts.string5);
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string5))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(CONST(pred_animal_1_consts.string5))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -131,23 +140,25 @@ class pred_animal_1_3 extends pred_animal_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.CONST(getConsts().string3);
-        local_aregs[1] = JpFactory.S(getConsts().string4, var1.dref(), continuation);
+
+        local_aregs[0] = CONST(pred_animal_1_consts.string3);
+
+        local_aregs[1] = S(pred_animal_1_consts.string4, var1.dref(), continuation);
         mach.updateCUTB();
         return getConsts().write2cont;
     }

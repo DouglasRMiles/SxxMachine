@@ -10,8 +10,8 @@ import SxxMachine.Undoable;
  * time.
  *
  */
-abstract class AFluent extends SystemObject implements Undoable, Fluent {
-    public AFluent(Prog p) {
+public abstract class FluentTerm extends SystemObject implements Undoable, Fluent {
+    public FluentTerm(Prog p) {
         trailMe(p);
     }
 
@@ -20,7 +20,7 @@ abstract class AFluent extends SystemObject implements Undoable, Fluent {
     */
     @Override
     public Term toClone() {
-        oopsy();
+        oopsy("toClone");
         return this;
     }
 

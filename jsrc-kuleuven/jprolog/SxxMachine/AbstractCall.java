@@ -1,20 +1,23 @@
 package SxxMachine;
 
-abstract class AbstractCall extends Code {
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
 
-    protected void setArguments(Term[] areg, int arity, AFunct pred) {
+public abstract class AbstractCall extends Code  {
+
+    public void setArguments(Term[] areg, int arity, AFunct pred) {
         if (pred == null)
             return;
-        Term args[] = pred.args();
+        final Term args[] = pred.args();
         while (arity-- > 0) {
             areg[arity] = args[arity];
         }
     }
 
-    protected Code loadPred(PredikatenPrologMachine mach, String predName, int arity) {
+    public static Code loadPred(PredikatenPrologMachine mach, String predName, int arity) {
         if (mach.couldLoadPredikaat(predName, arity))
             return mach.loadPred(predName, arity);
-        //Speciaal predikaat?        
+        //Speciaal predikaat?
         return new SearchTarget(arity, predName);
     }
 
@@ -37,12 +40,12 @@ abstract class AbstractCall extends Code {
 
         @Override
         public Code exec(PrologMachine mach) throws JPrologInternalException {
-            Term[] args = mach.getAreg();
-            Term[] funcArgs = mach.createAregCopy(arity);
-            Term cont = mach.getAreg()[arity];
-            JpVar v = JpFactory.JVAR(mach);
-            args[0] = JpFactory.S("operator_goal", JpFactory.S(predName, funcArgs), v);
-            args[1] = JpFactory.S("call", v, cont.dref(), cont.dref());
+            final Term[] args = mach.getAreg();
+            final Term[] funcArgs = mach.createAregCopy(arity);
+            final Term cont = mach.getAreg()[arity];
+            final JpVar v = Jv(mach);
+            args[0] = S("operator_goal", S(predName, funcArgs), v);
+            args[1] = S("call", v, cont.dref(), cont.dref());
             for (int i = 2; i < arity; i++)
                 args[i] = null;
             return mach.Call2;

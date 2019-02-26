@@ -14,12 +14,18 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
     final Number nvalue;
 
     public ANumberTerm(Number n) {
+        super(n);
         nvalue = n;
     }
 
     @Override
     public Class getIntendedClass() {
         return value().getClass();
+    }
+
+    @Override
+    public String getString() {
+        return value().toString();
     }
 
     /* (non-Javadoc)
@@ -44,11 +50,11 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
     @Override
     abstract public boolean isFloat();
 
-    /* (non-Javadoc)
-     * @see SxxMachine.pterm.NumberTerm#fname()
-     */
-    @Override
-    abstract public String fname();
+    //    /* (non-Javadoc)
+    //     * @see SxxMachine.pterm.NumberTerm#fname()
+    //     */
+    //    @Override
+    //    abstract public String getString();
 
     /* (non-Javadoc)
      * @see SxxMachine.pterm.NumberTerm#arityOrType()
@@ -354,4 +360,5 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
     public final boolean isImmutable() {
         return true;
     }
+
 }

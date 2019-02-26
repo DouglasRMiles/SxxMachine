@@ -4,17 +4,22 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_mynumbervarslist_3_consts {
     Code entry_code;
     Code mynumbervars4cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("mynumbervarslist");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("mynumbervars");
-    final static String string4 = Const.strIntern("[]");
-    final static String string5 = Const.strIntern("call");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("mynumbervarslist");
+    final static String string2 = internS(".");
+    final static String string3 = internS("mynumbervars");
+    final static String string4 = internS("[]");
+    final static String string5 = internS("call");
 }
 
 public class pred_mynumbervarslist_3 extends Code {
@@ -57,9 +62,9 @@ public class pred_mynumbervarslist_3 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(4);
+        final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -74,24 +79,26 @@ class pred_mynumbervarslist_3_1 extends pred_mynumbervarslist_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.CONST(getConsts().string4);
-        Term arg1 = var1;
-        Term arg2 = var1.dref();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = CONST(pred_mynumbervarslist_3_consts.string4);
+        final Term arg1 = var1;
+        final Term arg2 = var1.dref();
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string4))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(CONST(pred_mynumbervarslist_3_consts.string4))))
             return mach.Fail0;
         if (!(areg1.unify(var1.dref())))
             return mach.Fail0;
@@ -112,36 +119,36 @@ class pred_mynumbervarslist_3_2 extends pred_mynumbervarslist_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var5 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var4 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string2, var1, var2);
-        Term arg1 = var3;
-        Term arg2 = var4;
+
+        final Term var4 = new DummyVar();
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_mynumbervarslist_3_consts.string2, var1, var2);
+        final Term arg1 = var3;
+        final Term arg2 = var4;
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var5 = JpFactory.JVAR(mach);
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var5 = Jv(mach);
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_mynumbervarslist_3_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         if (!(areg1.unify(var3.dref())))
             return mach.Fail0;
@@ -150,7 +157,8 @@ class pred_mynumbervarslist_3_2 extends pred_mynumbervarslist_3 {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();
         local_aregs[2] = var5;
-        local_aregs[3] = JpFactory.S(getConsts().string1, var2.dref(), var5.dref(), var4.dref(), continuation);
+
+        local_aregs[3] = S(pred_mynumbervarslist_3_consts.string1, var2.dref(), var5.dref(), var4.dref(), continuation);
         mach.updateCUTB();
         return getConsts().mynumbervars4cont;
     }

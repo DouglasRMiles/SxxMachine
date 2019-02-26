@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.S;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -13,15 +15,15 @@ import javax.script.Invocable;
 import javax.script.ScriptContext;
 import javax.script.ScriptException;
 
-public class PrologScriptEngine extends AbstractScriptEngine implements Invocable {
+public class PrologEngine extends AbstractScriptEngine implements Invocable {
 
-    private final static Logger log = Logger.getLogger(PrologScriptEngine.class);
+    private final static Logger log = Logger.getLogger(PrologEngine.class);
 
     private final PrologScriptEngineFactory factory;
     private final PrologMachine pMachine;
     private InterfaceInvocationHandler handler;
 
-    protected PrologScriptEngine(PrologScriptEngineFactory fac) {
+    protected PrologEngine(PrologScriptEngineFactory fac) {
         if (fac == null)
             throw new NullPointerException();
         factory = fac;
@@ -41,9 +43,9 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
         if (!pMachine.isModuleRegistered(mod)) {
             try {
                 mod.newInstance().load(pMachine);
-            } catch (InstantiationException e) {
+            } catch (final InstantiationException e) {
                 throw new JPrologInternalException("Invalid exception", e);
-            } catch (IllegalAccessException e) {
+            } catch (final IllegalAccessException e) {
                 throw new JPrologInternalException("Invalid exception", e);
             }
         }
@@ -66,7 +68,7 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
                 throw new ScriptException("Could not compile script");
             }
             return true;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new ScriptException(e);
         }
     }
@@ -85,8 +87,8 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
             throw new IllegalArgumentException("given class is not an interface");
         if (!hasAllMethods(clasz.getMethods()))
             return null;
-        return (T) Proxy.newProxyInstance(PrologScriptEngine.class
-                .getClassLoader(), new Class[] { clasz }, getInterfaceHandler());
+        return (T) Proxy
+                .newProxyInstance(PrologEngine.class.getClassLoader(), new Class[] { clasz }, getInterfaceHandler());
     }
 
     @Override
@@ -100,16 +102,16 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
     }
 
     private boolean hasAllMethods(Method... mets) {
-        for (Method m : mets) {
-            int paramCount = m.getParameterTypes().length + extraArg(m);
+        for (final Method m : mets) {
+            final int paramCount = m.getParameterTypes().length + extraArg(m);
             try {
                 pMachine.loadPredikaat(m.getName(), paramCount);
-            } catch (Exception ex) {
+            } catch (final Exception ex) {
                 if (Boolean.class.equals(m.getReturnType()) || Boolean.TYPE.equals(m.getReturnType())) {
                     try {
                         pMachine.loadPredikaat(m.getName(), paramCount - 1);
                         return true;
-                    } catch (Exception ex2) {
+                    } catch (final Exception ex2) {
                         log.warn("Fallback failed", ex2);
                     }
                 }
@@ -143,7 +145,7 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
             if (hasFunction(name, args.length)) {
                 return runFunction(name, args) != null;
             } else if (hasFunction(name, args.length + 1)) {
-                Object[] res = runFunction(name, merge(args, new Object()));
+                final Object[] res = runFunction(name, merge(args, new Object()));
                 if (res == null)
                     throw new ScriptException("Could not reach end of script");
                 return Boolean.valueOf(res[res.length - 1].toString());
@@ -154,7 +156,7 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
             return runFunction(name, args);
         }
         if (hasFunction(name, args.length + 1)) {
-            Object[] res = runFunction(name, merge(args, new Object()));
+            final Object[] res = runFunction(name, merge(args, new Object()));
             if (res == null)
                 throw new ScriptException("Could not reach end of script");
             return res[res.length - 1];
@@ -163,7 +165,7 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
     }
 
     private Object[] merge(Object[] ar1, Object ar2) {
-        Object[] res = new Object[ar1.length + 1];
+        final Object[] res = new Object[ar1.length + 1];
         System.arraycopy(ar1, 0, res, 0, ar1.length);
         res[ar1.length] = ar2;
         return res;
@@ -189,10 +191,10 @@ public class PrologScriptEngine extends AbstractScriptEngine implements Invocabl
     }
 
     private Object[] runFunction(String name, Object[] args) throws JPrologScriptException {
-        ParameterConverter conv = getParameterConverter();
-        ConvertieData ar = conv.makeParams(args);
+        final ParameterConverter conv = getParameterConverter();
+        final ConvertieData ar = conv.makeParams(args);
         synchronized (pMachine) {
-            if (pMachine.solveGoalOnce(JpFactory.S(name, ar.getPrologParams())) != ErrorStatus.NORMALEXIT)
+            if (pMachine.solveGoalOnce(S(name, ar.getPrologParams())) != ErrorStatus.NORMALEXIT)
                 return null;
         }
         return conv.getParamRes(ar, ar.getPrologParams());

@@ -4,31 +4,36 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_printMainConstruction_1_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("printMainConstruction");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("private final ");
-    final static String string5 = Const.strIntern("_consts consts;");
-    final static String string6 = Const.strIntern("wr");
-    final static String string7 = Const.strIntern("nl");
-    final static String string8 = Const.strIntern("public ");
-    final static String string9 = Const.strIntern("(){");
-    final static String string10 = Const.strIntern("  consts = new ");
-    final static String string11 = Const.strIntern("_consts();");
-    final static String string12 = Const.strIntern("  initAlternatives();");
-    final static String string13 = Const.strIntern("}");
-    final static String string14 = Const.strIntern("protected ");
-    final static String string15 = Const.strIntern("(");
-    final static String string16 = Const.strIntern(" c){");
-    final static String string17 = Const.strIntern("  consts = c.getConsts();");
-    final static String string18 = Const.strIntern("  ALT = null;");
-    final static String string19 = Const.strIntern("protected final ");
-    final static String string20 = Const.strIntern("_consts getConsts() { return consts; }");
-    final static String string21 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("printMainConstruction");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("private final ");
+    final static String string5 = internS("_consts consts;");
+    final static String string6 = internS("wr");
+    final static String string7 = internS("nl");
+    final static String string8 = internS("public ");
+    final static String string9 = internS("(){");
+    final static String string10 = internS("  consts = new ");
+    final static String string11 = internS("_consts();");
+    final static String string12 = internS("  initAlternatives();");
+    final static String string13 = internS("}");
+    final static String string14 = internS("protected ");
+    final static String string15 = internS("(");
+    final static String string16 = internS(" c){");
+    final static String string17 = internS("  consts = c.getConsts();");
+    final static String string18 = internS("  ALT = null;");
+    final static String string19 = internS("protected final ");
+    final static String string20 = internS("_consts getConsts() { return consts; }");
+    final static String string21 = internS("[]");
 }
 
 public class pred_printMainConstruction_1 extends Code {
@@ -41,14 +46,11 @@ public class pred_printMainConstruction_1 extends Code {
 
     protected pred_printMainConstruction_1(pred_printMainConstruction_1 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_printMainConstruction_1_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -67,80 +69,20 @@ public class pred_printMainConstruction_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string3, JpFactory.CONST(getConsts().string4), JpFactory
-                .S(getConsts().string3, var1.dref(), JpFactory.S(getConsts().string3, JpFactory
-                        .CONST(getConsts().string5), JpFactory.S(getConsts().string3, JpFactory
-                                .S(getConsts().string6, JpFactory.CONST(getConsts().string7)), JpFactory
-                                        .S(getConsts().string3, JpFactory.CONST(getConsts().string8), JpFactory
-                                                .S(getConsts().string3, var1.dref(), JpFactory
-                                                        .S(getConsts().string3, JpFactory
-                                                                .CONST(getConsts().string9), JpFactory
-                                                                        .S(getConsts().string3, JpFactory
-                                                                                .S(getConsts().string6, JpFactory
-                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                        .CONST(getConsts().string10), JpFactory
-                                                                                                                .S(getConsts().string3, var1
-                                                                                                                        .dref(), JpFactory
-                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                        .CONST(getConsts().string11), JpFactory
-                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                        .S(getConsts().string6, JpFactory
-                                                                                                                                                                .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                .CONST(getConsts().string12), JpFactory
-                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                        .CONST(getConsts().string13), JpFactory
-                                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                        .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                .CONST(getConsts().string14), JpFactory
-                                                                                                                                                                                                                                                                        .S(getConsts().string3, var1
-                                                                                                                                                                                                                                                                                .dref(), JpFactory
-                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                .CONST(getConsts().string15), JpFactory
-                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, var1
-                                                                                                                                                                                                                                                                                                                .dref(), JpFactory
-                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string16), JpFactory
-                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                                                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                        .CONST(getConsts().string17), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string18), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        .CONST(getConsts().string13), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string19), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, var1
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .dref(), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string20), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .S(getConsts().string6, JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .CONST(getConsts().string21)))))))))))))))))))))))))))))))));
+
+        local_aregs[0] = S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string4), S(pred_printMainConstruction_1_consts.string3, var1
+                .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string5), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string8), S(pred_printMainConstruction_1_consts.string3, var1
+                        .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string9), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string10), S(pred_printMainConstruction_1_consts.string3, var1
+                                .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string11), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string12), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string13), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string14), S(pred_printMainConstruction_1_consts.string3, var1
+                                        .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string15), S(pred_printMainConstruction_1_consts.string3, var1
+                                                .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string16), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string17), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string18), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string13), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string19), S(pred_printMainConstruction_1_consts.string3, var1
+                                                        .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string20), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), CONST(pred_printMainConstruction_1_consts.string21)))))))))))))))))))))))))))))))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         return getConsts().writel2cont;

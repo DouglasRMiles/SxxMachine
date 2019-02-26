@@ -4,20 +4,25 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_binBodyGoal_3_consts {
     Code entry_code;
     Code makebinbody4cont;
     Code nonvar2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("binBodyGoal");
-    final static String string2 = Const.strIntern("makebinbody");
-    final static String string3 = Const.strIntern("nonvar");
-    final static String string4 = Const.strIntern("unify");
-    final static String string5 = Const.strIntern("call");
-    final static String string6 = Const.strIntern("cut");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("binBodyGoal");
+    final static String string2 = internS("makebinbody");
+    final static String string3 = internS("nonvar");
+    final static String string4 = internS("unify");
+    final static String string5 = internS("call");
+    final static String string6 = internS("cut");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_binBodyGoal_3 extends Code {
@@ -61,9 +66,9 @@ public class pred_binBodyGoal_3 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(4);
+        final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -78,32 +83,30 @@ class pred_binBodyGoal_3_1 extends pred_binBodyGoal_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var4 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var2;
-        Term arg2 = var3;
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var2;
+        final Term arg2 = var3;
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var2.dref())))
@@ -111,8 +114,9 @@ class pred_binBodyGoal_3_1 extends pred_binBodyGoal_3 {
         if (!(areg2.unify(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
-        local_aregs[1] = JpFactory.S(getConsts().string4, JpFactory.S(getConsts().string5, var4), var2
-                .dref(), JpFactory.S(getConsts().string0, new HeapChoice(mach.getCUTB()), continuation));
+
+        local_aregs[1] = S(pred_binBodyGoal_3_consts.string4, S(pred_binBodyGoal_3_consts.string5, var4), var2
+                .dref(), S(pred_binBodyGoal_3_consts.string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
         local_aregs[3] = local_aregs[2] = null;
         return getConsts().nonvar2cont;
@@ -127,29 +131,29 @@ class pred_binBodyGoal_3_2 extends pred_binBodyGoal_3 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = var2;
-        Term arg2 = var3;
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+        final Term arg1 = var2;
+        final Term arg2 = var3;
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unify(var2.dref())))

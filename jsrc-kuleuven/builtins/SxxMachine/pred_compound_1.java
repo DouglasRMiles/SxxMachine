@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import SxxMachine.pterm.StructureTerm;
+
 /**
   * compound/1 built-in
   *
@@ -16,9 +18,9 @@ public class pred_compound_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term term = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term term = local_aregs[0].dref();
 
         local_aregs[1] = null;
 

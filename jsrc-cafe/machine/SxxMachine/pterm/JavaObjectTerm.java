@@ -19,25 +19,21 @@ import SxxMachine.Trail;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-@SuppressWarnings("rawtypes")
-public class JavaObjectTerm extends AtomicConst {
+public class JavaObjectTerm extends SxxMachine.Const {
 
-    @Override
+    private Class intendedClass;
+
     public JavaObjectTerm toClone() {
-        return TermData.createJavaObjectTerm(val);
+        return TermData.createJavaObjectTerm(obj, this.intendedClass);
     }
 
-    @Override
     public Object toObject() {
-        return val;
+        return obj;
     }
 
-    @Override
     public boolean isObject() {
         return true;
     }
-
-    Object val;
 
     /*
      * private boolean available;
@@ -47,32 +43,37 @@ public class JavaObjectTerm extends AtomicConst {
      *
      * synchronized public void resume() { available=true; notifyAll(); }
      */
-    @Override
+
     public final boolean isImmutable() {
         return immutable;
         // FIXME this.obj is not final
     }
 
-    @Override
     public String pprint() throws PrologException {
         return "" + obj;
     }
 
     /** Holds a java object that this <code>JavaObjectTerm</code> wraps. */
-    final private Object obj;
+    ///  final private Object obj;
     public boolean immutable = true;
 
-    @Override
     public boolean isJavaObject() {
         return true;
     }
 
     /** Constructs a new Prolog java-term that wraps the argument object. */
-    JavaObjectTerm(Object _obj) {
+    protected JavaObjectTerm(Object _obj) {
+        super(_obj);
         if (_obj == null) {
             throw new NullPointerException("Error: constructing JavaObjectTerm around null");
         }
-        this.obj = _obj;
+    }
+
+    protected JavaObjectTerm(Object _obj, Class c) {
+        super(_obj);
+        if (c == null && _obj == null) {
+            throw new NullPointerException("Error: constructing JavaObjectTerm around null");
+        }
     }
 
     /** Sets the argument object to this <code>JavaObjectTerm</code>. */
@@ -83,7 +84,7 @@ public class JavaObjectTerm extends AtomicConst {
     // this.obj = _obj;
     // }
     /** Returns the object wrapped by this <code>JavaObjectTerm</code>. */
-    @Override
+
     public Object object() {
         return this.obj;
     }
@@ -92,19 +93,18 @@ public class JavaObjectTerm extends AtomicConst {
      * Returns a <code>java.lang.Class</code> of object wrapped by this
      * <code>JavaObjectTerm</code>.
      */
-    @Override
+
     public Class getIntendedClass() {
         return this.obj.getClass();
     }
 
-    @Override
-    public String fname() {
-        oopsy();
+    public String getString() {        
+        oopsy("unknown getString");
         return "" + obj;
     }
 
     /* Term */
-    @Override
+
     public boolean unifyImpl(Term t, Trail trail) {
         t = t.dref();
         return (t.isVar()) ? t.bind(this, trail) : ((t.isJavaObject()) && this.obj == ((t).object()));
@@ -119,7 +119,7 @@ public class JavaObjectTerm extends AtomicConst {
      * @see #getIntendedClass()
      * @see Term#convertible(Class, Class)
      */
-    @Override
+
     public boolean convertible(Class type) {
         return convertible(this.obj.getClass(), type);
     }
@@ -130,7 +130,7 @@ public class JavaObjectTerm extends AtomicConst {
      * @return the value of <code>obj</code>.
      * @see #obj
      */
-    @Override
+
     public Object toJava() {
         return this.obj;
     }
@@ -147,12 +147,11 @@ public class JavaObjectTerm extends AtomicConst {
      *         equivalent to this <code>JavaObjectTerm</code>, false otherwise.
      * @see #compareTo
      */
-    @Override
+
     public boolean equalsTerm(Term o, OpVisitor comparator) {
         return o.isJavaObject() && this.obj == ((o).object());
     }
 
-    @Override
     public int termHashCodeImpl() {
         return System.identityHashCode(this.obj);
     }
@@ -161,7 +160,7 @@ public class JavaObjectTerm extends AtomicConst {
      * Adds a string representation of this <code>JavaObjectTerm</code> to given
      * StringBuilder instance.
      */
-    @Override
+
     public void toStringImpl(int printFlags, StringBuilder sb) {
         sb.append(this.obj.getClass().getName());
         sb.append("(0x");
@@ -182,7 +181,7 @@ public class JavaObjectTerm extends AtomicConst {
      *         <code>anotherTerm</code>; and a value greater than <code>0</code> if
      *         this term is <em>after</em> the <code>anotherTerm</code>.
      */
-    @Override
+
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
         if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()) || (anotherTerm.isCons())
                 || (anotherTerm.isCompound()))
@@ -194,12 +193,10 @@ public class JavaObjectTerm extends AtomicConst {
         return this.obj.hashCode() - (anotherTerm).object().hashCode(); // ???
     }
 
-    @Override
     public int type() {
         return TYPE_JAVA_OBJECT;
     }
 
-    @Override
     public int arityOrType() {
         return TYPE_JAVA_OBJECT;
     }

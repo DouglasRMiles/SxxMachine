@@ -27,7 +27,7 @@ abstract public class FunBuiltin extends ConstBuiltin {
     }
 
     @Override
-    public int arityOrType() {
+    public int arity() {
         return arity;
     }
 

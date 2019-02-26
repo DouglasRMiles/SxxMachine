@@ -1,6 +1,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 public class pred_test_3 extends Code {
 
     public static void main(String args[]) throws JPrologScriptException {
@@ -9,7 +15,7 @@ public class pred_test_3 extends Code {
         // before it can call a Prolog goal, it must make and initialise a
         // machine
 
-        PrologMachine M = new PrologMachine();
+        final PrologMachine M = new PrologMachine();
         new AttvarsModule().load(M);
         // any time a new goal is called, the machine has to be "reset"
 
@@ -17,9 +23,9 @@ public class pred_test_3 extends Code {
 
         // then you can call the goal
 
-        Term Goal = JpFactory.S(Const.strIntern("test"), JpFactory.JVAR(M), JpFactory.JVAR(M), JpFactory.JVAR(M)); // animal(X)
+        final Term Goal = S(("test"), Jv(M), Jv(M), Jv(M)); // animal(X)
         System.out.println("Running");
-        Term AnswerList = M.solveGoal(Goal);
+        final Term AnswerList = M.solveGoal(Goal);
 
         // AnswerList is now a list of instances of the Goal
         // you can iterate through it as follows
@@ -28,14 +34,14 @@ public class pred_test_3 extends Code {
 
         NextAnswerList = AnswerList.dref();
         while (NextAnswerList.isCons()) {
-            Answer = (((AFunct) NextAnswerList).args()[0]).dref();
+            Answer = (((AFunct) NextAnswerList).getPlainArg(0)).dref();
             // do something with the answer - e.g. print it
-            String s = Answer.toString();
+            final String s = Answer.toJpString();
             System.out.println(s);
             System.out.flush();
 
             // get the tail of the next answer list
-            NextAnswerList = (((AFunct) NextAnswerList).args()[1]).dref();
+            NextAnswerList = (((AFunct) NextAnswerList).getPlainArg(1)).dref();
         }
     }
 
@@ -45,25 +51,25 @@ public class pred_test_3 extends Code {
 
     static Code freeze3cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String conj = Const.strIntern(",");
+    static String conj = internS(",");
 
-    static String unify = Const.strIntern("unify");
+    static String unify = internS("unify");
 
-    static String a = Const.strIntern("a");
+    static String a = internS("a");
 
-    static String b = Const.strIntern("b");
+    static String b = internS("b");
 
-    static String freeze = Const.strIntern("freeze");
+    static String freeze = internS("freeze");
 
-    static String or = Const.strIntern("or");
+    static String or = internS("or");
 
-    static String test = Const.strIntern("test");
+    static String test = internS("test");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
-    static Int posint2 = JpFactory.Long(2);
+    static NumberTerm posint2 = Integer(2);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -78,8 +84,8 @@ public class pred_test_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] machAreg = mach.getAreg();
-        Term aregs[] = { machAreg[0], machAreg[1], machAreg[2], machAreg[3] };
+        final Term[] machAreg = mach.getAreg();
+        final Term aregs[] = { machAreg[0], machAreg[1], machAreg[2], machAreg[3] };
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -89,14 +95,14 @@ class pred_test_3_1 extends pred_test_3 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!((areg0).unify(var1)))
             return mach.Fail0;
         if (!((areg1).unify(var2)))
@@ -119,10 +125,7 @@ class pred_test_3_1 extends pred_test_3 {
         local_aregs[1] = null;
         local_aregs[2] = null;
         local_aregs[3] = null;
-        local_aregs[0] = JpFactory
-                .S("put_attr", var1, JpFactory.CONST(a), JpFactory.S("get_attr", var1, var2, JpFactory
-                        .S("put_attr", var1, JpFactory.CONST(b), JpFactory.S("get_attr", var1, var3, JpFactory
-                                .S("unify", var1, JpFactory.CONST(a), continuation)))));
+        local_aregs[0] = S("put_attr", var1, CONST(a), S("get_attr", var1, var2, S("put_attr", var1, CONST(b), S("get_attr", var1, var3, S("unify", var1, CONST(a), continuation)))));
         return mach.Call1;
         // return freeze3cont;
     }

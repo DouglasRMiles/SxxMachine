@@ -12,8 +12,8 @@ import java.io.PushbackReader;
 import java.util.Set;
 
 import SxxMachine.pterm.HashtableOfTerm;
+import SxxMachine.pterm.StaticPred;
 import SxxMachine.pterm.TermData;
-import SxxMachine.pterm.TermData.StaticPred;
 
 /**
  * Tracks current evaluation goal and results.
@@ -245,7 +245,7 @@ public abstract class PrologControl {
                         engine.pred = code;
                         //code.toString();
                         nextCode = code.exec(engine);
-                        if (false) {
+                        if (!"off".equals(PrologFlags.current.getDebug())) {
                             Class c = code.getClass();
                             steps++;
                             if (c == StaticPred.class) {
@@ -327,7 +327,7 @@ public abstract class PrologControl {
             after = insertCode(goal, after);
             pendingGoals = pendingGoals.cdr();
         }
-        return new TermData.StaticPred("call", FILE_builtins::PRED_call_1_static_exec, TermData.VA(pendingGoals),
+        return new StaticPred("call", FILE_builtins::PRED_call_1_static_exec, TermData.VA(pendingGoals),
                 after);
     }
 

@@ -29,17 +29,13 @@ public class PredikaatLoader {
     }
 
     private ClassLoader createClassLoader(final ClassLoader parent) {
-        return AccessController.doPrivileged(new PrivilegedAction<URLClassLoader>() {
-            @Override
-            public URLClassLoader run() {
-                return new URLClassLoader(new URL[] {}, parent);
-            }
-        });
+        return AccessController
+                .doPrivileged((PrivilegedAction<URLClassLoader>) () -> new URLClassLoader(new URL[] {}, parent));
     }
 
     @Override
     protected void finalize() throws Throwable {
-        for (CleanupListener cl : cleanupListeners)
+        for (final CleanupListener cl : cleanupListeners)
             cl.doCleanup(this);
         super.finalize();
     }
@@ -56,33 +52,30 @@ public class PredikaatLoader {
         final Method m;
         try {
             m = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
-        } catch (SecurityException e) {
+        } catch (final SecurityException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal("SecurityException while adding url to predikaatloader", e);
             return;
-        } catch (NoSuchMethodException e) {
+        } catch (final NoSuchMethodException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
             return;
         }
-        AccessController.doPrivileged(new PrivilegedAction<Object>() {
-            @Override
-            public Object run() {
-                m.setAccessible(true);
-                return null;
-            }
+        AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
+            m.setAccessible(true);
+            return null;
         });
         try {
             m.invoke(loader, url);
-        } catch (IllegalArgumentException e) {
+        } catch (final IllegalArgumentException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
             return;
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
             return;
-        } catch (InvocationTargetException e) {
+        } catch (final InvocationTargetException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
             return;
@@ -91,7 +84,7 @@ public class PredikaatLoader {
 
     public Class<?> locateTemporaryClass(File folder, String query)
             throws MalformedURLException, ClassNotFoundException {
-        ClassLoader tmp = createClassLoader(loader);
+        final ClassLoader tmp = createClassLoader(loader);
         addUrl(folder.toURI().toURL(), tmp);
         return locateClass(query, tmp);
     }
@@ -105,20 +98,22 @@ public class PredikaatLoader {
             //Eerst op deze manier proberen, kan zijn dat anders standaardpredikaten
             // niet correct gevonden worden als omgeving in een container draait of iets dergelijks
             return Class.forName(className);
-        } catch (ClassNotFoundException ex) {
+        } catch (final ClassNotFoundException ex) {
             return locateClassWithClassLoader(className, loader);
         }
     }
+
+    @SuppressWarnings("rawtypes")
 
     private Class<?> locateClassWithClassLoader(String className, ClassLoader loader) throws ClassNotFoundException {
         Method m;
         try {
             m = ClassLoader.class.getDeclaredMethod("findClass", String.class);
-        } catch (SecurityException e) {
+        } catch (final SecurityException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTION__SEARCHING_PREDIKAATLOADER, e);
             throw new ClassNotFoundException(EXCEPTION_SEARCHING, e);
-        } catch (NoSuchMethodException e) {
+        } catch (final NoSuchMethodException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTION__SEARCHING_PREDIKAATLOADER, e);
             throw new ClassNotFoundException(EXCEPTION_SEARCHING, e);
@@ -126,15 +121,15 @@ public class PredikaatLoader {
         m.setAccessible(true);
         try {
             return (Class) m.invoke(loader, className);
-        } catch (IllegalArgumentException e) {
+        } catch (final IllegalArgumentException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTION__SEARCHING_PREDIKAATLOADER, e);
             throw new ClassNotFoundException(EXCEPTION_SEARCHING, e);
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTION__SEARCHING_PREDIKAATLOADER, e);
             throw new ClassNotFoundException(EXCEPTION_SEARCHING, e);
-        } catch (InvocationTargetException e) {
+        } catch (final InvocationTargetException e) {
             final Throwable cause = e.getCause();
             if (cause instanceof ClassNotFoundException)
                 throw (ClassNotFoundException) cause;

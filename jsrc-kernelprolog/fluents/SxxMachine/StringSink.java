@@ -1,12 +1,12 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Sink;
+import SxxMachine.pterm.SinkFluentTerm;
 import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
  */
-public class StringSink extends Sink {
+public class StringSink extends SinkFluentTerm {
     protected StringBuffer buffer;
 
     public StringSink(Prog p) {

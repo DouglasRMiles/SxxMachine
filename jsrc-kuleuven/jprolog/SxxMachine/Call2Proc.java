@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.internS;
+
 public class Call2Proc extends AbstractCall {
     @Override
     public int arity() {
@@ -8,15 +10,15 @@ public class Call2Proc extends AbstractCall {
     }
 
     Call2Proc(PredikatenPrologMachine machine) {
-        machine.registerCode(this, Const.strIntern("call"));
+        machine.registerCode(this, internS("call"));
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         // Areg[0] contains a Funct or Const - might
         // have to be dereffed
-        Term obj = areg[0].dref();
+        final Term obj = areg[0].dref();
         int arity;
         String PredName;
         Code code;

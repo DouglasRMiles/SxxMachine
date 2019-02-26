@@ -40,7 +40,7 @@ public class Alternatives {
         alternates.add(c);
         if (isDisabled())
             return;
-        Term[] ar = c.getArgs();
+        final Term[] ar = c.getArgs();
         if (ar == null) {
             disable();
         } else {
@@ -50,7 +50,7 @@ public class Alternatives {
 
     public Iterator<Code> getIndexedAlternatives(Term[] args) {
         if (!isIndexed || args == null || args.length == 0 || alternates.size() == 1)
-            return (Iterator<Code>) alternates.iterator();
+            return alternates.iterator();
         args = deref(args);
         if (isAllVar(args))
             return alternates.iterator();
@@ -59,14 +59,14 @@ public class Alternatives {
     }
 
     private boolean isAllVar(Term[] args) {
-        for (Term a : args)
+        for (final Term a : args)
             if (!a.isVariable())
                 return false;
         return true;
     }
 
     private Term[] deref(Term[] args) {
-        Term[] res = new Term[args.length];
+        final Term[] res = new Term[args.length];
         for (int i = 0; i < args.length; i++)
             res[i] = args[i].dref();
         return res;
@@ -100,18 +100,18 @@ public class Alternatives {
                 if (mach == null)
                     throw new NoSuchElementException();
                 mach.removeChoice();
-                Code f = mach.Fail0;
+                final Code f = mach.Fail0;
                 mach = null;
                 return f;
             }
-            Code n = next;
+            final Code n = next;
             next = findNext();
             return n;
         }
 
         private Code findNext() {
             while (iterator.hasNext()) {
-                Code n = iterator.next();
+                final Code n = iterator.next();
                 if (couldWork(n))
                     return n;
             }
@@ -119,7 +119,7 @@ public class Alternatives {
         }
 
         private boolean couldWork(Code n) {
-            Term[] ar = Alternatives.this.args.get(n);
+            final Term[] ar = Alternatives.this.args.get(n);
             for (int i = 0; i < ar.length; i++) {
                 if (!ar[i].couldUnify(args[i]))
                     return false;

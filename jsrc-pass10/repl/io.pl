@@ -1,3 +1,7 @@
+:- module('SxxMachine',[]).
+:- op(1150,  fx, (package)).
+package(_).
+:- package 'SxxMachine'.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Stream selection and control

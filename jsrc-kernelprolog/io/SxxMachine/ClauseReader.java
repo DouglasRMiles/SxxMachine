@@ -1,12 +1,11 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.S;
-
 import java.io.IOException;
 import java.io.Reader;
 
-import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.Parser;
+import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
@@ -50,14 +49,14 @@ public class ClauseReader extends CharReader {
 
     @Override
     public Term getElement() {
-        Clause C = null;
+        HornClause C = null;
         if (// IO.peer!=null &&
         reader.equals(IO.input)) {
             String s = IO.promptln(">:");
             if (null == s || 0 == s.length())
                 C = null;
             else
-                C = new Clause(s);
+                C = new HornClause(s);
         } else if (null != parser) {
             if (parser.atEOF()) {
                 C = null;
@@ -72,16 +71,16 @@ public class ClauseReader extends CharReader {
         return extract_info(C);
     }
 
-    static Term extract_info(Clause C) {
+    static Term extract_info(HornClause C) {
         if (null == C)
             return null;
         Term Vs = C.varsOf();
-        Clause SuperC = new Clause(Vs, C);
+        HornClause SuperC = new HornClause(Vs, C);
         SuperC.dict = C.dict;
-        Clause NamedSuperC = SuperC.cnumbervars(false);
+        HornClause NamedSuperC = SuperC.cnumbervars(false);
         Term Ns = NamedSuperC.getHead();
         Term NamedC = NamedSuperC.getBody();
-        return S("clause", C, Vs, NamedC, Ns);
+        return TermData.S("clause", C, Vs, NamedC, Ns);
     }
 
     @Override

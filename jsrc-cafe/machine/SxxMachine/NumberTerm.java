@@ -10,7 +10,7 @@ public interface NumberTerm extends Atomic {
     boolean isFloat();
 
     @Override
-    String fname();
+    String getString();
 
     @Override
     int arityOrType();
@@ -44,7 +44,7 @@ public interface NumberTerm extends Atomic {
      * <code>long</code>.
      */
     @Override
-    long longValue();
+    public long longValue();
 
     /**
      * Returns the numeric value represented by this object after conversion to type

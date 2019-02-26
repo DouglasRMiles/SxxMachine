@@ -10,7 +10,7 @@ public class pred_nonvar_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         if (!areg[0].dref().isVariable()) {
             areg[0] = areg[1];
             areg[1] = null;

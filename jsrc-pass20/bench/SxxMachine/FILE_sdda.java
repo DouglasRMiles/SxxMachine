@@ -1,4 +1,4 @@
-package SxxMachine;
+package SxxMachine; import static SxxMachine.pterm.TermData.*;
  
 import java.io.*;
 import java.lang.reflect.*;

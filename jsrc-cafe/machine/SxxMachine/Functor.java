@@ -20,7 +20,7 @@ public interface Functor extends NameArity, Atomic {
     boolean bind(Term that, KPTrail trail);
 
     @Override
-    String getKey();
+    String getFAKey();
 
     /**
      * returns an arity normally defined as 0
@@ -44,7 +44,7 @@ public interface Functor extends NameArity, Atomic {
     @Override
     int unifyArg(int i, Term a, Prog p);
 
-    Term ArgNoDeRef(int i);
+    Term getPlainArg(int i);
 
     int exec(Prog p, ISTerm thiz);
 
@@ -73,7 +73,7 @@ public interface Functor extends NameArity, Atomic {
      * @see #name
      */
     @Override
-    String fname();
+    String getString();
 
     int start();
 

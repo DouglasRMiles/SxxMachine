@@ -18,7 +18,7 @@ public class FILE_perfect extends FILE_system {
         m.setB0();
         Term a1, a2, a3;
         Operation p1;
-        // top:-[findall(A,user:perfect(100,A),B),ok(B)]
+        // top:-[findall(A,'SxxMachine':perfect(100,A),B),ok(B)]
         a1 = m.mkvar1();
         a2 = Closure( //
                 Op("perfect", FILE_perfect::PRED_perfect_2_static_exec, VA(int_100, a1), null));
@@ -641,7 +641,7 @@ public class FILE_perfect extends FILE_system {
         Operation p1, p2;
         a1 = LARG[0];
         a2 = LARG[1];
-        // perfect(A,B):-[generateList(A,C),findall(D,user:isprime(C,D),E),listperf(E,B)]
+        // perfect(A,B):-[generateList(A,C),findall(D,'SxxMachine':isprime(C,D),E),listperf(E,B)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
         a5 = Closure( //

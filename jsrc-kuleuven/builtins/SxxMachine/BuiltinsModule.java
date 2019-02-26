@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.internS;
+
 /**
   * Built-ins added by Tom Schrijvers
   *
@@ -14,11 +16,10 @@ public class BuiltinsModule extends JpModule {
                 new pred_cut_1(), new pred_ground_1(), new pred_length2_disj_1_2(), new pred_length_n_2(),
                 new pred_length_n2_disj_2_2(), new pred_length_u_2(), new pred_length_2(), new pred_code_call_1(),
                 new pred_name_2(), new pred_portray_clause_1() },
-                new String[] { Const.strIntern("compound"), Const.strIntern("term_variables"), Const.strIntern("sort"),
-                        Const.strIntern("inc"), Const.strIntern("cut"), Const.strIntern("ground"),
-                        Const.strIntern("length2_disj_1"), Const.strIntern("length_n"),
-                        Const.strIntern("length_n2_disj_2"), Const.strIntern("length_u"), Const.strIntern("length"),
-                        Const.strIntern("code_call"), Const.strIntern("name"), Const.strIntern("portray_clause") });
+                new String[] { internS("compound"), internS("term_variables"), internS("sort"), internS("inc"),
+                        internS("cut"), internS("ground"), internS("length2_disj_1"), internS("length_n"),
+                        internS("length_n2_disj_2"), internS("length_u"), internS("length"), internS("code_call"),
+                        internS("name"), internS("portray_clause") });
     }
 
 }

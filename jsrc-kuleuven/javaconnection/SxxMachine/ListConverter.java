@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.S;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,10 +19,10 @@ public class ListConverter extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] args = mach.getAreg();
-        Term prolog = args[0].dref();
-        Term java = args[1].dref();
-        Term cont = args[2].dref();
+        final Term[] args = mach.getAreg();
+        final Term prolog = args[0].dref();
+        final Term java = args[1].dref();
+        final Term cont = args[2].dref();
         if (prolog.isVariable() && java.isVariable()) {
             log.fatal("Both vars need to have a value");
             return mach.Fail0;
@@ -27,7 +30,7 @@ public class ListConverter extends Code {
         if (!java.isVariable()) {
             if (!(java instanceof Const))
                 return mach.Fail0;
-            Object o = ((Const) java).getValue();
+            final Object o = ((Const) java).getValue();
             if (o instanceof Iterable) {
                 if (!prolog.unify(convert2prolog((Iterable<?>) o)))
                     return mach.Fail0;
@@ -38,9 +41,9 @@ public class ListConverter extends Code {
                 return mach.Fail0;
         } else {
             try {
-                if (!java.unify(JpFactory.CONST(convert2java(prolog))))
+                if (!java.unify(CONST(convert2java(prolog))))
                     return mach.Fail0;
-            } catch (JPrologScriptException ex) {
+            } catch (final JPrologScriptException ex) {
                 log.fatal("Could not convert to java", ex);
                 return mach.Fail0;
             }
@@ -51,12 +54,12 @@ public class ListConverter extends Code {
     }
 
     public static List<Object> convert2java(Term list) throws JPrologScriptException {
-        List<Object> l = new ArrayList<Object>();
+        final List<Object> l = new ArrayList<Object>();
         list = list.dref();
         while (list.isCons()) {
-            AFunct lf = (AFunct) list;
-            l.add(PrimaryConversion.convert2java(lf.args()[0]));
-            list = lf.args()[1].dref();
+            final AFunct lf = (AFunct) list;
+            l.add(PrimaryConversion.convert2java(lf.getPlainArg(0)));
+            list = lf.getPlainArg(1).dref();
         }
         if (!list.isNil())
             throw new JPrologScriptException("Not a valid end of a list");
@@ -64,14 +67,14 @@ public class ListConverter extends Code {
     }
 
     public static <T> Term convert2prolog(Iterable<T> list) {
-        Iterator<T> it = (Iterator<T>) list.iterator();
+        final Iterator<T> it = list.iterator();
         return convert2prolog(it);
     }
 
     public static <T> Term convert2prolog(Iterator<T> it) {
         if (!it.hasNext())
-            return Const.NIL;
-        return JpFactory.S(".", PrimaryConversion.convert2Prolog(it.next()), convert2prolog(it));
+            return Prolog.Nil;
+        return S(".", PrimaryConversion.convert2Prolog(it.next()), convert2prolog(it));
     }
 
 }

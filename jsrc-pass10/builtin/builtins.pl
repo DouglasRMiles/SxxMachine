@@ -44,7 +44,7 @@ false :- fail.
 
 call(Term) :-
 	'$get_current_B'(Cut),
-	'$meta_call'(Term, user, Cut, 0, interpret).
+	'$meta_call'(Term, 'SxxMachbine', Cut, 0, interpret).
 
 '$meta_call'(X, _, _, _, _) :- var(X), !, illarg(var, call(X), 1).
 '$meta_call'(X, _, _, _, _) :- closure(X), !, '$call_closure'(X).
@@ -416,7 +416,7 @@ clause(Head, B, '$clzref'(P,Ref)) :-
 
 % head --> term
 '$head_to_term'(H, T, Pkg:F/A, Goal) :-
-	'$head_to_term'(H, T, user, Pkg, Goal),
+	'$head_to_term'(H, T, 'SxxMachbine', Pkg, Goal),
 	functor(T, F, A).
 
 '$head_to_term'(H, _, _, _, Goal) :- var(H), !,
@@ -596,7 +596,7 @@ retractall(_).
 
 % term --> clause (for assert)
 '$term_to_clause'(Cl0, Cl, Pkg:F/A, Goal) :-
-	'$term_to_clause'(Cl0, Cl, user, Pkg, Goal),
+	'$term_to_clause'(Cl0, Cl, 'SxxMachbine', Pkg, Goal),
 	Cl = (H :- _),
 	functor(H, F, A).
 
@@ -643,7 +643,7 @@ retractall(_).
 	'$localize_args'(M, As, P, As1),
 	G1 =.. [F|As1].
 '$localize_body'(G, P, call(P:G)) :- var(P), !.
-'$localize_body'(G, user, G) :- !.
+'$localize_body'(G, 'SxxMachbine', G) :- !.
 '$localize_body'(G, _, G) :- system_predicate(G), !.
 '$localize_body'(G, P, P:G).
 
@@ -669,7 +669,7 @@ retractall(_).
 
 % clause --> term (for retract)
 '$clause_to_term'(Cl, T, Pkg:F/A, Goal) :-
-	'$clause_to_term'(Cl, T, user, Pkg, Goal),
+	'$clause_to_term'(Cl, T, 'SxxMachbine', Pkg, Goal),
 	T = (H :- _),
 	functor(H, F, A).
 
@@ -689,7 +689,7 @@ retractall(_).
 
 % term --> predicate indicator (for abolish)
 '$term_to_predicateindicator'(T, Pkg:PI, Goal) :-
-	'$term_to_predicateindicator'(T, PI, user, Pkg, Goal).
+	'$term_to_predicateindicator'(T, PI, 'SxxMachbine', Pkg, Goal).
 
 '$term_to_predicateindicator'(T, _, _, _, Goal) :- var(T), !,
 	illarg(var, Goal, 1).
@@ -1890,7 +1890,7 @@ consult_stream(File, In) :-
 	fail.
 '$consult_init'(File) :-
 	assertz('$consulted_file'(File)),
-	assertz('$consulted_package'(user)).
+	assertz('$consulted_package'('SxxMachbine')).
 
 '$consult_clause'(end_of_file          ) :- !.
 '$consult_clause'((:- module(P,_))     ) :- !, '$assert_consulted_package'(P).

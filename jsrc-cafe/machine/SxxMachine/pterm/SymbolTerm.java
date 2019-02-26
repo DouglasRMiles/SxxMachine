@@ -1,6 +1,5 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.S;
 import static SxxMachine.pterm.TermData.isQuoted;
 
 import java.lang.ref.Reference;
@@ -82,7 +81,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public boolean isTrueProc() {
         // TODO Auto-generated method stub
-        return fname() == "true" && arity == 0;
+        return getString() == "true" && arity == 0;
     }
 
     /* (non-Javadoc)
@@ -127,7 +126,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
             return false;
         if (name != null) {
             // name = name.intern();
-            String thatn = TermData.asConst(that).fname();
+            String thatn = TermData.asConst(that).getString();
             if (thatn == name)
                 return true;
         }
@@ -140,8 +139,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#getKey()
      */
     @Override
-    public String getKey() {
-        return fname() + "/" + arity();
+    public String getFAKey() {
+        return getString() + "/" + arity();
     }
 
     /* (non-Javadoc)
@@ -158,7 +157,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     @Override
     public String toUnquoted() {
-        return fname();
+        return getString();
     }
 
     /* (non-Javadoc)
@@ -167,7 +166,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public int getIntArg(int i) {
         // TODO Auto-generated method stub
-        oopsy();
+        oopsy("not for symbols");
         return super.getIntArg(i);
     }
 
@@ -176,7 +175,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public int unifyArg(int i, Term a, Prog p) {
-        oopsy();
+        oopsy("not for symbols");
         return super.unifyArg(i, a, p);
     }
 
@@ -184,9 +183,9 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#ArgNoDeRef(int)
      */
     @Override
-    public Term ArgNoDeRef(int i) {
-        oopsy();
-        return super.ArgNoDeRef(i);
+    public Term getPlainArg(int i) {
+        oopsy("not for symbols");
+        return super.getPlainArg(i);
     }
 
     ExecProg exp;
@@ -272,7 +271,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         @Override
         public String toString() {
             int arity = arity();
-            return "/*D*/" + fname() + "/" + arity;
+            return "/*D*/" + getString() + "/" + arity;
         }
     }
 
@@ -285,8 +284,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         public String toString() {
             int arity = arity();
             if (arity == 0)
-                return fname();
-            return fname() + "/" + arity;
+                return getString();
+            return getString() + "/" + arity;
         }
     }
 
@@ -300,7 +299,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         @Override
         public String toString() {
             int arity = arity();
-            return "/*P" + start + ":" + finish + "*/" + fname() + "/" + arity;
+            return "/*P" + start + ":" + finish + "*/ " + getString() + "/" + arity;
         }
 
         @Override
@@ -337,12 +336,12 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
         @Override
         public Object toJava() {
-            return fname();
+            return getString();
         }
 
         @Override
         public void toStringImpl(int printingFlags, StringBuilder sb) {
-            String name = this.fname();
+            String name = this.getString();
             if (TermData.isQuoted(printingFlags))
                 Token.toQuotedString(name, sb);
             else
@@ -374,7 +373,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     public static Term create(String pkg, String name, int arity) {
         // This is likely a specific function that exists in code, so try to reuse
         // the symbols that are involved in the term.
-        return S(colon2, softReuse(pkg, 0), softReuse(name, arity));
+        return TermData.S(colon2, softReuse(pkg, 0), softReuse(name, arity));
     }
 
     /** Returns a Prolog functor for the given name and arity. */
@@ -416,12 +415,12 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     }
 
     public boolean isChar() {
-        return fname().length() == 1;
+        return getString().length() == 1;
     }
 
     @Override
     public long longValue() {
-        String s = fname();
+        String s = getString();
         return s.charAt(s.length() - 1);
     }
 
@@ -489,6 +488,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * arity.
      */
     protected SymbolTerm(String _name, int _arity) {
+        super(_name);
         name = _name;
         this.arity = _arity;
         this.start = 0;
@@ -500,7 +500,12 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * and start/finish.
      */
     protected SymbolTerm(String _name, int _arity, int start, int finish) {
-        // super(_name);
+        super(new Object() {
+            @Override
+            public String toString() {
+                return this.toString();
+            }
+        });
         name = _name;
         this.arity = _arity;
         this.start = start;
@@ -520,6 +525,11 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     public final String atomString() {
         return this.name.substring(this.start, this.finish);
+    }
+
+    @Override
+    public String getString() {
+        return atomString();
     }
 
     @Override
@@ -616,7 +626,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         return (t.isVar()) ? t.bind(this, trail)
                 : ((t instanceof Partial) ? t.unify(this, trail)
                         : ((t.isAtom()) && (this.arity == (t.asSymbolTerm()).arity())
-                                && this.name.equals(t.asSymbolTerm().fname())));
+                                && this.name.equals(t.asSymbolTerm().getString())));
     }
 
     /* (non-Javadoc)
@@ -634,7 +644,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
         return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator)
                 : ((obj.isAtom()) && (this.arity == obj.asSymbolTerm().arity())
-                        && this.name.equals(obj.asSymbolTerm().fname()));
+                        && this.name.equals(obj.asSymbolTerm().getString()));
     }
 
     // private static boolean eq(SymbolTerm a, Term b0) {
@@ -681,7 +691,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public String pprint() throws PrologException {
-        return fname();
+        return getString();
     }
 
     /* Comparable */
@@ -696,7 +706,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
             return BEFORE;
         if (this == anotherTerm)
             return EQUAL;
-        int x = fname().compareTo(anotherTerm.asSymbolTerm().fname());
+        int x = getString().compareTo(anotherTerm.asSymbolTerm().getString());
         if (x != 0)
             return x;
         int y = this.arity - anotherTerm.asSymbolTerm().arity();
@@ -722,7 +732,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
             return false;
         if (Prolog.Nil == this)
             return true;
-        if (this.fname().equals("[]")) {
+        if (this.getString().equals("[]")) {
             // throw
         }
         return false;

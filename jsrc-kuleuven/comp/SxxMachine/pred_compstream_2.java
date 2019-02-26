@@ -4,14 +4,19 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_compstream_2_consts {
     Code entry_code;
     Code useInputStream3cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("compstream");
-    final static String string2 = Const.strIntern("useInputStream");
-    final static String string3 = Const.strIntern("input");
-    final static String string4 = Const.strIntern("doCompile");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("compstream");
+    final static String string2 = internS("useInputStream");
+    final static String string3 = internS("input");
+    final static String string4 = internS("doCompile");
 }
 
 public class pred_compstream_2 extends Code {
@@ -24,14 +29,11 @@ public class pred_compstream_2 extends Code {
 
     protected pred_compstream_2(pred_compstream_2 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_compstream_2_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -50,20 +52,22 @@ public class pred_compstream_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.CONST(getConsts().string3);
+
+        local_aregs[0] = CONST(pred_compstream_2_consts.string3);
         local_aregs[1] = var1.dref();
-        local_aregs[2] = JpFactory.S(getConsts().string4, var2.dref(), var3, continuation);
+
+        local_aregs[2] = S(pred_compstream_2_consts.string4, var2.dref(), var3, continuation);
         mach.updateCUTB();
         return getConsts().useInputStream3cont;
 

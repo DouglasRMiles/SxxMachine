@@ -2,12 +2,12 @@ package SxxMachine;
 
 import static SxxMachine.pterm.TermData.Long;
 
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /**
  * creates a source of integers based on x=a*x+b formula
  */
-public class IntegerSource extends Source {
+public class IntegerSource extends SourceFluentTerm {
 
     public IntegerSource(long fuel, long a, long x, long b, Prog p) {
         super(p);

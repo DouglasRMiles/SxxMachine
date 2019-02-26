@@ -4,18 +4,23 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_genFileName_2_consts {
     Code entry_code;
     Code nb_current3cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("genFileName");
-    final static String string2 = Const.strIntern("nb_current");
-    final static String string3 = Const.strIntern("targetfolder");
-    final static String string4 = Const.strIntern("makename");
-    final static String string5 = Const.strIntern(".");
-    final static String string6 = Const.strIntern("/");
-    final static String string7 = Const.strIntern(".java");
-    final static String string8 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("genFileName");
+    final static String string2 = internS("nb_current");
+    final static String string3 = internS("targetfolder");
+    final static String string4 = internS("makename");
+    final static String string5 = internS(".");
+    final static String string6 = internS("/");
+    final static String string7 = internS(".java");
+    final static String string8 = internS("[]");
 }
 
 public class pred_genFileName_2 extends Code {
@@ -28,14 +33,11 @@ public class pred_genFileName_2 extends Code {
 
     protected pred_genFileName_2(pred_genFileName_2 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_genFileName_2_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -54,25 +56,25 @@ public class pred_genFileName_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.CONST(getConsts().string3);
+
+        local_aregs[0] = CONST(pred_genFileName_2_consts.string3);
         local_aregs[1] = var3;
-        local_aregs[2] = JpFactory
-                .S(getConsts().string4, JpFactory.S(getConsts().string5, var3.dref(), JpFactory
-                        .S(getConsts().string5, JpFactory.CONST(getConsts().string6), JpFactory
-                                .S(getConsts().string5, var1.dref(), JpFactory.S(getConsts().string5, JpFactory
-                                        .CONST(getConsts().string7), JpFactory.CONST(getConsts().string8))))), var2
-                                                .dref(), continuation);
+
+        local_aregs[2] = S(pred_genFileName_2_consts.string4, S(pred_genFileName_2_consts.string5, var3
+                .dref(), S(pred_genFileName_2_consts.string5, CONST(pred_genFileName_2_consts.string6), S(pred_genFileName_2_consts.string5, var1
+                        .dref(), S(pred_genFileName_2_consts.string5, CONST(pred_genFileName_2_consts.string7), CONST(pred_genFileName_2_consts.string8))))), var2
+                                .dref(), continuation);
         mach.updateCUTB();
         return getConsts().nb_current3cont;
 

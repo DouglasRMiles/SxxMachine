@@ -221,7 +221,7 @@ public class FILE_cafeteria extends FILE_builtins {
     from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl
     */
     // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl'/1,non-(public))
-    final static Functor ATOM_user = SYM("user");
+    final static Functor ATOM_SxxMachbine = SYM("SxxMachbine");
 
     public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen1$002Frepl$002Fcafeteria$002Epl_1_static_exec(
             Prolog m) {
@@ -242,21 +242,21 @@ public class FILE_cafeteria extends FILE_builtins {
 
     private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen1$002Frepl$002Fcafeteria$002Epl_1_1(
             Prolog m) {
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl'(A):-A==user,!,'$fast_write'(A)
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl'(A):-A=='SxxMachbine',!,'$fast_write'(A)
         Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,user),'$cut'(B),'$fast_write'(A)]
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,'SxxMachbine'),'$cut'(B),'$fast_write'(A)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
         if (!a2.unifyInt(m.B0, m.trail)) {
             return m.fail();
         }
         //END inline expansion
-        //START inline expansion of $equality_of_term(a(1),@(ATOM_user))
+        //START inline expansion of $equality_of_term(a(1),@(ATOM_SxxMachbine))
         a1 = a1.dref();
-        if (!a1.equalsTerm(ATOM_user)) {
+        if (!a1.equalsTerm(ATOM_SxxMachbine)) {
             return m.fail();
         }
         //END inline expansion

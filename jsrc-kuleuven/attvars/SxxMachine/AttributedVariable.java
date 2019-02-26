@@ -1,13 +1,18 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONS;
+
+import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.VariableTerm;
+
 /**
   *  @author  toms
   *
   */
-public final class AttributedVariable extends VarTerm implements UnTrailOperation {
+public final class AttributedVariable extends VariableTerm implements UnTrailOperation {
 
-    private Term refers = null;
+    private Term val = null;
     //private long timestamp;
     private final RunningPrologMachine mach;
     private final Term attribute;
@@ -29,7 +34,7 @@ public final class AttributedVariable extends VarTerm implements UnTrailOperatio
     }
 
     void setRefers(Term o) {
-        refers = o;
+        val = o;
     }
 
     @Override
@@ -39,38 +44,37 @@ public final class AttributedVariable extends VarTerm implements UnTrailOperatio
 
     @Override
     public Term dref() {
-        if (refers == null) {
+        if (val == null) {
             return this;
         } else {
-            return refers.dref();
+            return val.dref();
         }
     }
 
     @Override
     public void unTrailSelf() {
-        refers = null;
+        val = null;
     }
 
     @Override
     public String toStringImpl(int depth) {
-        return "_" + Integer.toHexString(termHashCode()) + "{...}";
+        return "_" + Integer.toHexString(hashCode()) + "{...}";
     }
 
     @Override
     public boolean bind(Term that) {
         System.out.println("AttributedVariable.Bind");
-        if (this.equals(that))
+        if (equals(that))
             return true;
         if (that instanceof JpVar) {
             return that.bind(this);
         } else {
             System.out.println("bind('" + this + "','" + that + "').");
-            this.refers = that;
+            val = that;
             mach.trailEntry(this);
             mach.trailEntry(new PopPendingGoals(mach, mach.getPendinggoals()));
             // Goals <- [attr_unify_hook(Attribute,That)|Goals]
-            mach.setPendinggoals(JpFactory.S(Const.strIntern("."), JpFactory
-                    .S(Const.strIntern("attr_unify_hook"), this.attribute, that), mach.getPendinggoals()));
+            mach.setPendinggoals(CONS(TermData.S(("attr_unify_hook"), attribute, that), mach.getPendinggoals()));
             mach.setExceptionState(ErrorStatus.CHANGEDPENDINGGOALS);
             System.out.println("<TRIGGER>");
         }
@@ -80,7 +84,7 @@ public final class AttributedVariable extends VarTerm implements UnTrailOperatio
     @Override
     public boolean unify(Term that) {
         System.out.println("Unify: " + this + " = " + that);
-        return this.dref().bind(that.dref());
+        return dref().bind(that.dref());
     }
 
     @Override
@@ -93,7 +97,7 @@ public final class AttributedVariable extends VarTerm implements UnTrailOperatio
 
     @Override
     public String fname() {
-        return toString();
+        return toJpString();
     }
 
     @Override

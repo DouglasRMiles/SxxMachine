@@ -334,23 +334,23 @@ public class FILE_builtins extends bootpreds {
     from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/builtin/builtins.pl
     */
     // main(call/1,public)
-    final static Functor ATOM_user = SYM("user");
+    final static Functor ATOM_SxxMachbine = SYM("SxxMachbine");
     final static Functor ATOM_interpret = SYM("interpret");
 
     public static Operation PRED_call_1_static_exec(Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // call(A):-'$get_current_B'(B),'$meta_call'(A,user,B,0,interpret)
+        // call(A):-'$get_current_B'(B),'$meta_call'(A,'SxxMachbine',B,0,interpret)
         m.setB0();
         Term a1, a2;
         Operation p1;
         a1 = LARG[0];
-        // call(A):-['$get_current_B'(B),'$meta_call'(A,user,B,0,interpret)]
+        // call(A):-['$get_current_B'(B),'$meta_call'(A,'SxxMachbine',B,0,interpret)]
         a2 = m.mkvar1();
         return //
         Op("$get_current_B", FILE_system::PRED_$get_current_B_1_static_exec, VA(a2), //
-                Op("$meta_call", FILE_system::PRED_$meta_call_5_static_exec, VA(a1, ATOM_user, a2, int_0, ATOM_interpret), cont));
+                Op("$meta_call", FILE_system::PRED_$meta_call_5_static_exec, VA(a1, ATOM_SxxMachbine, a2, int_0, ATOM_interpret), cont));
     }
 
     /** PREDICATE: $meta_call/5
@@ -3213,7 +3213,7 @@ public class FILE_builtins extends bootpreds {
         //START inline expansion of $identical_or_cannot_unify(a(1),a(2))
         a1 = a1.dref();
         a2 = a2.dref();
-        if (!a1.equalsIdentical(a2) && a1.unify(a2, m.trail)) {
+        if (!a1.equalsTerm(a2) && a1.unify(a2, m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -3238,7 +3238,7 @@ public class FILE_builtins extends bootpreds {
         //START inline expansion of $identical_or_cannot_unify(a(1),a(2))
         a1 = a1.dref();
         a2 = a2.dref();
-        if (!a1.equalsIdentical(a2) && a1.unify(a2, m.trail)) {
+        if (!a1.equalsTerm(a2) && a1.unify(a2, m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -5266,7 +5266,7 @@ public class FILE_builtins extends bootpreds {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // '$head_to_term'(A,B,C:D/E,F):-'$head_to_term'(A,B,user,C,F),functor(B,D,E)
+        // '$head_to_term'(A,B,C:D/E,F):-'$head_to_term'(A,B,'SxxMachbine',C,F),functor(B,D,E)
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -5274,7 +5274,7 @@ public class FILE_builtins extends bootpreds {
         a2 = LARG[1];
         a3 = LARG[2];
         a4 = LARG[3];
-        // '$head_to_term'(A,B,C:D/E,F):-['$head_to_term'(A,B,user,C,F),functor(B,D,E)]
+        // '$head_to_term'(A,B,C:D/E,F):-['$head_to_term'(A,B,'SxxMachbine',C,F),functor(B,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
         a6 = m.mkvar2();
@@ -5288,7 +5288,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         }
         return //
-        Op("$head_to_term", FILE_system::PRED_$head_to_term_5_static_exec, VA(a1, a2, ATOM_user, a5, a4), //
+        Op("$head_to_term", FILE_system::PRED_$head_to_term_5_static_exec, VA(a1, a2, ATOM_SxxMachbine, a5, a4), //
                 Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a2, a7, a8), cont));
     }
 
@@ -6769,7 +6769,7 @@ public class FILE_builtins extends bootpreds {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // '$term_to_clause'(A,B,C:D/E,F):-'$term_to_clause'(A,B,user,C,F),B=(G:-H),functor(G,D,E)
+        // '$term_to_clause'(A,B,C:D/E,F):-'$term_to_clause'(A,B,'SxxMachbine',C,F),B=(G:-H),functor(G,D,E)
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -6777,7 +6777,7 @@ public class FILE_builtins extends bootpreds {
         a2 = LARG[1];
         a3 = LARG[2];
         a4 = LARG[3];
-        // '$term_to_clause'(A,B,C:D/E,F):-['$term_to_clause'(A,B,user,C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
+        // '$term_to_clause'(A,B,C:D/E,F):-['$term_to_clause'(A,B,'SxxMachbine',C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
         a6 = m.mkvar2();
@@ -6795,7 +6795,7 @@ public class FILE_builtins extends bootpreds {
         a10 = S(FUNCTOR_$003A$002D_2, a9, m.mkvar3());
         ;
         return //
-        Op("$term_to_clause", FILE_system::PRED_$term_to_clause_5_static_exec, VA(a1, a2, ATOM_user, a5, a4), //
+        Op("$term_to_clause", FILE_system::PRED_$term_to_clause_5_static_exec, VA(a1, a2, ATOM_SxxMachbine, a5, a4), //
                 Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, a10), //
                         Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a9, a7, a8), cont)));
     }
@@ -7551,15 +7551,15 @@ public class FILE_builtins extends bootpreds {
     }
 
     private final static Operation $localize_body_3_8(Prolog m) {
-        // '$localize_body'(A,user,A):-!
+        // '$localize_body'(A,'SxxMachbine',A):-!
         Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-        // '$localize_body'(A,user,A):-['$neck_cut']
-        if (!ATOM_user.unify(a2, m.trail))
+        // '$localize_body'(A,'SxxMachbine',A):-['$neck_cut']
+        if (!ATOM_SxxMachbine.unify(a2, m.trail))
             return m.fail();
         if (!a1.unify(a3, m.trail))
             return m.fail();
@@ -8142,7 +8142,7 @@ public class FILE_builtins extends bootpreds {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // '$clause_to_term'(A,B,C:D/E,F):-'$clause_to_term'(A,B,user,C,F),B=(G:-H),functor(G,D,E)
+        // '$clause_to_term'(A,B,C:D/E,F):-'$clause_to_term'(A,B,'SxxMachbine',C,F),B=(G:-H),functor(G,D,E)
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -8150,7 +8150,7 @@ public class FILE_builtins extends bootpreds {
         a2 = LARG[1];
         a3 = LARG[2];
         a4 = LARG[3];
-        // '$clause_to_term'(A,B,C:D/E,F):-['$clause_to_term'(A,B,user,C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
+        // '$clause_to_term'(A,B,C:D/E,F):-['$clause_to_term'(A,B,'SxxMachbine',C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
         a6 = m.mkvar2();
@@ -8168,7 +8168,7 @@ public class FILE_builtins extends bootpreds {
         a10 = S(FUNCTOR_$003A$002D_2, a9, m.mkvar3());
         ;
         return //
-        Op("$clause_to_term", FILE_system::PRED_$clause_to_term_5_static_exec, VA(a1, a2, ATOM_user, a5, a4), //
+        Op("$clause_to_term", FILE_system::PRED_$clause_to_term_5_static_exec, VA(a1, a2, ATOM_SxxMachbine, a5, a4), //
                 Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, a10), //
                         Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a9, a7, a8), cont)));
     }
@@ -8483,13 +8483,13 @@ public class FILE_builtins extends bootpreds {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // '$term_to_predicateindicator'(A,B:C,D):-'$term_to_predicateindicator'(A,C,user,B,D)
+        // '$term_to_predicateindicator'(A,B:C,D):-'$term_to_predicateindicator'(A,C,'SxxMachbine',B,D)
         m.setB0();
         Term a1, a2, a3, a4, a5;
         a1 = LARG[0];
         a2 = LARG[1];
         a3 = LARG[2];
-        // '$term_to_predicateindicator'(A,B:C,D):-['$term_to_predicateindicator'(A,C,user,B,D)]
+        // '$term_to_predicateindicator'(A,B:C,D):-['$term_to_predicateindicator'(A,C,'SxxMachbine',B,D)]
         a2 = a2.dref();
         a4 = m.mkvar2();
         a5 = m.mkvar2();
@@ -8497,7 +8497,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         }
         return //
-        Op("$term_to_predicateindicator", FILE_system::PRED_$term_to_predicateindicator_5_static_exec, VA(a1, a5, ATOM_user, a4, a3), cont);
+        Op("$term_to_predicateindicator", FILE_system::PRED_$term_to_predicateindicator_5_static_exec, VA(a1, a5, ATOM_SxxMachbine, a4, a3), cont);
     }
 
     /** PREDICATE: $term_to_predicateindicator/5
@@ -21673,7 +21673,7 @@ public class FILE_builtins extends bootpreds {
     final static Functor FUNCTOR_$0024consulted_package_1 = F("$consulted_package", 1);
     final static Functor FUNCTOR_$0024consulted_import_2 = F("$consulted_import", 2);
     final static Functor FUNCTOR_$0024consulted_predicate_3 = F("$consulted_predicate", 3);
-    private static final Compound L_$consult_init_1_s9 = S(FUNCTOR_$0024consulted_package_1, ATOM_user);
+    private static final Compound L_$consult_init_1_s9 = S(FUNCTOR_$0024consulted_package_1, ATOM_SxxMachbine);
     private static final Compound L_$consult_init_1_s11 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, L_$consult_init_1_s9);
 
     public static Operation PRED_$consult_init_1_static_exec(Prolog m) {
@@ -21737,13 +21737,13 @@ public class FILE_builtins extends bootpreds {
     }
 
     private final static Operation $consult_init_1_2(Prolog m) {
-        // '$consult_init'(A):-assertz('$consulted_file'(A)),assertz('$consulted_package'(user))
+        // '$consult_init'(A):-assertz('$consulted_file'(A)),assertz('$consulted_package'('SxxMachbine'))
         Term a1, a2, a3;
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
         cont = m.cont;
-        // '$consult_init'(A):-[assertz('SxxMachine':'$consulted_file'(A)),assertz('SxxMachine':'$consulted_package'(user))]
+        // '$consult_init'(A):-[assertz('SxxMachine':'$consulted_file'(A)),assertz('SxxMachine':'$consulted_package'('SxxMachbine'))]
         // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_$0024consulted_file_1'),y(1),a(2))
         a2 = S(FUNCTOR_$0024consulted_file_1, a1);
         ;

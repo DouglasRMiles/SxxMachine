@@ -1,7 +1,7 @@
 // Generated java file - release 0.2 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
-
+/*
 package be.kuleuven.jProlog;
 import java.util.*;
 class pred_:-_1_consts {
@@ -45,3 +45,4 @@ local_aregs[1] = null ;
 }
 }
 
+*/

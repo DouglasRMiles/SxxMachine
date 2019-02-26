@@ -1,7 +1,4 @@
 package SxxMachine;
-/*
-* Copyright (C) Paul Tarau 1996-1999
-*/
 
 public interface IOPeer {
 

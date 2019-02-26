@@ -79,7 +79,7 @@ class JpChoicePointStackEntry { //implements ExceptionHandlerIF {
     private static class SingleElementIterator implements Iterator<Code> {
 
         private final Code code;
-        private boolean returned;
+        private final boolean returned;
 
         public SingleElementIterator(Code c) {
             code = c;

@@ -1,4 +1,4 @@
-package SxxMachine;
+package SxxMachine; import static SxxMachine.pterm.TermData.*;
  
 import java.io.*;
 import java.lang.reflect.*;
@@ -1230,9 +1230,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
 */
     // main(run_interleaved/1,public)
         final static Functor FUNCTOR_seq_interleaved_1 = F("seq_interleaved",1);
-        final static Functor ATOM_user = SYM("user");
+        final static Functor ATOM_SxxMachine = SYM("SxxMachine");
         final static Functor ATOM_rni = SYM("rni");
-    private static final Compound L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_user ,  ATOM_rni );
+    private static final Compound L_run_interleaved_1_s7 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine ,  ATOM_rni );
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
 
 
@@ -1245,7 +1245,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         a1 = LARG[0];
-    // run_interleaved(A):-[compile_programs,findall(B-C,user:program(C,B,A),D),phrase(seq_interleaved(D),E),seq_clause(E,F),retractall(user:rni),assert(user:(rni:-F),G),garbage_collect,time(rni),erase(G)]
+    // run_interleaved(A):-[compile_programs,findall(B-C,'SxxMachine':program(C,B,A),D),phrase(seq_interleaved(D),E),seq_clause(E,F),retractall('SxxMachine':rni),assert('SxxMachine':(rni:-F),G),garbage_collect,time(rni),erase(G)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
     // put_str_args([a(2),a(3)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
@@ -1262,8 +1262,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
     // put_str_args([@('ATOM_rni'),a(9)],y(3)),put_str(@('FUNCTOR_$003A$002D_2'),y(3),a(10))
         a10 =  S( FUNCTOR_$003A$002D_2 ,  ATOM_rni , a9);
  ;
-    // put_str_args([@('ATOM_user'),a(10)],y(4)),put_str(@('FUNCTOR_module_colon_2'),y(4),a(11))
-        a11 =  S( FUNCTOR_module_colon_2 ,  ATOM_user , a10);
+    // put_str_args([@('ATOM_SxxMachine'),a(10)],y(4)),put_str(@('FUNCTOR_module_colon_2'),y(4),a(11))
+        a11 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a10);
  ;
         a12 = m.mkvar1();
         return //
@@ -1633,7 +1633,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
         a1 = LARG[0];
-    // run_non_interleaved(A):-[compile_programs,findall(B-C,user:program(C,B,A),D),phrase(seq_non_interleaved(D),E),seq_clause(E,F),assert(user:(rni:-F),G),garbage_collect,time(rni),erase(G)]
+    // run_non_interleaved(A):-[compile_programs,findall(B-C,'SxxMachine':program(C,B,A),D),phrase(seq_non_interleaved(D),E),seq_clause(E,F),assert('SxxMachine':(rni:-F),G),garbage_collect,time(rni),erase(G)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
     // put_str_args([a(2),a(3)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
@@ -1650,8 +1650,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
     // put_str_args([@('ATOM_rni'),a(9)],y(3)),put_str(@('FUNCTOR_$003A$002D_2'),y(3),a(10))
         a10 =  S( FUNCTOR_$003A$002D_2 ,  ATOM_rni , a9);
  ;
-    // put_str_args([@('ATOM_user'),a(10)],y(4)),put_str(@('FUNCTOR_module_colon_2'),y(4),a(11))
-        a11 =  S( FUNCTOR_module_colon_2 ,  ATOM_user , a10);
+    // put_str_args([@('ATOM_SxxMachine'),a(10)],y(4)),put_str(@('FUNCTOR_module_colon_2'),y(4),a(11))
+        a11 =  S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , a10);
  ;
         a12 = m.mkvar1();
         return //
@@ -1837,11 +1837,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
 
     public static Operation PRED_$init_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-    // '$init':-'$new_indexing_hash'(user,rni/0,A)
+    // '$init':-'$new_indexing_hash'('SxxMachine',rni/0,A)
         m.setB0();
-    // '$init':-['$new_indexing_hash'(user,rni/0,A)]
+    // '$init':-['$new_indexing_hash'('SxxMachine',rni/0,A)]
         return //
- Op("$new_indexing_hash", FILE_run::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_user , L_$init_0_s6, m.DONT_CARE2()), cont);
+ Op("$new_indexing_hash", FILE_run::PRED_$new_indexing_hash_3_static_exec, VA( ATOM_SxxMachine , L_$init_0_s6, m.DONT_CARE2()), cont);
     }
 static { loadPreds(); }
 static public void loadPreds() {

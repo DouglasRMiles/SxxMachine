@@ -1,6 +1,13 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.io.PrintWriter;
 
 // some builtins written in Java for Prolog
@@ -20,7 +27,7 @@ class pred_smallerthan_2 extends Code {
     public Code exec(PrologMachine mach) {
         long i1, i2;
         Term dereffed;
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         dereffed = areg[0].dref();
         i1 = dereffed.longValue();
         dereffed = areg[1].dref();
@@ -46,7 +53,7 @@ class pred_smallerorequal_2 extends Code {
     public Code exec(PrologMachine mach) {
         long i1, i2;
         Term dereffed;
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         dereffed = areg[0].dref();
         i1 = dereffed.longValue();
         dereffed = areg[1].dref();
@@ -72,7 +79,7 @@ class pred_arithequal_2 extends Code {
     public Code exec(PrologMachine mach) {
         long i1, i2;
         Term dereffed;
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         dereffed = areg[0].dref();
         i1 = dereffed.longValue();
         dereffed = areg[1].dref();
@@ -98,7 +105,7 @@ class pred_arithdifferent_2 extends Code {
     public Code exec(PrologMachine mach) {
         long i1, i2;
         Term dereffed;
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         dereffed = (areg[0]).dref();
         i1 = dereffed.longValue();
         dereffed = (areg[1]).dref();
@@ -124,11 +131,11 @@ class pred_is_2 extends Code {
     public Code exec(PrologMachine mach) {
         long i1;
         Term dereffed;
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         dereffed = (areg[1]).dref();
         i1 = dereffed.longValue();
         dereffed = (areg[0]).dref();
-        if (!(dereffed.unify(JpFactory.Long(i1))))
+        if (!(dereffed.unify(Integer(i1))))
             return mach.Fail0;
         areg[0] = areg[2];
         areg[1] = areg[2] = null;
@@ -148,9 +155,9 @@ class pred_unify_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
 
         if (!(arg1.unify(arg2))) {
             return mach.Fail0;
@@ -160,9 +167,9 @@ class pred_unify_2 extends Code {
 
         if (mach.getExceptionState() == ErrorStatus.CHANGEDPENDINGGOALS) {
             log.info("...pushing interrupt vector to the front of the continuation");
-            areg[0] = JpFactory.S(Const.strIntern("call_list"), mach.getPendinggoals(), areg[0]);
+            areg[0] = S(("call_list"), mach.getPendinggoals(), areg[0]);
             mach.setExceptionState(ErrorStatus.NONE);
-            mach.setPendinggoals(Const.NIL);
+            mach.setPendinggoals(Prolog.Nil);
         }
 
         return mach.Call1; // call continuation in first register
@@ -184,25 +191,25 @@ class pred_univ_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
-        Term arg3 = areg[2].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
+        final Term arg3 = areg[2].dref();
 
         //Bij testen van werking code in vergelijking met YAP moet dit ook zo werken voor int
-        if (arg1 instanceof Const || arg1 instanceof Int) {
+        if (arg1 instanceof Const || arg1 instanceof NumberTerm) {
             //Geen parameters bijgevolg
             if (!arg2.unify(arg1))
                 return mach.Fail0;
-            if (!arg3.unify(JpFactory.CONST("[]")))
+            if (!arg3.unify(CONST("[]")))
                 return mach.Fail0;
             areg[0] = areg[3];
             areg[1] = areg[2] = areg[3] = null;
             return mach.Call1;
         } else if (arg1 instanceof AFunct) {
-            AFunct term = (AFunct) arg1;
-            Term functor = JpFactory.CONST(term.fname());
-            Term arguments = AFunct.listFromArray(term.args());
+            final AFunct term = (AFunct) arg1;
+            final Term functor = CONST(term.fname());
+            final Term arguments = AFunct.listFromArray(term.args());
             if (!arg2.unify(functor))
                 return mach.Fail0;
             if (!arg3.unify(arguments))
@@ -214,7 +221,7 @@ class pred_univ_3 extends Code {
             Term tail = arg3;
             int l = 0;
             while (tail.isCons()) {
-                tail = (((AFunct) tail).args()[1]).dref();
+                tail = (((AFunct) tail).getPlainArg(1)).dref();
                 l++;
             }
             //if (l == 0)          //l == 0 kan als er geen parameters zijn voor de gegeven functie
@@ -222,7 +229,7 @@ class pred_univ_3 extends Code {
             if (!(tail.isNil()))
                 return mach.Fail0;
             if (!(arg2 instanceof Const)) {
-                if (arg2 instanceof Int && l == 0) {
+                if (arg2 instanceof NumberTerm && l == 0) {
                     //Moet toch nog werken
                     if (!arg1.unify(arg2))
                         return mach.Fail0;
@@ -232,15 +239,15 @@ class pred_univ_3 extends Code {
                 }
                 return mach.Fail0;
             }
-            Term args[] = new Term[l];
+            final Term args[] = new Term[l];
             tail = arg3;
             int i;
             for (i = 0; i < l; i++) {
-                args[i] = ((AFunct) tail).args()[0];
-                tail = (((AFunct) tail).args()[1]).dref();
+                args[i] = ((AFunct) tail).getPlainArg(0);
+                tail = (((AFunct) tail).getPlainArg(1)).dref();
             }
 
-            if (!arg1.unify(JpFactory.S(arg2.fname(), args)))
+            if (!arg1.unify(S(arg2.fname(), args)))
                 return mach.Fail0;
             areg[0] = areg[3];
             areg[1] = areg[2] = areg[3] = null;
@@ -257,9 +264,9 @@ class pred_write_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        String s = (areg[0].dref()).toString();
-        PrintWriter writer = mach.getIOLayer().getCurrentOutputStream();
+        final Term[] areg = mach.getAreg();
+        final String s = (areg[0].dref()).toJpString();
+        final PrintWriter writer = mach.getIOLayer().getCurrentOutputStream();
         writer.print(s);
         writer.flush();
         areg[0] = areg[1];
@@ -294,24 +301,24 @@ class pred_functor_3 extends Code {
         arg3 = arg3.dref();
 
         if (arg1 instanceof JpVar) {
-            if ((!(arg2 instanceof Const)) || (!(arg3 instanceof Int)))
+            if ((!(arg2 instanceof Const)) || (!(arg3 instanceof NumberTerm)))
                 return false;
-            int i = (int) (((Int) arg3).longValue());
-            String Name = arg2.fname();
-            Term args[] = new Term[i];
+            int i = (int) (((NumberTerm) arg3).longValue());
+            final String Name = arg2.fname();
+            final Term args[] = new Term[i];
             while (i-- > 0) {
-                args[i] = JpFactory.JVAR(mach);
+                args[i] = Jv(mach);
             }
-            if (!(arg1.unify(JpFactory.S(Name, args))))
+            if (!(arg1.unify(S(Name, args))))
                 return false;
         } else {
-            String Name = arg1.fname();
-            int arity = arg1.arity();
+            final String Name = arg1.fname();
+            final int arity = arg1.arity();
 
-            if (!(arg2.unify(JpFactory.CONST(Name))))
+            if (!(arg2.unify(CONST(Name))))
                 return false;
 
-            if (!(arg3.unify(JpFactory.Long(arity))))
+            if (!(arg3.unify(Integer(arity))))
                 return false;
         }
         return true;
@@ -319,7 +326,7 @@ class pred_functor_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         if (!DoFunctor3(mach, areg[0], areg[1], areg[2]))
             return mach.Fail0;
         areg[0] = areg[3]; // install the continuation
@@ -339,14 +346,14 @@ class pred_arg_3 extends Code {
         arg2 = arg2.dref();
         arg3 = arg3.dref();
 
-        if (!(arg1 instanceof Int))
+        if (!(arg1 instanceof NumberTerm))
             return false;
         if (!(arg2 instanceof AFunct))
             return false;
-        int i = (int) (((Int) arg1).longValue());
+        final int i = (int) arg1.longValue();
         if (i < 1)
             return false;
-        int l = ((AFunct) arg2).arity();
+        final int l = ((AFunct) arg2).arity();
         if (i > l)
             return false;
         Term x = ((AFunct) arg2).args()[i - 1];
@@ -356,7 +363,7 @@ class pred_arg_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         if (!DoArg3(mach, areg[0], areg[1], areg[2]))
             return mach.Fail0;
         areg[0] = areg[3]; // install the continuation
@@ -373,11 +380,11 @@ class pred_nexttoken_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
         if (!(arg1 instanceof JpVar))
             return mach.Fail0;
-        Term t = mach.nexttoken();
+        final Term t = mach.nexttoken();
         if (!(arg1.unify(t.dref())))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
@@ -394,10 +401,10 @@ class pred_cputime_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        long t = java.lang.System.currentTimeMillis();
-        Term o = JpFactory.Long(t);
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final long t = java.lang.System.currentTimeMillis();
+        final Term o = Integer(t);
         if (!(arg1.unify(o)))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
@@ -406,13 +413,13 @@ class pred_cputime_1 extends Code {
     }
 }
 
-class findall_list extends JpATerm {
+class findall_list extends JPrologObject {
     JpVar uptonowbegin, uptonowend;
 
     long time;
 
     findall_list(PrologMachine mach) {
-        uptonowbegin = uptonowend = JpFactory.JVAR(mach);
+        uptonowbegin = uptonowend = Jv(mach);
         time = mach.getTimestamp();
     }
 
@@ -428,7 +435,7 @@ class findall_list extends JpATerm {
 
     @Override
     public String toStringImpl(int depth) {
-        return ("findall = " + (uptonowbegin.dref()).toString() + " - " + (uptonowend.dref()).toStringImpl(depth - 1));
+        return ("findall = " + (uptonowbegin.dref()).toJpString() + " - " + (uptonowend.dref()).toStringImpl(5));
     }
 
 }
@@ -441,8 +448,8 @@ class pred_initfindall_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
         if (!(arg1.unify(new findall_list(mach))))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
@@ -459,14 +466,14 @@ class pred_addfindall_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        findall_list arg2 = (findall_list) (areg[1].dref());
-        int oldtrail = mach.getCurrentStackItem().getTrailSize();
-        Term copy = arg1.copy(mach, arg2.time);
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final findall_list arg2 = (findall_list) (areg[1].dref());
+        final int oldtrail = mach.getCurrentStackItem().getTrailSize();
+        final Term copy = arg1.copy(mach, arg2.time);
         mach.getCurrentStackItem().unTrail(oldtrail);
-        JpVar NewTail = JpFactory.JVAR(mach);
-        (arg2.uptonowend).Refers = JpFactory.S(Const.strIntern("."), copy, NewTail);
+        final JpVar NewTail = Jv(mach);
+        (arg2.uptonowend).Refers = CONS(copy, NewTail);
         arg2.uptonowend = NewTail;
         // areg[0] = areg[2] ; // install the continuation
         // areg[1] = areg[2] = null ;
@@ -482,10 +489,10 @@ class pred_retrievefindall_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        findall_list arg2 = (findall_list) (areg[1].dref());
-        (arg2.uptonowend).Refers = JpFactory.CONST(Const.strIntern("[]"));
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final findall_list arg2 = (findall_list) (areg[1].dref());
+        (arg2.uptonowend).Refers = CONST(internS("[]"));
         if (!(arg1.unify((arg2.uptonowbegin).dref())))
             return mach.Fail0;
         areg[0] = areg[2]; // install the continuation
@@ -502,9 +509,9 @@ class pred_var_equal_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
         if (arg1 != arg2)
             return mach.Fail0;
         areg[0] = areg[2]; // install the continuation
@@ -521,9 +528,9 @@ class pred_trail_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        if (!(arg1.unify(JpFactory.Long((mach.getCurrentStackItem().getTrailSize())))))
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        if (!(arg1.unify(Integer((mach.getCurrentStackItem().getTrailSize())))))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
         areg[1] = null;
@@ -539,9 +546,9 @@ class pred_choice_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        if (!(arg1.unify(JpFactory.Long((mach.getCurrentChoice())))))
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        if (!(arg1.unify(Integer((mach.getCurrentChoice())))))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
         areg[1] = null;
@@ -557,32 +564,30 @@ class pred_type_of_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
         String s;
         if (arg1 instanceof JpVar)
-            s = Const.strIntern("var");
+            s = internS("var");
         else if (arg1 instanceof FrozenVar)
-            s = Const.strIntern("var");
+            s = internS("var");
         else if (arg1 instanceof AttributedVariable)
-            s = Const.strIntern("var");
-        else if (arg1 instanceof Int)
-            s = Const.strIntern("integer");
+            s = internS("var");
+        else if (arg1 instanceof NumberTerm)
+            s = internS("integer");
         else if (arg1 instanceof Const)
-            s = Const.strIntern("atom");
+            s = internS("atom");
         else if (arg1 instanceof AFunct) {
-            AFunct a = (AFunct) arg1;
+            final AFunct a = (AFunct) arg1;
             if (a.arity() == 0)
-                s = Const.strIntern("atom");
+                s = internS("atom");
             else
-                s = Const.strIntern("struct");
-        } else {
-            ((JpATerm) arg1).oopsy("unknown " + this);
-            s = Const.strIntern("unknown");
-        }
+                s = internS("struct");
+        } else
+            s = internS("unknown");
 
-        if (!(arg2.unify(JpFactory.CONST(s))))
+        if (!(arg2.unify(CONST(s))))
             return mach.Fail0;
         areg[0] = areg[2]; // install the continuation
         areg[1] = areg[2] = null;
@@ -598,11 +603,11 @@ class pred_assume_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term ass = (mach.getAssumptions()).dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term ass = (mach.getAssumptions()).dref();
         mach.trailEntry(new PopAssumptions(mach, ass));
-        mach.setAssumptions(JpFactory.S(Const.strIntern("."), arg1, ass));
+        mach.setAssumptions(CONS(arg1, ass));
         areg[0] = areg[1]; // install the continuation
         areg[1] = null;
         return mach.Call1;
@@ -617,9 +622,9 @@ class pred_allassumed_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term ass = (mach.getAssumptions()).dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term ass = (mach.getAssumptions()).dref();
         if (!(arg1.unify(ass)))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
@@ -636,15 +641,15 @@ class pred_get0_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
         int i;
         try {
             i = mach.getIOLayer().getStreamHandlerIn().getCurrentStream().getStream().read();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return mach.Fail0;
         }
-        if (!(arg1.unify(JpFactory.Long(i))))
+        if (!(arg1.unify(Integer(i))))
             return mach.Fail0;
         areg[0] = areg[1]; // install the continuation
         areg[1] = null;
@@ -676,18 +681,18 @@ class pred_setarg_3 extends Code {
         arg2 = arg2.dref();
         arg3 = arg3.dref();
 
-        if (!(arg1 instanceof Int))
+        if (!(arg1 instanceof NumberTerm))
             return false;
         if (!(arg2 instanceof AFunct))
             return false;
-        int i = (int) (((Int) arg1).longValue());
+        final int i = (int) (((NumberTerm) arg1).longValue());
         if (i < 1)
             return false;
-        int l = ((AFunct) arg2).arity();
+        final int l = ((AFunct) arg2).arity();
         if (i > l)
             return false;
-        Term x = ((AFunct) arg2).args()[i - 1];
-        JpVar v = JpFactory.JVAR(mach);
+        final Term x = ((AFunct) arg2).args()[i - 1];
+        final JpVar v = Jv(mach);
         v.Refers = arg3;
         ((AFunct) arg2).args()[i - 1] = v;
         mach.trailEntry(new SetArgTrail(x, v, mach));
@@ -696,7 +701,7 @@ class pred_setarg_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         if (!DoSetArg3(mach, areg[0], areg[1], areg[2]))
             return mach.Fail0;
         areg[0] = areg[3]; // install the continuation
@@ -713,11 +718,11 @@ class pred_freeze_internal_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
 
-        FrozenVar frv = new FrozenVar(mach, arg2);
+        final FrozenVar frv = new FrozenVar(mach, arg2);
         if (!(arg1.unify(frv)))
             return mach.Fail0;
         areg[0] = areg[2]; // install the continuation
@@ -734,13 +739,13 @@ class pred_execcontinuation_0 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
 
-        if (!(arg1.isContinuation()))
+        if (!((arg1) instanceof Continuation))
             return mach.Fail0;
-        Continuation c = (Continuation) arg1.asContinuation();
-        Code code = c.getCode();
+        final Continuation c = (Continuation) arg1;
+        final Code code = c.getCode();
         int i = code.arity() + 1;
 
         while (i-- > 0) {
@@ -758,13 +763,13 @@ class pred_frozen_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
         Term goal;
 
         if (arg1 instanceof JpVar)
-            goal = JpFactory.CONST(Const.strIntern("true"));
+            goal = CONST(internS("true"));
         else if (arg1 instanceof FrozenVar)
             goal = (((FrozenVar) arg1).getGoals()).dref();
         else

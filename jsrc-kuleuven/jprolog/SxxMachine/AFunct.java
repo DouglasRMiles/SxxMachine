@@ -1,27 +1,27 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONS;
+
+import SxxMachine.pterm.ANonvar;
+
 /**
   *  @author  toms
   *
   */
-public abstract class AFunct extends JpATerm {
-
-    @Override
-    public AFunct asTerm() {
-        return this;
-    }
+public abstract class AFunct extends ANonvar {
 
     public AFunct() {
         super();
     }
 
+    @Override
     public abstract Term[] args();
 
     @Override
     public abstract String fname();
 
-    static protected boolean isConsFunctorRev(int i, String name) {
+    static boolean isCons(int i, String name) {
         if (i != 2)
             return false;
         return ".".equals(name);
@@ -29,7 +29,7 @@ public abstract class AFunct extends JpATerm {
 
     @Override
     public boolean isCons() {
-        return isConsFunctorRev(this.arity(), this.fname());
+        return isCons(arity(), fname());
     }
 
     @Override
@@ -38,29 +38,26 @@ public abstract class AFunct extends JpATerm {
     }
 
     @Override
-    public int arity() {
-        return args().length;
-    }
+    abstract public int arity();
 
     private String listify(Term T, int depth) {
         if (depth == 0)
             return "|...";
         if (T.isCons()) {
             Term A1, A2;
-            A1 = ((AFunct) T).args()[0];
-            A2 = ((AFunct) T).args()[1];
+            A1 = (T).getPlainArg(0);
+            A2 = (T).getPlainArg(1);
             A1 = A1.dref();
             A2 = A2.dref();
-            return "," + A1.toStringImpl(depth - 1) + listify(A2, depth - 1);
+            return "," + A1.toStringImpl(5) + listify(A2, depth - 1);
         } else if ((T instanceof Const) && ("[]".equals(T.fname())))
             return "";
-        return " | " + T.toStringImpl(depth - 1);
+        return " | " + T.toStringImpl(5);
     }
 
     @Override
     public String toStringImpl(int depth) {
-        final Term[] arguments = args();
-        if (arguments == null)
+        if (args() == null)
             throw new IllegalStateException("No arguments set!");
         if (depth == 0)
             return "...";
@@ -68,30 +65,34 @@ public abstract class AFunct extends JpATerm {
         if (i == 0) {
             return fname();
         }
-        if (isConsFunctorRev(i, fname())) {
-            return "[" + (arguments[0].dref()).toStringImpl(depth - 1) + listify(arguments[1].dref(), depth - 1) + "]";
+        final Term arg0 = getPlainArg(0);
+        if (isCons(i, fname())) {
+            return "[" + (arg0.dref()).toStringImpl(5) + listify(getPlainArg(1).dref(), depth - 1) + "]";
         }
         String s = ")";
         Term p;
         while (--i > 0) {
-            Term argument = arguments[i];
+            final Term argument = getPlainArg(i);
             if (argument != null) {
                 p = argument.dref();
-                s = "," + p.toStringImpl(depth - 1) + s;
+                s = "," + p.toStringImpl(5) + s;
             } else {
                 s = ",null" + s;
             }
         }
-        if (arguments[0] == null)
+        if (arg0 == null)
             p = null;
         else
-            p = arguments[0].dref();
+            p = arg0.dref();
         if (p == null)
             s = "null" + s;
         else
-            s = p.toStringImpl(depth - 1) + s;
+            s = p.toStringImpl(5) + s;
         return fname() + "(" + s;
     }
+
+    @Override
+    public abstract Term getPlainArg(int i);
 
     @Override
     public boolean bind(Term that) {
@@ -112,19 +113,19 @@ public abstract class AFunct extends JpATerm {
             return that.bind(this);
         }
         // if (!((this.Name).equals(that.GetName()))) return false ;
-        if (!(this.fname()).equals(that.fname()))
+        if (!(fname()).equals(that.fname()))
             return false;
 
-        AFunct tmpfunct = (AFunct) that; // cast perhaps to be avoided
+        final AFunct tmpfunct = (AFunct) that; // cast perhaps to be avoided
         int i = arity();
-        int j = tmpfunct.arity();
+        final int j = tmpfunct.arity();
         if (i != j)
             return false;
-        Term[] arg1 = args();
-        Term[] arg2 = tmpfunct.args();
+        final Term[] arg1 = args();
+        final Term[] arg2 = tmpfunct.args();
         while (i > 0) {
-            Term obj1 = arg1[--i].dref();
-            Term obj2 = arg2[i].dref();
+            final Term obj1 = arg1[--i].dref();
+            final Term obj2 = arg2[i].dref();
             if (!obj1.unify(obj2))
                 return false;
         }
@@ -132,9 +133,9 @@ public abstract class AFunct extends JpATerm {
     }
 
     public static Term listFromArray(Term[] array) {
-        Term list = Const.NIL;
+        Term list = Prolog.Nil;
         for (int i = array.length - 1; i >= 0; i--) {
-            list = JpFactory.cons(array[i], list);
+            list = CONS(array[i], list);
         }
         return list;
     }

@@ -1,8 +1,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class pred_compare_3 extends Code {
 
     private final static Logger log = Logger.getLogger(pred_compare_3.class);
@@ -11,12 +15,7 @@ public class pred_compare_3 extends Code {
 
     public static Comparator<Term> getComparator() {
         if (comparator == null) {
-            comparator = new Comparator<Term>() {
-                @Override
-                public int compare(Term t, Term s) {
-                    return compare(t, s);
-                }
-            };
+            comparator = (t, s) -> compare(t, s);
         }
         return comparator;
     }
@@ -27,11 +26,11 @@ public class pred_compare_3 extends Code {
     public static int compare(Term t, Term s) {
         if (t == s)
             return 0;
-        if (t instanceof Int) {
-            if (!(s instanceof Int))
+        if (t instanceof NumberTerm) {
+            if (!(s instanceof NumberTerm))
                 return -1;
-            long i1 = ((Int) t).longValue();
-            long i2 = ((Int) s).longValue();
+            final long i1 = ((NumberTerm) t).longValue();
+            final long i2 = ((NumberTerm) s).longValue();
             if (i1 < i2)
                 return -1;
             if (i1 == i2)
@@ -40,27 +39,27 @@ public class pred_compare_3 extends Code {
         }
 
         if (t instanceof Const) {
-            if (s instanceof Int)
+            if (s instanceof NumberTerm)
                 return 1;
             if (!(s instanceof Const))
                 return -1;
-            Const ct = (Const) t;
-            Const cs = (Const) s;
-            Object value = ct.getValue();
+            final Const ct = (Const) t;
+            final Const cs = (Const) s;
+            final Object value = ct.getValue();
             if (value != null && value instanceof Comparable) {
-                Comparable cv = (Comparable) value;
-                Object value2 = cs.getValue();
+                final Comparable cv = (Comparable) value;
+                final Object value2 = cs.getValue();
                 if (value2 != null && value.getClass().equals(value2.getClass())) {
                     try {
                         return cv.compareTo(value2);
-                    } catch (ClassCastException ex) {
+                    } catch (final ClassCastException ex) {
                         log.warn("Error casting objects", ex);
                         throw new IllegalStateException("Illegal code in compareTo", ex);
                     }
                 }
             }
-            String s1 = ct.fname();
-            String s2 = cs.fname();
+            final String s1 = ct.fname();
+            final String s2 = cs.fname();
             return s1.compareTo(s2);
         }
 
@@ -69,23 +68,23 @@ public class pred_compare_3 extends Code {
                 return -1;
             if (!(s instanceof AFunct))
                 return 1;
-            AFunct f1 = (AFunct) t;
-            AFunct f2 = (AFunct) s;
-            String s1 = f1.fname();
-            String s2 = f2.fname();
+            final AFunct f1 = (AFunct) t;
+            final AFunct f2 = (AFunct) s;
+            final String s1 = f1.fname();
+            final String s2 = f2.fname();
             int v = s1.compareTo(s2);
             if (v != 0)
                 return v;
 
-            int arity1 = f1.arity();
-            int arity2 = f2.arity();
+            final int arity1 = f1.arity();
+            final int arity2 = f2.arity();
             if (arity1 < arity2)
                 return -1;
             if (arity1 > arity2)
                 return 1;
             for (int i = 0; i < arity1; i++) {
-                Term ti = (f1.args()[i]).dref();
-                Term si = (f2.args()[i]).dref();
+                final Term ti = (f1.getPlainArg(i)).dref();
+                final Term si = (f2.getPlainArg(i)).dref();
                 v = compare(ti, si);
                 if (v != 0)
                     return v;
@@ -96,7 +95,7 @@ public class pred_compare_3 extends Code {
         if (t.isVariable()) {
             if (!(s.isVariable()))
                 return 1;
-            return t.toString().compareTo(s.toString());
+            return t.toJpString().compareTo(s.toJpString());
         }
 
         return 1; // to keep the compiler happy
@@ -109,20 +108,20 @@ public class pred_compare_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
-        Term arg1 = areg[0].dref();
-        Term arg2 = areg[1].dref();
-        Term arg3 = areg[2].dref();
-        int val = compare(arg2, arg3);
+        final Term[] areg = mach.getAreg();
+        final Term arg1 = areg[0].dref();
+        final Term arg2 = areg[1].dref();
+        final Term arg3 = areg[2].dref();
+        final int val = compare(arg2, arg3);
         String s;
         if (val < 0)
-            s = Const.strIntern("<");
+            s = internS("<");
         else if (val == 0)
-            s = Const.strIntern("=");
+            s = internS("=");
         else
-            s = Const.strIntern(">");
+            s = internS(">");
 
-        if (!(arg1.unify(JpFactory.CONST(s))))
+        if (!(arg1.unify(CONST(s))))
             return mach.Fail0;
         areg[0] = areg[3]; // install the continuation
         areg[1] = areg[2] = areg[3] = null;

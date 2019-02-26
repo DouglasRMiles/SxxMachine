@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
 public class pred_b_setval_2 extends Code {
 
     private final static Logger log = Logger.getLogger(pred_b_setval_2.class);
@@ -12,21 +14,21 @@ public class pred_b_setval_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
+        final Term local_aregs[] = mach.getAreg();
         Term name = local_aregs[0].dref();
-        Term value = local_aregs[1].dref();
-        Term continuation = local_aregs[2];
+        final Term value = local_aregs[1].dref();
+        final Term continuation = local_aregs[2];
         if (name instanceof AFunct) {
-            AFunct f = (AFunct) name;
+            final AFunct f = (AFunct) name;
             if (f.arity() == 0) {
-                name = JpFactory.CONST(f.fname());
+                name = CONST(f.fname());
             }
         }
         if (name instanceof Const) {
 
-            Const cname = (Const) name;
-            VarTableIF table = GlobalVarsModule.getTable(mach);
-            Term oldValue = (Term) table.get(cname);
+            final Const cname = (Const) name;
+            final VarTableIF table = GlobalVarsModule.getTable(mach);
+            final Term oldValue = table.get(cname);
             //if (oldValue != null) {
             mach.trailEntry(new GlobalVarTrailEntry(cname, oldValue, mach));
             //}
@@ -34,7 +36,7 @@ public class pred_b_setval_2 extends Code {
             // System.out.println("b_setval(" + cname + "," + value + ")");
             try {
                 table.put(cname, value);
-            } catch (JPrologScriptException e) {
+            } catch (final JPrologScriptException e) {
                 log.debug("Error setting value", e);
                 return mach.Fail0;
             }

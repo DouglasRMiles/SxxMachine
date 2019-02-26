@@ -4,16 +4,21 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_modulefile_1_consts {
     Code entry_code;
     Code modulename2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("modulefile");
-    final static String string2 = Const.strIntern("modulename");
-    final static String string3 = Const.strIntern("nb_current");
-    final static String string4 = Const.strIntern("targetfolder");
-    final static String string5 = Const.strIntern("concat");
-    final static String string6 = Const.strIntern(".java");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("modulefile");
+    final static String string2 = internS("modulename");
+    final static String string3 = internS("nb_current");
+    final static String string4 = internS("targetfolder");
+    final static String string5 = internS("concat");
+    final static String string6 = internS(".java");
 }
 
 public class pred_modulefile_1 extends Code {
@@ -26,14 +31,11 @@ public class pred_modulefile_1 extends Code {
 
     protected pred_modulefile_1(pred_modulefile_1 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_modulefile_1_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -52,19 +54,20 @@ public class pred_modulefile_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = JpFactory.S(getConsts().string3, JpFactory.CONST(getConsts().string4), var3, JpFactory
-                .S(getConsts().string5, var3.dref(), var2.dref(), var4, JpFactory.S(getConsts().string5, var4
-                        .dref(), JpFactory.CONST(getConsts().string6), var1.dref(), continuation)));
+
+        local_aregs[1] = S(pred_modulefile_1_consts.string3, CONST(pred_modulefile_1_consts.string4), var3, S(pred_modulefile_1_consts.string5, var3
+                .dref(), var2.dref(), var4, S(pred_modulefile_1_consts.string5, var4
+                        .dref(), CONST(pred_modulefile_1_consts.string6), var1.dref(), continuation)));
         mach.updateCUTB();
         return getConsts().modulename2cont;
 

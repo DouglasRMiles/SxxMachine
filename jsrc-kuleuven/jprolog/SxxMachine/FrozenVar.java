@@ -1,12 +1,16 @@
 
 package SxxMachine;
 
-public final class FrozenVar extends VarTerm implements UnTrailOperation {
+import static SxxMachine.pterm.TermData.CONS;
+
+import SxxMachine.pterm.TermData;
+
+final class FrozenVar extends AbstractVar implements UnTrailOperation {
 
     private Term Refers;
     //private long timestamp;
     private final PrologMachine mach;
-    private Term goals;
+    private final Term goals;
 
     public FrozenVar(PrologMachine machin, Term action) {
         Refers = null;
@@ -22,13 +26,14 @@ public final class FrozenVar extends VarTerm implements UnTrailOperation {
         goals = action;
     }
 
+    @Override
     public Term getGoals() {
         return goals;
     }
 
     @Override
     public Term copy(RunningPrologMachine m, long t) {
-        return Const.NIL; // might decide to copy frozenvars
+        return Prolog.Nil; // might decide to copy frozenvars
         // later
     }
 
@@ -46,26 +51,26 @@ public final class FrozenVar extends VarTerm implements UnTrailOperation {
 
     @Override
     public String toStringImpl(int depth) {
-        return "_" + Integer.toHexString(termHashCode());
+        return "_" + Integer.toHexString(hashCode());
     }
 
     @Override
     public boolean bind(Term that) {
         System.out.println("FrozenVar.Bind");
         if (that instanceof FrozenVar) {
-            FrozenVar thatv = (FrozenVar) that;
-            AFunct newgoals = JpFactory.S(Const.strIntern(","), this.goals, thatv.goals);
-            FrozenVar newfrv = new FrozenVar(mach, mach.getCurrentChoice(), newgoals);
-            this.Refers = thatv.Refers = newfrv;
+            final FrozenVar thatv = (FrozenVar) that;
+            final AFunct newgoals = (AFunct) TermData.AND(goals, thatv.goals);
+            final FrozenVar newfrv = new FrozenVar(mach, mach.getCurrentChoice(), newgoals);
+            Refers = thatv.Refers = newfrv;
             mach.trailEntry(this);
             mach.trailEntry(thatv);
         } else if (that instanceof JpVar) {
             return that.bind(this);
         } else {
-            this.Refers = that;
+            Refers = that;
             mach.trailEntry(this);
             mach.trailEntry(new PopPendingGoals(mach, mach.getPendinggoals()));
-            mach.setPendinggoals(JpFactory.S(Const.strIntern("."), goals, mach.getPendinggoals()));
+            mach.setPendinggoals(CONS(goals, mach.getPendinggoals()));
             mach.setExceptionState(ErrorStatus.CHANGEDPENDINGGOALS);
         }
         return true;
@@ -86,7 +91,7 @@ public final class FrozenVar extends VarTerm implements UnTrailOperation {
 
     @Override
     public String fname() {
-        return toString();
+        return toJpString();
     }
 
     @Override

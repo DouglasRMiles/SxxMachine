@@ -4,24 +4,30 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_printImport_1_consts {
     Code entry_code;
     Code writel2cont;
     Code getPackageName2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("printImport");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("import ");
-    final static String string5 = Const.strIntern(".*;");
-    final static String string6 = Const.strIntern("wr");
-    final static String string7 = Const.strIntern("nl");
-    final static String string8 = Const.strIntern("[]");
-    final static String string9 = Const.strIntern("getPackageName");
-    final static String string10 = Const.strIntern("cut");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("printImport");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("import ");
+    final static String string5 = internS(".*;");
+    final static String string6 = internS("wr");
+    final static String string7 = internS("nl");
+    final static String string8 = internS("[]");
+    final static String string9 = internS("getPackageName");
+    final static String string10 = internS("cut");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_printImport_1 extends Code {
@@ -65,9 +71,9 @@ public class pred_printImport_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -82,23 +88,24 @@ class pred_printImport_1_1 extends pred_printImport_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = JpFactory.S(getConsts().string0, new HeapChoice(mach.getCUTB()), continuation);
+
+        local_aregs[1] = S(pred_printImport_1_consts.string0, new HeapChoice(mach.getCUTB()), continuation);
         mach.updateCUTB();
         return getConsts().getPackageName2cont;
     }
@@ -112,26 +119,24 @@ class pred_printImport_1_2 extends pred_printImport_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string3, JpFactory.CONST(getConsts().string4), JpFactory
-                .S(getConsts().string3, var1.dref(), JpFactory
-                        .S(getConsts().string3, JpFactory.CONST(getConsts().string5), JpFactory
-                                .S(getConsts().string3, JpFactory.S(getConsts().string6, JpFactory
-                                        .CONST(getConsts().string7)), JpFactory.CONST(getConsts().string8)))));
+
+        local_aregs[0] = S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string4), S(pred_printImport_1_consts.string3, var1
+                .dref(), S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string5), S(pred_printImport_1_consts.string3, S(pred_printImport_1_consts.string6, CONST(pred_printImport_1_consts.string7)), CONST(pred_printImport_1_consts.string8)))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         return getConsts().writel2cont;

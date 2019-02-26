@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
 import java.util.AbstractCollection;
 import java.util.AbstractSet;
 import java.util.Collection;
@@ -29,7 +31,7 @@ public class JPrologBindings implements Bindings {
         if (bindings instanceof JPrologBindings) {
             this.bindings.putAll(((JPrologBindings) bindings).bindings);
         } else {
-            for (Map.Entry<String, Object> e : bindings.entrySet()) {
+            for (final Map.Entry<String, Object> e : bindings.entrySet()) {
                 put(e.getKey(), e.getValue());
             }
         }
@@ -42,7 +44,7 @@ public class JPrologBindings implements Bindings {
 
     @Override
     public Object get(Object key) {
-        return toJava(bindings.get(JpFactory.CONST(key)));
+        return toJava(bindings.get(CONST(key)));
     }
 
     private Object toJava(Term res) {
@@ -51,26 +53,26 @@ public class JPrologBindings implements Bindings {
         res = res.dref();
         try {
             return PrimaryConversion.convert2java(res);
-        } catch (JPrologScriptException ex) {
+        } catch (final JPrologScriptException ex) {
             return null;
         }
     }
 
     @Override
     public Object put(String name, Object value) {
-        return toJava(bindings.put(JpFactory.CONST(name), PrimaryConversion.convert2Prolog(value)));
+        return toJava(bindings.put(CONST(name), PrimaryConversion.convert2Prolog(value)));
     }
 
     @Override
     public void putAll(Map<? extends String, ? extends Object> arg0) {
-        for (Map.Entry<? extends String, ? extends Object> e : arg0.entrySet()) {
+        for (final Map.Entry<? extends String, ? extends Object> e : arg0.entrySet()) {
             put(e.getKey(), e.getValue());
         }
     }
 
     @Override
     public Object remove(Object key) {
-        return toJava(bindings.remove(JpFactory.CONST(key)));
+        return toJava(bindings.remove(CONST(key)));
     }
 
     @Override
@@ -184,7 +186,7 @@ public class JPrologBindings implements Bindings {
 
         @Override
         public boolean contains(Object o) {
-            return JPrologBindings.this.containsKey(o);
+            return containsKey(o);
         }
 
         @Override
@@ -224,7 +226,7 @@ public class JPrologBindings implements Bindings {
 
         @Override
         public boolean contains(Object o) {
-            return JPrologBindings.this.containsValue(o);
+            return containsValue(o);
         }
 
         @Override
@@ -250,7 +252,7 @@ public class JPrologBindings implements Bindings {
         private Map.Entry<String, Object> next, returned;
 
         public EntryIterator() {
-            it = JPrologBindings.this.bindings.entrySet().iterator();
+            it = bindings.entrySet().iterator();
             next = findNext();
         }
 
@@ -264,14 +266,14 @@ public class JPrologBindings implements Bindings {
 
         private Map.Entry<String, Object> findNext() {
             while (it.hasNext()) {
-                Map.Entry<Const, Term> e = it.next();
+                final Map.Entry<Const, Term> e = it.next();
                 try {
                     if (e.getKey().equals(Const.javaNull())) {
                         return new Entry<String, Object>(null, PrimaryConversion.convert2java(e.getValue()));
                     }
                     return new Entry<String, Object>(PrimaryConversion.convert2java(e.getKey()).toString(),
                             PrimaryConversion.convert2java(e.getValue()));
-                } catch (JPrologScriptException ex) {
+                } catch (final JPrologScriptException ex) {
                 }
             }
             return null;
@@ -287,7 +289,11 @@ public class JPrologBindings implements Bindings {
 
         @Override
         public void remove() {
-            JPrologBindings.this.bindings.remove(returned.getKey());
+            final String key = returned.getKey();
+            // @todo:
+            // Unlikely argument type String for remove(Object) on a Map<Const,Term>
+
+            bindings.remove(key);
         }
 
     }
@@ -347,7 +353,7 @@ public class JPrologBindings implements Bindings {
                     next = PrimaryConversion.convert2java(it.next());
                     hasMore = true;
                     return;
-                } catch (JPrologScriptException ex) {
+                } catch (final JPrologScriptException ex) {
                 }
             }
             hasMore = false;
@@ -396,7 +402,7 @@ public class JPrologBindings implements Bindings {
         @Override
         public boolean equals(Object o) {
             if (o instanceof Entry) {
-                Entry<?, ?> e = (Entry<?, ?>) o;
+                final Entry<?, ?> e = (Entry<?, ?>) o;
                 return key.equals(e.getKey());
             }
             return false;

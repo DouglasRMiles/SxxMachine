@@ -17,7 +17,7 @@ import SxxMachine.Trail;
  * This class behaves like a view for underlying List instance.
  */
 @SuppressWarnings("rawtypes")
-public class ListViewTerm extends ListTerm implements Term {
+public class ListViewTerm extends ListTerm {
     // the class is necessary to make ListTerm.isImmutable() to return false
 
     private static final class MutableMarkerForLists extends SystemObject {
@@ -37,8 +37,10 @@ public class ListViewTerm extends ListTerm implements Term {
         }
 
         @Override
-        public String fname() {
-            return "";
+        public final String pprint() {
+            StringBuilder sb = new StringBuilder();
+            toStringImpl(1, sb);
+            return sb.toString();
         }
 
         @Override
@@ -130,6 +132,14 @@ public class ListViewTerm extends ListTerm implements Term {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.ListTerm#getPlainArg(int)
+     */
+    @Override
+    public Term getPlainArg(int i) {
+        return nth0(i);
+    }
+
     @Override
     public Term nth0(int nth) {
         return this.list.get(this.index + nth);
@@ -156,29 +166,20 @@ public class ListViewTerm extends ListTerm implements Term {
     }
 
     @Override
-    public Term car() {
-        // TODO Auto-generated method stub
+    public Term car() { 
         return nth0(0);
     }
 
     @Override
     public void setCar(Term t) {
         Prolog.Break("SETCAR");
-        argz[0] = t;
-
+        setArg(0, t);
     }
 
     @Override
     public void setCdr(Term t) {
         Prolog.Break("SETCDR");
-        argz[1] = t;
-    }
-
-    @Override
-    public Term[] args() {
-        // TODO Auto-generated method stub
-        Prolog.Break("ARGS");
-        return argz;
+        setArg(1, t);
     }
 
     @Override
@@ -202,5 +203,15 @@ public class ListViewTerm extends ListTerm implements Term {
         for (int i = 0; i < arity; i++) {
             argz[i] = V();
         }
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.AFunct#args()
+     */
+    @Override
+    public Term[] args() {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("AFunct.args");
+        return null;
     }
 }

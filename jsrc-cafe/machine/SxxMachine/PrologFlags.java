@@ -114,4 +114,10 @@ public class PrologFlags {
     public static int startLevel = 0;
     public static PrologFlags current;
 
+    public static String useDoubleQuotes() {
+        if (current == null)
+            return "codes";
+        return current.getDoubleQuotes();
+    }
+
 }

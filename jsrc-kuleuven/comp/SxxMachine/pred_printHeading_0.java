@@ -4,19 +4,23 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_printHeading_0_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("printHeading");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("wr");
-    final static String string5 = Const.strIntern("package");
-    final static String string6 = Const.strIntern("printImport");
-    final static String string7 = Const.strIntern("SxxMachine");
-    final static String string8 = Const.strIntern("java.util");
-    final static String string9 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("printHeading");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("wr");
+    final static String string5 = internS("package");
+    final static String string6 = internS("printImport");
+    final static String string7 = internS("SxxMachine");
+    final static String string8 = internS("java.util");
+    final static String string9 = internS("[]");
 }
 
 public class pred_printHeading_0 extends Code {
@@ -29,14 +33,11 @@ public class pred_printHeading_0 extends Code {
 
     protected pred_printHeading_0(pred_printHeading_0 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_printHeading_0_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -55,15 +56,10 @@ public class pred_printHeading_0 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[0];
-        local_aregs[0] = JpFactory.S(getConsts().string3, JpFactory
-                .S(getConsts().string4, JpFactory.CONST(getConsts().string5)), JpFactory
-                        .S(getConsts().string3, JpFactory
-                                .S(getConsts().string6, JpFactory.CONST(getConsts().string7)), JpFactory
-                                        .S(getConsts().string3, JpFactory.S(getConsts().string6, JpFactory
-                                                .CONST(getConsts().string8)), JpFactory
-                                                        .CONST(getConsts().string9))));
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[0];
+
+        local_aregs[0] = S(pred_printHeading_0_consts.string3, S(pred_printHeading_0_consts.string4, CONST(pred_printHeading_0_consts.string5)), S(pred_printHeading_0_consts.string3, S(pred_printHeading_0_consts.string6, CONST(pred_printHeading_0_consts.string7)), S(pred_printHeading_0_consts.string3, S(pred_printHeading_0_consts.string6, CONST(pred_printHeading_0_consts.string8)), CONST(pred_printHeading_0_consts.string9))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         return getConsts().writel2cont;

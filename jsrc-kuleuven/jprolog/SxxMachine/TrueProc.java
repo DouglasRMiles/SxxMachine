@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.internS;
+
 public class TrueProc extends Code {
 
     @Override
@@ -9,7 +11,7 @@ public class TrueProc extends Code {
     }
 
     public TrueProc(PredikatenPrologMachine machine) {
-        machine.registerCode(this, Const.strIntern("true"));
+        machine.registerCode(this, internS("true"));
     }
 
     @Override

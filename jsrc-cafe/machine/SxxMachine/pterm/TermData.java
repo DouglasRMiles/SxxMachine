@@ -4,135 +4,19 @@ import java.math.BigInteger;
 
 import SxxMachine.CharReader;
 import SxxMachine.Compound;
+import SxxMachine.Const;
 import SxxMachine.Functor;
+import SxxMachine.JpVar;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
-import SxxMachine.PredicateEncoder;
 import SxxMachine.Prolog;
 import SxxMachine.PrologFlags;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
-import SxxMachine.Token;
 
 abstract public class TermData {
-
-    /**
-     * @author Administrator
-     *
-     */
-    static public class StaticPred extends Predicate implements Operation {
-
-        @Override
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-            toString(sb);
-            return sb.toString();
-        }
-
-        @Override
-        public void toString(StringBuilder sb) {
-            Token.toQuotedString(predName(), sb);
-            boolean first = true;
-            if (LARG != null) {
-                for (int j = 0; j < LARG.length; j++) {
-                    if (first) {
-                        sb.append('(');
-                        first = false;
-                    } else {
-                        sb.append(", ");
-                    }
-                    Term val = LARG[j];
-                    StructureTerm.toArgString(1, sb, val);
-                }
-                if (!first) {
-                    sb.append(')');
-                }
-            } else {
-                sb.append("( ... )");
-
-                // toStringLegacy(sb);
-            }
-
-        }
-
-        private Operation static_closure;
-        // private String name;
-
-        @Override
-        public int predArity() {
-            if (LARG == null) {
-                return -1;
-            }
-            return LARG.length;
-        }
-
-        @Override
-        public String predName() {
-            String name = this.name;
-            if (name == null)
-                name = guessname();
-            return name;
-        }
-
-        private String guessname() {
-            String name;
-            Class c = static_closure.getClass();
-
-            name = c.getName();
-            int index;
-            index = name.indexOf("SxxMachine.");
-            if (index > 0) {
-                name = name.substring(index);
-            }
-            index = name.indexOf("FILE_");
-            if (index > 0) {
-                name = name.substring(index);
-            }
-            index = name.indexOf("$$Lambda$");
-            if (index > 0) {
-                name = name.substring(0, index);
-            }
-            index = name.indexOf("FILE_");
-            if (index > 0) {
-                name = name.substring(index);
-            }
-            index = name.indexOf("PRED_");
-            if (index > 0) {
-                name = name.substring(index);
-            }
-            try {
-                name = PredicateEncoder.decodeFunctor(name);
-            } catch (Exception e) {
-                return name;
-            }
-            if (name != null) {
-                this.name = name;
-            } else {
-                name = "exec=" + static_closure;
-            }
-
-            return name;
-        }
-
-        public StaticPred(String functor, Operation object, Term[] va, Operation cont) {
-            super(functor, va, cont);
-
-            this.static_closure = object;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see SxxMachine.Operation#exec(SxxMachine.Prolog)
-         */
-        @Override
-        public Operation exec(Prolog engine) {
-            push_to_engine(engine);
-            return static_closure.exec(engine);
-        }
-
-    }
 
     public static Compound S(String string, Term... s3) {
         return new StructureTerm(string, s3);
@@ -179,11 +63,11 @@ abstract public class TermData {
     }
 
     public static Predicate Op(Operation object, Term[] LARG, Operation cont) {
-        return new TermData.StaticPred(null, object, LARG, cont);
+        return new StaticPred(null, object, LARG, cont);
     }
 
     public static Predicate Op(String str, Operation object, Term[] LARG, Operation cont) {
-        return new TermData.StaticPred(str, object, LARG, cont);
+        return new StaticPred(str, object, LARG, cont);
     }
     //
     //    public static Predicate Op(Operation object, Term a1, Term a2, Operation cont) {
@@ -258,7 +142,7 @@ abstract public class TermData {
     }
 
     public static JavaObjectTerm FFIObject(Object _obj) {
-        return createJavaObjectTerm(_obj);
+        return createJavaObjectTerm(_obj, null);
     }
 
     public static ErrorTerm createErrorTerm(Throwable error, Term _functor, Term... _args) {
@@ -282,7 +166,7 @@ abstract public class TermData {
     }
 
     public static Term AND(Term a1, Term a2) {
-        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.fname(), a1, a2);
+        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.getString(), a1, a2);
     }
 
     /**
@@ -324,8 +208,8 @@ abstract public class TermData {
         return Float(n);
     }
 
-    public static JavaObjectTerm createJavaObjectTerm(Object _obj) {
-        return new JavaObjectTerm(_obj);
+    public static JavaObjectTerm createJavaObjectTerm(Object _obj, Class c) {
+        return new JavaObjectTerm(_obj, c);
     }
 
     /** Checks whether a given object is an instance of Prolog term. */
@@ -346,20 +230,32 @@ abstract public class TermData {
         while (!(Cs.isNil())) {
             if (!(Cs.isCons()))
                 return null;
-            final Compound asCons = TermData.asCons(Cs);
-            Nonvar head = (Nonvar) asCons.ArgDeRef(0);
+            Term head = Cs.getDrefArg(0);
             char c = asChar(head);
             s.append(c);
-            Cs = (Nonvar) asCons.ArgDeRef(1);
+            Cs = Cs.getDrefArg(1);
         }
 
         return s.toString();
     }
 
-    private static char asChar(Nonvar head) {
+    /**
+     * @param s
+     * @return
+     */
+    public static Term DoubleQuotes(String s) {
+        char[] chars = s.toCharArray();
+        Term token = Prolog.Nil;
+        for (int i = chars.length; i > 0; i--) {
+            token = CONS(CHAR(chars[i - 1]), token);
+        }
+        return token;
+    }
+
+    private static char asChar(Term head) {
         if (head.isNumber())
             return (char) head.longValue();
-        final String fname = head.fname();
+        final String fname = head.getString();
         return fname.charAt(fname.length() - 1);
     }
 
@@ -370,7 +266,7 @@ abstract public class TermData {
 
     /** Returns a Prolog atom for the given character. */
     public static Term CHAR(char c) {
-        if (PrologFlags.current.getDoubleQuotes().contentEquals("codes")) {
+        if (PrologFlags.useDoubleQuotes().contentEquals("codes")) {
             return Integer(c);
         }
         if (0 <= c && c <= 127)
@@ -447,4 +343,82 @@ abstract public class TermData {
         return new StructureTerm(name, arity);
     }
 
+    public static Const CONST(String o) {
+        return (Const) TermData.SYM(o);
+    }
+
+    public static Const CONST(Class o) {
+        return (Const) TermData.FFIObject(o);
+    }
+
+    public static Const CONST(Object o) {
+        if (o instanceof String) {
+            return (Const) TermData.SYM((String) o);
+        }
+        return (Const) TermData.FFIObject(o);
+    }
+
+    public static Term S(String naam) {
+        return CONST(naam);
+    }
+
+    public static StructureTerm S(String naam, int arity) {
+        return new StructureTerm(naam, arity);
+    }
+
+    public static Compound S(String naam, Term arg0, Term arg1) {
+        return new StructureTerm(naam, arg0, arg1);
+    }
+
+    public static String internS(String string) {
+        return string.intern();
+    }
+
+    public static NumberTerm Integer(long i) {
+        return TermData.Long(i);
+    }
+
+    public static JpVar Jv(RunningPrologMachine machine) {
+        return machine.mkvar0();
+    }
+
+    //    public Term dref() {
+    //        final Term asTerm = asTerm();
+    //        assert (asTerm == this);
+    //        assert (isTerm());
+    //        return asTerm;
+    //    }
+    //
+    //    public boolean unify(Term that) {
+    //        final Term asTerm = asTerm();
+    //        return asTerm != this && asTerm.unify(that);
+    //    }
+    //
+    //    public boolean isTerm() {
+    //        return false;
+    //    }
+    //
+    //    public Term asTerm() {
+    //        oopsy("ERROR: asTerm on objects not available");
+    //        return null;
+    //    }
+    //
+    //    public boolean isContinuation() {
+    //        return false;
+    //    }
+    //
+    //    public Continuation asContinuation() {
+    //        oopsy("ERROR: asContinuation on objects not available");
+    //        return null;
+    //    }
+    //
+    //    public boolean isCode() {
+    //        return false;
+    //    }
+    //
+    //    public Code asCode() {
+    //        oopsy("ERROR: asCode on objects not available");
+    //        return null;
+    //    }
+    //
 }

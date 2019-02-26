@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+
 public class pred_if_2 extends Code {
 
     private Code savecp;
@@ -17,13 +20,13 @@ public class pred_if_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        Term[] args = mach.getAreg();
-        Term test = args[0].dref();
-        Term iftrue = args[1].dref();
-        Term cont = args[2].dref();
-        Term position = JpFactory.JVAR(mach);
+        final Term[] args = mach.getAreg();
+        final Term test = args[0].dref();
+        final Term iftrue = args[1].dref();
+        final Term cont = args[2].dref();
+        final Term position = Jv(mach);
         args[2] = null;
-        args[1] = JpFactory.S("call", test, JpFactory.S("call", iftrue, cont));
+        args[1] = S("call", test, S("call", iftrue, cont));
         args[0] = position;
         return savecp;
     }

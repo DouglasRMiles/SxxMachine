@@ -9,6 +9,11 @@ package SxxMachine;
   */
 public class PrologCompileException extends JPrologScriptException {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public PrologCompileException(Exception e) {
         super(e);
     }

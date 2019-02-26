@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.internS;
+
 public class pred_chr_gen_id_1 extends Code {
 
     private long id = 0;
@@ -10,7 +13,7 @@ public class pred_chr_gen_id_1 extends Code {
     @Override
     public void init(PredikatenPrologMachine machine) {
         if (unify == null) {
-            unify = machine.loadPred(Const.strIntern("unify"), 2);
+            unify = machine.loadPred(internS("unify"), 2);
         }
     }
 
@@ -23,9 +26,9 @@ public class pred_chr_gen_id_1 extends Code {
     /*@Override*/
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] local_aregs = mach.getAreg();
+        final Term[] local_aregs = mach.getAreg();
         local_aregs[2] = local_aregs[1];
-        local_aregs[1] = JpFactory.Long(id++);
+        local_aregs[1] = Integer(id++);
         return unify;
     }
 

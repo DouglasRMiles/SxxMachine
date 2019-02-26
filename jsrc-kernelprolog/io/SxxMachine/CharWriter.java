@@ -3,13 +3,13 @@ package SxxMachine;
 import java.io.IOException;
 import java.io.Writer;
 
-import SxxMachine.pterm.Sink;
+import SxxMachine.pterm.SinkFluentTerm;
 import SxxMachine.pterm.TermData;
 
 /**
  * Writer
  */
-public class CharWriter extends Sink {
+public class CharWriter extends SinkFluentTerm {
     protected Writer writer;
 
     public CharWriter(String f, Prog p) {

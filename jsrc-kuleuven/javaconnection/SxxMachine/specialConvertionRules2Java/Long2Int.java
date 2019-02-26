@@ -14,7 +14,7 @@ public class Long2Int implements ConvertRuleIF {
     public Object doConvert(Class<?> target, Object current) {
         if (!canConvert(target, current.getClass()))
             throw new IllegalStateException();
-        long l = (Long) current;
+        final long l = (Long) current;
         if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE)
             throw new NoSuchConvertionException("Value out of bounds");
         return (int) l;

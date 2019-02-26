@@ -5,6 +5,11 @@ import SxxMachine.JPrologInternalException;
 
 public class NoSuchConvertionException extends JPrologInternalException {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public NoSuchConvertionException(String msg) {
         super(msg);
     }

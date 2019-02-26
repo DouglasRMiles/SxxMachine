@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.Parser;
 import SxxMachine.pterm.TermData;
 
@@ -81,7 +81,7 @@ public class DataBase extends BlackBoard {
         Term R = TermData.S("$", (Term[]) O);
         // IO.mes("RR"+R);
         // To.copyInto(R.args);
-        return TermData.asCons(R.listify()).arg0(1);
+        return TermData.asCons(R.listify()).getPlainArg(1);
     }
 
     private Term all2(int max, String k, Term FXs) {
@@ -95,7 +95,7 @@ public class DataBase extends BlackBoard {
             return Prolog.Nil;
         Nonvar R = TermData.S("$", (Term[]) To.toArray());
         // To.copyInto(R.args);
-        Term T = TermData.asCons(R.listify()).arg0(1);
+        Term T = TermData.asCons(R.listify()).getPlainArg(1);
         return T;
     }
 
@@ -113,7 +113,7 @@ public class DataBase extends BlackBoard {
      *
      * @see O1Queue
      * @see Term
-     * @see Clause
+     * @see HornClause
      */
     @Override
     public Iterator toEnumerationFor(String k) {
@@ -122,7 +122,7 @@ public class DataBase extends BlackBoard {
     }
 
     public Iterator toEnumerationFor(Term first) {
-        return toEnumerationFor(first.getKey());
+        return toEnumerationFor(first.getFAKey());
     }
 
     /**
@@ -187,11 +187,11 @@ public class DataBase extends BlackBoard {
         return ok;
     }
 
-    static private boolean fileToProg(String fname, boolean overwrite) {
-        Reader sname = IO.toFileReader(fname);
+    static private boolean fileToProg(String namef, boolean overwrite) {
+        Reader sname = IO.toFileReader(namef);
         if (null == sname)
             return false;
-        return streamToProg(fname, sname, overwrite);
+        return streamToProg(namef, sname, overwrite);
     }
 
     /**
@@ -228,7 +228,7 @@ public class DataBase extends BlackBoard {
             if (p.atEOF())
                 return;
             int begins_at = p.lineno();
-            Clause C = p.readClause();
+            HornClause C = p.readClause();
             if (null == C)
                 return;
             if (Parser.isError(C))
@@ -244,8 +244,8 @@ public class DataBase extends BlackBoard {
     /**
      * adds a Clause to the joint Linda and Predicate table
      */
-    static public void addClause(Clause C, HashDict ktable) {
-        String k = C.getKey();
+    static public void addClause(HornClause C, HashDict ktable) {
+        String k = C.getFAKey();
         // overwrites previous definitions
         if (null != ktable && null != ktable.get(k)) {
             ktable.remove(k);
@@ -257,9 +257,9 @@ public class DataBase extends BlackBoard {
     /**
      * adds a Clause to the joint Linda and Predicate table
      *
-     * @see Clause
+     * @see HornClause
      */
-    static public void processClause(Clause C, HashDict ktable) {
+    static public void processClause(HornClause C, HashDict ktable) {
         if (C.getHead().matches(TermData.SYM("init"))) {
             // IO.mes("init: "+C.getBody());
             Prog.firstSolution(C.getHead(), C.getBody());

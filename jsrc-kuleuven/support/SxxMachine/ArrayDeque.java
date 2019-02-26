@@ -83,7 +83,7 @@ class jPArrayDeque<E> extends jPDeque<E> {
         if (isEmpty())
             throw new DequeUnderflowException();
 
-        E answer = data[front];
+        final E answer = data[front];
         front = (front + 1) % data.length;
         size--;
 
@@ -95,7 +95,7 @@ class jPArrayDeque<E> extends jPDeque<E> {
         if (isEmpty())
             throw new DequeUnderflowException();
 
-        E answer = data[back];
+        final E answer = data[back];
         back = (back - 1 + data.length) % data.length;
         size--;
 

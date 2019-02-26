@@ -1,12 +1,15 @@
 package SxxMachine;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Proxy;
+import java.util.*;
 
-import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Sink;
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.ForeignObject;
+import SxxMachine.pterm.FunctionObject;
+import SxxMachine.pterm.HornClause;
+import SxxMachine.pterm.SinkFluentTerm;
+import SxxMachine.pterm.SourceFluentTerm;
+import SxxMachine.pterm.SystemObject;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -120,16 +123,33 @@ public class Builtins extends HashDict {
         // discharges a Source to a Sink
         registerBI(new discharge());
 
+        // multi-var operations
+        registerBI(new def());
+        registerBI(new set());
+        registerBI(new val());
+
+        // lazy list operations
+        registerBI(new source_lazy_list());
+        registerBI(new lazy_head());
+        registerBI(new lazy_tail());
+
         // OS and process interface
         registerBI(new system());
         registerBI(new ctime());
+
+        // Java interfaces
+        registerBI(new jtype());
+        registerBI(new jtype_arg());
+        registerBI(new jpromote());
+        registerBI(new invoke_java3());
+        registerBI(new java_info1());
     }
 
     /**
      * registers a symbol as name of a builtin
      */
     public void registerBI(NameArity proto) {
-        String key = proto.fname() + "/" + proto.arityOrType();
+        String key = proto.getFAKey();
         try {
             Method m = proto.getClass().getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
             // IO.mes("registering builtin: "+key);
@@ -140,7 +160,7 @@ public class Builtins extends HashDict {
     }
 
     public void registerBI(NameArity proto, Class c) {
-        String key = proto.fname() + "/" + proto.arityOrType();
+        String key = proto.getFAKey();
         try {
             Method m = c.getDeclaredMethod("st_exec", Prog.class, ISTerm.class);
             // IO.mes("registering builtin: "+key);
@@ -168,7 +188,7 @@ public class Builtins extends HashDict {
      * @return
      */
     public Method getBuiltin(NameArity S) {
-        String key = S.getKey();
+        String key = S.getFAKey();
         Method b = (Method) this.get(key);
         return b;
     }
@@ -193,7 +213,7 @@ public class Builtins extends HashDict {
 
     public static Term toFunBuiltin(Compound f) {
         if (f.fname().equals(":-") && f.arityOrType() == 2) {
-            return new Clause(f.car(), f.cdr());
+            return new HornClause(f.car(), f.cdr());
         }
         if (f.fname().equals(",") && f.arityOrType() == 2) {
             return TermData.AND(f.car(), f.cdr());
@@ -213,6 +233,86 @@ public class Builtins extends HashDict {
 
 } // end Builtins
 
+// Code for actual kernel SystemProceedures:
+// add your own builtins in UserProceedures.java, by cloning the closest example:-)
+
+class invoke_java3 extends FunBuiltin {
+    invoke_java3() {
+        super("invoke_java", 3);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Object o = thiz.getDrefArg(0).toObject();
+        try {
+            Method method = o.getClass().getMethod(thiz.getDrefArg(1).getString(), null);
+            return thiz.unifyArg(2, ForeignObject.getRef(method.invoke(o, null)), p);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+}
+
+class java_info1 extends FunBuiltin {
+    java_info1() {
+        super("java_info", 1);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Object o = thiz.getDrefArg(0);
+        pri(o);
+        return 1;
+    }
+
+    static void pri(Object o) {
+        if (o instanceof Const) {
+            IO.println("% ForeignObject: ");
+            pri(((ForeignObject) o).toObject());
+        }
+        if (o instanceof Nonvar) {
+            IO.println("% Nonvar");
+        }
+        if (o instanceof Proxy) {
+            IO.println("% Proxy");
+        }
+        Class c = o.getClass();
+        IO.println("% " + c);
+        final Iterator iterator = (new ArrayList(Arrays.asList(c.getClasses()))).iterator();
+        IO.println(iterator);
+        IO.println(Arrays.asList(c.getInterfaces()).iterator());
+    }
+}
+
+class jpromote extends FunBuiltin {
+    jpromote() {
+        super("jpromote", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        return thiz.unifyArg(1, ((FunctionObject) thiz.getDrefArg(0)).registerObject(), p);
+    }
+}
+
+class jtype_arg extends FunBuiltin {
+    jtype_arg() {
+        super("jtype_arg", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        return thiz.unifyArg(1, ForeignObject.getStub(thiz.getDrefArg(0).getClass()), p);
+    }
+}
+
+class jtype extends FunBuiltin {
+    jtype() {
+        super("jtype", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        return thiz.unifyArg(1, ForeignObject.getStub(thiz.getDrefArg(0).getClass()), p);
+    }
+}
+
 // Code for actual kernel Builtins:
 // add your own builtins in UserBuiltins.java, by cloning the closest example:-)
 
@@ -226,7 +326,7 @@ final class is_builtin extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        return thiz.ArgDeRef(0).isBuiltin() ? 1 : 0;
+        return thiz.getDrefArg(0).isBuiltin() ? 1 : 0;
     }
 }
 
@@ -254,7 +354,7 @@ final class system extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String cmd = TermData.asConst(thiz.ArgDeRef(0)).fname();
+        String cmd = TermData.asConst(thiz.getDrefArg(0)).fname();
         return IO.system(cmd);
     }
 }
@@ -269,7 +369,7 @@ final class file_char_reader extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term I = thiz.ArgDeRef(0);
+        Term I = thiz.getDrefArg(0);
         Fluent f;
         if (I.isCharReader())
             f = new CharReader(TermData.asCharReader(I).reader, p);
@@ -291,12 +391,12 @@ final class file_clause_reader extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term I = thiz.ArgDeRef(0);
+        Term I = thiz.getDrefArg(0);
         Fluent f;
         if (I.isCharReader())
             f = new ClauseReader(TermData.asCharReader(I).reader, p);
         else {
-            String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
+            String s = TermData.asConst(thiz.getDrefArg(0)).fname();
             f = new ClauseReader(s, p);
         }
         return thiz.unifyArg(1, f, p);
@@ -313,7 +413,7 @@ final class char_file_writer extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.getDrefArg(0)).fname();
         Fluent f = new CharWriter(s, p);
         return thiz.unifyArg(1, f, p);
     }
@@ -329,7 +429,7 @@ final class clause_file_writer extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.getDrefArg(0)).fname();
         Fluent f = new ClauseWriter(s, p);
         return thiz.unifyArg(1, f, p);
     }
@@ -377,7 +477,7 @@ final class get_arity extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        NumberTerm N = TermData.Integer(thiz.ArgDeRef(0).arityOrType());
+        NumberTerm N = TermData.Integer(thiz.getDrefArg(0).arityOrType());
         return thiz.unifyArg(1, N, p);
     }
 }
@@ -393,7 +493,7 @@ final class stack_dump extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = thiz.ArgDeRef(0).pprint();
+        String s = thiz.getDrefArg(0).pprint();
         IO.errmes("User requested dump", (new Exception(s)));
         return 1;
     }
@@ -448,7 +548,7 @@ final class reconsult extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term a = thiz.ArgDeRef(0);
+        Term a = thiz.getDrefArg(0);
         String f = TermData.asConst(a).fname();
         return DataBase.fromFile(f) ? 1 : 0;
     }
@@ -467,7 +567,7 @@ final class consult extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String f = TermData.asConst(thiz.ArgDeRef(0)).fname();
+        String f = TermData.asConst(thiz.getDrefArg(0)).fname();
         IO.trace("consulting: " + f);
         return DataBase.fromFile(f, false) ? 1 : 0;
     }
@@ -528,10 +628,10 @@ final class db_add extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
-        Term X = thiz.ArgDeRef(1);
+        DataBase db = (DataBase) (thiz.getDrefArg(0)).toObject();
+        Term X = thiz.getDrefArg(1);
         // IO.mes("X==>"+X);
-        String key = X.getKey();
+        String key = X.getFAKey();
         // IO.mes("key==>"+key);
         if (null == key)
             return 0;
@@ -552,9 +652,9 @@ final class db_remove extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
-        Term X = thiz.ArgDeRef(1);
-        Term R = db.cin(X.getKey(), X);
+        DataBase db = (DataBase) (thiz.getDrefArg(0)).toObject();
+        Term X = thiz.getDrefArg(1);
+        Term R = db.cin(X.getFAKey(), X);
         return thiz.unifyArg(2, R, p);
     }
 }
@@ -573,9 +673,9 @@ final class db_collect extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
-        Term X = thiz.ArgDeRef(1);
-        Term R = db.all(X.getKey(), X);
+        DataBase db = (DataBase) (thiz.getDrefArg(0)).toObject();
+        Term X = thiz.getDrefArg(1);
+        Term R = db.all(X.getFAKey(), X);
         return thiz.unifyArg(2, R, p);
     }
 }
@@ -591,8 +691,8 @@ final class db_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        DataBase db = (DataBase) (thiz.ArgDeRef(0)).toObject();
-        Source S = new IterableSource(db.toEnumeration(), p);
+        DataBase db = (DataBase) (thiz.getDrefArg(0)).toObject();
+        SourceFluentTerm S = new IterableSource(db.toEnumeration(), p);
         return thiz.unifyArg(1, S, p);
     }
 }
@@ -608,7 +708,7 @@ final class at_key extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term R = Init.default_db.all(thiz.ArgDeRef(0).getKey(), TermData.V());
+        Term R = Init.default_db.all(thiz.getDrefArg(0).getFAKey(), TermData.V());
         return thiz.unifyArg(1, R, p);
     }
 }
@@ -624,7 +724,7 @@ final class pred_to_string extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String key = thiz.ArgDeRef(0).getKey();
+        String key = thiz.getDrefArg(0).getFAKey();
         String listing = Init.default_db.pred_to_string(key);
         if (null == listing)
             return 0;
@@ -660,7 +760,7 @@ final class arg extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         int i = thiz.getIntArg(0);
-        Term F = thiz.ArgDeRef(1);
+        Term F = thiz.getDrefArg(1);
         Term A = (i == 0) ? TermData.SYM(F.fname()) : ((i == -1) ? TermData.Integer(F.arityOrType()) : F.args()[i - 1]);
         return thiz.unifyArg(2, A, p);
     }
@@ -677,13 +777,13 @@ final class new_fun extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        String s = TermData.asConst(thiz.ArgDeRef(0)).fname();
+        String s = TermData.asConst(thiz.getDrefArg(0)).fname();
         int i = thiz.getIntArg(1);
         Term T;
         if (i == 0)
             T = Builtins.toConstBuiltin(TermData.SYM(s));
         else {
-            Compound F = TermData.S(s);
+            Compound F = (Compound) TermData.S(s);
             F.init(i);
             T = Builtins.toFunBuiltin(F);
         }
@@ -701,7 +801,7 @@ final class name_to_chars extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term Cs = ((Nonvar) thiz.ArgDeRef(0)).toChars();
+        Term Cs = ((Nonvar) thiz.getDrefArg(0)).toChars();
         return thiz.unifyArg(1, Cs, p);
     }
 }
@@ -717,7 +817,7 @@ final class chars_to_name extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         int convert = thiz.getIntArg(0);
-        final Nonvar argDeRef = (Nonvar) thiz.ArgDeRef(1);
+        final Nonvar argDeRef = (Nonvar) thiz.getDrefArg(1);
         String s = TermData.charsToString(argDeRef);
         Nonvar T = (Nonvar) TermData.SYM(s);
         if (convert > 0) {
@@ -742,7 +842,7 @@ final class numbervars extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term T = thiz.ArgDeRef(0).numbervars();
+        Term T = thiz.getDrefArg(0).numbervars();
         return thiz.unifyArg(1, T, p);
     }
 }
@@ -757,9 +857,9 @@ final class compute extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Term o = thiz.ArgDeRef(0);
-        Term a = thiz.ArgDeRef(1);
-        Term b = thiz.ArgDeRef(2);
+        Term o = thiz.getDrefArg(0);
+        Term a = thiz.getDrefArg(1);
+        Term b = thiz.getDrefArg(2);
         if (!(o.isConst()) || !(a.isNumber()) || !(b.isNumber()))
             IO.errmes("bad arithmetic operation (" + o + "): " + a + "," + b + "\nprog: " + p.toString());
         String opname = TermData.asConst(o).fname();
@@ -840,11 +940,36 @@ final class source_list extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source S = (Source) thiz.ArgDeRef(0);
+        SourceFluentTerm S = (SourceFluentTerm) thiz.getDrefArg(0);
         Term Xs = S.toList();
         return thiz.unifyArg(1, Xs, p);
     }
 }
+/* maps a Fluent to a Java Enumeration
+class JinniEnumeration extends FunctionObject implements Enumeration {
+  JinniEnumeration(Fluent I) {
+    this.I=I;
+    this.current=this.I.getElement();
+  }
+
+  private Fluent I;
+  private ITerm current;
+
+  public boolean hasMoreElements() {
+    if(null==current) {
+      I=null;
+      return false;
+    }
+    return true;
+  }
+
+  public Object nextElement() {
+    ITerm next=current;
+    current=I.getElement();
+    return next;
+  }
+}
+*/
 
 /**
  * maps a List to a Source
@@ -857,7 +982,7 @@ final class list_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source E = new ListSource((Nonvar) thiz.ArgDeRef(0), p);
+        SourceFluentTerm E = new ListSource((Nonvar) thiz.getDrefArg(0), p);
         return thiz.unifyArg(1, E, p);
     }
 }
@@ -873,7 +998,7 @@ final class term_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        TermSource E = new TermSource((Nonvar) thiz.ArgDeRef(0), p);
+        TermSource E = new TermSource((Nonvar) thiz.getDrefArg(0), p);
         return thiz.unifyArg(1, E, p);
     }
 }
@@ -891,9 +1016,9 @@ final class integer_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        IntegerSource E = new IntegerSource(TermData.asInt(thiz.ArgDeRef(0)).longValue(),
-                TermData.asInt(thiz.ArgDeRef(1)).longValue(), TermData.asInt(thiz.ArgDeRef(2)).longValue(),
-                TermData.asInt(thiz.ArgDeRef(3)).longValue(), p);
+        IntegerSource E = new IntegerSource(TermData.asInt(thiz.getDrefArg(0)).longValue(),
+                TermData.asInt(thiz.getDrefArg(1)).longValue(), TermData.asInt(thiz.getDrefArg(2)).longValue(),
+                TermData.asInt(thiz.getDrefArg(3)).longValue(), p);
         return thiz.unifyArg(4, E, p);
     }
 }
@@ -908,7 +1033,7 @@ final class source_loop extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source s = (Source) thiz.ArgDeRef(0);
+        SourceFluentTerm s = (SourceFluentTerm) thiz.getDrefArg(0);
         return thiz.unifyArg(1, new SourceLoop(s, p), p);
     }
 }
@@ -924,7 +1049,7 @@ final class source_term extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source S = (Source) thiz.ArgDeRef(0);
+        SourceFluentTerm S = (SourceFluentTerm) thiz.getDrefArg(0);
         Term Xs = Builtins.toFunBuiltin(TermData.asStruct(S.toFun()));
         return thiz.unifyArg(1, Xs, p);
     }
@@ -945,7 +1070,7 @@ final class answer_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Clause goal = new Clause(thiz.ArgDeRef(0), thiz.ArgDeRef(1));
+        HornClause goal = new HornClause(thiz.getDrefArg(0), thiz.getDrefArg(1));
         Prog U = new Prog(goal, p);
         return thiz.unifyArg(2, U, p);
     }
@@ -961,7 +1086,7 @@ final class unfolder_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Clause goal = thiz.ArgDeRef(0).toClause();
+        HornClause goal = thiz.getDrefArg(0).toClause();
         Prog newp = new Prog(goal, p);
         Unfolder S = new Unfolder(goal, newp);
         return thiz.unifyArg(1, S, p);
@@ -981,8 +1106,8 @@ final class getfl extends FunBuiltin {
     static public int st_exec(Prog p, ISTerm thiz) {
 
         // IO.mes("<<"+thiz.ArgNoDeRef(0)+"\n"+p+p.getTrail().pprint());
-        Term t = thiz.ArgDeRef(0);
-        Source S = t.asSource();
+        Term t = thiz.getDrefArg(0);
+        SourceFluentTerm S = t.asSource();
         Term A = TermData.the(S.getElement());
         // if(null==A) A=Nonvar.aNo;
         // else A=new Fun("the",A);
@@ -1002,8 +1127,8 @@ final class putfl extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Sink S = (Sink) thiz.ArgDeRef(0);
-        Term X = thiz.ArgDeRef(1);
+        SinkFluentTerm S = (SinkFluentTerm) thiz.getDrefArg(0);
+        Term X = thiz.getDrefArg(1);
         if (0 == S.putElement(X)) {
             IO.errmes("error in putElement: " + X);
         }
@@ -1022,7 +1147,7 @@ final class stop extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Fluent S = (Fluent) thiz.ArgDeRef(0);
+        Fluent S = (Fluent) thiz.getDrefArg(0);
         S.stop();
         return 1;
     }
@@ -1039,7 +1164,7 @@ final class split_source extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source original = (Source) thiz.ArgDeRef(0);
+        SourceFluentTerm original = (SourceFluentTerm) thiz.getDrefArg(0);
         Nonvar Xs = original.toList();
         return (thiz.unifyArg(1, CONS(Xs, p), p) > 0 && thiz.unifyArg(2, CONS(Xs, p), p) > 0) ? 1 : 0;
     }
@@ -1055,7 +1180,7 @@ final class merge_sources extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Nonvar list = (Nonvar) thiz.ArgDeRef(0);
+        Nonvar list = (Nonvar) thiz.getDrefArg(0);
         return thiz.unifyArg(1, new SourceMerger(list, p), p);
     }
 }
@@ -1070,8 +1195,8 @@ final class discharge extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Source from = (Source) thiz.ArgDeRef(0);
-        Sink to = (Sink) thiz.ArgDeRef(1);
+        SourceFluentTerm from = (SourceFluentTerm) thiz.getDrefArg(0);
+        SinkFluentTerm to = (SinkFluentTerm) thiz.getDrefArg(1);
         for (;;) {
             Term X = from.getElement();
             if (null == X) {
@@ -1095,7 +1220,7 @@ final class collect extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Sink s = (Sink) thiz.ArgDeRef(0);
+        SinkFluentTerm s = (SinkFluentTerm) thiz.getDrefArg(0);
         Term X = s.collect();
         if (null == X)
             X = Prolog.aNo;
@@ -1145,7 +1270,7 @@ final class string_char_reader extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        return thiz.unifyArg(1, new CharReader(thiz.ArgDeRef(0), p), p);
+        return thiz.unifyArg(1, new CharReader(thiz.getDrefArg(0), p), p);
     }
 }
 
@@ -1159,7 +1284,52 @@ final class string_clause_reader extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        return thiz.unifyArg(1, new ClauseReader(thiz.ArgDeRef(0), p), p);
+        return thiz.unifyArg(1, new ClauseReader(thiz.getDrefArg(0), p), p);
+    }
+}
+
+/**
+ * def(Var,Val) Initializes a Multi_Variable Var to a value Val.
+ */
+class def extends FunBuiltin {
+    def() {
+        super("def", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Var X = (Var) thiz.getDrefArg(0);
+        MultiVar V = new MultiVar(thiz.getDrefArg(1), p);
+        X.bind(V, p.getTrail());
+        return 1;
+    }
+}
+
+/**
+ * set(Var,Val) Sets a Multi_Variable Var to a value Val.
+ */
+class set extends FunBuiltin {
+    set() {
+        super("set", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        MultiVar V = (MultiVar) thiz.getDrefArg(0);
+        V.set(thiz.getDrefArg(1), p);
+        return 1;
+    }
+}
+
+/**
+ * val(Var,Val) gets the value Val of Multi_Variable Var.
+ */
+class val extends FunBuiltin {
+    val() {
+        super("val", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        MultiVar V = (MultiVar) thiz.getDrefArg(0);
+        return thiz.unifyArg(1, V.val(), p);
     }
 }
 
@@ -1178,12 +1348,13 @@ final class set_persistent extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Fluent F = (Fluent) thiz.ArgDeRef(0);
-        Nonvar R = (Nonvar) thiz.ArgDeRef(1);
+        Fluent F = (Fluent) thiz.getDrefArg(0);
+        Nonvar R = (Nonvar) thiz.getDrefArg(1);
         boolean yesno = !R.equalsTerm(Prolog.aNo);
         F.setPersistent(yesno);
         return 1;
     }
+
 }
 
 /**
@@ -1196,9 +1367,61 @@ final class get_persistent extends FunBuiltin {
 
     static public int st_exec(Prog p, ISTerm thiz) {
 
-        Fluent F = (Fluent) thiz.ArgDeRef(0);
+        Fluent F = (Fluent) thiz.getDrefArg(0);
         Term R = F.getPersistent() ? Prolog.aYes : Prolog.aNo;
         return thiz.unifyArg(1, R, p);
     }
-
 }
+
+/**
+ * Converts Fluent into a Lazy List which will memorize
+ * its elements as it grows.
+ */
+class source_lazy_list extends FunBuiltin {
+    source_lazy_list() {
+        super("source_lazy_list", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Fluent S = (Fluent) thiz.getDrefArg(0);
+        //S.setPersistent(true);
+        Term X = ((SourceFluentTerm) S).getElement();
+        Term Xs = (Term) AFunct.aNil;
+        if (null != X) {
+            Xs = new LazyList(X, S, new KPTrail());
+            p.getTrail().push((Undoable) Xs);
+        }
+        return thiz.unifyArg(1, Xs, p);
+    }
+}
+
+/**
+ * returns the first element of a lazy list
+ */
+class lazy_head extends FunBuiltin {
+    lazy_head() {
+        super("lazy_head", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Nonvar L = (Nonvar) thiz.getDrefArg(0);
+        return thiz.unifyArg(1, L.getHead(), p);
+    }
+}
+
+/**
+ * returns the tail if a lazy list after making it
+ * grow, if possible
+ */
+class lazy_tail extends FunBuiltin {
+    lazy_tail() {
+        super("lazy_tail", 2);
+    }
+
+    static public int st_exec(Prog p, ISTerm thiz) {
+        Nonvar L = (Nonvar) thiz.getDrefArg(0);
+        return thiz.unifyArg(1, L.getTail(), p);
+    }
+}
+
+// end SystemProceedures

@@ -4,13 +4,17 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_eliminate_disjuctions_in_clauses_2_consts {
     Code entry_code;
     Code eliminate_disjunction_list4cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("eliminate_disjuctions_in_clauses");
-    final static String string2 = Const.strIntern("eliminate_disjunction_list");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("eliminate_disjuctions_in_clauses");
+    final static String string2 = internS("eliminate_disjunction_list");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_eliminate_disjuctions_in_clauses_2 extends Code {
@@ -23,14 +27,11 @@ public class pred_eliminate_disjuctions_in_clauses_2 extends Code {
 
     protected pred_eliminate_disjuctions_in_clauses_2(pred_eliminate_disjuctions_in_clauses_2 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_eliminate_disjuctions_in_clauses_2_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -49,18 +50,19 @@ public class pred_eliminate_disjuctions_in_clauses_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = getConsts().posint1;
+
+        local_aregs[1] = pred_eliminate_disjuctions_in_clauses_2_consts.posint1;
         local_aregs[2] = var2.dref();
         local_aregs[3] = continuation;
         mach.updateCUTB();

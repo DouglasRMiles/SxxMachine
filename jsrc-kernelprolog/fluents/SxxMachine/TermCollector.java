@@ -2,12 +2,12 @@ package SxxMachine;
 
 import java.util.ArrayList;
 
-import SxxMachine.pterm.Sink;
+import SxxMachine.pterm.SinkFluentTerm;
 
 /**
  * Builds Fluents from Java Streams
  */
-public class TermCollector extends Sink {
+public class TermCollector extends SinkFluentTerm {
     protected ArrayList buffer;
 
     private Prog p;

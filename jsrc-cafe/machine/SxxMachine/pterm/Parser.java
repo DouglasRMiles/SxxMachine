@@ -297,7 +297,7 @@ class constToken extends StructureTerm {
 
 class stringToken extends StructureTerm {
     public stringToken(constToken c) {
-        super("stringToken", c.ArgDeRef(0));
+        super("stringToken", c.getDrefArg(0));
     }
 }
 
@@ -393,8 +393,8 @@ public class Parser extends LexerHIDE {
     /**
      * Main Parser interface: reads a clause together with variable name information
      */
-    public Clause readClause() {
-        Clause t = null;
+    public HornClause readClause() {
+        HornClause t = null;
         boolean verbose = false;
         try {
             t = readClauseOrEOF();
@@ -419,13 +419,13 @@ public class Parser extends LexerHIDE {
         return t;
     }
 
-    static final Clause errorClause(Exception e, String type, int line, boolean verbose) {
+    static final HornClause errorClause(Exception e, String type, int line, boolean verbose) {
 
         String mes = e.getMessage();
         if (null == mes)
             mes = "unknown_error";
         Term f = S("error", SYM(type), SYM(mes), S("line", Integer(line)));
-        Clause C = new Clause(f, Prolog.True);
+        HornClause C = new HornClause(f, Prolog.True);
         if (verbose) {
             IO.errmes(type + " error at line:" + line);
             IO.errmes(C.pprint(), e);
@@ -433,25 +433,25 @@ public class Parser extends LexerHIDE {
         return C;
     }
 
-    static public final boolean isError(Clause C) {
+    static public final boolean isError(HornClause C) {
         Term H = C.getHead();
         if (H.isCompound() && "error".equals(H.fname()) && H.arityOrType() == 3
-                && !(asStruct(H).ArgDeRef(0).dref().isVar()))
+                && !(asStruct(H).getDrefArg(0).dref().isVar()))
             return true;
         return false;
     }
 
-    static public final void showError(Clause C) {
+    static public final void showError(HornClause C) {
         IO.errmes("*** " + C);
     }
 
-    static final Clause toClause(Term T, HashDict dict) {
-        Clause C = T.toClause(); // adds ...:-true if missing
+    static final HornClause toClause(Term T, HashDict dict) {
+        HornClause C = T.toClause(); // adds ...:-true if missing
         C.dict = dict;
         return C;
     }
 
-    private Clause readClauseOrEOF() throws IOException {
+    private HornClause readClauseOrEOF() throws IOException {
 
         dict = new HashDict();
 
@@ -466,7 +466,7 @@ public class Parser extends LexerHIDE {
             n = next();
             Term t = getTerm(n);
             Term bs = getConjCont(t);
-            Clause C = new Clause(SYM("init"), bs);
+            HornClause C = new HornClause(SYM("init"), bs);
             C.dict = dict;
             return C;
         }
@@ -484,11 +484,11 @@ public class Parser extends LexerHIDE {
 
         // IO.mes("readClauseOrEOF 3:"+b);
 
-        Clause C = null;
+        HornClause C = null;
         if (n.isFunctor("iffToken")) {
             Term t = getTerm();
             Term bs = getConjCont(t);
-            C = new Clause(h, bs);
+            C = new HornClause(h, bs);
             C.dict = dict;
         } else if (n.isFunctor(",")) {
             Term b = getTerm();
@@ -508,7 +508,7 @@ public class Parser extends LexerHIDE {
             t = curr;
         else if (n.isFunctor(",")) {
             Term other = getTerm();
-            t = StructureTerm.createCons(",", curr, getConjCont(other));
+            t = TermData.AND(curr, getConjCont(other));
         }
         if (null == t) {
             throw new ParserException("'.'", "bad body element", n);
@@ -519,7 +519,7 @@ public class Parser extends LexerHIDE {
     protected final Term getTerm(Term n) throws IOException {
         Term t = n.carTokenOrSelf();
         if (n.isFunctor("stringToken")) {
-            t = ((Nonvar) ((stringToken) n).ArgDeRef(0)).toChars();
+            t = ((Nonvar) ((stringToken) n).getDrefArg(0)).toChars();
             // IO.mes("getTerm:stringToken-->"+t);
 
         } else if (n.isFunctor("[")) {
@@ -602,11 +602,11 @@ public class Parser extends LexerHIDE {
         return s;
     }
 
-    public static Clause clsFromString(String s) {
+    public static HornClause clsFromString(String s) {
         if (null == s)
             return null;
         s = patchEOFString(s);
-        Clause t = null;
+        HornClause t = null;
         try {
             Parser p;
             p = new Parser(s);

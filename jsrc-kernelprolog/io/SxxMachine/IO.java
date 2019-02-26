@@ -20,6 +20,7 @@ import java.io.StringReader;
 import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
 
 public class IO {
 
@@ -101,6 +102,23 @@ public class IO {
     public static final void println(String s) {
         println(getStdOutput(), s);
     }
+
+    public static final void println(Iterator s) {
+        Writer w = getStdOutput();
+        for (Iterator iterator = s; iterator.hasNext();) {
+            Object object = iterator.next();
+            print(w, " " + object);
+        }
+        println(w, "");
+    }
+    //
+    //    public static final void println(Iterable s) {
+    //        Writer w = getStdOutput();
+    //        for (Object object : s) {
+    //            println(w, " " + object);
+    //        }
+    //        println(w, "");
+    //    }
 
     // for now just stubs: usable if IO comes from elswere i.e. sockets
     static final String read_from(Reader f) {

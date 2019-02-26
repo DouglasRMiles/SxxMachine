@@ -4,20 +4,25 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_getforarg_3_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("getforarg");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("    if (!(areg");
-    final static String string5 = Const.strIntern(".unify(");
-    final static String string6 = Const.strIntern("constructterm");
-    final static String string7 = Const.strIntern("))) return mach.Fail0 ;");
-    final static String string8 = Const.strIntern("wr");
-    final static String string9 = Const.strIntern("nl");
-    final static String string10 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("getforarg");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("    if (!(areg");
+    final static String string5 = internS(".unify(");
+    final static String string6 = internS("constructterm");
+    final static String string7 = internS("))) return mach.Fail0 ;");
+    final static String string8 = internS("wr");
+    final static String string9 = internS("nl");
+    final static String string10 = internS("[]");
 }
 
 public class pred_getforarg_3 extends Code {
@@ -30,14 +35,11 @@ public class pred_getforarg_3 extends Code {
 
     protected pred_getforarg_3(pred_getforarg_3 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_getforarg_3_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -56,28 +58,25 @@ public class pred_getforarg_3 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
             return mach.Fail0;
         if (!(areg2.unify(var3)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string3, JpFactory.CONST(getConsts().string4), JpFactory
-                .S(getConsts().string3, var2.dref(), JpFactory.S(getConsts().string3, JpFactory
-                        .CONST(getConsts().string5), JpFactory.S(getConsts().string3, JpFactory
-                                .S(getConsts().string6, var1.dref(), var3.dref()), JpFactory
-                                        .S(getConsts().string3, JpFactory.CONST(getConsts().string7), JpFactory
-                                                .S(getConsts().string3, JpFactory.S(getConsts().string8, JpFactory
-                                                        .CONST(getConsts().string9)), JpFactory
-                                                                .CONST(getConsts().string10)))))));
+
+        local_aregs[0] = S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string4), S(pred_getforarg_3_consts.string3, var2
+                .dref(), S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string5), S(pred_getforarg_3_consts.string3, S(pred_getforarg_3_consts.string6, var1
+                        .dref(), var3
+                                .dref()), S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string7), S(pred_getforarg_3_consts.string3, S(pred_getforarg_3_consts.string8, CONST(pred_getforarg_3_consts.string9)), CONST(pred_getforarg_3_consts.string10)))))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         local_aregs[3] = local_aregs[2] = null;

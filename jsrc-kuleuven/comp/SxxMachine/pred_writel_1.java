@@ -4,17 +4,22 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_writel_1_consts {
     Code entry_code;
     Code wr2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("writel");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("wr");
-    final static String string4 = Const.strIntern("[]");
-    final static String string5 = Const.strIntern("call");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("writel");
+    final static String string2 = internS(".");
+    final static String string3 = internS("wr");
+    final static String string4 = internS("[]");
+    final static String string5 = internS("call");
 }
 
 public class pred_writel_1 extends Code {
@@ -57,9 +62,9 @@ public class pred_writel_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -74,17 +79,19 @@ class pred_writel_1_1 extends pred_writel_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = JpFactory.CONST(getConsts().string4);
+
+        final Term arg0 = CONST(pred_writel_1_consts.string4);
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string4))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(CONST(pred_writel_1_consts.string4))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -101,26 +108,29 @@ class pred_writel_1_2 extends pred_writel_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string2, var1, var2);
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_writel_1_consts.string2, var1, var2);
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_writel_1_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = JpFactory.S(getConsts().string1, var2.dref(), continuation);
+
+        local_aregs[1] = S(pred_writel_1_consts.string1, var2.dref(), continuation);
         mach.updateCUTB();
         return getConsts().wr2cont;
     }

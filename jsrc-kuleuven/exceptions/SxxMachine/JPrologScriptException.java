@@ -12,6 +12,11 @@ import javax.script.ScriptException;
   */
 public class JPrologScriptException extends ScriptException {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public JPrologScriptException(Exception e) {
         super(e);
     }

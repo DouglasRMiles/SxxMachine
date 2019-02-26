@@ -1,13 +1,13 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 import SxxMachine.pterm.TermData;
 
 /**
  * Maps a Term to an Source for iterating over its arguments
  */
-public class TermSource extends Source {
-    public TermSource(Nonvar val, Prog p) {
+class TermSource2 extends SourceFluentTerm {
+    public TermSource2(Nonvar val, Prog p) {
         super(p);
         this.val = val;
         pos = 0;
@@ -28,7 +28,7 @@ public class TermSource extends Source {
         } else if (0 == pos)
             X = TermData.SYM(val.pprint());
         else if (pos <= TermData.asStruct(val).arityOrType())
-            X = TermData.asStruct(val).ArgDeRef(pos - 1);
+            X = TermData.asStruct(val).getDrefArg(pos - 1);
         else {
             X = null;
             val = null;

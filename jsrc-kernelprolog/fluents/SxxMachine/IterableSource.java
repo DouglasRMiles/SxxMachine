@@ -1,14 +1,13 @@
 package SxxMachine;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /**
  * Builds Prolog Iterators from Java Sequences and Iterator type classes
  */
-public class IterableSource extends Source {
+public class IterableSource extends SourceFluentTerm {
     private Iterator e;
 
     public IterableSource(Prog p) {
@@ -20,8 +19,9 @@ public class IterableSource extends Source {
         super(p);
         this.e = iterator;
     }
+ 
 
-    public IterableSource(ArrayList V, Prog p) {
+    public IterableSource(Iterable V, Prog p) {
         super(p);
         this.e = V.iterator();
     }

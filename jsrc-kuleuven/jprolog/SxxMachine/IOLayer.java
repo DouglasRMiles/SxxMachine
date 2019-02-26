@@ -66,10 +66,10 @@ public class IOLayer {
 
     public class StreamHandler<InternalStreamType extends Closeable> {
 
-        private final class UndoOpenOp implements UnTrailOperation {
+        private final class OpenStreamUndo implements UnTrailOperation {
             private final String name;
 
-            private UndoOpenOp(String name) {
+            private OpenStreamUndo(String name) {
                 this.name = name;
             }
 
@@ -95,7 +95,7 @@ public class IOLayer {
             handle = handle.dref();
             if (!(handle instanceof Const))
                 return false;
-            String name = handle.fname();
+            final String name = handle.fname();
             if (openStreams.containsKey(name))
                 return false;
             return true;
@@ -104,7 +104,7 @@ public class IOLayer {
         void openStream(InternalStreamType stream, final String name) {
             currentStream = stream;
             openStreams.put(name, stream);
-            mach.trailEntry(new UndoOpenOp(name));
+            mach.trailEntry(new OpenStreamUndo(name));
         }
 
         public boolean closeInStream(Term handle) {
@@ -119,10 +119,10 @@ public class IOLayer {
         private boolean closeStream(String name) {
             if (!openStreams.containsKey(name))
                 return false;
-            InternalStreamType sg = openStreams.remove(name);
+            final InternalStreamType sg = openStreams.remove(name);
             try {
                 sg.close();
-            } catch (IOException ex) {
+            } catch (final IOException ex) {
             }
             if (sg.equals(currentStream))
                 currentStream = null;
@@ -130,7 +130,7 @@ public class IOLayer {
         }
 
         private String currentKey(InternalStreamType value) {
-            for (Map.Entry<String, InternalStreamType> e : openStreams.entrySet()) {
+            for (final Map.Entry<String, InternalStreamType> e : openStreams.entrySet()) {
                 if (e.getValue().equals(value))
                     return e.getKey();
             }
@@ -143,7 +143,7 @@ public class IOLayer {
             openStreams.remove(currentKey(currentStream));
             try {
                 currentStream.close();
-            } catch (IOException ex) {
+            } catch (final IOException ex) {
             }
             currentStream = null;
             return true;
@@ -153,7 +153,7 @@ public class IOLayer {
             handle = handle.dref();
             if (!(handle instanceof Const))
                 return false;
-            String name = handle.fname();
+            final String name = handle.fname();
             return openStreams.containsKey(name);
         }
 
@@ -181,7 +181,7 @@ public class IOLayer {
         public void close() {
             try {
                 stream.close();
-            } catch (IOException ex) {
+            } catch (final IOException ex) {
                 log.warn("Error sluiten stream", ex);
             }
             stream = null;
@@ -204,7 +204,7 @@ public class IOLayer {
             super(in, reopen);
             try {
                 lex = new Lexer(in, mach);
-            } catch (Exception ex) {
+            } catch (final Exception ex) {
                 log.fatal("could not create lexer", ex);
             }
         }

@@ -1,7 +1,6 @@
 package SxxMachine.pterm;
 
 import static SxxMachine.pterm.TermData.C;
-import static SxxMachine.pterm.TermData.S;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
@@ -24,7 +23,7 @@ import SxxMachine.Var;
 import SxxMachine.sxxtensions;
 
 @SuppressWarnings({ "rawtypes" })
-abstract class PTerm extends KPTerm implements Term {
+public abstract class PTerm extends KPTerm {
 
     @Override
     public final SxxMachine.Functor asConst() {
@@ -265,22 +264,24 @@ abstract class PTerm extends KPTerm implements Term {
     /** @return the name of this Term, if {@link #isCompound()}.
      * @throws Exception */
     @Override
-    public abstract String fname() throws IllegalTypeException;
+    public abstract String getString() throws IllegalTypeException;
 
     /** @return the arity of this Term, if {@link #isCompound()}. */
     @Override
     public int arity() {
-        oopsy();
+        oopsy("arity reason");
         return 0;
     }
 
     @Override
     public Term[] args() {
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(666);
     }
 
     @Override
-    public Term arg0(int nth) {
+    public Term getPlainArg(int nth) {
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(nth);
     }
 
@@ -288,36 +289,37 @@ abstract class PTerm extends KPTerm implements Term {
      * @return get the nth argument of {@link #isCompound()} or {@link #isCons()}.
      */
     public Term nth0(int nth) {
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(nth);
     }
 
     @Override
     public Term car() {
-        oopsy();
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-1);
     }
 
     @Override
     public Term cdr() {
-        oopsy();
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-2);
     }
 
     @Override
     public int length() {
-        oopsy();
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-3);
     }
 
     @Override
     public Compound add(Term t) {
-        oopsy();
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-5);
     }
 
     @Override
     public Compound append(Term t) {
-        oopsy();
+        oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-5);
     }
 
@@ -600,14 +602,14 @@ abstract class PTerm extends KPTerm implements Term {
     }
 
     @Override
-    public boolean equalsTerm(Term head) {
-        if (head == this)
-            return true;
-        return equalsTerm(head, StrictEquals);
+    public boolean equalsTerm(Term t) {
+        return equalsTerm(t, StrictEquals);
     }
 
     @Override
-    abstract public boolean equalsTerm(Term obj, OpVisitor comparator);
+    public boolean equalsTerm(Term obj, OpVisitor _comparator) {
+        return (obj == this);
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -632,11 +634,6 @@ abstract class PTerm extends KPTerm implements Term {
         if (partial == this)
             return true;
         throw new NoSuchElementException("no bind on genral terms");
-    }
-
-    @Override
-    public boolean equalsIdentical(Term t) {
-        return equalsTerm(t, StrictEquals);
     }
 
     static final class UndoAttributeReplacement implements Undoable {
@@ -665,9 +662,6 @@ abstract class PTerm extends KPTerm implements Term {
         return attterm.drefAttrs();
     }
 
-    public Term ArgNoDeRef(int i) {
-        return this.arg0(i);
-    }
 
     @Override
     public Term findOrAttrValue(Trail trail, boolean createIfMissing, Term name) {
@@ -688,18 +682,18 @@ abstract class PTerm extends KPTerm implements Term {
         } else {
             Term next = this.getAttrs();
             do {
-                if (next.arg0(0).equalsTerm(name, StrictEquals)) {
+                if (next.getPlainArg(0).equalsTerm(name, StrictEquals)) {
                     return next;
                 }
-                Term nnext = next.arg0(2);
-                if (!nnext.fname().equals("att")) {
+                Term nnext = next.getPlainArg(2);
+                if (!nnext.getString().equals("att")) {
                     break;
                 }
                 next = nnext;
             } while (true);
             if (!createIfMissing)
                 return Prolog.Nil;
-            next.setarg0(trail, 2, C("att", name, null, Prolog.Nil));
+            next.setarg0Maybe_trail(trail, 2, C("att", name, null, Prolog.Nil));
             return next;
         }
     }
@@ -790,17 +784,17 @@ abstract class PTerm extends KPTerm implements Term {
         } else {
             Term next = wasAttrs;
             do {
-                if (wasAttrs.arg0(0).equalsTerm(name, StrictEquals)) {
-                    (wasAttrs).setarg0(trail, 1, val);
+                if (wasAttrs.getPlainArg(0).equalsTerm(name, StrictEquals)) {
+                    (wasAttrs).setarg0Maybe_trail(trail, 1, val);
                     return;
                 }
-                Term nnext = next.arg0(2);
-                if (!nnext.fname().equals("att")) {
+                Term nnext = next.getPlainArg(2);
+                if (!nnext.getString().equals("att")) {
                     break;
                 }
                 next = nnext;
             } while (true);
-            next.setarg0(trail, 2, C("att", name, val, Prolog.Nil));
+            next.setarg0Maybe_trail(trail, 2, C("att", name, val, Prolog.Nil));
         }
     }
 
@@ -840,7 +834,7 @@ abstract class PTerm extends KPTerm implements Term {
     }
 
     @Override
-    public void setarg0(Trail trail, int i0, Term value) {
+    public void setarg0Maybe_trail(Trail trail, int i0, Term value) {
         System.out.println("general SetArg on terms not available");
     }
 
@@ -908,7 +902,7 @@ abstract class PTerm extends KPTerm implements Term {
     /**
      * @return the value
      */
-    public Term getValue() {
+    public Object getValue() {
         return this;
     }
 
@@ -964,7 +958,7 @@ abstract class PTerm extends KPTerm implements Term {
     @Override
     public boolean pbind(Term variableTerm, Trail trail) {
         // TODO Auto-generated method stub
-        oopsy();
+        oopsy("missing method reason");
         return false;
     }
 
@@ -984,6 +978,12 @@ abstract class PTerm extends KPTerm implements Term {
     }
 
     @Override
+    public String fname() {
+        oopsy("missing method reason");
+        return "" + object();
+    }
+
+    @Override
     public Term asStructureTerm() {
         // TODO Auto-generated method stub
         return (Term) this;
@@ -991,9 +991,8 @@ abstract class PTerm extends KPTerm implements Term {
 
     @Override
     public void setArg(int i, Term value) {
-        setarg0(null, i, value);
+        setarg0Maybe_trail(null, i, value);
     }
-    //
 
     @Override
     public Compound asListTerm() {
@@ -1046,6 +1045,10 @@ abstract class PTerm extends KPTerm implements Term {
     public boolean unifyS(Functor f, Trail trail, Term... va) {
         // TODO Auto-generated method stub
         return unify(S(f, va), trail);
+    }
+
+    public Compound S(Functor f, Term[] va) {
+        return TermData.S(f, va);
     }
 
     @Override

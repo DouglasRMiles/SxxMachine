@@ -5,7 +5,6 @@ import static SxxMachine.pterm.TermData.V;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.pterm.SystemObject;
 import SxxMachine.pterm.TermData;
 
 //!depends
@@ -13,7 +12,7 @@ import SxxMachine.pterm.TermData;
  * Term Copier agent. Has its own Variable dictionnary. Uses a generic action
  * propagator which recurses over Terms.
  */
-public class Copier extends SystemObject {
+public class Copier extends JPrologObject {
     private HashDict dict;
 
     /**
@@ -69,8 +68,8 @@ public class Copier extends SystemObject {
                 break;
             } else if (t.isCons()) {
                 Term c = TermData.asCons(t);
-                V.add(c.ArgDeRef(0));
-                t = c.ArgDeRef(1);
+                V.add(c.getDrefArg(0));
+                t = c.getDrefArg(1);
             } else if (t.isConst()) {
                 V.add(t);
                 break;

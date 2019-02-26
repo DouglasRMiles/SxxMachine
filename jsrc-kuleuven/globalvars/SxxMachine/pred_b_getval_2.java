@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
 public class pred_b_getval_2 extends Code {
 
     private static Code unification;
@@ -18,19 +20,19 @@ public class pred_b_getval_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
+        final Term local_aregs[] = mach.getAreg();
         Term name = local_aregs[0].dref();
 
         if (name instanceof AFunct) {
-            AFunct f = (AFunct) name;
+            final AFunct f = (AFunct) name;
             if (f.arity() == 0) {
-                name = JpFactory.CONST(f.fname());
+                name = CONST(f.fname());
             }
         }
         if (name instanceof Const) {
-            Const cname = (Const) name;
+            final Const cname = (Const) name;
 
-            Term oldValue = (Term) GlobalVarsModule.getTable(mach).get(cname);
+            final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);
             if (oldValue != null) {
                 local_aregs[0] = oldValue;
                 // System.out.println("b_getval(" + name + "," + oldValue + ")");

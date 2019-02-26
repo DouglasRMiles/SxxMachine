@@ -3,7 +3,7 @@ package SxxMachine;
 /**
  * Minimal command line only Prolog main entry point
  */
-public class Main {
+public class KernelPrologMain {
     public static int init() {
         if (!Init.startProlog())
             return 0;

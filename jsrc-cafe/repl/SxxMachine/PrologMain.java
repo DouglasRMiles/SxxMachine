@@ -151,7 +151,7 @@ public class PrologMain {
         set.add(Prolog.BUILTIN);
         set.add("user");
         if (goal != null) {
-            set.add(goal.arg0(0).fname());
+            set.add(goal.getPlainArg(0).getString());
         }
 
         List<String> list = new ArrayList<>(set);

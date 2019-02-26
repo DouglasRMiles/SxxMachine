@@ -3,6 +3,7 @@ package SxxMachine;
 
 import java.io.File;
 
+@SuppressWarnings("rawtypes")
 public abstract class PredikatenPrologMachine {
 
     private final static Logger log = Logger.getLogger(PredikatenPrologMachine.class);
@@ -30,9 +31,9 @@ public abstract class PredikatenPrologMachine {
     @SuppressWarnings("unchecked")
     protected void loadQuery(File folder) {
         try {
-            Class<Code> f = (Class<Code>) loader.locateTemporaryClass(folder, "SxxMachine.query");
+            final Class<Code> f = (Class<Code>) loader.locateTemporaryClass(folder, "SxxMachine.query");
             registerCode(f.newInstance(), "$$query");
-        } catch (Exception e) {
+        } catch (final Exception e) {
             registerCode(Fail0, "$$query");
         }
 
@@ -62,11 +63,11 @@ public abstract class PredikatenPrologMachine {
 
         try {
             return loadPredikaat(Name, arity);
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             log.debug(e);
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             throw new JPrologInternalException("error loading " + Name + "/" + arity, e);
-        } catch (InstantiationException e) {
+        } catch (final InstantiationException e) {
             throw new JPrologInternalException("error creating " + Name + "/" + arity, e);
         }
 
@@ -82,8 +83,8 @@ public abstract class PredikatenPrologMachine {
         Code code = predicates.isInPredTable(predName, arity + 1);
         if (code != null)
             return code;
-        String s1 = "SxxMachine.pred_" + predName + "_" + arity;
-        Class loaded_class = loader.locateClass(s1);
+        final String s1 = "SxxMachine.pred_" + predName + "_" + arity;
+        final Class loaded_class = loader.locateClass(s1);
         code = (Code) loaded_class.newInstance();
         predicates.insertNameArity(predName, arity + 1, code);
         code.init(this);
@@ -96,7 +97,7 @@ public abstract class PredikatenPrologMachine {
         try {
             loadPredikaat(predName, arity);
             return true;
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             return false;
         }
     }

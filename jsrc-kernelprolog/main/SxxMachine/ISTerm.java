@@ -1,9 +1,9 @@
 package SxxMachine;
 
 public interface ISTerm {
-    public Term ArgDeRef(int i);
+    public Term getDrefArg(int i);
 
-    public Term ArgNoDeRef(int i);
+    public Term getPlainArg(int i);
 
     public int getIntArg(int i);
 

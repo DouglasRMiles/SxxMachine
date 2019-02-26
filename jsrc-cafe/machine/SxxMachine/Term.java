@@ -3,10 +3,10 @@ package SxxMachine;
 import java.util.Iterator;
 import java.util.Map;
 
-import SxxMachine.pterm.Clause;
 import SxxMachine.pterm.ClosureTerm;
+import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.MapTerm;
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /**
  * The superclass of classes for term structures. The subclasses of
@@ -54,7 +54,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean Unify_TO(Term dref, KPTrail trail);
 
-    public Term arg0(int i);
+    public Term getPlainArg(int i);
 
     public boolean equalsTerm(Term name, OpVisitor strictequals2);
 
@@ -90,11 +90,9 @@ public interface Term extends Comparable<Term> {
 
     public boolean isVar();
 
-    public boolean equalsIdentical(Term t);
-
     public Term freeze(Trail trail, Term newval);
 
-    public String fname();
+    public String getString();
 
     public Term findOrAttrValue(Trail trail, boolean b, Term a2);
 
@@ -132,7 +130,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isJavaObject();
 
-    public String getKey();
+    public String getFAKey();
 
     public Term[] args();
 
@@ -194,13 +192,13 @@ public interface Term extends Comparable<Term> {
 
     public boolean isCharReader();
 
-    public Term ArgDeRef(int j);
+    public Term getDrefArg(int j);
 
     public Compound asListTerm();
 
     public NumberTerm asNumberTerm();
 
-    public void setarg0(Trail trail, int i0, Term value);
+    public void setarg0Maybe_trail(Trail trail, int i0, Term value);
 
     public Compound add(Term term);
 
@@ -210,7 +208,7 @@ public interface Term extends Comparable<Term> {
 
     public Object toObject();
 
-    public Clause toClause();
+    public HornClause toClause();
 
     public Term action(Term term);
 
@@ -226,7 +224,7 @@ public interface Term extends Comparable<Term> {
 
     public int length();
 
-    public Source asSource();
+    public SourceFluentTerm asSource();
 
     public Term asStructureTerm();
 
@@ -269,5 +267,26 @@ public interface Term extends Comparable<Term> {
     public boolean isSymbol();
 
     public Term listify();
+
+    public String fname();
+
+    public boolean unify(Term that);
+
+    public boolean bind(Term that);
+
+    String toStringImpl(int depth);
+
+    public boolean couldUnify(Term object);
+
+    boolean couldUnifyInverse(Term object);
+
+    public String toJpString();
+
+    /**
+     * @param m
+     * @param t
+     * @return
+     */
+    Term copy(RunningPrologMachine m, long t);
 
 }

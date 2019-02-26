@@ -111,13 +111,13 @@ public class sxxtensions extends missing_preds {
 
     public static boolean DoSetArg3_p2(Prolog m, int i, Term arg2, Term arg3) {
         if (m == null) {
-            arg2.setarg0(null, i - 1, arg3);
+            arg2.setarg0Maybe_trail(null, i - 1, arg3);
             return true;
         }
-        Term x = arg2.arg0(i - 1);
+        Term x = arg2.getPlainArg(i - 1);
         VariableTerm v = V(m);
         v.val = arg3;
-        arg2.setarg0(null, i - 1, v);
+        arg2.setarg0Maybe_trail(null, i - 1, v);
         m.push(new SetArgTrail(x, v, m));
         return true;
     }
@@ -344,7 +344,7 @@ public class sxxtensions extends missing_preds {
         Term t = a1.findOrAttrValue(m.trail, false, a2);
         if (!t.isCompound())
             return m.fail();
-        if (!a3.unify(t.arg0(1), m.trail))
+        if (!a3.unify(t.getPlainArg(1), m.trail))
             return m.fail();
         return m.cont;
     }

@@ -4,20 +4,26 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_processfile_2_consts {
     Code entry_code;
     Code readprogram2cont;
     Code cut2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("processfile");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("readprogram");
-    final static String string4 = Const.strIntern("end_of_file");
-    final static String string5 = Const.strIntern("[]");
-    final static String string6 = Const.strIntern("cut");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("processfile");
+    final static String string2 = internS(".");
+    final static String string3 = internS("readprogram");
+    final static String string4 = internS("end_of_file");
+    final static String string5 = internS("[]");
+    final static String string6 = internS("cut");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_processfile_2 extends Code {
@@ -60,9 +66,9 @@ public class pred_processfile_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -77,21 +83,25 @@ class pred_processfile_2_1 extends pred_processfile_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = JpFactory.CONST(getConsts().string4);
-        Term arg1 = JpFactory.CONST(getConsts().string5);
+
+        final Term arg0 = CONST(pred_processfile_2_consts.string4);
+
+        final Term arg1 = CONST(pred_processfile_2_consts.string5);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string4))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(CONST(pred_processfile_2_consts.string4))))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.CONST(getConsts().string5))))
+
+        if (!(areg1.unify(CONST(pred_processfile_2_consts.string5))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -109,27 +119,29 @@ class pred_processfile_2_2 extends pred_processfile_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = JpFactory.S(getConsts().string2, var1.dref(), var2);
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+
+        final Term arg1 = S(pred_processfile_2_consts.string2, var1.dref(), var2);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+
+        if (!(areg1.unify(S(pred_processfile_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = continuation;

@@ -31,7 +31,7 @@ class jPDeque<Item> implements Iterable<Item> {
     public void addFirst(Item item) throws DequeOverflowException {
         throwIfNull(item);
 
-        Node newFirst = new Node();
+        final Node newFirst = new Node();
         newFirst.item = item;
 
         if (first != null) {
@@ -48,7 +48,7 @@ class jPDeque<Item> implements Iterable<Item> {
     public Item removeFirst() throws DequeUnderflowException {
         throwIfEmpty();
 
-        Node oldFirst = first;
+        final Node oldFirst = first;
         first = first.next;
 
         if (first == null)
@@ -64,7 +64,7 @@ class jPDeque<Item> implements Iterable<Item> {
     public void addLast(Item item) throws DequeOverflowException {
         throwIfNull(item);
 
-        Node newLast = new Node();
+        final Node newLast = new Node();
         newLast.item = item;
 
         if (last != null) {
@@ -80,13 +80,13 @@ class jPDeque<Item> implements Iterable<Item> {
 
     public Item getLast() {
         //throwIfEmpty();
-        return (Item) last.item;
+        return last.item;
     }
 
     public Item removeLast() throws DequeUnderflowException {
         throwIfEmpty();
 
-        Node oldLast = last;
+        final Node oldLast = last;
         last = oldLast.previous;
 
         if (last == null)
@@ -132,7 +132,7 @@ class jPDeque<Item> implements Iterable<Item> {
             if (current == null)
                 throw new NoSuchElementException();
 
-            Item item = current.item;
+            final Item item = current.item;
             current = current.next;
             return item;
         }

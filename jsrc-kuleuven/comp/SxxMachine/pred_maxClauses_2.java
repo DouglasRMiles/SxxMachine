@@ -4,23 +4,29 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_maxClauses_2_consts {
     Code entry_code;
     Code is3cont;
     Code cut2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("maxClauses");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("is");
-    final static String string4 = Const.strIntern("-");
-    final static String string5 = Const.strIntern("cut");
-    final static String string6 = Const.strIntern("fail");
-    final static String string7 = Const.strIntern("[]");
-    final static String string8 = Const.strIntern("call");
-    final static Int posint1 = JpFactory.Long(1);
-    final static Int posint0 = JpFactory.Long(0);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("maxClauses");
+    final static String string2 = internS(".");
+    final static String string3 = internS("is");
+    final static String string4 = internS("-");
+    final static String string5 = internS("cut");
+    final static String string6 = internS("fail");
+    final static String string7 = internS("[]");
+    final static String string8 = internS("call");
+    final static NumberTerm posint1 = Integer(1);
+    final static NumberTerm posint0 = Integer(0);
 }
 
 public class pred_maxClauses_2 extends Code {
@@ -64,9 +70,9 @@ public class pred_maxClauses_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -81,22 +87,24 @@ class pred_maxClauses_2_1 extends pred_maxClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.CONST(getConsts().string7);
-        Term arg1 = var1;
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = CONST(pred_maxClauses_2_consts.string7);
+        final Term arg1 = var1;
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.CONST(getConsts().string7))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(CONST(pred_maxClauses_2_consts.string7))))
             return mach.Fail0;
         if (!(areg1.unify(var1.dref())))
             return mach.Fail0;
@@ -115,30 +123,35 @@ class pred_maxClauses_2_2 extends pred_maxClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string2, var1, var2);
-        Term arg1 = getConsts().posint0;
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_maxClauses_2_consts.string2, var1, var2);
+
+        final Term arg1 = pred_maxClauses_2_consts.posint0;
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_maxClauses_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(getConsts().posint0)))
+
+        if (!(areg1.unify(pred_maxClauses_2_consts.posint0)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = JpFactory.S(getConsts().string6, continuation);
+
+        local_aregs[0] = S(pred_maxClauses_2_consts.string6, continuation);
         mach.updateCUTB();
         local_aregs[2] = null;
         return mach.Call1;
@@ -153,37 +166,39 @@ class pred_maxClauses_2_3 extends pred_maxClauses_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var4 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = JpFactory.S(getConsts().string2, var1, var2);
-        Term arg1 = var3;
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+
+        final Term arg0 = S(pred_maxClauses_2_consts.string2, var1, var2);
+        final Term arg1 = var3;
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!(areg0.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+
+        if (!(areg0.unify(S(pred_maxClauses_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         if (!(areg1.unify(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var4;
-        local_aregs[1] = JpFactory.S(getConsts().string4, var3.dref(), getConsts().posint1);
-        local_aregs[2] = JpFactory.S(getConsts().string1, var2.dref(), var4.dref(), continuation);
+
+        local_aregs[1] = S(pred_maxClauses_2_consts.string4, var3.dref(), pred_maxClauses_2_consts.posint1);
+
+        local_aregs[2] = S(pred_maxClauses_2_consts.string1, var2.dref(), var4.dref(), continuation);
         mach.updateCUTB();
         return getConsts().is3cont;
     }

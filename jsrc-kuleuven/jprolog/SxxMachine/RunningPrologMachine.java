@@ -43,7 +43,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
     public Term[] createAregCopy(int count) {
         if (count < 1)
             throw new IllegalArgumentException();
-        Term[] copy = new Term[count];
+        final Term[] copy = new Term[count];
         System.arraycopy(getAreg(), 0, copy, 0, count);
         return copy;
     }
@@ -123,7 +123,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
 
     public void fillAlternatives(java.util.Iterator<Code> todo) {
         if (todo instanceof CodeIterator) {
-            CodeIterator c = (CodeIterator) todo;
+            final CodeIterator c = (CodeIterator) todo;
             c.setPrologMachine(this);
         }
         getCurrentStackPoint().setAlternative(todo);
@@ -181,6 +181,10 @@ public class RunningPrologMachine extends ModulePrologMachine {
                 return out;
             }
         };
+    }
+
+    public JpVar mkvar0() {
+        return new JpVar(this);
     }
 
 }

@@ -4,13 +4,17 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_readprogram_1_consts {
     Code entry_code;
     Code read2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("readprogram");
-    final static String string2 = Const.strIntern("read");
-    final static String string3 = Const.strIntern("processfile");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("readprogram");
+    final static String string2 = internS("read");
+    final static String string3 = internS("processfile");
 }
 
 public class pred_readprogram_1 extends Code {
@@ -23,14 +27,11 @@ public class pred_readprogram_1 extends Code {
 
     protected pred_readprogram_1(pred_readprogram_1 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_readprogram_1_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -49,15 +50,16 @@ public class pred_readprogram_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = JpFactory.S(getConsts().string3, var2.dref(), var1.dref(), continuation);
+
+        local_aregs[1] = S(pred_readprogram_1_consts.string3, var2.dref(), var1.dref(), continuation);
         mach.updateCUTB();
         return getConsts().read2cont;
 

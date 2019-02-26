@@ -1,11 +1,17 @@
 package SxxMachine.pterm;
 
 import SxxMachine.Atomic;
+import SxxMachine.Const;
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
 import SxxMachine.Term;
 
-abstract class AtomicConst extends ANonvar implements Atomic {
+public abstract class AtomicConst extends Const implements Atomic {
+
+    public AtomicConst(Object i) {
+        super(i);
+    }
+
     /* (non-Javadoc)
      * @see SxxMachine.pterm.IConst#type()
      */
@@ -42,7 +48,7 @@ abstract class AtomicConst extends ANonvar implements Atomic {
 
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
-        return equalsIdentical(obj);
+        return equalsTerm(obj);
     }
 
     /* (non-Javadoc)
@@ -50,7 +56,7 @@ abstract class AtomicConst extends ANonvar implements Atomic {
      */
     @Override
     public String pprint() throws PrologException {
-        return fname();
+        return getString();
     }
 
 }

@@ -1,10 +1,16 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
+import SxxMachine.pterm.StructureTerm;
 
 public class pred_sort_2 extends Code {
 
@@ -15,7 +21,7 @@ public class pred_sort_2 extends Code {
     @Override
     public void init(PredikatenPrologMachine machine) {
         if (unify == null) {
-            unify = machine.loadPred(Const.strIntern("unify"), 2);
+            unify = machine.loadPred(internS("unify"), 2);
         }
     }
 
@@ -27,15 +33,15 @@ public class pred_sort_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
+        final Term local_aregs[] = mach.getAreg();
         // PrologObject continuation = local_aregs[2];
         // PrologObject sortedlist = local_aregs[1].Deref();
         Term list = local_aregs[0].dref();
 
-        SortedSet<Term> set = new TreeSet<Term>(Collections.reverseOrder(pred_compare_3.getComparator()));
+        final SortedSet<Term> set = new TreeSet<Term>(Collections.reverseOrder(pred_compare_3.getComparator()));
         log.debug("Startin sort...");
         while (list.isCons()) {
-            Term[] fields = ((StructureTerm) list).args();
+            final Term[] fields = ((StructureTerm) list).args();
             set.add(fields[0].dref());
             list = fields[1].dref();
         }
@@ -46,9 +52,9 @@ public class pred_sort_2 extends Code {
             return mach.Fail0;
         }
 
-        Term output = JpFactory.CONST(Const.strIntern("[]"));
-        for (Iterator<Term> iter = (Iterator<Term>) set.iterator(); iter.hasNext();) {
-            output = JpFactory.S(Const.strIntern("."), iter.next(), output);
+        Term output = CONST(internS("[]"));
+        for (final Iterator<Term> iter = set.iterator(); iter.hasNext();) {
+            output = CONS(iter.next(), output);
         }
 
         local_aregs[0] = output;

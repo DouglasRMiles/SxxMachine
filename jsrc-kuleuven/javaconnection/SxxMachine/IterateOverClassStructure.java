@@ -1,11 +1,15 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.S;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+@SuppressWarnings("rawtypes")
 public class IterateOverClassStructure extends Code {
 
     final static String PREDNAME = "jp_javaStructureIterator";
@@ -20,15 +24,15 @@ public class IterateOverClassStructure extends Code {
     @Override
     public final Code exec(PrologMachine mach) {
         initMach(mach);
-        Term[] args = mach.getAreg();
-        Term object = args[0].dref();
-        Term classType = args[1].dref();
+        final Term[] args = mach.getAreg();
+        final Term object = args[0].dref();
+        final Term classType = args[1].dref();
         Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object instanceof Const))
             return mach.Fail0;
-        Object c = ((Const) object).getValue();
+        final Object c = ((Const) object).getValue();
         if (!(c instanceof Class))
             return mach.Fail0;
         cont = doAction((Class) c, classType, cont);
@@ -40,20 +44,20 @@ public class IterateOverClassStructure extends Code {
         return mach.Call1;
     }
 
-    @SuppressWarnings("deprecation")
     protected void initMach(PrologMachine mach) {
-        Term[] trace = mach.createAregCopy(3);
+        final Term[] trace = mach.createAregCopy(3);
         mach.createChoicePoint(trace);
         mach.fillAlternative(next);
     }
 
     protected Term doAction(Class c, Term v, Term cont) {
-        v.unify(JpFactory.CONST(c));
+        v.unify(CONST(c));
         return cont;
     }
 
 }
 
+@SuppressWarnings("rawtypes")
 class IterateOverClassStructure2 extends IterateOverClassStructure {
 
     private final static IterateOverClassStructure3 next = new IterateOverClassStructure3();
@@ -63,10 +67,9 @@ class IterateOverClassStructure2 extends IterateOverClassStructure {
         //Over classen verder gaan
         if (c.getSuperclass() == null)
             return null;
-        return JpFactory.S(PREDNAME, JpFactory.CONST(c.getSuperclass()), v, cont);
+        return S(PREDNAME, CONST(c.getSuperclass()), v, cont);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void initMach(PrologMachine mach) {
         mach.fillAlternative(next);
@@ -74,16 +77,17 @@ class IterateOverClassStructure2 extends IterateOverClassStructure {
 
 }
 
+@SuppressWarnings("rawtypes")
 class IterateOverClassStructure3 extends IterateOverClassStructure {
 
     @Override
     protected Term doAction(Class c, Term v, Term cont) {
-        Class[] interfaces = c.getInterfaces();
+        final Class[] interfaces = c.getInterfaces();
         if (interfaces == null || interfaces.length == 0)
             return null;
-        List<Class> a = new ArrayList<Class>();
+        final List<Class> a = new ArrayList<Class>();
         Collections.addAll(a, interfaces);
-        return JpFactory.S(InterfaceIterator.PREDNAME, JpFactory.CONST(a.iterator()), v, cont);
+        return S(InterfaceIterator.PREDNAME, CONST(a.iterator()), v, cont);
     }
 
     @Override
@@ -93,6 +97,7 @@ class IterateOverClassStructure3 extends IterateOverClassStructure {
 
 }
 
+@SuppressWarnings("rawtypes")
 class InterfaceIterator extends Code {
 
     final static String PREDNAME = "jp_interfaceIterator";
@@ -102,30 +107,30 @@ class InterfaceIterator extends Code {
         return 2;
     }
 
-    @SuppressWarnings({ "unchecked", "deprecation" })
+    @SuppressWarnings({ "unchecked" })
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] args = mach.getAreg();
+        final Term[] args = mach.getAreg();
 
-        Term object = args[0].dref();
-        Term classType = args[1].dref();
-        Term cont = args[2];
+        final Term object = args[0].dref();
+        final Term classType = args[1].dref();
+        final Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object instanceof Const))
             return mach.Fail0;
-        Object c = ((Const) object).getValue();
+        final Object c = ((Const) object).getValue();
         if (!(c instanceof Iterator))
             return mach.Fail0;
-        Iterator<Class> it = (Iterator<Class>) c;
+        final Iterator<Class> it = (Iterator<Class>) c;
         if (!it.hasNext()) {
             mach.removeChoice();
             return mach.Fail0;
         }
-        Term[] trace = { args[0], args[1], args[2] };
+        final Term[] trace = { args[0], args[1], args[2] };
         mach.createChoicePoint(trace);
         mach.fillAlternative(this);
-        if (!classType.unify(JpFactory.CONST(it.next())))
+        if (!classType.unify(CONST(it.next())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         args[1] = args[2] = null;

@@ -1,12 +1,15 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.EnumMap;
 import java.util.Map;
 
 public class CompilerSettings implements JPrologRunStackIniter {
 
-    private final static Const TRUE = JpFactory.CONST(Const.strIntern("true"));
+    private final static Const TRUE = CONST(internS("true"));
 
     private final Map<CompilerSetting, Boolean> settings;
 
@@ -25,13 +28,13 @@ public class CompilerSettings implements JPrologRunStackIniter {
     @Override
     public void init(RunningPrologMachine mach) throws JPrologScriptException {
         if (settings.size() > 0) {
-            ModuleRunStackInfo info = mach.getModuleInfo(GlobalVarsModule.class);
+            final ModuleRunStackInfo info = mach.getModuleInfo(GlobalVarsModule.class);
             VarTableIF table = info.getSetting(GlobalVarsModule.MAP, VarTableIF.class);
             if (table == null)
                 table = new DefaultVariableTable();
-            for (Map.Entry<CompilerSetting, Boolean> e : settings.entrySet()) {
+            for (final Map.Entry<CompilerSetting, Boolean> e : settings.entrySet()) {
                 if (e.getValue()) {
-                    table.put(JpFactory.CONST(e.getKey().name()), TRUE);
+                    table.put(CONST(e.getKey().name()), TRUE);
                 }
             }
             info.setSetting(GlobalVarsModule.MAP, table);

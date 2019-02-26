@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.S;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -35,14 +38,7 @@ public class CompilerConnection {
             FileUtil.removeRecursive(targetFolder);
             return false;
         }
-        mach.getPredikaatLoader().addCleanupListener(new CleanupListener() {
-            @Override
-            public void doCleanup(PredikaatLoader loader) {
-                //bij verwijderen predikaatloader - als afsluiten app eerst komt, 
-                //zal dit mogelijk niet opgeroepen worden
-                FileUtil.removeRecursive(targetFolder);
-            }
-        });
+        mach.getPredikaatLoader().addCleanupListener(loader -> FileUtil.removeRecursive(targetFolder));
         FileUtil.removeOnExit(targetFolder); //verwijderen van gecompileerde data
         testToRunQuery(mach, targetFolder);
         return true;
@@ -50,22 +46,22 @@ public class CompilerConnection {
 
     private static void testToRunQuery(PrologMachine mach, final File targetFolder)
             throws IOException, PrologCompileException {
-        File location = new File(targetFolder, PACKAGENAME);
-        File queryFile = new File(location, "query.class");
+        final File location = new File(targetFolder, PACKAGENAME);
+        final File queryFile = new File(location, "query.class");
         if (queryFile.exists()) {
             runQuery(mach, location);
         }
     }
 
     private static void runQuery(PrologMachine mach, File location) throws IOException, PrologCompileException {
-        File tmpFolder = FileUtil.createTempFolder("prolog2java");
+        final File tmpFolder = FileUtil.createTempFolder("prolog2java");
         moveToRunLocation(location, tmpFolder);
         try {
             if (!mach.runQuery(tmpFolder))
                 throw new PrologCompileException("Could not correctly compile and load code");
-        } catch (PrologCompileException ex) {
+        } catch (final PrologCompileException ex) {
             throw ex;
-        } catch (JPrologScriptException e) {
+        } catch (final JPrologScriptException e) {
             throw new PrologCompileException(e);
         } finally {
             FileUtil.removeRecursive(tmpFolder);
@@ -73,15 +69,10 @@ public class CompilerConnection {
     }
 
     private static void moveToRunLocation(File location, File tmpFolder) {
-        File newTarget = new File(tmpFolder, PACKAGENAME);
+        final File newTarget = new File(tmpFolder, PACKAGENAME);
         newTarget.mkdirs();
-        for (File f : location.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.getName().startsWith("query");
-            }
-        })) {
-            File newName = new File(newTarget, f.getName());
+        for (final File f : location.listFiles((FileFilter) pathname -> pathname.getName().startsWith("query"))) {
+            final File newName = new File(newTarget, f.getName());
             if (!f.renameTo(newName))
                 throw new IllegalStateException("Could not move file: " + f);
         }
@@ -99,10 +90,10 @@ public class CompilerConnection {
         java.util.List<File> srcFiles;
         try {
             srcFiles = compileJavaToByteCode(targetFolder, targetFolder);
-        } catch (IllegalStateException ex) {
+        } catch (final IllegalStateException ex) {
             return false;
         }
-        for (File f : srcFiles) {
+        for (final File f : srcFiles) {
             if (!f.delete())
                 f.deleteOnExit(); //src-files verwijderen
         }
@@ -130,31 +121,30 @@ public class CompilerConnection {
 
     private static boolean compileToJava(Reader in, File targetFolder, PrologMachine mach,
             CompilerSettings compSettings) throws PrologCompileException {
-        Const stream = JpFactory.CONST(in);
-        Const target = JpFactory.CONST(targetFolder);
+        final Const stream = CONST(in);
+        final Const target = CONST(targetFolder);
         try {
             try {
-                return mach.solveGoalOnce(JpFactory
-                        .S("compstream", stream, target), compSettings) == ErrorStatus.NORMALEXIT;
+                return mach.solveGoalOnce(S("compstream", stream, target), compSettings) == ErrorStatus.NORMALEXIT;
             } finally {
                 try {
                     in.close();
-                } catch (IOException ex) {
+                } catch (final IOException ex) {
                 }
             }
-        } catch (JPrologScriptException ex) {
+        } catch (final JPrologScriptException ex) {
             throw new PrologCompileException(ex);
         }
     }
 
     public static java.util.List<File> compileJavaToByteCode(File source, File target)
             throws IOException, IllegalStateException {
-        JavaCompiler jc = ToolProvider.getSystemJavaCompiler();
-        StandardJavaFileManager sjfm = jc.getStandardFileManager(null, null, null);
-        java.util.List<File> files = locateFiles(source);
-        Iterable<? extends JavaFileObject> fileObjects = sjfm.getJavaFileObjectsFromFiles(files);
-        String[] options = new String[] { "-d", target.getAbsolutePath() };
-        boolean res = jc.getTask(null, sjfm, null, java.util.Arrays.asList(options), null, fileObjects).call();
+        final JavaCompiler jc = ToolProvider.getSystemJavaCompiler();
+        final StandardJavaFileManager sjfm = jc.getStandardFileManager(null, null, null);
+        final java.util.List<File> files = locateFiles(source);
+        final Iterable<? extends JavaFileObject> fileObjects = sjfm.getJavaFileObjectsFromFiles(files);
+        final String[] options = new String[] { "-d", target.getAbsolutePath() };
+        final boolean res = jc.getTask(null, sjfm, null, java.util.Arrays.asList(options), null, fileObjects).call();
         sjfm.close();
         if (!res)
             throw new IllegalStateException("Could not compile input");
@@ -164,8 +154,8 @@ public class CompilerConnection {
     private static java.util.List<File> locateFiles(File source) {
         if (source.isFile())
             return java.util.Collections.singletonList(source);
-        java.util.List<File> files = new java.util.ArrayList<File>();
-        for (File f : source.listFiles()) {
+        final java.util.List<File> files = new java.util.ArrayList<File>();
+        for (final File f : source.listFiles()) {
             if (f.isDirectory()) {
                 files.addAll(locateFiles(f));
             } else if (f.getName().toLowerCase().endsWith(".java")) {

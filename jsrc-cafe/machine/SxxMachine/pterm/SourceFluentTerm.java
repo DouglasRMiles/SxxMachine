@@ -13,14 +13,15 @@ import SxxMachine.Term;
 import SxxMachine.Undoable;
 import SxxMachine.Var;
 
-abstract public class Source extends AFluent implements Undoable, Var {
+
+abstract public class SourceFluentTerm extends FluentTerm implements Undoable, Var {
 
     @Override
     public boolean unbound() {
         return false;
     }
 
-    public Source(Prog p) {
+    public SourceFluentTerm(Prog p) {
         super(p);
     }
 

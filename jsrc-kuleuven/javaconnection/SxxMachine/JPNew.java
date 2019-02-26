@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+
 import java.lang.reflect.Constructor;
 
 public class JPNew extends Code {
@@ -12,27 +15,27 @@ public class JPNew extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] args = mach.getAreg();
-        Term classType = args[0].dref();
-        Term classArgs = args[1].dref();
-        Term res = args[2].dref();
-        Term exception = args[3].dref();
-        Term cont = args[4].dref();
-        Class<?> targetClass = getTargetClass(mach, classType);
+        final Term[] args = mach.getAreg();
+        final Term classType = args[0].dref();
+        final Term classArgs = args[1].dref();
+        final Term res = args[2].dref();
+        final Term exception = args[3].dref();
+        final Term cont = args[4].dref();
+        final Class<?> targetClass = getTargetClass(mach, classType);
         if (targetClass == null)
             return mach.Fail0;
         if (!classArgs.isCons() && !classArgs.isNil())
             return mach.Fail0;
-        Object[] java_args = ArrayConverter.convert2java(classArgs, Object.class);
+        final Object[] java_args = ArrayConverter.convert2java(classArgs, Object.class);
         if (java_args == null)
             return mach.Fail0;
         try {
-            if (!res.unify(JpFactory.CONST(createClass(targetClass, java_args))))
+            if (!res.unify(CONST(createClass(targetClass, java_args))))
                 return mach.Fail0;
             if (!exception.unify(Const.javaNull()))
                 return mach.Fail0;
-        } catch (Throwable ex) {
-            if (!exception.unify(JpFactory.CONST(ex)))
+        } catch (final Throwable ex) {
+            if (!exception.unify(CONST(ex)))
                 return mach.Fail0;
         }
         args[1] = args[2] = args[3] = args[4] = null;
@@ -42,7 +45,7 @@ public class JPNew extends Code {
 
     private Class<?> getTargetClass(PrologMachine mach, Term classType) {
         if (!(classType instanceof Const) || !(((Const) classType).getValue() instanceof Class)) {
-            JpVar v = JpFactory.JVAR(mach);
+            final JpVar v = Jv(mach);
             if (!ClassPred.find(v, classType))
                 return null;
             return (Class<?>) ((Const) v.dref()).getValue();
@@ -51,18 +54,18 @@ public class JPNew extends Code {
     }
 
     private <T> T createClass(Class<T> c, Object... args) throws Throwable {
-        Class<?>[] argClasses = new Class<?>[args.length];
+        final Class<?>[] argClasses = new Class<?>[args.length];
         for (int i = 0; i < argClasses.length; i++)
             if (args[i] != null)
                 argClasses[i] = args[i].getClass();
-        Constructor<T> con = findConstructor(c, argClasses);
+        final Constructor<T> con = findConstructor(c, argClasses);
         return con.newInstance(args);
     }
 
     @SuppressWarnings("unchecked")
     private <T> Constructor<T> findConstructor(Class<T> c, Class<?>... args) {
-        Constructor<T>[] cons = (Constructor<T>[]) c.getConstructors();
-        for (Constructor<T> con : cons) {
+        final Constructor<T>[] cons = (Constructor<T>[]) c.getConstructors();
+        for (final Constructor<T> con : cons) {
             if (isValidConstructor(con, args))
                 return con;
         }
@@ -70,7 +73,7 @@ public class JPNew extends Code {
     }
 
     private boolean isValidConstructor(Constructor<?> con, Class<?>... args) {
-        Class<?>[] constructorArgs = con.getParameterTypes();
+        final Class<?>[] constructorArgs = con.getParameterTypes();
         if (constructorArgs.length == args.length) {
             for (int i = 0; i < args.length; i++) {
                 if (!((args[i] != null && constructorArgs[i].isAssignableFrom(args[i])) || (args[i] == null)))

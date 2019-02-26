@@ -1,51 +1,37 @@
 
 package SxxMachine;
 
-public final class Continuation extends JpATerm {
-    private Code code;
+public final class Continuation extends JPrologObject {
+    private final Code code;
 
-    private Term args[];
+    private final Term argz[];
 
     Continuation(Term args[], Code c) {
         int i = c.arity() + 1;
-        this.args = new Term[i];
+        argz = new Term[i];
         while (i-- > 0)
-            this.args[i] = args[i];
+            argz[i] = args[i];
         code = c;
     }
 
     @Override
     public Term dref() {
-        return this.asTerm();
+        return this;
     }
 
-    @Override
-    public Term asTerm() {
-        // TODO Auto-generated method stub
-        return (Term) (Object) this;
-    }
-
+    //
+    //
     @Override
     public boolean unify(Term that) {
-        return that.bind(this.asTerm());
+        return that.bind(this);
     }
 
     public Term getArg(int i) {
-        return args[i];
+        return argz[i];
     }
 
     public Code getCode() {
         return code;
-    }
-
-    @Override
-    public boolean isContinuation() {
-        return true;
-    }
-
-    @Override
-    public Continuation asContinuation() {
-        return this;
     }
 
 }

@@ -6,9 +6,9 @@ import java.io.Writer;
 
 public class ContextStreamProvider implements StreamProvider {
 
-    private final PrologScriptEngine engine;
+    private final PrologEngine engine;
 
-    public ContextStreamProvider(PrologScriptEngine eng) {
+    public ContextStreamProvider(PrologEngine eng) {
         super();
         if (eng == null)
             throw new NullPointerException();

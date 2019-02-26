@@ -2,8 +2,8 @@ package SxxMachine;
 
 import java.util.Iterator;
 
-import SxxMachine.pterm.Clause;
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.HornClause;
+import SxxMachine.pterm.SourceFluentTerm;
 
 //!depends
 
@@ -16,8 +16,8 @@ import SxxMachine.pterm.Source;
  * are executed, possibly providing bindings for some variables or failing. In
  * case of failure of Guard or of unification, getElement() returns null.
  */
-public class Unfolder extends Source {
-    public Unfolder(int oldtop, Iterator e, Clause goal, Prog prog) {
+public class Unfolder extends SourceFluentTerm {
+    public Unfolder(int oldtop, Iterator e, HornClause goal, Prog prog) {
         super(null);
         this.oldtop = oldtop;
         this.e = e;
@@ -35,7 +35,7 @@ public class Unfolder extends Source {
     @SuppressWarnings("rawtypes")
     private Iterator e;
 
-    private Clause goal;
+    private HornClause goal;
 
     private Prog prog;
 
@@ -44,7 +44,7 @@ public class Unfolder extends Source {
      * Iterator e is set to range over matching clauses in the database of program
      * p.
      */
-    public Unfolder(Clause g, Prog p) {
+    public Unfolder(HornClause g, Prog p) {
         super(p);
         this.goal = g;
         this.prog = p;
@@ -74,7 +74,7 @@ public class Unfolder extends Source {
     /**
      * Extracts an answer at the end of an AND-derivation
      */
-    Clause getAnswer() {
+    HornClause getAnswer() {
         if (null != goal && goal.getBody().isTrueProc())
             return goal.ccopy();
         else
@@ -98,7 +98,7 @@ public class Unfolder extends Source {
             if (null == first)
                 break; // cannot reduce further
             if (first.isConj()) { // advances to next (possibly) inline builtin
-                goal = new Clause(goal.getHead(), Clause.appendConj(first, goal.getRest()));
+                goal = new HornClause(goal.getHead(), HornClause.appendConj(first, goal.getRest()));
                 first = goal.getFirst();
             }
 
@@ -111,7 +111,7 @@ public class Unfolder extends Source {
 
                 case 1: // builtin suceeds
                         // IO.mes("advancing: "+goal);
-                    goal = new Clause(goal.getHead(), goal.getRest());
+                    goal = new HornClause(goal.getHead(), goal.getRest());
                     continue; // advance
 
                 case 0: // builtin fails
@@ -133,10 +133,10 @@ public class Unfolder extends Source {
      * database, or null if no such clause exists.
      */
     @Override
-    public Clause getElement() {
+    public HornClause getElement() {
         if (null == e)
             return null;
-        Clause unfolded_goal = null;
+        HornClause unfolded_goal = null;
         while (e.hasNext()) {
             Term T = (Term) e.next();
             if (!(T.isClause()))
@@ -164,7 +164,7 @@ public class Unfolder extends Source {
     /**
      * Tracer on entering g
      */
-    final void trace_goal(Clause g) {
+    final void trace_goal(HornClause g) {
         switch (Prog.tracing) {
             case 2:
                 IO.println(">>>: " + g.getFirst());
@@ -178,7 +178,7 @@ public class Unfolder extends Source {
     /**
      * Tracer on exiting g
      */
-    final void trace_failing(Clause g) {
+    final void trace_failing(HornClause g) {
         switch (Prog.tracing) {
             case 2:
                 IO.println("FAILING CALL IN<<<: " + g.getFirst());

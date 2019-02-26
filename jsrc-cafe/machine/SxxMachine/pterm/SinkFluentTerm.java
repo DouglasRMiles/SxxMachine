@@ -5,14 +5,14 @@ import SxxMachine.Term;
 import SxxMachine.Undoable;
 import SxxMachine.Var;
 
-abstract public class Sink extends AFluent implements Undoable, Var {
+abstract public class SinkFluentTerm extends FluentTerm implements Undoable, Var {
 
     @Override
     public boolean unbound() {
         return true;
     }
 
-    public Sink(Prog p) {
+    public SinkFluentTerm(Prog p) {
         super(p);
     }
 

@@ -2,7 +2,7 @@ package SxxMachine;
 
 import java.util.HashMap;
 
-import SxxMachine.pterm.Clause;
+import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -17,35 +17,35 @@ public class Init {
         return s;
     }
 
-    public static String default_lib = "jsrc/kernelprolog/main/SxxMachine/lib.pro";
+    public static String default_lib = "jsrc-kernelprolog/main/SxxMachine/lib.pro";
 
     public static DataBase default_db;
 
     public static Builtins builtinDict;
 
-    public static Clause getGoal(String line) {
-        Clause G = Clause.goalFromString(line);
+    public static HornClause getGoal(String line) {
+        HornClause G = HornClause.goalFromString(line);
         // IO.mes("getGoal: "+G+" DICT: "+G.dict); //OK
         return G;
     }
 
     public static void run_query(String query) {
-        Clause Goal = getGoal(query);
+        HornClause Goal = getGoal(query);
         timeGoal(Goal);
     }
 
     /**
      * reads a query from input strea
      */
-    static Clause getGoal() {
+    static HornClause getGoal() {
         return getGoal(IO.promptln("?- "));
     }
 
     /**
      * evalutes a query
      */
-    public static void evalGoal(Clause Goal) {
-        Clause NamedGoal = Goal.cnumbervars(false);
+    public static void evalGoal(HornClause Goal) {
+        HornClause NamedGoal = Goal.cnumbervars(false);
         Term Names = NamedGoal.getHead();
         if (!(Names.isCompound())) { // no vars in Goal
             Term Result = Prog.firstSolution(Goal.getHead(), Goal.getBody());
@@ -67,7 +67,7 @@ public class Init {
             if (Names.isCompound()) {
                 Term NamedR = R.numbervars();
                 for (int j = 0; j < Names.arityOrType(); j++) {
-                    IO.println(TermData.asStruct(Names).ArgDeRef(j) + "=" + NamedR.ArgDeRef(j));
+                    IO.println(TermData.asStruct(Names).getDrefArg(j) + "=" + NamedR.getDrefArg(j));
                 }
                 // IO.println(";");
                 if (!moreAnswers(i)) {
@@ -96,7 +96,7 @@ public class Init {
      * evaluates and times a Goal querying program P
      */
 
-    public static void timeGoal(Clause Goal) {
+    public static void timeGoal(HornClause Goal) {
         long t1 = System.currentTimeMillis();
         try {
             evalGoal(Goal);
@@ -117,7 +117,7 @@ public class Init {
 
     public static void standardTop(String prompt) {
         for (;;) {
-            Clause G = getGoal(IO.promptln(prompt));
+            HornClause G = getGoal(IO.promptln(prompt));
             if (null == G) {
                 continue;
             }
@@ -149,7 +149,7 @@ public class Init {
      * solution to the query or "no" if no such solution exists
      */
     public static String askProlog(String query) {
-        Clause Goal = getGoal(query);
+        HornClause Goal = getGoal(query);
         Term Body = Goal.getBody();
         return askProlog(Body).pprint();
     }

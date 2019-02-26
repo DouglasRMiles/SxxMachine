@@ -1,8 +1,17 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import SxxMachine.pterm.StructureTerm;
+import SxxMachine.pterm.TermData;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -16,11 +25,11 @@ public class pred_maketerm_2 extends Code {
 
     static Code maketerm4cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern("maketerm");
+    static String string1 = internS("maketerm");
 
-    static Int posint1200 = JpFactory.Long(1200);
+    static NumberTerm posint1200 = Integer(1200);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -43,40 +52,41 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
     private Term ignore(Term o, String[][] ignores) {
         if (ignores == null || !(o instanceof StructureTerm))
             return o;
-        Term arg = ((StructureTerm) o).args()[0].dref();
+        final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {
-            if (arg.equalsTerm(JpFactory.S("const", JpFactory.CONST(ignores[i][0]))))
-                return findToken((StructureTerm) o, ignores[i][1], ignores).args()[1].dref();
+            if (arg.equalsTerm(S("const", CONST(ignores[i][0]))))
+                return findToken((StructureTerm) o, ignores[i][1], ignores).getPlainArg(1).dref();
         }
         return o;
     }
 
     private StructureTerm findToken(StructureTerm f, String token, String[][] ignores) {
-        Term c = JpFactory.S("const", JpFactory.CONST(token));
-        Term next = ignore(f.args()[1].dref(), ignores);
+        final Term c = S("const", CONST(token));
+        Term next = ignore(f.getPlainArg(1).dref(), ignores);
         while (next.isCons()) {
             f = (StructureTerm) next;
-            if (f.args()[0].dref().equalsTerm(c))
+            if (f.getPlainArg(0).dref().equalsTerm(c))
                 return f;
-            next = ignore(f.args()[1].dref(), ignores);
+            next = ignore(f.getPlainArg(1).dref(), ignores);
         }
         return null;
     }
 
     private void parseKomma(StructureTerm o, PrologMachine mach, Map<JpVar, StructureTerm> lists) {
-        StructureTerm komma = findToken(o, ",", new String[][] { { "(", ")" } });
+        final StructureTerm komma = findToken(o, ",", new String[][] { { "(", ")" } });
         if (komma == null)
             return;
         if (findToken(o, ",", null) != komma) {
-            JpVar v = JpFactory.JVAR(mach);
-            StructureTerm start = o = (StructureTerm) o.args()[1].dref(); //Eerste element negeren
-            //Vanaf start tot komma opnemen voor te parsen en binden met v      
-            while (start.args()[1].dref() != komma)
-                start = (StructureTerm) start.args()[1].dref();
-            start.args()[1] = Const.NIL;
-            lists.put(v, JpFactory.S(o.fname(), o.args().clone()));
-            o.args()[0] = JpFactory.S("var", v, JpFactory.CONST("__ListItem" + v), JpFactory.Long(0));
-            o.args()[1] = komma;
+            final JpVar v = Jv(mach);
+            StructureTerm start = o = (StructureTerm) o.getPlainArg(1).dref(); //Eerste element negeren
+            //Vanaf start tot komma opnemen voor te parsen en binden met v
+            final Term arg0 = start.getPlainArg(1);
+            while (arg0.dref() != komma)
+                start = (StructureTerm) arg0.dref();
+            start.setarg0(1, Prolog.Nil);
+            lists.put(v, (StructureTerm) S(o.fname(), o.args().clone()));
+            o.setarg0(0, S("var", v, CONST("__ListItem" + v), Integer(0)));
+            o.setarg0(1, komma);
             //Funct f = lists.get(v);
         }
         parseKomma(komma, mach, lists);
@@ -85,32 +95,31 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
     private Term fastParse(Term o, PrologMachine mach, Map<JpVar, StructureTerm> lists) {
         if (!o.isCons())
             return o;
-        StructureTerm start = (StructureTerm) o;
+        final StructureTerm start = (StructureTerm) o;
         //Lijsten eruit pikken en apart laten verwerken voor sneller parsen
         final StructureTerm startList = findToken(start, "[", null);
         if (startList == null)
             return o;
-        StructureTerm endList = findToken(startList, "]", new String[][] { { "[", "]" } });
+        final StructureTerm endList = findToken(startList, "]", new String[][] { { "[", "]" } });
         if (endList == null)
             return o;
-        if (endList.args()[1].dref().isNil())
+        if (endList.getPlainArg(1).dref().isNil())
             return o;
         //Nu lijst sneller parsen
-        StructureTerm lijst = JpFactory.S(".", startList.args()[0], startList.args()[1]);
+        final StructureTerm lijst = (StructureTerm) TermData.CONS(startList.getPlainArg(0), startList.getPlainArg(1));
         //aangezien endlist.next != nil --> volgend element --> funct
-        StructureTerm next = (StructureTerm) endList.args()[1].dref();
-        startList.args()[1] = next;
-        JpVar list = JpFactory.JVAR(mach);
-        startList.args()[0] = JpFactory.S("var", list, JpFactory.CONST("___List" + list), JpFactory.Long(0));
-        endList.args()[1] = Const.NIL;
-        //Lijst eruit geknipt nu        
-        StructureTerm resList = (StructureTerm) fastParse(lijst, mach, lists);
+        final StructureTerm next = (StructureTerm) endList.getPlainArg(1).dref();
+        startList.setarg0(1, next);
+        final JpVar list = Jv(mach);
+        startList.setarg0(0, S("var", list, CONST("___List" + list), Integer(0)));
+        endList.setarg0(1, Prolog.Nil);
+        //Lijst eruit geknipt nu
+        final StructureTerm resList = (StructureTerm) fastParse(lijst, mach, lists);
         //Lijst bevat nu geen sublijsten meer, maar voor extra versnelling ook ','-parsen nog optimaliseren?
         parseKomma(lijst, mach, lists);
         //Beslissen of we zelf lijst gaan maken of geheel door maketerm_3 laten doen
-        if (resList.equalsTerm(JpFactory
-                .S(".", JpFactory.CONST("["), JpFactory.S(".", JpFactory.CONST("]"), Const.NIL)))) {
-            list.unify(Const.NIL);
+        if (resList.equalsTerm(S(".", CONST("["), S(".", CONST("]"), Prolog.Nil)))) {
+            list.unify(Prolog.Nil);
         } else {
             lists.put(list, resList);
         }
@@ -119,11 +128,11 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Const eof = JpFactory.CONST("end_of_file");
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Const eof = CONST("end_of_file");
         if (areg0.unify(eof)) {
             if (areg1.unify(eof)) {
                 //op het einde vd stream?
@@ -133,19 +142,19 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
                 return mach.Call1;
             }
         }
-        Term var2 = JpFactory.JVAR(mach);
+        final Term var2 = Jv(mach);
         if (!((areg1).unify(var2)))
             return mach.Fail0;
         //System.out.println("Maketerm voor: " + areg0);
-        Map<JpVar, StructureTerm> subs = new HashMap<JpVar, StructureTerm>();
+        final Map<JpVar, StructureTerm> subs = new HashMap<JpVar, StructureTerm>();
         local_aregs[0] = fastParse(areg0, mach, subs);
         //local_aregs[0] = areg0;
         Term extras = null;
-        for (Map.Entry<JpVar, StructureTerm> e : subs.entrySet()) {
+        for (final Map.Entry<JpVar, StructureTerm> e : subs.entrySet()) {
             if (extras == null) {
-                extras = JpFactory.S("maketerm", e.getValue(), e.getKey(), continuation);
+                extras = S("maketerm", e.getValue(), e.getKey(), continuation);
             } else {
-                extras = JpFactory.S("maketerm", e.getValue(), e.getKey(), extras);
+                extras = S("maketerm", e.getValue(), e.getKey(), extras);
             }
         }
 

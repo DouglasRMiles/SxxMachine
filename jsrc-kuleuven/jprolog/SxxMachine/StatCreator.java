@@ -1,7 +1,6 @@
 
 package SxxMachine;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,7 +10,7 @@ public class StatCreator {
 
     private boolean enabled;
     private PredikatenPrologMachine mach;
-    private Map<Class<Code>, Stat> stat;
+    private final Map<Class<Code>, Stat> stat;
 
     private Code running;
     private long startRunning;
@@ -53,13 +52,13 @@ public class StatCreator {
         running = null;
         if (!enabled)
             return;
-        long delta = System.currentTimeMillis() - startRunning;
+        final long delta = System.currentTimeMillis() - startRunning;
         Stat s;
         if (!stat.containsKey(c.getClass())) {
             s = new Stat(this, (Class<Code>) c.getClass());
             stat.put((Class<Code>) c.getClass(), s);
         } else
-            s = stat.get((Class<Code>) c.getClass());
+            s = stat.get(c.getClass());
         s.appendRun(delta);
     }
 
@@ -71,16 +70,10 @@ public class StatCreator {
         printSortedOnTime(null);
     }
 
-    @SuppressWarnings("unchecked")
     public void printSortedOnTime(Long minTime) {
-        Set<Stat> s = new TreeSet(new Comparator<Stat>() {
-            @Override
-            public int compare(Stat o1, Stat o2) {
-                return (int) (o2.getRunningTime() - o1.getRunningTime());
-            }
-        });
+        final Set<Stat> s = new TreeSet<Stat>((o1, o2) -> (int) (o2.getRunningTime() - o1.getRunningTime()));
         s.addAll(stat.values());
-        for (Stat st : s) {
+        for (final Stat st : s) {
             if (minTime == null || st.getRunningTime() >= minTime)
                 System.out.println(st);
         }

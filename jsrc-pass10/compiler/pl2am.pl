@@ -359,7 +359,7 @@ assert_dummy_package :-
 	clause(package_name(_), _),
 	!.
 assert_dummy_package :-
-	assert(package_name(user)).
+	assert(package_name('SxxMachine')).
 
 assert_dummy_public :-
 	clause(public_predicates(_,_), _),
@@ -621,9 +621,9 @@ assert_dynamic_predicates([G|Gs]) :-
 	assert_dynamic(G),
 	assert_dynamic_predicates(Gs).
 
-assert_dynamic(user:G) :- !,assert_dynamic(G).
-assert_dynamic(system:G) :- !,assert_dynamic(G).
-assert_dynamic(prolog:G) :- !,assert_dynamic(G).
+%assert_dynamic(user:G) :- !,assert_dynamic(G).
+%assert_dynamic(system:G) :- !,assert_dynamic(G).
+%assert_dynamic(prolog:G) :- !,assert_dynamic(G).
 assert_dynamic(G) :-
 	\+ clause(package_name('SxxMachine'), _),
 	G = F/A,

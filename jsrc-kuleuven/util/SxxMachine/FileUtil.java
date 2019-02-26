@@ -29,9 +29,9 @@ public class FileUtil {
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 @Override
                 public void run() {
-                    Set<File> todo = removeFiles;
+                    final Set<File> todo = removeFiles;
                     removeFiles = null;
-                    for (File f : todo) {
+                    for (final File f : todo) {
                         if (f.exists()) { //Kan ondertussen reeds opgekuist zijn
                             doRemoveRecursive(f, false);
                         }
@@ -50,7 +50,7 @@ public class FileUtil {
 
     private static void doRemoveRecursive(File f, boolean doExtra) {
         if (f.isDirectory()) {
-            for (File sub : f.listFiles())
+            for (final File sub : f.listFiles())
                 if (doExtra)
                     removeRecursive(sub);
                 else

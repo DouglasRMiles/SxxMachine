@@ -1,7 +1,5 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.Float;
-
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.NumberTerm;
@@ -73,12 +71,6 @@ class IntegerTerm extends LongTerm {
     @Override
     public boolean convertible(Class type) {
         return convertible(Integer.class, type);
-    }
-
-    @Override
-    public String fname() {
-        oopsy();
-        return "";
     }
 
     /**
@@ -449,9 +441,10 @@ class IntegerTerm extends LongTerm {
 
     }
 
-    // public NumberTerm Float(double n) {
-    // return new DoubleTerm(n);
-    // }
+    public NumberTerm Float(double n) {
+        return new DoubleTerm(n);
+    }
+
     public NumberTerm Integer(long n) {
         return TermData.Long(n);
     }

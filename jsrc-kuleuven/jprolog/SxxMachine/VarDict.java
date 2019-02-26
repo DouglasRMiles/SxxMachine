@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-final class VarDict extends JpATerm {
+final class VarDict extends JPrologObject implements UnTrailOperation {
     JpVar old, newer;
 
     VarDict(JpVar changed, JpVar copy) {

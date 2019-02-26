@@ -327,8 +327,9 @@ log(_).
 
 disableIndexing(ClassName) :- concat_atom(['DISABLE_INDEXING_', ClassName], FullName), b_setval(FullName, true), log(['DISABLE INDEXING ENABLED for ',ClassName]).
 
-isIndexingAllowed(ClassName) :- concat_atom(['DISABLE_INDEXING_', ClassName], FullName), nb_current(FullName, TF), !, TF \== true.
-isIndexingAllowed(_) :- \+  nb_current('DISABLE_INDEXING', true).
+isIndexingAllowed(_) :- nb_current('DISABLE_INDEXING', true), !, fail.
+isIndexingAllowed(ClassName) :- concat_atom(['DISABLE_INDEXING_', ClassName], FullName), nb_current(FullName, true), !, fail.
+isIndexingAllowed(_).
 
 printImport(Import) :-
   getPackageName(Import), !.

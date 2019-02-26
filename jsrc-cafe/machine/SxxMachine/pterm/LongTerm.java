@@ -3,20 +3,65 @@ package SxxMachine.pterm;
 import static SxxMachine.pterm.TermData.Long;
 import static SxxMachine.pterm.TermData.Number;
 
-import java.math.BigInteger;
-
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 
-class LongTerm extends ANumberTerm {
+public class LongTerm extends ANumberTerm {
+
+    @Override
+    public Term copy(RunningPrologMachine m, long t) {
+        return TermData.Long(longValue());
+    }
+
+    @Override
+    public Term dref() {
+        return this;
+    }
+
+    @Override
+    public String toStringImpl(int depth) {
+        return "" + longValue();
+    }
+
+    @Override
+    public boolean unify(Term that) {
+        NumberTerm tmpint;
+        if (!(that instanceof NumberTerm))
+            return that.bind(this);
+        tmpint = (NumberTerm) that; // cast perhaps to be avoided
+        return (tmpint.longValue() == longValue());
+    }
+
+    @Override
+    public boolean couldUnify(Term object) {
+        return equalsTerm(object.dref()) || object.couldUnifyInverse(this);
+    }
+
+    @Override
+    public String fname() {
+        return "" + longValue();
+    }
+
+    @Override
+    public String toJpString() {
+        return fname();
+    }
+
     @Override
     public boolean isLong() {
+        return true;
+    }
+
+    @Override
+    public boolean isInteger() {
+        // TODO Auto-generated method stub
         return true;
     }
 
@@ -51,10 +96,10 @@ class LongTerm extends ANumberTerm {
             }
         }
     }
-
-    public LongTerm(BigInteger bigInteger) {
-        super(bigInteger.doubleValue());
-    }
+    //
+    //    public LongTerm(long bigInteger) {
+    //        super(bigInteger);
+    //    }
 
     @Override
     public boolean bind(Term that, KPTrail trail) {
@@ -341,12 +386,6 @@ class LongTerm extends ANumberTerm {
     }
 
     @Override
-    public String fname() {
-        super.oopsy();
-        return "";
-    }
-
-    @Override
     public boolean convertible(Class type) {
         return convertible(Long.class, type);
     }
@@ -368,6 +407,9 @@ class LongTerm extends ANumberTerm {
 
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
+        if (!(obj instanceof NumberTerm)) {
+            return false;
+        }
         if (!(obj.isLong()))
             return false;
         return longValue() == obj.asLongTerm().longValue();

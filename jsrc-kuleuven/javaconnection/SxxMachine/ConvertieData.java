@@ -22,8 +22,8 @@ public class ConvertieData {
     }
 
     public Map<JpVar, Object> getVarMap() {
-        Map<JpVar, Object> reverseMap = new HashMap<JpVar, Object>();
-        for (Map.Entry<Object, JpVar> e : obj2Var.entrySet()) {
+        final Map<JpVar, Object> reverseMap = new HashMap<JpVar, Object>();
+        for (final Map.Entry<Object, JpVar> e : obj2Var.entrySet()) {
             reverseMap.put(e.getValue(), e.getKey());
         }
         return reverseMap;

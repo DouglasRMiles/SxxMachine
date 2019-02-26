@@ -1,6 +1,10 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,34 +23,34 @@ public class pred_term_variables_2 extends Code {
     @Override
     public void init(PredikatenPrologMachine machine) {
         if (unify == null) {
-            unify = machine.loadPred(Const.strIntern("unify"), 2);
+            unify = machine.loadPred(internS("unify"), 2);
         }
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
+        final Term local_aregs[] = mach.getAreg();
         // PrologObject continuation = local_aregs[2];
         // PrologObject variables = local_aregs[1].Deref();
         Term term = local_aregs[0].dref();
 
-        Set<Term> varset = new HashSet<Term>();
-        Queue<Term> queue = (Queue<Term>) new LinkedList<Term>();
+        final Set<Term> varset = new HashSet<Term>();
+        final Queue<Term> queue = new LinkedList<Term>();
 
         while (term != null) {
             if (term.isVariable()) {
                 varset.add(term);
             } else if (term instanceof AFunct) {
-                Term[] subterms = ((AFunct) term).args();
+                final Term[] subterms = ((AFunct) term).args();
                 for (int i = 0; i < subterms.length; i++)
                     queue.add(subterms[i].dref());
             }
             term = queue.poll();
         }
 
-        Term varlist = JpFactory.CONST(Const.strIntern("[]"));
-        for (Iterator<Term> iter = varset.iterator(); iter.hasNext();) {
-            varlist = JpFactory.S(Const.strIntern("."), iter.next(), varlist);
+        Term varlist = CONST(internS("[]"));
+        for (final Iterator<Term> iter = varset.iterator(); iter.hasNext();) {
+            varlist = CONS(iter.next(), varlist);
         }
 
         local_aregs[0] = varlist;

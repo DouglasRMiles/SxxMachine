@@ -1,6 +1,11 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
@@ -34,57 +39,57 @@ public class pred_specialgoal_2 extends Code {
 
     static Code cut2cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern(";");
+    static String string1 = internS(";");
 
-    static String string2 = Const.strIntern("<");
+    static String string2 = internS("<");
 
-    static String string3 = Const.strIntern("=");
+    static String string3 = internS("=");
 
-    static String string4 = Const.strIntern("=:=");
+    static String string4 = internS("=:=");
 
-    static String string5 = Const.strIntern("=<");
+    static String string5 = internS("=<");
 
-    static String string6 = Const.strIntern("==");
+    static String string6 = internS("==");
 
-    static String string7 = Const.strIntern(">");
+    static String string7 = internS(">");
 
-    static String string8 = Const.strIntern(">=");
+    static String string8 = internS(">=");
 
-    static String string9 = Const.strIntern("@<");
+    static String string9 = internS("@<");
 
-    static String string10 = Const.strIntern("@=<");
+    static String string10 = internS("@=<");
 
-    static String string11 = Const.strIntern("@>");
+    static String string11 = internS("@>");
 
-    static String string12 = Const.strIntern("@>=");
+    static String string12 = internS("@>=");
 
-    static String string13 = Const.strIntern("arithequal");
+    static String string13 = internS("arithequal");
 
-    static String string14 = Const.strIntern("cut");
+    static String string14 = internS("cut");
 
-    static String string15 = Const.strIntern("or");
+    static String string15 = internS("or");
 
-    static String string16 = Const.strIntern("smallerorequal");
+    static String string16 = internS("smallerorequal");
 
-    static String string17 = Const.strIntern("smallerthan");
+    static String string17 = internS("smallerthan");
 
-    static String string18 = Const.strIntern("specialgoal");
+    static String string18 = internS("specialgoal");
 
-    static String string19 = Const.strIntern("termequal");
+    static String string19 = internS("termequal");
 
-    static String string20 = Const.strIntern("termgreaterequal");
+    static String string20 = internS("termgreaterequal");
 
-    static String string21 = Const.strIntern("termgreaterthan");
+    static String string21 = internS("termgreaterthan");
 
-    static String string22 = Const.strIntern("termsmallerequal");
+    static String string22 = internS("termsmallerequal");
 
-    static String string23 = Const.strIntern("termsmallerthan");
+    static String string23 = internS("termsmallerthan");
 
-    static String string24 = Const.strIntern("unify");
+    static String string24 = internS("unify");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -98,7 +103,7 @@ public class pred_specialgoal_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -108,15 +113,15 @@ class pred_specialgoal_2_1 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string2, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string2, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string17, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string17, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -130,15 +135,15 @@ class pred_specialgoal_2_2 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string5, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string5, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string16, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string16, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -152,15 +157,15 @@ class pred_specialgoal_2_3 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl4);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string7, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string7, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string17, var2.dref(), var1.dref()))))
+        if (!((areg1).unify(S(string17, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -174,15 +179,15 @@ class pred_specialgoal_2_4 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl5);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string8, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string8, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string16, var2.dref(), var1.dref()))))
+        if (!((areg1).unify(S(string16, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -196,15 +201,15 @@ class pred_specialgoal_2_5 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl6);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string4, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string4, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string13, var2.dref(), var1.dref()))))
+        if (!((areg1).unify(S(string13, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -218,15 +223,15 @@ class pred_specialgoal_2_6 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl7);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string3, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string3, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string24, var2.dref(), var1.dref()))))
+        if (!((areg1).unify(S(string24, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -240,15 +245,15 @@ class pred_specialgoal_2_7 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl8);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string1, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string1, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string15, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string15, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -262,15 +267,15 @@ class pred_specialgoal_2_8 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl9);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string9, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string9, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string23, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string23, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -284,15 +289,15 @@ class pred_specialgoal_2_9 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl10);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string11, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string11, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string21, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string21, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -306,15 +311,15 @@ class pred_specialgoal_2_10 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl11);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string10, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string10, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string22, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string22, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -328,15 +333,15 @@ class pred_specialgoal_2_11 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl12);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string12, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string12, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string20, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string20, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -350,15 +355,15 @@ class pred_specialgoal_2_12 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        if (!((areg0).unify(JpFactory.S(string6, var1, var2))))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        if (!((areg0).unify(S(string6, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.S(string19, var1.dref(), var2.dref()))))
+        if (!((areg1).unify(S(string19, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;

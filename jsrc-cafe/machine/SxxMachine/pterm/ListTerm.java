@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import SxxMachine.AFunct;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
 import SxxMachine.Nonvar;
@@ -17,19 +18,23 @@ import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.Trail;
+import SxxMachine.pterm.PTerm.TermTreeIterator;
 
 @SuppressWarnings({ "rawtypes" })
-abstract class ListTerm extends ANonvar implements Compound {
+public abstract class ListTerm extends AFunct implements Compound {
 
     @Override
     public Nonvar toNonVar() {
         return this;
     }
 
+    abstract /* (non-Javadoc)
+             * @see SxxMachine.AFunct#args()
+             */
+    @Override public Term[] args();
+
     @Override
-    public Term ArgNoDeRef(int i) {
-        return argz[i];
-    }
+    public abstract Term getPlainArg(int i);
 
     protected boolean immutable;
 
@@ -82,7 +87,7 @@ abstract class ListTerm extends ANonvar implements Compound {
      */
     @Override
     public Term car() {
-        return this.argz[0];
+        return this.getPlainArg(0);
     }
 
     /**
@@ -92,7 +97,7 @@ abstract class ListTerm extends ANonvar implements Compound {
      */
     @Override
     public Term cdr() {
-        return this.argz[1];
+        return this.getPlainArg(1);
     }
 
     /* Term */
@@ -111,20 +116,14 @@ abstract class ListTerm extends ANonvar implements Compound {
         return !(t.isCons()) && !(p.isCons()) && p.unify(t, trail);
     }
 
-    /* (non-Javadoc)
-     * @see SxxMachine.pterm.IStruct#setCar(SxxMachine.Term)
-     */
     @Override
     public void setCar(Term t) {
-        this.argz[0] = t;
+        setArg(0, t);
     }
 
-    /* (non-Javadoc)
-     * @see SxxMachine.pterm.IStruct#setCdr(SxxMachine.Term)
-     */
     @Override
     public void setCdr(Term t) {
-        this.argz[1] = t;
+        setArg(1, t);
     }
 
     @Override
@@ -173,23 +172,18 @@ abstract class ListTerm extends ANonvar implements Compound {
     }
 
     @Override
-    public Term[] args() {
-        return argz;
-    }
-
-    @Override
     public Term functor() {
         return Prolog.FUNCTOR_DOT_2;
     }
 
     @Override
-    public String fname() {
-        return Prolog.FUNCTOR_DOT_2.fname();
+    public String getString() {
+        oopsy("unusual getString");
+        return TermData.charsToString(this);
     }
 
-    @Override
-    public Term arg0(int nth) {
-        return nth0(nth);
+    public String fname() {
+        return functor().fname();
     }
 
     /* (non-Javadoc)
@@ -290,6 +284,10 @@ abstract class ListTerm extends ANonvar implements Compound {
     }
 
     public Term[] argz;
+
+    public void setarg0(int i, Term f) {
+        argz[i] = f;
+    }
 
     @Override
     public int termHashCodeImpl() {

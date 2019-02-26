@@ -67,9 +67,9 @@ pred_top_0_1(pred_top_0 consts){
   @Override
   @SuppressWarnings("static-access")
   protected PrologObject[] getArgs() {
-    @SuppressWarnings("unused")
+    
     PrologObject var2 = new DummyVar();
-    @SuppressWarnings("unused")
+    
     PrologObject var1 = new DummyVar();
     return new PrologObject[]{};
   }

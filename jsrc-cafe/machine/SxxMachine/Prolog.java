@@ -517,6 +517,7 @@ public final class Prolog extends PrologFlags {
     private long startRuntime;
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     private long previousRuntime;
+    //public final static Const Nil = CONST("[]");
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {

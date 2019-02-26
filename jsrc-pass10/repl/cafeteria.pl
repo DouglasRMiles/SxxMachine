@@ -8,6 +8,7 @@
 
 :- package 'SxxMachine'.
 :- public cafeteria/0.
+
 :- public consult/1.
 :- public trace/0, notrace/0.
 :- public debug/0, nodebug/0.
@@ -48,7 +49,7 @@ cafeteria :-
 	current_prolog_flag(debug, Mode),
 	typein_module(User),!,
 	(Mode == off -> true ; print_message(info,[debug])),
-	(User == user -> '$fast_write'(User) ; '$fast_write'(User)),
+	(User == 'SxxMachbine' -> '$fast_write'(User) ; '$fast_write'(User)),
 	'$fast_write'('| ?- '),
 	flush_output.
 

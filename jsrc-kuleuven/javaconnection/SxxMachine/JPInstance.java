@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+
 public class JPInstance extends Code {
 
     private Code iterate;
@@ -17,13 +19,13 @@ public class JPInstance extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] args = mach.getAreg();
-        Term object = args[0].dref();
-        Term classType = args[1].dref();
-        Term cont = args[2];
+        final Term[] args = mach.getAreg();
+        final Term object = args[0].dref();
+        final Term classType = args[1].dref();
+        final Term cont = args[2];
         if (!(object instanceof Const))
             return mach.Fail0;
-        Object obj = ((Const) object).getValue();
+        final Object obj = ((Const) object).getValue();
         if (obj instanceof String)
             return mach.Fail0;
         if (classType.isVariable())
@@ -33,13 +35,14 @@ public class JPInstance extends Code {
 
     }
 
+    @SuppressWarnings("rawtypes")
     private Code doCheckInstance(PrologMachine mach, Term[] args, Term object, Term classType, Term cont) {
         if (!(classType instanceof Const))
             return mach.Fail0;
-        Object cl = ((Const) classType).getValue();
+        final Object cl = ((Const) classType).getValue();
         if (cl == null || !(cl instanceof Class))
             return mach.Fail0;
-        Class jClassType = (Class) cl;
+        final Class jClassType = (Class) cl;
         if (!(object instanceof Const))
             return mach.Fail0;
         if (!jClassType.isInstance(((Const) object).getValue()))
@@ -52,7 +55,7 @@ public class JPInstance extends Code {
 
     private Code startIteration(Term[] args, Term classType, Object obj) {
         //Iteratie starten over structuur
-        args[0] = JpFactory.CONST(obj.getClass());
+        args[0] = CONST(obj.getClass());
         args[1] = classType;
         return iterate;
     }

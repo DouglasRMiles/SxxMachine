@@ -4,6 +4,7 @@ package SxxMachine.specialConvertionRules2Java;
 import java.lang.reflect.Array;
 import java.util.Collection;
 
+@SuppressWarnings("rawtypes")
 public class Collection2Array implements ConvertRuleIF {
 
     @Override
@@ -15,13 +16,13 @@ public class Collection2Array implements ConvertRuleIF {
     public Object doConvert(Class<?> target, Object current) {
         if (!canConvert(target, current.getClass()))
             throw new IllegalStateException();
-        Collection c = (Collection) current;
-        Object array = Array.newInstance(target.getComponentType(), c.size());
+        final Collection c = (Collection) current;
+        final Object array = Array.newInstance(target.getComponentType(), c.size());
         int index = 0;
-        for (Object o : c) {
+        for (final Object o : c) {
             try {
                 Array.set(array, index, o);
-            } catch (IllegalArgumentException ex) {
+            } catch (final IllegalArgumentException ex) {
                 //Not a valid type, try to convert
                 Array.set(array, index, RuleManager.getInstance().tryToConvert(target.getComponentType(), o));
             }

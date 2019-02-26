@@ -1,6 +1,9 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+
 public class pred_solveDefaultQuery_0 extends Code {
 
     @Override
@@ -10,9 +13,9 @@ public class pred_solveDefaultQuery_0 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        Term[] args = mach.getAreg();
-        JpVar v = JpFactory.JVAR(mach);
-        args[0] = JpFactory.S("$$query", v, JpFactory.S("processGoal", v, args[1]));
+        final Term[] args = mach.getAreg();
+        final JpVar v = Jv(mach);
+        args[0] = S("$$query", v, S("processGoal", v, args[1]));
         args[1] = null;
         return mach.Call1;
     }
@@ -28,13 +31,13 @@ class pred_processGoal_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        Term[] args = mach.getAreg();
-        Term goal = args[0].dref();
-        JpVar part1 = JpFactory.JVAR(mach);
-        JpVar part2 = JpFactory.JVAR(mach);
-        if (goal.unify(JpFactory.S(",", part1, part2))) {
+        final Term[] args = mach.getAreg();
+        final Term goal = args[0].dref();
+        final JpVar part1 = Jv(mach);
+        final JpVar part2 = Jv(mach);
+        if (goal.unify(S(",", part1, part2))) {
             args[0] = part1.dref();
-            args[1] = JpFactory.S("processGoal", part2.dref(), args[1]);
+            args[1] = S("processGoal", part2.dref(), args[1]);
             return mach.Call2;
         }
         args[0] = goal.dref();

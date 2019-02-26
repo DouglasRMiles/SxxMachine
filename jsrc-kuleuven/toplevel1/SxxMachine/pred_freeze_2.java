@@ -1,6 +1,11 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
@@ -16,17 +21,17 @@ public class pred_freeze_2 extends Code {
 
     static Code var2cont;
 
-    static String cut = Const.strIntern("cut");
+    static String cut = internS("cut");
 
-    static String exec = Const.strIntern("exec");
+    static String exec = internS("exec");
 
-    static String freeze = Const.strIntern("freeze");
+    static String freeze = internS("freeze");
 
-    static String freeze_internal = Const.strIntern("freeze_internal");
+    static String freeze_internal = internS("freeze_internal");
 
-    static String var = Const.strIntern("var");
+    static String var = internS("var");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -43,7 +48,7 @@ public class pred_freeze_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         // store relevant machine registers in new choice point
-        Term aregs[] = mach.createAregCopy(3); // first argument 
+        final Term aregs[] = mach.createAregCopy(3); // first argument
         // second argument
         // continuation
         mach.createChoicePoint(aregs);
@@ -59,20 +64,20 @@ class pred_freeze_2_1 extends pred_freeze_2 {
         // set retry (second clause)
         mach.fillAlternative(cl2);
         // fetch machine registers once
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term variable = JpFactory.JVAR(mach);
-        Term goal = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term variable = Jv(mach);
+        final Term goal = Jv(mach);
         // why these?
         if (!((areg0).unify(variable)))
             return mach.Fail0;
         if (!((areg1).unify(goal)))
             return mach.Fail0;
         local_aregs[0] = variable.dref();
-        local_aregs[1] = JpFactory.S(cut, new HeapChoice(mach.getCUTB()), JpFactory
-                .S(freeze_internal, variable.dref(), goal.dref(), continuation));
+        local_aregs[1] = S(cut, new HeapChoice(
+                mach.getCUTB()), S(freeze_internal, variable.dref(), goal.dref(), continuation));
         mach.updateCUTB();
         local_aregs[2] = null;
         return var2cont;
@@ -84,12 +89,12 @@ class pred_freeze_2_2 extends pred_freeze_2 {
     public Code exec(PrologMachine mach) {
         System.out.println("...freeze clause 2");
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term goal = JpFactory.JVAR(mach);
-        Term variable = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term goal = Jv(mach);
+        final Term variable = Jv(mach);
         if (!((areg0).unify(variable)))
             return mach.Fail0;
         if (!((areg1).unify(goal)))

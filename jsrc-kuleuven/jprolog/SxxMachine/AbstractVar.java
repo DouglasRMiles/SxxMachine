@@ -1,7 +1,9 @@
 
 package SxxMachine;
 
-abstract class AbstractVar extends VarTerm {
+import SxxMachine.pterm.VariableTerm;
+
+abstract class AbstractVar extends VariableTerm implements UnTrailOperation {
 
     protected AbstractVar() {
         super();
@@ -13,7 +15,7 @@ abstract class AbstractVar extends VarTerm {
     }
 
     @Override
-    public final String toStringImpl(int depth) {
+    public String toStringImpl(int depth) {
         return "_" + Integer.toHexString(termHashCode());
     }
 
@@ -49,7 +51,7 @@ abstract class AbstractVar extends VarTerm {
     }
 
     @Override
-    public final boolean isVariable() {
+    public boolean isVariable() {
         return true;
     }
 

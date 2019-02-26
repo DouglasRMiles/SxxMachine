@@ -4,21 +4,26 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_printClauseConstructor_2_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("printClauseConstructor");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("_");
-    final static String string5 = Const.strIntern("(");
-    final static String string6 = Const.strIntern(" consts){");
-    final static String string7 = Const.strIntern("wr");
-    final static String string8 = Const.strIntern("nl");
-    final static String string9 = Const.strIntern("  super(consts);");
-    final static String string10 = Const.strIntern("}");
-    final static String string11 = Const.strIntern("[]");
+    final static String string0 = internS("cut");
+    final static String string1 = internS("printClauseConstructor");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("_");
+    final static String string5 = internS("(");
+    final static String string6 = internS(" consts){");
+    final static String string7 = internS("wr");
+    final static String string8 = internS("nl");
+    final static String string9 = internS("  super(consts);");
+    final static String string10 = internS("}");
+    final static String string11 = internS("[]");
 }
 
 public class pred_printClauseConstructor_2 extends Code {
@@ -31,14 +36,11 @@ public class pred_printClauseConstructor_2 extends Code {
 
     protected pred_printClauseConstructor_2(pred_printClauseConstructor_2 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_printClauseConstructor_2_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -57,39 +59,21 @@ public class pred_printClauseConstructor_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string3, var1.dref(), JpFactory
-                .S(getConsts().string3, JpFactory.CONST(getConsts().string4), JpFactory
-                        .S(getConsts().string3, var2.dref(), JpFactory.S(getConsts().string3, JpFactory
-                                .CONST(getConsts().string5), JpFactory.S(getConsts().string3, var1
-                                        .dref(), JpFactory.S(getConsts().string3, JpFactory
-                                                .CONST(getConsts().string6), JpFactory
-                                                        .S(getConsts().string3, JpFactory
-                                                                .S(getConsts().string7, JpFactory
-                                                                        .CONST(getConsts().string8)), JpFactory
-                                                                                .S(getConsts().string3, JpFactory
-                                                                                        .CONST(getConsts().string9), JpFactory
-                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                        .S(getConsts().string7, JpFactory
-                                                                                                                .CONST(getConsts().string8)), JpFactory
-                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                .CONST(getConsts().string10), JpFactory
-                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                .S(getConsts().string7, JpFactory
-                                                                                                                                                        .CONST(getConsts().string8)), JpFactory
-                                                                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                                                                        .S(getConsts().string7, JpFactory
-                                                                                                                                                                                .CONST(getConsts().string8)), JpFactory
-                                                                                                                                                                                        .CONST(getConsts().string11)))))))))))));
+
+        local_aregs[0] = S(pred_printClauseConstructor_2_consts.string3, var1
+                .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string4), S(pred_printClauseConstructor_2_consts.string3, var2
+                        .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string5), S(pred_printClauseConstructor_2_consts.string3, var1
+                                .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string6), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string9), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string10), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), CONST(pred_printClauseConstructor_2_consts.string11)))))))))))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         local_aregs[2] = null;

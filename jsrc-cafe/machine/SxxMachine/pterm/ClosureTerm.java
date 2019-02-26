@@ -1,5 +1,6 @@
 package SxxMachine.pterm;
 
+import SxxMachine.JPrologObject;
 import SxxMachine.OpVisitor;
 import SxxMachine.Predicate;
 import SxxMachine.Term;
@@ -13,7 +14,7 @@ import SxxMachine.Trail;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class ClosureTerm extends SystemObject {
+public class ClosureTerm extends JPrologObject {
     /** Holds a <code>Predicate</code> object that represents a Prolog goal. */
     protected final Predicate code;
 
@@ -46,9 +47,10 @@ public class ClosureTerm extends SystemObject {
     }
 
     @Override
-    public String fname() {
-        oopsy();
-        return "";
+    public final String pprint() {
+        StringBuilder sb = new StringBuilder();
+        toStringImpl(1, sb);
+        return sb.toString();
     }
 
     /* Object */

@@ -5,20 +5,24 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 public class pred_prefix_3 extends Code {
     static Code entry_code;
-    static String string0 = Const.strIntern("cut");
-    static String string1 = Const.strIntern("prefix");
-    static String string2 = Const.strIntern("fx");
-    static String string3 = Const.strIntern("-");
-    static String string4 = Const.strIntern("call");
-    static String string5 = Const.strIntern("+");
-    static String string6 = Const.strIntern("?-");
-    static String string7 = Const.strIntern(":-");
-    static Int posint500 = JpFactory.Long(500);
-    static Int posint1200 = JpFactory.Long(1200);
+    static String string0 = internS("cut");
+    static String string1 = internS("prefix");
+    static String string2 = internS("fx");
+    static String string3 = internS("-");
+    static String string4 = internS("call");
+    static String string5 = internS("+");
+    static String string6 = internS("?-");
+    static String string7 = internS(":-");
+    static NumberTerm posint500 = Integer(500);
+    static NumberTerm posint1200 = Integer(1200);
     private final static Alternatives ALT = new Alternatives();
     static {
         ALT.addAlternative(new pred_prefix_3_1());
@@ -40,9 +44,9 @@ public class pred_prefix_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(4);
+        final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
     }
@@ -51,24 +55,24 @@ public class pred_prefix_3 extends Code {
 class pred_prefix_3_1 extends pred_prefix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1200;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string7);
+        final Term arg0 = posint1200;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string7);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string7))))
+        if (!((areg2).unify(CONST(string7))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -80,24 +84,24 @@ class pred_prefix_3_1 extends pred_prefix_3 {
 class pred_prefix_3_2 extends pred_prefix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint1200;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string6);
+        final Term arg0 = posint1200;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string6);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string6))))
+        if (!((areg2).unify(CONST(string6))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -109,24 +113,24 @@ class pred_prefix_3_2 extends pred_prefix_3 {
 class pred_prefix_3_3 extends pred_prefix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint500;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string5);
+        final Term arg0 = posint500;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string5);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string5))))
+        if (!((areg2).unify(CONST(string5))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -138,24 +142,24 @@ class pred_prefix_3_3 extends pred_prefix_3 {
 class pred_prefix_3_4 extends pred_prefix_3 {
     @Override
     protected Term[] getArgs() {
-        Term arg0 = posint500;
-        Term arg1 = JpFactory.CONST(string2);
-        Term arg2 = JpFactory.CONST(string3);
+        final Term arg0 = posint500;
+        final Term arg1 = CONST(string2);
+        final Term arg2 = CONST(string3);
         return new Term[] { arg0, arg1, arg2 };
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[3];
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[3];
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unify(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(JpFactory.CONST(string2))))
+        if (!((areg1).unify(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(JpFactory.CONST(string3))))
+        if (!((areg2).unify(CONST(string3))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

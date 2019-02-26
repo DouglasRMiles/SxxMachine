@@ -4,16 +4,21 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_memberchk_eq_2_consts {
     Code entry_code;
     Code cut2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("memberchk_eq");
-    final static String string2 = Const.strIntern(".");
-    final static String string3 = Const.strIntern("cut");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("memberchk_eq");
+    final static String string2 = internS(".");
+    final static String string3 = internS("cut");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_memberchk_eq_2 extends Code {
@@ -55,9 +60,9 @@ public class pred_memberchk_eq_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(3);
+        final Term aregs[] = mach.createAregCopy(3);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -72,27 +77,29 @@ class pred_memberchk_eq_2_1 extends pred_memberchk_eq_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = JpFactory.S(getConsts().string2, var1.dref(), var2);
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+
+        final Term arg1 = S(pred_memberchk_eq_2_consts.string2, var1.dref(), var2);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.S(getConsts().string2, var1.dref(), var2.dref()))))
+
+        if (!(areg1.unify(S(pred_memberchk_eq_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -110,33 +117,36 @@ class pred_memberchk_eq_2_2 extends pred_memberchk_eq_2 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var3 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
-        Term arg1 = JpFactory.S(getConsts().string2, var2, var3);
+
+        final Term var3 = new DummyVar();
+
+        final Term var2 = new DummyVar();
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
+
+        final Term arg1 = S(pred_memberchk_eq_2_consts.string2, var2, var3);
         return new Term[] { arg0, arg1 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[2];
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[2];
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(JpFactory.S(getConsts().string2, var2.dref(), var3.dref()))))
+
+        if (!(areg1.unify(S(pred_memberchk_eq_2_consts.string2, var2.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = JpFactory.S(getConsts().string1, var1.dref(), var3.dref(), continuation);
+
+        local_aregs[0] = S(pred_memberchk_eq_2_consts.string1, var1.dref(), var3.dref(), continuation);
         mach.updateCUTB();
         local_aregs[2] = null;
         return mach.Call1;

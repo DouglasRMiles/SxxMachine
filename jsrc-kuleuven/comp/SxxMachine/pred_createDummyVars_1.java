@@ -4,26 +4,32 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.util.Iterator;
 
 class pred_createDummyVars_1_consts {
     Code entry_code;
     Code is3cont;
     Code cut2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("createDummyVars");
-    final static String string2 = Const.strIntern("is");
-    final static String string3 = Const.strIntern("-");
-    final static String string4 = Const.strIntern("writel");
-    final static String string5 = Const.strIntern(".");
-    final static String string6 = Const.strIntern("    @SuppressWarnings(\"unused\")");
-    final static String string7 = Const.strIntern("wr");
-    final static String string8 = Const.strIntern("nl");
-    final static String string9 = Const.strIntern("    PrologObject var");
-    final static String string10 = Const.strIntern(" = new DummyVar();");
-    final static String string11 = Const.strIntern("[]");
-    final static String string12 = Const.strIntern("cut");
-    final static Int posint1 = JpFactory.Long(1);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("createDummyVars");
+    final static String string2 = internS("is");
+    final static String string3 = internS("-");
+    final static String string4 = internS("writel");
+    final static String string5 = internS(".");
+    final static String string6 = internS("    @SuppressWarnings(\"unused\")");
+    final static String string7 = internS("wr");
+    final static String string8 = internS("nl");
+    final static String string9 = internS("    PrologObject var");
+    final static String string10 = internS(" = new DummyVar();");
+    final static String string11 = internS("[]");
+    final static String string12 = internS("cut");
+    final static NumberTerm posint1 = Integer(1);
 }
 
 public class pred_createDummyVars_1 extends Code {
@@ -66,9 +72,9 @@ public class pred_createDummyVars_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
-        Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
+        final Iterator<Code> todo = ALT.getIndexedAlternatives(aregs);
         mach.fillAlternatives(todo);
         return todo.next().exec(mach);
 
@@ -83,17 +89,19 @@ class pred_createDummyVars_1_1 extends pred_createDummyVars_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        Term arg0 = getConsts().posint1;
+
+        final Term arg0 = pred_createDummyVars_1_consts.posint1;
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        if (!(areg0.unify(getConsts().posint1)))
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+
+        if (!(areg0.unify(pred_createDummyVars_1_consts.posint1)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -110,39 +118,29 @@ class pred_createDummyVars_1_2 extends pred_createDummyVars_1 {
     @Override
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
-        @SuppressWarnings("unused")
-        Term var2 = new DummyVar();
-        @SuppressWarnings("unused")
-        Term var1 = new DummyVar();
-        Term arg0 = var1;
+
+        final Term var1 = new DummyVar();
+        final Term arg0 = var1;
         return new Term[] { arg0 };
     }
 
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = JpFactory.S(getConsts().string3, var1.dref(), getConsts().posint1);
-        local_aregs[2] = JpFactory.S(getConsts().string4, JpFactory.S(getConsts().string5, JpFactory
-                .CONST(getConsts().string6), JpFactory.S(getConsts().string5, JpFactory
-                        .S(getConsts().string7, JpFactory.CONST(getConsts().string8)), JpFactory
-                                .S(getConsts().string5, JpFactory.CONST(getConsts().string9), JpFactory
-                                        .S(getConsts().string5, var2.dref(), JpFactory
-                                                .S(getConsts().string5, JpFactory
-                                                        .CONST(getConsts().string10), JpFactory
-                                                                .S(getConsts().string5, JpFactory
-                                                                        .S(getConsts().string7, JpFactory
-                                                                                .CONST(getConsts().string8)), JpFactory
-                                                                                        .CONST(getConsts().string11))))))), JpFactory
-                                                                                                .S(getConsts().string1, var2
-                                                                                                        .dref(), continuation));
+
+        local_aregs[1] = S(pred_createDummyVars_1_consts.string3, var1.dref(), pred_createDummyVars_1_consts.posint1);
+
+        local_aregs[2] = S(pred_createDummyVars_1_consts.string4, S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string6), S(pred_createDummyVars_1_consts.string5, S(pred_createDummyVars_1_consts.string7, CONST(pred_createDummyVars_1_consts.string8)), S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string9), S(pred_createDummyVars_1_consts.string5, var2
+                .dref(), S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string10), S(pred_createDummyVars_1_consts.string5, S(pred_createDummyVars_1_consts.string7, CONST(pred_createDummyVars_1_consts.string8)), CONST(pred_createDummyVars_1_consts.string11))))))), S(pred_createDummyVars_1_consts.string1, var2
+                        .dref(), continuation));
         mach.updateCUTB();
         return getConsts().is3cont;
     }

@@ -17,6 +17,11 @@ import SxxMachine.Term;
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
 
+    public boolean isFunctor(String string) throws IllegalTypeException {
+        String fname = fname();
+        return fname.equals(string);
+    }
+
     // public boolean equalsTerm(Term ano2) {
     // return this==ano2;
     // }
@@ -28,14 +33,34 @@ public abstract class ANonvar extends PTerm implements Nonvar {
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.Nonvar#getHead()
+     */
     @Override
-    public Term ArgDeRef(int i) {
-        return ArgNoDeRef(i).dref();
+    public Term getHead() {
+        return car().dref();
+    }
+    
+    /* (non-Javadoc)
+     * @see SxxMachine.Nonvar#getTail()
+     */
+    @Override
+    public Term getTail() {
+        return cdr().dref();
+    }
+    
+    @Override
+    final public Term getDrefArg(int i) {
+        return getPlainArg(i).dref();
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.Functor#ArgNoDeRef(int)
+     */
     @Override
-    public Term ArgNoDeRef(int i) {
-        return arg0(i);
+    public Term getPlainArg(int i) {
+        oopsy("not for ANonvar");
+        return getPlainArg(i);
     }
 
     /* (non-Javadoc)
@@ -44,7 +69,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     @Override
     public int unifyArg(int i, Term a, Prog p) {
         a = a.dref();
-        return ArgDeRef(i).Unify_TO(a.dref(), p.getTrail()) ? 1 : 0;
+        return getDrefArg(i).Unify_TO(a.dref(), p.getTrail()) ? 1 : 0;
     }
 
     /* (non-Javadoc)
@@ -52,11 +77,14 @@ public abstract class ANonvar extends PTerm implements Nonvar {
      */
     @Override
     public int getIntArg(int i) {
-        return (int) TermData.asInt(ArgDeRef(i)).doubleValue();
+        return (int) TermData.asInt(getDrefArg(i)).doubleValue();
     }
 
     @Override
-    public abstract String fname() throws IllegalTypeException;
+    public String fname() {
+        oopsy("unknown fname");
+        return null;
+    }
 
     @Override
     public boolean bind(Term that, KPTrail trail) {

@@ -4,24 +4,30 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 class pred_printDataClass_6_consts {
     Code entry_code;
     Code writel2cont;
-    final static String string0 = Const.strIntern("cut");
-    final static String string1 = Const.strIntern("printDataClass");
-    final static String string2 = Const.strIntern("writel");
-    final static String string3 = Const.strIntern(".");
-    final static String string4 = Const.strIntern("class ");
-    final static String string5 = Const.strIntern("_consts {");
-    final static String string6 = Const.strIntern("wr");
-    final static String string7 = Const.strIntern("nl");
-    final static String string8 = Const.strIntern("   Code entry_code;");
-    final static String string9 = Const.strIntern("declforeachcontinuation");
-    final static String string10 = Const.strIntern("declforeachstring");
-    final static String string11 = Const.strIntern("declforeachint");
-    final static String string12 = Const.strIntern("}");
-    final static String string13 = Const.strIntern("[]");
-    final static Int posint0 = JpFactory.Long(0);
+    final static String string0 = internS("cut");
+    final static String string1 = internS("printDataClass");
+    final static String string2 = internS("writel");
+    final static String string3 = internS(".");
+    final static String string4 = internS("class ");
+    final static String string5 = internS("_consts {");
+    final static String string6 = internS("wr");
+    final static String string7 = internS("nl");
+    final static String string8 = internS("   Code entry_code;");
+    final static String string9 = internS("declforeachcontinuation");
+    final static String string10 = internS("declforeachstring");
+    final static String string11 = internS("declforeachint");
+    final static String string12 = internS("}");
+    final static String string13 = internS("[]");
+    final static NumberTerm posint0 = Integer(0);
 }
 
 public class pred_printDataClass_6 extends Code {
@@ -34,14 +40,11 @@ public class pred_printDataClass_6 extends Code {
 
     protected pred_printDataClass_6(pred_printDataClass_6 c) {
         consts = c.getConsts();
-        ALT = null;
     }
 
     protected final pred_printDataClass_6_consts getConsts() {
         return consts;
     }
-
-    private static Alternatives ALT = null;
 
     private void initAlternatives() {
     }
@@ -60,20 +63,20 @@ public class pred_printDataClass_6 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[6];
-        Term areg5 = local_aregs[5].dref();
-        Term areg4 = local_aregs[4].dref();
-        Term areg3 = local_aregs[3].dref();
-        Term areg2 = local_aregs[2].dref();
-        Term areg1 = local_aregs[1].dref();
-        Term areg0 = local_aregs[0].dref();
-        Term var6 = JpFactory.JVAR(mach);
-        Term var5 = JpFactory.JVAR(mach);
-        Term var4 = JpFactory.JVAR(mach);
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[6];
+        final Term areg5 = local_aregs[5].dref();
+        final Term areg4 = local_aregs[4].dref();
+        final Term areg3 = local_aregs[3].dref();
+        final Term areg2 = local_aregs[2].dref();
+        final Term areg1 = local_aregs[1].dref();
+        final Term areg0 = local_aregs[0].dref();
+        final Term var6 = Jv(mach);
+        final Term var5 = Jv(mach);
+        final Term var4 = Jv(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!(areg0.unify(var1)))
             return mach.Fail0;
         if (!(areg1.unify(var2)))
@@ -86,28 +89,13 @@ public class pred_printDataClass_6 extends Code {
             return mach.Fail0;
         if (!(areg5.unify(var6)))
             return mach.Fail0;
-        local_aregs[0] = JpFactory.S(getConsts().string3, JpFactory.CONST(getConsts().string4), JpFactory
-                .S(getConsts().string3, var1.dref(), JpFactory.S(getConsts().string3, JpFactory
-                        .CONST(getConsts().string5), JpFactory.S(getConsts().string3, JpFactory
-                                .S(getConsts().string6, JpFactory.CONST(getConsts().string7)), JpFactory
-                                        .S(getConsts().string3, JpFactory.CONST(getConsts().string8), JpFactory
-                                                .S(getConsts().string3, JpFactory.S(getConsts().string6, JpFactory
-                                                        .CONST(getConsts().string7)), JpFactory
-                                                                .S(getConsts().string3, JpFactory
-                                                                        .S(getConsts().string9, var2.dref(), var3
-                                                                                .dref(), var4.dref()), JpFactory
-                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                .S(getConsts().string10, var5
-                                                                                                        .dref(), getConsts().posint0), JpFactory
-                                                                                                                .S(getConsts().string3, JpFactory
-                                                                                                                        .S(getConsts().string11, var6
-                                                                                                                                .dref()), JpFactory
-                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                .CONST(getConsts().string12), JpFactory
-                                                                                                                                                        .S(getConsts().string3, JpFactory
-                                                                                                                                                                .S(getConsts().string6, JpFactory
-                                                                                                                                                                        .CONST(getConsts().string7)), JpFactory
-                                                                                                                                                                                .CONST(getConsts().string13))))))))))));
+
+        local_aregs[0] = S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
+                .dref(), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string5), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string8), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string9, var2
+                        .dref(), var3.dref(), var4
+                                .dref()), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string10, var5
+                                        .dref(), pred_printDataClass_6_consts.posint0), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string11, var6
+                                                .dref()), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string12), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), CONST(pred_printDataClass_6_consts.string13))))))))))));
         local_aregs[1] = continuation;
         mach.updateCUTB();
         local_aregs[6] = local_aregs[5] = local_aregs[4] = local_aregs[3] = local_aregs[2] = null;

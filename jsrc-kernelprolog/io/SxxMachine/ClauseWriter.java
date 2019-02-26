@@ -20,7 +20,7 @@ public class ClauseWriter extends CharWriter {
             return 0;
         String s = null;
         if (t.isCompound() && "$string".equals(t.fname())) {
-            s = TermData.charsToString(t.ArgDeRef(0));
+            s = TermData.charsToString(t.getDrefArg(0));
         } else {
             s = t.pprint();
         }

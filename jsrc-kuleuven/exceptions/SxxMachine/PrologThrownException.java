@@ -8,12 +8,21 @@ package SxxMachine;
   */
 public class PrologThrownException extends JPrologInternalException {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private final Term cause;
 
     public PrologThrownException(Term cause) {
-        super(cause.toString());
-        if (cause == null)
+        this(cause.toJpString(), cause);
+    }
+
+    public PrologThrownException(String str, Term cause) {
+        super(str);
+        if (cause == null) {
             throw new NullPointerException();
+        }
         if (cause.isVariable())
             throw new JPrologInternalException("Invalid cause, cause can not be a var");
         this.cause = cause;
@@ -25,11 +34,11 @@ public class PrologThrownException extends JPrologInternalException {
     }
 
     public Object getPrologExceptionCause() {
-        Term cause = this.cause.dref();
+        final Term cause = this.cause.dref();
         if (cause instanceof Const) {
             return ((Const) cause).getValue();
         }
-        return cause.toString();
+        return cause.toJpString();
     }
 
 }

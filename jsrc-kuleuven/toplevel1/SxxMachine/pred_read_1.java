@@ -1,8 +1,13 @@
 
 package SxxMachine;
 
-import java.util.ArrayList;
-import java.util.List;
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
+import SxxMachine.pterm.StructureTerm;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -15,19 +20,19 @@ public class pred_read_1 extends Code {
 
     static Code nexttoken2cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern("cut");
+    static String string1 = internS("cut");
 
-    static String string2 = Const.strIntern("maketerm");
+    static String string2 = internS("maketerm");
 
-    static String string3 = Const.strIntern("nexttoken");
+    static String string3 = internS("nexttoken");
 
-    static String string4 = Const.strIntern("read");
+    static String string4 = internS("read");
 
-    static String string5 = Const.strIntern("readall");
+    static String string5 = internS("readall");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -42,7 +47,7 @@ public class pred_read_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -52,22 +57,22 @@ class pred_read_1_1 extends pred_read_1 {
     private Term ignore(Term o, String[][] ignores) {
         if (ignores == null || !(o instanceof StructureTerm))
             return o;
-        Term arg = ((StructureTerm) o).args()[0].dref();
+        final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {
-            if (arg.equalsTerm(JpFactory.S("const", JpFactory.CONST(ignores[i][0]))))
-                return findToken((StructureTerm) o, ignores[i][1], ignores).args()[1].dref();
+            if (arg.equalsTerm(S("const", CONST(ignores[i][0]))))
+                return findToken((StructureTerm) o, ignores[i][1], ignores).getPlainArg(1).dref();
         }
         return o;
     }
 
     private StructureTerm findToken(StructureTerm f, String token, String[][] ignores) {
-        Term c = JpFactory.S("const", JpFactory.CONST(token));
-        Term next = ignore(f.args()[1].dref(), ignores);
+        final Term c = S("const", CONST(token));
+        Term next = ignore(f.getPlainArg(1).dref(), ignores);
         while (next.isCons()) {
             f = (StructureTerm) next;
-            if (f.args()[0].dref().equalsTerm(c))
+            if (f.getPlainArg(0).dref().equalsTerm(c))
                 return f;
-            next = ignore(f.args()[1].dref(), ignores);
+            next = ignore(f.getPlainArg(1).dref(), ignores);
         }
         return null;
     }
@@ -75,18 +80,18 @@ class pred_read_1_1 extends pred_read_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
 
-        Term var3 = JpFactory.JVAR(mach);
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term var3 = Jv(mach);
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!((areg0).unify(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = JpFactory.S(string5, var2.dref(), var3, JpFactory.S(string2, var3.dref(), var1
-                .dref(), JpFactory.S(string0, new HeapChoice(mach.getCUTB()), continuation)));
+        local_aregs[1] = S(string5, var2.dref(), var3, S(string2, var3.dref(), var1
+                .dref(), S(string0, new HeapChoice(mach.getCUTB()), continuation)));
         mach.updateCUTB();
         return nexttoken2cont;
         /*
@@ -100,24 +105,5 @@ class pred_read_1_1 extends pred_read_1 {
         mach.CUTB = mach.CurrentChoice;
         local_aregs[0] = continuation;
         return mach.Call1;*/
-    }
-
-    private List<Term> readIn(PrologMachine mach) {
-        List<Term> in = new ArrayList<Term>();
-        boolean stop = false;
-        while (!stop) {
-            Term o = mach.nexttoken();
-            if (o instanceof Const) {
-                Const c = (Const) o;
-                if (c.fname().equals(Lexer.ENDOFCLAUSE))
-                    stop = true;
-                else if (c.fname().equals(Lexer.ENDOFFILE))
-                    stop = true;
-                else
-                    in.add(c);
-            } else
-                in.add(o);
-        }
-        return in;
     }
 }

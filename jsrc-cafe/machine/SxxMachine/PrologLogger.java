@@ -37,7 +37,7 @@ public class PrologLogger {
     private boolean normalExecution = true;
     private final StringBuilder stringBuilder = new StringBuilder(2048);
     private char[] indent;
-    public boolean loggerEnable = false;
+    public boolean loggerEnable = true;
 
     Logger getJLogger() {
         return this.logger;

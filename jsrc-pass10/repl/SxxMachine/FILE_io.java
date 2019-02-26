@@ -4,6 +4,23 @@ import static SxxMachine.Failure.fail_0;
 
 @SuppressWarnings("unused")
 public class FILE_io extends FILE_cafeteria {
+    /** PREDICATE: (package)/1
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/io.pl
+    */
+    // main((package)/1,non-(public))
+
+    public static Operation PRED_package_1_static_exec(Prolog m) {
+        Operation cont = m.cont;
+        Term[] LARG = m.AREGS;
+        Operation thiz = m.pred;
+        // package A:-true
+        m.setB0();
+        Term a1;
+        a1 = LARG[0];
+        // package A:-[]
+        return cont;
+    }
+
     /** PREDICATE: open/3
     from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen1/repl/io.pl
     */
@@ -793,6 +810,7 @@ public class FILE_io extends FILE_cafeteria {
     }
 
     static public void loadPreds() {
+        PredTable.registerBuiltin("package", 1, FILE_io::PRED_package_1_static_exec);
         PredTable.registerBuiltin("open", 3, FILE_io::PRED_open_3_static_exec);
         PredTable.registerBuiltin("close", 1, FILE_io::PRED_close_1_static_exec);
         PredTable.registerBuiltin("flush_output", 0, FILE_io::PRED_flush_output_0_static_exec);

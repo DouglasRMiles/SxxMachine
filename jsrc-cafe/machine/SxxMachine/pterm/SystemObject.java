@@ -31,6 +31,17 @@ abstract public class SystemObject extends ANonvar {
         sb.append(pprint());
     }
 
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.ANonvar#getPlainArg(int)
+     */
+    @Override
+    public Term getPlainArg(int i) {
+        // TODO Auto-generated method stub
+        if (true)
+            throw new AbstractMethodError("SystemObject.getPlainArg");
+        return super.getPlainArg(i);
+    }
+
     /* Comparable */
     /**
      * Compares two terms in <em>Prolog standard order of terms</em>.<br>
@@ -70,12 +81,12 @@ abstract public class SystemObject extends ANonvar {
 
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
-        return equalsIdentical(obj);
+        return equalsTerm(obj);
     }
 
     @Override
     public Term toClone() {
-        oopsy();
+        oopsy("unknown toClone");
         return this;
     }
 
@@ -98,13 +109,13 @@ abstract public class SystemObject extends ANonvar {
     }
 
     @Override
-    public String fname() {
-        oopsy();
+    public String getString() {
+        oopsy("unknown getString");
         return "object(" + getClass().getName() + "." + ordinal + ")";
     }
 
     public String qname() {
-        return "object(" + getClass().getName() + "." + ordinal + ")";
+        return "object('" + getClass().getName() + "'." + ordinal + ")";
     }
 
     @Override
@@ -114,11 +125,11 @@ abstract public class SystemObject extends ANonvar {
 
     @Override
     public String pprint() {
-        return fname();
+        return getString();
     }
 
     @Override
-    public final int arityOrType() {
+    public int arityOrType() {
         return Term.JAVA;
     }
 }

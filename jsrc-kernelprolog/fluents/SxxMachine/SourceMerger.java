@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /**
  * Merges a List of Sources into a new Source which (fairly) iterates over them
@@ -20,7 +20,7 @@ public class SourceMerger extends IterableSource {
         if (null == Q)
             return null;
         while (!Q.isEmpty()) {
-            Source current = (Source) Q.deq();
+            SourceFluentTerm current = (SourceFluentTerm) Q.deq();
             if (null == current)
                 continue;
             Term T = current.getElement();

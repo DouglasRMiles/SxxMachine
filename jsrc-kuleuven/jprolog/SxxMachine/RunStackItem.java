@@ -26,8 +26,8 @@ public class RunStackItem implements Comparator<Class<? extends JpModule>> {
         if (machine == null)
             throw new NullPointerException();
         mach = machine;
-        setPendinggoals(Const.NIL);
-        setAssumptions(Const.NIL);
+        setPendinggoals(Prolog.Nil);
+        setAssumptions(Prolog.Nil);
         status = ErrorStatus.NONE;
         cutb = 0;
         trailStack = new ArrayDeque<UnTrailOperation>(500);
@@ -111,8 +111,8 @@ public class RunStackItem implements Comparator<Class<? extends JpModule>> {
     }
 
     void restoreArguments() {
-        JpChoicePointStackEntry cp = getCurrentStackPoint();
-        Term[] args = cp.getArguments();
+        final JpChoicePointStackEntry cp = getCurrentStackPoint();
+        final Term[] args = cp.getArguments();
         for (int i = 0; i < args.length; i++) {
             areg[i] = args[i];
         }
@@ -178,7 +178,7 @@ public class RunStackItem implements Comparator<Class<? extends JpModule>> {
         while (getCurrentChoice() >= 0) {
             try {
                 return getCurrentStackPoint().handlePrologException(ex, this);
-            } catch (JPrologInternalException ex2) {
+            } catch (final JPrologInternalException ex2) {
                 if (!ex.equals(ex2))
                     throw new JPrologInternalException("Unknown exception detected", ex2);
                 /*if (getCurrentChoice() >= 0) {

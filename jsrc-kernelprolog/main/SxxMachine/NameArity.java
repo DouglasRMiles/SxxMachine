@@ -6,9 +6,9 @@ public interface NameArity {
 
     String fname();
 
-    int arityOrType();
+    int arity();
 
-    String getKey();
+    String getFAKey();
 
     void setMethod(Method b);
 

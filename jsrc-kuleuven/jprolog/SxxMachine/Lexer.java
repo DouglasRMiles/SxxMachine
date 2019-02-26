@@ -1,6 +1,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Hashtable;
@@ -9,11 +15,11 @@ public class Lexer extends java.io.StreamTokenizer {
 
     private final static Logger log = Logger.getLogger(Lexer.class);
 
-    private final static String anonymous = Const.strIntern("_");
-    private final static String CONST = Const.strIntern("const");
+    private final static String anonymous = internS("_");
+    private final static String CONST = internS("const");
 
-    final static String ENDOFFILE = Const.strIntern("end_of_file");
-    final static String ENDOFCLAUSE = Const.strIntern("end_of_clause");
+    final static String ENDOFFILE = internS("end_of_file");
+    final static String ENDOFCLAUSE = internS("end_of_clause");
 
     private final RunningPrologMachine prologmachine;
     private boolean inClause = false;
@@ -55,15 +61,15 @@ public class Lexer extends java.io.StreamTokenizer {
 
     private Term make_const() {
         try {
-            return JpFactory.S(Const.strIntern("int"), JpFactory.Long(Integer.parseInt(sval)));
-        } catch (NumberFormatException ex) {
+            return S(("int"), Integer(Integer.parseInt(sval)));
+        } catch (final NumberFormatException ex) {
             if (sval.length() == 1) {
-                char c = sval.charAt(0);
+                final char c = sval.charAt(0);
                 if (c == '[' || c == ']' || c == '(' || c == ')') {
-                    return JpFactory.S(Const.strIntern("constant"), JpFactory.CONST(Const.strIntern(sval)));
+                    return S(("constant"), CONST(internS(sval)));
                 }
             }
-            return JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(sval)));
+            return S(CONST, CONST(internS(sval)));
         }
     }
 
@@ -83,14 +89,14 @@ public class Lexer extends java.io.StreamTokenizer {
             long val;
             try {
                 val = Long.valueOf(sval);
-            } catch (NumberFormatException ex) {
+            } catch (final NumberFormatException ex) {
                 pushBack();
-                return JpFactory.S(CONST, JpFactory.CONST("-"));
+                return S(CONST, CONST("-"));
             }
-            return JpFactory.S(Const.strIntern("int"), JpFactory.Long(negative ? val * -1 : val));
+            return S(("int"), Integer(negative ? val * -1 : val));
         }
         pushBack();
-        return JpFactory.S(CONST, JpFactory.CONST("-"));
+        return S(CONST, CONST("-"));
     }
 
     Term make_real() {
@@ -98,26 +104,26 @@ public class Lexer extends java.io.StreamTokenizer {
     }
 
     Term make_var() {
-        sval = Const.strIntern(sval);
+        sval = internS(sval);
         JpVar X;
-        Int I;
+        NumberTerm I;
         long occ = 0;
         if (anonymous.equals(sval)) {
-            X = JpFactory.JVAR(prologmachine);
-            I = JpFactory.Long(occ);
+            X = Jv(prologmachine);
+            I = Integer(occ);
         } else {
             X = (JpVar) dict.get(sval);
             if (X == null) {
-                X = JpFactory.JVAR(prologmachine);
+                X = Jv(prologmachine);
                 dict.put(sval, X);
             } else {
-                occ = ((Int) dict.get(X)).longValue();
+                occ = ((NumberTerm) dict.get(X)).longValue();
                 occ++;
             }
-            I = JpFactory.Long(occ);
+            I = Integer(occ);
             dict.put(X, I);
         }
-        return JpFactory.S(Const.strIntern("var"), X, JpFactory.CONST(Const.strIntern(sval)), I);
+        return S(("var"), X, CONST(internS(sval)), I);
     }
 
     private void whitespaceChar(char c) {
@@ -128,12 +134,12 @@ public class Lexer extends java.io.StreamTokenizer {
         wordChars(c, c);
     }
 
-    private Hashtable<Object, Term> dict;
+    private final Hashtable<Object, Term> dict;
 
-    private final static Term Somethingwrong = JpFactory.S(Const.strIntern("exception"), JpFactory.Long(666));
+    private final static Term Somethingwrong = S(("exception"), Integer(666));
 
     private Term next0() throws IOException {
-        int n = nextToken();
+        final int n = nextToken();
         inClause = true;
         Term T = Somethingwrong;
         String old_sval = null;
@@ -141,7 +147,7 @@ public class Lexer extends java.io.StreamTokenizer {
 
         switch (n) {
             case TT_WORD: {
-                char c = sval.charAt(0);
+                final char c = sval.charAt(0);
                 if (Character.isUpperCase(c) || '_' == c)
                     T = make_var();
                 else {
@@ -158,7 +164,7 @@ public class Lexer extends java.io.StreamTokenizer {
             break;
             */
             case TT_EOF:
-                T = JpFactory.CONST(ENDOFFILE);
+                T = CONST(ENDOFFILE);
                 inClause = false;
                 break;
             case TT_EOL:
@@ -166,13 +172,13 @@ public class Lexer extends java.io.StreamTokenizer {
                 break;
             case ':':
                 if ('-' == nextToken()) {
-                    sval = Const.strIntern(":-");
+                    sval = internS(":-");
                 } else {
                     old_sval = sval;
                     pushBack();
-                    sval = Const.strIntern(":");
+                    sval = internS(":");
                 }
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(sval)));
+                T = S(CONST, CONST(internS(sval)));
                 sval = old_sval;
                 break;
             case '-':
@@ -180,35 +186,35 @@ public class Lexer extends java.io.StreamTokenizer {
                 n2 = nextToken();
                 whitespaceChar(' ');
                 if ('>' == n2) {
-                    sval = Const.strIntern("->");
+                    sval = internS("->");
                 } else if (n2 == TT_WORD) {
                     pushBack();
                     T = make_int(n);
                     break;
                 } else if (n2 == ' ') {
                     old_sval = sval;
-                    sval = Const.strIntern("-");
+                    sval = internS("-");
                 } else {
                     old_sval = sval;
                     pushBack();
-                    sval = Const.strIntern("-");
+                    sval = internS("-");
                 }
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(sval)));
+                T = S(CONST, CONST(internS(sval)));
                 sval = old_sval;
                 break;
 
             case '.':
                 ordinaryChar(' ');
-                int c = nextToken();
+                final int c = nextToken();
                 whitespaceChar(' ');
                 if (TT_EOL == c || TT_EOF == c || ' ' == c) {
                     inClause = false;
                     dict.clear();
-                    T = JpFactory.CONST(ENDOFCLAUSE);
+                    T = CONST(ENDOFCLAUSE);
                 } else {
                     old_sval = sval;
                     pushBack();
-                    sval = Const.strIntern(".");
+                    sval = internS(".");
                     T = make_const();
                     sval = old_sval;
                 }
@@ -221,26 +227,26 @@ public class Lexer extends java.io.StreamTokenizer {
             // break;
 
             case '(':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("(")));
+                T = S(CONST, CONST(internS("(")));
                 break;
             case ')':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(")")));
+                T = S(CONST, CONST(internS(")")));
                 break;
             case '[':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("[")));
+                T = S(CONST, CONST(internS("[")));
                 break;
             case ']':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("]")));
+                T = S(CONST, CONST(internS("]")));
                 break;
             case '|':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("|")));
+                T = S(CONST, CONST(internS("|")));
                 break;
 
             case ',':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(",")));
+                T = S(CONST, CONST(internS(",")));
                 break;
             case ';':
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(";")));
+                T = S(CONST, CONST(internS(";")));
                 break;
 
             case '=':
@@ -249,70 +255,70 @@ public class Lexer extends java.io.StreamTokenizer {
                     if (nextToken() != '.') {
                         throw new IllegalStateException("Illegal Syntax! =. found but next token is not .");
                     }
-                    T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("=..")));
+                    T = S(CONST, CONST(internS("=..")));
                     break;
                 } else if (n2 == '<') {
-                    T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("=<")));
+                    T = S(CONST, CONST(internS("=<")));
                     break;
                 } else if (n2 == ':') {
                     if (nextToken() != '=') {
                         throw new IllegalStateException("Illegal Syntax! =: found but next token is not =");
                     }
-                    T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("=:=")));
+                    T = S(CONST, CONST(internS("=:=")));
                     break;
                 } else if (n2 == '=') {
-                    T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern("==")));
+                    T = S(CONST, CONST(internS("==")));
                     break;
                 }
                 pushBack();
             case '>':
-                char next = (char) nextToken();
+                final char next = (char) nextToken();
                 if (next == '=') {
-                    T = JpFactory.S(CONST, JpFactory.CONST(">="));
+                    T = S(CONST, CONST(">="));
                     break;
                 }
                 if (next == '>') {
-                    T = JpFactory.S(CONST, JpFactory.CONST(">>"));
+                    T = S(CONST, CONST(">>"));
                     break;
                 }
                 pushBack();
             case '<':
                 if (nextToken() == '<') {
-                    T = JpFactory.S(CONST, JpFactory.CONST("<<"));
+                    T = S(CONST, CONST("<<"));
                     break;
                 }
                 pushBack();
                 old_sval = sval;
                 sval = char2string(n);
-                T = JpFactory.S(CONST, JpFactory.CONST(Const.strIntern(sval)));
+                T = S(CONST, CONST(internS(sval)));
                 sval = old_sval;
                 break;
             case '@':
                 n2 = nextToken();
                 if (n2 == '<') {
-                    T = JpFactory.S(CONST, JpFactory.CONST("@<"));
+                    T = S(CONST, CONST("@<"));
                     break;
                 } else if (n2 == '>') {
                     if (nextToken() == '=') {
-                        T = JpFactory.S(CONST, JpFactory.CONST("@>="));
+                        T = S(CONST, CONST("@>="));
                         break;
                     }
                     pushBack();
-                    T = JpFactory.S(CONST, JpFactory.CONST("@>"));
+                    T = S(CONST, CONST("@>"));
                     break;
                 } else if (n2 == '=') {
                     if (nextToken() != '<') {
-                        T = JpFactory.S(CONST, JpFactory.CONST("@="));
+                        T = S(CONST, CONST("@="));
                         pushBack();
                         break;
                     }
-                    T = JpFactory.S(CONST, JpFactory.CONST("@=<"));
+                    T = S(CONST, CONST("@=<"));
                     break;
                 }
             case '?':
                 n2 = nextToken();
                 if (n2 == '-') {
-                    T = JpFactory.S(CONST, JpFactory.CONST("?-"));
+                    T = S(CONST, CONST("?-"));
                     break;
                 }
                 pushBack();
@@ -331,9 +337,9 @@ public class Lexer extends java.io.StreamTokenizer {
     Term next() {
         try {
             return next0();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             log.error("Error while reading in lexer", e);
-            return JpFactory.S(Const.strIntern("exception"), JpFactory.CONST(Const.strIntern((e.toString()))));
+            return S(("exception"), CONST(internS((e.toString()))));
         }
     }
 

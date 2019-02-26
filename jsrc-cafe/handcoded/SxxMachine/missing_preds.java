@@ -3,11 +3,66 @@ package SxxMachine;
 import SxxMachine.pterm.TermData;
 
 public class missing_preds extends TermData {
+
+    /**
+     * @throws Error
+     */
+    private static void exec_missing() throws Error {
+        Prolog.Break("@TODO");
+        throw new AbstractMethodError("not impled"); //
+    }
+
+    public static Operation PRED_prolog_load_context_2_static_exec(Prolog e) {
+        exec_missing();
+        return null;
+    }
+
+    public static Operation PRED_$compile_aux_clauses_2_static_exec(Prolog e) {
+        exec_missing();
+        return null;
+    }
+
+    public static Operation PRED_$tracing_0_static_exec(Prolog e) {
+        //exec_missing();
+        return e.cont;
+    }
+
+    public static Operation PRED_time_1_static_exec(Prolog e) {
+        //exec_missing();
+        long start = System.currentTimeMillis();
+        Term Goal = e.AREGS[0].dref();
+        try {
+            return FILE_system.PRED_call_1_static_exec(e);
+        } finally {
+            long end = System.currentTimeMillis();
+            System.err.println("Time for: " + Goal + " was " + (end - start) + "ms.");
+        }
+    }
+
+    public static Operation PRED_style_check_1_static_exec(Prolog e) {
+        // exec_missing();
+        return e.cont;
+    }
+
+    public static Operation PRED_garbage_collect_0_static_exec(Prolog e) {
+        //exec_missing();
+        System.gc();
+        return e.cont;
+    }
+
+    public static Operation PRED_unify_3_static_exec(Prolog e) {
+        exec_missing();
+        return null;
+    }
+
+    public static Operation PRED_phrase_2_static_exec(Prolog e) {
+        exec_missing();
+        return null;
+    }
+
     //
-    //    public static Operation PRED_$compile_aux_clauses_2_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
+    //
+
     //
     //    public static Operation PRED_string_1_static_exec(Prolog e) {
     //        exec_missing();
@@ -18,17 +73,7 @@ public class missing_preds extends TermData {
     //        exec_missing();
     //        return null;
     //    }
-    //
-    //    public static Operation PRED_prolog_load_context_2_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
-    //
-    //    public static Operation PRED_phrase_2_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
-    //
+
     //    public static Operation PRED_phrase_3_static_exec(Prolog e) {
     //        exec_missing();
     //        return null;
@@ -77,14 +122,6 @@ public class missing_preds extends TermData {
     //    public static Operation PRED_clause_property_2_static_exec(Prolog e) {
     //        exec_missing();
     //        return null;
-    //    }
-    //
-    //    /**
-    //     * @throws Error
-    //     */
-    //    private static void exec_missing() throws Error {
-    //        Prolog.Break("@TODO");
-    //        throw new AbstractMethodError("not impled"); //
     //    }
     //
     //    public static Operation PRED_$skip_list_3_static_exec(Prolog e) {
@@ -137,11 +174,6 @@ public class missing_preds extends TermData {
     //        return null;
     //    }
     //
-    //    public static Operation PRED_unify_3_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
-    //
     //    public static Operation PRED_code_type_2_static_exec(Prolog e) {
     //        exec_missing();
     //        return null;
@@ -162,15 +194,6 @@ public class missing_preds extends TermData {
     //        return null;
     //    }
     //
-    //    public static Operation PRED_time_1_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
-    //
-    //    public static Operation PRED_garbage_collect_0_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
     //
     //    public static Operation PRED_compile_predicates_1_static_exec(Prolog e) {
     //        exec_missing();
@@ -197,10 +220,6 @@ public class missing_preds extends TermData {
     //        return null;
     //    }
     //
-    //    public static Operation PRED_style_check_1_static_exec(Prolog e) {
-    //        exec_missing();
-    //        return null;
-    //    }
     //
     //    public static Operation PRED_erase_1_static_exec(Prolog e) {
     //        exec_missing();

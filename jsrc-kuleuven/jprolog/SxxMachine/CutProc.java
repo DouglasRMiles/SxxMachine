@@ -1,6 +1,8 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.internS;
+
 public class CutProc extends Code {
 
     @Override
@@ -9,17 +11,17 @@ public class CutProc extends Code {
     }
 
     public CutProc(PredikatenPrologMachine machine) {
-        machine.registerCode(this, Const.strIntern("cut"));
+        machine.registerCode(this, internS("cut"));
     }
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term[] areg = mach.getAreg();
+        final Term[] areg = mach.getAreg();
         // Areg[0] contains a PrologObject of type
         // HeapChoice
-        int i = ((HeapChoice) areg[0]).CutTo;
+        final int i = ((HeapChoice) areg[0]).CutTo;
         mach.doCut(i);
-        areg[0] = (AFunct) areg[1];
+        areg[0] = areg[1];
         mach.updateCUTB();
         return mach.Call1.exec(mach);
     }

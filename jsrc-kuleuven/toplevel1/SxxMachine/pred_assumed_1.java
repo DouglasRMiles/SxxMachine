@@ -1,6 +1,10 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
@@ -12,13 +16,13 @@ public class pred_assumed_1 extends Code {
 
     static Code allassumed2cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern("allassumed");
+    static String string1 = internS("allassumed");
 
-    static String string2 = Const.strIntern("assumed");
+    static String string2 = internS("assumed");
 
-    static String string3 = Const.strIntern("m1");
+    static String string3 = internS("m1");
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -33,7 +37,7 @@ public class pred_assumed_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(2);
+        final Term aregs[] = mach.createAregCopy(2);
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -43,15 +47,15 @@ class pred_assumed_1_1 extends pred_assumed_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[1];
-        Term areg0 = local_aregs[0].dref();
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[1];
+        final Term areg0 = local_aregs[0].dref();
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
         if (!((areg0).unify(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = JpFactory.S(string3, var1.dref(), var2.dref(), continuation);
+        local_aregs[1] = S(string3, var1.dref(), var2.dref(), continuation);
         mach.updateCUTB();
         return allassumed2cont;
     }

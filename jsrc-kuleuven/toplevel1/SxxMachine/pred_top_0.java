@@ -1,6 +1,12 @@
 
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.internS;
+
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
 // Authors: Bart Demoen and Paul Tarau
@@ -14,31 +20,31 @@ public class pred_top_0 extends Code {
 
     static Code write2cont;
 
-    static String string0 = Const.strIntern("cut");
+    static String string0 = internS("cut");
 
-    static String string1 = Const.strIntern("?- ");
+    static String string1 = internS("?- ");
 
-    static String string2 = Const.strIntern("Yes");
+    static String string2 = internS("Yes");
 
-    static String string3 = Const.strIntern("cut");
+    static String string3 = internS("cut");
 
-    static String string4 = Const.strIntern("exec");
+    static String string4 = internS("exec");
 
-    static String string5 = Const.strIntern("fail");
+    static String string5 = internS("fail");
 
-    static String string6 = Const.strIntern("nl");
+    static String string6 = internS("nl");
 
-    static String string7 = Const.strIntern("notmore");
+    static String string7 = internS("notmore");
 
-    static String string8 = Const.strIntern("top");
+    static String string8 = internS("top");
 
-    static String string9 = Const.strIntern("vread");
+    static String string9 = internS("vread");
 
-    static String string10 = Const.strIntern("write");
+    static String string10 = internS("write");
 
-    static String string11 = Const.strIntern("writevars");
+    static String string11 = internS("writevars");
 
-    static Int posint1 = JpFactory.Long(1);
+    static NumberTerm posint1 = Integer(1);
 
     @Override
     public void init(PredikatenPrologMachine mach) {
@@ -53,7 +59,7 @@ public class pred_top_0 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term aregs[] = mach.createAregCopy(1);
+        final Term aregs[] = mach.createAregCopy(1);
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -63,16 +69,14 @@ class pred_top_0_1 extends pred_top_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[0];
-        Term var2 = JpFactory.JVAR(mach);
-        Term var1 = JpFactory.JVAR(mach);
-        local_aregs[0] = JpFactory.CONST(string1);
-        local_aregs[1] = JpFactory.S(string9, var1, var2, JpFactory
-                .S(string4, var1.dref(), JpFactory.S(string11, var2.dref(), JpFactory
-                        .S(string10, JpFactory.CONST(string2), JpFactory.S(string6, JpFactory
-                                .S(string7, JpFactory.S(string0, new HeapChoice(mach.getCUTB()), JpFactory
-                                        .S(string5, continuation))))))));
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[0];
+        final Term var2 = Jv(mach);
+        final Term var1 = Jv(mach);
+        local_aregs[0] = CONST(string1);
+        local_aregs[1] = S(string9, var1, var2, S(string4, var1.dref(), S(string11, var2
+                .dref(), S(string10, CONST(string2), S(string6, S(string7, S(string0, new HeapChoice(
+                        mach.getCUTB()), S(string5, continuation))))))));
         mach.updateCUTB();
         return write2cont;
     }
@@ -82,8 +86,8 @@ class pred_top_0_2 extends pred_top_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        Term local_aregs[] = mach.getAreg();
-        Term continuation = local_aregs[0];
+        final Term local_aregs[] = mach.getAreg();
+        final Term continuation = local_aregs[0];
         local_aregs[0] = continuation;
         mach.updateCUTB();
         return entry_code;

@@ -1,5 +1,10 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.SYM;
+
 import java.io.File;
 
 /**
@@ -22,9 +27,9 @@ public class PrologMachine extends RunningPrologMachine {
 
     protected void trace(Code codeToRun) {
         if (log.isDebugEnabled() || true) {
-            StringBuilder b = new StringBuilder();
+            final StringBuilder b = new StringBuilder();
             b.append(codeToRun).append("(");
-            Term[] areg = getAreg();
+            final Term[] areg = getAreg();
             for (int i = 0; i < codeToRun.arity(); i++) {
                 if (areg[i] != null) {
                     b.append(areg[i].dref());
@@ -54,26 +59,26 @@ public class PrologMachine extends RunningPrologMachine {
     }
 
     private void installGoal(Term goal, RunStackItem runStack) {
-        Term[] areg = runStack.getAreg();
+        final Term[] areg = runStack.getAreg();
         areg[0] = goal;
-        areg[1] = JpFactory.S(Const.strIntern("halt"), JpFactory.Long(0));
+        areg[1] = S(("halt"), Integer(0));
     }
 
     //public boolean doTrace = false;
 
     private synchronized ErrorStatus doSolveGoalOnce(Term goal) throws JPrologScriptException {
         Code code = Call2;
-        RunStackItem runStack = getCurrentStackItem();
+        final RunStackItem runStack = getCurrentStackItem();
         runStack.setExceptionState(ErrorStatus.NONE);
         //final StatCreator st = new StatCreator();
         //st.setPrologMachine(this); st.setEnabled(true);
         installGoal(goal, runStack);
         ErrorStatus status;
         while ((status = runStack.getExceptionState()).continueRunning()) {
-            //if (doTrace) 
+            //if (doTrace)
             //      trace(code);
             //st.startPred(code);
-            Code nCode = run(code);
+            final Code nCode = run(code);
             if (Thread.currentThread().isInterrupted()) {
                 log.fatal("PrologMachine stopped na uitvoeren " + code + " en volgende " + nCode);
                 return ErrorStatus.ABORTTHREAD; //Thread zou moeten aborten
@@ -91,18 +96,17 @@ public class PrologMachine extends RunningPrologMachine {
                 code = nCode;
                 if (status == ErrorStatus.CHANGEDPENDINGGOALS) {
                     log.debug(code);
-                    Term[] arguments = new Term[code.arity() + 1];
-                    Term[] areg = getAreg();
+                    final Term[] arguments = new Term[code.arity() + 1];
+                    final Term[] areg = getAreg();
                     for (int i = 0; i < arguments.length; i++) {
                         arguments[i] = areg[i];
                         log.debug(areg[i]);
                     }
-                    Term continuation = JpFactory.S(Const.strIntern("code_call"), new CodeObject(code), JpFactory
-                            .S("arguments", arguments));
+                    final Term continuation = S(("code_call"), new CodeObject(code), S("arguments", arguments));
                     log.debug("*** continuation: " + continuation);
-                    areg[0] = JpFactory.S(Const.strIntern("call_list"), getPendinggoals(), continuation);
+                    areg[0] = S(("call_list"), getPendinggoals(), continuation);
                     setExceptionState(ErrorStatus.NONE);
-                    setPendinggoals(Const.NIL);
+                    setPendinggoals(Prolog.Nil);
                     code = Call1;
                 }
             }
@@ -127,11 +131,10 @@ public class PrologMachine extends RunningPrologMachine {
 
     private synchronized Term doSolveGoal(Term Goal) throws JPrologScriptException {
         Code code = Call1;
-        Term AnswerList = JpFactory.JVAR(this);
+        final Term AnswerList = Jv(this);
         setExceptionState(ErrorStatus.NONE);
 
-        getAreg()[0] = JpFactory.S(Const.strIntern("findall"), Goal, Goal, AnswerList, JpFactory
-                .S(Const.strIntern("halt"), JpFactory.Long(0)));
+        getAreg()[0] = S(("findall"), Goal, Goal, AnswerList, S(("halt"), Integer(0)));
 
         while (getExceptionState().continueRunning()) {
             log.debug(code);
@@ -143,12 +146,12 @@ public class PrologMachine extends RunningPrologMachine {
     private Code run(Code r) throws JPrologScriptException {
         try {
             return r.exec(this);
-        } catch (JPrologInternalException ex) {
+        } catch (final JPrologInternalException ex) {
             try {
                 return processException(ex);
-            } catch (PrologThrownException ex2) {
+            } catch (final PrologThrownException ex2) {
                 throw ex2;
-            } catch (JPrologInternalException ex2) {
+            } catch (final JPrologInternalException ex2) {
                 //Kan niet intern recoveren van fout!
                 //fout doorwerpen naar buiten
                 throw new JPrologScriptException(ex2);
@@ -159,7 +162,7 @@ public class PrologMachine extends RunningPrologMachine {
     @Override
     public void initAlways() {
         log.info("Start initialization");
-        for (Term iter : initializers) {
+        for (final Term iter : initializers) {
             getAreg()[0] = iter;
             Code code = Call1;
             while (getExceptionState().continueRunning() && code != null) {
@@ -187,7 +190,7 @@ public class PrologMachine extends RunningPrologMachine {
         loadQuery(targetFolder);
         ErrorStatus status = null;
         try {
-            status = solveGoalOnce(JpFactory.S("solveDefaultQuery"));
+            status = solveGoalOnce(SYM("solveDefaultQuery"));
         } finally {
             removeQuery();
         }

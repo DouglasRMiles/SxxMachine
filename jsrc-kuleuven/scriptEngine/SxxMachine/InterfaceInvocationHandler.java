@@ -8,9 +8,9 @@ import javax.script.ScriptException;
 
 class InterfaceInvocationHandler implements InvocationHandler {
 
-    private final PrologScriptEngine engine;
+    private final PrologEngine engine;
 
-    InterfaceInvocationHandler(PrologScriptEngine engine) {
+    InterfaceInvocationHandler(PrologEngine engine) {
         if (engine == null)
             throw new NullPointerException();
         this.engine = engine;
@@ -22,16 +22,16 @@ class InterfaceInvocationHandler implements InvocationHandler {
             Object o;
             try {
                 o = engine.invokeFunction(method.getName(), args, method.getReturnType());
-            } catch (ScriptException ex) {
+            } catch (final ScriptException ex) {
                 throw new JPrologInternalException("Error invoking method", ex);
             }
             if (o != null && (Long.class.equals(o.getClass()) || Long.TYPE.equals(o.getClass()))) {
-                long l = (Long) o;
+                final long l = (Long) o;
                 if (Integer.class.equals(method.getReturnType()) || Integer.TYPE.equals(method.getReturnType()))
                     return (int) l;
             }
             return o;
-        } catch (NoSuchMethodException ex) {
+        } catch (final NoSuchMethodException ex) {
             if (Object.class.equals(method.getDeclaringClass())) {
                 if ("equals".equals(method.getName()) && args.length == 1) {
                     return proxy == args[0];

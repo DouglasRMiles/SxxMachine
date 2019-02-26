@@ -22,16 +22,16 @@ public class pred_put_attr_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        Term local_aregs[] = mach.getAreg();
-        Term variable = local_aregs[0].dref();
-        Term attribute = local_aregs[1].dref();
+        final Term local_aregs[] = mach.getAreg();
+        final Term variable = local_aregs[0].dref();
+        final Term attribute = local_aregs[1].dref();
 
         local_aregs[0] = local_aregs[2];
         local_aregs[1] = local_aregs[2] = null;
 
         if (variable instanceof AttributedVariable) {
             mach.trailEntry((AttributedVariable) variable);
-            Term newVariable = new AttributedVariable(mach, attribute);
+            final Term newVariable = new AttributedVariable(mach, attribute);
             System.out.println("bind('" + variable + "','" + newVariable + "').");
             // TODO: keep chains short, value trail!
             ((AttributedVariable) variable).setRefers(newVariable);

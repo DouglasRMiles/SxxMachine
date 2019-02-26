@@ -15,8 +15,8 @@ import SxxMachine.Var;
 /**
  * Datatype for a Prolog clause (H:-B) having a head H and a body b
  */
-public class Clause extends StructureTerm {
-    public Clause(Term s, Term[] args, HashDict dict, boolean ground, String fname, int begins_at, int ends_at) {
+public class HornClause extends StructureTerm {
+    public HornClause(Term s, Term[] args, HashDict dict, boolean ground, String fname, int begins_at, int ends_at) {
         super(s, args);
         this.dict = dict;
         this.ground = ground;
@@ -26,21 +26,21 @@ public class Clause extends StructureTerm {
     }
 
     @Override
-    public Clause toClone() {
+    public HornClause toClone() {
         //
         try {
-            return (Clause) clone();
+            return (HornClause) clone();
         } catch (CloneNotSupportedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return new Clause(functor, argz, dict, ground, fname, begins_at, ends_at);
+            return new HornClause(functor, argz, dict, ground, fname, begins_at, ends_at);
         }
     }
 
     /**
      * Builds a clause given its head and its body
      */
-    public Clause(Term head, Term body) {
+    public HornClause(Term head, Term body) {
         super(Prolog.FUNCTOR_NECK_2, head, body);
     }
 
@@ -49,9 +49,9 @@ public class Clause extends StructureTerm {
      * of a dictionary of variables, allowing listing of the clause with its
      * original variable names.
      */
-    public Clause(String s) {
+    public HornClause(String s) {
         super(":-");
-        Clause C = clauseFromString(s);
+        HornClause C = clauseFromString(s);
         // IO.mes("CLAUSE:"+C.pprint()+"\nDICT:"+C.dict);
         this.argz = C.argz;
         this.dict = C.dict;
@@ -62,7 +62,7 @@ public class Clause extends StructureTerm {
      * Extracts a clause from its String representation.
      */
 
-    public static Clause clauseFromString(String s) {
+    public static HornClause clauseFromString(String s) {
         return Parser.clsFromString(s);
     }
 
@@ -70,23 +70,23 @@ public class Clause extends StructureTerm {
      * Reads a goal as a clause containing a dummy header with all variables in it
      */
 
-    public Clause toGoal() {
-        Clause G = new Clause(varsOf(), getHead());
+    public HornClause toGoal() {
+        HornClause G = new HornClause(varsOf(), getHead());
         G.dict = dict;
         G.checkIfGround();
         IO.trace("conversion from clause to goal ignores body of: " + pprint());
         return G;
     }
 
-    public static Clause goalFromString(String line) {
+    public static HornClause goalFromString(String line) {
         IO.trace("read string: <" + line + ">");
 
         if (null == line)
-            line = Prolog.anEof.fname();
+            line = Prolog.anEof.getString();
         else if (0 == line.length())
             return null;
 
-        Clause C = clauseFromString(line);
+        HornClause C = clauseFromString(line);
         if (null == C) {
             IO.errmes("warning (null Clause):" + line);
             return null;
@@ -139,7 +139,7 @@ public class Clause extends StructureTerm {
     /**
      * Prints out a clause as Head:-Body
      */
-    private String Clause2String(Clause c) {
+    private String Clause2String(HornClause c) {
         Term h = c.getHead();
         Term t = c.getBody();
         if (t.isConj())
@@ -174,7 +174,7 @@ public class Clause extends StructureTerm {
      * Clause to Term converter: the joy of strong typing:-)
      */
     @Override
-    public Clause toClause() { // overrides toClause in Term
+    public HornClause toClause() { // overrides toClause in Term
         return this;
     }
 
@@ -183,9 +183,9 @@ public class Clause extends StructureTerm {
      * purposes
      */
     // synchronized
-    public Clause cnumbervars(boolean replaceAnonymous) {
+    public HornClause cnumbervars(boolean replaceAnonymous) {
         if (dict == null)
-            return (Clause) numbervars();
+            return (HornClause) numbervars();
         if (provenGround())
             return this;
         KPTrail trail = new KPTrail();
@@ -201,7 +201,7 @@ public class Clause extends StructureTerm {
                 V.DO_Unify(new PseudoVar(s), trail);
             }
         }
-        Clause NewC = (Clause) numbervars();
+        HornClause NewC = (HornClause) numbervars();
         trail.unwind(0);
         return NewC;
     }
@@ -222,10 +222,10 @@ public class Clause extends StructureTerm {
      * something like f(s(X),Y,X) becomes f(s(X1),Y1,X1)) with X1,Y1 variables
      * garantted not to occurring in the the current resolvant.
      */
-    public final Clause ccopy() {
+    public final HornClause ccopy() {
         if (ground)
             return this;
-        Clause C = (Clause) copy();
+        HornClause C = (HornClause) copy();
         C.dict = null;
         C.ground = ground;
         return C;
@@ -278,7 +278,7 @@ public class Clause extends StructureTerm {
     /**
      * Concatenates 2 Conjunctions
      *
-     * @see Clause#unfold
+     * @see HornClause#unfold
      */
     public static final Term appendConj(Term x, Term y) {
         y = y.dref();
@@ -305,26 +305,26 @@ public class Clause extends StructureTerm {
      * @see Term#unify()
      *
      */
-    private final Clause unfold(final Clause that, KPTrail trail) {
-        Clause result = null;
+    private final HornClause unfold(final HornClause that, KPTrail trail) {
+        HornClause result = null;
         Term first = getFirst();
         Term thatHead = that.getHead();
         if (first != null && thatHead.matches(first, trail)) {
 
-            final Clause that2 = that.ccopy();
+            final HornClause that2 = that.ccopy();
 
             final Term hthat2 = that2.getHead();
             boolean did = hthat2.DO_Unify(first, trail);
             assert did;
 
             Term conj = appendConj(that2.getBody(), getRest());
-            result = new Clause(getHead(), conj);
+            result = new HornClause(getHead(), conj);
         }
         return result;
     }
 
     // synchronized
-    public final Clause unfold_with_goal(Clause goal, KPTrail trail) {
+    public final HornClause unfold_with_goal(HornClause goal, KPTrail trail) {
         return goal.unfold(this, trail);
     }
 
@@ -339,8 +339,8 @@ public class Clause extends StructureTerm {
      * its arity.
      */
     @Override
-    final public String getKey() {
-        return getHead().getKey();
+    final public String getFAKey() {
+        return getHead().getFAKey();
     }
 
     @Override

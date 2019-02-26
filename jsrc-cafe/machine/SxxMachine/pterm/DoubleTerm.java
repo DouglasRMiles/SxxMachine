@@ -7,6 +7,7 @@ import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 
@@ -23,11 +24,50 @@ import SxxMachine.Trail;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-class DoubleTerm extends ANumberTerm {
+public class DoubleTerm extends ANumberTerm {
+
+    @Override
+    public Term copy(RunningPrologMachine m, long t) {
+        return TermData.Float(doubleValue());
+    }
+
+    @Override
+    public Term dref() {
+        return this;
+    }
+
+    @Override
+    public String toStringImpl(int depth) {
+        return "" + doubleValue();
+    }
+
+    @Override
+    public boolean unify(Term that) {
+        NumberTerm tmpint;
+        if (!(that instanceof NumberTerm))
+            return that.bind(this);
+        tmpint = (NumberTerm) that; // cast perhaps to be avoided
+        return (tmpint.doubleValue() == doubleValue());
+    }
+
+    @Override
+    public boolean couldUnify(Term object) {
+        return equalsTerm(object.dref()) || object.couldUnifyInverse(this);
+    }
+
+    @Override
+    public String fname() {
+        return "" + doubleValue();
+    }
+
+    @Override
+    public String toJpString() {
+        return fname();
+    }
 
     @Override
     public double doubleValue() {
-        return (Double) nvalue;
+        return nvalue.doubleValue();
     }
 
     @Override
@@ -56,7 +96,7 @@ class DoubleTerm extends ANumberTerm {
      * Constructs a new Prolog floating point number that represents the specified
      * <code>double</code> value.
      */
-    protected DoubleTerm(double i) {
+    protected DoubleTerm(Number i) {
         super(i);
     }
 
@@ -69,12 +109,6 @@ class DoubleTerm extends ANumberTerm {
     public boolean unifyImpl(Term t, Trail trail) {
         t = t.dref();
         return (t.isVar()) ? t.unify(this, trail) : ((t.isDouble()) && doubleValue() == t.doubleValue());
-    }
-
-    @Override
-    public String fname() {
-        oopsy();
-        return "Double";
     }
 
     /**
@@ -161,12 +195,12 @@ class DoubleTerm extends ANumberTerm {
     /* NumberTerm */
     @Override
     public int intValue() {
-        return (int) doubleValue();
+        return nvalue.intValue();
     }
 
     @Override
     public long longValue() {
-        return (long) doubleValue();
+        return nvalue.longValue();
     }
 
     // @Override
@@ -216,7 +250,7 @@ class DoubleTerm extends ANumberTerm {
 
     @Override
     public NumberTerm ceil() {
-        return Integer((long) Math.ceil(doubleValue()));
+        return Float(Math.ceil(doubleValue()));
     }
 
     @Override
@@ -253,7 +287,7 @@ class DoubleTerm extends ANumberTerm {
 
     @Override
     public NumberTerm floor() {
-        return Integer((long) Math.floor(doubleValue()));
+        return TermData.Long((long) Math.floor(doubleValue()));
     }
 
     /**
@@ -346,7 +380,7 @@ class DoubleTerm extends ANumberTerm {
 
     @Override
     public NumberTerm round() {
-        return Integer(Math.round(doubleValue()));
+        return TermData.Long(Math.round(doubleValue()));
     }
 
     /**
@@ -423,9 +457,9 @@ class DoubleTerm extends ANumberTerm {
     @Override
     public NumberTerm truncate() {
         if (doubleValue() >= 0)
-            return Integer((long) Math.floor(doubleValue()));
+            return TermData.Long((long) Math.floor(doubleValue()));
         else
-            return Integer((long) (-1 * Math.floor(Math.abs(doubleValue()))));
+            return TermData.Long((long) (-1 * Math.floor(Math.abs(doubleValue()))));
     }
 
     /**
@@ -442,13 +476,13 @@ class DoubleTerm extends ANumberTerm {
         return new IllegalTypeException("integer", this);
     }
 
-    private LongTerm Integer(long round) {
-        int i = (int) round;
-        if ((i) == round) {
-            return TermData.Integer(i);
-        }
-        return TermData.Long(round);
-    }
+    //    private LongTerm Integer(long round) {
+    //        int i = (int) round;
+    //        if ((i) == round) {
+    //            return TermData.Integer(i);
+    //        }
+    //        return TermData.Long(round);
+    //    }
 
     @Override
     public boolean isFloat() {

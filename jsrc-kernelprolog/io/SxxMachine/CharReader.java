@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
-import SxxMachine.pterm.Source;
+import SxxMachine.pterm.SourceFluentTerm;
 import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
  */
-public class CharReader extends Source {
+public class CharReader extends SourceFluentTerm {
 
     @Override
     public CharReader toValue() {
@@ -24,9 +24,9 @@ public class CharReader extends Source {
 
     public Reader reader;
 
-    public CharReader(Reader reader, Prog p) {
+    public CharReader(Reader f, Prog p) {
         super(p);
-        this.reader = reader;
+        this.reader = f;
     }
 
     public CharReader(String f, Prog p) {
@@ -79,6 +79,16 @@ public class CharReader extends Source {
             }
             reader = null;
         }
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#copy(SxxMachine.RunningPrologMachine, long)
+     */
+    @Override
+    public Term copy(RunningPrologMachine m, long t) {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("Term.copy");
+        return null;
     }
 
 }

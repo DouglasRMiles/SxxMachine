@@ -18,7 +18,7 @@ public class GlobalVarTrailEntry implements UnTrailOperation {
     public void unTrailSelf() {
         try {
             GlobalVarsModule.getTable(mach).put(name, value);
-        } catch (JPrologScriptException e) {
+        } catch (final JPrologScriptException e) {
             //Hier kunnen we niet geraken aangezien name reeds
             // als geldige waarde is ingesteld in het verleden
             throw new JPrologInternalException("Illegal location", e);
