@@ -20,7 +20,7 @@ public class pred_call_1 extends AbstractCall {
         Code code;
         int arity;
 
-        if (object instanceof AFunct) {
+        if (object .isCompound()) {
             final AFunct pred = (AFunct) object;
             functName = pred.fname();
             arity = pred.arity();

@@ -30,7 +30,7 @@ public class ArrayConverter extends Code {
             return mach.Fail0;
         }
         if (!java.isVariable()) {
-            if (!(java instanceof Const))
+            if (!(java .isConst()))
                 return mach.Fail0;
             final Object o = ((Const) java).getValue();
             if (o != null && o.getClass().isArray()) {
@@ -57,7 +57,7 @@ public class ArrayConverter extends Code {
 
     @SuppressWarnings("unchecked")
     public static <T> T[] convert2java(Term list, Term javaType) {
-        if (!(javaType instanceof Const))
+        if (!(javaType .isConst()))
             return null;
         final Const javaTypeC = (Const) javaType;
         if (!(javaTypeC.getValue() instanceof Class))

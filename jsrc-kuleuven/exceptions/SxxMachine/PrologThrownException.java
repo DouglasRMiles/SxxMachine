@@ -35,7 +35,7 @@ public class PrologThrownException extends JPrologInternalException {
 
     public Object getPrologExceptionCause() {
         final Term cause = this.cause.dref();
-        if (cause instanceof Const) {
+        if (cause .isConst()) {
             return ((Const) cause).getValue();
         }
         return cause.toJpString();

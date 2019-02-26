@@ -265,9 +265,12 @@ class java_info1 extends FunBuiltin {
     }
 
     static void pri(Object o) {
-        if (o instanceof Const) {
-            IO.println("% ForeignObject: ");
-            pri(((ForeignObject) o).toObject());
+        if (o instanceof Term) {
+            final Object object = ((Term) o).toObject();
+            if (object != null && object != o) {
+                IO.println("% ForeignObject: ");
+                pri(o);
+            }
         }
         if (o instanceof Nonvar) {
             IO.println("% Nonvar");

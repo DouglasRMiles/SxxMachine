@@ -38,10 +38,10 @@ public class pred_compare_3 extends Code {
             return 1;
         }
 
-        if (t instanceof Const) {
+        if (t .isConst()) {
             if (s instanceof NumberTerm)
                 return 1;
-            if (!(s instanceof Const))
+            if (!(s .isConst()))
                 return -1;
             final Const ct = (Const) t;
             final Const cs = (Const) s;
@@ -63,10 +63,10 @@ public class pred_compare_3 extends Code {
             return s1.compareTo(s2);
         }
 
-        if (t instanceof AFunct) {
+        if (t .isCompound()) {
             if (s.isVariable())
                 return -1;
-            if (!(s instanceof AFunct))
+            if (!(s .isCompound()))
                 return 1;
             final AFunct f1 = (AFunct) t;
             final AFunct f2 = (AFunct) s;

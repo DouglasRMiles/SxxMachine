@@ -16,10 +16,10 @@ public class pred_concat_3 extends Code {
     }
 
     protected String getAsString(Term o) {
-        if (o instanceof Const) {
+        if (o .isConst()) {
             return ((Const) o).toJpString();
         }
-        if (o instanceof AFunct) {
+        if (o .isCompound()) {
             final AFunct f = (AFunct) o;
             if (f.arity() == 0)
                 return f.fname();

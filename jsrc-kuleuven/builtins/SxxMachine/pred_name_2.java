@@ -51,7 +51,7 @@ public class pred_name_2 extends Code {
         final StringBuilder b = new StringBuilder();
         list = list.dref();
         while (!list.isNil()) {
-            if (list instanceof AFunct) {
+            if (list .isCompound()) {
                 final AFunct f = (AFunct) list;
                 final Term ch = f.getPlainArg(0).dref();
                 if (!(ch instanceof NumberTerm))

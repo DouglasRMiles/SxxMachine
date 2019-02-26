@@ -28,7 +28,7 @@ public class ListConverter extends Code {
             return mach.Fail0;
         }
         if (!java.isVariable()) {
-            if (!(java instanceof Const))
+            if (!(java .isConst()))
                 return mach.Fail0;
             final Object o = ((Const) java).getValue();
             if (o instanceof Iterable) {

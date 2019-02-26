@@ -643,7 +643,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         if (!getClass().equals(that.getClass())) {
 
             //Kan nog gelijk zijn aan een constante zonder parameters
-            if (that instanceof Const) {
+            if (that .isConst()) {
                 return arity() == 0;
             }
             return false;
@@ -673,7 +673,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             return false;
         if (!getClass().equals(that.getClass())) {
             //Kan nog gelijk zijn aan een constante zonder parameters
-            if (that instanceof Const) {
+            if (that .isConst()) {
                 return arity() == 0;
             }
             return false;
@@ -1017,11 +1017,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean couldUnifyInverse(Term object) {
-        if (object instanceof Const) {
+        if (object .isConst()) {
             //speciaal geval
             final Const c = (Const) object;
             return fname().equals(c.fname()) && arity() == 0;
-        } else if (object instanceof AFunct) {
+        } else if (object .isCompound()) {
             final AFunct f = (AFunct) object;
             if (!fname().equals(f.fname()))
                 return false;

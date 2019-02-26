@@ -23,7 +23,7 @@ public class JPInstance extends Code {
         final Term object = args[0].dref();
         final Term classType = args[1].dref();
         final Term cont = args[2];
-        if (!(object instanceof Const))
+        if (!(object .isConst()))
             return mach.Fail0;
         final Object obj = ((Const) object).getValue();
         if (obj instanceof String)
@@ -37,13 +37,13 @@ public class JPInstance extends Code {
 
     @SuppressWarnings("rawtypes")
     private Code doCheckInstance(PrologMachine mach, Term[] args, Term object, Term classType, Term cont) {
-        if (!(classType instanceof Const))
+        if (!(classType .isConst()))
             return mach.Fail0;
         final Object cl = ((Const) classType).getValue();
         if (cl == null || !(cl instanceof Class))
             return mach.Fail0;
         final Class jClassType = (Class) cl;
-        if (!(object instanceof Const))
+        if (!(object .isConst()))
             return mach.Fail0;
         if (!jClassType.isInstance(((Const) object).getValue()))
             return mach.Fail0;

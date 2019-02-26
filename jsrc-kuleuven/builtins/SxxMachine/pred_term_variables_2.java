@@ -40,7 +40,7 @@ public class pred_term_variables_2 extends Code {
         while (term != null) {
             if (term.isVariable()) {
                 varset.add(term);
-            } else if (term instanceof AFunct) {
+            } else if (term .isCompound()) {
                 final Term[] subterms = ((AFunct) term).args();
                 for (int i = 0; i < subterms.length; i++)
                     queue.add(subterms[i].dref());

@@ -65,7 +65,7 @@ public abstract class Const extends ANonvar {
     public boolean equalsTerm(Term that, OpVisitor comparator) {
         if (that == this)
             return true;
-        if (that instanceof Const) {
+        if (that .isConst()) {
             final Const t = (Const) that;
             if (obj == null)
                 return t.getValue() == null;
@@ -78,7 +78,7 @@ public abstract class Const extends ANonvar {
             }
             return obj.equals(t.getValue());
         }
-        if (that instanceof AFunct) {
+        if (that .isCompound()) {
             return that.equalsTerm(this);
         }
         return false;

@@ -35,7 +35,7 @@ public class pred_inc_2 extends Code {
         // PrologObject continuation = local_aregs[2];
         final Term value = local_aregs[1].dref();
         // PrologObject list = local_aregs[0].Deref();
-        if (!(value instanceof NumberTerm || value instanceof AFunct)) {
+        if (!(value instanceof NumberTerm || value .isCompound())) {
             throw new JPrologInternalException(value + " is not an Int");
         }
         local_aregs[1] = Integer(value.longValue() + 1);

@@ -29,7 +29,7 @@ public class ClassPred extends Code {
     static boolean find(Term classConst, Term className) {
         classConst = classConst.dref();
         className = className.dref();
-        if (classConst instanceof Const) {
+        if (classConst .isConst()) {
             final Const cct = (Const) classConst;
             if (cct.getValue() instanceof Class) {
                 final Class cc = (Class) cct.getValue();
@@ -37,13 +37,13 @@ public class ClassPred extends Code {
             } else
                 return false;
         }
-        if (className instanceof Const) {
+        if (className .isConst()) {
             final Const ccn = (Const) className;
             if (ccn.getValue() instanceof String) {
                 return find(classConst, (String) ccn.getValue());
             }
         }
-        if (className instanceof AFunct) {
+        if (className .isCompound()) {
             final AFunct ccnf = (AFunct) className;
             if (ccnf.arity() > 0)
                 return false;

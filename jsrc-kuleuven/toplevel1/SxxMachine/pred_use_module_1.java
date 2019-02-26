@@ -55,13 +55,13 @@ public class pred_use_module_1 extends Code {
     }
 
     private boolean load(Term param, PrologMachine mach) {
-        if (param instanceof AFunct) {
+        if (param .isCompound()) {
             final AFunct f = (AFunct) param;
             if (f.arity() == 0) {
                 param = CONST(f.fname());
             }
         }
-        if (param instanceof Const) {
+        if (param .isConst()) {
             final Object o = ((Const) param).getValue();
             if (o instanceof String) {
                 //Naam vd te laden module

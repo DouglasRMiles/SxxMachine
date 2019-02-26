@@ -31,10 +31,10 @@ public class pred_catch_3 extends Code {
     }
 
     private StructureTerm addContinuation(Term o, Term cont) {
-        if (o instanceof Const) {
+        if (o .isConst()) {
             return (StructureTerm) S(o.fname(), cont);
         }
-        if (o instanceof AFunct) {
+        if (o .isCompound()) {
             final AFunct f = (AFunct) o;
             final StructureTerm newF = new StructureTerm(f.fname(), f.arity() + 1);
             for (int i = 0; i < f.arity(); i++) {

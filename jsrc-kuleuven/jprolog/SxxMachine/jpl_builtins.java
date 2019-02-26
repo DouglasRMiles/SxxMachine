@@ -197,7 +197,7 @@ class pred_univ_3 extends Code {
         final Term arg3 = areg[2].dref();
 
         //Bij testen van werking code in vergelijking met YAP moet dit ook zo werken voor int
-        if (arg1 instanceof Const || arg1 instanceof NumberTerm) {
+        if (arg1 .isConst() || arg1 instanceof NumberTerm) {
             //Geen parameters bijgevolg
             if (!arg2.unify(arg1))
                 return mach.Fail0;
@@ -206,7 +206,7 @@ class pred_univ_3 extends Code {
             areg[0] = areg[3];
             areg[1] = areg[2] = areg[3] = null;
             return mach.Call1;
-        } else if (arg1 instanceof AFunct) {
+        } else if (arg1 .isCompound()) {
             final AFunct term = (AFunct) arg1;
             final Term functor = CONST(term.fname());
             final Term arguments = AFunct.listFromArray(term.args());
@@ -228,7 +228,7 @@ class pred_univ_3 extends Code {
             //  return mach.Fail0;
             if (!(tail.isNil()))
                 return mach.Fail0;
-            if (!(arg2 instanceof Const)) {
+            if (!(arg2 .isConst())) {
                 if (arg2 instanceof NumberTerm && l == 0) {
                     //Moet toch nog werken
                     if (!arg1.unify(arg2))
@@ -301,7 +301,7 @@ class pred_functor_3 extends Code {
         arg3 = arg3.dref();
 
         if (arg1 instanceof JpVar) {
-            if ((!(arg2 instanceof Const)) || (!(arg3 instanceof NumberTerm)))
+            if ((!(arg2 .isConst())) || (!(arg3 instanceof NumberTerm)))
                 return false;
             int i = (int) (((NumberTerm) arg3).longValue());
             final String Name = arg2.fname();
@@ -348,7 +348,7 @@ class pred_arg_3 extends Code {
 
         if (!(arg1 instanceof NumberTerm))
             return false;
-        if (!(arg2 instanceof AFunct))
+        if (!(arg2 .isCompound()))
             return false;
         final int i = (int) arg1.longValue();
         if (i < 1)
@@ -576,9 +576,9 @@ class pred_type_of_2 extends Code {
             s = internS("var");
         else if (arg1 instanceof NumberTerm)
             s = internS("integer");
-        else if (arg1 instanceof Const)
+        else if (arg1 .isConst())
             s = internS("atom");
-        else if (arg1 instanceof AFunct) {
+        else if (arg1 .isCompound()) {
             final AFunct a = (AFunct) arg1;
             if (a.arity() == 0)
                 s = internS("atom");
@@ -683,7 +683,7 @@ class pred_setarg_3 extends Code {
 
         if (!(arg1 instanceof NumberTerm))
             return false;
-        if (!(arg2 instanceof AFunct))
+        if (!(arg2 .isCompound()))
             return false;
         final int i = (int) (((NumberTerm) arg1).longValue());
         if (i < 1)

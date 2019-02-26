@@ -40,7 +40,7 @@ class JPException4 extends Code {
         final Term exceptionMsg = args[2].dref();
         final Term exceptionCause = args[3].dref();
         if (!exception.isVariable()) {
-            if (!(exception instanceof Const))
+            if (!(exception .isConst()))
                 return mach.Fail0;
             final Const c = (Const) exception;
             if (!(c.getValue() instanceof Throwable))
@@ -58,7 +58,7 @@ class JPException4 extends Code {
             Throwable cause;
             try {
                 throwableClass = (Class<Throwable>) ((Const) exceptionClass).getValue();
-                if (exceptionMsg instanceof AFunct) {
+                if (exceptionMsg .isCompound()) {
                     final AFunct f = (AFunct) exceptionMsg;
                     if (f.arity() == 0)
                         errMsg = f.fname();

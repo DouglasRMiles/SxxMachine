@@ -30,7 +30,7 @@ public class IterateOverClassStructure extends Code {
         Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object instanceof Const))
+        if (!(object .isConst()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Class))
@@ -117,7 +117,7 @@ class InterfaceIterator extends Code {
         final Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object instanceof Const))
+        if (!(object .isConst()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Iterator))

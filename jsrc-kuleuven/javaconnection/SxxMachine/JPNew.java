@@ -44,7 +44,7 @@ public class JPNew extends Code {
     }
 
     private Class<?> getTargetClass(PrologMachine mach, Term classType) {
-        if (!(classType instanceof Const) || !(((Const) classType).getValue() instanceof Class)) {
+        if (!(classType .isConst()) || !(((Const) classType).getValue() instanceof Class)) {
             final JpVar v = Jv(mach);
             if (!ClassPred.find(v, classType))
                 return null;

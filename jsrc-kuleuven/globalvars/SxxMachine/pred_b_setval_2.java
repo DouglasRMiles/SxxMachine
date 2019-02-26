@@ -18,13 +18,13 @@ public class pred_b_setval_2 extends Code {
         Term name = local_aregs[0].dref();
         final Term value = local_aregs[1].dref();
         final Term continuation = local_aregs[2];
-        if (name instanceof AFunct) {
+        if (name .isCompound()) {
             final AFunct f = (AFunct) name;
             if (f.arity() == 0) {
                 name = CONST(f.fname());
             }
         }
-        if (name instanceof Const) {
+        if (name .isConst()) {
 
             final Const cname = (Const) name;
             final VarTableIF table = GlobalVarsModule.getTable(mach);

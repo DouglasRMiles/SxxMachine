@@ -23,13 +23,13 @@ public class pred_b_getval_2 extends Code {
         final Term local_aregs[] = mach.getAreg();
         Term name = local_aregs[0].dref();
 
-        if (name instanceof AFunct) {
+        if (name .isCompound()) {
             final AFunct f = (AFunct) name;
             if (f.arity() == 0) {
                 name = CONST(f.fname());
             }
         }
-        if (name instanceof Const) {
+        if (name .isConst()) {
             final Const cname = (Const) name;
 
             final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);

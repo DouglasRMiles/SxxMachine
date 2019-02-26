@@ -50,7 +50,7 @@ public abstract class AFunct extends ANonvar {
             A1 = A1.dref();
             A2 = A2.dref();
             return "," + A1.toStringImpl(5) + listify(A2, depth - 1);
-        } else if ((T instanceof Const) && ("[]".equals(T.fname())))
+        } else if ((T .isConst()) && ("[]".equals(T.fname())))
             return "";
         return " | " + T.toStringImpl(5);
     }
@@ -96,7 +96,7 @@ public abstract class AFunct extends ANonvar {
 
     @Override
     public boolean bind(Term that) {
-        if (that instanceof Const) {
+        if (that .isConst()) {
             //Kan wel
             if (arity() != 0)
                 return false;

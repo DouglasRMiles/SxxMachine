@@ -24,7 +24,7 @@ public class Call2Proc extends AbstractCall {
         Code code;
         AFunct pred = null;
 
-        if (obj instanceof AFunct) {
+        if (obj .isCompound()) {
             pred = (AFunct) obj;
             PredName = pred.fname();
             arity = (pred.args()).length;

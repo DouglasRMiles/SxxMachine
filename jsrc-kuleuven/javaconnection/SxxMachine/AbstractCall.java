@@ -27,7 +27,7 @@ abstract class AbstractJCall extends Code {
         final Term res = args[2].dref();
         final Term exception = args[3].dref();
         final Term cont = args[4];
-        if (!(classObject instanceof Const))
+        if (!(classObject .isConst()))
             return mach.Fail0;
         Class<?> callClass;
         try {
@@ -38,11 +38,11 @@ abstract class AbstractJCall extends Code {
         }
         String methodName;
         Object[] methodArgs;
-        if (methodInvocation instanceof Const) {
+        if (methodInvocation .isConst()) {
             methodName = ((Const) methodInvocation).fname();
             methodArgs = new Object[0];
         } else {
-            if (!(methodInvocation instanceof AFunct))
+            if (!(methodInvocation .isCompound()))
                 return mach.Fail0;
             final AFunct f = (AFunct) methodInvocation;
             methodName = f.fname();
