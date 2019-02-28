@@ -2,11 +2,14 @@ package SxxMachine.pterm;
 
 import static SxxMachine.pterm.TermData.AND;
 
+import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Map;
 
 import SxxMachine.HashDict;
 import SxxMachine.IO;
 import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.Var;
@@ -16,9 +19,9 @@ import SxxMachine.Var;
  * Datatype for a Prolog clause (H:-B) having a head H and a body b
  */
 public class HornClause extends StructureTerm {
-    public HornClause(Term s, Term[] args, HashDict dict, boolean ground, String fname, int begins_at, int ends_at) {
+    public HornClause(Term s, Term[] args, Map dict2, boolean ground, String fname, int begins_at, int ends_at) {
         super(s, args);
-        this.dict = dict;
+        this.dict = dict2;
         this.ground = ground;
         this.fname = fname;
         this.begins_at = begins_at;
@@ -106,7 +109,7 @@ public class HornClause extends StructureTerm {
     /**
      * Variable dictionary
      */
-    public HashDict dict = null;
+    public Map dict = null;
 
     /**
      * Remembers if a clause is ground.
@@ -165,7 +168,8 @@ public class HornClause extends StructureTerm {
      * Pretty prints a clause after replacing ugly variable names
      */
     public String pprint(boolean replaceAnonymous) {
-        String s = Clause2String(this.cnumbervars(replaceAnonymous));
+        final HornClause cnumbervars = this.cnumbervars(replaceAnonymous);
+        String s = Clause2String(cnumbervars);
         // if(fname!=null) s="%% "+fname+":"+begins_at+"-"+ends_at+"\n"+s;
         return s;
     }
@@ -189,20 +193,25 @@ public class HornClause extends StructureTerm {
         if (provenGround())
             return this;
         KPTrail trail = new KPTrail();
+        int oldTop = trail.top();
         Iterator e = dict.keySet().iterator();
 
         while (e.hasNext()) {
             Object X = e.next();
             if (X instanceof String) {
                 Var V = (Var) dict.get(X);
-                long occNb = TermData.asInt((Term) dict.get(V)).longValue();
+                final Term i = (Term) dict.get(V);
+                if (i == null) {
+                    Prolog.Break("cnumbervars");
+                }
+                long occNb = i.longValue();
                 String s = (occNb < 2 && replaceAnonymous) ? "_" : (String) X;
                 // bug: occNb not accurate when adding artif. '[]' head
                 V.DO_Unify(new PseudoVar(s), trail);
             }
         }
         HornClause NewC = (HornClause) numbervars();
-        trail.unwind(0);
+        trail.unwind(oldTop);
         return NewC;
     }
 
@@ -305,7 +314,7 @@ public class HornClause extends StructureTerm {
      * @see Term#unify()
      *
      */
-    private final HornClause unfold(final HornClause that, KPTrail trail) {
+    private final HornClause unfold(final HornClause that, Trail trail) {
         HornClause result = null;
         Term first = getFirst();
         Term thatHead = that.getHead();
@@ -324,7 +333,7 @@ public class HornClause extends StructureTerm {
     }
 
     // synchronized
-    public final HornClause unfold_with_goal(HornClause goal, KPTrail trail) {
+    public final HornClause unfold_with_goal(HornClause goal, Trail trail) {
         return goal.unfold(this, trail);
     }
 

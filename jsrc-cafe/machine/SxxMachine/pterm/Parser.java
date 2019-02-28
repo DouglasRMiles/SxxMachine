@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Map;
 
 import SxxMachine.Builtins;
 import SxxMachine.Functor;
@@ -45,7 +47,7 @@ class LexerHIDE extends StreamTokenizer {
         wordChar('_');
         slashStarComments(true);
         commentChar('%');
-        dict = new HashDict();
+        dict = new Hashtable();
     }
 
     /**
@@ -145,7 +147,7 @@ class LexerHIDE extends StreamTokenizer {
         wordChars(c, c);
     }
 
-    HashDict dict;
+    Map dict;
 
     private Term getWord(boolean quoted) throws IOException {
         Term T;
@@ -445,7 +447,7 @@ public class Parser extends LexerHIDE {
         IO.errmes("*** " + C);
     }
 
-    static final HornClause toClause(Term T, HashDict dict) {
+    static final HornClause toClause(Term T, Map dict) {
         HornClause C = T.toClause(); // adds ...:-true if missing
         C.dict = dict;
         return C;
@@ -453,7 +455,7 @@ public class Parser extends LexerHIDE {
 
     private HornClause readClauseOrEOF() throws IOException {
 
-        dict = new HashDict();
+        dict = new Hashtable();
 
         Term n = next();
 

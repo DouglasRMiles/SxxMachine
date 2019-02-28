@@ -86,7 +86,7 @@ class pred_collectvars_3_1 extends pred_collectvars_3 {
         local_aregs[0] = continuation;
         mach.updateCUTB();
         local_aregs[3] = local_aregs[2] = null;
-        return mach.Call1;
+        return (Code)(Object) mach.Call1;
     }
 }
 

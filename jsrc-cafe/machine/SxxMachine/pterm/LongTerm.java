@@ -5,7 +5,7 @@ import static SxxMachine.pterm.TermData.Number;
 
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
@@ -102,7 +102,7 @@ public class LongTerm extends ANumberTerm {
     //    }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return super.bind(that, trail) && ((double) longValue() == (double) TermData.asInt(that).longValue());
         // unbelievable but true: converting
         // to double is the only way to convince

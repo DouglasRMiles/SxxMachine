@@ -4,7 +4,7 @@ import static SxxMachine.pterm.TermData.Float;
 
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.RunningPrologMachine;
@@ -71,7 +71,7 @@ public class DoubleTerm extends ANumberTerm {
     }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return super.bind(that, trail) && doubleValue() == (((NumberTerm) that).doubleValue());
     }
 

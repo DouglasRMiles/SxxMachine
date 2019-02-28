@@ -11,6 +11,7 @@ import SxxMachine.Copier;
 import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
@@ -73,13 +74,13 @@ public abstract class KPTerm implements Term {
         return (Term) this;
     }
 
-    public abstract boolean bind(Term that, KPTrail trail);
+    public abstract boolean bind(Term that, Trail trail);
 
     /** Unify dereferenced */
-    public abstract boolean Unify_TO(Term that, KPTrail trail);
+    public abstract boolean Unify_TO(Term that, Trail trail);
 
     /** Dereference and unify_to */
-    public final boolean DO_Unify(Term that, KPTrail trail) {
+    public final boolean DO_Unify(Term that, Trail trail) {
         if (that == this)
             return true;
         Term thisd = dref();
@@ -123,8 +124,8 @@ public abstract class KPTerm implements Term {
         return matches(that, new KPTrail());
     }
 
-    public boolean matches(Term that, KPTrail trail) {
-        int oldtop = trail.size();
+    public boolean matches(Term that, Trail trail) {
+        int oldtop = trail.top();
         boolean ok = DO_Unify(that, trail);
         trail.unwind(oldtop);
         return ok;
@@ -140,11 +141,12 @@ public abstract class KPTerm implements Term {
 
     public Term matching_copy(Term that) {
         KPTrail trail = new KPTrail();
+        int oldtop = trail.top();
         boolean ok = DO_Unify(that, trail);
         // if(ok) that=that.copy();
         if (ok)
             that = copy();
-        trail.unwind(0);
+        trail.unwind(oldtop);
         return (ok) ? that : null;
     }
 
@@ -409,16 +411,6 @@ public abstract class KPTerm implements Term {
         return false;
     }
 
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#bind(SxxMachine.Term, SxxMachine.Trail)
-     */
-    @Override
-    public boolean bind(Term cons, Trail trail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.bind");
-        return false;
-    }
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#isAttvar()
@@ -1140,10 +1132,7 @@ public abstract class KPTerm implements Term {
      */
     @Override
     public boolean bind(Term that) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.bind");
-        return false;
+        return that.bind(this,(Trail) null);
     }
 
     /* (non-Javadoc)
@@ -1184,10 +1173,7 @@ public abstract class KPTerm implements Term {
      */
     @Override
     public String toJpString() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.toJpString");
-        return null;
+        return getString();
     }
 
     /* (non-Javadoc)

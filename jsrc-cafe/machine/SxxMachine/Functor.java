@@ -17,7 +17,7 @@ public interface Functor extends NameArity, Atomic {
     Functor toClone() throws CloneNotSupportedException;
 
     @Override
-    boolean bind(Term that, KPTrail trail);
+    boolean bind(Term that, Trail trail);
 
     @Override
     String getFAKey();

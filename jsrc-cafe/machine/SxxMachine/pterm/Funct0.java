@@ -21,7 +21,7 @@ abstract public class Funct0 extends KPNonvar implements Term {
     }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return super.bind(that, trail) && ((Funct0) that).sym == sym;
     }
 

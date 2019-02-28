@@ -37,7 +37,7 @@ public class UnfoldingSourceFluent extends SourceFluent {
         if (null != goal) {
             Term first = goal.getFirst();
             if (null != first) {
-                oldtop = prog.getTrail().size();
+                oldtop = prog.getTrail().top();
                 this.e = p.getBlackboard().toEnumerationFor(first.getFAKey());
                 if (!e.hasNext())
                     trace_nomatch(first);

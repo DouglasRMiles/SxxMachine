@@ -54,7 +54,7 @@ public class Unfolder extends SourceFluentTerm {
         if (null != goal) {
             Term first = goal.getFirst();
             if (null != first) {
-                oldtop = prog.getTrail().size();
+                oldtop = prog.getTrail().top();
                 this.e = Init.default_db.toEnumerationFor(first);
                 if (!e.hasNext())
                     trace_nomatch(first);

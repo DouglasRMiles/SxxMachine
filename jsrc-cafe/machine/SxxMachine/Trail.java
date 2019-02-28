@@ -13,7 +13,7 @@ import java.util.Deque;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public final class Trail {
+public class Trail {
     /** list of already filled buffers */
     private final Deque<Undoable[]> buffersList;
     private final int pageSize;
@@ -32,7 +32,7 @@ public final class Trail {
     }
 
     /** Constructs a new trail stack with the given page size. */
-    public Trail(Prolog m, int pageSize) {
+    private Trail(Prolog m, int pageSize) {
         this(m, pageSize, 1000);
     }
 
@@ -40,7 +40,7 @@ public final class Trail {
      * Constructs a new trail stack with the given page size and initial number of
      * pages.
      */
-    public Trail(Prolog m, int pageSize, int pages) {
+    private Trail(Prolog m, int pageSize, int pages) {
         this.mach = m;
         this.pageSize = pageSize;
         this.buffersList = new ArrayDeque<Undoable[]>(pages);
@@ -107,13 +107,7 @@ public final class Trail {
     /** Unwinds all entries after the value of <code>i</code>. */
     public void unwind(int i) {
         while (this.base + this.top > i) {
-            Undoable t = this.buffer[this.top];
-            this.buffer[this.top--] = null;
-            if (this.top < 0 && this.base > 0) {
-                this.buffer = this.buffersList.pollLast();
-                this.top = this.pageSize - 1;
-                this.base -= this.pageSize;
-            }
+            Undoable t = pop();
             t.undo();
         }
     }
@@ -133,4 +127,5 @@ public final class Trail {
         // TODO Auto-generated method stub
         return this.mach;
     }
+
 }

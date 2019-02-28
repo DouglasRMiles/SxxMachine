@@ -52,7 +52,7 @@ public interface Term extends Comparable<Term> {
 
     Term toClone() throws CloneNotSupportedException;
 
-    public boolean Unify_TO(Term dref, KPTrail trail);
+    public boolean Unify_TO(Term dref, Trail trail);
 
     public Term getPlainArg(int i);
 
@@ -168,7 +168,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isClosure();
 
-    public boolean DO_Unify(Term t, KPTrail trail);
+    public boolean DO_Unify(Term t, Trail trail);
 
     public boolean isNumber();
 
@@ -201,8 +201,6 @@ public interface Term extends Comparable<Term> {
     public void setarg0Maybe_trail(Trail trail, int i0, Term value);
 
     public Compound add(Term term);
-
-    public boolean bind(Term that, KPTrail trail);
 
     public Term carTokenOrSelf();
 
@@ -258,7 +256,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean matches(Term sym);
 
-    public boolean matches(Term first, KPTrail trail);
+    public boolean matches(Term first, Trail trail);
 
     public boolean pbind(Term variableTerm, Trail trail);
 

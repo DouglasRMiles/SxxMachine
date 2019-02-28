@@ -20,7 +20,7 @@ import SxxMachine.ISTerm;
 import SxxMachine.Init;
 import SxxMachine.InternalException;
 import SxxMachine.JpVar;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.NameArity;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
@@ -224,12 +224,12 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return super.bind(that, trail) && argz.length == TermData.asStruct(that).arity();
     }
 
     @Override
-    public boolean Unify_TO(Term that, KPTrail trail) {
+    public boolean Unify_TO(Term that, Trail trail) {
         if (bind(that, trail)) {
             Term other = that;
             Term[] otherargz = other.args();
@@ -1041,7 +1041,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean couldUnify(Term object) {
-        if (object instanceof StructureTerm)
+        if (object .isCompound())
             return couldUnifyInverse(object);
         return object.couldUnify(this);
     }

@@ -15,6 +15,8 @@ import SxxMachine.pterm.HornClause;
 public class AnswerSource extends SourceFluent implements Runnable, IProg {
     // CONSTRUCTORS
 
+    private int oldTop;
+
     /**
       Creates a IKernel starting execution with argument "goal"
     */
@@ -24,6 +26,7 @@ public class AnswerSource extends SourceFluent implements Runnable, IProg {
         this.blackboard = parent.getBlackboard();
         goal = goal.ccopy();
         this.trail = new KPTrail();
+        this.oldTop = trail.top();
         this.orStack = new Stack();
         if (null != goal)
             orStack.push(new UnfoldingSourceFluent(goal, (Prog) (Object) this));
@@ -31,12 +34,12 @@ public class AnswerSource extends SourceFluent implements Runnable, IProg {
 
     // INSTANCE FIELDS
 
-    private KPTrail trail;
+    private Trail trail;
     private Stack orStack;
     private Prog parent;
     private BlackBoard blackboard;
 
-    public final KPTrail getTrail() {
+    public final Trail getTrail() {
         return trail;
     }
 
@@ -82,7 +85,7 @@ public class AnswerSource extends SourceFluent implements Runnable, IProg {
     @Override
     public void stop() {
         if (null != trail) {
-            trail.unwind(0);
+            trail.unwind(oldTop);
             trail = null;
         }
         orStack = null;

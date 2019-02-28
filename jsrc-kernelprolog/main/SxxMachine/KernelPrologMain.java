@@ -8,7 +8,8 @@ public class KernelPrologMain {
         if (!Init.startProlog())
             return 0;
         Init.builtinDict = new Builtins();
-        Init.askProlog("reconsult('" + Init.default_lib + "')");
+        final String query = "reconsult('" + Init.default_lib + "')";
+        Init.askProlog(query);
         return 1;
     }
 

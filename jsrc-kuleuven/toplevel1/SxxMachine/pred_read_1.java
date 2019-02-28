@@ -55,7 +55,7 @@ public class pred_read_1 extends Code {
 
 class pred_read_1_1 extends pred_read_1 {
     private Term ignore(Term o, String[][] ignores) {
-        if (ignores == null || !(o instanceof StructureTerm))
+        if (ignores == null || !(o.isCompound()))
             return o;
         final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {

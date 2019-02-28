@@ -1,7 +1,6 @@
 
 package SxxMachine;
-
-import SxxMachine.pterm.StructureTerm;
+;
 
 /**
   * compound/1 built-in
@@ -24,7 +23,7 @@ public class pred_compound_1 extends Code {
 
         local_aregs[1] = null;
 
-        if (term instanceof StructureTerm) {
+        if (term .isCompound()) {
             local_aregs[0] = continuation;
             return mach.Call1;
         } else {

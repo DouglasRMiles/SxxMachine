@@ -4,7 +4,7 @@ import static SxxMachine.pterm.TermData.CONS;
 
 import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
@@ -87,7 +87,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         if (getClass() == that.getClass())
             return true;
         // oopsy();
@@ -95,7 +95,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     }
 
     @Override
-    public boolean Unify_TO(Term that, KPTrail trail) {
+    public boolean Unify_TO(Term that, Trail trail) {
         if (bind(that, trail))
             return true;
         else

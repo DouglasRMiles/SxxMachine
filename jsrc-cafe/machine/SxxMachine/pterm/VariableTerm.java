@@ -11,7 +11,7 @@ import java.util.Map;
 
 import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.OpVisitor;
 import SxxMachine.Operation;
 import SxxMachine.Prolog;
@@ -319,25 +319,43 @@ public class VariableTerm extends AVar implements Undoable, Var {
      *            Trail Stack
      * @see Trail
      */
-    @Override
     public final boolean pbind(Term p, Trail trail) {
-        if (p.isVar()) {
-            VariableTerm v = (VariableTerm) p, t = this;
-            if (v.timeStamp >= this.timeStamp) {
-                t = v;
-                v = this;
-            }
-            v.bindUpRef(t);
-            if (t.timeStamp < trail.timeStamp) {
-                trail.push(t);
-            }
+        if (p == val)
             return true;
+
+        if (p.isVar()) {
+            return pbindVarVar(p, trail);
         }
         // update upRefs to use value t
         updateUpRef(p);
         this.downRef = null;
-        if (this.timeStamp < trail.timeStamp) {
+        final long trailStamp = trail.timeStamp;
+        if (trailStamp == 0 || this.timeStamp < trailStamp) {
             trail.push(this);
+        } else {
+            trail.push(this);
+        }
+        return true;
+    }
+
+    /**
+     * @param p
+     * @param trail
+     * @param trailStamp
+     * @return
+     */
+    private boolean pbindVarVar(Term p, Trail trail) {
+        VariableTerm v = (VariableTerm) p;
+        VariableTerm t = this;
+        if (v.timeStamp >= this.timeStamp) {
+            t = v;
+            v = this;
+        }
+        final long trailStamp = trail.timeStamp;
+
+        v.bindUpRef(t);
+        if (trailStamp == 0 || t.timeStamp < trailStamp) {
+            trail.push(t);
         }
         return true;
     }
@@ -439,8 +457,11 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     public int termHashCodeImpl() {
+        /* if (myID != 0)
+            return myID;*/
         try {
-            return (this.unbound()) ? myID : this.val.termHashCode();
+            final boolean unbound = this.unbound();
+            return unbound ? myID : this.val.termHashCode();
         } catch (Exception e) {
             // TODO: handle exception
             return myID;// System.identityHashCode(this);
@@ -601,21 +622,12 @@ public class VariableTerm extends AVar implements Undoable, Var {
     // return unbound() ? this : val.dref();
     // }
 
-    @Override
-    public boolean bind(Term x, KPTrail trail) {
-        if (x == val)
-            return true;
-        val = x;
-        trail.push(this);
-        return true;
-    }
-
     // public void undo() {
     // val = this;
     // }
 
     @Override
-    public boolean Unify_TO(Term that, KPTrail trail) {
+    public boolean Unify_TO(Term that, Trail trail) {
         // expects: this, that are dereferenced
         // return (this==that)?true:Ref.bind_to(that,trail);
         return val.bind(that, trail);

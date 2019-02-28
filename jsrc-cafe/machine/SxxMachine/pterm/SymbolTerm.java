@@ -12,7 +12,7 @@ import SxxMachine.ExecProg;
 import SxxMachine.Functor;
 import SxxMachine.ISTerm;
 import SxxMachine.Init;
-import SxxMachine.KPTrail;
+import SxxMachine.Trail;
 import SxxMachine.NameArity;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
@@ -121,7 +121,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#bind(SxxMachine.pterm.Term, SxxMachine.KPTrail)
      */
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         if (!super.bind(that, trail))
             return false;
         if (name != null) {

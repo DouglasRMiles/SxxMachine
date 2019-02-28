@@ -29,7 +29,7 @@ public class pred_name_2 extends Code {
                 return mach.Fail0;
         } else {
             //van atom naar een lijst gaan, dat unify met list
-            if (atom instanceof StructureTerm) {
+            if (atom .isCompound()) {
                 if (((StructureTerm) atom).arity() != 0)
                     return mach.Fail0;
             }

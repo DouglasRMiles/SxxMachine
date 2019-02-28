@@ -13,16 +13,19 @@ import static SxxMachine.pterm.TermData.*;
   when backtracking over its creation point.
 */
 public class LazyList extends StructureTerm implements Undoable {
-    public LazyList(Term head, Fluent source, KPTrail trail) {
+
+    public LazyList(Term head, Fluent source, Trail trail) {
         super(".", head, V());
         this.source = (SourceFluent) source;
         this.bound = false;
         this.trail = trail;
+        this.oldTop = trail.top();
     }
 
     private SourceFluent source;
     private boolean bound;
-    private KPTrail trail;
+    private Trail trail;
+    private int oldTop;
 
     /**
      * advances the Lazy List, pulling out elements of the SourceFluent
@@ -59,7 +62,7 @@ public class LazyList extends StructureTerm implements Undoable {
      * List to Unify with any 2 arg constructor chain
      */
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return that instanceof Compound && 2 == that.arity();
     }
 
@@ -70,7 +73,7 @@ public class LazyList extends StructureTerm implements Undoable {
     @Override
     public void undo() {
         //if(source.getPersistent()) return;
-        trail.unwind(0);
+        trail.unwind(oldTop);
         source.stop();
         source = null;
     }

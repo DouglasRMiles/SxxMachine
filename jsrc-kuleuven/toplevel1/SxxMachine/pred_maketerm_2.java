@@ -50,7 +50,7 @@ public class pred_maketerm_2 extends Code {
 
 class pred_maketerm_2_1 extends pred_maketerm_2 {
     private Term ignore(Term o, String[][] ignores) {
-        if (ignores == null || !(o instanceof StructureTerm))
+        if (ignores == null || !(o .isCompound()))
             return o;
         final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {

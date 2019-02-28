@@ -17,9 +17,10 @@ public class Prog extends SourceFluentTerm implements Runnable {
         return new Prog(trail, orStack, parent);
     }
 
-    public Prog(KPTrail trail, ObjectStack orStack, Prog parent) {
+    public Prog(Trail trail, ObjectStack orStack, Prog parent) {
         super(null);
         this.trail = trail;
+        this.oldTop = trail.top();
         this.orStack = orStack;
         this.parent = parent;
     }
@@ -32,6 +33,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
         this.parent = parent;
         goal = goal.ccopy();
         this.trail = new KPTrail();
+        this.oldTop = trail.top();
         this.orStack = new ObjectStack();
         if (null != goal)
             orStack.push(new Unfolder(goal, this));
@@ -40,7 +42,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
 
     // INSTANCE FIELDS
 
-    private KPTrail trail;
+    private Trail trail;
 
     /**
      * Contains Unfolders that may produce answers.
@@ -49,7 +51,9 @@ public class Prog extends SourceFluentTerm implements Runnable {
 
     private Prog parent;
 
-    public final KPTrail getTrail() {
+    private int oldTop;
+
+    public final Trail getTrail() {
         return trail;
     }
 
@@ -100,7 +104,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
     @Override
     public void stop() {
         if (null != trail) {
-            trail.unwind(0);
+            trail.unwind(oldTop);
             trail = null;
         }
         orStack = null;

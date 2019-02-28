@@ -44,12 +44,12 @@ abstract public class KPNonvar extends SystemObject {
     }
 
     @Override
-    public boolean bind(Term that, KPTrail trail) {
+    public boolean bind(Term that, Trail trail) {
         return getClass() == that.getClass();
     }
 
     @Override
-    public boolean Unify_TO(Term that, KPTrail trail) {
+    public boolean Unify_TO(Term that, Trail trail) {
         if (that.bind(this, trail))
             return true;
         else
@@ -58,7 +58,7 @@ abstract public class KPNonvar extends SystemObject {
 
     @Override
     public boolean bind(Term that) {
-        return (that instanceof KPNonvar) && bind(that, (KPTrail) null);
+        return (that instanceof KPNonvar) && bind(that, (Trail) null);
     }
 
     /**
