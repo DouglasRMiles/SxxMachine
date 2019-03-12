@@ -18,7 +18,7 @@ public interface Compound extends Nonvar {
      */
     void setCdr(Term t);
 
-    Term nth0(int nth);
+    Term nthTermEle0(int nth);
 
     @Override
     boolean isImmutable();
@@ -29,7 +29,7 @@ public interface Compound extends Nonvar {
      * be immutable.
      */
     @Override
-    Compound add(Term term);
+    Compound addPlToList(Term term);
 
     Compound addToCopy(Term term);
 

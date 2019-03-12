@@ -102,7 +102,7 @@ class pred_decl_deref_args_1_1 extends pred_decl_deref_args_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(pred_decl_deref_args_1_consts.negint1)))
+        if (!(areg0.unifyJP(pred_decl_deref_args_1_consts.negint1)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -133,7 +133,7 @@ class pred_decl_deref_args_1_2 extends pred_decl_deref_args_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string4), S(pred_decl_deref_args_1_consts.string3, var1

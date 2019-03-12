@@ -43,6 +43,29 @@ xthe(X,G,A):-
 xconvert(no,no).
 xconvert(':-'(A,true),the(A)).
 
+pgo5:-   
+   answer_source(X,
+     and(
+        member(S,[[1,2,3],[4,5]]),
+        member(X,S)
+     ),
+   R),
+   source_list(R,Xs),
+   println(Xs).
+   
+pgo5a:-
+  list_source([1,2,3],I1),
+  list_source([4,5],I2),
+   answer_source(X,
+     and(
+        member(S,[I1,I2]),
+        source_list(S,LL),
+        element_of(LL,X)
+     ),
+   R),
+   source_list(R,Xs),
+   println(Xs).
+   
 go5:-
   list_source([1,2,3],I1),
   list_source([4,5],I2),

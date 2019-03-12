@@ -1756,7 +1756,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -2539,7 +2539,7 @@ public class FILE_builtins extends bootpreds {
         // atom(A):-[atom(A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -2727,7 +2727,7 @@ public class FILE_builtins extends bootpreds {
         if (!(a1.isJavaObject())) {
             return m.fail();
         }
-        if (!a2.unify(SYM(((JavaObjectTerm) a1).object().getClass().getName()), m.trail)) {
+        if (!a2.unifySYM((((JavaObjectTerm) a1).javaInstance().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -2849,7 +2849,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -5468,7 +5468,7 @@ public class FILE_builtins extends bootpreds {
         // '$new_internal_database'(A):-[atom(A),'$get_hash_manager'(B),'$new_internal_database'(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -5608,7 +5608,7 @@ public class FILE_builtins extends bootpreds {
         // '$defined_internal_database'(A):-[atom(A),'$get_hash_manager'(B),hash_contains_key(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -5952,7 +5952,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -7081,7 +7081,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -7151,7 +7151,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -8450,7 +8450,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -8818,7 +8818,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -8982,7 +8982,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(4))
         a4 = a4.dref();
-        if (!(a4.isAtom())) {
+        if (!(a4.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -16247,7 +16247,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -16285,7 +16285,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -18283,7 +18283,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(3))
         a3 = a3.dref();
-        if (!(a3.isAtom())) {
+        if (!(a3.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -18840,7 +18840,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(3))
         a3 = a3.dref();
-        if (!(a3.isAtom())) {
+        if (!(a3.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -19475,7 +19475,7 @@ public class FILE_builtins extends bootpreds {
         // regex_matches(A,B,C):-[atom(B),regex_compile(A,D),regex_match(D,B,C)]
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -19688,7 +19688,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -19960,7 +19960,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -21623,7 +21623,7 @@ public class FILE_builtins extends bootpreds {
         // hash_exists(A):-[atom(A),'$get_hash_manager'(B),hash_contains_key(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -23992,7 +23992,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -24112,7 +24112,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -24315,7 +24315,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         }
         if (!ATOM_java$002Eio$002EPushbackReader
-                .unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
+                .unifySYM((((JavaObjectTerm) a2).javaInstance().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -24338,7 +24338,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         }
         if (!ATOM_java$002Eio$002EPrintWriter
-                .unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
+                .unifySYM((((JavaObjectTerm) a2).javaInstance().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -24357,7 +24357,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -24396,7 +24396,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         }
         if (!ATOM_SxxMachine$002EHashtableOfTerm
-                .unify(SYM(((JavaObjectTerm) a2).object().getClass().getName()), m.trail)) {
+                .unifySYM((((JavaObjectTerm) a2).javaInstance().getClass().getName()), m.trail)) {
             return m.fail();
         }
         //END inline expansion
@@ -24415,7 +24415,7 @@ public class FILE_builtins extends bootpreds {
             return m.fail();
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -24470,13 +24470,13 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(3))
         a3 = a3.dref();
-        if (!(a3.isAtom())) {
+        if (!(a3.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
         //START inline expansion of atom(a(4))
         a4 = a4.dref();
-        if (!(a4.isAtom())) {
+        if (!(a4.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -24735,7 +24735,7 @@ public class FILE_builtins extends bootpreds {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion

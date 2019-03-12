@@ -391,7 +391,7 @@ public final class Prolog extends PrologFlags {
     public Operation switch_on_hash(Map<Term, Operation> hash, Operation otherwise) {
         Term arg1 = this.AREGS[0].dref();
         Term key;
-        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtom())) {
+        if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtomSymbol())) {
             key = arg1;
         } else if ((arg1.isCompound())) {
             key = (arg1).functor();

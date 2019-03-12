@@ -1,11 +1,12 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.V;
+// V;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.SystemObject;
 
 //!depends
 /**
@@ -60,6 +61,26 @@ public class Copier extends JPrologObject {
         return V;
     }
 
+    public static ArrayList TermToVector(Term Xs) {
+        if (Xs.isCons()) {
+            return ConsToVector((Nonvar) Xs);
+        }
+        ArrayList V = new ArrayList();
+        Term t = Xs;
+        if (t.isCompound()) {
+            V.add(t.functor());
+            final int arity = t.arity();
+            for (int i = 0; i < arity; i++) {
+                V.add(t.getDrefArg(i));
+            }
+        } else {
+            V.add(t);
+        }
+        // IO.mes("V="+V);
+        return V;
+
+    }
+
     public static ArrayList ConsToVector(Nonvar Xs) {
         ArrayList V = new ArrayList();
         Term t = Xs;
@@ -67,10 +88,10 @@ public class Copier extends JPrologObject {
             if (t.isNil()) {
                 break;
             } else if (t.isCons()) {
-                Term c = TermData.asCons(t);
+                Term c = asCons(t);
                 V.add(c.getDrefArg(0));
                 t = c.getDrefArg(1);
-            } else if (t.isConst()) {
+            } else if (t.isAtomOrObject()) {
                 V.add(t);
                 break;
             } else {
@@ -93,7 +114,7 @@ public class Copier extends JPrologObject {
         int arity = V.size();
         if (arity == 0)
             return c;
-        Term f = TermData.createStructureTerm(c.fname(), arity);
+        Term f = createStructureTerm(c.fname(), arity);
         for (int i = 0; i < arity; i++) {
             f.setArg(i, (Term) V.get(i));
         }
@@ -107,7 +128,7 @@ public class Copier extends JPrologObject {
     public static Term VectorToFun(ArrayList V) {
         Functor f = (Functor) V.get(0);
         int arity = V.size() - 1;
-        Term T = TermData.createStructureTerm(f.fname(), arity);
+        Term T = createStructureTerm(f.fname(), arity);
         for (int i = 0; i < arity; i++) {
             T.setArg(i, (Term) V.get(i + 1));
         }
@@ -118,7 +139,7 @@ public class Copier extends JPrologObject {
      * Extracts the free variables of a Term, using a care of recursing over its
      * structure. It can be speeded up through specialization.
      */
-    final static Functor anAnswer = TermData.SYM("answer");
+    final static Functor anAnswer = SYM("answer");
 
     public Term getMyVars(Term that) {
         /* Term */that.reaction(this);

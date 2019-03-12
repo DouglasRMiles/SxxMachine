@@ -68,11 +68,11 @@ class pred_prefix_3_1 extends pred_prefix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1200)))
+        if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string7))))
+        if (!((areg2).unifyJP(CONST(string7))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -97,11 +97,11 @@ class pred_prefix_3_2 extends pred_prefix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1200)))
+        if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string6))))
+        if (!((areg2).unifyJP(CONST(string6))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -126,11 +126,11 @@ class pred_prefix_3_3 extends pred_prefix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint500)))
+        if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string5))))
+        if (!((areg2).unifyJP(CONST(string5))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -155,11 +155,11 @@ class pred_prefix_3_4 extends pred_prefix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint500)))
+        if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(CONST(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string3))))
+        if (!((areg2).unifyJP(CONST(string3))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

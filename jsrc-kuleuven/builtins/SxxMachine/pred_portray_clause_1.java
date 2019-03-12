@@ -17,7 +17,7 @@ public class pred_portray_clause_1 extends Code {
         final Term continuation = local_aregs[1];
         local_aregs[0] = local_aregs[1] = null;
         log.info("pred_portray lists the given clause as a debug-operation");
-        final String str = clause.toJpString();
+        final String str = clause.portrayTerm();
         log.debug("String-version of clause:");
         log.debug(str);
         mach.getIOLayer().getStreamHandlerOut().getCurrentStream().getStream().println(str);

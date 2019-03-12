@@ -72,9 +72,9 @@ public class pred_doCompile_2 extends Code {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1)))
+        if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        if (!(areg1.unify(var2)))
+        if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
 
         local_aregs[0] = CONST(pred_doCompile_2_consts.string3);

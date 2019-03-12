@@ -29,7 +29,7 @@ public abstract class Const extends ANonvar {
     }
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         return CONST(obj);
     }
 
@@ -46,10 +46,10 @@ public abstract class Const extends ANonvar {
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         if (this.getClass() == that.getClass())
             return equalsTerm(that);
-        return that.bind(this);
+        return that.bindJP(this);
     }
 
     //    public Object getValue() {
@@ -65,7 +65,7 @@ public abstract class Const extends ANonvar {
     public boolean equalsTerm(Term that, OpVisitor comparator) {
         if (that == this)
             return true;
-        if (that .isConst()) {
+        if (that .isAtomOrObject()) {
             final Const t = (Const) that;
             if (obj == null)
                 return t.getValue() == null;
@@ -74,7 +74,7 @@ public abstract class Const extends ANonvar {
             if (obj.getClass().isArray()) {
                 if (!t.getValue().getClass().isArray())
                     return false;
-                return Arrays.deepEquals((Object[]) obj, (Object[]) t.object());
+                return Arrays.deepEquals((Object[]) obj, (Object[]) t.javaInstance());
             }
             return obj.equals(t.getValue());
         }

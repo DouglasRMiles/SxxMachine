@@ -78,13 +78,13 @@ class pred_newprec_4_1 extends pred_newprec_4 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(CONST(string8))))
+        if (!((areg0).unifyJP(CONST(string8))))
             return mach.Fail0;
-        if (!((areg1).unify(var1.dref())))
+        if (!((areg1).unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!((areg2).unify(var2.dref())))
+        if (!((areg2).unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!((areg3).unify(var3.dref())))
+        if (!((areg3).unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string4, var2.dref(), S(string5, var1.dref(), posint1), S(string4, var3
@@ -119,13 +119,13 @@ class pred_newprec_4_2 extends pred_newprec_4 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(CONST(string7))))
+        if (!((areg0).unifyJP(CONST(string7))))
             return mach.Fail0;
-        if (!((areg1).unify(var1.dref())))
+        if (!((areg1).unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!((areg2).unify(var2.dref())))
+        if (!((areg2).unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!((areg3).unify(var3.dref())))
+        if (!((areg3).unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string4, var2
@@ -160,13 +160,13 @@ class pred_newprec_4_3 extends pred_newprec_4 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(CONST(string2))))
+        if (!((areg0).unifyJP(CONST(string2))))
             return mach.Fail0;
-        if (!((areg1).unify(var1.dref())))
+        if (!((areg1).unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!((areg2).unify(var2.dref())))
+        if (!((areg2).unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!((areg3).unify(var3.dref())))
+        if (!((areg3).unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string4, var3

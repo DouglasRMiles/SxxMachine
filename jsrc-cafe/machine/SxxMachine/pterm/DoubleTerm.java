@@ -1,10 +1,11 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.Float;
+// Float;
+import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
-import SxxMachine.Trail;
+import SxxMachine.KPTrail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.RunningPrologMachine;
@@ -27,8 +28,8 @@ import SxxMachine.Trail;
 public class DoubleTerm extends ANumberTerm {
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
-        return TermData.Float(doubleValue());
+    public Term copyJP(RunningPrologMachine m, long t) {
+        return Float(doubleValue());
     }
 
     @Override
@@ -42,10 +43,10 @@ public class DoubleTerm extends ANumberTerm {
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         NumberTerm tmpint;
         if (!(that instanceof NumberTerm))
-            return that.bind(this);
+            return that.bindJP(this);
         tmpint = (NumberTerm) that; // cast perhaps to be avoided
         return (tmpint.doubleValue() == doubleValue());
     }
@@ -61,7 +62,7 @@ public class DoubleTerm extends ANumberTerm {
     }
 
     @Override
-    public String toJpString() {
+    public String portrayTerm() {
         return fname();
     }
 
@@ -71,8 +72,8 @@ public class DoubleTerm extends ANumberTerm {
     }
 
     @Override
-    public boolean bind(Term that, Trail trail) {
-        return super.bind(that, trail) && doubleValue() == (((NumberTerm) that).doubleValue());
+    public boolean bindKP(Term that, KPTrail trail) {
+        return super.bindKP(that, trail) && doubleValue() == (((NumberTerm) that).doubleValue());
     }
 
     // public double dvalue;
@@ -131,7 +132,7 @@ public class DoubleTerm extends ANumberTerm {
      *         <code>DoubleTerm</code>.
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         return nvalue;
     }
 
@@ -380,7 +381,7 @@ public class DoubleTerm extends ANumberTerm {
 
     @Override
     public NumberTerm round() {
-        return TermData.Long(Math.round(doubleValue()));
+        return Long(Math.round(doubleValue()));
     }
 
     /**
@@ -457,9 +458,9 @@ public class DoubleTerm extends ANumberTerm {
     @Override
     public NumberTerm truncate() {
         if (doubleValue() >= 0)
-            return TermData.Long((long) Math.floor(doubleValue()));
+            return Long((long) Math.floor(doubleValue()));
         else
-            return TermData.Long((long) (-1 * Math.floor(Math.abs(doubleValue()))));
+            return Long((long) (-1 * Math.floor(Math.abs(doubleValue()))));
     }
 
     /**
@@ -479,9 +480,9 @@ public class DoubleTerm extends ANumberTerm {
     //    private LongTerm Integer(long round) {
     //        int i = (int) round;
     //        if ((i) == round) {
-    //            return TermData.Integer(i);
+    //            return Integer(i);
     //        }
-    //        return TermData.Long(round);
+    //        return Long(round);
     //    }
 
     @Override

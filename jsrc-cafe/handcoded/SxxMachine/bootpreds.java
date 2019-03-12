@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import static SxxMachine.JavaPredicate.checkParameterTypes;
+import static SxxMachine.JavaPredicate.*;
+import static SxxMachine.pterm.TermData.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -28,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.locks.Lock;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -38,7 +40,6 @@ import SxxMachine.pterm.HashtableOfTerm;
 import SxxMachine.pterm.JavaObjectTerm;
 import SxxMachine.pterm.ListViewTerm;
 import SxxMachine.pterm.Mutex;
-import SxxMachine.pterm.TermData;
 
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends sxxtensions {
@@ -198,7 +199,7 @@ public class bootpreds extends sxxtensions {
         a2 = a2.dref();
         if ((a1.isVar())) { // atom_chars(-Atom, +CharList)
             if (a2.isNil()) {
-                if (!a1.unify(SYM(""), engine.trail))
+                if (!a1.unifySYM((""), engine.trail))
                     return engine.fail();
                 return cont;
             } else if ((a2.isVar())) {
@@ -216,22 +217,22 @@ public class bootpreds extends sxxtensions {
                 Term car = (x).car().dref();
                 if ((car.isVar()))
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isAtom()) || (car).getString().length() != 1)
+                if (!(car.isAtomSymbol()) || (car).getJavaString().length() != 1)
                     throw new IllegalTypeException(thiz, 2, "character", a2);
-                sb.append((car).getString());
+                sb.append((car).getJavaString());
                 x = (x).cdr().dref();
             }
-            if (!a1.unify(TermData.createAtomic(sb.toString()), engine.trail))
+            if (!a1.unify(createAtomic(sb.toString()), engine.trail))
                 return engine.fail();
             return cont;
         } else if (a2.isNil() || (a2.isVar()) || (a2.isCons())) { // atom_chars(+Atom,
                                                                   // ?CharList)
-            if (!(a1.isAtom()))
+            if (!(a1.isAtomSymbol()))
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            String s = (a1).getString();
+            String s = (a1).getJavaString();
             Term x = Prolog.Nil;
             for (int i = s.length(); i > 0; i--) {
-                x = CONS(TermData.createAtomic(s.substring(i - 1, i)), x);
+                x = CONS(createAtomic(s.substring(i - 1, i)), x);
             }
             if (!a2.unify(x, engine.trail))
                 return engine.fail();
@@ -279,13 +280,13 @@ public class bootpreds extends sxxtensions {
                 sb.append((char) i);
                 x = (x).cdr().dref();
             }
-            if (!a1.unify(TermData.createAtomic(sb.toString()), engine.trail))
+            if (!a1.unify(createAtomic(sb.toString()), engine.trail))
                 return engine.fail();
             return cont;
         } else { // atom_codes(+Atom, ?CharCodeList)
-            if (!(a1.isAtom()))
+            if (!(a1.isAtomSymbol()))
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            char[] chars = (a1).getString().toCharArray();
+            char[] chars = (a1).getJavaString().toCharArray();
             Term x = Prolog.Nil;
             for (int i = chars.length; i > 0; i--) {
                 x = CONS(Integer(chars[i - 1]), x);
@@ -316,9 +317,9 @@ public class bootpreds extends sxxtensions {
         a2 = LARG[1];
         a3 = LARG[2];
         a3 = a3.dref();
-        if ((a3.isAtom())) {
+        if ((a3.isAtomSymbol())) {
             Functor s3 = a3.asSymbolTerm();
-            int endIndex = s3.length();
+            int endIndex = s3.termLength();
             Term t = Prolog.Nil;
             for (int i = 0; i <= endIndex; i++) {
                 Term[] args = { s3.subsymbol(0, i), s3.subsymbol(i) };
@@ -335,12 +336,12 @@ public class bootpreds extends sxxtensions {
             throw new PInstantiationException(thiz, 1);
         if ((a2.isVar()))
             throw new PInstantiationException(thiz, 2);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalTypeException(thiz, 1, "integer", a1);
-        if (!(a2.isAtom()))
+        if (!(a2.isAtomSymbol()))
             throw new IllegalTypeException(thiz, 2, "integer", a2);
-        String str3 = (a1).getString().concat((a2).getString());
-        if (!a3.unify(TermData.createAtomic(str3), engine.trail))
+        String str3 = (a1).getJavaString().concat((a2).getJavaString());
+        if (!a3.unify(createAtomic(str3), engine.trail))
             return engine.fail();
         return cont;
     }
@@ -358,13 +359,13 @@ public class bootpreds extends sxxtensions {
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
         final Term a2 = LARG[1].dref();
-        if (!(a1.isNumber()) && !(a1.isAtom())) {
+        if (!(a1.isNumber()) && !(a1.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 1, "atomic", a1);
         }
-        if (!(a2.isNumber()) && !(a2.isAtom())) {
+        if (!(a2.isNumber()) && !(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atomic", a2);
         }
-        if (LARG[2].unify(TermData.createAtomic(a1.getString() + a2.getString()), engine.trail)) {
+        if (LARG[2].unify(createAtomic(a1.getJavaString() + a2.getJavaString()), engine.trail)) {
             return cont;
         }
         return engine.fail();
@@ -391,9 +392,9 @@ public class bootpreds extends sxxtensions {
         a2 = a2.dref();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalTypeException(thiz, 1, "atom", a1);
-        length = (a1).getString().length();
+        length = (a1).getJavaString().length();
         if ((a2.isVar())) {
             if (!a2.unifyInt((length), engine.trail))
                 return engine.fail();
@@ -426,9 +427,9 @@ public class bootpreds extends sxxtensions {
         a1 = LARG[0];
         a2 = LARG[1];
         a1 = a1.dref();
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             return engine.fail();
-        type = Token.getStringType(a1.getString());
+        type = Token.getStringType(a1.getJavaString());
         if (!a2.unifyInt((type), engine.trail))
             return engine.fail();
         return cont;
@@ -446,7 +447,7 @@ public class bootpreds extends sxxtensions {
     }
 
     static public class PRED_$begin_exception_1 extends BlockPredicate {
-        /// private final Term arg1;
+        // / private final Term arg1;
 
         @Override
         public int predArity() {
@@ -454,7 +455,7 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_exception_1(Term a1, Operation cont) {
-            LARG[0] = a1;
+            ThizLARGs[0] = a1;
             this.cont = cont;
         }
 
@@ -490,7 +491,7 @@ public class bootpreds extends sxxtensions {
     }
 
     static public class PRED_$begin_sync_2 extends BlockPredicate {
-        /// private final Term arg1, arg2;
+        // / private final Term arg1, arg2;
         @Override
         public int predArity() {
             // TODO Auto-generated method stub
@@ -498,8 +499,8 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_sync_2(Term a1, Term a2, Operation cont) {
-            LARG[0] = a1;
-            LARG[1] = a2;
+            ThizLARGs[0] = a1;
+            ThizLARGs[1] = a2;
             this.cont = cont;
         }
 
@@ -524,7 +525,7 @@ public class bootpreds extends sxxtensions {
                 throw new PInstantiationException(thiz, 1);
             if (!(a1.isJavaObject()))
                 throw new IllegalTypeException(thiz, 1, "java", a1);
-            o = a1.object();
+            o = a1.javaInstance();
             // 2nd. argument
             a2 = a2.dref();
             if (!(a2.isVar()))
@@ -596,8 +597,11 @@ public class bootpreds extends sxxtensions {
                 engine.AREGS = LARG;
                 engine.AREGS[1] = FFIObject(new Term[] { next });
                 engine.cont = cont;
-                engine.jtry2(null, PRED_$builtin_member_2::retry); // push new frame
-                                                                   // with retry as next
+                engine.jtry2(null, PRED_$builtin_member_2::retry); // push new
+                                                                   // frame
+                                                                   // with
+                                                                   // retry as
+                                                                   // next
             }
             return (a1.unify(value, engine.trail)) ? cont : engine.fail();
         }
@@ -605,8 +609,9 @@ public class bootpreds extends sxxtensions {
         private static Operation retry(Prolog engine) {
             engine.retry(null, PRED_$builtin_member_2::retry); // restore
                                                                // engine.AREGS[0],
-                                                               // AREGS[1], cont
-            final Term[] p = (Term[]) engine.AREGS[1].toJava();
+                                                               // AREGS[1],
+                                                               // cont
+            final Term[] p = (Term[]) engine.AREGS[1].javaInstance();
             final Trail trail = engine.trail;
             final int top = trail.top();
             Term a2 = p[0];
@@ -641,18 +646,20 @@ public class bootpreds extends sxxtensions {
         if (!next.equalsTerm(Prolog.Nil)) {
             engine.setB0();
             engine.AREGS = LARG;
-            engine.AREGS[1] = TermData.FFIObject(new Term[] { next });
+            engine.AREGS[1] = FFIObject(new Term[] { next });
             engine.cont = cont;
-            engine.jtry2(null, bootpreds::retry_bi_member); // push new frame with
+            engine.jtry2(null, bootpreds::retry_bi_member); // push new frame
+                                                            // with
                                                             // retry as next
         }
         return (a1.unify(value, engine.trail)) ? cont : engine.fail();
     }
 
     private static Operation retry_bi_member(Prolog engine) {
-        engine.retry(null, bootpreds::retry_bi_member); // restore engine.AREGS[0],
+        engine.retry(null, bootpreds::retry_bi_member); // restore
+                                                        // engine.AREGS[0],
                                                         // AREGS[1], cont
-        final Term[] p = (Term[]) engine.AREGS[1].toJava();
+        final Term[] p = (Term[]) engine.AREGS[1].javaInstance();
         final Trail trail = engine.trail;
         final int top = trail.top();
         Term a2 = p[0];
@@ -696,9 +703,9 @@ public class bootpreds extends sxxtensions {
         // Constructor constr;
         // Operation pred;
         try {
-            if (!(a1.isAtom()))
+            if (!(a1.isAtomSymbol()))
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            if ((a2.isAtom())) {
+            if ((a2.isAtomSymbol())) {
                 functor = a2;
                 args = NO_ARGS; // new Term[]{};
                 arity = 0;
@@ -710,10 +717,10 @@ public class bootpreds extends sxxtensions {
                 throw new IllegalTypeException(thiz, 2, "callable", a2);
             }
             try {
-                return engine.pcl.predicate(a1.getString(), functor.getString(), cont, args);
+                return engine.pcl.predicate(a1.getJavaString(), functor.getJavaString(), cont, args);
             } catch (ExistenceException e) {
                 try {
-                    return engine.pcl.predicate(Prolog.BUILTIN, functor.getString(), cont, args);
+                    return engine.pcl.predicate(Prolog.BUILTIN, functor.getJavaString(), cont, args);
                 } catch (ExistenceException e2) {
                     if ((engine.getUnknown()).equals("fail"))
                         return engine.fail();
@@ -779,10 +786,10 @@ public class bootpreds extends sxxtensions {
             int i = (a2).intValue();
             if (!Character.isDefined(i))
                 throw new RepresentationException(thiz, 2, "character_code");
-            if (!a1.unify(TermData.CHAR((char) i), engine.trail))
+            if (!a1.unify(CHAR((char) i), engine.trail))
                 return engine.fail();
-        } else if ((a1.isAtom())) { // char_code(+Char, ?CharCode)
-            String s = (a1).getString();
+        } else if ((a1.isAtomSymbol())) { // char_code(+Char, ?CharCode)
+            String s = (a1).getJavaString();
             if (s.length() != 1)
                 throw new IllegalTypeException(thiz, 1, "character", a1);
             if (!a2.unifyInt((s.charAt(0)), engine.trail))
@@ -851,12 +858,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getStreamManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).object();
+            stream = (engine.getStreamManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            stream = a1.object();
+            stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
@@ -869,7 +876,7 @@ public class bootpreds extends sxxtensions {
             try {
                 in.close();
             } catch (IOException e) {
-                throw new TermException(TermData.FFIObject(e));
+                throw new TermException(FFIObject(e));
             }
         } else if (stream instanceof PrintWriter) {
             PrintWriter out = (PrintWriter) stream;
@@ -888,7 +895,7 @@ public class bootpreds extends sxxtensions {
         }
         // delete associated entries from the stream manager
         HashtableOfTerm streamManager = engine.getStreamManager();
-        if ((a1.isAtom())) {
+        if ((a1.isAtomSymbol())) {
             streamManager.remove(engine.getStreamManager().get(a1));
             streamManager.remove(a1);
         } else if ((a1.isJavaObject())) {
@@ -943,7 +950,7 @@ public class bootpreds extends sxxtensions {
         Term a1 = LARG[0].dref();
         Term a2 = LARG[1].dref();
         Term a3 = LARG[2].dref();
-        if (!engine.pcl.definedPredicate(a1.getString(), (a2).getString(), (a3).intValue()))
+        if (!engine.pcl.definedPredicate(a1.getJavaString(), (a2).getJavaString(), (a3).intValue()))
             return engine.fail();
         return cont;
     }
@@ -962,8 +969,8 @@ public class bootpreds extends sxxtensions {
         Term a1 = LARG[0].dref();
         Term a2 = LARG[1].dref();
         Term a3 = LARG[2].dref();
-        final String atomName = (a2).getString();
-        if (!engine.pcl.definedPredicate(a1.getString(), atomName, (a3).intValue())
+        final String atomName = (a2).getJavaString();
+        if (!engine.pcl.definedPredicate(a1.getJavaString(), atomName, (a3).intValue())
                 && !engine.pcl.definedPredicate(Prolog.BUILTIN, atomName, (a3).intValue()))
             return engine.fail();
         return cont;
@@ -1007,9 +1014,9 @@ public class bootpreds extends sxxtensions {
         a1 = LARG[0];
         a1 = a1.dref();
         if ((a1.isVar())) {
-            a1.asVariableTerm().bind(TermData.FFIObject(engine.getCurrentInput()), engine.trail);
+            a1.asVariableTerm().bind(FFIObject(engine.getCurrentInput()), engine.trail);
         } else if ((a1.isJavaObject())) {
-            if (!a1.unify(TermData.FFIObject(engine.getCurrentInput()), engine.trail))
+            if (!a1.unify(FFIObject(engine.getCurrentInput()), engine.trail))
                 return engine.fail();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream", a1);
@@ -1035,9 +1042,9 @@ public class bootpreds extends sxxtensions {
         a1 = LARG[0];
         a1 = a1.dref();
         if ((a1.isVar())) {
-            a1.asVariableTerm().bind(TermData.FFIObject(engine.getCurrentOutput()), engine.trail);
+            a1.asVariableTerm().bind(FFIObject(engine.getCurrentOutput()), engine.trail);
         } else if ((a1.isJavaObject())) {
-            if (!a1.unify(TermData.FFIObject(engine.getCurrentOutput()), engine.trail))
+            if (!a1.unify(FFIObject(engine.getCurrentOutput()), engine.trail))
                 return engine.fail();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream", a1);
@@ -1102,7 +1109,7 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if (!(a1.isJavaObject()))
             throw new IllegalTypeException(thiz, 1, "java", a1);
-        Object obj = a1.object();
+        Object obj = a1.javaInstance();
         if (!(obj instanceof PRED_$begin_sync_2))
             throw new SystemException("a1 must be an object of PRED_$begin_sync_2: " + thiz);
         PRED_$begin_sync_2 p = ((PRED_$begin_sync_2) obj);
@@ -1146,9 +1153,9 @@ public class bootpreds extends sxxtensions {
         Term a1 = LARG[0].dref();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalDomainException(thiz, 1, "directory", a1);
-        File file = new File(a1.pprint());
+        File file = new File(a1.getJavaString());
         if (file.isDirectory())
             return cont;
         else
@@ -1167,9 +1174,9 @@ public class bootpreds extends sxxtensions {
         Term a1 = LARG[0].dref();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalDomainException(thiz, 1, "file", a1);
-        File file = new File(a1.pprint());
+        File file = new File(a1.getJavaString());
         if (file.isFile())
             return cont;
         else
@@ -1191,7 +1198,7 @@ public class bootpreds extends sxxtensions {
         Term a1;
         a1 = LARG[0].dref();
         PrintWriter pw = engine.getCurrentOutput();
-        pw.print(a1.pprint());
+        pw.print(a1.stringWrite());
         return cont;
     }
 
@@ -1213,7 +1220,7 @@ public class bootpreds extends sxxtensions {
         a2 = LARG[1];
         PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
         // print term
-        stream.print(a2.dref().pprint());
+        stream.print(a2.dref().stringWrite());
         return cont;
     }
 
@@ -1268,12 +1275,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getStreamManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).object();
+            stream = (engine.getStreamManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            stream = a1.object();
+            stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
@@ -1294,14 +1301,14 @@ public class bootpreds extends sxxtensions {
         engine.setB0();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalDomainException(thiz, 1, "file", a1);
-        File file = new File(a1.pprint());
+        File file = new File(a1.getJavaString());
         File dir = file.getParentFile();
         if (dir == null)
             throw new IllegalDomainException(thiz, 1, "file", a1);
         Term a2 = LARG[1].dref();
-        if (a2.unify(TermData.createAtomic(dir.getPath()), engine.trail))
+        if (a2.unify(createAtomic(dir.getPath()), engine.trail))
             return cont;
         else
             return engine.fail();
@@ -1351,7 +1358,7 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar()))
                 throw new PInstantiationException(thiz, 2);
-            if (!(a2.isAtom()) && !(a2.isNumber()) && !(a2.isJavaObject()) && !(a2.isClosure()))
+            if (!(a2.isAtomSymbol()) && !(a2.isNumber()) && !(a2.isJavaObject()) && !(a2.isClosure()))
                 throw new IllegalTypeException(thiz, 2, "atomic", a2);
             a3 = a3.dref();
             if ((a3.isVar()))
@@ -1366,7 +1373,7 @@ public class bootpreds extends sxxtensions {
                     return engine.fail();
                 return cont;
             }
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             if (n == 2 && a2.equalsTerm(SYM_DOT_0)) {
                 Term t = CONS(V(engine), V(engine));
@@ -1377,7 +1384,7 @@ public class bootpreds extends sxxtensions {
             Term[] args = new Term[n];
             for (int i = 0; i < n; i++)
                 args[i] = V(engine);
-            Functor sym = TermData.createF((a2).getString(), n);
+            Functor sym = createF((a2).getJavaString(), n);
             if (!a1.unifyS(sym, engine.trail, args))
                 return engine.fail();
             return cont;
@@ -1385,7 +1392,7 @@ public class bootpreds extends sxxtensions {
         // functor(+X,?Y,?Z)
         Term functor;
         NumberTerm arity;
-        if ((a1.isAtom()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
+        if ((a1.isAtomSymbol()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
             functor = a1;
             arity = Integer(0);
         } else if ((a1.isCons())) {
@@ -1449,7 +1456,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -1496,7 +1503,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -1516,12 +1523,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getStreamManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).object();
+            stream = (engine.getStreamManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            stream = a1.object();
+            stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
@@ -1540,7 +1547,7 @@ public class bootpreds extends sxxtensions {
      */
     //
     static boolean inCharacter(Term t) {
-        return (t.isAtom()) && (t.equalsTerm(SYM_EOF) || (t).getString().length() == 1);
+        return (t.isAtomSymbol()) && (t.equalsTerm(SYM_EOF) || (t).getJavaString().length() == 1);
     }
 
     public static Operation PRED_get_char_2_static_exec(Prolog engine) {
@@ -1567,11 +1574,11 @@ public class bootpreds extends sxxtensions {
             }
             if (!Character.isDefined(c))
                 throw new RepresentationException(thiz, 0, "character");
-            if (!a2.unify(TermData.CHAR((char) c), engine.trail))
+            if (!a2.unify(CHAR((char) c), engine.trail))
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -1618,7 +1625,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -1678,7 +1685,7 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if (!(a1.isVar()))
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        if (!a1.unify(TermData.FFIObject(engine.getHashManager()), engine.trail))
+        if (!a1.unify(FFIObject(engine.getHashManager()), engine.trail))
             return engine.fail();
         return cont;
     }
@@ -1790,25 +1797,25 @@ public class bootpreds extends sxxtensions {
             if (!a2.unifyInt((engine.getMinInteger()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(INTEGER_ROUNDING_FUNCTION)) {
-            if (!a2.unify(SYM(engine.getIntegerRoundingFunction()), engine.trail))
+            if (!a2.unifySYM((engine.getIntegerRoundingFunction()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(CHAR_CONVERSION)) {
-            if (!a2.unify(SYM(engine.getCharConversion()), engine.trail))
+            if (!a2.unifySYM((engine.getCharConversion()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(DEBUG)) {
-            if (!a2.unify(SYM(engine.getDebug()), engine.trail))
+            if (!a2.unifySYM((engine.getDebug()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(MAX_ARITY)) {
             if (!a2.unifyInt((engine.getMaxArity()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(UNKNOWN)) {
-            if (!a2.unify(SYM(engine.getUnknown()), engine.trail))
+            if (!a2.unifySYM((engine.getUnknown()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(DOUBLE_QUOTES)) {
-            if (!a2.unify(SYM(engine.getDoubleQuotes()), engine.trail))
+            if (!a2.unifySYM((engine.getDoubleQuotes()), engine.trail))
                 return engine.fail();
         } else if (a1.equalsTerm(PRINT_STACK_TRACE)) {
-            if (!a2.unify(SYM(engine.getPrintStackTrace()), engine.trail))
+            if (!a2.unifySYM((engine.getPrintStackTrace()), engine.trail))
                 return engine.fail();
         } else {
             return engine.fail();
@@ -1834,7 +1841,7 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if (!(a1.isVar()))
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        if (!a1.unify(TermData.FFIObject(engine.getStreamManager()), engine.trail))
+        if (!a1.unify(FFIObject(engine.getStreamManager()), engine.trail))
             return engine.fail();
         return cont;
     }
@@ -1884,19 +1891,19 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
         if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
         a2 = a2.dref();
-        Term elem = TermData.asHashtableOfTerm(hash).get(a2);
+        Term elem = asHashtableOfTerm(hash).get(a2);
         if (elem == null)
             elem = Nil;
         a3 = a3.dref();
@@ -1929,12 +1936,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -1946,7 +1953,7 @@ public class bootpreds extends sxxtensions {
         if (elem == null || Nil.equalsTerm(elem)) {
             elem = new ListViewTerm(a3);
         } else if (elem.isCons()) {
-            elem = (elem).add(a3);
+            elem = (elem).addPlToList(a3);
         } else {
             throw new InternalException(thiz + ": elem is not a ListTerm");
         }
@@ -1974,12 +1981,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2006,13 +2013,13 @@ public class bootpreds extends sxxtensions {
         Term a2 = LARG[1].dref();
         Object hash = null;
         if ((a1.isJavaObject())) {
-            hash = a1.object();
-        } else if ((a1.isAtom())) {
+            hash = a1.javaInstance();
+        } else if ((a1.isAtomSymbol())) {
             Term t = engine.getHashManager().get(a1);
             if (t == null) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
             }
-            hash = t.object();
+            hash = t.javaInstance();
         } else if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
         } else {
@@ -2049,12 +2056,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2088,12 +2095,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2124,12 +2131,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2165,12 +2172,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2212,12 +2219,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2253,12 +2260,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2314,12 +2321,12 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtom())) {
+        } else if ((a1.isAtomSymbol())) {
             if (!engine.getHashManager().containsKey(a1))
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).object();
+            hash = (engine.getHashManager().get(a1)).javaInstance();
         } else if ((a1.isJavaObject())) {
-            hash = a1.object();
+            hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
@@ -2395,17 +2402,17 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar()))
                 throw new PInstantiationException(thiz, 1);
-            if (!(a1.isAtom()) && !(a1.isCompound()))
+            if (!(a1.isAtomSymbol()) && !(a1.isCompound()))
                 throw new IllegalTypeException(thiz, 1, "callable", a1);
-            if ((a1.isAtom())) { // No argument constructor
-                clazz = Class.forName(a1.getString());
+            if ((a1.isAtomSymbol())) { // No argument constructor
+                clazz = Class.forName(a1.getJavaString());
                 instance = clazz.newInstance();
                 if (!a2.unify(toPrologTerm(instance), engine.trail))
                     return engine.fail();
                 return cont;
             }
             // Parameterized constructor
-            clazz = Class.forName(a1.getString());
+            clazz = Class.forName(a1.getJavaString());
             arity = a1.arity();
             constrs = clazz.getConstructors();
             if (constrs.length == 0)
@@ -2415,8 +2422,8 @@ public class bootpreds extends sxxtensions {
             for (int i = 0; i < arity; i++) {
                 pArgs[i] = pArgs[i].dref();
                 if (!(pArgs[i].isJavaObject()))
-                    pArgs[i] = TermData.FFIObject(pArgs[i]);
-                jArgs[i] = pArgs[i].toJava();
+                    pArgs[i] = FFIObject(pArgs[i]);
+                jArgs[i] = pArgs[i].javaInstance();
             }
             for (Constructor constr : constrs) {
                 if (checkParameterTypes(constr.getParameterTypes(), pArgs)) {
@@ -2471,7 +2478,7 @@ public class bootpreds extends sxxtensions {
         a2 = a2.dref();
         if ((a1.isVar())) { // a1 = var
             if ((a2.isJavaObject())) { // a1 = var /\ a2 = java
-                a1.asVariableTerm().bind(inverseConversion((a2).object()), engine.trail);
+                a1.asVariableTerm().bind(inverseConversion((a2).javaInstance()), engine.trail);
             } else { // a1 = var /\ a2 = nonjava
                 a1.asVariableTerm().bind(a2, engine.trail);
             }
@@ -2482,7 +2489,7 @@ public class bootpreds extends sxxtensions {
             if ((a1.isJavaObject()) || (a1.isCompound()) || (a1.isClosure())) {
                 a2.asVariableTerm().bind(a1, engine.trail);
             } else { // a1 != java /\ a1 != str /\ a1 != clo /\ a2 = var
-                a2.asVariableTerm().bind(TermData.FFIObject(a1.toJava()), engine.trail);
+                a2.asVariableTerm().bind(FFIObject(a1.javaInstance()), engine.trail);
             }
         }
         return cont;
@@ -2496,7 +2503,7 @@ public class bootpreds extends sxxtensions {
         } else if (o instanceof Float || o instanceof Double) {
             return Float(((Number) o).doubleValue());
         } else if (o instanceof String) {
-            return TermData.createAtomic((String) o);
+            return createAtomic((String) o);
         } else if (o instanceof List) {
             List v = (List) o;
             Term t = Prolog.Nil;
@@ -2505,7 +2512,7 @@ public class bootpreds extends sxxtensions {
             }
             return t;
         }
-        return TermData.FFIObject(o);
+        return FFIObject(o);
     }
 
     public static Operation PRED_java_declared_constructor0_2_static_exec(Prolog engine) {
@@ -2533,10 +2540,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar()))
                 throw new PInstantiationException(thiz, 1);
-            if (!(a1.isAtom()) && !(a1.isCompound()))
+            if (!(a1.isAtomSymbol()) && !(a1.isCompound()))
                 throw new IllegalTypeException(thiz, 1, "callable", a1);
-            if ((a1.isAtom())) { // No argument constructor
-                clazz = Class.forName(a1.getString());
+            if ((a1.isAtomSymbol())) { // No argument constructor
+                clazz = Class.forName(a1.getJavaString());
                 c = clazz.getDeclaredConstructor();
                 if (c == null)
                     throw new ExistenceException(thiz, 1, "constructor", a1, "");
@@ -2547,7 +2554,7 @@ public class bootpreds extends sxxtensions {
                 return cont;
             }
             // Parameterized constructor
-            clazz = Class.forName(a1.getString());
+            clazz = Class.forName(a1.getJavaString());
             arity = a1.arity();
             constrs = clazz.getDeclaredConstructors();
             if (constrs.length == 0)
@@ -2557,8 +2564,8 @@ public class bootpreds extends sxxtensions {
             for (int i = 0; i < arity; i++) {
                 pArgs[i] = pArgs[i].dref();
                 if (!(pArgs[i].isJavaObject()))
-                    pArgs[i] = TermData.FFIObject(pArgs[i]);
-                jArgs[i] = pArgs[i].toJava();
+                    pArgs[i] = FFIObject(pArgs[i]);
+                jArgs[i] = pArgs[i].javaInstance();
             }
             for (Constructor constr : constrs) {
                 if (checkParameterTypes(constr.getParameterTypes(), pArgs)) {
@@ -2634,10 +2641,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -2646,12 +2653,12 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if ((a2.isAtom())) { // No argument method
-                m = clazz.getDeclaredMethod((a2).getString());
+            } else if ((a2.isAtomSymbol())) { // No argument method
+                m = clazz.getDeclaredMethod((a2).getJavaString());
                 m.setAccessible(true);
                 value = m.invoke(instance);
             } else if ((a2.isCompound())) { // Parameterized method
-                methodName = (a2).getString();
+                methodName = (a2).getJavaString();
                 arity = (a2).arity();
                 methods = clazz.getDeclaredMethods();
                 if (methods.length == 0)
@@ -2661,8 +2668,8 @@ public class bootpreds extends sxxtensions {
                 for (int i = 0; i < arity; i++) {
                     pArgs[i] = pArgs[i].dref();
                     if (!(pArgs[i].isJavaObject()))
-                        pArgs[i] = TermData.FFIObject(pArgs[i]);
-                    jArgs[i] = pArgs[i].toJava();
+                        pArgs[i] = FFIObject(pArgs[i]);
+                    jArgs[i] = pArgs[i].javaInstance();
                 }
                 for (Method method : methods) {
                     if (method.getName().equals(methodName) && checkParameterTypes(method.getParameterTypes(), pArgs)) {
@@ -2735,10 +2742,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -2747,10 +2754,10 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtom())) {
+            } else if (!(a2.isAtomSymbol())) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getDeclaredField((a2).getString());
+            field = clazz.getDeclaredField((a2).getJavaString());
             field.setAccessible(true);
             value = field.get(instance);
             // 3rd. argument
@@ -2806,10 +2813,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -2818,10 +2825,10 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtom())) {
+            } else if (!(a2.isAtomSymbol())) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getField((a2).getString());
+            field = clazz.getField((a2).getJavaString());
             value = field.get(instance);
             // 3rd. argument
             if (value == null)
@@ -2845,10 +2852,10 @@ public class bootpreds extends sxxtensions {
     }
 
     static Term toPrologTerm(Object obj) {
-        if (TermData.instanceOfTerm(obj))
+        if (instanceOfTerm(obj))
             return (Term) obj;
         else
-            return TermData.FFIObject(obj);
+            return FFIObject(obj);
     }
 
     // jlang.reflect.*;
@@ -2888,10 +2895,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -2900,12 +2907,12 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if ((a2.isAtom())) { // No argument method
-                m = clazz.getMethod((a2).getString());
+            } else if ((a2.isAtomSymbol())) { // No argument method
+                m = clazz.getMethod((a2).getJavaString());
                 // m.setAccessible(true);
                 value = m.invoke(instance);
             } else if ((a2.isCompound())) { // Parameterized method
-                methodName = (a2).getString();
+                methodName = (a2).getJavaString();
                 arity = (a2).arity();
                 methods = clazz.getMethods();
                 if (methods.length == 0)
@@ -2915,8 +2922,8 @@ public class bootpreds extends sxxtensions {
                 for (int i = 0; i < arity; i++) {
                     pArgs[i] = pArgs[i].dref();
                     if (!(pArgs[i].isJavaObject()))
-                        pArgs[i] = TermData.FFIObject(pArgs[i]);
-                    jArgs[i] = pArgs[i].toJava();
+                        pArgs[i] = FFIObject(pArgs[i]);
+                    jArgs[i] = pArgs[i].javaInstance();
                 }
                 for (Method method : methods) {
                     if (method.getName().equals(methodName) && checkParameterTypes(method.getParameterTypes(), pArgs)) {
@@ -2986,10 +2993,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -2998,14 +3005,14 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtom())) {
+            } else if (!(a2.isAtomSymbol())) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getDeclaredField((a2).getString());
+            field = clazz.getDeclaredField((a2).getJavaString());
             // 3rd. argument (term)
             a3 = a3.dref();
             if ((a3.isJavaObject()))
-                value = a3.toJava();
+                value = a3.javaInstance();
             else
                 value = a3;
             field.setAccessible(true);
@@ -3055,10 +3062,10 @@ public class bootpreds extends sxxtensions {
             a1 = a1.dref();
             if ((a1.isVar())) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtom())) { // class
-                clazz = Class.forName(a1.getString());
+            } else if ((a1.isAtomSymbol())) { // class
+                clazz = Class.forName(a1.getJavaString());
             } else if ((a1.isJavaObject())) { // instance
-                instance = a1.object();
+                instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
                 throw new IllegalTypeException(thiz, 1, "atom_or_java", a1);
@@ -3067,14 +3074,14 @@ public class bootpreds extends sxxtensions {
             a2 = a2.dref();
             if ((a2.isVar())) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtom())) {
+            } else if (!(a2.isAtomSymbol())) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getField((a2).getString());
+            field = clazz.getField((a2).getJavaString());
             // 3rd. argument (term)
             a3 = a3.dref();
             if ((a3.isJavaObject()))
-                value = a3.toJava();
+                value = a3.javaInstance();
             else
                 value = a3;
             field.set(instance, value);
@@ -3126,7 +3133,7 @@ public class bootpreds extends sxxtensions {
         } else if (!(a1.isCons())) {
             throw new IllegalTypeException(thiz, 1, "list", a1);
         }
-        len = (a1).length();
+        len = (a1).termLength();
         list = new Term[len];
         tmp = a1;
         for (int i = 0; i < len; i++) {
@@ -3186,7 +3193,8 @@ public class bootpreds extends sxxtensions {
         // get line number
         if (!(stream instanceof LineNumberPushbackReader)
                 || !a2.unifyInt((((LineNumberPushbackReader) stream).getLineNumber() + 1), engine.trail)) {
-            // if (!a2.unifyInt((0),engine.trail)){ // uncomment this for creating
+            // if (!a2.unifyInt((0),engine.trail)){ // uncomment this for
+            // creating
             // patch and comment two lines above
             return engine.fail();
         }
@@ -3198,27 +3206,28 @@ public class bootpreds extends sxxtensions {
     // .Predicate.P2;
     // import static SxxMachine.PRED_loggable_1.LEVELS;
     /**
-     * <b>log(package:level, message)</b> - logs given <i>message</i> to the logger,
-     * corresponding to <i>package</i>, under the given <i>level</i>.
+     * <b>log(package:level, message)</b> - logs given <i>message</i> to the
+     * logger, corresponding to <i>package</i>, under the given <i>level</i>.
      * <p>
      * <i>package</i> is expected to be atom. (Variable will cause errors). If
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'message') is valid.
      * <p>
-     * <i>message</i> can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>message</i> can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      *
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and message
-     * as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and message as arguments.
      *
      * @author semenov
      *
@@ -3233,9 +3242,9 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, a2::getString);
+        logger.log(level, a2::getJavaString);
         return cont;
     }
 
@@ -3252,25 +3261,26 @@ public class bootpreds extends sxxtensions {
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','%s','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'%s','message') is valid.
      * <p>
-     * <i>format</i> - is expected to be an atom, holding format string, that will
-     * be supplied to method {@link String#format(String, Object...)}. Variable will
-     * cause error.
+     * <i>format</i> - is expected to be an atom, holding format string, that
+     * will be supplied to method {@link String#format(String, Object...)}.
+     * Variable will cause error.
      * <p>
-     * <i>arg1</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg1</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      *
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and the
-     * result of {@link String#format(String, Object...)} call with format and arg1
-     * as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and the result of {@link String#format(String, Object...)} call
+     * with format and arg1 as arguments.
      *
      * @author semenov
      *
@@ -3286,12 +3296,12 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String.format(a2.pprint(), a3.toJava()));
+        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance()));
         return cont;
     }
 
@@ -3300,35 +3310,36 @@ public class bootpreds extends sxxtensions {
     // .Predicate.P4;
     // import static SxxMachine.PRED_loggable_1.LEVELS;
     /**
-     * <b>log(package:level, format, arg1, arg2)</b> - logs message, specified by
-     * <i>format</i> and <i>arg1</i>,<i>arg2</i> to the logger, corresponding to
-     * <i>package</i>, under the given <i>level</i>.
+     * <b>log(package:level, format, arg1, arg2)</b> - logs message, specified
+     * by <i>format</i> and <i>arg1</i>,<i>arg2</i> to the logger, corresponding
+     * to <i>package</i>, under the given <i>level</i>.
      * <p>
      * <i>package</i> is expected to be atom. (Variable will cause errors). If
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','%s','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'%s','message') is valid.
      * <p>
-     * <i>format</i> - is expected to be an atom, holding format string, that will
-     * be supplied to method {@link String#format(String, Object...)}. Variable will
-     * cause error.
+     * <i>format</i> - is expected to be an atom, holding format string, that
+     * will be supplied to method {@link String#format(String, Object...)}.
+     * Variable will cause error.
      * <p>
-     * <i>arg1</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg1</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
-     * <i>arg2</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg2</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and the
-     * result of {@link String#format(String, Object...)} call with <i>format</i>
-     * and <i>arg1</i>,<i>arg2</i> as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and the result of {@link String#format(String, Object...)} call
+     * with <i>format</i> and <i>arg1</i>,<i>arg2</i> as arguments.
      *
      * @author semenov
      *
@@ -3345,12 +3356,12 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String.format(a2.pprint(), a3.toJava(), a4.toJava()));
+        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance(), a4.javaInstance()));
         return cont;
     }
 
@@ -3358,37 +3369,38 @@ public class bootpreds extends sxxtensions {
     // jutil.logging.Logger;
     // import static SxxMachine.PRED_loggable_1.LEVELS;
     /**
-     * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified by
-     * <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding to
-     * <i>package</i>, under the given <i>level</i>.
+     * <b>log(package:level, format, arg1,... argN)</b> - logs message,
+     * specified by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger,
+     * corresponding to <i>package</i>, under the given <i>level</i>.
      * <p>
      * <i>package</i> is expected to be atom. (Variable will cause errors). If
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','%s','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'%s','message') is valid.
      * <p>
-     * <i>format</i> - is expected to be an atom, holding format string, that will
-     * be supplied to method {@link String#format(String, Object...)}. Variable will
-     * cause error.
+     * <i>format</i> - is expected to be an atom, holding format string, that
+     * will be supplied to method {@link String#format(String, Object...)}.
+     * Variable will cause error.
      * <p>
-     * <i>arg1</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg1</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
      * ...
      * <p>
-     * <i>argN</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>argN</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and the
-     * result of {@link String#format(String, Object...)} call with <i>format</i>
-     * and <i>arg1</i>...<i>argN</i> as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and the result of {@link String#format(String, Object...)} call
+     * with <i>format</i> and <i>arg1</i>...<i>argN</i> as arguments.
      *
      * @author semenov
      *
@@ -3407,12 +3419,12 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String.format(a2.pprint(), a3.toJava(), a4.toJava(), a5.toJava()));
+        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance()));
         return cont;
     }
 
@@ -3420,37 +3432,38 @@ public class bootpreds extends sxxtensions {
     // jutil.logging.Logger;
     // import static SxxMachine.PRED_loggable_1.LEVELS;
     /**
-     * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified by
-     * <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding to
-     * <i>package</i>, under the given <i>level</i>.
+     * <b>log(package:level, format, arg1,... argN)</b> - logs message,
+     * specified by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger,
+     * corresponding to <i>package</i>, under the given <i>level</i>.
      * <p>
      * <i>package</i> is expected to be atom. (Variable will cause errors). If
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','%s','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'%s','message') is valid.
      * <p>
-     * <i>format</i> - is expected to be an atom, holding format string, that will
-     * be supplied to method {@link String#format(String, Object...)}. Variable will
-     * cause error.
+     * <i>format</i> - is expected to be an atom, holding format string, that
+     * will be supplied to method {@link String#format(String, Object...)}.
+     * Variable will cause error.
      * <p>
-     * <i>arg1</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg1</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
      * ...
      * <p>
-     * <i>argN</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>argN</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and the
-     * result of {@link String#format(String, Object...)} call with <i>format</i>
-     * and <i>arg1</i>...<i>argN</i> as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and the result of {@link String#format(String, Object...)} call
+     * with <i>format</i> and <i>arg1</i>...<i>argN</i> as arguments.
      *
      * @author semenov
      *
@@ -3469,12 +3482,12 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String.format(a2.pprint(), a3.toJava(), a4.toJava(), a5.toJava(), a6.toJava()));
+        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6.javaInstance()));
         return cont;
     }
 
@@ -3482,37 +3495,38 @@ public class bootpreds extends sxxtensions {
     // jutil.logging.Logger;
     // import static SxxMachine.PRED_loggable_1.LEVELS;
     /**
-     * <b>log(package:level, format, arg1,... argN)</b> - logs message, specified by
-     * <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger, corresponding to
-     * <i>package</i>, under the given <i>level</i>.
+     * <b>log(package:level, format, arg1,... argN)</b> - logs message,
+     * specified by <i>format</i> and <i>arg1</i>...<i>argN</i> to the logger,
+     * corresponding to <i>package</i>, under the given <i>level</i>.
      * <p>
      * <i>package</i> is expected to be atom. (Variable will cause errors). If
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log('INFO','%s','message') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log(info,'%s','message') is valid.
      * <p>
-     * <i>format</i> - is expected to be an atom, holding format string, that will
-     * be supplied to method {@link String#format(String, Object...)}. Variable will
-     * cause error.
+     * <i>format</i> - is expected to be an atom, holding format string, that
+     * will be supplied to method {@link String#format(String, Object...)}.
+     * Variable will cause error.
      * <p>
-     * <i>arg1</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>arg1</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
      * ...
      * <p>
-     * <i>argN</i> - can be any term, including free variable. It will be converted
-     * to string using method {@link Object#toString()}
+     * <i>argN</i> - can be any term, including free variable. It will be
+     * converted to string using method {@link Object#toString()}
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its method {@link Logger#log(Level, String)} with level and the
-     * result of {@link String#format(String, Object...)} call with <i>format</i>
-     * and <i>arg1</i>...<i>argN</i> as arguments.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its method {@link Logger#log(Level, String)} with
+     * level and the result of {@link String#format(String, Object...)} call
+     * with <i>format</i> and <i>arg1</i>...<i>argN</i> as arguments.
      *
      * @author semenov
      *
@@ -3533,13 +3547,13 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
         logger.log(level, () -> String
-                .format(a2.pprint(), a3.toJava(), a4.toJava(), a5.toJava(), a6.toJava(), a7.toJava()));
+                .format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6.javaInstance(), a7.javaInstance()));
         return cont;
     }
 
@@ -3583,16 +3597,16 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
         if (logger.isLoggable(level)) {
             Throwable t = null;
-            if (a2.isJavaObject() && (a2.toJava() instanceof Throwable)) {
-                t = (Throwable) a2.toJava();
+            if (a2.isJavaObject() && (a2.javaInstance() instanceof Throwable)) {
+                t = (Throwable) a2.javaInstance();
             } else if (a2 instanceof ErrorTerm) {
-                t = TermData.asErrorTerm(a2).getThrowable();
+                t = asErrorTerm(a2).getThrowable();
             }
-            logger.log(level, a2.getString());
+            logger.log(level, a2.getJavaString());
             if (t != null) {
                 logger.log(level, "", t);
             }
@@ -3607,16 +3621,19 @@ public class bootpreds extends sxxtensions {
     // .Predicate.P1;
     /**
      * <p>
-     * <b>loggable(package:level)</b> - succeed if given level is loggable for given
-     * package. If package is absent, then current package is automatically added by
-     * prolog compiler. So call loggable('INFO') is valid. Both package and level
-     * are expected to be atoms. (Variables will cause errors). Level can be one of
-     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL' (from
-     * highest to lowest). Also lower case variants without quotes are accepted.
+     * <b>loggable(package:level)</b> - succeed if given level is loggable for
+     * given package. If package is absent, then current package is
+     * automatically added by prolog compiler. So call loggable('INFO') is
+     * valid. Both package and level are expected to be atoms. (Variables will
+     * cause errors). Level can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * (from highest to lowest). Also lower case variants without quotes are
+     * accepted.
      *
      * <p>
-     * The predicate finds {@link Logger} instance, corresponding to given package,
-     * and calls its {@link Logger#isLoggable(Level)} method with given level.
+     * The predicate finds {@link Logger} instance, corresponding to given
+     * package, and calls its {@link Logger#isLoggable(Level)} method with given
+     * level.
      *
      * @author semenov
      *
@@ -3650,7 +3667,7 @@ public class bootpreds extends sxxtensions {
         if (!(a1.isCompound()) || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        Logger logger = Logger.getLogger(a1.getPlainArg(0).getString());
+        Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         if (!logger.isLoggable(LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO))) {
             return engine.fail();
         }
@@ -3670,21 +3687,23 @@ public class bootpreds extends sxxtensions {
      * package is absent, then current package is automatically added by prolog
      * compiler. So call log_level('INFO') is valid.
      * <p>
-     * <i>level</i> can be either variable or atom. If it is a variable, it will be
-     * bound to current logging level of given package. If it is an atom, the
-     * current logging level of given package will be set to its value. Value can be
-     * one of 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
+     * <i>level</i> can be either variable or atom. If it is a variable, it will
+     * be bound to current logging level of given package. If it is an atom, the
+     * current logging level of given package will be set to its value. Value
+     * can be one of
+     * 'OFF','SEVERE','WARNING','INFO','CONFIG','FINE','FINER','FINEST','ALL'
      * (from highest to lowest). Also lower case variants without quotes are
      * accepted. So log_level(info) is valid.
      *
      * <p>
-     * If <i>level</i> is bound to atom value, the predicate finds {@link Logger}
-     * instance, corresponding to given package, and calls its
+     * If <i>level</i> is bound to atom value, the predicate finds
+     * {@link Logger} instance, corresponding to given package, and calls its
      * {@link Logger#setLevel(Level)} method with given <i>level</i> value.
      * <p>
      * If level is free variable, the predicate finds {@link Logger} instance,
-     * corresponding to given package, calls its {@link Logger#getLevel()} method to
-     * find out it is level and binds the value to the <i>level</i> argument
+     * corresponding to given package, calls its {@link Logger#getLevel()}
+     * method to find out it is level and binds the value to the <i>level</i>
+     * argument
      *
      * @author semenov
      *
@@ -3699,7 +3718,7 @@ public class bootpreds extends sxxtensions {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
         final Term packageTerm = a1.getPlainArg(0);
-        final Logger logger = Logger.getLogger(packageTerm.getString());
+        final Logger logger = Logger.getLogger(packageTerm.getJavaString());
         final Term levelTerm = a1.getPlainArg(1);
         if ((levelTerm.isVar())) {
             // obtain logger's level, which may be inherited from parent
@@ -3709,10 +3728,10 @@ public class bootpreds extends sxxtensions {
             if (level == null) {
                 level = Level.INFO;
             }
-            if (!levelTerm.unify(TermData.createAtomic(level.getName()), engine.trail)) {
+            if (!levelTerm.unify(createAtomic(level.getName()), engine.trail)) {
                 return engine.fail();
             }
-        } else if (levelTerm.isAtom()) {
+        } else if (levelTerm.isAtomSymbol()) {
             logger.setLevel(LEVELS.getOrDefault(levelTerm, Level.INFO));
         } else {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
@@ -3732,9 +3751,9 @@ public class bootpreds extends sxxtensions {
         Term a1 = LARG[0].dref();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtom()))
+        if (!(a1.isAtomSymbol()))
             throw new IllegalDomainException(thiz, 1, "dir", a1);
-        File file = new File(a1.getString());
+        File file = new File(a1.getJavaString());
         if (file.mkdir())
             return cont;
         else
@@ -3761,10 +3780,10 @@ public class bootpreds extends sxxtensions {
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
-        if ((a1.isAtom())) {
-            Mutex.getInstance(a1.getString());
+        if ((a1.isAtomSymbol())) {
+            Mutex.getInstance(a1.getJavaString());
         } else if ((a1.isVar())) {
-            if (!a1.unify(TermData.FFIObject(Mutex.getInstance()), engine.trail)) {
+            if (!a1.unify(FFIObject(Mutex.getInstance()), engine.trail)) {
                 return engine.fail();
             }
         } else {
@@ -3808,10 +3827,10 @@ public class bootpreds extends sxxtensions {
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
         Lock lock;
-        if ((a1.isAtom())) {
-            lock = Mutex.getInstance(a1.getString());
-        } else if ((a1.isJavaObject()) && (a1.toJava() instanceof Lock)) {
-            lock = (Lock) a1.toJava();
+        if ((a1.isAtomSymbol())) {
+            lock = Mutex.getInstance(a1.getJavaString());
+        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+            lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
         }
@@ -3856,10 +3875,10 @@ public class bootpreds extends sxxtensions {
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
         final Lock lock;
-        if ((a1.isAtom())) {
-            lock = Mutex.getInstance(a1.getString());
-        } else if ((a1.isJavaObject()) && (a1.toJava() instanceof Lock)) {
-            lock = (Lock) a1.toJava();
+        if ((a1.isAtomSymbol())) {
+            lock = Mutex.getInstance(a1.getJavaString());
+        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+            lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
         }
@@ -3878,8 +3897,8 @@ public class bootpreds extends sxxtensions {
     // jutil.concurrent.locks.Lock;
     /**
      * <p>
-     * mutex_trylock(+MutexId) As mutex_lock/1, but if the mutex is held by another
-     * thread, this predicates fails immediately.
+     * mutex_trylock(+MutexId) As mutex_lock/1, but if the mutex is held by
+     * another thread, this predicates fails immediately.
      *
      * <p>
      * description is copied from swi prolog documentation
@@ -3894,10 +3913,10 @@ public class bootpreds extends sxxtensions {
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
         Lock lock;
-        if ((a1.isAtom())) {
-            lock = Mutex.getInstance(a1.getString());
-        } else if ((a1.isJavaObject()) && (a1.toJava() instanceof Lock)) {
-            lock = (Lock) a1.toJava();
+        if ((a1.isAtomSymbol())) {
+            lock = Mutex.getInstance(a1.getJavaString());
+        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+            lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
         }
@@ -3928,10 +3947,10 @@ public class bootpreds extends sxxtensions {
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
         Lock lock;
-        if ((a1.isAtom())) {
-            lock = Mutex.getInstance(a1.getString());
-        } else if ((a1.isJavaObject()) && (a1.toJava() instanceof Lock)) {
-            lock = (Lock) a1.toJava();
+        if ((a1.isAtomSymbol())) {
+            lock = Mutex.getInstance(a1.getJavaString());
+        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+            lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
         }
@@ -3975,7 +3994,7 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if (!(a1.isVar()))
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        Term newHash = TermData.FFIObject(new HashtableOfTerm());
+        Term newHash = FFIObject(new HashtableOfTerm());
         a2 = a2.dref();
         if (a2.isNil()) {
             if (!a1.unify(newHash, engine.trail))
@@ -4000,7 +4019,7 @@ public class bootpreds extends sxxtensions {
                 final boolean equalsTerm = functor.equalsTerm(SYM_ALIAS_1);
                 if (equalsTerm) {
                     Term alias = args[0].dref();
-                    if (!(alias.isAtom()))
+                    if (!(alias.isAtomSymbol()))
                         throw new IllegalDomainException(thiz, 2, "hash_option", car);
                     else {
                         if (engine.getHashManager().containsKey(alias))
@@ -4071,9 +4090,9 @@ public class bootpreds extends sxxtensions {
                 Term car = (x).car().dref();
                 if ((car.isVar()))
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isAtom()) || (car).getString().length() != 1)
+                if (!(car.isAtomSymbol()) || (car).getJavaString().length() != 1)
                     throw new IllegalTypeException(thiz, 2, "character", a2);
-                sb.append((car).getString());
+                sb.append((car).getJavaString());
                 x = (x).cdr().dref();
             }
             try {
@@ -4090,10 +4109,10 @@ public class bootpreds extends sxxtensions {
                 throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
             }
         } else if ((a1.isNumber())) { // number_chars(+Number, ?CharList)
-            String s = a1.getString();
+            String s = a1.getJavaString();
             Term y = Prolog.Nil;
             for (int i = s.length() - 1; i >= 0; i--) {
-                y = CONS(TermData.CHAR(s.charAt(i)), y);
+                y = CONS(CHAR(s.charAt(i)), y);
             }
             if (!a2.unify(y, engine.trail))
                 return engine.fail();
@@ -4161,7 +4180,7 @@ public class bootpreds extends sxxtensions {
                 throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
             }
         } else if ((a1.isNumber())) { // number_codes(+Number, ?CharCodeList)
-            char[] chars = a1.getString().toCharArray();
+            char[] chars = a1.getJavaString().toCharArray();
             Term y = Prolog.Nil;
             for (int i = chars.length; i > 0; i--) {
                 y = CONS(Integer(chars[i - 1]), y);
@@ -4223,15 +4242,15 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar()))
             throw new PInstantiationException(thiz, 1);
-        if ((a1.isAtom())) {
-            file = new File(a1.getString());
-        } else if ((a1.isCompound()) && ":".equals(a1.getString()) && 2 == a1.arity()) {
+        if ((a1.isAtomSymbol())) {
+            file = new File(a1.getJavaString());
+        } else if ((a1.isCompound()) && ":".equals(a1.getJavaString()) && 2 == a1.arity()) {
             Term pkg = a1.getPlainArg(0).dref();
             Term name = a1.getPlainArg(1).dref();
-            if (!(pkg.isAtom()) || !(name.isAtom())) {
+            if (!(pkg.isAtomSymbol()) || !(name.isAtomSymbol())) {
                 throw new IllegalDomainException(thiz, 1, "source_sink", a1);
             }
-            resourceName = '/' + pkg.getString().replace('.', '/') + '/' + name.getString();
+            resourceName = '/' + pkg.getJavaString().replace('.', '/') + '/' + name.getJavaString();
         } else {
             throw new IllegalDomainException(thiz, 1, "source_sink", a1);
         }
@@ -4239,7 +4258,7 @@ public class bootpreds extends sxxtensions {
         a2 = a2.dref();
         if ((a2.isVar()))
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isAtom()))
+        if (!(a2.isAtomSymbol()))
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         if (resourceName != null && !a2.equalsTerm(SYM_READ)) { // writing to
                                                                 // resources is
@@ -4250,10 +4269,10 @@ public class bootpreds extends sxxtensions {
         Charset charset = Charset.defaultCharset();
         if (options.containsKey(SYM_CHARSET)) {
             Term charsetOption = options.get(SYM_CHARSET);
-            if (charsetOption.arity() != 1 || !(charsetOption.getPlainArg(0).isAtom())) {
+            if (charsetOption.arity() != 1 || !(charsetOption.getPlainArg(0).isAtomSymbol())) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", charsetOption);
             }
-            String charsetName = charsetOption.getPlainArg(0).dref().getString();
+            String charsetName = charsetOption.getPlainArg(0).dref().getJavaString();
             charset = Charset.forName(charsetName);
         }
         try {
@@ -4269,7 +4288,7 @@ public class bootpreds extends sxxtensions {
                 }
                 PushbackReader in = new LineNumberPushbackReader(
                         new BufferedReader(new InputStreamReader(inputStream, charset)), Prolog.PUSHBACK_SIZE);
-                streamObject = TermData.FFIObject(in);
+                streamObject = FFIObject(in);
                 opts = CONS(SYM_INPUT, opts);
             } else if (a2.equalsTerm(SYM_WRITE)) {
                 File parentFile = file.getParentFile();
@@ -4278,7 +4297,7 @@ public class bootpreds extends sxxtensions {
                 }
                 PrintWriter out = new PrintWriter(
                         new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), charset)));
-                streamObject = TermData.FFIObject(out);
+                streamObject = FFIObject(out);
                 opts = CONS(SYM_OUTPUT, opts);
             } else if (a2.equalsTerm(SYM_APPEND)) {
                 File parentFile = file.getParentFile();
@@ -4287,7 +4306,7 @@ public class bootpreds extends sxxtensions {
                 }
                 PrintWriter out = new PrintWriter(
                         new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), charset)));
-                streamObject = TermData.FFIObject(out);
+                streamObject = FFIObject(out);
                 opts = CONS(SYM_OUTPUT, opts);
             } else {
                 throw new IllegalDomainException(thiz, 2, "io_mode", a2);
@@ -4300,7 +4319,7 @@ public class bootpreds extends sxxtensions {
         // stream_options
         if (options.containsKey(SYM_ALIAS_1)) {
             Term aliasOption = options.get(SYM_ALIAS_1);
-            if (aliasOption.arity() != 1 || !(aliasOption.getPlainArg(0).isAtom())) {
+            if (aliasOption.arity() != 1 || !(aliasOption.getPlainArg(0).isAtomSymbol())) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", aliasOption);
             }
             alias = aliasOption.getPlainArg(0).dref();
@@ -4309,7 +4328,7 @@ public class bootpreds extends sxxtensions {
         }
         opts = CONS(C(SYM_TYPE_1, SYM_TEXT), opts);
         opts = CONS(C(SYM_MODE_1, a2), opts);
-        opts = CONS(C(SYM_FILE_NAME_1, file == null ? a1 : TermData.createAtomic(file.getAbsolutePath())), opts);
+        opts = CONS(C(SYM_FILE_NAME_1, file == null ? a1 : createAtomic(file.getAbsolutePath())), opts);
         if (alias != null) {
             engine.getStreamManager().put(alias, streamObject);
             opts = CONS(C(SYM_ALIAS_1, alias), opts);
@@ -4318,10 +4337,10 @@ public class bootpreds extends sxxtensions {
         engine.getStreamManager().put(streamObject, opts);
         if (options.containsKey(SYM_AUTOCLOSE)) {
             Term autoCloseOption = options.get(SYM_AUTOCLOSE);
-            if (autoCloseOption.arity() != 1 || !(autoCloseOption.getPlainArg(0).isAtom())) {
+            if (autoCloseOption.arity() != 1 || !(autoCloseOption.getPlainArg(0).isAtomSymbol())) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", autoCloseOption);
             }
-            if ("true".equals(autoCloseOption.getPlainArg(0).getString())) {
+            if ("true".equals(autoCloseOption.getPlainArg(0).getJavaString())) {
                 engine.trail.push(new CloseHelper(engine, streamObject, alias));
             }
         }
@@ -4343,7 +4362,7 @@ public class bootpreds extends sxxtensions {
             if ((option.isVar()))
                 throw new PInstantiationException(thiz, 4);
             if ((option.isCompound())) {
-                Functor functor = (option).functor().asSymbolTerm();
+                Functor functor = option.functor().asSymbolTerm();
                 result.put(functor, option);
             } else {
                 throw new IllegalDomainException(thiz, 4, "stream_option", option);
@@ -4370,7 +4389,7 @@ public class bootpreds extends sxxtensions {
             if (this.alias != null) {
                 this.engine.getStreamManager().remove(this.alias);
             }
-            Closeable closeable = (Closeable) this.streamObject.object();
+            Closeable closeable = (Closeable) this.streamObject.javaInstance();
             try {
                 closeable.close();
             } catch (IOException e) {
@@ -4424,7 +4443,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -4464,11 +4483,11 @@ public class bootpreds extends sxxtensions {
             if (!Character.isDefined(c))
                 throw new RepresentationException(thiz, 0, "character");
             stream.unread(c);
-            if (!a2.unify(TermData.CHAR((char) c), engine.trail))
+            if (!a2.unify(CHAR((char) c), engine.trail))
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -4517,7 +4536,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -4541,7 +4560,7 @@ public class bootpreds extends sxxtensions {
             throw new PInstantiationException(thiz, 1);
         if (!(a1.isJavaObject()))
             throw new IllegalTypeException(thiz, 1, "java", a1);
-        Object obj = a1.object();
+        Object obj = a1.javaInstance();
         if (obj instanceof InterruptedException)
             throw new JavaInterruptedException((InterruptedException) obj);
         if (engine.getPrintStackTrace().equals("on"))
@@ -4605,12 +4624,12 @@ public class bootpreds extends sxxtensions {
         a2 = a2.dref();
         if ((a2.isVar()))
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isAtom()))
+        if (!(a2.isAtomSymbol()))
             throw new IllegalTypeException(thiz, 2, "character", a2);
         // S_or_a
         PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
         // print single character
-        str = (a2).getString();
+        str = (a2).getJavaString();
         if (str.length() != 1)
             throw new IllegalTypeException(thiz, 2, "character", a2);
         c = str.charAt(0);
@@ -4750,7 +4769,7 @@ public class bootpreds extends sxxtensions {
                 return engine.fail();
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -4776,7 +4795,8 @@ public class bootpreds extends sxxtensions {
     // _$read_token0_3 extends Predicate.P3 {
 
     /*
-     * The a1 must be user, user_input, and java.io.PushbackReader, otherwise fails.
+     * The a1 must be user, user_input, and java.io.PushbackReader, otherwise
+     * fails.
      */
     public static Operation PRED_$read_token0_3_static_exec(Prolog engine) {
         Operation cont = engine.cont;
@@ -4846,11 +4866,11 @@ public class bootpreds extends sxxtensions {
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
         }
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         }
-        Pattern pattern = Pattern.compile(a1.getString(), Pattern.MULTILINE);
-        if (!a2.unify(TermData.FFIObject(pattern), engine.trail)) {
+        Pattern pattern = Pattern.compile(a1.getJavaString(), Pattern.MULTILINE);
+        if (!a2.unify(FFIObject(pattern), engine.trail)) {
             return engine.fail();
         }
         return cont;
@@ -4876,18 +4896,18 @@ public class bootpreds extends sxxtensions {
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
         }
-        Pattern pattern = (Pattern) a1.object();
+        Pattern pattern = (Pattern) a1.javaInstance();
         if ((a2.isVar())) {
             throw new PInstantiationException(thiz, 1);
         }
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 1, "atom", a2);
         }
-        Matcher matcher = pattern.matcher(a2.getString());
+        Matcher matcher = pattern.matcher(a2.getJavaString());
         if (!matcher.find()) {
             return engine.fail();
         }
-        engine.AREGS[0] = TermData.FFIObject(matcher);
+        engine.AREGS[0] = FFIObject(matcher);
         engine.AREGS[1] = LARG[2];
         return engine.jtry2(bootpreds::regex_check, bootpreds::regex_next);
     }
@@ -4895,7 +4915,7 @@ public class bootpreds extends sxxtensions {
     private static Operation regex_check(Prolog engine) {
         Term a1 = engine.AREGS[0];
         Term result = engine.AREGS[1];
-        Matcher matcher = (Matcher) a1.object();
+        Matcher matcher = (Matcher) a1.javaInstance();
         Term matches = getMatches(matcher);
         if (matches == Prolog.Nil || !result.unify(matches, engine.trail)) {
             return engine.fail();
@@ -4909,7 +4929,7 @@ public class bootpreds extends sxxtensions {
 
     private static Operation regex_empty(Prolog engine) {
         Term a1 = engine.AREGS[0];
-        Matcher matcher = (Matcher) a1.object();
+        Matcher matcher = (Matcher) a1.javaInstance();
         if (!matcher.find()) {
             return engine.fail();
         }
@@ -4919,7 +4939,7 @@ public class bootpreds extends sxxtensions {
     private static Term getMatches(Matcher matcher) {
         Term list = Prolog.Nil;
         for (int i = matcher.groupCount(); i >= 0; i--) {
-            Term match = TermData.createAtomic(matcher.group(i));
+            Term match = createAtomic(matcher.group(i));
             list = CONS(match, list);
         }
         return list;
@@ -5028,25 +5048,25 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         a2 = a2.dref();
         if (a1.equalsTerm(CHAR_CONVERSION)) {
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 return engine.fail();
-            engine.setCharConversion((a2).getString());
+            engine.setCharConversion((a2).getJavaString());
         } else if (a1.equalsTerm(DEBUG)) {
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 return engine.fail();
-            engine.setDebug((a2).getString());
+            engine.setDebug((a2).getJavaString());
         } else if (a1.equalsTerm(UNKNOWN)) {
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 return engine.fail();
-            engine.setUnknown((a2).getString());
+            engine.setUnknown((a2).getJavaString());
         } else if (a1.equalsTerm(DOUBLE_QUOTES)) {
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 return engine.fail();
-            engine.setDoubleQuotes((a2).getString());
+            engine.setDoubleQuotes((a2).getJavaString());
         } else if (a1.equalsTerm(PRINT_STACK_TRACE)) {
-            if (!(a2.isAtom()))
+            if (!(a2.isAtomSymbol()))
                 return engine.fail();
-            engine.setPrintStackTrace((a2).getString());
+            engine.setPrintStackTrace((a2).getJavaString());
         } else {
             return engine.fail();
         }
@@ -5103,7 +5123,7 @@ public class bootpreds extends sxxtensions {
             }
             return cont;
         } catch (IOException e) {
-            throw new TermException(TermData.FFIObject(e));
+            throw new TermException(FFIObject(e));
         }
     }
 
@@ -5137,7 +5157,7 @@ public class bootpreds extends sxxtensions {
         } else if (!(a1.isCons())) {
             throw new IllegalTypeException(thiz, 1, "list", a1);
         }
-        len = (a1).length();
+        len = (a1).termLength();
         list = new Term[len];
         tmp = a1;
         for (int i = 0; i < len; i++) {
@@ -5190,7 +5210,7 @@ public class bootpreds extends sxxtensions {
         a1 = a1.dref();
         if ((a1.isVar())) {
             throw new PInstantiationException(thiz, 1);
-        } else if (!(a1.isAtom())) {
+        } else if (!(a1.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         } else if (a1.equalsTerm(SYM_RUNTIME)) {
             engine.requireFeature(Prolog.Feature.STATISTICS_RUNTIME, thiz, a1);
@@ -5306,7 +5326,7 @@ public class bootpreds extends sxxtensions {
         a1 = LARG[0];
         a2 = LARG[1];
         a1 = a1.dref();
-        if ((a1.isAtom()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
+        if ((a1.isAtomSymbol()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
             if (!a2.unifyS(Prolog.FUNCTOR_DOT_2, engine.trail, a1, Nil))
                 return engine.fail();
         } else if ((a1.isCons())) {
@@ -5336,7 +5356,7 @@ public class bootpreds extends sxxtensions {
             if ((head.isVar()))
                 throw new PInstantiationException(thiz, 2);
             if (tail.isNil()) {
-                if ((head.isAtom()) || (head.isNumber()) || (head.isJavaObject()) || (head.isClosure())) {
+                if ((head.isAtomSymbol()) || (head.isNumber()) || (head.isJavaObject()) || (head.isClosure())) {
                     if (!a1.unify(head, engine.trail))
                         return engine.fail();
                     return cont;
@@ -5344,7 +5364,7 @@ public class bootpreds extends sxxtensions {
                     throw new IllegalTypeException(thiz, 2, "atomic", head);
                 }
             }
-            if (!(head.isAtom()))
+            if (!(head.isAtomSymbol()))
                 throw new IllegalTypeException(thiz, 2, "atom", head);
             Term x = tail;
             while (!x.isNil()) {
@@ -5354,8 +5374,8 @@ public class bootpreds extends sxxtensions {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
                 x = (x).cdr().dref();
             }
-            int n = (a2).length() - 1;
-            Functor sym = TermData.createF((head).getString(), n);
+            int n = (a2).termLength() - 1;
+            Functor sym = createF((head).getJavaString(), n);
             Term[] args = new Term[n];
             for (int i = 0; i < n; i++) {
                 args[i] = (tail).car().dref();
@@ -5388,13 +5408,13 @@ public class bootpreds extends sxxtensions {
      * <p>
      * write_domain_definitions(+OutputDir,+DomainDefinitionsList)
      * <p>
-     * Writes domain definitions into properties file in the folder corresponding to
-     * package.
+     * Writes domain definitions into properties file in the folder
+     * corresponding to package.
      * <p>
      * Arguments are:
      * <UL>
-     * <LI>OutputDir - the base directory for output. It will be used as prefix for
-     * package directory</LI>
+     * <LI>OutputDir - the base directory for output. It will be used as prefix
+     * for package directory</LI>
      * <LI>DomainDefinitionsList - the list of domain definitions. Each item is
      * expected to be complex StructureTerm: packageName:domainName =
      * (aaa;bbb*;ccc(ddd,eee))</LI>
@@ -5402,13 +5422,13 @@ public class bootpreds extends sxxtensions {
      * <p>
      * All items must reference the same package.
      * <p>
-     * If the properties file already exist, its content will be merged with given
-     * domain definitions. The existing domain definition will be overwritten by new
-     * one.
+     * If the properties file already exist, its content will be merged with
+     * given domain definitions. The existing domain definition will be
+     * overwritten by new one.
      * <p>
      * The predicate is thread safe. Concurrent threads will write definitions
-     * sequentially, one by one, merging the domain definitions, written earlier.
-     * The execution order for competing threads is not defined.
+     * sequentially, one by one, merging the domain definitions, written
+     * earlier. The execution order for competing threads is not defined.
      *
      * @author semenov
      *
@@ -5422,7 +5442,7 @@ public class bootpreds extends sxxtensions {
         Term a2 = LARG[1].dref();
         // input check
         // a1 is output directory
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         }
         // a2 is a list of domain definitions in form package:name =
@@ -5437,42 +5457,42 @@ public class bootpreds extends sxxtensions {
         while (!lt.isNil()) {
             Term t = (lt).car();
             lt = (lt).cdr();
-            if (!(t.isCompound()) || !"=".equals(t.getString()) || t.arity() != 2) {
+            if (!(t.isCompound()) || !"=".equals(t.getJavaString()) || t.arity() != 2) {
                 throw new IllegalDomainException(thiz, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
             }
             Term packageAndName = t.getPlainArg(0);
-            if (!(packageAndName.isCompound()) || !":".equals(packageAndName.getString())
+            if (!(packageAndName.isCompound()) || !":".equals(packageAndName.getJavaString())
                     || packageAndName.arity() != 2) {
                 throw new IllegalDomainException(thiz, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
             }
             Term packageTerm = packageAndName.getPlainArg(0);
             if (packageName == null) {
-                packageName = packageTerm.getString();
-            } else if (!packageName.equals(packageTerm.getString())) {
+                packageName = packageTerm.getJavaString();
+            } else if (!packageName.equals(packageTerm.getJavaString())) {
                 throw new IllegalDomainException(thiz, 2, "same package in every list item", a2);
             }
             Term name = packageAndName.getPlainArg(1);
             Term definition = t.getPlainArg(1);
             StringBuilder sb = new StringBuilder();
             Term d = definition;
-            while (";".equals(d.getString())) {
-                sb.append(d.getPlainArg(0).getString()).append(';');
+            while (";".equals(d.getJavaString())) {
+                sb.append(d.getPlainArg(0).getJavaString()).append(';');
                 d = d.getPlainArg(1);
             }
-            sb.append(d.getString());
-            p.put(name.getString(), sb.toString());
+            sb.append(d.getJavaString());
+            p.put(name.getJavaString(), sb.toString());
         }
         if (packageName != null && !p.isEmpty()) {
-            writeDomainDefinitions(a1.getString(), packageName, p);
+            writeDomainDefinitions(a1.getJavaString(), packageName, p);
         }
         return cont;
     }
 
     /**
      * Writes given domain definition as properties file for given package and
-     * destination folder. The method is static and synchronized to allow writing
-     * from different threads. Writing from different processes will lead to
-     * unpredicted results.
+     * destination folder. The method is static and synchronized to allow
+     * writing from different threads. Writing from different processes will
+     * lead to unpredicted results.
      *
      * @param folder
      * @param packageName
@@ -5542,7 +5562,7 @@ public class bootpreds extends sxxtensions {
         if (!(a2.isJavaObject()))
             throw new IllegalTypeException(thiz, 2, "java", a2);
         // print java
-        stream.print((a2).object().toString());
+        stream.print((a2).javaInstance().toString());
         return cont;
     }
 
@@ -5655,7 +5675,10 @@ public class bootpreds extends sxxtensions {
         PredTable.registerBuiltin("set_input", 1, bootpreds::PRED_set_input_1_static_exec);
         PredTable.registerBuiltin("set_output", 1, bootpreds::PRED_set_output_1_static_exec);
         PredTable.registerBuiltin("skip", 2, bootpreds::PRED_skip_2_static_exec);
-        PredTable.registerBuiltin("sort", 2, bootpreds::PRED_sort_2_static_exec);
+        PredTable.registerBuiltin("$builtin_member", 2, bootpreds::PRED_$builtin_member_2_static_exec);
+        PredTable
+
+                .registerBuiltin("sort", 2, bootpreds::PRED_sort_2_static_exec);
         PredTable.registerBuiltin("tab", 2, bootpreds::PRED_tab_2_static_exec);
         PredTable
                 .registerBuiltin("write_domain_definitions", 2, bootpreds::PRED_write_domain_definitions_2_static_exec);

@@ -98,10 +98,10 @@ class pred_processfile_2_1 extends pred_processfile_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_processfile_2_consts.string4))))
+        if (!(areg0.unifyJP(CONST(pred_processfile_2_consts.string4))))
             return mach.Fail0;
 
-        if (!(areg1.unify(CONST(pred_processfile_2_consts.string5))))
+        if (!(areg1.unifyJP(CONST(pred_processfile_2_consts.string5))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -138,10 +138,10 @@ class pred_processfile_2_2 extends pred_processfile_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_processfile_2_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_processfile_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = continuation;

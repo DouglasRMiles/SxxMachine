@@ -1,10 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -119,9 +117,9 @@ class pred_specialgoal_2_1 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string2, var1, var2))))
+        if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string17, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string17, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -141,9 +139,9 @@ class pred_specialgoal_2_2 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string5, var1, var2))))
+        if (!((areg0).unifyJP(S(string5, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string16, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string16, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -163,9 +161,9 @@ class pred_specialgoal_2_3 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string7, var1, var2))))
+        if (!((areg0).unifyJP(S(string7, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string17, var2.dref(), var1.dref()))))
+        if (!((areg1).unifyJP(S(string17, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -185,9 +183,9 @@ class pred_specialgoal_2_4 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string8, var1, var2))))
+        if (!((areg0).unifyJP(S(string8, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string16, var2.dref(), var1.dref()))))
+        if (!((areg1).unifyJP(S(string16, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -207,9 +205,9 @@ class pred_specialgoal_2_5 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, var1, var2))))
+        if (!((areg0).unifyJP(S(string4, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string13, var2.dref(), var1.dref()))))
+        if (!((areg1).unifyJP(S(string13, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -229,9 +227,9 @@ class pred_specialgoal_2_6 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string3, var1, var2))))
+        if (!((areg0).unifyJP(S(string3, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string24, var2.dref(), var1.dref()))))
+        if (!((areg1).unifyJP(S(string24, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -251,9 +249,9 @@ class pred_specialgoal_2_7 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string15, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string15, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -273,9 +271,9 @@ class pred_specialgoal_2_8 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string9, var1, var2))))
+        if (!((areg0).unifyJP(S(string9, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string23, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string23, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -295,9 +293,9 @@ class pred_specialgoal_2_9 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string11, var1, var2))))
+        if (!((areg0).unifyJP(S(string11, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string21, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string21, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -317,9 +315,9 @@ class pred_specialgoal_2_10 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string10, var1, var2))))
+        if (!((areg0).unifyJP(S(string10, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string22, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string22, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -339,9 +337,9 @@ class pred_specialgoal_2_11 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string12, var1, var2))))
+        if (!((areg0).unifyJP(S(string12, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string20, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string20, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -361,9 +359,9 @@ class pred_specialgoal_2_12 extends pred_specialgoal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string6, var1, var2))))
+        if (!((areg0).unifyJP(S(string6, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string19, var1.dref(), var2.dref()))))
+        if (!((areg1).unifyJP(S(string19, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;

@@ -1,10 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -60,7 +58,7 @@ class pred_not_1_1 extends pred_not_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = S(string0, new HeapChoice(mach.getCUTB()), S(string4, continuation));
@@ -77,7 +75,7 @@ class pred_not_1_2 extends pred_not_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

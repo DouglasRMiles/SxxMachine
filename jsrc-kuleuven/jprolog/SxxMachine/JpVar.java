@@ -37,7 +37,7 @@ public final class JpVar extends AbstractVar {
     }
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         final JpVar newv = new JpVar(m.getCurrentStackItem(), t);
         final VarDict newdict = new VarDict(this, newv);
         Refers = newdict;
@@ -58,7 +58,7 @@ public final class JpVar extends AbstractVar {
     }
 
     @Override
-    public boolean bind(Term that) {
+    public boolean bindJP(Term that) {
         if (this == that) {
             return true;
         }

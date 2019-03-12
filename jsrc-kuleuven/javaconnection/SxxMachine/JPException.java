@@ -40,17 +40,17 @@ class JPException4 extends Code {
         final Term exceptionMsg = args[2].dref();
         final Term exceptionCause = args[3].dref();
         if (!exception.isVariable()) {
-            if (!(exception .isConst()))
+            if (!(exception .isAtomOrObject()))
                 return mach.Fail0;
             final Const c = (Const) exception;
             if (!(c.getValue() instanceof Throwable))
                 return mach.Fail0;
             final Throwable throwable = (Throwable) c.getValue();
-            if (!exceptionClass.unify(CONST(throwable.getClass())))
+            if (!exceptionClass.unifyJP(CONST(throwable.getClass())))
                 return mach.Fail0;
-            if (!exceptionMsg.unify(CONST(throwable.getMessage())))
+            if (!exceptionMsg.unifyJP(CONST(throwable.getMessage())))
                 return mach.Fail0;
-            if (!exceptionCause.unify(CONST(throwable.getCause())))
+            if (!exceptionCause.unifyJP(CONST(throwable.getCause())))
                 return mach.Fail0;
         } else {
             Class<Throwable> throwableClass;
@@ -81,7 +81,7 @@ class JPException4 extends Code {
                 log.warn("Error creating exception", e);
                 return mach.Fail0;
             }
-            if (!exception.unify(CONST(error)))
+            if (!exception.unifyJP(CONST(error)))
                 return mach.Fail0;
         }
         args[0] = args[4];

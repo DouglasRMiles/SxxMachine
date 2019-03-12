@@ -1,6 +1,8 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.C;
+// CONST;
+// C;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
@@ -9,6 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
@@ -29,11 +32,6 @@ public abstract class PTerm extends KPTerm {
     public final SxxMachine.Functor asConst() {
         // TODO Auto-generated method stub
         return super.asConst();
-    }
-
-    @Override
-    public boolean isSymbol() {
-        return isAtom();
     }
 
     protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
@@ -203,7 +201,7 @@ public abstract class PTerm extends KPTerm {
      * @see Functor
      */
     @Override
-    public boolean isAtom() {
+    public boolean isAtomSymbol() {
         return false;
     }
 
@@ -264,7 +262,7 @@ public abstract class PTerm extends KPTerm {
     /** @return the name of this Term, if {@link #isCompound()}.
      * @throws Exception */
     @Override
-    public abstract String getString() throws IllegalTypeException;
+    public abstract String getJavaString() throws IllegalTypeException;
 
     /** @return the arity of this Term, if {@link #isCompound()}. */
     @Override
@@ -288,7 +286,7 @@ public abstract class PTerm extends KPTerm {
     /**
      * @return get the nth argument of {@link #isCompound()} or {@link #isCons()}.
      */
-    public Term nth0(int nth) {
+    public Term nthTermEle0(int nth) {
         oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(nth);
     }
@@ -306,13 +304,13 @@ public abstract class PTerm extends KPTerm {
     }
 
     @Override
-    public int length() {
+    public int termLength() {
         oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-3);
     }
 
     @Override
-    public Compound add(Term t) {
+    public Compound addPlToList(Term t) {
         oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-5);
     }
@@ -335,7 +333,7 @@ public abstract class PTerm extends KPTerm {
 
     @Override
     public boolean convertible(Class type) {
-        return convertible(getClass(), type);
+        return convertible(getIntendedClass(), type);
     }
 
     /**
@@ -368,7 +366,7 @@ public abstract class PTerm extends KPTerm {
             VariableTerm vt = new VariableTerm(Prolog.M);
             Term cp = vt.copyImpl(copyHash, deeply);
             // copyHash.put(vt, cp);
-            vt.val = this;
+            vt.Refers = this;
             copyHash.put(this, cp);
             return cp;
         }
@@ -434,7 +432,7 @@ public abstract class PTerm extends KPTerm {
      *         Java</em>, otherwise <code>this</code>.
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         return this;
     }
 
@@ -494,8 +492,8 @@ public abstract class PTerm extends KPTerm {
     @Override
     public String toQuotedString() throws PrologException {
         if (loopPrintingTerm > 0) {
-            return "/*looped " + this.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(this))
-                    + "*/";
+            return "/*looped " + this.getIntendedClass().getName() + "@"
+                    + Integer.toHexString(System.identityHashCode(this)) + "*/";
         }
         StringBuilder sb = new StringBuilder();
         loopPrintingTerm++;
@@ -599,6 +597,11 @@ public abstract class PTerm extends KPTerm {
             }
             throw new NoSuchElementException();
         }
+
+		@Override
+		public void remove() {
+			throw new NotImplementedException();
+		}
     }
 
     @Override
@@ -686,7 +689,7 @@ public abstract class PTerm extends KPTerm {
                     return next;
                 }
                 Term nnext = next.getPlainArg(2);
-                if (!nnext.getString().equals("att")) {
+                if (!nnext.getJavaString().equals("att")) {
                     break;
                 }
                 next = nnext;
@@ -789,7 +792,7 @@ public abstract class PTerm extends KPTerm {
                     return;
                 }
                 Term nnext = next.getPlainArg(2);
-                if (!nnext.getString().equals("att")) {
+                if (!nnext.getJavaString().equals("att")) {
                     break;
                 }
                 next = nnext;
@@ -956,7 +959,7 @@ public abstract class PTerm extends KPTerm {
     }
 
     @Override
-    public boolean pbind(Term variableTerm, Trail trail) {
+    public boolean cafe_bind_var(Term variableTerm, Trail trail) {
         // TODO Auto-generated method stub
         oopsy("missing method reason");
         return false;
@@ -967,26 +970,20 @@ public abstract class PTerm extends KPTerm {
     }
 
     @Override
-    public Object object() {
-        // TODO Auto-generated method stub
-        return this;
-    }
-
-    @Override
     public Class getIntendedClass() {
-        return object().getClass();
+        return javaInstance().getClass();
     }
 
     @Override
     public String fname() {
         oopsy("missing method reason");
-        return "" + object();
+        return "" + javaInstance();
     }
 
     @Override
     public Term asStructureTerm() {
         // TODO Auto-generated method stub
-        return (Term) this;
+        return (Term) dref();
     }
 
     @Override
@@ -997,48 +994,47 @@ public abstract class PTerm extends KPTerm {
     @Override
     public Compound asListTerm() {
         // TODO Auto-generated method stub
-        return (Compound) object();
+        return (Compound) dref();
     }
 
     @Override
     public LongTerm asIntegerTerm() {
         // TODO Auto-generated method stub
-        return (LongTerm) object();
+        return (LongTerm) dref();
     }
 
     @Override
     public ClosureTerm asClosureTerm() {
         // TODO Auto-generated method stub
-        return (ClosureTerm) object();
+        return (ClosureTerm) dref();
     }
 
     @Override
     public Var asVariableTerm() {
         // TODO Auto-generated method stub
-        return (VariableTerm) object();
+        return (VariableTerm) this;
     }
 
     @Override
     public NumberTerm asLongTerm() {
         // TODO Auto-generated method stub
-        return (LongTerm) object();
+        return (LongTerm) dref();
     }
 
     public HashtableOfTerm asHashtableOfTerm() {
-        // TODO Auto-generated method stub
-        return (HashtableOfTerm) object();
+        return TermData.asHashtableOfTerm(javaInstance());
     }
 
     @Override
     public NumberTerm asNumberTerm() {
         // TODO Auto-generated method stub
-        return (NumberTerm) object();
+        return (NumberTerm) dref();
     }
 
     @Override
     public MapTerm asMapTerm() {
         // TODO Auto-generated method stub
-        return (MapTerm) object();
+        return (MapTerm) dref();
     }
 
     @Override
@@ -1046,14 +1042,14 @@ public abstract class PTerm extends KPTerm {
         // TODO Auto-generated method stub
         return unify(S(f, va), trail);
     }
+//
+//    public Compound S(Functor f, Term... va) {
+//        return S(f, va);
+//    }
 
-    public Compound S(Functor f, Term[] va) {
-        return TermData.S(f, va);
-    }
-
-    @Override
-    public boolean unify(Compound arg0, Trail trail) {
-        // TODO Auto-generated method stub
-        return unify((Term) arg0, trail);
-    }
+    //    @Override
+    //    public boolean unify(Compound arg0, Trail trail) {
+    //        // TODO Auto-generated method stub
+    //        return unify((Term) arg0, trail);
+    //    }
 }

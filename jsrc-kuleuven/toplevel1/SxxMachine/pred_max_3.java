@@ -1,8 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.internS;
+// Jv;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -57,11 +57,11 @@ class pred_max_3_1 extends pred_max_3 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var2.dref())))
+        if (!((areg2).unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var2.dref();
@@ -83,11 +83,11 @@ class pred_max_3_2 extends pred_max_3 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var1.dref())))
+        if (!((areg2).unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var1.dref();
@@ -108,11 +108,11 @@ class pred_max_3_3 extends pred_max_3 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var1.dref())))
+        if (!((areg1).unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!((areg2).unify(var1.dref())))
+        if (!((areg2).unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

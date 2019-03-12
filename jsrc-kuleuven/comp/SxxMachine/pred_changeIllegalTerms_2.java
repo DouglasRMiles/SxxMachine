@@ -113,9 +113,9 @@ class pred_changeIllegalTerms_2_1 extends pred_changeIllegalTerms_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
@@ -149,10 +149,10 @@ class pred_changeIllegalTerms_2_2 extends pred_changeIllegalTerms_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_changeIllegalTerms_2_consts.string14))))
+        if (!(areg0.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string14))))
             return mach.Fail0;
 
-        if (!(areg1.unify(CONST(pred_changeIllegalTerms_2_consts.string15))))
+        if (!(areg1.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string15))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -185,10 +185,10 @@ class pred_changeIllegalTerms_2_3 extends pred_changeIllegalTerms_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_changeIllegalTerms_2_consts.string0))))
+        if (!(areg0.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string0))))
             return mach.Fail0;
 
-        if (!(areg1.unify(CONST(pred_changeIllegalTerms_2_consts.string13))))
+        if (!(areg1.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string13))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -221,10 +221,10 @@ class pred_changeIllegalTerms_2_4 extends pred_changeIllegalTerms_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_changeIllegalTerms_2_consts.string10))))
+        if (!(areg0.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string10))))
             return mach.Fail0;
 
-        if (!(areg1.unify(CONST(pred_changeIllegalTerms_2_consts.string11))))
+        if (!(areg1.unifyJP(CONST(pred_changeIllegalTerms_2_consts.string11))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -262,9 +262,9 @@ class pred_changeIllegalTerms_2_5 extends pred_changeIllegalTerms_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_changeIllegalTerms_2_consts.string4, var1.dref());
@@ -310,9 +310,9 @@ class pred_changeIllegalTerms_2_6 extends pred_changeIllegalTerms_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_changeIllegalTerms_2_consts.string4, var2.dref());
@@ -353,9 +353,9 @@ class pred_changeIllegalTerms_2_7 extends pred_changeIllegalTerms_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

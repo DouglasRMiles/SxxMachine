@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Existence error.<br>
@@ -13,7 +14,7 @@ import SxxMachine.pterm.TermData;
  */
 public class ExistenceException extends BuiltinException {
     /** A functor symbol of <code>existence_error/5</code>. */
-    public static final Functor EXISTENCE_ERROR = TermData.F("existence_error", 5);
+    public static final Functor EXISTENCE_ERROR = F("existence_error", 5);
     /* objType ::= procedure | source_sink | stream | hash */
     /** Holds a string representation of object type. */
     public final String objType;
@@ -55,9 +56,9 @@ public class ExistenceException extends BuiltinException {
     @Override
     public Term getMessageTerm() {
         if (messageTerm == null) {
-            Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo),
-                    TermData.createAtomic(this.objType), this.culprit, TermData.createAtomic(this.message) };
-            messageTerm = TermData.createErrorTerm(this, EXISTENCE_ERROR, args);
+            Term[] args = { FFIObject(this.goal), Integer(this.argNo),
+                    createAtomic(this.objType), this.culprit, createAtomic(this.message) };
+            messageTerm = createErrorTerm(this, EXISTENCE_ERROR, args);
         }
         return messageTerm;
     }
@@ -68,7 +69,7 @@ public class ExistenceException extends BuiltinException {
         String s = "{EXISTENCE ERROR:";
         if (this.argNo > 0)
             s += " " + this.goal.toString() + " - arg " + this.argNo + ":";
-        s += this.objType + " " + this.culprit.pprint() + " does not exist";
+        s += this.objType + " " + this.culprit.getJavaString() + " does not exist";
         s += "}";
         return s;
     }

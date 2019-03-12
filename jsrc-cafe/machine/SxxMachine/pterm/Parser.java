@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
 
 import SxxMachine.Builtins;
 import SxxMachine.Functor;
@@ -47,7 +45,7 @@ class LexerHIDE extends StreamTokenizer {
         wordChar('_');
         slashStarComments(true);
         commentChar('%');
-        dict = new Hashtable();
+        dict = new HashDict();
     }
 
     /**
@@ -147,7 +145,7 @@ class LexerHIDE extends StreamTokenizer {
         wordChars(c, c);
     }
 
-    Map dict;
+    HashDict dict;
 
     private Term getWord(boolean quoted) throws IOException {
         Term T;
@@ -263,9 +261,9 @@ class LexerHIDE extends StreamTokenizer {
 }
 
 class varToken extends StructureTerm {
-    public varToken(Var X, Functor functor, NumberTerm I) {
+    public varToken(Var X, Nonvar nonvar, NumberTerm I) {
         super("varToken", 3);
-        argz = new Term[] { X, functor, I };
+        argz = new Term[] { X, nonvar, I };
     }
 
     @Override
@@ -447,7 +445,7 @@ public class Parser extends LexerHIDE {
         IO.errmes("*** " + C);
     }
 
-    static final HornClause toClause(Term T, Map dict) {
+    static final HornClause toClause(Term T, HashDict dict) {
         HornClause C = T.toClause(); // adds ...:-true if missing
         C.dict = dict;
         return C;
@@ -455,7 +453,7 @@ public class Parser extends LexerHIDE {
 
     private HornClause readClauseOrEOF() throws IOException {
 
-        dict = new Hashtable();
+        dict = new HashDict();
 
         Term n = next();
 
@@ -521,7 +519,7 @@ public class Parser extends LexerHIDE {
     protected final Term getTerm(Term n) throws IOException {
         Term t = n.carTokenOrSelf();
         if (n.isFunctor("stringToken")) {
-            t = ((Nonvar) ((stringToken) n).getDrefArg(0)).toChars();
+            t = ((Nonvar) ((stringToken) n).getDrefArg(0)).toCharsList();
             // IO.mes("getTerm:stringToken-->"+t);
 
         } else if (n.isFunctor("[")) {

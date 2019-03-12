@@ -35,7 +35,7 @@ abstract public class TermData {
     }
     //
     // private static ListTerm Cons(Term _car, Term _cdr) {
-    // return TermData.CONS( _car, _cdr);
+    // return CONS( _car, _cdr);
     // //return new StructureTerm(ListTerm.SYM_DOT, _car, _cdr);
     // }
 
@@ -71,15 +71,15 @@ abstract public class TermData {
     }
     //
     //    public static Predicate Op(Operation object, Term a1, Term a2, Operation cont) {
-    //        return new TermData.StaticPred(null, object, VA(a1, a2), cont);
+    //        return new StaticPred(null, object, VA(a1, a2), cont);
     //    }
     //
     //    public static Predicate Op(Operation object, Term a1, Term a2, Term a3, Operation cont) {
-    //        return new TermData.StaticPred(null, object, VA(a1, a2, a3), cont);
+    //        return new StaticPred(null, object, VA(a1, a2, a3), cont);
     //    }
     //
     //    public static Predicate Op(Operation object, Term a1, Operation cont) {
-    //        return new TermData.StaticPred(null, object, VA(a1), cont);
+    //        return new StaticPred(null, object, VA(a1), cont);
     //    }
 
     public static LongTerm Long(String s) {
@@ -89,7 +89,7 @@ abstract public class TermData {
     public static LongTerm Long(long t) {
         int i = (int) t;
         if ((i) == t) {
-            return TermData.Integer(i);
+            return Integer(i);
         }
         return new LongTerm(t);
     }
@@ -166,7 +166,7 @@ abstract public class TermData {
     }
 
     public static Term AND(Term a1, Term a2) {
-        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.getString(), a1, a2);
+        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.getJavaString(), a1, a2);
     }
 
     /**
@@ -176,9 +176,9 @@ abstract public class TermData {
     public static NumberTerm NarrowDouble(double r) {
         NumberTerm T;
         if (Math.floor(r) == r)
-            T = TermData.Long((long) r);
+            T = Long((long) r);
         else
-            T = TermData.Float(r);
+            T = Float(r);
         return T;
     }
 
@@ -217,7 +217,7 @@ abstract public class TermData {
         if (!(obj0 instanceof Term))
             return false;
         Term obj = (Term) obj0;
-        return obj.isVar() || obj.isInteger() || obj.isLong() || obj.isDouble() || obj.isAtom() || obj.isCons()
+        return obj.isVar() || obj.isInteger() || obj.isLong() || obj.isDouble() || obj.isAtomSymbol() || obj.isCons()
                 || obj.isCompound() || obj.isJavaObject() || obj.isClosure();
     }
 
@@ -255,7 +255,7 @@ abstract public class TermData {
     private static char asChar(Term head) {
         if (head.isNumber())
             return (char) head.longValue();
-        final String fname = head.getString();
+        final String fname = head.getJavaString();
         return fname.charAt(fname.length() - 1);
     }
 
@@ -272,7 +272,7 @@ abstract public class TermData {
         if (0 <= c && c <= 127)
             return SYM(Character.toString(c));
         else
-            return TermData.SYM(Character.toString(c));
+            return SYM(Character.toString(c));
     }
 
     /** Returns a Prolog atom for the given name. */
@@ -304,7 +304,7 @@ abstract public class TermData {
         return i.asLongTerm();
     }
 
-    public static Functor asConst(Term i) {
+    public static Nonvar asConst(Term i) {
         // TODO Auto-generated method stub
         return i.asConst();
     }
@@ -335,7 +335,7 @@ abstract public class TermData {
 
     public static CharReader asCharReader(Term i) {
         // TODO Auto-generated method stub
-        return (CharReader) i.toValue();
+        return (CharReader) i.toValueTalueTerm();
     }
 
     public static Term createStructureTerm(String name, int arity) {
@@ -347,19 +347,19 @@ abstract public class TermData {
         return (Const) TermData.SYM(o);
     }
 
-    public static Const CONST(Class o) {
-        return (Const) TermData.FFIObject(o);
+    public static JavaObjectTerm CONST(Class o) {
+        return FFIObject(o);
     }
 
     public static Const CONST(Object o) {
         if (o instanceof String) {
-            return (Const) TermData.SYM((String) o);
+            return (Const) SYM((String) o);
         }
-        return (Const) TermData.FFIObject(o);
+        return FFIObject(o);
     }
 
     public static Term S(String naam) {
-        return CONST(naam);
+        return SYM(naam);
     }
 
     public static StructureTerm S(String naam, int arity) {
@@ -375,7 +375,7 @@ abstract public class TermData {
     }
 
     public static NumberTerm Integer(long i) {
-        return TermData.Long(i);
+        return Long(i);
     }
 
     public static JpVar Jv(RunningPrologMachine machine) {

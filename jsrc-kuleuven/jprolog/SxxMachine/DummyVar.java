@@ -11,7 +11,7 @@ package SxxMachine;
 public class DummyVar extends AbstractVar {
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         throw new UnsupportedOperationException();
     }
 
@@ -21,7 +21,7 @@ public class DummyVar extends AbstractVar {
     }
 
     @Override
-    public boolean bind(Term that) {
+    public boolean bindJP(Term that) {
         throw new UnsupportedOperationException();
     }
 

@@ -120,11 +120,11 @@ class pred_initforeachcontinuation_3_1 extends pred_initforeachcontinuation_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(CONST(pred_initforeachcontinuation_3_consts.string14))))
+        if (!(areg0.unifyJP(CONST(pred_initforeachcontinuation_3_consts.string14))))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var2.dref())))
+        if (!(areg2.unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -167,12 +167,12 @@ class pred_initforeachcontinuation_3_2 extends pred_initforeachcontinuation_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, var1
+                .unifyJP(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, var1
                         .dref(), var2.dref()), var3.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var2.dref())))
+        if (!(areg2.unifyJP(var2.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -218,12 +218,12 @@ class pred_initforeachcontinuation_3_3 extends pred_initforeachcontinuation_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string17), pred_initforeachcontinuation_3_consts.posint1), var1
+                .unifyJP(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string17), pred_initforeachcontinuation_3_consts.posint1), var1
                         .dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -269,12 +269,12 @@ class pred_initforeachcontinuation_3_4 extends pred_initforeachcontinuation_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string17), pred_initforeachcontinuation_3_consts.posint2), var1
+                .unifyJP(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string17), pred_initforeachcontinuation_3_consts.posint2), var1
                         .dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -320,12 +320,12 @@ class pred_initforeachcontinuation_3_5 extends pred_initforeachcontinuation_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string0), pred_initforeachcontinuation_3_consts.posint2), var1
+                .unifyJP(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, CONST(pred_initforeachcontinuation_3_consts.string0), pred_initforeachcontinuation_3_consts.posint2), var1
                         .dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -379,12 +379,12 @@ class pred_initforeachcontinuation_3_6 extends pred_initforeachcontinuation_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, var1
+                .unifyJP(S(pred_initforeachcontinuation_3_consts.string2, S(pred_initforeachcontinuation_3_consts.string3, var1
                         .dref(), var2.dref()), var3.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var4.dref())))
+        if (!(areg1.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var5.dref())))
+        if (!(areg2.unifyJP(var5.dref())))
             return mach.Fail0;
         local_aregs[0] = var6;
 

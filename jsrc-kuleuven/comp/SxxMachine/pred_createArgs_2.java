@@ -4,10 +4,11 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+// Jv;
+// S;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_createArgs_2_consts {
     Code entry_code;
@@ -59,9 +60,9 @@ public class pred_createArgs_2 extends Code {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1)))
+        if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        if (!(areg1.unify(var2)))
+        if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3;

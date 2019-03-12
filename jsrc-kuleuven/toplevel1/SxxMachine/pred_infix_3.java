@@ -5,9 +5,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.internS;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Iterator;
 
@@ -115,8 +114,8 @@ class pred_infix_3_1 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint1200;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string32);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string32);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -127,11 +126,11 @@ class pred_infix_3_1 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1200)))
+        if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string32))))
+        if (!((areg2).unifyJP(SYM(string32))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -144,8 +143,8 @@ class pred_infix_3_2 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint1000;
-        final Term arg1 = CONST(string2);
-        final Term arg2 = CONST(string31);
+        final Term arg1 = SYM(string2);
+        final Term arg2 = SYM(string31);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -156,11 +155,11 @@ class pred_infix_3_2 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1000)))
+        if (!((areg0).unifyJP(posint1000)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(SYM(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string31))))
+        if (!((areg2).unifyJP(SYM(string31))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -173,8 +172,8 @@ class pred_infix_3_3 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint1100;
-        final Term arg1 = CONST(string2);
-        final Term arg2 = CONST(string30);
+        final Term arg1 = SYM(string2);
+        final Term arg2 = SYM(string30);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -185,11 +184,11 @@ class pred_infix_3_3 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1100)))
+        if (!((areg0).unifyJP(posint1100)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(SYM(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string30))))
+        if (!((areg2).unifyJP(SYM(string30))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -202,8 +201,8 @@ class pred_infix_3_4 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint1050;
-        final Term arg1 = CONST(string2);
-        final Term arg2 = CONST(string29);
+        final Term arg1 = SYM(string2);
+        final Term arg2 = SYM(string29);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -214,11 +213,11 @@ class pred_infix_3_4 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint1050)))
+        if (!((areg0).unifyJP(posint1050)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(SYM(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string29))))
+        if (!((areg2).unifyJP(SYM(string29))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -231,8 +230,8 @@ class pred_infix_3_5 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string28);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string28);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -243,11 +242,11 @@ class pred_infix_3_5 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string28))))
+        if (!((areg2).unifyJP(SYM(string28))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -260,8 +259,8 @@ class pred_infix_3_6 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string27);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string27);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -272,11 +271,11 @@ class pred_infix_3_6 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string27))))
+        if (!((areg2).unifyJP(SYM(string27))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -289,8 +288,8 @@ class pred_infix_3_7 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string26);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string26);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -301,11 +300,11 @@ class pred_infix_3_7 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string26))))
+        if (!((areg2).unifyJP(SYM(string26))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -318,8 +317,8 @@ class pred_infix_3_8 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string25);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string25);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -330,11 +329,11 @@ class pred_infix_3_8 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string25))))
+        if (!((areg2).unifyJP(SYM(string25))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -347,8 +346,8 @@ class pred_infix_3_8b extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string33);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string33);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -359,11 +358,11 @@ class pred_infix_3_8b extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string33))))
+        if (!((areg2).unifyJP(SYM(string33))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -376,8 +375,8 @@ class pred_infix_3_9 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string24);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string24);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -388,11 +387,11 @@ class pred_infix_3_9 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string24))))
+        if (!((areg2).unifyJP(SYM(string24))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -405,8 +404,8 @@ class pred_infix_3_10 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string23);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string23);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -417,11 +416,11 @@ class pred_infix_3_10 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string23))))
+        if (!((areg2).unifyJP(SYM(string23))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -434,8 +433,8 @@ class pred_infix_3_11 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string22);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string22);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -446,11 +445,11 @@ class pred_infix_3_11 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string22))))
+        if (!((areg2).unifyJP(SYM(string22))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -463,8 +462,8 @@ class pred_infix_3_12 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string21);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string21);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -475,11 +474,11 @@ class pred_infix_3_12 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string21))))
+        if (!((areg2).unifyJP(SYM(string21))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -492,8 +491,8 @@ class pred_infix_3_13 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string17);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string17);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -504,11 +503,11 @@ class pred_infix_3_13 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string17))))
+        if (!((areg2).unifyJP(SYM(string17))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -521,8 +520,8 @@ class pred_infix_3_14 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string20);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string20);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -533,11 +532,11 @@ class pred_infix_3_14 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string20))))
+        if (!((areg2).unifyJP(SYM(string20))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -550,8 +549,8 @@ class pred_infix_3_15 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string19);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string19);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -562,11 +561,11 @@ class pred_infix_3_15 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string19))))
+        if (!((areg2).unifyJP(SYM(string19))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -579,8 +578,8 @@ class pred_infix_3_16 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string18);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string18);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -591,11 +590,11 @@ class pred_infix_3_16 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string18))))
+        if (!((areg2).unifyJP(SYM(string18))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -608,8 +607,8 @@ class pred_infix_3_17 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint700;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string17);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string17);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -620,11 +619,11 @@ class pred_infix_3_17 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint700)))
+        if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string17))))
+        if (!((areg2).unifyJP(SYM(string17))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -637,8 +636,8 @@ class pred_infix_3_18 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint550;
-        final Term arg1 = CONST(string2);
-        final Term arg2 = CONST(string16);
+        final Term arg1 = SYM(string2);
+        final Term arg2 = SYM(string16);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -649,11 +648,11 @@ class pred_infix_3_18 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint550)))
+        if (!((areg0).unifyJP(posint550)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(SYM(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string16))))
+        if (!((areg2).unifyJP(SYM(string16))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -666,8 +665,8 @@ class pred_infix_3_19 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint500;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string15);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string15);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -678,11 +677,11 @@ class pred_infix_3_19 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint500)))
+        if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string15))))
+        if (!((areg2).unifyJP(SYM(string15))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -695,8 +694,8 @@ class pred_infix_3_20 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint500;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string14);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string14);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -707,11 +706,11 @@ class pred_infix_3_20 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint500)))
+        if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string14))))
+        if (!((areg2).unifyJP(SYM(string14))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -724,8 +723,8 @@ class pred_infix_3_21 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint500;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string13);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string13);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -736,11 +735,11 @@ class pred_infix_3_21 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint500)))
+        if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string13))))
+        if (!((areg2).unifyJP(SYM(string13))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -753,8 +752,8 @@ class pred_infix_3_22 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint400;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string12);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string12);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -765,11 +764,11 @@ class pred_infix_3_22 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint400)))
+        if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string12))))
+        if (!((areg2).unifyJP(SYM(string12))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -782,8 +781,8 @@ class pred_infix_3_23 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint400;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string11);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string11);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -794,11 +793,11 @@ class pred_infix_3_23 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint400)))
+        if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string11))))
+        if (!((areg2).unifyJP(SYM(string11))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -811,8 +810,8 @@ class pred_infix_3_24 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint400;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string10);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string10);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -823,11 +822,11 @@ class pred_infix_3_24 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint400)))
+        if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string10))))
+        if (!((areg2).unifyJP(SYM(string10))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -840,8 +839,8 @@ class pred_infix_3_25 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint400;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string9);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string9);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -852,11 +851,11 @@ class pred_infix_3_25 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint400)))
+        if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string9))))
+        if (!((areg2).unifyJP(SYM(string9))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -869,8 +868,8 @@ class pred_infix_3_26 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint400;
-        final Term arg1 = CONST(string7);
-        final Term arg2 = CONST(string8);
+        final Term arg1 = SYM(string7);
+        final Term arg2 = SYM(string8);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -881,11 +880,11 @@ class pred_infix_3_26 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint400)))
+        if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string7))))
+        if (!((areg1).unifyJP(SYM(string7))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string8))))
+        if (!((areg2).unifyJP(SYM(string8))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -898,8 +897,8 @@ class pred_infix_3_27 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint300;
-        final Term arg1 = CONST(string5);
-        final Term arg2 = CONST(string6);
+        final Term arg1 = SYM(string5);
+        final Term arg2 = SYM(string6);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -910,11 +909,11 @@ class pred_infix_3_27 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint300)))
+        if (!((areg0).unifyJP(posint300)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string5))))
+        if (!((areg1).unifyJP(SYM(string5))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string6))))
+        if (!((areg2).unifyJP(SYM(string6))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -927,8 +926,8 @@ class pred_infix_3_28 extends pred_infix_3 {
     @Override
     protected Term[] getArgs() {
         final Term arg0 = posint200;
-        final Term arg1 = CONST(string2);
-        final Term arg2 = CONST(string3);
+        final Term arg1 = SYM(string2);
+        final Term arg2 = SYM(string3);
         return new Term[] { arg0, arg1, arg2 };
     }
 
@@ -939,11 +938,11 @@ class pred_infix_3_28 extends pred_infix_3 {
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint200)))
+        if (!((areg0).unifyJP(posint200)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string2))))
+        if (!((areg1).unifyJP(SYM(string2))))
             return mach.Fail0;
-        if (!((areg2).unify(CONST(string3))))
+        if (!((areg2).unifyJP(SYM(string3))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

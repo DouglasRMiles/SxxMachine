@@ -67,7 +67,7 @@ class pred_writevars_1_1 extends pred_writevars_1 {
         final Term local_aregs[] = mach.getAreg();
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(CONST(string4))))
+        if (!((areg0).unifyJP(CONST(string4))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -86,7 +86,7 @@ class pred_writevars_1_2 extends pred_writevars_1 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string2, S(string3, var1, var2), var3))))
+        if (!((areg0).unifyJP(S(string2, S(string3, var1, var2), var3))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = S(string8, CONST(string1), S(string8, var1.dref(), S(string7, S(string6, continuation))));
@@ -104,7 +104,7 @@ class pred_writevars_1_3 extends pred_writevars_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string2, var1, var2))))
+        if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = continuation;

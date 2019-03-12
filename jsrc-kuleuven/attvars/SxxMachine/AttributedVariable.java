@@ -38,8 +38,8 @@ public final class AttributedVariable extends VariableTerm implements UnTrailOpe
     }
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
-        return new AttributedVariable(m, t, attribute.copy(m, t));
+    public Term copyJP(RunningPrologMachine m, long t) {
+        return new AttributedVariable(m, t, attribute.copyJP(m, t));
     }
 
     @Override
@@ -62,12 +62,12 @@ public final class AttributedVariable extends VariableTerm implements UnTrailOpe
     }
 
     @Override
-    public boolean bind(Term that) {
+    public boolean bindJP(Term that) {
         System.out.println("AttributedVariable.Bind");
         if (equals(that))
             return true;
         if (that instanceof JpVar) {
-            return that.bind(this);
+            return that.bindJP(this);
         } else {
             System.out.println("bind('" + this + "','" + that + "').");
             val = that;
@@ -82,9 +82,9 @@ public final class AttributedVariable extends VariableTerm implements UnTrailOpe
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         System.out.println("Unify: " + this + " = " + that);
-        return dref().bind(that.dref());
+        return dref().bindJP(that.dref());
     }
 
     @Override
@@ -97,7 +97,7 @@ public final class AttributedVariable extends VariableTerm implements UnTrailOpe
 
     @Override
     public String fname() {
-        return toJpString();
+        return portrayTerm();
     }
 
     @Override

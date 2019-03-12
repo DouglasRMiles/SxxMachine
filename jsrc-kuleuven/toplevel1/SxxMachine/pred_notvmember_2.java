@@ -65,9 +65,9 @@ class pred_notvmember_2_1 extends pred_notvmember_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string3))))
+        if (!((areg1).unifyJP(CONST(string3))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -88,9 +88,9 @@ class pred_notvmember_2_2 extends pred_notvmember_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string1, S(string2, var2, var1.dref()), var3))))
+        if (!((areg1).unifyJP(S(string1, S(string2, var2, var1.dref()), var3))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string5, continuation);
@@ -111,9 +111,9 @@ class pred_notvmember_2_3 extends pred_notvmember_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string1, var2, var3))))
+        if (!((areg1).unifyJP(S(string1, var2, var3))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();

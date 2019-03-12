@@ -61,7 +61,7 @@ public class pred_use_module_1 extends Code {
                 param = CONST(f.fname());
             }
         }
-        if (param .isConst()) {
+        if (param .isAtomOrObject()) {
             final Object o = ((Const) param).getValue();
             if (o instanceof String) {
                 //Naam vd te laden module

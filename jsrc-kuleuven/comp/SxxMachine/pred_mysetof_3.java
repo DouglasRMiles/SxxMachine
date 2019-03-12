@@ -104,11 +104,11 @@ class pred_mysetof_3_1 extends pred_mysetof_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var2.dref();
@@ -149,12 +149,12 @@ class pred_mysetof_3_2 extends pred_mysetof_3 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        if (!(areg2.unify(CONST(pred_mysetof_3_consts.string2))))
+        if (!(areg2.unifyJP(CONST(pred_mysetof_3_consts.string2))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

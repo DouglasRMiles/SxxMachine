@@ -35,7 +35,7 @@ public class PrimaryConversion {
         prologObject = prologObject.dref();
         if (prologObject.isVariable())
             throw new JPrologScriptException("Variable is not a valid java-item");
-        if (prologObject .isConst())
+        if (prologObject .isAtomOrObject())
             return ((Const) prologObject).getValue();
         if (prologObject .isCompound()) {
             final AFunct f = (AFunct) prologObject;

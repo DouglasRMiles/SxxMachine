@@ -1,5 +1,8 @@
 package SxxMachine;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,7 +10,6 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.LinkedList;
 
-import SxxMachine.pterm.TermData;
 
 /**
  * The <code>Compiler</code> class provides methods for translating Prolog
@@ -82,7 +84,7 @@ public class Compiler {
         final boolean onByDefault;
 
         Option(String symbol, boolean onByDefault) {
-            this.symbol = TermData.SYM(symbol);
+            this.symbol = SYM(symbol);
             this.onByDefault = onByDefault;
         }
     }
@@ -111,12 +113,12 @@ public class Compiler {
         if (!fileExists(_prolog))
             throw new CompileException(new FileNotFoundException(_prolog));
         // Create arguments
-        Term prolog = TermData.createAtomic(_prolog);
-        Term wam = TermData.createAtomic(_wam);
+        Term prolog = createAtomic(_prolog);
+        Term wam = createAtomic(_wam);
         Term op = Prolog.Nil;
         for (Option opt : this.options)
-            op = TermData.CONS(opt.symbol, op);
-        Compound args = TermData.LIST(prolog, wam, op);
+            op = CONS(opt.symbol, op);
+        Compound args = LIST(prolog, wam, op);
         try {
             if (!this.pcl.execute("SxxMachine.compiler.pl2am", "pl2am", args))
                 throw new CompileException("Unknown Error");
@@ -140,9 +142,9 @@ public class Compiler {
         if (!fileExists(_dir) && !new File(_dir).mkdirs())
             throw new CompileException(new FileNotFoundException(_dir));
         // Create arguments
-        Term wam = TermData.createAtomic(_wam);
-        Term dir = TermData.createAtomic(_dir);
-        Compound args = TermData.LIST(wam, dir);
+        Term wam = createAtomic(_wam);
+        Term dir = createAtomic(_dir);
+        Compound args = LIST(wam, dir);
         try {
             if (!this.pcl.execute("SxxMachine.compiler.am2j", "am2j", args))
                 throw new CompileException("Unknown Error");
@@ -258,7 +260,7 @@ public class Compiler {
         for (Option opt : Option.values()) {
             if (opt.toString().equalsIgnoreCase(optname))
                 return opt;
-            if (opt.symbol.pprint().equalsIgnoreCase(optname))
+            if (opt.symbol.getJavaString().equalsIgnoreCase(optname))
                 return opt;
         }
         System.err.println("error: Unsupported option '" + optname + "'");

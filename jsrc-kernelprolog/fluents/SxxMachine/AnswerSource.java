@@ -1,8 +1,6 @@
 package SxxMachine;
 
 import java.util.Stack;
-import SxxMachine.pterm.*;
-import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.pterm.HornClause;
 
@@ -34,12 +32,12 @@ public class AnswerSource extends SourceFluent implements Runnable, IProg {
 
     // INSTANCE FIELDS
 
-    private Trail trail;
+    private KPTrail trail;
     private Stack orStack;
     private Prog parent;
     private BlackBoard blackboard;
 
-    public final Trail getTrail() {
+    public final KPTrail getTrail() {
         return trail;
     }
 

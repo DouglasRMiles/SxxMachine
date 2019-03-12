@@ -129,12 +129,12 @@ class pred_printMainExec_3_1 extends pred_printMainExec_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_printMainExec_3_consts.string3, var1
+        if (!(areg0.unifyJP(S(pred_printMainExec_3_consts.string3, var1
                 .dref(), CONST(pred_printMainExec_3_consts.string12)))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -186,11 +186,11 @@ class pred_printMainExec_3_2 extends pred_printMainExec_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_printMainExec_3_consts.string3, CONST(pred_printMainExec_3_consts.string4), S(pred_printMainExec_3_consts.string3, var2

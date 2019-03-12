@@ -1,10 +1,9 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.S;
+// S;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.StringTokenizer;
-
-import SxxMachine.pterm.TermData;
 
 /**
  * Prolog Cafe launcher. The <code>PrologMain</code> class launchs the Prolog
@@ -48,8 +47,8 @@ public class PrologMain2 {
                 argv = new String[] { "cafeteria" };
             }
             Term arg1 = Prolog.Nil;
-            arg1 = TermData.CONS(TermData.SYM("user"), arg1);
-            arg1 = TermData.CONS(TermData.SYM(Prolog.BUILTIN), arg1);
+            arg1 = CONS(SYM("user"), arg1);
+            arg1 = CONS(SYM(Prolog.BUILTIN), arg1);
             Term arg2 = parseAtomicGoal(argv[0]);
             if (arg2 == null) {
                 usage();
@@ -81,11 +80,11 @@ public class PrologMain2 {
         StringTokenizer st = new StringTokenizer(s, ":");
         int i = st.countTokens();
         if (i == 1) {
-            Term[] args = { TermData.SYM("user"), TermData.createAtomic(st.nextToken()) };
-            return S(TermData.F(":", 2), args);
+            Term[] args = { SYM("user"), createAtomic(st.nextToken()) };
+            return S(F(":", 2), args);
         } else if (i == 2) {
-            Term[] args = { TermData.createAtomic(st.nextToken()), TermData.createAtomic(st.nextToken()) };
-            return S(TermData.F(":", 2), args);
+            Term[] args = { createAtomic(st.nextToken()), createAtomic(st.nextToken()) };
+            return S(F(":", 2), args);
         } else {
             return null;
         }

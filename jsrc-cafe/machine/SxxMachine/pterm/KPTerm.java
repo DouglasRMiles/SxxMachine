@@ -1,8 +1,10 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.CONS;
-import static SxxMachine.pterm.TermData.Long;
+// CONS;
+// Long;
+import static SxxMachine.pterm.TermData.*;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -10,8 +12,9 @@ import SxxMachine.Compound;
 import SxxMachine.Copier;
 import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
+import SxxMachine.IterableSource;
+import SxxMachine.JpVar;
 import SxxMachine.KPTrail;
-import SxxMachine.Trail;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
@@ -32,6 +35,30 @@ public abstract class KPTerm implements Term {
         // TODO Auto-generated method stub
         oopsy("listify");
         return null;
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#stringWrite()
+     */
+    @Override
+    public String stringWrite() {
+        return toUnquoted();
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#isSource()
+     */
+    @Override
+    public boolean isSource() {
+        return false;
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#isVarSimple()
+     */
+    @Override
+    public boolean isVarSimple() {
+        return isVariable() && (this instanceof JpVar);
     }
 
     public void oopsy(Object why) {
@@ -71,16 +98,16 @@ public abstract class KPTerm implements Term {
      * heavy multi-threading!!!
      */
     public Term dref() { // synchronized !!!
-        return (Term) this;
+        return this;
     }
 
-    public abstract boolean bind(Term that, Trail trail);
+    public abstract boolean bindKP(Term that, KPTrail trail);
 
     /** Unify dereferenced */
-    public abstract boolean Unify_TO(Term that, Trail trail);
+    public abstract boolean Unify_TO(Term that, KPTrail trail);
 
     /** Dereference and unify_to */
-    public final boolean DO_Unify(Term that, Trail trail) {
+    public final boolean DO_Unify(Term that, KPTrail trail) {
         if (that == this)
             return true;
         Term thisd = dref();
@@ -124,7 +151,7 @@ public abstract class KPTerm implements Term {
         return matches(that, new KPTrail());
     }
 
-    public boolean matches(Term that, Trail trail) {
+    public boolean matches(Term that, KPTrail trail) {
         int oldtop = trail.top();
         boolean ok = DO_Unify(that, trail);
         trail.unwind(oldtop);
@@ -183,7 +210,7 @@ public abstract class KPTerm implements Term {
      * Returns '[]'(V1,V2,..Vn) where Vi is a variable occuring in this Term
      */
     public Term varsOf() {
-        return (new Copier()).getMyVars((Term) this);
+        return (new Copier()).getMyVars(dref());
     }
 
     /**
@@ -221,7 +248,7 @@ public abstract class KPTerm implements Term {
      * Java Object wrapper. In particular, it is used to wrap a Thread to hide it
      * inside a Prolog data object.
      */
-    public Object toObject() {
+    public Object javaInstance() {
         return dref();
     }
 
@@ -247,7 +274,7 @@ public abstract class KPTerm implements Term {
     static final Nonvar stringToChars(String s) {
         if (0 == s.length())
             return (Nonvar) Prolog.Nil;
-        Compound l = CONS(TermData.Long((s.charAt(0))), Prolog.Nil);
+        Compound l = CONS(Long((s.charAt(0))), Prolog.Nil);
         Term curr = l;
         for (int i = 1; i < s.length(); i++) {
             Compound tail = CONS(Long((s.charAt(i))), Prolog.Nil);
@@ -257,7 +284,7 @@ public abstract class KPTerm implements Term {
         return (Nonvar) l;
     }
 
-    public Nonvar toChars() {
+    public Nonvar toCharsList() {
         return stringToChars(toUnquoted());
     }
 
@@ -283,7 +310,7 @@ public abstract class KPTerm implements Term {
 
     public boolean isLong() {
         // TODO Auto-generated method stub
-        return ((Term) this).isInteger();
+        return isInteger();
     }
 
     public int intValue() {
@@ -291,7 +318,7 @@ public abstract class KPTerm implements Term {
         return 0;
     }
 
-    public boolean isConst() {
+    public boolean isAtomOrObject() {
         // TODO Auto-generated method stub
         return false;
     }
@@ -310,7 +337,7 @@ public abstract class KPTerm implements Term {
         return false;
     }
 
-    abstract public String getString() throws IllegalTypeException;
+    abstract public String getJavaString() throws IllegalTypeException;
 
     public boolean isFloat() {
         return false;
@@ -340,7 +367,7 @@ public abstract class KPTerm implements Term {
         return false;
     }
 
-    public Term toValue() {
+    public Term toValueTalueTerm() {
         return dref();
     }
 
@@ -362,765 +389,40 @@ public abstract class KPTerm implements Term {
     }
 
     public Term getDrefArg(int i) {
-        return TermData.asStruct((Term) this).getDrefArg(i);
+        return this.asStructureTerm().getDrefArg(i);
     }
 
     public boolean isFunctor(String string) throws IllegalTypeException {
         oopsy("to fuinctor");
-        String fname = getString();
+        String fname = getJavaString();
         return fname.equals(string);
     }
 
-    public SourceFluentTerm asSource() {
-        // TODO Auto-generated method stub
-        return (SourceFluentTerm) this;
+    public SourceFluentTerm asSource(Prog prog) {
+        if (this instanceof SourceFluentTerm)
+            return (SourceFluentTerm) this;
+        Term thiz = dref();
+        if (thiz instanceof SourceFluentTerm)
+            return (SourceFluentTerm) thiz;
+        final ArrayList termToVector = Copier.TermToVector(thiz);
+        return new IterableSource(termToVector, prog);
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.pterm.KPTerm#asSource(SxxMachine.Prog)
+     */
+    //@Override
+    public SinkFluentTerm asSink(Prog prog) {
+        return (SinkFluentTerm) this;
     }
 
     abstract protected void toStringImpl(int printFlags, StringBuilder sb);
 
     /* (non-Javadoc)
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    @Override
-    public int compareTo(Term o) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Comparable<Term>.compareTo");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#arg0(int)
-     */
-    @Override
-    public Term getPlainArg(int i) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.arg0");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#equalsTerm(SxxMachine.Term, SxxMachine.OpVisitor)
-     */
-    @Override
-    public boolean equalsTerm(Term name, OpVisitor strictequals2) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.equalsTerm");
-        return false;
-    }
-
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isAttvar()
-     */
-    @Override
-    public boolean isAttvar() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isAttvar");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#frozenGoals()
-     */
-    @Override
-    public Term frozenGoals() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.frozenGoals");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#cdr()
-     */
-    @Override
-    public Term cdr() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.cdr");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#copy(java.util.Map, int)
-     */
-    @Override
-    public Term copy(Map<Object, Term> copyHash, int deeply) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.copy");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asSymbolTerm()
-     */
-    @Override
-    public Functor asSymbolTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asSymbolTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#car()
-     */
-    @Override
-    public Term car() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.car");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asLongTerm()
-     */
-    @Override
-    public NumberTerm asLongTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asLongTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asIntegerTerm()
-     */
-    @Override
-    public NumberTerm asIntegerTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asIntegerTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isImmutable()
-     */
-    @Override
-    public boolean isImmutable() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isImmutable");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#containsTerm(SxxMachine.Term, SxxMachine.OpVisitor)
-     */
-    @Override
-    public int containsTerm(Term variableTerm, OpVisitor strictequals2) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.containsTerm");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#freeze(SxxMachine.Trail, SxxMachine.Term)
-     */
-    @Override
-    public Term freeze(Trail trail, Term newval) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.freeze");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#findOrAttrValue(SxxMachine.Trail, boolean, SxxMachine.Term)
-     */
-    @Override
-    public Term findOrAttrValue(Trail trail, boolean b, Term a2) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.findOrAttrValue");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#unify(SxxMachine.Term, SxxMachine.Trail)
-     */
-    @Override
-    public boolean unify(Term arg0, Trail trail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.unify");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#unify(SxxMachine.Compound, SxxMachine.Trail)
-     */
-    @Override
-    public boolean unify(Compound arg0, Trail trail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.unify");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#getAttrs()
-     */
-    @Override
-    public Term getAttrs() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.getAttrs");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setAttrs(SxxMachine.Term)
-     */
-    @Override
-    public void setAttrs(Term newval) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setAttrs");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#getGoals()
-     */
-    @Override
-    public Term getGoals() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.getGoals");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setGoals(SxxMachine.Term)
-     */
-    @Override
-    public Term setGoals(Term newval) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setGoals");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#functor()
-     */
-    @Override
-    public Term functor() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.functor");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#arity()
-     */
-    @Override
-    public int arity() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.arity");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asClosureTerm()
-     */
-    @Override
-    public ClosureTerm asClosureTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asClosureTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#convertible(java.lang.Class)
-     */
-    @Override
-    public boolean convertible(Class type) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.convertible");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isDouble()
-     */
-    @Override
-    public boolean isDouble() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isDouble");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asVariableTerm()
-     */
-    @Override
-    public Var asVariableTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asVariableTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isJavaObject()
-     */
-    @Override
-    public boolean isJavaObject() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isJavaObject");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#args()
-     */
-    @Override
-    public Term[] args() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.args");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isFVar()
-     */
-    @Override
-    public boolean isFVar() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isFVar");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isGround()
-     */
-    @Override
-    public boolean isGround() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isGround");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#type()
-     */
-    @Override
-    public int type() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.type");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#unifyS(SxxMachine.Functor, SxxMachine.Trail, SxxMachine.Term[])
-     */
-    @Override
-    public boolean unifyS(Functor functorPrime1, Trail trail, Term... a3) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.unifyS");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#unifyInt(int, SxxMachine.Trail)
-     */
-    @Override
-    public boolean unifyInt(int b0, Trail trail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.unifyInt");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isMap()
-     */
-    @Override
-    public boolean isMap() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isMap");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#toJava()
-     */
-    @Override
-    public Object toJava() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.toJava");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#toQuotedString(int, java.lang.StringBuilder)
-     */
-    @Override
-    public void toQuotedString(int i, StringBuilder sb) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.toQuotedString");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#object()
-     */
-    @Override
-    public Object object() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.object");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#getIntendedClass()
-     */
-    @Override
-    public Class getIntendedClass() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.getIntendedClass");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isVariable()
-     */
-    @Override
-    public boolean isVariable() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isVariable");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isInteger()
-     */
-    @Override
-    public boolean isInteger() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isInteger");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isClosure()
-     */
-    @Override
-    public boolean isClosure() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isClosure");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#append(SxxMachine.Term)
-     */
-    @Override
-    public Compound append(Term goal) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.append");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#longValue()
-     */
-    @Override
-    public long longValue() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.longValue");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setGoals(SxxMachine.Trail, SxxMachine.Term)
-     */
-    @Override
-    public void setGoals(Trail trail, Term newval) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setGoals");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isAtom()
-     */
-    @Override
-    public boolean isAtom() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isAtom");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isAtomicValue()
-     */
-    @Override
-    public boolean isAtomicValue() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isAtomicValue");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asListTerm()
-     */
-    @Override
-    public Compound asListTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asListTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asNumberTerm()
-     */
-    @Override
-    public NumberTerm asNumberTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asNumberTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setarg0Maybe_trail(SxxMachine.Trail, int, SxxMachine.Term)
-     */
-    @Override
-    public void setarg0Maybe_trail(Trail trail, int i0, Term value) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setarg0Maybe_trail");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#add(SxxMachine.Term)
-     */
-    @Override
-    public Compound add(Term term) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.add");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isNonvar()
-     */
-    @Override
-    public boolean isNonvar() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isNonvar");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isFrozen()
-     */
-    @Override
-    public boolean isFrozen() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isFrozen");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#length()
-     */
-    @Override
-    public int length() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.length");
-        return 0;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asStructureTerm()
-     */
-    @Override
-    public Term asStructureTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asStructureTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#putAttrValue(SxxMachine.Trail, SxxMachine.Term, SxxMachine.Term)
-     */
-    @Override
-    public void putAttrValue(Trail trail, Term name, Term val) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.putAttrValue");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setArg(int, SxxMachine.Term)
-     */
-    @Override
-    public void setArg(int i, Term tail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setArg");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#setAttrs(SxxMachine.Trail, SxxMachine.Term)
-     */
-    @Override
-    public void setAttrs(Trail trail, Term dref) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.setAttrs");
-
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#toQuotedString()
-     */
-    @Override
-    public String toQuotedString() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.toQuotedString");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#join(SxxMachine.Term)
-     */
-    @Override
-    public MapTerm join(Term term) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.join");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#asMapTerm()
-     */
-    @Override
-    public MapTerm asMapTerm() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.asMapTerm");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#drefAttrs()
-     */
-    @Override
-    public Term drefAttrs() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.drefAttrs");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isAlias()
-     */
-    @Override
-    public boolean isAlias() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isAlias");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#pbind(SxxMachine.Term, SxxMachine.Trail)
-     */
-    @Override
-    public boolean pbind(Term variableTerm, Trail trail) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.pbind");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#iterator(boolean)
-     */
-    @Override
-    public Iterator<Term> iterator(boolean includeSyntax) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.iterator");
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#isSymbol()
-     */
-    @Override
-    public boolean isSymbol() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.isSymbol");
-        return false;
-    }
-
-    /* (non-Javadoc)
-     * @see SxxMachine.Term#fname()
-     */
-    @Override
-    public String fname() {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.fname");
-        return null;
-    }
-
-    /* (non-Javadoc)
      * @see SxxMachine.Term#unify(SxxMachine.Term)
      */
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         // TODO Auto-generated method stub
         if (true)
             throw new AbstractMethodError("Term.unify");
@@ -1131,8 +433,11 @@ public abstract class KPTerm implements Term {
      * @see SxxMachine.Term#bind(SxxMachine.Term)
      */
     @Override
-    public boolean bind(Term that) {
-        return that.bind(this,(Trail) null);
+    public boolean bindJP(Term that) {
+        // TODO Auto-generated method stub
+        if (true)
+            throw new AbstractMethodError("Term.bind");
+        return false;
     }
 
     /* (non-Javadoc)
@@ -1162,28 +467,33 @@ public abstract class KPTerm implements Term {
      */
     @Override
     public boolean couldUnifyInverse(Term object) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("Term.couldUnifyInverse");
-        return false;
+        return matches(object);
     }
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#toJpString()
      */
     @Override
-    public String toJpString() {
-        return getString();
+    public String portrayTerm() {
+        return stringWrite();
     }
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#copy(SxxMachine.RunningPrologMachine, long)
      */
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         // TODO Auto-generated method stub
         if (true)
             throw new AbstractMethodError("Term.copy");
         return null;
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)
+     */
+    @Override
+    public boolean unifySYM(String string, Trail trail) {
+        return unify(SYM(string), trail);
     }
 }

@@ -75,19 +75,19 @@ public class pred_printPredExec_7 extends Code {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1)))
+        if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        if (!(areg1.unify(var2)))
+        if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
-        if (!(areg2.unify(var3)))
+        if (!(areg2.unifyJP(var3)))
             return mach.Fail0;
-        if (!(areg3.unify(var4)))
+        if (!(areg3.unifyJP(var4)))
             return mach.Fail0;
-        if (!(areg4.unify(var5)))
+        if (!(areg4.unifyJP(var5)))
             return mach.Fail0;
-        if (!(areg5.unify(var6)))
+        if (!(areg5.unifyJP(var6)))
             return mach.Fail0;
-        if (!(areg6.unify(var7)))
+        if (!(areg6.unifyJP(var7)))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string4), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string7), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string8), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string9, var1

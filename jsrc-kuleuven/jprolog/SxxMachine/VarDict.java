@@ -20,7 +20,7 @@ final class VarDict extends JPrologObject implements UnTrailOperation {
     }
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         return newer;
     }
 }

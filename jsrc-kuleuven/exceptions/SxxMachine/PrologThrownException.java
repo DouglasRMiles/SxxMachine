@@ -15,7 +15,7 @@ public class PrologThrownException extends JPrologInternalException {
     private final Term cause;
 
     public PrologThrownException(Term cause) {
-        this(cause.toJpString(), cause);
+        this(cause.portrayTerm(), cause);
     }
 
     public PrologThrownException(String str, Term cause) {
@@ -35,10 +35,10 @@ public class PrologThrownException extends JPrologInternalException {
 
     public Object getPrologExceptionCause() {
         final Term cause = this.cause.dref();
-        if (cause .isConst()) {
+        if (cause .isAtomOrObject()) {
             return ((Const) cause).getValue();
         }
-        return cause.toJpString();
+        return cause.portrayTerm();
     }
 
 }

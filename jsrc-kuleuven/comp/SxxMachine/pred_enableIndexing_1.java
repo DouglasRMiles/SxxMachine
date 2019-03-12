@@ -100,7 +100,7 @@ class pred_enableIndexing_1_1 extends pred_enableIndexing_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
@@ -131,7 +131,7 @@ class pred_enableIndexing_1_2 extends pred_enableIndexing_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_enableIndexing_1_consts.string3, CONST(pred_enableIndexing_1_consts.string4), S(pred_enableIndexing_1_consts.string3, S(pred_enableIndexing_1_consts.string5, CONST(pred_enableIndexing_1_consts.string6)), CONST(pred_enableIndexing_1_consts.string7)));

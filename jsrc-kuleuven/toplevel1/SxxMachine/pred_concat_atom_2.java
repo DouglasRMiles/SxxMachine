@@ -32,7 +32,7 @@ public class pred_concat_atom_2 extends Code {
             builder.append(o);
             list = l.getPlainArg(1);
         }
-        if (dest.unify(CONST(builder.toString()))) {
+        if (dest.unifyJP(CONST(builder.toString()))) {
             args[0] = args[2];
             return mach.Call1;
         }

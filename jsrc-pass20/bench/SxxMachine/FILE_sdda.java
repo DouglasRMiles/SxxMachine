@@ -1,32 +1,4 @@
-package SxxMachine; import static SxxMachine.pterm.TermData.*;
- 
-import java.io.*;
-import java.lang.reflect.*;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.locks.*;
-import java.util.logging.*;
-import static SxxMachine.bootpreds.*;
-import static SxxMachine.bootpreds.LEVELS;
-import static SxxMachine.FILE_builtins.*;
-import static SxxMachine.FILE_cafeteria.*;
-import static SxxMachine.FILE_io.*;
-import static SxxMachine.FILE_swi_supp.*;
-import static SxxMachine.FILE_system.*;
-import static SxxMachine.sxxtensions.*;
-import static SxxMachine.Failure.*;
-import static SxxMachine.Predicate.*;
-import static SxxMachine.Prolog.*;
-import static SxxMachine.Success.*;
-import static SxxMachine.pterm.TermData.*;
-import SxxMachine.*;
-import SxxMachine.pterm.*;
-import SxxMachine.bootpreds.*;
-import SxxMachine.bootpreds.PRED_$begin_exception_1;
-import SxxMachine.bootpreds.PRED_$begin_sync_2;
-import SxxMachine.bootpreds.PRED_$builtin_member_2;
-import SxxMachine.FILE_builtins.*;
-import SxxMachine.sxxtensions.*;
+package SxxMachine; import static SxxMachine.Failure.*;
 @SuppressWarnings("unused")
 public class FILE_sdda extends FILE_system {
 /** PREDICATE: top/0
@@ -4197,7 +4169,7 @@ m.cont = cont;
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (! (a1 .isAtom())) {
+        if (! (a1 .isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion

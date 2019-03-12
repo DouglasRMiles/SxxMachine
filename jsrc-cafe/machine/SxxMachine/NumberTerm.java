@@ -10,7 +10,7 @@ public interface NumberTerm extends Atomic {
     boolean isFloat();
 
     @Override
-    String getString();
+    String getJavaString();
 
     @Override
     int arityOrType();

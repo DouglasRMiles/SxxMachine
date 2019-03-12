@@ -35,8 +35,8 @@ public abstract class FunctionObject extends KPNonvar {
     }
 
     @Override
-    public boolean bind(Term that, Trail trail) {
-        return super.bind(that, trail);// && ordinal==((FunctionObject)that).ordinal;
+    public boolean bindKP(Term that, KPTrail trail) {
+        return super.bindKP(that, trail);// && ordinal==((FunctionObject)that).ordinal;
     }
 
     @Override

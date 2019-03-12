@@ -53,7 +53,7 @@ public class JPrologInternalException extends RuntimeException {
     public final boolean unify(Term exception) {
         final Term ex = exception.dref();
         if (ex.isVariable()) {
-            return ex.unify(toPrologException());
+            return ex.unifyJP(toPrologException());
         }
         return bind(ex);
     }
@@ -64,12 +64,12 @@ public class JPrologInternalException extends RuntimeException {
             final AFunct f = (AFunct) o;
             if (f.fname().equals("exception") && f.arity() == 2) {
                 final Term cl = f.getPlainArg(0).dref();
-                if (cl .isConst() && isValidException(((Const) cl).getValue())) {
-                    return f.getPlainArg(1).unify(toPrologException());
+                if (cl .isAtomOrObject() && isValidException(((Const) cl).getValue())) {
+                    return f.getPlainArg(1).unifyJP(toPrologException());
                 }
             }
         }
-        return o.unify(toPrologException());
+        return o.unifyJP(toPrologException());
     }
 
     private boolean isValidException(Object o) {

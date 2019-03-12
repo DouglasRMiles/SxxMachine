@@ -109,11 +109,11 @@ class pred_checkClauses_3_1 extends pred_checkClauses_3 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_checkClauses_3_consts.string4, var1.dref(), CONST(pred_checkClauses_3_consts.string5)))))
+                .unifyJP(S(pred_checkClauses_3_consts.string4, var1.dref(), CONST(pred_checkClauses_3_consts.string5)))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -155,11 +155,11 @@ class pred_checkClauses_3_2 extends pred_checkClauses_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 

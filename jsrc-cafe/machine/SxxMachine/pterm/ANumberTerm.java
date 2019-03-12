@@ -24,7 +24,7 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
     }
 
     @Override
-    public String getString() {
+    public String getJavaString() {
         return value().toString();
     }
 

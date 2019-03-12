@@ -20,10 +20,10 @@ abstract class AbstractVar extends VariableTerm implements UnTrailOperation {
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         if (dref() == this)
-            return bind(that);
-        return dref().unify(that);
+            return bindJP(that);
+        return dref().unifyJP(that);
         //return this.deref().bind(that);
     }
 
@@ -47,7 +47,7 @@ abstract class AbstractVar extends VariableTerm implements UnTrailOperation {
 
     @Override
     public String fname() {
-        return toJpString();
+        return portrayTerm();
     }
 
     @Override

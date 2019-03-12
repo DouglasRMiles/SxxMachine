@@ -112,11 +112,11 @@ class pred_wrargs_3_1 extends pred_wrargs_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
         local_aregs[0] = pred_wrargs_3_consts.posint0;
@@ -161,11 +161,11 @@ class pred_wrargs_3_2 extends pred_wrargs_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var3.dref();
 

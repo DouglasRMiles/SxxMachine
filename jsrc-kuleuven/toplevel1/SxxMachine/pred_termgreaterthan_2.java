@@ -53,9 +53,9 @@ class pred_termgreaterthan_2_1 extends pred_termgreaterthan_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = CONST(string1);
         local_aregs[1] = var1.dref();

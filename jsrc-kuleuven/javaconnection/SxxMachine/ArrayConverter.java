@@ -30,15 +30,15 @@ public class ArrayConverter extends Code {
             return mach.Fail0;
         }
         if (!java.isVariable()) {
-            if (!(java .isConst()))
+            if (!(java .isAtomOrObject()))
                 return mach.Fail0;
             final Object o = ((Const) java).getValue();
             if (o != null && o.getClass().isArray()) {
                 //Van array naar prologlijst
                 final Object[] array = (Object[]) o;
-                if (!prolog.unify(convert2prolog(array)))
+                if (!prolog.unifyJP(convert2prolog(array)))
                     return mach.Fail0;
-                if (!javaType.unify(CONST(array.getClass().getComponentType())))
+                if (!javaType.unifyJP(CONST(array.getClass().getComponentType())))
                     return mach.Fail0;
             } else
                 return mach.Fail0;
@@ -47,7 +47,7 @@ public class ArrayConverter extends Code {
             final Object res = convert2java(prolog, javaType);
             if (res == null)
                 return mach.Fail0;
-            if (!java.unify(CONST(res)))
+            if (!java.unifyJP(CONST(res)))
                 return mach.Fail0;
         }
         args[1] = args[2] = null;
@@ -57,7 +57,7 @@ public class ArrayConverter extends Code {
 
     @SuppressWarnings("unchecked")
     public static <T> T[] convert2java(Term list, Term javaType) {
-        if (!(javaType .isConst()))
+        if (!(javaType .isAtomOrObject()))
             return null;
         final Const javaTypeC = (Const) javaType;
         if (!(javaTypeC.getValue() instanceof Class))

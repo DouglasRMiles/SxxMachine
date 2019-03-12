@@ -1,5 +1,8 @@
 package SxxMachine;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +10,6 @@ import java.util.Iterator;
 
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.Parser;
-import SxxMachine.pterm.TermData;
 
 /**
  * Implements a Term and Clause objects based blackboard (database).
@@ -34,7 +36,7 @@ public class DataBase extends BlackBoard {
         if (found == null)
             found = no;
         else
-            found = TermData.S("the", found.copy());
+            found = S("the", found.copy());
         return found;
     }
 
@@ -78,10 +80,10 @@ public class DataBase extends BlackBoard {
             all0(max, To, (String) e.next(), FXs);
         }
         Object O = To.toArray(new Term[0]);
-        Term R = TermData.S("$", (Term[]) O);
+        Term R = S("$", (Term[]) O);
         // IO.mes("RR"+R);
         // To.copyInto(R.args);
-        return TermData.asCons(R.listify()).getPlainArg(1);
+        return asCons(R.listify()).getPlainArg(1);
     }
 
     private Term all2(int max, String k, Term FXs) {
@@ -93,9 +95,9 @@ public class DataBase extends BlackBoard {
         all0(max, To, k, FXs);
         if (To.size() == 0)
             return Prolog.Nil;
-        Nonvar R = TermData.S("$", (Term[]) To.toArray());
+        Nonvar R = S("$", (Term[]) To.toArray());
         // To.copyInto(R.args);
-        Term T = TermData.asCons(R.listify()).getPlainArg(1);
+        Term T = asCons(R.listify()).getPlainArg(1);
         return T;
     }
 
@@ -260,7 +262,7 @@ public class DataBase extends BlackBoard {
      * @see HornClause
      */
     static public void processClause(HornClause C, HashDict ktable) {
-        if (C.getHead().matches(TermData.SYM("init"))) {
+        if (C.getHead().matches(SYM("init"))) {
             // IO.mes("init: "+C.getBody());
             Prog.firstSolution(C.getHead(), C.getBody());
         } else {

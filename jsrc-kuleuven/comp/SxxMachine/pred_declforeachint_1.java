@@ -97,7 +97,7 @@ class pred_declforeachint_1_1 extends pred_declforeachint_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_declforeachint_1_consts.string10))))
+        if (!(areg0.unifyJP(CONST(pred_declforeachint_1_consts.string10))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -132,7 +132,7 @@ class pred_declforeachint_1_2 extends pred_declforeachint_1 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_declforeachint_1_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_declforeachint_1_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_declforeachint_1_consts.string2, CONST(pred_declforeachint_1_consts.string4), S(pred_declforeachint_1_consts.string2, S(pred_declforeachint_1_consts.string5, var1

@@ -31,7 +31,7 @@ public class pred_catch_3 extends Code {
     }
 
     private StructureTerm addContinuation(Term o, Term cont) {
-        if (o .isConst()) {
+        if (o .isAtomOrObject()) {
             return (StructureTerm) S(o.fname(), cont);
         }
         if (o .isCompound()) {

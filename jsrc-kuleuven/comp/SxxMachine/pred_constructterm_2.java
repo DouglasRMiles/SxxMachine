@@ -134,9 +134,9 @@ class pred_constructterm_2_1 extends pred_constructterm_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_constructterm_2_consts.string26, var1.dref()))))
+        if (!(areg0.unifyJP(S(pred_constructterm_2_consts.string26, var1.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -178,9 +178,9 @@ class pred_constructterm_2_2 extends pred_constructterm_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_constructterm_2_consts.string22, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_constructterm_2_consts.string22, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
 
@@ -225,9 +225,9 @@ class pred_constructterm_2_3 extends pred_constructterm_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_constructterm_2_consts.string22, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_constructterm_2_consts.string22, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -271,9 +271,9 @@ class pred_constructterm_2_4 extends pred_constructterm_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_constructterm_2_consts.string0, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_constructterm_2_consts.string0, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -314,9 +314,9 @@ class pred_constructterm_2_5 extends pred_constructterm_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
@@ -357,9 +357,9 @@ class pred_constructterm_2_6 extends pred_constructterm_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
@@ -406,9 +406,9 @@ class pred_constructterm_2_7 extends pred_constructterm_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3;

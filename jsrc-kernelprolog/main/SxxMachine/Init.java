@@ -3,7 +3,6 @@ package SxxMachine;
 import java.util.HashMap;
 
 import SxxMachine.pterm.HornClause;
-import SxxMachine.pterm.TermData;
 
 /**
  * Initializes Prolog. Sets up shared data areas. Ensures that lib.class,
@@ -66,8 +65,9 @@ public class Init {
             }
             if (Names.isCompound()) {
                 Term NamedR = R.numbervars();
-                for (int j = 0; j < Names.arityOrType(); j++) {
-                    IO.println(TermData.asStruct(Names).getDrefArg(j) + "=" + NamedR.getDrefArg(j));
+                final int arity = Names.arity();
+                for (int j = 0; j < arity; j++) {
+                    IO.println(Names.getDrefArg(j) + "=" + NamedR.getDrefArg(j));
                 }
                 // IO.println(";");
                 if (!moreAnswers(i)) {

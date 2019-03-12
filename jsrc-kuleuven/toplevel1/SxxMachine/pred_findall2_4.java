@@ -1,9 +1,10 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Jv;
+// S;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -66,13 +67,13 @@ class pred_findall2_4_1 extends pred_findall2_4 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        if (!((areg3).unify(var4)))
+        if (!((areg3).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = S(string1, var1.dref(), var4.dref(), S(string3, continuation));
@@ -96,13 +97,13 @@ class pred_findall2_4_2 extends pred_findall2_4 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        if (!((areg3).unify(var4)))
+        if (!((areg3).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var3.dref();
         local_aregs[1] = var4.dref();

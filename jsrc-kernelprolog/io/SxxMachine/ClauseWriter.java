@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Writer
@@ -20,9 +21,9 @@ public class ClauseWriter extends CharWriter {
             return 0;
         String s = null;
         if (t.isCompound() && "$string".equals(t.fname())) {
-            s = TermData.charsToString(t.getDrefArg(0));
+            s = charsToString(t.getDrefArg(0));
         } else {
-            s = t.pprint();
+            s = t.portrayTerm();
         }
         IO.print(writer, s);
         return 1;

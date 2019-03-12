@@ -1,7 +1,9 @@
 package SxxMachine;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import SxxMachine.pterm.SinkFluentTerm;
-import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
@@ -16,7 +18,7 @@ public class StringSink extends SinkFluentTerm {
 
     @Override
     public int putElement(Term t) {
-        buffer.append(t.pprint());
+        buffer.append(t.getJavaString());
         return 1;
     }
 
@@ -27,6 +29,6 @@ public class StringSink extends SinkFluentTerm {
 
     @Override
     public Term collect() {
-        return TermData.SYM(buffer.toString());
+        return SYM(buffer.toString());
     }
 }

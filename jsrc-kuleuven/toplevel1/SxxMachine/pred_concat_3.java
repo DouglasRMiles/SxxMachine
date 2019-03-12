@@ -16,8 +16,8 @@ public class pred_concat_3 extends Code {
     }
 
     protected String getAsString(Term o) {
-        if (o .isConst()) {
-            return ((Const) o).toJpString();
+        if (o .isAtomOrObject()) {
+            return ((Const) o).portrayTerm();
         }
         if (o .isCompound()) {
             final AFunct f = (AFunct) o;
@@ -39,7 +39,7 @@ public class pred_concat_3 extends Code {
         if (v1Str != null) {
             if (v2Str != null) {
                 v3Str = v1Str + v2Str;
-                if (!v3.unify(CONST(v3Str)))
+                if (!v3.unifyJP(CONST(v3Str)))
                     return mach.Fail0;
             } else {
                 if (v3Str == null)
@@ -47,7 +47,7 @@ public class pred_concat_3 extends Code {
                 if (!v3Str.startsWith(v1Str))
                     return mach.Fail0;
                 v2Str = v3Str.substring(v1Str.length());
-                if (!v2.unify(CONST(v2Str)))
+                if (!v2.unifyJP(CONST(v2Str)))
                     return mach.Fail0;
             }
         } else if (v2Str != null) {
@@ -57,7 +57,7 @@ public class pred_concat_3 extends Code {
             if (!v3Str.endsWith(v2Str))
                 return mach.Fail0;
             v1Str = v3Str.substring(0, v3Str.length() - v2Str.length());
-            if (!v1.unify(CONST(v1Str)))
+            if (!v1.unifyJP(CONST(v1Str)))
                 return mach.Fail0;
         } else {
             if (v3Str == null)
@@ -82,9 +82,9 @@ class Concat1 extends pred_concat_3 {
         final Term v1 = areg[0].dref();
         final Term v2 = areg[1].dref();
         final Term v3 = areg[2].dref();
-        if (!v1.unify(CONST("")))
+        if (!v1.unifyJP(CONST("")))
             return mach.Fail0;
-        if (!v2.unify(v3))
+        if (!v2.unifyJP(v3))
             return mach.Fail0;
         areg[0] = areg[3];
         areg[3] = areg[2] = areg[1] = null;

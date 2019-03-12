@@ -1,12 +1,11 @@
 package SxxMachine;
 
-import SxxMachine.pterm.*;
+// *;
 import static SxxMachine.pterm.TermData.*;
-import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.Prog;
 
 import java.util.ArrayList;
-import java.util.Vector;
+
+import SxxMachine.pterm.SourceFluentTerm;
 
 abstract public class SourceFluent extends SourceFluentTerm implements Fluent {
 
@@ -17,7 +16,7 @@ abstract public class SourceFluent extends SourceFluentTerm implements Fluent {
     @Override
     abstract public Term getElement();
 
-    public Nonvar toList() {
+    public Nonvar toPlConsList() {
         Term head = getElement();
         if (null == head)
             return (Nonvar) Nonvar.aNil;

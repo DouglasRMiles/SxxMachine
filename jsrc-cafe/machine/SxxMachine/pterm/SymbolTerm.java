@@ -12,7 +12,7 @@ import SxxMachine.ExecProg;
 import SxxMachine.Functor;
 import SxxMachine.ISTerm;
 import SxxMachine.Init;
-import SxxMachine.Trail;
+import SxxMachine.*;
 import SxxMachine.NameArity;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
@@ -37,6 +37,14 @@ import SxxMachine.Trail;
  */
 @SuppressWarnings({ "unused", "rawtypes" })
 abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Functor {
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)
+     */
+    @Override
+    public boolean unifySYM(String string, Trail trail) {
+        return string.equals(fname());
+    }
 
     @Override
     public SymbolTerm asSymbolTerm() {
@@ -67,7 +75,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#isConst()
      */
     @Override
-    public boolean isConst() {
+    public boolean isAtomOrObject() {
         return true;
     }
 
@@ -81,7 +89,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public boolean isTrueProc() {
         // TODO Auto-generated method stub
-        return getString() == "true" && arity == 0;
+        return getJavaString() == "true" && arity == 0;
     }
 
     /* (non-Javadoc)
@@ -117,16 +125,21 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         return this;
     }
 
+    @Override
+    public Term copyJP(RunningPrologMachine m, long t) {
+        return this;
+    }
+
     /* (non-Javadoc)
      * @see SxxMachine.pterm.Functor#bind(SxxMachine.pterm.Term, SxxMachine.KPTrail)
      */
     @Override
-    public boolean bind(Term that, Trail trail) {
-        if (!super.bind(that, trail))
+    public boolean bindKP(Term that, KPTrail trail) {
+        if (!super.bindKP(that, trail))
             return false;
         if (name != null) {
             // name = name.intern();
-            String thatn = TermData.asConst(that).getString();
+            String thatn = TermData.asConst(that).getJavaString();
             if (thatn == name)
                 return true;
         }
@@ -140,7 +153,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public String getFAKey() {
-        return getString() + "/" + arity();
+        return getJavaString() + "/" + arity();
     }
 
     /* (non-Javadoc)
@@ -157,7 +170,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     @Override
     public String toUnquoted() {
-        return getString();
+        return getJavaString();
     }
 
     /* (non-Javadoc)
@@ -220,7 +233,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#isAtomString()
      */
     @Override
-    public boolean isAtom() {
+    public boolean isAtomSymbol() {
         return true;
     }
 
@@ -271,7 +284,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         @Override
         public String toString() {
             int arity = arity();
-            return "/*D*/" + getString() + "/" + arity;
+            return "/*D*/" + getJavaString() + "/" + arity;
         }
     }
 
@@ -284,8 +297,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         public String toString() {
             int arity = arity();
             if (arity == 0)
-                return getString();
-            return getString() + "/" + arity;
+                return getJavaString();
+            return getJavaString() + "/" + arity;
         }
     }
 
@@ -299,14 +312,14 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         @Override
         public String toString() {
             int arity = arity();
-            return "/*P" + start + ":" + finish + "*/ " + getString() + "/" + arity;
+            return "/*P" + start + ":" + finish + "*/ " + getJavaString() + "/" + arity;
         }
 
         @Override
         public boolean equalsTerm(Term obj, OpVisitor comparator) {
             if (this == obj) {
                 return true;
-            } else if (obj.isAtom()) {
+            } else if (obj.isAtomSymbol()) {
                 SymbolTerm that = (SymbolTerm) obj.asSymbolTerm();
                 int thisLength = this.finish - this.start;
                 int thatLength = that.finish - that.start;
@@ -335,13 +348,13 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         }
 
         @Override
-        public Object toJava() {
-            return getString();
+        public Object javaInstance() {
+            return getJavaString();
         }
 
         @Override
         public void toStringImpl(int printingFlags, StringBuilder sb) {
-            String name = this.getString();
+            String name = this.getJavaString();
             if (TermData.isQuoted(printingFlags))
                 Token.toQuotedString(name, sb);
             else
@@ -415,12 +428,12 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     }
 
     public boolean isChar() {
-        return getString().length() == 1;
+        return getJavaString().length() == 1;
     }
 
     @Override
     public long longValue() {
-        String s = getString();
+        String s = getJavaString();
         return s.charAt(s.length() - 1);
     }
 
@@ -528,7 +541,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     }
 
     @Override
-    public String getString() {
+    public String getJavaString() {
         return atomString();
     }
 
@@ -611,7 +624,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#length()
      */
     @Override
-    public int length() {
+    public int termLength() {
         return this.finish - this.start;
     }
 
@@ -625,8 +638,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         t = t.dref(); // fast dereference
         return (t.isVar()) ? t.bind(this, trail)
                 : ((t instanceof Partial) ? t.unify(this, trail)
-                        : ((t.isAtom()) && (this.arity == (t.asSymbolTerm()).arity())
-                                && this.name.equals(t.asSymbolTerm().getString())));
+                        : ((t.isAtomSymbol()) && (this.arity == (t.asSymbolTerm()).arity())
+                                && this.name.equals(t.asSymbolTerm().getJavaString())));
     }
 
     /* (non-Javadoc)
@@ -643,8 +656,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
         return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator)
-                : ((obj.isAtom()) && (this.arity == obj.asSymbolTerm().arity())
-                        && this.name.equals(obj.asSymbolTerm().getString()));
+                : ((obj.isAtomSymbol()) && (this.arity == obj.asSymbolTerm().arity())
+                        && this.name.equals(obj.asSymbolTerm().getJavaString()));
     }
 
     // private static boolean eq(SymbolTerm a, Term b0) {
@@ -669,7 +682,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#toJava()
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         return this.name;
     }
 
@@ -691,7 +704,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public String pprint() throws PrologException {
-        return getString();
+        return getJavaString();
     }
 
     /* Comparable */
@@ -702,11 +715,11 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
         if ((anotherTerm.isVar()) || (anotherTerm.isNumber()))
             return AFTER;
-        if (!(anotherTerm.isAtom()))
+        if (!(anotherTerm.isAtomSymbol()))
             return BEFORE;
         if (this == anotherTerm)
             return EQUAL;
-        int x = getString().compareTo(anotherTerm.asSymbolTerm().getString());
+        int x = getJavaString().compareTo(anotherTerm.asSymbolTerm().getJavaString());
         if (x != 0)
             return x;
         int y = this.arity - anotherTerm.asSymbolTerm().arity();
@@ -732,7 +745,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
             return false;
         if (Prolog.Nil == this)
             return true;
-        if (this.getString().equals("[]")) {
+        if (this.getJavaString().equals("[]")) {
             // throw
         }
         return false;

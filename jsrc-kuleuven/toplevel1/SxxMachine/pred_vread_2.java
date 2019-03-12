@@ -67,9 +67,9 @@ class pred_vread_2_1 extends pred_vread_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = var3;
         local_aregs[1] = S(string6, var3.dref(), var4, S(string4, var4.dref(), var1.dref(), S(string0, new HeapChoice(

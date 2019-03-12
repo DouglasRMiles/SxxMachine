@@ -163,11 +163,11 @@ class pred_maketerm_3_1 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string21, var1, var2, var3), CONST(string6)))))
+        if (!((areg0).unifyJP(S(string4, S(string21, var1, var2, var3), CONST(string6)))))
             return mach.Fail0;
-        if (!((areg1).unify(var4)))
+        if (!((areg1).unifyJP(var4)))
             return mach.Fail0;
-        if (!((areg2).unify(var5)))
+        if (!((areg2).unifyJP(var5)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var4.dref();
@@ -190,11 +190,11 @@ class pred_maketerm_3_2 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string14, var1), CONST(string6)))))
+        if (!((areg0).unifyJP(S(string4, S(string14, var1), CONST(string6)))))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
@@ -216,11 +216,11 @@ class pred_maketerm_3_3b extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(String23, var1), CONST(string6)))))
+        if (!((areg0).unifyJP(S(string4, S(String23, var1), CONST(string6)))))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
@@ -242,11 +242,11 @@ class pred_maketerm_3_3 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, var1), CONST(string6)))))
+        if (!((areg0).unifyJP(S(string4, S(string10, var1), CONST(string6)))))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
@@ -270,11 +270,11 @@ class pred_maketerm_3_4 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, var1), S(string4, S(string10, CONST(string1)), var2)))))
+        if (!((areg0).unifyJP(S(string4, S(string10, var1), S(string4, S(string10, CONST(string1)), var2)))))
             return mach.Fail0;
-        if (!((areg1).unify(var3)))
+        if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        if (!((areg2).unify(var4)))
+        if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
         //areg0 moet eindigen op ')' anders al niet correct
         if (!endsWith(areg0, ")"))
@@ -310,13 +310,13 @@ class pred_maketerm_3_5 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        var4.unify(S(".", Jv(mach), Jv(mach)));
+        var4.unifyJP(S(".", Jv(mach), Jv(mach)));
         local_aregs[0] = var4;
         local_aregs[1] = S(string4, S(string10, var5), var6);
         local_aregs[2] = var1.dref();
@@ -348,11 +348,11 @@ class pred_maketerm_3_6 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, var1), var2))))
+        if (!((areg0).unifyJP(S(string4, S(string10, var1), var2))))
             return mach.Fail0;
-        if (!((areg1).unify(var3)))
+        if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        if (!((areg2).unify(var4)))
+        if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var5;
         local_aregs[1] = var6;
@@ -381,11 +381,11 @@ class pred_maketerm_3_7 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, CONST(string5)), var1))))
+        if (!((areg0).unifyJP(S(string4, S(string10, CONST(string5)), var1))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string4, var2, var3))))
+        if (!((areg1).unifyJP(S(string4, var2, var3))))
             return mach.Fail0;
-        if (!((areg2).unify(var4)))
+        if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var5;
         local_aregs[1] = S(string4, S(string10, CONST(string3)), var6);
@@ -416,11 +416,11 @@ class pred_maketerm_3_8 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, CONST(string5)), var1))))
+        if (!((areg0).unifyJP(S(string4, S(string10, CONST(string5)), var1))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string4, var2, var3))))
+        if (!((areg1).unifyJP(S(string4, var2, var3))))
             return mach.Fail0;
-        if (!((areg2).unify(var4)))
+        if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var5;
         local_aregs[1] = S(string4, S(string10, CONST(string22)), var6);
@@ -446,11 +446,11 @@ class pred_maketerm_3_9 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, CONST(string1)), var1))))
+        if (!((areg0).unifyJP(S(string4, S(string10, CONST(string1)), var1))))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var4;
         local_aregs[1] = S(string4, S(string10, CONST(string2)), CONST(string6));
@@ -475,11 +475,11 @@ class pred_maketerm_3_10 extends pred_maketerm_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string4, S(string10, CONST(string5)), var1))))
+        if (!((areg0).unifyJP(S(string4, S(string10, CONST(string5)), var1))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string4, var2, CONST(string6)))))
+        if (!((areg1).unifyJP(S(string4, var2, CONST(string6)))))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var4;
         local_aregs[1] = S(string4, S(string10, CONST(string7)), CONST(string6));
@@ -502,11 +502,11 @@ class pred_maketerm_3_11 extends pred_maketerm_3 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!((areg0)
-                .unify(S(string4, S(string10, CONST(string5)), S(string4, S(string10, CONST(string7)), CONST(string6))))))
+                .unifyJP(S(string4, S(string10, CONST(string5)), S(string4, S(string10, CONST(string7)), CONST(string6))))))
             return mach.Fail0;
-        if (!((areg1).unify(CONST(string6))))
+        if (!((areg1).unifyJP(CONST(string6))))
             return mach.Fail0;
-        if (!((areg2).unify(var1)))
+        if (!((areg2).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

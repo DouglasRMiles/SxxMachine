@@ -1,9 +1,8 @@
 package SxxMachine;
 
-import SxxMachine.pterm.*;
+// *;
 import static SxxMachine.pterm.TermData.*;
 import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.pterm.TermData;
 
 /**
  * Maps a Term to an Source for iterating over its arguments
@@ -28,9 +27,9 @@ public class TermSource extends SourceFluentTerm {
             X = val;
             val = null;
         } else if (0 == pos)
-            X = TermData.SYM(val.pprint());
-        else if (pos <= TermData.asStruct(val).arityOrType())
-            X = TermData.asStruct(val).getDrefArg(pos - 1);
+            X = SYM(val.fname());
+        else if (pos <= val.arity())
+            X = val.getDrefArg(pos - 1);
         else {
             X = null;
             val = null;

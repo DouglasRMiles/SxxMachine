@@ -1,5 +1,8 @@
 package SxxMachine.pterm; //
 
+// *;
+import static SxxMachine.pterm.TermData.*;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
@@ -92,11 +95,11 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
         if (obj == null)
             return Const.javaNull();
         if (obj instanceof Integer)
-            return TermData.Integer(((Integer) obj).intValue());
+            return Integer(((Integer) obj).intValue());
         if (obj instanceof Long)
-            return TermData.Integer(((Long) obj).longValue());
+            return Integer(((Long) obj).longValue());
         if (obj instanceof Number)
-            return TermData.Float(((Number) obj).doubleValue());
+            return Float(((Number) obj).doubleValue());
         return getStub(obj);
     }
 
@@ -169,7 +172,7 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
     public static long ctr = 0;
 
     @Override
-    public Object toObject() {
+    public Object javaInstance() {
         return stubbed;
     }
 

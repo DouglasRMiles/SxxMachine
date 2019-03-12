@@ -1,13 +1,16 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.Long;
-import static SxxMachine.pterm.TermData.Number;
+// Long;
+// Number;
+import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
+import SxxMachine.KPTrail;
 import SxxMachine.Trail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
+import SxxMachine.Prolog;
 import SxxMachine.PrologException;
 import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
@@ -16,8 +19,8 @@ import SxxMachine.Trail;
 public class LongTerm extends ANumberTerm {
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
-        return TermData.Long(longValue());
+    public Term copyJP(RunningPrologMachine m, long t) {
+        return Long(longValue());
     }
 
     @Override
@@ -31,10 +34,10 @@ public class LongTerm extends ANumberTerm {
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         NumberTerm tmpint;
         if (!(that instanceof NumberTerm))
-            return that.bind(this);
+            return that.bindJP(this);
         tmpint = (NumberTerm) that; // cast perhaps to be avoided
         return (tmpint.longValue() == longValue());
     }
@@ -50,7 +53,7 @@ public class LongTerm extends ANumberTerm {
     }
 
     @Override
-    public String toJpString() {
+    public String portrayTerm() {
         return fname();
     }
 
@@ -91,6 +94,7 @@ public class LongTerm extends ANumberTerm {
                 } catch (java.lang.ClassCastException e) {
                     // TODO: handle exception
                     e.printStackTrace();
+                    Prolog.Break("");
                     throw e;
                 }
             }
@@ -102,8 +106,8 @@ public class LongTerm extends ANumberTerm {
     //    }
 
     @Override
-    public boolean bind(Term that, Trail trail) {
-        return super.bind(that, trail) && ((double) longValue() == (double) TermData.asInt(that).longValue());
+    public boolean bindKP(Term that, KPTrail trail) {
+        return super.bindKP(that, trail) && ((double) longValue() == (double) TermData.asInt(that).longValue());
         // unbelievable but true: converting
         // to double is the only way to convince
         // Microsoft's jview that 1==1
@@ -323,7 +327,7 @@ public class LongTerm extends ANumberTerm {
 
     @Override
     public NumberTerm signum() {
-        return TermData.Integer((int) Math.signum(doubleValue()));
+        return Integer((int) Math.signum(longValue()));
     }
 
     @Override
@@ -391,7 +395,7 @@ public class LongTerm extends ANumberTerm {
     }
 
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         return Long.valueOf(longValue());
     }
 

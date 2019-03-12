@@ -1,8 +1,7 @@
 package SxxMachine;
 
 
-import SxxMachine.pterm.*;
-import static SxxMachine.pterm.TermData.*;
+import SxxMachine.pterm.FluentTerm;
 
 /**
  * A Fluent is a Agent Object which has its own state, subject to changes over time.

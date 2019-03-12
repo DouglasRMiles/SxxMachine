@@ -1,8 +1,11 @@
 package SxxMachine;
 
+// CONST;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.pterm.TermData;
 
 /**
  * Basic toplevel Prolog Engine. Loads and executes Prolog programs and can be
@@ -17,7 +20,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
         return new Prog(trail, orStack, parent);
     }
 
-    public Prog(Trail trail, ObjectStack orStack, Prog parent) {
+    public Prog(KPTrail trail, ObjectStack orStack, Prog parent) {
         super(null);
         this.trail = trail;
         this.oldTop = trail.top();
@@ -42,7 +45,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
 
     // INSTANCE FIELDS
 
-    private Trail trail;
+    private KPTrail trail;
 
     /**
      * Contains Unfolders that may produce answers.
@@ -53,7 +56,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
 
     private int oldTop;
 
-    public final Trail getTrail() {
+    public final KPTrail getTrail() {
         return trail;
     }
 
@@ -118,7 +121,7 @@ public class Prog extends SourceFluentTerm implements Runnable {
         Prog p = new_engine(X, G);
         Term A = ask_engine(p);
         if (A != null) {
-            A = TermData.S("the", A);
+            A = S("the", A);
             p.stop();
         } else
             A = Prolog.aNo;

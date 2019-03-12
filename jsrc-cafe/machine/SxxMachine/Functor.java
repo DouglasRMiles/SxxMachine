@@ -8,7 +8,7 @@ public interface Functor extends NameArity, Atomic {
     int exec(Prog p);
 
     @Override
-    boolean isConst();
+    boolean isAtomOrObject();
 
     @Override
     boolean isTrueProc();
@@ -17,7 +17,7 @@ public interface Functor extends NameArity, Atomic {
     Functor toClone() throws CloneNotSupportedException;
 
     @Override
-    boolean bind(Term that, Trail trail);
+    boolean bindKP(Term that, KPTrail trail);
 
     @Override
     String getFAKey();
@@ -55,7 +55,7 @@ public interface Functor extends NameArity, Atomic {
     int type();
 
     @Override
-    boolean isAtom();
+    boolean isAtomSymbol();
 
     /**
      * Returns the arity of this <code>SymbolTerm</code>.
@@ -73,7 +73,7 @@ public interface Functor extends NameArity, Atomic {
      * @see #name
      */
     @Override
-    String getString();
+    String getJavaString();
 
     int start();
 
@@ -110,7 +110,7 @@ public interface Functor extends NameArity, Atomic {
      * @return
      */
     @Override
-    int length();
+    int termLength();
 
     // TODO startsWith(), endsWith(), indexOf()
     /* Term */
@@ -148,7 +148,7 @@ public interface Functor extends NameArity, Atomic {
      *         <code>SymbolTerm</code>.
      */
     @Override
-    Object toJava();
+    Object javaInstance();
 
     @Override
     void toStringImpl(int printingFlags, StringBuilder sb);

@@ -108,9 +108,9 @@ class pred_nullify_2_1 extends pred_nullify_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(pred_nullify_2_consts.posint0)))
+        if (!(areg0.unifyJP(pred_nullify_2_consts.posint0)))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -149,9 +149,9 @@ class pred_nullify_2_2 extends pred_nullify_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
         local_aregs[0] = var3;
 

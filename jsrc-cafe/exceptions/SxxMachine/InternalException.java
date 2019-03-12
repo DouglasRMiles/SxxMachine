@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Internal error.<br>
@@ -12,7 +13,7 @@ import SxxMachine.pterm.TermData;
 @SuppressWarnings("serial")
 public class InternalException extends PrologException {
     /** A functor symbol of <code>internal_error/1</code>. */
-    public static final Functor INTERNAL_ERROR = TermData.F("internal_error", 1);
+    public static final Functor INTERNAL_ERROR = F("internal_error", 1);
     /** Holds a message. */
     public final String message;
 
@@ -27,8 +28,8 @@ public class InternalException extends PrologException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.createAtomic(this.message) };
-        return TermData.createErrorTerm(this, INTERNAL_ERROR, args);
+        Term[] args = { createAtomic(this.message) };
+        return createErrorTerm(this, INTERNAL_ERROR, args);
     }
 
     /** Returns a string representation of this <code>InternalException</code>. */

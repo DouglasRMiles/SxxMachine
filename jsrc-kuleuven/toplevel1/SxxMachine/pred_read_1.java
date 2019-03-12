@@ -55,7 +55,7 @@ public class pred_read_1 extends Code {
 
 class pred_read_1_1 extends pred_read_1 {
     private Term ignore(Term o, String[][] ignores) {
-        if (ignores == null || !(o.isCompound()))
+        if (ignores == null || !(o instanceof StructureTerm))
             return o;
         final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {
@@ -87,7 +87,7 @@ class pred_read_1_1 extends pred_read_1 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
         local_aregs[1] = S(string5, var2.dref(), var3, S(string2, var3.dref(), var1

@@ -29,15 +29,15 @@ public class ClassPred extends Code {
     static boolean find(Term classConst, Term className) {
         classConst = classConst.dref();
         className = className.dref();
-        if (classConst .isConst()) {
+        if (classConst .isAtomOrObject()) {
             final Const cct = (Const) classConst;
             if (cct.getValue() instanceof Class) {
                 final Class cc = (Class) cct.getValue();
-                return className.unify(CONST(cc.getName()));
+                return className.unifyJP(CONST(cc.getName()));
             } else
                 return false;
         }
-        if (className .isConst()) {
+        if (className .isAtomOrObject()) {
             final Const ccn = (Const) className;
             if (ccn.getValue() instanceof String) {
                 return find(classConst, (String) ccn.getValue());
@@ -60,7 +60,7 @@ public class ClassPred extends Code {
             log.debug("Could not find class", e);
             return false;
         }
-        return classConst.unify(CONST(type));
+        return classConst.unifyJP(CONST(type));
     }
 
 }

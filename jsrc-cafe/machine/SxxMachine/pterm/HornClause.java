@@ -1,15 +1,14 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.AND;
+// AND;
+import static SxxMachine.pterm.TermData.*;
 
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 
 import SxxMachine.HashDict;
 import SxxMachine.IO;
 import SxxMachine.KPTrail;
-import SxxMachine.Trail;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.Var;
@@ -19,9 +18,9 @@ import SxxMachine.Var;
  * Datatype for a Prolog clause (H:-B) having a head H and a body b
  */
 public class HornClause extends StructureTerm {
-    public HornClause(Term s, Term[] args, Map dict2, boolean ground, String fname, int begins_at, int ends_at) {
+    public HornClause(Term s, Term[] args, HashDict dict, boolean ground, String fname, int begins_at, int ends_at) {
         super(s, args);
-        this.dict = dict2;
+        this.dict = dict;
         this.ground = ground;
         this.fname = fname;
         this.begins_at = begins_at;
@@ -85,7 +84,7 @@ public class HornClause extends StructureTerm {
         IO.trace("read string: <" + line + ">");
 
         if (null == line)
-            line = Prolog.anEof.getString();
+            line = Prolog.anEof.getJavaString();
         else if (0 == line.length())
             return null;
 
@@ -109,7 +108,7 @@ public class HornClause extends StructureTerm {
     /**
      * Variable dictionary
      */
-    public Map dict = null;
+    public HashDict dict = null;
 
     /**
      * Remembers if a clause is ground.
@@ -168,8 +167,7 @@ public class HornClause extends StructureTerm {
      * Pretty prints a clause after replacing ugly variable names
      */
     public String pprint(boolean replaceAnonymous) {
-        final HornClause cnumbervars = this.cnumbervars(replaceAnonymous);
-        String s = Clause2String(cnumbervars);
+        String s = Clause2String(this.cnumbervars(replaceAnonymous));
         // if(fname!=null) s="%% "+fname+":"+begins_at+"-"+ends_at+"\n"+s;
         return s;
     }
@@ -193,7 +191,7 @@ public class HornClause extends StructureTerm {
         if (provenGround())
             return this;
         KPTrail trail = new KPTrail();
-        int oldTop = trail.top();
+        final int oldtop = trail.top();
         Iterator e = dict.keySet().iterator();
 
         while (e.hasNext()) {
@@ -211,7 +209,7 @@ public class HornClause extends StructureTerm {
             }
         }
         HornClause NewC = (HornClause) numbervars();
-        trail.unwind(oldTop);
+        trail.unwind(oldtop);
         return NewC;
     }
 
@@ -314,7 +312,7 @@ public class HornClause extends StructureTerm {
      * @see Term#unify()
      *
      */
-    private final HornClause unfold(final HornClause that, Trail trail) {
+    private final HornClause unfold(final HornClause that, KPTrail trail) {
         HornClause result = null;
         Term first = getFirst();
         Term thatHead = that.getHead();
@@ -333,7 +331,7 @@ public class HornClause extends StructureTerm {
     }
 
     // synchronized
-    public final HornClause unfold_with_goal(HornClause goal, Trail trail) {
+    public final HornClause unfold_with_goal(HornClause goal, KPTrail trail) {
         return goal.unfold(this, trail);
     }
 

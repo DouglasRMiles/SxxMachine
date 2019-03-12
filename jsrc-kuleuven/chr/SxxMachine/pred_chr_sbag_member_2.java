@@ -48,9 +48,9 @@ class pred_sbag_member_2_1 extends pred_chr_sbag_member_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string1, var1.dref(), var2))))
+        if (!((areg1).unifyJP(S(string1, var1.dref(), var2))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -70,9 +70,9 @@ class pred_sbag_member_2_2 extends pred_chr_sbag_member_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string1, var2, var3))))
+        if (!((areg1).unifyJP(S(string1, var2, var3))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();

@@ -111,16 +111,16 @@ class pred_genpredcode_5_1 extends pred_genpredcode_5 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(CONST(pred_genpredcode_5_consts.string6))))
+        if (!(areg0.unifyJP(CONST(pred_genpredcode_5_consts.string6))))
             return mach.Fail0;
-        if (!(areg1.unify(var1.dref())))
+        if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var2.dref())))
+        if (!(areg2.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        if (!(areg3.unify(pred_genpredcode_5_consts.posint0)))
+        if (!(areg3.unifyJP(pred_genpredcode_5_consts.posint0)))
             return mach.Fail0;
-        if (!(areg4.unify(var3.dref())))
+        if (!(areg4.unifyJP(var3.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -176,15 +176,15 @@ class pred_genpredcode_5_2 extends pred_genpredcode_5 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_genpredcode_5_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_genpredcode_5_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var5.dref())))
+        if (!(areg3.unifyJP(var5.dref())))
             return mach.Fail0;
-        if (!(areg4.unify(var6.dref())))
+        if (!(areg4.unifyJP(var6.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
 

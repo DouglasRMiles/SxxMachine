@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Domain error.<br>
@@ -13,7 +14,7 @@ import SxxMachine.pterm.TermData;
  */
 public class IllegalDomainException extends BuiltinException {
     /** A functor symbol of <code>domain_error/4</code>. */
-    public static final Functor DOMAIN_ERROR = TermData.F("domain_error", 4);
+    public static final Functor DOMAIN_ERROR = F("domain_error", 4);
     /*
      * domain ::= character_code_list | close_option | flag_value | io_mode |
      * non_empty_list | not_less_than_zero | operator_priority | operator_specifier
@@ -53,9 +54,9 @@ public class IllegalDomainException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), TermData.createAtomic(this.domain),
+        Term[] args = { FFIObject(this.goal), Integer(this.argNo), createAtomic(this.domain),
                 this.culprit };
-        return TermData.createErrorTerm(this, DOMAIN_ERROR, args);
+        return createErrorTerm(this, DOMAIN_ERROR, args);
     }
 
     /**
@@ -67,7 +68,7 @@ public class IllegalDomainException extends BuiltinException {
         if (this.argNo > 0)
             s += " - arg " + this.argNo;
         s += ": expected " + this.domain;
-        s += ", found " + this.culprit.pprint();
+        s += ", found " + this.culprit.getJavaString();
         s += "}";
         return s;
     }

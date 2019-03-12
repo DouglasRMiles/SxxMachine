@@ -32,7 +32,7 @@ final class FrozenVar extends AbstractVar implements UnTrailOperation {
     }
 
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         return Prolog.Nil; // might decide to copy frozenvars
         // later
     }
@@ -55,7 +55,7 @@ final class FrozenVar extends AbstractVar implements UnTrailOperation {
     }
 
     @Override
-    public boolean bind(Term that) {
+    public boolean bindJP(Term that) {
         System.out.println("FrozenVar.Bind");
         if (that instanceof FrozenVar) {
             final FrozenVar thatv = (FrozenVar) that;
@@ -65,7 +65,7 @@ final class FrozenVar extends AbstractVar implements UnTrailOperation {
             mach.trailEntry(this);
             mach.trailEntry(thatv);
         } else if (that instanceof JpVar) {
-            return that.bind(this);
+            return that.bindJP(this);
         } else {
             Refers = that;
             mach.trailEntry(this);
@@ -77,8 +77,8 @@ final class FrozenVar extends AbstractVar implements UnTrailOperation {
     }
 
     @Override
-    public boolean unify(Term that) {
-        return bind(that);
+    public boolean unifyJP(Term that) {
+        return bindJP(that);
     }
 
     @Override
@@ -91,7 +91,7 @@ final class FrozenVar extends AbstractVar implements UnTrailOperation {
 
     @Override
     public String fname() {
-        return toJpString();
+        return portrayTerm();
     }
 
     @Override

@@ -28,20 +28,20 @@ public class ListConverter extends Code {
             return mach.Fail0;
         }
         if (!java.isVariable()) {
-            if (!(java .isConst()))
+            if (!(java .isAtomOrObject()))
                 return mach.Fail0;
             final Object o = ((Const) java).getValue();
             if (o instanceof Iterable) {
-                if (!prolog.unify(convert2prolog((Iterable<?>) o)))
+                if (!prolog.unifyJP(convert2prolog((Iterable<?>) o)))
                     return mach.Fail0;
             } else if (o instanceof Iterator) {
-                if (!prolog.unify(convert2prolog((Iterator<?>) o)))
+                if (!prolog.unifyJP(convert2prolog((Iterator<?>) o)))
                     return mach.Fail0;
             } else
                 return mach.Fail0;
         } else {
             try {
-                if (!java.unify(CONST(convert2java(prolog))))
+                if (!java.unifyJP(CONST(convert2java(prolog))))
                     return mach.Fail0;
             } catch (final JPrologScriptException ex) {
                 log.fatal("Could not convert to java", ex);

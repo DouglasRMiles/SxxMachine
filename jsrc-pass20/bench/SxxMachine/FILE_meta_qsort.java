@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.Failure.fail_0;
+import static SxxMachine.Failure.*;
 
 @SuppressWarnings("unused")
 public class FILE_meta_qsort extends FILE_system {

@@ -1,8 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
+// Jv;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_solveDefaultQuery_0 extends Code {
 
@@ -35,7 +35,7 @@ class pred_processGoal_1 extends Code {
         final Term goal = args[0].dref();
         final JpVar part1 = Jv(mach);
         final JpVar part2 = Jv(mach);
-        if (goal.unify(S(",", part1, part2))) {
+        if (goal.unifyJP(S(",", part1, part2))) {
             args[0] = part1.dref();
             args[1] = S("processGoal", part2.dref(), args[1]);
             return mach.Call2;

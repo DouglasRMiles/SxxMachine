@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * System error.<br>
@@ -11,7 +12,7 @@ import SxxMachine.pterm.TermData;
  */
 public class SystemException extends PrologException {
     /** A functor symbol of <code>system_error/1</code>. */
-    public static final Functor SYSTEM_ERROR = TermData.F("system_error", 1);
+    public static final Functor SYSTEM_ERROR = F("system_error", 1);
     /** Holds a message. */
     public final String message;
 
@@ -31,8 +32,8 @@ public class SystemException extends PrologException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.createAtomic(this.message) };
-        return TermData.createErrorTerm(this, SYSTEM_ERROR, args);
+        Term[] args = { createAtomic(this.message) };
+        return createErrorTerm(this, SYSTEM_ERROR, args);
     }
 
     /** Returns a string representation of this <code>SystemException</code>. */

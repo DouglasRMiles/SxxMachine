@@ -1,10 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -59,7 +57,7 @@ class pred_untilend_1_1 extends pred_untilend_1 {
         final Term local_aregs[] = mach.getAreg();
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(posint10)))
+        if (!((areg0).unifyJP(posint10)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -77,7 +75,7 @@ class pred_untilend_1_2 extends pred_untilend_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
         local_aregs[1] = S(string3, var2.dref(), continuation);

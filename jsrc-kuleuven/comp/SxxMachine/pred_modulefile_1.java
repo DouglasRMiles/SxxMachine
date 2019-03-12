@@ -61,7 +61,7 @@ public class pred_modulefile_1 extends Code {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1)))
+        if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
 

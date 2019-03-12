@@ -1,6 +1,7 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.CONS;
+// CONS;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.AFunct;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
@@ -177,9 +179,9 @@ public abstract class ListTerm extends AFunct implements Compound {
     }
 
     @Override
-    public String getString() {
+    public String getJavaString() {
         oopsy("unusual getString");
-        return TermData.charsToString(this);
+        return charsToString(this);
     }
 
     public String fname() {
@@ -190,7 +192,7 @@ public abstract class ListTerm extends AFunct implements Compound {
      * @see SxxMachine.pterm.IStruct#nth0(int)
      */
     @Override
-    public Term nth0(int nth) {
+    public Term nthTermEle0(int nth) {
         Term t = this;
         int old_nth = nth;
         while ((t.isCons()) && 0 < nth) {
@@ -204,7 +206,7 @@ public abstract class ListTerm extends AFunct implements Compound {
 
     /** Returns the length of this <code>ListTerm</code>. */
     @Override
-    public int length() {
+    public int termLength() {
         int count = 0;
         Term t = this;
         while ((t.isCons())) {
@@ -222,11 +224,11 @@ public abstract class ListTerm extends AFunct implements Compound {
      *         <code>IntegerTerm</code>.
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         List<Object> vec = new ArrayList<Object>();
         Term t = this;
         while ((t.isCons())) {
-            vec.add((t).car().dref().toJava());
+            vec.add((t).car().dref().javaInstance());
             t = (t).cdr().dref();
         }
         if (!t.isNil()) {
@@ -307,10 +309,10 @@ public abstract class ListTerm extends AFunct implements Compound {
      * Iterator over terms that make up this ListTerm.
      */
     public static class ListTermIterator implements Iterator<Term> {
-        private static final Functor LEFT_BRACKET = TermData.internToken("[");
-        private static final Functor SEPARATOR = TermData.internToken("|");
-        private static final Functor RIGHT_BRACKET = TermData.internToken("]");
-        private static final Functor COMMA = TermData.internToken(",");
+        private static final Functor LEFT_BRACKET = internToken("[");
+        private static final Functor SEPARATOR = internToken("|");
+        private static final Functor RIGHT_BRACKET = internToken("]");
+        private static final Functor COMMA = internToken(",");
 
         private Term current;
         private int index = 0;
@@ -357,6 +359,13 @@ public abstract class ListTerm extends AFunct implements Compound {
             }
             return result;
         }
+
+        @Override
+        public void remove() {
+			// TODO Auto-generated method stub
+			throw new NotImplementedException();
+
+        }
     }
 
     /* Comparable */
@@ -374,7 +383,7 @@ public abstract class ListTerm extends AFunct implements Compound {
      */
     @Override
     public int compareTo(Term otherterm) { // otherterm must be dereferenced.
-        if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isAtom()))
+        if ((otherterm.isVar()) || (otherterm.isNumber()) || (otherterm.isAtomSymbol()))
             return AFTER;
         if ((otherterm.isCompound())) {
             int arity = otherterm.arity();
@@ -416,13 +425,13 @@ public abstract class ListTerm extends AFunct implements Compound {
      * @see SxxMachine.pterm.IStruct#add(SxxMachine.Term)
      */
     @Override
-    public Compound add(Term term) {
+    public Compound addPlToList(Term term) {
         if (isImmutable()) {
             return addToCopy(term);
         }
         final Term cdr = argz[1];
         if (cdr.isCons())
-            return cdr.add(term);
+            return cdr.addPlToList(term);
         if (cdr == Prolog.Nil) {
             // proper list
             Compound acdr = CONS(term, cdr);
@@ -466,7 +475,7 @@ public abstract class ListTerm extends AFunct implements Compound {
         }
         final Term cdr = argz[1];
         if (cdr.isCons())
-            return cdr.add(term);
+            return cdr.addPlToList(term);
         if (cdr == Prolog.Nil) {
             // proper list
             Compound acdr = CONS(term, cdr);

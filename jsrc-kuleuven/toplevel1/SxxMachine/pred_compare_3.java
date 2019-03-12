@@ -38,10 +38,10 @@ public class pred_compare_3 extends Code {
             return 1;
         }
 
-        if (t .isConst()) {
+        if (t .isAtomOrObject()) {
             if (s instanceof NumberTerm)
                 return 1;
-            if (!(s .isConst()))
+            if (!(s .isAtomOrObject()))
                 return -1;
             final Const ct = (Const) t;
             final Const cs = (Const) s;
@@ -95,7 +95,7 @@ public class pred_compare_3 extends Code {
         if (t.isVariable()) {
             if (!(s.isVariable()))
                 return 1;
-            return t.toJpString().compareTo(s.toJpString());
+            return t.portrayTerm().compareTo(s.portrayTerm());
         }
 
         return 1; // to keep the compiler happy
@@ -121,7 +121,7 @@ public class pred_compare_3 extends Code {
         else
             s = internS(">");
 
-        if (!(arg1.unify(CONST(s))))
+        if (!(arg1.unifyJP(CONST(s))))
             return mach.Fail0;
         areg[0] = areg[3]; // install the continuation
         areg[1] = areg[2] = areg[3] = null;

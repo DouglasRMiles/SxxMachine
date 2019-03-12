@@ -10,68 +10,41 @@ import java.util.ArrayList;
  * @see Undoable
  * @see Var
  */
-public class KPTrail extends Trail {
+public class KPTrail {
+    public final void push(Undoable var) {
+        add(var);
+    }
 
-    public KPTrail() {
-        super(Prolog.M);
+
+    public int top() {
+        return size();     
+    }
+
+    public final Undoable pop() {
+        return (Undoable) remove(size() - 1);
     }
 
     ArrayList<Undoable> stack = new ArrayList<Undoable>();
 
-    //    public int top() {
-    //        int expect = super.top() + 1;
-    //        final int size = stack.size();
-    //        if (expect != size) {
-    //            mismatch();
-    //        }
-    //        return size;
-    //    }
+    private Object remove(int i) {
+        return stack.remove(i);
+    }
 
-    //    public final void push(Undoable var) {
-    //        super.push(var);
-    //        stack.add(var);
-    //        top();
-    //    }
-    //
-    //    public final Undoable pop() {
-    //        final Object remove = stack.remove(stack.size() - 1);
-    //        Undoable Other = super.pop();
-    //        if (Other != remove) {
-    //            mismatch();
-    //        }
-    //        return (Undoable) remove;
-    //    }
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
 
-    /**
-     * Used to undo bindings after unification, if we intend to leave no side
-     * effects.
-     */
+    public int size() {
+        return stack.size();
+    }
 
-    //    // synchronized
-    //    final public void unwind(int to) {
-    //        // super.unwind(to);
-    //        // IO.mes("unwind TRAIL: "+name()+": "+size()+"=>"+to);
-    //        int remove = top() - to;
-    //        if (remove < 0)
-    //            IO.assertion("unwind attempted from smaller to larger top");
-    //        while (remove-- > 0) {
-    //            Undoable O = pop();
-    //            O.undo();
-    //        }
-    //    }
-    //
-    //    private void mismatch() {
-    //        Prolog.Break("mismatch ");
-    //        // TODO Auto-generated method stub
-    //        if (true)
-    //            throw new AbstractMethodError("KPTrail.mismatch");
-    //    }
+    private void add(Undoable x) {
+        stack.add(x);
+    }
 
-    //
-    //    public boolean isEmpty() {
-    //        assert super.
-    //        return stack.isEmpty();
-    //    }
+    public KPTrail() {
+        super();
+    }
 
     public String name() {
         return "trail" + hashCode() % 64;
@@ -81,7 +54,23 @@ public class KPTrail extends Trail {
         return name() + "\n" + super.toString() + "\n";
     }
 
+    /**
+     * Used to undo bindings after unification, if we intend to leave no side
+     * effects.
+     */
+
+    // synchronized
+    final public void unwind(int to) {
+        // IO.mes("unwind TRAIL: "+name()+": "+size()+"=>"+to);
+        // if(to>size())
+        // IO.assertion("unwind attempted from smaller to larger top");
+        for (int i = size() - to; i > 0; i--) {
+            Undoable O = pop();
+            O.undo();
+        }
+    }
+
     public String stat() {
-        return "Trail=" + top();
+        return "Trail=" + size();
     }
 }

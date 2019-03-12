@@ -98,8 +98,8 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      * @throws PrologException
      * @throws IllegalTypeException */
     @Override
-    public String getString() throws IllegalTypeException {
-        return (useAlias() ? getTrueRef().getString() : super.toUnquoted());
+    public String getJavaString() throws IllegalTypeException {
+        return (useAlias() ? getTrueRef().getJavaString() : super.toUnquoted());
     }
 
     /**
@@ -180,9 +180,9 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      * @see Functor
      */
     @Override
-    public boolean isAtom() {
+    public boolean isAtomSymbol() {
 
-        return (useAlias() ? getTrueRef().isAtom() : super.isAtom());
+        return (useAlias() ? getTrueRef().isAtomSymbol() : super.isAtomSymbol());
     }
 
     /**
@@ -272,15 +272,15 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     }
 
     @Override
-    public int length() {
+    public int termLength() {
 
-        return (useAlias() ? getTrueRef().length() : super.length());
+        return (useAlias() ? getTrueRef().termLength() : super.termLength());
     }
 
     @Override
-    public Compound add(Term t) {
+    public Compound addPlToList(Term t) {
 
-        return (useAlias() ? getTrueRef().add(t) : super.add(t));
+        return (useAlias() ? getTrueRef().addPlToList(t) : super.addPlToList(t));
     }
 
     @Override
@@ -328,9 +328,9 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      *         with Java</em>, otherwise <code>this</code>.
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
 
-        return (useAlias() ? getTrueRef().toJava() : super.toJava());
+        return (useAlias() ? getTrueRef().javaInstance() : super.javaInstance());
     }
 
     @Override

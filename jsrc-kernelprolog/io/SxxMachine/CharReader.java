@@ -1,11 +1,13 @@
 package SxxMachine;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
 import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
@@ -13,7 +15,7 @@ import SxxMachine.pterm.TermData;
 public class CharReader extends SourceFluentTerm {
 
     @Override
-    public CharReader toValue() {
+    public CharReader toValueTalueTerm() {
         return this;
     }
 
@@ -36,7 +38,7 @@ public class CharReader extends SourceFluentTerm {
 
     public CharReader(Term t, Prog p) {
         super(p);
-        this.reader = new StringReader(t.pprint());
+        this.reader = new StringReader(t.getJavaString());
     }
 
     public CharReader(Prog p) {
@@ -53,7 +55,7 @@ public class CharReader extends SourceFluentTerm {
             String s = IO.promptln(">:");
             if (null == s || s.length() == 0)
                 return null;
-            return TermData.SYM(s);
+            return SYM(s);
         }
 
         if (null == reader)
@@ -67,7 +69,7 @@ public class CharReader extends SourceFluentTerm {
             stop();
             return null;
         } else
-            return TermData.Long(c);
+            return Long(c);
     }
 
     @Override
@@ -85,7 +87,7 @@ public class CharReader extends SourceFluentTerm {
      * @see SxxMachine.Term#copy(SxxMachine.RunningPrologMachine, long)
      */
     @Override
-    public Term copy(RunningPrologMachine m, long t) {
+    public Term copyJP(RunningPrologMachine m, long t) {
         // TODO Auto-generated method stub
         if (true) throw new AbstractMethodError("Term.copy");
         return null;

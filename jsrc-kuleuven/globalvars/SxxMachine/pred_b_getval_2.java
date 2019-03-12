@@ -29,7 +29,7 @@ public class pred_b_getval_2 extends Code {
                 name = CONST(f.fname());
             }
         }
-        if (name .isConst()) {
+        if (name .isAtomOrObject()) {
             final Const cname = (Const) name;
 
             final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);

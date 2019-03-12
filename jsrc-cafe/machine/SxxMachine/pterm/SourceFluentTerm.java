@@ -1,6 +1,7 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.CONS;
+// CONS;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayList;
 
@@ -25,13 +26,13 @@ abstract public class SourceFluentTerm extends FluentTerm implements Undoable, V
         super(p);
     }
 
-    public static boolean isSource() {
+    public boolean isSource() {
         return true;
     }
 
     abstract public Term getElement();
 
-    public Nonvar toList() {
+    public Nonvar toPlConsList() {
         Term head = getElement();
         if (null == head)
             return (Nonvar) Prolog.Nil;

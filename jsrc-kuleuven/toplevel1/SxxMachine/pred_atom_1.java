@@ -49,7 +49,7 @@ class pred_atom_1_1 extends pred_atom_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = CONST(string1);

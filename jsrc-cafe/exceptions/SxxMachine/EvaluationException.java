@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Evaluation error.<br>
@@ -13,7 +14,7 @@ import SxxMachine.pterm.TermData;
  */
 public class EvaluationException extends BuiltinException {
     /** A functor symbol of <code>evaluation_error/3</code>. */
-    public static final Functor EVALUATION_ERROR = TermData.F("evaluation_error", 3);
+    public static final Functor EVALUATION_ERROR = F("evaluation_error", 3);
     /*
      * errorType ::= float_overflow | int_overflow | undefined | underflow |
      * zero_devisor
@@ -41,9 +42,9 @@ public class EvaluationException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo),
-                TermData.createAtomic(this.errorType) };
-        return (Term) TermData.createErrorTerm(this, EVALUATION_ERROR, args);
+        Term[] args = { FFIObject(this.goal), Integer(this.argNo),
+                createAtomic(this.errorType) };
+        return (Term) createErrorTerm(this, EVALUATION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>EvaluationException</code>. */

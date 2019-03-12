@@ -12,7 +12,7 @@ public class JPNull extends Code {
     public Code exec(PrologMachine mach) {
         final Term[] args = mach.getAreg();
         final Term nullObject = args[0].dref();
-        if (!nullObject.unify(Const.javaNull()))
+        if (!nullObject.unifyJP(Const.javaNull()))
             return mach.Fail0;
         args[0] = args[1];
         return mach.Call1;

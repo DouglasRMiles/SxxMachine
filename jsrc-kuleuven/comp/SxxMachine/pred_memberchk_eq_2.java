@@ -4,10 +4,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Iterator;
 
@@ -96,10 +94,10 @@ class pred_memberchk_eq_2_1 extends pred_memberchk_eq_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_memberchk_eq_2_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_memberchk_eq_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -139,10 +137,10 @@ class pred_memberchk_eq_2_2 extends pred_memberchk_eq_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_memberchk_eq_2_consts.string2, var2.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_memberchk_eq_2_consts.string2, var2.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 

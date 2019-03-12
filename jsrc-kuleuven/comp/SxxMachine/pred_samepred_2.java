@@ -4,9 +4,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Jv;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_samepred_2_consts {
     Code entry_code;
@@ -63,10 +62,10 @@ public class pred_samepred_2 extends Code {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_samepred_2_consts.string2, var1, var2))))
+        if (!(areg0.unifyJP(S(pred_samepred_2_consts.string2, var1, var2))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_samepred_2_consts.string3, S(pred_samepred_2_consts.string2, var3, var4), var5))))
+        if (!(areg1.unifyJP(S(pred_samepred_2_consts.string3, S(pred_samepred_2_consts.string2, var3, var4), var5))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var6;

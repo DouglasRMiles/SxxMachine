@@ -1,7 +1,11 @@
 package SxxMachine.pterm;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 
@@ -26,10 +30,10 @@ public class JavaObjectTerm extends SxxMachine.Const {
     public JavaObjectTerm toClone() {
         return TermData.createJavaObjectTerm(obj, this.intendedClass);
     }
-
-    public Object toObject() {
-        return obj;
-    }
+    //
+    //    public Object javaInstance() {
+    //        return obj;
+    //    }
 
     public boolean isObject() {
         return true;
@@ -83,11 +87,11 @@ public class JavaObjectTerm extends SxxMachine.Const {
     // }
     // this.obj = _obj;
     // }
-    /** Returns the object wrapped by this <code>JavaObjectTerm</code>. */
-
-    public Object object() {
-        return this.obj;
-    }
+    //    /** Returns the object wrapped by this <code>JavaObjectTerm</code>. */
+    //
+    //    public Object javaInstance() {
+    //        return this.obj;
+    //    }
 
     /**
      * Returns a <code>java.lang.Class</code> of object wrapped by this
@@ -98,7 +102,7 @@ public class JavaObjectTerm extends SxxMachine.Const {
         return this.obj.getClass();
     }
 
-    public String getString() {        
+    public String getJavaString() {
         oopsy("unknown getString");
         return "" + obj;
     }
@@ -107,7 +111,7 @@ public class JavaObjectTerm extends SxxMachine.Const {
 
     public boolean unifyImpl(Term t, Trail trail) {
         t = t.dref();
-        return (t.isVar()) ? t.bind(this, trail) : ((t.isJavaObject()) && this.obj == ((t).object()));
+        return (t.isVar()) ? t.bind(this, trail) : ((t.isJavaObject()) && this.obj == ((t).javaInstance()));
     }
 
     /**
@@ -131,7 +135,7 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * @see #obj
      */
 
-    public Object toJava() {
+    public Object javaInstance() {
         return this.obj;
     }
 
@@ -149,7 +153,7 @@ public class JavaObjectTerm extends SxxMachine.Const {
      */
 
     public boolean equalsTerm(Term o, OpVisitor comparator) {
-        return o.isJavaObject() && this.obj == ((o).object());
+        return o.isJavaObject() && this.obj == ((o).javaInstance());
     }
 
     public int termHashCodeImpl() {
@@ -183,14 +187,14 @@ public class JavaObjectTerm extends SxxMachine.Const {
      */
 
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()) || (anotherTerm.isCons())
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomSymbol()) || (anotherTerm.isCons())
                 || (anotherTerm.isCompound()))
             return AFTER;
         if (!(anotherTerm.isJavaObject()))
             return BEFORE;
-        if (this.obj == ((anotherTerm).object()))
+        if (this.obj == ((anotherTerm).javaInstance()))
             return EQUAL;
-        return this.obj.hashCode() - (anotherTerm).object().hashCode(); // ???
+        return this.obj.hashCode() - (anotherTerm).javaInstance().hashCode(); // ???
     }
 
     public int type() {

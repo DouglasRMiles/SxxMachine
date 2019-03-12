@@ -1,5 +1,8 @@
 package SxxMachine.pterm;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.NumberTerm;
@@ -82,7 +85,7 @@ class IntegerTerm extends LongTerm {
      *         <code>IntegerTerm</code>.
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         return Integer.valueOf(this.intValue());
     }
 
@@ -446,7 +449,7 @@ class IntegerTerm extends LongTerm {
     }
 
     public NumberTerm Integer(long n) {
-        return TermData.Long(n);
+        return Long(n);
     }
 
     @Override

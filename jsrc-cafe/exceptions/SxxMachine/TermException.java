@@ -20,7 +20,7 @@ public class TermException extends PrologException {
 
     /** Constructs a new <code>TermException</code> with a given message term. */
     public TermException(Term _message) {
-        super(_message.pprint());
+        super(_message.getJavaString());
         this.messageTerm = _message;
     }
 
@@ -31,6 +31,6 @@ public class TermException extends PrologException {
 
     @Override
     public String getMessage() {
-        return messageTerm.pprint();
+        return messageTerm.getJavaString();
     }
 }

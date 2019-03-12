@@ -4,10 +4,11 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+// Jv;
+// S;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Iterator;
 
@@ -93,7 +94,7 @@ class pred_doNumberVars_1_1 extends pred_doNumberVars_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
         local_aregs[0] = pred_doNumberVars_1_consts.posint1;
@@ -127,7 +128,7 @@ class pred_doNumberVars_1_2 extends pred_doNumberVars_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

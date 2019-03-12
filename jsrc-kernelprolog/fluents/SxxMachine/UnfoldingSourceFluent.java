@@ -121,7 +121,7 @@ public class UnfoldingSourceFluent extends SourceFluent {
         HornClause unfolded_goal = null;
         while (e.hasNext()) {
             Term T = (Term) e.next();
-            if (!(T instanceof HornClause))
+            if (!(T .isClause()))
                 continue;
             // resolution step, over goal/resolvent of the form:
             // Answer:-G1,G2,...,Gn.

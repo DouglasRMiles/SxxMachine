@@ -1,10 +1,11 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+// Jv;
+// S;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -67,9 +68,9 @@ class pred_execdisj_2_1 extends pred_execdisj_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(var3)))
+        if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = S(string0, new HeapChoice(mach.getCUTB()), S(string3, var2.dref(), continuation));
@@ -90,9 +91,9 @@ class pred_execdisj_2_2 extends pred_execdisj_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(var3)))
+        if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string3, var3.dref(), continuation);
@@ -112,9 +113,9 @@ class pred_execdisj_2_3 extends pred_execdisj_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = continuation;
@@ -134,9 +135,9 @@ class pred_execdisj_2_4 extends pred_execdisj_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = continuation;

@@ -14,7 +14,7 @@ public interface Nonvar extends Term {
 
     int getIntArg(int i);
 
-    Nonvar toChars();
+    Nonvar toCharsList();
 
     /**
      * @return

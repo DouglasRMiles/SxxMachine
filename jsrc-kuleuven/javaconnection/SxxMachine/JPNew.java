@@ -30,12 +30,12 @@ public class JPNew extends Code {
         if (java_args == null)
             return mach.Fail0;
         try {
-            if (!res.unify(CONST(createClass(targetClass, java_args))))
+            if (!res.unifyJP(CONST(createClass(targetClass, java_args))))
                 return mach.Fail0;
-            if (!exception.unify(Const.javaNull()))
+            if (!exception.unifyJP(Const.javaNull()))
                 return mach.Fail0;
         } catch (final Throwable ex) {
-            if (!exception.unify(CONST(ex)))
+            if (!exception.unifyJP(CONST(ex)))
                 return mach.Fail0;
         }
         args[1] = args[2] = args[3] = args[4] = null;
@@ -44,7 +44,7 @@ public class JPNew extends Code {
     }
 
     private Class<?> getTargetClass(PrologMachine mach, Term classType) {
-        if (!(classType .isConst()) || !(((Const) classType).getValue() instanceof Class)) {
+        if (!(classType .isAtomOrObject()) || !(((Const) classType).getValue() instanceof Class)) {
             final JpVar v = Jv(mach);
             if (!ClassPred.find(v, classType))
                 return null;

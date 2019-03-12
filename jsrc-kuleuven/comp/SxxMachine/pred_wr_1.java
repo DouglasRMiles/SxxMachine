@@ -113,7 +113,7 @@ class pred_wr_1_1 extends pred_wr_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string11)))))
+        if (!(areg0.unifyJP(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string11)))))
             return mach.Fail0;
 
         local_aregs[0] = CONST(pred_wr_1_consts.string15);
@@ -145,7 +145,7 @@ class pred_wr_1_2 extends pred_wr_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string11)))))
+        if (!(areg0.unifyJP(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string11)))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -176,7 +176,7 @@ class pred_wr_1_3 extends pred_wr_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string10)))))
+        if (!(areg0.unifyJP(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string10)))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -207,7 +207,7 @@ class pred_wr_1_4 extends pred_wr_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
@@ -244,7 +244,7 @@ class pred_wr_1_5 extends pred_wr_1 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_wr_1_consts.string7, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_wr_1_consts.string7, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -275,7 +275,7 @@ class pred_wr_1_6 extends pred_wr_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_wr_1_consts.string5))))
+        if (!(areg0.unifyJP(CONST(pred_wr_1_consts.string5))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -310,7 +310,7 @@ class pred_wr_1_7 extends pred_wr_1 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_wr_1_consts.string3, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_wr_1_consts.string3, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
         local_aregs[0] = S(pred_wr_1_consts.string3, var1.dref(), var2.dref());
@@ -341,7 +341,7 @@ class pred_wr_1_8 extends pred_wr_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = continuation;

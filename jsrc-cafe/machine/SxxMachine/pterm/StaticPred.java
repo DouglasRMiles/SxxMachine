@@ -24,15 +24,15 @@ public class StaticPred extends Predicate implements Operation {
     public void toString(StringBuilder sb) {
         Token.toQuotedString(predName(), sb);
         boolean first = true;
-        if (LARG != null) {
-            for (int j = 0; j < LARG.length; j++) {
+        if (ThizLARGs != null) {
+            for (int j = 0; j < ThizLARGs.length; j++) {
                 if (first) {
                     sb.append('(');
                     first = false;
                 } else {
                     sb.append(", ");
                 }
-                Term val = LARG[j];
+                Term val = ThizLARGs[j];
                 StructureTerm.toArgString(1, sb, val);
             }
             if (!first) {
@@ -51,10 +51,10 @@ public class StaticPred extends Predicate implements Operation {
 
     @Override
     public int predArity() {
-        if (LARG == null) {
+        if (ThizLARGs == null) {
             return -1;
         }
-        return LARG.length;
+        return ThizLARGs.length;
     }
 
     @Override

@@ -1,9 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Jv;
+import static SxxMachine.pterm.TermData.*;
 
 // Generated java file - release 0.1 - do not edit !
 // Copyright August 16, 1996, KUL and CUM
@@ -58,9 +57,9 @@ class pred_m1_2_1 extends pred_m1_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string2, S(string1, var1.dref(), var2), var3))))
+        if (!((areg1).unifyJP(S(string2, S(string1, var1.dref(), var2), var3))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = continuation;
@@ -81,9 +80,9 @@ class pred_m1_2_2 extends pred_m1_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(S(string2, var2, var3))))
+        if (!((areg1).unifyJP(S(string2, var2, var3))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();

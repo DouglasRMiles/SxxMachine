@@ -5,7 +5,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.internS;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class Length extends SxxMachine.JpModule {
     public Length() {

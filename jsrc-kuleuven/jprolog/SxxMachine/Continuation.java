@@ -22,8 +22,8 @@ public final class Continuation extends JPrologObject {
     //
     //
     @Override
-    public boolean unify(Term that) {
-        return that.bind(this);
+    public boolean unifyJP(Term that) {
+        return that.bindJP(this);
     }
 
     public Term getArg(int i) {

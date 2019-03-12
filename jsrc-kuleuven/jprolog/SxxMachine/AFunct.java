@@ -50,7 +50,7 @@ public abstract class AFunct extends ANonvar {
             A1 = A1.dref();
             A2 = A2.dref();
             return "," + A1.toStringImpl(5) + listify(A2, depth - 1);
-        } else if ((T .isConst()) && ("[]".equals(T.fname())))
+        } else if ((T .isAtomOrObject()) && ("[]".equals(T.fname())))
             return "";
         return " | " + T.toStringImpl(5);
     }
@@ -95,8 +95,8 @@ public abstract class AFunct extends ANonvar {
     public abstract Term getPlainArg(int i);
 
     @Override
-    public boolean bind(Term that) {
-        if (that .isConst()) {
+    public boolean bindJP(Term that) {
+        if (that .isAtomOrObject()) {
             //Kan wel
             if (arity() != 0)
                 return false;
@@ -106,11 +106,11 @@ public abstract class AFunct extends ANonvar {
     }
 
     @Override
-    public boolean unify(Term that) {
+    public boolean unifyJP(Term that) {
         if (getClass() != that.getClass()) {
-            if (bind(that))
+            if (bindJP(that))
                 return true;
-            return that.bind(this);
+            return that.bindJP(this);
         }
         // if (!((this.Name).equals(that.GetName()))) return false ;
         if (!(fname()).equals(that.fname()))
@@ -126,7 +126,7 @@ public abstract class AFunct extends ANonvar {
         while (i > 0) {
             final Term obj1 = arg1[--i].dref();
             final Term obj2 = arg2[i].dref();
-            if (!obj1.unify(obj2))
+            if (!obj1.unifyJP(obj2))
                 return false;
         }
         return true;

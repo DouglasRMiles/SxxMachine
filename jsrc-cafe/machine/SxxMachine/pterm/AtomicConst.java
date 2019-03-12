@@ -56,7 +56,7 @@ public abstract class AtomicConst extends Const implements Atomic {
      */
     @Override
     public String pprint() throws PrologException {
-        return getString();
+        return getJavaString();
     }
 
 }

@@ -54,7 +54,7 @@ public class pred_modulename_1 extends Code {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1)))
+        if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
         local_aregs[0] = CONST(pred_modulename_1_consts.string3);

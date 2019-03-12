@@ -152,22 +152,22 @@ class pred_eliminate_disjunction_8_1 extends pred_eliminate_disjunction_8 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_eliminate_disjunction_8_consts.string12, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_eliminate_disjunction_8_consts.string12, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var5.dref())))
+        if (!(areg3.unifyJP(var5.dref())))
             return mach.Fail0;
-        if (!(areg4.unify(var6.dref())))
+        if (!(areg4.unifyJP(var6.dref())))
             return mach.Fail0;
 
-        if (!(areg5.unify(S(pred_eliminate_disjunction_8_consts.string12, var7.dref(), var8.dref()))))
+        if (!(areg5.unifyJP(S(pred_eliminate_disjunction_8_consts.string12, var7.dref(), var8.dref()))))
             return mach.Fail0;
-        if (!(areg6.unify(var9.dref())))
+        if (!(areg6.unifyJP(var9.dref())))
             return mach.Fail0;
-        if (!(areg7.unify(var10.dref())))
+        if (!(areg7.unifyJP(var10.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -258,22 +258,22 @@ class pred_eliminate_disjunction_8_2 extends pred_eliminate_disjunction_8 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_eliminate_disjunction_8_consts.string3, S(pred_eliminate_disjunction_8_consts.string11, var1
+                .unifyJP(S(pred_eliminate_disjunction_8_consts.string3, S(pred_eliminate_disjunction_8_consts.string11, var1
                         .dref(), var2.dref()), var3.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var4.dref())))
+        if (!(areg1.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var5.dref())))
+        if (!(areg2.unifyJP(var5.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var6.dref())))
+        if (!(areg3.unifyJP(var6.dref())))
             return mach.Fail0;
-        if (!(areg4.unify(var7.dref())))
+        if (!(areg4.unifyJP(var7.dref())))
             return mach.Fail0;
-        if (!(areg5.unify(var8.dref())))
+        if (!(areg5.unifyJP(var8.dref())))
             return mach.Fail0;
-        if (!(areg6.unify(var9.dref())))
+        if (!(areg6.unifyJP(var9.dref())))
             return mach.Fail0;
-        if (!(areg7.unify(var10.dref())))
+        if (!(areg7.unifyJP(var10.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -368,21 +368,21 @@ class pred_eliminate_disjunction_8_3 extends pred_eliminate_disjunction_8 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_eliminate_disjunction_8_consts.string3, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_eliminate_disjunction_8_consts.string3, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var5.dref())))
+        if (!(areg3.unifyJP(var5.dref())))
             return mach.Fail0;
-        if (!(areg4.unify(var6.dref())))
+        if (!(areg4.unifyJP(var6.dref())))
             return mach.Fail0;
-        if (!(areg5.unify(var7.dref())))
+        if (!(areg5.unifyJP(var7.dref())))
             return mach.Fail0;
-        if (!(areg6.unify(var8.dref())))
+        if (!(areg6.unifyJP(var8.dref())))
             return mach.Fail0;
-        if (!(areg7.unify(var9.dref())))
+        if (!(areg7.unifyJP(var9.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
@@ -455,21 +455,21 @@ class pred_eliminate_disjunction_8_4 extends pred_eliminate_disjunction_8 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var4.dref())))
+        if (!(areg3.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg4.unify(var4.dref())))
+        if (!(areg4.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg5.unify(var1.dref())))
+        if (!(areg5.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg6.unify(var5.dref())))
+        if (!(areg6.unifyJP(var5.dref())))
             return mach.Fail0;
-        if (!(areg7.unify(var5.dref())))
+        if (!(areg7.unifyJP(var5.dref())))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

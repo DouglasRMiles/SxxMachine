@@ -1,7 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.internS;
+// internS;
+import static SxxMachine.pterm.TermData.*;
 
 /**
   * Attributed variables module, offers

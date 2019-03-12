@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.Failure.fail_0;
+import static SxxMachine.Failure.*;
 
 @SuppressWarnings("unused")
 public class FILE_browse extends FILE_system {
@@ -1405,7 +1405,7 @@ public class FILE_browse extends FILE_system {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion

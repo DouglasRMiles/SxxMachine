@@ -30,7 +30,7 @@ public class IterateOverClassStructure extends Code {
         Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object .isConst()))
+        if (!(object .isAtomOrObject()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Class))
@@ -51,7 +51,7 @@ public class IterateOverClassStructure extends Code {
     }
 
     protected Term doAction(Class c, Term v, Term cont) {
-        v.unify(CONST(c));
+        v.unifyJP(CONST(c));
         return cont;
     }
 
@@ -117,7 +117,7 @@ class InterfaceIterator extends Code {
         final Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object .isConst()))
+        if (!(object .isAtomOrObject()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Iterator))
@@ -130,7 +130,7 @@ class InterfaceIterator extends Code {
         final Term[] trace = { args[0], args[1], args[2] };
         mach.createChoicePoint(trace);
         mach.fillAlternative(this);
-        if (!classType.unify(CONST(it.next())))
+        if (!classType.unifyJP(CONST(it.next())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         args[1] = args[2] = null;

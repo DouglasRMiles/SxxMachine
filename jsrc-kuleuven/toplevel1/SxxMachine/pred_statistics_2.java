@@ -58,9 +58,9 @@ class pred_statistics_2_1 extends pred_statistics_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(CONST(string4))))
+        if (!((areg0).unifyJP(CONST(string4))))
             return mach.Fail0;
-        if (!((areg1).unify(S(string1, var1, S(string1, var2, CONST(string2))))))
+        if (!((areg1).unifyJP(S(string1, var1, S(string1, var2, CONST(string2))))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = continuation;

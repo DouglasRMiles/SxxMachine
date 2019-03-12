@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Java error.<br>
@@ -15,7 +16,7 @@ import SxxMachine.pterm.TermData;
 public class JavaException extends BuiltinException {
     private static final long serialVersionUID = -7510890457700984457L;
     /** A functor symbol of <code>java_error/3</code>. */
-    public static final Functor JAVA_ERROR = TermData.F("java_error", 3);
+    public static final Functor JAVA_ERROR = F("java_error", 3);
     /** Holds a Java exception. */
     protected final Exception e;
 
@@ -38,9 +39,9 @@ public class JavaException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { (this.goal == null) ? TermData.createAtomic("<Goal unknown>") : TermData.FFIObject(this.goal),
-                TermData.Integer(this.argNo), TermData.FFIObject(this.e) };
-        return TermData.createErrorTerm(this, JAVA_ERROR, args);
+        Term[] args = { (this.goal == null) ? createAtomic("<Goal unknown>") : FFIObject(this.goal),
+                Integer(this.argNo), FFIObject(this.e) };
+        return createErrorTerm(this, JAVA_ERROR, args);
     }
 
     /** Returns a underlying Java exception. */

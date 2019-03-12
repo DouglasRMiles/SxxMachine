@@ -42,7 +42,7 @@ public class sxxtensions extends missing_preds {
         if (was == null)
             was = Prolog.Nil;
         VariableTerm sav = new VariableTerm();
-        sav.val = was;
+        sav.Refers = was;
         sav.bind(a2, m.trail);
         linkval(m, a1, sav);
         return m.cont;
@@ -116,7 +116,7 @@ public class sxxtensions extends missing_preds {
         }
         Term x = arg2.getPlainArg(i - 1);
         VariableTerm v = V(m);
-        v.val = arg3;
+        v.Refers = arg3;
         arg2.setarg0Maybe_trail(null, i - 1, v);
         m.push(new SetArgTrail(x, v, m));
         return true;
@@ -183,7 +183,7 @@ public class sxxtensions extends missing_preds {
 
         @Override
         public void undo() {
-            this.Which.val = this.OldValue;
+            this.Which.Refers = this.OldValue;
             this.Which.timeStamp = this.m.getCPFTimeStamp();
         }
 

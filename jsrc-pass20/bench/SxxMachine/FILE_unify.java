@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.Failure.fail_0;
+import static SxxMachine.Failure.*;
 
 @SuppressWarnings("unused")
 public class FILE_unify extends FILE_system {

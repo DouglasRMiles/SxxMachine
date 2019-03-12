@@ -78,7 +78,7 @@ public class HashtableOfTerm/* implements Map<Term, Term> */ {
             Term val = e.getValue().copy(copyHash, deeply);
             if ((val.isJavaObject())) {
                 Term o = val;
-                Object oobj = o.toJava();
+                Object oobj = o.javaInstance();
                 if (HashtableOfTerm.isHashtableOfTerm(oobj)) {
                     val = TermData.FFIObject(copyDeep((HashtableOfTerm) oobj, copyHash));
 
@@ -95,7 +95,7 @@ public class HashtableOfTerm/* implements Map<Term, Term> */ {
             Term val = e.getValue();
             if ((val.isJavaObject())) {
                 Term o = val;
-                Object oobj = o.toJava();
+                Object oobj = o.javaInstance();
                 if (HashtableOfTerm.isHashtableOfTerm(oobj)) {
                     val = TermData.FFIObject(copyShallow((HashtableOfTerm) oobj));
                 }

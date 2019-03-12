@@ -1,11 +1,13 @@
 package SxxMachine;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import java.io.IOException;
 import java.io.Reader;
 
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.Parser;
-import SxxMachine.pterm.TermData;
 
 /**
  * Builds Fluents from Java Streams
@@ -80,7 +82,7 @@ public class ClauseReader extends CharReader {
         HornClause NamedSuperC = SuperC.cnumbervars(false);
         Term Ns = NamedSuperC.getHead();
         Term NamedC = NamedSuperC.getBody();
-        return TermData.S("clause", C, Vs, NamedC, Ns);
+        return S("clause", C, Vs, NamedC, Ns);
     }
 
     @Override

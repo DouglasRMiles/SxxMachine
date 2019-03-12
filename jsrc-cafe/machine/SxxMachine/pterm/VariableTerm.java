@@ -11,7 +11,7 @@ import java.util.Map;
 
 import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
-import SxxMachine.Trail;
+import SxxMachine.KPTrail;
 import SxxMachine.OpVisitor;
 import SxxMachine.Operation;
 import SxxMachine.Prolog;
@@ -58,7 +58,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
     private List<VariableTerm> upRef = null;
     /** Opposite reference to upRef */
     private VariableTerm downRef = null;
-    public Term val = this;
+    public Term Refers = this;
     private int isCyclic;
 
     @Override
@@ -71,7 +71,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     public boolean isAtomicValue() {
-        return (this.val != null) && (this.val != this) && this.val.isAtomicValue();
+        return (this.Refers != null) && (this.Refers != this) && this.Refers.isAtomicValue();
     }
 
     @Override
@@ -140,7 +140,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
      * @param trail
      *            Trail Stack.
      * @return <code>true</code> if succeeds, otherwise <code>false</code>.
-     * @see #val
+     * @see #Refers
      * @see #bind(Term,Trail)
      * @see Trail
      */
@@ -148,29 +148,29 @@ public class VariableTerm extends AVar implements Undoable, Var {
     public final boolean unifyImpl(Term t, Trail trail) {
         if (t == this)
             return true;
-        if (t == val)
+        if (t == Refers)
             return true;
-        return (this.val.isVar()) ? this.val.bind(t.dref(), trail) : this.val.unify(t, trail);
+        return (this.Refers.isVar()) ? this.Refers.bind(t.dref(), trail) : this.Refers.unify(t, trail);
     }
 
     @Override
     public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
         if (isCyclic > 0)
             return isCyclic;
-        if (variableTerm == val) {
+        if (variableTerm == Refers) {
             return 1;
         }
         if (variableTerm == this) {
             return 1;
         }
-        if (val != null && val != this) {
-            return val.containsTerm(variableTerm, comparison);
+        if (Refers != null && Refers != this) {
+            return Refers.containsTerm(variableTerm, comparison);
         }
         return 0;
     }
 
     private void updateUpRef(Term value) {
-        if (value == val || value == this) {
+        if (value == Refers || value == this) {
             updateUpRefNoOccurs(value);
             return;
         }
@@ -188,17 +188,17 @@ public class VariableTerm extends AVar implements Undoable, Var {
             isCyclic = 0;
         }
         if (this.upRef == null || this.upRef.isEmpty()) { // short cut
-            this.val = value;
+            this.Refers = value;
             return;
         }
         Deque<VariableTerm> queue = new ArrayDeque<VariableTerm>();
         queue.add(this);
         while (!queue.isEmpty()) {
             VariableTerm v = queue.poll();
-            v.val = value;
+            v.Refers = value;
             if (v.upRef != null) {
                 for (VariableTerm u : v.upRef) {
-                    if (u.val != value) { // queue only not visited variable terms
+                    if (u.Refers != value) { // queue only not visited variable terms
                         queue.add(u);
                     }
                 }
@@ -212,7 +212,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
         }
         this.upRef.add(upVariable);
         upVariable.downRef = this;
-        upVariable.updateUpRef(this.val);
+        upVariable.updateUpRef(this.Refers);
     }
 
     VariableTerm frozenProxy;
@@ -240,17 +240,17 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
             }
 
-            this.val = thatv.val = newfrv;
+            this.Refers = thatv.Refers = newfrv;
 
         } else if (that.isVar()) {
-            return that.pbind(this, trail);
+            return that.cafe_bind_var(this, trail);
         } else {
             if (false) {
                 Prolog m = trail.getProlog();
                 Term g = this.frozenGoals();
                 BlockingPrologControl e2 = (BlockingPrologControl) m.control;
                 Operation saved = e2.code;
-                frozenProxy.pbind(that, trail);
+                frozenProxy.cafe_bind_var(that, trail);
                 // freeze(X,integer(X)),X=1.
                 e2.resultReady = false;
                 Term[] savedA1 = m.AREGS;
@@ -261,7 +261,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
                 e2.executePredicate(false);
                 try {
                     if (e2.result) {
-                        fv2.pbind(frozenProxy.val, trail);
+                        fv2.cafe_bind_var(frozenProxy.Refers, trail);
                         e2.code = saved;
                         return true;
                     } else {
@@ -280,10 +280,10 @@ public class VariableTerm extends AVar implements Undoable, Var {
             Prolog m = trail.getProlog();
             Term g = this.frozenGoals();
             BlockingPrologControl e2 = new BlockingPrologControl(PrologMachineCopy.cloneCheap(m));
-            frozenProxy.pbind(that, trail);
+            frozenProxy.cafe_bind_var(that, trail);
             e2.setPredicate(g);
             if (e2.call()) {
-                fv2.pbind(frozenProxy.val, trail);
+                fv2.cafe_bind_var(frozenProxy.Refers, trail);
                 frozenProxy.undo();
                 return true;
             } else {
@@ -319,43 +319,25 @@ public class VariableTerm extends AVar implements Undoable, Var {
      *            Trail Stack
      * @see Trail
      */
-    public final boolean pbind(Term p, Trail trail) {
-        if (p == val)
-            return true;
-
+    @Override
+    public final boolean cafe_bind_var(Term p, Trail trail) {
         if (p.isVar()) {
-            return pbindVarVar(p, trail);
+            VariableTerm v = (VariableTerm) p, t = this;
+            if (v.timeStamp >= this.timeStamp) {
+                t = v;
+                v = this;
+            }
+            v.bindUpRef(t);
+            if (t.timeStamp < trail.timeStamp) {
+                trail.push(t);
+            }
+            return true;
         }
         // update upRefs to use value t
         updateUpRef(p);
         this.downRef = null;
-        final long trailStamp = trail.timeStamp;
-        if (trailStamp == 0 || this.timeStamp < trailStamp) {
+        if (this.timeStamp < trail.timeStamp) {
             trail.push(this);
-        } else {
-            trail.push(this);
-        }
-        return true;
-    }
-
-    /**
-     * @param p
-     * @param trail
-     * @param trailStamp
-     * @return
-     */
-    private boolean pbindVarVar(Term p, Trail trail) {
-        VariableTerm v = (VariableTerm) p;
-        VariableTerm t = this;
-        if (v.timeStamp >= this.timeStamp) {
-            t = v;
-            v = this;
-        }
-        final long trailStamp = trail.timeStamp;
-
-        v.bindUpRef(t);
-        if (trailStamp == 0 || t.timeStamp < trailStamp) {
-            trail.push(t);
         }
         return true;
     }
@@ -365,7 +347,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
         if (this.isFVar()) {
             return this.FBind(p, trail);
         }
-        return pbind(p, trail);
+        return cafe_bind_var(p, trail);
 
     }
 
@@ -378,30 +360,30 @@ public class VariableTerm extends AVar implements Undoable, Var {
      *            the Java class type to compare with.
      * @return <code>true</code> if this (or dereferenced term) is convertible with
      *         <code>type</code>. Otherwise <code>false</code>.
-     * @see #val
+     * @see #Refers
      */
     @Override
     public final boolean convertible(Class type) {
-        return (this.val != this) ? this.val.convertible(type) : convertible(this.getClass(), type);
+        return (this.Refers != this) ? this.Refers.convertible(type) : convertible(this.getClass(), type);
     }
 
     /**
      * Returns a copy of this object if unbound variable. Otherwise, returns the
      * value of <code>val.copy(engine)</code>.
      *
-     * @see #val
+     * @see #Refers
      */
     @Override
     protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
-        if (this.val.isVar()) {
-            Term co = copyHash.get(this.val);
+        if (this.Refers.isVar()) {
+            Term co = copyHash.get(this.Refers);
             if (co == null) {
                 co = new VariableTerm();
-                copyHash.put(this.val, co);
+                copyHash.put(this.Refers, co);
             }
             return co;
         } else {
-            return this.val.copy(copyHash, deeply);
+            return this.Refers.copy(copyHash, deeply);
         }
     }
 
@@ -409,13 +391,13 @@ public class VariableTerm extends AVar implements Undoable, Var {
     public final boolean isGround() {
         if (isCyclic > 0)
             return true;
-        return (this.val != this) && this.val.isGround();
+        return (this.Refers != this) && this.Refers.isGround();
     }
 
     @Override
-    public final String getString() {
+    public final String getJavaString() {
         oopsy("unknown reason");
-        return (this.unbound()) ? "" : this.val.dref().getString();
+        return (this.unbound()) ? "" : this.Refers.dref().getJavaString();
     }
 
     /**
@@ -425,13 +407,13 @@ public class VariableTerm extends AVar implements Undoable, Var {
      *
      * @return a Java object defined in <em>Prolog Cafe interoperability with
      *         Java</em>.
-     * @see #val
+     * @see #Refers
      */
     @Override
-    public Object toJava() {
+    public Object javaInstance() {
         if (isCyclic > 0)
             return this;
-        return (this.val != this) ? this.val.toJava() : this;
+        return (this.Refers != this) ? this.Refers.javaInstance() : this;
     }
 
     /* Object */
@@ -445,23 +427,20 @@ public class VariableTerm extends AVar implements Undoable, Var {
      *            the object to compare with. This must be dereferenced.
      * @return <code>true</code> if this (or dereferenced term) is the same as the
      *         argument; <code>false</code> otherwise.
-     * @see #val
+     * @see #Refers
      * @see #compareTo
      */
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
         if (isCyclic > 0)
-            return obj == val;
-        return (this.unbound()) ? this == obj : (this == obj || this.val.equalsTerm(obj, comparator));
+            return obj == Refers;
+        return (this.unbound()) ? this == obj : (this == obj || this.Refers.equalsTerm(obj, comparator));
     }
 
     @Override
     public int termHashCodeImpl() {
-        /* if (myID != 0)
-            return myID;*/
         try {
-            final boolean unbound = this.unbound();
-            return unbound ? myID : this.val.termHashCode();
+            return (this.unbound()) ? myID : this.Refers.termHashCode();
         } catch (Exception e) {
             // TODO: handle exception
             return myID;// System.identityHashCode(this);
@@ -472,7 +451,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
      * Returns a string representation of this term if unbound. Otherwise, returns
      * the value of dereferenced term: <code>val.toString()</code>
      *
-     * @see #val
+     * @see #Refers
      */
     int loopPrintingVar = 0;
 
@@ -484,12 +463,12 @@ public class VariableTerm extends AVar implements Undoable, Var {
             sb.append(variableName());
             return;
         }
-        if (loopPrintingVar > 0 || this.val == null || this.unbound()) {
+        if (loopPrintingVar > 0 || this.Refers == null || this.unbound()) {
             sb.append(variableName());
         } else {
             try {
                 loopPrintingVar++;
-                this.val.toQuotedString(printFlags, sb);
+                this.Refers.toQuotedString(printFlags, sb);
             } finally {
                 loopPrintingVar--;
             }
@@ -501,7 +480,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
      */
     @Override
     public Iterator<Term> iterator(boolean skipSyntax) {
-        return (this.val.isVar()) ? Collections.emptyIterator() : this.val.iterator(skipSyntax);
+        return (this.Refers.isVar()) ? Collections.emptyIterator() : this.Refers.iterator(skipSyntax);
     }
 
     /* Undoable */
@@ -539,8 +518,8 @@ public class VariableTerm extends AVar implements Undoable, Var {
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if (this.val != this)
-            return this.val.compareTo(anotherTerm);
+        if (this.Refers != this)
+            return this.Refers.compareTo(anotherTerm);
         if (!(anotherTerm.isVar()))
             return BEFORE;
         if (this == anotherTerm)
@@ -566,7 +545,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
     }
 
     public VariableTerm(Prolog m, String sval) {
-        this.val = this;
+        this.Refers = this;
         this.varName = sval;
         Prolog mach = m;
         this.timeStamp = mach.getCPFTimeStamp();
@@ -574,23 +553,23 @@ public class VariableTerm extends AVar implements Undoable, Var {
     }
 
     public VariableTerm(Prolog mach, long currentChoice, Term newgoals) {
-        this.val = this;
+        this.Refers = this;
         this.timeStamp = currentChoice;
         this.myID = nextID++;
         this.getFdata().setGoals(newgoals);
     }
 
     public VariableTerm(Prolog mach, long currentChoice) {
-        this.val = this;
+        this.Refers = this;
         this.timeStamp = currentChoice;
         this.myID = nextID++;
     }
 
     @Override
     public Term dref() {
-        if ((this.unbound()) || !(this.val instanceof Term))
+        if ((this.unbound()) || !(this.Refers instanceof Term))
             return this;
-        return this.val.dref();
+        return this.Refers.dref();
     }
 
     // public Term val;
@@ -615,22 +594,31 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     final public boolean unbound() {
-        return val == this;
+        return Refers == this;
     }
     //
     // public Term dref() {
     // return unbound() ? this : val.dref();
     // }
 
+    @Override
+    public boolean bindKP(Term x, KPTrail trail) {
+        if (x == Refers)
+            return true;
+        Refers = x;
+        trail.push(this);
+        return true;
+    }
+
     // public void undo() {
     // val = this;
     // }
 
     @Override
-    public boolean Unify_TO(Term that, Trail trail) {
+    public boolean Unify_TO(Term that, KPTrail trail) {
         // expects: this, that are dereferenced
         // return (this==that)?true:Ref.bind_to(that,trail);
-        return val.bind(that, trail);
+        return Refers.bindKP(that, trail);
     }
 
     public boolean eq(Term x) { // not a term compare!

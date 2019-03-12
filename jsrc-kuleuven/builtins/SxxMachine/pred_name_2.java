@@ -25,16 +25,16 @@ public class pred_name_2 extends Code {
             if (!(list.isCons() || list.isNil()))
                 return mach.Fail0;
             final String st = buildString(list);
-            if (!atom.unify(CONST(st)))
+            if (!atom.unifyJP(CONST(st)))
                 return mach.Fail0;
         } else {
             //van atom naar een lijst gaan, dat unify met list
-            if (atom .isCompound()) {
+            if (atom instanceof StructureTerm) {
                 if (((StructureTerm) atom).arity() != 0)
                     return mach.Fail0;
             }
-            final Term l = buildList(atom.toJpString());
-            if (!list.unify(l))
+            final Term l = buildList(atom.portrayTerm());
+            if (!list.unifyJP(l))
                 return mach.Fail0;
         }
         local_aregs[0] = continuation;

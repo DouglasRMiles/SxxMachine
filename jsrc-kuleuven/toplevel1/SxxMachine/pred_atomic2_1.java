@@ -57,7 +57,7 @@ class pred_atomic2_1_1 extends pred_atomic2_1 {
         final Term local_aregs[] = mach.getAreg();
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(CONST(string1))))
+        if (!((areg0).unifyJP(CONST(string1))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -73,7 +73,7 @@ class pred_atomic2_1_2 extends pred_atomic2_1 {
         final Term local_aregs[] = mach.getAreg();
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(CONST(string5))))
+        if (!((areg0).unifyJP(CONST(string5))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();

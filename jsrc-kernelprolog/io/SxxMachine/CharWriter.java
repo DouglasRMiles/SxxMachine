@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.Writer;
 
 import SxxMachine.pterm.SinkFluentTerm;
-import SxxMachine.pterm.TermData;
 
 /**
  * Writer
@@ -27,7 +26,7 @@ public class CharWriter extends SinkFluentTerm {
         if (null == writer)
             return 0;
         try {
-            char c = (char) TermData.asInt(t).intValue();
+            char c = (char) t.intValue();
             writer.write(c);
         } catch (IOException e) {
             return 0;

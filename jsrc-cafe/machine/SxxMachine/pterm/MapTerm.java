@@ -1,5 +1,8 @@
 package SxxMachine.pterm;
 
+// CONST;
+import static SxxMachine.pterm.TermData.*;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -8,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.Functor;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
@@ -23,7 +27,7 @@ import SxxMachine.Trail;
  *  Term Nil = SymbolTerm.makeSymbol("[]");
  *  Term  n1 = IntegerTerm(1);
  *  Term  n2 = IntegerTerm(2);
- *  Term   t = TermData.CONS(n1, TermData.CONS(n2, Nil));
+ *  Term   t = CONS(n1, CONS(n2, Nil));
  *
  *  Term car = ( t).car();
  *  Term cdr = ( t).cdr();
@@ -36,7 +40,7 @@ import SxxMachine.Trail;
  * public static Term makeList(int n) {
  * 	Term t = SymbolTerm.makeSymbol("[]");
  * 	for (int i = n; i > 0; i--) {
- * 		t = TermData.CONS(new IntegerTerm(i), t);
+ * 		t = CONS(new IntegerTerm(i), t);
  * 	}
  * 	return t;
  * }
@@ -49,7 +53,7 @@ import SxxMachine.Trail;
 @SuppressWarnings({ "rawtypes", "unused" })
 public class MapTerm extends SystemObject {
     /** A functor <code>'.' /2</code>. */
-    protected static final Functor SYM_DOT_2 = TermData.F(".", 2);
+    protected static final Functor SYM_DOT_2 = F(".", 2);
 
     private boolean immutable;
 
@@ -237,7 +241,7 @@ public class MapTerm extends SystemObject {
 
     /** Returns the length of this <code>ListTerm</code>. */
     @Override
-    public int length() {
+    public int termLength() {
         int count = 0;
         Term t = this;
         while ((t.isMap())) {
@@ -255,11 +259,11 @@ public class MapTerm extends SystemObject {
      *         <code>IntegerTerm</code>.
      */
     @Override
-    public List toJava() {
+    public List javaInstance() {
         List<Object> vec = new ArrayList<Object>();
         Term t = this;
         while ((t.isMap())) {
-            vec.add((t).car().dref().toJava());
+            vec.add((t).car().dref().javaInstance());
             t = (t).cdr().dref();
         }
         if (!t.isNil()) {
@@ -336,10 +340,10 @@ public class MapTerm extends SystemObject {
      * Iterator over terms that make up this ListTerm.
      */
     private static class ListTermIterator implements Iterator<Term> {
-        private static final Functor LEFT_BRACKET = TermData.internToken("[");
-        private static final Functor SEPARATOR = TermData.internToken("|");
-        private static final Functor RIGHT_BRACKET = TermData.internToken("]");
-        private static final Functor COMMA = TermData.internToken(",");
+        private static final Functor LEFT_BRACKET = internToken("[");
+        private static final Functor SEPARATOR = internToken("|");
+        private static final Functor RIGHT_BRACKET = internToken("]");
+        private static final Functor COMMA = internToken(",");
 
         private Term current;
         private int index = 0;
@@ -386,6 +390,12 @@ public class MapTerm extends SystemObject {
             }
             return result;
         }
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			throw new NotImplementedException();
+		}
     }
 
     /* Comparable */
@@ -403,7 +413,7 @@ public class MapTerm extends SystemObject {
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtom()))
+        if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomSymbol()))
             return AFTER;
         if ((anotherTerm.isCompound())) {
             int arity = anotherTerm.arity();

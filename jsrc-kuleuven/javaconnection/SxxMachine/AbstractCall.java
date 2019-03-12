@@ -27,7 +27,7 @@ abstract class AbstractJCall extends Code {
         final Term res = args[2].dref();
         final Term exception = args[3].dref();
         final Term cont = args[4];
-        if (!(classObject .isConst()))
+        if (!(classObject .isAtomOrObject()))
             return mach.Fail0;
         Class<?> callClass;
         try {
@@ -38,7 +38,7 @@ abstract class AbstractJCall extends Code {
         }
         String methodName;
         Object[] methodArgs;
-        if (methodInvocation .isConst()) {
+        if (methodInvocation .isAtomOrObject()) {
             methodName = ((Const) methodInvocation).fname();
             methodArgs = new Object[0];
         } else {
@@ -68,13 +68,13 @@ abstract class AbstractJCall extends Code {
             return mach.Fail0;
         }
         try {
-            if (!res.unify(CONST(m.invoke(((Const) classObject).getValue(), methodArgs))))
+            if (!res.unifyJP(CONST(m.invoke(((Const) classObject).getValue(), methodArgs))))
                 return mach.Fail0;
-            if (!(exception.unify(Const.javaNull())))
+            if (!(exception.unifyJP(Const.javaNull())))
                 return mach.Fail0;
         } catch (final Throwable ex) {
             log.debug(ex);
-            if (!exception.unify(CONST(ex)))
+            if (!exception.unifyJP(CONST(ex)))
                 return mach.Fail0;
         }
         args[1] = args[2] = args[3] = args[4] = null;

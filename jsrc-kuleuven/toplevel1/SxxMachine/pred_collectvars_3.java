@@ -76,17 +76,17 @@ class pred_collectvars_3_1 extends pred_collectvars_3 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(CONST(string3))))
+        if (!((areg0).unifyJP(CONST(string3))))
             return mach.Fail0;
-        if (!((areg1).unify(var1)))
+        if (!((areg1).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg2).unify(var1.dref())))
+        if (!((areg2).unifyJP(var1.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
         mach.updateCUTB();
         local_aregs[3] = local_aregs[2] = null;
-        return (Code)(Object) mach.Call1;
+        return mach.Call1;
     }
 }
 
@@ -105,11 +105,11 @@ class pred_collectvars_3_2 extends pred_collectvars_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, S(string9, var1, var2, var3), var4))))
+        if (!((areg0).unifyJP(S(string1, S(string9, var1, var2, var3), var4))))
             return mach.Fail0;
-        if (!((areg1).unify(var5)))
+        if (!((areg1).unifyJP(var5)))
             return mach.Fail0;
-        if (!((areg2).unify(var6)))
+        if (!((areg2).unifyJP(var6)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = CONST(string4);
@@ -134,11 +134,11 @@ class pred_collectvars_3_3 extends pred_collectvars_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        if (!((areg1).unify(var3)))
+        if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        if (!((areg2).unify(var4)))
+        if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var3.dref();

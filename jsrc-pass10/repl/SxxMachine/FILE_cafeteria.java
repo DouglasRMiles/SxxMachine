@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.Failure.fail_0;
+import static SxxMachine.Failure.*;
 
 @SuppressWarnings("unused")
 public class FILE_cafeteria extends FILE_builtins {
@@ -1116,7 +1116,7 @@ public class FILE_cafeteria extends FILE_builtins {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -3022,7 +3022,7 @@ public class FILE_cafeteria extends FILE_builtins {
         //END inline expansion
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
-        if (!(a1.isAtom())) {
+        if (!(a1.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -3085,7 +3085,7 @@ public class FILE_cafeteria extends FILE_builtins {
         //END inline expansion
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -3202,7 +3202,7 @@ public class FILE_cafeteria extends FILE_builtins {
         //END inline expansion
         //START inline expansion of atom(a(3))
         a3 = a3.dref();
-        if (!(a3.isAtom())) {
+        if (!(a3.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion

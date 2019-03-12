@@ -50,7 +50,7 @@ public class pred_maketerm_2 extends Code {
 
 class pred_maketerm_2_1 extends pred_maketerm_2 {
     private Term ignore(Term o, String[][] ignores) {
-        if (ignores == null || !(o .isCompound()))
+        if (ignores == null || !(o instanceof StructureTerm))
             return o;
         final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {
@@ -119,7 +119,7 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
         parseKomma(lijst, mach, lists);
         //Beslissen of we zelf lijst gaan maken of geheel door maketerm_3 laten doen
         if (resList.equalsTerm(S(".", CONST("["), S(".", CONST("]"), Prolog.Nil)))) {
-            list.unify(Prolog.Nil);
+            list.unifyJP(Prolog.Nil);
         } else {
             lists.put(list, resList);
         }
@@ -133,8 +133,8 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Const eof = CONST("end_of_file");
-        if (areg0.unify(eof)) {
-            if (areg1.unify(eof)) {
+        if (areg0.unifyJP(eof)) {
+            if (areg1.unifyJP(eof)) {
                 //op het einde vd stream?
                 local_aregs[0] = continuation;
                 local_aregs[1] = local_aregs[2] = null;
@@ -143,7 +143,7 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
             }
         }
         final Term var2 = Jv(mach);
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         //System.out.println("Maketerm voor: " + areg0);
         final Map<JpVar, StructureTerm> subs = new HashMap<JpVar, StructureTerm>();

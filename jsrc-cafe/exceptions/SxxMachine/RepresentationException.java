@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Representation error.<br>
@@ -13,7 +14,7 @@ import SxxMachine.pterm.TermData;
  */
 public class RepresentationException extends BuiltinException {
     /** A functor symbol of <code>representation_error/3</code>. */
-    public static final Functor REPRESENTATION_ERROR = TermData.F("representation_error", 3);
+    public static final Functor REPRESENTATION_ERROR = F("representation_error", 3);
     /*
      * flag ::= character | character_code | in_character_code | max_arity |
      * max_integer | min_integer
@@ -42,8 +43,8 @@ public class RepresentationException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo), TermData.createAtomic(this.flag) };
-        return TermData.createErrorTerm(this, REPRESENTATION_ERROR, args);
+        Term[] args = { FFIObject(this.goal), Integer(this.argNo), createAtomic(this.flag) };
+        return createErrorTerm(this, REPRESENTATION_ERROR, args);
     }
 
     /**

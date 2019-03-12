@@ -94,10 +94,10 @@ class pred_escapeStrings_2_1 extends pred_escapeStrings_2 {
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
-        if (!(areg0.unify(CONST(pred_escapeStrings_2_consts.string4))))
+        if (!(areg0.unifyJP(CONST(pred_escapeStrings_2_consts.string4))))
             return mach.Fail0;
 
-        if (!(areg1.unify(CONST(pred_escapeStrings_2_consts.string4))))
+        if (!(areg1.unifyJP(CONST(pred_escapeStrings_2_consts.string4))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -141,10 +141,10 @@ class pred_escapeStrings_2_2 extends pred_escapeStrings_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_escapeStrings_2_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_escapeStrings_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_escapeStrings_2_consts.string2, var3.dref(), var4.dref()))))
+        if (!(areg1.unifyJP(S(pred_escapeStrings_2_consts.string2, var3.dref(), var4.dref()))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();

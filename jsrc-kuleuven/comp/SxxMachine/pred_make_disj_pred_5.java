@@ -71,15 +71,15 @@ public class pred_make_disj_pred_5 extends Code {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_make_disj_pred_5_consts.string2, var1, var2))))
+        if (!(areg0.unifyJP(S(pred_make_disj_pred_5_consts.string2, var1, var2))))
             return mach.Fail0;
-        if (!(areg1.unify(var3)))
+        if (!(areg1.unifyJP(var3)))
             return mach.Fail0;
-        if (!(areg2.unify(var4)))
+        if (!(areg2.unifyJP(var4)))
             return mach.Fail0;
-        if (!(areg3.unify(var5)))
+        if (!(areg3.unifyJP(var5)))
             return mach.Fail0;
-        if (!(areg4.unify(var6)))
+        if (!(areg4.unifyJP(var6)))
             return mach.Fail0;
         local_aregs[0] = var5.dref();
         local_aregs[1] = var4.dref();

@@ -1,9 +1,9 @@
 package SxxMachine;
 
-import SxxMachine.pterm.ListTerm;
-import SxxMachine.pterm.StructureTerm;
-import SxxMachine.pterm.*;
+// *;
 import static SxxMachine.pterm.TermData.*;
+
+import SxxMachine.pterm.StructureTerm;
 
 /**
   Lazy List: produces Cons-like sequences, based on a SourceFluent.
@@ -13,8 +13,7 @@ import static SxxMachine.pterm.TermData.*;
   when backtracking over its creation point.
 */
 public class LazyList extends StructureTerm implements Undoable {
-
-    public LazyList(Term head, Fluent source, Trail trail) {
+    public LazyList(Term head, Fluent source, KPTrail trail) {
         super(".", head, V());
         this.source = (SourceFluent) source;
         this.bound = false;
@@ -24,7 +23,7 @@ public class LazyList extends StructureTerm implements Undoable {
 
     private SourceFluent source;
     private boolean bound;
-    private Trail trail;
+    private KPTrail trail;
     private int oldTop;
 
     /**
@@ -62,7 +61,7 @@ public class LazyList extends StructureTerm implements Undoable {
      * List to Unify with any 2 arg constructor chain
      */
     @Override
-    public boolean bind(Term that, Trail trail) {
+    public boolean bindKP(Term that, KPTrail trail) {
         return that instanceof Compound && 2 == that.arity();
     }
 

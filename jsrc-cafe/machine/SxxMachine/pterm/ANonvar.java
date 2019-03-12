@@ -1,14 +1,16 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.CONS;
+// CONS;
+import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
-import SxxMachine.Trail;
+import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
+import SxxMachine.Trail;
 
 /**
  * Part of the Prolog Term hierarchy
@@ -16,6 +18,14 @@ import SxxMachine.Term;
  * @see Term
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
+
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)
+     */
+    @Override
+    public boolean unifySYM(String string, Trail trail) {
+        return false;
+    }
 
     public boolean isFunctor(String string) throws IllegalTypeException {
         String fname = fname();
@@ -77,7 +87,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
      */
     @Override
     public int getIntArg(int i) {
-        return (int) TermData.asInt(getDrefArg(i)).doubleValue();
+        return (int) asInt(getDrefArg(i)).doubleValue();
     }
 
     @Override
@@ -87,19 +97,25 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     }
 
     @Override
-    public boolean bind(Term that, Trail trail) {
-        if (getClass() == that.getClass())
+    public boolean bindKP(Term that, KPTrail trail) {
+        if (getIntendedClass() == that.getIntendedClass())
             return true;
         // oopsy();
         return false;
     }
 
     @Override
-    public boolean Unify_TO(Term that, Trail trail) {
-        if (bind(that, trail))
+    public boolean bindJP(Term that) {
+        //return (that instanceof ForeignObject) && bind(that, (KPTrail) null);
+        return that.bindJP(this);
+    }
+
+    @Override
+    public boolean Unify_TO(Term that, KPTrail trail) {
+        if (bindKP(that, trail))
             return true;
         else
-            return that.bind(this, trail);
+            return that.bindKP(this, trail);
     }
 
     /**

@@ -29,7 +29,7 @@ public abstract class Predicate extends TermData implements Operation {
 
     protected String name = null;// getClass().getName();
     /** Holds the argument terms of this <code>StructureTerm</code>. */
-    protected Term[] LARG;
+    protected Term[] ThizLARGs;
 
     public int type() {
         return Term.TYPE_CLOSURE;
@@ -52,8 +52,8 @@ public abstract class Predicate extends TermData implements Operation {
 
     // abstract public int predArity();
     public int predArity() {
-        if (LARG != null)
-            return LARG.length;
+        if (ThizLARGs != null)
+            return ThizLARGs.length;
         return PredicateEncoder.decodeArity(getClass().getName());
     }
 
@@ -63,7 +63,7 @@ public abstract class Predicate extends TermData implements Operation {
     public void push_to_engine(Prolog engine) {
         // int arity = predArity();
         // System.arraycopy(LARG, 0, engine.AREGS, 0, arity);
-        engine.AREGS = this.LARG;
+        engine.AREGS = this.ThizLARGs;
         engine.cont = this.cont;
     }
 
@@ -78,15 +78,15 @@ public abstract class Predicate extends TermData implements Operation {
 
     public Predicate() {
         // super((String)null,(Term[])null);
-        if (LARG == null) {
-            LARG = new Term[predArity()];
+        if (ThizLARGs == null) {
+            ThizLARGs = new Term[predArity()];
         }
     }
 
     public Predicate(String name, Term[] _args, Operation cont) {
         // super(name,va);
         this.name = name;
-        this.LARG = _args;
+        this.ThizLARGs = _args;
         this.cont = cont;
     }
 
@@ -100,13 +100,13 @@ public abstract class Predicate extends TermData implements Operation {
 
     public void toString(StringBuilder sb) {
         sb.append(predName());
-        if (LARG != null) {
+        if (ThizLARGs != null) {
             sb.append('(');
-            int len = LARG.length;
+            int len = ThizLARGs.length;
             if (len > 0) {
-                LARG[1].toQuotedString(1, sb);
+                ThizLARGs[1].toQuotedString(1, sb);
                 for (int j = 1; j < len; j++) {
-                    Term val = LARG[j];
+                    Term val = ThizLARGs[j];
                     sb.append(", ");
                     val.toQuotedString(1, sb);
                 }
@@ -143,8 +143,8 @@ public abstract class Predicate extends TermData implements Operation {
         Field f = null;
         Term val = null;
         do {
-            if (LARG != null && LARG.length >= i) {
-                val = LARG[i];
+            if (ThizLARGs != null && ThizLARGs.length >= i) {
+                val = ThizLARGs[i];
                 if (first) {
                     sb.append('(');
                     first = false;
@@ -232,13 +232,13 @@ public abstract class Predicate extends TermData implements Operation {
         public void toString(StringBuilder sb) {
             sb.append(predName());
             sb.append('(');
-            this.LARG[0].toQuotedString(0, sb);
+            this.ThizLARGs[0].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.LARG[0];
+            engine.AREGS[0] = this.ThizLARGs[0];
             engine.cont = this.cont;
         }
     }
@@ -261,17 +261,17 @@ public abstract class Predicate extends TermData implements Operation {
         public void toString(StringBuilder sb) {
             sb.append(predName());
             sb.append('(');
-            this.LARG[0].toQuotedString(0, sb);
+            this.ThizLARGs[0].toQuotedString(0, sb);
             sb.append(", ");
-            this.LARG[1].toQuotedString(0, sb);
+            this.ThizLARGs[1].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
             engine.setB0();
-            engine.AREGS[0] = this.LARG[0];
-            engine.AREGS[1] = this.LARG[1];
+            engine.AREGS[0] = this.ThizLARGs[0];
+            engine.AREGS[1] = this.ThizLARGs[1];
             engine.cont = this.cont;
         }
     }
@@ -287,19 +287,19 @@ public abstract class Predicate extends TermData implements Operation {
         public void toString(StringBuilder sb) {
             sb.append(predName());
             sb.append('(');
-            this.LARG[0].toQuotedString(0, sb);
+            this.ThizLARGs[0].toQuotedString(0, sb);
             sb.append(", ");
-            this.LARG[1].toQuotedString(0, sb);
+            this.ThizLARGs[1].toQuotedString(0, sb);
             sb.append(", ");
-            this.LARG[2].toQuotedString(0, sb);
+            this.ThizLARGs[2].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.LARG[0];
-            engine.AREGS[1] = this.LARG[1];
-            engine.AREGS[2] = this.LARG[2];
+            engine.AREGS[0] = this.ThizLARGs[0];
+            engine.AREGS[1] = this.ThizLARGs[1];
+            engine.AREGS[2] = this.ThizLARGs[2];
             engine.cont = this.cont;
         }
 
@@ -309,10 +309,10 @@ public abstract class Predicate extends TermData implements Operation {
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.LARG[0];
-            engine.AREGS[1] = this.LARG[1];
-            engine.AREGS[2] = this.LARG[2];
-            engine.AREGS[3] = this.LARG[3];
+            engine.AREGS[0] = this.ThizLARGs[0];
+            engine.AREGS[1] = this.ThizLARGs[1];
+            engine.AREGS[2] = this.ThizLARGs[2];
+            engine.AREGS[3] = this.ThizLARGs[3];
             int predArity = predArity();
             if (predArity > 4) {
                 throw new RuntimeException("Missing Method Error: Push to engine");
@@ -326,11 +326,11 @@ public abstract class Predicate extends TermData implements Operation {
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.LARG[0];
-            engine.AREGS[1] = this.LARG[1];
-            engine.AREGS[2] = this.LARG[2];
-            engine.AREGS[3] = this.LARG[3];
-            engine.AREGS[4] = this.LARG[4];
+            engine.AREGS[0] = this.ThizLARGs[0];
+            engine.AREGS[1] = this.ThizLARGs[1];
+            engine.AREGS[2] = this.ThizLARGs[2];
+            engine.AREGS[3] = this.ThizLARGs[3];
+            engine.AREGS[4] = this.ThizLARGs[4];
             int predArity = predArity();
             if (predArity > 5) {
                 throw new RuntimeException("Missing Method Error: Push to engine");

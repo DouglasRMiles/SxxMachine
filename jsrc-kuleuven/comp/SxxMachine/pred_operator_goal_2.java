@@ -187,10 +187,10 @@ class pred_operator_goal_2_1 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string63, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string63, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string61, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string61, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -229,10 +229,10 @@ class pred_operator_goal_2_2 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string62, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string62, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string59, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string59, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -271,10 +271,10 @@ class pred_operator_goal_2_3 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string60, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string60, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string61, var2.dref(), var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string61, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -313,10 +313,10 @@ class pred_operator_goal_2_4 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string58, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string58, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string59, var2.dref(), var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string59, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -355,10 +355,10 @@ class pred_operator_goal_2_5 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string56, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string56, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string57, var2.dref(), var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string57, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -397,10 +397,10 @@ class pred_operator_goal_2_6 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string54, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string54, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string55, var2.dref(), var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string55, var2.dref(), var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -439,10 +439,10 @@ class pred_operator_goal_2_7 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string52, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string52, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string53, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string53, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -481,10 +481,10 @@ class pred_operator_goal_2_8 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string50, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string50, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string51, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string51, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -523,10 +523,10 @@ class pred_operator_goal_2_9 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string48, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string48, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string49, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string49, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -565,10 +565,10 @@ class pred_operator_goal_2_10 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string46, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string46, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string47, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string47, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -607,10 +607,10 @@ class pred_operator_goal_2_11 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string44, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string44, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string45, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string45, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -649,10 +649,10 @@ class pred_operator_goal_2_12 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string42, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string42, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string43, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string43, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -691,10 +691,10 @@ class pred_operator_goal_2_13 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string40, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string40, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string41, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string41, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -730,10 +730,10 @@ class pred_operator_goal_2_14 extends pred_operator_goal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string38, var1.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string38, var1.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string39, var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string39, var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -775,11 +775,11 @@ class pred_operator_goal_2_15 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string35, var1
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string35, var1
                 .dref(), S(pred_operator_goal_2_consts.string36, var2.dref(), var3.dref())))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string37, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string37, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -818,11 +818,11 @@ class pred_operator_goal_2_16 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string32, var1
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string32, var1
                 .dref(), S(pred_operator_goal_2_consts.string33, var2.dref(), pred_operator_goal_2_consts.posint1)))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string34, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string34, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -861,10 +861,10 @@ class pred_operator_goal_2_17 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string30, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string30, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string31, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string31, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -903,10 +903,10 @@ class pred_operator_goal_2_18 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string28, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string28, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string29, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string29, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -948,10 +948,10 @@ class pred_operator_goal_2_19 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string27, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string27, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string27, var1.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string27, var1.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -993,10 +993,10 @@ class pred_operator_goal_2_20 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string26, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string26, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string26, var1.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string26, var1.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1035,10 +1035,10 @@ class pred_operator_goal_2_21 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string25, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string25, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string25, var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string25, var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1081,11 +1081,11 @@ class pred_operator_goal_2_22 extends pred_operator_goal_2 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_operator_goal_2_consts.string19, CONST(pred_operator_goal_2_consts.string20), S(pred_operator_goal_2_consts.string23, var1
+                .unifyJP(S(pred_operator_goal_2_consts.string19, CONST(pred_operator_goal_2_consts.string20), S(pred_operator_goal_2_consts.string23, var1
                         .dref(), var2.dref(), var3.dref())))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string24, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string24, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1131,11 +1131,11 @@ class pred_operator_goal_2_23 extends pred_operator_goal_2 {
         final Term var1 = Jv(mach);
 
         if (!(areg0
-                .unify(S(pred_operator_goal_2_consts.string19, CONST(pred_operator_goal_2_consts.string20), S(pred_operator_goal_2_consts.string21, var1
+                .unifyJP(S(pred_operator_goal_2_consts.string19, CONST(pred_operator_goal_2_consts.string20), S(pred_operator_goal_2_consts.string21, var1
                         .dref(), var2.dref(), var3.dref(), var4.dref())))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string22, var1.dref(), var2.dref(), var4.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string22, var1.dref(), var2.dref(), var4.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1174,10 +1174,10 @@ class pred_operator_goal_2_24 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string17, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string17, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string18, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string18, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1216,10 +1216,10 @@ class pred_operator_goal_2_25 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string15, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string15, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string16, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string16, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1261,10 +1261,10 @@ class pred_operator_goal_2_26 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string13, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string13, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string14, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string14, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1300,10 +1300,10 @@ class pred_operator_goal_2_27 extends pred_operator_goal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string11, var1.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string11, var1.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string12, var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string12, var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1339,10 +1339,10 @@ class pred_operator_goal_2_28 extends pred_operator_goal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string9, var1.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string9, var1.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string10, var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string10, var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1378,10 +1378,10 @@ class pred_operator_goal_2_29 extends pred_operator_goal_2 {
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string7, var1.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string7, var1.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string8, var1.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string8, var1.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1420,10 +1420,10 @@ class pred_operator_goal_2_30 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string5, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string5, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;
@@ -1465,10 +1465,10 @@ class pred_operator_goal_2_31 extends pred_operator_goal_2 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_operator_goal_2_consts.string2, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg0.unifyJP(S(pred_operator_goal_2_consts.string2, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
 
-        if (!(areg1.unify(S(pred_operator_goal_2_consts.string3, var1.dref(), var2.dref(), var3.dref()))))
+        if (!(areg1.unifyJP(S(pred_operator_goal_2_consts.string3, var1.dref(), var2.dref(), var3.dref()))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = continuation;

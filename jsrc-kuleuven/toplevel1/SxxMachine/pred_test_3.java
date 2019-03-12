@@ -36,7 +36,7 @@ public class pred_test_3 extends Code {
         while (NextAnswerList.isCons()) {
             Answer = (((AFunct) NextAnswerList).getPlainArg(0)).dref();
             // do something with the answer - e.g. print it
-            final String s = Answer.toJpString();
+            final String s = Answer.portrayTerm();
             System.out.println(s);
             System.out.flush();
 
@@ -103,11 +103,11 @@ class pred_test_3_1 extends pred_test_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        if (!((areg2).unify(var3)))
+        if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         // local_aregs[0] = var1.deref();
         // local_aregs[1] = new Funct(unify, var3.deref(), posint1);

@@ -1,7 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.S;
+// S;
+import static SxxMachine.pterm.TermData.*;
 
 import java.io.IOException;
 import java.io.Reader;

@@ -7,11 +7,5 @@ package SxxMachine;
 public interface Var extends Term, Undoable {
 
     abstract public boolean unbound();
-    
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    boolean equals(Object obj);
 
 }

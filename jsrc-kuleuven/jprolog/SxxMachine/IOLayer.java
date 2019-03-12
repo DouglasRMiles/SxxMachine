@@ -93,7 +93,7 @@ public class IOLayer {
 
         boolean canOpenStream(Term handle) {
             handle = handle.dref();
-            if (!(handle .isConst()))
+            if (!(handle .isAtomOrObject()))
                 return false;
             final String name = handle.fname();
             if (openStreams.containsKey(name))
@@ -111,7 +111,7 @@ public class IOLayer {
             if (handle == null)
                 throw new NullPointerException();
             handle = handle.dref();
-            if (!(handle .isConst()))
+            if (!(handle .isAtomOrObject()))
                 return false;
             return closeStream(handle.fname());
         }
@@ -151,7 +151,7 @@ public class IOLayer {
 
         public boolean isOpen(Term handle) {
             handle = handle.dref();
-            if (!(handle .isConst()))
+            if (!(handle .isAtomOrObject()))
                 return false;
             final String name = handle.fname();
             return openStreams.containsKey(name);

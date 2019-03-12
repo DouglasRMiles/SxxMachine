@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Instantiation error.<br>
@@ -14,7 +15,7 @@ import SxxMachine.pterm.TermData;
  */
 public class PInstantiationException extends BuiltinException {
     /** A functor symbol of <code>instantiation/2</code>. */
-    public static final Functor INSTANTIATION_ERROR = TermData.F("instantiation_error", 2);
+    public static final Functor INSTANTIATION_ERROR = F("instantiation_error", 2);
 
     /** Constructs a new <code>PInstantiationException</code>. */
     public PInstantiationException() {
@@ -35,8 +36,8 @@ public class PInstantiationException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.FFIObject(this.goal), TermData.Integer(this.argNo) };
-        return TermData.createErrorTerm(this, INSTANTIATION_ERROR, args);
+        Term[] args = { FFIObject(this.goal), Integer(this.argNo) };
+        return createErrorTerm(this, INSTANTIATION_ERROR, args);
     }
 
     /**

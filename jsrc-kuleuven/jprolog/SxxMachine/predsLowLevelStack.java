@@ -15,7 +15,7 @@ class pred_savecp_1 extends Code {
         final Term[] args = mach.getAreg();
         final Term point = args[0].dref();
         final Term cont = args[1].dref();
-        if (!point.unify(Integer(mach.getCurrentStackItem().getCurrentChoiceTimeStamp())))
+        if (!point.unifyJP(Integer(mach.getCurrentStackItem().getCurrentChoiceTimeStamp())))
             return mach.Fail0;
         args[0] = cont;
         args[1] = null;

@@ -39,7 +39,7 @@ public class PrologFromJava {
                 while (NextAnswerList.isCons()) {
                     Answer = (((AFunct) NextAnswerList).getPlainArg(0)).dref();
                     // do something with the answer - e.g. print it
-                    final String s = Answer.toJpString();
+                    final String s = Answer.portrayTerm();
                     System.out.println(s);
                     System.out.flush();
 

@@ -1,6 +1,7 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
+// CONST;
+import static SxxMachine.pterm.TermData.*;
 
 /**
  * Permission error.<br>
@@ -13,7 +14,7 @@ import SxxMachine.pterm.TermData;
  */
 public class PermissionException extends BuiltinException {
     /** A functor symbol of <code>permission_error/5</code>. */
-    public static final Functor PERMISSION_ERROR = TermData.F("permission_error", 5);
+    public static final Functor PERMISSION_ERROR = F("permission_error", 5);
     /*
      * operation ::= access | create | input | modify | open | output | reposition |
      * new
@@ -54,16 +55,16 @@ public class PermissionException extends BuiltinException {
      */
     @Override
     public Term getMessageTerm() {
-        Term[] args = { TermData.FFIObject(this.goal), TermData.createAtomic(this.operation),
-                TermData.createAtomic(this.permissionType), this.culprit, TermData.createAtomic(this.message) };
-        return TermData.createErrorTerm(this, PERMISSION_ERROR, args);
+        Term[] args = { FFIObject(this.goal), createAtomic(this.operation),
+                createAtomic(this.permissionType), this.culprit, createAtomic(this.message) };
+        return createErrorTerm(this, PERMISSION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>PermissionException</code>. */
     @Override
     public String toString() {
         String s = "{PERMISSION ERROR: " + this.goal.toString();
-        s += " - can not " + this.operation + " " + this.permissionType + " " + this.culprit.pprint();
+        s += " - can not " + this.operation + " " + this.permissionType + " " + this.culprit.getJavaString();
         s += ": " + this.message;
         s += "}";
         return s;

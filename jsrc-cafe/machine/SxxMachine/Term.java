@@ -6,6 +6,7 @@ import java.util.Map;
 import SxxMachine.pterm.ClosureTerm;
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.MapTerm;
+import SxxMachine.pterm.SinkFluentTerm;
 import SxxMachine.pterm.SourceFluentTerm;
 
 /**
@@ -52,7 +53,7 @@ public interface Term extends Comparable<Term> {
 
     Term toClone() throws CloneNotSupportedException;
 
-    public boolean Unify_TO(Term dref, Trail trail);
+    public boolean Unify_TO(Term dref, KPTrail trail);
 
     public Term getPlainArg(int i);
 
@@ -78,7 +79,7 @@ public interface Term extends Comparable<Term> {
 
     public NumberTerm asIntegerTerm();
 
-    public SxxMachine.Functor asConst();
+    public Nonvar asConst();
 
     public boolean equalsTerm(Term v);
 
@@ -92,13 +93,13 @@ public interface Term extends Comparable<Term> {
 
     public Term freeze(Trail trail, Term newval);
 
-    public String getString();
+    public String getJavaString();
 
     public Term findOrAttrValue(Trail trail, boolean b, Term a2);
 
     public boolean unify(Term arg0, Trail trail);
 
-    public boolean unify(Compound arg0, Trail trail);
+//    public boolean unify(Compound arg0, Trail trail);
 
     public Term getAttrs();
 
@@ -148,9 +149,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isMap();
 
-    public Object toJava();
-
-    public Term toValue();
+    public Term toValueTalueTerm();
 
     public void toQuotedString(int i, StringBuilder sb);
 
@@ -158,7 +157,7 @@ public interface Term extends Comparable<Term> {
 
     public String pprint();
 
-    public Object object();
+    public Object javaInstance();
 
     public Class getIntendedClass();
 
@@ -168,7 +167,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean isClosure();
 
-    public boolean DO_Unify(Term t, Trail trail);
+    public boolean DO_Unify(Term t, KPTrail trail);
 
     public boolean isNumber();
 
@@ -184,9 +183,9 @@ public interface Term extends Comparable<Term> {
 
     public void setGoals(Trail trail, Term newval);
 
-    public boolean isConst();
+    public boolean isAtomOrObject();
 
-    public boolean isAtom();
+    public boolean isAtomSymbol();
 
     public boolean isAtomicValue();
 
@@ -200,11 +199,11 @@ public interface Term extends Comparable<Term> {
 
     public void setarg0Maybe_trail(Trail trail, int i0, Term value);
 
-    public Compound add(Term term);
+    public Compound addPlToList(Term term);
+
+    public boolean bindKP(Term that, KPTrail trail);
 
     public Term carTokenOrSelf();
-
-    public Object toObject();
 
     public HornClause toClause();
 
@@ -220,9 +219,9 @@ public interface Term extends Comparable<Term> {
 
     public Term reaction(Term that);
 
-    public int length();
+    public int termLength();
 
-    public SourceFluentTerm asSource();
+    public SourceFluentTerm asSource(Prog prog);
 
     public Term asStructureTerm();
 
@@ -256,21 +255,19 @@ public interface Term extends Comparable<Term> {
 
     public boolean matches(Term sym);
 
-    public boolean matches(Term first, Trail trail);
+    public boolean matches(Term first, KPTrail trail);
 
-    public boolean pbind(Term variableTerm, Trail trail);
+    public boolean cafe_bind_var(Term variableTerm, Trail trail);
 
     public Iterator<Term> iterator(boolean includeSyntax);
-
-    public boolean isSymbol();
 
     public Term listify();
 
     public String fname();
 
-    public boolean unify(Term that);
+    public boolean unifyJP(Term that);
 
-    public boolean bind(Term that);
+    public boolean bindJP(Term that);
 
     String toStringImpl(int depth);
 
@@ -278,13 +275,41 @@ public interface Term extends Comparable<Term> {
 
     boolean couldUnifyInverse(Term object);
 
-    public String toJpString();
+    public String portrayTerm();
 
     /**
      * @param m
      * @param t
      * @return
      */
-    Term copy(RunningPrologMachine m, long t);
+    Term copyJP(RunningPrologMachine m, long t);
+
+    /**
+     * @param p
+     * @return
+     */
+    public SinkFluentTerm asSink(Prog p);
+
+    /**
+     * @return
+     */
+    boolean isSource();
+
+    /**
+     * @return
+     */
+    public String stringWrite();
+
+    /**
+     * @param string
+     * @param trail
+     * @return
+     */
+    public boolean unifySYM(String string, Trail trail);
+
+    /**
+     * @return
+     */
+    public boolean isVarSimple();
 
 }

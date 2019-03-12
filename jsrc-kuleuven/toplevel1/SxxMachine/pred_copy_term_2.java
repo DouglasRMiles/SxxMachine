@@ -59,9 +59,9 @@ class pred_copy_term_2_1 extends pred_copy_term_2 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        if (!((areg1).unify(var2)))
+        if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = var3;
         local_aregs[1] = S(string2, var3.dref(), var1.dref());

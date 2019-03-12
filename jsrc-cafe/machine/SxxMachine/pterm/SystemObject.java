@@ -1,5 +1,6 @@
 package SxxMachine.pterm;
 
+import SxxMachine.KPTrail;
 import SxxMachine.OpVisitor;
 import SxxMachine.Term;
 import SxxMachine.Trail;
@@ -109,7 +110,7 @@ abstract public class SystemObject extends ANonvar {
     }
 
     @Override
-    public String getString() {
+    public String getJavaString() {
         oopsy("unknown getString");
         return "object(" + getClass().getName() + "." + ordinal + ")";
     }
@@ -125,7 +126,7 @@ abstract public class SystemObject extends ANonvar {
 
     @Override
     public String pprint() {
-        return getString();
+        return getJavaString();
     }
 
     @Override

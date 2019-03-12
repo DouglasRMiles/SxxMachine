@@ -2588,7 +2588,7 @@ public class FILE_dra extends FILE_system {
         //END inline expansion
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion
@@ -4359,7 +4359,7 @@ public class FILE_dra extends FILE_system {
         }
         //START inline expansion of atom(a(2))
         a2 = a2.dref();
-        if (!(a2.isAtom())) {
+        if (!(a2.isAtomSymbol())) {
             return m.fail();
         }
         //END inline expansion

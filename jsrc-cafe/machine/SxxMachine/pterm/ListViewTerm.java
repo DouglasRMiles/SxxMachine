@@ -1,6 +1,7 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.V;
+// V;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -107,7 +108,7 @@ public class ListViewTerm extends ListTerm {
     }
 
     @Override
-    public ListTerm add(Term term) {
+    public ListTerm addPlToList(Term term) {
         this.list.add(term);
         return this;
     }
@@ -127,7 +128,7 @@ public class ListViewTerm extends ListTerm {
     protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
         Term result = Prolog.Nil;
         for (int i = this.list.size() - 1; i >= this.index; i--) {
-            result = TermData.CONS(this.list.get(i).copy(copyHash, deeply), result);
+            result = CONS(this.list.get(i).copy(copyHash, deeply), result);
         }
         return result;
     }
@@ -137,21 +138,21 @@ public class ListViewTerm extends ListTerm {
      */
     @Override
     public Term getPlainArg(int i) {
-        return nth0(i);
+        return nthTermEle0(i);
     }
 
     @Override
-    public Term nth0(int nth) {
+    public Term nthTermEle0(int nth) {
         return this.list.get(this.index + nth);
     }
 
     @Override
-    public int length() {
+    public int termLength() {
         return this.list.size() - this.index;
     }
 
     @Override
-    public List toJava() {
+    public List javaInstance() {
         return Collections.unmodifiableList(this.list.subList(this.index, this.list.size()));
     }
 
@@ -167,7 +168,7 @@ public class ListViewTerm extends ListTerm {
 
     @Override
     public Term car() { 
-        return nth0(0);
+        return nthTermEle0(0);
     }
 
     @Override

@@ -4,10 +4,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+// Integer;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Iterator;
 
@@ -112,13 +110,13 @@ class pred_getnameindex_4_1 extends pred_getnameindex_4 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_getnameindex_4_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_getnameindex_4_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var4.dref())))
+        if (!(areg3.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var3.dref();
         local_aregs[1] = var1.dref();
@@ -172,13 +170,13 @@ class pred_getnameindex_4_2 extends pred_getnameindex_4 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_getnameindex_4_consts.string2, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_getnameindex_4_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        if (!(areg3.unify(var5.dref())))
+        if (!(areg3.unifyJP(var5.dref())))
             return mach.Fail0;
         local_aregs[0] = var6;
         local_aregs[1] = var4.dref();

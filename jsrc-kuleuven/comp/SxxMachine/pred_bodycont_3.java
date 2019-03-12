@@ -125,11 +125,11 @@ class pred_bodycont_3_1 extends pred_bodycont_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var3.dref();
@@ -178,11 +178,11 @@ class pred_bodycont_3_2 extends pred_bodycont_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
 
@@ -233,11 +233,11 @@ class pred_bodycont_3_3 extends pred_bodycont_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
 
@@ -288,11 +288,11 @@ class pred_bodycont_3_4 extends pred_bodycont_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
 
@@ -345,11 +345,11 @@ class pred_bodycont_3_5 extends pred_bodycont_3 {
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
-        if (!(areg0.unify(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
+        if (!(areg0.unifyJP(S(pred_bodycont_3_consts.string6, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        if (!(areg1.unify(var3.dref())))
+        if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var4.dref())))
+        if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var5;
@@ -395,11 +395,11 @@ class pred_bodycont_3_6 extends pred_bodycont_3 {
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!(areg0.unify(var1.dref())))
+        if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        if (!(areg1.unify(var2.dref())))
+        if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        if (!(areg2.unify(var3.dref())))
+        if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
         local_aregs[0] = CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5));

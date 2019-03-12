@@ -86,7 +86,7 @@ class pred_exec_1_1 extends pred_exec_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = S(string0, new HeapChoice(mach.getCUTB()), S(string8, continuation));
@@ -104,7 +104,7 @@ class pred_exec_1_2 extends pred_exec_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string6, var1.dref(), S(string6, var2.dref(), continuation));
@@ -122,7 +122,7 @@ class pred_exec_1_3 extends pred_exec_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string2, var1, var2))))
+        if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string7, S(string2, var1.dref(), var2.dref()), CONST(string10), continuation);
@@ -140,7 +140,7 @@ class pred_exec_1_4 extends pred_exec_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string3, var1, var2))))
+        if (!((areg0).unifyJP(S(string3, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         local_aregs[0] = S(string7, var1.dref(), var2.dref(), continuation);
@@ -158,7 +158,7 @@ class pred_exec_1_5 extends pred_exec_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var2;
@@ -176,7 +176,7 @@ class pred_exec_1_6 extends pred_exec_1 {
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(var1)))
+        if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = continuation;

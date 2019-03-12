@@ -296,6 +296,7 @@ listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
 	'$listing_dynamic_clause'(P, F/A).
 '$listing'(PI, P) :- illarg(type(predicate_indicator), listing(P:PI), 1).
 
+% context_module(P),'$new_internal_database'(P), hash_keys(P, Keys), '$builtin_member'(PI, Keys).
 '$listing_dynamic_clause'(P, PI) :-
 	'$new_internal_database'(P),
 	hash_keys(P, Keys),

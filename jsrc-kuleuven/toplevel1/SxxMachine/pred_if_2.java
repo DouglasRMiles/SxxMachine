@@ -1,8 +1,8 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
+// Jv;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_if_2 extends Code {
 

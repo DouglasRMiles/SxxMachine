@@ -42,7 +42,7 @@ class pred_call_list_1_1 extends pred_call_list_1 {
         final Term local_aregs[] = mach.getAreg();
         final Term continuation = local_aregs[1];
         final Term areg0 = local_aregs[0].dref();
-        if (!((areg0).unify(CONST(string2))))
+        if (!((areg0).unifyJP(CONST(string2))))
             return mach.Fail0;
         local_aregs[0] = continuation;
         mach.updateCUTB();
@@ -60,7 +60,7 @@ class pred_call_list_1_2 extends pred_call_list_1 {
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        if (!((areg0).unify(S(string1, var1, var2))))
+        if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = S(string4, var2.dref(), continuation);

@@ -21,7 +21,7 @@ public class PseudoVar extends SymbolTerm.Dynamic {
      */
     @Override
     public String pprint() {
-        return getString();
+        return getJavaString();
     }
 
     @Override
