@@ -101,7 +101,7 @@ class pred_fixNotVar_2_1 extends pred_fixNotVar_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var10 = Jv(mach);
@@ -122,7 +122,7 @@ class pred_fixNotVar_2_1 extends pred_fixNotVar_2 {
         local_aregs[0] = S(pred_fixNotVar_2_consts.string8, var3, var4);
         local_aregs[1] = var1.dref();
 
-        local_aregs[2] = S(pred_fixNotVar_2_consts.string5, S(pred_fixNotVar_2_consts.string6, var3
+        mach.setCont(local_aregs, 2, S(pred_fixNotVar_2_consts.string5, S(pred_fixNotVar_2_consts.string6, var3
                 .dref()), S(pred_fixNotVar_2_consts.string0, new HeapChoice(
                         mach.getCUTB()), S(pred_fixNotVar_2_consts.string2, var3
                                 .dref(), var5, var6, S(pred_fixNotVar_2_consts.string4, var5
@@ -131,7 +131,7 @@ class pred_fixNotVar_2_1 extends pred_fixNotVar_2 {
                                                         .dref(), var8.dref(), S(pred_fixNotVar_2_consts.string10, var4
                                                                 .dref(), var10, S(pred_fixNotVar_2_consts.string7, S(pred_fixNotVar_2_consts.string8, var9
                                                                         .dref(), var10.dref()), var2
-                                                                                .dref(), continuation))))))));
+                                                                                .dref(), continuation)))))))));
         mach.updateCUTB();
         return getConsts().unify3cont;
     }
@@ -158,7 +158,7 @@ class pred_fixNotVar_2_2 extends pred_fixNotVar_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var6 = Jv(mach);
@@ -174,13 +174,13 @@ class pred_fixNotVar_2_2 extends pred_fixNotVar_2 {
 
         local_aregs[0] = S(pred_fixNotVar_2_consts.string6, var1.dref());
 
-        local_aregs[1] = S(pred_fixNotVar_2_consts.string2, var1
+        mach.setCont(local_aregs, 1, S(pred_fixNotVar_2_consts.string2, var1
                 .dref(), var3, var4, S(pred_fixNotVar_2_consts.string4, var3
                         .dref(), var5, S(pred_fixNotVar_2_consts.string3, var4
                                 .dref(), var6, S(pred_fixNotVar_2_consts.string2, var2.dref(), var5.dref(), var6
-                                        .dref(), continuation))));
+                                        .dref(), continuation)))));
         mach.updateCUTB();
-        local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 2);
         return getConsts().not2cont;
     }
 }
@@ -206,7 +206,7 @@ class pred_fixNotVar_2_3 extends pred_fixNotVar_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var6 = Jv(mach);
@@ -223,9 +223,9 @@ class pred_fixNotVar_2_3 extends pred_fixNotVar_2 {
         local_aregs[1] = var3;
         local_aregs[2] = var4;
 
-        local_aregs[3] = S(pred_fixNotVar_2_consts.string3, var5, var4
+        mach.setCont(local_aregs, 3, S(pred_fixNotVar_2_consts.string3, var5, var4
                 .dref(), S(pred_fixNotVar_2_consts.string4, var6, var3.dref(), S(pred_fixNotVar_2_consts.string2, var1
-                        .dref(), var6.dref(), var5.dref(), continuation)));
+                        .dref(), var6.dref(), var5.dref(), continuation))));
         mach.updateCUTB();
         return getConsts().univ4cont;
     }

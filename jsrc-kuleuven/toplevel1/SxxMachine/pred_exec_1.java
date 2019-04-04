@@ -83,13 +83,13 @@ class pred_exec_1_1 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = S(string0, new HeapChoice(mach.getCUTB()), S(string8, continuation));
+        mach.setCont(local_aregs, 1, S(string0, new HeapChoice(mach.getCUTB()), S(string8, continuation)));
         mach.updateCUTB();
         return var2cont;
     }
@@ -100,16 +100,16 @@ class pred_exec_1_2 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string6, var1.dref(), S(string6, var2.dref(), continuation));
+        mach.setCont(local_aregs, 0, S(string6, var1.dref(), S(string6, var2.dref(), continuation)));
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }
 
@@ -118,16 +118,16 @@ class pred_exec_1_3 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl4);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string7, S(string2, var1.dref(), var2.dref()), CONST(string10), continuation);
+        mach.setCont(local_aregs, 0, S(string7, S(string2, var1.dref(), var2.dref()), CONST(string10), continuation));
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }
 
@@ -136,16 +136,16 @@ class pred_exec_1_4 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl5);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string3, var1, var2))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string7, var1.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 0, S(string7, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }
 
@@ -154,7 +154,7 @@ class pred_exec_1_5 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl6);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -162,7 +162,7 @@ class pred_exec_1_5 extends pred_exec_1 {
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var2;
-        local_aregs[2] = S(string0, new HeapChoice(mach.getCUTB()), S(string6, var2.dref(), continuation));
+        mach.setCont(local_aregs, 2, S(string0, new HeapChoice(mach.getCUTB()), S(string6, var2.dref(), continuation)));
         mach.updateCUTB();
         return specialgoal3cont;
     }
@@ -173,14 +173,14 @@ class pred_exec_1_6 extends pred_exec_1 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
-        return mach.Call2;
+        return mach.getCall2();
     }
 }

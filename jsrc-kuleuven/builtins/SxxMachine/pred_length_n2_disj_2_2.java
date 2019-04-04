@@ -54,7 +54,7 @@ class pred_length_n2_disj_2_2_1 extends pred_length_n2_disj_2_2 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
@@ -65,8 +65,8 @@ class pred_length_n2_disj_2_2_1 extends pred_length_n2_disj_2_2 {
             return mach.Fail0;
         local_aregs[0] = posint0;
         local_aregs[1] = var1.dref();
-        local_aregs[2] = S(string0, new HeapChoice(
-                mach.getCUTB()), S(string8, CONST(string3), var2.dref(), continuation));
+        mach.setCont(local_aregs, 2, S(string0, new HeapChoice(
+                mach.getCUTB()), S(string8, CONST(string3), var2.dref(), continuation)));
         mach.updateCUTB();
         return unify3cont;
     }
@@ -77,7 +77,7 @@ class pred_length_n2_disj_2_2_2 extends pred_length_n2_disj_2_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var5 = Jv(mach);
@@ -91,8 +91,8 @@ class pred_length_n2_disj_2_2_2 extends pred_length_n2_disj_2_2 {
             return mach.Fail0;
         local_aregs[0] = var3;
         local_aregs[1] = S(string1, var1.dref(), posint1);
-        local_aregs[2] = S(string8, S(string2, var4, var5), var2
-                .dref(), S(string6, var5.dref(), var3.dref(), continuation));
+        mach.setCont(local_aregs, 2, S(string8, S(string2, var4, var5), var2
+                .dref(), S(string6, var5.dref(), var3.dref(), continuation)));
         mach.updateCUTB();
         return is3cont;
     }

@@ -197,4 +197,74 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
         return getCurrentStackPoint().getAlternative();
     }
 
+    /**
+     * @param args
+     * @param i
+     * @param continuation
+     */
+    public void setCont(Term[] args, int arity, Term continuation) {
+        cont = continuation;
+        arity_b4_cont = arity;
+        args[arity] = continuation;
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     */
+    public void setARegENull(Term[] local_aregs, int i) {
+        local_aregs[i] = null;
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param high
+     * @param low
+     */
+
+    public void setARegENull(Term[] local_aregs, int high, int low) {
+        for (int i = low; i < high; i++) {
+            local_aregs[i] = null;
+        }
+
+    }
+
+    protected Term cont;
+    protected int arity_b4_cont;
+
+    /**
+     * @param n
+     */
+    public void checkCont(int n) {
+        final Term term = areg[n];
+        if (cont != term)
+        // TODO Auto-generated method stub
+        {
+            //if (cont != term)
+            // throw new AbstractMethodError("MiniJProlog.checkCont");
+        }
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     * @return
+     */
+    public Term getCont(Term[] local_aregs, int i) {
+        return local_aregs[i];
+    }
+
+    /**
+     * @param local_aregs
+     * @param low
+     * @param high
+     */
+    public void setARegXFR(Term[] local_aregs, int low, int high) {
+        cont = local_aregs[low] = local_aregs[high];
+
+    }
+
 }

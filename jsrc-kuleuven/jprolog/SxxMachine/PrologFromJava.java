@@ -7,7 +7,6 @@ import static SxxMachine.pterm.TermData.SYM;
 // Prolog implementation in Java
 // KUL and CUM
 
-
 public class PrologFromJava {
     public static void main(String args[]) throws JPrologScriptException {
 

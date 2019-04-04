@@ -70,7 +70,7 @@ public class pred_printMainConstruction_1 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
@@ -83,7 +83,7 @@ public class pred_printMainConstruction_1 extends Code {
                                         .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string15), S(pred_printMainConstruction_1_consts.string3, var1
                                                 .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string16), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string17), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string18), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string13), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string19), S(pred_printMainConstruction_1_consts.string3, var1
                                                         .dref(), S(pred_printMainConstruction_1_consts.string3, CONST(pred_printMainConstruction_1_consts.string20), S(pred_printMainConstruction_1_consts.string3, S(pred_printMainConstruction_1_consts.string6, CONST(pred_printMainConstruction_1_consts.string7)), CONST(pred_printMainConstruction_1_consts.string21)))))))))))))))))))))))))))))))));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;
 

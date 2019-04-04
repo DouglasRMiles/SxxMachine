@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-main(A)
         m.setB0();
     // top:-[main(A)]
@@ -54,7 +54,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_main_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // main(A):-u(B,[1,C],[B],D),size(D,0,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -79,7 +79,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_u_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // u(A,B,C,D):-unify(A,B,C,E,D,[])
         m.setB0();
          Term a1, a2, a3, a4;
@@ -100,8 +100,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -119,7 +119,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -138,7 +138,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -154,8 +154,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_unify::unify_6_sub_1);
         return unify_6_1(m);
@@ -177,7 +177,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify(A,B,C,D,E,F):-['$get_level'(G),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),uninit(A,B,C,D,I,F)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -206,7 +206,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify(A,B,C,D,E,F):-['$get_level'(G),myin(A,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),init(A,B,C,D,nonlast,J,I,F)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -238,8 +238,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_uninit_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_unify::uninit_6_sub_1);
         return uninit_6_1(m);
@@ -266,7 +266,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // uninit(A,B,C,D,E,F):-['$get_level'(G),my_compound(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(J^h,A)|K]),termtag(B,J),'$unify'(L,K),unify_block(nonlast,B,M,C,N,O,L,P),incl(A,N,D),'$unify'(F,P)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -312,7 +312,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // uninit(A,B,C,D,E,F):-['$get_level'(G),atomic(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(tatm^B,A)|J]),incl(A,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -370,7 +370,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // uninit(A,B,C,D,E,F):-['$get_level'(G),var(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),unify_var(A,B,C,D,I,F)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -418,8 +418,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_init_8_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry8(null, FILE_unify::init_8_sub_1);
         return init_8_1(m);
@@ -443,7 +443,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // init(A,B,C,D,E,F,G,H):-['$get_level'(I),nonvar(B),'$unify'(J,G),'$cut'(I),'$unify'(K,J),termtag(B,L),'$unify'(M,K),'$unify'(M,[deref(A),switch(L,A,[trail(A)|N],O,fail)|P]),unify_writemode(A,B,C,E,F,N,[]),'$unify'(Q,P),unify_readmode(A,B,C,D,F,O,[]),'$unify'(H,Q)]
         a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
@@ -513,7 +513,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // init(A,B,C,D,E,F,G,H):-['$get_level'(I),var(B),'$unify'(J,G),'$cut'(I),'$unify'(K,J),unify_var(A,B,C,D,K,H)]
         a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
@@ -565,8 +565,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_var_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_unify::unify_var_6_sub_1);
         return unify_var_6_1(m);
@@ -598,7 +598,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_var(A,B,C,C,D,E):-['$get_level'(F),myin(A,C),myin(B,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),'$unify'(H,[unify(A,B,fail)|E])]
         if (! a3.unify(a4, m.trail))
             return m.fail();
@@ -634,7 +634,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),myin(A,C),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(A,B)|J]),incl(B,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -671,7 +671,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),myin(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(B,A)|J]),incl(A,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -708,7 +708,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(tvar^h,A),move(tvar^h,B),add(1,h),move(B,[h-1])|J]),incl(A,C,K),incl(B,K,D),'$unify'(F,J)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -753,8 +753,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -772,7 +772,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -791,7 +791,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -804,8 +804,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -823,7 +823,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -842,7 +842,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -855,8 +855,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -874,7 +874,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -893,7 +893,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -906,8 +906,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -925,7 +925,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -944,7 +944,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -961,8 +961,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_readmode_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry7(null, FILE_unify::unify_readmode_7_sub_1);
         return unify_readmode_7_1(m);
@@ -990,7 +990,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_readmode(A,B,C,D,E,F,G):-['$get_level'(H),structure(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[equal([A],tatm^(K/L),fail)|M]),functor(B,K,L),'$unify'(N,M),unify_args(1,L,B,C,D,0,A,E,N,G)]
         a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
@@ -1038,7 +1038,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_readmode(A,B,C,D,E,F,G):-['$get_level'(H),cons(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),unify_args(1,2,B,C,D,-1,A,E,J,G)]
         a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
@@ -1067,7 +1067,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_readmode(A,B,C,C,D,E,F):-['$get_level'(G),atomic(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[equal(A,tatm^B,fail)|F])]
         if (! a3.unify(a4, m.trail))
             return m.fail();
@@ -1126,8 +1126,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_args_10_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry(10, null, FILE_unify::unify_args_10_sub_1);
         return unify_args_10_1(m);
@@ -1157,7 +1157,7 @@ m.cont = cont;
         a8 = m.AREGS[7];
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_args(A,B,C,D,D,E,F,G,H,I):-['$get_level'(J),'$greater_than'(A,B),'$unify'(K,H),'$cut'(J),'$unify'(I,K)]
         if (! a4.unify(a5, m.trail))
             return m.fail();
@@ -1204,7 +1204,7 @@ m.cont = cont;
         a8 = m.AREGS[7];
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_args(A,B,C,D,E,F,G,[H|I],J,K):-['$get_level'(L),'$unify'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),unify_arg(A,C,D,E,F,G,last,I,N,K)]
         a8 = a8.dref();
         if (a8 .isCons()){
@@ -1261,7 +1261,7 @@ m.cont = cont;
         a8 = m.AREGS[7];
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_args(A,B,C,D,E,F,G,H,I,J):-['$get_level'(K),'$less_than'(A,B),'$unify'(L,I),'$cut'(K),'$unify'(M,L),unify_arg(A,C,D,N,F,G,nonlast,O,M,P),Q is A+1,'$unify'(R,P),unify_args(Q,B,C,N,E,F,G,H,R,J)]
         a11 = m.mkvar1();
         //START inline expansion of $get_level(a(11))
@@ -1314,7 +1314,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_arg_10_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // unify_arg(A,B,C,D,E,F,G,H,[move([F+I],J)|K],L):-((I is A+E,incl(J,C,M),arg(A,B,N)),O=K),init(J,N,M,D,G,H,O,L)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
@@ -1391,8 +1391,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_writemode_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry7(null, FILE_unify::unify_writemode_7_sub_1);
         return unify_writemode_7_1(m);
@@ -1415,7 +1415,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_writemode(A,B,C,D,E,F,G):-['$get_level'(H),my_compound(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[move(K^h,[A])|L]),termtag(B,K),'$unify'(M,L),unify_block(D,B,N,C,O,E,M,G)]
         a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
@@ -1458,7 +1458,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_writemode(A,B,C,D,E,F,G):-['$get_level'(H),atomic(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[move(tatm^B,[A])|G])]
         a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
@@ -1516,8 +1516,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_unify_block_8_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_unify::unify_block_8_var, fail_0, fail_0, FILE_unify::unify_block_8_var, fail_0, fail_0); 
     }
@@ -1545,7 +1545,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_block(last,A,B,C,C,[D|E],F,G):-['$neck_cut','$unify'(H,F),'$unify'(H,[add(B,h),jump(D)|I]),size(A,0,B),'$unify'(G,I)]
         if (!  ATOM_last .unify(a1, m.trail))
             return m.fail();
@@ -1601,7 +1601,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // unify_block(nonlast,A,B,C,D,[E|F],G,H):-['$neck_cut','$unify'(I,G),'$unify'(I,[add(B,h)|J]),size(A,0,B),K is -B,'$unify'(L,J),block(A,K,0,C,D,F,L,H)]
         if (!  ATOM_nonlast .unify(a1, m.trail))
             return m.fail();
@@ -1655,8 +1655,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_block_8_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry8(null, FILE_unify::block_8_sub_1);
         return block_8_1(m);
@@ -1690,7 +1690,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // block(A,B,C,D,E,F,G,H):-['$get_level'(I),structure(A),'$unify'(J,G),'$cut'(I),'$unify'(K,J),'$unify'(K,[move(tatm^(L/M),[h+B])|N]),functor(A,L,M),O is B+M+1,P is B+1,'$unify'(Q,N),make_slots(1,M,A,P,R,D,S,Q,T),block_args(1,M,A,O,C,R,S,E,F,T,H)]
         a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
@@ -1759,7 +1759,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // block(A,B,C,D,E,F,G,H):-['$get_level'(I),cons(A),'$unify'(J,G),'$cut'(I),'$unify'(K,J),L is B+2,'$unify'(M,K),make_slots(1,2,A,B,N,D,O,M,P),block_args(1,2,A,L,C,N,O,E,F,P,H)]
         a9 = m.mkvar1();
         //START inline expansion of $get_level(a(9))
@@ -1800,7 +1800,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // block(A,B,B,C,C,[],D,E):-['$get_level'(F),atomic(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         if (! a2.unify(a3, m.trail))
             return m.fail();
@@ -1850,7 +1850,7 @@ m.cont = cont;
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
-        cont = m.cont;
+        cont = m.getCont();
     // block(A,B,B,C,C,[],D,E):-['$get_level'(F),var(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         if (! a2.unify(a3, m.trail))
             return m.fail();
@@ -1899,8 +1899,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_block_args_11_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry(11, null, FILE_unify::block_args_11_sub_1);
         return block_args_11_1(m);
@@ -1931,7 +1931,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // block_args(A,B,C,D,D,[],E,E,[],F,G):-['$get_level'(H),'$greater_than'(A,B),'$unify'(I,F),'$cut'(H),'$unify'(G,I)]
         if (! a4.unify(a5, m.trail))
             return m.fail();
@@ -1986,7 +1986,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // block_args(A,B,C,D,E,[D],F,G,[H|I],J,K):-['$get_level'(L),'$unify'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),'$unify'(N,[label(H)|O]),arg(A,C,P),'$unify'(Q,O),block(P,D,E,F,G,I,Q,K)]
         a6 = a6.dref();
         if (a6 .isCons()){
@@ -2071,7 +2071,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // block_args(A,B,C,D,E,[D|F],G,H,I,J,K):-['$get_level'(L),'$less_than'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),arg(A,C,O),'$unify'(P,N),block(O,D,Q,G,R,S,P,T),U is A+1,'$unify'(V,T),block_args(U,B,C,Q,E,F,R,H,I,V,K)]
         a6 = a6.dref();
         if (a6 .isCons()){
@@ -2140,8 +2140,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_make_slots_9_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry(9, null, FILE_unify::make_slots_9_sub_1);
         return make_slots_9_1(m);
@@ -2165,7 +2165,7 @@ m.cont = cont;
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
         a9 = m.AREGS[8];
-        cont = m.cont;
+        cont = m.getCont();
     // make_slots(A,B,C,D,[],E,E,F,G):-['$get_level'(H),'$greater_than'(A,B),'$unify'(I,F),'$cut'(H),'$unify'(G,I)]
         if (!  Prolog.Nil .unify(a5, m.trail))
             return m.fail();
@@ -2214,7 +2214,7 @@ m.cont = cont;
         a7 = m.AREGS[6];
         a8 = m.AREGS[7];
         a9 = m.AREGS[8];
-        cont = m.cont;
+        cont = m.getCont();
     // make_slots(A,B,C,D,[E|F],G,H,I,J):-['$get_level'(K),'$less_or_equal'(A,B),'$unify'(L,I),'$cut'(K),'$unify'(M,L),arg(A,C,N),'$unify'(O,M),init_var(N,D,G,O,P),incl(N,G,Q),make_word(N,E,R),'$unify'(S,P),'$unify'(S,[move(R,[h+D])|T]),U is D+1,V is A+1,'$unify'(W,T),make_slots(V,B,C,U,F,Q,H,W,J)]
         a5 = a5.dref();
         if (a5 .isCons()){
@@ -2300,8 +2300,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_sub_1);
         return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_2_1(m);
@@ -2319,7 +2319,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -2338,7 +2338,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
     }
@@ -2353,8 +2353,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_init_var_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry5(null, FILE_unify::init_var_5_sub_1);
         return init_var_5_1(m);
@@ -2380,7 +2380,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // init_var(A,B,C,D,E):-['$get_level'(F),var(A),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),'$unify'(H,[move(tvar^(h+B),A)|E])]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -2424,7 +2424,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // init_var(A,B,C,D,E):-['$get_level'(F),var(A),myin(A,C),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -2455,7 +2455,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // init_var(A,B,C,D,E):-['$get_level'(F),nonvar(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -2495,8 +2495,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_make_word_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_unify::make_word_3_sub_1);
         return make_word_3_1(m);
@@ -2520,7 +2520,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // make_word(A,B,C^(h+B)):-['$get_level'(D),my_compound(A),'$cut'(D),termtag(A,C)]
         a3 = a3.dref();
             a4 = m.mkvar2();
@@ -2551,7 +2551,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // make_word(A,B,A):-['$get_level'(C),var(A),'$cut'(C)]
         if (! a1.unify(a3, m.trail))
             return m.fail();
@@ -2581,7 +2581,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // make_word(A,B,tatm^A):-['$get_level'(C),atomic(A),'$cut'(C)]
         a3 = a3.dref();
             if (!a3.unifyS( FUNCTOR_$005E_2 , m.trail,  ATOM_tatm , a1)){
@@ -2614,8 +2614,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_size_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_unify::size_3_sub_1);
         return size_3_1(m);
@@ -2644,7 +2644,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // size(A,B,C):-['$get_level'(D),structure(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),functor(A,G,H),'$unify'(I,F),add(1,I,J),add(H,J,K),size_args(1,H,A,K,C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -2678,7 +2678,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // size(A,B,C):-['$get_level'(D),cons(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),add(2,F,G),size_args(1,2,A,G,C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -2705,7 +2705,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // size(A,B,C):-['$get_level'(D),atomic(A),'$unify'(E,B),'$cut'(D),'$unify'(C,E)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -2744,7 +2744,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // size(A,B,C):-['$get_level'(D),var(A),'$unify'(E,B),'$cut'(D),'$unify'(C,E)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -2786,8 +2786,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_size_args_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry5(null, FILE_unify::size_args_5_sub_1);
         return size_args_5_1(m);
@@ -2807,7 +2807,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // size_args(A,B,C,D,E):-['$get_level'(F),'$greater_than'(A,B),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -2848,7 +2848,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // size_args(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(A,B),'$unify'(G,D),'$cut'(F),'$unify'(H,G),arg(A,C,I),'$unify'(J,H),size(I,J,K),L is A+1,'$unify'(M,K),size_args(L,B,C,M,E)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -2902,7 +2902,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_add_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // add(A,B,C):-C is B+A
         m.setB0();
          Term a1, a2, a3, a4;
@@ -2929,7 +2929,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_myin_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // myin(A,[B|C]):-compare(D,A,B),in_2(D,A,C)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -2964,8 +2964,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_in_2_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_unify::in_2_3_var, fail_0, fail_0, FILE_unify::in_2_3_var, fail_0, fail_0); 
     }
@@ -2987,7 +2987,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // in_2(=,A,B):-[]
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
@@ -3001,7 +3001,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // in_2(>,A,B):-[myin(A,B)]
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
@@ -3017,7 +3017,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_incl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // incl(A,B,C):-incl_2(B,A,C)
         m.setB0();
          Term a1, a2, a3;
@@ -3037,8 +3037,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_incl_2_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_unify::incl_2_3_var, fail_0, fail_0, FILE_unify::incl_2_3_1, fail_0, FILE_unify::incl_2_3_2); 
     }
@@ -3060,7 +3060,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // incl_2([],A,[A]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -3086,7 +3086,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // incl_2([A|B],C,D):-[compare(E,C,A),incl_3(E,C,A,B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -3116,8 +3116,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_incl_3_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_unify::incl_3_5_var, fail_0, fail_0, FILE_unify::incl_3_5_var, fail_0, fail_0); 
     }
@@ -3146,7 +3146,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // incl_3(<,A,B,C,[A,B|C]):-[]
         if (!  ATOM_$003C .unify(a1, m.trail))
             return m.fail();
@@ -3184,7 +3184,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // incl_3(=,A,B,C,[B|C]):-[]
         if (!  ATOM_$003D .unify(a1, m.trail))
             return m.fail();
@@ -3211,7 +3211,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // incl_3(>,A,B,C,[B|D]):-[incl_2(C,A,D)]
         if (!  ATOM_$003E .unify(a1, m.trail))
             return m.fail();
@@ -3238,8 +3238,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_unify::$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_1_sub_1);
         return $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_1_1(m);
@@ -3255,7 +3255,7 @@ m.cont = cont;
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-['$get_level'(B),atomic(A),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -3283,7 +3283,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-[]
         return cont;
     }
@@ -3296,7 +3296,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_my_compound_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // my_compound(A):-nonvar(A),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A)
         m.setB0();
          Term a1;
@@ -3320,7 +3320,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_cons_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // cons(A):-nonvar(A),A=[B|C]
         m.setB0();
          Term a1, a2;
@@ -3349,8 +3349,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_unify::$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_3_sub_1);
         return $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Funify$002Epl_3_1(m);
@@ -3368,7 +3368,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-['$get_level'(D),'$unify'(A,[B|C]),'$cut'(D),fail]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -3398,7 +3398,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-[]
         return cont;
     }
@@ -3411,7 +3411,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_structure_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // structure(A):-my_compound(A),'$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C)
         m.setB0();
          Term a1;
@@ -3433,8 +3433,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 
 
     public static Operation PRED_termtag_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_unify::termtag_2_sub_1);
         return termtag_2_1(m);
@@ -3461,7 +3461,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // termtag(A,tstr):-[structure(A)]
         if (!  ATOM_tstr .unify(a2, m.trail))
             return m.fail();
@@ -3475,7 +3475,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // termtag(A,tlst):-[cons(A)]
         if (!  ATOM_tlst .unify(a2, m.trail))
             return m.fail();
@@ -3489,7 +3489,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // termtag(A,tatm):-[atomic(A)]
         if (!  ATOM_tatm .unify(a2, m.trail))
             return m.fail();
@@ -3508,7 +3508,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // termtag(A,tvar):-[var(A)]
         if (!  ATOM_tvar .unify(a2, m.trail))
             return m.fail();

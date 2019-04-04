@@ -16,7 +16,7 @@ public class pred_code_call_1 extends Code {
         final CodeObject codeObject = (CodeObject) local_aregs[0].dref();
         final StructureTerm argumentTerm = (StructureTerm) local_aregs[1].dref();
 
-        local_aregs[1] = null;
+        mach.setARegENull(local_aregs, 1);
 
         final Term[] arguments = argumentTerm.args();
 

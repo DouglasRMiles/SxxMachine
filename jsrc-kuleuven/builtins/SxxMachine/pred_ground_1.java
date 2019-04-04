@@ -14,7 +14,7 @@ public class pred_ground_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         Term term = local_aregs[0].dref();
 
         final Queue<Term> queue = new LinkedList<Term>();
@@ -22,7 +22,7 @@ public class pred_ground_1 extends Code {
         while (term != null) {
             if (term.isVariable()) {
                 return mach.Fail0;
-            } else if (term .isCompound()) {
+            } else if (term.isCompound()) {
                 final Term[] subterms = ((AFunct) term).args();
                 for (int i = 0; i < subterms.length; i++)
                     queue.add(subterms[i].dref());
@@ -30,9 +30,9 @@ public class pred_ground_1 extends Code {
             term = queue.poll();
         }
 
-        local_aregs[0] = continuation;
-        local_aregs[1] = null;
-        return mach.Call1;
+        mach.setCont(local_aregs, 0, continuation);
+        mach.setARegENull(local_aregs, 1);
+        return mach.getCall1();
     }
 
 }

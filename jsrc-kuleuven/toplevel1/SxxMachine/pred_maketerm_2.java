@@ -129,17 +129,17 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Const eof = CONST("end_of_file");
         if (areg0.unifyJP(eof)) {
             if (areg1.unifyJP(eof)) {
                 //op het einde vd stream?
-                local_aregs[0] = continuation;
-                local_aregs[1] = local_aregs[2] = null;
+                mach.setCont(local_aregs, 0, continuation);
+                mach.setARegENull(local_aregs, 2, 1);
                 //System.out.println("end_of_file " + continuation);
-                return mach.Call1;
+                return mach.getCall1();
             }
         }
         final Term var2 = Jv(mach);
@@ -161,8 +161,8 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
         local_aregs[0] = areg0;
         local_aregs[1] = var2.dref();
         local_aregs[2] = posint1200;
-        local_aregs[3] = (extras == null ? continuation : extras);
-        //local_aregs[3] = continuation;
+        mach.setCont(local_aregs, 3, (extras == null ? continuation : extras));
+        //mach.setCont(local_aregs,3,continuation);
         //mach.DoCut(mach.CUTB);
         mach.updateCUTB();
         return maketerm4cont;

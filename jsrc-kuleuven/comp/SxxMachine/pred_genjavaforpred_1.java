@@ -88,7 +88,7 @@ public class pred_genjavaforpred_1 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var14 = Jv(mach);
         final Term var13 = Jv(mach);

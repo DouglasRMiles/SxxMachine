@@ -91,7 +91,7 @@ class pred_doNumberVars_1_1 extends pred_doNumberVars_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
@@ -100,8 +100,8 @@ class pred_doNumberVars_1_1 extends pred_doNumberVars_1 {
         local_aregs[0] = pred_doNumberVars_1_consts.posint1;
         local_aregs[1] = var1.dref();
 
-        local_aregs[2] = S(pred_doNumberVars_1_consts.string0, new HeapChoice(
-                mach.getCUTB()), S(pred_doNumberVars_1_consts.string5, var1.dref(), continuation));
+        mach.setCont(local_aregs, 2, S(pred_doNumberVars_1_consts.string0, new HeapChoice(
+                mach.getCUTB()), S(pred_doNumberVars_1_consts.string5, var1.dref(), continuation)));
         mach.updateCUTB();
         return getConsts().smallerthan3cont;
     }
@@ -125,14 +125,14 @@ class pred_doNumberVars_1_2 extends pred_doNumberVars_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 1);
+        return mach.getCall1();
     }
 }

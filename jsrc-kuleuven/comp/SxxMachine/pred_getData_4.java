@@ -59,7 +59,7 @@ public class pred_getData_4 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -85,15 +85,15 @@ public class pred_getData_4 extends Code {
         local_aregs[1] = S(pred_getData_4_consts.string3, var1.dref(), var5.dref());
         local_aregs[2] = var2.dref();
 
-        local_aregs[3] = S(pred_getData_4_consts.string2, var5.dref(), S(pred_getData_4_consts.string4, var1
+        mach.setCont(local_aregs, 3, S(pred_getData_4_consts.string2, var5.dref(), S(pred_getData_4_consts.string4, var1
                 .dref(), var5.dref()), var6, S(pred_getData_4_consts.string2, var5
                         .dref(), S(pred_getData_4_consts.string5, var1.dref(), var5.dref()), var4
                                 .dref(), S(pred_getData_4_consts.string6, var7, var6
                                         .dref(), S(pred_getData_4_consts.string7, var7
                                                 .dref(), var8, S(pred_getData_4_consts.string8, S(pred_getData_4_consts.string9, CONST(pred_getData_4_consts.string0), var8
-                                                        .dref()), var3.dref(), continuation)))));
+                                                        .dref()), var3.dref(), continuation))))));
         mach.updateCUTB();
-        local_aregs[4] = null;
+        mach.setARegENull(local_aregs, 4);
         return getConsts().createSet4cont;
 
     }

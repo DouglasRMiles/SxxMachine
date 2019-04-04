@@ -68,7 +68,7 @@ class pred_readall_2_1 extends pred_readall_2 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         //PrologObject areg1 = local_aregs[1].Deref();
         final Term areg0 = local_aregs[0].dref();
         //PrologObject var1 = new Var(mach);
@@ -78,10 +78,10 @@ class pred_readall_2_1 extends pred_readall_2 {
         //if (!((areg1).Unify(var1)))
         //  return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -90,7 +90,7 @@ class pred_readall_2_2 extends pred_readall_2 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
@@ -99,10 +99,10 @@ class pred_readall_2_2 extends pred_readall_2 {
         if (!((areg1).unifyJP(var1)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string9, CONST(string2), var1.dref(), continuation);
+        mach.setCont(local_aregs, 0, S(string9, CONST(string2), var1.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -111,7 +111,7 @@ class pred_readall_2_3 extends pred_readall_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -122,9 +122,9 @@ class pred_readall_2_3 extends pred_readall_2 {
         if (!((areg1).unifyJP(S(string1, var1.dref(), var2))))
             return mach.Fail0;
         local_aregs[0] = var3;
-        local_aregs[1] = S(string8, var3.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 1, S(string8, var3.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 2);
         return nexttoken2cont;
     }
 }

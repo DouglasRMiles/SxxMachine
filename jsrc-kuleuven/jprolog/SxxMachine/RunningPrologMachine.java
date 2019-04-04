@@ -41,7 +41,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
     }
 
     public Term[] createAregCopy(int count) {
-        if (count < 1)
+        if (count < 0)
             throw new IllegalArgumentException();
         final Term[] copy = new Term[count];
         System.arraycopy(getAreg(), 0, copy, 0, count);
@@ -151,6 +151,10 @@ public class RunningPrologMachine extends ModulePrologMachine {
 
     public void createChoicePoint(Term... args) {
         getCurrentStackItem().createChoicePoint(args);
+    }
+
+    public void checkCont(int n) {
+        getCurrentStackItem().checkCont(n);
     }
 
     public void doCut(int cutTo) {

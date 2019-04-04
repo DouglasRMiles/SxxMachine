@@ -70,7 +70,7 @@ class pred_top_0_1 extends pred_top_0 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[0];
+        final Term continuation = mach.getCont(local_aregs, 0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         local_aregs[0] = CONST(string1);
@@ -87,8 +87,8 @@ class pred_top_0_2 extends pred_top_0 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[0];
-        local_aregs[0] = continuation;
+        final Term continuation = mach.getCont(local_aregs, 0);
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
         return entry_code;
     }

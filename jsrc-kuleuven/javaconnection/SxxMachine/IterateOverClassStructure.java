@@ -30,7 +30,7 @@ public class IterateOverClassStructure extends Code {
         Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object .isAtomOrObject()))
+        if (!(object.isAtomOrObject()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Class))
@@ -39,9 +39,9 @@ public class IterateOverClassStructure extends Code {
         if (cont == null)
             return mach.Fail0;
         args[1] = args[2] = null;
-        args[0] = cont;
+        mach.setCont(args, 0, cont);
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 
     protected void initMach(PrologMachine mach) {
@@ -117,7 +117,7 @@ class InterfaceIterator extends Code {
         final Term cont = args[2];
         if (!classType.isVariable())
             return mach.Fail0;
-        if (!(object .isAtomOrObject()))
+        if (!(object.isAtomOrObject()))
             return mach.Fail0;
         final Object c = ((Const) object).getValue();
         if (!(c instanceof Iterator))
@@ -134,9 +134,9 @@ class InterfaceIterator extends Code {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
         args[1] = args[2] = null;
-        args[0] = cont;
+        mach.setCont(args, 0, cont);
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }

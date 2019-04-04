@@ -51,7 +51,7 @@ public class pred_escapeChars_2 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
@@ -64,7 +64,7 @@ public class pred_escapeChars_2 extends Code {
 
         local_aregs[1] = CONST(pred_escapeChars_2_consts.string3);
         local_aregs[2] = var2.dref();
-        local_aregs[3] = continuation;
+        mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().escapeChars24cont;
 

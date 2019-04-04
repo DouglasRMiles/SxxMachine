@@ -38,8 +38,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry0(null, FILE_sendmore::top_0_sub_1);
         return top_0_1(m);
@@ -55,7 +55,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37;
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // top:-[digit(A),digit(B),'$arith_not_equal'(A,B),sumdigit(0,A,B,C,D),digit(E),'$arith_not_equal'(E,C),'$arith_not_equal'(E,B),'$arith_not_equal'(E,A),digit(F),'$arith_not_equal'(F,E),'$arith_not_equal'(F,C),'$arith_not_equal'(F,B),'$arith_not_equal'(F,A),sumdigit(D,E,F,B,G),digit(H),'$arith_not_equal'(H,F),'$arith_not_equal'(H,E),'$arith_not_equal'(H,C),'$arith_not_equal'(H,B),'$arith_not_equal'(H,A),sumdigit(G,B,H,E,I),leftdigit(J),'$arith_not_equal'(J,H),'$arith_not_equal'(J,F),'$arith_not_equal'(J,E),'$arith_not_equal'(J,C),'$arith_not_equal'(J,B),'$arith_not_equal'(J,A),leftdigit(K),'$arith_not_equal'(K,J),'$arith_not_equal'(K,H),'$arith_not_equal'(K,F),'$arith_not_equal'(K,E),'$arith_not_equal'(K,C),'$arith_not_equal'(K,B),'$arith_not_equal'(K,A),sumdigit(I,J,K,H,K),fail]
         a1 = m.mkvar1();
         a2 = m.mkvar1();
@@ -111,7 +111,7 @@ m.cont = cont;
     private final static Operation top_0_2(Prolog m) { 
     // top:-true
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // top:-[]
         return cont;
     }
@@ -125,8 +125,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_sendmore::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_1(m);
@@ -144,7 +144,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-['$get_level'(D),E is 10,'$less_than'(C,E),'$cut'(D),'$unify'(A,C),'$unify'(B,0)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -187,7 +187,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-[A is C-10,'$unify'(B,1)]
     // put_str_args([a(3),@(int_10)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002D_2 , a3,  int_10 );
@@ -216,7 +216,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
     public static Operation PRED_sumdigit_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // sumdigit(A,B,C,D,E):-F is A+B+C,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(D,E,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -250,8 +250,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
     public static Operation PRED_digit_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_sendmore::digit_1_var, FILE_sendmore::digit_1_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -311,7 +311,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(0):-[]
         if (!  int_0 .unify(a1, m.trail))
             return m.fail();
@@ -323,7 +323,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(1):-[]
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
@@ -335,7 +335,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(2):-[]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -347,7 +347,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(3):-[]
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
@@ -359,7 +359,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(4):-[]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -371,7 +371,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(5):-[]
         if (!  int_5 .unify(a1, m.trail))
             return m.fail();
@@ -383,7 +383,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(6):-[]
         if (!  int_6 .unify(a1, m.trail))
             return m.fail();
@@ -395,7 +395,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(7):-[]
         if (!  int_7 .unify(a1, m.trail))
             return m.fail();
@@ -407,7 +407,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(8):-[]
         if (!  int_8 .unify(a1, m.trail))
             return m.fail();
@@ -419,7 +419,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // digit(9):-[]
         if (!  int_9 .unify(a1, m.trail))
             return m.fail();
@@ -434,8 +434,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
     public static Operation PRED_leftdigit_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_sendmore::leftdigit_1_var, FILE_sendmore::leftdigit_1_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -490,7 +490,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(1):-[]
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
@@ -502,7 +502,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(2):-[]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -514,7 +514,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(3):-[]
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
@@ -526,7 +526,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(4):-[]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -538,7 +538,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(5):-[]
         if (!  int_5 .unify(a1, m.trail))
             return m.fail();
@@ -550,7 +550,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(6):-[]
         if (!  int_6 .unify(a1, m.trail))
             return m.fail();
@@ -562,7 +562,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(7):-[]
         if (!  int_7 .unify(a1, m.trail))
             return m.fail();
@@ -574,7 +574,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(8):-[]
         if (!  int_8 .unify(a1, m.trail))
             return m.fail();
@@ -586,7 +586,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // leftdigit(9):-[]
         if (!  int_9 .unify(a1, m.trail))
             return m.fail();

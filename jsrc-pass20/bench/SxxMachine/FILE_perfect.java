@@ -39,7 +39,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-findall(A,perfect(100,A),B),ok(B)
         m.setB0();
          Term a1, a2, a3;
@@ -113,7 +113,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_ok_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // ok([3213876088517980551083924184681057554444177758164088967397376,12554203470773361527671578846336104669690446551334525075456,191561942608236107294793378084303638130997321548169216,46768052394588893382517909811217778170473142550528,182687704666362864775460301858080473799697891328,44601490397061246283066714178813853366747136,2787593149816327892690784192460327776944128,10889035741470030830754200461521744560128,2658455991569831744654692615953842176,166153499473114483824745506383331328,40564819207303336344294875201536,9903520314282971830448816128,38685626227663735544086528,2417851639228158837784576,9444732965670570950656,2305843008139952128,144115187807420416,35184367894528,137438691328,8589869056,33550336,2096128,8128,496,28,6]):-true
         m.setB0();
          Term a1;
@@ -135,8 +135,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_divisible_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return divisible_2_top(m);
     }
 
@@ -157,7 +157,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // divisible(A,B):-[C is B*B,'$less_or_equal'(C,A),D is A mod B,E is 0,'$arith_equal'(D,E)]
         a3 = m.mkvar1();
     // put_str_args([a(2),a(2)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(4))
@@ -202,7 +202,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // divisible(A,B):-['$less_than'(B,A),C is B+1,divisible(A,C)]
         //START inline expansion of $less_than(a(2),a(1))
         if (Arithmetic.evaluate(a2).arithCompareTo(Arithmetic.evaluate(a1)) >= 0) {
@@ -220,7 +220,7 @@ m.cont = cont;
         //END inline expansion
         m.AREGS[0] = a1;
         m.AREGS[1] = a3;
-m.cont = cont;
+m.setCont(cont);
         return divisible_2_top(m);
     }
 /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl/2
@@ -232,8 +232,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_perfect::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl_2_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl_2_1(m);
@@ -251,7 +251,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,B):-['$get_level'(C),divisible(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -270,7 +270,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,B):-[]
         return cont;
     }
@@ -283,8 +283,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_isprime_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return isprime_2_top(m);
     }
 
@@ -309,7 +309,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // isprime([A|B],A):-[C is 2,D is 1,'$greater_than'(A,D),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -349,7 +349,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // isprime([A|B],C):-[isprime(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -362,7 +362,7 @@ m.cont = cont;
         }
         m.AREGS[0] = a3;
         m.AREGS[1] = a2;
-m.cont = cont;
+m.setCont(cont);
         return isprime_2_top(m);
     }
 /** PREDICATE: power/3
@@ -375,8 +375,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_power_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return power_3_top(m);
     }
 
@@ -398,7 +398,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // power(A,0,1):-['$neck_cut']
         if (!  int_0 .unify(a2, m.trail))
             return m.fail();
@@ -418,7 +418,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // power(A,B,C):-[D is B-1,power(A,D,E),C is E*A]
         a4 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(5))
@@ -438,7 +438,7 @@ m.cont = cont;
         m.AREGS[0] = a1;
         m.AREGS[1] = a4;
         m.AREGS[2] = a6;
-        m.cont = p1;
+        m.setCont(p1);
         return power_3_top(m);
     }
 /** PREDICATE: calc/3
@@ -450,7 +450,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_calc_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // calc(2,A,B):-power(2,A,C),D is C-1,power(2,A-1,E),B is D*E
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
@@ -488,8 +488,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_listperf_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return listperf_2_top(m);
     }
 
@@ -514,7 +514,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // listperf([A|B],C):-[calc(2,A,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -535,7 +535,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // listperf([A|B],C):-[listperf(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -548,7 +548,7 @@ m.cont = cont;
         }
         m.AREGS[0] = a3;
         m.AREGS[1] = a2;
-m.cont = cont;
+m.setCont(cont);
         return listperf_2_top(m);
     }
 /** PREDICATE: generateList/2
@@ -560,8 +560,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_generateList_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return generateList_2_top(m);
     }
 
@@ -586,7 +586,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // generateList(0,[]):-[]
         if (!  int_0 .unify(a1, m.trail))
             return m.fail();
@@ -601,7 +601,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // generateList(A,[B|C]):-[D is 0,'$greater_than'(A,D),B is A+1,E is A-1,generateList(E,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -644,7 +644,7 @@ m.cont = cont;
         //END inline expansion
         m.AREGS[0] = a7;
         m.AREGS[1] = a4;
-m.cont = cont;
+m.setCont(cont);
         return generateList_2_top(m);
     }
 /** PREDICATE: perfect/2
@@ -656,7 +656,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
 
 
     public static Operation PRED_perfect_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // perfect(A,B):-generateList(A,C),findall(D,isprime(C,D),E),listperf(E,B)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;

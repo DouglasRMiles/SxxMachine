@@ -59,12 +59,12 @@ public class JPrologInternalException extends RuntimeException {
     }
 
     protected boolean bindJP(Term o) {
-        if (o .isCompound()) {
+        if (o.isCompound()) {
             //snelmogelijkheid voor fout-opvangen
             final AFunct f = (AFunct) o;
             if (f.fname().equals("exception") && f.arity() == 2) {
                 final Term cl = f.getPlainArg(0).dref();
-                if (cl .isAtomOrObject() && isValidException(((Const) cl).getValue())) {
+                if (cl.isAtomOrObject() && isValidException(((Const) cl).getValue())) {
                     return f.getPlainArg(1).unifyJP(toPrologException());
                 }
             }

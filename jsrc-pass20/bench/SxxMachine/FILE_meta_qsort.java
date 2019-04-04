@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-meta_qsort
         m.setB0();
     // top:-[meta_qsort]
@@ -55,7 +55,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_meta_qsort_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // meta_qsort:-interpret(qsort)
         m.setB0();
     // meta_qsort:-[interpret(qsort)]
@@ -71,8 +71,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_meta_qsort::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_1(m);
@@ -88,7 +88,7 @@ m.cont = cont;
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A):-['$get_level'(B),nonvar(A),'$cut'(B),interpret(A)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -115,7 +115,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A):-[]
         return cont;
     }
@@ -128,7 +128,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_interpret_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // interpret(A):-interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B)
         m.setB0();
          Term a1, a2;
@@ -155,8 +155,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_interpret_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return interpret_2_top(m);
     }
 
@@ -301,7 +301,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(A,B):-['$get_level'(C),var(A),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -331,7 +331,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret((A,B),C):-['$neck_cut',interpret(A,D),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B,C,D)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -347,7 +347,7 @@ m.cont = cont;
  Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl", FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a4, a2, a5), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
-        m.cont = p1;
+        m.setCont(p1);
         return interpret_2_top(m);
     }
 
@@ -357,7 +357,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret((A;B),C):-['$neck_cut',interpret_disjunction(A,B,C)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -378,7 +378,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret((A->B),C):-['$neck_cut',interpret_disjunction((A->B),fail,C)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -402,7 +402,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(\+A,B):-['$neck_cut',interpret_disjunction((A->fail),true,B)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -425,7 +425,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(!,true):-['$neck_cut']
         if (!  ATOM_$0021 .unify(a1, m.trail))
             return m.fail();
@@ -443,7 +443,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(A,B):-['$get_level'(C),number(A),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -473,7 +473,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(A,B):-['$get_level'(C),is_built_in(A),'$cut'(C),interpret_built_in(A)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -494,7 +494,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret(A,B):-[define(A,C),interpret(C)]
         a3 = m.mkvar1();
         return //
@@ -510,8 +510,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_meta_qsort::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
@@ -529,7 +529,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C,A))]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -565,7 +565,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
@@ -579,8 +579,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_meta_qsort::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
@@ -598,7 +598,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-['$get_level'(D),nonvar(C),'$cut'(D),'$unify'(B,(C->A))]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -634,7 +634,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-[interpret(A,B)]
         return //
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a2), cont);
@@ -648,8 +648,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_interpret_disjunction_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int); 
     }
@@ -692,7 +692,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_disjunction((A->B),C,D):-['$get_level'(E),interpret(A,F),'$cut'(E),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B,D,F)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -720,7 +720,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_disjunction((A->B),C,D):-['$neck_cut',interpret(C,D)]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$002D$003E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -740,7 +740,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_disjunction(A,B,C):-[interpret(A,C)]
         return //
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a3), cont);
@@ -753,7 +753,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_disjunction(A,B,C):-[interpret(B,C)]
         return //
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
@@ -768,8 +768,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_is_built_in_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_meta_qsort::is_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::is_built_in_1_1, FILE_meta_qsort::is_built_in_1_2, fail_0); 
     }
@@ -789,7 +789,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // is_built_in(true):-[]
         if (!  Prolog.True .unify(a1, m.trail))
             return m.fail();
@@ -801,7 +801,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // is_built_in(A=<B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$003C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -818,8 +818,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_interpret_built_in_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_meta_qsort::interpret_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::interpret_built_in_1_1, FILE_meta_qsort::interpret_built_in_1_2, fail_0); 
     }
@@ -839,7 +839,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_built_in(true):-[]
         if (!  Prolog.True .unify(a1, m.trail))
             return m.fail();
@@ -851,7 +851,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // interpret_built_in(A=<B):-['$less_or_equal'(A,B)]
         a1 = a1.dref();
             a2 = m.mkvar2();
@@ -957,8 +957,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
     public static Operation PRED_define_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_meta_qsort::define_2_var, fail_0, fail_0, FILE_meta_qsort::define_2_1, FILE_meta_qsort::define_2_str, fail_0); 
     }
@@ -1024,7 +1024,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(qsort,qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])):-[]
         if (!  ATOM_qsort .unify(a1, m.trail))
             return m.fail();
@@ -1041,7 +1041,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(qsort([A|B],C,D),(partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G]))):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -1109,7 +1109,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(qsort([],A,A),true):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -1127,7 +1127,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(partition([A|B],C,[A|D],E),(A=<C,!,partition(B,C,D,E))):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -1187,7 +1187,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(partition([A|B],C,D,[A|E]),partition(B,C,D,E)):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -1232,7 +1232,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // define(partition([],A,[],[]),true):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_partition_4 , m.trail,  Prolog.Nil , m.DONT_CARE1(),  Prolog.Nil ,  Prolog.Nil )){

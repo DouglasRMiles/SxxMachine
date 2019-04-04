@@ -3,7 +3,7 @@ package SxxMachine;
 import static SxxMachine.pterm.TermData.Jv;
 import static SxxMachine.pterm.TermData.S;
 
-public abstract class AbstractCall  extends Code  {
+public abstract class AbstractCall extends Code {
 
     public void setArguments(Term[] areg, int arity, AFunct pred) {
         if (pred == null)
@@ -42,13 +42,13 @@ public abstract class AbstractCall  extends Code  {
         public Code exec(PrologMachine mach) throws JPrologInternalException {
             final Term[] args = mach.getAreg();
             final Term[] funcArgs = mach.createAregCopy(arity);
-            final Term cont = mach.getAreg()[arity];
+            final Term cont = mach.getCont(mach.getAreg(), arity);
             final JpVar v = Jv(mach);
             args[0] = S("operator_goal", S(predName, funcArgs), v);
             args[1] = S("call", v, cont.dref(), cont.dref());
             for (int i = 2; i < arity; i++)
                 args[i] = null;
-            return mach.Call2;
+            return mach.getCall2();
         }
 
     }

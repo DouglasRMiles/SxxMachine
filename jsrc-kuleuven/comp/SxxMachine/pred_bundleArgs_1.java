@@ -57,7 +57,7 @@ public class pred_bundleArgs_1 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
@@ -65,7 +65,7 @@ public class pred_bundleArgs_1 extends Code {
 
         local_aregs[0] = S(pred_bundleArgs_1_consts.string3, CONST(pred_bundleArgs_1_consts.string4), S(pred_bundleArgs_1_consts.string3, S(pred_bundleArgs_1_consts.string1, pred_bundleArgs_1_consts.posint0, var1
                 .dref()), S(pred_bundleArgs_1_consts.string3, CONST(pred_bundleArgs_1_consts.string5), CONST(pred_bundleArgs_1_consts.string6))));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;
 

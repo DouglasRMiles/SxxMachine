@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-tak
         m.setB0();
     // top:-[tak]
@@ -54,7 +54,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_tak_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // tak:-tak(18,12,6,A)
         m.setB0();
     // tak:-[tak(18,12,6,A)]
@@ -71,8 +71,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_tak_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return tak_4_top(m);
     }
 
@@ -95,7 +95,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // tak(A,B,C,D):-['$less_or_equal'(A,B),'$unify'(C,D)]
         //START inline expansion of $less_or_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) > 0) {
@@ -119,7 +119,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // tak(A,B,C,D):-['$greater_than'(A,B),E is A-1,tak(E,B,C,F),G is B-1,tak(G,C,A,H),I is C-1,tak(I,A,B,J),tak(F,H,J,D)]
         //START inline expansion of $greater_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) <= 0) {
@@ -156,7 +156,7 @@ m.cont = cont;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
         m.AREGS[3] = a7;
-        m.cont = p5;
+        m.setCont(p5);
         return tak_4_top(m);
     }
 static { loadPreds(); }

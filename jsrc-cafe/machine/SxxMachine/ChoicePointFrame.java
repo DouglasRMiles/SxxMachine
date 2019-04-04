@@ -65,7 +65,7 @@ class ChoicePointFrame {
     // Term[] aregs;
     // public ChoicePointFrame prior;
     void restore(Prolog engine) {
-        engine.cont = this.cont;
+        engine.setCont(this.cont);
     }
 
     @Override

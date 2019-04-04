@@ -65,14 +65,14 @@ class pred_writevars_1_1 extends pred_writevars_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unifyJP(CONST(string4))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 1);
+        return mach.getCall1();
     }
 }
 
@@ -81,7 +81,7 @@ class pred_writevars_1_2 extends pred_writevars_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -89,7 +89,8 @@ class pred_writevars_1_2 extends pred_writevars_1 {
         if (!((areg0).unifyJP(S(string2, S(string3, var1, var2), var3))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
-        local_aregs[1] = S(string8, CONST(string1), S(string8, var1.dref(), S(string7, S(string6, continuation))));
+        mach.setCont(local_aregs, 1, S(string8, CONST(string1), S(string8, var1
+                .dref(), S(string7, S(string6, continuation)))));
         mach.updateCUTB();
         return write2cont;
     }
@@ -100,14 +101,14 @@ class pred_writevars_1_3 extends pred_writevars_1 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return entry_code;
     }

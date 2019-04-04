@@ -48,7 +48,7 @@ public final class Prolog extends PrologFlags {
 
     private static final Term[] NO_REGISTERS = {};
     /** Continuation goal register */
-    public Operation cont;
+    private Operation cont;
     /** Choice point frame stack */
     public final ChoicePointStack stack;
     /** Trail stack */
@@ -741,6 +741,20 @@ public final class Prolog extends PrologFlags {
     public static void setPrologFlag(String string, boolean b) {
         // TODO Auto-generated method stub
 
+    }
+
+    /**
+     * @return the cont
+     */
+    public Operation getCont() {
+        return cont;
+    }
+
+    /**
+     * @param cont the cont to set
+     */
+    public void setCont(Operation cont) {
+        this.cont = cont;
     }
 
 }

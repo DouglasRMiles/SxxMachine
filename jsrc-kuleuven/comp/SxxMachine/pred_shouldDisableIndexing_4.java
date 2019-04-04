@@ -98,7 +98,7 @@ class pred_shouldDisableIndexing_4_1 extends pred_shouldDisableIndexing_4 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -122,7 +122,7 @@ class pred_shouldDisableIndexing_4_1 extends pred_shouldDisableIndexing_4 {
                         .dref(), S(pred_shouldDisableIndexing_4_consts.string0, new HeapChoice(
                                 mach.getCUTB()), continuation)));
         mach.updateCUTB();
-        local_aregs[4] = local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 4, 2);
         return getConsts().isIndexingAllowed2cont;
     }
 }
@@ -154,7 +154,7 @@ class pred_shouldDisableIndexing_4_2 extends pred_shouldDisableIndexing_4 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -171,9 +171,9 @@ class pred_shouldDisableIndexing_4_2 extends pred_shouldDisableIndexing_4 {
             return mach.Fail0;
         if (!(areg3.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[4] = local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 4, 1);
+        return mach.getCall1();
     }
 }

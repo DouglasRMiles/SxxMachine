@@ -27,7 +27,7 @@ abstract class AbstractJCall extends Code {
         final Term res = args[2].dref();
         final Term exception = args[3].dref();
         final Term cont = args[4];
-        if (!(classObject .isAtomOrObject()))
+        if (!(classObject.isAtomOrObject()))
             return mach.Fail0;
         Class<?> callClass;
         try {
@@ -38,11 +38,11 @@ abstract class AbstractJCall extends Code {
         }
         String methodName;
         Object[] methodArgs;
-        if (methodInvocation .isAtomOrObject()) {
+        if (methodInvocation.isAtomOrObject()) {
             methodName = ((Const) methodInvocation).fname();
             methodArgs = new Object[0];
         } else {
-            if (!(methodInvocation .isCompound()))
+            if (!(methodInvocation.isCompound()))
                 return mach.Fail0;
             final AFunct f = (AFunct) methodInvocation;
             methodName = f.fname();
@@ -78,8 +78,8 @@ abstract class AbstractJCall extends Code {
                 return mach.Fail0;
         }
         args[1] = args[2] = args[3] = args[4] = null;
-        args[0] = cont;
-        return mach.Call1;
+        mach.setCont(args, 0, cont);
+        return mach.getCall1();
     }
 
     private Method findMethod(Class<?> c, String name, Object[] args) throws IllegalStateException {

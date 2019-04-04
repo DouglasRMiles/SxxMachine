@@ -49,7 +49,7 @@ class pred_findall_3_1 extends pred_findall_3 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -64,9 +64,9 @@ class pred_findall_3_1 extends pred_findall_3 {
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var4;
-        local_aregs[1] = S(string2, var1.dref(), var2.dref(), var3.dref(), var4.dref(), continuation);
+        mach.setCont(local_aregs, 1, S(string2, var1.dref(), var2.dref(), var3.dref(), var4.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return initfindall2cont;
     }
 }

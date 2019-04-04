@@ -50,7 +50,7 @@ public abstract class AFunct extends ANonvar {
             A1 = A1.dref();
             A2 = A2.dref();
             return "," + A1.toStringImpl(5) + listify(A2, depth - 1);
-        } else if ((T .isAtomOrObject()) && ("[]".equals(T.fname())))
+        } else if ((T.isAtomOrObject()) && ("[]".equals(T.fname())))
             return "";
         return " | " + T.toStringImpl(5);
     }
@@ -96,7 +96,7 @@ public abstract class AFunct extends ANonvar {
 
     @Override
     public boolean bindJP(Term that) {
-        if (that .isAtomOrObject()) {
+        if (that.isAtomOrObject()) {
             //Kan wel
             if (arity() != 0)
                 return false;

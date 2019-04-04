@@ -34,7 +34,7 @@ public class pred_sort_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        // PrologObject continuation = local_aregs[2];
+        // PrologObject continuation = mach.getCont(local_aregs, 2);
         // PrologObject sortedlist = local_aregs[1].Deref();
         Term list = local_aregs[0].dref();
 

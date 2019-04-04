@@ -27,8 +27,8 @@ class pred_useOutputStream_2 extends Code {
         final Term local_aregs[] = mach.getAreg();
         final Term handle = local_aregs[0].dref();
         final Term stream = local_aregs[1].dref();
-        final Term continuation = local_aregs[2];
-        if (!(stream .isAtomOrObject()))
+        final Term continuation = mach.getCont(local_aregs, 2);
+        if (!(stream.isAtomOrObject()))
             return mach.Fail0;
         final Object str = ((Const) stream).getValue();
         Writer out;
@@ -40,9 +40,9 @@ class pred_useOutputStream_2 extends Code {
             return mach.Fail0;
         final IOLayer layer = mach.getIOLayer();
         layer.openOutStream(out, handle, null);
-        local_aregs[2] = local_aregs[1] = null;
-        local_aregs[0] = continuation;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2, 1);
+        mach.setCont(local_aregs, 0, continuation);
+        return mach.getCall1();
     }
 
 }
@@ -59,8 +59,8 @@ class pred_useInputStream_2 extends Code {
         final Term local_aregs[] = mach.getAreg();
         final Term handle = local_aregs[0].dref();
         final Term stream = local_aregs[1].dref();
-        final Term continuation = local_aregs[2];
-        if (!(stream .isAtomOrObject()))
+        final Term continuation = mach.getCont(local_aregs, 2);
+        if (!(stream.isAtomOrObject()))
             return mach.Fail0;
         final Object str = ((Const) stream).getValue();
         Reader in;
@@ -72,9 +72,9 @@ class pred_useInputStream_2 extends Code {
             return mach.Fail0;
         final IOLayer layer = mach.getIOLayer();
         layer.openInStream(in, handle, null);
-        local_aregs[2] = local_aregs[1] = null;
-        local_aregs[0] = continuation;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2, 1);
+        mach.setCont(local_aregs, 0, continuation);
+        return mach.getCall1();
     }
 
 }
@@ -109,11 +109,11 @@ class pred_tell_1 extends Code {
     public Code exec(final PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
         final Term file = local_aregs[0].dref();
-        final Term continuation = local_aregs[1];
-        local_aregs[1] = null;
-        local_aregs[0] = null;
+        final Term continuation = mach.getCont(local_aregs, 1);
+        mach.setARegENull(local_aregs, 1);
+        mach.setARegENull(local_aregs, 0);
         final IOLayer layer = mach.getIOLayer();
-        if (!(file .isAtomOrObject())) {
+        if (!(file.isAtomOrObject())) {
             log.debug("Kan dit niet openen: " + file + " - " + file.getClass());
             return mach.Fail0;
         }
@@ -139,8 +139,8 @@ class pred_tell_1 extends Code {
                 }
             return mach.Fail0;
         }
-        local_aregs[0] = continuation;
-        return mach.Call1;
+        mach.setCont(local_aregs, 0, continuation);
+        return mach.getCall1();
     }
 
 }
@@ -157,7 +157,7 @@ class pred_told_0 extends Code {
         final IOLayer layer = mach.getIOLayer();
         if (!layer.getStreamHandlerOut().closeCurrentStream())
             return mach.Fail0;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -174,7 +174,7 @@ class pred_seen_0 extends Code {
         final IOLayer layer = mach.getIOLayer();
         if (!layer.getStreamHandlerIn().closeCurrentStream())
             return mach.Fail0;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -215,11 +215,11 @@ class pred_see_1 extends Code {
     public Code exec(final PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
         final Term file = local_aregs[0].dref();
-        final Term continuation = local_aregs[1];
-        local_aregs[1] = null;
-        local_aregs[0] = null;
+        final Term continuation = mach.getCont(local_aregs, 1);
+        mach.setARegENull(local_aregs, 1);
+        mach.setARegENull(local_aregs, 0);
         final IOLayer layer = mach.getIOLayer();
-        if (!(file .isAtomOrObject())) {
+        if (!(file.isAtomOrObject())) {
             log.debug("Kan dit niet openen: " + file + " - " + file.getClass());
             return mach.Fail0;
         }
@@ -230,8 +230,8 @@ class pred_see_1 extends Code {
         final Code r = open(mach, file);
         if (r != null)
             return r;
-        local_aregs[0] = continuation;
-        return mach.Call1;
+        mach.setCont(local_aregs, 0, continuation);
+        return mach.getCall1();
     }
 
 }

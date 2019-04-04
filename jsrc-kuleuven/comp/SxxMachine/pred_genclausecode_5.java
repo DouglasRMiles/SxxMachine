@@ -74,7 +74,7 @@ public class pred_genclausecode_5 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[5];
+        final Term continuation = mach.getCont(local_aregs, 5);
         final Term areg4 = local_aregs[4].dref();
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
@@ -108,7 +108,7 @@ public class pred_genclausecode_5 extends Code {
         local_aregs[1] = var6;
         local_aregs[2] = var7;
 
-        local_aregs[3] = S(pred_genclausecode_5_consts.string3, var6
+        mach.setCont(local_aregs, 3, S(pred_genclausecode_5_consts.string3, var6
                 .dref(), var8, var9, S(pred_genclausecode_5_consts.string4, var10, S(pred_genclausecode_5_consts.string5, var9
                         .dref(), pred_genclausecode_5_consts.posint1), S(pred_genclausecode_5_consts.string6, var9
                                 .dref(), var6.dref(), S(pred_genclausecode_5_consts.string7, var9
@@ -132,9 +132,9 @@ public class pred_genclausecode_5 extends Code {
                                                                                                                                                                                 .dref(), var1
                                                                                                                                                                                         .dref(), var8
                                                                                                                                                                                                 .dref()), S(pred_genclausecode_5_consts.string11, CONST(pred_genclausecode_5_consts.string21), S(pred_genclausecode_5_consts.string11, S(pred_genclausecode_5_consts.string16, CONST(pred_genclausecode_5_consts.string17)), S(pred_genclausecode_5_consts.string11, S(pred_genclausecode_5_consts.string16, CONST(pred_genclausecode_5_consts.string17)), CONST(pred_genclausecode_5_consts.string22))))))))))))))), S(pred_genclausecode_5_consts.string0, new HeapChoice(
-                                                                                                                                                                                                        mach.getCUTB()), continuation))))))));
+                                                                                                                                                                                                        mach.getCUTB()), continuation)))))))));
         mach.updateCUTB();
-        local_aregs[5] = local_aregs[4] = null;
+        mach.setARegENull(local_aregs, 5, 4);
         return getConsts().getPredHeader4cont;
 
     }

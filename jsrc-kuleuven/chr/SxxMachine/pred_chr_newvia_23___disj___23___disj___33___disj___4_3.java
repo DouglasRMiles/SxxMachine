@@ -44,7 +44,7 @@ class pred_chr_newvia_23___disj___23___disj___33___disj___4_3_1
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -58,10 +58,10 @@ class pred_chr_newvia_23___disj___23___disj___33___disj___4_3_1
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = S(string3, var1.dref(), var2
-                .dref(), S(string0, new HeapChoice(mach.getCUTB()), S(string1, continuation)));
+        mach.setCont(local_aregs, 1, S(string3, var1.dref(), var2
+                .dref(), S(string0, new HeapChoice(mach.getCUTB()), S(string1, continuation))));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return compound2cont;
     }
 }
@@ -72,7 +72,7 @@ class pred_chr_newvia_23___disj___23___disj___33___disj___4_3_2
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -86,9 +86,9 @@ class pred_chr_newvia_23___disj___23___disj___33___disj___4_3_2
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var3.dref();
-        local_aregs[1] = S(string3, var3.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 1, S(string3, var3.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return compound2cont;
     }
 }

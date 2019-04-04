@@ -25,22 +25,22 @@ public class pred_catch_3 extends Code {
         //goal aanpassen voor continuation toe te voegen
         // in dit geval skippen exceptionhandler voor code die volgt
         mach.setPrologExceptionHandler(new CatchExceptionHandler(exception, exceptionCode, cont));
-        args[0] = addContinuation(goal, S("endCatch", Integer(mach.getCurrentChoice()), cont));
+        args[0] = addContinuation(mach, goal, S("endCatch", Integer(mach.getCurrentChoice()), cont));
         args[1] = args[2] = args[3] = null;
-        return (Code) (Object) mach.Call1;
+        return (Code) (Object) mach.getCall1();
     }
 
-    private StructureTerm addContinuation(Term o, Term cont) {
-        if (o .isAtomOrObject()) {
+    private StructureTerm addContinuation(PrologMachine mach, Term o, Term cont) {
+        if (o.isAtomOrObject()) {
             return (StructureTerm) S(o.fname(), cont);
         }
-        if (o .isCompound()) {
+        if (o.isCompound()) {
             final AFunct f = (AFunct) o;
             final StructureTerm newF = new StructureTerm(f.fname(), f.arity() + 1);
             for (int i = 0; i < f.arity(); i++) {
                 newF.setarg0(i, f.getPlainArg(i));
             }
-            newF.args()[f.arity()] = cont;
+            mach.setCont(newF.args(), f.arity(), cont);
             return newF;
         }
         throw new JPrologInternalException("Invalid params");
@@ -66,8 +66,8 @@ class pred_endCatch_1 extends Code {
         //zorgen dat bij exceptionhandler er pas wordt verder gezocht vanaf choicePoint
         mach.setPrologExceptionHandler(new SkipExceptionHandler(choicePoint));
         args[1] = null;
-        args[0] = cont;
-        return mach.Call1;
+        mach.setCont(args, 0, cont);
+        return mach.getCall1();
     }
 
 }

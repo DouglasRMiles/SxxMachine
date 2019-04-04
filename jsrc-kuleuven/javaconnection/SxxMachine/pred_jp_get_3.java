@@ -37,7 +37,7 @@ public class pred_jp_get_3 extends Code {
         final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -57,8 +57,8 @@ public class pred_jp_get_3 extends Code {
         local_aregs[0] = var4;
         local_aregs[1] = var2.dref();
         local_aregs[2] = CONST(string3);
-        local_aregs[3] = S(string4, var1.dref(), var4.dref(), var3
-                .dref(), var5, S(string5, S(string6, var5.dref(), var6, var7), continuation));
+        mach.setCont(local_aregs, 3, S(string4, var1.dref(), var4.dref(), var3
+                .dref(), var5, S(string5, S(string6, var5.dref(), var6, var7), continuation)));
         mach.updateCUTB();
         return univ4cont;
     }

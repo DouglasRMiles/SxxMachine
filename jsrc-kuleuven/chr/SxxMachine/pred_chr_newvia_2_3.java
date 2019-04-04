@@ -36,7 +36,7 @@ class pred_chr_newvia_2_3_1 extends pred_chr_newvia_2_3 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -52,7 +52,7 @@ class pred_chr_newvia_2_3_1 extends pred_chr_newvia_2_3 {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();
         local_aregs[2] = var2.dref();
-        local_aregs[3] = continuation;
+        mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return chr_newvia_23___disj___24cont;
     }

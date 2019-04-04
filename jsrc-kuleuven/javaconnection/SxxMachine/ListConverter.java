@@ -28,7 +28,7 @@ public class ListConverter extends Code {
             return mach.Fail0;
         }
         if (!java.isVariable()) {
-            if (!(java .isAtomOrObject()))
+            if (!(java.isAtomOrObject()))
                 return mach.Fail0;
             final Object o = ((Const) java).getValue();
             if (o instanceof Iterable) {
@@ -49,8 +49,8 @@ public class ListConverter extends Code {
             }
         }
         args[1] = args[2] = null;
-        args[0] = cont;
-        return mach.Call1;
+        mach.setCont(args, 0, cont);
+        return mach.getCall1();
     }
 
     public static List<Object> convert2java(Term list) throws JPrologScriptException {

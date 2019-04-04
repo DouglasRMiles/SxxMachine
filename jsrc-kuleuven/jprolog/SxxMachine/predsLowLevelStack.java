@@ -17,9 +17,9 @@ class pred_savecp_1 extends Code {
         final Term cont = args[1].dref();
         if (!point.unifyJP(Integer(mach.getCurrentStackItem().getCurrentChoiceTimeStamp())))
             return mach.Fail0;
-        args[0] = cont;
+        mach.setCont(args, 0, cont);
         args[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -40,9 +40,9 @@ class pred_cutto extends Code {
             throw new JPrologInternalException("Parameter is not a valid stackpoint! " + point);
         final int stack = (int) ((NumberTerm) point).longValue();
         mach.doCut(stack);
-        args[0] = cont;
+        mach.setCont(args, 0, cont);
         args[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }

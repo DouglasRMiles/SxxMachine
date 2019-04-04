@@ -761,8 +761,8 @@ public abstract class PTerm extends KPTerm {
         Term deref = this.drefAttrs();
         if (deref != this)
             return deref.longValue();
-        System.out.println("general LongValue on terms not available");
-        return -1;
+        oopsy("general LongValue on terms not available");
+        return (long)Double.NaN;
     }
 
     static Term nullIs(Term attrs2, Term valeu) {

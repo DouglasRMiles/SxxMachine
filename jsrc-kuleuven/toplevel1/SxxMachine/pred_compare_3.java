@@ -123,8 +123,8 @@ public class pred_compare_3 extends Code {
 
         if (!(arg1.unifyJP(CONST(s))))
             return mach.Fail0;
-        areg[0] = areg[3]; // install the continuation
-        areg[1] = areg[2] = areg[3] = null;
-        return mach.Call1;
+        mach.setCont(areg, 0, areg[3]); // dinstall the continuation
+        mach.setARegENull(areg, 3, 1);
+        return mach.getCall1();
     }
 }

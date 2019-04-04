@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_package_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // package A:-true
         m.setB0();
          Term a1;
@@ -55,7 +55,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_open_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // open(A,B,C):-open(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
@@ -75,7 +75,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_close_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // close(A):-close(A,[])
         m.setB0();
          Term a1;
@@ -93,7 +93,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_flush_output_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // flush_output:-current_output(A),flush_output(A)
         m.setB0();
          Term a1;
@@ -118,8 +118,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_io::stream_property_2_sub_1);
         return stream_property_2_1(m);
@@ -141,7 +141,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // stream_property(A,B):-['$get_level'(C),var(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -170,7 +170,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // stream_property(A,B):-['$get_level'(C),'$stream_property_specifier'(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -190,7 +190,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // stream_property(A,B):-[illarg(domain(term,stream_property),stream_property(A,B),2)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
         a3 =  S( FUNCTOR_stream_property_2 , a1, a2);
@@ -210,8 +210,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_$stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_io::$stream_property_2_sub_1);
         return $stream_property_2_1(m);
@@ -234,7 +234,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$get_stream_manager'(D),hash_map(D,E),'$builtin_member'((A,F),E),java(A),'$builtin_member'(B,F)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -273,7 +273,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property'(A,B):-['$get_level'(C),java(A),'$cut'(C),'$get_stream_manager'(D),hash_get(D,A,E),'$builtin_member'(B,E)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -305,7 +305,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property'(A,B):-[illarg(domain(stream,stream),stream_property(A,B),1)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
         a3 =  S( FUNCTOR_stream_property_2 , a1, a2);
@@ -328,8 +328,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_io::$stream_property_specifier_1_var, fail_0, fail_0, FILE_io::$stream_property_specifier_1_con, FILE_io::$stream_property_specifier_1_str, fail_0); 
     }
@@ -399,7 +399,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'(input):-[]
         if (!  ATOM_input .unify(a1, m.trail))
             return m.fail();
@@ -411,7 +411,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'(output):-[]
         if (!  ATOM_output .unify(a1, m.trail))
             return m.fail();
@@ -423,7 +423,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'(alias(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_alias_1 , m.trail, m.DONT_CARE1())){
@@ -437,7 +437,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'((mode A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_mode_1 , m.trail, m.DONT_CARE1())){
@@ -451,7 +451,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'(type(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_type_1 , m.trail, m.DONT_CARE1())){
@@ -465,7 +465,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // '$stream_property_specifier'(file_name(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_file_name_1 , m.trail, m.DONT_CARE1())){
@@ -482,7 +482,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get_char(A):-current_input(B),get_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -503,7 +503,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get_code(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -524,7 +524,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_char(A):-current_input(B),peek_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -545,7 +545,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_code(A):-current_input(B),peek_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -566,7 +566,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // put_char(A):-current_output(B),put_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -587,7 +587,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // put_code(A):-current_output(B),put_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -609,7 +609,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_nl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // nl(A):-put_char(A,'\n')
         m.setB0();
          Term a1;
@@ -627,7 +627,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get0_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get0(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -648,7 +648,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get0_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get0(A,B):-get_code(A,B)
         m.setB0();
          Term a1, a2;
@@ -667,7 +667,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get(A):-current_input(B),get(B,A)
         m.setB0();
          Term a1, a2;
@@ -688,7 +688,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // put(A):-current_output(B),put(B,A)
         m.setB0();
          Term a1, a2;
@@ -709,7 +709,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // put(A,B):-C is B,put_code(A,C)
         m.setB0();
          Term a1, a2, a3;
@@ -734,7 +734,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_tab_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // tab(A):-current_output(B),tab(B,A)
         m.setB0();
          Term a1, a2;
@@ -755,7 +755,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_skip_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // skip(A):-current_input(B),skip(B,A)
         m.setB0();
          Term a1, a2;
@@ -776,7 +776,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // get_byte(A):-current_input(B),get_byte(B,A)
         m.setB0();
          Term a1, a2;
@@ -797,7 +797,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_byte(A):-current_input(B),peek_byte(B,A)
         m.setB0();
          Term a1, a2;
@@ -818,7 +818,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // put_byte(A):-current_output(B),put_byte(B,A)
         m.setB0();
          Term a1, a2;

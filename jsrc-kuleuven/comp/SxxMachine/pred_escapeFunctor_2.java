@@ -98,7 +98,7 @@ class pred_escapeFunctor_2_1 extends pred_escapeFunctor_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
 
@@ -108,10 +108,10 @@ class pred_escapeFunctor_2_1 extends pred_escapeFunctor_2 {
         if (!(areg1.unifyJP(CONST(pred_escapeFunctor_2_consts.string8))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -142,7 +142,7 @@ class pred_escapeFunctor_2_2 extends pred_escapeFunctor_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -157,11 +157,11 @@ class pred_escapeFunctor_2_2 extends pred_escapeFunctor_2 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_escapeFunctor_2_consts.string7, var1.dref(), var3
-                .dref(), S(pred_escapeFunctor_2_consts.string1, var2.dref(), var4.dref(), continuation));
+        mach.setCont(local_aregs, 0, S(pred_escapeFunctor_2_consts.string7, var1.dref(), var3
+                .dref(), S(pred_escapeFunctor_2_consts.string1, var2.dref(), var4.dref(), continuation)));
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -186,7 +186,7 @@ class pred_escapeFunctor_2_3 extends pred_escapeFunctor_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -200,9 +200,10 @@ class pred_escapeFunctor_2_3 extends pred_escapeFunctor_2 {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3;
 
-        local_aregs[2] = S(pred_escapeFunctor_2_consts.string0, new HeapChoice(
+        mach.setCont(local_aregs, 2, S(pred_escapeFunctor_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_escapeFunctor_2_consts.string5, var3
-                        .dref(), var4, S(pred_escapeFunctor_2_consts.string3, var2.dref(), var4.dref(), continuation)));
+                        .dref(), var4, S(pred_escapeFunctor_2_consts.string3, var2.dref(), var4
+                                .dref(), continuation))));
         mach.updateCUTB();
         return getConsts().name_nil_ok3cont;
     }
@@ -227,7 +228,7 @@ class pred_escapeFunctor_2_4 extends pred_escapeFunctor_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
@@ -235,9 +236,9 @@ class pred_escapeFunctor_2_4 extends pred_escapeFunctor_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2, 1);
+        return mach.getCall1();
     }
 }

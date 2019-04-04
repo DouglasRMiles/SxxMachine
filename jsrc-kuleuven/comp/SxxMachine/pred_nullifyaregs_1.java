@@ -94,7 +94,7 @@ class pred_nullifyaregs_1_1 extends pred_nullifyaregs_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
@@ -110,12 +110,12 @@ class pred_nullifyaregs_1_1 extends pred_nullifyaregs_1 {
         local_aregs[1] = var3;
         local_aregs[2] = var4;
 
-        local_aregs[3] = S(pred_nullifyaregs_1_consts.string4, var2
+        mach.setCont(local_aregs, 3, S(pred_nullifyaregs_1_consts.string4, var2
                 .dref(), var5, var6, S(pred_nullifyaregs_1_consts.string5, var7, S(pred_nullifyaregs_1_consts.string6, var4
                         .dref(), var6
                                 .dref()), S(pred_nullifyaregs_1_consts.string7, pred_nullifyaregs_1_consts.posint0, var7
                                         .dref(), S(pred_nullifyaregs_1_consts.string8, var7.dref(), var4
-                                                .dref(), continuation))));
+                                                .dref(), continuation)))));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -139,14 +139,14 @@ class pred_nullifyaregs_1_2 extends pred_nullifyaregs_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 1);
+        return mach.getCall1();
     }
 }

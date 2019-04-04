@@ -97,15 +97,15 @@ class pred_codeforeachpred_1_1 extends pred_codeforeachpred_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
 
         if (!(areg0.unifyJP(CONST(pred_codeforeachpred_1_consts.string8))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 1);
+        return mach.getCall1();
     }
 }
 
@@ -128,7 +128,7 @@ class pred_codeforeachpred_1_2 extends pred_codeforeachpred_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
 
@@ -137,10 +137,10 @@ class pred_codeforeachpred_1_2 extends pred_codeforeachpred_1 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_codeforeachpred_1_consts.string3, var1
-                .dref(), S(pred_codeforeachpred_1_consts.string4, S(pred_codeforeachpred_1_consts.string2, S(pred_codeforeachpred_1_consts.string6, CONST(pred_codeforeachpred_1_consts.string7)), CONST(pred_codeforeachpred_1_consts.string8)), continuation));
+        mach.setCont(local_aregs, 0, S(pred_codeforeachpred_1_consts.string3, var1
+                .dref(), S(pred_codeforeachpred_1_consts.string4, S(pred_codeforeachpred_1_consts.string2, S(pred_codeforeachpred_1_consts.string6, CONST(pred_codeforeachpred_1_consts.string7)), CONST(pred_codeforeachpred_1_consts.string8)), continuation)));
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }
 
@@ -165,7 +165,7 @@ class pred_codeforeachpred_1_3 extends pred_codeforeachpred_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -174,8 +174,8 @@ class pred_codeforeachpred_1_3 extends pred_codeforeachpred_1 {
             return mach.Fail0;
         local_aregs[0] = var1.dref();
 
-        local_aregs[1] = S(pred_codeforeachpred_1_consts.string4, S(pred_codeforeachpred_1_consts.string2, CONST(pred_codeforeachpred_1_consts.string5), S(pred_codeforeachpred_1_consts.string2, S(pred_codeforeachpred_1_consts.string6, CONST(pred_codeforeachpred_1_consts.string7)), CONST(pred_codeforeachpred_1_consts.string8))), S(pred_codeforeachpred_1_consts.string1, var2
-                .dref(), continuation));
+        mach.setCont(local_aregs, 1, S(pred_codeforeachpred_1_consts.string4, S(pred_codeforeachpred_1_consts.string2, CONST(pred_codeforeachpred_1_consts.string5), S(pred_codeforeachpred_1_consts.string2, S(pred_codeforeachpred_1_consts.string6, CONST(pred_codeforeachpred_1_consts.string7)), CONST(pred_codeforeachpred_1_consts.string8))), S(pred_codeforeachpred_1_consts.string1, var2
+                .dref(), continuation)));
         mach.updateCUTB();
         return getConsts().codeforpred2cont;
     }

@@ -16,16 +16,16 @@ public class pred_attvar_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term variable = local_aregs[0].dref();
 
-        local_aregs[1] = null;
+        mach.setARegENull(local_aregs, 1);
 
         if (variable instanceof AttributedVariable) {
-            local_aregs[0] = continuation;
-            return (Code)(Object)mach.Call1;
+            mach.setCont(local_aregs, 0, continuation);
+            return (Code) (Object) mach.getCall1();
         } else {
-            local_aregs[0] = null;
+            mach.setARegENull(local_aregs, 0);
             return mach.Fail0;
         }
     }

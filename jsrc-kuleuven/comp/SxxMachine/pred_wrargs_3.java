@@ -105,7 +105,7 @@ class pred_wrargs_3_1 extends pred_wrargs_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -122,9 +122,9 @@ class pred_wrargs_3_1 extends pred_wrargs_3 {
         local_aregs[0] = pred_wrargs_3_consts.posint0;
         local_aregs[1] = var1.dref();
 
-        local_aregs[2] = S(pred_wrargs_3_consts.string0, new HeapChoice(mach.getCUTB()), continuation);
+        mach.setCont(local_aregs, 2, S(pred_wrargs_3_consts.string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
-        local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 3);
         return getConsts().unify3cont;
     }
 }
@@ -153,7 +153,7 @@ class pred_wrargs_3_2 extends pred_wrargs_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -169,13 +169,13 @@ class pred_wrargs_3_2 extends pred_wrargs_3 {
             return mach.Fail0;
         local_aregs[0] = var3.dref();
 
-        local_aregs[1] = S(pred_wrargs_3_consts.string3, S(pred_wrargs_3_consts.string4, var2
+        mach.setCont(local_aregs, 1, S(pred_wrargs_3_consts.string3, S(pred_wrargs_3_consts.string4, var2
                 .dref(), S(pred_wrargs_3_consts.string4, CONST(pred_wrargs_3_consts.string5), S(pred_wrargs_3_consts.string4, var1
                         .dref(), CONST(pred_wrargs_3_consts.string6)))), S(pred_wrargs_3_consts.string7, var4, S(pred_wrargs_3_consts.string8, var1
                                 .dref(), pred_wrargs_3_consts.posint1), S(pred_wrargs_3_consts.string1, var4
-                                        .dref(), var2.dref(), var3.dref(), continuation)));
+                                        .dref(), var2.dref(), var3.dref(), continuation))));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return getConsts().processKomma2cont;
     }
 }

@@ -47,7 +47,7 @@ class pred_termsmallerequal_2_1 extends pred_termsmallerequal_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -60,7 +60,7 @@ class pred_termsmallerequal_2_1 extends pred_termsmallerequal_2 {
         local_aregs[0] = var3;
         local_aregs[1] = var1.dref();
         local_aregs[2] = var2.dref();
-        local_aregs[3] = S(string2, var3.dref(), continuation);
+        mach.setCont(local_aregs, 3, S(string2, var3.dref(), continuation));
         mach.updateCUTB();
         return compare4cont;
     }

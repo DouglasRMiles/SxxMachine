@@ -15,7 +15,7 @@ public class JPNull extends Code {
         if (!nullObject.unifyJP(Const.javaNull()))
             return mach.Fail0;
         args[0] = args[1];
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }

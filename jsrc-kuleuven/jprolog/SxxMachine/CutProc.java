@@ -21,8 +21,8 @@ public class CutProc extends Code {
         // HeapChoice
         final int i = ((HeapChoice) areg[0]).CutTo;
         mach.doCut(i);
-        areg[0] = areg[1];
+        mach.setARegXFR(areg, 0, 1);
         mach.updateCUTB();
-        return mach.Call1.exec(mach);
+        return mach.getCall1().exec(mach);
     }
 }

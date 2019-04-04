@@ -20,7 +20,7 @@ public class pred_call_1 extends AbstractCall {
         Code code;
         int arity;
 
-        if (object .isCompound()) {
+        if (object.isCompound()) {
             final AFunct pred = (AFunct) object;
             functName = pred.fname();
             arity = pred.arity();
@@ -32,7 +32,7 @@ public class pred_call_1 extends AbstractCall {
             arity = 0;
             code = loadPred(mach, functName, 0);
         }
-        areg[arity] = cont;
+        mach.setCont(areg, arity, cont);
 
         return code;
     }

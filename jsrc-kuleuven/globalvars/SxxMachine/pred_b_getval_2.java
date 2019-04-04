@@ -23,13 +23,13 @@ public class pred_b_getval_2 extends Code {
         final Term local_aregs[] = mach.getAreg();
         Term name = local_aregs[0].dref();
 
-        if (name .isCompound()) {
+        if (name.isCompound()) {
             final AFunct f = (AFunct) name;
             if (f.arity() == 0) {
                 name = CONST(f.fname());
             }
         }
-        if (name .isAtomOrObject()) {
+        if (name.isAtomOrObject()) {
             final Const cname = (Const) name;
 
             final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);
@@ -39,15 +39,15 @@ public class pred_b_getval_2 extends Code {
                 return unification;
             } else {
                 //System.out.println("b_getval(" + name + ",null)");
-                local_aregs[2] = null;
-                local_aregs[1] = null;
-                local_aregs[0] = null;
+                mach.setARegENull(local_aregs, 2);
+                mach.setARegENull(local_aregs, 1);
+                mach.setARegENull(local_aregs, 0);
                 return mach.Fail0;
             }
         } else {
-            local_aregs[2] = null;
-            local_aregs[1] = null;
-            local_aregs[0] = null;
+            mach.setARegENull(local_aregs, 2);
+            mach.setARegENull(local_aregs, 1);
+            mach.setARegENull(local_aregs, 0);
             return mach.Fail0;
         }
     }

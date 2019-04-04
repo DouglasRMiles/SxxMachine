@@ -96,7 +96,7 @@ class pred_test_3_1 extends pred_test_3 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -122,11 +122,11 @@ class pred_test_3_1 extends pred_test_3 {
         // new Const(b)), new Funct(unify, new Const(a),
         // var1.deref(), continuation));
         mach.updateCUTB(mach.getCurrentChoice());
-        local_aregs[1] = null;
-        local_aregs[2] = null;
-        local_aregs[3] = null;
-        local_aregs[0] = S("put_attr", var1, CONST(a), S("get_attr", var1, var2, S("put_attr", var1, CONST(b), S("get_attr", var1, var3, S("unify", var1, CONST(a), continuation)))));
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 1);
+        mach.setARegENull(local_aregs, 2);
+        mach.setARegENull(local_aregs, 3);
+        mach.setCont(local_aregs, 0, S("put_attr", var1, CONST(a), S("get_attr", var1, var2, S("put_attr", var1, CONST(b), S("get_attr", var1, var3, S("unify", var1, CONST(a), continuation))))));
+        return mach.getCall1();
         // return freeze3cont;
     }
 }

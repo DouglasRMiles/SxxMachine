@@ -46,7 +46,7 @@ class pred_chr_newvia_23___disj___23___disj___3_3_1 extends pred_chr_newvia_23__
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -60,9 +60,10 @@ class pred_chr_newvia_23___disj___23___disj___3_3_1 extends pred_chr_newvia_23__
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         local_aregs[0] = var1.dref();
-        local_aregs[1] = S(string0, new HeapChoice(mach.getCUTB()), S(string4, var2.dref(), var1.dref(), continuation));
+        mach.setCont(local_aregs, 1, S(string0, new HeapChoice(
+                mach.getCUTB()), S(string4, var2.dref(), var1.dref(), continuation)));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return var2cont;
     }
 }
@@ -72,7 +73,7 @@ class pred_chr_newvia_23___disj___23___disj___3_3_2 extends pred_chr_newvia_23__
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -88,7 +89,7 @@ class pred_chr_newvia_23___disj___23___disj___3_3_2 extends pred_chr_newvia_23__
         local_aregs[0] = var3.dref();
         local_aregs[1] = var2.dref();
         local_aregs[2] = var1.dref();
-        local_aregs[3] = continuation;
+        mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return chr_newvia_23___disj___23___disj___33___disj___44cont;
     }

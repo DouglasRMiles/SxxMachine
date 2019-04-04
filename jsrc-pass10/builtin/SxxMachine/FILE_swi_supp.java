@@ -36,7 +36,7 @@ public class FILE_swi_supp extends FILE_io {
     // main((package)/1,non-(public))
 
     public static Operation PRED_package_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // package A:-true
@@ -56,10 +56,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -78,7 +78,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),call('SxxMachine':A),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -100,7 +100,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -112,10 +112,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
@@ -135,7 +135,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-['$get_level'(C),call('SxxMachine':A),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -159,7 +159,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-[]
         return cont;
     }
@@ -170,7 +170,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(forall/2,non-(public))
 
     public static Operation PRED_forall_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // forall(A,B):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
@@ -190,7 +190,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_fmt_2 = F("fmt", 2);
 
     public static Operation PRED_format_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // format(A,B,C):-writeq(A,fmt(B,C))
@@ -214,10 +214,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_swi_supp::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_1(m);
@@ -238,7 +238,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C):-['$get_level'(D),call('SxxMachine':A),'$cut'(D),call('SxxMachine':B),call('SxxMachine':C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -270,7 +270,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -283,10 +283,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(reorder/3,public)
 
     public static Operation PRED_reorder_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_swi_supp::reorder_3_sub_1);
         return reorder_3_1(m);
@@ -304,7 +304,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // reorder(A,B,C):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C)]
         return //
         Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_static_exec, VA(a1, a2, a3), cont);
@@ -318,7 +318,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // reorder(A,B,C):-[call('SxxMachine':C),call('SxxMachine':B)]
         // put_str_args([@('ATOM_SxxMachine'),a(3)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(4))
         a4 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a3);
@@ -337,7 +337,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(setup_call_cleanup/3,public)
 
     public static Operation PRED_setup_call_cleanup_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // setup_call_cleanup(A,B,C):-setup_call_catcher_cleanup(A,B,D,C)
@@ -359,7 +359,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_each_call_cleanup_4 = F("each_call_cleanup", 4);
 
     public static Operation PRED_each_call_cleanup_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // each_call_cleanup(A,B,C):-throw_missing(each_call_cleanup(A,B,D,C))
@@ -383,7 +383,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_setup_call_catcher_cleanup_4 = F("setup_call_catcher_cleanup", 4);
 
     public static Operation PRED_setup_call_catcher_cleanup_4_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // setup_call_catcher_cleanup(A,B,C,D):-throw_missing(setup_call_catcher_cleanup(A,B,C,D))
@@ -407,7 +407,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(recorda/2,public)
 
     public static Operation PRED_recorda_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // recorda(A,B):-recorda(A,B,C)
@@ -426,7 +426,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(recordz/2,public)
 
     public static Operation PRED_recordz_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // recordz(A,B):-recordz(A,B,C)
@@ -445,7 +445,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(recorded/2,public)
 
     public static Operation PRED_recorded_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // recorded(A,B):-recorded(A,B,C)
@@ -465,7 +465,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_throw_missing_1 = F("throw_missing", 1);
 
     public static Operation PRED_throw_missing_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // throw_missing(A):-throw(throw_missing(A))
@@ -487,7 +487,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_instance_2 = F("instance", 2);
 
     public static Operation PRED_instance_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // instance(A,B):-throw_missing(instance(A,B))
@@ -510,7 +510,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_flag_3 = F("flag", 3);
 
     public static Operation PRED_flag_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // flag(A,B,C):-throw_missing(flag(A,B,C))
@@ -534,7 +534,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_source_location_2 = F("source_location", 2);
 
     public static Operation PRED_source_location_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // source_location(A,B):-throw_missing(source_location(A,B))
@@ -560,10 +560,10 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_meta_predicate_1 = F("meta_predicate", 1);
 
     public static Operation PRED_set_predicate_property_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return set_predicate_property_2_top(m);
     }
 
@@ -618,7 +618,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:B:C,D):-['$neck_cut',nonvar(B),set_predicate_property(B:C,D)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -645,7 +645,7 @@ public class FILE_swi_supp extends FILE_io {
         ;
         m.AREGS[0] = a6;
         m.AREGS[1] = a2;
-        m.cont = cont;
+        m.setCont(cont);
         return set_predicate_property_2_top(m);
     }
 
@@ -655,7 +655,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:[],B):-['$neck_cut']
         a1 = a1.dref();
         if (!a1.unifyS(FUNCTOR_module_colon_2, m.trail, m.DONT_CARE1(), Prolog.Nil)) {
@@ -673,7 +673,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:B/C,D):-['$neck_cut',set_predicate_property(A,B,C,D)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -701,7 +701,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:[B|C],D):-['$neck_cut',set_predicate_property(A:B,D),set_predicate_property(A:C,D)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -733,7 +733,7 @@ public class FILE_swi_supp extends FILE_io {
                 Op("set_predicate_property", FILE_system::PRED_set_predicate_property_2_static_exec, VA(a8, a2), cont);
         m.AREGS[0] = a7;
         m.AREGS[1] = a2;
-        m.cont = p1;
+        m.setCont(p1);
         return set_predicate_property_2_top(m);
     }
 
@@ -744,7 +744,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:(B,C),D):-['$neck_cut',set_predicate_property(A:B,D),set_predicate_property(A:C,D)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -771,7 +771,7 @@ public class FILE_swi_supp extends FILE_io {
                 Op("set_predicate_property", FILE_system::PRED_set_predicate_property_2_static_exec, VA(a8, a2), cont);
         m.AREGS[0] = a7;
         m.AREGS[1] = a2;
-        m.cont = p1;
+        m.setCont(p1);
         return set_predicate_property_2_top(m);
     }
 
@@ -782,7 +782,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:B,meta_predicate):-['$neck_cut',functor(B,C,D),set_predicate_property(A,C,D,(meta_predicate B))]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -812,7 +812,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A:B,C):-[functor(B,D,E),set_predicate_property(A,D,E,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -834,7 +834,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A,B):-['$get_level'(C),strip_module(A,D,E),'$equality_of_term'(A,E),'$cut'(C),set_predicate_property(D:E,B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -860,7 +860,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(ccall/1,public)
 
     public static Operation PRED_ccall_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // ccall(A):-clause('SxxMachine':A,true)
@@ -882,10 +882,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -904,7 +904,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),ccall(A),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -923,7 +923,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -936,10 +936,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(assertz_if_new/1,public)
 
     public static Operation PRED_assertz_if_new_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::assertz_if_new_1_sub_1);
         return assertz_if_new_1_1(m);
@@ -955,7 +955,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // assertz_if_new(A):-['$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A)]
         return //
         Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec, VA(a1), cont);
@@ -966,7 +966,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // assertz_if_new(A):-[assertz('SxxMachine':A)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -983,10 +983,10 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor ATOM_defined = SYM("defined");
 
     public static Operation PRED_set_predicate_property_4_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry4(null, FILE_swi_supp::set_predicate_property_4_sub_1);
         return set_predicate_property_4_1(m);
@@ -1006,7 +1006,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A,B,C,D):-['$get_level'(E),ccall('$predicate_property'(D,A,B,C)),'$cut'(E)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
@@ -1031,7 +1031,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // set_predicate_property(A,B,C,D):-[assertz_if_new('$predicate_property'(defined,A,B,C)),assertz_if_new('$predicate_property'(D,A,B,C))]
         // put_str_args([@('ATOM_defined'),a(1),a(2),a(3)],y(1)),put_str(@('FUNCTOR_$0024predicate_property_4'),y(1),a(5))
         a5 = S(FUNCTOR_$0024predicate_property_4, ATOM_defined, a1, a2, a3);
@@ -1051,7 +1051,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor ATOM_multifile = SYM("multifile");
 
     public static Operation PRED_multifile_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // multifile A:-set_predicate_property(A,multifile)
@@ -1070,7 +1070,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor ATOM_discontiguous = SYM("discontiguous");
 
     public static Operation PRED_discontiguous_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // discontiguous A:-set_predicate_property(A,discontiguous)
@@ -1089,7 +1089,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor ATOM_transparent = SYM("transparent");
 
     public static Operation PRED_module_transparent_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // module_transparent A:-set_predicate_property(A,transparent)
@@ -1107,7 +1107,7 @@ public class FILE_swi_supp extends FILE_io {
     // main((meta_predicate)/1,public)
 
     public static Operation PRED_meta_predicate_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // meta_predicate A:-set_predicate_property(A,meta_predicate)
@@ -1126,10 +1126,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -1148,7 +1148,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),call('SxxMachine':A),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -1170,7 +1170,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -1183,10 +1183,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(ignore/1,public)
 
     public static Operation PRED_ignore_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::ignore_1_sub_1);
         return ignore_1_1(m);
@@ -1202,7 +1202,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // ignore(A):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A)]
         return //
         Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec, VA(a1), cont);
@@ -1213,7 +1213,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // ignore(A):-[]
         return cont;
     }
@@ -1224,7 +1224,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(variant/2,public)
 
     public static Operation PRED_variant_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // variant(A,B):-'$term_variant'(A,B)
@@ -1245,10 +1245,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
@@ -1268,7 +1268,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-['$get_level'(C),call('SxxMachine':'$current_typein_module'(B)),'$cut'(C),'$unify'(A,B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -1295,7 +1295,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -1308,10 +1308,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(typein_module/1,public)
 
     public static Operation PRED_typein_module_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::typein_module_1_sub_1);
         return typein_module_1_1(m);
@@ -1327,7 +1327,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // typein_module(A):-['$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)]
         return //
         Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec, VA(a1, m
@@ -1339,7 +1339,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // typein_module(A):-['$unify'(A,'SxxMachine')]
         //START inline expansion of $unify(a(1),@(ATOM_SxxMachine))
         if (!a1.unify(ATOM_SxxMachine, m.trail)) {
@@ -1357,10 +1357,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
@@ -1380,7 +1380,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-['$get_level'(C),call('SxxMachine':'$current_source_module'(B)),'$cut'(C),'$unify'(A,B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -1407,7 +1407,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -1420,10 +1420,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(source_module/1,public)
 
     public static Operation PRED_source_module_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::source_module_1_sub_1);
         return source_module_1_1(m);
@@ -1439,7 +1439,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // source_module(A):-['$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)]
         return //
         Op("$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec, VA(a1, m
@@ -1451,7 +1451,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // source_module(A):-['$unify'(A,'SxxMachine')]
         //START inline expansion of $unify(a(1),@(ATOM_SxxMachine))
         if (!a1.unify(ATOM_SxxMachine, m.trail)) {
@@ -1469,10 +1469,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -1490,7 +1490,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[call('SxxMachine':'$current_context_module'(A))]
         // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_$0024current_context_module_1'),y(1),a(2))
         a2 = S(FUNCTOR_$0024current_context_module_1, a1);
@@ -1508,7 +1508,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[typein_module(A)]
         return //
         Op("typein_module", FILE_system::PRED_typein_module_1_static_exec, VA(a1), cont);
@@ -1521,10 +1521,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
@@ -1544,7 +1544,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-['$get_level'(C),'$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(B),'$cut'(C),'$unify'(B,A)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -1565,7 +1565,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -1578,7 +1578,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(context_module/1,public)
 
     public static Operation PRED_context_module_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // context_module(A):-'$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
@@ -1597,7 +1597,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(current_predicate/1,public)
 
     public static Operation PRED_current_predicate_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // current_predicate(A):-strip_module(A,B,C/D),current_predicate_m_f_a(B,C,D)
@@ -1623,7 +1623,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(current_predicate_m_f_a/3,non-(public))
 
     public static Operation PRED_current_predicate_m_f_a_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // current_predicate_m_f_a(A,B,C):-ccall('$predicate_property'(defined,A,B,C))
@@ -1646,7 +1646,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(current_predicate/2,public)
 
     public static Operation PRED_current_predicate_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // current_predicate(A,B):-predicate_property(B,C),strip_module(B,D,E),functor(E,F,G),strip_module(A,D,F)
@@ -1675,7 +1675,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_functor_3 = F("functor", 3);
 
     public static Operation PRED_predicate_property_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // predicate_property(A,B):-strip_module(A,C,D),reorder(var(D),ccall('$predicate_property'(B,C,E,F)),functor(D,E,F))
@@ -1712,10 +1712,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(strip_module/3,non-(public))
 
     public static Operation PRED_strip_module_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int);
     }
@@ -1752,7 +1752,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // strip_module(A,B,A):-['$get_level'(C),var(A),'$cut'(C),context_module(B)]
         if (!a1.unify(a3, m.trail))
             return m.fail();
@@ -1783,7 +1783,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // strip_module(A:B,A,B):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -1808,7 +1808,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // strip_module(A,B,A):-[context_module(B)]
         if (!a1.unify(a3, m.trail))
             return m.fail();
@@ -1826,10 +1826,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry4(null, FILE_swi_supp::$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_sub_1);
         return $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_1(m);
@@ -1851,7 +1851,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D):-[call('SxxMachine':A),nb_setarg(1,D,some),call('SxxMachine':B)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(5))
         a5 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -1874,7 +1874,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D):-['$unify'(D,sols(0)),call('SxxMachine':C)]
         //START inline expansion of $unify(a(4),s(8))
         if (!a4.unify(L_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_s8, m.trail)) {
@@ -1896,7 +1896,7 @@ public class FILE_swi_supp extends FILE_io {
     private static final Compound L_$002A$002D$003E_2_s5 = S(FUNCTOR_sols_1, int_0);
 
     public static Operation PRED_$002A$002D$003E_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // A*->B;C:-D=sols(0),'$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D)
@@ -1927,10 +1927,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(maplist/2,public)
 
     public static Operation PRED_maplist_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_swi_supp::maplist_2_sub_1);
         return maplist_2_1(m);
@@ -1948,7 +1948,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,[B|C]):-['$neck_cut',call(A,B),maplist(A,C)]
         a2 = a2.dref();
         if (a2.isCons()) {
@@ -1975,7 +1975,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,B):-[]
         return cont;
     }
@@ -1986,10 +1986,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(maplist/3,public)
 
     public static Operation PRED_maplist_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_swi_supp::maplist_3_sub_1);
         return maplist_3_1(m);
@@ -2008,7 +2008,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,[B|C],[D|E]):-['$neck_cut',call(A,B,D),maplist(A,C,E)]
         a2 = a2.dref();
         if (a2.isCons()) {
@@ -2047,7 +2047,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,B,C):-[]
         return cont;
     }
@@ -2058,10 +2058,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(maplist/4,public)
 
     public static Operation PRED_maplist_4_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry4(null, FILE_swi_supp::maplist_4_sub_1);
         return maplist_4_1(m);
@@ -2081,7 +2081,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,[B|C],[D|E],[F|G]):-['$neck_cut',call(A,B,D,F),maplist(A,C,E,G)]
         a2 = a2.dref();
         if (a2.isCons()) {
@@ -2132,7 +2132,7 @@ public class FILE_swi_supp extends FILE_io {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // maplist(A,B,C,D):-[]
         return cont;
     }
@@ -2143,7 +2143,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(call/2,public)
 
     public static Operation PRED_call_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // call(A,B):-A=..[C|D],append(D,[B],E),F=..[C|E],call(F)
@@ -2176,7 +2176,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(call/3,public)
 
     public static Operation PRED_call_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // call(A,B,C):-A=..[D|E],append(E,[B,C],F),G=..[D|F],call(G)
@@ -2211,7 +2211,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(call/4,public)
 
     public static Operation PRED_call_4_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // call(A,B,C,D):-A=..[E|F],append(F,[B,C,D],G),H=..[E|G],call(H)
@@ -2248,7 +2248,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(is_cons/1,non-(public))
 
     public static Operation PRED_is_cons_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // is_cons(A):-compound(A),A=[B|C]
@@ -2270,10 +2270,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -2292,7 +2292,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),compound(A),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -2311,7 +2311,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -2322,10 +2322,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(is_list/1,non-(public))
 
     public static Operation PRED_is_list_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return is_list_1_top(m);
     }
 
@@ -2350,7 +2350,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // is_list(A):-['$get_level'(B),'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),'$cut'(B),'$equality_of_term'(A,[])]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -2369,7 +2369,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // is_list([A|B]):-[is_list(B)]
         a1 = a1.dref();
         if (a1.isCons()) {
@@ -2381,7 +2381,7 @@ public class FILE_swi_supp extends FILE_io {
             return m.fail();
         }
         m.AREGS[0] = a2;
-        m.cont = cont;
+        m.setCont(cont);
         return is_list_1_top(m);
     }
 
@@ -2391,7 +2391,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(member/2,non-(public))
 
     public static Operation PRED_member_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // member(A,[B|C]):-member_(C,A,B)
@@ -2421,10 +2421,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(member_/3,non-(public))
 
     public static Operation PRED_member__3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return member__3_top(m);
     }
 
@@ -2450,7 +2450,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // member_(A,B,B):-[]
         if (!a2.unify(a3, m.trail))
             return m.fail();
@@ -2464,7 +2464,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // member_([A|B],C,D):-[member_(B,C,A)]
         a1 = a1.dref();
         if (a1.isCons()) {
@@ -2480,7 +2480,7 @@ public class FILE_swi_supp extends FILE_io {
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a4;
-        m.cont = cont;
+        m.setCont(cont);
         return member__3_top(m);
     }
 
@@ -2490,10 +2490,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(append/3,non-(public))
 
     public static Operation PRED_append_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return append_3_top(m);
     }
 
@@ -2519,7 +2519,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // append([],A,A):-[]
         if (!Prolog.Nil.unify(a1, m.trail))
             return m.fail();
@@ -2535,7 +2535,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // append([A|B],C,[A|D]):-[append(B,C,D)]
         a1 = a1.dref();
         if (a1.isCons()) {
@@ -2562,7 +2562,7 @@ public class FILE_swi_supp extends FILE_io {
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-        m.cont = cont;
+        m.setCont(cont);
         return append_3_top(m);
     }
 
@@ -2572,7 +2572,7 @@ public class FILE_swi_supp extends FILE_io {
     // main(flatten/2,non-(public))
 
     public static Operation PRED_flatten_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // flatten(A,B):-flatten(A,[],C),!,B=C
@@ -2601,10 +2601,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(flatten/3,non-(public))
 
     public static Operation PRED_flatten_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return flatten_3_top(m);
     }
 
@@ -2680,7 +2680,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // flatten(A,B,[A|B]):-['$get_level'(C),var(A),'$cut'(C)]
         a3 = a3.dref();
         if (a3.isCons()) {
@@ -2719,7 +2719,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // flatten([],A,A):-['$neck_cut']
         if (!Prolog.Nil.unify(a1, m.trail))
             return m.fail();
@@ -2739,7 +2739,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // flatten([A|B],C,D):-['$neck_cut',flatten(A,E,D),flatten(B,C,E)]
         a1 = a1.dref();
         if (a1.isCons()) {
@@ -2761,7 +2761,7 @@ public class FILE_swi_supp extends FILE_io {
         m.AREGS[0] = a4;
         m.AREGS[1] = a6;
         m.AREGS[2] = a3;
-        m.cont = p1;
+        m.setCont(p1);
         return flatten_3_top(m);
     }
 
@@ -2772,7 +2772,7 @@ public class FILE_swi_supp extends FILE_io {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // flatten(A,B,[A|B]):-[]
         a3 = a3.dref();
         if (a3.isCons()) {
@@ -2794,10 +2794,10 @@ public class FILE_swi_supp extends FILE_io {
     // main(printAll/1,non-(public))
 
     public static Operation PRED_printAll_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::printAll_1_sub_1);
         return printAll_1_1(m);
@@ -2814,7 +2814,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // printAll(A):-[call('SxxMachine':A),writeq(A),nl,fail]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -2830,7 +2830,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // printAll(A):-[]
         return cont;
     }
@@ -2843,7 +2843,7 @@ public class FILE_swi_supp extends FILE_io {
     private static final Compound L_random_1_s4 = S(FUNCTOR_random_1, int_0);
 
     public static Operation PRED_random_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // random(A):-A is random(0)
@@ -2868,10 +2868,10 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor FUNCTOR_frozen_2 = F("frozen", 2);
 
     public static Operation PRED_go_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_swi_supp::go_1_var, FILE_swi_supp::go_1_var, fail_0, fail_0, fail_0, fail_0);
     }
@@ -2957,7 +2957,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(1):-[freeze(A,'SxxMachine':integer(A)),'$unify'(A,1)]
         if (!int_1.unify(a1, m.trail))
             return m.fail();
@@ -2975,7 +2975,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(2):-[freeze(A,'SxxMachine':integer(A)),'$not_unifiable'(A,1.0)]
         if (!int_2.unify(a1, m.trail))
             return m.fail();
@@ -2993,7 +2993,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(3):-['$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),'$unify'(A,1.0)]
         if (!int_3.unify(a1, m.trail))
             return m.fail();
@@ -3009,7 +3009,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(4):-['$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),'$unify'(A,1.0)]
         if (!int_4.unify(a1, m.trail))
             return m.fail();
@@ -3025,7 +3025,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(11):-[freeze(A,'SxxMachine':integer(A)),freeze(B,'SxxMachine':integer(B)),copy_term(A+B,C+D),printAll(frozen(D,E))]
         if (!int_11.unify(a1, m.trail))
             return m.fail();
@@ -3058,7 +3058,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(12):-[freeze(A,'SxxMachine':integer(A)),printAll(frozen(A,B))]
         if (!int_12.unify(a1, m.trail))
             return m.fail();
@@ -3079,7 +3079,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(13):-[freeze(A,'SxxMachine':integer(A)),copy_term(A,B),printAll(frozen(B,C))]
         if (!int_13.unify(a1, m.trail))
             return m.fail();
@@ -3102,7 +3102,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(14):-[freeze(A,'SxxMachine':integer(A)),copy_term_nat(A,B),printAll(frozen(B,C))]
         if (!int_14.unify(a1, m.trail))
             return m.fail();
@@ -3125,7 +3125,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(15):-[freeze(A,'SxxMachine':integer(A)),copy_term_att(A,B),printAll(frozen(B,C))]
         if (!int_15.unify(a1, m.trail))
             return m.fail();
@@ -3148,7 +3148,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(16):-[freeze(A,'SxxMachine':integer(A)),copy_term_att(A,B),frozen(B,C),frozen(A,D)]
         if (!int_16.unify(a1, m.trail))
             return m.fail();
@@ -3169,7 +3169,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(17):-[freeze(A,'SxxMachine':integer(A)),copy_term_nat(A,B),frozen(B,C),frozen(A,D)]
         if (!int_17.unify(a1, m.trail))
             return m.fail();
@@ -3190,7 +3190,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2, p3;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(18):-[random(A),write(A),nl,fail]
         if (!int_18.unify(a1, m.trail))
             return m.fail();
@@ -3206,7 +3206,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(19):-[peek_pending(A)]
         if (!int_19.unify(a1, m.trail))
             return m.fail();
@@ -3220,7 +3220,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(20):-[freeze(A,'SxxMachine':integer(A)),freeze(B,'SxxMachine':integer(B)),copy_term(A+B,C,D)]
         if (!int_20.unify(a1, m.trail))
             return m.fail();
@@ -3246,7 +3246,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // go(21):-[freeze(A,'SxxMachine':integer(A)),freeze(B,'SxxMachine':integer(B)),copy_term(A+B,C,D)]
         if (!int_21.unify(a1, m.trail))
             return m.fail();
@@ -3273,10 +3273,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -3295,7 +3295,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),freeze(A,'SxxMachine':integer(A)),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -3316,7 +3316,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -3328,10 +3328,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -3350,7 +3350,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),'$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -3369,7 +3369,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -3381,10 +3381,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -3403,7 +3403,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),freeze(A,'SxxMachine':integer(A)),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -3424,7 +3424,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -3436,10 +3436,10 @@ public class FILE_swi_supp extends FILE_io {
 
     public static Operation PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
@@ -3458,7 +3458,7 @@ public class FILE_swi_supp extends FILE_io {
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-['$get_level'(B),'$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),'$cut'(B),fail]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -3477,7 +3477,7 @@ public class FILE_swi_supp extends FILE_io {
         Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-[]
         return cont;
     }
@@ -3490,7 +3490,7 @@ public class FILE_swi_supp extends FILE_io {
     final static Functor ATOM_builtin = SYM("builtin");
 
     public static Operation PRED_initpp_0_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // initpp:-set_predicate_property(is_cons(A),builtin)
@@ -3521,7 +3521,7 @@ public class FILE_swi_supp extends FILE_io {
     private static final Compound L_$init_0_s26 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, L_$init_0_s24);
 
     public static Operation PRED_$init_0_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // '$init':-'$new_indexing_hash'('SxxMachine','$predicate_property'/4,A),assertz(('$current_typein_module'('SxxMachine'):-true)),'$new_indexing_hash'('SxxMachine','$current_source_module'/1,B),assertz(('$current_context_module'('SxxMachine'):-true))

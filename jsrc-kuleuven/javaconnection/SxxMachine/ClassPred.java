@@ -23,13 +23,13 @@ public class ClassPred extends Code {
             return mach.Fail0;
         args[1] = args[2] = null;
         args[0] = c;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
     static boolean find(Term classConst, Term className) {
         classConst = classConst.dref();
         className = className.dref();
-        if (classConst .isAtomOrObject()) {
+        if (classConst.isAtomOrObject()) {
             final Const cct = (Const) classConst;
             if (cct.getValue() instanceof Class) {
                 final Class cc = (Class) cct.getValue();
@@ -37,13 +37,13 @@ public class ClassPred extends Code {
             } else
                 return false;
         }
-        if (className .isAtomOrObject()) {
+        if (className.isAtomOrObject()) {
             final Const ccn = (Const) className;
             if (ccn.getValue() instanceof String) {
                 return find(classConst, (String) ccn.getValue());
             }
         }
-        if (className .isCompound()) {
+        if (className.isCompound()) {
             final AFunct ccnf = (AFunct) className;
             if (ccnf.arity() > 0)
                 return false;

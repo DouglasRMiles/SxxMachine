@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-odd(A),even(B),even(C),even(D),mult([C,B,A],D,[E,F,G,H|I]),lefteven(H),odd(G),even(F),even(E),zero(I),lefteven(J),mult([C,B,A],J,[K,L,M|N]),lefteven(M),odd(L),even(K),zero(N),sum([E,F,G,H],[0,K,L,M],[O,P,Q,R|S]),odd(R),odd(Q),even(P),even(O),zero(S)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44;
@@ -121,7 +121,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_sum_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // sum(A,B,C):-sum(A,B,0,C)
         m.setB0();
          Term a1, a2, a3;
@@ -144,8 +144,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_sum_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return sum_4_top(m);
     }
 
@@ -227,7 +227,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum([A|B],[C|D],E,[F|G]):-['$neck_cut',H is A+C+E,F is H mod 10,I is H//10,sum(B,D,I,G)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -298,7 +298,7 @@ m.cont = cont;
         m.AREGS[1] = a8;
         m.AREGS[2] = a15;
         m.AREGS[3] = a10;
-m.cont = cont;
+m.setCont(cont);
         return sum_4_top(m);
     }
 
@@ -310,7 +310,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum([],A,0,A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -332,7 +332,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum(A,[],0,A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
             return m.fail();
@@ -354,7 +354,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum([],[A|B],C,[D|E]):-['$neck_cut',F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -413,7 +413,7 @@ m.cont = cont;
         m.AREGS[1] = a6;
         m.AREGS[2] = a11;
         m.AREGS[3] = a8;
-m.cont = cont;
+m.setCont(cont);
         return sum_4_top(m);
     }
 
@@ -425,7 +425,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum([A|B],[],C,[D|E]):-['$neck_cut',F is A+C,G is F//10,D is F mod 10,sum([],B,G,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -484,7 +484,7 @@ m.cont = cont;
         m.AREGS[1] = a6;
         m.AREGS[2] = a11;
         m.AREGS[3] = a8;
-m.cont = cont;
+m.setCont(cont);
         return sum_4_top(m);
     }
 
@@ -496,7 +496,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // sum([],[],A,[A]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -524,7 +524,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_mult_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // mult(A,B,C):-mult(A,B,0,C)
         m.setB0();
          Term a1, a2, a3;
@@ -545,8 +545,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_mult_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return mult_4_top(m);
     }
 
@@ -573,7 +573,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // mult([A|B],C,D,[E|F]):-[G is A*C+D,E is G mod 10,H is G//10,mult(B,C,H,F)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -630,7 +630,7 @@ m.cont = cont;
         m.AREGS[1] = a2;
         m.AREGS[2] = a13;
         m.AREGS[3] = a8;
-m.cont = cont;
+m.setCont(cont);
         return mult_4_top(m);
     }
 
@@ -642,7 +642,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // mult([],A,B,[C,D]):-[C is B mod 10,D is B//10]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -695,8 +695,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_zero_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return zero_1_top(m);
     }
 
@@ -720,7 +720,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // zero([]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -732,7 +732,7 @@ m.cont = cont;
          Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // zero([0|A]):-[zero(A)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -746,7 +746,7 @@ m.cont = cont;
             return m.fail();
         }
         m.AREGS[0] = a2;
-m.cont = cont;
+m.setCont(cont);
         return zero_1_top(m);
     }
 /** PREDICATE: odd/1
@@ -758,8 +758,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_odd_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_crypt::odd_1_var, FILE_crypt::odd_1_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -794,7 +794,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // odd(1):-[]
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
@@ -806,7 +806,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // odd(3):-[]
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
@@ -818,7 +818,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // odd(5):-[]
         if (!  int_5 .unify(a1, m.trail))
             return m.fail();
@@ -830,7 +830,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // odd(7):-[]
         if (!  int_7 .unify(a1, m.trail))
             return m.fail();
@@ -842,7 +842,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // odd(9):-[]
         if (!  int_9 .unify(a1, m.trail))
             return m.fail();
@@ -857,8 +857,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_even_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_crypt::even_1_var, FILE_crypt::even_1_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -893,7 +893,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // even(0):-[]
         if (!  int_0 .unify(a1, m.trail))
             return m.fail();
@@ -905,7 +905,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // even(2):-[]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -917,7 +917,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // even(4):-[]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -929,7 +929,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // even(6):-[]
         if (!  int_6 .unify(a1, m.trail))
             return m.fail();
@@ -941,7 +941,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // even(8):-[]
         if (!  int_8 .unify(a1, m.trail))
             return m.fail();
@@ -956,8 +956,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
 
 
     public static Operation PRED_lefteven_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_crypt::lefteven_1_var, FILE_crypt::lefteven_1_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -987,7 +987,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // lefteven(2):-[]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -999,7 +999,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // lefteven(4):-[]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -1011,7 +1011,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // lefteven(6):-[]
         if (!  int_6 .unify(a1, m.trail))
             return m.fail();
@@ -1023,7 +1023,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // lefteven(8):-[]
         if (!  int_8 .unify(a1, m.trail))
             return m.fail();

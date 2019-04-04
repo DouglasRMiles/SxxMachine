@@ -12,12 +12,12 @@ public class pred_nonvar_1 extends Code {
     public Code exec(PrologMachine mach) {
         final Term[] areg = mach.getAreg();
         if (!areg[0].dref().isVariable()) {
-            areg[0] = areg[1];
-            areg[1] = null;
-            return mach.Call1;
+            mach.setARegXFR(areg, 0, 1);
+            mach.setARegENull(areg, 1);
+            return mach.getCall1();
         } else {
             areg[0] = null;
-            areg[1] = null;
+            mach.setARegENull(areg, 1);
             return mach.Fail0;
         }
 

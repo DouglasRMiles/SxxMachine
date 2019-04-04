@@ -35,7 +35,7 @@ public class PrologThrownException extends JPrologInternalException {
 
     public Object getPrologExceptionCause() {
         final Term cause = this.cause.dref();
-        if (cause .isAtomOrObject()) {
+        if (cause.isAtomOrObject()) {
             return ((Const) cause).getValue();
         }
         return cause.portrayTerm();

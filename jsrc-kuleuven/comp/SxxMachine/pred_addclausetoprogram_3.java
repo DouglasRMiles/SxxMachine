@@ -98,7 +98,7 @@ class pred_addclausetoprogram_3_1 extends pred_addclausetoprogram_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -113,10 +113,10 @@ class pred_addclausetoprogram_3_1 extends pred_addclausetoprogram_3 {
                 .dref(), CONST(pred_addclausetoprogram_3_consts.string5)), CONST(pred_addclausetoprogram_3_consts.string5)))))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 2);
+        return mach.getCall1();
     }
 }
 
@@ -147,7 +147,7 @@ class pred_addclausetoprogram_3_2 extends pred_addclausetoprogram_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -166,9 +166,10 @@ class pred_addclausetoprogram_3_2 extends pred_addclausetoprogram_3 {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var2.dref();
 
-        local_aregs[2] = S(pred_addclausetoprogram_3_consts.string0, new HeapChoice(mach.getCUTB()), continuation);
+        mach.setCont(local_aregs, 2, S(pred_addclausetoprogram_3_consts.string0, new HeapChoice(
+                mach.getCUTB()), continuation));
         mach.updateCUTB();
-        local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 3);
         return getConsts().samepred3cont;
     }
 }
@@ -201,7 +202,7 @@ class pred_addclausetoprogram_3_3 extends pred_addclausetoprogram_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -220,7 +221,7 @@ class pred_addclausetoprogram_3_3 extends pred_addclausetoprogram_3 {
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();
         local_aregs[2] = var4.dref();
-        local_aregs[3] = continuation;
+        mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().entry_code;
     }

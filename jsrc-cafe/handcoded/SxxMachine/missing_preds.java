@@ -24,7 +24,7 @@ public class missing_preds extends TermData {
 
     public static Operation PRED_$tracing_0_static_exec(Prolog e) {
         //exec_missing();
-        return e.cont;
+        return e.getCont();
     }
 
     public static Operation PRED_time_1_static_exec(Prolog e) {
@@ -41,13 +41,13 @@ public class missing_preds extends TermData {
 
     public static Operation PRED_style_check_1_static_exec(Prolog e) {
         // exec_missing();
-        return e.cont;
+        return e.getCont();
     }
 
     public static Operation PRED_garbage_collect_0_static_exec(Prolog e) {
         //exec_missing();
         System.gc();
-        return e.cont;
+        return e.getCont();
     }
 
     public static Operation PRED_unify_3_static_exec(Prolog e) {

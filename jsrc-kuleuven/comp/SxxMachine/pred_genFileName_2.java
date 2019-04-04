@@ -57,7 +57,7 @@ public class pred_genFileName_2 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -71,10 +71,10 @@ public class pred_genFileName_2 extends Code {
         local_aregs[0] = CONST(pred_genFileName_2_consts.string3);
         local_aregs[1] = var3;
 
-        local_aregs[2] = S(pred_genFileName_2_consts.string4, S(pred_genFileName_2_consts.string5, var3
+        mach.setCont(local_aregs, 2, S(pred_genFileName_2_consts.string4, S(pred_genFileName_2_consts.string5, var3
                 .dref(), S(pred_genFileName_2_consts.string5, CONST(pred_genFileName_2_consts.string6), S(pred_genFileName_2_consts.string5, var1
                         .dref(), S(pred_genFileName_2_consts.string5, CONST(pred_genFileName_2_consts.string7), CONST(pred_genFileName_2_consts.string8))))), var2
-                                .dref(), continuation);
+                                .dref(), continuation));
         mach.updateCUTB();
         return getConsts().nb_current3cont;
 

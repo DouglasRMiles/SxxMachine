@@ -57,10 +57,10 @@ public class pred_prelude_0 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[0];
+        final Term continuation = mach.getCont(local_aregs, 0);
 
         local_aregs[0] = S(pred_prelude_0_consts.string3, CONST(pred_prelude_0_consts.string4), S(pred_prelude_0_consts.string3, S(pred_prelude_0_consts.string5, CONST(pred_prelude_0_consts.string6)), S(pred_prelude_0_consts.string3, CONST(pred_prelude_0_consts.string7), S(pred_prelude_0_consts.string3, S(pred_prelude_0_consts.string5, CONST(pred_prelude_0_consts.string6)), S(pred_prelude_0_consts.string3, CONST(pred_prelude_0_consts.string8), S(pred_prelude_0_consts.string3, S(pred_prelude_0_consts.string5, CONST(pred_prelude_0_consts.string6)), S(pred_prelude_0_consts.string3, S(pred_prelude_0_consts.string5, CONST(pred_prelude_0_consts.string6)), CONST(pred_prelude_0_consts.string9))))))));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;
 

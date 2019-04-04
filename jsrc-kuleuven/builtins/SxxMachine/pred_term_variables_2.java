@@ -30,7 +30,7 @@ public class pred_term_variables_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        // PrologObject continuation = local_aregs[2];
+        // PrologObject continuation = mach.getCont(local_aregs, 2);
         // PrologObject variables = local_aregs[1].Deref();
         Term term = local_aregs[0].dref();
 
@@ -40,7 +40,7 @@ public class pred_term_variables_2 extends Code {
         while (term != null) {
             if (term.isVariable()) {
                 varset.add(term);
-            } else if (term .isCompound()) {
+            } else if (term.isCompound()) {
                 final Term[] subterms = ((AFunct) term).args();
                 for (int i = 0; i < subterms.length; i++)
                     queue.add(subterms[i].dref());

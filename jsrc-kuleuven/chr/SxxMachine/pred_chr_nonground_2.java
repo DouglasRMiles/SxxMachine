@@ -39,7 +39,7 @@ class pred_chr_nonground_2_1 extends pred_chr_nonground_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -52,7 +52,7 @@ class pred_chr_nonground_2_1 extends pred_chr_nonground_2 {
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3;
-        local_aregs[2] = S(string4, S(string1, var2.dref(), var4), var3.dref(), continuation);
+        mach.setCont(local_aregs, 2, S(string4, S(string1, var2.dref(), var4), var3.dref(), continuation));
         mach.updateCUTB();
         return term_variables3cont;
     }

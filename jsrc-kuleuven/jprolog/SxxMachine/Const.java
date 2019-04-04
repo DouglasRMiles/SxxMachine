@@ -11,13 +11,13 @@ import SxxMachine.pterm.TermData;
 public abstract class Const extends ANonvar {
 
     //  public final static String NIL_STR = internS("[]");
-    private final static Const NULL = TermData.createJavaObjectTerm(null, Object.class);
+    private final static Const JNULL = TermData.createJavaObjectTerm(null, Object.class);
     private final static String NULL_STR = "Null";
 
     public final Object obj;
 
     public static Const javaNull() {
-        return NULL;
+        return JNULL;
     }
 
     protected Const(Object o) {
@@ -65,7 +65,7 @@ public abstract class Const extends ANonvar {
     public boolean equalsTerm(Term that, OpVisitor comparator) {
         if (that == this)
             return true;
-        if (that .isAtomOrObject()) {
+        if (that.isAtomOrObject()) {
             final Const t = (Const) that;
             if (obj == null)
                 return t.getValue() == null;
@@ -78,7 +78,7 @@ public abstract class Const extends ANonvar {
             }
             return obj.equals(t.getValue());
         }
-        if (that .isCompound()) {
+        if (that.isCompound()) {
             return that.equalsTerm(this);
         }
         return false;

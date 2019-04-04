@@ -102,7 +102,7 @@ class pred_bundleArgs_2_1 extends pred_bundleArgs_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
@@ -111,10 +111,10 @@ class pred_bundleArgs_2_1 extends pred_bundleArgs_2 {
         if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return (Code) (Object) mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return (Code) (Object) mach.getCall1();
     }
 }
 
@@ -133,7 +133,7 @@ class pred_bundleArgs_2_2 extends pred_bundleArgs_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
@@ -146,7 +146,7 @@ class pred_bundleArgs_2_2 extends pred_bundleArgs_2 {
         local_aregs[0] = pred_bundleArgs_2_consts.posint0;
         local_aregs[1] = var1.dref();
 
-        local_aregs[2] = S(pred_bundleArgs_2_consts.string3, S(pred_bundleArgs_2_consts.string4, CONST(pred_bundleArgs_2_consts.string8), CONST(pred_bundleArgs_2_consts.string6)), S(pred_bundleArgs_2_consts.string9, continuation));
+        mach.setCont(local_aregs, 2, S(pred_bundleArgs_2_consts.string3, S(pred_bundleArgs_2_consts.string4, CONST(pred_bundleArgs_2_consts.string8), CONST(pred_bundleArgs_2_consts.string6)), S(pred_bundleArgs_2_consts.string9, continuation)));
         mach.updateCUTB();
         return getConsts().smallerthan3cont;
     }
@@ -173,7 +173,7 @@ class pred_bundleArgs_2_3 extends pred_bundleArgs_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -186,9 +186,9 @@ class pred_bundleArgs_2_3 extends pred_bundleArgs_2 {
         local_aregs[0] = var3;
         local_aregs[1] = var1.dref();
 
-        local_aregs[2] = S(pred_bundleArgs_2_consts.string3, S(pred_bundleArgs_2_consts.string4, CONST(pred_bundleArgs_2_consts.string5), S(pred_bundleArgs_2_consts.string4, var1
+        mach.setCont(local_aregs, 2, S(pred_bundleArgs_2_consts.string3, S(pred_bundleArgs_2_consts.string4, CONST(pred_bundleArgs_2_consts.string5), S(pred_bundleArgs_2_consts.string4, var1
                 .dref(), CONST(pred_bundleArgs_2_consts.string6))), S(pred_bundleArgs_2_consts.string1, var3
-                        .dref(), var2.dref(), continuation));
+                        .dref(), var2.dref(), continuation)));
         mach.updateCUTB();
         return getConsts().inc3cont;
     }

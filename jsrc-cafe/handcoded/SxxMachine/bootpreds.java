@@ -103,7 +103,7 @@ public class bootpreds extends sxxtensions {
      */
     // _between_3 extends Predicate.P3 {
     public static Operation PRED_between_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -137,7 +137,7 @@ public class bootpreds extends sxxtensions {
      */
     // _arg_3 extends Predicate.P3 {
     public static Operation PRED_arg_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -188,7 +188,7 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_chars_2 extends Predicate.P2 {
     public static Operation PRED_atom_chars_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -251,7 +251,7 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_codes_2 extends Predicate.P2 {
     public static Operation PRED_atom_codes_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -308,7 +308,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor AC_2 = F("ac", 2);
 
     public static Operation PRED_atom_concat_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -354,7 +354,7 @@ public class bootpreds extends sxxtensions {
      */
     // _atomic_concat_3 extends Predicate.P3 {
     public static Operation PRED_atomic_concat_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -380,7 +380,7 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_length_2 extends Predicate.P2 {
     public static Operation PRED_atom_length_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -419,7 +419,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$atom_type0_2 extends Predicate.P2 {
     public static Operation PRED_$atom_type0_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
@@ -471,7 +471,7 @@ public class bootpreds extends sxxtensions {
         }
 
         public static Operation static_exec(Prolog engine) {
-            Operation cont = engine.cont;
+            Operation cont = engine.getCont();
             engine.setB0();
             engine.pushCatcherB(engine.B0);
             engine.trail.push(() -> engine.popCatcherB());
@@ -581,7 +581,7 @@ public class bootpreds extends sxxtensions {
     static public class PRED_$builtin_member_2 extends Predicate.P2 {
 
         public static Operation static_exec(Prolog engine) {
-            Operation cont = engine.cont;
+            Operation cont = engine.getCont();
             Term[] LARG = engine.AREGS;
             final Term a1 = LARG[0].dref();
             final Term a2 = LARG[1].dref();
@@ -596,7 +596,7 @@ public class bootpreds extends sxxtensions {
                 engine.setB0();
                 engine.AREGS = LARG;
                 engine.AREGS[1] = FFIObject(new Term[] { next });
-                engine.cont = cont;
+                engine.setCont(cont);
                 engine.jtry2(null, PRED_$builtin_member_2::retry); // push new
                                                                    // frame
                                                                    // with
@@ -620,7 +620,7 @@ public class bootpreds extends sxxtensions {
                 a2 = (a2).cdr().dref();
                 if (engine.AREGS[0].unify(value, engine.trail)) {
                     p[0] = a2;
-                    return engine.cont;
+                    return engine.getCont();
                 }
                 trail.unwind(top);
             }
@@ -634,7 +634,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$builtin_member_2 extends Predicate.P2 {
     public static Operation PRED_$builtin_member_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         final Term a1 = LARG[0].dref();
         final Term a2 = LARG[1].dref();
@@ -647,7 +647,7 @@ public class bootpreds extends sxxtensions {
             engine.setB0();
             engine.AREGS = LARG;
             engine.AREGS[1] = FFIObject(new Term[] { next });
-            engine.cont = cont;
+            engine.setCont(cont);
             engine.jtry2(null, bootpreds::retry_bi_member); // push new frame
                                                             // with
                                                             // retry as next
@@ -668,7 +668,7 @@ public class bootpreds extends sxxtensions {
             a2 = (a2).cdr().dref();
             if (engine.AREGS[0].unify(value, engine.trail)) {
                 p[0] = a2;
-                return engine.cont;
+                return engine.getCont();
             }
             trail.unwind(top);
         }
@@ -689,7 +689,7 @@ public class bootpreds extends sxxtensions {
     private final static Term[] NO_ARGS = new Term[0];
 
     public static Operation PRED_$call_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -745,7 +745,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$call_closure_1 extends Predicate.P1 {
     public static Operation PRED_$call_closure_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -768,7 +768,7 @@ public class bootpreds extends sxxtensions {
      */
     // _char_code_2 extends Predicate.P2 {
     public static Operation PRED_char_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -814,7 +814,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_FALSE = SYM("false");
 
     public static Operation PRED_close_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -926,7 +926,7 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compare0_3 extends Predicate.P3 {
     public static Operation PRED_$compare0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a2 = LARG[1].dref();
@@ -944,7 +944,7 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compiled_predicate_3 extends Predicate.P3 {
     public static Operation PRED_$compiled_predicate_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1 = LARG[0].dref();
@@ -963,7 +963,7 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compiled_predicate_or_builtin_3 extends Predicate.P3 {
     public static Operation PRED_$compiled_predicate_or_builtin_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1 = LARG[0].dref();
@@ -985,7 +985,7 @@ public class bootpreds extends sxxtensions {
      */
     // _current_engine_1 extends Predicate.P1 {
     public static Operation PRED_current_engine_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -1005,7 +1005,7 @@ public class bootpreds extends sxxtensions {
      */
     // _current_input_1 extends Predicate.P1 {
     public static Operation PRED_current_input_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -1033,7 +1033,7 @@ public class bootpreds extends sxxtensions {
      */
     // _current_output_1 extends Predicate.P1 {
     public static Operation PRED_current_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -1061,7 +1061,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$cut_1 extends Predicate.P1 {
     public static Operation PRED_$cut_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         // engine.setB0();
         Term a1;
@@ -1084,7 +1084,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$end_exception_1 extends Predicate.P1 {
     public static Operation PRED_$end_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         engine.setB0();
         final int B = engine.popCatcherB();
         engine.trail.push(() -> engine.pushCatcherB(B));
@@ -1100,7 +1100,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$end_sync_1 extends Predicate.P1 {
     public static Operation PRED_$end_sync_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1127,7 +1127,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$erase_1 extends Predicate.P1 {
     public static Operation PRED_$erase_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1145,7 +1145,7 @@ public class bootpreds extends sxxtensions {
     /** {@code exists_directory(+Directory)} */
     // _exists_directory_1 extends Predicate.P1 {
     public static Operation PRED_exists_directory_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -1166,7 +1166,7 @@ public class bootpreds extends sxxtensions {
     /** {@code exists_file(+File)} */
     // _exists_file_1 extends Predicate.P1 {
     public static Operation PRED_exists_file_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -1192,7 +1192,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_write_1 extends Predicate.P1 {
     public static Operation PRED_$fast_write_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -1212,7 +1212,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_write_2 extends Predicate.P2 {
     public static Operation PRED_$fast_write_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1233,7 +1233,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_writeq_1 extends Predicate.P1 {
     public static Operation PRED_$fast_writeq_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -1252,7 +1252,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_writeq_2 extends Predicate.P2 {
     public static Operation PRED_$fast_writeq_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1293,7 +1293,7 @@ public class bootpreds extends sxxtensions {
     /** {@code file_directory_name(+File, -Directory)} */
     // _file_directory_name_2 extends Predicate.P2 {
     public static Operation PRED_file_directory_name_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -1324,7 +1324,7 @@ public class bootpreds extends sxxtensions {
      */
     // _flush_output_1 extends Predicate.P1 {
     public static Operation PRED_flush_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1344,7 +1344,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_DOT_0 = SYM(".");
 
     public static Operation PRED_functor_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1421,7 +1421,7 @@ public class bootpreds extends sxxtensions {
      */
     // _get_2 extends Predicate.P2 {
     public static Operation PRED_get_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1471,7 +1471,7 @@ public class bootpreds extends sxxtensions {
      */
     // _get_byte_2 extends Predicate.P2 {
     public static Operation PRED_get_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1551,7 +1551,7 @@ public class bootpreds extends sxxtensions {
     }
 
     public static Operation PRED_get_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1592,7 +1592,7 @@ public class bootpreds extends sxxtensions {
      */
     // _get_code_2 extends Predicate.P2 {
     public static Operation PRED_get_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1638,7 +1638,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_current_B_1 extends Predicate.P1 {
     public static Operation PRED_$get_current_B_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -1657,7 +1657,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_exception_1 extends Predicate.P1 {
     public static Operation PRED_$get_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -1676,7 +1676,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_hash_manager_1 extends Predicate.P1 {
     public static Operation PRED_$get_hash_manager_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1701,7 +1701,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor COMMA = F(",", 2);
 
     public static Operation PRED_$get_instances_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1746,7 +1746,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_level_1 extends Predicate.P1 {
     public static Operation PRED_$get_level_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         // engine.setB0();
         Term a1;
@@ -1774,7 +1774,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_prolog_impl_flag_2 extends Predicate.P2 {
     public static Operation PRED_$get_prolog_impl_flag_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
@@ -1832,7 +1832,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_stream_manager_1 extends Predicate.P1 {
     public static Operation PRED_$get_stream_manager_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1879,7 +1879,7 @@ public class bootpreds extends sxxtensions {
     // _$hash_adda_3 extends Predicate.P3 {
 
     public static Operation PRED_$hash_adda_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1924,7 +1924,7 @@ public class bootpreds extends sxxtensions {
     // _$hash_addz_3 extends Predicate.P3 {
 
     public static Operation PRED_$hash_addz_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -1971,7 +1971,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_clear_1 extends Predicate.P1 {
     public static Operation PRED_hash_clear_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2005,7 +2005,7 @@ public class bootpreds extends sxxtensions {
      * @version 1.0
      */
     public static Operation PRED_hash_contains_key_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2044,7 +2044,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_get_3 extends Predicate.P3 {
     public static Operation PRED_hash_get_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2085,7 +2085,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_is_empty_1 extends Predicate.P1 {
     public static Operation PRED_hash_is_empty_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2120,7 +2120,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_keys_2 extends Predicate.P2 {
     public static Operation PRED_hash_keys_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2160,7 +2160,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_put_3 extends Predicate.P3 {
     public static Operation PRED_hash_put_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2208,7 +2208,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_remove_2 extends Predicate.P2 {
     public static Operation PRED_hash_remove_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2248,7 +2248,7 @@ public class bootpreds extends sxxtensions {
     // _$hash_remove_first_3 extends Predicate.P3 {
     //
     public static Operation PRED_$hash_remove_first_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2310,7 +2310,7 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_size_2 extends Predicate.P2 {
     public static Operation PRED_hash_size_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2349,7 +2349,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$insert_2 extends Predicate.P2 {
     public static Operation PRED_$insert_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2378,7 +2378,7 @@ public class bootpreds extends sxxtensions {
     // _java_constructor0_2 extends FFIPredicate {
 
     public static Operation PRED_java_constructor0_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2467,7 +2467,7 @@ public class bootpreds extends sxxtensions {
      */
     // _java_conversion_2 extends Predicate.P2 {
     public static Operation PRED_java_conversion_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -2516,7 +2516,7 @@ public class bootpreds extends sxxtensions {
     }
 
     public static Operation PRED_java_declared_constructor0_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2614,7 +2614,7 @@ public class bootpreds extends sxxtensions {
     // _java_declared_method0_3 extends FFIPredicate {
 
     public static Operation PRED_java_declared_method0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2720,7 +2720,7 @@ public class bootpreds extends sxxtensions {
      */
     // extends FFIPredicate {
     public static Operation PRED_java_get_declared_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2791,7 +2791,7 @@ public class bootpreds extends sxxtensions {
      */
 
     public static Operation PRED_java_get_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2868,7 +2868,7 @@ public class bootpreds extends sxxtensions {
      */
     // _java_method0_3 extends FFIPredicate {
     public static Operation PRED_java_method0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -2975,7 +2975,7 @@ public class bootpreds extends sxxtensions {
     // _java_set_declared_field0_3 extends FFIPredicate {
 
     public static Operation PRED_java_set_declared_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -3044,7 +3044,7 @@ public class bootpreds extends sxxtensions {
     // _java_set_field0_3 extends FFIPredicate {
 
     public static Operation PRED_java_set_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
@@ -3113,7 +3113,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_HYPHEN_2 = F("-", 2);
 
     public static Operation PRED_keysort_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -3181,7 +3181,7 @@ public class bootpreds extends sxxtensions {
     // jio.PushbackReader;
     // _line_count_2 extends P2 {
     public static Operation PRED_line_count_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -3234,7 +3234,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_2 extends P2 {
     public static Operation PRED_log_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3287,7 +3287,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_3 extends P3 {
     public static Operation PRED_log_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3346,7 +3346,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_4 extends P4 {
     public static Operation PRED_log_4_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3408,7 +3408,7 @@ public class bootpreds extends sxxtensions {
     // _log_5 extends Predicate {
 
     public static Operation PRED_log_5_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3470,7 +3470,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_6 extends Predicate {
     public static Operation PRED_log_6_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3534,7 +3534,7 @@ public class bootpreds extends sxxtensions {
     // _log_7 extends Predicate {
 
     public static Operation PRED_log_7_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3589,7 +3589,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_error_2 extends P2 {
     public static Operation PRED_log_error_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3660,7 +3660,7 @@ public class bootpreds extends sxxtensions {
     }
 
     public static Operation PRED_loggable_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3710,7 +3710,7 @@ public class bootpreds extends sxxtensions {
      */
     // _log_level_1 extends P1 {
     public static Operation PRED_log_level_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         final Term a1 = LARG[0].dref();
@@ -3743,7 +3743,7 @@ public class bootpreds extends sxxtensions {
     /** {@code make_directory(+Dir)} */
     // _make_directory_1 extends Predicate.P1 {
     public static Operation PRED_make_directory_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -3776,7 +3776,7 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_create_1 extends P1 {
     public static Operation PRED_mutex_create_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3822,7 +3822,7 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_lock_1 extends P1 {
     public static Operation PRED_mutex_lock_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3870,7 +3870,7 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_lock_bt_1 extends P1 {
     public static Operation PRED_mutex_lock_bt_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3908,7 +3908,7 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_trylock_1 extends P1 {
     public static Operation PRED_mutex_trylock_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3942,7 +3942,7 @@ public class bootpreds extends sxxtensions {
      */
     // extends P1 {
     public static Operation PRED_mutex_unlock_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -3967,7 +3967,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$neck_cut_0 extends Predicate.P0 {
     public static Operation PRED_$neck_cut_0_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         // engine.setB0();
         engine.neckCut();
         return cont;
@@ -3984,7 +3984,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_ALIAS_1 = F("alias", 1);
 
     public static Operation PRED_new_hash_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4048,7 +4048,7 @@ public class bootpreds extends sxxtensions {
      */
     // _nl_0 extends Predicate.P0 {
     public static Operation PRED_nl_0_static_exec_bootpred(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         engine.setB0();
         engine.getCurrentOutput().println();
         return cont;
@@ -4063,7 +4063,7 @@ public class bootpreds extends sxxtensions {
      */
     // _number_chars_2 extends Predicate.P2 {
     public static Operation PRED_number_chars_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4135,7 +4135,7 @@ public class bootpreds extends sxxtensions {
      */
     // _number_codes_2 extends Predicate.P2 {
     public static Operation PRED_number_codes_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4219,7 +4219,7 @@ public class bootpreds extends sxxtensions {
      */
     // _open_4 extends Predicate.P4 {
     public static Operation PRED_open_4_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
@@ -4410,7 +4410,7 @@ public class bootpreds extends sxxtensions {
     // _peek_byte_2 extends Predicate.P2 {
 
     public static Operation PRED_peek_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4459,7 +4459,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_EOF = SYM("end_of_file");
 
     public static Operation PRED_peek_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4503,7 +4503,7 @@ public class bootpreds extends sxxtensions {
     private static final NumberTerm INT_EOF = Integer(-1);
 
     public static Operation PRED_peek_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4549,7 +4549,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$print_stack_trace_1 extends Predicate.P1 {
     public static Operation PRED_$print_stack_trace_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4579,7 +4579,7 @@ public class bootpreds extends sxxtensions {
      */
     // _put_byte_2 extends Predicate.P2 {
     public static Operation PRED_put_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4612,7 +4612,7 @@ public class bootpreds extends sxxtensions {
      */
     // _put_char_2 extends Predicate.P2 {
     public static Operation PRED_put_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4649,7 +4649,7 @@ public class bootpreds extends sxxtensions {
      */
     // extends Predicate.P2 {
     public static Operation PRED_put_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4710,7 +4710,7 @@ public class bootpreds extends sxxtensions {
      */
 
     public static Operation PRED_$unify_2_static_exec_builtins(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         // '$unify'(A,B):-'$unify'(A,B)
         m.setB0();
@@ -4736,7 +4736,7 @@ public class bootpreds extends sxxtensions {
      */
     // _read_line_2 extends Predicate.P2 {
     public static Operation PRED_read_line_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4799,7 +4799,7 @@ public class bootpreds extends sxxtensions {
      * fails.
      */
     public static Operation PRED_$read_token0_3_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4857,7 +4857,7 @@ public class bootpreds extends sxxtensions {
      */
     // _regex_compile_2 extends Predicate.P2 {
     public static Operation PRED_regex_compile_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -4920,7 +4920,7 @@ public class bootpreds extends sxxtensions {
         if (matches == Prolog.Nil || !result.unify(matches, engine.trail)) {
             return engine.fail();
         }
-        return engine.cont;
+        return engine.getCont();
     }
 
     private static Operation regex_next(Prolog engine) {
@@ -4947,7 +4947,7 @@ public class bootpreds extends sxxtensions {
 
     // _reverse_2 extends Predicate.P2 {
     public static Operation PRED_reverse_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1 = LARG[0].dref();
@@ -4974,7 +4974,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$set_exception_1 extends Predicate.P1 {
     public static Operation PRED_$set_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1;
@@ -4994,7 +4994,7 @@ public class bootpreds extends sxxtensions {
      */
     // _set_input_1 extends Predicate.P1 {
     public static Operation PRED_set_input_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5015,7 +5015,7 @@ public class bootpreds extends sxxtensions {
      */
     // _set_output_1 extends Predicate.P1 {
     public static Operation PRED_set_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Operation thiz = engine.pred;
         engine.setB0();
         // S_or_a
@@ -5039,7 +5039,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor PRINT_STACK_TRACE = SYM("print_stack_trace");
 
     public static Operation PRED_$set_prolog_impl_flag_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
@@ -5084,7 +5084,7 @@ public class bootpreds extends sxxtensions {
     // _skip_2 extends Predicate.P2 {
 
     public static Operation PRED_skip_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5137,7 +5137,7 @@ public class bootpreds extends sxxtensions {
      */
     // _sort_2 extends Predicate.P2 {
     public static Operation PRED_sort_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5199,7 +5199,7 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_CHOICE = SYM("choice");
 
     public static Operation PRED_$statistics_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5256,7 +5256,7 @@ public class bootpreds extends sxxtensions {
      */
     // _tab_2 extends Predicate.P2 {
     public static Operation PRED_tab_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5297,7 +5297,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$term_hash_2 extends Predicate.P2 {
     public static Operation PRED_$term_hash_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
@@ -5318,7 +5318,7 @@ public class bootpreds extends sxxtensions {
      */
     // extends Predicate.P2 {
     public static Operation PRED_$univ_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();
@@ -5435,7 +5435,7 @@ public class bootpreds extends sxxtensions {
      */
     // _write_domain_definitions_2 extends P2 {
     public static Operation PRED_write_domain_definitions_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         Term a1 = LARG[0].dref();
@@ -5550,7 +5550,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$write_toString_2 extends Predicate.P2 {
     public static Operation PRED_$write_toString_2_static_exec(Prolog engine) {
-        Operation cont = engine.cont;
+        Operation cont = engine.getCont();
         Term[] LARG = engine.AREGS;
         Operation thiz = engine.pred;
         engine.setB0();

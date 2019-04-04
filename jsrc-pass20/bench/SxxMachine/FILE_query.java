@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-query
         m.setB0();
     // top:-[query]
@@ -54,8 +54,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_query_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry0(null, FILE_query::query_0_sub_1);
         return query_0_1(m);
@@ -70,7 +70,7 @@ m.cont = cont;
     // query:-query(A),fail
         Operation p1;
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // query:-[query(A),fail]
         return //
  Op("query", FILE_query::PRED_query_1_static_exec, VA(m.DONT_CARE2()), fail_0);
@@ -79,7 +79,7 @@ m.cont = cont;
     private final static Operation query_0_2(Prolog m) { 
     // query:-true
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // query:-[]
         return cont;
     }
@@ -93,7 +93,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_query_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // query([A,B,C,D]):-density(A,B),density(C,D),B>D,E is 20*B,F is 21*D,E<F
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -171,7 +171,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_density_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // density(A,B):-pop(A,C),area(A,D),B is C*100//D
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -251,8 +251,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_pop_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_query::pop_2_var, fail_0, fail_0, FILE_query::pop_2_var, fail_0, fail_0); 
     }
@@ -388,7 +388,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(china,8250):-[]
         if (!  ATOM_china .unify(a1, m.trail))
             return m.fail();
@@ -403,7 +403,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(india,5863):-[]
         if (!  ATOM_india .unify(a1, m.trail))
             return m.fail();
@@ -418,7 +418,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(ussr,2521):-[]
         if (!  ATOM_ussr .unify(a1, m.trail))
             return m.fail();
@@ -433,7 +433,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(usa,2119):-[]
         if (!  ATOM_usa .unify(a1, m.trail))
             return m.fail();
@@ -448,7 +448,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(indonesia,1276):-[]
         if (!  ATOM_indonesia .unify(a1, m.trail))
             return m.fail();
@@ -463,7 +463,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(japan,1097):-[]
         if (!  ATOM_japan .unify(a1, m.trail))
             return m.fail();
@@ -478,7 +478,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(brazil,1042):-[]
         if (!  ATOM_brazil .unify(a1, m.trail))
             return m.fail();
@@ -493,7 +493,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(bangladesh,750):-[]
         if (!  ATOM_bangladesh .unify(a1, m.trail))
             return m.fail();
@@ -508,7 +508,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(pakistan,682):-[]
         if (!  ATOM_pakistan .unify(a1, m.trail))
             return m.fail();
@@ -523,7 +523,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(w_germany,620):-[]
         if (!  ATOM_w_germany .unify(a1, m.trail))
             return m.fail();
@@ -538,7 +538,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(nigeria,613):-[]
         if (!  ATOM_nigeria .unify(a1, m.trail))
             return m.fail();
@@ -553,7 +553,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(mexico,581):-[]
         if (!  ATOM_mexico .unify(a1, m.trail))
             return m.fail();
@@ -568,7 +568,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(uk,559):-[]
         if (!  ATOM_uk .unify(a1, m.trail))
             return m.fail();
@@ -583,7 +583,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(italy,554):-[]
         if (!  ATOM_italy .unify(a1, m.trail))
             return m.fail();
@@ -598,7 +598,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(france,525):-[]
         if (!  ATOM_france .unify(a1, m.trail))
             return m.fail();
@@ -613,7 +613,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(philippines,415):-[]
         if (!  ATOM_philippines .unify(a1, m.trail))
             return m.fail();
@@ -628,7 +628,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(thailand,410):-[]
         if (!  ATOM_thailand .unify(a1, m.trail))
             return m.fail();
@@ -643,7 +643,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(turkey,383):-[]
         if (!  ATOM_turkey .unify(a1, m.trail))
             return m.fail();
@@ -658,7 +658,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(egypt,364):-[]
         if (!  ATOM_egypt .unify(a1, m.trail))
             return m.fail();
@@ -673,7 +673,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(spain,352):-[]
         if (!  ATOM_spain .unify(a1, m.trail))
             return m.fail();
@@ -688,7 +688,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(poland,337):-[]
         if (!  ATOM_poland .unify(a1, m.trail))
             return m.fail();
@@ -703,7 +703,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(s_korea,335):-[]
         if (!  ATOM_s_korea .unify(a1, m.trail))
             return m.fail();
@@ -718,7 +718,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(iran,320):-[]
         if (!  ATOM_iran .unify(a1, m.trail))
             return m.fail();
@@ -733,7 +733,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(ethiopia,272):-[]
         if (!  ATOM_ethiopia .unify(a1, m.trail))
             return m.fail();
@@ -748,7 +748,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // pop(argentina,251):-[]
         if (!  ATOM_argentina .unify(a1, m.trail))
             return m.fail();
@@ -790,8 +790,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
     public static Operation PRED_area_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_query::area_2_var, fail_0, fail_0, FILE_query::area_2_var, fail_0, fail_0); 
     }
@@ -927,7 +927,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(china,3380):-[]
         if (!  ATOM_china .unify(a1, m.trail))
             return m.fail();
@@ -942,7 +942,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(india,1139):-[]
         if (!  ATOM_india .unify(a1, m.trail))
             return m.fail();
@@ -957,7 +957,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(ussr,8708):-[]
         if (!  ATOM_ussr .unify(a1, m.trail))
             return m.fail();
@@ -972,7 +972,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(usa,3609):-[]
         if (!  ATOM_usa .unify(a1, m.trail))
             return m.fail();
@@ -987,7 +987,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(indonesia,570):-[]
         if (!  ATOM_indonesia .unify(a1, m.trail))
             return m.fail();
@@ -1002,7 +1002,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(japan,148):-[]
         if (!  ATOM_japan .unify(a1, m.trail))
             return m.fail();
@@ -1017,7 +1017,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(brazil,3288):-[]
         if (!  ATOM_brazil .unify(a1, m.trail))
             return m.fail();
@@ -1032,7 +1032,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(bangladesh,55):-[]
         if (!  ATOM_bangladesh .unify(a1, m.trail))
             return m.fail();
@@ -1047,7 +1047,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(pakistan,311):-[]
         if (!  ATOM_pakistan .unify(a1, m.trail))
             return m.fail();
@@ -1062,7 +1062,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(w_germany,96):-[]
         if (!  ATOM_w_germany .unify(a1, m.trail))
             return m.fail();
@@ -1077,7 +1077,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(nigeria,373):-[]
         if (!  ATOM_nigeria .unify(a1, m.trail))
             return m.fail();
@@ -1092,7 +1092,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(mexico,764):-[]
         if (!  ATOM_mexico .unify(a1, m.trail))
             return m.fail();
@@ -1107,7 +1107,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(uk,86):-[]
         if (!  ATOM_uk .unify(a1, m.trail))
             return m.fail();
@@ -1122,7 +1122,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(italy,116):-[]
         if (!  ATOM_italy .unify(a1, m.trail))
             return m.fail();
@@ -1137,7 +1137,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(france,213):-[]
         if (!  ATOM_france .unify(a1, m.trail))
             return m.fail();
@@ -1152,7 +1152,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(philippines,90):-[]
         if (!  ATOM_philippines .unify(a1, m.trail))
             return m.fail();
@@ -1167,7 +1167,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(thailand,200):-[]
         if (!  ATOM_thailand .unify(a1, m.trail))
             return m.fail();
@@ -1182,7 +1182,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(turkey,296):-[]
         if (!  ATOM_turkey .unify(a1, m.trail))
             return m.fail();
@@ -1197,7 +1197,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(egypt,386):-[]
         if (!  ATOM_egypt .unify(a1, m.trail))
             return m.fail();
@@ -1212,7 +1212,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(spain,190):-[]
         if (!  ATOM_spain .unify(a1, m.trail))
             return m.fail();
@@ -1227,7 +1227,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(poland,121):-[]
         if (!  ATOM_poland .unify(a1, m.trail))
             return m.fail();
@@ -1242,7 +1242,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(s_korea,37):-[]
         if (!  ATOM_s_korea .unify(a1, m.trail))
             return m.fail();
@@ -1257,7 +1257,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(iran,628):-[]
         if (!  ATOM_iran .unify(a1, m.trail))
             return m.fail();
@@ -1272,7 +1272,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(ethiopia,350):-[]
         if (!  ATOM_ethiopia .unify(a1, m.trail))
             return m.fail();
@@ -1287,7 +1287,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // area(argentina,1080):-[]
         if (!  ATOM_argentina .unify(a1, m.trail))
             return m.fail();

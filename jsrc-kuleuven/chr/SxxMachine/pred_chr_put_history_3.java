@@ -23,10 +23,10 @@ public class pred_chr_put_history_3 extends Code {
     public Code exec(PrologMachine mach) {
         // TODO: proper implementation
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
-        local_aregs[0] = local_aregs[2];
-        local_aregs[2] = continuation;
-        local_aregs[3] = null;
+        final Term continuation = mach.getCont(local_aregs, 3);
+        mach.setARegXFR(local_aregs, 0, 2);
+        mach.setCont(local_aregs, 2, continuation);
+        mach.setARegENull(local_aregs, 3);
         return unify;
     }
 

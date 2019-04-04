@@ -154,7 +154,7 @@ class pred_maketerm_3_1 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -171,9 +171,9 @@ class pred_maketerm_3_1 extends pred_maketerm_3 {
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var4.dref();
-        local_aregs[2] = S(string0, new HeapChoice(mach.getCUTB()), continuation);
+        mach.setCont(local_aregs, 2, S(string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
-        local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 3);
         return unify3cont;
     }
 }
@@ -183,7 +183,7 @@ class pred_maketerm_3_2 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -197,10 +197,10 @@ class pred_maketerm_3_2 extends pred_maketerm_3 {
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 0, S(string19, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 2);
+        return mach.getCall1();
     }
 }
 
@@ -209,7 +209,7 @@ class pred_maketerm_3_3b extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl4);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -223,10 +223,10 @@ class pred_maketerm_3_3b extends pred_maketerm_3 {
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 0, S(string19, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 2);
+        return mach.getCall1();
     }
 }
 
@@ -235,7 +235,7 @@ class pred_maketerm_3_3 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3b);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -249,10 +249,10 @@ class pred_maketerm_3_3 extends pred_maketerm_3 {
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = S(string19, var1.dref(), var2.dref(), continuation);
+        mach.setCont(local_aregs, 0, S(string19, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 2);
+        return mach.getCall1();
     }
 }
 
@@ -261,7 +261,7 @@ class pred_maketerm_3_4 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl5);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -281,10 +281,10 @@ class pred_maketerm_3_4 extends pred_maketerm_3 {
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var5;
-        local_aregs[2] = S(string20, var3.dref(), var1.dref(), var5
-                .dref(), S(string0, new HeapChoice(mach.getCUTB()), continuation));
+        mach.setCont(local_aregs, 2, S(string20, var3.dref(), var1.dref(), var5
+                .dref(), S(string0, new HeapChoice(mach.getCUTB()), continuation)));
         mach.updateCUTB();
-        local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 3);
         return getargs3cont;
     }
 }
@@ -294,7 +294,7 @@ class pred_maketerm_3_5 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl6);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -336,7 +336,7 @@ class pred_maketerm_3_6 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl7);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -357,10 +357,10 @@ class pred_maketerm_3_6 extends pred_maketerm_3 {
         local_aregs[0] = var5;
         local_aregs[1] = var6;
         local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string18, var5.dref(), var4
+        mach.setCont(local_aregs, 3, S(string18, var5.dref(), var4
                 .dref(), S(string16, var6.dref(), var5.dref(), var7, S(string15, var2.dref(), var8, var7
                         .dref(), S(string20, var3.dref(), var1.dref(), S(string4, var8
-                                .dref(), CONST(string6)), S(string0, new HeapChoice(mach.getCUTB()), continuation)))));
+                                .dref(), CONST(string6)), S(string0, new HeapChoice(mach.getCUTB()), continuation))))));
         mach.updateCUTB();
         return prefix4cont;
     }
@@ -371,7 +371,7 @@ class pred_maketerm_3_7 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl8);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -392,9 +392,9 @@ class pred_maketerm_3_7 extends pred_maketerm_3 {
         if (!endsWith(var1, "]"))
             return mach.Fail0;
         local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string15, var5.dref(), var2
+        mach.setCont(local_aregs, 3, S(string15, var5.dref(), var2
                 .dref(), posint900, S(string15, S(string4, S(string10, CONST(string5)), var6.dref()), var3
-                        .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation)));
+                        .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation))));
         mach.updateCUTB();
         return ap4cont;
     }
@@ -405,7 +405,7 @@ class pred_maketerm_3_8 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl9);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -425,9 +425,9 @@ class pred_maketerm_3_8 extends pred_maketerm_3 {
         local_aregs[0] = var5;
         local_aregs[1] = S(string4, S(string10, CONST(string22)), var6);
         local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string8, var7, S(string4, S(string10, CONST(string7)), CONST(string6)), var6
+        mach.setCont(local_aregs, 3, S(string8, var7, S(string4, S(string10, CONST(string7)), CONST(string6)), var6
                 .dref(), S(string15, var5.dref(), var2.dref(), posint900, S(string15, var7.dref(), var3
-                        .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation))));
+                        .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation)))));
         mach.updateCUTB();
         return ap4cont;
     }
@@ -438,7 +438,7 @@ class pred_maketerm_3_9 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl10);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -455,8 +455,8 @@ class pred_maketerm_3_9 extends pred_maketerm_3 {
         local_aregs[0] = var4;
         local_aregs[1] = S(string4, S(string10, CONST(string2)), CONST(string6));
         local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string0, new HeapChoice(
-                mach.getCUTB()), S(string15, var4.dref(), var2.dref(), continuation));
+        mach.setCont(local_aregs, 3, S(string0, new HeapChoice(
+                mach.getCUTB()), S(string15, var4.dref(), var2.dref(), continuation)));
         mach.updateCUTB();
         return ap4cont;
     }
@@ -467,7 +467,7 @@ class pred_maketerm_3_10 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl11);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -484,8 +484,8 @@ class pred_maketerm_3_10 extends pred_maketerm_3 {
         local_aregs[0] = var4;
         local_aregs[1] = S(string4, S(string10, CONST(string7)), CONST(string6));
         local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string15, var4.dref(), var2
-                .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation));
+        mach.setCont(local_aregs, 3, S(string15, var4.dref(), var2
+                .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation)));
         mach.updateCUTB();
         return ap4cont;
     }
@@ -496,7 +496,7 @@ class pred_maketerm_3_11 extends pred_maketerm_3 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -508,9 +508,9 @@ class pred_maketerm_3_11 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }

@@ -40,7 +40,7 @@ class pred_length_n_2_1 extends pred_length_n_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
@@ -51,7 +51,7 @@ class pred_length_n_2_1 extends pred_length_n_2 {
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var1.dref();
-        local_aregs[2] = continuation;
+        mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return length_n2_disj_23cont;
     }

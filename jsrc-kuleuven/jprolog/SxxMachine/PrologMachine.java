@@ -67,7 +67,7 @@ public class PrologMachine extends RunningPrologMachine {
     //public boolean doTrace = false;
 
     private synchronized ErrorStatus doSolveGoalOnce(Term goal) throws JPrologScriptException {
-        Code code = Call2;
+        Code code = getCall2();
         final MiniJProlog runStack = getCurrentStackItem();
         runStack.setExceptionState(ErrorStatus.NONE);
         //final StatCreator st = new StatCreator();
@@ -104,10 +104,10 @@ public class PrologMachine extends RunningPrologMachine {
                     }
                     final Term continuation = S(("code_call"), new CodeObject(code), S("arguments", arguments));
                     log.debug("*** continuation: " + continuation);
-                    areg[0] = S(("call_list"), getPendinggoals(), continuation);
+                    setCont(areg, 0, S(("call_list"), getPendinggoals(), continuation));
                     setExceptionState(ErrorStatus.NONE);
                     setPendinggoals(Prolog.Nil);
-                    code = Call1;
+                    code = getCall1();
                 }
             }
 
@@ -130,12 +130,12 @@ public class PrologMachine extends RunningPrologMachine {
     }
 
     private synchronized Term doSolveGoal(Term Goal) throws JPrologScriptException {
-        Code code = Call1;
         final Term AnswerList = Jv(this);
         setExceptionState(ErrorStatus.NONE);
 
-        getAreg()[0] = S(("findall"), Goal, Goal, AnswerList, S(("halt"), Integer(0)));
+        setCont(getAreg(), 0, S(("findall"), Goal, Goal, AnswerList, S(("halt"), Integer(0))));
 
+        Code code = getCall1();
         while (getExceptionState().continueRunning()) {
             log.debug(code);
             code = run(code);
@@ -163,8 +163,8 @@ public class PrologMachine extends RunningPrologMachine {
     public void initAlways() {
         log.info("Start initialization");
         for (final Term iter : initializers) {
-            getAreg()[0] = iter;
-            Code code = Call1;
+            setCont(getAreg(), 0, iter);
+            Code code = getCall1();
             while (getExceptionState().continueRunning() && code != null) {
                 code = code.exec(this);
             }
@@ -202,4 +202,49 @@ public class PrologMachine extends RunningPrologMachine {
         return getCurrentStackItem().getModuleInfo(module.getClassToRegister());
     }
 
+    /**
+     * @param areg
+     * @param arity
+     * @param cont
+     */
+    public void setCont(Term[] areg, int arity, Term cont) {
+        getCurrentStackItem().setCont(areg, arity, cont);
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     */
+    public void setARegENull(Term[] local_aregs, int arity) {
+        getCurrentStackItem().setARegENull(local_aregs, arity);
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     */
+    public void setARegENull(Term[] local_aregs, int high, int low) {
+        getCurrentStackItem().setARegENull(local_aregs, high, low);
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     */
+    public void setARegXFR(Term[] local_aregs, int low, int high) {
+        getCurrentStackItem().setARegXFR(local_aregs, low, high);
+
+    }
+
+    /**
+     * @param local_aregs
+     * @param i
+     * @return
+     */
+    public Term getCont(Term[] local_aregs, int arity) {
+        return getCurrentStackItem().getCont(local_aregs, arity);
+
+    }
 }

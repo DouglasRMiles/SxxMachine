@@ -7,13 +7,13 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
     private final Term exceptionAction;
     private final Term continuation;
 
-    public CatchExceptionHandler(Term exception, Term exceptionAction, Term cont) {
+    public CatchExceptionHandler(Term exception, Term exceptionAction, Term cnt) {
         super();
-        if (exception == null || exceptionAction == null || cont == null)
+        if (exception == null || exceptionAction == null || cnt == null)
             throw new NullPointerException();
         this.exception = exception;
         this.exceptionAction = exceptionAction;
-        continuation = cont;
+        continuation = cnt;
     }
 
     @Override
@@ -23,8 +23,8 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
             return super.handlePrologException(exception, mach);
         final Term[] args = mach.getAreg();
         args[0] = exceptionAction;
-        args[1] = continuation;
-        return mach.getMachine().Call2;
+        mach.setCont(args, 1, continuation);
+        return mach.getMachine().getCall2();
     }
 
 }

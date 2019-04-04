@@ -21,7 +21,7 @@ public class pred_concat_atom_2 extends Code {
             throw new JPrologInternalException("Not a list: " + list, this);
         final StringBuilder builder = new StringBuilder();
         while (!list.isNil()) {
-            if (!(list .isCompound()))
+            if (!(list.isCompound()))
                 throw new JPrologInternalException("Not a valid list: " + list, this);
             final StructureTerm l = (StructureTerm) list;
             final Term o = l.getPlainArg(0);
@@ -34,7 +34,7 @@ public class pred_concat_atom_2 extends Code {
         }
         if (dest.unifyJP(CONST(builder.toString()))) {
             args[0] = args[2];
-            return mach.Call1;
+            return mach.getCall1();
         }
         return mach.Fail0;
     }

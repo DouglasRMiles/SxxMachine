@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-ops8,log10,divide10
         m.setB0();
         Operation p1, p2;
@@ -68,7 +68,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
 
 
     public static Operation PRED_ops8_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // ops8:-d((x+1)*((x^2+2)*(x^3+3)),x,A)
         m.setB0();
     // ops8:-[d((x+1)*((x^2+2)*(x^3+3)),x,A)]
@@ -95,7 +95,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
 
 
     public static Operation PRED_log10_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // log10:-d(log(log(log(log(log(log(log(log(log(log(x)))))))))),x,A)
         m.setB0();
     // log10:-[d(log(log(log(log(log(log(log(log(log(log(x)))))))))),x,A)]
@@ -121,7 +121,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
 
 
     public static Operation PRED_divide10_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // divide10:-d(x/x/x/x/x/x/x/x/x/x,x,A)
         m.setB0();
     // divide10:-[d(x/x/x/x/x/x/x/x/x/x,x,A)]
@@ -140,8 +140,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
 
 
     public static Operation PRED_d_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return d_3_top(m);
     }
 
@@ -218,7 +218,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A+B,C,D+E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -240,7 +240,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-        m.cont = p1;
+        m.setCont(p1);
         return d_3_top(m);
     }
 
@@ -252,7 +252,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A-B,C,D-E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -274,7 +274,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-        m.cont = p1;
+        m.setCont(p1);
         return d_3_top(m);
     }
 
@@ -286,7 +286,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A*B,C,D*B+A*E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -318,7 +318,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
-        m.cont = p1;
+        m.setCont(p1);
         return d_3_top(m);
     }
 
@@ -330,7 +330,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A/B,C,(D*B-A*E)/B^2):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -372,7 +372,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;
-        m.cont = p1;
+        m.setCont(p1);
         return d_3_top(m);
     }
 
@@ -383,7 +383,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A^B,C,D*B*A^E):-['$neck_cut',integer(B),E is B-1,d(A,C,D)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -427,7 +427,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
-m.cont = cont;
+m.setCont(cont);
         return d_3_top(m);
     }
 
@@ -438,7 +438,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(-A,B,-C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -456,7 +456,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a5;
-m.cont = cont;
+m.setCont(cont);
         return d_3_top(m);
     }
 
@@ -467,7 +467,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(exp(A),B,exp(A)*C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -490,7 +490,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-m.cont = cont;
+m.setCont(cont);
         return d_3_top(m);
     }
 
@@ -501,7 +501,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(log(A),B,C/A):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -519,7 +519,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a5;
-m.cont = cont;
+m.setCont(cont);
         return d_3_top(m);
     }
 
@@ -530,7 +530,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A,A,1):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -549,7 +549,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // d(A,B,0):-[]
         if (!  int_0 .unify(a3, m.trail))
             return m.fail();

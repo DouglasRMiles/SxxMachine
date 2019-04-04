@@ -19,8 +19,8 @@ public class pred_name_2 extends Code {
         final Term local_aregs[] = mach.getAreg();
         final Term atom = local_aregs[0].dref();
         final Term list = local_aregs[1].dref();
-        final Term continuation = local_aregs[2];
-        local_aregs[0] = local_aregs[1] = local_aregs[2] = null;
+        final Term continuation = mach.getCont(local_aregs, 2);
+        mach.setARegENull(local_aregs, 0, 2);
         if (atom.isVariable()) {
             if (!(list.isCons() || list.isNil()))
                 return mach.Fail0;
@@ -37,8 +37,8 @@ public class pred_name_2 extends Code {
             if (!list.unifyJP(l))
                 return mach.Fail0;
         }
-        local_aregs[0] = continuation;
-        return mach.Call1;
+        mach.setCont(local_aregs, 0, continuation);
+        return mach.getCall1();
     }
 
     private Term buildList(String st) {
@@ -51,7 +51,7 @@ public class pred_name_2 extends Code {
         final StringBuilder b = new StringBuilder();
         list = list.dref();
         while (!list.isNil()) {
-            if (list .isCompound()) {
+            if (list.isCompound()) {
                 final AFunct f = (AFunct) list;
                 final Term ch = f.getPlainArg(0).dref();
                 if (!(ch instanceof NumberTerm))

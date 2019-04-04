@@ -50,7 +50,7 @@ public class pred_comp_1 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
@@ -58,7 +58,7 @@ public class pred_comp_1 extends Code {
         local_aregs[0] = var1.dref();
 
         local_aregs[1] = CONST(pred_comp_1_consts.string2);
-        local_aregs[2] = continuation;
+        mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().comp3cont;
 

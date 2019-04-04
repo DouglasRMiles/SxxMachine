@@ -61,11 +61,11 @@ class pred_notmore_0_1 extends pred_notmore_0 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[0];
+        final Term continuation = mach.getCont(local_aregs, 0);
         final Term var1 = Jv(mach);
         local_aregs[0] = var1;
-        local_aregs[1] = S(string5, var1.dref(), posint10, S(string0, new HeapChoice(
-                mach.getCUTB()), S(string7, var1.dref(), S(string3, continuation))));
+        mach.setCont(local_aregs, 1, S(string5, var1.dref(), posint10, S(string0, new HeapChoice(
+                mach.getCUTB()), S(string7, var1.dref(), S(string3, continuation)))));
         mach.updateCUTB();
         return get02cont;
     }
@@ -76,9 +76,9 @@ class pred_notmore_0_2 extends pred_notmore_0 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[0];
-        local_aregs[0] = continuation;
+        final Term continuation = mach.getCont(local_aregs, 0);
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }

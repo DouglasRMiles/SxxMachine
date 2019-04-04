@@ -64,7 +64,7 @@ public abstract class Predicate extends TermData implements Operation {
         // int arity = predArity();
         // System.arraycopy(LARG, 0, engine.AREGS, 0, arity);
         engine.AREGS = this.ThizLARGs;
-        engine.cont = this.cont;
+        engine.setCont(this.cont);
     }
 
     /**
@@ -217,7 +217,7 @@ public abstract class Predicate extends TermData implements Operation {
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
     }
 
@@ -239,7 +239,7 @@ public abstract class Predicate extends TermData implements Operation {
         @Override
         public void push_to_engine(Prolog engine) {
             engine.AREGS[0] = this.ThizLARGs[0];
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
     }
 
@@ -272,7 +272,7 @@ public abstract class Predicate extends TermData implements Operation {
             engine.setB0();
             engine.AREGS[0] = this.ThizLARGs[0];
             engine.AREGS[1] = this.ThizLARGs[1];
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
     }
 
@@ -300,7 +300,7 @@ public abstract class Predicate extends TermData implements Operation {
             engine.AREGS[0] = this.ThizLARGs[0];
             engine.AREGS[1] = this.ThizLARGs[1];
             engine.AREGS[2] = this.ThizLARGs[2];
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
 
     }
@@ -317,7 +317,7 @@ public abstract class Predicate extends TermData implements Operation {
             if (predArity > 4) {
                 throw new RuntimeException("Missing Method Error: Push to engine");
             }
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
 
     }
@@ -335,7 +335,7 @@ public abstract class Predicate extends TermData implements Operation {
             if (predArity > 5) {
                 throw new RuntimeException("Missing Method Error: Push to engine");
             }
-            engine.cont = this.cont;
+            engine.setCont(this.cont);
         }
 
         @Override

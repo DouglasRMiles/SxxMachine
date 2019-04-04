@@ -46,7 +46,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-theorem([m,u,i,i,u])
         m.setB0();
     // top:-[theorem([m,u,i,i,u])]
@@ -65,7 +65,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_theorem_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // theorem(A):-length(A,B),C is B-1,derive([m,i],A,1,C,D,0)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -94,8 +94,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_derive_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return derive_6_top(m);
     }
 
@@ -120,7 +120,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // derive(A,B,C,D,E,F):-[derive2(A,B,C,D,1,E,F)]
         return //
  Op("derive2", FILE_fast_mu::PRED_derive2_7_static_exec, VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
@@ -136,7 +136,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // derive(A,B,C,D,E,F):-[G is F+1,derive(A,B,C,D,E,G)]
         a7 = m.mkvar1();
     // put_str_args([a(6),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(8))
@@ -153,7 +153,7 @@ m.cont = cont;
         m.AREGS[3] = a4;
         m.AREGS[4] = a5;
         m.AREGS[5] = a7;
-m.cont = cont;
+m.setCont(cont);
         return derive_6_top(m);
     }
 /** PREDICATE: derive2/7
@@ -168,8 +168,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_derive2_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry7(null, FILE_fast_mu::derive2_7_sub_1);
         return derive2_7_1(m);
@@ -191,7 +191,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // derive2(A,A,B,B,C,[],D):-[]
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -214,7 +214,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // derive2(A,B,C,D,E,[rule(F,G)|H],I):-[lower_bound(C,D,J),'$greater_or_equal'(I,J),K is I-1,rule(A,G,C,L,E,M,F),derive2(G,B,L,D,M,H,K)]
         a6 = a6.dref();
         if (a6 .isCons()){
@@ -258,7 +258,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_rule_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // rule([m|A],[m|B],C,D,E,F,G):-rule(A,B,C,D,E,F,1,i,G,H,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -310,8 +310,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_rule_11_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return rule_11_top(m);
     }
 
@@ -380,7 +380,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // rule([i],[i,u],A,B,C,D,E,F,1,G,H):-['$greater_or_equal'(E,C),D is E-2,B is A+1]
         if (! L_rule_11_s3.unify(a1, m.trail))
             return m.fail();
@@ -427,7 +427,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // rule([],A,B,C,D,1,E,F,2,A,[]):-[C is B+B]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -465,7 +465,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // rule([i,i,i|A],[u|A],B,C,D,E,F,G,3,H,I):-['$greater_or_equal'(F,D),E is F-1,C is B-2]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -552,7 +552,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // rule([u,u|A],A,B,C,D,E,F,i,4,G,H):-['$greater_or_equal'(F,D),E is F-2,C is B-2]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -621,7 +621,7 @@ m.cont = cont;
         a9 = m.AREGS[8];
         a10 = m.AREGS[9];
         a11 = m.AREGS[10];
-        cont = m.cont;
+        cont = m.getCont();
     // rule([A|B],[A|C],D,E,F,G,H,I,J,K,[A|L]):-[M is H+1,rule(B,C,D,E,F,G,M,A,J,K,L)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -676,7 +676,7 @@ m.cont = cont;
         m.AREGS[8] = a9;
         m.AREGS[9] = a10;
         m.AREGS[10] = a15;
-m.cont = cont;
+m.setCont(cont);
         return rule_11_top(m);
     }
 /** PREDICATE: lower_bound/3
@@ -689,8 +689,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_lower_bound_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_fast_mu::lower_bound_3_sub_1);
         return lower_bound_3_1(m);
@@ -713,7 +713,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // lower_bound(A,B,1):-['$less_than'(A,B)]
         if (!  int_1 .unify(a3, m.trail))
             return m.fail();
@@ -732,7 +732,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // lower_bound(A,A,2):-[]
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -748,7 +748,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // lower_bound(A,B,C):-['$greater_than'(A,B),D is A-B,E is D/\1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(C,D,E)]
         //START inline expansion of $greater_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) <= 0) {
@@ -786,8 +786,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_fast_mu::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_1(m);
@@ -805,7 +805,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(A,B,C):-['$get_level'(D),E is 0,'$arith_equal'(C,E),'$cut'(D),A is B>>1]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -846,7 +846,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(A,B,C):-[A is (B+1)>>1+1]
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002B_2 , a2,  int_1 );

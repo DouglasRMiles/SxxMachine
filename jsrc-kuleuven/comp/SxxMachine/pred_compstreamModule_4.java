@@ -57,7 +57,7 @@ public class pred_compstreamModule_4 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -79,12 +79,12 @@ public class pred_compstreamModule_4 extends Code {
         local_aregs[0] = CONST(pred_compstreamModule_4_consts.string3);
         local_aregs[1] = var3.dref();
 
-        local_aregs[2] = S(pred_compstreamModule_4_consts.string2, CONST(pred_compstreamModule_4_consts.string4), var4
+        mach.setCont(local_aregs, 2, S(pred_compstreamModule_4_consts.string2, CONST(pred_compstreamModule_4_consts.string4), var4
                 .dref(), S(pred_compstreamModule_4_consts.string5, CONST(pred_compstreamModule_4_consts.string6), var1
                         .dref(), S(pred_compstreamModule_4_consts.string7, var2
-                                .dref(), var5, S(pred_compstreamModule_4_consts.string8, var5.dref(), continuation))));
+                                .dref(), var5, S(pred_compstreamModule_4_consts.string8, var5.dref(), continuation)))));
         mach.updateCUTB();
-        local_aregs[4] = local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 4, 3);
         return getConsts().b_setval3cont;
 
     }

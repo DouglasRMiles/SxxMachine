@@ -91,7 +91,7 @@ class pred_intof_2_1 extends pred_intof_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -104,7 +104,7 @@ class pred_intof_2_1 extends pred_intof_2 {
             return mach.Fail0;
         local_aregs[0] = var1.dref();
         local_aregs[1] = var3.dref();
-        local_aregs[2] = continuation;
+        mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().ints3cont;
     }
@@ -134,7 +134,7 @@ class pred_intof_2_2 extends pred_intof_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -147,7 +147,7 @@ class pred_intof_2_2 extends pred_intof_2 {
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var3.dref();
-        local_aregs[2] = continuation;
+        mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().entry_code;
     }

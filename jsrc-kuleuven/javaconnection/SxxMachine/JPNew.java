@@ -39,12 +39,12 @@ public class JPNew extends Code {
                 return mach.Fail0;
         }
         args[1] = args[2] = args[3] = args[4] = null;
-        args[0] = cont;
-        return mach.Call1;
+        mach.setCont(args, 0, cont);
+        return mach.getCall1();
     }
 
     private Class<?> getTargetClass(PrologMachine mach, Term classType) {
-        if (!(classType .isAtomOrObject()) || !(((Const) classType).getValue() instanceof Class)) {
+        if (!(classType.isAtomOrObject()) || !(((Const) classType).getValue() instanceof Class)) {
             final JpVar v = Jv(mach);
             if (!ClassPred.find(v, classType))
                 return null;

@@ -254,8 +254,8 @@ public class VariableTerm extends AVar implements Undoable, Var {
                 // freeze(X,integer(X)),X=1.
                 e2.resultReady = false;
                 Term[] savedA1 = m.AREGS;
-                Operation savedA2 = m.cont;
-                m.cont = null;
+                Operation savedA2 = m.getCont();
+                m.setCont(null);
                 int savedA3 = m.B0;
                 e2.setPredicate(g);
                 e2.executePredicate(false);
@@ -272,7 +272,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
                     e2.resultReady = false;
                     e2.code = saved;
                     m.AREGS = savedA1;
-                    m.cont = savedA2;
+                    m.setCont(savedA2);
                     m.B0 = savedA3;
                 }
             }

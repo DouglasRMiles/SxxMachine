@@ -103,7 +103,7 @@ class pred_nullify_2_1 extends pred_nullify_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
@@ -114,10 +114,10 @@ class pred_nullify_2_1 extends pred_nullify_2 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_nullify_2_consts.string10, CONST(pred_nullify_2_consts.string11), S(pred_nullify_2_consts.string12, S(pred_nullify_2_consts.string13, continuation)));
+        mach.setCont(local_aregs, 0, S(pred_nullify_2_consts.string10, CONST(pred_nullify_2_consts.string11), S(pred_nullify_2_consts.string12, S(pred_nullify_2_consts.string13, continuation))));
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -142,7 +142,7 @@ class pred_nullify_2_2 extends pred_nullify_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -157,10 +157,10 @@ class pred_nullify_2_2 extends pred_nullify_2 {
 
         local_aregs[1] = S(pred_nullify_2_consts.string3, var2.dref(), pred_nullify_2_consts.posint1);
 
-        local_aregs[2] = S(pred_nullify_2_consts.string4, S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string6), S(pred_nullify_2_consts.string5, var3
+        mach.setCont(local_aregs, 2, S(pred_nullify_2_consts.string4, S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string6), S(pred_nullify_2_consts.string5, var3
                 .dref(), S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string7), CONST(pred_nullify_2_consts.string8)))), S(pred_nullify_2_consts.string2, var4, S(pred_nullify_2_consts.string3, var1
                         .dref(), pred_nullify_2_consts.posint1), S(pred_nullify_2_consts.string1, var4
-                                .dref(), var3.dref(), continuation)));
+                                .dref(), var3.dref(), continuation))));
         mach.updateCUTB();
         return getConsts().is3cont;
     }

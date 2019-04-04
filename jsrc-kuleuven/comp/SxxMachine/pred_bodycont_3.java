@@ -116,7 +116,7 @@ class pred_bodycont_3_1 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -135,8 +135,8 @@ class pred_bodycont_3_1 extends pred_bodycont_3 {
         local_aregs[1] = var3.dref();
         local_aregs[2] = var4.dref();
 
-        local_aregs[3] = S(pred_bodycont_3_consts.string0, new HeapChoice(mach
-                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string9), CONS(CONST(pred_bodycont_3_consts.string14), CONST(pred_bodycont_3_consts.string5))), continuation));
+        mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
+                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string9), CONS(CONST(pred_bodycont_3_consts.string14), CONST(pred_bodycont_3_consts.string5))), continuation)));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -169,7 +169,7 @@ class pred_bodycont_3_2 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -190,8 +190,8 @@ class pred_bodycont_3_2 extends pred_bodycont_3 {
 
         local_aregs[2] = pred_bodycont_3_consts.posint1;
 
-        local_aregs[3] = S(pred_bodycont_3_consts.string0, new HeapChoice(mach
-                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation));
+        mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
+                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation)));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -224,7 +224,7 @@ class pred_bodycont_3_3 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -245,8 +245,8 @@ class pred_bodycont_3_3 extends pred_bodycont_3 {
 
         local_aregs[2] = pred_bodycont_3_consts.posint2;
 
-        local_aregs[3] = S(pred_bodycont_3_consts.string0, new HeapChoice(mach
-                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string13), CONST(pred_bodycont_3_consts.string5)), continuation));
+        mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
+                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string13), CONST(pred_bodycont_3_consts.string5)), continuation)));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -279,7 +279,7 @@ class pred_bodycont_3_4 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -300,8 +300,8 @@ class pred_bodycont_3_4 extends pred_bodycont_3 {
 
         local_aregs[2] = pred_bodycont_3_consts.posint2;
 
-        local_aregs[3] = S(pred_bodycont_3_consts.string0, new HeapChoice(mach
-                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation));
+        mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
+                .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation)));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -334,7 +334,7 @@ class pred_bodycont_3_5 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -355,10 +355,10 @@ class pred_bodycont_3_5 extends pred_bodycont_3 {
         local_aregs[1] = var5;
         local_aregs[2] = var6;
 
-        local_aregs[3] = S(pred_bodycont_3_consts.string0, new HeapChoice(
+        mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string9), CONS(var5
                         .dref(), CONS(var6
-                                .dref(), CONS(CONST(pred_bodycont_3_consts.string10), CONST(pred_bodycont_3_consts.string5))))), continuation));
+                                .dref(), CONS(CONST(pred_bodycont_3_consts.string10), CONST(pred_bodycont_3_consts.string5))))), continuation)));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }
@@ -388,7 +388,7 @@ class pred_bodycont_3_6 extends pred_bodycont_3 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -403,9 +403,9 @@ class pred_bodycont_3_6 extends pred_bodycont_3 {
             return mach.Fail0;
 
         local_aregs[0] = CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 3, 2);
         return getConsts().writel2cont;
     }
 }

@@ -56,7 +56,7 @@ class pred_assumeduring_2_1 extends pred_assumeduring_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -67,9 +67,9 @@ class pred_assumeduring_2_1 extends pred_assumeduring_2 {
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
         local_aregs[0] = S(string1, var2.dref(), var3);
-        local_aregs[1] = S(string4, var1.dref(), S(string5, posint1, var3.dref(), continuation));
+        mach.setCont(local_aregs, 1, S(string4, var1.dref(), S(string5, posint1, var3.dref(), continuation)));
         mach.updateCUTB();
-        local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 2);
         return assume2cont;
     }
 }

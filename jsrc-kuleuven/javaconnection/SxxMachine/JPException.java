@@ -40,7 +40,7 @@ class JPException4 extends Code {
         final Term exceptionMsg = args[2].dref();
         final Term exceptionCause = args[3].dref();
         if (!exception.isVariable()) {
-            if (!(exception .isAtomOrObject()))
+            if (!(exception.isAtomOrObject()))
                 return mach.Fail0;
             final Const c = (Const) exception;
             if (!(c.getValue() instanceof Throwable))
@@ -58,7 +58,7 @@ class JPException4 extends Code {
             Throwable cause;
             try {
                 throwableClass = (Class<Throwable>) ((Const) exceptionClass).getValue();
-                if (exceptionMsg .isCompound()) {
+                if (exceptionMsg.isCompound()) {
                     final AFunct f = (AFunct) exceptionMsg;
                     if (f.arity() == 0)
                         errMsg = f.fname();
@@ -86,7 +86,7 @@ class JPException4 extends Code {
         }
         args[0] = args[4];
         args[1] = args[2] = args[3] = args[4] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })

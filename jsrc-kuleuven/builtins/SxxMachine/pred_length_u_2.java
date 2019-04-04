@@ -46,17 +46,17 @@ class pred_length_u_2_1 extends pred_length_u_2 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unifyJP(CONST(string2))))
             return mach.Fail0;
         if (!((areg1).unifyJP(posint0)))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2, 1);
+        return mach.getCall1();
     }
 }
 
@@ -65,7 +65,7 @@ class pred_length_u_2_2 extends pred_length_u_2 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -78,7 +78,7 @@ class pred_length_u_2_2 extends pred_length_u_2 {
             return mach.Fail0;
         local_aregs[0] = var2.dref();
         local_aregs[1] = var4;
-        local_aregs[2] = S(string4, var3.dref(), var4.dref(), continuation);
+        mach.setCont(local_aregs, 2, S(string4, var3.dref(), var4.dref(), continuation));
         mach.updateCUTB();
         return entry_code;
     }

@@ -17,7 +17,7 @@ public class pred_solveDefaultQuery_0 extends Code {
         final JpVar v = Jv(mach);
         args[0] = S("$$query", v, S("processGoal", v, args[1]));
         args[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -38,11 +38,11 @@ class pred_processGoal_1 extends Code {
         if (goal.unifyJP(S(",", part1, part2))) {
             args[0] = part1.dref();
             args[1] = S("processGoal", part2.dref(), args[1]);
-            return mach.Call2;
+            return mach.getCall2();
         }
         args[0] = goal.dref();
         args[1] = args[1].dref();
-        return mach.Call2;
+        return mach.getCall2();
     }
 
 }

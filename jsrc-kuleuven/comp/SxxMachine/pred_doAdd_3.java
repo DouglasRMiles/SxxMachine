@@ -46,7 +46,7 @@ public class pred_doAdd_3 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -66,9 +66,9 @@ public class pred_doAdd_3 extends Code {
         local_aregs[1] = var4;
         local_aregs[2] = var5;
 
-        local_aregs[3] = S(pred_doAdd_3_consts.string3, var5.dref(), S(pred_doAdd_3_consts.string4, var2
+        mach.setCont(local_aregs, 3, S(pred_doAdd_3_consts.string3, var5.dref(), S(pred_doAdd_3_consts.string4, var2
                 .dref(), CONST(pred_doAdd_3_consts.string5)), var6, S(pred_doAdd_3_consts.string2, var3
-                        .dref(), var4.dref(), var6.dref(), continuation));
+                        .dref(), var4.dref(), var6.dref(), continuation)));
         mach.updateCUTB();
         return consts.univ4cont;
 

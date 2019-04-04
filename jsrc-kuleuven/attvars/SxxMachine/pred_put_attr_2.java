@@ -26,8 +26,8 @@ public class pred_put_attr_2 extends Code {
         final Term variable = local_aregs[0].dref();
         final Term attribute = local_aregs[1].dref();
 
-        local_aregs[0] = local_aregs[2];
-        local_aregs[1] = local_aregs[2] = null;
+        mach.setARegXFR(local_aregs, 0, 2);
+        mach.setARegENull(local_aregs, 2, 1);
 
         if (variable instanceof AttributedVariable) {
             mach.trailEntry((AttributedVariable) variable);
@@ -35,13 +35,13 @@ public class pred_put_attr_2 extends Code {
             System.out.println("bind('" + variable + "','" + newVariable + "').");
             // TODO: keep chains short, value trail!
             ((AttributedVariable) variable).setRefers(newVariable);
-            return mach.Call1;
+            return mach.getCall1();
         } else if (variable instanceof JpVar) {
             mach.trailEntry((JpVar) variable);
             ((JpVar) variable).Refers = new AttributedVariable(mach, attribute);
-            return mach.Call1;
+            return mach.getCall1();
         } else {
-            local_aregs[0] = null;
+            mach.setARegENull(local_aregs, 0);
             return mach.Fail0;
         }
 

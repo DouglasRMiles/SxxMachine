@@ -10,8 +10,8 @@ public abstract class PredikatenPrologMachine {
 
     public final TrueProc True0;
     public final CutProc Cut2;
-    public final Call2Proc Call2;
-    public final Call1Proc Call1;
+    private final Call2Proc Call2;
+    private final Call1Proc Call1;
     public final FailProc Fail0;
 
     private final PredikaatLoader loader;
@@ -104,4 +104,21 @@ public abstract class PredikatenPrologMachine {
 
     protected abstract void setExceptionState(ErrorStatus status);
 
+    abstract public void checkCont(int i);
+
+    /**
+     * @return the call1
+     */
+    public Call1Proc getCall1() {
+        checkCont(0);
+        return Call1;
+    }
+
+    /**
+     * @return the call2
+     */
+    public Call2Proc getCall2() {
+        checkCont(1);
+        return Call2;
+    }
 }

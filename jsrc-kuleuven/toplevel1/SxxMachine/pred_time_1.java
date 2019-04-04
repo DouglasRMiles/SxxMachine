@@ -55,7 +55,7 @@ class pred_time_1_1 extends pred_time_1 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
@@ -64,8 +64,8 @@ class pred_time_1_1 extends pred_time_1 {
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = S(string3, var1.dref(), S(string2, var3, S(string4, var4, S(string1, var3.dref(), var2
-                .dref()), S(string7, var4.dref(), S(string5, continuation)))));
+        mach.setCont(local_aregs, 1, S(string3, var1.dref(), S(string2, var3, S(string4, var4, S(string1, var3
+                .dref(), var2.dref()), S(string7, var4.dref(), S(string5, continuation))))));
         mach.updateCUTB();
         return cputime2cont;
     }

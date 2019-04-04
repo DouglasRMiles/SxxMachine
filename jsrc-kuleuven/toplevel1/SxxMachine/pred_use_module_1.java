@@ -55,13 +55,13 @@ public class pred_use_module_1 extends Code {
     }
 
     private boolean load(Term param, PrologMachine mach) {
-        if (param .isCompound()) {
+        if (param.isCompound()) {
             final AFunct f = (AFunct) param;
             if (f.arity() == 0) {
                 param = CONST(f.fname());
             }
         }
-        if (param .isAtomOrObject()) {
+        if (param.isAtomOrObject()) {
             final Object o = ((Const) param).getValue();
             if (o instanceof String) {
                 //Naam vd te laden module
@@ -98,9 +98,9 @@ public class pred_use_module_1 extends Code {
             if (!load(param, mach))
                 return mach.Fail0;
         }
-        areg[0] = areg[1];
-        areg[1] = null;
-        return mach.Call1;
+        mach.setARegXFR(areg, 0, 1);
+        mach.setARegENull(areg, 1);
+        return mach.getCall1();
     }
 
 }

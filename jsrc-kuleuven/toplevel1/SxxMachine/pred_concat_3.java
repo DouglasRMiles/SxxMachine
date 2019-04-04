@@ -16,10 +16,10 @@ public class pred_concat_3 extends Code {
     }
 
     protected String getAsString(Term o) {
-        if (o .isAtomOrObject()) {
+        if (o.isAtomOrObject()) {
             return ((Const) o).portrayTerm();
         }
-        if (o .isCompound()) {
+        if (o.isCompound()) {
             final AFunct f = (AFunct) o;
             if (f.arity() == 0)
                 return f.fname();
@@ -68,7 +68,7 @@ public class pred_concat_3 extends Code {
         }
         areg[0] = areg[3];
         areg[3] = areg[2] = areg[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -88,7 +88,7 @@ class Concat1 extends pred_concat_3 {
             return mach.Fail0;
         areg[0] = areg[3];
         areg[3] = areg[2] = areg[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }
@@ -109,7 +109,7 @@ class Concat2 extends pred_concat_3 {
         areg[0] = S("concat", var, v2, CONST(v3Str
                 .substring(1)), S("concat", CONST(v3Str.substring(0, 1)), var, v1, areg[3]));
         areg[3] = areg[2] = areg[1] = null;
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }

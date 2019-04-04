@@ -19,16 +19,16 @@ public class pred_compound_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term term = local_aregs[0].dref();
 
-        local_aregs[1] = null;
+        mach.setARegENull(local_aregs, 1);
 
         if (term instanceof StructureTerm) {
-            local_aregs[0] = continuation;
-            return mach.Call1;
+            mach.setCont(local_aregs, 0, continuation);
+            return mach.getCall1();
         } else {
-            local_aregs[0] = null;
+            mach.setARegENull(local_aregs, 0);
             return mach.Fail0;
         }
     }

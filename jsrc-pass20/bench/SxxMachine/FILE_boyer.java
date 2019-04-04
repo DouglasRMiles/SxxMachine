@@ -39,7 +39,7 @@ public class FILE_boyer extends FILE_system {
     final static Functor ATOM_$0020milliseconds = SYM(" milliseconds");
 
     public static Operation PRED_go_0_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // go:-statistics(runtime,[A,B]),wff(C),rewrite(C,D),tautology(D,[],[]),statistics(runtime,[E,F]),write('execution time is '),write(F),write(' milliseconds')
@@ -71,7 +71,7 @@ public class FILE_boyer extends FILE_system {
     // main(top/0,public)
 
     public static Operation PRED_top_0_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // top:-wff(A),rewrite(A,B),tautology(B,[],[])
@@ -131,7 +131,7 @@ public class FILE_boyer extends FILE_system {
     private static final Compound L_wff_1_s54 = S(FUNCTOR_lessp_2, L_wff_1_s46, L_wff_1_s52);
 
     public static Operation PRED_wff_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // wff(implies(and(implies(A,B),and(implies(B,C),and(implies(C,D),implies(D,E)))),implies(A,E))):-A=f(myplus(myplus(a,b),myplus(c,zero))),B=f(times(times(a,b),myplus(c,d))),C=f(reverse(append(append(a,b),[]))),D=equal(myplus(a,b),boyer_difference(x,y)),E=lessp(remainder(a,b),boyer_member(a,length(b)))
@@ -222,7 +222,7 @@ public class FILE_boyer extends FILE_system {
     // main(tautology/1,public)
 
     public static Operation PRED_tautology_1_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // tautology(A):-rewrite(A,B),tautology(B,[],[])
@@ -246,10 +246,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_boyer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(m);
@@ -279,7 +279,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),truep(A,B),'$cut'(G)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -303,7 +303,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,C)]
         return //
         Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_static_exec, VA(a1, a3), cont);
@@ -320,7 +320,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F)]
         return //
         Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
@@ -333,10 +333,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_boyer::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_1(m);
@@ -356,7 +356,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-['$get_level'(C),falsep(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -376,7 +376,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -392,10 +392,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry5(null, FILE_boyer::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_sub_1);
         return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_1(m);
@@ -424,7 +424,7 @@ public class FILE_boyer extends FILE_system {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$get_level'(F),truep(C,A),'$cut'(F),tautology(D,A,B)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -448,7 +448,7 @@ public class FILE_boyer extends FILE_system {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E)]
         return //
         Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_static_exec, VA(a1, a2, a3, a5), cont);
@@ -465,7 +465,7 @@ public class FILE_boyer extends FILE_system {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-[tautology(D,[C|A],B),tautology(E,A,[C|B])]
         a6 = CONS(a3, a1);
         a7 = CONS(a3, a2);
@@ -481,10 +481,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry4(null, FILE_boyer::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_sub_1);
         return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_1(m);
@@ -506,7 +506,7 @@ public class FILE_boyer extends FILE_system {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-['$get_level'(E),falsep(C,B),'$cut'(E),tautology(D,A,B)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
@@ -529,7 +529,7 @@ public class FILE_boyer extends FILE_system {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -546,10 +546,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_boyer::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(m);
@@ -572,7 +572,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),'$unify'(A,if(D,E,F)),'$cut'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,C,D,E,F)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
@@ -607,7 +607,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
         return m.fail();
@@ -620,7 +620,7 @@ public class FILE_boyer extends FILE_system {
     // main(tautology/3,public)
 
     public static Operation PRED_tautology_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         // tautology(A,B,C):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F),!
@@ -649,10 +649,10 @@ public class FILE_boyer extends FILE_system {
     // main(rewrite/2,public)
 
     public static Operation PRED_rewrite_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry2(null, FILE_boyer::rewrite_2_sub_1);
         return rewrite_2_1(m);
@@ -669,7 +669,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // rewrite(A,A):-['$get_level'(B),atomic(A),'$cut'(B)]
         if (!a1.unify(a2, m.trail))
             return m.fail();
@@ -699,7 +699,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // rewrite(A,B):-['$get_level'(C),functor(A,D,E),functor(F,D,E),rewrite_args(E,A,F),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,F,G),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -726,10 +726,10 @@ public class FILE_boyer extends FILE_system {
 
     public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_static_exec(
             Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_boyer::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_sub_1);
         return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_1(m);
@@ -750,7 +750,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-[equal(B,C),rewrite(C,A)]
         return //
         Op("equal", FILE_boyer::PRED_equal_2_static_exec, VA(a2, a3), //
@@ -765,7 +765,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-['$unify'(A,B)]
         //START inline expansion of $unify(a(1),a(2))
         if (!a1.unify(a2, m.trail)) {
@@ -782,10 +782,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_$002D_2 = F("-", 2);
 
     public static Operation PRED_rewrite_args_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::rewrite_args_3_var, FILE_boyer::rewrite_args_3_var, FILE_boyer::rewrite_args_3_2, FILE_boyer::rewrite_args_3_2, FILE_boyer::rewrite_args_3_2, FILE_boyer::rewrite_args_3_2);
     }
@@ -807,7 +807,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // rewrite_args(0,A,B):-['$neck_cut']
         if (!int_0.unify(a1, m.trail))
             return m.fail();
@@ -825,7 +825,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // rewrite_args(A,B,C):-[arg(A,B,D),arg(A,C,E),rewrite(D,E),F is A-1,rewrite_args(F,B,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -848,10 +848,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor ATOM_t = SYM("t");
 
     public static Operation PRED_truep_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::truep_2_var, FILE_boyer::truep_2_2, FILE_boyer::truep_2_2, FILE_boyer::truep_2_var, FILE_boyer::truep_2_2, FILE_boyer::truep_2_2);
     }
@@ -872,7 +872,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // truep(t,A):-['$neck_cut']
         if (!ATOM_t.unify(a1, m.trail))
             return m.fail();
@@ -888,7 +888,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // truep(A,B):-[boyer_member(A,B)]
         return //
         Op("boyer_member", FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
@@ -901,10 +901,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor ATOM_f = SYM("f");
 
     public static Operation PRED_falsep_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::falsep_2_var, FILE_boyer::falsep_2_2, FILE_boyer::falsep_2_2, FILE_boyer::falsep_2_var, FILE_boyer::falsep_2_2, FILE_boyer::falsep_2_2);
     }
@@ -925,7 +925,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // falsep(f,A):-['$neck_cut']
         if (!ATOM_f.unify(a1, m.trail))
             return m.fail();
@@ -941,7 +941,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // falsep(A,B):-[boyer_member(A,B)]
         return //
         Op("boyer_member", FILE_boyer::PRED_boyer_member_2_static_exec, VA(a1, a2), cont);
@@ -953,10 +953,10 @@ public class FILE_boyer extends FILE_system {
     // main(boyer_member/2,public)
 
     public static Operation PRED_boyer_member_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         return boyer_member_2_top(m);
     }
 
@@ -977,7 +977,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_member(A,[A|B]):-['$neck_cut']
         a2 = a2.dref();
         if (a2.isCons()) {
@@ -1000,7 +1000,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_member(A,[B|C]):-[boyer_member(A,C)]
         a2 = a2.dref();
         if (a2.isCons()) {
@@ -1013,7 +1013,7 @@ public class FILE_boyer extends FILE_system {
         }
         m.AREGS[0] = a1;
         m.AREGS[1] = a3;
-        m.cont = cont;
+        m.setCont(cont);
         return boyer_member_2_top(m);
     }
 
@@ -1092,10 +1092,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_value_2 = F("value", 2);
 
     public static Operation PRED_equal_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::equal_2_var, fail_0, fail_0, fail_0, FILE_boyer::equal_2_var, fail_0);
     }
@@ -1401,7 +1401,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(and(A,B),if(A,if(B,t,f),f)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1427,7 +1427,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(append(append(A,B),C),append(A,append(B,C))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1459,7 +1459,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(assignment(A,append(B,C)),if(assignedp(A,B),assignment(A,B),assignment(A,C))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1501,7 +1501,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(assume_false(A,B),cons(cons(A,f),B)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1527,7 +1527,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(assume_true(A,B),cons(cons(A,t),B)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1553,7 +1553,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(boolean(A),or(equal(A,t),equal(A,f))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1583,7 +1583,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(car(gopher(A)),if(listp(A),car(flatten(A)),zero)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1623,7 +1623,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(compile(A),reverse(codegen(optimize(A),[]))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1653,7 +1653,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(count_list(A,sort_lp(B,C)),myplus(count_list(A,B),count_list(A,C))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1690,7 +1690,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(countps_(A,B),countps_loop(A,B,zero)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1711,7 +1711,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(boyer_difference(A,B),C):-[boyer_difference(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1729,7 +1729,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(divides(A,B),zerop(remainder(B,A))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1755,7 +1755,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(dsort(A),sort2(A)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1775,7 +1775,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(eqp(A,B),equal(fix(A),fix(B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1806,7 +1806,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(equal(A,B),C):-[eq(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1824,7 +1824,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(even1(A),if(zerop(A),t,odd(decr(A)))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1859,7 +1859,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(exec(append(A,B),C,D),exec(B,exec(A,C,D),D)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1892,7 +1892,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(exp(A,B),C):-[exp(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1910,7 +1910,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(fact_(A),fact_loop(A,1)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1930,7 +1930,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(falsify(A),falsify1(normalize(A),[])):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1955,7 +1955,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(fix(A),if(numberp(A),A,zero)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -1980,7 +1980,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(flatten(cdr(gopher(A))),if(listp(A),cdr(flatten(A)),cons(zero,[]))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2025,7 +2025,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(gcd(A,B),C):-[gcd(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2043,7 +2043,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(get(A,set(B,C,D)),if(eqp(A,B),C,get(A,D))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2081,7 +2081,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(greatereqp(A,B),not(lessp(A,B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2107,7 +2107,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(greatereqpr(A,B),not(lessp(A,B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2133,7 +2133,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(greaterp(A,B),lessp(B,A)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2154,7 +2154,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(if(if(A,B,C),D,E),if(A,if(B,D,E),if(C,D,E))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2193,7 +2193,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(iff(A,B),and(implies(A,B),implies(B,A))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2224,7 +2224,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(implies(A,B),if(A,if(B,t,f),t)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2250,7 +2250,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(last(append(A,B)),if(listp(B),last(B),if(listp(A),cons(car(last(A))),B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2311,7 +2311,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(length(A),B):-[mylength(A,B)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2328,7 +2328,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(lesseqp(A,B),not(lessp(B,A))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2354,7 +2354,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(lessp(A,B),C):-[lessp(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2372,7 +2372,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(listp(gopher(A)),listp(A)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2397,7 +2397,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(mc_flatten(A,B),append(flatten(A),B)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2423,7 +2423,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(meaning(A,B),C):-[meaning(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2441,7 +2441,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(boyer_member(A,B),C):-[myboyer_member(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2459,7 +2459,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(not(A),if(A,f,t)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2479,7 +2479,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(nth(A,B),C):-[nth(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2497,7 +2497,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(numberp(greatest_factor(A,B)),not(and(or(zerop(B),equal(B,1)),not(numberp(A))))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2553,7 +2553,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(or(A,B),if(A,t,if(B,t,f),f)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2579,7 +2579,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(myplus(A,B),C):-[myplus(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2597,7 +2597,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(power_eval(A,B),C):-[power_eval(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2615,7 +2615,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(prime(A),and(not(zerop(A)),and(not(equal(A,add1(zero))),prime1(A,decr(A))))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2670,7 +2670,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(prime_list(append(A,B)),and(prime_list(A),prime_list(B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2706,7 +2706,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(quotient(A,B),C):-[quotient(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2724,7 +2724,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(remainder(A,B),C):-[remainder(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2742,7 +2742,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(reverse_(A),reverse_loop(A,[])):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2762,7 +2762,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(reverse(append(A,B)),append(reverse(B),reverse(A))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2798,7 +2798,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(reverse_loop(A,B),C):-[reverse_loop(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2816,7 +2816,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(samefringe(A,B),equal(flatten(A),flatten(B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2847,7 +2847,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(sigma(zero,A),quotient(times(A,add1(A)),2)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2877,7 +2877,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(sort2(delete(A,B)),delete(A,sort2(B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2908,7 +2908,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(tautology_checker(A),tautologyp(normalize(A),[])):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2933,7 +2933,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(times(A,B),C):-[times(A,B,C)]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2951,7 +2951,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(times_list(append(A,B)),times(times_list(A),times_list(B))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -2987,7 +2987,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(value(normalize(A),B),value(A,B)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -3013,7 +3013,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // equal(zerop(A),or(equal(A,zero),not(numberp(A)))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -3048,10 +3048,10 @@ public class FILE_boyer extends FILE_system {
     // main(boyer_difference/3,public)
 
     public static Operation PRED_boyer_difference_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::boyer_difference_3_var, FILE_boyer::boyer_difference_3_1, FILE_boyer::boyer_difference_3_1, FILE_boyer::boyer_difference_3_1, FILE_boyer::boyer_difference_3_var, FILE_boyer::boyer_difference_3_1);
     }
@@ -3098,7 +3098,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(A,A,zero):-['$neck_cut']
         if (!a1.unify(a2, m.trail))
             return m.fail();
@@ -3117,7 +3117,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(myplus(A,B),A,fix(B)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3144,7 +3144,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(myplus(A,B),B,fix(A)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3171,7 +3171,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(myplus(A,B),myplus(A,C),boyer_difference(B,C)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3201,7 +3201,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(myplus(A,myplus(B,C)),B,myplus(A,C)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3234,7 +3234,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(add1(myplus(A,B)),B,add1(A)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3266,7 +3266,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // boyer_difference(add1(add1(A)),2,fix(A)):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3295,10 +3295,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_nlistp_1 = F("nlistp", 1);
 
     public static Operation PRED_eq_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::eq_3_var, FILE_boyer::eq_3_int, FILE_boyer::eq_3_int, FILE_boyer::eq_3_con, FILE_boyer::eq_3_str, FILE_boyer::eq_3_int);
     }
@@ -3480,7 +3480,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(myplus(A,B),zero,and(zerop(A),zerop(B))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3517,7 +3517,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(myplus(A,B),myplus(A,C),equal(fix(B),fix(C))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3557,7 +3557,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(zero,boyer_difference(A,B),not(lessp(B,A))):-['$neck_cut']
         if (!ATOM_zero.unify(a1, m.trail))
             return m.fail();
@@ -3589,7 +3589,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(A,boyer_difference(A,B),and(numberp(A),and(or(equal(A,zero),zerop(B))))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -3638,7 +3638,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(times(A,B),zero,or(zerop(A),zerop(B))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3675,7 +3675,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(append(A,B),append(A,C),equal(B,C)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3705,7 +3705,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(flatten(A),cons(B,[]),and(nlistp(A),equal(A,B))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3744,7 +3744,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(greatest_factor(A,B),zero,and(or(zerop(B),equal(B,1)),equal(A,zero))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3791,7 +3791,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(greatest_factor(A,B),1,equal(A,1)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -3817,7 +3817,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(A,times(B,A),and(numberp(A),or(equal(A,zero),equal(B,1)))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -3861,7 +3861,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(A,times(A,B),or(equal(A,zero),and(numberp(A),equal(B,1)))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -3905,7 +3905,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(times(A,B),1,and(not(equal(A,zero)),and(not(equal(B,zero)),and(numberp(A),and(numberp(B),and(equal(decr(A),zero),equal(decr(B),zero))))))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4002,7 +4002,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(boyer_difference(A,B),boyer_difference(C,B),if(lessp(A,B),not(lessp(B,C)),if(lessp(C,B),not(lessp(B,A)),equal(fix(A),fix(C))))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4082,7 +4082,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // eq(lessp(A,B),C,if(lessp(A,B),equal(t,C),equal(f,C))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4118,10 +4118,10 @@ public class FILE_boyer extends FILE_system {
     // main(exp/3,public)
 
     public static Operation PRED_exp_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_boyer::exp_3_sub_1);
         return exp_3_1(m);
@@ -4139,7 +4139,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // exp(A,myplus(B,C),times(exp(A,B),exp(A,C))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4174,7 +4174,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // exp(A,times(B,C),exp(exp(A,B),C)):-[]
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4200,10 +4200,10 @@ public class FILE_boyer extends FILE_system {
     // main(gcd/3,public)
 
     public static Operation PRED_gcd_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::gcd_3_var, FILE_boyer::gcd_3_1, FILE_boyer::gcd_3_1, FILE_boyer::gcd_3_1, FILE_boyer::gcd_3_var, FILE_boyer::gcd_3_1);
     }
@@ -4225,7 +4225,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // gcd(A,B,gcd(B,A)):-['$neck_cut']
         a3 = a3.dref();
         if (!a3.unifyS(FUNCTOR_gcd_2, m.trail, a2, a1)) {
@@ -4244,7 +4244,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // gcd(times(A,B),times(C,B),times(B,gcd(A,C))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4275,10 +4275,10 @@ public class FILE_boyer extends FILE_system {
     // main(mylength/2,public)
 
     public static Operation PRED_mylength_2_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::mylength_2_var, fail_0, fail_0, fail_0, FILE_boyer::mylength_2_var, fail_0);
     }
@@ -4299,7 +4299,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // mylength(reverse(A),length(A)):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -4319,7 +4319,7 @@ public class FILE_boyer extends FILE_system {
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
         // mylength(cons(A,cons(B,cons(C,cons(D,cons(E,cons(F,G)))))),myplus(6,length(G))):-[]
         a1 = a1.dref();
         a3 = m.mkvar2();
@@ -4369,10 +4369,10 @@ public class FILE_boyer extends FILE_system {
     // main(lessp/3,public)
 
     public static Operation PRED_lessp_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::lessp_3_var, FILE_boyer::lessp_3_6, FILE_boyer::lessp_3_6, FILE_boyer::lessp_3_6, FILE_boyer::lessp_3_var, FILE_boyer::lessp_3_6);
     }
@@ -4419,7 +4419,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(remainder(A,B),B,not(zerop(B))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4450,7 +4450,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(quotient(A,B),A,and(not(zerop(A)),or(zerop(B),not(equal(B,1))))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4507,7 +4507,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(remainder(A,B),A,and(not(zerop(B)),and(not(zerop(A)),not(lessp(A,B))))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4569,7 +4569,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(myplus(A,B),myplus(A,C),lessp(B,C)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4599,7 +4599,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(times(A,B),times(C,B),and(not(zerop(B)),lessp(A,C))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4644,7 +4644,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(A,myplus(B,A),not(zerop(B))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4673,7 +4673,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // lessp(length(delete(A,B)),length(B),boyer_member(A,B)):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4705,10 +4705,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_plus_fringe_1 = F("plus_fringe", 1);
 
     public static Operation PRED_meaning_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::meaning_3_var, fail_0, fail_0, fail_0, FILE_boyer::meaning_3_var, fail_0);
     }
@@ -4735,7 +4735,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // meaning(plus_tree(append(A,B)),C,myplus(meaning(plus_tree(A),C),meaning(plus_tree(B),C))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4785,7 +4785,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // meaning(plus_tree(plus_fringe(A)),B,fix(meaning(A,B))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4819,7 +4819,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // meaning(plus_tree(delete(A,B)),C,if(boyer_member(A,B),boyer_difference(meaning(plus_tree(B),C),meaning(A,C)),meaning(plus_tree(B),C))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -4881,10 +4881,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_intersect_2 = F("intersect", 2);
 
     public static Operation PRED_myboyer_member_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_boyer::myboyer_member_3_sub_1);
         return myboyer_member_3_1(m);
@@ -4907,7 +4907,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myboyer_member(A,append(B,C),or(boyer_member(A,B),boyer_member(A,C))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4942,7 +4942,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myboyer_member(A,reverse(B),boyer_member(A,B)):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4966,7 +4966,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myboyer_member(A,intersect(B,C),and(boyer_member(A,B),boyer_member(A,C))):-[]
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -4997,10 +4997,10 @@ public class FILE_boyer extends FILE_system {
     // main(nth/3,public)
 
     public static Operation PRED_nth_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::nth_3_var, fail_0, fail_0, FILE_boyer::nth_3_con, FILE_boyer::nth_3_3, fail_0);
     }
@@ -5037,7 +5037,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // nth(zero,A,zero):-[]
         if (!ATOM_zero.unify(a1, m.trail))
             return m.fail();
@@ -5053,7 +5053,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // nth([],A,if(zerop(A),[],zero)):-[]
         if (!Prolog.Nil.unify(a1, m.trail))
             return m.fail();
@@ -5076,7 +5076,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // nth(append(A,B),C,append(nth(A,C),nth(B,boyer_difference(C,length(A))))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5117,10 +5117,10 @@ public class FILE_boyer extends FILE_system {
     // main(myplus/3,public)
 
     public static Operation PRED_myplus_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::myplus_3_var, FILE_boyer::myplus_3_3, FILE_boyer::myplus_3_3, FILE_boyer::myplus_3_3, FILE_boyer::myplus_3_var, FILE_boyer::myplus_3_3);
     }
@@ -5147,7 +5147,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myplus(myplus(A,B),C,myplus(A,myplus(B,C))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5177,7 +5177,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myplus(remainder(A,B),times(B,quotient(A,B)),fix(A)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5211,7 +5211,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // myplus(A,add1(B),if(numberp(B),add1(myplus(A,B)),add1(A))):-[]
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -5254,10 +5254,10 @@ public class FILE_boyer extends FILE_system {
     final static Functor FUNCTOR_big_plus_4 = F("big_plus", 4);
 
     public static Operation PRED_power_eval_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::power_eval_3_var, fail_0, fail_0, fail_0, FILE_boyer::power_eval_3_var, fail_0);
     }
@@ -5289,7 +5289,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // power_eval(big_plus1(A,B,C),C,myplus(power_eval(A,C),B)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5322,7 +5322,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // power_eval(power_rep(A,B),B,fix(A)):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5349,7 +5349,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // power_eval(big_plus(A,B,C,D),D,myplus(C,myplus(power_eval(A,D),power_eval(B,D)))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5393,7 +5393,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // power_eval(big_plus(power_rep(A,B),power_rep(C,B),zero,B),B,myplus(A,C)):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5427,10 +5427,10 @@ public class FILE_boyer extends FILE_system {
     // main(quotient/3,public)
 
     public static Operation PRED_quotient_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::quotient_3_var, fail_0, fail_0, fail_0, FILE_boyer::quotient_3_var, fail_0);
     }
@@ -5452,7 +5452,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // quotient(myplus(A,myplus(A,B)),2,myplus(A,quotient(B,2))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5486,7 +5486,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // quotient(times(A,B),A,if(zerop(A),zero,fix(B))):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5519,10 +5519,10 @@ public class FILE_boyer extends FILE_system {
     // main(remainder/3,public)
 
     public static Operation PRED_remainder_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::remainder_3_var, FILE_boyer::remainder_3_int, FILE_boyer::remainder_3_int, FILE_boyer::remainder_3_int, FILE_boyer::remainder_3_var, FILE_boyer::remainder_3_int);
     }
@@ -5564,7 +5564,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // remainder(A,1,zero):-['$neck_cut']
         if (!int_1.unify(a2, m.trail))
             return m.fail();
@@ -5583,7 +5583,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // remainder(A,A,zero):-['$neck_cut']
         if (!a1.unify(a2, m.trail))
             return m.fail();
@@ -5602,7 +5602,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // remainder(times(A,B),B,zero):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5626,7 +5626,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // remainder(times(A,B),A,zero):-[]
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5646,10 +5646,10 @@ public class FILE_boyer extends FILE_system {
     // main(reverse_loop/3,public)
 
     public static Operation PRED_reverse_loop_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_boyer::reverse_loop_3_sub_1);
         return reverse_loop_3_1(m);
@@ -5667,7 +5667,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // reverse_loop(A,B,append(reverse(A),B)):-['$neck_cut']
         a3 = a3.dref();
         a4 = m.mkvar2();
@@ -5691,7 +5691,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // reverse_loop(A,[],reverse(A)):-[]
         if (!Prolog.Nil.unify(a2, m.trail))
             return m.fail();
@@ -5708,10 +5708,10 @@ public class FILE_boyer extends FILE_system {
     // main(times/3,public)
 
     public static Operation PRED_times_3_static_exec(Prolog m) {
-        Operation cont = m.cont;
+        Operation cont = m.getCont();
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        m.cont = cont;
+        m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_boyer::times_3_var, FILE_boyer::times_3_int, FILE_boyer::times_3_int, FILE_boyer::times_3_int, FILE_boyer::times_3_var, FILE_boyer::times_3_int);
     }
@@ -5758,7 +5758,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // times(A,myplus(B,C),myplus(times(A,B),times(A,C))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -5793,7 +5793,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // times(times(A,B),C,times(A,times(B,C))):-['$neck_cut']
         a1 = a1.dref();
         a4 = m.mkvar2();
@@ -5823,7 +5823,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // times(A,boyer_difference(B,C),boyer_difference(times(B,A),times(C,A))):-['$neck_cut']
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -5858,7 +5858,7 @@ public class FILE_boyer extends FILE_system {
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
         // times(A,add1(B),if(numberp(B),myplus(A,times(A,B)),fix(A))):-[]
         a2 = a2.dref();
         a4 = m.mkvar2();

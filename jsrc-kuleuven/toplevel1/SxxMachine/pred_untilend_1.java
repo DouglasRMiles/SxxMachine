@@ -55,14 +55,14 @@ class pred_untilend_1_1 extends pred_untilend_1 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         if (!((areg0).unifyJP(posint10)))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        return mach.Call1;
+        return mach.getCall1();
     }
 }
 
@@ -71,14 +71,14 @@ class pred_untilend_1_2 extends pred_untilend_1 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
         local_aregs[0] = var2;
-        local_aregs[1] = S(string3, var2.dref(), continuation);
+        mach.setCont(local_aregs, 1, S(string3, var2.dref(), continuation));
         mach.updateCUTB();
         return get02cont;
     }

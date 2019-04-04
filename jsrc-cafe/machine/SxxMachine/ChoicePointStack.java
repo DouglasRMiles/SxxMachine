@@ -58,7 +58,7 @@ public final class ChoicePointStack {
         this.top.tr = engine.trail.top();
         this.top.bp = next;
         this.top.timeStamp = this.trail.timeStamp;
-        this.top.cont = engine.cont;
+        this.top.cont = engine.getCont();
         this.top.restore = restore;
         return this.top;
     }
@@ -78,13 +78,13 @@ public final class ChoicePointStack {
     }
 
     private static void restoreN(ChoicePointFrame frame, Prolog engine) {
-        engine.cont = frame.cont;
+        engine.setCont(frame.cont);
         engine.AREGS = frame.AREGS;
         //System.arraycopy(frame.AREGS, 0, engine.AREGS, 0, frame.arity);
     }
 
     static void restore0(ChoicePointFrame frame, Prolog engine) {
-        engine.cont = frame.cont;
+        engine.setCont(frame.cont);
     }
 
     /** Discards all choice points after the value of <code>i</code>. */

@@ -16,7 +16,7 @@ public class TrueProc extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        return mach.Call1;
+        return mach.getCall1();
     }
 
 }

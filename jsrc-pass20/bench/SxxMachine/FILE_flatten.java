@@ -44,8 +44,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry0(null, FILE_flatten::top_0_sub_1);
         return top_0_1(m);
@@ -61,7 +61,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // top:-[eliminate_disjunctions([(a(A,B,C):-b(A);c(C))],D,E,[]),inst_vars((D,E))]
         a1 = m.mkvar1();
         a2 = m.mkvar1();
@@ -94,7 +94,7 @@ m.cont = cont;
     private final static Operation top_0_2(Prolog m) { 
     // top:-true
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // top:-[]
         return cont;
     }
@@ -107,7 +107,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_eliminate_disjunctions_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // eliminate_disjunctions(A,B,C,D):-gather_disj(A,B,E,[]),treat_disj(E,C,D)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -131,8 +131,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_gather_disj_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::gather_disj_4_var, fail_0, fail_0, FILE_flatten::gather_disj_4_1, fail_0, FILE_flatten::gather_disj_4_2); 
     }
@@ -155,7 +155,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // gather_disj([],[],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -175,7 +175,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // gather_disj([A|B],C,D,E):-[extract_disj(A,F,D,G),'$unify'(C,[F|H]),gather_disj(B,H,G,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -206,8 +206,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_extract_disj_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry4(null, FILE_flatten::extract_disj_4_sub_1);
         return extract_disj_4_1(m);
@@ -226,7 +226,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // extract_disj(A,(B:-C),D,E):-['$get_level'(F),'$unify'(A,(B:-G)),'$cut'(F),'$unify'(H,0),extract_disj(G,C,D,E,A,H,I)]
         a2 = a2.dref();
             a5 = m.mkvar2();
@@ -271,7 +271,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // extract_disj(A,A,B,B):-[]
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -292,8 +292,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_extract_disj_7_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return extract_disj_7_top(m);
     }
 
@@ -339,7 +339,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // extract_disj((A,B),(C,D),E,F,G,H,I):-[extract_disj(A,C,E,J,G,H,K),extract_disj(B,D,J,F,G,K,I)]
         a1 = a1.dref();
             a8 = m.mkvar2();
@@ -364,7 +364,7 @@ m.cont = cont;
         m.AREGS[4] = a5;
         m.AREGS[5] = a6;
         m.AREGS[6] = a13;
-        m.cont = p1;
+        m.setCont(p1);
         return extract_disj_7_top(m);
     }
 
@@ -380,7 +380,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // extract_disj(A,B,C,D,E,F,G):-['$get_level'(H),is_disj(A,I),'$cut'(H),'$unify'(C,[disj(I,F,B,E)|D]),G is F+1]
         a8 = m.mkvar1();
         //START inline expansion of $get_level(a(8))
@@ -414,7 +414,7 @@ m.cont = cont;
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         a7 = m.AREGS[6];
-        cont = m.cont;
+        cont = m.getCont();
     // extract_disj(A,A,B,B,C,D,D):-[]
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -441,8 +441,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_is_disj_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::is_disj_2_var, fail_0, fail_0, fail_0, FILE_flatten::is_disj_2_var, fail_0); 
     }
@@ -478,7 +478,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // is_disj((A->B;C),(A,!,B;C)):-['$neck_cut']
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -518,7 +518,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // is_disj((A;B),(A;B)):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -539,7 +539,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // is_disj(not(A),(A,!,fail;true)):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -564,7 +564,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // is_disj(\+A,(A,!,fail;true)):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -589,7 +589,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // is_disj(A\=B,(A=B,!,fail;true)):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -622,8 +622,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_treat_disj_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::treat_disj_3_var, fail_0, fail_0, FILE_flatten::treat_disj_3_1, fail_0, FILE_flatten::treat_disj_3_2); 
     }
@@ -645,7 +645,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // treat_disj([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -662,7 +662,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // treat_disj([disj((A;B),C,D,E)|F],G,H):-[find_vars((A;B),I),find_vars(E,J),intersect_vars(I,J,K),make_dummy_name(C,L),'$univ'(D,[L|K]),make_dummy_clauses((A;B),D,G,M),treat_disj(F,M,H)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -719,8 +719,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_make_dummy_clauses_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::make_dummy_clauses_4_var, FILE_flatten::make_dummy_clauses_4_2, FILE_flatten::make_dummy_clauses_4_2, FILE_flatten::make_dummy_clauses_4_2, FILE_flatten::make_dummy_clauses_4_var, FILE_flatten::make_dummy_clauses_4_2); 
     }
@@ -744,7 +744,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // make_dummy_clauses((A;B),C,[D|E],F):-['$neck_cut',copy((C:-A),D),make_dummy_clauses(B,C,E,F)]
         a1 = a1.dref();
             a5 = m.mkvar2();
@@ -782,7 +782,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // make_dummy_clauses(A,B,[C|D],D):-[copy((B:-A),C)]
         a3 = a3.dref();
         if (a3 .isCons()){
@@ -812,7 +812,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_find_vars_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // find_vars(A,B):-find_vars(A,B,C),C=[]
         m.setB0();
          Term a1, a2, a3;
@@ -834,8 +834,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_find_vars_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return find_vars_3_top(m);
     }
 
@@ -886,7 +886,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // find_vars(A,[A|B],B):-['$get_level'(C),var(A),'$cut'(C)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -927,7 +927,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // find_vars(A,B,B):-['$get_level'(C),atomic(A),'$cut'(C)]
         if (! a2.unify(a3, m.trail))
             return m.fail();
@@ -958,7 +958,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // find_vars([A|B],C,D):-['$neck_cut',find_vars(A,C,E),find_vars(B,E,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -980,7 +980,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-        m.cont = p1;
+        m.setCont(p1);
         return find_vars_3_top(m);
     }
 
@@ -992,7 +992,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // find_vars(A,B,C):-['$univ'(A,[D|E]),find_vars(E,B,C)]
         a4 = m.mkvar1();
         a5 = CONS(m.DONT_CARE1(), a4);
@@ -1009,7 +1009,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_intersect_vars_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // intersect_vars(A,B,C):-sort_vars(A,D),sort_vars(B,E),intersect_sorted_vars(D,E,C)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1035,7 +1035,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_make_dummy_name_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // make_dummy_name(A,B):-name('_dummy_',C),name(A,D),append(C,D,E),name(B,E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1061,8 +1061,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_append_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return append_3_top(m);
     }
 
@@ -1088,7 +1088,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // append([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1104,7 +1104,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // append([A|B],C,[A|D]):-[append(B,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1131,7 +1131,7 @@ m.cont = cont;
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-m.cont = cont;
+m.setCont(cont);
         return append_3_top(m);
     }
 /** PREDICATE: copy/2
@@ -1143,7 +1143,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_copy_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // copy(A,B):-varset(A,C),make_sym(C,D),copy2(A,B,D),!
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1174,8 +1174,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_copy2_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_flatten::copy2_3_sub_1);
         return copy2_3_1(m);
@@ -1193,7 +1193,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // copy2(A,B,C):-['$get_level'(D),var(A),'$cut'(D),retrieve_sym(A,C,B)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -1223,7 +1223,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // copy2(A,B,C):-['$get_level'(D),nonvar(A),'$cut'(D),functor(A,E,F),functor(B,E,F),copy2(A,B,C,1,F)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -1259,8 +1259,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_copy2_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry5(null, FILE_flatten::copy2_5_sub_1);
         return copy2_5_1(m);
@@ -1280,7 +1280,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // copy2(A,B,C,D,E):-['$get_level'(F),'$greater_than'(D,E),'$cut'(F)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -1310,7 +1310,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // copy2(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(D,E),'$cut'(F),arg(D,A,G),arg(D,B,H),copy2(G,H,C),I is D+1,copy2(A,B,C,I,E)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -1350,8 +1350,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_retrieve_sym_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return retrieve_sym_3_top(m);
     }
 
@@ -1373,7 +1373,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // retrieve_sym(A,[p(B,C)|D],C):-['$get_level'(E),'$equality_of_term'(A,B),'$cut'(E)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -1419,7 +1419,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // retrieve_sym(A,[B|C],D):-[retrieve_sym(A,C,D)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -1433,7 +1433,7 @@ m.cont = cont;
         m.AREGS[0] = a1;
         m.AREGS[1] = a4;
         m.AREGS[2] = a3;
-m.cont = cont;
+m.setCont(cont);
         return retrieve_sym_3_top(m);
     }
 /** PREDICATE: make_sym/2
@@ -1445,8 +1445,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_make_sym_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return make_sym_2_top(m);
     }
 
@@ -1471,7 +1471,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // make_sym([],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1486,7 +1486,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // make_sym([A|B],[p(A,C)|D]):-[make_sym(B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1516,7 +1516,7 @@ m.cont = cont;
             }
         m.AREGS[0] = a4;
         m.AREGS[1] = a6;
-m.cont = cont;
+m.setCont(cont);
         return make_sym_2_top(m);
     }
 /** PREDICATE: varset/2
@@ -1528,7 +1528,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_varset_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // varset(A,B):-varbag(A,C),sort(C,B)
         m.setB0();
          Term a1, a2, a3;
@@ -1550,7 +1550,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_varbag_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // varbag(A,B):-varbag(A,B,[])
         m.setB0();
          Term a1, a2;
@@ -1569,8 +1569,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_varbag_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry3(null, FILE_flatten::varbag_3_sub_1);
         return varbag_3_1(m);
@@ -1588,7 +1588,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // varbag(A,B,C):-['$get_level'(D),var(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),'$unify'(F,[A|C])]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -1635,7 +1635,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // varbag(A,B,C):-['$get_level'(D),nonvar(A),'$cut'(D),functor(A,E,F),'$unify'(G,B),varbag(A,1,F,G,C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -1671,8 +1671,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_varbag_5_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry5(null, FILE_flatten::varbag_5_sub_1);
         return varbag_5_1(m);
@@ -1692,7 +1692,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // varbag(A,B,C,D,E):-['$get_level'(F),'$greater_than'(B,C),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -1733,7 +1733,7 @@ m.cont = cont;
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
-        cont = m.cont;
+        cont = m.getCont();
     // varbag(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(B,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),arg(B,A,I),'$unify'(J,H),varbag(I,J,K),L is B+1,'$unify'(M,K),varbag(A,L,C,M,E)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -1789,7 +1789,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_inst_vars_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // inst_vars(A):-varset(A,B),[C]=[65],inst_vars_list(B,C)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -1813,8 +1813,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_inst_vars_list_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::inst_vars_list_2_var, fail_0, fail_0, FILE_flatten::inst_vars_list_2_1, fail_0, FILE_flatten::inst_vars_list_2_2); 
     }
@@ -1835,7 +1835,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // inst_vars_list([],A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1849,7 +1849,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // inst_vars_list([A|B],C):-[name(A,[C]),D is C+1,inst_vars_list(B,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1881,7 +1881,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_sort_vars_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // sort_vars(A,B):-sort_vars(A,B,[])
         m.setB0();
          Term a1, a2;
@@ -1900,8 +1900,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_sort_vars_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_flatten::sort_vars_3_var, fail_0, fail_0, FILE_flatten::sort_vars_3_1, fail_0, FILE_flatten::sort_vars_3_2); 
     }
@@ -1923,7 +1923,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // sort_vars([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1940,7 +1940,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // sort_vars([A|B],C,D):-[split_vars(B,A,E,F),sort_vars(E,C,[A|G]),sort_vars(F,G,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1971,8 +1971,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_intersect_sorted_vars_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return intersect_sorted_vars_3_top(m);
     }
 
@@ -2043,7 +2043,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // intersect_sorted_vars([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -2062,7 +2062,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // intersect_sorted_vars(A,[],[]):-[]
         if (!  Prolog.Nil .unify(a2, m.trail))
             return m.fail();
@@ -2078,7 +2078,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // intersect_sorted_vars([A|B],[C|D],[A|E]):-['$get_level'(F),'$equality_of_term'(A,C),'$cut'(F),intersect_sorted_vars(B,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2133,7 +2133,7 @@ m.cont = cont;
         m.AREGS[0] = a5;
         m.AREGS[1] = a7;
         m.AREGS[2] = a8;
-m.cont = cont;
+m.setCont(cont);
         return intersect_sorted_vars_3_top(m);
     }
 
@@ -2144,7 +2144,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // intersect_sorted_vars([A|B],[C|D],E):-['$get_level'(F),'$before'(A,C),'$cut'(F),intersect_sorted_vars(B,[C|D],E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2189,7 +2189,7 @@ m.cont = cont;
         m.AREGS[0] = a5;
         m.AREGS[1] = a9;
         m.AREGS[2] = a3;
-m.cont = cont;
+m.setCont(cont);
         return intersect_sorted_vars_3_top(m);
     }
 
@@ -2200,7 +2200,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // intersect_sorted_vars([A|B],[C|D],E):-['$get_level'(F),'$after'(A,C),'$cut'(F),intersect_sorted_vars([A|B],D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2245,7 +2245,7 @@ m.cont = cont;
         m.AREGS[0] = a9;
         m.AREGS[1] = a7;
         m.AREGS[2] = a3;
-m.cont = cont;
+m.setCont(cont);
         return intersect_sorted_vars_3_top(m);
     }
 /** PREDICATE: split_vars/4
@@ -2257,8 +2257,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 
 
     public static Operation PRED_split_vars_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return split_vars_4_top(m);
     }
 
@@ -2310,7 +2310,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // split_vars([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -2329,7 +2329,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // split_vars([A|B],C,[A|D],E):-['$get_level'(F),'$before'(A,C),'$cut'(F),split_vars(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2374,7 +2374,7 @@ m.cont = cont;
         m.AREGS[1] = a2;
         m.AREGS[2] = a7;
         m.AREGS[3] = a4;
-m.cont = cont;
+m.setCont(cont);
         return split_vars_4_top(m);
     }
 
@@ -2386,7 +2386,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // split_vars([A|B],C,D,E):-['$get_level'(F),'$equality_of_term'(A,C),'$cut'(F),split_vars(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2420,7 +2420,7 @@ m.cont = cont;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
         m.AREGS[3] = a4;
-m.cont = cont;
+m.setCont(cont);
         return split_vars_4_top(m);
     }
 
@@ -2432,7 +2432,7 @@ m.cont = cont;
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.cont;
+        cont = m.getCont();
     // split_vars([A|B],C,D,[A|E]):-['$get_level'(F),'$after'(A,C),'$cut'(F),split_vars(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -2477,7 +2477,7 @@ m.cont = cont;
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
         m.AREGS[3] = a7;
-m.cont = cont;
+m.setCont(cont);
         return split_vars_4_top(m);
     }
 static { loadPreds(); }

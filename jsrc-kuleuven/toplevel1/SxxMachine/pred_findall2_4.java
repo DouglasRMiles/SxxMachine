@@ -58,7 +58,7 @@ class pred_findall2_4_1 extends pred_findall2_4 {
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -76,9 +76,9 @@ class pred_findall2_4_1 extends pred_findall2_4 {
         if (!((areg3).unifyJP(var4)))
             return mach.Fail0;
         local_aregs[0] = var2.dref();
-        local_aregs[1] = S(string1, var1.dref(), var4.dref(), S(string3, continuation));
+        mach.setCont(local_aregs, 1, S(string1, var1.dref(), var4.dref(), S(string3, continuation)));
         mach.updateCUTB();
-        local_aregs[4] = local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 4, 2);
         return exec2cont;
     }
 }
@@ -88,7 +88,7 @@ class pred_findall2_4_2 extends pred_findall2_4 {
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[4];
+        final Term continuation = mach.getCont(local_aregs, 4);
         final Term areg3 = local_aregs[3].dref();
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
@@ -107,9 +107,9 @@ class pred_findall2_4_2 extends pred_findall2_4 {
             return mach.Fail0;
         local_aregs[0] = var3.dref();
         local_aregs[1] = var4.dref();
-        local_aregs[2] = continuation;
+        mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
-        local_aregs[4] = local_aregs[3] = null;
+        mach.setARegENull(local_aregs, 4, 3);
         return retrievefindall3cont;
     }
 }

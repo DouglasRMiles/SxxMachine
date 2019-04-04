@@ -58,7 +58,7 @@ public class pred_disableIndexing_1 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -69,9 +69,9 @@ public class pred_disableIndexing_1 extends Code {
                 .dref(), CONST(pred_disableIndexing_1_consts.string5)));
         local_aregs[1] = var2;
 
-        local_aregs[2] = S(pred_disableIndexing_1_consts.string6, var2
+        mach.setCont(local_aregs, 2, S(pred_disableIndexing_1_consts.string6, var2
                 .dref(), CONST(pred_disableIndexing_1_consts.string7), S(pred_disableIndexing_1_consts.string8, S(pred_disableIndexing_1_consts.string3, CONST(pred_disableIndexing_1_consts.string9), S(pred_disableIndexing_1_consts.string3, var1
-                        .dref(), CONST(pred_disableIndexing_1_consts.string5))), continuation));
+                        .dref(), CONST(pred_disableIndexing_1_consts.string5))), continuation)));
         mach.updateCUTB();
         return getConsts().concat_atom3cont;
 

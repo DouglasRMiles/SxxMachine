@@ -99,7 +99,7 @@ class pred_posneg_1_1 extends pred_posneg_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -109,10 +109,10 @@ class pred_posneg_1_1 extends pred_posneg_1 {
 
         local_aregs[1] = pred_posneg_1_consts.posint0;
 
-        local_aregs[2] = S(pred_posneg_1_consts.string0, new HeapChoice(mach
+        mach.setCont(local_aregs, 2, S(pred_posneg_1_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_posneg_1_consts.string8, var2, S(pred_posneg_1_consts.string9, pred_posneg_1_consts.posint0, var1
                         .dref()), S(pred_posneg_1_consts.string2, S(pred_posneg_1_consts.string3, CONST(pred_posneg_1_consts.string10), S(pred_posneg_1_consts.string3, var2
-                                .dref(), CONST(pred_posneg_1_consts.string5))), continuation)));
+                                .dref(), CONST(pred_posneg_1_consts.string5))), continuation))));
         mach.updateCUTB();
         return getConsts().smallerthan3cont;
     }
@@ -136,7 +136,7 @@ class pred_posneg_1_2 extends pred_posneg_1 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[1];
+        final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs[0].dref();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
@@ -144,7 +144,7 @@ class pred_posneg_1_2 extends pred_posneg_1 {
 
         local_aregs[0] = S(pred_posneg_1_consts.string3, CONST(pred_posneg_1_consts.string4), S(pred_posneg_1_consts.string3, var1
                 .dref(), CONST(pred_posneg_1_consts.string5)));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;
     }

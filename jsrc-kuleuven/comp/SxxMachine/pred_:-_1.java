@@ -34,7 +34,7 @@ private void initAlternatives() { }
   @SuppressWarnings("static-access")
   public Code exec(PrologMachine mach) {
     PrologObject local_aregs[] = mach.getAreg();
-    PrologObject continuation = local_aregs[1] ;
+    PrologObject continuation = mach.getCont(local_aregs, 1) ;
 PrologObject areg0 = local_aregs[0].dref() ;
     if (!(areg0.unify(new StructureTerm(getConsts().string1,new Const(getConsts().string2),new Const(getConsts().string3))))) return mach.Fail0 ;
 local_aregs[0] = continuation ;

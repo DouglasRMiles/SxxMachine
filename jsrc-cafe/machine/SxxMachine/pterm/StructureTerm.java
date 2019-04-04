@@ -111,7 +111,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public boolean isAtomOrObject() {
         // TODO Auto-generated method stub
-        oopsy("?isConst reason");
+        if (arityOrType() == 0)
+            return true;
+        //oopsy("?isConst reason");
         return isImmutable();
     }
 
@@ -303,23 +305,23 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         return arityOrType() == 2 && fname().equals(":-");
     }
 
-//    public static StructureTerm CONS(Term x0, Term x1) {
-//        return (StructureTerm) CONS(x0, x1).asStructureTerm();
-//    }
+    //    public static StructureTerm CONS(Term x0, Term x1) {
+    //        return (StructureTerm) CONS(x0, x1).asStructureTerm();
+    //    }
 
     public static Term createCons(String cons, Term x0, Term x1) {
         return new StructureTerm(cons, x0, x1);
     }
-//
-//    public static Term createStructureTerm(String cons, Term x0, Term[] x1) {
-//        return TermData.S(cons, x0, x1);
-//    }
+    //
+    //    public static Term createStructureTerm(String cons, Term x0, Term[] x1) {
+    //        return TermData.S(cons, x0, x1);
+    //    }
 
-//    public static StructureTerm S(String string, Term... x01) {
-//        // TODO Auto-generated method stub
-//        return new StructureTerm(string, x01);
-//    }
-//
+    //    public static StructureTerm S(String string, Term... x01) {
+    //        // TODO Auto-generated method stub
+    //        return new StructureTerm(string, x01);
+    //    }
+    //
     public static StructureTerm createStructureTerm(String getName, int arity) {
         // TODO Auto-generated method stub
         return new StructureTerm(getName, arity);
@@ -648,7 +650,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         if (!getClass().equals(that.getClass())) {
 
             //Kan nog gelijk zijn aan een constante zonder parameters
-            if (that .isAtomOrObject()) {
+            if (that.isAtomOrObject()) {
                 return arity() == 0;
             }
             return false;
@@ -678,7 +680,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             return false;
         if (!getClass().equals(that.getClass())) {
             //Kan nog gelijk zijn aan een constante zonder parameters
-            if (that .isAtomOrObject()) {
+            if (that.isAtomOrObject()) {
                 return arity() == 0;
             }
             return false;
@@ -764,7 +766,6 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             sb.append("@NULL@");
         }
     }
-
 
     public void toListStringImpl(int printingFlags, StringBuilder sb) {
         Term x = this;
@@ -1019,11 +1020,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean couldUnifyInverse(Term object) {
-        if (object .isAtomOrObject()) {
+        if (object.isAtomOrObject()) {
             //speciaal geval
-            final Const c = (Const) object;
-            return fname().equals(c.fname()) && arity() == 0;
-        } else if (object .isCompound()) {
+            final Term c = object;
+            return arity() == 0 && functor().couldUnifyInverse(c.functor());
+        } else if (object.isCompound()) {
             final AFunct f = (AFunct) object;
             if (!fname().equals(f.fname()))
                 return false;

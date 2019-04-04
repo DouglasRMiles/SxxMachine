@@ -105,7 +105,7 @@ class pred_puts_2_1 extends pred_puts_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var3 = Jv(mach);
@@ -118,11 +118,11 @@ class pred_puts_2_1 extends pred_puts_2 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_puts_2_consts.string5, S(pred_puts_2_consts.string6, CONST(pred_puts_2_consts.string7), S(pred_puts_2_consts.string6, S(pred_puts_2_consts.string8, CONST(pred_puts_2_consts.string9)), CONST(pred_puts_2_consts.string10))), S(pred_puts_2_consts.string11, var2
-                .dref(), pred_puts_2_consts.posint0, var3.dref(), continuation));
+        mach.setCont(local_aregs, 0, S(pred_puts_2_consts.string5, S(pred_puts_2_consts.string6, CONST(pred_puts_2_consts.string7), S(pred_puts_2_consts.string6, S(pred_puts_2_consts.string8, CONST(pred_puts_2_consts.string9)), CONST(pred_puts_2_consts.string10))), S(pred_puts_2_consts.string11, var2
+                .dref(), pred_puts_2_consts.posint0, var3.dref(), continuation)));
         mach.updateCUTB();
-        local_aregs[2] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 2);
+        return mach.getCall1();
     }
 }
 
@@ -147,7 +147,7 @@ class pred_puts_2_2 extends pred_puts_2 {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var4 = Jv(mach);
@@ -162,8 +162,8 @@ class pred_puts_2_2 extends pred_puts_2 {
         local_aregs[1] = var3;
         local_aregs[2] = var4;
 
-        local_aregs[3] = S(pred_puts_2_consts.string1, var4.dref(), pred_puts_2_consts.posint0, var2
-                .dref(), continuation);
+        mach.setCont(local_aregs, 3, S(pred_puts_2_consts.string1, var4.dref(), pred_puts_2_consts.posint0, var2
+                .dref(), continuation));
         mach.updateCUTB();
         return getConsts().univ4cont;
     }

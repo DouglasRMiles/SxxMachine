@@ -60,7 +60,7 @@ public class pred_printPredExec_7 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[7];
+        final Term continuation = mach.getCont(local_aregs, 7);
         final Term areg6 = local_aregs[6].dref();
         final Term areg5 = local_aregs[5].dref();
         final Term areg4 = local_aregs[4].dref();
@@ -93,9 +93,9 @@ public class pred_printPredExec_7 extends Code {
         local_aregs[0] = S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string4), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string7), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string8), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string9, var1
                 .dref(), var2.dref(), var3.dref(), var4.dref(), var5.dref(), var6.dref(), var7
                         .dref()), S(pred_printPredExec_7_consts.string3, CONST(pred_printPredExec_7_consts.string10), S(pred_printPredExec_7_consts.string3, S(pred_printPredExec_7_consts.string5, CONST(pred_printPredExec_7_consts.string6)), CONST(pred_printPredExec_7_consts.string11))))))))));
-        local_aregs[1] = continuation;
+        mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
-        local_aregs[7] = local_aregs[6] = local_aregs[5] = local_aregs[4] = local_aregs[3] = local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 7, 2);
         return getConsts().writel2cont;
 
     }

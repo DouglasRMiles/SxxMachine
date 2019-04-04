@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-prover
         m.setB0();
     // top:-[prover]
@@ -54,8 +54,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_prover_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry0(null, FILE_prover::prover_0_sub_1);
         return prover_0_1(m);
@@ -71,7 +71,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // prover:-[problem(A,B,C),implies(B,C),fail]
         a1 = m.mkvar1();
         a2 = m.mkvar1();
@@ -83,7 +83,7 @@ m.cont = cont;
     private final static Operation prover_0_2(Prolog m) { 
     // prover:-true
         Operation cont;
-        cont = m.cont;
+        cont = m.getCont();
     // prover:-[]
         return cont;
     }
@@ -128,8 +128,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_problem_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_prover::problem_3_var, FILE_prover::problem_3_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -191,7 +191,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(1,-a,+a):-[]
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
@@ -209,7 +209,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(2,+a,-a& -a):-[]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -227,7 +227,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(3,-a,+to_be# -to_be):-[]
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
@@ -245,7 +245,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(4,-a& -a,-a):-[]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -263,7 +263,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(5,-a,+b# -a):-[]
         if (!  int_5 .unify(a1, m.trail))
             return m.fail();
@@ -281,7 +281,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(6,-a& -b,-b& -a):-[]
         if (!  int_6 .unify(a1, m.trail))
             return m.fail();
@@ -299,7 +299,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(7,-a,-b# +b& -a):-[]
         if (!  int_7 .unify(a1, m.trail))
             return m.fail();
@@ -317,7 +317,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(8,-a# -b# +c,-b# -a# +c):-[]
         if (!  int_8 .unify(a1, m.trail))
             return m.fail();
@@ -335,7 +335,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(9,-a# +b,+b& -c# -a# +c):-[]
         if (!  int_9 .unify(a1, m.trail))
             return m.fail();
@@ -353,7 +353,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // problem(10,(-a# +c)&(-b# +c),-a& -b# +c):-[]
         if (!  int_10 .unify(a1, m.trail))
             return m.fail();
@@ -374,7 +374,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_implies_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // implies(A,B):-opposite(B,C),add_conjunction(A,C,fs([],[],[],[]))
         m.setB0();
          Term a1, a2, a3;
@@ -396,8 +396,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_opposite_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return opposite_2_top(m);
     }
 
@@ -433,7 +433,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // opposite(A&B,C#D):-['$neck_cut',opposite(A,C),opposite(B,D)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -454,7 +454,7 @@ m.cont = cont;
  Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
-        m.cont = p1;
+        m.setCont(p1);
         return opposite_2_top(m);
     }
 
@@ -465,7 +465,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // opposite(A#B,C&D):-['$neck_cut',opposite(A,C),opposite(B,D)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -486,7 +486,7 @@ m.cont = cont;
  Op("opposite", FILE_prover::PRED_opposite_2_static_exec, VA(a4, a6), cont);
         m.AREGS[0] = a3;
         m.AREGS[1] = a5;
-        m.cont = p1;
+        m.setCont(p1);
         return opposite_2_top(m);
     }
 
@@ -496,7 +496,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // opposite(+A,-A):-['$neck_cut']
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -519,7 +519,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // opposite(-A,+A):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -541,7 +541,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_add_conjunction_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // add_conjunction(A,B,C):-expand(A,C,D),expand(B,D,E),refute(E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -567,8 +567,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_expand_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return expand_3_top(m);
     }
 
@@ -619,7 +619,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(A,refuted,refuted):-['$neck_cut']
         if (!  ATOM_refuted .unify(a2, m.trail))
             return m.fail();
@@ -639,7 +639,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(A&B,fs(C,D,E,F),refuted):-['$get_level'(G),includes(C,A&B),'$cut'(G)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -676,7 +676,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(A&B,fs(C,D,E,F),fs(C,D,E,F)):-['$get_level'(G),includes(D,A&B),'$cut'(G)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -718,7 +718,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(A&B,fs(C,D,E,F),G):-['$neck_cut',expand(A,fs(C,[A&B|D],E,F),H),expand(B,H,G)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -750,7 +750,7 @@ m.cont = cont;
         m.AREGS[0] = a4;
         m.AREGS[1] = a12;
         m.AREGS[2] = a13;
-        m.cont = p1;
+        m.setCont(p1);
         return expand_3_top(m);
     }
 
@@ -762,7 +762,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(A#B,fs(C,D,E,F),G):-['$neck_cut',opposite(A#B,H),extend(H,C,D,I,fs(I,D,E,F),G)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -801,7 +801,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(+A,fs(B,C,D,E),F):-['$neck_cut',extend(A,D,E,G,fs(B,C,G,E),F)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -834,7 +834,7 @@ m.cont = cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.cont;
+        cont = m.getCont();
     // expand(-A,fs(B,C,D,E),F):-[extend(A,E,D,G,fs(B,C,D,G),F)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -865,8 +865,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_includes_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         return includes_2_top(m);
     }
 
@@ -891,7 +891,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // includes([A|B],A):-['$neck_cut']
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -916,7 +916,7 @@ m.cont = cont;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.cont;
+        cont = m.getCont();
     // includes([A|B],C):-[includes(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -929,7 +929,7 @@ m.cont = cont;
         }
         m.AREGS[0] = a3;
         m.AREGS[1] = a2;
-m.cont = cont;
+m.setCont(cont);
         return includes_2_top(m);
     }
 /** PREDICATE: extend/6
@@ -943,8 +943,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_extend_6_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         m.jtry6(null, FILE_prover::extend_6_sub_1);
         return extend_6_1(m);
@@ -971,7 +971,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // extend(A,B,C,D,E,refuted):-['$get_level'(F),includes(C,A),'$cut'(F)]
         if (!  ATOM_refuted .unify(a6, m.trail))
             return m.fail();
@@ -997,7 +997,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // extend(A,B,C,B,D,D):-['$get_level'(E),includes(B,A),'$cut'(E)]
         if (! a2.unify(a4, m.trail))
             return m.fail();
@@ -1024,7 +1024,7 @@ m.cont = cont;
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
-        cont = m.cont;
+        cont = m.getCont();
     // extend(A,B,C,[A|B],D,D):-[]
         a4 = a4.dref();
         if (a4 .isCons()){
@@ -1050,8 +1050,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
     public static Operation PRED_refute_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.cont = cont;
+        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.setCont(cont);
         m.setB0();
         return m.switch_on_term(FILE_prover::refute_1_var, fail_0, fail_0, FILE_prover::refute_1_1, FILE_prover::refute_1_2, fail_0); 
     }
@@ -1071,7 +1071,7 @@ m.cont = cont;
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // refute(refuted):-['$neck_cut']
         if (!  ATOM_refuted .unify(a1, m.trail))
             return m.fail();
@@ -1087,7 +1087,7 @@ m.cont = cont;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.cont;
+        cont = m.getCont();
     // refute(fs([A&B|C],D,E,F)):-[opposite(A,G),opposite(B,H),'$unify'(I,fs(C,D,E,F)),add_conjunction(G,B,I),add_conjunction(G,H,I),add_conjunction(A,H,I)]
         a1 = a1.dref();
             a2 = m.mkvar2();

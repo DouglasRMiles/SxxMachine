@@ -122,7 +122,7 @@ class pred_infix_3_1 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -132,10 +132,10 @@ class pred_infix_3_1 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string32))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -151,7 +151,7 @@ class pred_infix_3_2 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -161,10 +161,10 @@ class pred_infix_3_2 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string31))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -180,7 +180,7 @@ class pred_infix_3_3 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -190,10 +190,10 @@ class pred_infix_3_3 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string30))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -209,7 +209,7 @@ class pred_infix_3_4 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -219,10 +219,10 @@ class pred_infix_3_4 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string29))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -238,7 +238,7 @@ class pred_infix_3_5 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -248,10 +248,10 @@ class pred_infix_3_5 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string28))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -267,7 +267,7 @@ class pred_infix_3_6 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -277,10 +277,10 @@ class pred_infix_3_6 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string27))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -296,7 +296,7 @@ class pred_infix_3_7 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -306,10 +306,10 @@ class pred_infix_3_7 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string26))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -325,7 +325,7 @@ class pred_infix_3_8 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -335,10 +335,10 @@ class pred_infix_3_8 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string25))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -354,7 +354,7 @@ class pred_infix_3_8b extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -364,10 +364,10 @@ class pred_infix_3_8b extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string33))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -383,7 +383,7 @@ class pred_infix_3_9 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -393,10 +393,10 @@ class pred_infix_3_9 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string24))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -412,7 +412,7 @@ class pred_infix_3_10 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -422,10 +422,10 @@ class pred_infix_3_10 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string23))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -441,7 +441,7 @@ class pred_infix_3_11 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -451,10 +451,10 @@ class pred_infix_3_11 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string22))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -470,7 +470,7 @@ class pred_infix_3_12 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -480,10 +480,10 @@ class pred_infix_3_12 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string21))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -499,7 +499,7 @@ class pred_infix_3_13 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -509,10 +509,10 @@ class pred_infix_3_13 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string17))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -528,7 +528,7 @@ class pred_infix_3_14 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -538,10 +538,10 @@ class pred_infix_3_14 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string20))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -557,7 +557,7 @@ class pred_infix_3_15 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -567,10 +567,10 @@ class pred_infix_3_15 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string19))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -586,7 +586,7 @@ class pred_infix_3_16 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -596,10 +596,10 @@ class pred_infix_3_16 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string18))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -615,7 +615,7 @@ class pred_infix_3_17 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -625,10 +625,10 @@ class pred_infix_3_17 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string17))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -644,7 +644,7 @@ class pred_infix_3_18 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -654,10 +654,10 @@ class pred_infix_3_18 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string16))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -673,7 +673,7 @@ class pred_infix_3_19 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -683,10 +683,10 @@ class pred_infix_3_19 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string15))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -702,7 +702,7 @@ class pred_infix_3_20 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -712,10 +712,10 @@ class pred_infix_3_20 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string14))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -731,7 +731,7 @@ class pred_infix_3_21 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -741,10 +741,10 @@ class pred_infix_3_21 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string13))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -760,7 +760,7 @@ class pred_infix_3_22 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -770,10 +770,10 @@ class pred_infix_3_22 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string12))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -789,7 +789,7 @@ class pred_infix_3_23 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -799,10 +799,10 @@ class pred_infix_3_23 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string11))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -818,7 +818,7 @@ class pred_infix_3_24 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -828,10 +828,10 @@ class pred_infix_3_24 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string10))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -847,7 +847,7 @@ class pred_infix_3_25 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -857,10 +857,10 @@ class pred_infix_3_25 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string9))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -876,7 +876,7 @@ class pred_infix_3_26 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -886,10 +886,10 @@ class pred_infix_3_26 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string8))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -905,7 +905,7 @@ class pred_infix_3_27 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -915,10 +915,10 @@ class pred_infix_3_27 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string6))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }
 
@@ -934,7 +934,7 @@ class pred_infix_3_28 extends pred_infix_3 {
     @Override
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[3];
+        final Term continuation = mach.getCont(local_aregs, 3);
         final Term areg2 = local_aregs[2].dref();
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
@@ -944,9 +944,9 @@ class pred_infix_3_28 extends pred_infix_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(SYM(string3))))
             return mach.Fail0;
-        local_aregs[0] = continuation;
+        mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
-        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
-        return mach.Call1;
+        mach.setARegENull(local_aregs, 3, 1);
+        return mach.getCall1();
     }
 }

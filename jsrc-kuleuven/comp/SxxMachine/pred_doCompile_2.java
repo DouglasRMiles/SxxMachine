@@ -63,7 +63,7 @@ public class pred_doCompile_2 extends Code {
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
         final Term local_aregs[] = mach.getAreg();
-        final Term continuation = local_aregs[2];
+        final Term continuation = mach.getCont(local_aregs, 2);
         final Term areg1 = local_aregs[1].dref();
         final Term areg0 = local_aregs[0].dref();
         final Term var6 = Jv(mach);
@@ -79,14 +79,14 @@ public class pred_doCompile_2 extends Code {
 
         local_aregs[0] = CONST(pred_doCompile_2_consts.string3);
 
-        local_aregs[1] = S(pred_doCompile_2_consts.string2, CONST(pred_doCompile_2_consts.string4), S(pred_doCompile_2_consts.string5, CONST(pred_doCompile_2_consts.string6), var1
+        mach.setCont(local_aregs, 1, S(pred_doCompile_2_consts.string2, CONST(pred_doCompile_2_consts.string4), S(pred_doCompile_2_consts.string5, CONST(pred_doCompile_2_consts.string6), var1
                 .dref(), S(pred_doCompile_2_consts.string7, var3, S(pred_doCompile_2_consts.string8, S(pred_doCompile_2_consts.string9, var3
                         .dref(), var4, S(pred_doCompile_2_consts.string10, var3
                                 .dref(), var5, S(pred_doCompile_2_consts.string11, CONST(pred_doCompile_2_consts.string12), var6, S(pred_doCompile_2_consts.string13, var5
                                         .dref(), var6.dref(), var2.dref(), S(pred_doCompile_2_consts.string14, var2
-                                                .dref(), continuation)))))))));
+                                                .dref(), continuation))))))))));
         mach.updateCUTB();
-        local_aregs[2] = null;
+        mach.setARegENull(local_aregs, 2);
         return getConsts().use_module2cont;
 
     }
