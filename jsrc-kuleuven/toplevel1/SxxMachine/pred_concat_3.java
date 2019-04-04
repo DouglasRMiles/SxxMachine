@@ -29,10 +29,10 @@ public class pred_concat_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
-        final Term v1 = areg[0].dref();
-        final Term v2 = areg[1].dref();
-        final Term v3 = areg[2].dref();
+        final Term[] local_aregs = mach.getAreg();
+        final Term v1 = local_aregs[0].dref();
+        final Term v2 = local_aregs[1].dref();
+        final Term v3 = local_aregs[2].dref();
         String v1Str = getAsString(v1);
         String v2Str = getAsString(v2);
         String v3Str = getAsString(v3);
@@ -63,11 +63,11 @@ public class pred_concat_3 extends Code {
             if (v3Str == null)
                 return mach.Fail0;
             //Opsplitsing teken per teken teruggeven
-            mach.createChoicePoint(new Term[] { v1, v2, v3, areg[3] });
+            mach.createChoicePoint(new Term[] { v1, v2, v3, local_aregs[3] });
             return concat1.exec(mach);
         }
-        areg[0] = areg[3];
-        areg[3] = areg[2] = areg[1] = null;
+        mach.setCont(local_aregs[0] = local_aregs[3]);
+        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
         return mach.getCall1();
     }
 
@@ -78,16 +78,16 @@ class Concat1 extends pred_concat_3 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(concat2);
-        final Term[] areg = mach.getAreg();
-        final Term v1 = areg[0].dref();
-        final Term v2 = areg[1].dref();
-        final Term v3 = areg[2].dref();
+        final Term[] local_aregs = mach.getAreg();
+        final Term v1 = local_aregs[0].dref();
+        final Term v2 = local_aregs[1].dref();
+        final Term v3 = local_aregs[2].dref();
         if (!v1.unifyJP(CONST("")))
             return mach.Fail0;
         if (!v2.unifyJP(v3))
             return mach.Fail0;
-        areg[0] = areg[3];
-        areg[3] = areg[2] = areg[1] = null;
+        local_aregs[0] = local_aregs[3];
+        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
         return mach.getCall1();
     }
 
@@ -98,17 +98,17 @@ class Concat2 extends pred_concat_3 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term[] areg = mach.getAreg();
-        final Term v1 = areg[0].dref();
-        final Term v2 = areg[1].dref();
-        final Term v3 = areg[2].dref();
+        final Term[] local_aregs = mach.getAreg();
+        final Term v1 = local_aregs[0].dref();
+        final Term v2 = local_aregs[1].dref();
+        final Term v3 = local_aregs[2].dref();
         final String v3Str = getAsString(v3);
         if (v3Str == null)
             return mach.Fail0;
         final JpVar var = Jv(mach);
-        areg[0] = S("concat", var, v2, CONST(v3Str
-                .substring(1)), S("concat", CONST(v3Str.substring(0, 1)), var, v1, areg[3]));
-        areg[3] = areg[2] = areg[1] = null;
+        mach.setCont(local_aregs, 0, S("concat", var, v2, CONST(v3Str
+                .substring(1)), S("concat", CONST(v3Str.substring(0, 1)), var, v1, local_aregs[3])));
+        local_aregs[3] = local_aregs[2] = local_aregs[1] = null;
         return mach.getCall1();
     }
 

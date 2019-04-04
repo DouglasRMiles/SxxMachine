@@ -247,4 +247,12 @@ public class PrologMachine extends RunningPrologMachine {
         return getCurrentStackItem().getCont(local_aregs, arity);
 
     }
+
+    /**
+     * @param term
+     */
+    public void setCont(Term term) {
+       getCurrentStackItem().setCont(term);
+        
+    }
 }

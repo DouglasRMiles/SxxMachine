@@ -25,7 +25,7 @@ public class pred_catch_3 extends Code {
         //goal aanpassen voor continuation toe te voegen
         // in dit geval skippen exceptionhandler voor code die volgt
         mach.setPrologExceptionHandler(new CatchExceptionHandler(exception, exceptionCode, cont));
-        args[0] = addContinuation(mach, goal, S("endCatch", Integer(mach.getCurrentChoice()), cont));
+        mach.setCont(args,0,addContinuation(mach, goal, S("endCatch", Integer(mach.getCurrentChoice()), cont)));
         args[1] = args[2] = args[3] = null;
         return (Code) (Object) mach.getCall1();
     }
