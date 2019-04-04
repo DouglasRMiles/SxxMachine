@@ -254,8 +254,8 @@ class invoke_java3 extends FunBuiltin {
     public static int st_exec(Prog p, ISTerm thiz) {
         Object o = thiz.getDrefArg(0).javaInstance();
         try {
-            Method method = o.getClass().getMethod(thiz.getDrefArg(1).getJavaString(), null);
-            return thiz.unifyArg(2, ForeignObject.getRef(method.invoke(o, null)), p);
+            Method method = o.getClass().getMethod(thiz.getDrefArg(1).getJavaString());
+            return thiz.unifyArg(2, ForeignObject.getRef(method.invoke(o)), p);
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
@@ -756,7 +756,7 @@ final class new_fun extends FunBuiltin {
         if (i == 0) {
             T = Builtins.toConstBuiltin(SYM(s));
         } else {
-            Compound F = (Compound) S(s);
+            Compound F = (Compound) S(s,i);
             F.init(i);
             T = Builtins.toFunBuiltin(F);
         }

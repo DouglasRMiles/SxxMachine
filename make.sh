@@ -18,8 +18,8 @@ if [ $# -eq 0 ]
  find jsrc*/ -name "*.pl.am" -delete -print
     echo ""
 
-find ./jsrc-gen1 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
-find ./jsrc-gen2 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
+find ./jsrc-pass10 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-pass10 \;
+find ./jsrc-pass20 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-pass20 \;
 #find ./jsrc-gen1 -type f -name "*.pl" -path '*compiler*' -exec $0 $JSRCDIR "{}" jsrc-gen1 \;
 #find ./jsrc-gen2/tabling_dra -maxdepth 1 -type f -name "dra.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen2 \;
  #find ./prolog/compiler -type f -name "*.pl" ! -path '*-*' -exec $0 $JSRCDIR "{}" jsrc-gen1-minimal \;
@@ -33,7 +33,7 @@ find ./jsrc-gen2 -type f -name "*.pl" ! -path '*compiler*' -exec $0 $JSRCDIR "{}
  
   else
 
-    export BCMD="swipl -l ./jsrc-gen1/compiler/am2j.pl -- --plfile $2 --dir $1/$3"	  
+    export BCMD="swipl -l ./jsrc-pass10/compiler/am2j.pl -- --plfile $2 --dir $1/$3"	  
     echo "$BCMD"
     stty sane
     $BCMD

@@ -25,9 +25,9 @@ public abstract class FunctionObject extends KPNonvar {
         ForeignObject.objectRemove(fname());
     }
 
-    public final String fname() {
-        return qnamed.toString();
-    }
+//    public final String fname() {
+//        return qnamed.toString();
+//    }
 
     @Override
     public int arityOrType() {

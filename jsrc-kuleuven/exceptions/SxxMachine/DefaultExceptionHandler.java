@@ -16,7 +16,7 @@ public class DefaultExceptionHandler implements ExceptionHandlerIF {
     }
 
     @Override
-    public Code handlePrologException(JPrologInternalException exception, RunStackItem mach)
+    public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {
         mach.removeChoice();
         if (mach.getCurrentChoice() >= 0) {

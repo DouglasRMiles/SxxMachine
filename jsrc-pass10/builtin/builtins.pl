@@ -909,7 +909,7 @@ setof(Template, Goal, Instances) :-
 '$builtin_set_diff0'([X|Xs], [Y|Ys], [Y|L]) :-
 	'$builtin_set_diff0'([X|Xs], Ys, [Y|L]).
 
-:- ensure_loaded('./jsrc-gen1/repl/io.pl').
+:- ensure_loaded('./jsrc-pass10/repl/io.pl').
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Term input/output (read)
@@ -1739,11 +1739,12 @@ current_prolog_flag(Flag, Term) :-
 '$prolog_impl_flag'(max_integer, _, changeable(no)).
 '$prolog_impl_flag'(min_integer, _, changeable(no)).
 % '$prolog_impl_flag'(integer_rounding_function, [down,toward_zero], changeable(no)).
-% '$prolog_impl_flag'(char_conversion, [on,off], changeable(no)).
+'$prolog_impl_flag'(char_conversion, [on,off], changeable(no)).
 '$prolog_impl_flag'(debug, [on,off], changeable(yes)).
+'$prolog_impl_flag'(jdebug, [on,off], changeable(yes)).
 '$prolog_impl_flag'(max_arity, _, changeable(no)).
 '$prolog_impl_flag'(unknown, [error,fail,warning], changeable(yes)).
-'$prolog_impl_flag'(double_quotes, [chars,codes,atom], changeable(no)).
+'$prolog_impl_flag'(double_quotes, [chars,codes,atom], changeable(yes)).
 '$prolog_impl_flag'(print_stack_trace, [on,off], changeable(yes)).
 
 :- public halt/0.
@@ -2184,4 +2185,4 @@ synchronized(Object, Goal) :-
 	'$end_sync'(Ref).
 
 
-:- ensure_loaded('./jsrc-gen1/repl/cafeteria.pl').
+:- ensure_loaded('./jsrc-pass10/repl/cafeteria.pl').

@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class RunStackItem implements Comparator<Class<? extends JpModule>> {
+public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
 
-    private final static Logger log = Logger.getLogger(RunStackItem.class);
+    private final static Logger log = Logger.getLogger(MiniJProlog.class);
 
     private Term pendinggoals;
     private Term assumptions;
@@ -22,7 +22,7 @@ public class RunStackItem implements Comparator<Class<? extends JpModule>> {
     private final Map<Class<? extends JpModule>, ModuleRunStackInfo> moduleInfo;
     private final RunningPrologMachine mach;
 
-    RunStackItem(RunningPrologMachine machine) {
+    MiniJProlog(RunningPrologMachine machine) {
         if (machine == null)
             throw new NullPointerException();
         mach = machine;

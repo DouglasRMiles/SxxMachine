@@ -34,7 +34,7 @@ public interface Compound extends Nonvar {
     Compound addToCopy(Term term);
 
     @Override
-    Compound append(Term term);
+    Compound appendCons(Term term);
 
     @Override
     Term car();

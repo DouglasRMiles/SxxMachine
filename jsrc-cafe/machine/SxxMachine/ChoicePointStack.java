@@ -30,7 +30,7 @@ public final class ChoicePointStack {
      * <p>
      * This matches the length of the chain stored in {@link #top}.
      */
-    private int level;
+    int level;
     private ChoicePointFrame[] frames;
 
     ChoicePointStack(Trail trail) {

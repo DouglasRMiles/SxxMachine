@@ -44,6 +44,8 @@ public final class Prolog extends PrologFlags {
     //public Term[] aregs;
     public Term[] AREGS;
 
+    public int initTimes = 0;
+
     private static final Term[] NO_REGISTERS = {};
     /** Continuation goal register */
     public Operation cont;
@@ -159,7 +161,7 @@ public final class Prolog extends PrologFlags {
     public final static NameArity aFail = TermData.SYM("fail");//new fail_();
 
     /** A functor <code>'.' /2</code>. */
-    public static final Functor FUNCTOR_DOT_2 = TermData.F(".", 2);
+    public static final Functor FUNCTOR_LIST_2 = TermData.F(".", 2);
     public static final Functor FUNCTOR_CONJ_2 = TermData.F(",", 2);
     public static final Functor FUNCTOR_NECK_2 = TermData.F(":-", 2);
     public static final Functor GOALS = TermData.SYM("$goals");
@@ -239,8 +241,10 @@ public final class Prolog extends PrologFlags {
 
     /** Initializes this Prolog engine. */
     public void init(InputStream in, PrintStream out, PrintStream err) {
-        if (this.AREGS == null)
+        initTimes++;
+        if (this.AREGS == null || initTimes == 1)
             initOnce(in, out, err);
+
         this.stack.init();
         this.trail.init();
         this.B0 = this.stack.top();
@@ -249,7 +253,8 @@ public final class Prolog extends PrologFlags {
         //ChoicePointFrame initialFrame = new ChoicePointFrame(this, Failure.FAILURE, ++CPFTimeStamp);
         //ChoicePointFrame.S0(null);
         this.trail.timeStamp = ++this.CPFTimeStamp;
-        this.stack.push(this, Failure.FAILURE, ChoicePointStack::restore0);
+        if (this.stack.level == -1)
+            this.stack.push(this, Failure.FAILURE, ChoicePointStack::restore0);
         this.logger.init(this.stack.top);
         this.halt = 0;
         pendingGoals = Nil;
@@ -652,14 +657,14 @@ public final class Prolog extends PrologFlags {
         synchronized (INTERUPT_LOCK) {
             PENDING_INTERUPTS++;
             if (lastPendingGoal != null) {
-                lastPendingGoal = this.lastPendingGoal.append(goal);
+                lastPendingGoal = this.lastPendingGoal.appendCons(goal);
                 return;
             }
             if (pendingGoals == null || pendingGoals == Prolog.Nil || pendingGoals == Prolog.True) {
                 pendingGoals = goal;
             } else {
                 if (this.pendingGoals.isCons()) {
-                    lastPendingGoal = this.pendingGoals.append(goal);
+                    lastPendingGoal = this.pendingGoals.appendCons(goal);
                 } else {
                     lastPendingGoal = CONS(this.pendingGoals, goal);
                     pendingGoals = lastPendingGoal;

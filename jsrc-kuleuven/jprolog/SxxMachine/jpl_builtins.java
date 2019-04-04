@@ -435,7 +435,7 @@ class findall_list extends JPrologObject {
 
     @Override
     public String toStringImpl(int depth) {
-        return ("findall = " + (uptonowbegin.dref()).portrayTerm() + " - " + (uptonowend.dref()).toStringImpl(5));
+        return ("findall = " + (uptonowbegin.dref()).portrayTerm() + " - " + (uptonowend.dref()).portrayTerm());
     }
 
 }

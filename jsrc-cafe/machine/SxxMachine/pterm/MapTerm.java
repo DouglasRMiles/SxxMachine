@@ -180,7 +180,7 @@ public class MapTerm extends SystemObject {
     }
 
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         if (this.immutable) {
             return this;
         }
@@ -454,13 +454,13 @@ public class MapTerm extends SystemObject {
      * be immutable.
      */
     @Override
-    public MapTerm join(Term term) {
+    public MapTerm joinToMap(Term term) {
         if (isImmutable()) {
             return joinToCopy(term);
         }
         final Term cdr = argz[1];
         if (cdr.isMap())
-            return cdr.join(term);
+            return cdr.joinToMap(term);
         if (cdr == Prolog.Nil) {
             // proper list
             MapTerm acdr = MAP(term, cdr);
@@ -496,7 +496,7 @@ public class MapTerm extends SystemObject {
         }
         final Term cdr = argz[1];
         if (cdr.isMap())
-            return cdr.join(term);
+            return cdr.joinToMap(term);
         if (cdr == Prolog.Nil) {
             // proper list
             MapTerm acdr = MAP(term, cdr);

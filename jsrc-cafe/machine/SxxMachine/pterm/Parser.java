@@ -11,17 +11,23 @@ import static SxxMachine.pterm.TermData.asInt;
 import static SxxMachine.pterm.TermData.asStruct;
 
 import java.io.IOException;
+import java.io.PushbackReader;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.util.ArrayList;
 
+import SxxMachine.BlockingPrologControl;
 import SxxMachine.Builtins;
+import SxxMachine.Compound;
+import SxxMachine.FILE_system;
 import SxxMachine.Functor;
 import SxxMachine.HashDict;
 import SxxMachine.IO;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
+import SxxMachine.Operation;
 import SxxMachine.Prolog;
+import SxxMachine.PrologMain;
 import SxxMachine.Term;
 import SxxMachine.Var;
 
@@ -260,10 +266,15 @@ class LexerHIDE extends StreamTokenizer {
     }
 }
 
-class varToken extends StructureTerm {
+class StructureToken extends StructureTerm {
+    protected StructureToken(String c, Term... val) {
+        super(c, val);
+    }
+}
+
+class varToken extends StructureToken {
     public varToken(Var X, Nonvar nonvar, NumberTerm I) {
-        super("varToken", 3);
-        argz = new Term[] { X, nonvar, I };
+        super("varToken", new Term[] { X, nonvar, I });
     }
 
     @Override
@@ -272,19 +283,19 @@ class varToken extends StructureTerm {
     }
 }
 
-class intToken extends StructureTerm {
+class intToken extends StructureToken {
     public intToken(int i) {
         super("intToken", Long(i));
     }
 }
 
-class realToken extends StructureTerm {
+class realToken extends StructureToken {
     public realToken(double i) {
         super("realToken", Float(i));
     }
 }
 
-class constToken extends StructureTerm {
+class constToken extends StructureToken {
     private constToken(Functor c) {
         super("constToken", c);
         setArg(0, Builtins.toConstBuiltin(c));
@@ -295,31 +306,31 @@ class constToken extends StructureTerm {
     }
 }
 
-class stringToken extends StructureTerm {
+class stringToken extends StructureToken {
     public stringToken(constToken c) {
         super("stringToken", c.getDrefArg(0));
     }
 }
 
-class funToken extends StructureTerm {
+class funToken extends StructureToken {
     public funToken(String s) {
-        super("funToken", S(s.intern()));
+        super("funToken", SYM(s.intern()));
     }
 }
 
-class eocToken extends StructureTerm {
+class eocToken extends StructureToken {
     public eocToken() {
         super("eocToken", SYM("end_of_clause"));
     }
 }
 
-class eofToken extends StructureTerm {
+class eofToken extends StructureToken {
     public eofToken() {
         super("eofToken", Prolog.anEof);
     }
 }
 
-class iffToken extends StructureTerm {
+class iffToken extends StructureToken {
     public iffToken(String s) {
         super("iffToken", SYM(s));
     }
@@ -382,11 +393,11 @@ public class Parser extends LexerHIDE {
     /*
      * used in prolog2java
      */
-    public Parser(String p, String s) throws IOException {
+    private Parser(String p, String s) throws IOException {
         super(p, s);
     }
 
-    public Parser(String s) throws Exception {
+    private Parser(String s) throws Exception {
         super(s);
     }
 
@@ -433,7 +444,7 @@ public class Parser extends LexerHIDE {
         return C;
     }
 
-    static public final boolean isError(HornClause C) {
+    public static final boolean isError(HornClause C) {
         Term H = C.getHead();
         if (H.isCompound() && "error".equals(H.fname()) && H.arityOrType() == 3
                 && !(asStruct(H).getDrefArg(0).dref().isVar()))
@@ -452,6 +463,32 @@ public class Parser extends LexerHIDE {
     }
 
     private HornClause readClauseOrEOF() throws IOException {
+        if (true)
+            return readClauseOrEOFOLD();
+        
+        Reader reader = new PushbackReader(this.input);
+
+        if (PrologMain.p == null)
+            PrologMain.main(new String[] { "true" });
+        //BlockingPrologControl p
+        //p = new BlockingPrologControl();
+        //p.configureUserIO(System.in, System.out, System.err);
+
+        final Prolog engine = PrologMain.p.getEngine();
+        Term v1 = null, v2 = null, v3 = null;
+        v1 = TermData.FFIObject(reader);
+        v2 = TermData.V(engine);
+        v3 = TermData.V(engine);
+        engine.AREGS = new Term[] { v1, v2, v3 };
+        Operation cont = FILE_system.PRED_read_with_variables_3_static_exec(engine);
+        BlockingPrologControl.executePredicate(PrologMain.p, engine, cont, true);
+        //        while (cont != null) {
+        //            cont = cont.exec(engine);
+        //        }
+        return v2.dref().toClause();
+    }
+
+    private HornClause readClauseOrEOFOLD() throws IOException {
 
         dict = new HashDict();
 
@@ -516,7 +553,7 @@ public class Parser extends LexerHIDE {
         return t;
     }
 
-    protected final Term getTerm(Term n) throws IOException {
+    final Term getTerm(Term n) throws IOException {
         Term t = n.carTokenOrSelf();
         if (n.isFunctor("stringToken")) {
             t = ((Nonvar) ((stringToken) n).getDrefArg(0)).toCharsList();
@@ -525,16 +562,26 @@ public class Parser extends LexerHIDE {
         } else if (n.isFunctor("[")) {
             t = getList();
         } else if (n.isFunctor("funToken")) {
-            StructureTerm f = (StructureTerm) t;
-            f.argz = (getArgs());
-            t = Builtins.toFunBuiltin(f);
-        } else
-            ;// throw new ParserException("var,int,real,constant,'[' or functor", "bad term",
-             // n);
+            SxxMachine.Functor f = (Functor) t;
+            Term[] args = getArgs();
+            f = SymbolTerm.intern(f.fname(), args.length);
+            Compound c = S(f, args);
+            t = Builtins.toFunBuiltin(c);
+        } else {
+            int next = nextToken();
+            char nc = (char) next;
+            if (nc == '(') {
+                if (false)
+                    throw new ParserException("var,int,real,constant,'[' or functor", "bad term", n);
+            }
+            pushBack();
+            if (false)
+                throw new ParserException("var,int,real,constant,'[' or functor", "bad term", n);
+        }
         return t;
     }
 
-    protected Term getTerm() throws IOException {
+    Term getTerm() throws IOException {
         Term n = next();
         return getTerm(n);
     }

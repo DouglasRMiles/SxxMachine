@@ -13,7 +13,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
 
     public static final Term[] NO_ARGS = {};
 
-    private final java.util.Deque<RunStackItem> runStack;
+    private final java.util.Deque<MiniJProlog> runStack;
 
     private final IOLayer iolayer;
     private long timestamp;
@@ -25,7 +25,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
     public RunningPrologMachine(StreamProvider defaultStreams) {
         super();
         iolayer = new IOLayer(this, defaultStreams);
-        runStack = new java.util.LinkedList<RunStackItem>();
+        runStack = new java.util.LinkedList<MiniJProlog>();
     }
 
     protected void initAlways() {
@@ -53,7 +53,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
     }
 
     protected void startNewStackItem(JPrologRunStackIniter initer) throws JPrologScriptException {
-        runStack.addLast(new RunStackItem(this));
+        runStack.addLast(new MiniJProlog(this));
         createChoicePoint(NO_ARGS);
         if (initer != null)
             initer.init(this);
@@ -63,7 +63,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
         runStack.removeLast();
     }
 
-    RunStackItem getCurrentStackItem() {
+    MiniJProlog getCurrentStackItem() {
         return runStack.getLast();
     }
 

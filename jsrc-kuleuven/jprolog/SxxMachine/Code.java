@@ -6,7 +6,7 @@ package SxxMachine;
   *  @author  toms
   */
 public abstract class Code {
-
+ 
     protected final static Term[] NOARGS = new Term[0];
 
     @Override

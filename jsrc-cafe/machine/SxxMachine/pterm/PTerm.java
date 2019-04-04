@@ -28,6 +28,14 @@ import SxxMachine.sxxtensions;
 @SuppressWarnings({ "rawtypes" })
 public abstract class PTerm extends KPTerm {
 
+    /* (non-Javadoc)
+     * @see SxxMachine.Term#equalsIdentical(SxxMachine.Term)
+     */
+    @Override
+    public boolean equalsIdentical(Term a2) {
+        return equalsTerm(a2, StrictEquals);
+    }
+
     @Override
     public final SxxMachine.Functor asConst() {
         // TODO Auto-generated method stub
@@ -316,7 +324,7 @@ public abstract class PTerm extends KPTerm {
     }
 
     @Override
-    public Compound append(Term t) {
+    public Compound appendCons(Term t) {
         oopsy("missing method reason");
         throw new ArrayIndexOutOfBoundsException(-5);
     }
@@ -342,7 +350,7 @@ public abstract class PTerm extends KPTerm {
      * @param deeply
      *            TODO
      */
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         return this;
     }
 
@@ -364,7 +372,7 @@ public abstract class PTerm extends KPTerm {
         }
         if (loopingCopyTerm == 1) {
             VariableTerm vt = new VariableTerm(Prolog.M);
-            Term cp = vt.copyImpl(copyHash, deeply);
+            Term cp = vt.cafe_copyImpl(copyHash, deeply);
             // copyHash.put(vt, cp);
             vt.Refers = this;
             copyHash.put(this, cp);
@@ -373,7 +381,7 @@ public abstract class PTerm extends KPTerm {
         // if(loopingCopyTerm==2) return copyHash.get(this);
         try {
             loopingCopyTerm++;
-            copy = copyImpl(copyHash, deeply);
+            copy = cafe_copyImpl(copyHash, deeply);
             copyHash.put(this, copy);
             if ((deeply & COPY_SAVE_ATTRS_COPY) != 0) {
                 Term GoalsKey = Prolog.GOALS;
@@ -598,10 +606,10 @@ public abstract class PTerm extends KPTerm {
             throw new NoSuchElementException();
         }
 
-		@Override
-		public void remove() {
-			throw new NotImplementedException();
-		}
+        @Override
+        public void remove() {
+            throw new NotImplementedException();
+        }
     }
 
     @Override
@@ -665,7 +673,6 @@ public abstract class PTerm extends KPTerm {
         return attterm.drefAttrs();
     }
 
-
     @Override
     public Term findOrAttrValue(Trail trail, boolean createIfMissing, Term name) {
         Term drefAttrs = drefAttrs();
@@ -677,7 +684,7 @@ public abstract class PTerm extends KPTerm {
             Term wasAttrs = this.getAttrs();
             Term newatts = null;
             this.setAttrs(Prolog.Nil);
-            newatts = C("att", name, null, Prolog.Nil);
+            newatts = S("att", name, null, Prolog.Nil);
             if (trail != null) {
                 trail.push(new UndoAttributeReplacement(this, wasAttrs));
             }
@@ -696,7 +703,7 @@ public abstract class PTerm extends KPTerm {
             } while (true);
             if (!createIfMissing)
                 return Prolog.Nil;
-            next.setarg0Maybe_trail(trail, 2, C("att", name, null, Prolog.Nil));
+            next.setarg0Maybe_trail(trail, 2, S("att", name, null, Prolog.Nil));
             return next;
         }
     }
@@ -773,7 +780,7 @@ public abstract class PTerm extends KPTerm {
         Term wasAttrs = this.getAttrs();
         if (wasAttrs == null || wasAttrs == Prolog.Nil) {
             Term newatts = null;
-            newatts = C("att", name, val, Prolog.Nil);
+            newatts = S("att", name, val, Prolog.Nil);
             if (trail != null) {
                 trail.push(new Undoable() {
                     @Override
@@ -797,7 +804,7 @@ public abstract class PTerm extends KPTerm {
                 }
                 next = nnext;
             } while (true);
-            next.setarg0Maybe_trail(trail, 2, C("att", name, val, Prolog.Nil));
+            next.setarg0Maybe_trail(trail, 2, S("att", name, val, Prolog.Nil));
         }
     }
 
@@ -947,7 +954,7 @@ public abstract class PTerm extends KPTerm {
     Term zowner;
 
     @Override
-    public MapTerm join(Term term) {
+    public MapTerm joinToMap(Term term) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -1042,10 +1049,10 @@ public abstract class PTerm extends KPTerm {
         // TODO Auto-generated method stub
         return unify(S(f, va), trail);
     }
-//
-//    public Compound S(Functor f, Term... va) {
-//        return S(f, va);
-//    }
+    //
+    //    public Compound S(Functor f, Term... va) {
+    //        return S(f, va);
+    //    }
 
     //    @Override
     //    public boolean unify(Compound arg0, Trail trail) {

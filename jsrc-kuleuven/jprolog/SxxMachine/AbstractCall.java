@@ -3,7 +3,7 @@ package SxxMachine;
 import static SxxMachine.pterm.TermData.Jv;
 import static SxxMachine.pterm.TermData.S;
 
-public abstract class AbstractCall extends Code  {
+public abstract class AbstractCall  extends Code  {
 
     public void setArguments(Term[] areg, int arity, AFunct pred) {
         if (pred == null)

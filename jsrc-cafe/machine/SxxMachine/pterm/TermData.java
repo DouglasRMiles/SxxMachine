@@ -19,20 +19,35 @@ import SxxMachine.Term;
 abstract public class TermData {
 
     public static Compound S(String string, Term... s3) {
-        return new StructureTerm(string, s3);
+        return (Compound) new StructureTerm(string,  s3);
     }
+
+//    public static Compound S(Functor string, Term s1, Term... s3) {
+//        return (Compound) StructureTerm.createStructureTerm(string.fname(), s1, s3);
+//    }
+    //    public static Compound S(String string) {
+    //        return new StructureTerm(string);
+    //    }
+    //
+    //    public static Compound S(SxxMachine.Functor f, Term... s3) {
+    //        return new StructureTerm(f, s3);
+    //    }
 
     public static Compound S(SxxMachine.Functor f, Term... s3) {
         return new StructureTerm(f, s3);
     }
 
-    public static Term C(String string, Term... s3) {
-        return new StructureTerm(string, s3);
-    }
+//    public static Compound S(String f, Term[] s3) {
+//        return new StructureTerm(f, s3);
+//    }
+    //
+    //    public static Term C(String string, Term... s3) {
+    //        return new StructureTerm(string, s3);
+    //    }
 
-    public static Term C(SxxMachine.Functor f, Term... s3) {
-        return new StructureTerm(f, s3);
-    }
+    //    public static Term C(SxxMachine.Functor f, Term... s3) {
+    //        return new StructureTerm(f, s3);
+    //    }
     //
     // private static ListTerm Cons(Term _car, Term _cdr) {
     // return CONS( _car, _cdr);
@@ -41,7 +56,7 @@ abstract public class TermData {
 
     public static Compound CONS(Term _car, Term _cdr) {
         // if(false) return Cons(_car, _cdr);
-        return S(Prolog.FUNCTOR_DOT_2, _car, _cdr);
+        return S(Prolog.FUNCTOR_LIST_2, _car, _cdr);
     }
 
     /** Returns a Prolog atom for the given name. */
@@ -166,7 +181,7 @@ abstract public class TermData {
     }
 
     public static Term AND(Term a1, Term a2) {
-        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.getJavaString(), a1, a2);
+        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.fname(), a1, a2);
     }
 
     /**
@@ -330,7 +345,7 @@ abstract public class TermData {
     }
 
     public final static Nonvar the(Term X) {
-        return (null == X) ? (Nonvar) Prolog.aNo : StructureTerm.S("the", X);
+        return (null == X) ? (Nonvar) Prolog.aNo : S("the", X);
     }
 
     public static CharReader asCharReader(Term i) {
@@ -357,10 +372,10 @@ abstract public class TermData {
         }
         return FFIObject(o);
     }
-
-    public static Term S(String naam) {
-        return SYM(naam);
-    }
+//
+//    public static Term S(String naam) {
+//        return SYM(naam);
+//    }
 
     public static StructureTerm S(String naam, int arity) {
         return new StructureTerm(naam, arity);

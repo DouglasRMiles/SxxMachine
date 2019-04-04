@@ -7,7 +7,7 @@ public final class JpVar extends AbstractVar {
 
     long timestamp;
 
-    private RunStackItem mach;
+    private MiniJProlog mach;
     private final RunningPrologMachine machin;
 
     JpVar(RunningPrologMachine machine) {
@@ -16,21 +16,21 @@ public final class JpVar extends AbstractVar {
         timestamp = machin.getTimestamp();
     }
 
-    public JpVar(RunStackItem machin) {
+    public JpVar(MiniJProlog machin) {
         this.machin = null;
         Refers = this;
         timestamp = machin.getTimestamp();
         mach = machin;
     }
 
-    private JpVar(RunStackItem machin, long t) {
+    private JpVar(MiniJProlog machin, long t) {
         this.machin = null;
         Refers = this;
         timestamp = t;
         mach = machin;
     }
 
-    private RunStackItem getStack() {
+    private MiniJProlog getStack() {
         if (mach == null)
             mach = machin.getCurrentStackItem();
         return mach;

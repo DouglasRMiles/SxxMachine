@@ -232,7 +232,7 @@ public class HornClause extends StructureTerm {
     public final HornClause ccopy() {
         if (ground)
             return this;
-        HornClause C = (HornClause) copy();
+        HornClause C = (HornClause) duplicateTerm();
         C.dict = null;
         C.ground = ground;
         return C;

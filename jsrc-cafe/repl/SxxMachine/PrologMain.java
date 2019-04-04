@@ -48,17 +48,27 @@ public class PrologMain {
     private static final String COPYRIGHT = "Copyright(C) 1997-2009 M.Banbara and N.Tamura";
     private static final String HEADER = "Prolog Cafe (" + COPYRIGHT + ")";
 
+    public static BlockingPrologControl p;
+
     public static void main(String argv[]) {
+        if (argv == null || argv.length == 0) {
+            argv = new String[] { "--enable-io", "cafeteria" };
+        }
+        main(argv, null);
+    }
+
+    public static void main(String argv[], Term goal) {
         try {
+
             System.err.println(HEADER);
 
-            BlockingPrologControl p = new BlockingPrologControl();
+            p = new BlockingPrologControl();
             p.configureUserIO(System.in, System.out, System.err);
             p.setMaxDatabaseSize(InternalDatabase.DEFAULT_SIZE);
 
             List<File> toLoad = new ArrayList<>(4);
             long reductionLimit = Long.MAX_VALUE;
-            Term goal = null;
+
             for (int i = 0; i < argv.length; i++) {
                 String arg = argv[i];
                 if (arg.equals("--enable-io")) {
@@ -104,8 +114,7 @@ public class PrologMain {
             if (goal == null) {
                 System.err.println();
                 System.err.flush();
-                goal = S(TermData
-                        .F(":", 2), new Term[] { SYM(Prolog.BUILTIN), createAtomic("cafeteria") });
+                goal = S(TermData.F(":", 2), new Term[] { SYM(Prolog.BUILTIN), createAtomic("cafeteria") });
             }
 
             p.setReductionLimit(reductionLimit);

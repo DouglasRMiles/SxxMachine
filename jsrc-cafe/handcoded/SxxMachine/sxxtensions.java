@@ -52,7 +52,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.AREGS[0].dref();
         a2 = m.AREGS[1].dref();
-        linkval(m, a1, a2.copy());
+        linkval(m, a1, a2.duplicateTerm());
         return m.cont;
     }
 

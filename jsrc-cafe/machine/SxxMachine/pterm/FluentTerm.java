@@ -15,6 +15,13 @@ public abstract class FluentTerm extends SystemObject implements Undoable, Fluen
         trailMe(p);
     }
 
+    /**
+     * 
+     */
+    public String variableName() {
+        return qname();
+    }
+
     /* (non-Javadoc)
     * @see SxxMachine.pterm.IFluent#toClone()
     */

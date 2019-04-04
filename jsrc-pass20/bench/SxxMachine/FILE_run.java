@@ -1,8 +1,36 @@
-package SxxMachine; import static SxxMachine.Failure.*;
+package SxxMachine;
+ 
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.concurrent.locks.*;
+import java.util.logging.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.bootpreds.LEVELS;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_cafeteria.*;
+import static SxxMachine.FILE_io.*;
+import static SxxMachine.FILE_swi_supp.*;
+import static SxxMachine.FILE_system.*;
+import static SxxMachine.sxxtensions.*;
+import static SxxMachine.Failure.*;
+import static SxxMachine.Predicate.*;
+import static SxxMachine.Prolog.*;
+import static SxxMachine.Success.*;
+import static SxxMachine.pterm.TermData.*;
+import SxxMachine.*;
+import SxxMachine.pterm.*;
+import SxxMachine.bootpreds.*;
+import SxxMachine.bootpreds.PRED_$begin_exception_1;
+import SxxMachine.bootpreds.PRED_$begin_sync_2;
+import SxxMachine.bootpreds.PRED_$builtin_member_2;
+import SxxMachine.FILE_builtins.*;
+import SxxMachine.sxxtensions.*;
 @SuppressWarnings("unused")
 public class FILE_run extends FILE_system {
 /** PREDICATE: run/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(run/1,public)
         final static Functor ATOM_current_output = SYM("current_output");
@@ -21,7 +49,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("run", FILE_run::PRED_run_2_static_exec, VA( ATOM_current_output , a1), cont);
     }
 /** PREDICATE: run/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(run/2,public)
         final static Functor ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007Ew$007E25$007C$0020$007Et$007Ew$007E32$007C$007En = SYM("~p~t~18| ~t~w~25| ~t~w~32|~n");
@@ -90,7 +118,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("format", FILE_run::PRED_format_3_static_exec, VA(a1,  ATOM_$007Et$007Ew$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a18), cont)))))))));
     }
 /** PREDICATE: compile_programs/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(compile_programs/0,public)
         final static Functor FUNCTOR_$002D_1 = F("-",1);
@@ -136,7 +164,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("forall", FILE_run::PRED_forall_2_static_exec, VA(a2, a5), cont));
     }
 /** PREDICATE: run_program/4
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(run_program/4,public)
         final static Functor ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En = SYM("~p~t~18| ~t~3f~25| ~t~3f~32|~n");
@@ -175,7 +203,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("format", FILE_run::PRED_format_3_static_exec, VA(a3,  ATOM_$007Ep$007Et$007E18$007C$0020$007Et$007E3f$007E25$007C$0020$007Et$007E3f$007E32$007C$007En , a10), cont))))));
     }
 /** PREDICATE: add/3
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(add/3,public)
         final static Functor FUNCTOR_$002B_2 = F("+",2);
@@ -204,7 +232,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("nb_setarg", sxxtensions::PRED_nb_setarg_3_static_exec, VA(a1, a2, a5), cont)));
     }
 /** PREDICATE: get_performance_stats/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(get_performance_stats/2,public)
         final static Functor ATOM_gctime = SYM("gctime");
@@ -227,7 +255,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("statistics", FILE_run::PRED_statistics_2_static_exec, VA( ATOM_cputime , a2), cont));
     }
 /** PREDICATE: ntimes/4
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(ntimes/4,public)
         final static Functor FUNCTOR_$002D_2 = F("-",2);
@@ -280,7 +308,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a4, a16), cont)))))));
     }
 /** PREDICATE: ntimes/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(ntimes/2,public)
 
@@ -358,7 +386,7 @@ m.cont = cont;
  Op("ntimes", FILE_run::PRED_ntimes_2_static_exec, VA(a1, a4), cont))));
     }
 /** PREDICATE: ntimes_dummy/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(ntimes_dummy/1,public)
 
@@ -434,7 +462,7 @@ m.cont = cont;
  Op("ntimes_dummy", FILE_run::PRED_ntimes_dummy_1_static_exec, VA(a3), cont))));
     }
 /** PREDICATE: not_not_top/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(not_not_top/1,public)
 
@@ -483,7 +511,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: not_top/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(not_top/1,public)
         final static Functor ATOM_top = SYM("top");
@@ -536,7 +564,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: not_not_dummy/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(not_not_dummy/0,public)
 
@@ -582,7 +610,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: not_dummy/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(not_dummy/0,public)
 
@@ -628,7 +656,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: dummy/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(dummy/0,public)
 
@@ -643,7 +671,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
         return cont;
     }
 /** PREDICATE: tune_counts/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(tune_counts/0,public)
         final static Functor FUNCTOR_$002C_2 = F(",",2);
@@ -682,7 +710,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("forall", FILE_run::PRED_forall_2_static_exec, VA(a2, a8), cont);
     }
 /** PREDICATE: tune_count/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(tune_count/2,public)
         final static NumberTerm int_100 = Integer(100);
@@ -735,7 +763,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a2, a11), cont)))))));
     }
 /** PREDICATE: program/3
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(program/3,public)
         final static Functor FUNCTOR_max_2 = F("max",2);
@@ -768,7 +796,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a2, a7), cont));
     }
 /** PREDICATE: program/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(program/2,public)
         final static Functor ATOM_boyer = SYM("boyer");
@@ -1198,7 +1226,7 @@ m.cont = cont;
         return cont;
     }
 /** PREDICATE: run_interleaved/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(run_interleaved/1,public)
         final static Functor FUNCTOR_seq_interleaved_1 = F("seq_interleaved",1);
@@ -1250,7 +1278,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("erase", FILE_run::PRED_erase_1_static_exec, VA(a12), cont)))))))));
     }
 /** PREDICATE: seq_interleaved/3
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(seq_interleaved/3,public)
 
@@ -1313,7 +1341,7 @@ m.cont = cont;
  Op("seq_interleaved", FILE_run::PRED_seq_interleaved_3_static_exec, VA(a4, a5, a3), cont));
     }
 /** PREDICATE: seq_interleaved/4
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(seq_interleaved/4,public)
 
@@ -1501,7 +1529,7 @@ m.cont = cont;
         return seq_interleaved_4_top(m);
     }
 /** PREDICATE: seq_clause/2
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(seq_clause/2,public)
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
@@ -1590,7 +1618,7 @@ m.cont = cont;
         return seq_clause_2_top(m);
     }
 /** PREDICATE: run_non_interleaved/1
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(run_non_interleaved/1,public)
         final static Functor FUNCTOR_seq_non_interleaved_1 = F("seq_non_interleaved",1);
@@ -1637,7 +1665,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
  Op("erase", FILE_run::PRED_erase_1_static_exec, VA(a12), cont))))))));
     }
 /** PREDICATE: seq_non_interleaved/3
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main(seq_non_interleaved/3,public)
 
@@ -1799,7 +1827,7 @@ m.cont = cont;
         return seq_non_interleaved_3_top(m);
     }
 /** PREDICATE: $init/0
-from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/run.pl
+from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
 */
     // main('$init'/0,public)
     private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_rni ,  int_0 );

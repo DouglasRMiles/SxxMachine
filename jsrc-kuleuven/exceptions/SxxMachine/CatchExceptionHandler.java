@@ -17,9 +17,9 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
     }
 
     @Override
-    public Code handlePrologException(JPrologInternalException exception, RunStackItem mach)
+    public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {
-        if (!exception.unify(this.exception))
+        if (!exception.unifyJP(this.exception))
             return super.handlePrologException(exception, mach);
         final Term[] args = mach.getAreg();
         args[0] = exceptionAction;

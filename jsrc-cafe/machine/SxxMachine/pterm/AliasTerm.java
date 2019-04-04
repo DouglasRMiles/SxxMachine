@@ -99,7 +99,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
      * @throws IllegalTypeException */
     @Override
     public String getJavaString() throws IllegalTypeException {
-        return (useAlias() ? getTrueRef().getJavaString() : super.toUnquoted());
+        return (useAlias() ? getTrueRef().getJavaString() : super.toUnquotedNumVars());
     }
 
     /**
@@ -284,9 +284,9 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
     }
 
     @Override
-    public Compound append(Term t) {
+    public Compound appendCons(Term t) {
 
-        return (useAlias() ? getTrueRef().append(t) : super.append(t));
+        return (useAlias() ? getTrueRef().appendCons(t) : super.appendCons(t));
     }
 
     @Override
@@ -297,7 +297,7 @@ abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     /** Returns a copy of this object. */
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
 
         return (useAlias() ? getTrueRef().copy(copyHash, deeply) : super.copy(copyHash, deeply));
     }

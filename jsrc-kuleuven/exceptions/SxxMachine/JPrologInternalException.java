@@ -50,15 +50,15 @@ public class JPrologInternalException extends RuntimeException {
      *  @param  exception het prolog-object waarmee moet gebonden worden
      *  @return  true als er een binding kon gemaakt worden.
      */
-    public final boolean unify(Term exception) {
+    public final boolean unifyJP(Term exception) {
         final Term ex = exception.dref();
         if (ex.isVariable()) {
             return ex.unifyJP(toPrologException());
         }
-        return bind(ex);
+        return bindJP(ex);
     }
 
-    protected boolean bind(Term o) {
+    protected boolean bindJP(Term o) {
         if (o .isCompound()) {
             //snelmogelijkheid voor fout-opvangen
             final AFunct f = (AFunct) o;

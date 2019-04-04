@@ -34,7 +34,7 @@ class JpChoicePointStackEntry { //implements ExceptionHandlerIF {
         return arguments;
     }
 
-    public Code handlePrologException(JPrologInternalException exception, RunStackItem mach)
+    public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {
         return handler.handlePrologException(exception, mach);
     }

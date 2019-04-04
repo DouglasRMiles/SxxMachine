@@ -26,7 +26,7 @@ public class FailProc extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final RunStackItem stack = mach.getCurrentStackItem();
+        final MiniJProlog stack = mach.getCurrentStackItem();
         if (stack.getCurrentChoice() == -1) {
             log.warn("Stack choicepoints empty!");
             stack.setExceptionState(ErrorStatus.FATALERROR);

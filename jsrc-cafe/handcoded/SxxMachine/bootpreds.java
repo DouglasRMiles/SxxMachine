@@ -323,9 +323,9 @@ public class bootpreds extends sxxtensions {
             Term t = Prolog.Nil;
             for (int i = 0; i <= endIndex; i++) {
                 Term[] args = { s3.subsymbol(0, i), s3.subsymbol(i) };
-                t = CONS(C(AC_2, args), t);
+                t = CONS(S(AC_2, args), t);
             }
-            return Op(FILE_builtins::PRED_$member_in_reverse_2_static_exec, VA(C(AC_2, a1, a2), t), cont);
+            return Op(FILE_builtins::PRED_$member_in_reverse_2_static_exec, VA(S(AC_2, a1, a2), t), cont);
         } else if (!(a3.isVar())) {
             throw new IllegalTypeException(thiz, 3, "atom", a3);
         }
@@ -724,7 +724,7 @@ public class bootpreds extends sxxtensions {
                 } catch (ExistenceException e2) {
                     if ((engine.getUnknown()).equals("fail"))
                         return engine.fail();
-                    Term what = C(SYM_COLON_2, a1, C(SYM_SLASH_2, functor, Integer(arity)));
+                    Term what = S(SYM_COLON_2, a1, S(SYM_SLASH_2, functor, Integer(arity)));
                     String mt = e.getMessage();
                     ExistenceException err = new ExistenceException(thiz, 0, "procedure", what, mt);
                     err.initCause(e);
@@ -1384,7 +1384,7 @@ public class bootpreds extends sxxtensions {
             Term[] args = new Term[n];
             for (int i = 0; i < n; i++)
                 args[i] = V(engine);
-            Functor sym = createF((a2).getJavaString(), n);
+            Functor sym = createF((a2).fname(), n);
             if (!a1.unifyS(sym, engine.trail, args))
                 return engine.fail();
             return cont;
@@ -1728,7 +1728,7 @@ public class bootpreds extends sxxtensions {
             int i = (car).intValue();
             Term e = engine.internalDB.get(i);
             if (e != null) {
-                x = CONS(C(COMMA, e, car), x);
+                x = CONS(S(COMMA, e, car), x);
             }
             tmp = (tmp).cdr().dref();
         }
@@ -4326,12 +4326,12 @@ public class bootpreds extends sxxtensions {
             if (engine.getStreamManager().containsKey(alias))
                 throw new PermissionException(thiz, "open", "source_sink", aliasOption, "");
         }
-        opts = CONS(C(SYM_TYPE_1, SYM_TEXT), opts);
-        opts = CONS(C(SYM_MODE_1, a2), opts);
-        opts = CONS(C(SYM_FILE_NAME_1, file == null ? a1 : createAtomic(file.getAbsolutePath())), opts);
+        opts = CONS(S(SYM_TYPE_1, SYM_TEXT), opts);
+        opts = CONS(S(SYM_MODE_1, a2), opts);
+        opts = CONS(S(SYM_FILE_NAME_1, file == null ? a1 : createAtomic(file.getAbsolutePath())), opts);
         if (alias != null) {
             engine.getStreamManager().put(alias, streamObject);
-            opts = CONS(C(SYM_ALIAS_1, alias), opts);
+            opts = CONS(S(SYM_ALIAS_1, alias), opts);
         }
         a3.asVariableTerm().bind(streamObject, engine.trail);
         engine.getStreamManager().put(streamObject, opts);
@@ -5327,7 +5327,7 @@ public class bootpreds extends sxxtensions {
         a2 = LARG[1];
         a1 = a1.dref();
         if ((a1.isAtomSymbol()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
-            if (!a2.unifyS(Prolog.FUNCTOR_DOT_2, engine.trail, a1, Nil))
+            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, a1, Nil))
                 return engine.fail();
         } else if ((a1.isCons())) {
             Term t = CONS(a1.cdr(), Nil);
@@ -5341,7 +5341,7 @@ public class bootpreds extends sxxtensions {
             Term t = Nil;
             for (int i = args.length; i > 0; i--)
                 t = CONS(args[i - 1], t);
-            if (!a2.unifyS(Prolog.FUNCTOR_DOT_2, engine.trail, sym, t))
+            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, sym, t))
                 return engine.fail();
         } else if ((a1.isVar())) {
             a2 = a2.dref();
@@ -5388,7 +5388,7 @@ public class bootpreds extends sxxtensions {
                 }
                 t = CONS(args[0], args[1]);
             } else {
-                t = C(sym, args);
+                t = S(sym, args);
             }
             if (!a1.unify(t, engine.trail))
                 return engine.fail();
@@ -5457,7 +5457,7 @@ public class bootpreds extends sxxtensions {
         while (!lt.isNil()) {
             Term t = (lt).car();
             lt = (lt).cdr();
-            if (!(t.isCompound()) || !"=".equals(t.getJavaString()) || t.arity() != 2) {
+            if (!(t.isCompound()) || !"=".equals(t.fname()) || t.arity() != 2) {
                 throw new IllegalDomainException(thiz, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
             }
             Term packageAndName = t.getPlainArg(0);

@@ -45,7 +45,7 @@ public interface Term extends Comparable<Term> {
     public static final int COPY_NO_ATTRS = 2;
     public static final int COPY_SAVE_ATTRS_COPY = 4;
 
-    public static final OpVisitor StrictEquals = new OpVisitor();
+    public static final OpVisitor StrictEquals = new OpVisitor("StrictEquals");
     public static final OpVisitor Unifiable = null;
     public static final OpVisitor Subsumes = null;
 
@@ -83,8 +83,6 @@ public interface Term extends Comparable<Term> {
 
     public boolean equalsTerm(Term v);
 
-    public double doubleValue();
-
     public boolean isImmutable();
 
     public int containsTerm(Term variableTerm, OpVisitor strictequals2);
@@ -99,7 +97,7 @@ public interface Term extends Comparable<Term> {
 
     public boolean unify(Term arg0, Trail trail);
 
-//    public boolean unify(Compound arg0, Trail trail);
+    //    public boolean unify(Compound arg0, Trail trail);
 
     public Term getAttrs();
 
@@ -177,9 +175,11 @@ public interface Term extends Comparable<Term> {
 
     public boolean isLong();
 
-    public Compound append(Term goal);
+    public Compound appendCons(Term goal);
 
     public long longValue();
+
+    public double doubleValue();
 
     public void setGoals(Trail trail, Term newval);
 
@@ -235,11 +235,11 @@ public interface Term extends Comparable<Term> {
 
     public String toQuotedString();
 
-    public MapTerm join(Term term);
+    public MapTerm joinToMap(Term term);
 
     public boolean isTrueProc();
 
-    public Term copy();
+    public Term duplicateTerm();
 
     public MapTerm asMapTerm();
 
@@ -311,5 +311,11 @@ public interface Term extends Comparable<Term> {
      * @return
      */
     public boolean isVarSimple();
+
+    /**
+     * @param a2
+     * @return
+     */
+    public boolean equalsIdentical(Term a2);
 
 }

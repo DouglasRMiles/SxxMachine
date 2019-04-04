@@ -10,6 +10,16 @@ import SxxMachine.Var;
 abstract class AVar extends PTerm implements Var, Undoable {
 
     @Override
+    public String toStringImpl(int depth) {
+        return "_" + Integer.toHexString(hashCode());
+    }
+
+    @Override
+    public String variableName() {
+        return "_" + Integer.toHexString(hashCode());
+    }
+
+    @Override
     abstract public boolean unbound();
 
 }

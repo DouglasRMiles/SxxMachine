@@ -34,7 +34,7 @@ public class ErrorTerm extends StructureTerm {
     }
 
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         Term[] a = new Term[arity()];
         for (int i = 0; i < a.length; i++) {
             a[i] = getPlainArg(i).copy(copyHash, deeply);

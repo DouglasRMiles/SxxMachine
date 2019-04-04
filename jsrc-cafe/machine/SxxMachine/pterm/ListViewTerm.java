@@ -125,7 +125,7 @@ public class ListViewTerm extends ListTerm {
     }
 
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         Term result = Prolog.Nil;
         for (int i = this.list.size() - 1; i >= this.index; i--) {
             result = CONS(this.list.get(i).copy(copyHash, deeply), result);
@@ -185,7 +185,7 @@ public class ListViewTerm extends ListTerm {
 
     @Override
     public String fname() {
-        return Prolog.FUNCTOR_DOT_2.fname();
+        return Prolog.FUNCTOR_LIST_2.fname();
     }
 
     @Override

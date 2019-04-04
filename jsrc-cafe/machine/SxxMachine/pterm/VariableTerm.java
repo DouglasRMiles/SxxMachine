@@ -374,7 +374,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
      * @see #Refers
      */
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         if (this.Refers.isVar()) {
             Term co = copyHash.get(this.Refers);
             if (co == null) {
@@ -594,6 +594,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     final public boolean unbound() {
+        assert(Refers != null);
         return Refers == this;
     }
     //

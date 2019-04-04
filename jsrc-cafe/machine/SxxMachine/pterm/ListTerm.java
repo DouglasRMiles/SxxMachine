@@ -144,7 +144,7 @@ public abstract class ListTerm extends AFunct implements Compound {
     }
 
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deepCopy) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deepCopy) {
         if (this.isImmutable()) {
             return this;
         }
@@ -175,7 +175,7 @@ public abstract class ListTerm extends AFunct implements Compound {
 
     @Override
     public Term functor() {
-        return Prolog.FUNCTOR_DOT_2;
+        return Prolog.FUNCTOR_LIST_2;
     }
 
     @Override
@@ -294,7 +294,7 @@ public abstract class ListTerm extends AFunct implements Compound {
     @Override
     public int termHashCodeImpl() {
         int h = 1;
-        h = 31 * h + Prolog.FUNCTOR_DOT_2.termHashCode();
+        h = 31 * h + Prolog.FUNCTOR_LIST_2.termHashCode();
         h = 31 * h + this.car().dref().termHashCode();
         h = 31 * h + cdr().dref().termHashCode();
         return h;
@@ -390,8 +390,8 @@ public abstract class ListTerm extends AFunct implements Compound {
             if (2 != arity)
                 return (2 - arity);
             Term functor = (otherterm).functor();
-            if (!Prolog.FUNCTOR_DOT_2.equalsTerm(functor, StrictEquals))
-                return Prolog.FUNCTOR_DOT_2.compareTo(functor);
+            if (!Prolog.FUNCTOR_LIST_2.equalsTerm(functor, StrictEquals))
+                return Prolog.FUNCTOR_LIST_2.compareTo(functor);
         }
         Term[] args = new Term[2];
         if ((otherterm.isCons())) {
@@ -468,7 +468,7 @@ public abstract class ListTerm extends AFunct implements Compound {
      * @see SxxMachine.pterm.IStruct#append(SxxMachine.Term)
      */
     @Override
-    public Compound append(Term term) {
+    public Compound appendCons(Term term) {
         if (isImmutable()) {
             throw new NoSuchElementException("isImmutable: " + this);
             // return addToCopy(term);

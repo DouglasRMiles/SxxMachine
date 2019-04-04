@@ -58,7 +58,7 @@ public class PrologMachine extends RunningPrologMachine {
         }
     }
 
-    private void installGoal(Term goal, RunStackItem runStack) {
+    private void installGoal(Term goal, MiniJProlog runStack) {
         final Term[] areg = runStack.getAreg();
         areg[0] = goal;
         areg[1] = S(("halt"), Integer(0));
@@ -68,7 +68,7 @@ public class PrologMachine extends RunningPrologMachine {
 
     private synchronized ErrorStatus doSolveGoalOnce(Term goal) throws JPrologScriptException {
         Code code = Call2;
-        final RunStackItem runStack = getCurrentStackItem();
+        final MiniJProlog runStack = getCurrentStackItem();
         runStack.setExceptionState(ErrorStatus.NONE);
         //final StatCreator st = new StatCreator();
         //st.setPrologMachine(this); st.setEnabled(true);

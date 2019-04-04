@@ -39,7 +39,7 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
         if (I != null)
             return I;
         I = SYM(s);
-        atomTable.put(((Funct0) I).fname(), I);
+        atomTable.put( I.fname(), I);
         return I;
     }
 
@@ -131,7 +131,7 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
             if (theStub instanceof FunctionObject) {
                 objectPut(((FunctionObject) theStub).fname(), theStub);
             } else if (true) {
-                objectPut(((Funct0) theStub).fname(), theStub);
+                objectPut(((Term) theStub).fname(), theStub);
             }
             return theStub;
         } catch (Exception e) {

@@ -64,7 +64,7 @@ public class IllegalTypeException extends BuiltinException {
         if (this.argNo > 0)
             s += " - arg " + this.argNo;
         s += ": expected " + this.type;
-        s += ", found " + this.culprit.getJavaString();
+        s += ", found " + this.culprit.portrayTerm();
         s += "}";
         return s;
     }

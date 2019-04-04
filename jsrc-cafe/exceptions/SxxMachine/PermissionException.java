@@ -64,7 +64,7 @@ public class PermissionException extends BuiltinException {
     @Override
     public String toString() {
         String s = "{PERMISSION ERROR: " + this.goal.toString();
-        s += " - can not " + this.operation + " " + this.permissionType + " " + this.culprit.getJavaString();
+        s += " - can not " + this.operation + " " + this.permissionType + " " + this.culprit.portrayTerm();
         s += ": " + this.message;
         s += "}";
         return s;

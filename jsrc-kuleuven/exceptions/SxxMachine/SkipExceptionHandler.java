@@ -13,7 +13,7 @@ public class SkipExceptionHandler implements ExceptionHandlerIF {
     }
 
     @Override
-    public Code handlePrologException(JPrologInternalException exception, RunStackItem mach)
+    public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {
         while (mach.getCurrentChoice() > startChoiceStack) {
             mach.removeChoice();

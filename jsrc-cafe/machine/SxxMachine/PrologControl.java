@@ -220,24 +220,31 @@ public abstract class PrologControl {
     }
 
     // @SuppressWarnings("null")
-    public void executePredicate(boolean isOutter) throws PrologException, JavaInterruptedException {
-        Prolog engine = this.engine;
+    
+    final public void executePredicate(boolean isOutter) throws PrologException, JavaInterruptedException {
+        executePredicate(this, engine, code, isOutter);
+    }
+
+    // @SuppressWarnings("null")
+    static public void executePredicate(PrologControl thiz, Prolog engine, Operation code, boolean isOutter)
+            throws PrologException, JavaInterruptedException {
+
         PrologLogger logger = engine.getLogger();
-        Operation code = this.code;
-        Operation nextCode = this.code;
+
+        Operation nextCode = code;
         System.err.flush();
 
         try {
             if (isOutter) {
-                engine.init(this.userInput, this.userOuput, this.userError);
+                engine.init(thiz.userInput, thiz.userOuput, thiz.userError);
             }
             mainLoop: do {
                 try {
                     do {
                         if (isOutter) {
-                            code = insertPendingGoals(code);
+                            code = thiz.insertPendingGoals(code);
                         }
-                        if (!Prolog.BE_SAFE)
+                        if (Prolog.BE_SAFE)
                             logger.beforeExec(code);
                         if (code == null) {
                             break;
@@ -245,16 +252,28 @@ public abstract class PrologControl {
                         engine.pred = code;
                         //code.toString();
                         nextCode = code.exec(engine);
-                        if (!"off".equals(PrologFlags.current.getDebug())) {
+                        final String debug = PrologFlags.current.getDebug();
+                        if (!"off".equals(debug)) {
                             Class c = code.getClass();
-                            steps++;
+                            thiz.steps++;
                             if (c == StaticPred.class) {
                                 System.err.println(" O: " + code);
                             } else {
+                                Class c2;
                                 if (!c.getName().contains("$$Lambda$")) {
-                                    Class c2 = c.getDeclaringClass();
-                                    c2 = c.getSuperclass();
                                     System.err.println(" CC: " + code);
+                                } else {
+                                    c2 = c.getDeclaringClass();
+                                    if (c2 == Object.class)
+                                        c2 = null;
+                                    if (c2 == null)
+                                        c2 = c.getSuperclass();
+                                    if (c2 == Object.class)
+                                        c2 = null;
+                                    if (c2 == null)
+                                        System.err.println(" DO: " + code);
+                                    else
+                                        System.err.println(" DC: " + c2);
                                 }
 
                             }
@@ -283,12 +302,12 @@ public abstract class PrologControl {
                 if (engine.halt > 0) {
                     throw new HaltException(engine.halt - 1);
                 }
-            } while (code != null);
+            } while (nextCode != null);
         } finally {
             if (isOutter) {
-                this.code = insertPendingGoals(code);
+                thiz.code = thiz.insertPendingGoals(code);
             } else {
-                this.code = code;
+                thiz.code = code;
             }
 
             if (isOutter) {
@@ -327,8 +346,7 @@ public abstract class PrologControl {
             after = insertCode(goal, after);
             pendingGoals = pendingGoals.cdr();
         }
-        return new StaticPred("call", FILE_builtins::PRED_call_1_static_exec, TermData.VA(pendingGoals),
-                after);
+        return new StaticPred("call", FILE_builtins::PRED_call_1_static_exec, TermData.VA(pendingGoals), after);
     }
 
     protected void executePredicate_goog() throws PrologException {

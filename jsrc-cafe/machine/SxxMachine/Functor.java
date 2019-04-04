@@ -36,7 +36,7 @@ public interface Functor extends NameArity, Atomic {
      * with no builtin code attached to it
      */
 
-    String toUnquoted();
+    String toUnquotedNumVars();
 
     @Override
     int getIntArg(int i);

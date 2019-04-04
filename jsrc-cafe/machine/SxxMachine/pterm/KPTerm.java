@@ -42,7 +42,7 @@ public abstract class KPTerm implements Term {
      */
     @Override
     public String stringWrite() {
-        return toUnquoted();
+        return toUnquotedNumVars();
     }
 
     /* (non-Javadoc)
@@ -172,7 +172,7 @@ public abstract class KPTerm implements Term {
         boolean ok = DO_Unify(that, trail);
         // if(ok) that=that.copy();
         if (ok)
-            that = copy();
+            that = duplicateTerm();
         trail.unwind(oldtop);
         return (ok) ? that : null;
     }
@@ -202,7 +202,7 @@ public abstract class KPTerm implements Term {
      * variables').
      */
     // synchronized
-    public Term copy() {
+    public Term duplicateTerm() {
         return reaction((Term) new Copier());
     }
 
@@ -218,13 +218,13 @@ public abstract class KPTerm implements Term {
      * back as variables.
      */
     public Term numbervars() {
-        return copy().reaction(new VarNumberer());
+        return duplicateTerm().reaction(new VarNumberer());
     }
 
     /**
      * Prints out a term to a String with variables named in order V1, V2,....
      */
-    public String toUnquoted() {
+    public String toUnquotedNumVars() {
         Term t = numbervars();
         if (t == this)
             return pprint();
@@ -241,7 +241,7 @@ public abstract class KPTerm implements Term {
      * key for a clause AL-B,C. is the key insted of ':-'.
      */
     public String getFAKey() {
-        return toUnquoted();
+        return toUnquotedNumVars();
     }
 
     /**
@@ -257,7 +257,7 @@ public abstract class KPTerm implements Term {
      * builtin. Being final, it will generate a compile time error if this happens
      */
     final int exec() {
-
+        oopsy("int exec()");
         return -1;
     }
 
@@ -267,6 +267,7 @@ public abstract class KPTerm implements Term {
      */
 
     public int exec(Prog p) {
+        oopsy("int exec()");
         // IO.println("this should be overriden, prog="+p);
         return -1;
     }
@@ -285,7 +286,7 @@ public abstract class KPTerm implements Term {
     }
 
     public Nonvar toCharsList() {
-        return stringToChars(toUnquoted());
+        return stringToChars(toUnquotedNumVars());
     }
 
     public boolean isCons() {

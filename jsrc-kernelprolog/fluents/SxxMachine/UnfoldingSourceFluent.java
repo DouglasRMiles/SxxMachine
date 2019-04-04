@@ -17,7 +17,7 @@ import SxxMachine.pterm.HornClause;
  * In case of failure of Guard or of unification, getElement() returns null.
  */
 public class UnfoldingSourceFluent extends SourceFluent {
-    private static final int KernelAgenttracing = 0;
+    public static int KernelAgenttracing = 0;
     private int oldtop;
     private Iterator e;
     private HornClause goal;

@@ -1,7 +1,7 @@
 
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.SYM;
+import static SxxMachine.pterm.TermData.*;
 import static SxxMachine.pterm.TermData.V;
 import static SxxMachine.pterm.TermData.isQuoted;
 
@@ -67,6 +67,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         try {
             if (m == null)
                 return -1;
+            m.setAccessible(true);
             final Object invoke = m.invoke(null, p, this);
             return (int) (Integer) invoke;
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
@@ -302,22 +303,26 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         return arityOrType() == 2 && fname().equals(":-");
     }
 
-    public static StructureTerm CONS(Term x0, Term x1) {
-        return (StructureTerm) CONS(x0, x1).asStructureTerm();
-    }
+//    public static StructureTerm CONS(Term x0, Term x1) {
+//        return (StructureTerm) CONS(x0, x1).asStructureTerm();
+//    }
 
     public static Term createCons(String cons, Term x0, Term x1) {
-        return S(cons, x0, x1);
+        return new StructureTerm(cons, x0, x1);
     }
+//
+//    public static Term createStructureTerm(String cons, Term x0, Term[] x1) {
+//        return TermData.S(cons, x0, x1);
+//    }
 
-    public static StructureTerm S(String string, Term... x01) {
+//    public static StructureTerm S(String string, Term... x01) {
+//        // TODO Auto-generated method stub
+//        return new StructureTerm(string, x01);
+//    }
+//
+    public static StructureTerm createStructureTerm(String getName, int arity) {
         // TODO Auto-generated method stub
-        return new StructureTerm(string, x01);
-    }
-
-    public static StructureTerm S(String getName, int arity) {
-        // TODO Auto-generated method stub
-        return createStructureTerm(getName, arity);
+        return new StructureTerm(getName, arity);
     }
 
     @Override
@@ -337,7 +342,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean isCons() {
-        return argz.length == 2 && (functor() == Prolog.FUNCTOR_DOT_2);
+        return argz.length == 2 && (functor() == Prolog.FUNCTOR_LIST_2);
     }
 
     @Override
@@ -557,9 +562,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     }
 
     @Override
-    protected Term copyImpl(Map<Object, Term> copyHash, int deeply) {
+    protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
         if (isConsOL())
-            return super.copyImpl(copyHash, deeply);
+            return super.cafe_copyImpl(copyHash, deeply);
         if (this.immutable) {
             return this;
         }
@@ -760,9 +765,6 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         }
     }
 
-    public static StructureTerm createStructureTerm(String name, int arity) {
-        return new StructureTerm(name, arity);
-    }
 
     public void toListStringImpl(int printingFlags, StringBuilder sb) {
         Term x = this;
@@ -869,7 +871,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             return AFTER;
         if ((anotherTerm.isCons())) {
             ListTerm t = (ListTerm) anotherTerm;
-            functor2 = Prolog.FUNCTOR_DOT_2;
+            functor2 = Prolog.FUNCTOR_LIST_2;
             args2 = new Term[2];
             args2[0] = t.car();
             args2[1] = t.cdr();
@@ -945,7 +947,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public Term copyJP(RunningPrologMachine m, long t) {
         int a = arity();
-        final AFunct f = S(fname(), a);
+        final AFunct f = new StructureTerm(fname(), a);
         Term arg;
         while (a-- > 0) {
             arg = args()[a].dref();

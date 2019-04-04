@@ -38,7 +38,7 @@ public class LazyList extends StructureTerm implements Undoable {
         if (null == nextHead) {
             thisTail = getNull();
         } else {
-            thisTail = new LazyList(nextHead.copy(), (Fluent) source, trail);
+            thisTail = new LazyList(nextHead.duplicateTerm(), (Fluent) source, trail);
         }
         ((Var) super.getDrefArg(1)).Unify_TO(thisTail, trail);
         bound = true;

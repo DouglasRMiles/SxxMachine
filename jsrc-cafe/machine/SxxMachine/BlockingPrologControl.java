@@ -418,4 +418,11 @@ public class BlockingPrologControl extends PrologControl implements Runnable {
         }
         stop();
     }
+
+    /**
+     * @return
+     */
+    public Prolog getEngine() {
+        return engine;
+    }
 }

@@ -1,11 +1,37 @@
 package SxxMachine;
 
+import java.io.*;
+import java.lang.reflect.*;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.concurrent.locks.*;
+import java.util.logging.*;
+import static SxxMachine.bootpreds.*;
+import static SxxMachine.bootpreds.LEVELS;
+import static SxxMachine.FILE_builtins.*;
+import static SxxMachine.FILE_cafeteria.*;
+import static SxxMachine.FILE_io.*;
+import static SxxMachine.FILE_swi_supp.*;
+import static SxxMachine.FILE_system.*;
+import static SxxMachine.sxxtensions.*;
 import static SxxMachine.Failure.*;
+import static SxxMachine.Predicate.*;
+import static SxxMachine.Prolog.*;
+import static SxxMachine.Success.*;
+import static SxxMachine.pterm.TermData.*;
+import SxxMachine.*;
+import SxxMachine.pterm.*;
+import SxxMachine.bootpreds.*;
+import SxxMachine.bootpreds.PRED_$begin_exception_1;
+import SxxMachine.bootpreds.PRED_$begin_sync_2;
+import SxxMachine.bootpreds.PRED_$builtin_member_2;
+import SxxMachine.FILE_builtins.*;
+import SxxMachine.sxxtensions.*;
 
 @SuppressWarnings("unused")
 public class FILE_boyer extends FILE_system {
     /** PREDICATE: go/0
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(go/0,public)
     final static Functor ATOM_runtime = SYM("runtime");
@@ -40,7 +66,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: top/0
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(top/0,public)
 
@@ -62,7 +88,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: wff/1
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(wff/1,public)
     final static Functor FUNCTOR_implies_2 = F("implies", 2);
@@ -191,7 +217,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: tautology/1
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(tautology/1,public)
 
@@ -211,39 +237,39 @@ public class FILE_boyer extends FILE_system {
                 Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a2, Prolog.Nil, Prolog.Nil), cont));
     }
 
-    /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/6
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/6
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/6,public)
+    // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/6,public)
 
     // private final Term arg5, arg6;
 
-    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec(
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry6(null, FILE_boyer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_1);
-        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_1(m);
+        m.jtry6(null, FILE_boyer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_1(
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1(
             Prolog m) {
-        m.retry(null, FILE_boyer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_2);
-        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_2(m);
+        m.retry(null, FILE_boyer::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_2);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_2(
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_2(
             Prolog m) {
         m.trust(null);
-        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_3(m);
+        return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_3(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_1(
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(
             Prolog m) {
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-truep(A,B),!,true
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-truep(A,B),!,true
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
@@ -254,7 +280,7 @@ public class FILE_boyer extends FILE_system {
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),truep(A,B),'$cut'(G)]
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),truep(A,B),'$cut'(G)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (!a7.unifyInt(m.B0, m.trail)) {
@@ -266,9 +292,9 @@ public class FILE_boyer extends FILE_system {
                 Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_2(
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_2(
             Prolog m) {
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,C)
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,C)
         Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -278,14 +304,14 @@ public class FILE_boyer extends FILE_system {
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,C)]
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,C)]
         return //
-        Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_static_exec, VA(a1, a3), cont);
+        Op("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_static_exec, VA(a1, a3), cont);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_3(
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_3(
             Prolog m) {
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F)
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F)
         Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -295,43 +321,43 @@ public class FILE_boyer extends FILE_system {
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F)]
+        // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F)]
         return //
-        Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
+        Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, a4, a5, a6), cont);
     }
 
-    /** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/2
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/2,public)
+    // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/2,public)
 
-    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_static_exec(
+    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry2(null, FILE_boyer::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_sub_1);
-        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_1(m);
+        m.jtry2(null, FILE_boyer::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_sub_1);
+        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_sub_1(
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_sub_1(
             Prolog m) {
         m.trust(null);
-        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_2(m);
+        return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_1(
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_1(
             Prolog m) {
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B):-falsep(A,B),!,fail
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-falsep(A,B),!,fail
         Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B):-['$get_level'(C),falsep(A,B),'$cut'(C),fail]
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-['$get_level'(C),falsep(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (!a3.unifyInt(m.B0, m.trail)) {
@@ -343,53 +369,53 @@ public class FILE_boyer extends FILE_system {
                 Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a3), fail_0));
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_2(
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_2(
             Prolog m) {
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B):-fail
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-fail
         Term a1, a2;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B):-[fail]
+        // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-[fail]
         //START inline expansion of fail
         return m.fail();
         //END inline expansion
     }
 
-    /** PREDICATE: $dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/5
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/5
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/5,public)
+    // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/5,public)
 
     // private final Term arg5;
 
-    public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_static_exec(
+    public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry5(null, FILE_boyer::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_sub_1);
-        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_1(m);
+        m.jtry5(null, FILE_boyer::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_sub_1);
+        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_1(m);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_sub_1(
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_sub_1(
             Prolog m) {
-        m.retry(null, FILE_boyer::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_sub_2);
-        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_2(m);
+        m.retry(null, FILE_boyer::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_sub_2);
+        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_2(m);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_sub_2(
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_sub_2(
             Prolog m) {
         m.trust(null);
-        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_3(m);
+        return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_3(m);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_1(
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_1(
             Prolog m) {
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-truep(C,A),!,tautology(D,A,B)
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-truep(C,A),!,tautology(D,A,B)
         Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
@@ -399,7 +425,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-['$get_level'(F),truep(C,A),'$cut'(F),tautology(D,A,B)]
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$get_level'(F),truep(C,A),'$cut'(F),tautology(D,A,B)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
         if (!a6.unifyInt(m.B0, m.trail)) {
@@ -412,9 +438,9 @@ public class FILE_boyer extends FILE_system {
                         Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_2(
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_2(
             Prolog m) {
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,E)
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E)
         Term a1, a2, a3, a4, a5;
         Operation cont;
         a1 = m.AREGS[0];
@@ -423,14 +449,14 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,E)]
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E)]
         return //
-        Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_static_exec, VA(a1, a2, a3, a5), cont);
+        Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_static_exec, VA(a1, a2, a3, a5), cont);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_3(
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_3(
             Prolog m) {
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-tautology(D,[C|A],B),tautology(E,A,[C|B])
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-tautology(D,[C|A],B),tautology(E,A,[C|B])
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
@@ -440,7 +466,7 @@ public class FILE_boyer extends FILE_system {
         a4 = m.AREGS[3];
         a5 = m.AREGS[4];
         cont = m.cont;
-        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E):-[tautology(D,[C|A],B),tautology(E,A,[C|B])]
+        // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-[tautology(D,[C|A],B),tautology(E,A,[C|B])]
         a6 = CONS(a3, a1);
         a7 = CONS(a3, a2);
         return //
@@ -448,31 +474,31 @@ public class FILE_boyer extends FILE_system {
                 Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a5, a1, a7), cont));
     }
 
-    /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/4
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/4
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/4,public)
+    // main('$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/4,public)
 
-    public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_static_exec(
+    public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry4(null, FILE_boyer::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_sub_1);
-        return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_1(m);
+        m.jtry4(null, FILE_boyer::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_sub_1);
+        return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_1(m);
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_sub_1(
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_sub_1(
             Prolog m) {
         m.trust(null);
-        return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_2(m);
+        return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_2(m);
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_1(
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_1(
             Prolog m) {
-        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D):-falsep(C,B),!,tautology(D,A,B)
+        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-falsep(C,B),!,tautology(D,A,B)
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
@@ -481,7 +507,7 @@ public class FILE_boyer extends FILE_system {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         cont = m.cont;
-        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D):-['$get_level'(E),falsep(C,B),'$cut'(E),tautology(D,A,B)]
+        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-['$get_level'(E),falsep(C,B),'$cut'(E),tautology(D,A,B)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
         if (!a5.unifyInt(m.B0, m.trail)) {
@@ -494,9 +520,9 @@ public class FILE_boyer extends FILE_system {
                         Op("tautology", FILE_boyer::PRED_tautology_3_static_exec, VA(a4, a1, a2), cont)));
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_2(
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_2(
             Prolog m) {
-        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D):-fail
+        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-fail
         Term a1, a2, a3, a4;
         Operation cont;
         a1 = m.AREGS[0];
@@ -504,40 +530,40 @@ public class FILE_boyer extends FILE_system {
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
         cont = m.cont;
-        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D):-[fail]
+        // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-[fail]
         //START inline expansion of fail
         return m.fail();
         //END inline expansion
     }
 
-    /** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/6
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/6
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/6,public)
+    // main('$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/6,public)
     final static Functor FUNCTOR_if_3 = F("if", 3);
 
     // private final Term arg5, arg6;
 
-    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec(
+    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry6(null, FILE_boyer::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_1);
-        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_1(m);
+        m.jtry6(null, FILE_boyer::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1);
+        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_sub_1(
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_sub_1(
             Prolog m) {
         m.trust(null);
-        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_2(m);
+        return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_2(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_1(
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_1(
             Prolog m) {
-        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-A=if(D,E,F),!,'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(B,C,D,E,F)
+        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-A=if(D,E,F),!,'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,C,D,E,F)
         Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
         a1 = m.AREGS[0];
@@ -547,7 +573,7 @@ public class FILE_boyer extends FILE_system {
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),'$unify'(A,if(D,E,F)),'$cut'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(B,C,D,E,F)]
+        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),'$unify'(A,if(D,E,F)),'$cut'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,C,D,E,F)]
         a7 = m.mkvar1();
         //START inline expansion of $get_level(a(7))
         if (!a7.unifyInt(m.B0, m.trail)) {
@@ -567,12 +593,12 @@ public class FILE_boyer extends FILE_system {
         m.cut(a7.intValue());
         //END inline expansion
         return //
-        Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_static_exec, VA(a2, a3, a4, a5, a6), cont);
+        Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_static_exec, VA(a2, a3, a4, a5, a6), cont);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_2(
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_2(
             Prolog m) {
-        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-fail
+        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-fail
         Term a1, a2, a3, a4, a5, a6;
         Operation cont;
         a1 = m.AREGS[0];
@@ -582,14 +608,14 @@ public class FILE_boyer extends FILE_system {
         a5 = m.AREGS[4];
         a6 = m.AREGS[5];
         cont = m.cont;
-        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F):-[fail]
+        // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
         return m.fail();
         //END inline expansion
     }
 
     /** PREDICATE: tautology/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(tautology/3,public)
 
@@ -597,14 +623,14 @@ public class FILE_boyer extends FILE_system {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
-        // tautology(A,B,C):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,D,E,F),!
+        // tautology(A,B,C):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F),!
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
         a1 = LARG[0];
         a2 = LARG[1];
         a3 = LARG[2];
-        // tautology(A,B,C):-['$get_level'(D),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C,E,F,G),'$cut'(D)]
+        // tautology(A,B,C):-['$get_level'(D),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E,F,G),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
         if (!a4.unifyInt(m.B0, m.trail)) {
@@ -612,13 +638,13 @@ public class FILE_boyer extends FILE_system {
         }
         //END inline expansion
         return //
-        Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, m
+        Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec, VA(a1, a2, a3, m
                 .DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), //
                 Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a4), cont));
     }
 
     /** PREDICATE: rewrite/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(rewrite/2,public)
 
@@ -667,14 +693,14 @@ public class FILE_boyer extends FILE_system {
     }
 
     private final static Operation rewrite_2_2(Prolog m) {
-        // rewrite(A,B):-functor(A,C,D),functor(E,C,D),rewrite_args(D,A,E),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(B,E,F),!
+        // rewrite(A,B):-functor(A,C,D),functor(E,C,D),rewrite_args(D,A,E),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,E,F),!
         Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         cont = m.cont;
-        // rewrite(A,B):-['$get_level'(C),functor(A,D,E),functor(F,D,E),rewrite_args(E,A,F),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(B,F,G),'$cut'(C)]
+        // rewrite(A,B):-['$get_level'(C),functor(A,D,E),functor(F,D,E),rewrite_args(E,A,F),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,F,G),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (!a3.unifyInt(m.B0, m.trail)) {
@@ -688,36 +714,36 @@ public class FILE_boyer extends FILE_system {
         Op("functor", FILE_boyer::PRED_functor_3_static_exec, VA(a1, a4, a5), //
                 Op("functor", FILE_boyer::PRED_functor_3_static_exec, VA(a6, a4, a5), //
                         Op("rewrite_args", FILE_boyer::PRED_rewrite_args_3_static_exec, VA(a5, a1, a6), //
-                                Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_static_exec, VA(a2, a6, m
+                                Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_static_exec, VA(a2, a6, m
                                         .DONT_CARE2()), //
                                         Op("$cut", FILE_boyer::PRED_$cut_1_static_exec, VA(a3), cont)))));
     }
 
-    /** PREDICATE: $dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    /** PREDICATE: $dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl/3
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
-    // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'/3,public)
+    // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'/3,public)
 
-    public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_static_exec(
+    public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_static_exec(
             Prolog m) {
         Operation cont = m.cont;
         Term[] LARG = m.AREGS;
         Operation thiz = m.pred;
         m.cont = cont;
         m.setB0();
-        m.jtry3(null, FILE_boyer::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_sub_1);
-        return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_1(m);
+        m.jtry3(null, FILE_boyer::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_sub_1);
+        return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_sub_1(
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_sub_1(
             Prolog m) {
         m.trust(null);
-        return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_2(m);
+        return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_1(
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_1(
             Prolog m) {
-        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C):-equal(B,C),rewrite(C,A)
+        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-equal(B,C),rewrite(C,A)
         Term a1, a2, a3;
         Operation p1;
         Operation cont;
@@ -725,22 +751,22 @@ public class FILE_boyer extends FILE_system {
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C):-[equal(B,C),rewrite(C,A)]
+        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-[equal(B,C),rewrite(C,A)]
         return //
         Op("equal", FILE_boyer::PRED_equal_2_static_exec, VA(a2, a3), //
                 Op("rewrite", FILE_boyer::PRED_rewrite_2_static_exec, VA(a3, a1), cont));
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_2(
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_2(
             Prolog m) {
-        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C):-A=B
+        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-A=B
         Term a1, a2, a3;
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         cont = m.cont;
-        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl'(A,B,C):-['$unify'(A,B)]
+        // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-['$unify'(A,B)]
         //START inline expansion of $unify(a(1),a(2))
         if (!a1.unify(a2, m.trail)) {
             return m.fail();
@@ -750,7 +776,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: rewrite_args/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(rewrite_args/3,public)
     final static Functor FUNCTOR_$002D_2 = F("-", 2);
@@ -816,7 +842,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: truep/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(truep/2,public)
     final static Functor ATOM_t = SYM("t");
@@ -869,7 +895,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: falsep/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(falsep/2,public)
     final static Functor ATOM_f = SYM("f");
@@ -922,7 +948,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: boyer_member/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(boyer_member/2,public)
 
@@ -992,7 +1018,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: equal/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(equal/2,public)
     final static Functor FUNCTOR_assignment_2 = F("assignment", 2);
@@ -3017,7 +3043,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: boyer_difference/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(boyer_difference/3,public)
 
@@ -3262,7 +3288,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: eq/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(eq/3,public)
     final static Functor FUNCTOR_and_1 = F("and", 1);
@@ -4087,7 +4113,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: exp/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(exp/3,public)
 
@@ -4169,7 +4195,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: gcd/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(gcd/3,public)
 
@@ -4244,7 +4270,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: mylength/2
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(mylength/2,public)
 
@@ -4338,7 +4364,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: lessp/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(lessp/3,public)
 
@@ -4672,7 +4698,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: meaning/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(meaning/3,public)
     final static Functor FUNCTOR_plus_tree_1 = F("plus_tree", 1);
@@ -4849,7 +4875,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: myboyer_member/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(myboyer_member/3,public)
     final static Functor FUNCTOR_intersect_2 = F("intersect", 2);
@@ -4966,7 +4992,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: nth/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(nth/3,public)
 
@@ -5086,7 +5112,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: myplus/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(myplus/3,public)
 
@@ -5220,7 +5246,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: power_eval/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(power_eval/3,public)
     final static Functor FUNCTOR_big_plus1_3 = F("big_plus1", 3);
@@ -5396,7 +5422,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: quotient/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(quotient/3,public)
 
@@ -5488,7 +5514,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: remainder/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(remainder/3,public)
 
@@ -5615,7 +5641,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: reverse_loop/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(reverse_loop/3,public)
 
@@ -5677,7 +5703,7 @@ public class FILE_boyer extends FILE_system {
     }
 
     /** PREDICATE: times/3
-    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl
+    from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
     */
     // main(times/3,public)
 
@@ -5876,19 +5902,19 @@ public class FILE_boyer extends FILE_system {
         PredTable.registerBuiltin("wff", 1, FILE_boyer::PRED_wff_1_static_exec);
         PredTable.registerBuiltin("tautology", 1, FILE_boyer::PRED_tautology_1_static_exec);
         PredTable
-                .registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 6, FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec);
+                .registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 6, FILE_boyer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec);
         PredTable
-                .registerBuiltin("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 2, FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_2_static_exec);
+                .registerBuiltin("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 2, FILE_boyer::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_2_static_exec);
         PredTable
-                .registerBuiltin("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 5, FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_5_static_exec);
+                .registerBuiltin("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 5, FILE_boyer::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_5_static_exec);
         PredTable
-                .registerBuiltin("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 4, FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_4_static_exec);
+                .registerBuiltin("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 4, FILE_boyer::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_4_static_exec);
         PredTable
-                .registerBuiltin("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 6, FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_6_static_exec);
+                .registerBuiltin("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 6, FILE_boyer::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_6_static_exec);
         PredTable.registerBuiltin("tautology", 3, FILE_boyer::PRED_tautology_3_static_exec);
         PredTable.registerBuiltin("rewrite", 2, FILE_boyer::PRED_rewrite_2_static_exec);
         PredTable
-                .registerBuiltin("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-gen2/bench/boyer.pl", "$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl", 3, FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dgen2$002Fbench$002Fboyer$002Epl_3_static_exec);
+                .registerBuiltin("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl", "$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl", 3, FILE_boyer::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fboyer$002Epl_3_static_exec);
         PredTable.registerBuiltin("rewrite_args", 3, FILE_boyer::PRED_rewrite_args_3_static_exec);
         PredTable.registerBuiltin("truep", 2, FILE_boyer::PRED_truep_2_static_exec);
         PredTable.registerBuiltin("falsep", 2, FILE_boyer::PRED_falsep_2_static_exec);

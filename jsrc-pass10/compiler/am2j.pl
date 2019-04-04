@@ -722,7 +722,7 @@ write_java0(switch_on_term(Lv,Li,Lf,Lc,Ls,Ll), _) :- !,
     write_if_method_call('x .isVar()', Lv),
     write_if_method_call('x .isCons()', Ll),
     write_if_method_call('x .isStructure()', Ls),
-    write_if_method_call('x .isAtom()', Lc),
+    write_if_method_call('x .isAtomString()', Lc),
     write_if_method_call('x .isInteger()', Li),
     write_if_method_call('x .isConst()', Lf),   
     tab(12),
@@ -1063,7 +1063,8 @@ write_inline0('$unify'(X,Y), _)         :- !, write_if_fail(op('!', unify(X,Y)),
 write_inline0('$not_unifiable'(X,Y), _) :- !,must( write_if_fail(unify(X,Y), [], 8)).
 % Type testing
 write_inline0(var(X), _)     :- !, write_if_fail(op('!', instanceof(X, 'VariableTerm')), [X], 8).
-write_inline0(atom(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'AtomTerm')), [X], 8).
+write_inline0(atom(X), _)    :- !, !, write_if_fail(op('!', @('isAtomSymbol'(X))), [X], 8).
+% write_if_fail(op('!', instanceof(X, 'AtomTerm')), [X], 8).
 write_inline0(integer(X), _) :- !, write_if_fail(op('!', instanceof(X, 'IntegerTerm')), [X], 8).
 write_inline0(long(X), _)    :- !, write_if_fail(op('!', instanceof(X, 'LongTerm')), [X], 8).
 write_inline0(float(X), _)   :- !, write_if_fail(op('!', instanceof(X, 'DoubleTerm')), [X], 8).
@@ -1092,7 +1093,8 @@ write_inline0(atomic(X), _) :- !,
 
 write_inline0(java(X,Y), _) :- !,       
 	write_if_fail(op('!', instanceof(X, 'JavaObjectTerm')), [X], 8),
-	EXP = '#'('SYM'(@(getName(@(getClass(@(object(cast('JavaObjectTerm',X))))))))),
+	% EXP = '#'('SYM'(@(getName((@(getIntendedClass(X))))))),
+	EXP = '#'('SYM'(@(getName((@(getIntendedClass(X))))))),
 	write_if_fail(op('!', unify(Y,EXP)), [], 8).
 write_inline0(jinstanceof(X,Y), In) :- !, write_inline0(java(X,Y), In).
 write_inline0(ground(X), _) :- !, write_if_fail(op('!', @('isGround'(X))), [X], 8).
@@ -1300,6 +1302,12 @@ write_inline_exp(unify(X,Y), Tab) :- !,
 	w('.unify('),
 	write_inline_exp(Y, 0),
 	w(', m.trail)').
+write_inline_exp('#'(X), Tab) :- fail, X = 'SYM'(_),!,
+	X =.. [F|As],
+	tab(Tab),
+	w(F), w(''),
+	write_inline_exp(As, 0),
+	w('').
 write_inline_exp('#'(X), Tab) :- !,
 	X =.. [F|As],
 	tab(Tab),

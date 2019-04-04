@@ -169,7 +169,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
 
     @Override
-    public String toUnquoted() {
+    public String toUnquotedNumVars() {
         return getJavaString();
     }
 

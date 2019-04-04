@@ -8,4 +8,9 @@ public interface Var extends Term, Undoable {
 
     abstract public boolean unbound();
 
+    /**
+     * @return
+     */
+    public abstract String variableName();
+
 }

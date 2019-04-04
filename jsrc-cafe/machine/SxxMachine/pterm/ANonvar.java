@@ -19,6 +19,7 @@ import SxxMachine.Trail;
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
 
+
     /* (non-Javadoc)
      * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)
      */
@@ -50,7 +51,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     public Term getHead() {
         return car().dref();
     }
-    
+
     /* (non-Javadoc)
      * @see SxxMachine.Nonvar#getTail()
      */
@@ -58,7 +59,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
     public Term getTail() {
         return cdr().dref();
     }
-    
+
     @Override
     final public Term getDrefArg(int i) {
         return getPlainArg(i).dref();

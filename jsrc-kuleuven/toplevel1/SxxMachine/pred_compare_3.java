@@ -38,10 +38,10 @@ public class pred_compare_3 extends Code {
             return 1;
         }
 
-        if (t .isAtomOrObject()) {
+        if (t.isAtomOrObject()) {
             if (s instanceof NumberTerm)
                 return 1;
-            if (!(s .isAtomOrObject()))
+            if (!(s.isAtomOrObject()))
                 return -1;
             final Const ct = (Const) t;
             final Const cs = (Const) s;
@@ -63,10 +63,10 @@ public class pred_compare_3 extends Code {
             return s1.compareTo(s2);
         }
 
-        if (t .isCompound()) {
+        if (t.isCompound()) {
             if (s.isVariable())
                 return -1;
-            if (!(s .isCompound()))
+            if (!(s.isCompound()))
                 return 1;
             final AFunct f1 = (AFunct) t;
             final AFunct f2 = (AFunct) s;

@@ -36,7 +36,7 @@ public class DataBase extends BlackBoard {
         if (found == null)
             found = no;
         else
-            found = S("the", found.copy());
+            found = S("the", found.duplicateTerm());
         return found;
     }
 
@@ -44,7 +44,7 @@ public class DataBase extends BlackBoard {
      * Adds a Term to the blackboard
      */
     public Term out(String k, Term pattern, boolean copying) {
-        add(k, copying ? pattern.copy() : pattern);
+        add(k, copying ? pattern.duplicateTerm() : pattern);
         return yes;
     }
 

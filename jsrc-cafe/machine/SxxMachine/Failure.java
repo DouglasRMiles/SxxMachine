@@ -16,14 +16,15 @@ public class Failure extends Predicate.P0 implements Operation {
     @Override
     public Operation exec(Prolog engine) {
         engine.control.fail();
-        engine.halt = 1; // halt(0)
+        engine.halt = -1; // halt(0)
         return null;
+        //return engine.fail();
     }
 
     /** Returns a string representation of this <code>Failure</code>. */
     @Override
     public String toString() {
-        return "Failure";
+        return "EXIT (TOP)";
     }
 
     public static final Operation fail_0 = new PRED_fail_0();

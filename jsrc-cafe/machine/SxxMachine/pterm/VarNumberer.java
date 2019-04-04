@@ -29,7 +29,7 @@ public class VarNumberer extends SystemObject {
             SymbolTerm root = (SymbolTerm) dict.get(place);
             if (null == root) {
                 root = new PseudoVar(ctr++);
-                root.name = root.name + place.getJavaString();
+                root.name = root.name + place.asVariableTerm().variableName();
                 dict.put(place, root);
             }
             place = root;
