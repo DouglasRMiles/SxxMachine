@@ -2,5 +2,5 @@ package SxxMachine;
 
 import SxxMachine.pterm.TermData;
 
-abstract public class JpFactory extends TermData {
+abstract public class JpFactory {
 }

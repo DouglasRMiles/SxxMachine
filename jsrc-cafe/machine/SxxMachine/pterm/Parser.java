@@ -393,7 +393,7 @@ public class Parser extends LexerHIDE {
     /*
      * used in prolog2java
      */
-    private Parser(String p, String s) throws IOException {
+    Parser(String p, String s) throws IOException {
         super(p, s);
     }
 
@@ -465,7 +465,7 @@ public class Parser extends LexerHIDE {
     private HornClause readClauseOrEOF() throws IOException {
         if (true)
             return readClauseOrEOFOLD();
-        
+
         Reader reader = new PushbackReader(this.input);
 
         if (PrologMain.p == null)

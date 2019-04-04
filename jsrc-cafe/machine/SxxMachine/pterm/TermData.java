@@ -18,422 +18,249 @@ import SxxMachine.Term;
 
 abstract public class TermData {
 
-    public static Compound S(String string, Term... s3) {
-        return (Compound) new StructureTerm(string,  s3);
+    static public TermDataImpl factory = new TermDataImpl() {
+    };
+
+    static public Term AND(Term a1, Term a2) {
+        return factory.AND(a1, a2);
     }
 
-//    public static Compound S(Functor string, Term s1, Term... s3) {
-//        return (Compound) StructureTerm.createStructureTerm(string.fname(), s1, s3);
-//    }
-    //    public static Compound S(String string) {
-    //        return new StructureTerm(string);
-    //    }
-    //
-    //    public static Compound S(SxxMachine.Functor f, Term... s3) {
-    //        return new StructureTerm(f, s3);
-    //    }
-
-    public static Compound S(SxxMachine.Functor f, Term... s3) {
-        return new StructureTerm(f, s3);
+    static public CharReader asCharReader(Term i) {
+        return factory.asCharReader(i);
     }
 
-//    public static Compound S(String f, Term[] s3) {
-//        return new StructureTerm(f, s3);
-//    }
-    //
-    //    public static Term C(String string, Term... s3) {
-    //        return new StructureTerm(string, s3);
-    //    }
+    static public Compound asConj(Term i) {
+        return factory.asConj(i);
+    }
 
-    //    public static Term C(SxxMachine.Functor f, Term... s3) {
-    //        return new StructureTerm(f, s3);
-    //    }
-    //
-    // private static ListTerm Cons(Term _car, Term _cdr) {
-    // return CONS( _car, _cdr);
-    // //return new StructureTerm(ListTerm.SYM_DOT, _car, _cdr);
-    // }
+    static public Compound asCons(Term i) {
+        return factory.asCons(i);
+    }
 
-    public static Compound CONS(Term _car, Term _cdr) {
-        // if(false) return Cons(_car, _cdr);
-        return S(Prolog.FUNCTOR_LIST_2, _car, _cdr);
+    static public Nonvar asConst(Term i) {
+        // TODO Auto-generated method stub
+        return factory.asConst(i);
+    }
+
+    static public ErrorTerm asErrorTerm(Term a2) {
+        return factory.asErrorTerm(a2);
+    }
+
+    static public HashtableOfTerm asHashtableOfTerm(Object hash) {
+        return factory.asHashtableOfTerm(hash);
+    }
+
+    static public NumberTerm asInt(Term i) {
+        return factory.asInt(i);
+    }
+
+    static public NumberTerm asNum(Term i) {
+        return factory.asNum(i);
+    }
+
+    static public Compound asStruct(Term i) {
+        return factory.asStruct(i);
     }
 
     /** Returns a Prolog atom for the given name. */
-    public static SxxMachine.Functor SYM(String _name) {
-        return SymbolTerm.intern(_name.intern(), 0);
+    static public Term BLOB(String _type, String _name) {
+        return factory.BLOB(_type, _name);
+    }
+
+    /** Returns a Prolog atom for the given character. */
+    static public Term CHAR(char c) {
+        return factory.CHAR(c);
+    }
+
+    /**
+     * Converts a list of character codes to a String.
+     */
+    static public String charsToString(Term Cs) {
+        return factory.charsToString(Cs);
+    }
+
+    static public Term Closure(Operation _op) {
+        return factory.Closure(_op);
+    }
+
+    static public Compound CONS(Term _car, Term _cdr) {
+        return factory.CONS(_car, _cdr);
+    }
+
+    static public JavaObjectTerm CONST(Class o) {
+        return factory.CONST(o);
+    }
+
+    static public Const CONST(Object o) {
+        return factory.CONST(o);
+    }
+
+    static public Const CONST(String o) {
+        return factory.CONST(o);
+    }
+
+    /** Returns a Prolog atom for the given name. */
+    static public Term createAtomic(String _name) {
+        return factory.createAtomic(_name);
+    }
+
+    static public ErrorTerm createErrorTerm(Throwable error, Term _functor, Term... _args) {
+        return factory.createErrorTerm(error, _functor, _args);
+    }
+
+    /** Returns a Prolog atom for the given name. */
+    static public SxxMachine.Functor createF(String _name, int arity) {
+        return factory.createF(_name, arity);
+    }
+
+    static public JavaObjectTerm createJavaObjectTerm(Object _obj, Class c) {
+        return factory.createJavaObjectTerm(_obj, c);
+    }
+
+    static public Term createStructureTerm(String name, int arity) {
+        return factory.createStructureTerm(name, arity);
+    }
+
+    static public Term DoubleQuotes(String s) {
+        return factory.DoubleQuotes(s);
     }
 
     /** Returns a Prolog functor for the given name and arity. */
-    public static SxxMachine.Functor F(String s, int i) {
-        return SymbolTerm.intern(s, i);
+    static public SxxMachine.Functor F(String s, int i) {
+        return factory.F(s, i);
     }
 
-    public static VariableTerm V(Prolog engine) {
-        return new VariableTerm(engine);
+    static public JavaObjectTerm FFIObject(Object _obj) {
+        return factory.FFIObject(_obj);
     }
 
-    public static VariableTerm V() {
-        return new VariableTerm(Prolog.M);
+    static public DoubleTerm Float(double i) {
+        return factory.Float(i);
     }
 
-    public static Predicate Op(Operation object, Term[] LARG, Operation cont) {
-        return new StaticPred(null, object, LARG, cont);
+    static public Term Float(String string) {
+        return Float(Double.parseDouble(string));
     }
 
-    public static Predicate Op(String str, Operation object, Term[] LARG, Operation cont) {
-        return new StaticPred(str, object, LARG, cont);
-    }
-    //
-    //    public static Predicate Op(Operation object, Term a1, Term a2, Operation cont) {
-    //        return new StaticPred(null, object, VA(a1, a2), cont);
-    //    }
-    //
-    //    public static Predicate Op(Operation object, Term a1, Term a2, Term a3, Operation cont) {
-    //        return new StaticPred(null, object, VA(a1, a2, a3), cont);
-    //    }
-    //
-    //    public static Predicate Op(Operation object, Term a1, Operation cont) {
-    //        return new StaticPred(null, object, VA(a1), cont);
-    //    }
-
-    public static LongTerm Long(String s) {
-        return new LongTerm(new BigInteger(s));
+    static public void gc() {
+        factory.gc();
     }
 
-    public static LongTerm Long(long t) {
-        int i = (int) t;
-        if ((i) == t) {
-            return Integer(i);
-        }
-        return new LongTerm(t);
+    /** Checks whether a given object is an instance of Prolog term. */
+    static public boolean instanceOfTerm(Object obj0) {
+        return factory.instanceOfTerm(obj0);
     }
 
-    public static Term Long(char t) {
-        return CHAR(t);
+    static public IntegerTerm Integer(int i) {
+        return factory.Integer(i);
     }
 
-    final static int POS_INT_CACHE = 1024;
-    final static int NEG_INT_CACHE = 1024;
-    static IntegerTerm[] posInts = new IntegerTerm[POS_INT_CACHE];
-    static IntegerTerm[] negInts = new IntegerTerm[NEG_INT_CACHE];
-
-    public static IntegerTerm Integer(int i) {
-        if (i < POS_INT_CACHE) {
-            if (i < 0) {
-                if (i >= -NEG_INT_CACHE) {
-                    int idx = -i;
-                    if (negInts != null) {
-                        synchronized (negInts) {
-                            IntegerTerm ret = negInts[idx];
-                            if (ret == null) {
-                                negInts[idx] = ret = new IntegerTerm(i);
-                            }
-                            return ret;
-                        }
-                    }
-                }
-            } else {
-                if (posInts != null) {
-                    synchronized (posInts) {
-                        IntegerTerm ret = posInts[i];
-                        if (ret == null) {
-                            posInts[i] = ret = new IntegerTerm(i);
-                        }
-                        return ret;
-                    }
-                }
-            }
-        }
-        return new IntegerTerm(i);
+    static public NumberTerm Integer(long i) {
+        return factory.Long(i);
     }
 
-    static public Term[] VA(Term... array) {
-        return array;
+    static public String internS(String string) {
+        return factory.internS(string);
     }
 
-    public static Term Closure(Operation _op) {
-        return new ClosureTerm((Predicate) _op);
+    static public SxxMachine.Functor internToken(String _name) {
+        return factory.internToken(_name);
     }
 
-    public static JavaObjectTerm FFIObject(Object _obj) {
-        return createJavaObjectTerm(_obj, null);
+    static public boolean isQuoted(int printingFlags) {
+        return factory.isQuoted(printingFlags);
     }
 
-    public static ErrorTerm createErrorTerm(Throwable error, Term _functor, Term... _args) {
-        return new ErrorTerm(error, _functor, _args);
+    static public JpVar Jv(RunningPrologMachine machine) {
+        if (true)
+            return factory.Jv(machine);
+        return machine.mkvar0();
     }
 
-    public static Compound LIST(Term a1, Term... items) {
-        int len = items.length;
-        if (len == 0) {
-            return CONS(a1, Prolog.Nil);
-        }
-        Compound t = CONS(items[len - 1], Prolog.Nil);
-        for (int i = len - 2; i >= 0; i--) {
-            t = CONS(items[i], t);
-        }
-        return t;
+    static public Compound LIST(Term a1, Term... items) {
+        return factory.LIST(a1, items);
     }
 
-    public static boolean isQuoted(int printingFlags) {
-        return (printingFlags & 1) != 0;
+    static public Term Long(char t) {
+        return factory.Long(t);
     }
 
-    public static Term AND(Term a1, Term a2) {
-        return StructureTerm.createCons(Prolog.FUNCTOR_CONJ_2.fname(), a1, a2);
+    static public LongTerm Long(long t) {
+        return factory.Long(t);
+    }
+
+    static public LongTerm Long(String s) {
+        return factory.Long(s);
     }
 
     /**
      * @param r
      * @return
      */
-    public static NumberTerm NarrowDouble(double r) {
-        NumberTerm T;
-        if (Math.floor(r) == r)
-            T = Long((long) r);
-        else
-            T = Float(r);
-        return T;
+    static public NumberTerm NarrowDouble(double r) {
+        return factory.NarrowDouble(r);
     }
 
-    public static HashtableOfTerm asHashtableOfTerm(Object hash) {
-        // TODO Auto-generated method stub
-        return (HashtableOfTerm) hash;
+    static public DoubleTerm Number(double n) {
+        return factory.Number(n);
     }
 
-    public static ErrorTerm asErrorTerm(Term a2) {
-        // TODO Auto-generated method stub
-        return (ErrorTerm) a2;
+    static public IntegerTerm Number(int n) {
+        return factory.Number(n);
     }
 
-    public static DoubleTerm Float(double i) {
-        return new DoubleTerm(i);
+    static public LongTerm Number(long n) {
+        return factory.Number(n);
     }
 
-    public static IntegerTerm Number(int n) {
-        return Integer(n);
+    static public Predicate Op(Operation object, Term[] LARG, Operation cont) {
+        return factory.Op(object, LARG, cont);
     }
 
-    public static LongTerm Number(long n) {
-        return Long(n);
+    static public Predicate Op(String str, Operation object, Term[] LARG, Operation cont) {
+        return factory.Op(str, object, LARG, cont);
     }
 
-    public static DoubleTerm Number(double n) {
-        return Float(n);
+    static public StructureTerm S(String naam, int arity) {
+        return factory.S(naam, arity);
     }
 
-    public static JavaObjectTerm createJavaObjectTerm(Object _obj, Class c) {
-        return new JavaObjectTerm(_obj, c);
+    static public Compound S(String f, Term... s3) {
+        return factory.S(f, s3);
     }
 
-    /** Checks whether a given object is an instance of Prolog term. */
-    public static boolean instanceOfTerm(Object obj0) {
-        if (!(obj0 instanceof Term))
-            return false;
-        Term obj = (Term) obj0;
-        return obj.isVar() || obj.isInteger() || obj.isLong() || obj.isDouble() || obj.isAtomSymbol() || obj.isCons()
-                || obj.isCompound() || obj.isJavaObject() || obj.isClosure();
+    static public Compound S(String naam, Term arg0, Term arg1) {
+        return factory.S(naam, arg0, arg1);
     }
 
-    /**
-     * Converts a list of character codes to a String.
-     */
-    public static String charsToString(Term Cs) {
-        StringBuffer s = new StringBuffer("");
-
-        while (!(Cs.isNil())) {
-            if (!(Cs.isCons()))
-                return null;
-            Term head = Cs.getDrefArg(0);
-            char c = asChar(head);
-            s.append(c);
-            Cs = Cs.getDrefArg(1);
-        }
-
-        return s.toString();
+    static public Compound S(SxxMachine.Functor f, Term... s3) {
+        return factory.S(f, s3);
     }
 
-    /**
-     * @param s
-     * @return
-     */
-    public static Term DoubleQuotes(String s) {
-        char[] chars = s.toCharArray();
-        Term token = Prolog.Nil;
-        for (int i = chars.length; i > 0; i--) {
-            token = CONS(CHAR(chars[i - 1]), token);
-        }
-        return token;
-    }
-
-    private static char asChar(Term head) {
-        if (head.isNumber())
-            return (char) head.longValue();
-        final String fname = head.getJavaString();
-        return fname.charAt(fname.length() - 1);
-    }
-
-    public static void soopsy() {
+    static public void soopsy() {
         new Exception().printStackTrace();
         Prolog.Break("soopsy!");
     }
 
-    /** Returns a Prolog atom for the given character. */
-    public static Term CHAR(char c) {
-        if (PrologFlags.useDoubleQuotes().contentEquals("codes")) {
-            return Integer(c);
-        }
-        if (0 <= c && c <= 127)
-            return SYM(Character.toString(c));
-        else
-            return SYM(Character.toString(c));
-    }
-
     /** Returns a Prolog atom for the given name. */
-    public static Term createAtomic(String _name) {
-        return SymbolTerm.screateDynamic(_name.intern());
+    static public SxxMachine.Functor SYM(String _name) {
+        return factory.SYM(_name);
     }
 
-    /** Returns a Prolog atom for the given name. */
-    public static Term BLOB(String _type, String _name) {
-        return SymbolTerm.screateDynamic(_name.intern());
+    static public final Nonvar the(Term X) {
+        return factory.the(X);
     }
 
-    /** Returns a Prolog atom for the given name. */
-    public static SxxMachine.Functor createF(String _name, int arity) {
-        return SymbolTerm.screateF(_name, arity);
+    static public VariableTerm V() {
+        return V(Prolog.M);
     }
 
-    public static SxxMachine.Functor internToken(String _name) {
-        SxxMachine.Functor tok = SYM(_name);
-        return tok;
+    static public VariableTerm V(Prolog engine) {
+        return factory.V(engine);
     }
 
-    public static void gc() {
-        SymbolTerm.atom_gc();
+    static public Term[] VA(Term... array) {
+        return factory.VA(array);
     }
 
-    public static NumberTerm asInt(Term i) {
-        // TODO Auto-generated method stub
-        return i.asLongTerm();
-    }
-
-    public static Nonvar asConst(Term i) {
-        // TODO Auto-generated method stub
-        return i.asConst();
-    }
-
-    public static Compound asConj(Term i) {
-        // TODO Auto-generated method stub
-        return (StructureTerm) i.asStructureTerm();
-    }
-
-    public static Compound asCons(Term i) {
-        // TODO Auto-generated method stub
-        return (StructureTerm) i.asListTerm();
-    }
-
-    public static NumberTerm asNum(Term i) {
-        // TODO Auto-generated method stub
-        return i.asNumberTerm();
-    }
-
-    public static Compound asStruct(Term i) {
-        // TODO Auto-generated method stub
-        return (StructureTerm) i.asStructureTerm();
-    }
-
-    public final static Nonvar the(Term X) {
-        return (null == X) ? (Nonvar) Prolog.aNo : S("the", X);
-    }
-
-    public static CharReader asCharReader(Term i) {
-        // TODO Auto-generated method stub
-        return (CharReader) i.toValueTalueTerm();
-    }
-
-    public static Term createStructureTerm(String name, int arity) {
-        // TODO Auto-generated method stub
-        return new StructureTerm(name, arity);
-    }
-
-    public static Const CONST(String o) {
-        return (Const) TermData.SYM(o);
-    }
-
-    public static JavaObjectTerm CONST(Class o) {
-        return FFIObject(o);
-    }
-
-    public static Const CONST(Object o) {
-        if (o instanceof String) {
-            return (Const) SYM((String) o);
-        }
-        return FFIObject(o);
-    }
-//
-//    public static Term S(String naam) {
-//        return SYM(naam);
-//    }
-
-    public static StructureTerm S(String naam, int arity) {
-        return new StructureTerm(naam, arity);
-    }
-
-    public static Compound S(String naam, Term arg0, Term arg1) {
-        return new StructureTerm(naam, arg0, arg1);
-    }
-
-    public static String internS(String string) {
-        return string.intern();
-    }
-
-    public static NumberTerm Integer(long i) {
-        return Long(i);
-    }
-
-    public static JpVar Jv(RunningPrologMachine machine) {
-        return machine.mkvar0();
-    }
-
-    //    public Term dref() {
-    //        final Term asTerm = asTerm();
-    //        assert (asTerm == this);
-    //        assert (isTerm());
-    //        return asTerm;
-    //    }
-    //
-    //    public boolean unify(Term that) {
-    //        final Term asTerm = asTerm();
-    //        return asTerm != this && asTerm.unify(that);
-    //    }
-    //
-    //    public boolean isTerm() {
-    //        return false;
-    //    }
-    //
-    //    public Term asTerm() {
-    //        oopsy("ERROR: asTerm on objects not available");
-    //        return null;
-    //    }
-    //
-    //    public boolean isContinuation() {
-    //        return false;
-    //    }
-    //
-    //    public Continuation asContinuation() {
-    //        oopsy("ERROR: asContinuation on objects not available");
-    //        return null;
-    //    }
-    //
-    //    public boolean isCode() {
-    //        return false;
-    //    }
-    //
-    //    public Code asCode() {
-    //        oopsy("ERROR: asCode on objects not available");
-    //        return null;
-    //    }
-    //
 }

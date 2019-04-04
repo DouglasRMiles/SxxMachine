@@ -1,5 +1,7 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.*;
+
 import java.util.IdentityHashMap;
 import java.util.Map;
 

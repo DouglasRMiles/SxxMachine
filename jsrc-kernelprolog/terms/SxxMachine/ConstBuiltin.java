@@ -3,6 +3,7 @@ package SxxMachine;
 import java.lang.reflect.Method;
 
 import SxxMachine.pterm.TermData;
+import SxxMachine.pterm.TermDataImpl;
 
 /**
  * Template for builtins of arity 0

@@ -25,7 +25,7 @@ import SxxMachine.pterm.TermData;
  * </pre>
  */
 @SuppressWarnings({ "rawtypes", "unused" })
-public abstract class Predicate extends TermData implements Operation {
+public abstract class Predicate extends Object implements Operation {
 
     protected String name = null;// getClass().getName();
     /** Holds the argument terms of this <code>StructureTerm</code>. */

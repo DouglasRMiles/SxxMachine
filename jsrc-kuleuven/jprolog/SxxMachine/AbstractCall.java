@@ -45,7 +45,7 @@ public abstract class AbstractCall extends Code {
             final Term cont = mach.getCont(mach.getAreg(), arity);
             final JpVar v = Jv(mach);
             args[0] = S("operator_goal", S(predName, funcArgs), v);
-            args[1] = S("call", v, cont.dref(), cont.dref());
+            mach.setCont(args, 1, S("call", v, cont.dref(), cont.dref()));
             for (int i = 2; i < arity; i++)
                 args[i] = null;
             return mach.getCall2();

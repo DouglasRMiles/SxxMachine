@@ -40,7 +40,9 @@ import SxxMachine.pterm.HashtableOfTerm;
 import SxxMachine.pterm.JavaObjectTerm;
 import SxxMachine.pterm.ListViewTerm;
 import SxxMachine.pterm.Mutex;
+import static SxxMachine.pterm.TermData.*;
 
+import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends sxxtensions {
 
@@ -4120,10 +4122,6 @@ public class bootpreds extends sxxtensions {
         } else {
             throw new IllegalTypeException(thiz, 1, "number", a1);
         }
-    }
-
-    private static Term Float(String string) {
-        return Float(Double.parseDouble(string));
     }
 
     /**

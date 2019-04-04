@@ -2,7 +2,7 @@ package SxxMachine;
 
 import SxxMachine.pterm.TermData;
 
-public class missing_preds extends TermData {
+public class missing_preds {
 
     /**
      * @throws Error

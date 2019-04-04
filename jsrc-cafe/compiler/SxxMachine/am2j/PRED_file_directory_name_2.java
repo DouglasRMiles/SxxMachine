@@ -1,5 +1,6 @@
 package SxxMachine.am2j;
 
+import static SxxMachine.pterm.TermData.*;
 import java.io.File;
 
 import SxxMachine.Functor;
