@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-qsort
         m.setB0();
     // top:-[qsort]
@@ -134,7 +134,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_qsort_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // qsort:-qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])
         m.setB0();
     // qsort:-[qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])]
@@ -150,8 +150,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_qsort_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_qsort::qsort_3_var, fail_0, fail_0, FILE_qsort::qsort_3_2, fail_0, FILE_qsort::qsort_3_1); 
     }
@@ -174,7 +174,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // qsort([A|B],C,D):-[partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G])]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -204,7 +204,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // qsort([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -221,8 +221,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_partition_4_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return partition_4_top(m);
     }
 
@@ -264,7 +264,7 @@ m.setCont(cont);
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.getCont();
+        cont = m.cont;
     // partition([A|B],C,[A|D],E):-['$get_level'(F),'$less_or_equal'(A,C),'$cut'(F),partition(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -307,7 +307,7 @@ m.setCont(cont);
         m.AREGS[1] = a2;
         m.AREGS[2] = a7;
         m.AREGS[3] = a4;
-m.setCont(cont);
+m.cont = cont;
         return partition_4_top(m);
     }
 
@@ -319,7 +319,7 @@ m.setCont(cont);
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.getCont();
+        cont = m.cont;
     // partition([A|B],C,D,[A|E]):-[partition(B,C,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -347,7 +347,7 @@ m.setCont(cont);
         m.AREGS[1] = a2;
         m.AREGS[2] = a3;
         m.AREGS[3] = a7;
-m.setCont(cont);
+m.cont = cont;
         return partition_4_top(m);
     }
 
@@ -359,7 +359,7 @@ m.setCont(cont);
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
         a4 = m.AREGS[3];
-        cont = m.getCont();
+        cont = m.cont;
     // partition([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();

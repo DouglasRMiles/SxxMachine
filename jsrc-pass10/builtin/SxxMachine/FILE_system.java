@@ -31,7 +31,7 @@ import SxxMachine.sxxtensions.*;
 public class FILE_system extends FILE_swi_supp {
 /** PREDICATE: system_predicate/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/system.pl
-*/ 
+*/
     // main(system_predicate/1,public)
         final static Functor FUNCTOR_system_predicate_1 = F("system_predicate",1);
         final static Functor ATOM_otherwise = SYM("otherwise");
@@ -282,8 +282,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
 
 
     public static Operation PRED_system_predicate_1_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_system::system_predicate_1_var, FILE_system::system_predicate_1_245, FILE_system::system_predicate_1_245, FILE_system::system_predicate_1_con, FILE_system::system_predicate_1_str, FILE_system::system_predicate_1_245); 
     }
@@ -2748,7 +2748,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(system_predicate(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_system_predicate_1 , m.trail, m.DONT_CARE1())){
@@ -2762,7 +2762,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(true):-[]
         if (!  Prolog.True .unify(a1, m.trail))
             return m.fail();
@@ -2774,7 +2774,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(otherwise):-[]
         if (!  ATOM_otherwise .unify(a1, m.trail))
             return m.fail();
@@ -2786,7 +2786,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(fail):-[]
         if (!  ATOM_fail .unify(a1, m.trail))
             return m.fail();
@@ -2798,7 +2798,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(false):-[]
         if (!  ATOM_false .unify(a1, m.trail))
             return m.fail();
@@ -2810,7 +2810,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(!):-[]
         if (!  ATOM_$0021 .unify(a1, m.trail))
             return m.fail();
@@ -2822,7 +2822,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$get_level'(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024get_level_1 , m.trail, m.DONT_CARE1())){
@@ -2836,7 +2836,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$neck_cut'):-[]
         if (!  ATOM_$0024neck_cut .unify(a1, m.trail))
             return m.fail();
@@ -2848,7 +2848,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$cut'(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024cut_1 , m.trail, m.DONT_CARE1())){
@@ -2862,7 +2862,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A^B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$005E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2876,7 +2876,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate((A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$002C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2890,7 +2890,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate((A;B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_or_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2904,7 +2904,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate((A->B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$002D$003E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2918,7 +2918,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(call(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_call_1 , m.trail, m.DONT_CARE1())){
@@ -2932,7 +2932,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(catch(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_catch_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2946,7 +2946,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(throw(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_throw_1 , m.trail, m.DONT_CARE1())){
@@ -2960,7 +2960,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(on_exception(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_on_exception_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -2974,7 +2974,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(raise_exception(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_raise_exception_1 , m.trail, m.DONT_CARE1())){
@@ -2988,7 +2988,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3002,7 +3002,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$unify'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024unify_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3016,7 +3016,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A\=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$005C$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3030,7 +3030,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$not_unifiable'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024not_unifiable_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3044,7 +3044,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(var(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_var_1 , m.trail, m.DONT_CARE1())){
@@ -3058,7 +3058,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atom(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atom_1 , m.trail, m.DONT_CARE1())){
@@ -3072,7 +3072,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(integer(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_integer_1 , m.trail, m.DONT_CARE1())){
@@ -3086,7 +3086,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(long(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_long_1 , m.trail, m.DONT_CARE1())){
@@ -3100,7 +3100,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(float(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_float_1 , m.trail, m.DONT_CARE1())){
@@ -3114,7 +3114,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atomic(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atomic_1 , m.trail, m.DONT_CARE1())){
@@ -3128,7 +3128,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(compound(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_compound_1 , m.trail, m.DONT_CARE1())){
@@ -3142,7 +3142,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nonvar(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_nonvar_1 , m.trail, m.DONT_CARE1())){
@@ -3156,7 +3156,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(number(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_number_1 , m.trail, m.DONT_CARE1())){
@@ -3170,7 +3170,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_1 , m.trail, m.DONT_CARE1())){
@@ -3184,7 +3184,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3198,7 +3198,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(closure(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_closure_1 , m.trail, m.DONT_CARE1())){
@@ -3212,7 +3212,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(ground(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_ground_1 , m.trail, m.DONT_CARE1())){
@@ -3226,7 +3226,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(callable(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_callable_1 , m.trail, m.DONT_CARE1())){
@@ -3240,7 +3240,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A==B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3254,7 +3254,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$equality_of_term'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024equality_of_term_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3268,7 +3268,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A\==B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$005C$003D$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3282,7 +3282,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$inequality_of_term'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024inequality_of_term_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3296,7 +3296,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=@=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$0040$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3310,7 +3310,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$variant'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024variant_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3324,7 +3324,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A\=@=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$005C$003D$0040$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3338,7 +3338,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$not_variant'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024not_variant_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3352,7 +3352,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A@<B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0040$003C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3366,7 +3366,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$before'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024before_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3380,7 +3380,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A@>B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0040$003E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3394,7 +3394,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$after'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024after_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3408,7 +3408,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A@=<B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0040$003D$003C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3422,7 +3422,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$not_after'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024not_after_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3436,7 +3436,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A@>=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0040$003E$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3450,7 +3450,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$not_before'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024not_before_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3464,7 +3464,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(?=(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003F$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3478,7 +3478,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$identical_or_cannot_unify'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024identical_or_cannot_unify_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3492,7 +3492,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(compare(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_compare_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3506,7 +3506,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(sort(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_sort_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3520,7 +3520,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(keysort(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_keysort_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3534,7 +3534,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(arg(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_arg_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3548,7 +3548,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(functor(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_functor_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3562,7 +3562,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=..B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$002E$002E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3576,7 +3576,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$univ'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024univ_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3590,7 +3590,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(copy_term(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_copy_term_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3604,7 +3604,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A is B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_is_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3618,7 +3618,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$abs'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024abs_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3632,7 +3632,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$asin'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024asin_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3646,7 +3646,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$acos'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024acos_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3660,7 +3660,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$atan'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024atan_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3674,7 +3674,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$bitwise_conj'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024bitwise_conj_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3688,7 +3688,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$bitwise_disj'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024bitwise_disj_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3702,7 +3702,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$bitwise_exclusive_or'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024bitwise_exclusive_or_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3716,7 +3716,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$bitwise_neg'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024bitwise_neg_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3730,7 +3730,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$ceil'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024ceil_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3744,7 +3744,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$cos'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024cos_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3758,7 +3758,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$degrees'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024degrees_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3772,7 +3772,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$exp'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024exp_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3786,7 +3786,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$float'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024float_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3800,7 +3800,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$float_integer_part'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024float_integer_part_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3814,7 +3814,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$float_fractional_part'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024float_fractional_part_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3828,7 +3828,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$float_quotient'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024float_quotient_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3842,7 +3842,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$floor'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024floor_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3856,7 +3856,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$int_quotient'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024int_quotient_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3870,7 +3870,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$log'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024log_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3884,7 +3884,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$max'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024max_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3898,7 +3898,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$min'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024min_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3912,7 +3912,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$minus'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024minus_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3926,7 +3926,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$mod'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024mod_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3940,7 +3940,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$multi'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024multi_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3954,7 +3954,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$plus'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024plus_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3968,7 +3968,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$pow'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024pow_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3982,7 +3982,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$radians'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024radians_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -3996,7 +3996,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$rint'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024rint_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4010,7 +4010,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$round'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024round_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4024,7 +4024,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$shift_left'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024shift_left_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4038,7 +4038,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$shift_right'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024shift_right_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4052,7 +4052,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$sign'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024sign_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4066,7 +4066,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$sin'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024sin_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4080,7 +4080,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$sqrt'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024sqrt_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4094,7 +4094,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$tan'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024tan_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4108,7 +4108,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$truncate'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024truncate_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4122,7 +4122,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=:=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$003A$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4136,7 +4136,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$arith_equal'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024arith_equal_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4150,7 +4150,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=\=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$005C$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4164,7 +4164,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$arith_not_equal'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024arith_not_equal_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4178,7 +4178,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A<B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4192,7 +4192,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$less_than'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024less_than_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4206,7 +4206,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A=<B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D$003C_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4220,7 +4220,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$less_or_equal'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024less_or_equal_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4234,7 +4234,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A>B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003E_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4248,7 +4248,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$greater_than'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024greater_than_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4262,7 +4262,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A>=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003E$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4276,7 +4276,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$greater_or_equal'(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024greater_or_equal_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4290,7 +4290,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(clause(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_clause_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4304,7 +4304,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(initialization(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_initialization_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4318,7 +4318,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$new_indexing_hash'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024new_indexing_hash_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4332,7 +4332,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(assert(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_assert_1 , m.trail, m.DONT_CARE1())){
@@ -4346,7 +4346,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(assertz(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_assertz_1 , m.trail, m.DONT_CARE1())){
@@ -4360,7 +4360,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(asserta(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_asserta_1 , m.trail, m.DONT_CARE1())){
@@ -4374,7 +4374,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(retract(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_retract_1 , m.trail, m.DONT_CARE1())){
@@ -4388,7 +4388,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(abolish(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_abolish_1 , m.trail, m.DONT_CARE1())){
@@ -4402,7 +4402,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(retractall(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_retractall_1 , m.trail, m.DONT_CARE1())){
@@ -4416,7 +4416,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(findall(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_findall_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4430,7 +4430,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(bagof(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_bagof_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4444,7 +4444,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(setof(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_setof_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4458,7 +4458,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(current_input(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_current_input_1 , m.trail, m.DONT_CARE1())){
@@ -4472,7 +4472,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(current_output(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_current_output_1 , m.trail, m.DONT_CARE1())){
@@ -4486,7 +4486,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(set_input(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_set_input_1 , m.trail, m.DONT_CARE1())){
@@ -4500,7 +4500,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(set_output(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_set_output_1 , m.trail, m.DONT_CARE1())){
@@ -4514,7 +4514,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(open(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_open_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4528,7 +4528,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(open(A,B,C,D)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_open_4 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4542,7 +4542,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(close(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_close_1 , m.trail, m.DONT_CARE1())){
@@ -4556,7 +4556,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(close(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_close_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4570,7 +4570,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(flush_output(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_flush_output_1 , m.trail, m.DONT_CARE1())){
@@ -4584,7 +4584,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(flush_output):-[]
         if (!  ATOM_flush_output .unify(a1, m.trail))
             return m.fail();
@@ -4596,7 +4596,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(stream_property(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_stream_property_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4610,7 +4610,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_char(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_char_1 , m.trail, m.DONT_CARE1())){
@@ -4624,7 +4624,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_char(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_char_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4638,7 +4638,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_code(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_code_1 , m.trail, m.DONT_CARE1())){
@@ -4652,7 +4652,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_code(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_code_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4666,7 +4666,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_char(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_char_1 , m.trail, m.DONT_CARE1())){
@@ -4680,7 +4680,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_char(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_char_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4694,7 +4694,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_code(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_code_1 , m.trail, m.DONT_CARE1())){
@@ -4708,7 +4708,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_code(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_code_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4722,7 +4722,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_char(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_char_1 , m.trail, m.DONT_CARE1())){
@@ -4736,7 +4736,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_char(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_char_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4750,7 +4750,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_code(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_code_1 , m.trail, m.DONT_CARE1())){
@@ -4764,7 +4764,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_code(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_code_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4778,7 +4778,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nl):-[]
         if (!  ATOM_nl .unify(a1, m.trail))
             return m.fail();
@@ -4790,7 +4790,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nl(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_nl_1 , m.trail, m.DONT_CARE1())){
@@ -4804,7 +4804,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get0(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get0_1 , m.trail, m.DONT_CARE1())){
@@ -4818,7 +4818,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get0(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get0_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4832,7 +4832,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_1 , m.trail, m.DONT_CARE1())){
@@ -4846,7 +4846,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4860,7 +4860,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_1 , m.trail, m.DONT_CARE1())){
@@ -4874,7 +4874,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4888,7 +4888,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(tab(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_tab_1 , m.trail, m.DONT_CARE1())){
@@ -4902,7 +4902,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(tab(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_tab_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4916,7 +4916,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(skip(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_skip_1 , m.trail, m.DONT_CARE1())){
@@ -4930,7 +4930,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(skip(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_skip_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4944,7 +4944,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_byte(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_byte_1 , m.trail, m.DONT_CARE1())){
@@ -4958,7 +4958,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(get_byte(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_get_byte_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -4972,7 +4972,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_byte(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_byte_1 , m.trail, m.DONT_CARE1())){
@@ -4986,7 +4986,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(peek_byte(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_peek_byte_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5000,7 +5000,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_byte(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_byte_1 , m.trail, m.DONT_CARE1())){
@@ -5014,7 +5014,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(put_byte(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_put_byte_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5028,7 +5028,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_1 , m.trail, m.DONT_CARE1())){
@@ -5042,7 +5042,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5056,7 +5056,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read_with_variables(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_with_variables_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5070,7 +5070,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read_with_variables(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_with_variables_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5084,7 +5084,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read_line(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_line_1 , m.trail, m.DONT_CARE1())){
@@ -5098,7 +5098,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(read_line(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_read_line_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5112,7 +5112,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_1 , m.trail, m.DONT_CARE1())){
@@ -5126,7 +5126,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5140,7 +5140,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(writeq(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_writeq_1 , m.trail, m.DONT_CARE1())){
@@ -5154,7 +5154,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(writeq(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_writeq_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5168,7 +5168,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write_canonical(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_canonical_1 , m.trail, m.DONT_CARE1())){
@@ -5182,7 +5182,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write_canonical(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_canonical_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5196,7 +5196,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write_term(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_term_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5210,7 +5210,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(write_term(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_write_term_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5224,7 +5224,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(op(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_op_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5238,7 +5238,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(current_op(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_current_op_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5252,7 +5252,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(\+A):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$005C$002B_1 , m.trail, m.DONT_CARE1())){
@@ -5266,7 +5266,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(once(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_once_1 , m.trail, m.DONT_CARE1())){
@@ -5280,7 +5280,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(repeat):-[]
         if (!  ATOM_repeat .unify(a1, m.trail))
             return m.fail();
@@ -5292,7 +5292,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atom_length(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atom_length_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5306,7 +5306,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atom_concat(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atom_concat_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5320,7 +5320,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(sub_atom(A,B,C,D,E)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_sub_atom_5 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5334,7 +5334,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atom_chars(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atom_chars_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5348,7 +5348,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(atom_codes(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_atom_codes_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5362,7 +5362,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(char_code(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_char_code_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5376,7 +5376,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(number_chars(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_number_chars_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5390,7 +5390,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(number_codes(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_number_codes_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5404,7 +5404,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(name(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_name_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5418,7 +5418,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(set_prolog_flag(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_set_prolog_flag_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5432,7 +5432,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(current_prolog_flag(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_current_prolog_flag_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5446,7 +5446,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(halt):-[]
         if (!  ATOM_halt .unify(a1, m.trail))
             return m.fail();
@@ -5458,7 +5458,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(halt(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_halt_1 , m.trail, m.DONT_CARE1())){
@@ -5472,7 +5472,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(abort):-[]
         if (!  ATOM_abort .unify(a1, m.trail))
             return m.fail();
@@ -5484,7 +5484,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('C'(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_C_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5498,7 +5498,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(expand_term(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_expand_term_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5512,7 +5512,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(new_hash(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_new_hash_1 , m.trail, m.DONT_CARE1())){
@@ -5526,7 +5526,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(new_hash(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_new_hash_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5540,7 +5540,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_clear(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_clear_1 , m.trail, m.DONT_CARE1())){
@@ -5554,7 +5554,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_contains_key(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_contains_key_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5568,7 +5568,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_get(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_get_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5582,7 +5582,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_is_empty(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_is_empty_1 , m.trail, m.DONT_CARE1())){
@@ -5596,7 +5596,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_keys(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_keys_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5610,7 +5610,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_map(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_map_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5624,7 +5624,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_put(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_put_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5638,7 +5638,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_remove(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_remove_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5652,7 +5652,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(hash_size(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_hash_size_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5666,7 +5666,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate('$get_hash_manager'(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$0024get_hash_manager_1 , m.trail, m.DONT_CARE1())){
@@ -5680,7 +5680,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_constructor0(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_constructor0_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5694,7 +5694,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_constructor(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_constructor_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5708,7 +5708,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_declared_constructor0(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_declared_constructor0_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5722,7 +5722,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_declared_constructor(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_declared_constructor_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5736,7 +5736,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_method0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_method0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5750,7 +5750,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_method(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_method_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5764,7 +5764,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_declared_method0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_declared_method0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5778,7 +5778,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_declared_method(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_declared_method_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5792,7 +5792,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_get_field0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_get_field0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5806,7 +5806,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_get_field(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_get_field_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5820,7 +5820,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_get_declared_field0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_get_declared_field0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5834,7 +5834,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_get_declared_field(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_get_declared_field_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5848,7 +5848,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_set_field0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_set_field0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5862,7 +5862,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_set_field(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_set_field_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5876,7 +5876,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_set_declared_field0(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_set_declared_field0_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5890,7 +5890,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_set_declared_field(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_set_declared_field_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5904,7 +5904,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(synchronized(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_synchronized_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5918,7 +5918,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(java_conversion(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_java_conversion_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5932,7 +5932,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(cafeteria):-[]
         if (!  ATOM_cafeteria .unify(a1, m.trail))
             return m.fail();
@@ -5944,7 +5944,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(consult(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_consult_1 , m.trail, m.DONT_CARE1())){
@@ -5958,7 +5958,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(trace):-[]
         if (!  ATOM_trace .unify(a1, m.trail))
             return m.fail();
@@ -5970,7 +5970,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(notrace):-[]
         if (!  ATOM_notrace .unify(a1, m.trail))
             return m.fail();
@@ -5982,7 +5982,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(debug):-[]
         if (!  ATOM_debug .unify(a1, m.trail))
             return m.fail();
@@ -5994,7 +5994,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nodebug):-[]
         if (!  ATOM_nodebug .unify(a1, m.trail))
             return m.fail();
@@ -6006,7 +6006,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(leash(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_leash_1 , m.trail, m.DONT_CARE1())){
@@ -6020,7 +6020,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(spy(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_spy_1 , m.trail, m.DONT_CARE1())){
@@ -6034,7 +6034,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nospy(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_nospy_1 , m.trail, m.DONT_CARE1())){
@@ -6048,7 +6048,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(nospyall):-[]
         if (!  ATOM_nospyall .unify(a1, m.trail))
             return m.fail();
@@ -6060,7 +6060,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(listing):-[]
         if (!  ATOM_listing .unify(a1, m.trail))
             return m.fail();
@@ -6072,7 +6072,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(listing(A)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_listing_1 , m.trail, m.DONT_CARE1())){
@@ -6086,7 +6086,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(length(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_length_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -6100,7 +6100,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(numbervars(A,B,C)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_numbervars_3 , m.trail, m.DONT_CARE1(), m.DONT_CARE1(), m.DONT_CARE1())){
@@ -6114,7 +6114,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(statistics(A,B)):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_statistics_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -6128,7 +6128,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // system_predicate(A):-[call(system_predicate_ext,A)]
         return //
  Op("call", FILE_system::PRED_call_2_static_exec, VA( ATOM_system_predicate_ext , a1), cont);
@@ -6145,7 +6145,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
 
 
     public static Operation PRED_$init_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // '$init':-'$new_indexing_hash'('SxxMachine',system_predicate_ext/1,A)
         m.setB0();
     // '$init':-['$new_indexing_hash'('SxxMachine',system_predicate_ext/1,A)]

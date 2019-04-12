@@ -41,8 +41,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tests/animal
 
 
     public static Operation PRED_animal_1_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_animal::animal_1_var, FILE_animal::animal_1_3, FILE_animal::animal_1_3, FILE_animal::animal_1_var, FILE_animal::animal_1_3, FILE_animal::animal_1_3); 
     }
@@ -67,7 +67,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // animal(goat):-[]
         if (!  ATOM_goat .unify(a1, m.trail))
             return m.fail();
@@ -79,7 +79,7 @@ m.setCont(cont);
          Term a1;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // animal(elephant):-[]
         if (!  ATOM_elephant .unify(a1, m.trail))
             return m.fail();
@@ -92,7 +92,7 @@ m.setCont(cont);
         Operation p1, p2;
         Operation cont;
         a1 = m.AREGS[0];
-        cont = m.getCont();
+        cont = m.cont;
     // animal(A):-[write('please type one more animal name: '),flush_output,read(A)]
         return //
  Op("write", FILE_animal::PRED_write_1_static_exec, VA( ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 ), //

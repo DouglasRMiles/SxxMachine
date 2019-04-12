@@ -1,32 +1,28 @@
 
 package SxxMachine;
 
-public final class JpVar extends AbstractVar {
+public final class JpVar extends AbstractVar implements Term {
 
-    public Term Refers;
-
-    long timestamp;
-
-    private MiniJProlog mach;
-    private final RunningPrologMachine machin;
+    protected final RunningPrologMachine machin;
+    //public Term Refers;
 
     JpVar(RunningPrologMachine machine) {
         machin = machine;
         Refers = this;
-        timestamp = machin.getTimestamp();
+        timestampJP = machin.getTimestamp();
     }
 
     public JpVar(MiniJProlog machin) {
         this.machin = null;
         Refers = this;
-        timestamp = machin.getTimestamp();
+        timestampJP = machin.getTimestamp();
         mach = machin;
     }
 
     private JpVar(MiniJProlog machin, long t) {
         this.machin = null;
         Refers = this;
-        timestamp = t;
+        timestampJP = t;
         mach = machin;
     }
 
@@ -65,7 +61,7 @@ public final class JpVar extends AbstractVar {
         JpVar v2;
         if (that instanceof JpVar) {
             final JpVar v1 = (JpVar) that;
-            if (timestamp < v1.timestamp) {
+            if (timestampJP < v1.timestampJP) {
                 v1.Refers = this;
                 v2 = v1;
             } else {

@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-mu
         m.setB0();
     // top:-[mu]
@@ -62,7 +62,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_mu_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // mu:-theorem([m,u,i,i,u],5,A),!
         m.setB0();
          Term a1;
@@ -93,8 +93,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_theorem_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return theorem_3_top(m);
     }
 
@@ -120,7 +120,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // theorem([m,i],A,[[a,m,i]]):-[]
         if (! L_theorem_3_s5.unify(a1, m.trail))
             return m.fail();
@@ -137,7 +137,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // theorem(A,B,[[C|A]|D]):-[E is 0,'$greater_than'(B,E),F is B-1,theorem(G,F,D),rule(C,G,A)]
         a3 = a3.dref();
         if (a3 .isCons()){
@@ -187,7 +187,7 @@ m.setCont(cont);
         m.AREGS[0] = a10;
         m.AREGS[1] = a8;
         m.AREGS[2] = a5;
-        m.setCont(p1);
+        m.cont = p1;
         return theorem_3_top(m);
     }
 /** PREDICATE: rule/3
@@ -199,8 +199,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_rule_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_mu::rule_3_var, FILE_mu::rule_3_var, fail_0, fail_0, fail_0, fail_0); 
     }
@@ -232,7 +232,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // rule(1,A,B):-[rule1(A,B)]
         if (!  int_1 .unify(a1, m.trail))
             return m.fail();
@@ -247,7 +247,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // rule(2,A,B):-[rule2(A,B)]
         if (!  int_2 .unify(a1, m.trail))
             return m.fail();
@@ -262,7 +262,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // rule(3,A,B):-[rule3(A,B)]
         if (!  int_3 .unify(a1, m.trail))
             return m.fail();
@@ -277,7 +277,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // rule(4,A,B):-[rule4(A,B)]
         if (!  int_4 .unify(a1, m.trail))
             return m.fail();
@@ -296,8 +296,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_rule1_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return rule1_2_top(m);
     }
 
@@ -322,7 +322,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule1([i],[i,u]):-[]
         if (! L_rule1_2_s3.unify(a1, m.trail))
             return m.fail();
@@ -337,7 +337,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule1([A|B],[A|C]):-[rule1(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -363,7 +363,7 @@ m.setCont(cont);
         }
         m.AREGS[0] = a4;
         m.AREGS[1] = a5;
-m.setCont(cont);
+m.cont = cont;
         return rule1_2_top(m);
     }
 /** PREDICATE: rule2/2
@@ -375,7 +375,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_rule2_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // rule2([m|A],[m|B]):-append(A,A,B)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -416,8 +416,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_rule3_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return rule3_2_top(m);
     }
 
@@ -442,7 +442,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule3([i,i,i|A],[u|A]):-[]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -497,7 +497,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule3([A|B],[A|C]):-[rule3(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -523,7 +523,7 @@ m.setCont(cont);
         }
         m.AREGS[0] = a4;
         m.AREGS[1] = a5;
-m.setCont(cont);
+m.cont = cont;
         return rule3_2_top(m);
     }
 /** PREDICATE: rule4/2
@@ -535,8 +535,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_rule4_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return rule4_2_top(m);
     }
 
@@ -561,7 +561,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule4([u,u|A],A):-[]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -596,7 +596,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // rule4([A|B],[A|C]):-[rule4(B,C)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -622,7 +622,7 @@ m.setCont(cont);
         }
         m.AREGS[0] = a4;
         m.AREGS[1] = a5;
-m.setCont(cont);
+m.cont = cont;
         return rule4_2_top(m);
     }
 /** PREDICATE: append/3
@@ -634,8 +634,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
     public static Operation PRED_append_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return append_3_top(m);
     }
 
@@ -661,7 +661,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // append([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -677,7 +677,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // append([A|B],C,[A|D]):-[append(B,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -704,7 +704,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-m.setCont(cont);
+m.cont = cont;
         return append_3_top(m);
     }
 static { loadPreds(); }

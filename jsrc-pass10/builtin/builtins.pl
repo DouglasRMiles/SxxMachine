@@ -44,7 +44,7 @@ false :- fail.
 
 call(Term) :-
 	'$get_current_B'(Cut),
-	'$meta_call'(Term, 'SxxMachbine', Cut, 0, interpret).
+	'$meta_call'(Term, 'SxxMachine', Cut, 0, interpret).
 
 '$meta_call'(X, _, _, _, _) :- var(X), !, illarg(var, call(X), 1).
 '$meta_call'(X, _, _, _, _) :- closure(X), !, '$call_closure'(X).
@@ -416,7 +416,7 @@ clause(Head, B, '$clzref'(P,Ref)) :-
 
 % head --> term
 '$head_to_term'(H, T, Pkg:F/A, Goal) :-
-	'$head_to_term'(H, T, 'SxxMachbine', Pkg, Goal),
+	'$head_to_term'(H, T, 'SxxMachine', Pkg, Goal),
 	functor(T, F, A).
 
 '$head_to_term'(H, _, _, _, Goal) :- var(H), !,
@@ -596,7 +596,7 @@ retractall(_).
 
 % term --> clause (for assert)
 '$term_to_clause'(Cl0, Cl, Pkg:F/A, Goal) :-
-	'$term_to_clause'(Cl0, Cl, 'SxxMachbine', Pkg, Goal),
+	'$term_to_clause'(Cl0, Cl, 'SxxMachine', Pkg, Goal),
 	Cl = (H :- _),
 	functor(H, F, A).
 
@@ -643,7 +643,7 @@ retractall(_).
 	'$localize_args'(M, As, P, As1),
 	G1 =.. [F|As1].
 '$localize_body'(G, P, call(P:G)) :- var(P), !.
-'$localize_body'(G, 'SxxMachbine', G) :- !.
+'$localize_body'(G, 'SxxMachine', G) :- !.
 '$localize_body'(G, _, G) :- system_predicate(G), !.
 '$localize_body'(G, P, P:G).
 
@@ -669,7 +669,7 @@ retractall(_).
 
 % clause --> term (for retract)
 '$clause_to_term'(Cl, T, Pkg:F/A, Goal) :-
-	'$clause_to_term'(Cl, T, 'SxxMachbine', Pkg, Goal),
+	'$clause_to_term'(Cl, T, 'SxxMachine', Pkg, Goal),
 	T = (H :- _),
 	functor(H, F, A).
 
@@ -689,7 +689,7 @@ retractall(_).
 
 % term --> predicate indicator (for abolish)
 '$term_to_predicateindicator'(T, Pkg:PI, Goal) :-
-	'$term_to_predicateindicator'(T, PI, 'SxxMachbine', Pkg, Goal).
+	'$term_to_predicateindicator'(T, PI, 'SxxMachine', Pkg, Goal).
 
 '$term_to_predicateindicator'(T, _, _, _, Goal) :- var(T), !,
 	illarg(var, Goal, 1).
@@ -1744,8 +1744,122 @@ current_prolog_flag(Flag, Term) :-
 '$prolog_impl_flag'(jdebug, [on,off], changeable(yes)).
 '$prolog_impl_flag'(max_arity, _, changeable(no)).
 '$prolog_impl_flag'(unknown, [error,fail,warning], changeable(yes)).
-'$prolog_impl_flag'(double_quotes, [chars,codes,atom], changeable(yes)).
+'$prolog_impl_flag'(double_quotes, [chars,codes,atom,string], changeable(yes)).
+'$prolog_impl_flag'(back_quotes, [chars,codes,atom,string], changeable(yes)).
 '$prolog_impl_flag'(print_stack_trace, [on,off], changeable(yes)).
+
+/*
+'$prolog_impl_flag'(access_level,[user,system],changeable(yes)).
+'$prolog_impl_flag'(address_bits,[64],changeable(yes)).
+'$prolog_impl_flag'(agc_margin,[10000],changeable(yes)).
+'$prolog_impl_flag'(allow_dot_in_atom,[false,true],changeable(yes)).
+'$prolog_impl_flag'(allow_variable_name_as_functor,[false,true],changeable(yes)).
+'$prolog_impl_flag'(answer_format,['~p',false],changeable(yes)).
+'$prolog_impl_flag'(answer_write_options,[[quoted(true),portray(true),max_depth(10),spacing(next_argument)],false],changeable(yes)).
+'$prolog_impl_flag'(arch,['x86_64-linux',false],changeable(yes)).
+'$prolog_impl_flag'(argv,[[],false],changeable(yes)).
+'$prolog_impl_flag'(autoload,[true,false],changeable(yes)).
+'$prolog_impl_flag'(back_quotes,[codes,false],changeable(yes)).
+'$prolog_impl_flag'(backtrace,[true,false],changeable(yes)).
+'$prolog_impl_flag'(backtrace_depth,[20,false],changeable(yes)).
+'$prolog_impl_flag'(backtrace_goal_depth,[3,false],changeable(yes)).
+'$prolog_impl_flag'(backtrace_show_lines,[true,false],changeable(yes)).
+'$prolog_impl_flag'(bounded,[false,true],changeable(yes)).
+'$prolog_impl_flag'(break_level,[0,false],changeable(yes)).
+'$prolog_impl_flag'(character_escapes,[true,false],changeable(yes)).
+'$prolog_impl_flag'(colon_sets_calling_context,[true,false],changeable(yes)).
+'$prolog_impl_flag'(color_term,[true,false],changeable(yes)).
+'$prolog_impl_flag'(compile_meta_arguments,[false,true],changeable(yes)).
+'$prolog_impl_flag'(compiled_at,['Dec 18 2018, 09:33:12',false],changeable(yes)).
+'$prolog_impl_flag'(cpu_count,[4,false],changeable(yes)).
+'$prolog_impl_flag'(debug_on_error,[true,false],changeable(yes)).
+'$prolog_impl_flag'(debug_term_position,[false,true],changeable(yes)).
+'$prolog_impl_flag'(debugger_show_context,[false,true],changeable(yes)).
+'$prolog_impl_flag'(debugger_write_options,[[quoted(true),portray(true),max_depth(10),attributes(portray),spacing(next_argument)],false],changeable(yes)).
+'$prolog_impl_flag'(dialect,[swi,false],changeable(yes)).
+'$prolog_impl_flag'(double_quotes,[string,false],changeable(yes)).
+'$prolog_impl_flag'(editor,[default,false],changeable(yes)).
+'$prolog_impl_flag'(emacs_inferior_process,[false,true],changeable(yes)).
+'$prolog_impl_flag'(emulated_dialect,[swi,false],changeable(yes)).
+'$prolog_impl_flag'(encoding,[utf8,false],changeable(yes)).
+'$prolog_impl_flag'(error_ambiguous_stream_pair,[false,true],changeable(yes)).
+'$prolog_impl_flag'(executable,['/usr/local/lib/swipl/bin/x86_64-linux/swipl',false],changeable(yes)).
+'$prolog_impl_flag'(file_name_case_handling,[case_sensitive,false],changeable(yes)).
+'$prolog_impl_flag'(file_name_variables,[false,true],changeable(yes)).
+'$prolog_impl_flag'(file_search_cache_time,[10,false],changeable(yes)).
+'$prolog_impl_flag'(fileerrors,[true,false],changeable(yes)).
+'$prolog_impl_flag'(gc,[true,false],changeable(yes)).
+'$prolog_impl_flag'(gc_thread,[true,false],changeable(yes)).
+'$prolog_impl_flag'(generate_debug_info,[true,false],changeable(yes)).
+'$prolog_impl_flag'(gmp_version,[6,false],changeable(yes)).
+'$prolog_impl_flag'(history,[0,false],changeable(yes)).
+'$prolog_impl_flag'(home,['/usr/local/lib/swipl',false],changeable(yes)).
+'$prolog_impl_flag'(integer_rounding_function,[toward_zero,false],changeable(yes)).
+'$prolog_impl_flag'(iso,[false,true],changeable(yes)).
+'$prolog_impl_flag'(large_files,[true,false],changeable(yes)).
+'$prolog_impl_flag'(last_call_optimisation,[true,false],changeable(yes)).
+'$prolog_impl_flag'(max_arity,[unbounded,false],changeable(yes)).
+'$prolog_impl_flag'(max_tagged_integer,[72057594037927935,false],changeable(yes)).
+'$prolog_impl_flag'(message_context,[[thread],false],changeable(yes)).
+'$prolog_impl_flag'(min_tagged_integer,[-72057594037927936,false],changeable(yes)).
+'$prolog_impl_flag'(mitigate_spectre,[false,true],changeable(yes)).
+'$prolog_impl_flag'(occurs_check,[false,true],changeable(yes)).
+'$prolog_impl_flag'(open_shared_object,[true,false],changeable(yes)).
+'$prolog_impl_flag'(optimise,[false,true],changeable(yes)).
+'$prolog_impl_flag'(optimise_debug,[default,false],changeable(yes)).
+'$prolog_impl_flag'(os_argv,[[swipl],false],changeable(yes)).
+'$prolog_impl_flag'(pid,[10544,false],changeable(yes)).
+'$prolog_impl_flag'(pipe,[true,false],changeable(yes)).
+'$prolog_impl_flag'(posix_shell,['/bin/sh',false],changeable(yes)).
+'$prolog_impl_flag'(print_write_options,[[portray(true),quoted(true),numbervars(true)],false],changeable(yes)).
+'$prolog_impl_flag'(prompt_alternatives_on,[determinism,false],changeable(yes)).
+'$prolog_impl_flag'(protect_static_code,[false,true],changeable(yes)).
+'$prolog_impl_flag'(qcompile,[false,true],changeable(yes)).
+'$prolog_impl_flag'(quasi_quotations,[true,false],changeable(yes)).
+'$prolog_impl_flag'(query_debug_settings,[debug(false,false),false],changeable(yes)).
+'$prolog_impl_flag'(readline,[editline,false],changeable(yes)).
+'$prolog_impl_flag'(report_error,[true,false],changeable(yes)).
+'$prolog_impl_flag'(res_keep_foreign,[false,true],changeable(yes)).
+'$prolog_impl_flag'(resource_database,['/usr/local/lib/swipl/boot64.prc',false],changeable(yes)).
+'$prolog_impl_flag'(sandboxed_load,[false,true],changeable(yes)).
+'$prolog_impl_flag'(save_history,[false,true],changeable(yes)).
+'$prolog_impl_flag'(shared_object_extension,[so,false],changeable(yes)).
+'$prolog_impl_flag'(shared_object_search_path,['LD_LIBRARY_PATH',false],changeable(yes)).
+'$prolog_impl_flag'(signals,[true,false],changeable(yes)).
+'$prolog_impl_flag'(stack_limit,[1073741824,false],changeable(yes)).
+'$prolog_impl_flag'(stream_type_check,[loose,false],changeable(yes)).
+'$prolog_impl_flag'(system_thread_id,[10544,false],changeable(yes)).
+'$prolog_impl_flag'(table_space,[1073741824,false],changeable(yes)).
+'$prolog_impl_flag'(threads,[true,false],changeable(yes)).
+'$prolog_impl_flag'(timezone,[0,false],changeable(yes)).
+'$prolog_impl_flag'(tmp_dir,['/tmp',false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_extra_white_line,[true,false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_goal,[default,false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_mode,[backtracking,false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_print_anon,[true,false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_print_factorized,[false,true],changeable(yes)).
+'$prolog_impl_flag'(toplevel_prompt,['~m~d~l~! ?- ',false],changeable(yes)).
+'$prolog_impl_flag'(toplevel_residue_vars,[false,true],changeable(yes)).
+'$prolog_impl_flag'(toplevel_var_size,[1000,false],changeable(yes)).
+'$prolog_impl_flag'(trace_gc,[false,true],changeable(yes)).
+'$prolog_impl_flag'(traditional,[false,true],changeable(yes)).
+'$prolog_impl_flag'(tty_control,[true,false],changeable(yes)).
+'$prolog_impl_flag'(unix,[true,false],changeable(yes)).
+'$prolog_impl_flag'(unknown,[error,false],changeable(yes)).
+'$prolog_impl_flag'(unload_foreign_libraries,[false,true],changeable(yes)).
+'$prolog_impl_flag'(user_flags,[silent,false],changeable(yes)).
+'$prolog_impl_flag'(var_prefix,[false,true],changeable(yes)).
+'$prolog_impl_flag'(verbose,[normal,false],changeable(yes)).
+'$prolog_impl_flag'(verbose_autoload,[false,true],changeable(yes)).
+'$prolog_impl_flag'(verbose_file_search,[false,true],changeable(yes)).
+'$prolog_impl_flag'(verbose_load,[silent,false],changeable(yes)).
+'$prolog_impl_flag'(version,[70725,false],changeable(yes)).
+'$prolog_impl_flag'(version_data,[swi(7,7,25,[]),false],changeable(yes)).
+'$prolog_impl_flag'(version_git,['7.7.25-2-g6f1f42ad3-DIRTY',false],changeable(yes)).
+'$prolog_impl_flag'(warn_override_implicit_import,[true,false],changeable(yes)).
+'$prolog_impl_flag'(write_attributes,[ignore,false],changeable(yes)).
+'$prolog_impl_flag'(xref,[false,true],changeable(yes)).
+*/
 
 :- public halt/0.
 :- public abort/0.
@@ -1891,7 +2005,7 @@ consult_stream(File, In) :-
 	fail.
 '$consult_init'(File) :-
 	assertz('$consulted_file'(File)),
-	assertz('$consulted_package'('SxxMachbine')).
+	assertz('$consulted_package'('SxxMachine')).
 
 '$consult_clause'(end_of_file          ) :- !.
 '$consult_clause'((:- module(P,_))     ) :- !, '$assert_consulted_package'(P).
@@ -1922,14 +2036,16 @@ consult_stream(File, In) :-
 '$consult_preprocess'(Clause0, Clause) :-
 	expand_term(Clause0, Clause).
 
+'$consult_cls'(((M:H) :- G)) :- !, '$assert_consulted_clause'(M:(H :- G)).
 '$consult_cls'((H :- G)) :- !, '$assert_consulted_clause'((H :- G)).
 '$consult_cls'(H) :- '$assert_consulted_clause'((H :- true)).
 
-'$assert_consulted_clause'(Clause) :-
+'$assert_consulted_clause'(PClause) :-
+	strip_module(PClause, P, Clause),
 	Clause = (H :- _),
 	functor(H, F, A),
 	clause('$consulted_file'(File), _),
-	clause('$consulted_package'(P), _),
+	% clause('$consulted_package'(P), _),
 	assertz(P:Clause),
 	assertz('$consulted_predicate'(P,F/A,File)),
 	!.

@@ -10,7 +10,7 @@ import SxxMachine.pterm.VariableTerm;
   *  @author  toms
   *
   */
-public final class AttributedVariable extends VariableTerm implements UnTrailOperation {
+final class AttributedVariable extends VariableTerm implements UnTrailOperation {
 
     private Term val = null;
     //private long timestamp;

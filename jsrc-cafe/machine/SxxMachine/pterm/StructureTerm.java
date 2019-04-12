@@ -509,7 +509,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public String getJavaString() {
-        oopsy("unknown reason");
+       // oopsy("unknown reason");
         // TODO Auto-generated method stub
         return super.getJavaString();
     }

@@ -26,7 +26,7 @@ import SxxMachine.Var;
 import SxxMachine.sxxtensions;
 
 @SuppressWarnings({ "rawtypes" })
-public abstract class PTerm extends KPTerm {
+abstract class PTerm extends KPTerm {
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#equalsIdentical(SxxMachine.Term)

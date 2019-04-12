@@ -243,9 +243,9 @@ public class PrologMachine extends RunningPrologMachine {
      * @param i
      * @return
      */
+    
     public Term getCont(Term[] local_aregs, int arity) {
         return getCurrentStackItem().getCont(local_aregs, arity);
-
     }
 
     /**
@@ -253,6 +253,37 @@ public class PrologMachine extends RunningPrologMachine {
      */
     public void setCont(Term term) {
        getCurrentStackItem().setCont(term);
+        
+    }
+
+    /**
+     * @return
+     */
+    public TermArray getAregTA() {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("PrologMachine.getAregTA");
+        return null;
+    }
+
+    /**
+     * @param local_aregs
+     * @param arity
+     * @return
+     */
+    public Term getCont(TermArray local_aregs, int arity) {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("PrologMachine.getCont");
+        return null;
+    }
+
+    /**
+     * @param local_aregs
+     * @param arity
+     * @param continuation
+     */
+    public void setCont(TermArray local_aregs, int arity, Term continuation) {
+        // TODO Auto-generated method stub
+        if (true) throw new AbstractMethodError("PrologMachine.setCont");
         
     }
 }

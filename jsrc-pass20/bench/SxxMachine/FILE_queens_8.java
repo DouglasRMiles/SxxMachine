@@ -38,8 +38,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_queens_8::top_0_sub_1);
         return top_0_1(m);
@@ -54,7 +54,7 @@ m.setCont(cont);
     // top:-queens(8,A),fail
         Operation p1;
         Operation cont;
-        cont = m.getCont();
+        cont = m.cont;
     // top:-[queens(8,A),fail]
         return //
  Op("queens", FILE_queens_8::PRED_queens_2_static_exec, VA( int_8 , m.DONT_CARE2()), fail_0);
@@ -63,7 +63,7 @@ m.setCont(cont);
     private final static Operation top_0_2(Prolog m) { 
     // top:-true
         Operation cont;
-        cont = m.getCont();
+        cont = m.cont;
     // top:-[]
         return cont;
     }
@@ -76,7 +76,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_queens_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // queens(A,B):-range(1,A,C),queens(C,[],B)
         m.setB0();
          Term a1, a2, a3;
@@ -98,8 +98,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_queens_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2); 
     }
@@ -121,7 +121,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // queens([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -138,7 +138,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // queens(A,B,C):-[select(A,D,E),not_attack(B,E),queens(D,[E|B],C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -157,7 +157,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_not_attack_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // not_attack(A,B):-not_attack(A,B,1)
         m.setB0();
          Term a1, a2;
@@ -178,8 +178,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_not_attack_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return not_attack_3_top(m);
     }
 
@@ -205,7 +205,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // not_attack([],A,B):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -222,7 +222,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // not_attack([A|B],C,D):-[E is A+D,'$arith_not_equal'(C,E),F is A-D,'$arith_not_equal'(C,F),G is D+1,not_attack(B,C,G)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -275,7 +275,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a10;
-m.setCont(cont);
+m.cont = cont;
         return not_attack_3_top(m);
     }
 /** PREDICATE: select/3
@@ -287,8 +287,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_select_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return select_3_top(m);
     }
 
@@ -314,7 +314,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // select([A|B],B,A):-[]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -341,7 +341,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // select([A|B],[A|C],D):-[select(B,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -368,7 +368,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a6;
         m.AREGS[2] = a3;
-m.setCont(cont);
+m.cont = cont;
         return select_3_top(m);
     }
 /** PREDICATE: range/3
@@ -380,8 +380,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
     public static Operation PRED_range_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return range_3_top(m);
     }
 
@@ -403,7 +403,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // range(A,A,[A]):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
             return m.fail();
@@ -431,7 +431,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // range(A,B,[A|C]):-['$less_than'(A,B),D is A+1,range(D,B,C)]
         a3 = a3.dref();
         if (a3 .isCons()){
@@ -461,7 +461,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a4;
-m.setCont(cont);
+m.cont = cont;
         return range_3_top(m);
     }
 static { loadPreds(); }

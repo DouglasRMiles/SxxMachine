@@ -180,7 +180,7 @@ public abstract class ListTerm extends AFunct implements Compound {
 
     @Override
     public String getJavaString() {
-        oopsy("unusual getString");
+        // oopsy("unusual getString");
         return charsToString(this);
     }
 

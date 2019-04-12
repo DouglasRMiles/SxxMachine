@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/asm.pl
 
 
     public static Operation PRED_determinate_1_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // determinate(A):-true
         m.setB0();
          Term a1;
@@ -68,7 +68,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/asm.pl
 
 
     public static Operation PRED_setup_determinates_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // setup_determinates:-determinate([cmp_error/1,name/2,length/2,asm_hash_value/2])
         m.setB0();
     // setup_determinates:-[determinate([cmp_error/1,name/2,length/2,asm_hash_value/2])]

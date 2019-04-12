@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 public class PredTable {
 
+    public static final String MODULE_PRIV_OP = ":";
     public static Map<String, Operation> predicateCache = new HashMap<String, Operation>();
     public static Map<String, Operation> hiddenCache = new HashMap<String, Operation>();
     public static Map<String, Operation> initsCache = new HashMap<String, Operation>();
@@ -67,9 +68,9 @@ public class PredTable {
         if (cont.getClass() != prev.getClass()) {
             if (!forced) {
                 System.err.println("Not overriding " + key + " which is implemented at " + oldmodule + " with "
-                        + newmodule + "::" + key);
-                predicateCache.put(newmodule + ":" + key, cont);
-                predicateCache.put(oldmodule + ":" + key, cont);
+                        + newmodule + MODULE_PRIV_OP + key);
+                predicateCache.put(newmodule + MODULE_PRIV_OP + key, cont);
+                predicateCache.put(oldmodule + MODULE_PRIV_OP + key, cont);
                 hiddenCache.put(key, cont);
                 return false;
             } else {
@@ -91,7 +92,7 @@ public class PredTable {
     private static String keyString(String pkg, String functor, int arity) {
         if (pkg == null || isGlobal(pkg))
             return PredFA(functor, arity);
-        return pkg + "::" + PredFA(functor, arity);
+        return pkg + MODULE_PRIV_OP + PredFA(functor, arity);
     }
 
     /**
@@ -145,7 +146,7 @@ public class PredTable {
     private static void registerFileEntryPoint(String module, String functor, int arity, Operation cont) {
         String key = keyString(module, functor, arity);
         if (!key.startsWith(module)) {
-            key = module + "::" + key;
+            key = module + MODULE_PRIV_OP + key;
         }
         storePred(key, cont, false);
         if (!initsCache.containsValue(cont)) {
@@ -156,12 +157,18 @@ public class PredTable {
     }
 
     private static String moduleFromClass(Operation op) {
-        Class class1 = op.getClass();
+        return moduleFromClass(op.getClass());
+    }
+
+    public static String moduleFromClass(Class class1) {
         Class dc = class1.getDeclaringClass();
         if (dc != null) {
             class1 = dc;
         }
-        String moduleName = "" + class1.getName();
+        return moduleFromClass(class1.getName());
+    }
+
+    public static String moduleFromClass(String moduleName) {
         int idx = moduleName.indexOf("$$");
         if (idx > 0) {
             moduleName = moduleName.substring(0, idx);
@@ -185,6 +192,7 @@ public class PredTable {
             String name = entry.getKey();
             Operation oper = entry.getValue();
             int steps = 0;
+            System.err.flush();
             System.err.println("Running: " + name + " as " + oper);
             while (oper != null && oper != Success.SUCCESS) {
                 //System.err.print(".");
@@ -192,11 +200,11 @@ public class PredTable {
                 steps++;
 
                 Operation next = oper.exec(machine);
-                System.err.println(" O: " + oper);
+                System.err.println(" I: " + oper);
                 oper = next;
                 //  System.err.println(" R: " + next);
             }
-            System.err.println("\nDone " + steps);
+            System.err.println("Done " + steps + " in " + name + "\n");
             System.err.flush();
         }
         System.err.flush();

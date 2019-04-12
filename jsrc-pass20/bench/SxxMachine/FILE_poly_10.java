@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-poly_10
         m.setB0();
     // top:-[poly_10]
@@ -54,7 +54,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_poly_10_0_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // poly_10:-test_poly(A),poly_exp(10,A,B)
         m.setB0();
          Term a1;
@@ -86,7 +86,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_test_poly_1_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // test_poly(A):-poly_add(poly(x,[term(0,1),term(1,1)]),poly(y,[term(1,1)]),B),poly_add(poly(z,[term(1,1)]),B,A)
         m.setB0();
          Term a1, a2;
@@ -107,8 +107,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_less_than_2_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::less_than_2_var, fail_0, fail_0, FILE_poly_10::less_than_2_var, fail_0, fail_0); 
     }
@@ -134,7 +134,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // x less_than y:-[]
         if (!  ATOM_x .unify(a1, m.trail))
             return m.fail();
@@ -149,7 +149,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // y less_than z:-[]
         if (!  ATOM_y .unify(a1, m.trail))
             return m.fail();
@@ -164,7 +164,7 @@ m.setCont(cont);
         Operation cont;
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
-        cont = m.getCont();
+        cont = m.cont;
     // x less_than z:-[]
         if (!  ATOM_x .unify(a1, m.trail))
             return m.fail();
@@ -182,8 +182,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_poly_add_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int); 
     }
@@ -230,7 +230,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_add(poly(A,B),poly(A,C),poly(A,D)):-['$neck_cut',term_add(B,C,D)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -263,7 +263,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_add(poly(A,B),poly(C,D),poly(A,E)):-['$get_level'(F),A less_than C,'$cut'(F),add_to_order_zero_term(B,poly(C,D),E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -304,7 +304,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_add(A,poly(B,C),poly(B,D)):-['$neck_cut',add_to_order_zero_term(C,A,D)]
         a2 = a2.dref();
             a4 = m.mkvar2();
@@ -331,7 +331,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_add(poly(A,B),C,poly(A,D)):-['$neck_cut',add_to_order_zero_term(B,C,D)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -358,7 +358,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_add(A,B,C):-[C is A+B]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002B_2 , a1, a2);
@@ -379,8 +379,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_term_add_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return term_add_3_top(m);
     }
 
@@ -466,7 +466,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_add([],A,A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -485,7 +485,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_add(A,[],A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
             return m.fail();
@@ -505,7 +505,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_add([term(A,B)|C],[term(A,D)|E],[term(A,F)|G]):-['$neck_cut',poly_add(B,D,F),term_add(C,E,G)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -571,7 +571,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_add([term(A,B)|C],[term(D,E)|F],[term(A,B)|G]):-['$get_level'(H),'$less_than'(A,D),'$cut'(H),term_add(C,[term(D,E)|F],G)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -644,7 +644,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a16;
         m.AREGS[2] = a13;
-m.setCont(cont);
+m.cont = cont;
         return term_add_3_top(m);
     }
 
@@ -655,7 +655,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_add(A,[term(B,C)|D],[term(B,C)|E]):-[term_add(A,D,E)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -692,7 +692,7 @@ m.setCont(cont);
         m.AREGS[0] = a1;
         m.AREGS[1] = a5;
         m.AREGS[2] = a9;
-m.setCont(cont);
+m.cont = cont;
         return term_add_3_top(m);
     }
 /** PREDICATE: add_to_order_zero_term/3
@@ -704,8 +704,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_add_to_order_zero_term_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::add_to_order_zero_term_3_var, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_var); 
     }
@@ -727,7 +727,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // add_to_order_zero_term([term(0,A)|B],C,[term(0,D)|B]):-['$neck_cut',poly_add(A,C,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -775,7 +775,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // add_to_order_zero_term(A,B,[term(0,B)|A]):-[]
         a3 = a3.dref();
         if (a3 .isCons()){
@@ -806,8 +806,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_poly_exp_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         return poly_exp_3_top(m);
     }
 
@@ -848,7 +848,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_exp(0,A,1):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
             return m.fail();
@@ -868,7 +868,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_exp(A,B,C):-['$get_level'(D),E is A>>1,A is E<<1,'$cut'(D),poly_exp(E,B,F),poly_mul(F,F,C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -903,7 +903,7 @@ m.setCont(cont);
         m.AREGS[0] = a5;
         m.AREGS[1] = a2;
         m.AREGS[2] = a8;
-        m.setCont(p1);
+        m.cont = p1;
         return poly_exp_3_top(m);
     }
 
@@ -915,7 +915,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_exp(A,B,C):-[D is A-1,poly_exp(D,B,E),poly_mul(B,E,C)]
         a4 = m.mkvar1();
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(5))
@@ -932,7 +932,7 @@ m.setCont(cont);
         m.AREGS[0] = a4;
         m.AREGS[1] = a2;
         m.AREGS[2] = a6;
-        m.setCont(p1);
+        m.cont = p1;
         return poly_exp_3_top(m);
     }
 /** PREDICATE: poly_mul/3
@@ -945,8 +945,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_poly_mul_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int); 
     }
@@ -993,7 +993,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_mul(poly(A,B),poly(A,C),poly(A,D)):-['$neck_cut',term_mul(B,C,D)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -1026,7 +1026,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_mul(poly(A,B),poly(C,D),poly(A,E)):-['$get_level'(F),A less_than C,'$cut'(F),mul_through(B,poly(C,D),E)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -1067,7 +1067,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_mul(A,poly(B,C),poly(B,D)):-['$neck_cut',mul_through(C,A,D)]
         a2 = a2.dref();
             a4 = m.mkvar2();
@@ -1094,7 +1094,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_mul(poly(A,B),C,poly(A,D)):-['$neck_cut',mul_through(B,C,D)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -1121,7 +1121,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // poly_mul(A,B,C):-[C is A*B]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002A_2 , a1, a2);
@@ -1142,8 +1142,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_term_mul_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::term_mul_3_var, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_con, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_lis); 
     }
@@ -1190,7 +1190,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_mul([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1209,7 +1209,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_mul(A,[],[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
             return m.fail();
@@ -1229,7 +1229,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // term_mul([A|B],C,D):-[single_term_mul(C,A,E),term_mul(B,C,F),term_add(E,F,D)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1258,8 +1258,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_single_term_mul_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::single_term_mul_3_var, fail_0, fail_0, FILE_poly_10::single_term_mul_3_1, fail_0, FILE_poly_10::single_term_mul_3_2); 
     }
@@ -1281,7 +1281,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // single_term_mul([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1301,7 +1301,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // single_term_mul([term(A,B)|C],term(D,E),[term(F,G)|H]):-[F is A+D,poly_mul(B,E,G),single_term_mul(C,term(D,E),H)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -1367,8 +1367,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
     public static Operation PRED_mul_through_3_static_exec(Prolog m) { 
-        Operation cont = m.getCont(); Term[] LARG = m.AREGS; Operation thiz = m.pred;  
-m.setCont(cont);
+        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_poly_10::mul_through_3_var, fail_0, fail_0, FILE_poly_10::mul_through_3_1, fail_0, FILE_poly_10::mul_through_3_2); 
     }
@@ -1390,7 +1390,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // mul_through([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
             return m.fail();
@@ -1410,7 +1410,7 @@ m.setCont(cont);
         a1 = m.AREGS[0];
         a2 = m.AREGS[1];
         a3 = m.AREGS[2];
-        cont = m.getCont();
+        cont = m.cont;
     // mul_through([term(A,B)|C],D,[term(A,E)|F]):-[poly_mul(B,D,E),mul_through(C,D,F)]
         a1 = a1.dref();
         if (a1 .isCons()){

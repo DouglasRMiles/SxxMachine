@@ -12,10 +12,12 @@ import java.util.Map;
 import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
 import SxxMachine.KPTrail;
+import SxxMachine.MiniJProlog;
 import SxxMachine.OpVisitor;
 import SxxMachine.Operation;
 import SxxMachine.Prolog;
 import SxxMachine.PrologMachineCopy;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 import SxxMachine.Undoable;
@@ -37,6 +39,11 @@ import SxxMachine.Var;
 @SuppressWarnings({ "rawtypes", "unused" })
 public class VariableTerm extends AVar implements Undoable, Var {
 
+
+    public long timestampJP;
+
+    protected MiniJProlog mach;
+    
     @Override
     public Var toClone() {
         return this;
@@ -344,7 +351,8 @@ public class VariableTerm extends AVar implements Undoable, Var {
 
     @Override
     public final boolean bind(Term p, Trail trail) {
-        if (this.isFVar()) {
+        final boolean fVar = this.isFVar();
+        if (fVar) {
             return this.FBind(p, trail);
         }
         return cafe_bind_var(p, trail);

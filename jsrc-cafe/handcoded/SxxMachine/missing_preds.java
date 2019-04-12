@@ -2,7 +2,7 @@ package SxxMachine;
 
 import SxxMachine.pterm.TermData;
 
-public class missing_preds {
+public class missing_preds implements PrologModule {
 
     /**
      * @throws Error
@@ -31,7 +31,7 @@ public class missing_preds {
         //exec_missing();
         long start = System.currentTimeMillis();
         Term Goal = e.AREGS[0].dref();
-        try {
+        try { 
             return FILE_system.PRED_call_1_static_exec(e);
         } finally {
             long end = System.currentTimeMillis();
@@ -58,6 +58,15 @@ public class missing_preds {
     public static Operation PRED_phrase_2_static_exec(Prolog e) {
         exec_missing();
         return null;
+    }
+
+    /* (non-Javadoc)
+     * @see SxxMachine.PrologModule#getModuleInit()
+     */
+    @Override
+    public String getModuleInit() {
+        String mn = PredTable.moduleFromClass(getClass());
+        return mn + PredTable.MODULE_PRIV_OP + "$init";
     }
 
     //

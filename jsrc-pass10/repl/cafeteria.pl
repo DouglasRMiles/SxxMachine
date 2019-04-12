@@ -285,16 +285,19 @@ leash(L) :- illarg(type('leash_specifier'), leash(L), 1).
 listing :- context_module(User),'$listing'(_, User).
 
 listing(T) :- var(T), !, illarg(var, listing(T), 1).
-listing(P) :- atom(P), !, '$listing'(_, P).
-listing(F/A) :- context_module(User),!, '$listing'(F/A, User).
-listing(P:PI) :- atom(P), !, '$listing'(PI, P).
-listing(T) :- illarg(type(predicate_indicator), listing(T), 1).
+listing(MPI) :- strip_module(MPI,M,PI),'$listing'(PI, M).
 
-'$listing'(PI, P) :- var(PI), !,
-	'$listing_dynamic_clause'(P, _).
-'$listing'(F/A, P) :- atom(F), integer(A), !,
-	'$listing_dynamic_clause'(P, F/A).
-'$listing'(PI, P) :- illarg(type(predicate_indicator), listing(P:PI), 1).
+
+
+'$listing'(PI, M) :- var(PI), !,
+	'$listing_dynamic_clause'(M, _).
+'$listing'(F/A, M) :- atom(F), integer(A), !,
+	'$listing_dynamic_clause'(M, F/A).
+'$listing'(F, M) :- atom(F), !,
+	'$listing_dynamic_clause'(M, F/_A).
+'$listing'(P, M) :- functor(P,F,A), !,
+	'$listing_dynamic_clause'(M, F/A).
+'$listing'(PI, M) :- illarg(type(predicate_indicator), listing(M:PI), 1).
 
 % context_module(P),'$new_internal_database'(P), hash_keys(P, Keys), '$builtin_member'(PI, Keys).
 '$listing_dynamic_clause'(P, PI) :-

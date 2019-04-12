@@ -15,7 +15,7 @@ public final class SetArgTrail implements UnTrailOperation {
     @Override
     public void unTrailSelf() {
         which.Refers = oldValue;
-        which.timestamp = mach.getTimestamp();
+        which.timestampJP = mach.getTimestamp();
     }
 
 }

@@ -48,7 +48,7 @@ public final class Prolog extends PrologFlags {
 
     private static final Term[] NO_REGISTERS = {};
     /** Continuation goal register */
-    private Operation cont;
+    public Operation cont;
     /** Choice point frame stack */
     public final ChoicePointStack stack;
     /** Trail stack */
