@@ -29,7 +29,7 @@ public abstract class Predicate extends Object implements Operation {
 
     protected String name = null;// getClass().getName();
     /** Holds the argument terms of this <code>StructureTerm</code>. */
-    protected Term[] ThizLARGs;
+    protected TermArray ThizLARGs;
 
     public int type() {
         return Term.TYPE_CLOSURE;
@@ -53,7 +53,7 @@ public abstract class Predicate extends Object implements Operation {
     // abstract public int predArity();
     public int predArity() {
         if (ThizLARGs != null)
-            return ThizLARGs.length;
+            return ThizLARGs.getLength();
         return PredicateEncoder.decodeArity(getClass().getName());
     }
 
@@ -61,9 +61,15 @@ public abstract class Predicate extends Object implements Operation {
      * @param engine
      */
     public void push_to_engine(Prolog engine) {
-        // int arity = predArity();
-        // System.arraycopy(LARG, 0, engine.AREGS, 0, arity);
-        engine.AREGS = this.ThizLARGs;
+
+        int arity = predArity();
+        if (true) {
+            engine.setAREGS(this.ThizLARGs);
+        } else {
+            final Term[] lbacking = this.ThizLARGs.getBacking();
+            final Term[] backing = engine.AREGS.getBacking();
+            System.arraycopy(lbacking, 0, backing, 0, arity);
+        }
         engine.setCont(this.cont);
     }
 
@@ -74,19 +80,19 @@ public abstract class Predicate extends Object implements Operation {
      * was executed successfully.
      */
     public Operation cont;
-    // protected Term[] LARG;
+    // protected TermArray LARG;
 
     public Predicate() {
         // super((String)null,(Term[])null);
         if (ThizLARGs == null) {
-            ThizLARGs = new Term[predArity()];
+            ThizLARGs = TermArray.newTermArray(predArity());
         }
     }
 
     public Predicate(String name, Term[] _args, Operation cont) {
         // super(name,va);
         this.name = name;
-        this.ThizLARGs = _args;
+        this.ThizLARGs = TermArray.newTermArray(_args);
         this.cont = cont;
     }
 
@@ -100,6 +106,7 @@ public abstract class Predicate extends Object implements Operation {
 
     public void toString(StringBuilder sb) {
         sb.append(predName());
+        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
         if (ThizLARGs != null) {
             sb.append('(');
             int len = ThizLARGs.length;
@@ -142,6 +149,8 @@ public abstract class Predicate extends Object implements Operation {
         int i = 1;
         Field f = null;
         Term val = null;
+        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
         do {
             if (ThizLARGs != null && ThizLARGs.length >= i) {
                 val = ThizLARGs[i];
@@ -231,14 +240,18 @@ public abstract class Predicate extends Object implements Operation {
         @Override
         public void toString(StringBuilder sb) {
             sb.append(predName());
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
             sb.append('(');
-            this.ThizLARGs[0].toQuotedString(0, sb);
+            ThizLARGs[0].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.ThizLARGs[0];
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
+            engine.setAV(0, ThizLARGs[0]);
             engine.setCont(this.cont);
         }
     }
@@ -259,19 +272,23 @@ public abstract class Predicate extends Object implements Operation {
 
         @Override
         public void toString(StringBuilder sb) {
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
             sb.append(predName());
             sb.append('(');
-            this.ThizLARGs[0].toQuotedString(0, sb);
+            ThizLARGs[0].toQuotedString(0, sb);
             sb.append(", ");
-            this.ThizLARGs[1].toQuotedString(0, sb);
+            ThizLARGs[1].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
             engine.setB0();
-            engine.AREGS[0] = this.ThizLARGs[0];
-            engine.AREGS[1] = this.ThizLARGs[1];
+            engine.setAV(0, ThizLARGs[0]);
+            engine.setAV(1, ThizLARGs[1]);
             engine.setCont(this.cont);
         }
     }
@@ -286,20 +303,23 @@ public abstract class Predicate extends Object implements Operation {
         @Override
         public void toString(StringBuilder sb) {
             sb.append(predName());
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
             sb.append('(');
-            this.ThizLARGs[0].toQuotedString(0, sb);
+            ThizLARGs[0].toQuotedString(0, sb);
             sb.append(", ");
-            this.ThizLARGs[1].toQuotedString(0, sb);
+            ThizLARGs[1].toQuotedString(0, sb);
             sb.append(", ");
-            this.ThizLARGs[2].toQuotedString(0, sb);
+            ThizLARGs[2].toQuotedString(0, sb);
             sb.append(')');
         }
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.ThizLARGs[0];
-            engine.AREGS[1] = this.ThizLARGs[1];
-            engine.AREGS[2] = this.ThizLARGs[2];
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+            engine.setAV(0, ThizLARGs[0]);
+            engine.setAV(1, ThizLARGs[1]);
+            engine.setAV(2, ThizLARGs[2]);
             engine.setCont(this.cont);
         }
 
@@ -309,10 +329,11 @@ public abstract class Predicate extends Object implements Operation {
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.ThizLARGs[0];
-            engine.AREGS[1] = this.ThizLARGs[1];
-            engine.AREGS[2] = this.ThizLARGs[2];
-            engine.AREGS[3] = this.ThizLARGs[3];
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+            engine.setAV(0, ThizLARGs[0]);
+            engine.setAV(1, ThizLARGs[1]);
+            engine.setAV(2, ThizLARGs[2]);
+            engine.setAV(3, ThizLARGs[3]);
             int predArity = predArity();
             if (predArity > 4) {
                 throw new RuntimeException("Missing Method Error: Push to engine");
@@ -326,11 +347,12 @@ public abstract class Predicate extends Object implements Operation {
 
         @Override
         public void push_to_engine(Prolog engine) {
-            engine.AREGS[0] = this.ThizLARGs[0];
-            engine.AREGS[1] = this.ThizLARGs[1];
-            engine.AREGS[2] = this.ThizLARGs[2];
-            engine.AREGS[3] = this.ThizLARGs[3];
-            engine.AREGS[4] = this.ThizLARGs[4];
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+            engine.setAV(0, ThizLARGs[0]);
+            engine.setAV(1, ThizLARGs[1]);
+            engine.setAV(2, ThizLARGs[2]);
+            engine.setAV(3, ThizLARGs[3]);
+            engine.setAV(4, ThizLARGs[4]);
             int predArity = predArity();
             if (predArity > 5) {
                 throw new RuntimeException("Missing Method Error: Push to engine");

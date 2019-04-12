@@ -96,10 +96,10 @@ public class PrologMachine extends RunningPrologMachine {
                 code = nCode;
                 if (status == ErrorStatus.CHANGEDPENDINGGOALS) {
                     log.debug(code);
-                    final TermArray arguments = TermArray.newTermArray(code.arity() + 1);
+                    final int len = code.arity() + 1;
+                    final TermArray arguments = TermArray.newTermArray(len);
                     final TermArray areg = getAreg();
-                    final int length = arguments.getLength();
-                    for (int i = 0; i < length; i++) {
+                    for (int i = 0; i < len; i++) {
                         final Term noDref = areg.getPlainArg(i);
                         arguments.setAV(i, noDref);
                         log.debug(noDref);

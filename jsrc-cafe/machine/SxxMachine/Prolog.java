@@ -40,9 +40,9 @@ public final class Prolog extends PrologFlags {
     /** Prolog thread */
     public final PrologControl control;
     /** Argument registers */
-    //public Term AREGS[0], AREGS[1], AREGS[2], AREGS[3], AREGS[4], AREGS[5], AREGS[6], AREGS[7];
+    //public Term AREGS.a(0).v, AREGS.a(1).v, AREGS.a(2).v, AREGS.a(3).v, AREGS.a(4).v, AREGS.a(5).v, AREGS.a(6).v, AREGS.a(7).v;
     //public Term[] aregs;
-    public Term[] AREGS;
+    public TermArray AREGS;
 
     public int initTimes = 0;
 
@@ -211,8 +211,9 @@ public final class Prolog extends PrologFlags {
      * </ul>
      */
     private void initOnce(InputStream in, PrintStream out, PrintStream err) {
-
-        this.AREGS = new Term[this.maxArity];
+        //final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+        //this.AREGS =  new Term[this.maxArity];
+        this.setAREGS(TermArray.newTermArray(maxArity));
 
         if (this.pcl == null)
             this.pcl = new PrologClassLoader();
@@ -352,7 +353,7 @@ public final class Prolog extends PrologFlags {
      */
     public Operation switch_on_term(Operation var, Operation Int, Operation flo, Operation con, Operation str,
             Operation lis) {
-        Term a1 = this.AREGS[0].dref();
+        Term a1 = this.AREGS.getTermDRef(0);
 
         switch (a1.type()) {
             case Term.TYPE_VARIABLE:
@@ -394,7 +395,7 @@ public final class Prolog extends PrologFlags {
      * this returns <code>otherwise</code>.
      */
     public Operation switch_on_hash(Map<Term, Operation> hash, Operation otherwise) {
-        Term arg1 = this.AREGS[0].dref();
+        Term arg1 = this.AREGS.getTermDRef(0);
         Term key;
         if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtomSymbol())) {
             key = arg1;
@@ -755,6 +756,37 @@ public final class Prolog extends PrologFlags {
      */
     public void setCont(Operation cont) {
         this.cont = cont;
+    }
+
+    /**
+     * @param i
+     * @return
+     */
+    public Term getPlainArg(int i) {
+        return AREGS.getPlainArg(i);
+    }
+
+    /**
+     * @param i
+     * @return
+     */
+    public Term getTermDRef(int i) {
+        return AREGS.getTermDRef(i);
+    }
+
+    /**
+     * @param i
+     * @param atomExp
+     */
+    public Term setAV(int i, Term v) {
+        return AREGS.setAV(i, v);
+    }
+
+    /**
+     * @param aREGS the aREGS to set
+     */
+    public void setAREGS(TermArray aREGS) {
+        this.AREGS = aREGS;
     }
 
 }

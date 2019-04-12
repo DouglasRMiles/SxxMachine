@@ -29,6 +29,7 @@ import SxxMachine.Operation;
 import SxxMachine.Prolog;
 import SxxMachine.PrologMain;
 import SxxMachine.Term;
+import SxxMachine.TermArray;
 import SxxMachine.Var;
 
 /**
@@ -479,7 +480,7 @@ public class Parser extends LexerHIDE {
         v1 = TermData.FFIObject(reader);
         v2 = TermData.V(engine);
         v3 = TermData.V(engine);
-        engine.AREGS = new Term[] { v1, v2, v3 };
+        engine.setAREGS(TermArray.newTermArray(v1, v2, v3));
         Operation cont = FILE_system.PRED_read_with_variables_3_static_exec(engine);
         BlockingPrologControl.executePredicate(PrologMain.p, engine, cont, true);
         //        while (cont != null) {

@@ -22,6 +22,8 @@ public class StaticPred extends Predicate implements Operation {
 
     @Override
     public void toString(StringBuilder sb) {
+        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+
         Token.toQuotedString(predName(), sb);
         boolean first = true;
         if (ThizLARGs != null) {
@@ -54,6 +56,7 @@ public class StaticPred extends Predicate implements Operation {
         if (ThizLARGs == null) {
             return -1;
         }
+        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
         return ThizLARGs.length;
     }
 

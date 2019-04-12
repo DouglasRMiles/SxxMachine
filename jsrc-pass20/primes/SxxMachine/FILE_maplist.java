@@ -41,7 +41,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/primes/mapli
 
 
     public static Operation PRED_n_maplist_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_maplist::n_maplist_4_var, FILE_maplist::n_maplist_4_var, FILE_maplist::n_maplist_4_flo, FILE_maplist::n_maplist_4_flo, FILE_maplist::n_maplist_4_flo, FILE_maplist::n_maplist_4_flo); 
@@ -76,10 +76,10 @@ m.cont = cont;
     // n_maplist(0,A,B,B):-!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
+        a1 = m.a(0).v;
+        a2 = m.a(1).v;
+        a3 = m.a(2).v;
+        a4 = m.a(3).v;
         cont = m.cont;
     // n_maplist(0,A,B,B):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -97,10 +97,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
+        a1 = m.a(0).v;
+        a2 = m.a(1).v;
+        a3 = m.a(2).v;
+        a4 = m.a(3).v;
         cont = m.cont;
     // n_maplist(A,B,C,D):-['$get_level'(E),ground(C),'$cut'(E),maplist(B,C,F),G is A-1,n_maplist(G,n_maplist:B,F,D)]
         a5 = m.mkvar1();
@@ -138,10 +138,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
-        a4 = m.AREGS[3];
+        a1 = m.a(0).v;
+        a2 = m.a(1).v;
+        a3 = m.a(2).v;
+        a4 = m.a(3).v;
         cont = m.cont;
     // n_maplist(A,B,C,D):-[maplist(B,E,D),F is A-1,n_maplist(F,n_maplist:B,C,E)]
         a5 = m.mkvar1();

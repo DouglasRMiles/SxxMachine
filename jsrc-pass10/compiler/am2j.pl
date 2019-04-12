@@ -367,8 +367,10 @@ write_java0(deref(Ri,Rj), _) :- !,
 write_java0(set(_,void), _) :- !.
 write_java0(set(cont,econt),_):- !, w('m.cont = cont;'), nl.
 write_java0(set(arg(1),ea(1)), _) :- !, nop((w('m.AREGS = LARG;'), nl)).
-% BAD write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
 write_java0(set(arg(N),ea(N)), _) :- !, nop((w('// m.AREGS = LARG;'+N), nl)).
+% BAD write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
+write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
+
 
 write_java0(set(Ri,Rj), _) :- !,
 	tab(8),
@@ -860,7 +862,7 @@ write_label(F/A) :- !,
     }'),nl)),
     tab(4),
     wl(['public static Operation ',(write_class_name(F/A)),'_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  ']), nl.
+        final Operation cont = m.cont; final TermArray LARG = m.AREGS; final Operation thiz = m.pred;  ']), nl.
 write_label(L) :-
 	tab(4),
 	w('}'), nl,

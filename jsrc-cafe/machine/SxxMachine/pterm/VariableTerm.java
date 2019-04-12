@@ -19,6 +19,7 @@ import SxxMachine.Prolog;
 import SxxMachine.PrologMachineCopy;
 import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
+import SxxMachine.TermArray;
 import SxxMachine.Trail;
 import SxxMachine.Undoable;
 import SxxMachine.Var;
@@ -260,7 +261,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
                 frozenProxy.cafe_bind_var(that, trail);
                 // freeze(X,integer(X)),X=1.
                 e2.resultReady = false;
-                Term[] savedA1 = m.AREGS;
+                TermArray savedA1 = m.AREGS;
                 Operation savedA2 = m.getCont();
                 m.setCont(null);
                 int savedA3 = m.B0;
@@ -278,7 +279,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
                     frozenProxy.undo();
                     e2.resultReady = false;
                     e2.code = saved;
-                    m.AREGS = savedA1;
+                    m.setAREGS(savedA1);
                     m.setCont(savedA2);
                     m.B0 = savedA3;
                 }

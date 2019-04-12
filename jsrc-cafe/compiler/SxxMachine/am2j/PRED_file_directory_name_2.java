@@ -16,6 +16,7 @@ import SxxMachine.pterm.VariableTerm;
 /** {@code file_directory_name(+File, -Directory)} */
 public class PRED_file_directory_name_2 extends Predicate.P2 {
     public PRED_file_directory_name_2(Term a1, Term a2, Operation next) {
+        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
         ThizLARGs[0] = a1;
         ThizLARGs[1] = a2;
         cont = next;
@@ -23,10 +24,10 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
 
     @Override
     public Operation exec(Prolog engine) throws PrologException {
-        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs[0]);
+        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs.getPlainArg(0));
         engine.setB0();
 
-        Term a1 = ThizLARGs[0].dref();
+        Term a1 = ThizLARGs.getTermDRef(0);
         if (a1 instanceof VariableTerm)
             throw new PInstantiationException(this, 1);
         if (!(a1 instanceof Functor))
@@ -37,7 +38,7 @@ public class PRED_file_directory_name_2 extends Predicate.P2 {
         if (dir == null)
             throw new IllegalDomainException(this, 1, "file", a1);
 
-        Term a2 = ThizLARGs[1].dref();
+        Term a2 = ThizLARGs.getTermDRef(1);
         if (a2.unify(createAtomic(dir.getPath()), engine.trail))
             return cont;
         else

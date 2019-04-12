@@ -38,11 +38,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_package_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // package A:-true
         m.setB0();
          Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // package A:-[]
         return cont;
     }
@@ -55,13 +55,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_open_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // open(A,B,C):-open(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
     // open(A,B,C):-[open(A,B,C,[])]
         return //
  Op("open", FILE_system::PRED_open_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
@@ -75,11 +75,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_close_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // close(A):-close(A,[])
         m.setB0();
          Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // close(A):-[close(A,[])]
         return //
  Op("close", FILE_system::PRED_close_2_static_exec, VA(a1,  Prolog.Nil ), cont);
@@ -93,7 +93,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_flush_output_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // flush_output:-current_output(A),flush_output(A)
         m.setB0();
          Term a1;
@@ -118,7 +118,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_io::stream_property_2_sub_1);
@@ -139,8 +139,8 @@ m.cont = cont;
     // stream_property(A,B):-var(B),!,'$stream_property'(A,B)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),var(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -168,8 +168,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),'$stream_property_specifier'(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -188,8 +188,8 @@ m.cont = cont;
     // stream_property(A,B):-illarg(domain(term,stream_property),stream_property(A,B),2)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // stream_property(A,B):-[illarg(domain(term,stream_property),stream_property(A,B),2)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -210,7 +210,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_$stream_property_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_io::$stream_property_2_sub_1);
@@ -232,8 +232,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$get_stream_manager'(D),hash_map(D,E),'$builtin_member'((A,F),E),java(A),'$builtin_member'(B,F)]
         a3 = m.mkvar1();
@@ -271,8 +271,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),java(A),'$cut'(C),'$get_stream_manager'(D),hash_get(D,A,E),'$builtin_member'(B,E)]
         a3 = m.mkvar1();
@@ -303,8 +303,8 @@ m.cont = cont;
     // '$stream_property'(A,B):-illarg(domain(stream,stream),stream_property(A,B),1)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // '$stream_property'(A,B):-[illarg(domain(stream,stream),stream_property(A,B),1)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -328,7 +328,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_io::$stream_property_specifier_1_var, fail_0, fail_0, FILE_io::$stream_property_specifier_1_con, FILE_io::$stream_property_specifier_1_str, fail_0); 
@@ -398,7 +398,7 @@ m.cont = cont;
     // '$stream_property_specifier'(input):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'(input):-[]
         if (!  ATOM_input .unify(a1, m.trail))
@@ -410,7 +410,7 @@ m.cont = cont;
     // '$stream_property_specifier'(output):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'(output):-[]
         if (!  ATOM_output .unify(a1, m.trail))
@@ -422,7 +422,7 @@ m.cont = cont;
     // '$stream_property_specifier'(alias(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'(alias(A)):-[]
         a1 = a1.dref();
@@ -436,7 +436,7 @@ m.cont = cont;
     // '$stream_property_specifier'((mode A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'((mode A)):-[]
         a1 = a1.dref();
@@ -450,7 +450,7 @@ m.cont = cont;
     // '$stream_property_specifier'(type(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'(type(A)):-[]
         a1 = a1.dref();
@@ -464,7 +464,7 @@ m.cont = cont;
     // '$stream_property_specifier'(file_name(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         cont = m.cont;
     // '$stream_property_specifier'(file_name(A)):-[]
         a1 = a1.dref();
@@ -482,12 +482,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get_char(A):-current_input(B),get_char(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // get_char(A):-[current_input(B),get_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -503,12 +503,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get_code(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // get_code(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -524,12 +524,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_char(A):-current_input(B),peek_char(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // peek_char(A):-[current_input(B),peek_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -545,12 +545,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_code(A):-current_input(B),peek_code(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // peek_code(A):-[current_input(B),peek_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -566,12 +566,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_char_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // put_char(A):-current_output(B),put_char(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // put_char(A):-[current_output(B),put_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -587,12 +587,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_code_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // put_code(A):-current_output(B),put_code(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // put_code(A):-[current_output(B),put_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -609,11 +609,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_nl_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // nl(A):-put_char(A,'\n')
         m.setB0();
          Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // nl(A):-[put_char(A,'\n')]
         return //
  Op("put_char", FILE_system::PRED_put_char_2_static_exec, VA(a1,  ATOM_$000A ), cont);
@@ -627,12 +627,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get0_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get0(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // get0(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -648,12 +648,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get0_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get0(A,B):-get_code(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
     // get0(A,B):-[get_code(A,B)]
         return //
  Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a1, a2), cont);
@@ -667,12 +667,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get(A):-current_input(B),get(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // get(A):-[current_input(B),get(B,A)]
         a2 = m.mkvar1();
         return //
@@ -688,12 +688,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // put(A):-current_output(B),put(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // put(A):-[current_output(B),put(B,A)]
         a2 = m.mkvar1();
         return //
@@ -709,12 +709,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // put(A,B):-C is B,put_code(A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
     // put(A,B):-[C is B,put_code(A,C)]
         a3 = m.mkvar1();
         //START inline expansion of a(3)is a(2)
@@ -734,12 +734,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_tab_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // tab(A):-current_output(B),tab(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // tab(A):-[current_output(B),tab(B,A)]
         a2 = m.mkvar1();
         return //
@@ -755,12 +755,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_skip_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // skip(A):-current_input(B),skip(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // skip(A):-[current_input(B),skip(B,A)]
         a2 = m.mkvar1();
         return //
@@ -776,12 +776,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_get_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // get_byte(A):-current_input(B),get_byte(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // get_byte(A):-[current_input(B),get_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -797,12 +797,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_peek_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // peek_byte(A):-current_input(B),peek_byte(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // peek_byte(A):-[current_input(B),peek_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -818,12 +818,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
     public static Operation PRED_put_byte_1_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // put_byte(A):-current_output(B),put_byte(B,A)
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
     // put_byte(A):-[current_output(B),put_byte(B,A)]
         a2 = m.mkvar1();
         return //

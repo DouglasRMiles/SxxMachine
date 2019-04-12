@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-nreverse
         m.setB0();
     // top:-[nreverse]
@@ -89,7 +89,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
     public static Operation PRED_nreverse_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
     // nreverse:-nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)
         m.setB0();
     // nreverse:-[nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)]
@@ -105,7 +105,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
     public static Operation PRED_nreverse_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         return nreverse_2_top(m);
     }
@@ -130,8 +130,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // nreverse([A|B],C):-[nreverse(B,D),concatenate(D,[A],C)]
         a1 = a1.dref();
@@ -149,8 +149,8 @@ m.cont = cont;
         a6 = CONS(a3,  Prolog.Nil );
         p1 = //
  Op("concatenate", FILE_nreverse::PRED_concatenate_3_static_exec, VA(a5, a6, a2), cont);
-        m.AREGS[0] = a4;
-        m.AREGS[1] = a5;
+        m.setAV(0,a4);
+        m.setAV(1,a5);
         m.cont = p1;
         return nreverse_2_top(m);
     }
@@ -159,8 +159,8 @@ m.cont = cont;
     // nreverse([],[]):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
         cont = m.cont;
     // nreverse([],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -178,7 +178,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
     public static Operation PRED_concatenate_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
+        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
 m.cont = cont;
         return concatenate_3_top(m);
     }
@@ -202,9 +202,9 @@ m.cont = cont;
     // concatenate([A|B],C,[A|D]):-concatenate(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
+        a3 = m.getPlainArg(2);
         cont = m.cont;
     // concatenate([A|B],C,[A|D]):-[concatenate(B,C,D)]
         a1 = a1.dref();
@@ -229,9 +229,9 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        m.AREGS[0] = a5;
-        m.AREGS[1] = a2;
-        m.AREGS[2] = a6;
+        m.setAV(0,a5);
+        m.setAV(1,a2);
+        m.setAV(2,a6);
 m.cont = cont;
         return concatenate_3_top(m);
     }
@@ -240,9 +240,9 @@ m.cont = cont;
     // concatenate([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1];
-        a3 = m.AREGS[2];
+        a1 = m.getPlainArg(0);
+        a2 = m.getPlainArg(1);
+        a3 = m.getPlainArg(2);
         cont = m.cont;
     // concatenate([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))

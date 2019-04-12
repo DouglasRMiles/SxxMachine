@@ -43,6 +43,7 @@ import SxxMachine.pterm.Mutex;
 import static SxxMachine.pterm.TermData.*;
 
 import static SxxMachine.pterm.TermData.*;
+
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })
 public class bootpreds extends sxxtensions {
 
@@ -105,22 +106,24 @@ public class bootpreds extends sxxtensions {
      */
     // _between_3 extends Predicate.P3 {
     public static Operation PRED_between_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        else if (!(a1.isInteger()))
+        } else if (!a1.isInteger()) {
             throw new IllegalTypeException(thiz, 1, "integer", a1);
+        }
         a2 = a2.dref();
-        if (!(a2.isInteger()))
+        if (!a2.isInteger()) {
             throw new IllegalTypeException(thiz, 3, "integer", a2);
+        }
         if (a1.intValue() < a2.intValue()) {
             a3 = a3.dref();
             if (a3.isVariable()) {
@@ -139,45 +142,50 @@ public class bootpreds extends sxxtensions {
      */
     // _arg_3 extends Predicate.P3 {
     public static Operation PRED_arg_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Term[] args;
         int arity, argNo;
         a1 = a1.dref();
-        if ((a1.isVar())) {
-            if (a2.isVariable())
+        if (a1.isVar()) {
+            if (a2.isVariable()) {
                 throw new PInstantiationException(thiz, 1);
+            }
         }
 
-        else if (!(a1.isInteger()))
+        else if (!a1.isInteger()) {
             throw new IllegalTypeException(thiz, 1, "integer", a1);
+        }
         a2 = a2.dref();
-        if ((a2.isCons())) {
+        if (a2.isCons()) {
             args = new Term[2];
-            args[0] = (a2).car();
-            args[1] = (a2).cdr();
+            args[0] = a2.car();
+            args[1] = a2.cdr();
             arity = 2;
-        } else if ((a2.isCompound())) {
-            args = (a2).args();
-            arity = (a2).arity();
-        } else if ((a2.isVar())) {
+        } else if (a2.isCompound()) {
+            args = a2.args();
+            arity = a2.arity();
+        } else if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
         } else {
             throw new IllegalTypeException(thiz, 2, "compound", a2);
         }
-        argNo = (a1).intValue();
-        if (argNo < 0)
+        argNo = a1.intValue();
+        if (argNo < 0) {
             throw new IllegalDomainException(thiz, 1, "not_less_than_zero", a1);
-        if (argNo > arity || argNo < 1)
+        }
+        if (argNo > arity || argNo < 1) {
             return engine.fail();
-        if (!a3.unify(args[argNo - 1], engine.trail))
+        }
+        if (!a3.unify(args[argNo - 1], engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -190,54 +198,62 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_chars_2 extends Predicate.P2 {
     public static Operation PRED_atom_chars_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar())) { // atom_chars(-Atom, +CharList)
+        if (a1.isVar()) { // atom_chars(-Atom, +CharList)
             if (a2.isNil()) {
-                if (!a1.unifySYM((""), engine.trail))
+                if (!a1.unifySYM("", engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
-            } else if ((a2.isVar())) {
+            } else if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isCons())) {
+            } else if (!a2.isCons()) {
                 throw new IllegalTypeException(thiz, 2, "list", a2);
             }
-            StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder();
             Term x = a2;
             while (!x.isNil()) {
-                if ((x.isVar()))
+                if (x.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(x.isCons()))
+                }
+                if (!x.isCons()) {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
-                Term car = (x).car().dref();
-                if ((car.isVar()))
+                }
+                final Term car = x.car().dref();
+                if (car.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isAtomSymbol()) || (car).getJavaString().length() != 1)
+                }
+                if (!car.isAtomSymbol() || car.getJavaString().length() != 1) {
                     throw new IllegalTypeException(thiz, 2, "character", a2);
-                sb.append((car).getJavaString());
-                x = (x).cdr().dref();
+                }
+                sb.append(car.getJavaString());
+                x = x.cdr().dref();
             }
-            if (!a1.unify(createAtomic(sb.toString()), engine.trail))
+            if (!a1.unify(createAtomic(sb.toString()), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } else if (a2.isNil() || (a2.isVar()) || (a2.isCons())) { // atom_chars(+Atom,
-                                                                  // ?CharList)
-            if (!(a1.isAtomSymbol()))
+        } else if (a2.isNil() || a2.isVar() || a2.isCons()) { // atom_chars(+Atom,
+                                                              // ?CharList)
+            if (!a1.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            String s = (a1).getJavaString();
+            }
+            final String s = a1.getJavaString();
             Term x = Prolog.Nil;
             for (int i = s.length(); i > 0; i--) {
                 x = CONS(createAtomic(s.substring(i - 1, i)), x);
             }
-            if (!a2.unify(x, engine.trail))
+            if (!a2.unify(x, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
         } else {
             return engine.fail();
@@ -253,48 +269,56 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_codes_2 extends Predicate.P2 {
     public static Operation PRED_atom_codes_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar())) { // atom_codes(-Atom, +CharCodeList)
-            StringBuilder sb = new StringBuilder();
+        if (a1.isVar()) { // atom_codes(-Atom, +CharCodeList)
+            final StringBuilder sb = new StringBuilder();
             Term x = a2;
             while (!x.isNil()) {
-                if ((x.isVar()))
+                if (x.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(x.isCons()))
+                }
+                if (!x.isCons()) {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
-                Term car = (x).car().dref();
-                if ((car.isVar()))
+                }
+                final Term car = x.car().dref();
+                if (car.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isInteger()))
+                }
+                if (!car.isInteger()) {
                     throw new RepresentationException(thiz, 2, "character_code");
+                }
                 // car is an integer
-                int i = (car).intValue();
-                if (!Character.isDefined((char) i))
+                final int i = car.intValue();
+                if (!Character.isDefined((char) i)) {
                     throw new RepresentationException(thiz, 2, "character_code");
+                }
                 sb.append((char) i);
-                x = (x).cdr().dref();
+                x = x.cdr().dref();
             }
-            if (!a1.unify(createAtomic(sb.toString()), engine.trail))
+            if (!a1.unify(createAtomic(sb.toString()), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
         } else { // atom_codes(+Atom, ?CharCodeList)
-            if (!(a1.isAtomSymbol()))
+            if (!a1.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            char[] chars = (a1).getJavaString().toCharArray();
+            }
+            final char[] chars = a1.getJavaString().toCharArray();
             Term x = Prolog.Nil;
             for (int i = chars.length; i > 0; i--) {
                 x = CONS(Integer(chars[i - 1]), x);
             }
-            if (!a2.unify(x, engine.trail))
+            if (!a2.unify(x, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
         }
     }
@@ -310,41 +334,46 @@ public class bootpreds extends sxxtensions {
     private static final Functor AC_2 = F("ac", 2);
 
     public static Operation PRED_atom_concat_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         a3 = a3.dref();
-        if ((a3.isAtomSymbol())) {
-            Functor s3 = a3.asSymbolTerm();
-            int endIndex = s3.termLength();
+        if (a3.isAtomSymbol()) {
+            final Functor s3 = a3.asSymbolTerm();
+            final int endIndex = s3.termLength();
             Term t = Prolog.Nil;
             for (int i = 0; i <= endIndex; i++) {
-                Term[] args = { s3.subsymbol(0, i), s3.subsymbol(i) };
+                final Term[] args = { s3.subsymbol(0, i), s3.subsymbol(i) };
                 t = CONS(S(AC_2, args), t);
             }
             return Op(FILE_builtins::PRED_$member_in_reverse_2_static_exec, VA(S(AC_2, a1, a2), t), cont);
-        } else if (!(a3.isVar())) {
+        } else if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "atom", a3);
         }
         // a3 is a variable
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if ((a2.isVar()))
+        }
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "integer", a1);
-        if (!(a2.isAtomSymbol()))
+        }
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "integer", a2);
-        String str3 = (a1).getJavaString().concat((a2).getJavaString());
-        if (!a3.unify(createAtomic(str3), engine.trail))
+        }
+        final String str3 = a1.getJavaString().concat(a2.getJavaString());
+        if (!a3.unify(createAtomic(str3), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -356,18 +385,18 @@ public class bootpreds extends sxxtensions {
      */
     // _atomic_concat_3 extends Predicate.P3 {
     public static Operation PRED_atomic_concat_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        if (!(a1.isNumber()) && !(a1.isAtomSymbol())) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        if (!a1.isNumber() && !a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atomic", a1);
         }
-        if (!(a2.isNumber()) && !(a2.isAtomSymbol())) {
+        if (!a2.isNumber() && !a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atomic", a2);
         }
-        if (LARG[2].unify(createAtomic(a1.getJavaString() + a2.getJavaString()), engine.trail)) {
+        if (LARG.getPlainArg(2).unify(createAtomic(a1.getJavaString() + a2.getJavaString()), engine.trail)) {
             return cont;
         }
         return engine.fail();
@@ -382,30 +411,35 @@ public class bootpreds extends sxxtensions {
      */
     // _atom_length_2 extends Predicate.P2 {
     public static Operation PRED_atom_length_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         int length;
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
-        length = (a1).getJavaString().length();
-        if ((a2.isVar())) {
-            if (!a2.unifyInt((length), engine.trail))
+        }
+        length = a1.getJavaString().length();
+        if (a2.isVar()) {
+            if (!a2.unifyInt(length, engine.trail)) {
                 return engine.fail();
-        } else if ((a2.isInteger())) {
-            int n = (a2).intValue();
-            if (n < 0)
+            }
+        } else if (a2.isInteger()) {
+            final int n = a2.intValue();
+            if (n < 0) {
                 throw new IllegalDomainException(thiz, 2, "not_less_than_zero", a2);
-            if (length != n)
+            }
+            if (length != n) {
                 return engine.fail();
+            }
         } else {
             throw new IllegalTypeException(thiz, 1, "integer", a2);
         }
@@ -421,19 +455,21 @@ public class bootpreds extends sxxtensions {
      */
     // _$atom_type0_2 extends Predicate.P2 {
     public static Operation PRED_$atom_type0_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
         int type;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
-        if (!(a1.isAtomSymbol()))
+        if (!a1.isAtomSymbol()) {
             return engine.fail();
+        }
         type = Token.getStringType(a1.getJavaString());
-        if (!a2.unifyInt((type), engine.trail))
+        if (!a2.unifyInt(type, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -457,13 +493,14 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_exception_1(Term a1, Operation cont) {
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
             ThizLARGs[0] = a1;
             this.cont = cont;
         }
 
         @Override
         public Operation exec(Prolog engine) { // Operation cont = engine.cont;
-                                               // Term[] LARG = engine.AREGS;
+                                               // TermArray LARG = engine.AREGS;
                                                // Operation thiz = engine.pred;
 
             engine.setB0();
@@ -473,7 +510,7 @@ public class bootpreds extends sxxtensions {
         }
 
         public static Operation static_exec(Prolog engine) {
-            Operation cont = engine.getCont();
+            final Operation cont = engine.getCont();
             engine.setB0();
             engine.pushCatcherB(engine.B0);
             engine.trail.push(() -> engine.popCatcherB());
@@ -501,6 +538,7 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_sync_2(Term a1, Term a2, Operation cont) {
+            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
             ThizLARGs[0] = a1;
             ThizLARGs[1] = a2;
             this.cont = cont;
@@ -513,32 +551,35 @@ public class bootpreds extends sxxtensions {
         }
 
         static public Operation static_exec(Prolog engine) {
-            Term[] LARG = engine.AREGS;
-            BlockPredicate thiz = (BlockPredicate) engine.pred;
+            final TermArray LARG = engine.AREGS;
+            final BlockPredicate thiz = (BlockPredicate) engine.pred;
             engine.setB0();
             Term a1, a2;
-            a1 = LARG[0];
-            a2 = LARG[1];
+            a1 = LARG.getPlainArg(0);
+            a2 = LARG.getPlainArg(1);
             Object o = null;
             Operation code = null;
             // 1st. argument
             a1 = a1.dref();
-            if ((a1.isVar()))
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            if (!(a1.isJavaObject()))
+            }
+            if (!a1.isJavaObject()) {
                 throw new IllegalTypeException(thiz, 1, "java", a1);
+            }
             o = a1.javaInstance();
             // 2nd. argument
             a2 = a2.dref();
-            if (!(a2.isVar()))
+            if (!a2.isVar()) {
                 throw new IllegalTypeException(thiz, 2, "variable", a1);
+            }
             a2.asVariableTerm().bind(FFIObject(thiz), engine.trail);
             //
             code = thiz.cont;
             thiz.outOfScope = false;
             thiz.outOfLoop = false;
             engine.trail.push(new OutOfLoop(thiz));
-            PrologLogger logger = engine.getLogger();
+            final PrologLogger logger = engine.getLogger();
             try {
                 main_loop: while (true) {
                     synchronized (o) {
@@ -548,8 +589,9 @@ public class bootpreds extends sxxtensions {
                             }
                             // if (engine.control.isEngineStopped())
                             // break main_loop;
-                            if (thiz.outOfLoop)
+                            if (thiz.outOfLoop) {
                                 break main_loop;
+                            }
                             logger.beforeExec(code);
                             code = code.exec(engine);
                         }
@@ -560,15 +602,16 @@ public class bootpreds extends sxxtensions {
                         }
                         // if (engine.control.isEngineStopped())
                         // break main_loop;
-                        if (thiz.outOfLoop)
+                        if (thiz.outOfLoop) {
                             break main_loop;
+                        }
                         logger.beforeExec(code);
                         code = code.exec(engine);
                     }
                 }
-            } catch (StopEngineException see) {
+            } catch (final StopEngineException see) {
                 throw see;
-            } catch (RuntimeException e) {
+            } catch (final RuntimeException e) {
                 throw logger.execThrows(e);
             }
             return code;
@@ -583,21 +626,21 @@ public class bootpreds extends sxxtensions {
     static public class PRED_$builtin_member_2 extends Predicate.P2 {
 
         public static Operation static_exec(Prolog engine) {
-            Operation cont = engine.getCont();
-            Term[] LARG = engine.AREGS;
-            final Term a1 = LARG[0].dref();
-            final Term a2 = LARG[1].dref();
-            if (!(a2.isCons())) {
+            final Operation cont = engine.getCont();
+            final TermArray LARG = engine.AREGS;
+            final Term a1 = LARG.getTermDRef(0);
+            final Term a2 = LARG.getTermDRef(1);
+            if (!a2.isCons()) {
                 return engine.fail();
             }
 
-            final Term value = (a2).car();
-            final Term next = (a2).cdr().dref();
+            final Term value = a2.car();
+            final Term next = a2.cdr().dref();
 
             if (!next.equalsTerm(Prolog.Nil)) {
                 engine.setB0();
-                engine.AREGS = LARG;
-                engine.AREGS[1] = FFIObject(new Term[] { next });
+                engine.setAREGS(LARG);
+                engine.setAV(1, FFIObject(new Term[] { next }));
                 engine.setCont(cont);
                 engine.jtry2(null, PRED_$builtin_member_2::retry); // push new
                                                                    // frame
@@ -605,22 +648,22 @@ public class bootpreds extends sxxtensions {
                                                                    // retry as
                                                                    // next
             }
-            return (a1.unify(value, engine.trail)) ? cont : engine.fail();
+            return a1.unify(value, engine.trail) ? cont : engine.fail();
         }
 
         private static Operation retry(Prolog engine) {
             engine.retry(null, PRED_$builtin_member_2::retry); // restore
-                                                               // engine.AREGS[0],
-                                                               // AREGS[1],
+                                                               // engine.a(0).v,
+                                                               // AREGS.a(1).v,
                                                                // cont
-            final Term[] p = (Term[]) engine.AREGS[1].javaInstance();
+            final Term[] p = (Term[]) engine.getPlainArg(1).javaInstance();
             final Trail trail = engine.trail;
             final int top = trail.top();
             Term a2 = p[0];
             while (a2.isCons()) {
-                final Term value = (a2).car().dref();
-                a2 = (a2).cdr().dref();
-                if (engine.AREGS[0].unify(value, engine.trail)) {
+                final Term value = a2.car().dref();
+                a2 = a2.cdr().dref();
+                if (engine.getPlainArg(0).unify(value, engine.trail)) {
                     p[0] = a2;
                     return engine.getCont();
                 }
@@ -636,39 +679,39 @@ public class bootpreds extends sxxtensions {
      */
     // _$builtin_member_2 extends Predicate.P2 {
     public static Operation PRED_$builtin_member_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        if (!(a2.isCons())) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Term a1 = engine.getTermDRef(0);
+        final Term a2 = engine.getTermDRef(1);
+        if (!a2.isCons()) {
             return engine.fail();
         }
-        final Term value = (a2).car();
-        final Term next = (a2).cdr().dref();
+        final Term value = a2.car();
+        final Term next = a2.cdr().dref();
         if (!next.equalsTerm(Prolog.Nil)) {
             engine.setB0();
-            engine.AREGS = LARG;
-            engine.AREGS[1] = FFIObject(new Term[] { next });
+            engine.setAREGS(LARG);
+            engine.setAV(1, FFIObject(new Term[] { next }));
             engine.setCont(cont);
             engine.jtry2(null, bootpreds::retry_bi_member); // push new frame
                                                             // with
                                                             // retry as next
         }
-        return (a1.unify(value, engine.trail)) ? cont : engine.fail();
+        return a1.unify(value, engine.trail) ? cont : engine.fail();
     }
 
     private static Operation retry_bi_member(Prolog engine) {
         engine.retry(null, bootpreds::retry_bi_member); // restore
-                                                        // engine.AREGS[0],
-                                                        // AREGS[1], cont
-        final Term[] p = (Term[]) engine.AREGS[1].javaInstance();
+                                                        // engine.a(0).v,
+                                                        // AREGS.a(1).v, cont
+        final Term[] p = (Term[]) engine.getPlainArg(1).javaInstance();
         final Trail trail = engine.trail;
         final int top = trail.top();
         Term a2 = p[0];
         while (a2.isCons()) {
-            final Term value = (a2).car().dref();
-            a2 = (a2).cdr().dref();
-            if (engine.AREGS[0].unify(value, engine.trail)) {
+            final Term value = a2.car().dref();
+            a2 = a2.cdr().dref();
+            if (engine.getPlainArg(0).unify(value, engine.trail)) {
                 p[0] = a2;
                 return engine.getCont();
             }
@@ -691,13 +734,13 @@ public class bootpreds extends sxxtensions {
     private final static Term[] NO_ARGS = new Term[0];
 
     public static Operation PRED_$call_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0].dref(); // a1 must be atom of package name
-        a2 = LARG[1].dref(); // a2 must be callable name
+        a1 = LARG.getTermDRef(0); // a1 must be atom of package name
+        a2 = LARG.getTermDRef(1); // a2 must be callable name
         Term functor;
         int arity;
         Term[] args;
@@ -705,35 +748,37 @@ public class bootpreds extends sxxtensions {
         // Constructor constr;
         // Operation pred;
         try {
-            if (!(a1.isAtomSymbol()))
+            if (!a1.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 1, "atom", a1);
-            if ((a2.isAtomSymbol())) {
+            }
+            if (a2.isAtomSymbol()) {
                 functor = a2;
                 args = NO_ARGS; // new Term[]{};
                 arity = 0;
-            } else if ((a2.isCompound())) {
+            } else if (a2.isCompound()) {
                 functor = a2.functor();
-                args = (a2).args();
+                args = a2.args();
                 arity = a2.arity();
             } else {
                 throw new IllegalTypeException(thiz, 2, "callable", a2);
             }
             try {
                 return engine.pcl.predicate(a1.getJavaString(), functor.getJavaString(), cont, args);
-            } catch (ExistenceException e) {
+            } catch (final ExistenceException e) {
                 try {
                     return engine.pcl.predicate(Prolog.BUILTIN, functor.getJavaString(), cont, args);
-                } catch (ExistenceException e2) {
-                    if ((engine.getUnknown()).equals("fail"))
+                } catch (final ExistenceException e2) {
+                    if (engine.getUnknown().equals("fail")) {
                         return engine.fail();
-                    Term what = S(SYM_COLON_2, a1, S(SYM_SLASH_2, functor, Integer(arity)));
-                    String mt = e.getMessage();
-                    ExistenceException err = new ExistenceException(thiz, 0, "procedure", what, mt);
+                    }
+                    final Term what = S(SYM_COLON_2, a1, S(SYM_SLASH_2, functor, Integer(arity)));
+                    final String mt = e.getMessage();
+                    final ExistenceException err = new ExistenceException(thiz, 0, "procedure", what, mt);
                     err.initCause(e);
                     throw err;
                 }
             }
-        } catch (IllegalArgumentException e) {
+        } catch (final IllegalArgumentException e) {
             throw new SystemException(e.toString() + " in " + thiz);
         }
     }
@@ -747,15 +792,16 @@ public class bootpreds extends sxxtensions {
      */
     // _$call_closure_1 extends Predicate.P1 {
     public static Operation PRED_$call_closure_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
         Predicate code;
         // a1 must be closure
-        a1 = LARG[0].dref();
-        if (!(a1.isClosure()))
+        a1 = LARG.getTermDRef(0);
+        if (!a1.isClosure()) {
             return engine.fail();
+        }
         code = a1.asClosureTerm().getCode();
         code.cont = cont;
         return code;
@@ -770,32 +816,36 @@ public class bootpreds extends sxxtensions {
      */
     // _char_code_2 extends Predicate.P2 {
     public static Operation PRED_char_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar())) { // char_code(-Char, +CharCode)
-            if ((a2.isVar())) {
+        if (a1.isVar()) { // char_code(-Char, +CharCode)
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isInteger())) {
+            } else if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "integer", a2);
             }
-            int i = (a2).intValue();
-            if (!Character.isDefined(i))
+            final int i = a2.intValue();
+            if (!Character.isDefined(i)) {
                 throw new RepresentationException(thiz, 2, "character_code");
-            if (!a1.unify(CHAR((char) i), engine.trail))
+            }
+            if (!a1.unify(CHAR((char) i), engine.trail)) {
                 return engine.fail();
-        } else if ((a1.isAtomSymbol())) { // char_code(+Char, ?CharCode)
-            String s = (a1).getJavaString();
-            if (s.length() != 1)
+            }
+        } else if (a1.isAtomSymbol()) { // char_code(+Char, ?CharCode)
+            final String s = a1.getJavaString();
+            if (s.length() != 1) {
                 throw new IllegalTypeException(thiz, 1, "character", a1);
-            if (!a2.unifyInt((s.charAt(0)), engine.trail))
+            }
+            if (!a2.unifyInt(s.charAt(0), engine.trail)) {
                 return engine.fail();
+            }
         } else {
             return engine.fail();
         }
@@ -816,103 +866,113 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_FALSE = SYM("false");
 
     public static Operation PRED_close_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         boolean forceFlag = false;
         Object stream = null;
         // close options
         a2 = a2.dref();
         Term tmp = a2;
         while (!tmp.isNil()) {
-            if ((tmp.isVar()))
+            if (tmp.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            if (!(tmp.isCons()))
+            }
+            if (!tmp.isCons()) {
                 throw new IllegalTypeException(thiz, 2, "list", a2);
-            Term car = (tmp).car().dref();
-            if ((car.isVar()))
+            }
+            final Term car = tmp.car().dref();
+            if (car.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            if ((car.isCompound())) {
-                Term functor = (car).functor();
-                Term[] args = (car).args();
+            }
+            if (car.isCompound()) {
+                final Term functor = car.functor();
+                final Term[] args = car.args();
                 if (functor.equalsTerm(SYM_FORCE_1)) {
-                    Term bool = args[0].dref();
-                    if (bool.equalsTerm(SYM_TRUE))
+                    final Term bool = args[0].dref();
+                    if (bool.equalsTerm(SYM_TRUE)) {
                         forceFlag = true;
-                    else if (bool.equalsTerm(SYM_FALSE))
+                    } else if (bool.equalsTerm(SYM_FALSE)) {
                         forceFlag = false;
-                    else
+                    } else {
                         throw new IllegalDomainException(thiz, 2, "close_option", car);
+                    }
                 } else {
                     throw new IllegalDomainException(thiz, 2, "close_option", car);
                 }
             } else {
                 throw new IllegalDomainException(thiz, 2, "close_option", car);
             }
-            tmp = (tmp).cdr().dref();
+            tmp = tmp.cdr().dref();
         }
         // stream
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getStreamManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getStreamManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            stream = engine.getStreamManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
         if (stream instanceof PushbackReader) {
-            PushbackReader in = (PushbackReader) stream;
-            if (in.equals(engine.getUserInput()))
+            final PushbackReader in = (PushbackReader) stream;
+            if (in.equals(engine.getUserInput())) {
                 return cont;
-            if (in.equals(engine.getCurrentInput()))
+            }
+            if (in.equals(engine.getCurrentInput())) {
                 engine.setCurrentInput(engine.getUserInput());
+            }
             try {
                 in.close();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 throw new TermException(FFIObject(e));
             }
         } else if (stream instanceof PrintWriter) {
-            PrintWriter out = (PrintWriter) stream;
+            final PrintWriter out = (PrintWriter) stream;
             if (out.checkError()) {
-                if (!forceFlag)
+                if (!forceFlag) {
                     throw new SystemException("output stream error");
+                }
             }
             out.flush();
-            if (out.equals(engine.getUserOutput()) || out.equals(engine.getUserError()))
+            if (out.equals(engine.getUserOutput()) || out.equals(engine.getUserError())) {
                 return cont;
-            if (out.equals(engine.getCurrentOutput()))
+            }
+            if (out.equals(engine.getCurrentOutput())) {
                 engine.setCurrentOutput(engine.getUserOutput());
+            }
             out.close();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
         // delete associated entries from the stream manager
-        HashtableOfTerm streamManager = engine.getStreamManager();
-        if ((a1.isAtomSymbol())) {
+        final HashtableOfTerm streamManager = engine.getStreamManager();
+        if (a1.isAtomSymbol()) {
             streamManager.remove(engine.getStreamManager().get(a1));
             streamManager.remove(a1);
-        } else if ((a1.isJavaObject())) {
+        } else if (a1.isJavaObject()) {
             Term tmp2 = streamManager.get(a1);
             while (!tmp2.isNil()) {
-                Term car = (tmp2).car().dref();
-                if ((car.isCompound())) {
-                    Term functor = (car).functor();
-                    Term[] args = (car).args();
+                final Term car = tmp2.car().dref();
+                if (car.isCompound()) {
+                    final Term functor = car.functor();
+                    final Term[] args = car.args();
                     if (functor.equalsTerm(SYM_ALIAS_1)) {
-                        Term alias = args[0].dref();
+                        final Term alias = args[0].dref();
                         streamManager.remove(alias);
                     }
                 }
-                tmp2 = (tmp2).cdr().dref();
+                tmp2 = tmp2.cdr().dref();
             }
             streamManager.remove(a1);
         } else {
@@ -928,13 +988,13 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compare0_3 extends Predicate.P3 {
     public static Operation PRED_$compare0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
         engine.setB0();
-        Term a2 = LARG[1].dref();
-        Term a3 = LARG[2].dref();
-        if (!LARG[0].unifyInt((a2.compareTo(a3)), engine.trail))
+        final Term a2 = engine.getTermDRef(1);
+        final Term a3 = engine.getTermDRef(2);
+        if (!engine.getPlainArg(0).unifyInt(a2.compareTo(a3), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -946,14 +1006,15 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compiled_predicate_3 extends Predicate.P3 {
     public static Operation PRED_$compiled_predicate_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
-        Term a3 = LARG[2].dref();
-        if (!engine.pcl.definedPredicate(a1.getJavaString(), (a2).getJavaString(), (a3).intValue()))
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        if (!engine.pcl.definedPredicate(a1.getJavaString(), a2.getJavaString(), a3.intValue())) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -965,16 +1026,17 @@ public class bootpreds extends sxxtensions {
     // .Term;
     // _$compiled_predicate_or_builtin_3 extends Predicate.P3 {
     public static Operation PRED_$compiled_predicate_or_builtin_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
-        Term a3 = LARG[2].dref();
-        final String atomName = (a2).getJavaString();
-        if (!engine.pcl.definedPredicate(a1.getJavaString(), atomName, (a3).intValue())
-                && !engine.pcl.definedPredicate(Prolog.BUILTIN, atomName, (a3).intValue()))
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        final String atomName = a2.getJavaString();
+        if (!engine.pcl.definedPredicate(a1.getJavaString(), atomName, a3.intValue())
+                && !engine.pcl.definedPredicate(Prolog.BUILTIN, atomName, a3.intValue())) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -987,14 +1049,15 @@ public class bootpreds extends sxxtensions {
      */
     // _current_engine_1 extends Predicate.P1 {
     public static Operation PRED_current_engine_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if (!a1.unify(FFIObject(engine), engine.trail))
+        if (!a1.unify(FFIObject(engine), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1007,19 +1070,20 @@ public class bootpreds extends sxxtensions {
      */
     // _current_input_1 extends Predicate.P1 {
     public static Operation PRED_current_input_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             a1.asVariableTerm().bind(FFIObject(engine.getCurrentInput()), engine.trail);
-        } else if ((a1.isJavaObject())) {
-            if (!a1.unify(FFIObject(engine.getCurrentInput()), engine.trail))
+        } else if (a1.isJavaObject()) {
+            if (!a1.unify(FFIObject(engine.getCurrentInput()), engine.trail)) {
                 return engine.fail();
+            }
         } else {
             throw new IllegalDomainException(thiz, 1, "stream", a1);
         }
@@ -1035,19 +1099,20 @@ public class bootpreds extends sxxtensions {
      */
     // _current_output_1 extends Predicate.P1 {
     public static Operation PRED_current_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             a1.asVariableTerm().bind(FFIObject(engine.getCurrentOutput()), engine.trail);
-        } else if ((a1.isJavaObject())) {
-            if (!a1.unify(FFIObject(engine.getCurrentOutput()), engine.trail))
+        } else if (a1.isJavaObject()) {
+            if (!a1.unify(FFIObject(engine.getCurrentOutput()), engine.trail)) {
                 return engine.fail();
+            }
         } else {
             throw new IllegalDomainException(thiz, 1, "stream", a1);
         }
@@ -1063,13 +1128,13 @@ public class bootpreds extends sxxtensions {
      */
     // _$cut_1 extends Predicate.P1 {
     public static Operation PRED_$cut_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         // engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if (!(a1.isInteger())) {
+        if (!a1.isInteger()) {
             throw new IllegalTypeException("integer", a1);
         } else {
             engine.cut(a1.intValue());
@@ -1086,7 +1151,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$end_exception_1 extends Predicate.P1 {
     public static Operation PRED_$end_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
+        final Operation cont = engine.getCont();
         engine.setB0();
         final int B = engine.popCatcherB();
         engine.trail.push(() -> engine.pushCatcherB(B));
@@ -1102,19 +1167,21 @@ public class bootpreds extends sxxtensions {
      */
     // _$end_sync_1 extends Predicate.P1 {
     public static Operation PRED_$end_sync_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if (!(a1.isJavaObject()))
+        if (!a1.isJavaObject()) {
             throw new IllegalTypeException(thiz, 1, "java", a1);
-        Object obj = a1.javaInstance();
-        if (!(obj instanceof PRED_$begin_sync_2))
+        }
+        final Object obj = a1.javaInstance();
+        if (!(obj instanceof PRED_$begin_sync_2)) {
             throw new SystemException("a1 must be an object of PRED_$begin_sync_2: " + thiz);
-        PRED_$begin_sync_2 p = ((PRED_$begin_sync_2) obj);
+        }
+        final PRED_$begin_sync_2 p = (PRED_$begin_sync_2) obj;
         p.outOfScope = true;
         engine.trail.push(new OutOfScope(p));
         return cont;
@@ -1129,16 +1196,17 @@ public class bootpreds extends sxxtensions {
      */
     // _$erase_1 extends Predicate.P1 {
     public static Operation PRED_$erase_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        Term a1 = LARG[0];
+        Term a1 = LARG.getPlainArg(0);
         int idx;
         a1 = a1.dref();
-        if (!(a1.isInteger()))
+        if (!a1.isInteger()) {
             throw new IllegalTypeException(thiz, 1, "integer", a1);
-        idx = (a1).intValue();
+        }
+        idx = a1.intValue();
         engine.internalDB.erase(idx);
         return cont;
     }
@@ -1147,42 +1215,48 @@ public class bootpreds extends sxxtensions {
     /** {@code exists_directory(+Directory)} */
     // _exists_directory_1 extends Predicate.P1 {
     public static Operation PRED_exists_directory_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        if ((a1.isVar()))
+        final Term a1 = LARG.getTermDRef(0);
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalDomainException(thiz, 1, "directory", a1);
-        File file = new File(a1.getJavaString());
-        if (file.isDirectory())
+        }
+        final File file = new File(a1.getJavaString());
+        if (file.isDirectory()) {
             return cont;
-        else
+        } else {
             return engine.fail();
+        }
     }
 
     // jio.File;
     /** {@code exists_file(+File)} */
     // _exists_file_1 extends Predicate.P1 {
     public static Operation PRED_exists_file_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        if ((a1.isVar()))
+        final Term a1 = LARG.getTermDRef(0);
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalDomainException(thiz, 1, "file", a1);
-        File file = new File(a1.getJavaString());
-        if (file.isFile())
+        }
+        final File file = new File(a1.getJavaString());
+        if (file.isFile()) {
             return cont;
-        else
+        } else {
             return engine.fail();
+        }
     }
 
     /**
@@ -1194,12 +1268,12 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_write_1 extends Predicate.P1 {
     public static Operation PRED_$fast_write_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0].dref();
-        PrintWriter pw = engine.getCurrentOutput();
+        a1 = LARG.getTermDRef(0);
+        final PrintWriter pw = engine.getCurrentOutput();
         pw.print(a1.stringWrite());
         return cont;
     }
@@ -1214,13 +1288,13 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_write_2 extends Predicate.P2 {
     public static Operation PRED_$fast_write_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
-        PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
+        a2 = LARG.getPlainArg(1);
+        final PrintWriter stream = toPrintWriter(engine, thiz, LARG.getPlainArg(0));
         // print term
         stream.print(a2.dref().stringWrite());
         return cont;
@@ -1235,11 +1309,11 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_writeq_1 extends Predicate.P1 {
     public static Operation PRED_$fast_writeq_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0].dref();
+        a1 = LARG.getTermDRef(0);
         engine.getCurrentOutput().print(a1.toQuotedString());
         return cont;
     }
@@ -1254,15 +1328,15 @@ public class bootpreds extends sxxtensions {
      */
     // _$fast_writeq_2 extends Predicate.P2 {
     public static Operation PRED_$fast_writeq_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, a1);
+        final PrintWriter stream = toPrintWriter(engine, thiz, a1);
         // print term
         String qs = a2.dref().toQuotedString();
         if ("/*".equals(qs)) {
@@ -1275,19 +1349,21 @@ public class bootpreds extends sxxtensions {
     public static PrintWriter toPrintWriter(Prolog engine, Operation thiz, Term a1) throws BuiltinException {
         Object stream = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getStreamManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getStreamManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            stream = engine.getStreamManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
-        if (!(stream instanceof Writer))
+        if (!(stream instanceof Writer)) {
             throw new PermissionException(thiz, "output", "stream", a1, "");
+        }
         return (PrintWriter) stream;
     }
 
@@ -1295,25 +1371,29 @@ public class bootpreds extends sxxtensions {
     /** {@code file_directory_name(+File, -Directory)} */
     // _file_directory_name_2 extends Predicate.P2 {
     public static Operation PRED_file_directory_name_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
         engine.requireFeature(Prolog.Feature.IO, thiz, a1);
         engine.setB0();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalDomainException(thiz, 1, "file", a1);
-        File file = new File(a1.getJavaString());
-        File dir = file.getParentFile();
-        if (dir == null)
+        }
+        final File file = new File(a1.getJavaString());
+        final File dir = file.getParentFile();
+        if (dir == null) {
             throw new IllegalDomainException(thiz, 1, "file", a1);
-        Term a2 = LARG[1].dref();
-        if (a2.unify(createAtomic(dir.getPath()), engine.trail))
+        }
+        final Term a2 = LARG.getTermDRef(1);
+        if (a2.unify(createAtomic(dir.getPath()), engine.trail)) {
             return cont;
-        else
+        } else {
             return engine.fail();
+        }
     }
 
     // jio.PrintWriter;
@@ -1326,11 +1406,11 @@ public class bootpreds extends sxxtensions {
      */
     // _flush_output_1 extends Predicate.P1 {
     public static Operation PRED_flush_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, LARG.getPlainArg(0));
         stream.flush();
         return cont;
     }
@@ -1346,70 +1426,82 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_DOT_0 = SYM(".");
 
     public static Operation PRED_functor_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         // functor(?X,+Y,+Z)
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             a2 = a2.dref();
-            if ((a2.isVar()))
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            if (!(a2.isAtomSymbol()) && !(a2.isNumber()) && !(a2.isJavaObject()) && !(a2.isClosure()))
+            }
+            if (!a2.isAtomSymbol() && !a2.isNumber() && !a2.isJavaObject() && !a2.isClosure()) {
                 throw new IllegalTypeException(thiz, 2, "atomic", a2);
+            }
             a3 = a3.dref();
-            if ((a3.isVar()))
+            if (a3.isVar()) {
                 throw new PInstantiationException(thiz, 3);
-            if (!(a3.isInteger()))
+            }
+            if (!a3.isInteger()) {
                 throw new IllegalTypeException(thiz, 3, "integer", a3);
-            int n = (a3).intValue();
-            if (n < 0)
+            }
+            final int n = a3.intValue();
+            if (n < 0) {
                 throw new IllegalDomainException(thiz, 3, "not_less_than_zero", a3);
+            }
             if (n == 0) {
-                if (!a1.unify(a2, engine.trail))
+                if (!a1.unify(a2, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
+            }
             if (n == 2 && a2.equalsTerm(SYM_DOT_0)) {
-                Term t = CONS(V(engine), V(engine));
-                if (!a1.unify(t, engine.trail))
+                final Term t = CONS(V(engine), V(engine));
+                if (!a1.unify(t, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            Term[] args = new Term[n];
-            for (int i = 0; i < n; i++)
+            final Term[] args = new Term[n];
+            for (int i = 0; i < n; i++) {
                 args[i] = V(engine);
-            Functor sym = createF((a2).fname(), n);
-            if (!a1.unifyS(sym, engine.trail, args))
+            }
+            final Functor sym = createF(a2.fname(), n);
+            if (!a1.unifyS(sym, engine.trail, args)) {
                 return engine.fail();
+            }
             return cont;
         }
         // functor(+X,?Y,?Z)
         Term functor;
         NumberTerm arity;
-        if ((a1.isAtomSymbol()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
+        if (a1.isAtomSymbol() || a1.isNumber() || a1.isJavaObject() || a1.isClosure()) {
             functor = a1;
             arity = Integer(0);
-        } else if ((a1.isCons())) {
+        } else if (a1.isCons()) {
             functor = SYM_DOT_0;
             arity = Integer(2);
-        } else if ((a1.isCompound())) {
+        } else if (a1.isCompound()) {
             functor = a1.functor();
             arity = Integer(a1.arity());
         } else {
             return engine.fail();
         }
-        if (!a2.unify(functor, engine.trail))
+        if (!a2.unify(functor, engine.trail)) {
             return engine.fail();
-        if (!a3.unify(arity, engine.trail))
+        }
+        if (!a3.unify(arity, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1423,41 +1515,47 @@ public class bootpreds extends sxxtensions {
      */
     // _get_2 extends Predicate.P2 {
     public static Operation PRED_get_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // Char
         a2 = a2.dref();
-        if (!(a2.isVar())) {
-            if (!(a2.isInteger()))
+        if (!a2.isVar()) {
+            if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "integer", a2);
-            int n = (a2).intValue();
-            if (n != -1 && !Character.isDefined(n))
+            }
+            final int n = a2.intValue();
+            if (n != -1 && !Character.isDefined(n)) {
                 throw new RepresentationException(thiz, 2, "in_character_code");
+            }
         }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read a non-blank single character
         try {
-            PushbackReader in = stream;
+            final PushbackReader in = stream;
             int c = in.read();
-            while (Character.isWhitespace((char) c))
+            while (Character.isWhitespace((char) c)) {
                 c = in.read();
+            }
             if (c < 0) { // EOF
-                if (!a2.unify(INT_EOF, engine.trail))
+                if (!a2.unify(INT_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!Character.isDefined(c))
+            if (!Character.isDefined(c)) {
                 throw new RepresentationException(thiz, 0, "character");
-            if (!a2.unifyInt((c), engine.trail))
+            }
+            if (!a2.unifyInt(c, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -1473,38 +1571,43 @@ public class bootpreds extends sxxtensions {
      */
     // _get_byte_2 extends Predicate.P2 {
     public static Operation PRED_get_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // InByte
         a2 = a2.dref();
-        if (!(a2.isVar())) {
-            if (!(a2.isInteger()))
+        if (!a2.isVar()) {
+            if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "in_byte", a2);
-            int n = (a2).intValue();
-            if (n != -1 && (n < 0 || n > 255))
+            }
+            final int n = a2.intValue();
+            if (n != -1 && (n < 0 || n > 255)) {
                 throw new RepresentationException(thiz, 2, "in_byte");
+            }
         }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single byte
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(INT_EOF, engine.trail))
+                if (!a2.unify(INT_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (c > 255)
+            if (c > 255) {
                 throw new RepresentationException(thiz, 0, "byte");
-            if (!a2.unifyInt((c), engine.trail))
+            }
+            if (!a2.unifyInt(c, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -1523,19 +1626,21 @@ public class bootpreds extends sxxtensions {
             throws PInstantiationException, ExistenceException, IllegalDomainException, PermissionException {
         Object stream = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getStreamManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getStreamManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "stream", a1, "");
-            stream = (engine.getStreamManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            stream = engine.getStreamManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             stream = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "stream_or_alias", a1);
         }
-        if (!(stream instanceof PushbackReader))
+        if (!(stream instanceof PushbackReader)) {
             throw new PermissionException(thiz, "input", "stream", a1, "");
+        }
         return (PushbackReader) stream;
     }
 
@@ -1549,37 +1654,41 @@ public class bootpreds extends sxxtensions {
      */
     //
     static boolean inCharacter(Term t) {
-        return (t.isAtomSymbol()) && (t.equalsTerm(SYM_EOF) || (t).getJavaString().length() == 1);
+        return t.isAtomSymbol() && (t.equalsTerm(SYM_EOF) || t.getJavaString().length() == 1);
     }
 
     public static Operation PRED_get_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // Char
         a2 = a2.dref();
-        if (!(a2.isVar()) && !inCharacter(a2))
+        if (!a2.isVar() && !inCharacter(a2)) {
             throw new IllegalTypeException(thiz, 2, "in_character", a2);
+        }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single character
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(SYM_EOF, engine.trail))
+                if (!a2.unify(SYM_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!Character.isDefined(c))
+            if (!Character.isDefined(c)) {
                 throw new RepresentationException(thiz, 0, "character");
-            if (!a2.unify(CHAR((char) c), engine.trail))
+            }
+            if (!a2.unify(CHAR((char) c), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -1594,39 +1703,44 @@ public class bootpreds extends sxxtensions {
      */
     // _get_code_2 extends Predicate.P2 {
     public static Operation PRED_get_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // Char
         a2 = a2.dref();
-        if (!(a2.isVar())) {
-            if (!(a2.isInteger()))
+        if (!a2.isVar()) {
+            if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "integer", a2);
-            int n = (a2).intValue();
-            if (n != -1 && !Character.isDefined(n))
+            }
+            final int n = a2.intValue();
+            if (n != -1 && !Character.isDefined(n)) {
                 throw new RepresentationException(thiz, 2, "in_character_code");
+            }
         }
         // S_or_a
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single character
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(INT_EOF, engine.trail))
+                if (!a2.unify(INT_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!Character.isDefined(c))
+            if (!Character.isDefined(c)) {
                 throw new RepresentationException(thiz, 0, "character");
-            if (!a2.unifyInt((c), engine.trail))
+            }
+            if (!a2.unifyInt(c, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -1640,13 +1754,14 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_current_B_1 extends Predicate.P1 {
     public static Operation PRED_$get_current_B_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
-        if (!a1.unifyInt((engine.stack.top()), engine.trail))
+        a1 = LARG.getPlainArg(0);
+        if (!a1.unifyInt(engine.stack.top(), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1659,13 +1774,14 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_exception_1 extends Predicate.P1 {
     public static Operation PRED_$get_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
-        if (!a1.unify(engine.getException(), engine.trail))
+        a1 = LARG.getPlainArg(0);
+        if (!a1.unify(engine.getException(), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1678,17 +1794,19 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_hash_manager_1 extends Predicate.P1 {
     public static Operation PRED_$get_hash_manager_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if (!(a1.isVar()))
+        if (!a1.isVar()) {
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        if (!a1.unify(FFIObject(engine.getHashManager()), engine.trail))
+        }
+        if (!a1.unify(FFIObject(engine.getHashManager()), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1703,39 +1821,45 @@ public class bootpreds extends sxxtensions {
     private static final Functor COMMA = F(",", 2);
 
     public static Operation PRED_$get_instances_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // int idx;
         a1 = a1.dref();
-        if (a1.isNil())
+        if (a1.isNil()) {
             return engine.fail();
-        if (!(a1.isCons()))
+        }
+        if (!a1.isCons()) {
             throw new IllegalTypeException(thiz, 1, "list", a1);
+        }
         Term x = Prolog.Nil;
         Term tmp = a1;
         while (!tmp.isNil()) {
-            if (!(tmp.isCons()))
+            if (!tmp.isCons()) {
                 throw new IllegalTypeException(thiz, 1, "list", a1);
-            Term car = (tmp).car().dref();
-            if ((car.isVar()))
+            }
+            final Term car = tmp.car().dref();
+            if (car.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            if (!(car.isInteger()))
+            }
+            if (!car.isInteger()) {
                 throw new RepresentationException(thiz, 1, "integer");
+            }
             // car is an integer
-            int i = (car).intValue();
-            Term e = engine.internalDB.get(i);
+            final int i = car.intValue();
+            final Term e = engine.internalDB.get(i);
             if (e != null) {
                 x = CONS(S(COMMA, e, car), x);
             }
-            tmp = (tmp).cdr().dref();
+            tmp = tmp.cdr().dref();
         }
-        if (!a2.unify(x, engine.trail))
+        if (!a2.unify(x, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1748,12 +1872,12 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_level_1 extends Predicate.P1 {
     public static Operation PRED_$get_level_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         // engine.setB0();
         Term a1;
-        a1 = LARG[0];
-        if (!a1.unifyInt((engine.B0), engine.trail)) {
+        a1 = LARG.getPlainArg(0);
+        if (!a1.unifyInt(engine.B0, engine.trail)) {
             return engine.fail();
         }
         return cont;
@@ -1776,49 +1900,60 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_prolog_impl_flag_2 extends Predicate.P2 {
     public static Operation PRED_$get_prolog_impl_flag_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
         if (a1.equalsTerm(BOUNDED)) {
             if (engine.isBounded()) {
-                if (!a2.unify(TRUE, engine.trail))
+                if (!a2.unify(TRUE, engine.trail)) {
                     return engine.fail();
+                }
             } else {
-                if (!a2.unify(FALSE, engine.trail))
+                if (!a2.unify(FALSE, engine.trail)) {
                     return engine.fail();
+                }
             }
         } else if (a1.equalsTerm(MAX_INTEGER)) {
-            if (!a2.unifyInt((engine.getMaxInteger()), engine.trail))
+            if (!a2.unifyInt(engine.getMaxInteger(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(MIN_INTEGER)) {
-            if (!a2.unifyInt((engine.getMinInteger()), engine.trail))
+            if (!a2.unifyInt(engine.getMinInteger(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(INTEGER_ROUNDING_FUNCTION)) {
-            if (!a2.unifySYM((engine.getIntegerRoundingFunction()), engine.trail))
+            if (!a2.unifySYM(engine.getIntegerRoundingFunction(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(CHAR_CONVERSION)) {
-            if (!a2.unifySYM((engine.getCharConversion()), engine.trail))
+            if (!a2.unifySYM(engine.getCharConversion(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(DEBUG)) {
-            if (!a2.unifySYM((engine.getDebug()), engine.trail))
+            if (!a2.unifySYM(engine.getDebug(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(MAX_ARITY)) {
-            if (!a2.unifyInt((engine.getMaxArity()), engine.trail))
+            if (!a2.unifyInt(engine.getMaxArity(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(UNKNOWN)) {
-            if (!a2.unifySYM((engine.getUnknown()), engine.trail))
+            if (!a2.unifySYM(engine.getUnknown(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(DOUBLE_QUOTES)) {
-            if (!a2.unifySYM((engine.getDoubleQuotes()), engine.trail))
+            if (!a2.unifySYM(engine.getDoubleQuotes(), engine.trail)) {
                 return engine.fail();
+            }
         } else if (a1.equalsTerm(PRINT_STACK_TRACE)) {
-            if (!a2.unifySYM((engine.getPrintStackTrace()), engine.trail))
+            if (!a2.unifySYM(engine.getPrintStackTrace(), engine.trail)) {
                 return engine.fail();
+            }
         } else {
             return engine.fail();
         }
@@ -1834,17 +1969,19 @@ public class bootpreds extends sxxtensions {
      */
     // _$get_stream_manager_1 extends Predicate.P1 {
     public static Operation PRED_$get_stream_manager_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if (!(a1.isVar()))
+        if (!a1.isVar()) {
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        if (!a1.unify(FFIObject(engine.getStreamManager()), engine.trail))
+        }
+        if (!a1.unify(FFIObject(engine.getStreamManager()), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -1857,16 +1994,18 @@ public class bootpreds extends sxxtensions {
      */
     // _halt_1 extends Predicate.P1 {
     public static Operation PRED_halt_1_static_exec(Prolog engine) {
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        Term a1 = LARG[0];
+        Term a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isInteger()))
+        }
+        if (!a1.isInteger()) {
             throw new IllegalTypeException(thiz, 1, "integer", a1);
-        engine.halt = 1 + (a1).intValue();
+        }
+        engine.halt = 1 + a1.intValue();
         return null;
     }
 
@@ -1881,33 +2020,36 @@ public class bootpreds extends sxxtensions {
     // _$hash_adda_3 extends Predicate.P3 {
 
     public static Operation PRED_$hash_adda_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         Term elem = asHashtableOfTerm(hash).get(a2);
-        if (elem == null)
+        if (elem == null) {
             elem = Nil;
+        }
         a3 = a3.dref();
         asHashtableOfTerm(hash).put(a2, CONS(a3, elem));
         return cont;
@@ -1926,36 +2068,38 @@ public class bootpreds extends sxxtensions {
     // _$hash_addz_3 extends Predicate.P3 {
 
     public static Operation PRED_$hash_addz_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         a3 = a3.dref();
         Term elem = asHashtableOfTerm(hash).get(a2);
         if (elem == null || Nil.equalsTerm(elem)) {
             elem = new ListViewTerm(a3);
         } else if (elem.isCons()) {
-            elem = (elem).addPlToList(a3);
+            elem = elem.addPlToList(a3);
         } else {
             throw new InternalException(thiz + ": elem is not a ListTerm");
         }
@@ -1973,27 +2117,29 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_clear_1 extends Predicate.P1 {
     public static Operation PRED_hash_clear_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         asHashtableOfTerm(hash).clear();
         return cont;
     }
@@ -2007,22 +2153,22 @@ public class bootpreds extends sxxtensions {
      * @version 1.0
      */
     public static Operation PRED_hash_contains_key_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
         Object hash = null;
-        if ((a1.isJavaObject())) {
+        if (a1.isJavaObject()) {
             hash = a1.javaInstance();
-        } else if ((a1.isAtomSymbol())) {
-            Term t = engine.getHashManager().get(a1);
+        } else if (a1.isAtomSymbol()) {
+            final Term t = engine.getHashManager().get(a1);
             if (t == null) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
             }
             hash = t.javaInstance();
-        } else if ((a1.isVar())) {
+        } else if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
@@ -2046,35 +2192,39 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_get_3 extends Predicate.P3 {
     public static Operation PRED_hash_get_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         Term elem = asHashtableOfTerm(hash).get(a2);
-        if (elem == null)
+        if (elem == null) {
             elem = Prolog.Nil;
-        if (!a3.unify(elem, engine.trail))
+        }
+        if (!a3.unify(elem, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -2087,29 +2237,32 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_is_empty_1 extends Predicate.P1 {
     public static Operation PRED_hash_is_empty_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
-        if (!asHashtableOfTerm(hash).isEmpty())
+        }
+        if (!asHashtableOfTerm(hash).isEmpty()) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -2122,33 +2275,37 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_keys_2 extends Predicate.P2 {
     public static Operation PRED_hash_keys_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         Term keys = Prolog.Nil;
-        for (Term t : asHashtableOfTerm(hash).keySet())
+        for (final Term t : asHashtableOfTerm(hash).keySet()) {
             keys = CONS(t, keys);
-        if (!a2.unify(keys, engine.trail))
+        }
+        if (!a2.unify(keys, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -2162,29 +2319,31 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_put_3 extends Predicate.P3 {
     public static Operation PRED_hash_put_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         a3 = a3.dref();
         ((HashtableOfTerm) hash).put(a2, a3);
@@ -2210,28 +2369,30 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_remove_2 extends Predicate.P2 {
     public static Operation PRED_hash_remove_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         asHashtableOfTerm(hash).remove(a2);
         return cont;
@@ -2250,39 +2411,42 @@ public class bootpreds extends sxxtensions {
     // _$hash_remove_first_3 extends Predicate.P3 {
     //
     public static Operation PRED_$hash_remove_first_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
         Term elem = asHashtableOfTerm(hash).get(a2);
-        if (elem == null || elem.isNil())
+        if (elem == null || elem.isNil()) {
             return cont;
+        }
         a3 = a3.dref();
-        Deque<Term> stack = new ArrayDeque<Term>();
+        final Deque<Term> stack = new ArrayDeque<Term>();
         Term t = elem.dref();
         while (t.isCons()) {
-            Term lt = t;
-            Term y = lt.car().dref();
+            final Term lt = t;
+            final Term y = lt.car().dref();
             t = lt.cdr();
             if (y.equalsTerm(a3)) {
                 break;
@@ -2293,7 +2457,7 @@ public class bootpreds extends sxxtensions {
             t = CONS(stack.pop(), t);
         }
         elem = t;
-        if (elem.isNil() && (a2.isInteger())) {
+        if (elem.isNil() && a2.isInteger()) {
             asHashtableOfTerm(hash).remove(a2);
             // System.out.println("################ key " + a2 + " is removed");
         } else {
@@ -2312,33 +2476,37 @@ public class bootpreds extends sxxtensions {
      */
     // _hash_size_2 extends Predicate.P2 {
     public static Operation PRED_hash_size_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Object hash = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if ((a1.isAtomSymbol())) {
-            if (!engine.getHashManager().containsKey(a1))
+        } else if (a1.isAtomSymbol()) {
+            if (!engine.getHashManager().containsKey(a1)) {
                 throw new ExistenceException(thiz, 1, "hash", a1, "");
-            hash = (engine.getHashManager().get(a1)).javaInstance();
-        } else if ((a1.isJavaObject())) {
+            }
+            hash = engine.getHashManager().get(a1).javaInstance();
+        } else if (a1.isJavaObject()) {
             hash = a1.javaInstance();
         } else {
             throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
         }
-        if (!(HashtableOfTerm.isHashtableOfTerm(hash)))
+        if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
             throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
+        }
         a2 = a2.dref();
-        if (!(a2.isVar()) && !(a2.isInteger()))
+        if (!a2.isVar() && !a2.isInteger()) {
             throw new IllegalTypeException(thiz, 1, "integer", a2);
-        if (!a2.unifyInt((asHashtableOfTerm(hash).size()), engine.trail))
+        }
+        if (!a2.unifyInt(asHashtableOfTerm(hash).size(), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -2351,21 +2519,23 @@ public class bootpreds extends sxxtensions {
      */
     // _$insert_2 extends Predicate.P2 {
     public static Operation PRED_$insert_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         int idx;
         a2 = a2.dref();
-        if (!(a2.isVar()))
+        if (!a2.isVar()) {
             throw new IllegalTypeException(thiz, 2, "variable", a2);
+        }
         a1 = a1.dref();
         idx = engine.internalDB.insert(a1);
-        if (!a2.unifyInt((idx), engine.trail))
+        if (!a2.unifyInt(idx, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -2380,14 +2550,14 @@ public class bootpreds extends sxxtensions {
     // _java_constructor0_2 extends FFIPredicate {
 
     public static Operation PRED_java_constructor0_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Class clazz = null;
         Object instance = null;
         int arity;
@@ -2398,63 +2568,71 @@ public class bootpreds extends sxxtensions {
         try {
             // 2nd. argument (unbound variable)
             a2 = a2.dref();
-            if (!(a2.isVar()))
+            if (!a2.isVar()) {
                 throw new IllegalTypeException(thiz, 2, "variable", a2);
+            }
             // 1st. argument (atom or callable term)
             a1 = a1.dref();
-            if ((a1.isVar()))
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            if (!(a1.isAtomSymbol()) && !(a1.isCompound()))
+            }
+            if (!a1.isAtomSymbol() && !a1.isCompound()) {
                 throw new IllegalTypeException(thiz, 1, "callable", a1);
-            if ((a1.isAtomSymbol())) { // No argument constructor
+            }
+            if (a1.isAtomSymbol()) { // No argument constructor
                 clazz = Class.forName(a1.getJavaString());
                 instance = clazz.newInstance();
-                if (!a2.unify(toPrologTerm(instance), engine.trail))
+                if (!a2.unify(toPrologTerm(instance), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
             // Parameterized constructor
             clazz = Class.forName(a1.getJavaString());
             arity = a1.arity();
             constrs = clazz.getConstructors();
-            if (constrs.length == 0)
+            if (constrs.length == 0) {
                 throw new ExistenceException(thiz, 1, "constructor", a1, "");
+            }
             pArgs = a1.args();
             jArgs = new Object[arity];
             for (int i = 0; i < arity; i++) {
                 pArgs[i] = pArgs[i].dref();
-                if (!(pArgs[i].isJavaObject()))
+                if (!pArgs[i].isJavaObject()) {
                     pArgs[i] = FFIObject(pArgs[i]);
+                }
                 jArgs[i] = pArgs[i].javaInstance();
             }
-            for (Constructor constr : constrs) {
+            for (final Constructor constr : constrs) {
                 if (checkParameterTypes(constr.getParameterTypes(), pArgs)) {
                     try {
                         c = constr;
                         // c.setAccessible(true);
                         instance = c.newInstance(jArgs);
                         break; // Succeeds to create new instance
-                    } catch (Exception e) {
+                    } catch (final Exception e) {
                         c = null; // Back to loop
                     }
                 }
             }
-            if (c == null)
+            if (c == null) {
                 throw new ExistenceException(thiz, 1, "constructor", a1, "");
-            if (!a2.unify(toPrologTerm(instance), engine.trail))
+            }
+            if (!a2.unify(toPrologTerm(instance), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName(..)
+        } catch (final ClassNotFoundException e) { // Class.forName(..)
             throw new JavaException(thiz, 1, e);
-        } catch (InstantiationException e) { // Class.forName(..) or
-                                             // Constructor.newInstance()
+        } catch (final InstantiationException e) { // Class.forName(..) or
+            // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
-        } catch (IllegalAccessException e) { // Class.forName(..) or
-                                             // Constructor.newInstance()
+        } catch (final IllegalAccessException e) { // Class.forName(..) or
+            // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
-        } catch (SecurityException e) { // Class.getConstructors()
+        } catch (final SecurityException e) { // Class.getConstructors()
             throw new JavaException(thiz, 1, e);
-        } catch (IllegalArgumentException e) { // Constructor.newInstance()
+        } catch (final IllegalArgumentException e) { // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
         }
     }
@@ -2469,26 +2647,26 @@ public class bootpreds extends sxxtensions {
      */
     // _java_conversion_2 extends Predicate.P2 {
     public static Operation PRED_java_conversion_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if ((a1.isVar())) { // a1 = var
-            if ((a2.isJavaObject())) { // a1 = var /\ a2 = java
-                a1.asVariableTerm().bind(inverseConversion((a2).javaInstance()), engine.trail);
+        if (a1.isVar()) { // a1 = var
+            if (a2.isJavaObject()) { // a1 = var /\ a2 = java
+                a1.asVariableTerm().bind(inverseConversion(a2.javaInstance()), engine.trail);
             } else { // a1 = var /\ a2 = nonjava
                 a1.asVariableTerm().bind(a2, engine.trail);
             }
-        } else if (!(a2.isVar())) { // a1 = nonvar /\ a2 = nonvar
+        } else if (!a2.isVar()) { // a1 = nonvar /\ a2 = nonvar
             throw new IllegalTypeException(thiz, 2, "variable", a2);
         } else { // a1 = nonvar /\ a2 = var
                  // (a1 = java \/ a1 = str \/ a1 = clo) /\ a2 = var
-            if ((a1.isJavaObject()) || (a1.isCompound()) || (a1.isClosure())) {
+            if (a1.isJavaObject() || a1.isCompound() || a1.isClosure()) {
                 a2.asVariableTerm().bind(a1, engine.trail);
             } else { // a1 != java /\ a1 != str /\ a1 != clo /\ a2 = var
                 a2.asVariableTerm().bind(FFIObject(a1.javaInstance()), engine.trail);
@@ -2507,7 +2685,7 @@ public class bootpreds extends sxxtensions {
         } else if (o instanceof String) {
             return createAtomic((String) o);
         } else if (o instanceof List) {
-            List v = (List) o;
+            final List v = (List) o;
             Term t = Prolog.Nil;
             for (int i = v.size(); i > 0; i--) {
                 t = CONS(inverseConversion(v.get(i - 1)), t);
@@ -2518,14 +2696,14 @@ public class bootpreds extends sxxtensions {
     }
 
     public static Operation PRED_java_declared_constructor0_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Class clazz = null;
         Object instance = null;
         int arity;
@@ -2535,72 +2713,81 @@ public class bootpreds extends sxxtensions {
         Constructor c = null;
         // 2nd. argument (unbound variable)
         a2 = a2.dref();
-        if (!(a2.isVar()))
+        if (!a2.isVar()) {
             throw new IllegalTypeException(thiz, 2, "variable", a2);
+        }
         // 1st. argument (atom or callable term)
         try {
             a1 = a1.dref();
-            if ((a1.isVar()))
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            if (!(a1.isAtomSymbol()) && !(a1.isCompound()))
+            }
+            if (!a1.isAtomSymbol() && !a1.isCompound()) {
                 throw new IllegalTypeException(thiz, 1, "callable", a1);
-            if ((a1.isAtomSymbol())) { // No argument constructor
+            }
+            if (a1.isAtomSymbol()) { // No argument constructor
                 clazz = Class.forName(a1.getJavaString());
                 c = clazz.getDeclaredConstructor();
-                if (c == null)
+                if (c == null) {
                     throw new ExistenceException(thiz, 1, "constructor", a1, "");
+                }
                 c.setAccessible(true);
                 instance = c.newInstance();
-                if (!a2.unify(toPrologTerm(instance), engine.trail))
+                if (!a2.unify(toPrologTerm(instance), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
             // Parameterized constructor
             clazz = Class.forName(a1.getJavaString());
             arity = a1.arity();
             constrs = clazz.getDeclaredConstructors();
-            if (constrs.length == 0)
+            if (constrs.length == 0) {
                 throw new ExistenceException(thiz, 1, "constructor", a1, "");
+            }
             pArgs = a1.args();
             jArgs = new Object[arity];
             for (int i = 0; i < arity; i++) {
                 pArgs[i] = pArgs[i].dref();
-                if (!(pArgs[i].isJavaObject()))
+                if (!pArgs[i].isJavaObject()) {
                     pArgs[i] = FFIObject(pArgs[i]);
+                }
                 jArgs[i] = pArgs[i].javaInstance();
             }
-            for (Constructor constr : constrs) {
+            for (final Constructor constr : constrs) {
                 if (checkParameterTypes(constr.getParameterTypes(), pArgs)) {
                     try {
                         c = constr;
                         c.setAccessible(true);
                         instance = c.newInstance(jArgs);
                         break; // Succeeds to create new instance
-                    } catch (Exception e) {
+                    } catch (final Exception e) {
                         c = null; // Back to loop
                     }
                 }
             }
-            if (c == null)
+            if (c == null) {
                 throw new ExistenceException(thiz, 1, "constructor", a1, "");
-            if (!a2.unify(toPrologTerm(instance), engine.trail))
+            }
+            if (!a2.unify(toPrologTerm(instance), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName(..)
+        } catch (final ClassNotFoundException e) { // Class.forName(..)
             throw new JavaException(thiz, 1, e);
-        } catch (InstantiationException e) { // Class.forName(..) or
-                                             // Constructor.newInstance()
+        } catch (final InstantiationException e) { // Class.forName(..) or
+            // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
-        } catch (IllegalAccessException e) { // Class.forName(..) or
-                                             // Constructor.newInstance()
+        } catch (final IllegalAccessException e) { // Class.forName(..) or
+            // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchMethodException e) { // Class.getDeclaredConstructor()
+        } catch (final NoSuchMethodException e) { // Class.getDeclaredConstructor()
             throw new JavaException(thiz, 1, e);
-        } catch (SecurityException e) { // Class.getDeclaredConstructors()
+        } catch (final SecurityException e) { // Class.getDeclaredConstructors()
             throw new JavaException(thiz, 1, e);
-        } catch (IllegalArgumentException e) { // Constructor.newInstance()
+        } catch (final IllegalArgumentException e) { // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
-        } catch (InvocationTargetException e) { // Constructor.newInstance()
+        } catch (final InvocationTargetException e) { // Constructor.newInstance()
             throw new JavaException(thiz, 1, e);
         }
     }
@@ -2616,15 +2803,15 @@ public class bootpreds extends sxxtensions {
     // _java_declared_method0_3 extends FFIPredicate {
 
     public static Operation PRED_java_declared_method0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Method[] methods = null;
@@ -2636,16 +2823,17 @@ public class bootpreds extends sxxtensions {
         String methodName = null;
         // 3rd. argument (unbound variable)
         a3 = a3.dref();
-        if (!(a3.isVar()))
+        if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "variable", a3);
+        }
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -2653,61 +2841,66 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom or callable term)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if ((a2.isAtomSymbol())) { // No argument method
-                m = clazz.getDeclaredMethod((a2).getJavaString());
+            } else if (a2.isAtomSymbol()) { // No argument method
+                m = clazz.getDeclaredMethod(a2.getJavaString());
                 m.setAccessible(true);
                 value = m.invoke(instance);
-            } else if ((a2.isCompound())) { // Parameterized method
-                methodName = (a2).getJavaString();
-                arity = (a2).arity();
+            } else if (a2.isCompound()) { // Parameterized method
+                methodName = a2.getJavaString();
+                arity = a2.arity();
                 methods = clazz.getDeclaredMethods();
-                if (methods.length == 0)
+                if (methods.length == 0) {
                     throw new ExistenceException(thiz, 2, "method", a2, "");
-                pArgs = (a2).args();
+                }
+                pArgs = a2.args();
                 jArgs = new Object[arity];
                 for (int i = 0; i < arity; i++) {
                     pArgs[i] = pArgs[i].dref();
-                    if (!(pArgs[i].isJavaObject()))
+                    if (!pArgs[i].isJavaObject()) {
                         pArgs[i] = FFIObject(pArgs[i]);
+                    }
                     jArgs[i] = pArgs[i].javaInstance();
                 }
-                for (Method method : methods) {
+                for (final Method method : methods) {
                     if (method.getName().equals(methodName) && checkParameterTypes(method.getParameterTypes(), pArgs)) {
                         try {
                             m = method;
                             m.setAccessible(true);
                             value = m.invoke(instance, jArgs);
                             break; // Succeeds to invoke the method
-                        } catch (Exception e) {
+                        } catch (final Exception e) {
                             m = null; // Back to loop
                         }
                     }
                 }
-                if (m == null)
+                if (m == null) {
                     throw new ExistenceException(thiz, 2, "method", a2, "");
+                }
             } else {
                 throw new IllegalTypeException(thiz, 2, "callable", a2);
             }
-            if (value == null)
+            if (value == null) {
                 return cont;
-            if (!a3.unify(toPrologTerm(value), engine.trail))
+            }
+            if (!a3.unify(toPrologTerm(value), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchMethodException e) { // Class.getDeclaredMethod
+        } catch (final NoSuchMethodException e) { // Class.getDeclaredMethod
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getDeclaredMethods
+        } catch (final SecurityException e) { // Class.getDeclaredMethods
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Method.invoke
+        } catch (final IllegalAccessException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Method.invoke
+        } catch (final IllegalArgumentException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (InvocationTargetException e) { // Method.invoke
+        } catch (final InvocationTargetException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Method.invoke
+        } catch (final NullPointerException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
         }
     }
@@ -2722,31 +2915,32 @@ public class bootpreds extends sxxtensions {
      */
     // extends FFIPredicate {
     public static Operation PRED_java_get_declared_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Field field = null;
         Object value = null;
         // 3rd. argument (unbound variable)
         a3 = a3.dref();
-        if (!(a3.isVar()))
+        if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "variable", a3);
+        }
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -2754,31 +2948,33 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtomSymbol())) {
+            } else if (!a2.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getDeclaredField((a2).getJavaString());
+            field = clazz.getDeclaredField(a2.getJavaString());
             field.setAccessible(true);
             value = field.get(instance);
             // 3rd. argument
-            if (value == null)
+            if (value == null) {
                 return cont;
-            if (!a3.unify(toPrologTerm(value), engine.trail))
+            }
+            if (!a3.unify(toPrologTerm(value), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchFieldException e) { // Class.getField(..)
+        } catch (final NoSuchFieldException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getField(..)
+        } catch (final SecurityException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Class.getField(..)
+        } catch (final NullPointerException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Field.get(..)
+        } catch (final IllegalAccessException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Field.get(..)
+        } catch (final IllegalArgumentException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
         }
     }
@@ -2793,31 +2989,32 @@ public class bootpreds extends sxxtensions {
      */
 
     public static Operation PRED_java_get_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Field field = null;
         Object value = null;
         // 3rd. argument (unbound variable)
         a3 = a3.dref();
-        if (!(a3.isVar()))
+        if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "variable", a3);
+        }
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -2825,39 +3022,42 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtomSymbol())) {
+            } else if (!a2.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getField((a2).getJavaString());
+            field = clazz.getField(a2.getJavaString());
             value = field.get(instance);
             // 3rd. argument
-            if (value == null)
+            if (value == null) {
                 return cont;
-            if (!a3.unify(toPrologTerm(value), engine.trail))
+            }
+            if (!a3.unify(toPrologTerm(value), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchFieldException e) { // Class.getField(..)
+        } catch (final NoSuchFieldException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getField(..)
+        } catch (final SecurityException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Class.getField(..)
+        } catch (final NullPointerException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Field.get(..)
+        } catch (final IllegalAccessException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Field.get(..)
+        } catch (final IllegalArgumentException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
         }
     }
 
     static Term toPrologTerm(Object obj) {
-        if (instanceOfTerm(obj))
+        if (instanceOfTerm(obj)) {
             return (Term) obj;
-        else
+        } else {
             return FFIObject(obj);
+        }
     }
 
     // jlang.reflect.*;
@@ -2870,15 +3070,15 @@ public class bootpreds extends sxxtensions {
      */
     // _java_method0_3 extends FFIPredicate {
     public static Operation PRED_java_method0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Method[] methods = null;
@@ -2890,16 +3090,17 @@ public class bootpreds extends sxxtensions {
         String methodName = null;
         // 3rd. argument (unbound variable)
         a3 = a3.dref();
-        if (!(a3.isVar()))
+        if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "variable", a3);
+        }
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -2907,61 +3108,66 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom or callable term)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if ((a2.isAtomSymbol())) { // No argument method
-                m = clazz.getMethod((a2).getJavaString());
+            } else if (a2.isAtomSymbol()) { // No argument method
+                m = clazz.getMethod(a2.getJavaString());
                 // m.setAccessible(true);
                 value = m.invoke(instance);
-            } else if ((a2.isCompound())) { // Parameterized method
-                methodName = (a2).getJavaString();
-                arity = (a2).arity();
+            } else if (a2.isCompound()) { // Parameterized method
+                methodName = a2.getJavaString();
+                arity = a2.arity();
                 methods = clazz.getMethods();
-                if (methods.length == 0)
+                if (methods.length == 0) {
                     throw new ExistenceException(thiz, 2, "method", a2, "");
-                pArgs = (a2).args();
+                }
+                pArgs = a2.args();
                 jArgs = new Object[arity];
                 for (int i = 0; i < arity; i++) {
                     pArgs[i] = pArgs[i].dref();
-                    if (!(pArgs[i].isJavaObject()))
+                    if (!pArgs[i].isJavaObject()) {
                         pArgs[i] = FFIObject(pArgs[i]);
+                    }
                     jArgs[i] = pArgs[i].javaInstance();
                 }
-                for (Method method : methods) {
+                for (final Method method : methods) {
                     if (method.getName().equals(methodName) && checkParameterTypes(method.getParameterTypes(), pArgs)) {
                         try {
                             m = method;
                             // m.setAccessible(true);
                             value = m.invoke(instance, jArgs);
                             break; // Succeeds to invoke the method
-                        } catch (Exception e) {
+                        } catch (final Exception e) {
                             m = null; // Back to loop
                         }
                     }
                 }
-                if (m == null)
+                if (m == null) {
                     throw new ExistenceException(thiz, 2, "method", a2, "");
+                }
             } else {
                 throw new IllegalTypeException(thiz, 2, "callable", a2);
             }
-            if (value == null)
+            if (value == null) {
                 return cont;
-            if (!a3.unify(toPrologTerm(value), engine.trail))
+            }
+            if (!a3.unify(toPrologTerm(value), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchMethodException e) { // Class.getDeclaredMethod
+        } catch (final NoSuchMethodException e) { // Class.getDeclaredMethod
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getDeclaredMethods
+        } catch (final SecurityException e) { // Class.getDeclaredMethods
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Method.invoke
+        } catch (final IllegalAccessException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Method.invoke
+        } catch (final IllegalArgumentException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (InvocationTargetException e) { // Method.invoke
+        } catch (final InvocationTargetException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Method.invoke
+        } catch (final NullPointerException e) { // Method.invoke
             throw new JavaException(thiz, 2, e);
         }
     }
@@ -2977,15 +3183,15 @@ public class bootpreds extends sxxtensions {
     // _java_set_declared_field0_3 extends FFIPredicate {
 
     public static Operation PRED_java_set_declared_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Field field = null;
@@ -2993,11 +3199,11 @@ public class bootpreds extends sxxtensions {
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -3005,32 +3211,33 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtomSymbol())) {
+            } else if (!a2.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getDeclaredField((a2).getJavaString());
+            field = clazz.getDeclaredField(a2.getJavaString());
             // 3rd. argument (term)
             a3 = a3.dref();
-            if ((a3.isJavaObject()))
+            if (a3.isJavaObject()) {
                 value = a3.javaInstance();
-            else
+            } else {
                 value = a3;
+            }
             field.setAccessible(true);
             field.set(instance, value);
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchFieldException e) { // Class.getField(..)
+        } catch (final NoSuchFieldException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getField(..)
+        } catch (final SecurityException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Class.getField(..)
+        } catch (final NullPointerException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Field.get(..)
+        } catch (final IllegalAccessException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Field.get(..)
+        } catch (final IllegalArgumentException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
         }
     }
@@ -3046,15 +3253,15 @@ public class bootpreds extends sxxtensions {
     // _java_set_field0_3 extends FFIPredicate {
 
     public static Operation PRED_java_set_field0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.JAVA_REFLECTION, thiz, LARG.getPlainArg(0));
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         Class clazz = null;
         Object instance = null;
         Field field = null;
@@ -3062,11 +3269,11 @@ public class bootpreds extends sxxtensions {
         try {
             // 1st. argument (atom or java term)
             a1 = a1.dref();
-            if ((a1.isVar())) {
+            if (a1.isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            } else if ((a1.isAtomSymbol())) { // class
+            } else if (a1.isAtomSymbol()) { // class
                 clazz = Class.forName(a1.getJavaString());
-            } else if ((a1.isJavaObject())) { // instance
+            } else if (a1.isJavaObject()) { // instance
                 instance = a1.javaInstance();
                 clazz = a1.getIntendedClass();
             } else {
@@ -3074,31 +3281,32 @@ public class bootpreds extends sxxtensions {
             }
             // 2nd. argument (atom)
             a2 = a2.dref();
-            if ((a2.isVar())) {
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isAtomSymbol())) {
+            } else if (!a2.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", a2);
             }
-            field = clazz.getField((a2).getJavaString());
+            field = clazz.getField(a2.getJavaString());
             // 3rd. argument (term)
             a3 = a3.dref();
-            if ((a3.isJavaObject()))
+            if (a3.isJavaObject()) {
                 value = a3.javaInstance();
-            else
+            } else {
                 value = a3;
+            }
             field.set(instance, value);
             return cont;
-        } catch (ClassNotFoundException e) { // Class.forName
+        } catch (final ClassNotFoundException e) { // Class.forName
             throw new JavaException(thiz, 1, e);
-        } catch (NoSuchFieldException e) { // Class.getField(..)
+        } catch (final NoSuchFieldException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (SecurityException e) { // Class.getField(..)
+        } catch (final SecurityException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (NullPointerException e) { // Class.getField(..)
+        } catch (final NullPointerException e) { // Class.getField(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalAccessException e) { // Field.get(..)
+        } catch (final IllegalAccessException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
-        } catch (IllegalArgumentException e) { // Field.get(..)
+        } catch (final IllegalArgumentException e) { // Field.get(..)
             throw new JavaException(thiz, 2, e);
         }
     }
@@ -3115,66 +3323,73 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_HYPHEN_2 = F("-", 2);
 
     public static Operation PRED_keysort_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         int len;
         Term tmp;
         Term[] list;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
         } else if (a1.equalsTerm(Prolog.Nil)) {
-            if (!a2.unify(Prolog.Nil, engine.trail))
+            if (!a2.unify(Prolog.Nil, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } else if (!(a1.isCons())) {
+        } else if (!a1.isCons()) {
             throw new IllegalTypeException(thiz, 1, "list", a1);
         }
-        len = (a1).termLength();
+        len = a1.termLength();
         list = new Term[len];
         tmp = a1;
         for (int i = 0; i < len; i++) {
-            if (!(tmp.isCons()))
+            if (!tmp.isCons()) {
                 throw new IllegalTypeException(thiz, 1, "list", a1);
-            list[i] = (tmp).car().dref();
-            if (list[i].isVar())
+            }
+            list[i] = tmp.car().dref();
+            if (list[i].isVar()) {
                 throw new PInstantiationException(thiz, 1);
-            if (!(list[i].isCompound()))
+            }
+            if (!list[i].isCompound()) {
                 throw new IllegalTypeException(thiz, 1, "key_value_pair", a1);
-            if (!(list[i]).functor().equalsTerm(SYM_HYPHEN_2))
+            }
+            if (!list[i].functor().equalsTerm(SYM_HYPHEN_2)) {
                 throw new IllegalTypeException(thiz, 1, "key_value_pair", a1);
-            tmp = (tmp).cdr().dref();
+            }
+            tmp = tmp.cdr().dref();
         }
-        if (!tmp.equalsTerm(Prolog.Nil))
+        if (!tmp.equalsTerm(Prolog.Nil)) {
             throw new PInstantiationException(thiz, 1);
+        }
         try {
             Arrays.sort(list, new KeySortComparator());
-        } catch (BuiltinException e) {
+        } catch (final BuiltinException e) {
             e.goal = thiz;
             e.argNo = 1;
             throw e;
-        } catch (ClassCastException e1) {
+        } catch (final ClassCastException e1) {
             throw new JavaException(thiz, 1, e1);
         }
         tmp = Prolog.Nil;
         for (int i = list.length - 1; i >= 0; i--) {
             tmp = CONS(list[i], tmp);
         }
-        if (!a2.unify(tmp, engine.trail))
+        if (!a2.unify(tmp, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
     static class KeySortComparator implements java.util.Comparator<Term> {
         @Override
         public int compare(Term t1, Term t2) {
-            Term arg1 = (t1).args()[0].dref();
-            Term arg2 = (t2).args()[0].dref();
+            final Term arg1 = t1.args()[0].dref();
+            final Term arg2 = t2.args()[0].dref();
             return arg1.compareTo(arg2);
         }
     }
@@ -3183,18 +3398,18 @@ public class bootpreds extends sxxtensions {
     // jio.PushbackReader;
     // _line_count_2 extends P2 {
     public static Operation PRED_line_count_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // get line number
         if (!(stream instanceof LineNumberPushbackReader)
-                || !a2.unifyInt((((LineNumberPushbackReader) stream).getLineNumber() + 1), engine.trail)) {
+                || !a2.unifyInt(((LineNumberPushbackReader) stream).getLineNumber() + 1, engine.trail)) {
             // if (!a2.unifyInt((0),engine.trail)){ // uncomment this for
             // creating
             // patch and comment two lines above
@@ -3236,12 +3451,12 @@ public class bootpreds extends sxxtensions {
      */
     // _log_2 extends P2 {
     public static Operation PRED_log_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
@@ -3289,16 +3504,16 @@ public class bootpreds extends sxxtensions {
      */
     // _log_3 extends P3 {
     public static Operation PRED_log_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        final Term a3 = LARG[2].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
@@ -3348,17 +3563,17 @@ public class bootpreds extends sxxtensions {
      */
     // _log_4 extends P4 {
     public static Operation PRED_log_4_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        final Term a3 = LARG[2].dref();
-        final Term a4 = LARG[3].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        final Term a4 = LARG.getTermDRef(3);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
@@ -3410,18 +3625,18 @@ public class bootpreds extends sxxtensions {
     // _log_5 extends Predicate {
 
     public static Operation PRED_log_5_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        final Term a3 = LARG[2].dref();
-        final Term a4 = LARG[3].dref();
-        final Term a5 = LARG[4].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        final Term a4 = LARG.getTermDRef(3);
+        final Term a5 = LARG.getTermDRef(4);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
@@ -3472,24 +3687,25 @@ public class bootpreds extends sxxtensions {
      */
     // _log_6 extends Predicate {
     public static Operation PRED_log_6_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        final Term a3 = LARG[2].dref();
-        final Term a4 = LARG[3].dref();
-        final Term a5 = LARG[4].dref();
-        final Term a6 = LARG[5].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        final Term a4 = LARG.getTermDRef(3);
+        final Term a5 = LARG.getTermDRef(4);
+        final Term a6 = LARG.getTermDRef(5);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6.javaInstance()));
+        logger.log(level, () -> String
+                .format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6.javaInstance()));
         return cont;
     }
 
@@ -3536,26 +3752,26 @@ public class bootpreds extends sxxtensions {
     // _log_7 extends Predicate {
 
     public static Operation PRED_log_7_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        final Term a3 = LARG[2].dref();
-        final Term a4 = LARG[3].dref();
-        final Term a5 = LARG[4].dref();
-        final Term a6 = LARG[5].dref();
-        final Term a7 = LARG[6].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        final Term a3 = LARG.getTermDRef(2);
+        final Term a4 = LARG.getTermDRef(3);
+        final Term a5 = LARG.getTermDRef(4);
+        final Term a6 = LARG.getTermDRef(5);
+        final Term a7 = LARG.getTermDRef(6);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
-        logger.log(level, () -> String
-                .format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6.javaInstance(), a7.javaInstance()));
+        logger.log(level, () -> String.format(a2.pprint(), a3.javaInstance(), a4.javaInstance(), a5.javaInstance(), a6
+                .javaInstance(), a7.javaInstance()));
         return cont;
     }
 
@@ -3591,19 +3807,19 @@ public class bootpreds extends sxxtensions {
      */
     // _log_error_2 extends P2 {
     public static Operation PRED_log_error_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        final Term a2 = LARG[1].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
         final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         final Level level = LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO);
         if (logger.isLoggable(level)) {
             Throwable t = null;
-            if (a2.isJavaObject() && (a2.javaInstance() instanceof Throwable)) {
+            if (a2.isJavaObject() && a2.javaInstance() instanceof Throwable) {
                 t = (Throwable) a2.javaInstance();
             } else if (a2 instanceof ErrorTerm) {
                 t = asErrorTerm(a2).getThrowable();
@@ -3662,14 +3878,14 @@ public class bootpreds extends sxxtensions {
     }
 
     public static Operation PRED_loggable_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
-        Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
+        final Logger logger = Logger.getLogger(a1.getPlainArg(0).getJavaString());
         if (!logger.isLoggable(LEVELS.getOrDefault(a1.getPlainArg(1), Level.INFO))) {
             return engine.fail();
         }
@@ -3712,17 +3928,17 @@ public class bootpreds extends sxxtensions {
      */
     // _log_level_1 extends P1 {
     public static Operation PRED_log_level_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        final Term a1 = LARG[0].dref();
-        if (!(a1.isCompound()) || a1.arity() != 2) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        if (!a1.isCompound() || a1.arity() != 2) {
             throw new IllegalTypeException(thiz, 1, "package:level", a1);
         }
         final Term packageTerm = a1.getPlainArg(0);
         final Logger logger = Logger.getLogger(packageTerm.getJavaString());
         final Term levelTerm = a1.getPlainArg(1);
-        if ((levelTerm.isVar())) {
+        if (levelTerm.isVar()) {
             // obtain logger's level, which may be inherited from parent
             Level level = null;
             for (Logger l = logger; l != null && (level = l.getLevel()) == null; l = l.getParent()) {
@@ -3745,21 +3961,24 @@ public class bootpreds extends sxxtensions {
     /** {@code make_directory(+Dir)} */
     // _make_directory_1 extends Predicate.P1 {
     public static Operation PRED_make_directory_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        if ((a1.isVar()))
+        final Term a1 = LARG.getTermDRef(0);
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isAtomSymbol()))
+        }
+        if (!a1.isAtomSymbol()) {
             throw new IllegalDomainException(thiz, 1, "dir", a1);
-        File file = new File(a1.getJavaString());
-        if (file.mkdir())
+        }
+        final File file = new File(a1.getJavaString());
+        if (file.mkdir()) {
             return cont;
-        else
+        } else {
             throw new PermissionException(thiz, "open", "dir", a1, "cannot create");
+        }
     }
 
     // .Predicate.P1;
@@ -3778,13 +3997,13 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_create_1 extends P1 {
     public static Operation PRED_mutex_create_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
-        if ((a1.isAtomSymbol())) {
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        if (a1.isAtomSymbol()) {
             Mutex.getInstance(a1.getJavaString());
-        } else if ((a1.isVar())) {
+        } else if (a1.isVar()) {
             if (!a1.unify(FFIObject(Mutex.getInstance()), engine.trail)) {
                 return engine.fail();
             }
@@ -3824,14 +4043,14 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_lock_1 extends P1 {
     public static Operation PRED_mutex_lock_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
         Lock lock;
-        if ((a1.isAtomSymbol())) {
+        if (a1.isAtomSymbol()) {
             lock = Mutex.getInstance(a1.getJavaString());
-        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+        } else if (a1.isJavaObject() && a1.javaInstance() instanceof Lock) {
             lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
@@ -3872,14 +4091,14 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_lock_bt_1 extends P1 {
     public static Operation PRED_mutex_lock_bt_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
         final Lock lock;
-        if ((a1.isAtomSymbol())) {
+        if (a1.isAtomSymbol()) {
             lock = Mutex.getInstance(a1.getJavaString());
-        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+        } else if (a1.isJavaObject() && a1.javaInstance() instanceof Lock) {
             lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
@@ -3888,7 +4107,7 @@ public class bootpreds extends sxxtensions {
         engine.trail.push(() -> {
             try {
                 lock.unlock();
-            } catch (IllegalMonitorStateException e) {
+            } catch (final IllegalMonitorStateException e) {
                 // ignore, because the lock is already unlocked explicitly
             }
         });
@@ -3910,14 +4129,14 @@ public class bootpreds extends sxxtensions {
      */
     // _mutex_trylock_1 extends P1 {
     public static Operation PRED_mutex_trylock_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
         Lock lock;
-        if ((a1.isAtomSymbol())) {
+        if (a1.isAtomSymbol()) {
             lock = Mutex.getInstance(a1.getJavaString());
-        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+        } else if (a1.isJavaObject() && a1.javaInstance() instanceof Lock) {
             lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
@@ -3944,14 +4163,14 @@ public class bootpreds extends sxxtensions {
      */
     // extends P1 {
     public static Operation PRED_mutex_unlock_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
         Lock lock;
-        if ((a1.isAtomSymbol())) {
+        if (a1.isAtomSymbol()) {
             lock = Mutex.getInstance(a1.getJavaString());
-        } else if ((a1.isJavaObject()) && (a1.javaInstance() instanceof Lock)) {
+        } else if (a1.isJavaObject() && a1.javaInstance() instanceof Lock) {
             lock = (Lock) a1.javaInstance();
         } else {
             throw new IllegalTypeException(thiz, 1, "atom or JavaObjectTerm(Lock)", a1);
@@ -3969,7 +4188,7 @@ public class bootpreds extends sxxtensions {
      */
     // _$neck_cut_0 extends Predicate.P0 {
     public static Operation PRED_$neck_cut_0_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
+        final Operation cont = engine.getCont();
         // engine.setB0();
         engine.neckCut();
         return cont;
@@ -3986,46 +4205,52 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_ALIAS_1 = F("alias", 1);
 
     public static Operation PRED_new_hash_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
-        if (!(a1.isVar()))
+        if (!a1.isVar()) {
             throw new IllegalTypeException(thiz, 1, "variable", a1);
-        Term newHash = FFIObject(new HashtableOfTerm());
+        }
+        final Term newHash = FFIObject(new HashtableOfTerm());
         a2 = a2.dref();
         if (a2.isNil()) {
-            if (!a1.unify(newHash, engine.trail))
+            if (!a1.unify(newHash, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } else if (!(a2.isCons())) {
+        } else if (!a2.isCons()) {
             throw new IllegalTypeException(thiz, 2, "list", a2);
         }
         // a2 is list
         Term tmp = a2;
         while (!tmp.isNil()) {
-            if ((tmp.isVar()))
+            if (tmp.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            if (!(tmp.isCons()))
+            }
+            if (!tmp.isCons()) {
                 throw new IllegalTypeException(thiz, 2, "list", a2);
-            Term car = (tmp).car().dref();
-            if ((car.isVar()))
+            }
+            final Term car = tmp.car().dref();
+            if (car.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            if ((car.isCompound())) {
-                Term functor = (car).functor();
-                Term[] args = (car).args();
+            }
+            if (car.isCompound()) {
+                final Term functor = car.functor();
+                final Term[] args = car.args();
                 final boolean equalsTerm = functor.equalsTerm(SYM_ALIAS_1);
                 if (equalsTerm) {
-                    Term alias = args[0].dref();
-                    if (!(alias.isAtomSymbol()))
+                    final Term alias = args[0].dref();
+                    if (!alias.isAtomSymbol()) {
                         throw new IllegalDomainException(thiz, 2, "hash_option", car);
-                    else {
-                        if (engine.getHashManager().containsKey(alias))
+                    } else {
+                        if (engine.getHashManager().containsKey(alias)) {
                             throw new PermissionException(thiz, "new", "hash", car, "");
+                        }
                         engine.getHashManager().put(alias, newHash);
                     }
                 } else {
@@ -4034,10 +4259,11 @@ public class bootpreds extends sxxtensions {
             } else {
                 throw new IllegalDomainException(thiz, 2, "hash_option", car);
             }
-            tmp = (tmp).cdr().dref();
+            tmp = tmp.cdr().dref();
         }
-        if (!a1.unify(newHash, engine.trail))
+        if (!a1.unify(newHash, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -4050,7 +4276,7 @@ public class bootpreds extends sxxtensions {
      */
     // _nl_0 extends Predicate.P0 {
     public static Operation PRED_nl_0_static_exec_bootpred(Prolog engine) {
-        Operation cont = engine.getCont();
+        final Operation cont = engine.getCont();
         engine.setB0();
         engine.getCurrentOutput().println();
         return cont;
@@ -4065,59 +4291,67 @@ public class bootpreds extends sxxtensions {
      */
     // _number_chars_2 extends Predicate.P2 {
     public static Operation PRED_number_chars_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if (a2.isNil())
+        if (a2.isNil()) {
             throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
-        if ((a1.isVar())) { // number_chars(-Number, +CharList)
-            if ((a2.isVar())) {
+        }
+        if (a1.isVar()) { // number_chars(-Number, +CharList)
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            } else if (!(a2.isCons())) {
+            } else if (!a2.isCons()) {
                 throw new IllegalTypeException(thiz, 2, "list", a2);
             }
-            StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder();
             Term x = a2;
             while (!x.isNil()) {
-                if ((x.isVar()))
+                if (x.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(x.isCons()))
+                }
+                if (!x.isCons()) {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
-                Term car = (x).car().dref();
-                if ((car.isVar()))
+                }
+                final Term car = x.car().dref();
+                if (car.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isAtomSymbol()) || (car).getJavaString().length() != 1)
+                }
+                if (!car.isAtomSymbol() || car.getJavaString().length() != 1) {
                     throw new IllegalTypeException(thiz, 2, "character", a2);
-                sb.append((car).getJavaString());
-                x = (x).cdr().dref();
+                }
+                sb.append(car.getJavaString());
+                x = x.cdr().dref();
             }
             try {
-                if (!a1.unifyInt((Integer.parseInt(sb.toString())), engine.trail))
+                if (!a1.unifyInt(Integer.parseInt(sb.toString()), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
             }
             try {
-                if (!a1.unify(Float(sb.toString()), engine.trail))
+                if (!a1.unify(Float(sb.toString()), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
             }
-        } else if ((a1.isNumber())) { // number_chars(+Number, ?CharList)
-            String s = a1.getJavaString();
+        } else if (a1.isNumber()) { // number_chars(+Number, ?CharList)
+            final String s = a1.getJavaString();
             Term y = Prolog.Nil;
             for (int i = s.length() - 1; i >= 0; i--) {
                 y = CONS(CHAR(s.charAt(i)), y);
             }
-            if (!a2.unify(y, engine.trail))
+            if (!a2.unify(y, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
         } else {
             throw new IllegalTypeException(thiz, 1, "number", a1);
@@ -4133,58 +4367,67 @@ public class bootpreds extends sxxtensions {
      */
     // _number_codes_2 extends Predicate.P2 {
     public static Operation PRED_number_codes_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
-        if (a2.isNil())
+        if (a2.isNil()) {
             throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
-        if ((a1.isVar())) { // number_codes(-Number, +CharCodeList)
-            StringBuilder sb = new StringBuilder();
+        }
+        if (a1.isVar()) { // number_codes(-Number, +CharCodeList)
+            final StringBuilder sb = new StringBuilder();
             Term x = a2;
             while (!x.isNil()) {
-                if ((x.isVar()))
+                if (x.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(x.isCons()))
+                }
+                if (!x.isCons()) {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
-                Term car = (x).car().dref();
-                if ((car.isVar()))
+                }
+                final Term car = x.car().dref();
+                if (car.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(car.isInteger()))
+                }
+                if (!car.isInteger()) {
                     throw new RepresentationException(thiz, 2, "character_code");
+                }
                 // car is an integer
-                int i = (car).intValue();
-                if (!Character.isDefined((char) i))
+                final int i = car.intValue();
+                if (!Character.isDefined((char) i)) {
                     throw new RepresentationException(thiz, 2, "character_code");
+                }
                 sb.append((char) i);
-                x = (x).cdr().dref();
+                x = x.cdr().dref();
             }
             try {
-                if (!a1.unifyInt((Integer.parseInt(sb.toString())), engine.trail))
+                if (!a1.unifyInt(Integer.parseInt(sb.toString()), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
             }
             try {
-                if (!a1.unify(Float(sb.toString()), engine.trail))
+                if (!a1.unify(Float(sb.toString()), engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 throw new SyntaxException(thiz, 2, "character_code_list", a2, "");
             }
-        } else if ((a1.isNumber())) { // number_codes(+Number, ?CharCodeList)
-            char[] chars = a1.getJavaString().toCharArray();
+        } else if (a1.isNumber()) { // number_codes(+Number, ?CharCodeList)
+            final char[] chars = a1.getJavaString().toCharArray();
             Term y = Prolog.Nil;
             for (int i = chars.length; i > 0; i--) {
                 y = CONS(Integer(chars[i - 1]), y);
             }
-            if (!a2.unify(y, engine.trail))
+            if (!a2.unify(y, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
         } else {
             throw new IllegalTypeException(thiz, 1, "number", a1);
@@ -4217,10 +4460,10 @@ public class bootpreds extends sxxtensions {
      */
     // _open_4 extends Predicate.P4 {
     public static Operation PRED_open_4_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        engine.requireFeature(Prolog.Feature.IO, thiz, LARG[0]);
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        engine.requireFeature(Prolog.Feature.IO, thiz, LARG.getPlainArg(0));
         engine.setB0();
         File file = null;
         String resourceName = null;
@@ -4228,24 +4471,26 @@ public class bootpreds extends sxxtensions {
         Term opts = Prolog.Nil;
         JavaObjectTerm streamObject;
         Term a1, a2, a3, a4;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
-        a4 = LARG[3];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
+        a4 = LARG.getPlainArg(3);
         // stream
         a3 = a3.dref();
-        if (!(a3.isVar()))
+        if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "variable", a3);
+        }
         // source_sink
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if ((a1.isAtomSymbol())) {
+        }
+        if (a1.isAtomSymbol()) {
             file = new File(a1.getJavaString());
-        } else if ((a1.isCompound()) && ":".equals(a1.getJavaString()) && 2 == a1.arity()) {
-            Term pkg = a1.getPlainArg(0).dref();
-            Term name = a1.getPlainArg(1).dref();
-            if (!(pkg.isAtomSymbol()) || !(name.isAtomSymbol())) {
+        } else if (a1.isCompound() && ":".equals(a1.getJavaString()) && 2 == a1.arity()) {
+            final Term pkg = a1.getPlainArg(0).dref();
+            final Term name = a1.getPlainArg(1).dref();
+            if (!pkg.isAtomSymbol() || !name.isAtomSymbol()) {
                 throw new IllegalDomainException(thiz, 1, "source_sink", a1);
             }
             resourceName = '/' + pkg.getJavaString().replace('.', '/') + '/' + name.getJavaString();
@@ -4254,23 +4499,25 @@ public class bootpreds extends sxxtensions {
         }
         // io_mode
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isAtomSymbol()))
+        }
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "atom", a2);
+        }
         if (resourceName != null && !a2.equalsTerm(SYM_READ)) { // writing to
                                                                 // resources is
                                                                 // prohibited
             throw new PermissionException(thiz, "open", "source_sink", a1, "");
         }
-        Map<Functor, Term> options = processOptions(a4.dref());
+        final Map<Functor, Term> options = processOptions(a4.dref());
         Charset charset = Charset.defaultCharset();
         if (options.containsKey(SYM_CHARSET)) {
-            Term charsetOption = options.get(SYM_CHARSET);
-            if (charsetOption.arity() != 1 || !(charsetOption.getPlainArg(0).isAtomSymbol())) {
+            final Term charsetOption = options.get(SYM_CHARSET);
+            if (charsetOption.arity() != 1 || !charsetOption.getPlainArg(0).isAtomSymbol()) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", charsetOption);
             }
-            String charsetName = charsetOption.getPlainArg(0).dref().getJavaString();
+            final String charsetName = charsetOption.getPlainArg(0).dref().getJavaString();
             charset = Charset.forName(charsetName);
         }
         try {
@@ -4284,45 +4531,47 @@ public class bootpreds extends sxxtensions {
                 if (inputStream == null) {
                     throw new ExistenceException(thiz, 1, "source_sink", a1, "");
                 }
-                PushbackReader in = new LineNumberPushbackReader(
+                final PushbackReader in = new LineNumberPushbackReader(
                         new BufferedReader(new InputStreamReader(inputStream, charset)), Prolog.PUSHBACK_SIZE);
                 streamObject = FFIObject(in);
                 opts = CONS(SYM_INPUT, opts);
             } else if (a2.equalsTerm(SYM_WRITE)) {
-                File parentFile = file.getParentFile();
+                final File parentFile = file.getParentFile();
                 if (parentFile != null) {
                     parentFile.mkdirs();
                 }
-                PrintWriter out = new PrintWriter(
+                final PrintWriter out = new PrintWriter(
                         new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), charset)));
                 streamObject = FFIObject(out);
                 opts = CONS(SYM_OUTPUT, opts);
             } else if (a2.equalsTerm(SYM_APPEND)) {
-                File parentFile = file.getParentFile();
+                final File parentFile = file.getParentFile();
                 if (parentFile != null) {
                     parentFile.mkdirs();
                 }
-                PrintWriter out = new PrintWriter(
+                final PrintWriter out = new PrintWriter(
                         new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), charset)));
                 streamObject = FFIObject(out);
                 opts = CONS(SYM_OUTPUT, opts);
             } else {
                 throw new IllegalDomainException(thiz, 2, "io_mode", a2);
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new PermissionException(thiz, "open", "source_sink", a1, "");
         }
-        if (engine.getStreamManager().containsKey(streamObject))
+        if (engine.getStreamManager().containsKey(streamObject)) {
             throw new InternalException("stream object is duplicated");
+        }
         // stream_options
         if (options.containsKey(SYM_ALIAS_1)) {
-            Term aliasOption = options.get(SYM_ALIAS_1);
-            if (aliasOption.arity() != 1 || !(aliasOption.getPlainArg(0).isAtomSymbol())) {
+            final Term aliasOption = options.get(SYM_ALIAS_1);
+            if (aliasOption.arity() != 1 || !aliasOption.getPlainArg(0).isAtomSymbol()) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", aliasOption);
             }
             alias = aliasOption.getPlainArg(0).dref();
-            if (engine.getStreamManager().containsKey(alias))
+            if (engine.getStreamManager().containsKey(alias)) {
                 throw new PermissionException(thiz, "open", "source_sink", aliasOption, "");
+            }
         }
         opts = CONS(S(SYM_TYPE_1, SYM_TEXT), opts);
         opts = CONS(S(SYM_MODE_1, a2), opts);
@@ -4334,8 +4583,8 @@ public class bootpreds extends sxxtensions {
         a3.asVariableTerm().bind(streamObject, engine.trail);
         engine.getStreamManager().put(streamObject, opts);
         if (options.containsKey(SYM_AUTOCLOSE)) {
-            Term autoCloseOption = options.get(SYM_AUTOCLOSE);
-            if (autoCloseOption.arity() != 1 || !(autoCloseOption.getPlainArg(0).isAtomSymbol())) {
+            final Term autoCloseOption = options.get(SYM_AUTOCLOSE);
+            if (autoCloseOption.arity() != 1 || !autoCloseOption.getPlainArg(0).isAtomSymbol()) {
                 throw new IllegalDomainException(thiz, 4, "stream_option", autoCloseOption);
             }
             if ("true".equals(autoCloseOption.getPlainArg(0).getJavaString())) {
@@ -4347,25 +4596,28 @@ public class bootpreds extends sxxtensions {
 
     // @SuppressWarnings("unused")
     static Map<Functor, Term> processOptions(Term options) {
-        Operation thiz = Prolog.M.pred;
-        Map<Functor, Term> result = new HashMap<Functor, Term>();
+        final Operation thiz = Prolog.M.pred;
+        final Map<Functor, Term> result = new HashMap<Functor, Term>();
         Term p = options;
         while (!p.isNil()) {
             // type check
-            if ((p.isVar()))
+            if (p.isVar()) {
                 throw new PInstantiationException(thiz, 4);
-            if (!(p.isCons()))
+            }
+            if (!p.isCons()) {
                 throw new IllegalTypeException(thiz, 4, "list", options);
-            Term option = (p).car().dref();
-            if ((option.isVar()))
+            }
+            final Term option = p.car().dref();
+            if (option.isVar()) {
                 throw new PInstantiationException(thiz, 4);
-            if ((option.isCompound())) {
-                Functor functor = option.functor().asSymbolTerm();
+            }
+            if (option.isCompound()) {
+                final Functor functor = option.functor().asSymbolTerm();
                 result.put(functor, option);
             } else {
                 throw new IllegalDomainException(thiz, 4, "stream_option", option);
             }
-            p = (p).cdr().dref();
+            p = p.cdr().dref();
         }
         return result;
     }
@@ -4387,10 +4639,10 @@ public class bootpreds extends sxxtensions {
             if (this.alias != null) {
                 this.engine.getStreamManager().remove(this.alias);
             }
-            Closeable closeable = (Closeable) this.streamObject.javaInstance();
+            final Closeable closeable = (Closeable) this.streamObject.javaInstance();
             try {
                 closeable.close();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 throw new JavaException(e);
             }
         }
@@ -4408,39 +4660,44 @@ public class bootpreds extends sxxtensions {
     // _peek_byte_2 extends Predicate.P2 {
 
     public static Operation PRED_peek_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // InByte
         a2 = a2.dref();
-        if (!(a2.isVar())) {
-            if (!(a2.isInteger()))
+        if (!a2.isVar()) {
+            if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "in_byte", a2);
-            int n = (a2).intValue();
-            if (n != -1 && (n < 0 || n > 255))
+            }
+            final int n = a2.intValue();
+            if (n != -1 && (n < 0 || n > 255)) {
                 throw new RepresentationException(thiz, 2, "in_byte");
+            }
         }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single byte
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(INT_EOF, engine.trail))
+                if (!a2.unify(INT_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (c > 255)
+            if (c > 255) {
                 throw new RepresentationException(thiz, 0, "byte");
+            }
             stream.unread(c);
-            if (!a2.unifyInt((c), engine.trail))
+            if (!a2.unifyInt(c, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -4457,34 +4714,38 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_EOF = SYM("end_of_file");
 
     public static Operation PRED_peek_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // Char
         a2 = a2.dref();
-        if (!(a2.isVar()) && !inCharacter(a2))
+        if (!a2.isVar() && !inCharacter(a2)) {
             throw new IllegalTypeException(thiz, 2, "in_character", a2);
+        }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single character
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(SYM_EOF, engine.trail))
+                if (!a2.unify(SYM_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!Character.isDefined(c))
+            if (!Character.isDefined(c)) {
                 throw new RepresentationException(thiz, 0, "character");
+            }
             stream.unread(c);
-            if (!a2.unify(CHAR((char) c), engine.trail))
+            if (!a2.unify(CHAR((char) c), engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -4501,39 +4762,44 @@ public class bootpreds extends sxxtensions {
     private static final NumberTerm INT_EOF = Integer(-1);
 
     public static Operation PRED_peek_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // Char
         a2 = a2.dref();
-        if (!(a2.isVar())) {
-            if (!(a2.isInteger()))
+        if (!a2.isVar()) {
+            if (!a2.isInteger()) {
                 throw new IllegalTypeException(thiz, 2, "integer", a2);
-            int n = (a2).intValue();
-            if (n != -1 && !Character.isDefined(n))
+            }
+            final int n = a2.intValue();
+            if (n != -1 && !Character.isDefined(n)) {
                 throw new RepresentationException(thiz, 2, "in_character_code");
+            }
         }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read single character
         try {
-            int c = stream.read();
+            final int c = stream.read();
             if (c < 0) { // EOF
-                if (!a2.unify(INT_EOF, engine.trail))
+                if (!a2.unify(INT_EOF, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
-            if (!Character.isDefined(c))
+            if (!Character.isDefined(c)) {
                 throw new RepresentationException(thiz, 0, "character");
+            }
             stream.unread(c);
-            if (!a2.unifyInt((c), engine.trail))
+            if (!a2.unifyInt(c, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -4547,22 +4813,26 @@ public class bootpreds extends sxxtensions {
      */
     // _$print_stack_trace_1 extends Predicate.P1 {
     public static Operation PRED_$print_stack_trace_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        if (!(a1.isJavaObject()))
+        }
+        if (!a1.isJavaObject()) {
             throw new IllegalTypeException(thiz, 1, "java", a1);
-        Object obj = a1.javaInstance();
-        if (obj instanceof InterruptedException)
+        }
+        final Object obj = a1.javaInstance();
+        if (obj instanceof InterruptedException) {
             throw new JavaInterruptedException((InterruptedException) obj);
-        if (engine.getPrintStackTrace().equals("on"))
+        }
+        if (engine.getPrintStackTrace().equals("on")) {
             engine.control.printStackTrace((Throwable) obj);
+        }
         return cont;
     }
 
@@ -4577,24 +4847,27 @@ public class bootpreds extends sxxtensions {
      */
     // _put_byte_2 extends Predicate.P2 {
     public static Operation PRED_put_byte_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
+        a2 = LARG.getPlainArg(1);
         int c;
         // Byte
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isInteger()))
+        }
+        if (!a2.isInteger()) {
             throw new IllegalTypeException(thiz, 2, "byte", a2);
-        c = (a2).intValue();
-        if (c < 0 || c > 255)
+        }
+        c = a2.intValue();
+        if (c < 0 || c > 255) {
             throw new IllegalTypeException(thiz, 2, "byte", a2);
+        }
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, LARG.getPlainArg(0));
         // print single byte
         stream.print((char) c);
         return cont;
@@ -4610,29 +4883,33 @@ public class bootpreds extends sxxtensions {
      */
     // _put_char_2 extends Predicate.P2 {
     public static Operation PRED_put_char_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
+        a2 = LARG.getPlainArg(1);
         String str;
         char c;
         // Char
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isAtomSymbol()))
+        }
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 2, "character", a2);
+        }
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, LARG.getPlainArg(0));
         // print single character
-        str = (a2).getJavaString();
-        if (str.length() != 1)
+        str = a2.getJavaString();
+        if (str.length() != 1) {
             throw new IllegalTypeException(thiz, 2, "character", a2);
+        }
         c = str.charAt(0);
-        if (!Character.isDefined(c))
+        if (!Character.isDefined(c)) {
             throw new RepresentationException(thiz, 2, "character");
+        }
         stream.print(c);
         return cont;
     }
@@ -4647,25 +4924,28 @@ public class bootpreds extends sxxtensions {
      */
     // extends Predicate.P2 {
     public static Operation PRED_put_code_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
+        a2 = LARG.getPlainArg(1);
         int c;
         // Char
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isInteger()))
+        }
+        if (!a2.isInteger()) {
             throw new IllegalTypeException(thiz, 2, "integer", a2);
+        }
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, LARG[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, LARG.getPlainArg(0));
         // print single character
-        c = (a2).intValue();
-        if (!Character.isDefined(c))
+        c = a2.intValue();
+        if (!Character.isDefined(c)) {
             throw new RepresentationException(thiz, 2, "character");
+        }
         stream.print((char) c);
         return cont;
     }
@@ -4679,26 +4959,28 @@ public class bootpreds extends sxxtensions {
      */
     // _raise_exception_1 extends Predicate.P1 {
     public static Operation PRED_raise_exception_1_static_exec(Prolog engine) {
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
+        }
         throw new TermException(a1);
     }
 
     public static Operation PRED_throw_1_static_exec(Prolog engine) {
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
-        if ((a1.isVar()))
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
+        }
         throw new TermException(a1);
     }
 
@@ -4708,13 +4990,13 @@ public class bootpreds extends sxxtensions {
      */
 
     public static Operation PRED_$unify_2_static_exec_builtins(Prolog m) {
-        Operation cont = m.getCont();
-        Term[] LARG = m.AREGS;
+        final Operation cont = m.getCont();
+        final TermArray LARG = m.AREGS;
         // '$unify'(A,B):-'$unify'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         // '$unify'(A,B):-['$unify'(A,B)]
         // START inline expansion of $unify(a(1),a(2))
         if (!a1.unify(a2, m.trail)) {
@@ -4734,46 +5016,49 @@ public class bootpreds extends sxxtensions {
      */
     // _read_line_2 extends Predicate.P2 {
     public static Operation PRED_read_line_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         String line;
         char[] chars;
         Term t;
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read line
         try {
-            PushbackReader pbr = stream;
+            final PushbackReader pbr = stream;
             cleanPendingNewlines(pbr);
-            line = (new BufferedReader(pbr)).readLine();
+            line = new BufferedReader(pbr).readLine();
             if (line == null) { // end_of_stream
-                if (!a2.unifyInt((-1), engine.trail))
+                if (!a2.unifyInt(-1, engine.trail)) {
                     return engine.fail();
+                }
                 return cont;
             }
             chars = line.toCharArray();
             t = Prolog.Nil;
             for (int i = chars.length; i > 0; i--) {
-                if (!Character.isDefined((int) chars[i - 1]))
+                if (!Character.isDefined((int) chars[i - 1])) {
                     throw new RepresentationException(thiz, 0, "character");
+                }
                 t = CONS(Integer(chars[i - 1]), t);
             }
-            if (!a2.unify(t, engine.trail))
+            if (!a2.unify(t, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
 
     static void cleanPendingNewlines(PushbackReader pbr) throws IOException {
         while (pbr.ready()) {
-            int curr = (char) pbr.read();
+            final int curr = (char) pbr.read();
             if (curr != 13 && curr != 10 && curr != 0) {
                 pbr.unread(1);
                 return;
@@ -4797,19 +5082,19 @@ public class bootpreds extends sxxtensions {
      * fails.
      */
     public static Operation PRED_$read_token0_3_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2, a3;
-        a1 = LARG[0];
-        a2 = LARG[1];
-        a3 = LARG[2];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
+        a3 = LARG.getPlainArg(2);
         StringBuilder s;
         int type;
         Term token;
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // read token
         s = new StringBuilder();
         try {
@@ -4835,13 +5120,15 @@ public class bootpreds extends sxxtensions {
                     token = createAtomic(string);
                     break;
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new JavaException(thiz, 1, e);
         }
-        if (!a2.unifyInt((type), engine.trail))
+        if (!a2.unifyInt(type, engine.trail)) {
             return engine.fail();
-        if (!a3.unify(token, engine.trail))
+        }
+        if (!a3.unify(token, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -4855,19 +5142,19 @@ public class bootpreds extends sxxtensions {
      */
     // _regex_compile_2 extends Predicate.P2 {
     public static Operation PRED_regex_compile_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
-        if ((a1.isVar())) {
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
         }
-        if (!(a1.isAtomSymbol())) {
+        if (!a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         }
-        Pattern pattern = Pattern.compile(a1.getJavaString(), Pattern.MULTILINE);
+        final Pattern pattern = Pattern.compile(a1.getJavaString(), Pattern.MULTILINE);
         if (!a2.unify(FFIObject(pattern), engine.trail)) {
             return engine.fail();
         }
@@ -4886,35 +5173,35 @@ public class bootpreds extends sxxtensions {
      */
     // _regex_match_3 extends Predicate.P3 {
     public static Operation PRED_regex_match_3_static_exec(Prolog engine) {
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
-        if ((a1.isVar())) {
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
         }
-        Pattern pattern = (Pattern) a1.javaInstance();
-        if ((a2.isVar())) {
+        final Pattern pattern = (Pattern) a1.javaInstance();
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 1);
         }
-        if (!(a2.isAtomSymbol())) {
+        if (!a2.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atom", a2);
         }
-        Matcher matcher = pattern.matcher(a2.getJavaString());
+        final Matcher matcher = pattern.matcher(a2.getJavaString());
         if (!matcher.find()) {
             return engine.fail();
         }
-        engine.AREGS[0] = FFIObject(matcher);
-        engine.AREGS[1] = LARG[2];
+        engine.setAV(0, FFIObject(matcher));
+        engine.setAV(1, LARG.getPlainArg(2));
         return engine.jtry2(bootpreds::regex_check, bootpreds::regex_next);
     }
 
     private static Operation regex_check(Prolog engine) {
-        Term a1 = engine.AREGS[0];
-        Term result = engine.AREGS[1];
-        Matcher matcher = (Matcher) a1.javaInstance();
-        Term matches = getMatches(matcher);
+        final Term a1 = engine.getPlainArg(0);
+        final Term result = engine.getPlainArg(1);
+        final Matcher matcher = (Matcher) a1.javaInstance();
+        final Term matches = getMatches(matcher);
         if (matches == Prolog.Nil || !result.unify(matches, engine.trail)) {
             return engine.fail();
         }
@@ -4926,8 +5213,8 @@ public class bootpreds extends sxxtensions {
     }
 
     private static Operation regex_empty(Prolog engine) {
-        Term a1 = engine.AREGS[0];
-        Matcher matcher = (Matcher) a1.javaInstance();
+        final Term a1 = engine.getPlainArg(0);
+        final Matcher matcher = (Matcher) a1.javaInstance();
         if (!matcher.find()) {
             return engine.fail();
         }
@@ -4937,7 +5224,7 @@ public class bootpreds extends sxxtensions {
     private static Term getMatches(Matcher matcher) {
         Term list = Prolog.Nil;
         for (int i = matcher.groupCount(); i >= 0; i--) {
-            Term match = createAtomic(matcher.group(i));
+            final Term match = createAtomic(matcher.group(i));
             list = CONS(match, list);
         }
         return list;
@@ -4945,16 +5232,16 @@ public class bootpreds extends sxxtensions {
 
     // _reverse_2 extends Predicate.P2 {
     public static Operation PRED_reverse_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
+        Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
         if (a1.isCons() || a1.isNil()) {
             Term r = Prolog.Nil;
             while (a1.isCons()) {
                 r = CONS(a1.car(), r);
-                a1 = (a1).cdr();
+                a1 = a1.cdr();
             }
             if (a1.isNil() && a2.unify(r, engine.trail)) {
                 return cont;
@@ -4972,11 +5259,11 @@ public class bootpreds extends sxxtensions {
      */
     // _$set_exception_1 extends Predicate.P1 {
     public static Operation PRED_$set_exception_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
+        a1 = LARG.getPlainArg(0);
         a1 = a1.dref();
         engine.setException(a1);
         return cont;
@@ -4992,13 +5279,13 @@ public class bootpreds extends sxxtensions {
      */
     // _set_input_1 extends Predicate.P1 {
     public static Operation PRED_set_input_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1;
-        a1 = LARG[0];
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        a1 = LARG.getPlainArg(0);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         engine.setCurrentInput(stream);
         return cont;
     }
@@ -5013,11 +5300,11 @@ public class bootpreds extends sxxtensions {
      */
     // _set_output_1 extends Predicate.P1 {
     public static Operation PRED_set_output_1_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final Operation thiz = engine.pred;
         engine.setB0();
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, engine.AREGS[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, engine.getPlainArg(0));
         engine.setCurrentOutput(stream);
         return cont;
     }
@@ -5037,34 +5324,39 @@ public class bootpreds extends sxxtensions {
     private static final Functor PRINT_STACK_TRACE = SYM("print_stack_trace");
 
     public static Operation PRED_$set_prolog_impl_flag_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
         a2 = a2.dref();
         if (a1.equalsTerm(CHAR_CONVERSION)) {
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 return engine.fail();
-            engine.setCharConversion((a2).getJavaString());
+            }
+            engine.setCharConversion(a2.getJavaString());
         } else if (a1.equalsTerm(DEBUG)) {
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 return engine.fail();
-            engine.setDebug((a2).getJavaString());
+            }
+            engine.setDebug(a2.getJavaString());
         } else if (a1.equalsTerm(UNKNOWN)) {
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 return engine.fail();
-            engine.setUnknown((a2).getJavaString());
+            }
+            engine.setUnknown(a2.getJavaString());
         } else if (a1.equalsTerm(DOUBLE_QUOTES)) {
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 return engine.fail();
-            engine.setDoubleQuotes((a2).getJavaString());
+            }
+            engine.setDoubleQuotes(a2.getJavaString());
         } else if (a1.equalsTerm(PRINT_STACK_TRACE)) {
-            if (!(a2.isAtomSymbol()))
+            if (!a2.isAtomSymbol()) {
                 return engine.fail();
-            engine.setPrintStackTrace((a2).getJavaString());
+            }
+            engine.setPrintStackTrace(a2.getJavaString());
         } else {
             return engine.fail();
         }
@@ -5082,45 +5374,49 @@ public class bootpreds extends sxxtensions {
     // _skip_2 extends Predicate.P2 {
 
     public static Operation PRED_skip_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         int n;
         // Char
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isInteger())) {
+        }
+        if (!a2.isInteger()) {
             try {
                 a2 = Arithmetic.evaluate(a2);
-            } catch (BuiltinException e) {
+            } catch (final BuiltinException e) {
                 e.goal = thiz;
                 e.argNo = 2;
                 throw e;
             }
         }
         n = a2.asNumberTerm().intValue();
-        if (!Character.isDefined(n))
+        if (!Character.isDefined(n)) {
             throw new RepresentationException(thiz, 2, "character_code");
+        }
         // S_or_a
-        PushbackReader stream = toPBReader(engine, thiz, a1);
+        final PushbackReader stream = toPBReader(engine, thiz, a1);
         // skip
         try {
-            PushbackReader in = stream;
+            final PushbackReader in = stream;
             int c = in.read();
             while (c != n) {
                 c = in.read();
-                if (c == -1) // EOF
+                if (c == -1) {
                     return cont;
-                if (!Character.isDefined(c))
+                }
+                if (!Character.isDefined(c)) {
                     throw new RepresentationException(thiz, 0, "character");
+                }
             }
             return cont;
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new TermException(FFIObject(e));
         }
     }
@@ -5135,51 +5431,56 @@ public class bootpreds extends sxxtensions {
      */
     // _sort_2 extends Predicate.P2 {
     public static Operation PRED_sort_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         int len;
         Term tmp;// , tmp2;
         Term[] list;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
         } else if (a1.equalsTerm(Prolog.Nil)) {
-            if (!a2.unify(Prolog.Nil, engine.trail))
+            if (!a2.unify(Prolog.Nil, engine.trail)) {
                 return engine.fail();
+            }
             return cont;
-        } else if (!(a1.isCons())) {
+        } else if (!a1.isCons()) {
             throw new IllegalTypeException(thiz, 1, "list", a1);
         }
-        len = (a1).termLength();
+        len = a1.termLength();
         list = new Term[len];
         tmp = a1;
         for (int i = 0; i < len; i++) {
-            if (!(tmp.isCons()))
+            if (!tmp.isCons()) {
                 throw new IllegalTypeException(thiz, 1, "list", a1);
-            list[i] = (tmp).car().dref();
-            tmp = (tmp).cdr().dref();
+            }
+            list[i] = tmp.car().dref();
+            tmp = tmp.cdr().dref();
         }
-        if (!tmp.equalsTerm(Prolog.Nil))
+        if (!tmp.equalsTerm(Prolog.Nil)) {
             throw new PInstantiationException(thiz, 1);
+        }
         try {
             Arrays.sort(list);
-        } catch (ClassCastException e) {
+        } catch (final ClassCastException e) {
             throw new JavaException(thiz, 1, e);
         }
         tmp = Prolog.Nil;
         Object tmp2 = null;
         for (int i = list.length - 1; i >= 0; i--) {
-            if (!list[i].equals(tmp2))
+            if (!list[i].equals(tmp2)) {
                 tmp = CONS(list[i], tmp);
+            }
             tmp2 = list[i];
         }
-        if (!a2.unify(tmp, engine.trail))
+        if (!a2.unify(tmp, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -5197,18 +5498,18 @@ public class bootpreds extends sxxtensions {
     private static final Functor SYM_CHOICE = SYM("choice");
 
     public static Operation PRED_$statistics_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         Term result = null;
         a1 = a1.dref();
-        if ((a1.isVar())) {
+        if (a1.isVar()) {
             throw new PInstantiationException(thiz, 1);
-        } else if (!(a1.isAtomSymbol())) {
+        } else if (!a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         } else if (a1.equalsTerm(SYM_RUNTIME)) {
             engine.requireFeature(Prolog.Feature.STATISTICS_RUNTIME, thiz, a1);
@@ -5239,8 +5540,9 @@ public class bootpreds extends sxxtensions {
         } else {
             return engine.fail();
         }
-        if (!a2.unify(result, engine.trail))
+        if (!a2.unify(result, engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -5254,22 +5556,23 @@ public class bootpreds extends sxxtensions {
      */
     // _tab_2 extends Predicate.P2 {
     public static Operation PRED_tab_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
+        a2 = LARG.getPlainArg(1);
         int n;
         // String s = "";
         // Char
         a2 = a2.dref();
-        if ((a2.isVar()))
+        if (a2.isVar()) {
             throw new PInstantiationException(thiz, 2);
-        if (!(a2.isInteger())) {
+        }
+        if (!a2.isInteger()) {
             try {
                 a2 = Arithmetic.evaluate(a2);
-            } catch (BuiltinException e) {
+            } catch (final BuiltinException e) {
                 e.goal = thiz;
                 e.argNo = 2;
                 throw e;
@@ -5277,7 +5580,7 @@ public class bootpreds extends sxxtensions {
         }
         n = a2.asNumberTerm().intValue();
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, engine.AREGS[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, engine.getPlainArg(0));
         // tab
         for (int i = 0; i < n; i++) {
             // s.append(" ");
@@ -5295,15 +5598,16 @@ public class bootpreds extends sxxtensions {
      */
     // _$term_hash_2 extends Predicate.P2 {
     public static Operation PRED_$term_hash_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
-        if (!a2.unifyInt((a1.termHashCode()), engine.trail))
+        if (!a2.unifyInt(a1.termHashCode(), engine.trail)) {
             return engine.fail();
+        }
         return cont;
     }
 
@@ -5316,68 +5620,78 @@ public class bootpreds extends sxxtensions {
      */
     // extends Predicate.P2 {
     public static Operation PRED_$univ_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a1, a2;
-        a1 = LARG[0];
-        a2 = LARG[1];
+        a1 = LARG.getPlainArg(0);
+        a2 = LARG.getPlainArg(1);
         a1 = a1.dref();
-        if ((a1.isAtomSymbol()) || (a1.isNumber()) || (a1.isJavaObject()) || (a1.isClosure())) {
-            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, a1, Nil))
+        if (a1.isAtomSymbol() || a1.isNumber() || a1.isJavaObject() || a1.isClosure()) {
+            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, a1, Nil)) {
                 return engine.fail();
-        } else if ((a1.isCons())) {
+            }
+        } else if (a1.isCons()) {
             Term t = CONS(a1.cdr(), Nil);
             t = CONS(a1.car(), t);
             t = CONS(SYM_DOT_0, t);
-            if (!a2.unify(t, engine.trail))
+            if (!a2.unify(t, engine.trail)) {
                 return engine.fail();
-        } else if ((a1.isCompound())) {
-            Term sym = a1.functor();
-            Term[] args = a1.args();
+            }
+        } else if (a1.isCompound()) {
+            final Term sym = a1.functor();
+            final Term[] args = a1.args();
             Term t = Nil;
-            for (int i = args.length; i > 0; i--)
+            for (int i = args.length; i > 0; i--) {
                 t = CONS(args[i - 1], t);
-            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, sym, t))
+            }
+            if (!a2.unifyS(Prolog.FUNCTOR_LIST_2, engine.trail, sym, t)) {
                 return engine.fail();
-        } else if ((a1.isVar())) {
+            }
+        } else if (a1.isVar()) {
             a2 = a2.dref();
-            if ((a2.isVar()))
+            if (a2.isVar()) {
                 throw new PInstantiationException(thiz, 2);
-            else if (a2.isNil())
+            } else if (a2.isNil()) {
                 throw new IllegalDomainException(thiz, 2, "non_empty_list", a2);
-            else if (!(a2.isCons()))
+            } else if (!a2.isCons()) {
                 throw new IllegalTypeException(thiz, 2, "list", a2);
-            Term head = (a2).car().dref();
-            Term tail = (a2).cdr().dref();
-            if ((head.isVar()))
+            }
+            final Term head = a2.car().dref();
+            Term tail = a2.cdr().dref();
+            if (head.isVar()) {
                 throw new PInstantiationException(thiz, 2);
+            }
             if (tail.isNil()) {
-                if ((head.isAtomSymbol()) || (head.isNumber()) || (head.isJavaObject()) || (head.isClosure())) {
-                    if (!a1.unify(head, engine.trail))
+                if (head.isAtomSymbol() || head.isNumber() || head.isJavaObject() || head.isClosure()) {
+                    if (!a1.unify(head, engine.trail)) {
                         return engine.fail();
+                    }
                     return cont;
                 } else {
                     throw new IllegalTypeException(thiz, 2, "atomic", head);
                 }
             }
-            if (!(head.isAtomSymbol()))
+            if (!head.isAtomSymbol()) {
                 throw new IllegalTypeException(thiz, 2, "atom", head);
+            }
             Term x = tail;
             while (!x.isNil()) {
-                if ((x.isVar()))
+                if (x.isVar()) {
                     throw new PInstantiationException(thiz, 2);
-                if (!(x.isCons()))
+                }
+                if (!x.isCons()) {
                     throw new IllegalTypeException(thiz, 2, "list", a2);
-                x = (x).cdr().dref();
+                }
+                x = x.cdr().dref();
             }
-            int n = (a2).termLength() - 1;
-            Functor sym = createF((head).getJavaString(), n);
-            Term[] args = new Term[n];
+            final int n = a2.termLength() - 1;
+            final Functor sym = createF(head.getJavaString(), n);
+            final Term[] args = new Term[n];
             for (int i = 0; i < n; i++) {
-                args[i] = (tail).car().dref();
-                tail = (tail).cdr().dref();
+                args[i] = tail.car().dref();
+                tail = tail.cdr().dref();
             }
             Term t = null;
             if (SYM_DOT_0.equalsTerm(head)) {
@@ -5388,8 +5702,9 @@ public class bootpreds extends sxxtensions {
             } else {
                 t = S(sym, args);
             }
-            if (!a1.unify(t, engine.trail))
+            if (!a1.unify(t, engine.trail)) {
                 return engine.fail();
+            }
         } else {
             return engine.fail();
         }
@@ -5433,45 +5748,45 @@ public class bootpreds extends sxxtensions {
      */
     // _write_domain_definitions_2 extends P2 {
     public static Operation PRED_write_domain_definitions_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
-        Term a1 = LARG[0].dref();
-        Term a2 = LARG[1].dref();
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
+        final Term a1 = LARG.getTermDRef(0);
+        final Term a2 = LARG.getTermDRef(1);
         // input check
         // a1 is output directory
-        if (!(a1.isAtomSymbol())) {
+        if (!a1.isAtomSymbol()) {
             throw new IllegalTypeException(thiz, 1, "atom", a1);
         }
         // a2 is a list of domain definitions in form package:name =
         // (aaa;bbb*;ccc(ddd,eee))
-        if (!a2.isNil() && !(a2.isCons())) {
+        if (!a2.isNil() && !a2.isCons()) {
             throw new IllegalTypeException(thiz, 2, "list", a2);
         }
         // process domain definitions
         String packageName = null;
-        Properties p = new Properties();
+        final Properties p = new Properties();
         Term lt = a2;
         while (!lt.isNil()) {
-            Term t = (lt).car();
-            lt = (lt).cdr();
-            if (!(t.isCompound()) || !"=".equals(t.fname()) || t.arity() != 2) {
+            final Term t = lt.car();
+            lt = lt.cdr();
+            if (!t.isCompound() || !"=".equals(t.fname()) || t.arity() != 2) {
                 throw new IllegalDomainException(thiz, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
             }
-            Term packageAndName = t.getPlainArg(0);
-            if (!(packageAndName.isCompound()) || !":".equals(packageAndName.getJavaString())
+            final Term packageAndName = t.getPlainArg(0);
+            if (!packageAndName.isCompound() || !":".equals(packageAndName.getJavaString())
                     || packageAndName.arity() != 2) {
                 throw new IllegalDomainException(thiz, 2, "package:name = (aaa;bbb*;ccc(ddd,eee))", t);
             }
-            Term packageTerm = packageAndName.getPlainArg(0);
+            final Term packageTerm = packageAndName.getPlainArg(0);
             if (packageName == null) {
                 packageName = packageTerm.getJavaString();
             } else if (!packageName.equals(packageTerm.getJavaString())) {
                 throw new IllegalDomainException(thiz, 2, "same package in every list item", a2);
             }
-            Term name = packageAndName.getPlainArg(1);
-            Term definition = t.getPlainArg(1);
-            StringBuilder sb = new StringBuilder();
+            final Term name = packageAndName.getPlainArg(1);
+            final Term definition = t.getPlainArg(1);
+            final StringBuilder sb = new StringBuilder();
             Term d = definition;
             while (";".equals(d.getJavaString())) {
                 sb.append(d.getPlainArg(0).getJavaString()).append(';');
@@ -5500,22 +5815,22 @@ public class bootpreds extends sxxtensions {
         if (folder == null || "".equals(folder)) {
             folder = ".";
         }
-        File dir = new File(folder, packageName.replace('.', File.separatorChar));
-        File file = new File(dir, "domain.properties");
-        Properties p = new Properties();
+        final File dir = new File(folder, packageName.replace('.', File.separatorChar));
+        final File file = new File(dir, "domain.properties");
+        final Properties p = new Properties();
         if (file.exists()) {
             // read the file first
             FileInputStream in = null;
             try {
                 in = new FileInputStream(file);
                 p.load(in);
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 throw new JavaException(e);
             } finally {
                 if (in != null) {
                     try {
                         in.close();
-                    } catch (IOException e) {
+                    } catch (final IOException e) {
                         // ignore since we can do nothing about it
                     }
                 }
@@ -5526,13 +5841,13 @@ public class bootpreds extends sxxtensions {
         try {
             out = new FileOutputStream(file);
             p.store(out, "");
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new JavaException(e);
         } finally {
             if (out != null) {
                 try {
                     out.close();
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     // ignore since we can do nothing about it
                 }
             }
@@ -5548,19 +5863,20 @@ public class bootpreds extends sxxtensions {
      */
     // _$write_toString_2 extends Predicate.P2 {
     public static Operation PRED_$write_toString_2_static_exec(Prolog engine) {
-        Operation cont = engine.getCont();
-        Term[] LARG = engine.AREGS;
-        Operation thiz = engine.pred;
+        final Operation cont = engine.getCont();
+        final TermArray LARG = engine.AREGS;
+        final Operation thiz = engine.pred;
         engine.setB0();
         Term a2;
-        a2 = LARG[1];
+        a2 = LARG.getPlainArg(1);
         // S_or_a
-        PrintWriter stream = toPrintWriter(engine, thiz, engine.AREGS[0]);
+        final PrintWriter stream = toPrintWriter(engine, thiz, engine.getPlainArg(0));
         a2 = a2.dref();
-        if (!(a2.isJavaObject()))
+        if (!a2.isJavaObject()) {
             throw new IllegalTypeException(thiz, 2, "java", a2);
+        }
         // print java
-        stream.print((a2).javaInstance().toString());
+        stream.print(a2.javaInstance().toString());
         return cont;
     }
 

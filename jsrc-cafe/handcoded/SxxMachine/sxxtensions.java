@@ -19,8 +19,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_nb_linkval_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         linkval(m, a1, a2);
         return m.getCont();
     }
@@ -37,8 +37,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_b_setval_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Map<Term, Term> saved = m.getTermBlackboard();
         Term was = saved.get(a1.functor());
         if (was == null)
@@ -52,8 +52,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_nb_setval_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         linkval(m, a1, a2.duplicateTerm());
         return m.getCont();
     }
@@ -64,8 +64,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_nb_getval_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Map<Term, Term> saved = m.getTermBlackboard();
         final Term arg0 = saved.get(a1.functor());
         if (!a2.unify(arg0, m.trail)) {
@@ -76,8 +76,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_nb_current_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Map<Term, Term> saved = m.getTermBlackboard();
         final Term arg0 = saved.get(a1.functor());
         if (arg0 == null || !a2.unify(arg0, m.trail)) {
@@ -89,7 +89,7 @@ public class sxxtensions extends missing_preds {
     public Operation PRED_cputime_1_static_exec(Prolog m) {
         m.setB0();
         long t = java.lang.System.currentTimeMillis();
-        if (!m.AREGS[0].unify(Long(t), m.trail))
+        if (!m.getPlainArg(0).unify(Long(t), m.trail))
             return m.fail();
         return m.getCont();
     }
@@ -126,7 +126,7 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_setarg_3_static_exec(Prolog m) {
         m.setB0();
-        if (!DoSetArg3(m, m.AREGS[0], m.AREGS[1], m.AREGS[2]))
+        if (!DoSetArg3(m, m.getPlainArg(0), m.getPlainArg(1), m.getPlainArg(2)))
             return m.fail();
         return m.getCont();
     }
@@ -160,7 +160,7 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_nb_setarg_3_static_exec(Prolog m) {
         m.setB0();
-        if (!NonBacktrackingSetArg(m, m.AREGS[0], m.AREGS[1], m.AREGS[2]))
+        if (!NonBacktrackingSetArg(m, m.getPlainArg(0), m.getPlainArg(1), m.getPlainArg(2)))
             return m.fail();
         return m.getCont();
     }
@@ -244,8 +244,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_freeze_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         a1.freeze(m.trail, a2);
         return m.getCont();
     }
@@ -254,8 +254,8 @@ public class sxxtensions extends missing_preds {
 
         m.setB0();
         Term a1, a2;
-        a1 = m.AREGS[0];
-        a2 = m.AREGS[1].dref();
+        a1 = m.getPlainArg(0);
+        a2 = m.getTermDRef(1);
         Term goals = a1.frozenGoals();
         if (!a2.unify(goals, m.trail)) {
             return m.fail();
@@ -283,9 +283,9 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_copy_term_3_static_exec(Prolog m) {
         Term a1, a2, a3;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
-        a3 = m.AREGS[2].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
+        a3 = m.getTermDRef(2);
         Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
         if (!a2.unify(a1.copy(saved, Term.COPY_SAVE_ATTRS_COPY), m.trail)) {
             return m.fail();
@@ -305,8 +305,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_copy_term_nat_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
         if (!a2.unify(a1.copy(saved, Term.COPY_NO_ATTRS), m.trail)) {
             return m.fail();
@@ -316,8 +316,8 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_copy_term_att_2_static_exec(Prolog m) {
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
         Term copy = a1.copy(saved, Term.COPY_ALL);
         if (!a2.unify(copy, m.trail)) {
@@ -329,7 +329,7 @@ public class sxxtensions extends missing_preds {
     public static Operation PRED_attvar_1_static_exec(Prolog m) {
         m.setB0();
         Term a1;
-        a1 = m.AREGS[0];
+        a1 = m.getPlainArg(0);
         a1 = a1.dref();
         if (!a1.isAttvar()) {
             return m.fail();
@@ -340,9 +340,9 @@ public class sxxtensions extends missing_preds {
     public static Operation PRED_get_attr_3_static_exec(Prolog m) {
         m.setB0();
         Term a1, a2, a3;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
-        a3 = m.AREGS[2].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
+        a3 = m.getTermDRef(2);
         Term t = a1.findOrAttrValue(m.trail, false, a2);
         if (!t.isCompound())
             return m.fail();
@@ -355,8 +355,8 @@ public class sxxtensions extends missing_preds {
 
         m.setB0();
         Term a1, a2;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
         Term attrs = a1.getAttrs();
         if (!a2.unify(attrs, m.trail)) {
             return m.fail();
@@ -367,22 +367,22 @@ public class sxxtensions extends missing_preds {
 
     public static Operation PRED_put_attr_3_static_exec(Prolog m) {
         Term a1, a2, a3;
-        a1 = m.AREGS[0].dref();
-        a2 = m.AREGS[1].dref();
-        a3 = m.AREGS[2].dref();
+        a1 = m.getTermDRef(0);
+        a2 = m.getTermDRef(1);
+        a3 = m.getTermDRef(2);
         a1.putAttrValue(m.trail, a2, a3);
         return m.getCont();
     }
 
     public static Operation PRED_put_attrs_2_static_exec(Prolog m) {
-        m.AREGS[0].dref().setAttrs(m.trail, m.AREGS[1].dref());
+        m.getTermDRef(0).setAttrs(m.trail, m.getTermDRef(1));
         return m.getCont();
 
     }
 
     public static Operation PRED_peek_pending_1_static_exec(final Prolog m) {
         m.setB0();
-        final Term a1 = m.AREGS[0].dref();
+        final Term a1 = m.getTermDRef(0);
         Term goals = m.peekPendingGoals();
         if (!a1.unify(goals, m.trail)) {
             return m.fail();
@@ -391,19 +391,19 @@ public class sxxtensions extends missing_preds {
     }
 
     public static Operation PRED_add_pending_1_static_exec(final Prolog m) {
-        final Term a1 = m.AREGS[0].dref();
+        final Term a1 = m.getTermDRef(0);
         m.addPendingGoal(a1);
         return m.getCont();
     }
 
     public static Operation PRED_push_pending_1_static_exec(final Prolog m) {
-        final Term a1 = m.AREGS[0].dref();
+        final Term a1 = m.getTermDRef(0);
         m.addPendingGoal(a1);
         return m.getCont();
     }
 
     public static Operation PRED_undo_1_static_exec(final Prolog m) {
-        final Term a1 = m.AREGS[0].dref();
+        final Term a1 = m.getTermDRef(0);
         m.push(new Undoable() {
             @Override
             public void undo() {
@@ -414,7 +414,7 @@ public class sxxtensions extends missing_preds {
     }
 
     public static Operation PRED_assume_1_static_exec(Prolog m) {
-        Term arg1 = m.AREGS[0].dref();
+        Term arg1 = m.getTermDRef(0);
         Term ass = (m.assumptions).dref();
         m.push(new PopAssumptions(m, ass));
         m.assumptions = CONS(arg1, ass);
@@ -422,7 +422,7 @@ public class sxxtensions extends missing_preds {
     }
 
     public static Operation PRED_allassumed_1_static_exec(Prolog m) {
-        Term arg1 = m.AREGS[0].dref();
+        Term arg1 = m.getTermDRef(0);
         Term ass = (m.assumptions).dref();
         if (!(arg1.unify(ass, m.trail)))
             return m.fail();

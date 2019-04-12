@@ -11,11 +11,14 @@ public class TermArray {
 
     //private int length;
 
+    final TermRef[] termRefs;
+
     /**
      * @param length
      */
     public TermArray(int len) {
         backing = new Term[len];
+        termRefs = new TermRef[len];
     }
 
     /**
@@ -34,7 +37,7 @@ public class TermArray {
      * @param args
      * @return
      */
-    public static TermArray newTermArray(Term[] args) {
+    public static TermArray newTermArray(Term... args) {
         final int len = args.length;
         TermArray termArray = new TermArray(len);
         for (int j = 0; j < len; j++) {
@@ -50,7 +53,6 @@ public class TermArray {
      * @return
      */
     public Term getPlainArg(int i) {
-        final Term[] backing = getBacking();
         return backing[i];
     }
 
@@ -85,6 +87,44 @@ public class TermArray {
      */
     public Term[] getBacking() {
         return backing;
+    }
+
+    /**
+     * @param i
+     * @return
+     */
+    public TermRef getPlain(final int i) {
+        TermRef tr = termRefs[i];
+        if (tr == null) {
+            tr = termRefs[i] = makePlain(i);
+        }
+        return tr;
+    }
+
+    /**
+     * @param i
+     * @return
+     */
+    private TermRef makePlain(final int i) {
+        return new TermRef() {
+            @Override
+            public Term getVVV() {
+                return backing[i].dref();
+            }
+
+            @Override
+            public Term getV() {
+                return backing[i];
+            }
+
+            /* (non-Javadoc)
+             * @see SxxMachine.TermRef#setV(SxxMachine.Term)
+             */
+            @Override
+            Term setV(Term v) {
+                return backing[i] = v;
+            }
+        };
     }
 
 }

@@ -30,8 +30,8 @@ public class missing_preds implements PrologModule {
     public static Operation PRED_time_1_static_exec(Prolog e) {
         //exec_missing();
         long start = System.currentTimeMillis();
-        Term Goal = e.AREGS[0].dref();
-        try { 
+        Term Goal = e.AREGS.getTermDRef(0);
+        try {
             return FILE_system.PRED_call_1_static_exec(e);
         } finally {
             long end = System.currentTimeMillis();

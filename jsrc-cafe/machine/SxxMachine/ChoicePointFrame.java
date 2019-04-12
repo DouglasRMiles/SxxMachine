@@ -59,7 +59,7 @@ class ChoicePointFrame {
     Operation ownerPredicate; // used in PrologLogger
     int loggerStackTop; // used in PrologLogger
     BiConsumer<ChoicePointFrame, Prolog> restore; // method to restore the engine from stack
-    public Term[] AREGS;
+    public TermArray AREGS;
     int arity = -1;
 
     // Term[] aregs;
