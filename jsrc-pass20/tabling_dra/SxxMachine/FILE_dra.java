@@ -394,7 +394,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // std_trace_stream(user_error):-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // std_trace_stream(user_error):-[]
         if (!  ATOM_user_error .unify(a1, m.trail))
             return m.fail();
@@ -415,7 +415,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_w(A):-[std_trace_stream(B),format(B,'~q',[A]),flush_output(B)]
         a2 = m.mkvar1();
         a3 = CONS(a1,  Prolog.Nil );
@@ -516,7 +516,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_retract_all(A):-ignore((retract(A),fail))
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_retract_all(A):-[ignore((retract(A),fail))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_retract_1'),y(1),a(2))
         a2 =  S( FUNCTOR_retract_1 , a1);
@@ -541,7 +541,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_asserta_new(A):-[dra_retract_all('$dra':A),asserta('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 =  S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , a1);
@@ -567,7 +567,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_assertz_new(A):-[dra_retract_all('$dra':A),assertz('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 =  S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , a1);
@@ -686,7 +686,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_error(A):-throw(dra_error(A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_error(A):-[throw(dra_error(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_dra_error_1'),y(1),a(2))
         a2 =  S( FUNCTOR_dra_error_1 , a1);
@@ -1318,7 +1318,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // table A:-process_dra_ective((table A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // table A:-[process_dra_ective((table A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_table_1'),y(1),a(2))
         a2 =  S( FUNCTOR_table_1 , a1);
@@ -1340,7 +1340,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // coinductive0 A:-process_dra_ective((coinductive0 A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // coinductive0 A:-[process_dra_ective((coinductive0 A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_coinductive0_1'),y(1),a(2))
         a2 =  S( FUNCTOR_coinductive0_1 , a1);
@@ -1362,7 +1362,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // coinductive1 A:-process_dra_ective((coinductive1 A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // coinductive1 A:-[process_dra_ective((coinductive1 A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_coinductive1_1'),y(1),a(2))
         a2 =  S( FUNCTOR_coinductive1_1 , a1);
@@ -1384,7 +1384,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // topl(A):-process_dra_ective(topl(A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // topl(A):-[process_dra_ective(topl(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_topl_1'),y(1),a(2))
         a2 =  S( FUNCTOR_topl_1 , a1);
@@ -1655,8 +1655,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // make_db_pred(A,B):-['$univ'(C,[A,D]),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(C,E,F),(module_transparent F:C),add_clauses(F:C,process_dra_ective(C)),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,G),(dynamic B/1),(multifile B/1)]
         a3 = m.mkvar1();
         a4 = CONS(m.DONT_CARE1(),  Prolog.Nil );
@@ -2052,9 +2052,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // mk_pattern(A,B,C):-functor(C,A,B)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // mk_pattern(A,B,C):-[functor(C,A,B)]
         return //
  Op("functor", FILE_dra::PRED_functor_3_static_exec, VA(a3, a1, a2), cont);
@@ -2603,8 +2603,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // are_variants(A,B):-variant(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // are_variants(A,B):-[variant(A,B)]
         return //
  Op("variant", FILE_dra::PRED_variant_2_static_exec, VA(a1, a2), cont);
@@ -2623,9 +2623,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // write_shallow(A,B,C):-write_term(A,B,[max_depth(C)])
         m.setB0();
          Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // write_shallow(A,B,C):-[write_term(A,B,[max_depth(C)])]
     // put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_max_depth_1'),y(1),a(4))
         a4 =  S( FUNCTOR_max_depth_1 , a3);
@@ -2747,7 +2747,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // is_swi_builtin(A):-'$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // is_swi_builtin(A):-['$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         return //
  Op("$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl", FILE_dra::PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Ftabling_dra$002Fdra$002Epl_1_static_exec, VA(a1), cont);
@@ -2765,8 +2765,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_setval_flag(A,B):-flag(A,C,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // dra_setval_flag(A,B):-[flag(A,C,B)]
         return //
  Op("flag", FILE_dra::PRED_flag_3_static_exec, VA(a1, m.DONT_CARE2(), a2), cont);
@@ -2784,8 +2784,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_getval_flag(A,B):-flag(A,B,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // dra_getval_flag(A,B):-[flag(A,B,B)]
         return //
  Op("flag", FILE_dra::PRED_flag_3_static_exec, VA(a1, a2, a2), cont);
@@ -2804,7 +2804,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_incval_flag(A):-flag(A,B,B+1)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_incval_flag(A):-[flag(A,B,B+1)]
         a2 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(3))
@@ -2827,7 +2827,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_tree(empty):-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // empty_tree(empty):-[]
         if (!  ATOM_empty .unify(a1, m.trail))
             return m.fail();
@@ -3006,10 +3006,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // is_in_tree(A,B,C,D):-A=t(E,F,G,H),'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // is_in_tree(A,B,C,D):-['$unify'(A,t(E,F,G,H)),'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -3371,7 +3371,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_goal_table(A):-empty_tree(A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // empty_goal_table(A):-[empty_tree(A)]
         return //
  Op("empty_tree", FILE_dra::PRED_empty_tree_1_static_exec, VA(a1), cont);
@@ -3392,8 +3392,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // goal_table_member(A,B):-[functor(A,C,D),is_in_tree(B,C/D,@<,E),once('$dra':essence_hook(A,F)),member_reversed(G,E),once('$dra':essence_hook(G,F))]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -3436,8 +3436,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // is_a_variant_in_goal_table(A,B):-['$get_level'(C),once('$dra':essence_hook(A,D)),functor(A,E,F),is_in_tree(B,E/F,@<,G),member_reversed(H,G),once('$dra':essence_hook(H,I)),are_variants(I,D),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -3557,9 +3557,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // goal_table_add(A,B,C):-[functor(B,D,E),tree_add(A,D/E,[B],@<,add_to_list,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -3584,9 +3584,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // add_to_list(A,[B],[B|A]):-true
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // add_to_list(A,[B],[B|A]):-[]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -3625,7 +3625,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_hypotheses(A):-empty_goal_table(A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // empty_hypotheses(A):-[empty_goal_table(A)]
         return //
  Op("empty_goal_table", FILE_dra::PRED_empty_goal_table_1_static_exec, VA(a1), cont);
@@ -3643,9 +3643,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // push_is_coinductive(A,B,C):-goal_table_add(B,A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // push_is_coinductive(A,B,C):-[goal_table_add(B,A,C)]
         return //
  Op("goal_table_add", FILE_dra::PRED_goal_table_add_3_static_exec, VA(a2, a1, a3), cont);
@@ -3663,8 +3663,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // unify_with_coinductive_ancestor(A,B):-goal_table_member(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // unify_with_coinductive_ancestor(A,B):-[goal_table_member(A,B)]
         return //
  Op("goal_table_member", FILE_dra::PRED_goal_table_member_2_static_exec, VA(a1, a2), cont);
@@ -3683,7 +3683,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_stack(tstack([],A)):-empty_goal_table(A)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // empty_stack(tstack([],A)):-[empty_goal_table(A)]
         a1 = a1.dref();
             a2 = m.mkvar2();
@@ -3709,11 +3709,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // push_is_tabled(A,B,C,tstack(D,E),tstack([triple(A,B,C)|D],F)):-goal_table_add(E,A,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // push_is_tabled(A,B,C,tstack(D,E),tstack([triple(A,B,C)|D],F)):-[goal_table_add(E,A,F)]
         a4 = a4.dref();
             a6 = m.mkvar2();
@@ -3759,10 +3759,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // is_variant_of_ancestor(A,tstack(B,C),D,E):-['$get_level'(F),is_a_variant_in_goal_table(A,C),append(E,[D|G],B),'$unify'(D,triple(H,I,J)),are_essences_variants(A,H),'$cut'(F)]
         a2 = a2.dref();
             a5 = m.mkvar2();
@@ -3802,7 +3802,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_version('DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO'):-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_version('DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO'):-[]
         if (!  ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO .unify(a1, m.trail))
             return m.fail();
@@ -4673,7 +4673,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // tnot A:-dra_call_interp(tnot A)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // tnot A:-[dra_call_interp(tnot A)]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_tnot_1'),y(1),a(2))
         a2 =  S( FUNCTOR_tnot_1 , a1);
@@ -4695,7 +4695,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_tabled(A):-dra_use_interp(dra_call_tabled,A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_call_tabled(A):-[dra_use_interp(dra_call_tabled,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_call_tabled , a1), cont);
@@ -4714,7 +4714,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_coind0(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_call_coind0(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4732,7 +4732,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_coind1(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_call_coind1(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4750,7 +4750,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_interp(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // dra_call_interp(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4785,8 +4785,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // dra_use_interp(A,B):-[dra_must(b_getval('$tabling_exec',dra_state(C,D,E,F))),setup_call_cleanup((E<0->'$dra':init_dra_call,G='$dra':exit_dra_call;G='$dra':cont_dra_call),(H is E+1,call(A,I,B,C,D,H),((var(I);trace,'$dra':non_cutted(B,I,F))->true;!,fail),G),G)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -7940,10 +7940,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // get_tabled_if_old_first(A,B,C,D):-[call('$dra':is_old_first(A)),get_all_tabled_answers(A,B,C,D),new_result_or_fail(B,A)]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_is_old_first_1'),y(1),a(5))
         a5 =  S( FUNCTOR_is_old_first_1 , a1);
@@ -7970,10 +7970,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // get_all_tabled_answers(A,B,C,D):-[get_answer(A),trace_success(C,A,B,D)]
         return //
  Op("get_answer", FILE_dra::PRED_get_answer_1_static_exec, VA(a1), //
@@ -8044,10 +8044,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // get_remaining_tabled_answers(A,B,C,D):-[get_answer(A),'$dummy_47_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),trace_success(C,A,B,D)]
         return //
  Op("get_answer", FILE_dra::PRED_get_answer_1_static_exec, VA(a1), //
@@ -8203,11 +8203,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // compute_fixed_point(A,B,C,D,E):-[F is E+1,'$dummy_48_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,D,G),dra_getval_flag(number_of_answers,H),compute_fixed_point_(A,B,C,G,F,H)]
         a6 = m.mkvar1();
     // put_str_args([a(5),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(7))
@@ -8548,7 +8548,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // rescind_pioneer_status(A):-[delete_pioneer(A),delete_loops(A),delete_looping_alternatives(A)]
         return //
  Op("delete_pioneer", FILE_dra::PRED_delete_pioneer_1_static_exec, VA(a1), //
@@ -8701,7 +8701,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get_unique_index(A):-[dra_getval_flag(unique_index,A),dra_incval_flag(unique_index)]
         return //
  Op("dra_getval_flag", FILE_dra::PRED_dra_getval_flag_2_static_exec, VA( ATOM_unique_index , a1), //
@@ -8721,8 +8721,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // are_essences_variants(A,B):-[once('$dra':essence_hook(A,C)),once('$dra':essence_hook(B,D)),are_variants(C,D)]
         a3 = m.mkvar1();
     // put_str_args([a(1),a(3)],y(1)),put_str(@('FUNCTOR_essence_hook_2'),y(1),a(4))
@@ -9084,7 +9084,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // write_level(A):-dra_w([A])
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // write_level(A):-[dra_w([A])]
         a2 = CONS(a1,  Prolog.Nil );
         return //
@@ -9106,9 +9106,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // write_label_and_goal(A,B,C):-[call('$dra':print_depth(D)),std_trace_stream(E),dra_w(A),dra_w(': '),write_goal_number(C),write_shallow(E,B,D)]
         a4 = m.mkvar1();
     // put_str_args([a(4)],y(1)),put_str(@('FUNCTOR_print_depth_1'),y(1),a(5))
@@ -9469,7 +9469,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // recorded_listing(A):-['$get_level'(B),'$dummy_54_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,C),forall(recorded(A,D),dra_wln((A->D))),forall(recorded(D,A),dra_wln((D->A))),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -9826,8 +9826,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // most_general_instance(A,B):-[functor(A,C,D),functor(B,C,D)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();

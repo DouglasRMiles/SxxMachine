@@ -11,12 +11,40 @@ import java.lang.reflect.Field;
  */
 public class TermArray {
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        String ret = "TermArray.length=" + length;
+        if (length != 0) {
+            ret += " [" + termString(getPlainArg(0));
+            if (length > 1)
+                for (int i = 1; i < length; i++) {
+                    ret += ", " + termString(getPlainArg(i));
+                }
+        }
+        return ret + "]";
+    }
+
+    /**
+     * @param plainArg
+     * @return
+     */
+    private String termString(Term plainArg) {
+        if (plainArg == null)
+            return "@nUll";
+        return plainArg.toQuotedString();
+    }
+
     public int length;
 
     final TermRef[] termRefs;
     public Term areg0, areg1, areg2, areg3, areg4, areg5, areg6, areg7, areg8, areg9, areg10, areg11, areg12, areg13,
             areg14, areg15, areg16, areg17, areg18, areg19, areg20, areg21, areg22, areg23, areg24, areg25, areg26,
             areg27, areg28, areg29, areg30, areg31, areg32;
+
+    private Term[] backing;
 
     //private int length;
 
@@ -154,9 +182,15 @@ public class TermArray {
      * @return the backing
      */
     public Term[] getBacking() {
-        // return backing;
+        if (backing == null)
+            backing = new Term[length];
+        for (int i = 0; i < backing.length; i++) {
+            backing[i] = getPlainArg(i);
+        }
 
-        throw new AbstractMethodError("TermArray.getBacking throw Exception");
+        return backing;
+
+        //throw new AbstractMethodError("TermArray.getBacking throw Exception");
     }
 
     /**

@@ -70,7 +70,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // theorem(A):-[length(A,B),C is B-1,derive([m,i],A,1,C,D,0)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -262,13 +262,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
     // rule([m|A],[m|B],C,D,E,F,G):-rule(A,B,C,D,E,F,1,i,G,H,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
-        a7 = LARG.getPlainArg(6);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
+        a7 = LARG.areg6;
     // rule([m|A],[m|B],C,D,E,F,G):-[rule(A,B,C,D,E,F,1,i,G,H,H)]
         a1 = a1.dref();
         if (a1 .isCons()){

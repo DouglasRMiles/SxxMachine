@@ -59,7 +59,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // main(A):-[u(B,[1,C],[B],D),size(D,0,A)]
         a2 = m.mkvar1();
         a3 = CONS(m.DONT_CARE1(),  Prolog.Nil );
@@ -83,10 +83,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // u(A,B,C,D):-unify(A,B,C,E,D,[])
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // u(A,B,C,D):-[unify(A,B,C,E,D,[])]
         return //
  Op("unify", FILE_unify::PRED_unify_6_static_exec, VA(a1, a2, a3, m.DONT_CARE2(), a4,  Prolog.Nil ), cont);
@@ -1319,16 +1319,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
-        a7 = LARG.getPlainArg(6);
-        a8 = LARG.getPlainArg(7);
-        a9 = LARG.getPlainArg(8);
-        a10 = LARG.getPlainArg(9);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
+        a7 = LARG.areg6;
+        a8 = LARG.areg7;
+        a9 = LARG.areg8;
+        a10 = LARG.areg9;
     // unify_arg(A,B,C,D,E,F,G,H,[move([F+I],J)|K],L):-[I is A+E,incl(J,C,M),arg(A,B,N),'$unify'(O,K),init(J,N,M,D,G,H,O,L)]
         a9 = a9.dref();
         if (a9 .isCons()){
@@ -2906,9 +2906,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // add(A,B,C):-C is B+A
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // add(A,B,C):-[C is B+A]
     // put_str_args([a(2),a(1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
         a4 =  S( FUNCTOR_$002B_2 , a2, a1);
@@ -2934,8 +2934,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // myin(A,[B|C]):-[compare(D,A,B),in_2(D,A,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -3021,9 +3021,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // incl(A,B,C):-incl_2(B,A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // incl(A,B,C):-[incl_2(B,A,C)]
         return //
  Op("incl_2", FILE_unify::PRED_incl_2_3_static_exec, VA(a2, a1, a3), cont);
@@ -3300,7 +3300,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // my_compound(A):-nonvar(A),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // my_compound(A):-[nonvar(A),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A)]
         //START inline expansion of nonvar(a(1))
         a1 = a1.dref();
@@ -3324,7 +3324,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // cons(A):-nonvar(A),A=[B|C]
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // cons(A):-[nonvar(A),'$unify'(A,[B|C])]
         //START inline expansion of nonvar(a(1))
         a1 = a1.dref();
@@ -3416,7 +3416,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
         m.setB0();
          Term a1;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // structure(A):-[my_compound(A),'$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C)]
         return //
  Op("my_compound", FILE_unify::PRED_my_compound_1_static_exec, VA(a1), //

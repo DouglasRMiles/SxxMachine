@@ -60,10 +60,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // do_sdda(A,B,C,D):-[read_procedures(E,B,F),entry_exit_modes_list(E,B,F)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -92,9 +92,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
     // read_procedures([[a/2,a(A,B),a(C,C)|D],[c/3,(c(E,F,G):-a(E,F))|H]|I],J,[c(K,L,M)|N]):-!
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // read_procedures([[a/2,a(A,B),a(C,C)|D],[c/3,(c(E,F,G):-a(E,F))|H]|I],J,[c(K,L,M)|N]):-['$neck_cut']
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -753,11 +753,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // clause_exit_mode(A,B,C,D,E):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl'(D,F,G),'$univ'(F,[H|I]),unify(I,E),body_exit_mode(A,B,C,G)]
         a6 = m.mkvar1();
         a7 = m.mkvar1();
@@ -1211,8 +1211,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
     // equiv(A,B):-equiv(A,B,C)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // equiv(A,B):-[equiv(A,B,C)]
         return //
  Op("equiv", FILE_sdda::PRED_equiv_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
@@ -1937,8 +1937,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
     // dup(A,B):-dup(A,B,C)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // dup(A,B):-[dup(A,B,C)]
         return //
  Op("dup", FILE_sdda::PRED_dup_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
@@ -3248,8 +3248,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // all_shared(A,B):-[unify(A,C,D),bind_all(E,D),unify(A,B,D)]
         a3 = m.mkvar1();
         return //
@@ -4068,9 +4068,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // write_list2([A|B],C,D):-[name_vars(A,C,E),write(A),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl'(B,D,E)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -4277,8 +4277,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // make_name(A,B):-[C is A//26,D is A mod 26+[65],build_name(C,D,E),name(B,E)]
         a3 = m.mkvar1();
     // put_str_args([a(1),@(int_26)],y(1)),put_str(@('FUNCTOR_$002F$002F_2'),y(1),a(4))

@@ -98,7 +98,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // query([A,B,C,D]):-[density(A,B),density(C,D),'$greater_than'(B,D),E is 20*B,F is 21*D,'$less_than'(E,F)]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -176,8 +176,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // density(A,B):-[pop(A,C),area(A,D),B is C*100//D]
         a3 = m.mkvar1();
         a4 = m.mkvar1();

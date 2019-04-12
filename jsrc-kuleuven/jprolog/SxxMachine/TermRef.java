@@ -8,6 +8,15 @@ package SxxMachine;
  *
  */
 public abstract class TermRef {
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     //    private Term v;
     //
     //    /**

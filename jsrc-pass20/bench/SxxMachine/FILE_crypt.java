@@ -125,9 +125,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
     // sum(A,B,C):-sum(A,B,0,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // sum(A,B,C):-[sum(A,B,0,C)]
         return //
  Op("sum", FILE_crypt::PRED_sum_4_static_exec, VA(a1, a2,  int_0 , a3), cont);
@@ -528,9 +528,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/crypt.
     // mult(A,B,C):-mult(A,B,0,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // mult(A,B,C):-[mult(A,B,0,C)]
         return //
  Op("mult", FILE_crypt::PRED_mult_4_static_exec, VA(a1, a2,  int_0 , a3), cont);

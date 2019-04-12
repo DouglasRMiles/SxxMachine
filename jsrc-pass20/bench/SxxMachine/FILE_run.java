@@ -43,7 +43,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
     // run(A):-run(current_output,A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // run(A):-[run(current_output,A)]
         return //
  Op("run", FILE_run::PRED_run_2_static_exec, VA( ATOM_current_output , a1), cont);
@@ -77,8 +77,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // run(A,B):-[compile_programs,format(A,'~p~t~18| ~t~w~25| ~t~w~32|~n',['Program','Time','GC']),format(A,'~`=t~32|~n',[]),'$unify'(C,total(0,0,0)),forall(program(D,E,B),run_program(D,E,A,C)),'$unify'(C,total(F,G,H)),I is G/F,J is H/F,format(A,'~t~w~18| ~t~3f~25| ~t~3f~32|~n',[average,I,J])]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -178,10 +178,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // run_program(A,B,C,D):-['$get_level'(E),ntimes(A,B,F,G),'$cut'(E),add(1,D,1),add(2,D,F),add(3,D,G),format(C,'~p~t~18| ~t~3f~25| ~t~3f~32|~n',[A,F,G])]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
@@ -217,9 +217,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // add(A,B,C):-[arg(A,B,D),E is D+C,nb_setarg(A,B,E)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -247,8 +247,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // get_performance_stats(A,B):-[statistics(gctime,A),statistics(cputime,B)]
         return //
  Op("statistics", FILE_run::PRED_statistics_2_static_exec, VA( ATOM_gctime , a1), //
@@ -269,10 +269,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // ntimes(A,B,C,D):-[get_performance_stats(E,F),ntimes(A,B),get_performance_stats(G,H),ntimes_dummy(B),get_performance_stats(I,J),C is H-F-(J-H),D is G-E-(I-G)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -728,8 +728,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // tune_count(A,B):-['$get_level'(C),between(1,100,D),E is 1<<D,ntimes(A,E,F,G),H is 0.5,'$greater_than'(F,H),'$cut'(C),B is round(E*(1/F))]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -777,9 +777,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // program(A,B,C):-[program(A,D),B is max(1,round(D*C))]
         a4 = m.mkvar1();
     // put_str_args([a(4),a(3)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(5))
@@ -1244,7 +1244,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // run_interleaved(A):-[compile_programs,findall(B-C,'SxxMachine':program(C,B,A),D),phrase(seq_interleaved(D),E),seq_clause(E,F),retractall('SxxMachine':rni),assert('SxxMachine':(rni:-F),G),garbage_collect,time(rni),erase(G)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -1632,7 +1632,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // run_non_interleaved(A):-[compile_programs,findall(B-C,'SxxMachine':program(C,B,A),D),phrase(seq_non_interleaved(D),E),seq_clause(E,F),assert('SxxMachine':(rni:-F),G),garbage_collect,time(rni),erase(G)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();

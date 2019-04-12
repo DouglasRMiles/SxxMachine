@@ -42,7 +42,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // package A:-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // package A:-[]
         return cont;
     }
@@ -59,9 +59,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // open(A,B,C):-open(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // open(A,B,C):-[open(A,B,C,[])]
         return //
  Op("open", FILE_system::PRED_open_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
@@ -79,7 +79,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // close(A):-close(A,[])
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // close(A):-[close(A,[])]
         return //
  Op("close", FILE_system::PRED_close_2_static_exec, VA(a1,  Prolog.Nil ), cont);
@@ -487,7 +487,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get_char(A):-[current_input(B),get_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -508,7 +508,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get_code(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -529,7 +529,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // peek_char(A):-[current_input(B),peek_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -550,7 +550,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // peek_code(A):-[current_input(B),peek_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -571,7 +571,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // put_char(A):-[current_output(B),put_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -592,7 +592,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // put_code(A):-[current_output(B),put_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -613,7 +613,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // nl(A):-put_char(A,'\n')
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // nl(A):-[put_char(A,'\n')]
         return //
  Op("put_char", FILE_system::PRED_put_char_2_static_exec, VA(a1,  ATOM_$000A ), cont);
@@ -632,7 +632,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get0(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -652,8 +652,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // get0(A,B):-get_code(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // get0(A,B):-[get_code(A,B)]
         return //
  Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a1, a2), cont);
@@ -672,7 +672,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get(A):-[current_input(B),get(B,A)]
         a2 = m.mkvar1();
         return //
@@ -693,7 +693,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // put(A):-[current_output(B),put(B,A)]
         a2 = m.mkvar1();
         return //
@@ -713,8 +713,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // put(A,B):-C is B,put_code(A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // put(A,B):-[C is B,put_code(A,C)]
         a3 = m.mkvar1();
         //START inline expansion of a(3)is a(2)
@@ -739,7 +739,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // tab(A):-[current_output(B),tab(B,A)]
         a2 = m.mkvar1();
         return //
@@ -760,7 +760,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // skip(A):-[current_input(B),skip(B,A)]
         a2 = m.mkvar1();
         return //
@@ -781,7 +781,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // get_byte(A):-[current_input(B),get_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -802,7 +802,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // peek_byte(A):-[current_input(B),peek_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -823,7 +823,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // put_byte(A):-[current_output(B),put_byte(B,A)]
         a2 = m.mkvar1();
         return //

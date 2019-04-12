@@ -186,11 +186,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse
     // init(A,B,C,D,E):-init(A,B,B,C,D,E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // init(A,B,C,D,E):-[init(A,B,B,C,D,E)]
         return //
  Op("init", FILE_browse::PRED_init_6_static_exec, VA(a1, a2, a2, a3, a4, a5), cont);
@@ -734,9 +734,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse
     // get_pats(A,B,C):-get_pats(A,B,C,B)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // get_pats(A,B,C):-[get_pats(A,B,C,B)]
         return //
  Op("get_pats", FILE_browse::PRED_get_pats_4_static_exec, VA(a1, a2, a3, a2), cont);

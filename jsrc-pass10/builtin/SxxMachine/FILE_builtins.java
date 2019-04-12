@@ -42,7 +42,7 @@ public class FILE_builtins extends bootpreds {
         // package A:-true
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // package A:-[]
         return cont;
     }
@@ -140,8 +140,8 @@ public class FILE_builtins extends bootpreds {
         // A^B:-call(B)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A^B:-[call('SxxMachine':B)]
         // put_str_args([@('ATOM_SxxMachine'),a(2)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(3))
         a3 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a2);
@@ -163,8 +163,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A,B:-[call('SxxMachine':A),call('SxxMachine':B)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(3))
         a3 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -337,8 +337,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A->B:-['$get_level'(C),call('SxxMachine':A),'$cut'(C),call('SxxMachine':B)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -372,7 +372,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // call(A):-['$get_current_B'(B),'$meta_call'(A,'SxxMachine',B,0,interpret)]
         a2 = m.mkvar1();
         return //
@@ -2281,9 +2281,9 @@ public class FILE_builtins extends bootpreds {
         // catch(A,B,C):-on_exception(B,A,C)
         m.setB0();
         Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // catch(A,B,C):-[on_exception(B,'SxxMachine':A,'SxxMachine':C)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(4))
         a4 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -2307,7 +2307,7 @@ public class FILE_builtins extends bootpreds {
         // throw(A):-raise_exception(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // throw(A):-[raise_exception(A)]
         return //
         Op("raise_exception", FILE_system::PRED_raise_exception_1_static_exec, VA(a1), cont);
@@ -2505,8 +2505,8 @@ public class FILE_builtins extends bootpreds {
         // A=B:-A=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A=B:-['$unify'(A,B)]
         //START inline expansion of $unify(a(1),a(2))
         if (!a1.unify(a2, m.trail)) {
@@ -2528,8 +2528,8 @@ public class FILE_builtins extends bootpreds {
         // '$unify'(A,B):-'$unify'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$unify'(A,B):-['$unify'(A,B)]
         //START inline expansion of $unify(a(1),a(2))
         if (!a1.unify(a2, m.trail)) {
@@ -2551,8 +2551,8 @@ public class FILE_builtins extends bootpreds {
         // A\=B:-A\=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A\=B:-['$not_unifiable'(A,B)]
         //START inline expansion of $not_unifiable(a(1),a(2))
         if (a1.unify(a2, m.trail)) {
@@ -2574,8 +2574,8 @@ public class FILE_builtins extends bootpreds {
         // '$not_unifiable'(A,B):-'$not_unifiable'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$not_unifiable'(A,B):-['$not_unifiable'(A,B)]
         //START inline expansion of $not_unifiable(a(1),a(2))
         if (a1.unify(a2, m.trail)) {
@@ -2597,7 +2597,7 @@ public class FILE_builtins extends bootpreds {
         // var(A):-var(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // var(A):-[var(A)]
         //START inline expansion of var(a(1))
         a1 = a1.dref();
@@ -2620,7 +2620,7 @@ public class FILE_builtins extends bootpreds {
         // atom(A):-atom(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // atom(A):-[atom(A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
@@ -2643,7 +2643,7 @@ public class FILE_builtins extends bootpreds {
         // integer(A):-integer(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // integer(A):-[integer(A)]
         //START inline expansion of integer(a(1))
         a1 = a1.dref();
@@ -2666,7 +2666,7 @@ public class FILE_builtins extends bootpreds {
         // long(A):-long(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // long(A):-[long(A)]
         //START inline expansion of long(a(1))
         a1 = a1.dref();
@@ -2689,7 +2689,7 @@ public class FILE_builtins extends bootpreds {
         // float(A):-float(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // float(A):-[float(A)]
         //START inline expansion of float(a(1))
         a1 = a1.dref();
@@ -2712,7 +2712,7 @@ public class FILE_builtins extends bootpreds {
         // atomic(A):-atomic(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // atomic(A):-[atomic(A)]
         //START inline expansion of atomic(a(1))
         a1 = a1.dref();
@@ -2735,7 +2735,7 @@ public class FILE_builtins extends bootpreds {
         // nonvar(A):-nonvar(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // nonvar(A):-[nonvar(A)]
         //START inline expansion of nonvar(a(1))
         a1 = a1.dref();
@@ -2758,7 +2758,7 @@ public class FILE_builtins extends bootpreds {
         // number(A):-number(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // number(A):-[number(A)]
         //START inline expansion of number(a(1))
         a1 = a1.dref();
@@ -2781,7 +2781,7 @@ public class FILE_builtins extends bootpreds {
         // java(A):-java(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // java(A):-[java(A)]
         //START inline expansion of java(a(1))
         a1 = a1.dref();
@@ -2804,8 +2804,8 @@ public class FILE_builtins extends bootpreds {
         // java(A,B):-java(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // java(A,B):-[java(A,B)]
         //START inline expansion of java(a(1),a(2))
         a1 = a1.dref();
@@ -2831,7 +2831,7 @@ public class FILE_builtins extends bootpreds {
         // closure(A):-closure(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // closure(A):-[closure(A)]
         //START inline expansion of closure(a(1))
         a1 = a1.dref();
@@ -2854,7 +2854,7 @@ public class FILE_builtins extends bootpreds {
         // ground(A):-ground(A)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // ground(A):-[ground(A)]
         //START inline expansion of ground(a(1))
         a1 = a1.dref();
@@ -2878,7 +2878,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // compound(A):-[nonvar(A),functor(A,B,C),D is 0,'$greater_than'(C,D)]
         //START inline expansion of nonvar(a(1))
         a1 = a1.dref();
@@ -2995,8 +2995,8 @@ public class FILE_builtins extends bootpreds {
         // A==B:-A==B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A==B:-['$equality_of_term'(A,B)]
         //START inline expansion of $equality_of_term(a(1),a(2))
         a1 = a1.dref();
@@ -3020,8 +3020,8 @@ public class FILE_builtins extends bootpreds {
         // '$equality_of_term'(A,B):-'$equality_of_term'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$equality_of_term'(A,B):-['$equality_of_term'(A,B)]
         //START inline expansion of $equality_of_term(a(1),a(2))
         a1 = a1.dref();
@@ -3045,8 +3045,8 @@ public class FILE_builtins extends bootpreds {
         // A\==B:-A\==B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A\==B:-['$inequality_of_term'(A,B)]
         //START inline expansion of $inequality_of_term(a(1),a(2))
         a1 = a1.dref();
@@ -3070,8 +3070,8 @@ public class FILE_builtins extends bootpreds {
         // '$inequality_of_term'(A,B):-'$inequality_of_term'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$inequality_of_term'(A,B):-['$inequality_of_term'(A,B)]
         //START inline expansion of $inequality_of_term(a(1),a(2))
         a1 = a1.dref();
@@ -3095,8 +3095,8 @@ public class FILE_builtins extends bootpreds {
         // A@<B:-A@<B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A@<B:-['$before'(A,B)]
         //START inline expansion of $before(a(1),a(2))
         a1 = a1.dref();
@@ -3120,8 +3120,8 @@ public class FILE_builtins extends bootpreds {
         // '$before'(A,B):-'$before'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$before'(A,B):-['$before'(A,B)]
         //START inline expansion of $before(a(1),a(2))
         a1 = a1.dref();
@@ -3145,8 +3145,8 @@ public class FILE_builtins extends bootpreds {
         // A@>B:-A@>B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A@>B:-['$after'(A,B)]
         //START inline expansion of $after(a(1),a(2))
         a1 = a1.dref();
@@ -3170,8 +3170,8 @@ public class FILE_builtins extends bootpreds {
         // '$after'(A,B):-'$after'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$after'(A,B):-['$after'(A,B)]
         //START inline expansion of $after(a(1),a(2))
         a1 = a1.dref();
@@ -3195,8 +3195,8 @@ public class FILE_builtins extends bootpreds {
         // A@=<B:-A@=<B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A@=<B:-['$not_after'(A,B)]
         //START inline expansion of $not_after(a(1),a(2))
         a1 = a1.dref();
@@ -3220,8 +3220,8 @@ public class FILE_builtins extends bootpreds {
         // '$not_after'(A,B):-'$not_after'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$not_after'(A,B):-['$not_after'(A,B)]
         //START inline expansion of $not_after(a(1),a(2))
         a1 = a1.dref();
@@ -3245,8 +3245,8 @@ public class FILE_builtins extends bootpreds {
         // A@>=B:-A@>=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A@>=B:-['$not_before'(A,B)]
         //START inline expansion of $not_before(a(1),a(2))
         a1 = a1.dref();
@@ -3270,8 +3270,8 @@ public class FILE_builtins extends bootpreds {
         // '$not_before'(A,B):-'$not_before'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$not_before'(A,B):-['$not_before'(A,B)]
         //START inline expansion of $not_before(a(1),a(2))
         a1 = a1.dref();
@@ -3295,8 +3295,8 @@ public class FILE_builtins extends bootpreds {
         // ?=(A,B):- ?=(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // ?=(A,B):-['$identical_or_cannot_unify'(A,B)]
         //START inline expansion of $identical_or_cannot_unify(a(1),a(2))
         a1 = a1.dref();
@@ -3320,8 +3320,8 @@ public class FILE_builtins extends bootpreds {
         // '$identical_or_cannot_unify'(A,B):-'$identical_or_cannot_unify'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$identical_or_cannot_unify'(A,B):-['$identical_or_cannot_unify'(A,B)]
         //START inline expansion of $identical_or_cannot_unify(a(1),a(2))
         a1 = a1.dref();
@@ -3346,9 +3346,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // compare(A,B,C):-['$compare0'(D,B,C),'$map_compare_op'(D,A)]
         a4 = m.mkvar1();
         return //
@@ -3510,8 +3510,8 @@ public class FILE_builtins extends bootpreds {
         // A=..B:-A=..B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A=..B:-['$univ'(A,B)]
         return //
         Op("$univ", FILE_system::PRED_$univ_2_static_exec, VA(a1, a2), cont);
@@ -3529,8 +3529,8 @@ public class FILE_builtins extends bootpreds {
         // copy_term(A,B):-copy_term(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // copy_term(A,B):-[copy_term(A,B)]
         //START inline expansion of copy_term(a(1),a(2))
         a1 = a1.dref();
@@ -3553,8 +3553,8 @@ public class FILE_builtins extends bootpreds {
         // A is B:-A is B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A is B:-[A is B]
         //START inline expansion of a(1)is a(2)
         if (!a1.unify(Arithmetic.evaluate(a2), m.trail)) {
@@ -3576,8 +3576,8 @@ public class FILE_builtins extends bootpreds {
         // '$abs'(A,B):-'$abs'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$abs'(A,B):-['$abs'(A,B)]
         //START inline expansion of $abs(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).abs(), m.trail)) {
@@ -3599,8 +3599,8 @@ public class FILE_builtins extends bootpreds {
         // '$asin'(A,B):-'$asin'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$asin'(A,B):-['$asin'(A,B)]
         //START inline expansion of $asin(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).asin(), m.trail)) {
@@ -3622,8 +3622,8 @@ public class FILE_builtins extends bootpreds {
         // '$acos'(A,B):-'$acos'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$acos'(A,B):-['$acos'(A,B)]
         //START inline expansion of $acos(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).acos(), m.trail)) {
@@ -3645,8 +3645,8 @@ public class FILE_builtins extends bootpreds {
         // '$atan'(A,B):-'$atan'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$atan'(A,B):-['$atan'(A,B)]
         //START inline expansion of $atan(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).atan(), m.trail)) {
@@ -3668,9 +3668,9 @@ public class FILE_builtins extends bootpreds {
         // '$bitwise_conj'(A,B,C):-'$bitwise_conj'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$bitwise_conj'(A,B,C):-['$bitwise_conj'(A,B,C)]
         //START inline expansion of $bitwise_conj(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).and(Arithmetic.evaluate(a2)), m.trail)) {
@@ -3692,9 +3692,9 @@ public class FILE_builtins extends bootpreds {
         // '$bitwise_disj'(A,B,C):-'$bitwise_disj'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$bitwise_disj'(A,B,C):-['$bitwise_disj'(A,B,C)]
         //START inline expansion of $bitwise_disj(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).or(Arithmetic.evaluate(a2)), m.trail)) {
@@ -3716,9 +3716,9 @@ public class FILE_builtins extends bootpreds {
         // '$bitwise_exclusive_or'(A,B,C):-'$bitwise_exclusive_or'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$bitwise_exclusive_or'(A,B,C):-['$bitwise_exclusive_or'(A,B,C)]
         //START inline expansion of $bitwise_exclusive_or(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).xor(Arithmetic.evaluate(a2)), m.trail)) {
@@ -3740,8 +3740,8 @@ public class FILE_builtins extends bootpreds {
         // '$bitwise_neg'(A,B):-'$bitwise_neg'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$bitwise_neg'(A,B):-['$bitwise_neg'(A,B)]
         //START inline expansion of $bitwise_neg(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).not(), m.trail)) {
@@ -3763,8 +3763,8 @@ public class FILE_builtins extends bootpreds {
         // '$ceil'(A,B):-'$ceil'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$ceil'(A,B):-['$ceil'(A,B)]
         //START inline expansion of $ceil(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).ceil(), m.trail)) {
@@ -3786,8 +3786,8 @@ public class FILE_builtins extends bootpreds {
         // '$cos'(A,B):-'$cos'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$cos'(A,B):-['$cos'(A,B)]
         //START inline expansion of $cos(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).cos(), m.trail)) {
@@ -3809,8 +3809,8 @@ public class FILE_builtins extends bootpreds {
         // '$degrees'(A,B):-'$degrees'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$degrees'(A,B):-['$degrees'(A,B)]
         //START inline expansion of $degrees(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).toDegrees(), m.trail)) {
@@ -3832,8 +3832,8 @@ public class FILE_builtins extends bootpreds {
         // '$exp'(A,B):-'$exp'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$exp'(A,B):-['$exp'(A,B)]
         //START inline expansion of $exp(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).exp(), m.trail)) {
@@ -3855,8 +3855,8 @@ public class FILE_builtins extends bootpreds {
         // '$float'(A,B):-'$float'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$float'(A,B):-['$float'(A,B)]
         //START inline expansion of $float(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).toFloat(), m.trail)) {
@@ -3878,8 +3878,8 @@ public class FILE_builtins extends bootpreds {
         // '$float_integer_part'(A,B):-'$float_integer_part'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$float_integer_part'(A,B):-['$float_integer_part'(A,B)]
         //START inline expansion of $float_integer_part(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).floatIntPart(), m.trail)) {
@@ -3901,8 +3901,8 @@ public class FILE_builtins extends bootpreds {
         // '$float_fractional_part'(A,B):-'$float_fractional_part'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$float_fractional_part'(A,B):-['$float_fractional_part'(A,B)]
         //START inline expansion of $float_fractional_part(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).floatFractPart(), m.trail)) {
@@ -3924,9 +3924,9 @@ public class FILE_builtins extends bootpreds {
         // '$float_quotient'(A,B,C):-'$float_quotient'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$float_quotient'(A,B,C):-['$float_quotient'(A,B,C)]
         //START inline expansion of $float_quotient(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).divide(Arithmetic.evaluate(a2)), m.trail)) {
@@ -3948,8 +3948,8 @@ public class FILE_builtins extends bootpreds {
         // '$floor'(A,B):-'$floor'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$floor'(A,B):-['$floor'(A,B)]
         //START inline expansion of $floor(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).floor(), m.trail)) {
@@ -3971,9 +3971,9 @@ public class FILE_builtins extends bootpreds {
         // '$int_quotient'(A,B,C):-'$int_quotient'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$int_quotient'(A,B,C):-['$int_quotient'(A,B,C)]
         //START inline expansion of $int_quotient(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).intDivide(Arithmetic.evaluate(a2)), m.trail)) {
@@ -3995,8 +3995,8 @@ public class FILE_builtins extends bootpreds {
         // '$log'(A,B):-'$log'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$log'(A,B):-['$log'(A,B)]
         //START inline expansion of $log(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).log(), m.trail)) {
@@ -4018,9 +4018,9 @@ public class FILE_builtins extends bootpreds {
         // '$max'(A,B,C):-'$max'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$max'(A,B,C):-['$max'(A,B,C)]
         //START inline expansion of $max(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).max(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4042,9 +4042,9 @@ public class FILE_builtins extends bootpreds {
         // '$min'(A,B,C):-'$min'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$min'(A,B,C):-['$min'(A,B,C)]
         //START inline expansion of $min(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).min(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4066,9 +4066,9 @@ public class FILE_builtins extends bootpreds {
         // '$minus'(A,B,C):-'$minus'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$minus'(A,B,C):-['$minus'(A,B,C)]
         //START inline expansion of $minus(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).subtract(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4090,9 +4090,9 @@ public class FILE_builtins extends bootpreds {
         // '$mod'(A,B,C):-'$mod'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$mod'(A,B,C):-['$mod'(A,B,C)]
         //START inline expansion of $mod(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).mod(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4114,9 +4114,9 @@ public class FILE_builtins extends bootpreds {
         // '$multi'(A,B,C):-'$multi'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$multi'(A,B,C):-['$multi'(A,B,C)]
         //START inline expansion of $multi(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).multiply(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4138,9 +4138,9 @@ public class FILE_builtins extends bootpreds {
         // '$plus'(A,B,C):-'$plus'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$plus'(A,B,C):-['$plus'(A,B,C)]
         //START inline expansion of $plus(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).add(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4162,9 +4162,9 @@ public class FILE_builtins extends bootpreds {
         // '$pow'(A,B,C):-'$pow'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$pow'(A,B,C):-['$pow'(A,B,C)]
         //START inline expansion of $pow(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).pow(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4186,8 +4186,8 @@ public class FILE_builtins extends bootpreds {
         // '$radians'(A,B):-'$radians'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$radians'(A,B):-['$radians'(A,B)]
         //START inline expansion of $radians(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).toRadians(), m.trail)) {
@@ -4209,8 +4209,8 @@ public class FILE_builtins extends bootpreds {
         // '$rint'(A,B):-'$rint'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$rint'(A,B):-['$rint'(A,B)]
         //START inline expansion of $rint(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).rint(), m.trail)) {
@@ -4232,8 +4232,8 @@ public class FILE_builtins extends bootpreds {
         // '$round'(A,B):-'$round'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$round'(A,B):-['$round'(A,B)]
         //START inline expansion of $round(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).round(), m.trail)) {
@@ -4255,9 +4255,9 @@ public class FILE_builtins extends bootpreds {
         // '$shift_left'(A,B,C):-'$shift_left'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$shift_left'(A,B,C):-['$shift_left'(A,B,C)]
         //START inline expansion of $shift_left(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).shiftLeft(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4279,9 +4279,9 @@ public class FILE_builtins extends bootpreds {
         // '$shift_right'(A,B,C):-'$shift_right'(A,B,C)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$shift_right'(A,B,C):-['$shift_right'(A,B,C)]
         //START inline expansion of $shift_right(a(1),a(2),a(3))
         if (!a3.unify(Arithmetic.evaluate(a1).shiftRight(Arithmetic.evaluate(a2)), m.trail)) {
@@ -4303,8 +4303,8 @@ public class FILE_builtins extends bootpreds {
         // '$sign'(A,B):-'$sign'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$sign'(A,B):-['$sign'(A,B)]
         //START inline expansion of $sign(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).signum(), m.trail)) {
@@ -4326,8 +4326,8 @@ public class FILE_builtins extends bootpreds {
         // '$sin'(A,B):-'$sin'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$sin'(A,B):-['$sin'(A,B)]
         //START inline expansion of $sin(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).sin(), m.trail)) {
@@ -4349,8 +4349,8 @@ public class FILE_builtins extends bootpreds {
         // '$sqrt'(A,B):-'$sqrt'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$sqrt'(A,B):-['$sqrt'(A,B)]
         //START inline expansion of $sqrt(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).sqrt(), m.trail)) {
@@ -4372,8 +4372,8 @@ public class FILE_builtins extends bootpreds {
         // '$tan'(A,B):-'$tan'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$tan'(A,B):-['$tan'(A,B)]
         //START inline expansion of $tan(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).tan(), m.trail)) {
@@ -4395,8 +4395,8 @@ public class FILE_builtins extends bootpreds {
         // '$truncate'(A,B):-'$truncate'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$truncate'(A,B):-['$truncate'(A,B)]
         //START inline expansion of $truncate(a(1),a(2))
         if (!a2.unify(Arithmetic.evaluate(a1).truncate(), m.trail)) {
@@ -4418,8 +4418,8 @@ public class FILE_builtins extends bootpreds {
         // A=:=B:-A=:=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A=:=B:-['$arith_equal'(A,B)]
         //START inline expansion of $arith_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) != 0) {
@@ -4441,8 +4441,8 @@ public class FILE_builtins extends bootpreds {
         // '$arith_equal'(A,B):-'$arith_equal'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$arith_equal'(A,B):-['$arith_equal'(A,B)]
         //START inline expansion of $arith_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) != 0) {
@@ -4464,8 +4464,8 @@ public class FILE_builtins extends bootpreds {
         // A=\=B:-A=\=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A=\=B:-['$arith_not_equal'(A,B)]
         //START inline expansion of $arith_not_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) == 0) {
@@ -4487,8 +4487,8 @@ public class FILE_builtins extends bootpreds {
         // '$arith_not_equal'(A,B):-'$arith_not_equal'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$arith_not_equal'(A,B):-['$arith_not_equal'(A,B)]
         //START inline expansion of $arith_not_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) == 0) {
@@ -4510,8 +4510,8 @@ public class FILE_builtins extends bootpreds {
         // A<B:-A<B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A<B:-['$less_than'(A,B)]
         //START inline expansion of $less_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) >= 0) {
@@ -4533,8 +4533,8 @@ public class FILE_builtins extends bootpreds {
         // '$less_than'(A,B):-'$less_than'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$less_than'(A,B):-['$less_than'(A,B)]
         //START inline expansion of $less_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) >= 0) {
@@ -4556,8 +4556,8 @@ public class FILE_builtins extends bootpreds {
         // A=<B:-A=<B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A=<B:-['$less_or_equal'(A,B)]
         //START inline expansion of $less_or_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) > 0) {
@@ -4579,8 +4579,8 @@ public class FILE_builtins extends bootpreds {
         // '$less_or_equal'(A,B):-'$less_or_equal'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$less_or_equal'(A,B):-['$less_or_equal'(A,B)]
         //START inline expansion of $less_or_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) > 0) {
@@ -4602,8 +4602,8 @@ public class FILE_builtins extends bootpreds {
         // A>B:-A>B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A>B:-['$greater_than'(A,B)]
         //START inline expansion of $greater_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) <= 0) {
@@ -4625,8 +4625,8 @@ public class FILE_builtins extends bootpreds {
         // '$greater_than'(A,B):-'$greater_than'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$greater_than'(A,B):-['$greater_than'(A,B)]
         //START inline expansion of $greater_than(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) <= 0) {
@@ -4648,8 +4648,8 @@ public class FILE_builtins extends bootpreds {
         // A>=B:-A>=B
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // A>=B:-['$greater_or_equal'(A,B)]
         //START inline expansion of $greater_or_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) < 0) {
@@ -4671,8 +4671,8 @@ public class FILE_builtins extends bootpreds {
         // '$greater_or_equal'(A,B):-'$greater_or_equal'(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$greater_or_equal'(A,B):-['$greater_or_equal'(A,B)]
         //START inline expansion of $greater_or_equal(a(1),a(2))
         if (Arithmetic.evaluate(a1).arithCompareTo(Arithmetic.evaluate(a2)) < 0) {
@@ -4695,7 +4695,7 @@ public class FILE_builtins extends bootpreds {
         // current_key(A):-'$recorded_key'(A)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // current_key(A):-[call('SxxMachine':'$recorded_key'(A))]
         // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_$0024recorded_key_1'),y(1),a(2))
         a2 = S(FUNCTOR_$0024recorded_key_1, a1);
@@ -4720,8 +4720,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$into_key'(A,B):-[functor(A,C,D),functor(B,C,D)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -4743,8 +4743,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // into_key(A,B):-['$into_key'(A,B),call('SxxMachine':'$recorded_key'(B))]
         // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_$0024recorded_key_1'),y(1),a(3))
         a3 = S(FUNCTOR_$0024recorded_key_1, a2);
@@ -4893,8 +4893,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // ensure_key(A,B):-['$into_key'(A,B),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl'(B)]
         return //
         Op("$into_key", FILE_system::PRED_$into_key_2_static_exec, VA(a1, a2), //
@@ -4916,8 +4916,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // recorded(A,B):-[into_key(A,C),clause('SxxMachine':'$recorded'(C),value(B))]
         a3 = m.mkvar1();
         // put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_$0024recorded_1'),y(1),a(4))
@@ -4948,9 +4948,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // recorded(A,B,'$reclz'(C)):-[into_key(A,D),clause('$recorded'(D),value(B),C)]
         a3 = a3.dref();
         a4 = m.mkvar2();
@@ -4983,8 +4983,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // recorda(A,B):-[ensure_key(A,C),asserta('SxxMachine':('$recorded'(C):-value(B)))]
         a3 = m.mkvar1();
         // put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_$0024recorded_1'),y(1),a(4))
@@ -5017,9 +5017,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // recorda(A,B,'$reclz'(C)):-[ensure_key(A,D),asserta('SxxMachine':('$recorded'(D):-value(B)),C)]
         a3 = a3.dref();
         a4 = m.mkvar2();
@@ -5057,8 +5057,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // recordz(A,B):-[ensure_key(A,C),assertz('SxxMachine':('$recorded'(C):-value(B)))]
         a3 = m.mkvar1();
         // put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_$0024recorded_1'),y(1),a(4))
@@ -5091,9 +5091,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // recordz(A,B,'$reclz'(C)):-[ensure_key(A,D),assertz('SxxMachine':('$recorded'(D):-value(B)),C)]
         a3 = a3.dref();
         a4 = m.mkvar2();
@@ -5277,8 +5277,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // clause(A,B):-['$head_to_term'(A,C,D:E,clause(A,B)),'$new_internal_database'(D),'$check_procedure_permission'(D:E,access,private_procedure,clause(A,B)),'$clause_internal'(D,E,C,F,G),copy_term(F,(C:-B))]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -5321,9 +5321,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // clause(A,B,'$clzref'(C,D)):-['$head_to_term'(A,E,C:F,clause(A,B)),'$new_internal_database'(C),'$check_procedure_permission'(C:F,access,private_procedure,clause(A,B)),'$clause_internal'(C,F,E,G,D),copy_term(G,(E:-B))]
         a3 = a3.dref();
         a4 = m.mkvar2();
@@ -5370,10 +5370,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$head_to_term'(A,B,C:D/E,F):-['$head_to_term'(A,B,'SxxMachine',C,F),functor(B,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
@@ -5569,7 +5569,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // '$new_internal_database'(A):-[atom(A),'$get_hash_manager'(B),'$new_internal_database'(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
@@ -5713,7 +5713,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // '$defined_internal_database'(A):-[atom(A),'$get_hash_manager'(B),hash_contains_key(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
@@ -5742,11 +5742,11 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
         // '$clause_internal'(A,B,C,D,E):-[hash_contains_key(A,B),'$get_indices'(A,B,C,F),'$get_instances'(F,G),'$clause_internal0'(G,D,E)]
         a6 = m.mkvar1();
         a7 = m.mkvar1();
@@ -5951,10 +5951,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$get_indices'(A,B,C,D):-['$new_indexing_hash'(A,B,E),'$calc_indexing_key'(C,F),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl'(D,E,F)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -6472,7 +6472,7 @@ public class FILE_builtins extends bootpreds {
         // assert(A):-assertz(A)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // assert(A):-[assertz('SxxMachine':A)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -6493,8 +6493,8 @@ public class FILE_builtins extends bootpreds {
         // assert(A,B):-assertz(A,B)
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // assert(A,B):-[assertz('SxxMachine':A,B)]
         // put_str_args([@('ATOM_SxxMachine'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(3))
         a3 = S(FUNCTOR_module_colon_2, ATOM_SxxMachine, a1);
@@ -6515,7 +6515,7 @@ public class FILE_builtins extends bootpreds {
         // asserta(A):-asserta(B,A,C)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // asserta(A):-[asserta(B,A,C)]
         return //
         Op("asserta", FILE_system::PRED_asserta_3_static_exec, VA(m.DONT_CARE2(), a1, m.DONT_CARE2()), cont);
@@ -6533,8 +6533,8 @@ public class FILE_builtins extends bootpreds {
         // asserta(A,'$clzref'(B,C)):-asserta(B,A,C)
         m.setB0();
         Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // asserta(A,'$clzref'(B,C)):-[asserta(B,A,C)]
         a2 = a2.dref();
         a3 = m.mkvar2();
@@ -6558,7 +6558,7 @@ public class FILE_builtins extends bootpreds {
         // assertz(A):-assertz(B,A,C)
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // assertz(A):-[assertz(B,A,C)]
         return //
         Op("assertz", FILE_system::PRED_assertz_3_static_exec, VA(m.DONT_CARE2(), a1, m.DONT_CARE2()), cont);
@@ -6576,8 +6576,8 @@ public class FILE_builtins extends bootpreds {
         // assertz(A,'$clzref'(B,C)):-assertz(B,A,C)
         m.setB0();
         Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // assertz(A,'$clzref'(B,C)):-[assertz(B,A,C)]
         a2 = a2.dref();
         a3 = m.mkvar2();
@@ -6607,9 +6607,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // asserta(A,B,C):-['$get_level'(D),'$unify'(E,asserta(B)),'$term_to_clause'(B,F,A:G,E),'$cut'(D),'$new_internal_database'(A),'$check_procedure_permission'(A:G,modify,static_procedure,E),copy_term(F,H),'$insert'(H,C),ignore(('$update_indexing'(A,G,F,C,a),fail))]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -6665,9 +6665,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // assertz(A,B,C):-['$get_level'(D),'$unify'(E,assertz(B)),'$term_to_clause'(B,F,A:G,E),'$cut'(D),'$new_internal_database'(A),'$check_procedure_permission'(A:G,modify,static_procedure,E),copy_term(F,H),'$insert'(H,C),ignore(('$update_indexing'(A,G,F,C,z),fail))]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -6788,7 +6788,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // retract(A):-['$clause_to_term'(A,B,C:D,retract(A)),'$new_internal_database'(C),'$check_procedure_permission'(C:D,access,static_procedure,retract(A)),'$unify'(B,(E:-F)),'$clause_internal'(C,D,E,G,H),copy_term(G,B),'$erase'(H),'$rehash_indexing'(C,D,H)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -6905,10 +6905,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$term_to_clause'(A,B,C:D/E,F):-['$term_to_clause'(A,B,'SxxMachine',C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
@@ -7356,10 +7356,10 @@ public class FILE_builtins extends bootpreds {
         // '$term_to_body'(A,B,C,D):-'$localize_body'(A,C,B)
         m.setB0();
         Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$term_to_body'(A,B,C,D):-['$localize_body'(A,C,B)]
         return //
         Op("$localize_body", FILE_system::PRED_$localize_body_3_static_exec, VA(a1, a3, a2), cont);
@@ -8322,10 +8322,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$clause_to_term'(A,B,C:D/E,F):-['$clause_to_term'(A,B,'SxxMachine',C,F),'$unify'(B,(G:-H)),functor(G,D,E)]
         a3 = a3.dref();
         a5 = m.mkvar2();
@@ -8671,9 +8671,9 @@ public class FILE_builtins extends bootpreds {
         // '$term_to_predicateindicator'(A,B:C,D):-'$term_to_predicateindicator'(A,C,'SxxMachine',B,D)
         m.setB0();
         Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$term_to_predicateindicator'(A,B:C,D):-['$term_to_predicateindicator'(A,C,'SxxMachine',B,D)]
         a2 = a2.dref();
         a4 = m.mkvar2();
@@ -9116,11 +9116,11 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
         // '$update_indexing'(A,B,C,D,E):-['$new_indexing_hash'(A,B,F),'$gen_indexing_keys'(C,F,G),'$update_indexing_hash'(E,G,F,D)]
         a6 = m.mkvar1();
         a7 = m.mkvar1();
@@ -9753,9 +9753,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$rehash_indexing'(A,B,C):-['$new_indexing_hash'(A,B,D),hash_keys(D,E),'$remove_index_all'(E,D,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -10486,8 +10486,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$term_variant'(A,B):-[new_hash(C),'$term_variant'(A,B,C)]
         a3 = m.mkvar1();
         return //
@@ -10882,8 +10882,8 @@ public class FILE_builtins extends bootpreds {
         // '$variables_set'(A,B):-'$variables_set'(A,[],B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$variables_set'(A,B):-['$variables_set'(A,[],B)]
         return //
         Op("$variables_set", FILE_system::PRED_$variables_set_3_static_exec, VA(a1, Prolog.Nil, a2), cont);
@@ -11205,8 +11205,8 @@ public class FILE_builtins extends bootpreds {
         // '$existential_variables_set'(A,B):-'$existential_variables_set'(A,[],B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$existential_variables_set'(A,B):-['$existential_variables_set'(A,[],B)]
         return //
         Op("$existential_variables_set", FILE_system::PRED_$existential_variables_set_3_static_exec, VA(a1, Prolog.Nil, a2), cont);
@@ -11445,9 +11445,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$free_variables_set'(A,B,C):-['$get_level'(D),'$variables_set'(A,E),'$variables_set'(B,F),'$existential_variables_set'(A,F,G),'$builtin_set_diff'(E,G,C),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -11479,9 +11479,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$builtin_set_diff'(A,B,C):-[sort(A,D),sort(B,E),'$builtin_set_diff0'(D,E,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -11796,7 +11796,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // read(A):-[current_input(B),read(B,A)]
         a2 = m.mkvar1();
         return //
@@ -11817,8 +11817,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // read(A,B):-['$get_level'(C),read_tokens(A,D,E),parse_tokens(B,D),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -11846,8 +11846,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // read_with_variables(A,B):-[current_input(C),read_with_variables(C,A,B)]
         a3 = m.mkvar1();
         return //
@@ -11868,9 +11868,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // read_with_variables(A,B,C):-['$get_level'(D),read_tokens(A,E,C),parse_tokens(B,E),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -11898,7 +11898,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // read_line(A):-[current_input(B),read_line(B,A)]
         a2 = m.mkvar1();
         return //
@@ -11919,8 +11919,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // read_token(A,B):-['$read_token0'(A,C,D),'$read_token1'([C],D,B)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -12216,9 +12216,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // read_tokens(A,B,C):-['$get_level'(D),'$read_tokens'(A,B,C,[]),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -12244,10 +12244,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$read_tokens'(A,B,C,D):-[read_token(A,E),'$read_tokens1'(A,E,B,C,D)]
         a5 = m.mkvar1();
         return //
@@ -12708,7 +12708,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // '$read_tokens_until_fullstop'(A):-[read_token(A,B),'$read_tokens_until_fullstop'(A,B)]
         a2 = m.mkvar1();
         return //
@@ -12807,8 +12807,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // parse_tokens(A,B):-['$get_level'(C),retractall('SxxMachine':'$tokens'(D)),assertz('SxxMachine':'$tokens'(B)),'$parse_tokens'(A,1201,B,['.']),retract('SxxMachine':'$tokens'(B)),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -12855,10 +12855,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$parse_tokens'(A,B,C,D):-['$get_level'(E),'$parse_tokens_skip_spaces'(C,F),'$parse_tokens1'(B,G,H,F,I),'$cut'(E),'$unify'(J,I),'$parse_tokens_skip_spaces'(J,K),'$parse_tokens2'(B,G,H,A,L,K,M),'$cut'(E),'$unify'(D,M)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
@@ -15590,9 +15590,9 @@ public class FILE_builtins extends bootpreds {
         // '$parse_tokens_peep_next'(A,B,B):-B=[A|C]
         m.setB0();
         Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$parse_tokens_peep_next'(A,B,B):-['$unify'(B,[A|C])]
         if (!a2.unify(a3, m.trail))
             return m.fail();
@@ -15618,9 +15618,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$parse_tokens_error'(A,B,C):-[write(user_error,'{SYNTAX ERROR}'),nl(user_error),write(user_error,'** '),'$parse_tokens_write_message'(user_error,A),write(user_error,' **'),nl(user_error),'$parse_tokens_error1'([],B),clause('SxxMachine':'$tokens'(D),E),'$parse_tokens_error1'(D,B),flush_output(user_error),fail]
         a4 = m.mkvar1();
         // put_str_args([a(4)],y(1)),put_str(@('FUNCTOR_$0024tokens_1'),y(1),a(5))
@@ -16093,7 +16093,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // write(A):-[current_output(B),write_term(B,A,[numbervars(true)])]
         a2 = m.mkvar1();
         return //
@@ -16115,8 +16115,8 @@ public class FILE_builtins extends bootpreds {
         // write(A,B):-write_term(A,B,[numbervars(true)])
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // write(A,B):-[write_term(A,B,[numbervars(true)])]
         return //
         Op("write_term", FILE_system::PRED_write_term_3_static_exec, VA(a1, a2, L_write_2_s6), cont);
@@ -16140,7 +16140,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // writeq(A):-[current_output(B),write_term(B,A,[quoted(true),numbervars(true)])]
         a2 = m.mkvar1();
         return //
@@ -16164,8 +16164,8 @@ public class FILE_builtins extends bootpreds {
         // writeq(A,B):-write_term(A,B,[quoted(true),numbervars(true)])
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // writeq(A,B):-[write_term(A,B,[quoted(true),numbervars(true)])]
         return //
         Op("write_term", FILE_system::PRED_write_term_3_static_exec, VA(a1, a2, L_writeq_2_s9), cont);
@@ -16189,7 +16189,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // write_canonical(A):-[current_output(B),write_term(B,A,[quoted(true),ignore_ops(true)])]
         a2 = m.mkvar1();
         return //
@@ -16213,8 +16213,8 @@ public class FILE_builtins extends bootpreds {
         // write_canonical(A,B):-write_term(A,B,[quoted(true),ignore_ops(true)])
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // write_canonical(A,B):-[write_term(A,B,[quoted(true),ignore_ops(true)])]
         return //
         Op("write_term", FILE_system::PRED_write_term_3_static_exec, VA(a1, a2, L_write_canonical_2_s9), cont);
@@ -16233,8 +16233,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // write_term(A,B):-[current_output(C),write_term(C,A,B)]
         a3 = m.mkvar1();
         return //
@@ -16305,9 +16305,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // '$write_term'(A,B,C):-['$get_level'(D),'$write_term0'(B,1200,punct,E,C,A),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -17461,10 +17461,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$write_is_operator'(A,B,C,D):-['$get_level'(E),functor(A,B,F),'$write_op_type'(F,D),current_op(G,D,B),'$univ'(A,[H|C]),'$cut'(E)]
         a5 = m.mkvar1();
         //START inline expansion of $get_level(a(5))
@@ -19322,9 +19322,9 @@ public class FILE_builtins extends bootpreds {
         // current_op(A,B,C):-clause('$current_operator'(A,B,C),D)
         m.setB0();
         Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // current_op(A,B,C):-[clause('SxxMachine':'$current_operator'(A,B,C),D)]
         // put_str_args([a(1),a(2),a(3)],y(1)),put_str(@('FUNCTOR_$0024current_operator_3'),y(1),a(4))
         a4 = S(FUNCTOR_$0024current_operator_3, a1, a2, a3);
@@ -19444,7 +19444,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // once(A):-['$get_level'(B),call('SxxMachine':A),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -19475,11 +19475,11 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
         // sub_atom(A,B,C,D,E):-[atom_concat(F,G,A),atom_length(F,B),atom_concat(E,H,G),atom_length(E,C),atom_length(H,D)]
         a6 = m.mkvar1();
         a7 = m.mkvar1();
@@ -19970,8 +19970,8 @@ public class FILE_builtins extends bootpreds {
         // regex_matches(A,B):-once(regex_matches(A,B,C))
         m.setB0();
         Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // regex_matches(A,B):-[once('SxxMachine':regex_matches(A,B,C))]
         a3 = Closure( //
                 Op("regex_matches", FILE_system::PRED_regex_matches_3_static_exec, VA(a1, a2, m
@@ -20864,9 +20864,9 @@ public class FILE_builtins extends bootpreds {
         // 'C'([A|B],A,B):-true
         m.setB0();
         Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // 'C'([A|B],A,B):-[]
         a1 = a1.dref();
         if (a1.isCons()) {
@@ -21298,10 +21298,10 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
         // '$dcg_translation'(A,B,C,D):-['$dcg_trans'(A,E,F,C,D),'$dcg_trans0'(E,B,F,C,D)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -22097,7 +22097,7 @@ public class FILE_builtins extends bootpreds {
         // new_hash(A):-new_hash(A,[])
         m.setB0();
         Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // new_hash(A):-[new_hash(A,[])]
         return //
         Op("new_hash", FILE_system::PRED_new_hash_2_static_exec, VA(a1, Prolog.Nil), cont);
@@ -22116,8 +22116,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // hash_map(A,B):-[hash_keys(A,C),sort(C,D),hash_map(D,B,A)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -22227,7 +22227,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // hash_exists(A):-[atom(A),'$get_hash_manager'(B),hash_contains_key(B,A)]
         //START inline expansion of atom(a(1))
         a1 = a1.dref();
@@ -22254,8 +22254,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // consult_stream(A,B):-['$get_level'(C),'$consult_init'(A),repeat,read(B,D),'$consult_clause'(D),'$equality_of_term'(D,end_of_file),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -22875,7 +22875,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // '$assert_consulted_import'(A):-[clause('SxxMachine':'$consulted_file'(B),C),assertz('SxxMachine':'$consulted_import'(B,A))]
         a2 = m.mkvar1();
         // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_$0024consulted_file_1'),y(1),a(3))
@@ -22907,8 +22907,8 @@ public class FILE_builtins extends bootpreds {
         // '$consult_preprocess'(A,B):-expand_term(A,B)
         m.setB0();
         Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // '$consult_preprocess'(A,B):-[expand_term(A,B)]
         return //
         Op("expand_term", FILE_system::PRED_expand_term_2_static_exec, VA(a1, a2), cont);
@@ -23028,7 +23028,7 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
         // '$assert_consulted_clause'(A):-['$get_level'(B),strip_module(A,C,D),'$unify'(D,(E:-F)),functor(E,G,H),clause('SxxMachine':'$consulted_file'(I),J),assertz(C:D),assertz('SxxMachine':'$consulted_predicate'(C,G/H,I)),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -23317,9 +23317,9 @@ public class FILE_builtins extends bootpreds {
         // numbervars(A,B,C):-integer(B),B>=0,!,'$numbervars'(A,B,C)
         m.setB0();
         Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // numbervars(A,B,C):-['$get_level'(D),integer(B),E is 0,'$greater_or_equal'(B,E),'$cut'(D),'$numbervars'(A,B,C)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -25763,8 +25763,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // java_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_constructor0(F,G),'$unify'(B,G)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -25794,8 +25794,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // java_declared_constructor(A,B):-['$univ'(A,[C|D]),builtin_java_convert_args(D,E),'$univ'(F,[C|E]),java_declared_constructor0(F,G),'$unify'(B,G)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -25825,9 +25825,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -25859,9 +25859,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_declared_method(A,B,C):-['$univ'(B,[D|E]),builtin_java_convert_args(E,F),'$univ'(G,[D|F]),java_declared_method0(A,G,H),java_conversion(I,H),'$unify'(C,I)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -25893,9 +25893,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_get_field(A,B,C):-[java_get_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -25918,9 +25918,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4, a5;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_get_declared_field(A,B,C):-[java_get_declared_field0(A,B,D),java_conversion(E,D),'$unify'(C,E)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -25943,9 +25943,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_set_field(A,B,C):-[java_conversion(C,D),java_set_field0(A,B,D)]
         a4 = m.mkvar1();
         return //
@@ -25966,9 +25966,9 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
         // java_set_declared_field(A,B,C):-[java_conversion(C,D),java_set_declared_field0(A,B,D)]
         a4 = m.mkvar1();
         return //
@@ -26069,8 +26069,8 @@ public class FILE_builtins extends bootpreds {
         m.setB0();
         Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
         // synchronized(A,B):-['$begin_sync'(A,C),call('SxxMachine':B),'$end_sync'(C)]
         a3 = m.mkvar1();
         // put_str_args([@('ATOM_SxxMachine'),a(2)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(4))

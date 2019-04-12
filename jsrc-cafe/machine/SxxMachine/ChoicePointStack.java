@@ -64,7 +64,8 @@ public final class ChoicePointStack {
     }
 
     ChoicePointFrame push(Prolog engine, int arity, Operation next) {
-        return push(engine, engine.AREGS.getBacking(), arity, next);
+        final Term[] backing = engine.AREGS.getBacking();
+        return push(engine, backing, arity, next);
     }
 
     ChoicePointFrame push(Prolog engine, Term AREGS[], int arity, Operation next) {

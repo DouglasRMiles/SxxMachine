@@ -137,7 +137,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
     // wff(implies(and(implies(A,B),and(implies(B,C),and(implies(C,D),implies(D,E)))),implies(A,E))):-A=f(myplus(myplus(a,b),myplus(c,zero))),B=f(times(times(a,b),myplus(c,d))),C=f(reverse(append(append(a,b),[]))),D=equal(myplus(a,b),boyer_difference(x,y)),E=lessp(remainder(a,b),boyer_member(a,length(b)))
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // wff(implies(and(implies(A,B),and(implies(B,C),and(implies(C,D),implies(D,E)))),implies(A,E))):-['$unify'(A,f(myplus(myplus(a,b),myplus(c,zero)))),'$unify'(B,f(times(times(a,b),myplus(c,d)))),'$unify'(C,f(reverse(append(append(a,b),[])))),'$unify'(D,equal(myplus(a,b),boyer_difference(x,y))),'$unify'(E,lessp(remainder(a,b),boyer_member(a,length(b))))]
         a1 = a1.dref();
             a2 = m.mkvar2();
@@ -229,7 +229,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // tautology(A):-[rewrite(A,B),tautology(B,[],[])]
         a2 = m.mkvar1();
         return //
@@ -603,9 +603,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // tautology(A,B,C):-['$get_level'(D),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E,F,G),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))

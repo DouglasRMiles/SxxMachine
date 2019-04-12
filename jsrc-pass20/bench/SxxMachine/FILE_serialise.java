@@ -109,8 +109,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // serialise(A,B):-[pairlists(A,B,C),arrange(C,D),numbered(D,1,E)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -503,8 +503,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
     // before(pair(A,B),pair(C,D)):-A<C
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // before(pair(A,B),pair(C,D)):-['$less_than'(A,C)]
         a1 = a1.dref();
             a3 = m.mkvar2();

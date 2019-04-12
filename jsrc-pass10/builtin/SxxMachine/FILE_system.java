@@ -32,7 +32,7 @@ public class FILE_system extends FILE_swi_supp {
 /** PREDICATE: system_predicate/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/system.pl
 */
-    // main(system_predicate/1,public)
+    // main(system_predicate/1,public) 
         final static Functor FUNCTOR_system_predicate_1 = F("system_predicate",1);
         final static Functor ATOM_otherwise = SYM("otherwise");
         final static Functor ATOM_fail = SYM("fail");

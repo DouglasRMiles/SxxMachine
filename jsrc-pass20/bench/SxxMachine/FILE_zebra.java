@@ -169,7 +169,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
     // houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-true
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-[]
         a1 = a1.dref();
         if (a1 .isCons()){

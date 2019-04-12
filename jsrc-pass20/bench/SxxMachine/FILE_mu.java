@@ -379,8 +379,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
     // rule2([m|A],[m|B]):-append(A,A,B)
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // rule2([m|A],[m|B]):-[append(A,A,B)]
         a1 = a1.dref();
         if (a1 .isCons()){

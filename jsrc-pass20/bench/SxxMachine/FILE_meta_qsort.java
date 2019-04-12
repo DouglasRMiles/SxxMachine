@@ -133,7 +133,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // interpret(A):-[interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B)]
         a2 = m.mkvar1();
         return //

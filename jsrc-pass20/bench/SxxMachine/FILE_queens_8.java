@@ -81,8 +81,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // queens(A,B):-[range(1,A,C),queens(C,[],B)]
         a3 = m.mkvar1();
         return //
@@ -161,8 +161,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
     // not_attack(A,B):-not_attack(A,B,1)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // not_attack(A,B):-[not_attack(A,B,1)]
         return //
  Op("not_attack", FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2,  int_1 ), cont);

@@ -783,11 +783,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // select_vector(A,B,C,D,E):-['$get_level'(F),select_vector(C,A,B,C,dummy,0,nf,999,D,E,G,H),'$cut'(F),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'(G),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'(G)]
         a6 = m.mkvar1();
         //START inline expansion of $get_level(a(6))
@@ -1031,12 +1031,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
     // vector_cover_type(A,B,C,D,E,F):-[immediate_predecessors(C,G),conceivable_inputs(C,H),false_set(C,I),cover_type1(G,B,D,nf,0,J,K),cover_type2(H,B,A,I,D,J,K,E,F)]
         a7 = m.mkvar1();
         a8 = m.mkvar1();
@@ -3319,13 +3319,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
-        a7 = LARG.getPlainArg(6);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
+        a7 = LARG.areg6;
     // cover_vector(A,B,C,D,E,F,G):-[immediate_predecessors(D,H),conceivable_inputs(D,I),vector_types(J),cover_vector(J,H,I,D,E,A,B,C,F,G)]
         a8 = m.mkvar1();
         a9 = m.mkvar1();
@@ -5730,11 +5730,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // add_necessary_functions(A,B,C,D,E):-add_necessary_functions(A,A,B,C,D,E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // add_necessary_functions(A,B,C,D,E):-[add_necessary_functions(A,A,B,C,D,E)]
         return //
  Op("add_necessary_functions", FILE_nand::PRED_add_necessary_functions_6_static_exec, VA(a1, a1, a2, a3, a4, a5), cont);
@@ -5892,11 +5892,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
     // new_function_CIs(A,function(B,C,D,E,F,G,H,I),J,[K|L],K):-[new_function_CIs(A,B,D,J,L,[],M),'$unify'(K,function(B,C,D,M,F,G,H,I))]
         a2 = a2.dref();
             a6 = m.mkvar2();
@@ -6198,12 +6198,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
     // function_type(A,B,C,D,E,F):-[true_set(D,G),select_vector(G,D,A,B,C,dummy,0,nf,999,H,F,E,I)]
         a7 = m.mkvar1();
         return //
@@ -6225,9 +6225,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // test_bounds(A,B,C):-[access(bound,D),'$less_than'(B,D)]
         a4 = m.mkvar1();
         return //
@@ -6247,9 +6247,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // update_bounds(A,B,C):-set(bound,B)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // update_bounds(A,B,C):-[set(bound,B)]
         return //
  Op("set", FILE_nand::PRED_set_2_static_exec, VA( ATOM_bound , a2), cont);
@@ -6322,8 +6322,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // set(A,B):-['$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'(A,C,D),recorda(A,B,E)]
         return //
  Op("$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl", FILE_nand::PRED_$dummy_37_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fnand$002Epl_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), //
@@ -6342,8 +6342,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // access(A,B):-recorded(A,B,C)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // access(A,B):-[recorded(A,B,C)]
         return //
  Op("recorded", FILE_nand::PRED_recorded_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
@@ -6512,8 +6512,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // function_number(function(A,B,C,D,E,F,G,H),A):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // function_number(function(A,B,C,D,E,F,G,H),A):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6537,8 +6537,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // true_set(function(A,B,C,D,E,F,G,H),B):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // true_set(function(A,B,C,D,E,F,G,H),B):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6562,8 +6562,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // false_set(function(A,B,C,D,E,F,G,H),C):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // false_set(function(A,B,C,D,E,F,G,H),C):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6587,8 +6587,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // conceivable_inputs(function(A,B,C,D,E,F,G,H),D):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // conceivable_inputs(function(A,B,C,D,E,F,G,H),D):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6612,8 +6612,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // immediate_predecessors(function(A,B,C,D,E,F,G,H),E):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // immediate_predecessors(function(A,B,C,D,E,F,G,H),E):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6637,8 +6637,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // immediate_successors(function(A,B,C,D,E,F,G,H),F):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // immediate_successors(function(A,B,C,D,E,F,G,H),F):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6662,8 +6662,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // predecessors(function(A,B,C,D,E,F,G,H),G):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // predecessors(function(A,B,C,D,E,F,G,H),G):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -6687,8 +6687,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
     // successors(function(A,B,C,D,E,F,G,H),H):-true
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // successors(function(A,B,C,D,E,F,G,H),H):-[]
         a1 = a1.dref();
             a3 = m.mkvar2();

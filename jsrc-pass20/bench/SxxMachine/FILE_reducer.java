@@ -68,8 +68,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // try(A,B):-[listify(A,C),curry(C,D),t_reduce(D,E),make_list(E,B)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -155,7 +155,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
     // list_functor_name(A):-functor([B|C],A,D)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // list_functor_name(A):-[functor([B|C],A,D)]
         a2 = CONS(m.DONT_CARE1(), m.DONT_CARE1());
         return //
@@ -2321,9 +2321,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
     // eval1(-,A,B):-A is -B
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // eval1(-,A,B):-[A is -B]
         if (!  ATOM_$002D .unify(a1, m.trail))
             return m.fail();
@@ -2509,9 +2509,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // t(A,B,C):-['$get_level'(D),listify(B,E),curry(E,F),t_argvars(A,F,C),'$cut'(D)]
         a4 = m.mkvar1();
         //START inline expansion of $get_level(a(4))
@@ -5582,8 +5582,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // inv(A,[B|C]):-[compare(D,A,B),inv_2(D,A,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -5667,8 +5667,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
     // notinv(A,B):-notinv_2(B,A)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // notinv(A,B):-[notinv_2(B,A)]
         return //
  Op("notinv_2", FILE_reducer::PRED_notinv_2_2_static_exec, VA(a2, a1), cont);

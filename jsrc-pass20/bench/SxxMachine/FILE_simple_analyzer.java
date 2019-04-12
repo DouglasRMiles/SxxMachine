@@ -85,7 +85,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // main(A):-analyze_strees([stree(main/0,(main:-qsort([1,2],B,[]),true;fail),(main:-true),[],1),stree(qsort/3,(qsort(C,D,E):-C=[F|G],part(G,F,H,I),qsort(I,J,E),qsort(H,D,[F|J]),true;C=[],E=D,true;fail),(qsort(K,L,M):-true),[],1),stree(part/4,(part(N,O,P,Q):-'$cut_load'(R),'$cut_part/4_1'(N,O,P,Q,R),true;fail),(part(S,T,U,V):-true),[stree('$cut_part/4_1'/5,('$cut_part/4_1'(W,X,Y,Z,A1):-W=[B1|C1],'$fac_$cut_part/4_1/5_2'(C1,X,Y,Z,A1,B1),true;W=[],Y=[],Z=[],true;fail),('$cut_part/4_1'(D1,E1,F1,G1,H1):-true),[stree('$fac_$cut_part/4_1/5_2'/6,('$fac_$cut_part/4_1/5_2'(I1,J1,K1,L1,M1,N1):-K1=[N1|O1],N1=<J1,'$cut_shallow'(M1),part(I1,J1,O1,L1),true;L1=[N1|P1],part(I1,J1,K1,P1),true;fail),('$fac_$cut_part/4_1/5_2'(Q1,R1,S1,T1,U1,V1):-true),[],1)],1)],1)],A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52, a53, a54, a55, a56, a57, a58, a59, a60, a61, a62, a63, a64, a65, a66, a67, a68, a69, a70, a71, a72, a73, a74, a75, a76, a77, a78, a79, a80, a81, a82, a83, a84, a85, a86, a87, a88, a89, a90, a91, a92, a93, a94, a95, a96, a97, a98, a99, a100, a101, a102, a103, a104, a105, a106, a107, a108, a109;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // main(A):-[analyze_strees([stree(main/0,(main:-qsort([1,2],B,[]),true;fail),(main:-true),[],1),stree(qsort/3,(qsort(C,D,E):-C=[F|G],part(G,F,H,I),qsort(I,J,E),qsort(H,D,[F|J]),true;C=[],E=D,true;fail),(qsort(K,L,M):-true),[],1),stree(part/4,(part(N,O,P,Q):-'$cut_load'(R),'$cut_part/4_1'(N,O,P,Q,R),true;fail),(part(S,T,U,V):-true),[stree('$cut_part/4_1'/5,('$cut_part/4_1'(W,X,Y,Z,A1):-W=[B1|C1],'$fac_$cut_part/4_1/5_2'(C1,X,Y,Z,A1,B1),true;W=[],Y=[],Z=[],true;fail),('$cut_part/4_1'(D1,E1,F1,G1,H1):-true),[stree('$fac_$cut_part/4_1/5_2'/6,('$fac_$cut_part/4_1/5_2'(I1,J1,K1,L1,M1,N1):-K1=[N1|O1],N1=<J1,'$cut_shallow'(M1),part(I1,J1,O1,L1),true;L1=[N1|P1],part(I1,J1,K1,P1),true;fail),('$fac_$cut_part/4_1/5_2'(Q1,R1,S1,T1,U1,V1):-true),[],1)],1)],1)],A)]
     // put_str_args([s(15),void,@('Prolog.Nil')],y(1)),put_str(@('FUNCTOR_qsort_3'),y(1),a(2))
         a2 =  S( FUNCTOR_qsort_3 , L_main_1_s15, m.mkvar3(),  Prolog.Nil );
@@ -352,8 +352,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // analyze_strees(A,B):-[init_strees(A,C,D),seal(D),analyze_closure(A,D,B)]
         a3 = m.mkvar1();
         return //
@@ -375,9 +375,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // analyze_closure(A,B,C):-[traverse_strees(A,B,D,0,E),analyze_closure(A,D,C,E)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -950,12 +950,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
-        a5 = LARG.getPlainArg(4);
-        a6 = LARG.getPlainArg(5);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
+        a5 = LARG.areg4;
+        a6 = LARG.areg5;
     // traverse_conj(A,B,C,D,E,F):-[varset(A,G),functor(A,H,I),table_command(get(H/I,J),C,K),get_entry_modes(uninit,A,J,L),get_entry_modes(ground,A,J,M),traverse_conj(B,K,D,E,F,M,N,L,O,G,P)]
         a7 = m.mkvar1();
         a8 = m.mkvar1();
@@ -1822,7 +1822,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // bottom(unknown):-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // bottom(unknown):-[]
         if (!  ATOM_unknown .unify(a1, m.trail))
             return m.fail();
@@ -2046,9 +2046,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // lub_call(A,B,C):-[functor(A,D,E),functor(B,D,E),functor(C,D,E),lub_call(1,E,A,B,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -2166,8 +2166,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // bottom_call(A/B,C):-[functor(C,A,B),bottom_call(1,B,C)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -2277,9 +2277,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // lattice_modes_call(A/B,C,(D:-E)):-[functor(D,A,B),get(C,A/B,F),lattice_modes_call(1,B,F,D,E,true)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -2519,9 +2519,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // get(node(A,B,C,D),E,F):-get(A,B,C,D,E,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // get(node(A,B,C,D),E,F):-[get(A,B,C,D,E,F)]
         a1 = a1.dref();
             a4 = m.mkvar2();
@@ -3044,10 +3044,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
-        a4 = LARG.getPlainArg(3);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
+        a4 = LARG.areg3;
     // get_entry_modes(A,B,C,D):-[functor(B,E,F),get_entry_modes(A,1,F,B,C,G),sort(G,D)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -3226,8 +3226,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // var_args(A,B):-[functor(A,C,D),filter_vars(D,A,E),sort(E,B)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -3249,9 +3249,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // filter_vars(A,B,C):-filter_vars(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // filter_vars(A,B,C):-[filter_vars(A,B,C,[])]
         return //
  Op("filter_vars", FILE_simple_analyzer::PRED_filter_vars_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
@@ -3532,8 +3532,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // goal_dupset(A,B):-goal_dupset_varbag(A,B,C)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // goal_dupset(A,B):-[goal_dupset_varbag(A,B,C)]
         return //
  Op("goal_dupset_varbag", FILE_simple_analyzer::PRED_goal_dupset_varbag_3_static_exec, VA(a1, a2, m.DONT_CARE2()), cont);
@@ -3552,9 +3552,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // goal_dupset_varset(A,B,C):-[goal_dupset_varbag(A,B,D),sort(D,C)]
         a4 = m.mkvar1();
         return //
@@ -3575,9 +3575,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // goal_dupset_varbag(A,B,C):-[varbag(A,C),make_key(C,D),keysort(D,E),filter_dups(E,B)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -3684,8 +3684,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // filter_dups(A,B):-filter_dups(A,B,[])
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // filter_dups(A,B):-[filter_dups(A,B,[])]
         return //
  Op("filter_dups", FILE_simple_analyzer::PRED_filter_dups_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
@@ -4182,8 +4182,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3, a4, a5;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // inv(A,[B|C]):-[compare(D,A,B),inv_2(D,A,C)]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -4995,9 +4995,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // includev(A,B,C):-includev_2(B,A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
-        a3 = LARG.getPlainArg(2);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
+        a3 = LARG.areg2;
     // includev(A,B,C):-[includev_2(B,A,C)]
         return //
  Op("includev_2", FILE_simple_analyzer::PRED_includev_2_3_static_exec, VA(a2, a1, a3), cont);
@@ -5347,8 +5347,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // varset(A,B):-[varbag(A,C),sort(C,B)]
         a3 = m.mkvar1();
         return //
@@ -5368,8 +5368,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // varbag(A,B):-varbag(A,B,[])
         m.setB0();
          Term a1, a2;
-        a1 = LARG.getPlainArg(0);
-        a2 = LARG.getPlainArg(1);
+        a1 = LARG.areg0;
+        a2 = LARG.areg1;
     // varbag(A,B):-[varbag(A,B,[])]
         return //
  Op("varbag", FILE_simple_analyzer::PRED_varbag_3_static_exec, VA(a1, a2,  Prolog.Nil ), cont);
@@ -5605,7 +5605,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // unify_p(A=B):-true
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // unify_p(A=B):-[]
         a1 = a1.dref();
             if (!a1.unifyS( FUNCTOR_$003D_2 , m.trail, m.DONT_CARE1(), m.DONT_CARE1())){
@@ -5675,7 +5675,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // call_p(A):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl'(A)
         m.setB0();
          Term a1;
-        a1 = LARG.getPlainArg(0);
+        a1 = LARG.areg0;
     // call_p(A):-['$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl'(A)]
         return //
  Op("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl", FILE_simple_analyzer::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsimple_analyzer$002Epl_1_static_exec, VA(a1), cont);
