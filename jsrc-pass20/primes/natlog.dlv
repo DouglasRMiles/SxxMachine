@@ -1,0 +1,281 @@
+
+
+/*
+(forall (?X
+
+
+(
+(implies 
+    (and 
+      (isa ?P PrimeNumber) 
+      (different ?P ?Q) 
+      (isa ?Q PrimeNumber)) 
+    (orthogonalSetsOrCollections 
+      (TheSetOf ?M 
+        (relativelyPrimeIntegers ?M ?P)) 
+      (TheSetOf ?N 
+        (relativelyPrimeIntegers ?N ?Q))))
+
+(
+
+Every natural number n >=2 can be
+factored into a product of primes
+ n = p1p2 ... pn
+in exactly one way
+
+?- 
+ Vs = [0, succ(0), succ(succ(_)),prev(prev(_)), prev(inf), inf],
+ forall(member(X,Vs),forall(member(Y,Vs),format('~N~p.~n',[rob_p(t,X,Y)]))).
+*/
+
+
+%  nat(X):- between(0,inf,X).
+%  ~nat(X):- \+ nat(X).
+
+
+rob_form(0).
+rob_form(succ(0)).
+rob_form(succ(succ(_))).
+rob_form(prev(prev(_))).
+rob_form(prev(inf)).
+rob_form(inf).
+rob_form(X):- when(X, \+ rob_form(X)).
+
+~pos(rob_eq(0,0)).
+~pos(rob_eq(0,succ(0))).
+~pos(rob_eq(0,succ(succ(_)))).
+~pos(rob_eq(0,prev(prev(_)))).
+~pos(rob_eq(0,prev(inf))).
+~pos(rob_eq(0,inf)).
+
+/*
+(forall (?X
+
+
+(
+(implies 
+    (and 
+      (isa ?P PrimeNumber) 
+      (different ?P ?Q) 
+      (isa ?Q PrimeNumber)) 
+    (orthogonalSetsOrCollections 
+      (TheSetOf ?M 
+        (relativelyPrimeIntegers ?M ?P)) 
+      (TheSetOf ?N 
+        (relativelyPrimeIntegers ?N ?Q))))
+
+(
+
+Every natural number n >=2 can be
+factored into a product of primes
+ n = p1p2 ... pn
+in exactly one way
+
+?- 
+ Vs = [0, succ(0), succ(succ(_)),prev(prev(_)), prev(inf), inf],
+ forall(member(X,Vs),forall(member(Y,Vs),format('~N~p.~n',[rob_p(t,X,Y)]))).
+*/
+rob_p(t,0,0).
+rob_p(f,0,succ(0)).
+rob_p(f,0,succ(succ(_))).
+rob_p(p,0,prev(prev(_))).
+rob_p(f,0,prev(inf)).
+rob_p(f,0,inf).
+rob_p(f,succ(0),0).
+rob_p(t,succ(0),succ(0)).
+rob_p(f,succ(0),succ(succ(_))).
+rob_p(p,succ(0),prev(prev(_))).
+rob_p(f,succ(0),prev(inf)).
+rob_p(f,succ(0),inf).
+rob_p(f,succ(succ(_)),0).
+rob_p(true,succ(succ(_)),succ(0)).
+rob_p(true,succ(succ(_)),succ(succ(_))).
+rob_p(true,succ(succ(_)),prev(prev(_))).
+rob_p(true,succ(succ(_)),prev(inf)).
+rob_p(true,succ(succ(_)),inf).
+rob_p(true,prev(prev(_)),0).
+rob_p(true,prev(prev(_)),succ(0)).
+rob_p(true,prev(prev(_)),succ(succ(_))).
+rob_p(true,prev(prev(_)),prev(prev(_))).
+rob_p(true,prev(prev(_)),prev(inf)).
+rob_p(true,prev(prev(_)),inf).
+rob_p(true,prev(inf),0).
+rob_p(true,prev(inf),succ(0)).
+rob_p(true,prev(inf),succ(succ(_))).
+rob_p(true,prev(inf),prev(prev(_))).
+rob_p(true,prev(inf),prev(inf)).
+rob_p(true,prev(inf),inf).
+rob_p(true,inf,0).
+rob_p(true,inf,succ(0)).
+rob_p(true,inf,succ(succ(_))).
+rob_p(true,inf,prev(prev(_))).
+rob_p(true,inf,prev(inf)).
+rob_p(true,inf,inf).
+
+
+
+
+~pos(rob_eq(0,inf)).
+~pos(rob_eq(0,prev(inf))).
+pos(rob_eq(0,prev(prev(_)))).
+pos(rob_eq(prev(prev(_)),succ(succ(_)))).
+pos(rob_eq(inf,succ(succ(_)))).
+
+
+pos(rob_eq(prev(prev(_)),succ(succ(_)))).
+pos(rob_eq(inf,succ(succ(_)))).
+
+
+
+rob_nat(X):- when(ground(X), rob_form(X)).
+~rob_form(X):- when(ground(X), \+ rob_form(X)).
+
+pos(rob_eq(X,Y)):- rob_form(X),rob_form(Y).
+rob_eq(X,Y):- pos(rob_eq(X,Y)), rob_rdc(
+
+
+
+?- notrace(kif_to_boxlog( all(P,all(X,all(Y, and(P=X*Y , ~(X=) , ~(Y =)) => ~prime(P)))), Out)),maplist(dmsg,Out).
+
+% proven_tru(X=) :-
+%     nesc(prime(P)).
+%     nesc(P=X*Y),
+%     falsify(Y=).
+
+% proven_neg(prime(P)) :-
+%     nesc(P=X*Y),
+%     falsify(X=),
+%     falsify(Y=).
+
+% proven_neg(P=X*Y) :-
+%     nesc(prime(P)).
+%     falsify(X=),
+%     falsify(Y=).
+
+
+  
+?- notrace(kif_to_boxlog( all(M, and( nat(M) , M> ) => exists(Y,exists(X, and(prime(X), prime(Y)) =>  M+M=X+Y ))), Out)),maplist(dmsg,Out).
+
+% deduce_tru(M+M=X+Y) :-
+%     nesc(prime(X)),
+%     nesc(prime(Y)),
+%     nesc(nat(M)),
+%     nesc(M>).
+
+% proven_neg(prime(X)) :-
+%     nesc(prime(Y)),
+%     nesc(nat(M)),
+%     nesc(M>),
+%     falsify(M+M=X+Y).
+
+
+% deduce_neg(M+M=X+Y) :-
+%     skolem(M,
+%            skF(,
+%                'skMNat>False=+__0FnSk'(Y, X),
+%                M,
+%                [a(nat(M))=true, o(M>)=true, p(M+M=X+Y)=false, ...(_)])).
+% deduce_tru(nat(M)) :-
+%     skolem(M,
+%            skF(,
+%                'skMNat>False=+__0FnSk'(Y, X),
+%                M,
+%                [a(nat(M))=true, o(M>)=true, p(M+M=X+Y)=false, ...(_0)])).
+% deduce_tru(prime(X)) :-
+%     skolem(M,
+%            skF(,
+%                'skMNat>False=+__0FnSk'(Y, X),
+%                M,
+%                [a(nat(M))=true, o(M>)=true, p(M+M=X+Y)=false, ...(_)])).
+% deduce_tru(M>) :-
+%     skolem(M,
+%            skF(,
+%                'skMNat>False=+__0FnSk'(Y, X),
+%                M,
+%                [a(nat(M))=true, o(M>)=true, p(M+M=X+Y)=false, ...(_)])).
+
+
+
+
+
+ ?- cls, notrace(kif_to_boxlog(all(M, and( nat(M) , M> ) => exists(Y,exists(X, and(prime(X), prime(Y)) =>  M+M=X+Y ))), Out)),maplist(dmsg,Out).
+
+% kif :-
+%     all(M, =>(nat(M)&(M>), exists(Y, exists(X, =>(prime(X)&prime(Y), M+M=X+Y))))).
+% maplist(call, [put_attr(Y, skv, 'skYPrimeFalse=Arg+__FnSk'(M, [_, _]))]),
+% attr_unify_hook(skXFalsePrime__0FnSk(Y, M), [_, _]).
+% nnf :-
+%     maplist(call,
+%
+%             [ put_attr(X, skv, skXFalsePrime__0FnSk(Y, M)),
+%               put_attr(Y, skv, 'skYPrimeFalse=Arg+__FnSk'(M, X))
+%             ]),
+%     v(v(~nat(M), ~ (M>)),
+%       v((prime(X)&prime(Y))& ~ (M+M=X+Y), skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [or([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false], p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true), or(or(a(prime(Y))=false, p(M+M=X+Y)=true), p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)])))&v(~skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [or([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false], p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true), or(or(a(prime(Y))=false, p(M+M=X+Y)=true), p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)])), v((prime(X)&prime(Y))& ~ (M+M=X+Y), skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [or(or(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))&v(v(v(~prime(X), ~prime(Y)), M+M=X+Y), ~skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [or(or(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)]))))).
+% tlog_nnf_out_negated :-
+%     (n(~nat(M))&n(~ (M>)))&v(v(v(n(nesc(prime(X))), n(nesc(prime(Y)))), n(~ (M+M=X+Y)))&n(nesc(skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [v([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false], p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))=true), v(v(a(prime(Y))=false, p(M+M=X+Y)=true), p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))=false)])))), n(~skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [v([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false], p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))=true), v(v(a(prime(Y))=false, p(M+M=X+Y)=true), p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))=false)])))&v(v(v(n(nesc(prime(X))), n(nesc(prime(Y)))), n(~ (M+M=X+Y)))&n(nesc(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)])))),  ((n(~prime(X))&n(~prime(Y)))&n(nesc(M+M=X+Y)))&n(~skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [v(v(a(prime(X))=false, q(prime(Y))=false), p(M+M=X+Y)=true)]))))).
+% 
+c_success(baseKB,baseKB:same_clauses((deduce_neg(prime(_)):-nesc(prime(_0)),falsify(_0+_0=_+_0),skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])),skolem(_0,skF(,'skYPrimeFalse=Arg+__FnSk'(_0,_),_0,[([[q(prime(_))=true,a(prime(_0))=true],p(_0+_0=_+_0)=false];p(skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])))=true),((a(prime(_0))=false;p(_0+_0=_+_0)=true);p(skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])))=false)])),nesc(nat(_0)),nesc(_0>)),(deduce_neg(prime(_0)):-nesc(prime(_)),falsify(_0+_0=_+_0),skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])),skolem(_0,skF(,'skYPrimeFalse=Arg+__FnSk'(_0,_),_0,[([[q(prime(_))=true,a(prime(_0))=true],p(_0+_0=_+_0)=false];p(skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])))=true),((a(prime(_0))=false;p(_0+_0=_+_0)=true);p(skolem(_,skF(,skXFalsePrime__0FnSk(_0,_0),_,[((a(prime(_))=false;q(prime(_0))=false);p(_0+_0=_+_0)=true)])))=false)])),nesc(nat(_0)),nesc(_0>))))
+
+% deduce_neg(prime(X)) :-
+%     nesc(prime(Y)),
+%     falsify(M+M=X+Y),
+%     skolem(X,
+%            skF(,
+%                skXFalsePrime__0FnSk(Y, M),
+%                X,
+%                [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])),
+%     skolem(Y,
+%            skF(,
+%                'skYPrimeFalse=Arg+__FnSk'(M, X),
+%                Y,
+%
+%                [ ([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false];p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true),
+%                  ((a(prime(Y))=false;p(M+M=X+Y)=true);p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)
+%                ])),
+%     nesc(nat(M)),
+%     nesc(M>).
+% deduce_tru(M+M=X+Y) :-
+%     nesc(prime(X)),
+%     nesc(prime(Y)),
+%     skolem(X,
+%            skF(,
+%                skXFalsePrime__0FnSk(Y, M),
+%                X,
+%                [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])),
+%     skolem(Y,
+%            skF(,
+%                'skYPrimeFalse=Arg+__FnSk'(M, X),
+%                Y,
+%
+%                [ ([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false];p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true),
+%                  ((a(prime(Y))=false;p(M+M=X+Y)=true);p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)
+%                ])),
+%     nesc(nat(M)),
+%     nesc(M>).
+% make_existential(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])) :-
+%     (   ensure_cond(X, prime(X)),
+%         never_cond(X, prime(Y))
+%     ;   ensure_cond(X, M+M=X+Y)
+%     ),
+%     skolem(Y,
+%            skF(,
+%                'skYPrimeFalse=Arg+__FnSk'(M, X),
+%                Y,
+%
+%                [ ([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false];p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true),
+%                  ((a(prime(Y))=false;p(M+M=X+Y)=true);p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)
+%                ])),
+%     ensure_cond(X, nat(M)),
+%     ensure_cond(X, M>).
+% make_existential(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [([[q(prime(X))=true, a(prime(Y))=true], p(M+M=X+Y)=false];p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=true),  ((a(prime(Y))=false;p(M+M=X+Y)=true);p(skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((a(prime(X))=false;q(prime(Y))=false);p(M+M=X+Y)=true)])))=false)])) :-
+%     (   ensure_cond(Y, prime(X)),
+%         never_cond(Y, prime(Y))
+%     ;   ensure_cond(Y, M+M=X+Y)
+%     ),
+%     ensure_cond(Y, nat(M)),
+%     ensure_cond(Y, M>).
+Out = [(deduce_neg(prime(X)):-nesc(prime(Y)), falsify(M+M=X+Y), skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((...;...);... = ...)])), skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [(...;...)|...])), nesc(nat(M)), nesc(M>)),  (deduce_tru(M+M=X+Y):-nesc(prime(X)), nesc(prime(Y)), skolem(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [(...;...)])), skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(..., ...), Y, [...|...])), nesc(nat(...)), nesc(... > ...)),  (make_existential(X, skF(, skXFalsePrime__0FnSk(Y, M), X, [((... = ...;... = ...);p(...)=true)])):-(ensure_cond(X, prime(X)), never_cond(X, prime(Y));ensure_cond(X, M+M=X+Y)), skolem(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [(...;...)|...])), ensure_cond(X, nat(M)), ensure_cond(X, M>)),  (make_existential(Y, skF(, 'skYPrimeFalse=Arg+__FnSk'(M, X), Y, [([...|...];... = ...),  (...;...)])):-(ensure_cond(Y, prime(...)), never_cond(Y, prime(...));ensure_cond(Y, ... + ... = ... + ...)), ensure_cond(Y, nat(M)), ensure_cond(Y, M>))].
+
+baseKB: [debug]  ?-
+
