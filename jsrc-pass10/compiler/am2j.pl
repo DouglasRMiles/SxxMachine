@@ -370,8 +370,8 @@ write_java0(set(arg(1),ea(1)), _) :- !, nop((w('m.AREGS = LARG;'), nl)).
 % BAD write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
 write_java0(set(arg(N),ea(N)), _) :- !, nop((w('// m.AREGS = LARG;'+N), nl)).
 
-write_java0(set(From,ea(N)), _) :- !, 
-   w('m.setAV('),w(N),w(', '), write_reg(From), w(');'),nl.
+%write_java0(set(From,ea(N)), _) :- !, 
+%   w('m.AREGS.setAV('),w(N),w(', '), write_reg(From), w(');'),nl.
 
 write_java0(set(Ri,Rj), _) :- !,
 	tab(8),
@@ -1563,7 +1563,7 @@ write_reg(void) :- inside_params(F), !, wl(['m.DONTCARE("',call(w(F)),'")']).
 write_reg(void) :- !, w('m.mkvar3()').
 write_reg(arg(X)) :- !, w('LARG.getPlainArg('), Y is X - 1, w(Y), w(')').
 % write_reg(a(X)) :- am2j_flag(arrays), !, w('LARG['), Y is X - 1, w(Y), w(']').
-write_reg(ea(X)) :- !, w('m.AREGS.areg'), w(X), w('').
+write_reg(ea(X)) :- !, w('m.AREGS.areg'),  Y is X - 1, w(Y), w('').
 %write_reg(ea(X)) :- !, w('m.areg'), w(X), w('').
 /*
 write_reg(ea(1)) :- !, w('m.areg1').
