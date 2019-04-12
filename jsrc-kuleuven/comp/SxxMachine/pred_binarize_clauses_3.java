@@ -156,8 +156,8 @@ class pred_binarize_clauses_3_2 extends pred_binarize_clauses_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var5);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var5);
 
         mach.setCont(local_aregs, 2, S(pred_binarize_clauses_3_consts.string4, var5.dref(), var3
                 .dref(), var6, S(pred_binarize_clauses_3_consts.string1, var2.dref(), var6.dref(), var4

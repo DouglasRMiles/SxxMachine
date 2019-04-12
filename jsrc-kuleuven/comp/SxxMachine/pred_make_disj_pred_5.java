@@ -81,8 +81,8 @@ public class pred_make_disj_pred_5 extends Code {
             return mach.Fail0;
         if (!(areg4.unifyJP(var6)))
             return mach.Fail0;
-        local_aregs.setAV(0,var5.dref());
-        local_aregs.setAV(1,var4.dref());
+        local_aregs.areg0 = (var5.dref());
+        local_aregs.areg1 = (var4.dref());
 
         mach.setCont(local_aregs, 2, S(pred_make_disj_pred_5_consts.string4, S(pred_make_disj_pred_5_consts.string5, var1
                 .dref(), S(pred_make_disj_pred_5_consts.string5, var2

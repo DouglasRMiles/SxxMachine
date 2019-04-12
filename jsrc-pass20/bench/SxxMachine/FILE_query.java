@@ -386,8 +386,8 @@ m.cont = cont;
     // pop(china,8250):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(china,8250):-[]
         if (!  ATOM_china .unify(a1, m.trail))
@@ -401,8 +401,8 @@ m.cont = cont;
     // pop(india,5863):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(india,5863):-[]
         if (!  ATOM_india .unify(a1, m.trail))
@@ -416,8 +416,8 @@ m.cont = cont;
     // pop(ussr,2521):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(ussr,2521):-[]
         if (!  ATOM_ussr .unify(a1, m.trail))
@@ -431,8 +431,8 @@ m.cont = cont;
     // pop(usa,2119):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(usa,2119):-[]
         if (!  ATOM_usa .unify(a1, m.trail))
@@ -446,8 +446,8 @@ m.cont = cont;
     // pop(indonesia,1276):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(indonesia,1276):-[]
         if (!  ATOM_indonesia .unify(a1, m.trail))
@@ -461,8 +461,8 @@ m.cont = cont;
     // pop(japan,1097):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(japan,1097):-[]
         if (!  ATOM_japan .unify(a1, m.trail))
@@ -476,8 +476,8 @@ m.cont = cont;
     // pop(brazil,1042):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(brazil,1042):-[]
         if (!  ATOM_brazil .unify(a1, m.trail))
@@ -491,8 +491,8 @@ m.cont = cont;
     // pop(bangladesh,750):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(bangladesh,750):-[]
         if (!  ATOM_bangladesh .unify(a1, m.trail))
@@ -506,8 +506,8 @@ m.cont = cont;
     // pop(pakistan,682):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(pakistan,682):-[]
         if (!  ATOM_pakistan .unify(a1, m.trail))
@@ -521,8 +521,8 @@ m.cont = cont;
     // pop(w_germany,620):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(w_germany,620):-[]
         if (!  ATOM_w_germany .unify(a1, m.trail))
@@ -536,8 +536,8 @@ m.cont = cont;
     // pop(nigeria,613):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(nigeria,613):-[]
         if (!  ATOM_nigeria .unify(a1, m.trail))
@@ -551,8 +551,8 @@ m.cont = cont;
     // pop(mexico,581):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(mexico,581):-[]
         if (!  ATOM_mexico .unify(a1, m.trail))
@@ -566,8 +566,8 @@ m.cont = cont;
     // pop(uk,559):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(uk,559):-[]
         if (!  ATOM_uk .unify(a1, m.trail))
@@ -581,8 +581,8 @@ m.cont = cont;
     // pop(italy,554):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(italy,554):-[]
         if (!  ATOM_italy .unify(a1, m.trail))
@@ -596,8 +596,8 @@ m.cont = cont;
     // pop(france,525):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(france,525):-[]
         if (!  ATOM_france .unify(a1, m.trail))
@@ -611,8 +611,8 @@ m.cont = cont;
     // pop(philippines,415):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(philippines,415):-[]
         if (!  ATOM_philippines .unify(a1, m.trail))
@@ -626,8 +626,8 @@ m.cont = cont;
     // pop(thailand,410):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(thailand,410):-[]
         if (!  ATOM_thailand .unify(a1, m.trail))
@@ -641,8 +641,8 @@ m.cont = cont;
     // pop(turkey,383):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(turkey,383):-[]
         if (!  ATOM_turkey .unify(a1, m.trail))
@@ -656,8 +656,8 @@ m.cont = cont;
     // pop(egypt,364):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(egypt,364):-[]
         if (!  ATOM_egypt .unify(a1, m.trail))
@@ -671,8 +671,8 @@ m.cont = cont;
     // pop(spain,352):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(spain,352):-[]
         if (!  ATOM_spain .unify(a1, m.trail))
@@ -686,8 +686,8 @@ m.cont = cont;
     // pop(poland,337):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(poland,337):-[]
         if (!  ATOM_poland .unify(a1, m.trail))
@@ -701,8 +701,8 @@ m.cont = cont;
     // pop(s_korea,335):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(s_korea,335):-[]
         if (!  ATOM_s_korea .unify(a1, m.trail))
@@ -716,8 +716,8 @@ m.cont = cont;
     // pop(iran,320):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(iran,320):-[]
         if (!  ATOM_iran .unify(a1, m.trail))
@@ -731,8 +731,8 @@ m.cont = cont;
     // pop(ethiopia,272):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(ethiopia,272):-[]
         if (!  ATOM_ethiopia .unify(a1, m.trail))
@@ -746,8 +746,8 @@ m.cont = cont;
     // pop(argentina,251):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // pop(argentina,251):-[]
         if (!  ATOM_argentina .unify(a1, m.trail))
@@ -925,8 +925,8 @@ m.cont = cont;
     // area(china,3380):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(china,3380):-[]
         if (!  ATOM_china .unify(a1, m.trail))
@@ -940,8 +940,8 @@ m.cont = cont;
     // area(india,1139):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(india,1139):-[]
         if (!  ATOM_india .unify(a1, m.trail))
@@ -955,8 +955,8 @@ m.cont = cont;
     // area(ussr,8708):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(ussr,8708):-[]
         if (!  ATOM_ussr .unify(a1, m.trail))
@@ -970,8 +970,8 @@ m.cont = cont;
     // area(usa,3609):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(usa,3609):-[]
         if (!  ATOM_usa .unify(a1, m.trail))
@@ -985,8 +985,8 @@ m.cont = cont;
     // area(indonesia,570):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(indonesia,570):-[]
         if (!  ATOM_indonesia .unify(a1, m.trail))
@@ -1000,8 +1000,8 @@ m.cont = cont;
     // area(japan,148):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(japan,148):-[]
         if (!  ATOM_japan .unify(a1, m.trail))
@@ -1015,8 +1015,8 @@ m.cont = cont;
     // area(brazil,3288):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(brazil,3288):-[]
         if (!  ATOM_brazil .unify(a1, m.trail))
@@ -1030,8 +1030,8 @@ m.cont = cont;
     // area(bangladesh,55):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(bangladesh,55):-[]
         if (!  ATOM_bangladesh .unify(a1, m.trail))
@@ -1045,8 +1045,8 @@ m.cont = cont;
     // area(pakistan,311):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(pakistan,311):-[]
         if (!  ATOM_pakistan .unify(a1, m.trail))
@@ -1060,8 +1060,8 @@ m.cont = cont;
     // area(w_germany,96):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(w_germany,96):-[]
         if (!  ATOM_w_germany .unify(a1, m.trail))
@@ -1075,8 +1075,8 @@ m.cont = cont;
     // area(nigeria,373):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(nigeria,373):-[]
         if (!  ATOM_nigeria .unify(a1, m.trail))
@@ -1090,8 +1090,8 @@ m.cont = cont;
     // area(mexico,764):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(mexico,764):-[]
         if (!  ATOM_mexico .unify(a1, m.trail))
@@ -1105,8 +1105,8 @@ m.cont = cont;
     // area(uk,86):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(uk,86):-[]
         if (!  ATOM_uk .unify(a1, m.trail))
@@ -1120,8 +1120,8 @@ m.cont = cont;
     // area(italy,116):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(italy,116):-[]
         if (!  ATOM_italy .unify(a1, m.trail))
@@ -1135,8 +1135,8 @@ m.cont = cont;
     // area(france,213):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(france,213):-[]
         if (!  ATOM_france .unify(a1, m.trail))
@@ -1150,8 +1150,8 @@ m.cont = cont;
     // area(philippines,90):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(philippines,90):-[]
         if (!  ATOM_philippines .unify(a1, m.trail))
@@ -1165,8 +1165,8 @@ m.cont = cont;
     // area(thailand,200):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(thailand,200):-[]
         if (!  ATOM_thailand .unify(a1, m.trail))
@@ -1180,8 +1180,8 @@ m.cont = cont;
     // area(turkey,296):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(turkey,296):-[]
         if (!  ATOM_turkey .unify(a1, m.trail))
@@ -1195,8 +1195,8 @@ m.cont = cont;
     // area(egypt,386):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(egypt,386):-[]
         if (!  ATOM_egypt .unify(a1, m.trail))
@@ -1210,8 +1210,8 @@ m.cont = cont;
     // area(spain,190):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(spain,190):-[]
         if (!  ATOM_spain .unify(a1, m.trail))
@@ -1225,8 +1225,8 @@ m.cont = cont;
     // area(poland,121):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(poland,121):-[]
         if (!  ATOM_poland .unify(a1, m.trail))
@@ -1240,8 +1240,8 @@ m.cont = cont;
     // area(s_korea,37):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(s_korea,37):-[]
         if (!  ATOM_s_korea .unify(a1, m.trail))
@@ -1255,8 +1255,8 @@ m.cont = cont;
     // area(iran,628):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(iran,628):-[]
         if (!  ATOM_iran .unify(a1, m.trail))
@@ -1270,8 +1270,8 @@ m.cont = cont;
     // area(ethiopia,350):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(ethiopia,350):-[]
         if (!  ATOM_ethiopia .unify(a1, m.trail))
@@ -1285,8 +1285,8 @@ m.cont = cont;
     // area(argentina,1080):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // area(argentina,1080):-[]
         if (!  ATOM_argentina .unify(a1, m.trail))

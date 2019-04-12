@@ -34,7 +34,7 @@ public class pred_b_getval_2 extends Code {
 
             final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);
             if (oldValue != null) {
-                local_aregs.setAV(0,oldValue);
+                local_aregs.areg0 = (oldValue);
                 // System.out.println("b_getval(" + name + "," + oldValue + ")");
                 return unification;
             } else {

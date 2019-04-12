@@ -141,9 +141,9 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-C<10,!,A=C,B=0
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-['$get_level'(D),E is 10,'$less_than'(C,E),'$cut'(D),'$unify'(A,C),'$unify'(B,0)]
         a4 = m.mkvar1();
@@ -184,9 +184,9 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-A is C-10,B=1
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-[A is C-10,'$unify'(B,1)]
     // put_str_args([a(3),@(int_10)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
@@ -310,7 +310,7 @@ m.cont = cont;
     // digit(0):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(0):-[]
         if (!  int_0 .unify(a1, m.trail))
@@ -322,7 +322,7 @@ m.cont = cont;
     // digit(1):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(1):-[]
         if (!  int_1 .unify(a1, m.trail))
@@ -334,7 +334,7 @@ m.cont = cont;
     // digit(2):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(2):-[]
         if (!  int_2 .unify(a1, m.trail))
@@ -346,7 +346,7 @@ m.cont = cont;
     // digit(3):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(3):-[]
         if (!  int_3 .unify(a1, m.trail))
@@ -358,7 +358,7 @@ m.cont = cont;
     // digit(4):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(4):-[]
         if (!  int_4 .unify(a1, m.trail))
@@ -370,7 +370,7 @@ m.cont = cont;
     // digit(5):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(5):-[]
         if (!  int_5 .unify(a1, m.trail))
@@ -382,7 +382,7 @@ m.cont = cont;
     // digit(6):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(6):-[]
         if (!  int_6 .unify(a1, m.trail))
@@ -394,7 +394,7 @@ m.cont = cont;
     // digit(7):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(7):-[]
         if (!  int_7 .unify(a1, m.trail))
@@ -406,7 +406,7 @@ m.cont = cont;
     // digit(8):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(8):-[]
         if (!  int_8 .unify(a1, m.trail))
@@ -418,7 +418,7 @@ m.cont = cont;
     // digit(9):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // digit(9):-[]
         if (!  int_9 .unify(a1, m.trail))
@@ -489,7 +489,7 @@ m.cont = cont;
     // leftdigit(1):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(1):-[]
         if (!  int_1 .unify(a1, m.trail))
@@ -501,7 +501,7 @@ m.cont = cont;
     // leftdigit(2):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(2):-[]
         if (!  int_2 .unify(a1, m.trail))
@@ -513,7 +513,7 @@ m.cont = cont;
     // leftdigit(3):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(3):-[]
         if (!  int_3 .unify(a1, m.trail))
@@ -525,7 +525,7 @@ m.cont = cont;
     // leftdigit(4):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(4):-[]
         if (!  int_4 .unify(a1, m.trail))
@@ -537,7 +537,7 @@ m.cont = cont;
     // leftdigit(5):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(5):-[]
         if (!  int_5 .unify(a1, m.trail))
@@ -549,7 +549,7 @@ m.cont = cont;
     // leftdigit(6):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(6):-[]
         if (!  int_6 .unify(a1, m.trail))
@@ -561,7 +561,7 @@ m.cont = cont;
     // leftdigit(7):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(7):-[]
         if (!  int_7 .unify(a1, m.trail))
@@ -573,7 +573,7 @@ m.cont = cont;
     // leftdigit(8):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(8):-[]
         if (!  int_8 .unify(a1, m.trail))
@@ -585,7 +585,7 @@ m.cont = cont;
     // leftdigit(9):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // leftdigit(9):-[]
         if (!  int_9 .unify(a1, m.trail))

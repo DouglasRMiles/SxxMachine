@@ -115,6 +115,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
         final Term[] args = cp.getArguments();
         for (int i = 0; i < args.length; i++) {
             areg.setAV(i, args[i]);
+            //areg.aregi = ( args[i]);
         }
     }
 
@@ -122,6 +123,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
         return cutb;
     }
 
+    
     public void updateCUTB(int i) {
         if (i < 0)
             throw new IllegalArgumentException("Invalid index: " + i);

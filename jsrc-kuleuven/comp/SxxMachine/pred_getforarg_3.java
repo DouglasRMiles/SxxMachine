@@ -73,7 +73,7 @@ public class pred_getforarg_3 extends Code {
         if (!(areg2.unifyJP(var3)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string4), S(pred_getforarg_3_consts.string3, var2
+        local_aregs.areg0 = (S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string4), S(pred_getforarg_3_consts.string3, var2
                 .dref(), S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string5), S(pred_getforarg_3_consts.string3, S(pred_getforarg_3_consts.string6, var1
                         .dref(), var3
                                 .dref()), S(pred_getforarg_3_consts.string3, CONST(pred_getforarg_3_consts.string7), S(pred_getforarg_3_consts.string3, S(pred_getforarg_3_consts.string8, CONST(pred_getforarg_3_consts.string9)), CONST(pred_getforarg_3_consts.string10))))))));

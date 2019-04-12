@@ -194,9 +194,9 @@ class pred_maxClauses_2_3 extends pred_maxClauses_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var4);
+        local_aregs.areg0 = (var4);
 
-        local_aregs.setAV(1,S(pred_maxClauses_2_consts.string4, var3.dref(), pred_maxClauses_2_consts.posint1));
+        local_aregs.areg1 = (S(pred_maxClauses_2_consts.string4, var3.dref(), pred_maxClauses_2_consts.posint1));
 
         mach.setCont(local_aregs, 2, S(pred_maxClauses_2_consts.string1, var2.dref(), var4.dref(), continuation));
         mach.updateCUTB();

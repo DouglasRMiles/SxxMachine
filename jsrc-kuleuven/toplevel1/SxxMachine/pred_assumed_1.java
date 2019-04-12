@@ -55,7 +55,7 @@ class pred_assumed_1_1 extends pred_assumed_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2);
+        local_aregs.areg0 = (var2);
         mach.setCont(local_aregs, 1, S(string3, var1.dref(), var2.dref(), continuation));
         mach.updateCUTB();
         return allassumed2cont;

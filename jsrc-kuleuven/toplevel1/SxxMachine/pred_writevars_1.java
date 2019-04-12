@@ -88,7 +88,7 @@ class pred_writevars_1_2 extends pred_writevars_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, S(string3, var1, var2), var3))))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
         mach.setCont(local_aregs, 1, S(string8, CONST(string1), S(string8, var1
                 .dref(), S(string7, S(string6, continuation)))));
         mach.updateCUTB();
@@ -107,7 +107,7 @@ class pred_writevars_1_3 extends pred_writevars_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return entry_code;

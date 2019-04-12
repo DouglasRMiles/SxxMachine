@@ -131,9 +131,9 @@ class pred_bodycont_3_1 extends pred_bodycont_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var4.dref());
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var4.dref());
 
         mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string9), CONS(CONST(pred_bodycont_3_consts.string14), CONST(pred_bodycont_3_consts.string5))), continuation)));
@@ -184,11 +184,11 @@ class pred_bodycont_3_2 extends pred_bodycont_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
 
-        local_aregs.setAV(1,CONST(pred_bodycont_3_consts.string12));
+        local_aregs.areg1 = (CONST(pred_bodycont_3_consts.string12));
 
-        local_aregs.setAV(2,pred_bodycont_3_consts.posint1);
+        local_aregs.areg2 = (pred_bodycont_3_consts.posint1);
 
         mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation)));
@@ -239,11 +239,11 @@ class pred_bodycont_3_3 extends pred_bodycont_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
 
-        local_aregs.setAV(1,CONST(pred_bodycont_3_consts.string12));
+        local_aregs.areg1 = (CONST(pred_bodycont_3_consts.string12));
 
-        local_aregs.setAV(2,pred_bodycont_3_consts.posint2);
+        local_aregs.areg2 = (pred_bodycont_3_consts.posint2);
 
         mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string13), CONST(pred_bodycont_3_consts.string5)), continuation)));
@@ -294,11 +294,11 @@ class pred_bodycont_3_4 extends pred_bodycont_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
 
-        local_aregs.setAV(1,CONST(pred_bodycont_3_consts.string0));
+        local_aregs.areg1 = (CONST(pred_bodycont_3_consts.string0));
 
-        local_aregs.setAV(2,pred_bodycont_3_consts.posint2);
+        local_aregs.areg2 = (pred_bodycont_3_consts.posint2);
 
         mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)), continuation)));
@@ -351,9 +351,9 @@ class pred_bodycont_3_5 extends pred_bodycont_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var5);
-        local_aregs.setAV(2,var6);
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var5);
+        local_aregs.areg2 = (var6);
 
         mach.setCont(local_aregs, 3, S(pred_bodycont_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_bodycont_3_consts.string2, CONS(CONST(pred_bodycont_3_consts.string9), CONS(var5
@@ -402,7 +402,7 @@ class pred_bodycont_3_6 extends pred_bodycont_3 {
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)));
+        local_aregs.areg0 = (CONS(CONST(pred_bodycont_3_consts.string4), CONST(pred_bodycont_3_consts.string5)));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3, 2);

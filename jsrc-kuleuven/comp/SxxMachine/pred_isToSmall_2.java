@@ -135,9 +135,9 @@ class pred_isToSmall_2_2 extends pred_isToSmall_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
-        local_aregs.setAV(1,pred_isToSmall_2_consts.posint5);
+        local_aregs.areg1 = (pred_isToSmall_2_consts.posint5);
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().maxClauses3cont;

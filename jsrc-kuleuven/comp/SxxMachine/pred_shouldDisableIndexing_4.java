@@ -115,9 +115,9 @@ class pred_shouldDisableIndexing_4_1 extends pred_shouldDisableIndexing_4 {
             return mach.Fail0;
         if (!(areg3.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
-        local_aregs.setAV(1,S(pred_shouldDisableIndexing_4_consts.string4, var4.dref(), var3
+        local_aregs.areg1 = (S(pred_shouldDisableIndexing_4_consts.string4, var4.dref(), var3
                 .dref(), S(pred_shouldDisableIndexing_4_consts.string5, var1
                         .dref(), S(pred_shouldDisableIndexing_4_consts.string0, new HeapChoice(
                                 mach.getCUTB()), continuation))));

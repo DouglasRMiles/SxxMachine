@@ -57,7 +57,7 @@ public class pred_sort_2 extends Code {
             output = CONS(iter.next(), output);
         }
 
-        local_aregs.setAV(0,output);
+        local_aregs.areg0 = (output);
         return unify;
     }
 

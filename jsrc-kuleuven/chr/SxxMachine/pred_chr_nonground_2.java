@@ -50,8 +50,8 @@ class pred_chr_nonground_2_1 extends pred_chr_nonground_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3);
         mach.setCont(local_aregs, 2, S(string4, S(string1, var2.dref(), var4), var3.dref(), continuation));
         mach.updateCUTB();
         return term_variables3cont;

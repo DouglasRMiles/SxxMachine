@@ -155,8 +155,8 @@ m.cont = cont;
     // divisible(A,B):-C is B*B,C=<A,A mod B=:=0
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // divisible(A,B):-[C is B*B,'$less_or_equal'(C,A),D is A mod B,E is 0,'$arith_equal'(D,E)]
         a3 = m.mkvar1();
@@ -200,8 +200,8 @@ m.cont = cont;
     // divisible(A,B):-B<A,C is B+1,divisible(A,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // divisible(A,B):-['$less_than'(B,A),C is B+1,divisible(A,C)]
         //START inline expansion of $less_than(a(2),a(1))
@@ -218,8 +218,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-m.setAV(1, a1);
-m.setAV(2, a3);
+m.AREGS = MARG;MARG.areg0 = a1;
+        MARG.areg1 = a3;
 m.cont = cont;
         return divisible_2_top(m);
     }
@@ -249,8 +249,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,B):-['$get_level'(C),divisible(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -268,8 +268,8 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,B):-[]
         return cont;
@@ -307,8 +307,8 @@ m.cont = cont;
     // isprime([A|B],A):-C is 2,A>1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // isprime([A|B],A):-[C is 2,D is 1,'$greater_than'(A,D),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl'(A,C)]
         a1 = a1.dref();
@@ -347,8 +347,8 @@ m.cont = cont;
     // isprime([A|B],C):-isprime(B,C)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // isprime([A|B],C):-[isprime(B,C)]
         a1 = a1.dref();
@@ -360,8 +360,8 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-m.setAV(1, a3);
-m.setAV(2, a2);
+m.AREGS = MARG;MARG.areg0 = a3;
+        MARG.areg1 = a2;
 m.cont = cont;
         return isprime_2_top(m);
     }
@@ -395,9 +395,9 @@ m.cont = cont;
     // power(A,0,1):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power(A,0,1):-['$neck_cut']
         if (!  int_0 .unify(a2, m.trail))
@@ -415,9 +415,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power(A,B,C):-[D is B-1,power(A,D,E),C is E*A]
         a4 = m.mkvar1();
@@ -435,9 +435,9 @@ m.cont = cont;
  ;
         p1 = //
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a3, a7), cont);
-m.setAV(1, a1);
-m.setAV(2, a4);
-m.setAV(3, a6);
+m.AREGS = MARG;MARG.areg0 = a1;
+        MARG.areg1 = a4;
+        MARG.areg2 = a6;
         m.cont = p1;
         return power_3_top(m);
     }
@@ -512,8 +512,8 @@ m.cont = cont;
     // listperf([A|B],C):-calc(2,A,C)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // listperf([A|B],C):-[calc(2,A,C)]
         a1 = a1.dref();
@@ -533,8 +533,8 @@ m.cont = cont;
     // listperf([A|B],C):-listperf(B,C)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // listperf([A|B],C):-[listperf(B,C)]
         a1 = a1.dref();
@@ -546,8 +546,8 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-m.setAV(1, a3);
-m.setAV(2, a2);
+m.AREGS = MARG;MARG.areg0 = a3;
+        MARG.areg1 = a2;
 m.cont = cont;
         return listperf_2_top(m);
     }
@@ -584,8 +584,8 @@ m.cont = cont;
     // generateList(0,[]):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // generateList(0,[]):-[]
         if (!  int_0 .unify(a1, m.trail))
@@ -599,8 +599,8 @@ m.cont = cont;
     // generateList(A,[B|C]):-A>0,B is A+1,D is A-1,generateList(D,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // generateList(A,[B|C]):-[D is 0,'$greater_than'(A,D),B is A+1,E is A-1,generateList(E,C)]
         a2 = a2.dref();
@@ -642,8 +642,8 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-m.setAV(1, a7);
-m.setAV(2, a4);
+m.AREGS = MARG;MARG.areg0 = a7;
+        MARG.areg1 = a4;
 m.cont = cont;
         return generateList_2_top(m);
     }

@@ -16,7 +16,7 @@ public class pred_nonvar_1 extends Code {
             mach.setARegENull(local_aregs, 1);
             return mach.getCall1();
         } else {
-            local_aregs.setAV(0,null);
+            local_aregs.areg0 = (null);
             mach.setARegENull(local_aregs, 1);
             return mach.Fail0;
         }

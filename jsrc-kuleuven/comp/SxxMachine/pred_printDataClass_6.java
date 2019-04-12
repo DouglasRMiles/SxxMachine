@@ -90,7 +90,7 @@ public class pred_printDataClass_6 extends Code {
         if (!(areg5.unifyJP(var6)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
+        local_aregs.areg0 = (S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
                 .dref(), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string5), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string8), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string9, var2
                         .dref(), var3.dref(), var4
                                 .dref()), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string10, var5

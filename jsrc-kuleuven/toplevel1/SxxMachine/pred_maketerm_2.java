@@ -147,7 +147,7 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
             return mach.Fail0;
         //System.out.println("Maketerm voor: " + areg0);
         final Map<JpVar, StructureTerm> subs = new HashMap<JpVar, StructureTerm>();
-        local_aregs.setAV(0,fastParse(areg0, mach, subs));
+        local_aregs.areg0 = (fastParse(areg0, mach, subs));
         //local_aregs.a(0).v = areg0;
         Term extras = null;
         for (final Map.Entry<JpVar, StructureTerm> e : subs.entrySet()) {
@@ -158,9 +158,9 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
             }
         }
 
-        local_aregs.setAV(0,areg0);
-        local_aregs.setAV(1,var2.dref());
-        local_aregs.setAV(2,posint1200);
+        local_aregs.areg0 = (areg0);
+        local_aregs.areg1 = (var2.dref());
+        local_aregs.areg2 = (posint1200);
         mach.setCont(local_aregs, 3, (extras == null ? continuation : extras));
         //mach.setCont(local_aregs,3,continuation);
         //mach.DoCut(mach.CUTB);

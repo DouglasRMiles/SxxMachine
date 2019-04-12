@@ -146,8 +146,8 @@ class pred_escapeStrings_2_2 extends pred_escapeStrings_2 {
 
         if (!(areg1.unifyJP(S(pred_escapeStrings_2_consts.string2, var3.dref(), var4.dref()))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
 
         mach.setCont(local_aregs, 2, S(pred_escapeStrings_2_consts.string1, var2.dref(), var4.dref(), continuation));
         mach.updateCUTB();

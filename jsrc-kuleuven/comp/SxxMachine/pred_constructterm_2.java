@@ -182,7 +182,7 @@ class pred_constructterm_2_2 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
 
         mach.setCont(local_aregs, 1, S(pred_constructterm_2_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string23), S(pred_constructterm_2_consts.string7, var1
@@ -277,7 +277,7 @@ class pred_constructterm_2_4 extends pred_constructterm_2 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs.setAV(0,S(pred_constructterm_2_consts.string5, var3
+        local_aregs.areg0 = (S(pred_constructterm_2_consts.string5, var3
                 .dref(), CONST(pred_constructterm_2_consts.string0), pred_constructterm_2_consts.posint0, var4, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string8), S(pred_constructterm_2_consts.string7, var4
                         .dref(), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string21), S(pred_constructterm_2_consts.string7, S(pred_constructterm_2_consts.string1, var2
                                 .dref(), var3
@@ -318,7 +318,7 @@ class pred_constructterm_2_5 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
         mach.setCont(local_aregs, 1, S(pred_constructterm_2_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_constructterm_2_consts.string17, CONST(pred_constructterm_2_consts.string18), S(pred_constructterm_2_consts.string19, var1
@@ -361,9 +361,9 @@ class pred_constructterm_2_6 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
-        local_aregs.setAV(1,S(pred_constructterm_2_consts.string0, new HeapChoice(
+        local_aregs.areg1 = (S(pred_constructterm_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_constructterm_2_consts.string4, var3, var1
                         .dref(), S(pred_constructterm_2_consts.string5, var2.dref(), var3
                                 .dref(), pred_constructterm_2_consts.posint0, var4, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string15), S(pred_constructterm_2_consts.string7, var4
@@ -410,11 +410,11 @@ class pred_constructterm_2_7 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3);
-        local_aregs.setAV(2,var4);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3);
+        local_aregs.areg2 = (var4);
 
-        local_aregs.setAV(3,S(pred_constructterm_2_consts.string3, var1
+        local_aregs.areg3 = (S(pred_constructterm_2_consts.string3, var1
                 .dref(), var5, var6, S(pred_constructterm_2_consts.string4, var7, var3
                         .dref(), S(pred_constructterm_2_consts.string5, var2.dref(), var7
                                 .dref(), pred_constructterm_2_consts.posint0, var8, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string8), S(pred_constructterm_2_consts.string7, var8

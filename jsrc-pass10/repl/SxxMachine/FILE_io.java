@@ -139,8 +139,8 @@ m.cont = cont;
     // stream_property(A,B):-var(B),!,'$stream_property'(A,B)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),var(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -168,8 +168,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),'$stream_property_specifier'(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -188,8 +188,8 @@ m.cont = cont;
     // stream_property(A,B):-illarg(domain(term,stream_property),stream_property(A,B),2)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // stream_property(A,B):-[illarg(domain(term,stream_property),stream_property(A,B),2)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -232,8 +232,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$get_stream_manager'(D),hash_map(D,E),'$builtin_member'((A,F),E),java(A),'$builtin_member'(B,F)]
         a3 = m.mkvar1();
@@ -271,8 +271,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),java(A),'$cut'(C),'$get_stream_manager'(D),hash_get(D,A,E),'$builtin_member'(B,E)]
         a3 = m.mkvar1();
@@ -303,8 +303,8 @@ m.cont = cont;
     // '$stream_property'(A,B):-illarg(domain(stream,stream),stream_property(A,B),1)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$stream_property'(A,B):-[illarg(domain(stream,stream),stream_property(A,B),1)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -398,7 +398,7 @@ m.cont = cont;
     // '$stream_property_specifier'(input):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'(input):-[]
         if (!  ATOM_input .unify(a1, m.trail))
@@ -410,7 +410,7 @@ m.cont = cont;
     // '$stream_property_specifier'(output):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'(output):-[]
         if (!  ATOM_output .unify(a1, m.trail))
@@ -422,7 +422,7 @@ m.cont = cont;
     // '$stream_property_specifier'(alias(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'(alias(A)):-[]
         a1 = a1.dref();
@@ -436,7 +436,7 @@ m.cont = cont;
     // '$stream_property_specifier'((mode A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'((mode A)):-[]
         a1 = a1.dref();
@@ -450,7 +450,7 @@ m.cont = cont;
     // '$stream_property_specifier'(type(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'(type(A)):-[]
         a1 = a1.dref();
@@ -464,7 +464,7 @@ m.cont = cont;
     // '$stream_property_specifier'(file_name(A)):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$stream_property_specifier'(file_name(A)):-[]
         a1 = a1.dref();

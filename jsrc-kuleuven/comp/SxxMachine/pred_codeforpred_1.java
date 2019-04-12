@@ -78,10 +78,10 @@ public class pred_codeforpred_1 extends Code {
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_codeforpred_1_consts.string3, S(pred_codeforpred_1_consts.string4, var2, var3), var4));
-        local_aregs.setAV(1,var1.dref());
+        local_aregs.areg0 = (S(pred_codeforpred_1_consts.string3, S(pred_codeforpred_1_consts.string4, var2, var3), var4));
+        local_aregs.areg1 = (var1.dref());
 
-        local_aregs.setAV(2,S(pred_codeforpred_1_consts.string5, var2
+        local_aregs.areg2 = (S(pred_codeforpred_1_consts.string5, var2
                 .dref(), var5, var6, S(pred_codeforpred_1_consts.string6, var7, S(pred_codeforpred_1_consts.string7, var6
                         .dref(), pred_codeforpred_1_consts.posint1), S(pred_codeforpred_1_consts.string8, S(pred_codeforpred_1_consts.string3, CONST(pred_codeforpred_1_consts.string9), S(pred_codeforpred_1_consts.string3, var5
                                 .dref(), S(pred_codeforpred_1_consts.string3, CONST(pred_codeforpred_1_consts.string10), S(pred_codeforpred_1_consts.string3, var7

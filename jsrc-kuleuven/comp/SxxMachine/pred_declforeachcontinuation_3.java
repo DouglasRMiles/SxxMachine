@@ -328,7 +328,7 @@ class pred_declforeachcontinuation_3_5 extends pred_declforeachcontinuation_3 {
         if (!(areg2.unifyJP(var5.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_declforeachcontinuation_3_consts.string2, CONST(pred_declforeachcontinuation_3_consts.string5), S(pred_declforeachcontinuation_3_consts.string2, var1
+        local_aregs.areg0 = (S(pred_declforeachcontinuation_3_consts.string2, CONST(pred_declforeachcontinuation_3_consts.string5), S(pred_declforeachcontinuation_3_consts.string2, var1
                 .dref(), S(pred_declforeachcontinuation_3_consts.string2, var2
                         .dref(), S(pred_declforeachcontinuation_3_consts.string2, CONST(pred_declforeachcontinuation_3_consts.string6), S(pred_declforeachcontinuation_3_consts.string2, S(pred_declforeachcontinuation_3_consts.string7, CONST(pred_declforeachcontinuation_3_consts.string8)), CONST(pred_declforeachcontinuation_3_consts.string9)))))));
 

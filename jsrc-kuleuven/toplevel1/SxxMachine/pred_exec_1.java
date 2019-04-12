@@ -88,7 +88,7 @@ class pred_exec_1_1 extends pred_exec_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(mach.getCUTB()), S(string8, continuation)));
         mach.updateCUTB();
         return var2cont;
@@ -160,8 +160,8 @@ class pred_exec_1_5 extends pred_exec_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var2);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var2);
         mach.setCont(local_aregs, 2, S(string0, new HeapChoice(mach.getCUTB()), S(string6, var2.dref(), continuation)));
         mach.updateCUTB();
         return specialgoal3cont;
@@ -178,7 +178,7 @@ class pred_exec_1_6 extends pred_exec_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return mach.getCall2();

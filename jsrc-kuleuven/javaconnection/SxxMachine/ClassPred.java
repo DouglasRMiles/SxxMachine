@@ -21,8 +21,8 @@ public class ClassPred extends Code {
         final Term c = local_aregs.getPlainArg(2);
         if (!find(classConst, className))
             return mach.Fail0;
-        local_aregs.setAV(1,local_aregs.setAV(2,null));
-        local_aregs.setAV(0,c);
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
+        local_aregs.areg0 = (c);
         return mach.getCall1();
     }
 

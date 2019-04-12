@@ -18,7 +18,7 @@ class pred_savecp_1 extends Code {
         if (!point.unifyJP(Integer(mach.getCurrentStackItem().getCurrentChoiceTimeStamp())))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, cont);
-        local_aregs.setAV(1,null);
+        local_aregs.areg1 = (null);
         return mach.getCall1();
     }
 
@@ -41,7 +41,7 @@ class pred_cutto extends Code {
         final int stack = (int) ((NumberTerm) point).longValue();
         mach.doCut(stack);
         mach.setCont(local_aregs, 0, cont);
-        local_aregs.setAV(1,null);
+        local_aregs.areg1 = (null);
         return mach.getCall1();
     }
 

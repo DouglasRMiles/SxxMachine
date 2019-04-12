@@ -861,7 +861,7 @@ compile_pred(Clauses, FA) -->
 	%
 	[FA: []],
 	{FA = Functor/Arity},
-	set_arguments(1, Arity, arg, ea, set), % set arg(N) to engine.areg(N)
+	set_arguments(1, Arity, arg, ea, set), % set arg(N) to MREG.areg(N)
 	[set(cont, econt)], % set cont to engine.cont
 	[OPT2],
 	[OPT3],
@@ -889,7 +889,7 @@ compile_pred2([Clause|Clauses], FA, N, GTI0, GTI) -->
 	[DeclLocalVars],    % generates the declarations of local variables
 	[decl_pred_vars([cont])],
 	{FA = _/Arity},
-	set_arguments(1, Arity, ea, a, set), % set engine.areg(N) to a(N).
+	set_arguments(1, Arity, ea, a, set), % set MREG.areg(N) to a(N).
 	[set(econt, cont)], % set engine.cont to cont
 	compile_clause(Clause, GTI0, GTI1, LTI),
 	{N1 is N + 1},
@@ -3408,14 +3408,14 @@ write_reg(X, _) :- var(X), !,
 	fail.
 write_reg(void,   Out) :- !, write(Out, 'new Var(engine)').
 /*
-write_reg(ea(1),  Out) :- !, write(Out, 'engine.areg1').
-write_reg(ea(2),  Out) :- !, write(Out, 'engine.areg2').
-write_reg(ea(3),  Out) :- !, write(Out, 'engine.areg3').
-write_reg(ea(4),  Out) :- !, write(Out, 'engine.areg4').
-write_reg(ea(5),  Out) :- !, write(Out, 'engine.areg5').
-write_reg(ea(6),  Out) :- !, write(Out, 'engine.areg6').
-write_reg(ea(7),  Out) :- !, write(Out, 'engine.areg7').
-write_reg(ea(8),  Out) :- !, write(Out, 'engine.areg8').
+write_reg(ea(1),  Out) :- !, write(Out, 'MREG.areg1').
+write_reg(ea(2),  Out) :- !, write(Out, 'MREG.areg2').
+write_reg(ea(3),  Out) :- !, write(Out, 'MREG.areg3').
+write_reg(ea(4),  Out) :- !, write(Out, 'MREG.areg4').
+write_reg(ea(5),  Out) :- !, write(Out, 'MREG.areg5').
+write_reg(ea(6),  Out) :- !, write(Out, 'MREG.areg6').
+write_reg(ea(7),  Out) :- !, write(Out, 'MREG.areg7').
+write_reg(ea(8),  Out) :- !, write(Out, 'MREG.areg8').
 */
 write_reg(ea(X),  Out) :- !, write(Out, 'engine.Areg['), Y is X-1, write(Out, Y), write(Out, ']').
 write_reg(econt,  Out) :- !, write(Out, 'engine.cont').

@@ -61,9 +61,9 @@ public class pred_gets_2 extends Code {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3);
-        local_aregs.setAV(2,var4);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3);
+        local_aregs.areg2 = (var4);
 
         mach.setCont(local_aregs, 3, S(pred_gets_2_consts.string1, var4.dref(), pred_gets_2_consts.posint0, var2
                 .dref(), continuation));

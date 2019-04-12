@@ -169,8 +169,8 @@ class pred_maketerm_3_1 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var5)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var4.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var4.dref());
         mach.setCont(local_aregs, 2, S(string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3);
@@ -279,8 +279,8 @@ class pred_maketerm_3_4 extends pred_maketerm_3 {
         //areg0 moet eindigen op ')' anders al niet correct
         if (!endsWith(areg0, ")"))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var5);
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var5);
         mach.setCont(local_aregs, 2, S(string20, var3.dref(), var1.dref(), var5
                 .dref(), S(string0, new HeapChoice(mach.getCUTB()), continuation)));
         mach.updateCUTB();
@@ -317,10 +317,10 @@ class pred_maketerm_3_5 extends pred_maketerm_3 {
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
         var4.unifyJP(S(".", Jv(mach), Jv(mach)));
-        local_aregs.setAV(0,var4);
-        local_aregs.setAV(1,S(string4, S(string10, var5), var6));
-        local_aregs.setAV(2,var1.dref());
-        local_aregs.setAV(3,S(string13, var7, var8, var5.dref(), S(string18, var7.dref(), var3
+        local_aregs.areg0 = (var4);
+        local_aregs.areg1 = (S(string4, S(string10, var5), var6));
+        local_aregs.areg2 = (var1.dref());
+        local_aregs.areg3 = (S(string13, var7, var8, var5.dref(), S(string18, var7.dref(), var3
                 .dref(), S(string16, var8.dref(), var7.dref(), var9, var10, S(string15, var4.dref(), var11, var9
                         .dref(), S(string15, var6.dref(), var12, var10
                                 .dref(), S(string20, var2.dref(), var5.dref(), S(string4, var11
@@ -354,9 +354,9 @@ class pred_maketerm_3_6 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.setAV(0,var5);
-        local_aregs.setAV(1,var6);
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg0 = (var5);
+        local_aregs.areg1 = (var6);
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string18, var5.dref(), var4
                 .dref(), S(string16, var6.dref(), var5.dref(), var7, S(string15, var2.dref(), var8, var7
                         .dref(), S(string20, var3.dref(), var1.dref(), S(string4, var8
@@ -387,11 +387,11 @@ class pred_maketerm_3_7 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.setAV(0,var5);
-        local_aregs.setAV(1,S(string4, S(string10, CONST(string3)), var6));
+        local_aregs.areg0 = (var5);
+        local_aregs.areg1 = (S(string4, S(string10, CONST(string3)), var6));
         if (!endsWith(var1, "]"))
             return mach.Fail0;
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string15, var5.dref(), var2
                 .dref(), posint900, S(string15, S(string4, S(string10, CONST(string5)), var6.dref()), var3
                         .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation))));
@@ -422,9 +422,9 @@ class pred_maketerm_3_8 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.setAV(0,var5);
-        local_aregs.setAV(1,S(string4, S(string10, CONST(string22)), var6));
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg0 = (var5);
+        local_aregs.areg1 = (S(string4, S(string10, CONST(string22)), var6));
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string8, var7, S(string4, S(string10, CONST(string7)), CONST(string6)), var6
                 .dref(), S(string15, var5.dref(), var2.dref(), posint900, S(string15, var7.dref(), var3
                         .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation)))));
@@ -452,9 +452,9 @@ class pred_maketerm_3_9 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var4);
-        local_aregs.setAV(1,S(string4, S(string10, CONST(string2)), CONST(string6)));
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg0 = (var4);
+        local_aregs.areg1 = (S(string4, S(string10, CONST(string2)), CONST(string6)));
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string0, new HeapChoice(
                 mach.getCUTB()), S(string15, var4.dref(), var2.dref(), continuation)));
         mach.updateCUTB();
@@ -481,9 +481,9 @@ class pred_maketerm_3_10 extends pred_maketerm_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var4);
-        local_aregs.setAV(1,S(string4, S(string10, CONST(string7)), CONST(string6)));
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg0 = (var4);
+        local_aregs.areg1 = (S(string4, S(string10, CONST(string7)), CONST(string6)));
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string15, var4.dref(), var2
                 .dref(), posint900, S(string0, new HeapChoice(mach.getCUTB()), continuation)));
         mach.updateCUTB();

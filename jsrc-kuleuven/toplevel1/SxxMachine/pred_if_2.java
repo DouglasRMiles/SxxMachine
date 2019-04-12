@@ -25,9 +25,9 @@ public class pred_if_2 extends Code {
         final Term iftrue = local_aregs.getTermDRef(1);
         final Term cont = local_aregs.getTermDRef(2);
         final Term position = Jv(mach);
-        local_aregs.setAV(2,null);
-        local_aregs.setAV(1,S("call", test, S("call", iftrue, cont)));
-        local_aregs.setAV(0,position);
+        local_aregs.areg2 = (null);
+        local_aregs.areg1 = (S("call", test, S("call", iftrue, cont)));
+        local_aregs.areg0 = (position);
         return savecp;
     }
 

@@ -111,8 +111,8 @@ class pred_collectvars_3_2 extends pred_collectvars_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var6)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,CONST(string4));
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (CONST(string4));
         mach.setCont(local_aregs, 2, S(string8, var2.dref(), var5.dref(), S(string0, new HeapChoice(
                 mach.getCUTB()), S(string5, var4.dref(), S(string1, S(string2, var1.dref(), var2.dref()), var5
                         .dref()), var6.dref(), continuation))));
@@ -141,9 +141,9 @@ class pred_collectvars_3_3 extends pred_collectvars_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var4.dref());
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var4.dref());
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return entry_code;

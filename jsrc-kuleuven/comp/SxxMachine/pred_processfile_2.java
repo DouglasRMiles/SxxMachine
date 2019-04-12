@@ -143,7 +143,7 @@ class pred_processfile_2_2 extends pred_processfile_2 {
 
         if (!(areg1.unifyJP(S(pred_processfile_2_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

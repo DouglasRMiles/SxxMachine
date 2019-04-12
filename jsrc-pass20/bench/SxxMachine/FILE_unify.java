@@ -117,8 +117,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -136,8 +136,8 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -171,12 +171,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify(A,B,C,D,E,F):-['$get_level'(G),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),uninit(A,B,C,D,I,F)]
         a7 = m.mkvar1();
@@ -200,12 +200,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify(A,B,C,D,E,F):-['$get_level'(G),myin(A,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),init(A,B,C,D,nonlast,J,I,F)]
         a7 = m.mkvar1();
@@ -260,12 +260,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // uninit(A,B,C,D,E,F):-['$get_level'(G),my_compound(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(J^h,A)|K]),termtag(B,J),'$unify'(L,K),unify_block(nonlast,B,M,C,N,O,L,P),incl(A,N,D),'$unify'(F,P)]
         a7 = m.mkvar1();
@@ -306,12 +306,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // uninit(A,B,C,D,E,F):-['$get_level'(G),atomic(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(tatm^B,A)|J]),incl(A,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
@@ -364,12 +364,12 @@ m.cont = cont;
     // uninit(A,B,C,D,E,F):-(var(B),G=E),(!,H=G),unify_var(A,B,C,D,H,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // uninit(A,B,C,D,E,F):-['$get_level'(G),var(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),unify_var(A,B,C,D,I,F)]
         a7 = m.mkvar1();
@@ -435,14 +435,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // init(A,B,C,D,E,F,G,H):-['$get_level'(I),nonvar(B),'$unify'(J,G),'$cut'(I),'$unify'(K,J),termtag(B,L),'$unify'(M,K),'$unify'(M,[deref(A),switch(L,A,[trail(A)|N],O,fail)|P]),unify_writemode(A,B,C,E,F,N,[]),'$unify'(Q,P),unify_readmode(A,B,C,D,F,O,[]),'$unify'(H,Q)]
         a9 = m.mkvar1();
@@ -505,14 +505,14 @@ m.cont = cont;
     // init(A,B,C,D,E,F,G,H):-(var(B),I=G),(!,J=I),unify_var(A,B,C,D,J,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // init(A,B,C,D,E,F,G,H):-['$get_level'(I),var(B),'$unify'(J,G),'$cut'(I),'$unify'(K,J),unify_var(A,B,C,D,K,H)]
         a9 = m.mkvar1();
@@ -592,12 +592,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify_var(A,B,C,C,D,E):-['$get_level'(F),myin(A,C),myin(B,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),'$unify'(H,[unify(A,B,fail)|E])]
         if (! a3.unify(a4, m.trail))
@@ -628,12 +628,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),myin(A,C),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(A,B)|J]),incl(B,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
@@ -665,12 +665,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),myin(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(B,A)|J]),incl(A,C,D),'$unify'(F,J)]
         a7 = m.mkvar1();
@@ -702,12 +702,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // unify_var(A,B,C,D,E,F):-['$get_level'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(B,C),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[move(tvar^h,A),move(tvar^h,B),add(1,h),move(B,[h-1])|J]),incl(A,C,K),incl(B,K,D),'$unify'(F,J)]
         a7 = m.mkvar1();
@@ -770,8 +770,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -789,8 +789,8 @@ m.cont = cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -821,8 +821,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -840,8 +840,8 @@ m.cont = cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -872,8 +872,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -891,8 +891,8 @@ m.cont = cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -923,8 +923,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -942,8 +942,8 @@ m.cont = cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -983,13 +983,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
         cont = m.cont;
     // unify_readmode(A,B,C,D,E,F,G):-['$get_level'(H),structure(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[equal([A],tatm^(K/L),fail)|M]),functor(B,K,L),'$unify'(N,M),unify_args(1,L,B,C,D,0,A,E,N,G)]
         a8 = m.mkvar1();
@@ -1031,13 +1031,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
         cont = m.cont;
     // unify_readmode(A,B,C,D,E,F,G):-['$get_level'(H),cons(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),unify_args(1,2,B,C,D,-1,A,E,J,G)]
         a8 = m.mkvar1();
@@ -1060,13 +1060,13 @@ m.cont = cont;
     // unify_readmode(A,B,C,C,D,E,F):-(atomic(B),G=E),(!,H=G),H=[equal(A,tatm^B,fail)|F]
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
         cont = m.cont;
     // unify_readmode(A,B,C,C,D,E,F):-['$get_level'(G),atomic(B),'$unify'(H,E),'$cut'(G),'$unify'(I,H),'$unify'(I,[equal(A,tatm^B,fail)|F])]
         if (! a3.unify(a4, m.trail))
@@ -1147,16 +1147,16 @@ m.cont = cont;
     // unify_args(A,B,C,D,D,E,F,G,H,I):-(A>B,J=H),!,I=J
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
         cont = m.cont;
     // unify_args(A,B,C,D,D,E,F,G,H,I):-['$get_level'(J),'$greater_than'(A,B),'$unify'(K,H),'$cut'(J),'$unify'(I,K)]
         if (! a4.unify(a5, m.trail))
@@ -1194,16 +1194,16 @@ m.cont = cont;
     // unify_args(A,B,C,D,E,F,G,[H|I],J,K):-(A=B,L=J),(!,M=L),unify_arg(A,C,D,E,F,G,last,I,M,K)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
         cont = m.cont;
     // unify_args(A,B,C,D,E,F,G,[H|I],J,K):-['$get_level'(L),'$unify'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),unify_arg(A,C,D,E,F,G,last,I,N,K)]
         a8 = a8.dref();
@@ -1251,16 +1251,16 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2, p3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
         cont = m.cont;
     // unify_args(A,B,C,D,E,F,G,H,I,J):-['$get_level'(K),'$less_than'(A,B),'$unify'(L,I),'$cut'(K),'$unify'(M,L),unify_arg(A,C,D,N,F,G,nonlast,O,M,P),Q is A+1,'$unify'(R,P),unify_args(Q,B,C,N,E,F,G,H,R,J)]
         a11 = m.mkvar1();
@@ -1408,13 +1408,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
         cont = m.cont;
     // unify_writemode(A,B,C,D,E,F,G):-['$get_level'(H),my_compound(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[move(K^h,[A])|L]),termtag(B,K),'$unify'(M,L),unify_block(D,B,N,C,O,E,M,G)]
         a8 = m.mkvar1();
@@ -1451,13 +1451,13 @@ m.cont = cont;
     // unify_writemode(A,B,C,D,E,F,G):-(atomic(B),H=F),(!,I=H),I=[move(tatm^B,[A])|G]
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
         cont = m.cont;
     // unify_writemode(A,B,C,D,E,F,G):-['$get_level'(H),atomic(B),'$unify'(I,F),'$cut'(H),'$unify'(J,I),'$unify'(J,[move(tatm^B,[A])|G])]
         a8 = m.mkvar1();
@@ -1537,14 +1537,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // unify_block(last,A,B,C,C,[D|E],F,G):-['$neck_cut','$unify'(H,F),'$unify'(H,[add(B,h),jump(D)|I]),size(A,0,B),'$unify'(G,I)]
         if (!  ATOM_last .unify(a1, m.trail))
@@ -1593,14 +1593,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // unify_block(nonlast,A,B,C,D,[E|F],G,H):-['$neck_cut','$unify'(I,G),'$unify'(I,[add(B,h)|J]),size(A,0,B),K is -B,'$unify'(L,J),block(A,K,0,C,D,F,L,H)]
         if (!  ATOM_nonlast .unify(a1, m.trail))
@@ -1682,14 +1682,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // block(A,B,C,D,E,F,G,H):-['$get_level'(I),structure(A),'$unify'(J,G),'$cut'(I),'$unify'(K,J),'$unify'(K,[move(tatm^(L/M),[h+B])|N]),functor(A,L,M),O is B+M+1,P is B+1,'$unify'(Q,N),make_slots(1,M,A,P,R,D,S,Q,T),block_args(1,M,A,O,C,R,S,E,F,T,H)]
         a9 = m.mkvar1();
@@ -1751,14 +1751,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // block(A,B,C,D,E,F,G,H):-['$get_level'(I),cons(A),'$unify'(J,G),'$cut'(I),'$unify'(K,J),L is B+2,'$unify'(M,K),make_slots(1,2,A,B,N,D,O,M,P),block_args(1,2,A,L,C,N,O,E,F,P,H)]
         a9 = m.mkvar1();
@@ -1792,14 +1792,14 @@ m.cont = cont;
     // block(A,B,B,C,C,[],D,E):-(atomic(A),F=D),!,E=F
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // block(A,B,B,C,C,[],D,E):-['$get_level'(F),atomic(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         if (! a2.unify(a3, m.trail))
@@ -1842,14 +1842,14 @@ m.cont = cont;
     // block(A,B,B,C,C,[],D,E):-(var(A),F=D),!,E=F
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
         cont = m.cont;
     // block(A,B,B,C,C,[],D,E):-['$get_level'(F),var(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         if (! a2.unify(a3, m.trail))
@@ -1920,17 +1920,17 @@ m.cont = cont;
     // block_args(A,B,C,D,D,[],E,E,[],F,G):-(A>B,H=F),!,G=H
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
-        a11 = m.AREGS.areg11;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
+        a11 = MARG.areg10;
         cont = m.cont;
     // block_args(A,B,C,D,D,[],E,E,[],F,G):-['$get_level'(H),'$greater_than'(A,B),'$unify'(I,F),'$cut'(H),'$unify'(G,I)]
         if (! a4.unify(a5, m.trail))
@@ -1975,17 +1975,17 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
-        a11 = m.AREGS.areg11;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
+        a11 = MARG.areg10;
         cont = m.cont;
     // block_args(A,B,C,D,E,[D],F,G,[H|I],J,K):-['$get_level'(L),'$unify'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),'$unify'(N,[label(H)|O]),arg(A,C,P),'$unify'(Q,O),block(P,D,E,F,G,I,Q,K)]
         a6 = a6.dref();
@@ -2060,17 +2060,17 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
-        a10 = m.AREGS.areg10;
-        a11 = m.AREGS.areg11;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
+        a10 = MARG.areg9;
+        a11 = MARG.areg10;
         cont = m.cont;
     // block_args(A,B,C,D,E,[D|F],G,H,I,J,K):-['$get_level'(L),'$less_than'(A,B),'$unify'(M,J),'$cut'(L),'$unify'(N,M),arg(A,C,O),'$unify'(P,N),block(O,D,Q,G,R,S,P,T),U is A+1,'$unify'(V,T),block_args(U,B,C,Q,E,F,R,H,I,V,K)]
         a6 = a6.dref();
@@ -2156,15 +2156,15 @@ m.cont = cont;
     // make_slots(A,B,C,D,[],E,E,F,G):-(A>B,H=F),!,G=H
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
         cont = m.cont;
     // make_slots(A,B,C,D,[],E,E,F,G):-['$get_level'(H),'$greater_than'(A,B),'$unify'(I,F),'$cut'(H),'$unify'(G,I)]
         if (!  Prolog.Nil .unify(a5, m.trail))
@@ -2205,15 +2205,15 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
-        a7 = m.AREGS.areg7;
-        a8 = m.AREGS.areg8;
-        a9 = m.AREGS.areg9;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
+        a7 = MARG.areg6;
+        a8 = MARG.areg7;
+        a9 = MARG.areg8;
         cont = m.cont;
     // make_slots(A,B,C,D,[E|F],G,H,I,J):-['$get_level'(K),'$less_or_equal'(A,B),'$unify'(L,I),'$cut'(K),'$unify'(M,L),arg(A,C,N),'$unify'(O,M),init_var(N,D,G,O,P),incl(N,G,Q),make_word(N,E,R),'$unify'(S,P),'$unify'(S,[move(R,[h+D])|T]),U is D+1,V is A+1,'$unify'(W,T),make_slots(V,B,C,U,F,Q,H,W,J)]
         a5 = a5.dref();
@@ -2317,8 +2317,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-['$get_level'(C),myin(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -2336,8 +2336,8 @@ m.cont = cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B):-[]
         return cont;
@@ -2375,11 +2375,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // init_var(A,B,C,D,E):-['$get_level'(F),var(A),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,C),'$unify'(G,D),'$cut'(F),'$unify'(H,G),'$unify'(H,[move(tvar^(h+B),A)|E])]
         a6 = m.mkvar1();
@@ -2419,11 +2419,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // init_var(A,B,C,D,E):-['$get_level'(F),var(A),myin(A,C),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
@@ -2450,11 +2450,11 @@ m.cont = cont;
     // init_var(A,B,C,D,E):-(nonvar(A),F=D),!,E=F
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // init_var(A,B,C,D,E):-['$get_level'(F),nonvar(A),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
@@ -2517,9 +2517,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // make_word(A,B,C^(h+B)):-['$get_level'(D),my_compound(A),'$cut'(D),termtag(A,C)]
         a3 = a3.dref();
@@ -2548,9 +2548,9 @@ m.cont = cont;
     // make_word(A,B,A):-var(A),!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // make_word(A,B,A):-['$get_level'(C),var(A),'$cut'(C)]
         if (! a1.unify(a3, m.trail))
@@ -2578,9 +2578,9 @@ m.cont = cont;
     // make_word(A,B,tatm^A):-atomic(A),!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // make_word(A,B,tatm^A):-['$get_level'(C),atomic(A),'$cut'(C)]
         a3 = a3.dref();
@@ -2641,9 +2641,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // size(A,B,C):-['$get_level'(D),structure(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),functor(A,G,H),'$unify'(I,F),add(1,I,J),add(H,J,K),size_args(1,H,A,K,C)]
         a4 = m.mkvar1();
@@ -2675,9 +2675,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // size(A,B,C):-['$get_level'(D),cons(A),'$unify'(E,B),'$cut'(D),'$unify'(F,E),add(2,F,G),size_args(1,2,A,G,C)]
         a4 = m.mkvar1();
@@ -2702,9 +2702,9 @@ m.cont = cont;
     // size(A,B,C):-(atomic(A),D=B),!,C=D
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // size(A,B,C):-['$get_level'(D),atomic(A),'$unify'(E,B),'$cut'(D),'$unify'(C,E)]
         a4 = m.mkvar1();
@@ -2741,9 +2741,9 @@ m.cont = cont;
     // size(A,B,C):-(var(A),D=B),!,C=D
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // size(A,B,C):-['$get_level'(D),var(A),'$unify'(E,B),'$cut'(D),'$unify'(C,E)]
         a4 = m.mkvar1();
@@ -2802,11 +2802,11 @@ m.cont = cont;
     // size_args(A,B,C,D,E):-(A>B,F=D),!,E=F
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // size_args(A,B,C,D,E):-['$get_level'(F),'$greater_than'(A,B),'$unify'(G,D),'$cut'(F),'$unify'(E,G)]
         a6 = m.mkvar1();
@@ -2843,11 +2843,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // size_args(A,B,C,D,E):-['$get_level'(F),'$less_or_equal'(A,B),'$unify'(G,D),'$cut'(F),'$unify'(H,G),arg(A,C,I),'$unify'(J,H),size(I,J,K),L is A+1,'$unify'(M,K),size_args(L,B,C,M,E)]
         a6 = m.mkvar1();
@@ -2984,9 +2984,9 @@ m.cont = cont;
     // in_2(=,A,B):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // in_2(=,A,B):-[]
         if (!  ATOM_$003D .unify(a1, m.trail))
@@ -2998,9 +2998,9 @@ m.cont = cont;
     // in_2(>,A,B):-myin(A,B)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // in_2(>,A,B):-[myin(A,B)]
         if (!  ATOM_$003E .unify(a1, m.trail))
@@ -3057,9 +3057,9 @@ m.cont = cont;
     // incl_2([],A,[A]):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // incl_2([],A,[A]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -3083,9 +3083,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // incl_2([A|B],C,D):-[compare(E,C,A),incl_3(E,C,A,B,D)]
         a1 = a1.dref();
@@ -3141,11 +3141,11 @@ m.cont = cont;
     // incl_3(<,A,B,C,[A,B|C]):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // incl_3(<,A,B,C,[A,B|C]):-[]
         if (!  ATOM_$003C .unify(a1, m.trail))
@@ -3179,11 +3179,11 @@ m.cont = cont;
     // incl_3(=,A,B,C,[B|C]):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // incl_3(=,A,B,C,[B|C]):-[]
         if (!  ATOM_$003D .unify(a1, m.trail))
@@ -3206,11 +3206,11 @@ m.cont = cont;
     // incl_3(>,A,B,C,[B|D]):-incl_2(C,A,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // incl_3(>,A,B,C,[B|D]):-[incl_2(C,A,D)]
         if (!  ATOM_$003E .unify(a1, m.trail))
@@ -3254,7 +3254,7 @@ m.cont = cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-atomic(A),!,fail
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-['$get_level'(B),atomic(A),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -3282,7 +3282,7 @@ m.cont = cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A):-[]
         return cont;
@@ -3365,9 +3365,9 @@ m.cont = cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-A=[B|C],!,fail
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-['$get_level'(D),'$unify'(A,[B|C]),'$cut'(D),fail]
         a4 = m.mkvar1();
@@ -3395,9 +3395,9 @@ m.cont = cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl'(A,B,C):-[]
         return cont;
@@ -3459,8 +3459,8 @@ m.cont = cont;
     // termtag(A,tstr):-structure(A)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // termtag(A,tstr):-[structure(A)]
         if (!  ATOM_tstr .unify(a2, m.trail))
@@ -3473,8 +3473,8 @@ m.cont = cont;
     // termtag(A,tlst):-cons(A)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // termtag(A,tlst):-[cons(A)]
         if (!  ATOM_tlst .unify(a2, m.trail))
@@ -3487,8 +3487,8 @@ m.cont = cont;
     // termtag(A,tatm):-atomic(A)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // termtag(A,tatm):-[atomic(A)]
         if (!  ATOM_tatm .unify(a2, m.trail))
@@ -3506,8 +3506,8 @@ m.cont = cont;
     // termtag(A,tvar):-var(A)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // termtag(A,tvar):-[var(A)]
         if (!  ATOM_tvar .unify(a2, m.trail))

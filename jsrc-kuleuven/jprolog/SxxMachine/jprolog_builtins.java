@@ -187,7 +187,7 @@ class pred_unify_2 extends Code {
 
         if (mach.getExceptionState() == ErrorStatus.CHANGEDPENDINGGOALS) {
             log.info("...pushing interrupt vector to the front of the continuation");
-            local_aregs.setAV(0,S(("call_list"), mach.getPendinggoals(), local_aregs.getPlainArg(0)));
+            local_aregs.areg0 = (S(("call_list"), mach.getPendinggoals(), local_aregs.getPlainArg(0)));
             mach.setExceptionState(ErrorStatus.NONE);
             mach.setPendinggoals(Prolog.Nil);
         }
@@ -223,7 +223,7 @@ class pred_univ_3 extends Code {
                 return mach.Fail0;
             if (!arg3.unifyJP(CONST("[]")))
                 return mach.Fail0;
-            local_aregs.setAV(0,local_aregs.getPlainArg(3));
+            local_aregs.areg0 = (local_aregs.getPlainArg(3));
             mach.setARegENull(local_aregs, 3, 1);
             return mach.getCall1();
         } else if (arg1.isCompound()) {
@@ -234,7 +234,7 @@ class pred_univ_3 extends Code {
                 return mach.Fail0;
             if (!arg3.unifyJP(arguments))
                 return mach.Fail0;
-            local_aregs.setAV(0,local_aregs.getPlainArg(3));
+            local_aregs.areg0 = (local_aregs.getPlainArg(3));
             mach.setARegENull(local_aregs, 3, 1);
             return mach.getCall1();
         } else {
@@ -253,7 +253,7 @@ class pred_univ_3 extends Code {
                     //Moet toch nog werken
                     if (!arg1.unifyJP(arg2))
                         return mach.Fail0;
-                    local_aregs.setAV(0,local_aregs.getPlainArg(3));
+                    local_aregs.areg0 = (local_aregs.getPlainArg(3));
                     mach.setARegENull(local_aregs, 3, 1);
                     return mach.getCall1();
                 }
@@ -616,7 +616,7 @@ class pred_type_of_2 extends Code {
         if (!(arg2.unifyJP(CONST(s))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, local_aregs.getPlainArg(2)); // dinstall the continuation
-        local_aregs.setAV(1,local_aregs.setAV(2, null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         return mach.getCall1();
     }
 }
@@ -655,7 +655,7 @@ class pred_atype_of_2 extends Code {
         if (!(arg2.unifyJP(CONST(s))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, local_aregs.getPlainArg(2)); // dinstall the continuation
-        local_aregs.setAV(1,local_aregs.setAV(2, null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         return mach.getCall1();
     }
 }
@@ -791,7 +791,7 @@ class pred_freeze_internal_2 extends Code {
         if (!(arg1.unifyJP(frv)))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, local_aregs.getPlainArg(2)); // dinstall the continuation
-        local_aregs.setAV(1, local_aregs.setAV(2, null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         return mach.getCall1();
     }
 }
@@ -814,7 +814,7 @@ class pred_execcontinuation_0 extends Code {
         int i = code.arity() + 1;
 
         while (i-- > 0) {
-            local_aregs.setAV(i,c.getArg(i));
+            local_aregs.setAV(i, c.getArg(i));
         }
         return code;
     }
@@ -843,7 +843,7 @@ class pred_frozen_2 extends Code {
         if (!(arg2.unifyJP(goal)))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, local_aregs.getPlainArg(2)); // dinstall the continuation
-        local_aregs.setAV(1, local_aregs.setAV(2, null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         return mach.getCall1();
     }
 }

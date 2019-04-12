@@ -161,11 +161,11 @@ class pred_eliminate_disjunction_list_3_2 extends pred_eliminate_disjunction_lis
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var5);
-        local_aregs.setAV(3,var4.dref());
-        local_aregs.setAV(4,var6);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var5);
+        local_aregs.areg3 = (var4.dref());
+        local_aregs.areg4 = (var6);
 
         mach.setCont(local_aregs, 5, S(pred_eliminate_disjunction_list_3_consts.string1, var2.dref(), var5.dref(), var6
                 .dref(), continuation));

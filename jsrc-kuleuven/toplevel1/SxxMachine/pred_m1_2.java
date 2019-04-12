@@ -61,7 +61,7 @@ class pred_m1_2_1 extends pred_m1_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string2, S(string1, var1.dref(), var2), var3))))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
@@ -84,8 +84,8 @@ class pred_m1_2_2 extends pred_m1_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string2, var2, var3))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return entry_code;

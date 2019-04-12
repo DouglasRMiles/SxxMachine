@@ -132,8 +132,8 @@ m.cont = cont;
     // x less_than y:-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // x less_than y:-[]
         if (!  ATOM_x .unify(a1, m.trail))
@@ -147,8 +147,8 @@ m.cont = cont;
     // y less_than z:-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // y less_than z:-[]
         if (!  ATOM_y .unify(a1, m.trail))
@@ -162,8 +162,8 @@ m.cont = cont;
     // x less_than z:-true
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // x less_than z:-[]
         if (!  ATOM_x .unify(a1, m.trail))
@@ -227,9 +227,9 @@ m.cont = cont;
     // poly_add(poly(A,B),poly(A,C),poly(A,D)):-!,term_add(B,C,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_add(poly(A,B),poly(A,C),poly(A,D)):-['$neck_cut',term_add(B,C,D)]
         a1 = a1.dref();
@@ -260,9 +260,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_add(poly(A,B),poly(C,D),poly(A,E)):-['$get_level'(F),A less_than C,'$cut'(F),add_to_order_zero_term(B,poly(C,D),E)]
         a1 = a1.dref();
@@ -301,9 +301,9 @@ m.cont = cont;
     // poly_add(A,poly(B,C),poly(B,D)):-!,add_to_order_zero_term(C,A,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_add(A,poly(B,C),poly(B,D)):-['$neck_cut',add_to_order_zero_term(C,A,D)]
         a2 = a2.dref();
@@ -328,9 +328,9 @@ m.cont = cont;
     // poly_add(poly(A,B),C,poly(A,D)):-!,add_to_order_zero_term(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_add(poly(A,B),C,poly(A,D)):-['$neck_cut',add_to_order_zero_term(B,C,D)]
         a1 = a1.dref();
@@ -355,9 +355,9 @@ m.cont = cont;
     // poly_add(A,B,C):-C is A+B
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_add(A,B,C):-[C is A+B]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(4))
@@ -463,9 +463,9 @@ m.cont = cont;
     // term_add([],A,A):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_add([],A,A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -482,9 +482,9 @@ m.cont = cont;
     // term_add(A,[],A):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_add(A,[],A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
@@ -502,9 +502,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_add([term(A,B)|C],[term(A,D)|E],[term(A,F)|G]):-['$neck_cut',poly_add(B,D,F),term_add(C,E,G)]
         a1 = a1.dref();
@@ -568,9 +568,9 @@ m.cont = cont;
     // term_add([term(A,B)|C],[term(D,E)|F],[term(A,B)|G]):-A<D,!,term_add(C,[term(D,E)|F],G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_add([term(A,B)|C],[term(D,E)|F],[term(A,B)|G]):-['$get_level'(H),'$less_than'(A,D),'$cut'(H),term_add(C,[term(D,E)|F],G)]
         a1 = a1.dref();
@@ -641,9 +641,9 @@ m.cont = cont;
         a15 =  S( FUNCTOR_term_2 , a10, a11);
  ;
         a16 = CONS(a15, a9);
-m.setAV(1, a5);
-m.setAV(2, a16);
-m.setAV(3, a13);
+m.AREGS = MARG;MARG.areg0 = a5;
+        MARG.areg1 = a16;
+        MARG.areg2 = a13;
 m.cont = cont;
         return term_add_3_top(m);
     }
@@ -652,9 +652,9 @@ m.cont = cont;
     // term_add(A,[term(B,C)|D],[term(B,C)|E]):-term_add(A,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_add(A,[term(B,C)|D],[term(B,C)|E]):-[term_add(A,D,E)]
         a2 = a2.dref();
@@ -689,9 +689,9 @@ m.cont = cont;
             if (!a8.unifyS( FUNCTOR_term_2 , m.trail, a6, a7)){
                 return m.fail();
             }
-m.setAV(1, a1);
-m.setAV(2, a5);
-m.setAV(3, a9);
+m.AREGS = MARG;MARG.areg0 = a1;
+        MARG.areg1 = a5;
+        MARG.areg2 = a9;
 m.cont = cont;
         return term_add_3_top(m);
     }
@@ -724,9 +724,9 @@ m.cont = cont;
     // add_to_order_zero_term([term(0,A)|B],C,[term(0,D)|B]):-!,poly_add(A,C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // add_to_order_zero_term([term(0,A)|B],C,[term(0,D)|B]):-['$neck_cut',poly_add(A,C,D)]
         a1 = a1.dref();
@@ -772,9 +772,9 @@ m.cont = cont;
     // add_to_order_zero_term(A,B,[term(0,B)|A]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // add_to_order_zero_term(A,B,[term(0,B)|A]):-[]
         a3 = a3.dref();
@@ -845,9 +845,9 @@ m.cont = cont;
     // poly_exp(0,A,1):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_exp(0,A,1):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -865,9 +865,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_exp(A,B,C):-['$get_level'(D),E is A>>1,A is E<<1,'$cut'(D),poly_exp(E,B,F),poly_mul(F,F,C)]
         a4 = m.mkvar1();
@@ -900,9 +900,9 @@ m.cont = cont;
         a8 = m.mkvar1();
         p1 = //
  Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a8, a8, a3), cont);
-m.setAV(1, a5);
-m.setAV(2, a2);
-m.setAV(3, a8);
+m.AREGS = MARG;MARG.areg0 = a5;
+        MARG.areg1 = a2;
+        MARG.areg2 = a8;
         m.cont = p1;
         return poly_exp_3_top(m);
     }
@@ -912,9 +912,9 @@ m.setAV(3, a8);
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_exp(A,B,C):-[D is A-1,poly_exp(D,B,E),poly_mul(B,E,C)]
         a4 = m.mkvar1();
@@ -929,9 +929,9 @@ m.setAV(3, a8);
         a6 = m.mkvar1();
         p1 = //
  Op("poly_mul", FILE_poly_10::PRED_poly_mul_3_static_exec, VA(a2, a6, a3), cont);
-m.setAV(1, a4);
-m.setAV(2, a2);
-m.setAV(3, a6);
+m.AREGS = MARG;MARG.areg0 = a4;
+        MARG.areg1 = a2;
+        MARG.areg2 = a6;
         m.cont = p1;
         return poly_exp_3_top(m);
     }
@@ -990,9 +990,9 @@ m.cont = cont;
     // poly_mul(poly(A,B),poly(A,C),poly(A,D)):-!,term_mul(B,C,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_mul(poly(A,B),poly(A,C),poly(A,D)):-['$neck_cut',term_mul(B,C,D)]
         a1 = a1.dref();
@@ -1023,9 +1023,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_mul(poly(A,B),poly(C,D),poly(A,E)):-['$get_level'(F),A less_than C,'$cut'(F),mul_through(B,poly(C,D),E)]
         a1 = a1.dref();
@@ -1064,9 +1064,9 @@ m.cont = cont;
     // poly_mul(A,poly(B,C),poly(B,D)):-!,mul_through(C,A,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_mul(A,poly(B,C),poly(B,D)):-['$neck_cut',mul_through(C,A,D)]
         a2 = a2.dref();
@@ -1091,9 +1091,9 @@ m.cont = cont;
     // poly_mul(poly(A,B),C,poly(A,D)):-!,mul_through(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_mul(poly(A,B),C,poly(A,D)):-['$neck_cut',mul_through(B,C,D)]
         a1 = a1.dref();
@@ -1118,9 +1118,9 @@ m.cont = cont;
     // poly_mul(A,B,C):-C is A*B
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // poly_mul(A,B,C):-[C is A*B]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_$002A_2'),y(1),a(4))
@@ -1187,9 +1187,9 @@ m.cont = cont;
     // term_mul([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_mul([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1206,9 +1206,9 @@ m.cont = cont;
     // term_mul(A,[],[]):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_mul(A,[],[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
@@ -1226,9 +1226,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // term_mul([A|B],C,D):-[single_term_mul(C,A,E),term_mul(B,C,F),term_add(E,F,D)]
         a1 = a1.dref();
@@ -1278,9 +1278,9 @@ m.cont = cont;
     // single_term_mul([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // single_term_mul([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1298,9 +1298,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // single_term_mul([term(A,B)|C],term(D,E),[term(F,G)|H]):-[F is A+D,poly_mul(B,E,G),single_term_mul(C,term(D,E),H)]
         a1 = a1.dref();
@@ -1387,9 +1387,9 @@ m.cont = cont;
     // mul_through([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // mul_through([],A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1407,9 +1407,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // mul_through([term(A,B)|C],D,[term(A,E)|F]):-[poly_mul(B,D,E),mul_through(C,D,F)]
         a1 = a1.dref();

@@ -135,7 +135,7 @@ class pred_declforeachint_1_2 extends pred_declforeachint_1 {
         if (!(areg0.unifyJP(S(pred_declforeachint_1_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_declforeachint_1_consts.string2, CONST(pred_declforeachint_1_consts.string4), S(pred_declforeachint_1_consts.string2, S(pred_declforeachint_1_consts.string5, var1
+        local_aregs.areg0 = (S(pred_declforeachint_1_consts.string2, CONST(pred_declforeachint_1_consts.string4), S(pred_declforeachint_1_consts.string2, S(pred_declforeachint_1_consts.string5, var1
                 .dref()), S(pred_declforeachint_1_consts.string2, CONST(pred_declforeachint_1_consts.string6), S(pred_declforeachint_1_consts.string2, var1
                         .dref(), S(pred_declforeachint_1_consts.string2, CONST(pred_declforeachint_1_consts.string7), S(pred_declforeachint_1_consts.string2, S(pred_declforeachint_1_consts.string8, CONST(pred_declforeachint_1_consts.string9)), CONST(pred_declforeachint_1_consts.string10))))))));
 

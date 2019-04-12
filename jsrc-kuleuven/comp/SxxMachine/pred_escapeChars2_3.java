@@ -163,9 +163,9 @@ class pred_escapeChars2_3_2 extends pred_escapeChars2_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var5);
+        local_aregs.areg0 = (var5);
 
-        local_aregs.setAV(1,S(pred_escapeChars2_3_consts.string2, var1.dref(), CONST(pred_escapeChars2_3_consts.string4)));
+        local_aregs.areg1 = (S(pred_escapeChars2_3_consts.string2, var1.dref(), CONST(pred_escapeChars2_3_consts.string4)));
 
         mach.setCont(local_aregs, 2, S(pred_escapeChars2_3_consts.string5, var5
                 .dref(), var6, S(pred_escapeChars2_3_consts.string3, var6

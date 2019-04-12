@@ -141,7 +141,7 @@ m.cont = cont;
     // animal_string(goat):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_string(goat):-[]
         if (!  ATOM_goat .unify(a1, m.trail))
@@ -153,7 +153,7 @@ m.cont = cont;
     // animal_string([101,108,101,112,104,97,110,116]):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_string([101,108,101,112,104,97,110,116]):-[]
         if (! L_animal_string_1_s17.unify(a1, m.trail))
@@ -166,7 +166,7 @@ m.cont = cont;
          Term a1;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_string(A):-[write([112,108,101,97,115,101,32,116,121,112,101,32,111,110,101,32,109,111,114,101,32,97,110,105,109,97,108,32,110,97,109,101,58,32]),read(A)]
         return //
@@ -269,7 +269,7 @@ m.cont = cont;
     // animal_chars(goat):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_chars(goat):-[]
         if (!  ATOM_goat .unify(a1, m.trail))
@@ -281,7 +281,7 @@ m.cont = cont;
     // animal_chars([101,108,101,112,104,97,110,116]):-true
          Term a1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_chars([101,108,101,112,104,97,110,116]):-[]
         if (! L_animal_chars_1_s17.unify(a1, m.trail))
@@ -294,7 +294,7 @@ m.cont = cont;
          Term a1;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
         cont = m.cont;
     // animal_chars(A):-[write([112,108,101,97,115,101,32,116,121,112,101,32,111,110,101,32,109,111,114,101,32,97,110,105,109,97,108,32,110,97,109,101,58,32]),read(A)]
         return //

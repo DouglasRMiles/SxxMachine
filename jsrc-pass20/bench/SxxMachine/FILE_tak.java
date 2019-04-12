@@ -91,10 +91,10 @@ m.cont = cont;
     // tak(A,B,C,D):-A=<B,C=D
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
         cont = m.cont;
     // tak(A,B,C,D):-['$less_or_equal'(A,B),'$unify'(C,D)]
         //START inline expansion of $less_or_equal(a(1),a(2))
@@ -115,10 +115,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
         cont = m.cont;
     // tak(A,B,C,D):-['$greater_than'(A,B),E is A-1,tak(E,B,C,F),G is B-1,tak(G,C,A,H),I is C-1,tak(I,A,B,J),tak(F,H,J,D)]
         //START inline expansion of $greater_than(a(1),a(2))
@@ -152,10 +152,10 @@ m.cont = cont;
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
  Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a11, a1, a2, a13), //
  Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a7, a10, a13, a4), cont)))));
-m.setAV(1, a5);
-m.setAV(2, a2);
-m.setAV(3, a3);
-m.setAV(4, a7);
+m.AREGS = MARG;MARG.areg0 = a5;
+        MARG.areg1 = a2;
+        MARG.areg2 = a3;
+        MARG.areg3 = a7;
         m.cont = p5;
         return tak_4_top(m);
     }

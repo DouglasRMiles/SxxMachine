@@ -269,12 +269,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),truep(A,B),'$cut'(G)]
         a7 = m.mkvar1();
@@ -292,12 +292,12 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,C)]
         return //
@@ -308,12 +308,12 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F)]
         return //
@@ -345,8 +345,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-['$get_level'(C),falsep(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -364,8 +364,8 @@ m.cont = cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B):-[fail]
         //START inline expansion of fail
@@ -405,11 +405,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$get_level'(F),truep(C,A),'$cut'(F),tautology(D,A,B)]
         a6 = m.mkvar1();
@@ -428,11 +428,11 @@ m.cont = cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-['$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,E)]
         return //
@@ -444,11 +444,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E):-[tautology(D,[C|A],B),tautology(E,A,[C|B])]
         a6 = CONS(a3, a1);
@@ -483,10 +483,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-['$get_level'(E),falsep(C,B),'$cut'(E),tautology(D,A,B)]
         a5 = m.mkvar1();
@@ -505,10 +505,10 @@ m.cont = cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-fail
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D):-[fail]
         //START inline expansion of fail
@@ -543,12 +543,12 @@ m.cont = cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-A=if(D,E,F),!,'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-['$get_level'(G),'$unify'(A,if(D,E,F)),'$cut'(G),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,C,D,E,F)]
         a7 = m.mkvar1();
@@ -577,12 +577,12 @@ m.cont = cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-fail
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
-        a4 = m.AREGS.areg4;
-        a5 = m.AREGS.areg5;
-        a6 = m.AREGS.areg6;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
+        a4 = MARG.areg3;
+        a5 = MARG.areg4;
+        a6 = MARG.areg5;
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
@@ -642,8 +642,8 @@ m.cont = cont;
     // rewrite(A,A):-atomic(A),!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // rewrite(A,A):-['$get_level'(B),atomic(A),'$cut'(B)]
         if (! a1.unify(a2, m.trail))
@@ -672,8 +672,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // rewrite(A,B):-['$get_level'(C),functor(A,D,E),functor(F,D,E),rewrite_args(E,A,F),'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(B,F,G),'$cut'(C)]
         a3 = m.mkvar1();
@@ -718,9 +718,9 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-[equal(B,C),rewrite(C,A)]
         return //
@@ -732,9 +732,9 @@ m.cont = cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-A=B
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl'(A,B,C):-['$unify'(A,B)]
         //START inline expansion of $unify(a(1),a(2))
@@ -774,9 +774,9 @@ m.cont = cont;
     // rewrite_args(0,A,B):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // rewrite_args(0,A,B):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -792,9 +792,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // rewrite_args(A,B,C):-[arg(A,B,D),arg(A,C,E),rewrite(D,E),F is A-1,rewrite_args(F,B,C)]
         a4 = m.mkvar1();
@@ -840,8 +840,8 @@ m.cont = cont;
     // truep(t,A):-!
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // truep(t,A):-['$neck_cut']
         if (!  ATOM_t .unify(a1, m.trail))
@@ -856,8 +856,8 @@ m.cont = cont;
     // truep(A,B):-boyer_member(A,B)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // truep(A,B):-[boyer_member(A,B)]
         return //
@@ -893,8 +893,8 @@ m.cont = cont;
     // falsep(f,A):-!
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // falsep(f,A):-['$neck_cut']
         if (!  ATOM_f .unify(a1, m.trail))
@@ -909,8 +909,8 @@ m.cont = cont;
     // falsep(A,B):-boyer_member(A,B)
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // falsep(A,B):-[boyer_member(A,B)]
         return //
@@ -945,8 +945,8 @@ m.cont = cont;
     // boyer_member(A,[A|B]):-!
          Term a1, a2;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // boyer_member(A,[A|B]):-['$neck_cut']
         a2 = a2.dref();
@@ -968,8 +968,8 @@ m.cont = cont;
     // boyer_member(A,[B|C]):-boyer_member(A,C)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // boyer_member(A,[B|C]):-[boyer_member(A,C)]
         a2 = a2.dref();
@@ -981,8 +981,8 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-m.setAV(1, a1);
-m.setAV(2, a3);
+m.AREGS = MARG;MARG.areg0 = a1;
+        MARG.areg1 = a3;
 m.cont = cont;
         return boyer_member_2_top(m);
     }
@@ -1369,8 +1369,8 @@ m.cont = cont;
     // equal(and(A,B),if(A,if(B,t,f),f)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(and(A,B),if(A,if(B,t,f),f)):-[]
         a1 = a1.dref();
@@ -1395,8 +1395,8 @@ m.cont = cont;
     // equal(append(append(A,B),C),append(A,append(B,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(append(append(A,B),C),append(A,append(B,C))):-[]
         a1 = a1.dref();
@@ -1427,8 +1427,8 @@ m.cont = cont;
     // equal(assignment(A,append(B,C)),if(assignedp(A,B),assignment(A,B),assignment(A,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(assignment(A,append(B,C)),if(assignedp(A,B),assignment(A,B),assignment(A,C))):-[]
         a1 = a1.dref();
@@ -1469,8 +1469,8 @@ m.cont = cont;
     // equal(assume_false(A,B),cons(cons(A,f),B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(assume_false(A,B),cons(cons(A,f),B)):-[]
         a1 = a1.dref();
@@ -1495,8 +1495,8 @@ m.cont = cont;
     // equal(assume_true(A,B),cons(cons(A,t),B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(assume_true(A,B),cons(cons(A,t),B)):-[]
         a1 = a1.dref();
@@ -1521,8 +1521,8 @@ m.cont = cont;
     // equal(boolean(A),or(equal(A,t),equal(A,f))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(boolean(A),or(equal(A,t),equal(A,f))):-[]
         a1 = a1.dref();
@@ -1551,8 +1551,8 @@ m.cont = cont;
     // equal(car(gopher(A)),if(listp(A),car(flatten(A)),zero)):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(car(gopher(A)),if(listp(A),car(flatten(A)),zero)):-[]
         a1 = a1.dref();
@@ -1591,8 +1591,8 @@ m.cont = cont;
     // equal(compile(A),reverse(codegen(optimize(A),[]))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(compile(A),reverse(codegen(optimize(A),[]))):-[]
         a1 = a1.dref();
@@ -1621,8 +1621,8 @@ m.cont = cont;
     // equal(count_list(A,sort_lp(B,C)),myplus(count_list(A,B),count_list(A,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(count_list(A,sort_lp(B,C)),myplus(count_list(A,B),count_list(A,C))):-[]
         a1 = a1.dref();
@@ -1658,8 +1658,8 @@ m.cont = cont;
     // equal(countps_(A,B),countps_loop(A,B,zero)):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(countps_(A,B),countps_loop(A,B,zero)):-[]
         a1 = a1.dref();
@@ -1679,8 +1679,8 @@ m.cont = cont;
     // equal(boyer_difference(A,B),C):-boyer_difference(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(boyer_difference(A,B),C):-[boyer_difference(A,B,C)]
         a1 = a1.dref();
@@ -1697,8 +1697,8 @@ m.cont = cont;
     // equal(divides(A,B),zerop(remainder(B,A))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(divides(A,B),zerop(remainder(B,A))):-[]
         a1 = a1.dref();
@@ -1723,8 +1723,8 @@ m.cont = cont;
     // equal(dsort(A),sort2(A)):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(dsort(A),sort2(A)):-[]
         a1 = a1.dref();
@@ -1743,8 +1743,8 @@ m.cont = cont;
     // equal(eqp(A,B),equal(fix(A),fix(B))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(eqp(A,B),equal(fix(A),fix(B))):-[]
         a1 = a1.dref();
@@ -1774,8 +1774,8 @@ m.cont = cont;
     // equal(equal(A,B),C):-eq(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(equal(A,B),C):-[eq(A,B,C)]
         a1 = a1.dref();
@@ -1792,8 +1792,8 @@ m.cont = cont;
     // equal(even1(A),if(zerop(A),t,odd(decr(A)))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(even1(A),if(zerop(A),t,odd(decr(A)))):-[]
         a1 = a1.dref();
@@ -1827,8 +1827,8 @@ m.cont = cont;
     // equal(exec(append(A,B),C,D),exec(B,exec(A,C,D),D)):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(exec(append(A,B),C,D),exec(B,exec(A,C,D),D)):-[]
         a1 = a1.dref();
@@ -1860,8 +1860,8 @@ m.cont = cont;
     // equal(exp(A,B),C):-exp(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(exp(A,B),C):-[exp(A,B,C)]
         a1 = a1.dref();
@@ -1878,8 +1878,8 @@ m.cont = cont;
     // equal(fact_(A),fact_loop(A,1)):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(fact_(A),fact_loop(A,1)):-[]
         a1 = a1.dref();
@@ -1898,8 +1898,8 @@ m.cont = cont;
     // equal(falsify(A),falsify1(normalize(A),[])):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(falsify(A),falsify1(normalize(A),[])):-[]
         a1 = a1.dref();
@@ -1923,8 +1923,8 @@ m.cont = cont;
     // equal(fix(A),if(numberp(A),A,zero)):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(fix(A),if(numberp(A),A,zero)):-[]
         a1 = a1.dref();
@@ -1948,8 +1948,8 @@ m.cont = cont;
     // equal(flatten(cdr(gopher(A))),if(listp(A),cdr(flatten(A)),cons(zero,[]))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(flatten(cdr(gopher(A))),if(listp(A),cdr(flatten(A)),cons(zero,[]))):-[]
         a1 = a1.dref();
@@ -1993,8 +1993,8 @@ m.cont = cont;
     // equal(gcd(A,B),C):-gcd(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(gcd(A,B),C):-[gcd(A,B,C)]
         a1 = a1.dref();
@@ -2011,8 +2011,8 @@ m.cont = cont;
     // equal(get(A,set(B,C,D)),if(eqp(A,B),C,get(A,D))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(get(A,set(B,C,D)),if(eqp(A,B),C,get(A,D))):-[]
         a1 = a1.dref();
@@ -2049,8 +2049,8 @@ m.cont = cont;
     // equal(greatereqp(A,B),not(lessp(A,B))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(greatereqp(A,B),not(lessp(A,B))):-[]
         a1 = a1.dref();
@@ -2075,8 +2075,8 @@ m.cont = cont;
     // equal(greatereqpr(A,B),not(lessp(A,B))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(greatereqpr(A,B),not(lessp(A,B))):-[]
         a1 = a1.dref();
@@ -2101,8 +2101,8 @@ m.cont = cont;
     // equal(greaterp(A,B),lessp(B,A)):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(greaterp(A,B),lessp(B,A)):-[]
         a1 = a1.dref();
@@ -2122,8 +2122,8 @@ m.cont = cont;
     // equal(if(if(A,B,C),D,E),if(A,if(B,D,E),if(C,D,E))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(if(if(A,B,C),D,E),if(A,if(B,D,E),if(C,D,E))):-[]
         a1 = a1.dref();
@@ -2161,8 +2161,8 @@ m.cont = cont;
     // equal(iff(A,B),and(implies(A,B),implies(B,A))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(iff(A,B),and(implies(A,B),implies(B,A))):-[]
         a1 = a1.dref();
@@ -2192,8 +2192,8 @@ m.cont = cont;
     // equal(implies(A,B),if(A,if(B,t,f),t)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(implies(A,B),if(A,if(B,t,f),t)):-[]
         a1 = a1.dref();
@@ -2218,8 +2218,8 @@ m.cont = cont;
     // equal(last(append(A,B)),if(listp(B),last(B),if(listp(A),cons(car(last(A))),B))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(last(append(A,B)),if(listp(B),last(B),if(listp(A),cons(car(last(A))),B))):-[]
         a1 = a1.dref();
@@ -2279,8 +2279,8 @@ m.cont = cont;
     // equal(length(A),B):-mylength(A,B)
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(length(A),B):-[mylength(A,B)]
         a1 = a1.dref();
@@ -2296,8 +2296,8 @@ m.cont = cont;
     // equal(lesseqp(A,B),not(lessp(B,A))):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(lesseqp(A,B),not(lessp(B,A))):-[]
         a1 = a1.dref();
@@ -2322,8 +2322,8 @@ m.cont = cont;
     // equal(lessp(A,B),C):-lessp(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(lessp(A,B),C):-[lessp(A,B,C)]
         a1 = a1.dref();
@@ -2340,8 +2340,8 @@ m.cont = cont;
     // equal(listp(gopher(A)),listp(A)):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(listp(gopher(A)),listp(A)):-[]
         a1 = a1.dref();
@@ -2365,8 +2365,8 @@ m.cont = cont;
     // equal(mc_flatten(A,B),append(flatten(A),B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(mc_flatten(A,B),append(flatten(A),B)):-[]
         a1 = a1.dref();
@@ -2391,8 +2391,8 @@ m.cont = cont;
     // equal(meaning(A,B),C):-meaning(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(meaning(A,B),C):-[meaning(A,B,C)]
         a1 = a1.dref();
@@ -2409,8 +2409,8 @@ m.cont = cont;
     // equal(boyer_member(A,B),C):-myboyer_member(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(boyer_member(A,B),C):-[myboyer_member(A,B,C)]
         a1 = a1.dref();
@@ -2427,8 +2427,8 @@ m.cont = cont;
     // equal(not(A),if(A,f,t)):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(not(A),if(A,f,t)):-[]
         a1 = a1.dref();
@@ -2447,8 +2447,8 @@ m.cont = cont;
     // equal(nth(A,B),C):-nth(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(nth(A,B),C):-[nth(A,B,C)]
         a1 = a1.dref();
@@ -2465,8 +2465,8 @@ m.cont = cont;
     // equal(numberp(greatest_factor(A,B)),not(and(or(zerop(B),equal(B,1)),not(numberp(A))))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(numberp(greatest_factor(A,B)),not(and(or(zerop(B),equal(B,1)),not(numberp(A))))):-[]
         a1 = a1.dref();
@@ -2521,8 +2521,8 @@ m.cont = cont;
     // equal(or(A,B),if(A,t,if(B,t,f),f)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(or(A,B),if(A,t,if(B,t,f),f)):-[]
         a1 = a1.dref();
@@ -2547,8 +2547,8 @@ m.cont = cont;
     // equal(myplus(A,B),C):-myplus(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(myplus(A,B),C):-[myplus(A,B,C)]
         a1 = a1.dref();
@@ -2565,8 +2565,8 @@ m.cont = cont;
     // equal(power_eval(A,B),C):-power_eval(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(power_eval(A,B),C):-[power_eval(A,B,C)]
         a1 = a1.dref();
@@ -2583,8 +2583,8 @@ m.cont = cont;
     // equal(prime(A),and(not(zerop(A)),and(not(equal(A,add1(zero))),prime1(A,decr(A))))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(prime(A),and(not(zerop(A)),and(not(equal(A,add1(zero))),prime1(A,decr(A))))):-[]
         a1 = a1.dref();
@@ -2638,8 +2638,8 @@ m.cont = cont;
     // equal(prime_list(append(A,B)),and(prime_list(A),prime_list(B))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(prime_list(append(A,B)),and(prime_list(A),prime_list(B))):-[]
         a1 = a1.dref();
@@ -2674,8 +2674,8 @@ m.cont = cont;
     // equal(quotient(A,B),C):-quotient(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(quotient(A,B),C):-[quotient(A,B,C)]
         a1 = a1.dref();
@@ -2692,8 +2692,8 @@ m.cont = cont;
     // equal(remainder(A,B),C):-remainder(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(remainder(A,B),C):-[remainder(A,B,C)]
         a1 = a1.dref();
@@ -2710,8 +2710,8 @@ m.cont = cont;
     // equal(reverse_(A),reverse_loop(A,[])):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(reverse_(A),reverse_loop(A,[])):-[]
         a1 = a1.dref();
@@ -2730,8 +2730,8 @@ m.cont = cont;
     // equal(reverse(append(A,B)),append(reverse(B),reverse(A))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(reverse(append(A,B)),append(reverse(B),reverse(A))):-[]
         a1 = a1.dref();
@@ -2766,8 +2766,8 @@ m.cont = cont;
     // equal(reverse_loop(A,B),C):-reverse_loop(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(reverse_loop(A,B),C):-[reverse_loop(A,B,C)]
         a1 = a1.dref();
@@ -2784,8 +2784,8 @@ m.cont = cont;
     // equal(samefringe(A,B),equal(flatten(A),flatten(B))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(samefringe(A,B),equal(flatten(A),flatten(B))):-[]
         a1 = a1.dref();
@@ -2815,8 +2815,8 @@ m.cont = cont;
     // equal(sigma(zero,A),quotient(times(A,add1(A)),2)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(sigma(zero,A),quotient(times(A,add1(A)),2)):-[]
         a1 = a1.dref();
@@ -2845,8 +2845,8 @@ m.cont = cont;
     // equal(sort2(delete(A,B)),delete(A,sort2(B))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(sort2(delete(A,B)),delete(A,sort2(B))):-[]
         a1 = a1.dref();
@@ -2876,8 +2876,8 @@ m.cont = cont;
     // equal(tautology_checker(A),tautologyp(normalize(A),[])):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(tautology_checker(A),tautologyp(normalize(A),[])):-[]
         a1 = a1.dref();
@@ -2901,8 +2901,8 @@ m.cont = cont;
     // equal(times(A,B),C):-times(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(times(A,B),C):-[times(A,B,C)]
         a1 = a1.dref();
@@ -2919,8 +2919,8 @@ m.cont = cont;
     // equal(times_list(append(A,B)),times(times_list(A),times_list(B))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(times_list(append(A,B)),times(times_list(A),times_list(B))):-[]
         a1 = a1.dref();
@@ -2955,8 +2955,8 @@ m.cont = cont;
     // equal(value(normalize(A),B),value(A,B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(value(normalize(A),B),value(A,B)):-[]
         a1 = a1.dref();
@@ -2981,8 +2981,8 @@ m.cont = cont;
     // equal(zerop(A),or(equal(A,zero),not(numberp(A)))):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // equal(zerop(A),or(equal(A,zero),not(numberp(A)))):-[]
         a1 = a1.dref();
@@ -3065,9 +3065,9 @@ m.cont = cont;
     // boyer_difference(A,A,zero):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(A,A,zero):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
@@ -3084,9 +3084,9 @@ m.cont = cont;
     // boyer_difference(myplus(A,B),A,fix(B)):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(myplus(A,B),A,fix(B)):-['$neck_cut']
         a1 = a1.dref();
@@ -3111,9 +3111,9 @@ m.cont = cont;
     // boyer_difference(myplus(A,B),B,fix(A)):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(myplus(A,B),B,fix(A)):-['$neck_cut']
         a1 = a1.dref();
@@ -3138,9 +3138,9 @@ m.cont = cont;
     // boyer_difference(myplus(A,B),myplus(A,C),boyer_difference(B,C)):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(myplus(A,B),myplus(A,C),boyer_difference(B,C)):-['$neck_cut']
         a1 = a1.dref();
@@ -3168,9 +3168,9 @@ m.cont = cont;
     // boyer_difference(myplus(A,myplus(B,C)),B,myplus(A,C)):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(myplus(A,myplus(B,C)),B,myplus(A,C)):-['$neck_cut']
         a1 = a1.dref();
@@ -3201,9 +3201,9 @@ m.cont = cont;
     // boyer_difference(add1(myplus(A,B)),B,add1(A)):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(add1(myplus(A,B)),B,add1(A)):-['$neck_cut']
         a1 = a1.dref();
@@ -3233,9 +3233,9 @@ m.cont = cont;
     // boyer_difference(add1(add1(A)),2,fix(A)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // boyer_difference(add1(add1(A)),2,fix(A)):-[]
         a1 = a1.dref();
@@ -3447,9 +3447,9 @@ m.cont = cont;
     // eq(myplus(A,B),zero,and(zerop(A),zerop(B))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(myplus(A,B),zero,and(zerop(A),zerop(B))):-['$neck_cut']
         a1 = a1.dref();
@@ -3484,9 +3484,9 @@ m.cont = cont;
     // eq(myplus(A,B),myplus(A,C),equal(fix(B),fix(C))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(myplus(A,B),myplus(A,C),equal(fix(B),fix(C))):-['$neck_cut']
         a1 = a1.dref();
@@ -3524,9 +3524,9 @@ m.cont = cont;
     // eq(zero,boyer_difference(A,B),not(lessp(B,A))):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(zero,boyer_difference(A,B),not(lessp(B,A))):-['$neck_cut']
         if (!  ATOM_zero .unify(a1, m.trail))
@@ -3556,9 +3556,9 @@ m.cont = cont;
     // eq(A,boyer_difference(A,B),and(numberp(A),and(or(equal(A,zero),zerop(B))))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(A,boyer_difference(A,B),and(numberp(A),and(or(equal(A,zero),zerop(B))))):-['$neck_cut']
         a2 = a2.dref();
@@ -3605,9 +3605,9 @@ m.cont = cont;
     // eq(times(A,B),zero,or(zerop(A),zerop(B))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(times(A,B),zero,or(zerop(A),zerop(B))):-['$neck_cut']
         a1 = a1.dref();
@@ -3642,9 +3642,9 @@ m.cont = cont;
     // eq(append(A,B),append(A,C),equal(B,C)):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(append(A,B),append(A,C),equal(B,C)):-['$neck_cut']
         a1 = a1.dref();
@@ -3672,9 +3672,9 @@ m.cont = cont;
     // eq(flatten(A),cons(B,[]),and(nlistp(A),equal(A,B))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(flatten(A),cons(B,[]),and(nlistp(A),equal(A,B))):-['$neck_cut']
         a1 = a1.dref();
@@ -3711,9 +3711,9 @@ m.cont = cont;
     // eq(greatest_factor(A,B),zero,and(or(zerop(B),equal(B,1)),equal(A,zero))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(greatest_factor(A,B),zero,and(or(zerop(B),equal(B,1)),equal(A,zero))):-['$neck_cut']
         a1 = a1.dref();
@@ -3758,9 +3758,9 @@ m.cont = cont;
     // eq(greatest_factor(A,B),1,equal(A,1)):-!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(greatest_factor(A,B),1,equal(A,1)):-['$neck_cut']
         a1 = a1.dref();
@@ -3784,9 +3784,9 @@ m.cont = cont;
     // eq(A,times(B,A),and(numberp(A),or(equal(A,zero),equal(B,1)))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(A,times(B,A),and(numberp(A),or(equal(A,zero),equal(B,1)))):-['$neck_cut']
         a2 = a2.dref();
@@ -3828,9 +3828,9 @@ m.cont = cont;
     // eq(A,times(A,B),or(equal(A,zero),and(numberp(A),equal(B,1)))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(A,times(A,B),or(equal(A,zero),and(numberp(A),equal(B,1)))):-['$neck_cut']
         a2 = a2.dref();
@@ -3872,9 +3872,9 @@ m.cont = cont;
     // eq(times(A,B),1,and(not(equal(A,zero)),and(not(equal(B,zero)),and(numberp(A),and(numberp(B),and(equal(decr(A),zero),equal(decr(B),zero))))))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(times(A,B),1,and(not(equal(A,zero)),and(not(equal(B,zero)),and(numberp(A),and(numberp(B),and(equal(decr(A),zero),equal(decr(B),zero))))))):-['$neck_cut']
         a1 = a1.dref();
@@ -3969,9 +3969,9 @@ m.cont = cont;
     // eq(boyer_difference(A,B),boyer_difference(C,B),if(lessp(A,B),not(lessp(B,C)),if(lessp(C,B),not(lessp(B,A)),equal(fix(A),fix(C))))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(boyer_difference(A,B),boyer_difference(C,B),if(lessp(A,B),not(lessp(B,C)),if(lessp(C,B),not(lessp(B,A)),equal(fix(A),fix(C))))):-['$neck_cut']
         a1 = a1.dref();
@@ -4049,9 +4049,9 @@ m.cont = cont;
     // eq(lessp(A,B),C,if(lessp(A,B),equal(t,C),equal(f,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // eq(lessp(A,B),C,if(lessp(A,B),equal(t,C),equal(f,C))):-[]
         a1 = a1.dref();
@@ -4106,9 +4106,9 @@ m.cont = cont;
     // exp(A,myplus(B,C),times(exp(A,B),exp(A,C))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // exp(A,myplus(B,C),times(exp(A,B),exp(A,C))):-['$neck_cut']
         a2 = a2.dref();
@@ -4141,9 +4141,9 @@ m.cont = cont;
     // exp(A,times(B,C),exp(exp(A,B),C)):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // exp(A,times(B,C),exp(exp(A,B),C)):-[]
         a2 = a2.dref();
@@ -4192,9 +4192,9 @@ m.cont = cont;
     // gcd(A,B,gcd(B,A)):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // gcd(A,B,gcd(B,A)):-['$neck_cut']
         a3 = a3.dref();
@@ -4211,9 +4211,9 @@ m.cont = cont;
     // gcd(times(A,B),times(C,B),times(B,gcd(A,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // gcd(times(A,B),times(C,B),times(B,gcd(A,C))):-[]
         a1 = a1.dref();
@@ -4267,8 +4267,8 @@ m.cont = cont;
     // mylength(reverse(A),length(A)):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // mylength(reverse(A),length(A)):-[]
         a1 = a1.dref();
@@ -4287,8 +4287,8 @@ m.cont = cont;
     // mylength(cons(A,cons(B,cons(C,cons(D,cons(E,cons(F,G)))))),myplus(6,length(G))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
         cont = m.cont;
     // mylength(cons(A,cons(B,cons(C,cons(D,cons(E,cons(F,G)))))),myplus(6,length(G))):-[]
         a1 = a1.dref();
@@ -4386,9 +4386,9 @@ m.cont = cont;
     // lessp(remainder(A,B),B,not(zerop(B))):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(remainder(A,B),B,not(zerop(B))):-['$neck_cut']
         a1 = a1.dref();
@@ -4417,9 +4417,9 @@ m.cont = cont;
     // lessp(quotient(A,B),A,and(not(zerop(A)),or(zerop(B),not(equal(B,1))))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(quotient(A,B),A,and(not(zerop(A)),or(zerop(B),not(equal(B,1))))):-['$neck_cut']
         a1 = a1.dref();
@@ -4474,9 +4474,9 @@ m.cont = cont;
     // lessp(remainder(A,B),A,and(not(zerop(B)),and(not(zerop(A)),not(lessp(A,B))))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(remainder(A,B),A,and(not(zerop(B)),and(not(zerop(A)),not(lessp(A,B))))):-['$neck_cut']
         a1 = a1.dref();
@@ -4536,9 +4536,9 @@ m.cont = cont;
     // lessp(myplus(A,B),myplus(A,C),lessp(B,C)):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(myplus(A,B),myplus(A,C),lessp(B,C)):-['$neck_cut']
         a1 = a1.dref();
@@ -4566,9 +4566,9 @@ m.cont = cont;
     // lessp(times(A,B),times(C,B),and(not(zerop(B)),lessp(A,C))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(times(A,B),times(C,B),and(not(zerop(B)),lessp(A,C))):-['$neck_cut']
         a1 = a1.dref();
@@ -4611,9 +4611,9 @@ m.cont = cont;
     // lessp(A,myplus(B,A),not(zerop(B))):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(A,myplus(B,A),not(zerop(B))):-['$neck_cut']
         a2 = a2.dref();
@@ -4640,9 +4640,9 @@ m.cont = cont;
     // lessp(length(delete(A,B)),length(B),boyer_member(A,B)):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // lessp(length(delete(A,B)),length(B),boyer_member(A,B)):-[]
         a1 = a1.dref();
@@ -4702,9 +4702,9 @@ m.cont = cont;
     // meaning(plus_tree(append(A,B)),C,myplus(meaning(plus_tree(A),C),meaning(plus_tree(B),C))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // meaning(plus_tree(append(A,B)),C,myplus(meaning(plus_tree(A),C),meaning(plus_tree(B),C))):-['$neck_cut']
         a1 = a1.dref();
@@ -4752,9 +4752,9 @@ m.cont = cont;
     // meaning(plus_tree(plus_fringe(A)),B,fix(meaning(A,B))):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // meaning(plus_tree(plus_fringe(A)),B,fix(meaning(A,B))):-['$neck_cut']
         a1 = a1.dref();
@@ -4786,9 +4786,9 @@ m.cont = cont;
     // meaning(plus_tree(delete(A,B)),C,if(boyer_member(A,B),boyer_difference(meaning(plus_tree(B),C),meaning(A,C)),meaning(plus_tree(B),C))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // meaning(plus_tree(delete(A,B)),C,if(boyer_member(A,B),boyer_difference(meaning(plus_tree(B),C),meaning(A,C)),meaning(plus_tree(B),C))):-[]
         a1 = a1.dref();
@@ -4874,9 +4874,9 @@ m.cont = cont;
     // myboyer_member(A,append(B,C),or(boyer_member(A,B),boyer_member(A,C))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myboyer_member(A,append(B,C),or(boyer_member(A,B),boyer_member(A,C))):-['$neck_cut']
         a2 = a2.dref();
@@ -4909,9 +4909,9 @@ m.cont = cont;
     // myboyer_member(A,reverse(B),boyer_member(A,B)):-!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myboyer_member(A,reverse(B),boyer_member(A,B)):-['$neck_cut']
         a2 = a2.dref();
@@ -4933,9 +4933,9 @@ m.cont = cont;
     // myboyer_member(A,intersect(B,C),and(boyer_member(A,B),boyer_member(A,C))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myboyer_member(A,intersect(B,C),and(boyer_member(A,B),boyer_member(A,C))):-[]
         a2 = a2.dref();
@@ -5004,9 +5004,9 @@ m.cont = cont;
     // nth(zero,A,zero):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // nth(zero,A,zero):-[]
         if (!  ATOM_zero .unify(a1, m.trail))
@@ -5020,9 +5020,9 @@ m.cont = cont;
     // nth([],A,if(zerop(A),[],zero)):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // nth([],A,if(zerop(A),[],zero)):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -5043,9 +5043,9 @@ m.cont = cont;
     // nth(append(A,B),C,append(nth(A,C),nth(B,boyer_difference(C,length(A))))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // nth(append(A,B),C,append(nth(A,C),nth(B,boyer_difference(C,length(A))))):-[]
         a1 = a1.dref();
@@ -5114,9 +5114,9 @@ m.cont = cont;
     // myplus(myplus(A,B),C,myplus(A,myplus(B,C))):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myplus(myplus(A,B),C,myplus(A,myplus(B,C))):-['$neck_cut']
         a1 = a1.dref();
@@ -5144,9 +5144,9 @@ m.cont = cont;
     // myplus(remainder(A,B),times(B,quotient(A,B)),fix(A)):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myplus(remainder(A,B),times(B,quotient(A,B)),fix(A)):-['$neck_cut']
         a1 = a1.dref();
@@ -5178,9 +5178,9 @@ m.cont = cont;
     // myplus(A,add1(B),if(numberp(B),add1(myplus(A,B)),add1(A))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // myplus(A,add1(B),if(numberp(B),add1(myplus(A,B)),add1(A))):-[]
         a2 = a2.dref();
@@ -5256,9 +5256,9 @@ m.cont = cont;
     // power_eval(big_plus1(A,B,C),C,myplus(power_eval(A,C),B)):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power_eval(big_plus1(A,B,C),C,myplus(power_eval(A,C),B)):-['$neck_cut']
         a1 = a1.dref();
@@ -5289,9 +5289,9 @@ m.cont = cont;
     // power_eval(power_rep(A,B),B,fix(A)):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power_eval(power_rep(A,B),B,fix(A)):-['$neck_cut']
         a1 = a1.dref();
@@ -5316,9 +5316,9 @@ m.cont = cont;
     // power_eval(big_plus(A,B,C,D),D,myplus(C,myplus(power_eval(A,D),power_eval(B,D)))):-!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power_eval(big_plus(A,B,C,D),D,myplus(C,myplus(power_eval(A,D),power_eval(B,D)))):-['$neck_cut']
         a1 = a1.dref();
@@ -5360,9 +5360,9 @@ m.cont = cont;
     // power_eval(big_plus(power_rep(A,B),power_rep(C,B),zero,B),B,myplus(A,C)):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // power_eval(big_plus(power_rep(A,B),power_rep(C,B),zero,B),B,myplus(A,C)):-[]
         a1 = a1.dref();
@@ -5419,9 +5419,9 @@ m.cont = cont;
     // quotient(myplus(A,myplus(A,B)),2,myplus(A,quotient(B,2))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // quotient(myplus(A,myplus(A,B)),2,myplus(A,quotient(B,2))):-[]
         a1 = a1.dref();
@@ -5453,9 +5453,9 @@ m.cont = cont;
     // quotient(times(A,B),A,if(zerop(A),zero,fix(B))):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // quotient(times(A,B),A,if(zerop(A),zero,fix(B))):-[]
         a1 = a1.dref();
@@ -5531,9 +5531,9 @@ m.cont = cont;
     // remainder(A,1,zero):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // remainder(A,1,zero):-['$neck_cut']
         if (!  int_1 .unify(a2, m.trail))
@@ -5550,9 +5550,9 @@ m.cont = cont;
     // remainder(A,A,zero):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // remainder(A,A,zero):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
@@ -5569,9 +5569,9 @@ m.cont = cont;
     // remainder(times(A,B),B,zero):-!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // remainder(times(A,B),B,zero):-['$neck_cut']
         a1 = a1.dref();
@@ -5593,9 +5593,9 @@ m.cont = cont;
     // remainder(times(A,B),A,zero):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // remainder(times(A,B),A,zero):-[]
         a1 = a1.dref();
@@ -5634,9 +5634,9 @@ m.cont = cont;
     // reverse_loop(A,B,append(reverse(A),B)):-!
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // reverse_loop(A,B,append(reverse(A),B)):-['$neck_cut']
         a3 = a3.dref();
@@ -5658,9 +5658,9 @@ m.cont = cont;
     // reverse_loop(A,[],reverse(A)):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // reverse_loop(A,[],reverse(A)):-[]
         if (!  Prolog.Nil .unify(a2, m.trail))
@@ -5725,9 +5725,9 @@ m.cont = cont;
     // times(A,myplus(B,C),myplus(times(A,B),times(A,C))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // times(A,myplus(B,C),myplus(times(A,B),times(A,C))):-['$neck_cut']
         a2 = a2.dref();
@@ -5760,9 +5760,9 @@ m.cont = cont;
     // times(times(A,B),C,times(A,times(B,C))):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // times(times(A,B),C,times(A,times(B,C))):-['$neck_cut']
         a1 = a1.dref();
@@ -5790,9 +5790,9 @@ m.cont = cont;
     // times(A,boyer_difference(B,C),boyer_difference(times(B,A),times(C,A))):-!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // times(A,boyer_difference(B,C),boyer_difference(times(B,A),times(C,A))):-['$neck_cut']
         a2 = a2.dref();
@@ -5825,9 +5825,9 @@ m.cont = cont;
     // times(A,add1(B),if(numberp(B),myplus(A,times(A,B)),fix(A))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.AREGS.areg1;
-        a2 = m.AREGS.areg2;
-        a3 = m.AREGS.areg3;
+TermArray MARG = m.AREGS;a1 = MARG.areg0;
+        a2 = MARG.areg1;
+        a3 = MARG.areg2;
         cont = m.cont;
     // times(A,add1(B),if(numberp(B),myplus(A,times(A,B)),fix(A))):-[]
         a2 = a2.dref();

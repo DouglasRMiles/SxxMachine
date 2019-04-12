@@ -71,8 +71,8 @@ public class pred_comp_3 extends Code {
         if (!(areg2.unifyJP(var3)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONST(pred_comp_3_consts.string3));
-        local_aregs.setAV(1,var2.dref());
+        local_aregs.areg0 = (CONST(pred_comp_3_consts.string3));
+        local_aregs.areg1 = (var2.dref());
 
         mach.setCont(local_aregs, 2, S(pred_comp_3_consts.string2, CONST(pred_comp_3_consts.string4), var3
                 .dref(), S(pred_comp_3_consts.string5, var1

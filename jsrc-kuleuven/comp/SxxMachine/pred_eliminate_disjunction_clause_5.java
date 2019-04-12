@@ -145,7 +145,7 @@ class pred_eliminate_disjunction_clause_5_1 extends pred_eliminate_disjunction_c
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs.setAV(0,S(pred_eliminate_disjunction_clause_5_consts.string6, var1
+        local_aregs.areg0 = (S(pred_eliminate_disjunction_clause_5_consts.string6, var1
                 .dref(), var8, var9, S(pred_eliminate_disjunction_clause_5_consts.string7, var1
                         .dref(), var10, S(pred_eliminate_disjunction_clause_5_consts.string8, var2
                                 .dref(), S(pred_eliminate_disjunction_clause_5_consts.string9, var8.dref(), var9

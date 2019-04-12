@@ -103,12 +103,12 @@ public class pred_printPredExecCode_7 extends Code {
             return mach.Fail0;
         if (!(areg6.unifyJP(var7)))
             return mach.Fail0;
-        local_aregs.setAV(0,var8);
+        local_aregs.areg0 = (var8);
 
-        local_aregs.setAV(1,S(pred_printPredExecCode_7_consts.string3, var1
+        local_aregs.areg1 = (S(pred_printPredExecCode_7_consts.string3, var1
                 .dref(), pred_printPredExecCode_7_consts.posint2));
 
-        local_aregs.setAV(2,S(pred_printPredExecCode_7_consts.string2, var9, S(pred_printPredExecCode_7_consts.string3, var1
+        local_aregs.areg2 = (S(pred_printPredExecCode_7_consts.string2, var9, S(pred_printPredExecCode_7_consts.string3, var1
                 .dref(), pred_printPredExecCode_7_consts.posint1), S(pred_printPredExecCode_7_consts.string4, S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string6), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string9), S(pred_printPredExecCode_7_consts.string5, var9
                         .dref(), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string10), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string11, var8
                                 .dref()), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string12, var2

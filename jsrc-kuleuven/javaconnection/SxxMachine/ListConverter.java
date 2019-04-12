@@ -48,7 +48,7 @@ public class ListConverter extends Code {
                 return mach.Fail0;
             }
         }
-        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }

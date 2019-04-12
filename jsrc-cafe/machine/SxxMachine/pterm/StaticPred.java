@@ -22,7 +22,7 @@ public class StaticPred extends Predicate implements Operation {
 
     @Override
     public void toString(StringBuilder sb) {
-        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+        //
 
         Token.toQuotedString(predName(), sb);
         boolean first = true;
@@ -34,7 +34,7 @@ public class StaticPred extends Predicate implements Operation {
                 } else {
                     sb.append(", ");
                 }
-                Term val = ThizLARGs[j];
+                Term val = ThizLARGs.getPlainArg(j);
                 StructureTerm.toArgString(1, sb, val);
             }
             if (!first) {
@@ -56,7 +56,7 @@ public class StaticPred extends Predicate implements Operation {
         if (ThizLARGs == null) {
             return -1;
         }
-        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+        
         return ThizLARGs.length;
     }
 

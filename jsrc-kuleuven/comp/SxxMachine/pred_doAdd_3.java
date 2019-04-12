@@ -62,9 +62,9 @@ public class pred_doAdd_3 extends Code {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var4);
-        local_aregs.setAV(2,var5);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var4);
+        local_aregs.areg2 = (var5);
 
         mach.setCont(local_aregs, 3, S(pred_doAdd_3_consts.string3, var5.dref(), S(pred_doAdd_3_consts.string4, var2
                 .dref(), CONST(pred_doAdd_3_consts.string5)), var6, S(pred_doAdd_3_consts.string2, var3

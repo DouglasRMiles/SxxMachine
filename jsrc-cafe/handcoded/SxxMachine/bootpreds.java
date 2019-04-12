@@ -493,8 +493,8 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_exception_1(Term a1, Operation cont) {
-            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
-            ThizLARGs[0] = a1;
+            
+            ThizLARGs.areg0 = a1;
             this.cont = cont;
         }
 
@@ -538,9 +538,9 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_sync_2(Term a1, Term a2, Operation cont) {
-            final Term[] ThizLARGs = this.ThizLARGs.getBacking();
-            ThizLARGs[0] = a1;
-            ThizLARGs[1] = a2;
+            
+            ThizLARGs.areg0 = a1;
+            ThizLARGs.areg1 = a2;
             this.cont = cont;
         }
 
@@ -640,7 +640,8 @@ public class bootpreds extends sxxtensions {
             if (!next.equalsTerm(Prolog.Nil)) {
                 engine.setB0();
                 engine.setAREGS(LARG);
-                engine.setAV(1, FFIObject(new Term[] { next }));
+                final TermArray MREG = engine.AREGS;
+                MREG.areg1 = ( FFIObject(new Term[] { next }));
                 engine.setCont(cont);
                 engine.jtry2(null, PRED_$builtin_member_2::retry); // push new
                                                                    // frame
@@ -691,7 +692,9 @@ public class bootpreds extends sxxtensions {
         if (!next.equalsTerm(Prolog.Nil)) {
             engine.setB0();
             engine.setAREGS(LARG);
-            engine.setAV(1, FFIObject(new Term[] { next }));
+            final TermArray MREG = engine.AREGS;
+
+            MREG.areg1 = ( FFIObject(new Term[] { next }));
             engine.setCont(cont);
             engine.jtry2(null, bootpreds::retry_bi_member); // push new frame
                                                             // with
@@ -5192,8 +5195,9 @@ public class bootpreds extends sxxtensions {
         if (!matcher.find()) {
             return engine.fail();
         }
-        engine.setAV(0, FFIObject(matcher));
-        engine.setAV(1, LARG.getPlainArg(2));
+        engine.AREGS.areg0 = ( FFIObject(matcher));
+        final TermArray MREG = engine.AREGS;
+        MREG.areg1 = ( LARG.getPlainArg(2));
         return engine.jtry2(bootpreds::regex_check, bootpreds::regex_next);
     }
 

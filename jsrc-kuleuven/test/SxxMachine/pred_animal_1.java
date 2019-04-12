@@ -156,7 +156,7 @@ class pred_animal_1_3 extends pred_animal_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONST(pred_animal_1_consts.string3));
+        local_aregs.areg0 = (CONST(pred_animal_1_consts.string3));
 
         mach.setCont(local_aregs, 1, S(pred_animal_1_consts.string4, var1.dref(), continuation));
         mach.updateCUTB();

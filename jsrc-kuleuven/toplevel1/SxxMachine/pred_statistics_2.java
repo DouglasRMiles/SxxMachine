@@ -62,7 +62,7 @@ class pred_statistics_2_1 extends pred_statistics_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string1, var1, S(string1, var2, CONST(string2))))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

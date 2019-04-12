@@ -191,8 +191,8 @@ class pred_fixBody_2_3 extends pred_fixBody_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var2.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var2.dref());
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().fixClauses3cont;

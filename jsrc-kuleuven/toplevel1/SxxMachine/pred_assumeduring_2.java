@@ -66,7 +66,7 @@ class pred_assumeduring_2_1 extends pred_assumeduring_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,S(string1, var2.dref(), var3));
+        local_aregs.areg0 = (S(string1, var2.dref(), var3));
         mach.setCont(local_aregs, 1, S(string4, var1.dref(), S(string5, posint1, var3.dref(), continuation)));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

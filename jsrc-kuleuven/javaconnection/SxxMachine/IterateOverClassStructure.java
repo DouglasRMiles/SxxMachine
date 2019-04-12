@@ -38,7 +38,7 @@ public class IterateOverClassStructure extends Code {
         cont = doAction((Class) c, classType, cont);
         if (cont == null)
             return mach.Fail0;
-        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         mach.setCont(local_aregs, 0, cont);
         mach.updateCUTB();
         return mach.getCall1();
@@ -133,7 +133,7 @@ class InterfaceIterator extends Code {
         if (!classType.unifyJP(CONST(it.next())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        local_aregs.areg1 = (local_aregs.areg2 = (null));
         mach.setCont(local_aregs, 0, cont);
         mach.updateCUTB();
         return mach.getCall1();

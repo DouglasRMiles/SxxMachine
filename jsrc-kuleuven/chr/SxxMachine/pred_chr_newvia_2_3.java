@@ -49,9 +49,9 @@ class pred_chr_newvia_2_3_1 extends pred_chr_newvia_2_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var2.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var2.dref());
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return chr_newvia_23___disj___24cont;

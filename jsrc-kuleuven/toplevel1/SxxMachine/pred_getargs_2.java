@@ -77,10 +77,10 @@ class pred_getargs_2_1 extends pred_getargs_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var3);
-        local_aregs.setAV(1,S(string3, S(string6, CONST(string1)), CONST(string4)));
-        local_aregs.setAV(2,var1.dref());
-        local_aregs.setAV(3,S(string8, var3
+        local_aregs.areg0 = (var3);
+        local_aregs.areg1 = (S(string3, S(string6, CONST(string1)), CONST(string4)));
+        local_aregs.areg2 = (var1.dref());
+        local_aregs.areg3 = (S(string8, var3
                 .dref(), var4, posint900, S(string9, S(string3, var4.dref(), CONST(string4)), var2
                         .dref(), continuation)));
         mach.updateCUTB();
@@ -106,9 +106,9 @@ class pred_getargs_2_2 extends pred_getargs_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var3);
-        local_aregs.setAV(1,S(string3, S(string6, CONST(string2)), var4));
-        local_aregs.setAV(2,var1.dref());
+        local_aregs.areg0 = (var3);
+        local_aregs.areg1 = (S(string3, S(string6, CONST(string2)), var4));
+        local_aregs.areg2 = (var1.dref());
         mach.setCont(local_aregs, 3, S(string8, var3
                 .dref(), var5, posint900, S(string9, S(string3, var5.dref(), var6), var2
                         .dref(), S(string7, var4.dref(), var6.dref(), continuation))));

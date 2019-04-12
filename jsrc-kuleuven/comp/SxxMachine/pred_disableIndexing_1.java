@@ -65,9 +65,9 @@ public class pred_disableIndexing_1 extends Code {
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_disableIndexing_1_consts.string3, CONST(pred_disableIndexing_1_consts.string4), S(pred_disableIndexing_1_consts.string3, var1
+        local_aregs.areg0 = (S(pred_disableIndexing_1_consts.string3, CONST(pred_disableIndexing_1_consts.string4), S(pred_disableIndexing_1_consts.string3, var1
                 .dref(), CONST(pred_disableIndexing_1_consts.string5))));
-        local_aregs.setAV(1,var2);
+        local_aregs.areg1 = (var2);
 
         mach.setCont(local_aregs, 2, S(pred_disableIndexing_1_consts.string6, var2
                 .dref(), CONST(pred_disableIndexing_1_consts.string7), S(pred_disableIndexing_1_consts.string8, S(pred_disableIndexing_1_consts.string3, CONST(pred_disableIndexing_1_consts.string9), S(pred_disableIndexing_1_consts.string3, var1

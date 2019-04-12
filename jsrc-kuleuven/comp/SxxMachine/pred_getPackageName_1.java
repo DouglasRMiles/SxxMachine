@@ -98,8 +98,8 @@ class pred_getPackageName_1_1 extends pred_getPackageName_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONST(pred_getPackageName_1_consts.string5));
-        local_aregs.setAV(1,var1.dref());
+        local_aregs.areg0 = (CONST(pred_getPackageName_1_consts.string5));
+        local_aregs.areg1 = (var1.dref());
 
         mach.setCont(local_aregs, 2, S(pred_getPackageName_1_consts.string0, new HeapChoice(
                 mach.getCUTB()), continuation));

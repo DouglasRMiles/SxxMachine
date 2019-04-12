@@ -72,7 +72,7 @@ class pred_execdisj_2_1 extends pred_execdisj_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(mach.getCUTB()), S(string3, var2.dref(), continuation)));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
@@ -117,7 +117,7 @@ class pred_execdisj_2_3 extends pred_execdisj_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
@@ -139,7 +139,7 @@ class pred_execdisj_2_4 extends pred_execdisj_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

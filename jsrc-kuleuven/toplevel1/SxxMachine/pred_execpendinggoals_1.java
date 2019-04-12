@@ -80,7 +80,7 @@ class pred_execpendinggoals_1_2 extends pred_execpendinggoals_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
         mach.setCont(local_aregs, 1, S(string5, var2.dref(), continuation));
         mach.updateCUTB();
         return exec2cont;

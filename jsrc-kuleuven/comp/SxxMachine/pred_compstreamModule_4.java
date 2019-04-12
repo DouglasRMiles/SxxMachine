@@ -76,8 +76,8 @@ public class pred_compstreamModule_4 extends Code {
         if (!(areg3.unifyJP(var4)))
             return mach.Fail0;
 
-        local_aregs.setAV(0, CONST(pred_compstreamModule_4_consts.string3));
-        local_aregs.setAV(1, var3.dref());
+        local_aregs.areg0 = ( CONST(pred_compstreamModule_4_consts.string3));
+        local_aregs.areg1 = ( var3.dref());
 
         mach.setCont(local_aregs, 2, S(pred_compstreamModule_4_consts.string2, CONST(pred_compstreamModule_4_consts.string4), var4
                 .dref(), S(pred_compstreamModule_4_consts.string5, CONST(pred_compstreamModule_4_consts.string6), var1

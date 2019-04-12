@@ -100,9 +100,9 @@ class pred_log_1_1 extends pred_log_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONST(pred_log_1_consts.string4));
+        local_aregs.areg0 = (CONST(pred_log_1_consts.string4));
 
-        local_aregs.setAV(1,CONST(pred_log_1_consts.string5));
+        local_aregs.areg1 = (CONST(pred_log_1_consts.string5));
 
         mach.setCont(local_aregs, 2, S(pred_log_1_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_log_1_consts.string7, var1.dref(), S(pred_log_1_consts.string8, continuation))));

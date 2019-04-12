@@ -60,8 +60,8 @@ public class PrologMachine extends RunningPrologMachine {
 
     private void installGoal(Term goal, MiniJProlog runStack) {
         final TermArray local_aregs = runStack.getAreg();
-        local_aregs.setAV(0, goal);
-        local_aregs.setAV(1, S(("halt"), Integer(0)));
+        local_aregs.areg0 = (goal);
+        local_aregs.areg1 = (S(("halt"), Integer(0)));
     }
 
     //public boolean doTrace = false;

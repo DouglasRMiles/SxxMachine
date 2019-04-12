@@ -70,7 +70,7 @@ public class pred_printClauseConstructor_2 extends Code {
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_printClauseConstructor_2_consts.string3, var1
+        local_aregs.areg0 = (S(pred_printClauseConstructor_2_consts.string3, var1
                 .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string4), S(pred_printClauseConstructor_2_consts.string3, var2
                         .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string5), S(pred_printClauseConstructor_2_consts.string3, var1
                                 .dref(), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string6), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string9), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, CONST(pred_printClauseConstructor_2_consts.string10), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), S(pred_printClauseConstructor_2_consts.string3, S(pred_printClauseConstructor_2_consts.string7, CONST(pred_printClauseConstructor_2_consts.string8)), CONST(pred_printClauseConstructor_2_consts.string11))))))))))))));

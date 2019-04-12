@@ -48,15 +48,15 @@ public class JPInstance extends Code {
         if (!jClassType.isInstance(((Const) object).getValue()))
             return mach.Fail0;
 
-        args.setAV(1,args.setAV(2,null));
+        args.areg1 = (args.areg2 = (null));
         mach.setCont(args, 0, cont);
         return mach.getCall1();
     }
 
     private Code startIteration(TermArray args, Term classType, Object obj) {
         //Iteratie starten over structuur
-        args.setAV(0,CONST(obj.getClass()));
-        args.setAV(1,classType);
+        args.areg0 = (CONST(obj.getClass()));
+        args.areg1 = (classType);
         return iterate;
     }
 

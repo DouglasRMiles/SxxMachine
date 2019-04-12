@@ -119,8 +119,8 @@ class pred_fixNotVar_2_1 extends pred_fixNotVar_2 {
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_fixNotVar_2_consts.string8, var3, var4));
-        local_aregs.setAV(1,var1.dref());
+        local_aregs.areg0 = (S(pred_fixNotVar_2_consts.string8, var3, var4));
+        local_aregs.areg1 = (var1.dref());
 
         mach.setCont(local_aregs, 2, S(pred_fixNotVar_2_consts.string5, S(pred_fixNotVar_2_consts.string6, var3
                 .dref()), S(pred_fixNotVar_2_consts.string0, new HeapChoice(
@@ -172,7 +172,7 @@ class pred_fixNotVar_2_2 extends pred_fixNotVar_2 {
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_fixNotVar_2_consts.string6, var1.dref()));
+        local_aregs.areg0 = (S(pred_fixNotVar_2_consts.string6, var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_fixNotVar_2_consts.string2, var1
                 .dref(), var3, var4, S(pred_fixNotVar_2_consts.string4, var3
@@ -219,9 +219,9 @@ class pred_fixNotVar_2_3 extends pred_fixNotVar_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var3);
-        local_aregs.setAV(2,var4);
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var3);
+        local_aregs.areg2 = (var4);
 
         mach.setCont(local_aregs, 3, S(pred_fixNotVar_2_consts.string3, var5, var4
                 .dref(), S(pred_fixNotVar_2_consts.string4, var6, var3.dref(), S(pred_fixNotVar_2_consts.string2, var1

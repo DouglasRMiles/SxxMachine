@@ -79,8 +79,8 @@ class pred_loop_1_2 extends pred_loop_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2);
-        local_aregs.setAV(1,S(string1, var1.dref(), posint1));
+        local_aregs.areg0 = (var2);
+        local_aregs.areg1 = (S(string1, var1.dref(), posint1));
         mach.setCont(local_aregs, 2, S(string4, var2.dref(), continuation));
         mach.updateCUTB();
         return is3cont;

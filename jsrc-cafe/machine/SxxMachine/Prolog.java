@@ -150,7 +150,7 @@ public final class Prolog extends PrologFlags {
     protected final EnumSet<Feature> features = EnumSet.allOf(Feature.class);
     public Term pendingGoals;
     public int PENDING_INTERUPTS;
-    public Object INTERUPT_LOCK;
+    final public Object INTERUPT_LOCK = new Object();
     public Compound lastPendingGoal;
     public Term assumptions;
     public Operation pred;
@@ -211,7 +211,7 @@ public final class Prolog extends PrologFlags {
      * </ul>
      */
     private void initOnce(InputStream in, PrintStream out, PrintStream err) {
-        //final Term[] ThizLARGs = this.ThizLARGs.getBacking();
+        //
         //this.AREGS =  new Term[this.maxArity];
         this.setAREGS(TermArray.newTermArray(maxArity));
 
@@ -261,7 +261,7 @@ public final class Prolog extends PrologFlags {
         pendingGoals = Nil;
         assumptions = Nil;
         PENDING_INTERUPTS = 0;
-        INTERUPT_LOCK = new Object();
+        //INTERUPT_LOCK = new Object();
         lastPendingGoal = null;
 
         setFlags();
@@ -807,6 +807,5 @@ public final class Prolog extends PrologFlags {
     public void setAREGS(TermArray aREGS) {
         this.AREGS = aREGS;
     }
-
 
 }

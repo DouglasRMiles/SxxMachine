@@ -63,7 +63,7 @@ public class pred_bundleArgs_1 extends Code {
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,S(pred_bundleArgs_1_consts.string3, CONST(pred_bundleArgs_1_consts.string4), S(pred_bundleArgs_1_consts.string3, S(pred_bundleArgs_1_consts.string1, pred_bundleArgs_1_consts.posint0, var1
+        local_aregs.areg0 = (S(pred_bundleArgs_1_consts.string3, CONST(pred_bundleArgs_1_consts.string4), S(pred_bundleArgs_1_consts.string3, S(pred_bundleArgs_1_consts.string1, pred_bundleArgs_1_consts.posint0, var1
                 .dref()), S(pred_bundleArgs_1_consts.string3, CONST(pred_bundleArgs_1_consts.string5), CONST(pred_bundleArgs_1_consts.string6)))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();

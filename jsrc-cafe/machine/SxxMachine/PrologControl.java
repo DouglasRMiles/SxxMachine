@@ -98,7 +98,7 @@ public abstract class PrologControl {
     }
 
     public void setMaxDatabaseSize(int size) {
-        // if (this.engine.aregs != null)
+        // if (this.MREG.aregs != null)
         // throw new IllegalStateException("Prolog already initialized");
         if (this.engine.internalDB != null)
             this.engine.internalDB.maxContents = size;

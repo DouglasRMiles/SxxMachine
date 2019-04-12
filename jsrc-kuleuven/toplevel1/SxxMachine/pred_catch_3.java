@@ -27,7 +27,7 @@ public class pred_catch_3 extends Code {
         mach.setPrologExceptionHandler(new CatchExceptionHandler(exception, exceptionCode, cont));
         mach.setCont(local_aregs, 0, addContinuation(mach, goal, S("endCatch", Integer(mach
                 .getCurrentChoice()), cont)));
-        local_aregs.setAV(1,local_aregs.setAV(2,local_aregs.setAV(3,null)));
+        local_aregs.areg1 = (local_aregs.areg2 = (local_aregs.areg3 = (null)));
         return (Code) (Object) mach.getCall1();
     }
 
@@ -66,7 +66,7 @@ class pred_endCatch_1 extends Code {
         final long choicePoint = ((NumberTerm) choice).longValue() - 1;
         //zorgen dat bij exceptionhandler er pas wordt verder gezocht vanaf choicePoint
         mach.setPrologExceptionHandler(new SkipExceptionHandler(choicePoint));
-        local_aregs.setAV(1,null);
+        local_aregs.areg1 = (null);
         mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }

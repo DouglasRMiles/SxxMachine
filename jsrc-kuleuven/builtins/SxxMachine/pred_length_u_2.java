@@ -76,8 +76,8 @@ class pred_length_u_2_2 extends pred_length_u_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var4);
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var4);
         mach.setCont(local_aregs, 2, S(string4, var3.dref(), var4.dref(), continuation));
         mach.updateCUTB();
         return entry_code;

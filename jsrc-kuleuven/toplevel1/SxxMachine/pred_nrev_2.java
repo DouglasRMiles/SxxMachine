@@ -88,8 +88,8 @@ class pred_nrev_2_2 extends pred_nrev_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
-        local_aregs.setAV(1,var4);
+        local_aregs.areg0 = (var2.dref());
+        local_aregs.areg1 = (var4);
         mach.setCont(local_aregs, 2, S(string3, var4.dref(), S(string1, var1.dref(), CONST(string2)), var3
                 .dref(), continuation));
         mach.updateCUTB();

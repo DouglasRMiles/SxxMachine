@@ -121,7 +121,7 @@ class pred_readall_2_3 extends pred_readall_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string1, var1.dref(), var2))))
             return mach.Fail0;
-        local_aregs.setAV(0,var3);
+        local_aregs.areg0 = (var3);
         mach.setCont(local_aregs, 1, S(string8, var3.dref(), var2.dref(), continuation));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

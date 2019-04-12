@@ -57,8 +57,8 @@ public class pred_modulename_1 extends Code {
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
-        local_aregs.setAV(0,CONST(pred_modulename_1_consts.string3));
-        local_aregs.setAV(1,var1.dref());
+        local_aregs.areg0 = (CONST(pred_modulename_1_consts.string3));
+        local_aregs.areg1 = (var1.dref());
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().nb_current3cont;

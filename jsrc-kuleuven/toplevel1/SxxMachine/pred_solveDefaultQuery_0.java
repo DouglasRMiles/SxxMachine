@@ -16,7 +16,7 @@ public class pred_solveDefaultQuery_0 extends Code {
         final TermArray local_aregs = mach.getAreg();
         final JpVar v = Jv(mach);
         mach.setCont(local_aregs, 0, S("$$query", v, S("processGoal", v, local_aregs.getPlainArg(1))));
-        local_aregs.setAV(1,null);
+        local_aregs.areg1 = (null);
         return mach.getCall1();
     }
 
@@ -36,11 +36,11 @@ class pred_processGoal_1 extends Code {
         final JpVar part1 = Jv(mach);
         final JpVar part2 = Jv(mach);
         if (goal.unifyJP(S(",", part1, part2))) {
-            local_aregs.setAV(0,part1.dref());
-            local_aregs.setAV(1,S("processGoal", part2.dref(), local_aregs.getPlainArg(1)));
+            local_aregs.areg0 = (part1.dref());
+            local_aregs.areg1 = (S("processGoal", part2.dref(), local_aregs.getPlainArg(1)));
             return mach.getCall2();
         }
-        local_aregs.setAV(0,goal.dref());
+        local_aregs.areg0 = (goal.dref());
         mach.setCont(local_aregs, 0, local_aregs.getTermDRef(1));
         return mach.getCall2();
     }

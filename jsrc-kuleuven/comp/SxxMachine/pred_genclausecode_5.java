@@ -104,9 +104,9 @@ public class pred_genclausecode_5 extends Code {
             return mach.Fail0;
         if (!(areg4.unifyJP(var5)))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var6);
-        local_aregs.setAV(2,var7);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var6);
+        local_aregs.areg2 = (var7);
 
         mach.setCont(local_aregs, 3, S(pred_genclausecode_5_consts.string3, var6
                 .dref(), var8, var9, S(pred_genclausecode_5_consts.string4, var10, S(pred_genclausecode_5_consts.string5, var9

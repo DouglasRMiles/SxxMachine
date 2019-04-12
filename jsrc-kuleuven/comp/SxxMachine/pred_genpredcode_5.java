@@ -186,12 +186,12 @@ class pred_genpredcode_5_2 extends pred_genpredcode_5 {
             return mach.Fail0;
         if (!(areg4.unifyJP(var6.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2.dref());
+        local_aregs.areg0 = (var2.dref());
 
-        local_aregs.setAV(1,CONST(pred_genpredcode_5_consts.string3));
-        local_aregs.setAV(2,var4.dref());
-        local_aregs.setAV(3,var7);
-        local_aregs.setAV(4,var6.dref());
+        local_aregs.areg1 = (CONST(pred_genpredcode_5_consts.string3));
+        local_aregs.areg2 = (var4.dref());
+        local_aregs.areg3 = (var7);
+        local_aregs.areg4 = (var6.dref());
 
         mach.setCont(local_aregs, 5, S(pred_genpredcode_5_consts.string4, var5.dref(), var7
                 .dref(), S(pred_genpredcode_5_consts.string5, var1.dref(), var3.dref(), var4.dref(), var5.dref(), var6

@@ -16,18 +16,18 @@ import SxxMachine.pterm.VariableTerm;
 /** {@code make_directory(+Dir)} */
 public class PRED_make_directory_1 extends Predicate.P1 {
     public PRED_make_directory_1(Term a1, Operation next) {
-        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
-        ThizLARGs[0] = a1;
+        
+        ThizLARGs.areg0 = a1;
         cont = next;
     }
 
     @Override
     public Operation exec(Prolog engine) throws PrologException {
-        final Term[] ThizLARGs = this.ThizLARGs.getBacking();
-        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs[0]);
+        
+        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs.areg0);
         engine.setB0();
 
-        Term a1 = ThizLARGs[0].dref();
+        Term a1 = ThizLARGs.areg0.dref();
         if (a1 instanceof VariableTerm)
             throw new PInstantiationException(this, 1);
         if (!(a1 instanceof Functor))

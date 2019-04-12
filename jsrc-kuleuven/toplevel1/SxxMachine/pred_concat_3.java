@@ -66,8 +66,8 @@ public class pred_concat_3 extends Code {
             mach.createChoicePoint(new Term[] { v1, v2, v3, local_aregs.getPlainArg(3) });
             return concat1.exec(mach);
         }
-        mach.setCont(local_aregs.setAV(0, local_aregs.getPlainArg(3)));
-        local_aregs.setAV(3, local_aregs.setAV(2, local_aregs.setAV(1, null)));
+        mach.setCont(local_aregs.areg0 = ( local_aregs.getPlainArg(3)));
+        local_aregs.areg3 = ( local_aregs.areg2 = ( local_aregs.areg1 = ( null)));
         return mach.getCall1();
     }
 
@@ -86,8 +86,8 @@ class Concat1 extends pred_concat_3 {
             return mach.Fail0;
         if (!v2.unifyJP(v3))
             return mach.Fail0;
-        local_aregs.setAV(0, local_aregs.getPlainArg(3));
-        local_aregs.setAV(3, local_aregs.setAV(2, local_aregs.setAV(1, null)));
+        local_aregs.areg0 = ( local_aregs.getPlainArg(3));
+        local_aregs.areg3 = ( local_aregs.areg2 = ( local_aregs.areg1 = ( null)));
         return mach.getCall1();
     }
 
@@ -108,7 +108,7 @@ class Concat2 extends pred_concat_3 {
         final JpVar var = Jv(mach);
         mach.setCont(local_aregs, 0, S("concat", var, v2, CONST(v3Str
                 .substring(1)), S("concat", CONST(v3Str.substring(0, 1)), var, v1, local_aregs.getPlainArg(3))));
-        local_aregs.setAV(3, local_aregs.setAV(2, local_aregs.setAV(1, null)));
+        local_aregs.areg3 = ( local_aregs.areg2 = ( local_aregs.areg1 = ( null)));
         return mach.getCall1();
     }
 

@@ -63,7 +63,7 @@ class pred_notmore_0_1 extends pred_notmore_0 {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 0);
         final Term var1 = Jv(mach);
-        local_aregs.setAV(0,var1);
+        local_aregs.areg0 = (var1);
         mach.setCont(local_aregs, 1, S(string5, var1.dref(), posint10, S(string0, new HeapChoice(
                 mach.getCUTB()), S(string7, var1.dref(), S(string3, continuation)))));
         mach.updateCUTB();

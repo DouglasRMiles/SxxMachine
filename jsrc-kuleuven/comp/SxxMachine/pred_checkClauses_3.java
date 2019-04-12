@@ -161,12 +161,12 @@ class pred_checkClauses_3_2 extends pred_checkClauses_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
-        local_aregs.setAV(1,CONST(pred_checkClauses_3_consts.string3));
-        local_aregs.setAV(2,var2.dref());
-        local_aregs.setAV(3,var4);
-        local_aregs.setAV(4,var3.dref());
+        local_aregs.areg1 = (CONST(pred_checkClauses_3_consts.string3));
+        local_aregs.areg2 = (var2.dref());
+        local_aregs.areg3 = (var4);
+        local_aregs.areg4 = (var3.dref());
         mach.setCont(local_aregs, 5, continuation);
         mach.updateCUTB();
         return getConsts().genpredcode6cont;

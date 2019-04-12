@@ -134,9 +134,9 @@ class pred_createDummyVars_1_2 extends pred_createDummyVars_1 {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var2);
+        local_aregs.areg0 = (var2);
 
-        local_aregs.setAV(1,S(pred_createDummyVars_1_consts.string3, var1.dref(), pred_createDummyVars_1_consts.posint1));
+        local_aregs.areg1 = (S(pred_createDummyVars_1_consts.string3, var1.dref(), pred_createDummyVars_1_consts.posint1));
 
         mach.setCont(local_aregs, 2, S(pred_createDummyVars_1_consts.string4, S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string6), S(pred_createDummyVars_1_consts.string5, S(pred_createDummyVars_1_consts.string7, CONST(pred_createDummyVars_1_consts.string8)), S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string9), S(pred_createDummyVars_1_consts.string5, var2
                 .dref(), S(pred_createDummyVars_1_consts.string5, CONST(pred_createDummyVars_1_consts.string10), S(pred_createDummyVars_1_consts.string5, S(pred_createDummyVars_1_consts.string7, CONST(pred_createDummyVars_1_consts.string8)), CONST(pred_createDummyVars_1_consts.string11))))))), S(pred_createDummyVars_1_consts.string1, var2

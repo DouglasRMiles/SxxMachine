@@ -154,9 +154,9 @@ class pred_mynumbervarslist_3_2 extends pred_mynumbervarslist_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var5);
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var5);
 
         mach.setCont(local_aregs, 3, S(pred_mynumbervarslist_3_consts.string1, var2.dref(), var5.dref(), var4
                 .dref(), continuation));

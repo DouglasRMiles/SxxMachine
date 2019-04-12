@@ -163,8 +163,8 @@ class pred_addclausetoprogram_3_2 extends pred_addclausetoprogram_3 {
         if (!(areg2.unifyJP(S(pred_addclausetoprogram_3_consts.string2, S(pred_addclausetoprogram_3_consts.string2, var1
                 .dref(), var2.dref()), var3.dref()))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var2.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var2.dref());
 
         mach.setCont(local_aregs, 2, S(pred_addclausetoprogram_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), continuation));
@@ -218,9 +218,9 @@ class pred_addclausetoprogram_3_3 extends pred_addclausetoprogram_3 {
 
         if (!(areg2.unifyJP(S(pred_addclausetoprogram_3_consts.string2, var2.dref(), var4.dref()))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
-        local_aregs.setAV(2,var4.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
+        local_aregs.areg2 = (var4.dref());
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().entry_code;

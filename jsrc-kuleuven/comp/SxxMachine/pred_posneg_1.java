@@ -105,9 +105,9 @@ class pred_posneg_1_1 extends pred_posneg_1 {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
+        local_aregs.areg0 = (var1.dref());
 
-        local_aregs.setAV(1,pred_posneg_1_consts.posint0);
+        local_aregs.areg1 = (pred_posneg_1_consts.posint0);
 
         mach.setCont(local_aregs, 2, S(pred_posneg_1_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_posneg_1_consts.string8, var2, S(pred_posneg_1_consts.string9, pred_posneg_1_consts.posint0, var1
@@ -143,7 +143,7 @@ class pred_posneg_1_2 extends pred_posneg_1 {
             return mach.Fail0;
 
         local_aregs
-                .setAV(0, S(pred_posneg_1_consts.string3, CONST(pred_posneg_1_consts.string4), S(pred_posneg_1_consts.string3, var1
+                .areg0 = ( S(pred_posneg_1_consts.string3, CONST(pred_posneg_1_consts.string4), S(pred_posneg_1_consts.string3, var1
                         .dref(), CONST(pred_posneg_1_consts.string5))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();

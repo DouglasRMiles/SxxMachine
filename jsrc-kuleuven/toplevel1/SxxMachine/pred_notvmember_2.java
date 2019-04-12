@@ -115,8 +115,8 @@ class pred_notvmember_2_3 extends pred_notvmember_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string1, var2, var3))))
             return mach.Fail0;
-        local_aregs.setAV(0,var1.dref());
-        local_aregs.setAV(1,var3.dref());
+        local_aregs.areg0 = (var1.dref());
+        local_aregs.areg1 = (var3.dref());
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return entry_code;
