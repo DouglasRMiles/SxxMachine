@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/divide
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // top:-divide10
         m.setB0();
     // top:-[divide10]
@@ -65,7 +65,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/divide
 
 
     public static Operation PRED_divide10_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // divide10:-d(x/x/x/x/x/x/x/x/x/x,x,A)
         m.setB0();
     // divide10:-[d(x/x/x/x/x/x/x/x/x/x,x,A)]
@@ -88,7 +88,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/divide
 
 
     public static Operation PRED_d_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return d_3_top(m);
     }
@@ -163,9 +163,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A+B,C,D+E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -185,9 +185,9 @@ m.cont = cont;
         //END inline expansion
         p1 = //
  Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a6);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a6);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -197,9 +197,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A-B,C,D-E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -219,9 +219,9 @@ m.cont = cont;
         //END inline expansion
         p1 = //
  Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a6);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a6);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -231,9 +231,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A*B,C,D*B+A*E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -263,9 +263,9 @@ m.cont = cont;
         //END inline expansion
         p1 = //
  Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a8);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a8);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -275,9 +275,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A/B,C,(D*B-A*E)/B^2):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -317,9 +317,9 @@ m.cont = cont;
         //END inline expansion
         p1 = //
  Op("d", FILE_divide10::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a10);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a10);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -328,9 +328,9 @@ m.cont = cont;
     // d(A^B,C,D*B*A^E):-!,integer(B),E is B-1,d(A,C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A^B,C,D*B*A^E):-['$neck_cut',integer(B),E is B-1,d(A,C,D)]
         a1 = a1.dref();
@@ -372,9 +372,9 @@ m.cont = cont;
             return m.fail();
         }
         //END inline expansion
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a8);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a8);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -383,9 +383,9 @@ m.cont = cont;
     // d(-A,B,-C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(-A,B,-C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -401,9 +401,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a5);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a5);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -412,9 +412,9 @@ m.cont = cont;
     // d(exp(A),B,exp(A)*C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(exp(A),B,exp(A)*C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -435,9 +435,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a6);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a6);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -446,9 +446,9 @@ m.cont = cont;
     // d(log(A),B,C/A):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(log(A),B,C/A):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -464,9 +464,9 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a5);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a5);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -475,9 +475,9 @@ m.cont = cont;
     // d(A,A,1):-!
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A,A,1):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
@@ -494,9 +494,9 @@ m.cont = cont;
     // d(A,B,0):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // d(A,B,0):-[]
         if (!  int_0 .unify(a3, m.trail))

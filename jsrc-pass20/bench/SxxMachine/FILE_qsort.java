@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // top:-qsort
         m.setB0();
     // top:-[qsort]
@@ -134,7 +134,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_qsort_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // qsort:-qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])
         m.setB0();
     // qsort:-[qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])]
@@ -150,7 +150,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_qsort_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_qsort::qsort_3_var, fail_0, fail_0, FILE_qsort::qsort_3_2, fail_0, FILE_qsort::qsort_3_1); 
@@ -171,9 +171,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // qsort([A|B],C,D):-[partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G])]
         a1 = a1.dref();
@@ -201,9 +201,9 @@ m.cont = cont;
     // qsort([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // qsort([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -221,7 +221,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
     public static Operation PRED_partition_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return partition_4_top(m);
     }
@@ -260,10 +260,10 @@ m.cont = cont;
     // partition([A|B],C,[A|D],E):-A=<C,!,partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // partition([A|B],C,[A|D],E):-['$get_level'(F),'$less_or_equal'(A,C),'$cut'(F),partition(B,C,D,E)]
         a1 = a1.dref();
@@ -303,10 +303,10 @@ m.cont = cont;
         a8 = a8.dref();
                   m.cut( a8.intValue());
         //END inline expansion
-        m.setAV(0,a6);
-        m.setAV(1,a2);
-        m.setAV(2,a7);
-        m.setAV(3,a4);
+m.setAV(1, a6);
+m.setAV(2, a2);
+m.setAV(3, a7);
+m.setAV(4, a4);
 m.cont = cont;
         return partition_4_top(m);
     }
@@ -315,10 +315,10 @@ m.cont = cont;
     // partition([A|B],C,D,[A|E]):-partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // partition([A|B],C,D,[A|E]):-[partition(B,C,D,E)]
         a1 = a1.dref();
@@ -343,10 +343,10 @@ m.cont = cont;
         } else {
             return m.fail();
         }
-        m.setAV(0,a6);
-        m.setAV(1,a2);
-        m.setAV(2,a3);
-        m.setAV(3,a7);
+m.setAV(1, a6);
+m.setAV(2, a2);
+m.setAV(3, a3);
+m.setAV(4, a7);
 m.cont = cont;
         return partition_4_top(m);
     }
@@ -355,10 +355,10 @@ m.cont = cont;
     // partition([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // partition([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))

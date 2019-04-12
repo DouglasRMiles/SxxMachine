@@ -524,6 +524,25 @@ public final class Prolog extends PrologFlags {
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     private long previousRuntime;
     //public final static Const Nil = CONST("[]");
+    public PrologRegs regs;
+    Term r0;
+    Term r1;
+    Term r2;
+    Term r3;
+    Term r4;
+    Term r5;
+    Term r6;
+    Term r7;
+    Term r8;
+    Term r9;
+    Term r10;
+    Term r11;
+    Term r12;
+    Term r13;
+    Term r14;
+    Term r15;
+    Term r16;
+    Term r17;
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {
@@ -788,5 +807,6 @@ public final class Prolog extends PrologFlags {
     public void setAREGS(TermArray aREGS) {
         this.AREGS = aREGS;
     }
+
 
 }

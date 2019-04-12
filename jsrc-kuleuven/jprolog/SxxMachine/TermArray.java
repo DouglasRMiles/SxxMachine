@@ -9,6 +9,39 @@ package SxxMachine;
  */
 public class TermArray {
 
+    Term areg1;
+    Term areg2;
+    Term areg3;
+    Term areg4;
+    Term areg5;
+    Term areg6;
+    Term areg7;
+    Term areg8;
+    Term areg9;
+    Term areg10;
+    Term areg11;
+    Term areg12;
+    Term areg13;
+    Term areg14;
+    Term areg15;
+    Term areg16;
+    Term areg17;
+    Term areg18;
+    Term areg19;
+    Term areg20;
+    Term areg21;
+    Term areg22;
+    Term areg23;
+    Term areg24;
+    Term areg25;
+    Term areg26;
+    Term areg27;
+    Term areg28;
+    Term areg29;
+    Term areg30;
+    Term areg31;
+    Term areg32;
+    
     //private int length;
 
     final TermRef[] termRefs;

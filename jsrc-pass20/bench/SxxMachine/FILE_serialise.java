@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // top:-serialise
         m.setB0();
     // top:-[serialise]
@@ -88,7 +88,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_serialise_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // serialise:-serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)
         m.setB0();
     // serialise:-[serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)]
@@ -104,7 +104,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_serialise_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // serialise(A,B):-pairlists(A,B,C),arrange(C,D),numbered(D,1,E)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -129,7 +129,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_pairlists_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return pairlists_3_top(m);
     }
@@ -153,9 +153,9 @@ m.cont = cont;
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-pairlists(B,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-[pairlists(B,D,E)]
         a1 = a1.dref();
@@ -195,9 +195,9 @@ m.cont = cont;
             if (!a8.unifyS( FUNCTOR_pair_2 , m.trail, a4, a6)){
                 return m.fail();
             }
-        m.setAV(0,a5);
-        m.setAV(1,a7);
-        m.setAV(2,a9);
+m.setAV(1, a5);
+m.setAV(2, a7);
+m.setAV(3, a9);
 m.cont = cont;
         return pairlists_3_top(m);
     }
@@ -206,9 +206,9 @@ m.cont = cont;
     // pairlists([],[],[]):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // pairlists([],[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -230,7 +230,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_arrange_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
         return m.switch_on_term(FILE_serialise::arrange_2_var, fail_0, fail_0, FILE_serialise::arrange_2_2, fail_0, FILE_serialise::arrange_2_1); 
@@ -251,8 +251,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
         cont = m.cont;
     // arrange([A|B],tree(C,A,D)):-[split(B,A,E,F),arrange(E,C),arrange(F,D)]
         a1 = a1.dref();
@@ -284,8 +284,8 @@ m.cont = cont;
     // arrange([],void):-true
          Term a1, a2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
         cont = m.cont;
     // arrange([],void):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -303,7 +303,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_split_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return split_4_top(m);
     }
@@ -352,10 +352,10 @@ m.cont = cont;
     // split([A|B],A,C,D):-!,split(B,A,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // split([A|B],A,C,D):-['$neck_cut',split(B,A,C,D)]
         a1 = a1.dref();
@@ -374,10 +374,10 @@ m.cont = cont;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-        m.setAV(0,a6);
-        m.setAV(1,a5);
-        m.setAV(2,a3);
-        m.setAV(3,a4);
+m.setAV(1, a6);
+m.setAV(2, a5);
+m.setAV(3, a3);
+m.setAV(4, a4);
 m.cont = cont;
         return split_4_top(m);
     }
@@ -387,10 +387,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // split([A|B],C,[A|D],E):-['$get_level'(F),before(A,C),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
@@ -432,10 +432,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // split([A|B],C,D,[A|E]):-['$get_level'(F),before(C,A),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
@@ -476,10 +476,10 @@ m.cont = cont;
     // split([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // split([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -499,7 +499,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_before_2_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // before(pair(A,B),pair(C,D)):-A<C
         m.setB0();
          Term a1, a2, a3, a4;
@@ -533,7 +533,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
     public static Operation PRED_numbered_3_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return numbered_3_top(m);
     }
@@ -558,9 +558,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // numbered(tree(A,pair(B,C),D),E,F):-[numbered(A,E,C),G is C+1,numbered(D,G,F)]
         a1 = a1.dref();
@@ -582,9 +582,9 @@ m.cont = cont;
         p2 = //
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
  Op("numbered", FILE_serialise::PRED_numbered_3_static_exec, VA(a6, a8, a3), cont));
-        m.setAV(0,a4);
-        m.setAV(1,a2);
-        m.setAV(2,a7);
+m.setAV(1, a4);
+m.setAV(2, a2);
+m.setAV(3, a7);
         m.cont = p2;
         return numbered_3_top(m);
     }
@@ -593,9 +593,9 @@ m.cont = cont;
     // numbered(void,A,A):-true
          Term a1, a2, a3;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
         cont = m.cont;
     // numbered(void,A,A):-[]
         if (!  ATOM_void .unify(a1, m.trail))

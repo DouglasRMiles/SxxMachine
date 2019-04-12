@@ -38,7 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_top_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // top:-tak
         m.setB0();
     // top:-[tak]
@@ -54,7 +54,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_tak_0_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
     // tak:-tak(18,12,6,A)
         m.setB0();
     // tak:-[tak(18,12,6,A)]
@@ -71,7 +71,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
     public static Operation PRED_tak_4_static_exec(Prolog m) { 
-        Operation cont = m.cont; TermArray LARG = m.AREGS; Operation thiz = m.pred;  
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         return tak_4_top(m);
     }
@@ -91,10 +91,10 @@ m.cont = cont;
     // tak(A,B,C,D):-A=<B,C=D
          Term a1, a2, a3, a4;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // tak(A,B,C,D):-['$less_or_equal'(A,B),'$unify'(C,D)]
         //START inline expansion of $less_or_equal(a(1),a(2))
@@ -115,10 +115,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-        a1 = m.getPlainArg(0);
-        a2 = m.getPlainArg(1);
-        a3 = m.getPlainArg(2);
-        a4 = m.getPlainArg(3);
+        a1 = m.AREGS.areg1;
+        a2 = m.AREGS.areg2;
+        a3 = m.AREGS.areg3;
+        a4 = m.AREGS.areg4;
         cont = m.cont;
     // tak(A,B,C,D):-['$greater_than'(A,B),E is A-1,tak(E,B,C,F),G is B-1,tak(G,C,A,H),I is C-1,tak(I,A,B,J),tak(F,H,J,D)]
         //START inline expansion of $greater_than(a(1),a(2))
@@ -152,10 +152,10 @@ m.cont = cont;
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a11, a12), //
  Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a11, a1, a2, a13), //
  Op("tak", FILE_tak::PRED_tak_4_static_exec, VA(a7, a10, a13, a4), cont)))));
-        m.setAV(0,a5);
-        m.setAV(1,a2);
-        m.setAV(2,a3);
-        m.setAV(3,a7);
+m.setAV(1, a5);
+m.setAV(2, a2);
+m.setAV(3, a3);
+m.setAV(4, a7);
         m.cont = p5;
         return tak_4_top(m);
     }

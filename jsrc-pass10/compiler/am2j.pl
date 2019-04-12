@@ -367,10 +367,11 @@ write_java0(deref(Ri,Rj), _) :- !,
 write_java0(set(_,void), _) :- !.
 write_java0(set(cont,econt),_):- !, w('m.cont = cont;'), nl.
 write_java0(set(arg(1),ea(1)), _) :- !, nop((w('m.AREGS = LARG;'), nl)).
-write_java0(set(arg(N),ea(N)), _) :- !, nop((w('// m.AREGS = LARG;'+N), nl)).
 % BAD write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
-write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
+write_java0(set(arg(N),ea(N)), _) :- !, nop((w('// m.AREGS = LARG;'+N), nl)).
 
+write_java0(set(From,ea(N)), _) :- !, 
+   w('m.setAV('),w(N),w(', '), write_reg(From), w(');'),nl.
 
 write_java0(set(Ri,Rj), _) :- !,
 	tab(8),
@@ -382,12 +383,10 @@ write_java0(decl_term_vars([]), _) :- !.
 write_java0(decl_term_vars(L), _) :- !,
 	tab(8),
 	w(' Term '), write_reg_args(L), w(';'), nl.
-write_java0(decl_pred_vars([]), _) :- !.
+write_java0(decl_pred_vars([]), _) :-!.
 write_java0(decl_pred_vars(L), _) :- !,
 	tab(8),
-	w('Operation '),
-	write_reg_args(L),
-	w(';'), nl.
+	w('Operation '), write_reg_args(L), w(';'), nl.
 write_java0(put_cont(BinG,C), _) :- !,
 	(BinG = P:G -> true ; BinG = G),
 	functor(G, F, A0),
@@ -862,7 +861,7 @@ write_label(F/A) :- !,
     }'),nl)),
     tab(4),
     wl(['public static Operation ',(write_class_name(F/A)),'_static_exec(Prolog m) { 
-        final Operation cont = m.cont; final TermArray LARG = m.AREGS; final Operation thiz = m.pred;  ']), nl.
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  ']), nl.
 write_label(L) :-
 	tab(4),
 	w('}'), nl,
@@ -1562,15 +1561,16 @@ write_reg(void) :- inside_params(unify(_)), !, wl(['m.DONT_CARE1()']).
 write_reg(void) :- inside_params(exec_bin), !, wl(['m.DONT_CARE2()']).
 write_reg(void) :- inside_params(F), !, wl(['m.DONTCARE("',call(w(F)),'")']).
 write_reg(void) :- !, w('m.mkvar3()').
-write_reg(arg(X)) :- !, w('LARG['), Y is X - 1, w(Y), w(']').
+write_reg(arg(X)) :- !, w('LARG.getPlainArg('), Y is X - 1, w(Y), w(')').
 % write_reg(a(X)) :- am2j_flag(arrays), !, w('LARG['), Y is X - 1, w(Y), w(']').
-write_reg(ea(X)) :- !, w('m.AREGS['), Y is X - 1, w(Y), w(']').
+write_reg(ea(X)) :- !, w('m.AREGS.areg'), w(X), w('').
+%write_reg(ea(X)) :- !, w('m.areg'), w(X), w('').
 /*
 write_reg(ea(1)) :- !, w('m.areg1').
 write_reg(ea(2)) :- !, w('m.areg2').
 write_reg(ea(3)) :- !, w('m.areg3').
 write_reg(ea(4)) :- !, w('m.areg4').
-write_reg(ea(5)) :- !, w('m.areg5').                            \
+write_reg(ea(5)) :- !, w('m.areg5').                            
 write_reg(ea(6)) :- !, w('m.areg6').
 write_reg(ea(7)) :- !, w('m.areg7').
 write_reg(ea(8)) :- !, w('m.areg8').
