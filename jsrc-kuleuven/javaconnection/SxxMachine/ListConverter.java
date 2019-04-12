@@ -19,10 +19,10 @@ public class ListConverter extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
-        final Term prolog = args[0].dref();
-        final Term java = args[1].dref();
-        final Term cont = args[2].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term prolog = local_aregs.a(0).getVVV();
+        final Term java = local_aregs.a(1).getVVV();
+        final Term cont = local_aregs.a(2).getVVV();
         if (prolog.isVariable() && java.isVariable()) {
             log.fatal("Both vars need to have a value");
             return mach.Fail0;
@@ -48,8 +48,8 @@ public class ListConverter extends Code {
                 return mach.Fail0;
             }
         }
-        args[1] = args[2] = null;
-        mach.setCont(args, 0, cont);
+        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }
 

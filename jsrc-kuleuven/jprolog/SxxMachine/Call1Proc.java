@@ -23,10 +23,10 @@ public class Call1Proc extends AbstractCall {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct - might have to
         // be dereffed
-        final Term object = areg[0].dref();
+        final Term object = local_aregs.a(0).getVVV();
         //System.out.println(object);
         String FunctName;
         Code code;
@@ -35,7 +35,7 @@ public class Call1Proc extends AbstractCall {
         FunctName = pred.fname();
         final int arity = pred.arity();
         code = loadPred(mach, FunctName, arity - 1);
-        setArguments(areg, arity, pred);
+        setArguments(local_aregs, arity, pred);
 
         return code;
     }

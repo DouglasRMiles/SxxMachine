@@ -97,13 +97,13 @@ class pred_printImport_1_1 extends pred_printImport_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
+        local_aregs.setAV(0,var1.dref());
 
         mach.setCont(local_aregs, 1, S(pred_printImport_1_consts.string0, new HeapChoice(
                 mach.getCUTB()), continuation));
@@ -129,15 +129,15 @@ class pred_printImport_1_2 extends pred_printImport_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs[0] = S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string4), S(pred_printImport_1_consts.string3, var1
-                .dref(), S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string5), S(pred_printImport_1_consts.string3, S(pred_printImport_1_consts.string6, CONST(pred_printImport_1_consts.string7)), CONST(pred_printImport_1_consts.string8)))));
+        local_aregs.setAV(0,S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string4), S(pred_printImport_1_consts.string3, var1
+                .dref(), S(pred_printImport_1_consts.string3, CONST(pred_printImport_1_consts.string5), S(pred_printImport_1_consts.string3, S(pred_printImport_1_consts.string6, CONST(pred_printImport_1_consts.string7)), CONST(pred_printImport_1_consts.string8))))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;

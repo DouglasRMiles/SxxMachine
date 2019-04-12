@@ -48,7 +48,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
         return copy;
     }
 
-    public Term[] getAreg() {
+    public TermArray getAreg() {
         return getCurrentStackItem().getAreg();
     }
 

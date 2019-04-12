@@ -98,9 +98,9 @@ class pred_decl_deref_args_1_1 extends pred_decl_deref_args_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
 
         if (!(areg0.unifyJP(pred_decl_deref_args_1_consts.negint1)))
             return mach.Fail0;
@@ -128,17 +128,17 @@ class pred_decl_deref_args_1_2 extends pred_decl_deref_args_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs[0] = S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string4), S(pred_decl_deref_args_1_consts.string3, var1
+        local_aregs.setAV(0,S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string4), S(pred_decl_deref_args_1_consts.string3, var1
                 .dref(), S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string5), S(pred_decl_deref_args_1_consts.string3, var1
-                        .dref(), S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string6), S(pred_decl_deref_args_1_consts.string3, S(pred_decl_deref_args_1_consts.string7, CONST(pred_decl_deref_args_1_consts.string8)), CONST(pred_decl_deref_args_1_consts.string9)))))));
+                        .dref(), S(pred_decl_deref_args_1_consts.string3, CONST(pred_decl_deref_args_1_consts.string6), S(pred_decl_deref_args_1_consts.string3, S(pred_decl_deref_args_1_consts.string7, CONST(pred_decl_deref_args_1_consts.string8)), CONST(pred_decl_deref_args_1_consts.string9))))))));
 
         mach.setCont(local_aregs, 1, S(pred_decl_deref_args_1_consts.string10, var2, S(pred_decl_deref_args_1_consts.string11, var1
                 .dref(), pred_decl_deref_args_1_consts.posint1), S(pred_decl_deref_args_1_consts.string1, var2

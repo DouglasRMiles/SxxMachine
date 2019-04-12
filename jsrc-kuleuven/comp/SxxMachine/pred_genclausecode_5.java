@@ -73,13 +73,13 @@ public class pred_genclausecode_5 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 5);
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var14 = Jv(mach);
         final Term var13 = Jv(mach);
         final Term var12 = Jv(mach);
@@ -104,9 +104,9 @@ public class pred_genclausecode_5 extends Code {
             return mach.Fail0;
         if (!(areg4.unifyJP(var5)))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
-        local_aregs[1] = var6;
-        local_aregs[2] = var7;
+        local_aregs.setAV(0,var1.dref());
+        local_aregs.setAV(1,var6);
+        local_aregs.setAV(2,var7);
 
         mach.setCont(local_aregs, 3, S(pred_genclausecode_5_consts.string3, var6
                 .dref(), var8, var9, S(pred_genclausecode_5_consts.string4, var10, S(pred_genclausecode_5_consts.string5, var9

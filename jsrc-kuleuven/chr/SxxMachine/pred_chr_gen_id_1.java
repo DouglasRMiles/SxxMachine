@@ -26,9 +26,9 @@ public class pred_chr_gen_id_1 extends Code {
     /*@Override*/
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         mach.setARegXFR(local_aregs, 2, 1);
-        local_aregs[1] = Integer(id++);
+        local_aregs.setAV(1,Integer(id++));
         return unify;
     }
 

@@ -121,11 +121,11 @@ class pred_infix_3_1 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -150,11 +150,11 @@ class pred_infix_3_2 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint1000)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string2))))
@@ -179,11 +179,11 @@ class pred_infix_3_3 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint1100)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string2))))
@@ -208,11 +208,11 @@ class pred_infix_3_4 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint1050)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string2))))
@@ -237,11 +237,11 @@ class pred_infix_3_5 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -266,11 +266,11 @@ class pred_infix_3_6 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -295,11 +295,11 @@ class pred_infix_3_7 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -324,11 +324,11 @@ class pred_infix_3_8 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -353,11 +353,11 @@ class pred_infix_3_8b extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -382,11 +382,11 @@ class pred_infix_3_9 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -411,11 +411,11 @@ class pred_infix_3_10 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -440,11 +440,11 @@ class pred_infix_3_11 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -469,11 +469,11 @@ class pred_infix_3_12 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -498,11 +498,11 @@ class pred_infix_3_13 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -527,11 +527,11 @@ class pred_infix_3_14 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -556,11 +556,11 @@ class pred_infix_3_15 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -585,11 +585,11 @@ class pred_infix_3_16 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -614,11 +614,11 @@ class pred_infix_3_17 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint700)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -643,11 +643,11 @@ class pred_infix_3_18 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint550)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string2))))
@@ -672,11 +672,11 @@ class pred_infix_3_19 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -701,11 +701,11 @@ class pred_infix_3_20 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -730,11 +730,11 @@ class pred_infix_3_21 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -759,11 +759,11 @@ class pred_infix_3_22 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -788,11 +788,11 @@ class pred_infix_3_23 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -817,11 +817,11 @@ class pred_infix_3_24 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -846,11 +846,11 @@ class pred_infix_3_25 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -875,11 +875,11 @@ class pred_infix_3_26 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint400)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string7))))
@@ -904,11 +904,11 @@ class pred_infix_3_27 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint300)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string5))))
@@ -933,11 +933,11 @@ class pred_infix_3_28 extends pred_infix_3 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(posint200)))
             return mach.Fail0;
         if (!((areg1).unifyJP(SYM(string2))))

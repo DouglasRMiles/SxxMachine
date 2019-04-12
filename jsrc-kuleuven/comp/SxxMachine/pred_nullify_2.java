@@ -102,10 +102,10 @@ class pred_nullify_2_1 extends pred_nullify_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
 
         if (!(areg0.unifyJP(pred_nullify_2_consts.posint0)))
@@ -141,10 +141,10 @@ class pred_nullify_2_2 extends pred_nullify_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -153,9 +153,9 @@ class pred_nullify_2_2 extends pred_nullify_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = var3;
+        local_aregs.setAV(0,var3);
 
-        local_aregs[1] = S(pred_nullify_2_consts.string3, var2.dref(), pred_nullify_2_consts.posint1);
+        local_aregs.setAV(1,S(pred_nullify_2_consts.string3, var2.dref(), pred_nullify_2_consts.posint1));
 
         mach.setCont(local_aregs, 2, S(pred_nullify_2_consts.string4, S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string6), S(pred_nullify_2_consts.string5, var3
                 .dref(), S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string7), CONST(pred_nullify_2_consts.string8)))), S(pred_nullify_2_consts.string2, var4, S(pred_nullify_2_consts.string3, var1

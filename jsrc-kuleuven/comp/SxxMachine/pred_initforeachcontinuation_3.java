@@ -112,11 +112,11 @@ class pred_initforeachcontinuation_3_1 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
@@ -157,11 +157,11 @@ class pred_initforeachcontinuation_3_2 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -208,11 +208,11 @@ class pred_initforeachcontinuation_3_3 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -259,11 +259,11 @@ class pred_initforeachcontinuation_3_4 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -310,11 +310,11 @@ class pred_initforeachcontinuation_3_5 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -365,11 +365,11 @@ class pred_initforeachcontinuation_3_6 extends pred_initforeachcontinuation_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
         final Term var5 = Jv(mach);
@@ -386,10 +386,10 @@ class pred_initforeachcontinuation_3_6 extends pred_initforeachcontinuation_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var5.dref())))
             return mach.Fail0;
-        local_aregs[0] = var6;
+        local_aregs.setAV(0,var6);
 
-        local_aregs[1] = S(pred_initforeachcontinuation_3_consts.string5, var2
-                .dref(), pred_initforeachcontinuation_3_consts.posint1);
+        local_aregs.setAV(1,S(pred_initforeachcontinuation_3_consts.string5, var2
+                .dref(), pred_initforeachcontinuation_3_consts.posint1));
 
         mach.setCont(local_aregs, 2, S(pred_initforeachcontinuation_3_consts.string6, var7, var1
                 .dref(), S(pred_initforeachcontinuation_3_consts.string7, S(pred_initforeachcontinuation_3_consts.string2, CONST(pred_initforeachcontinuation_3_consts.string8), S(pred_initforeachcontinuation_3_consts.string2, var1

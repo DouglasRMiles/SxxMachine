@@ -20,14 +20,14 @@ public class pred_if_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        final Term[] args = mach.getAreg();
-        final Term test = args[0].dref();
-        final Term iftrue = args[1].dref();
-        final Term cont = args[2].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term test = local_aregs.a(0).getVVV();
+        final Term iftrue = local_aregs.a(1).getVVV();
+        final Term cont = local_aregs.a(2).getVVV();
         final Term position = Jv(mach);
-        args[2] = null;
-        args[1] = S("call", test, S("call", iftrue, cont));
-        args[0] = position;
+        local_aregs.setAV(2,null);
+        local_aregs.setAV(1,S("call", test, S("call", iftrue, cont)));
+        local_aregs.setAV(0,position);
         return savecp;
     }
 

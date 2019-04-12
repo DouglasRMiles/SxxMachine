@@ -15,14 +15,14 @@ public class ClassPred extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
-        final Term classConst = args[0];
-        final Term className = args[1];
-        final Term c = args[2];
+        final TermArray local_aregs = mach.getAreg();
+        final Term classConst = local_aregs.a(0).getVVV();
+        final Term className = local_aregs.a(1).getVVV();
+        final Term c = local_aregs.a(2).getV();
         if (!find(classConst, className))
             return mach.Fail0;
-        args[1] = args[2] = null;
-        args[0] = c;
+        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        local_aregs.setAV(0,c);
         return mach.getCall1();
     }
 

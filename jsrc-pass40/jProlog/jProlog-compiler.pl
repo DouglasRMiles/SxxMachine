@@ -173,7 +173,7 @@ genclausecode(Clause,Last,ClassName,N,Strings) :-
 					])
 			) ,
 			wr(nl),
-			'Term local_aregs[] = mach.Areg ;', wr(nl),
+			'TermArray local_aregs = mach.Areg ;', wr(nl),
 			'Term continuation = local_aregs[',Amin1,'] ;', wr(nl) ,
 			decl_deref_args(Amin2),
 			mynumbervars(Clause,1,NumbVars),

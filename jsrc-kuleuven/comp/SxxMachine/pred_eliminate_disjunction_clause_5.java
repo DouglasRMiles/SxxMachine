@@ -112,13 +112,13 @@ class pred_eliminate_disjunction_clause_5_1 extends pred_eliminate_disjunction_c
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 5);
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var10 = Jv(mach);
         final Term var9 = Jv(mach);
         final Term var8 = Jv(mach);
@@ -145,12 +145,12 @@ class pred_eliminate_disjunction_clause_5_1 extends pred_eliminate_disjunction_c
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_eliminate_disjunction_clause_5_consts.string6, var1
+        local_aregs.setAV(0,S(pred_eliminate_disjunction_clause_5_consts.string6, var1
                 .dref(), var8, var9, S(pred_eliminate_disjunction_clause_5_consts.string7, var1
                         .dref(), var10, S(pred_eliminate_disjunction_clause_5_consts.string8, var2
                                 .dref(), S(pred_eliminate_disjunction_clause_5_consts.string9, var8.dref(), var9
                                         .dref()), var10.dref(), var3.dref(), var4
-                                                .dref(), var5.dref(), var6.dref(), var7.dref(), continuation)));
+                                                .dref(), var5.dref(), var6.dref(), var7.dref(), continuation))));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 5, 2);
         return mach.getCall1();
@@ -183,13 +183,13 @@ class pred_eliminate_disjunction_clause_5_2 extends pred_eliminate_disjunction_c
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 5);
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);

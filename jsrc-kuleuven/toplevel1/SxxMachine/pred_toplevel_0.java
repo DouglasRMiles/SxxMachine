@@ -48,7 +48,7 @@ class pred_toplevel_0_1 extends pred_toplevel_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 0);
         mach.setCont(local_aregs, 0, S(string1, continuation));
         mach.updateCUTB();
@@ -60,7 +60,7 @@ class pred_toplevel_0_2 extends pred_toplevel_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 0);
         mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();

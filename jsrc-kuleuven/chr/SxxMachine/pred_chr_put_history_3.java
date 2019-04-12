@@ -22,7 +22,7 @@ public class pred_chr_put_history_3 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         // TODO: proper implementation
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
         mach.setARegXFR(local_aregs, 0, 2);
         mach.setCont(local_aregs, 2, continuation);

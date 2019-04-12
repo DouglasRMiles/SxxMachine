@@ -89,10 +89,10 @@ class pred_escapeStrings_2_1 extends pred_escapeStrings_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
 
         if (!(areg0.unifyJP(CONST(pred_escapeStrings_2_consts.string4))))
             return mach.Fail0;
@@ -132,10 +132,10 @@ class pred_escapeStrings_2_2 extends pred_escapeStrings_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -146,8 +146,8 @@ class pred_escapeStrings_2_2 extends pred_escapeStrings_2 {
 
         if (!(areg1.unifyJP(S(pred_escapeStrings_2_consts.string2, var3.dref(), var4.dref()))))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
-        local_aregs[1] = var3.dref();
+        local_aregs.setAV(0,var1.dref());
+        local_aregs.setAV(1,var3.dref());
 
         mach.setCont(local_aregs, 2, S(pred_escapeStrings_2_consts.string1, var2.dref(), var4.dref(), continuation));
         mach.updateCUTB();

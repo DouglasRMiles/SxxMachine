@@ -10,11 +10,11 @@ public class JPNull extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
-        final Term nullObject = args[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term nullObject = local_aregs.a(0).getVVV();
         if (!nullObject.unifyJP(Const.javaNull()))
             return mach.Fail0;
-        args[0] = args[1];
+        local_aregs.setAV(0,local_aregs.a(1).getV());
         return mach.getCall1();
     }
 

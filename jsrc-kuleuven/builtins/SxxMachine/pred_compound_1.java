@@ -18,9 +18,9 @@ public class pred_compound_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term term = local_aregs[0].dref();
+        final Term term = local_aregs.a(0).getVVV();
 
         mach.setARegENull(local_aregs, 1);
 

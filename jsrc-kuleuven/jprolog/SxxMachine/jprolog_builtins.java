@@ -27,16 +27,16 @@ class pred_smallerthan_2 extends Code {
     public Code exec(PrologMachine mach) {
         double i1, i2;
         Term dereffed;
-        final Term[] local_aregs = mach.getAreg();
-        dereffed = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        dereffed = local_aregs.a(0).getVVV();
         i1 = dereffed.doubleValue();
-        dereffed = local_aregs[1].dref();
+        dereffed = local_aregs.a(1).getVVV();
         i2 = dereffed.doubleValue();
         if (i1 < i2) {
-            mach.setCont(local_aregs, 0, local_aregs[2]);
+            mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
             mach.setARegENull(local_aregs, 2, 1);
-            //            local_aregs[0] = local_aregs[2];
-            //            local_aregs[1] = local_aregs[2] = null;
+            //            local_aregs.a(0).v = local_aregs.a(2).v;
+            //            local_aregs.a(1).v = local_aregs.a(2).v = null;
             return mach.getCall1();
         }
         return mach.Fail0;
@@ -55,16 +55,16 @@ class pred_smallerorequal_2 extends Code {
     public Code exec(PrologMachine mach) {
         double i1, i2;
         Term dereffed;
-        final Term[] local_aregs = mach.getAreg();
-        dereffed = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        dereffed = local_aregs.a(0).getVVV();
         i1 = dereffed.doubleValue();
-        dereffed = local_aregs[1].dref();
+        dereffed = local_aregs.a(1).getVVV();
         i2 = dereffed.doubleValue();
         if (i1 <= i2) {
-            mach.setCont(local_aregs, 0, local_aregs[2]);
+            mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
             mach.setARegENull(local_aregs, 2, 1);
-            //            local_aregs[0] = local_aregs[2];
-            //            local_aregs[1] = local_aregs[2] = null;
+            //            local_aregs.a(0).v = local_aregs.a(2).v;
+            //            local_aregs.a(1).v = local_aregs.a(2).v = null;
             return mach.getCall1();
         }
         return mach.Fail0;
@@ -83,16 +83,16 @@ class pred_arithequal_2 extends Code {
     public Code exec(PrologMachine mach) {
         double i1, i2;
         Term dereffed;
-        final Term[] local_aregs = mach.getAreg();
-        dereffed = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        dereffed = local_aregs.a(0).getVVV();
         i1 = dereffed.doubleValue();
-        dereffed = local_aregs[1].dref();
+        dereffed = local_aregs.a(1).getVVV();
         i2 = dereffed.doubleValue();
         if (i1 == i2) {
-            mach.setCont(local_aregs, 0, local_aregs[2]);
+            mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
             mach.setARegENull(local_aregs, 2, 1);
-            //            local_aregs[0] = local_aregs[2];
-            //            local_aregs[1] = local_aregs[2] = null;
+            //            local_aregs.a(0).v = local_aregs.a(2).v;
+            //            local_aregs.a(1).v = local_aregs.a(2).v = null;
             return mach.getCall1();
         }
         return mach.Fail0;
@@ -111,16 +111,16 @@ class pred_arithdifferent_2 extends Code {
     public Code exec(PrologMachine mach) {
         double i1, i2;
         Term dereffed;
-        final Term[] local_aregs = mach.getAreg();
-        dereffed = (local_aregs[0]).dref();
+        final TermArray local_aregs = mach.getAreg();
+        dereffed = (local_aregs.a(0).getV()).dref();
         i1 = dereffed.doubleValue();
-        dereffed = (local_aregs[1]).dref();
+        dereffed = (local_aregs.a(1).getV()).dref();
         i2 = dereffed.doubleValue();
         if (i1 != i2) {
-            mach.setCont(local_aregs, 0, local_aregs[2]);
+            mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
             mach.setARegENull(local_aregs, 2, 1);
-            //      local_aregs[0] = local_aregs[2]; // move continuation to first register
-            //            local_aregs[1] = local_aregs[2] = null;
+            //      local_aregs.a(0).v = local_aregs.a(2).v; // move continuation to first register
+            //            local_aregs.a(1).v = local_aregs.a(2).v = null;
             return mach.getCall1();
         }
         return mach.Fail0;
@@ -139,11 +139,11 @@ class pred_is_2 extends Code {
     public Code exec(PrologMachine mach) {
         double i1;
         Term dereffed;
-        final Term[] local_aregs = mach.getAreg();
-        dereffed = (local_aregs[1]).dref();
+        final TermArray local_aregs = mach.getAreg();
+        dereffed = (local_aregs.a(1).getV()).dref();
         i1 = dereffed.doubleValue();
         long l1 = dereffed.longValue();
-        dereffed = (local_aregs[0]).dref();
+        dereffed = (local_aregs.a(0).getV()).dref();
         Term Res = null;
         if (l1 == i1) {
             Res = Integer(l1);
@@ -152,10 +152,10 @@ class pred_is_2 extends Code {
         }
         if (!(dereffed.unifyJP(Res)))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]);
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
         mach.setARegENull(local_aregs, 2, 1);
-        //            local_aregs[0] = local_aregs[2];
-        //            local_aregs[1] = local_aregs[2] = null;
+        //            local_aregs.a(0).v = local_aregs.a(2).v;
+        //            local_aregs.a(1).v = local_aregs.a(2).v = null;
         return mach.getCall1();
     }
 }
@@ -172,22 +172,22 @@ class pred_unify_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
 
         if (!(arg1.unifyJP(arg2))) {
             return mach.Fail0;
         }
 
-        mach.setCont(local_aregs, 0, local_aregs[2]);
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
         mach.setARegENull(local_aregs, 2, 1);
-        //      local_aregs[0] = local_aregs[2]; // move continuation to first register
-        //            local_aregs[1] = local_aregs[2] = null;
+        //      local_aregs.a(0).v = local_aregs.a(2).v; // move continuation to first register
+        //            local_aregs.a(1).v = local_aregs.a(2).v = null;
 
         if (mach.getExceptionState() == ErrorStatus.CHANGEDPENDINGGOALS) {
             log.info("...pushing interrupt vector to the front of the continuation");
-            local_aregs[0] = S(("call_list"), mach.getPendinggoals(), local_aregs[0]);
+            local_aregs.setAV(0,S(("call_list"), mach.getPendinggoals(), local_aregs.a(0).getV()));
             mach.setExceptionState(ErrorStatus.NONE);
             mach.setPendinggoals(Prolog.Nil);
         }
@@ -211,10 +211,10 @@ class pred_univ_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
-        final Term arg3 = local_aregs[2].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
+        final Term arg3 = local_aregs.a(2).getVVV();
 
         //Bij testen van werking code in vergelijking met YAP moet dit ook zo werken voor int
         if (arg1.isAtomOrObject() || arg1 instanceof NumberTerm) {
@@ -223,7 +223,7 @@ class pred_univ_3 extends Code {
                 return mach.Fail0;
             if (!arg3.unifyJP(CONST("[]")))
                 return mach.Fail0;
-            local_aregs[0] = local_aregs[3];
+            local_aregs.setAV(0,local_aregs.a(3).getV());
             mach.setARegENull(local_aregs, 3, 1);
             return mach.getCall1();
         } else if (arg1.isCompound()) {
@@ -234,7 +234,7 @@ class pred_univ_3 extends Code {
                 return mach.Fail0;
             if (!arg3.unifyJP(arguments))
                 return mach.Fail0;
-            local_aregs[0] = local_aregs[3];
+            local_aregs.setAV(0,local_aregs.a(3).getV());
             mach.setARegENull(local_aregs, 3, 1);
             return mach.getCall1();
         } else {
@@ -253,7 +253,7 @@ class pred_univ_3 extends Code {
                     //Moet toch nog werken
                     if (!arg1.unifyJP(arg2))
                         return mach.Fail0;
-                    local_aregs[0] = local_aregs[3];
+                    local_aregs.setAV(0,local_aregs.a(3).getV());
                     mach.setARegENull(local_aregs, 3, 1);
                     return mach.getCall1();
                 }
@@ -269,7 +269,7 @@ class pred_univ_3 extends Code {
 
             if (!arg1.unifyJP(S(arg2.fname(), args)))
                 return mach.Fail0;
-            mach.setCont(local_aregs, 0, local_aregs[3]);
+            mach.setCont(local_aregs, 0, local_aregs.a(3).getV());
             mach.setARegENull(local_aregs, 3, 1);
             return mach.getCall1();
         }
@@ -284,8 +284,8 @@ class pred_write_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final String s = (local_aregs[0].dref()).portrayTerm();
+        final TermArray local_aregs = mach.getAreg();
+        final String s = (local_aregs.a(0).getVVV()).portrayTerm();
         final PrintWriter writer = mach.getIOLayer().getCurrentOutputStream();
         writer.print(s);
         writer.flush();
@@ -304,8 +304,8 @@ class pred_nl_0 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         mach.getIOLayer().getCurrentOutputStream().println();
-        Term[] local_aregs = mach.getAreg();
-        mach.setCont(local_aregs, 0, local_aregs[0]);
+        TermArray local_aregs = mach.getAreg();
+        mach.setCont(local_aregs, 0, local_aregs.a(0).getV());
         return mach.getCall1();
     }
 }
@@ -348,10 +348,10 @@ class pred_functor_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        if (!DoFunctor3(mach, local_aregs[0], local_aregs[1], local_aregs[2]))
+        final TermArray local_aregs = mach.getAreg();
+        if (!DoFunctor3(mach, local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV()))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[3]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(3).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 3, 1);
         return mach.getCall1();
     }
@@ -385,10 +385,10 @@ class pred_arg_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        if (!DoArg3(mach, local_aregs[0], local_aregs[1], local_aregs[2]))
+        final TermArray local_aregs = mach.getAreg();
+        if (!DoArg3(mach, local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV()))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[3]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(3).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 3, 1);
         return mach.getCall1();
     }
@@ -402,14 +402,14 @@ class pred_nexttoken_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         if (!(arg1 instanceof JpVar))
             return mach.Fail0;
         final Term t = mach.nexttoken();
         if (!(arg1.unifyJP(t.dref())))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -423,13 +423,13 @@ class pred_cputime_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         final long t = java.lang.System.currentTimeMillis();
         final Term o = Integer(t);
         if (!(arg1.unifyJP(o)))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -470,12 +470,12 @@ class pred_initfindall_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         if (!(arg1.unifyJP(new findall_list(mach))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]);
-        //mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV());
+        //mach.setCont(local_aregs, 0, local_aregs.a(1).v); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -489,17 +489,17 @@ class pred_addfindall_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final findall_list arg2 = (findall_list) (local_aregs[1].dref());
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final findall_list arg2 = (findall_list) (local_aregs.a(1).getVVV());
         final int oldtrail = mach.getCurrentStackItem().getTrailSize();
         final Term copy = arg1.copyJP(mach, arg2.time);
         mach.getCurrentStackItem().unTrail(oldtrail);
         final JpVar NewTail = Jv(mach);
         (arg2.uptonowend).Refers = CONS(copy, NewTail);
         arg2.uptonowend = NewTail;
-        // local_aregs[0] = local_aregs[2] ; // install the continuation
-        // local_aregs[1] = local_aregs[2] = null ;
+        // local_aregs.a(0).v = local_aregs.a(2).v ; // install the continuation
+        // local_aregs.a(1).v = local_aregs.a(2).v = null ;
         return mach.Fail0;
     }
 }
@@ -512,14 +512,14 @@ class pred_retrievefindall_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final findall_list arg2 = (findall_list) (local_aregs[1].dref());
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final findall_list arg2 = (findall_list) (local_aregs.a(1).getVVV());
         (arg2.uptonowend).Refers = CONST(internS("[]"));
         if (!(arg1.unifyJP((arg2.uptonowbegin).dref())))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]);
-        //mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
+        //mach.setCont(local_aregs, 0, local_aregs.a(2).v); // dinstall the continuation
         mach.setARegENull(local_aregs, 2, 1);
         return mach.getCall1();
     }
@@ -533,13 +533,13 @@ class pred_var_equal_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
         if (arg1 != arg2)
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]);
-        //mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV());
+        //mach.setCont(local_aregs, 0, local_aregs.a(2).v); // dinstall the continuation
         mach.setARegENull(local_aregs, 2, 1);
         return mach.getCall1();
     }
@@ -553,12 +553,12 @@ class pred_trail_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         if (!(arg1.unifyJP(Integer((mach.getCurrentStackItem().getTrailSize())))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]);
-        //mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV());
+        //mach.setCont(local_aregs, 0, local_aregs.a(1).v); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -572,11 +572,11 @@ class pred_choice_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         if (!(arg1.unifyJP(Integer((mach.getCurrentChoice())))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -590,9 +590,9 @@ class pred_type_of_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
         String s;
         if (arg1 instanceof JpVar)
             s = internS("var");
@@ -615,8 +615,8 @@ class pred_type_of_2 extends Code {
 
         if (!(arg2.unifyJP(CONST(s))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
-        local_aregs[1] = local_aregs[2] = null;
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV()); // dinstall the continuation
+        local_aregs.setAV(1,local_aregs.setAV(2, null));
         return mach.getCall1();
     }
 }
@@ -629,9 +629,9 @@ class pred_atype_of_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
         String s;
         if (arg1 instanceof JpVar)
             s = internS("var");
@@ -654,8 +654,8 @@ class pred_atype_of_2 extends Code {
 
         if (!(arg2.unifyJP(CONST(s))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
-        local_aregs[1] = local_aregs[2] = null;
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV()); // dinstall the continuation
+        local_aregs.setAV(1,local_aregs.setAV(2, null));
         return mach.getCall1();
     }
 }
@@ -668,12 +668,12 @@ class pred_assume_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         final Term ass = (mach.getAssumptions()).dref();
         mach.trailEntry(new PopAssumptions(mach, ass));
         mach.setAssumptions(CONS(arg1, ass));
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -687,12 +687,12 @@ class pred_allassumed_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         final Term ass = (mach.getAssumptions()).dref();
         if (!(arg1.unifyJP(ass)))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -706,8 +706,8 @@ class pred_get0_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
         int i;
         try {
             i = mach.getIOLayer().getStreamHandlerIn().getCurrentStream().getStream().read();
@@ -716,7 +716,7 @@ class pred_get0_1 extends Code {
         }
         if (!(arg1.unifyJP(Integer(i))))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[1]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(1).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
@@ -766,10 +766,10 @@ class pred_setarg_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        if (!DoSetArg3(mach, local_aregs[0], local_aregs[1], local_aregs[2]))
+        final TermArray local_aregs = mach.getAreg();
+        if (!DoSetArg3(mach, local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV()))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[3]); // dinstall the continuation
+        mach.setCont(local_aregs, 0, local_aregs.a(3).getV()); // dinstall the continuation
         mach.setARegENull(local_aregs, 3, 1);
         return mach.getCall1();
     }
@@ -783,15 +783,15 @@ class pred_freeze_internal_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
 
         final FrozenVar frv = new FrozenVar(mach, arg2);
         if (!(arg1.unifyJP(frv)))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
-        local_aregs[1] = local_aregs[2] = null;
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV()); // dinstall the continuation
+        local_aregs.setAV(1, local_aregs.setAV(2, null));
         return mach.getCall1();
     }
 }
@@ -804,8 +804,8 @@ class pred_execcontinuation_0 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
 
         if (!((arg1) instanceof Continuation))
             return mach.Fail0;
@@ -814,7 +814,7 @@ class pred_execcontinuation_0 extends Code {
         int i = code.arity() + 1;
 
         while (i-- > 0) {
-            local_aregs[i] = c.getArg(i);
+            local_aregs.setAV(i,c.getArg(i));
         }
         return code;
     }
@@ -828,9 +828,9 @@ class pred_frozen_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term arg1 = local_aregs[0].dref();
-        final Term arg2 = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
         Term goal;
 
         if (arg1 instanceof JpVar)
@@ -842,8 +842,8 @@ class pred_frozen_2 extends Code {
 
         if (!(arg2.unifyJP(goal)))
             return mach.Fail0;
-        mach.setCont(local_aregs, 0, local_aregs[2]); // dinstall the continuation
-        local_aregs[1] = local_aregs[2] = null;
+        mach.setCont(local_aregs, 0, local_aregs.a(2).getV()); // dinstall the continuation
+        local_aregs.setAV(1, local_aregs.setAV(2, null));
         return mach.getCall1();
     }
 }

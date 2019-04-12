@@ -128,10 +128,10 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Const eof = CONST("end_of_file");
         if (areg0.unifyJP(eof)) {
             if (areg1.unifyJP(eof)) {
@@ -147,8 +147,8 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
             return mach.Fail0;
         //System.out.println("Maketerm voor: " + areg0);
         final Map<JpVar, StructureTerm> subs = new HashMap<JpVar, StructureTerm>();
-        local_aregs[0] = fastParse(areg0, mach, subs);
-        //local_aregs[0] = areg0;
+        local_aregs.setAV(0,fastParse(areg0, mach, subs));
+        //local_aregs.a(0).v = areg0;
         Term extras = null;
         for (final Map.Entry<JpVar, StructureTerm> e : subs.entrySet()) {
             if (extras == null) {
@@ -158,9 +158,9 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
             }
         }
 
-        local_aregs[0] = areg0;
-        local_aregs[1] = var2.dref();
-        local_aregs[2] = posint1200;
+        local_aregs.setAV(0,areg0);
+        local_aregs.setAV(1,var2.dref());
+        local_aregs.setAV(2,posint1200);
         mach.setCont(local_aregs, 3, (extras == null ? continuation : extras));
         //mach.setCont(local_aregs,3,continuation);
         //mach.DoCut(mach.CUTB);

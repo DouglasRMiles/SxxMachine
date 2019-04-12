@@ -93,9 +93,9 @@ class pred_nullifyaregs_1_1 extends pred_nullifyaregs_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
         final Term var5 = Jv(mach);
@@ -106,9 +106,9 @@ class pred_nullifyaregs_1_1 extends pred_nullifyaregs_1 {
 
         if (!(areg0.unifyJP(S(pred_nullifyaregs_1_consts.string3, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
-        local_aregs[1] = var3;
-        local_aregs[2] = var4;
+        local_aregs.setAV(0,var1.dref());
+        local_aregs.setAV(1,var3);
+        local_aregs.setAV(2,var4);
 
         mach.setCont(local_aregs, 3, S(pred_nullifyaregs_1_consts.string4, var2
                 .dref(), var5, var6, S(pred_nullifyaregs_1_consts.string5, var7, S(pred_nullifyaregs_1_consts.string6, var4
@@ -138,9 +138,9 @@ class pred_nullifyaregs_1_2 extends pred_nullifyaregs_1 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;

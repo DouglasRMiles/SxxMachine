@@ -11,7 +11,7 @@ public class pred_chr_none_locked_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         // TODO: proper implementation
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
         mach.setCont(local_aregs, 0, continuation);
         mach.setARegENull(local_aregs, 1);

@@ -82,13 +82,13 @@ class pred_exec_1_1 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
+        local_aregs.setAV(0,var1.dref());
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(mach.getCUTB()), S(string8, continuation)));
         mach.updateCUTB();
         return var2cont;
@@ -99,9 +99,9 @@ class pred_exec_1_2 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
@@ -117,9 +117,9 @@ class pred_exec_1_3 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl4);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
@@ -135,9 +135,9 @@ class pred_exec_1_4 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl5);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string3, var1, var2))))
@@ -153,15 +153,15 @@ class pred_exec_1_5 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl6);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
-        local_aregs[1] = var2;
+        local_aregs.setAV(0,var1.dref());
+        local_aregs.setAV(1,var2);
         mach.setCont(local_aregs, 2, S(string0, new HeapChoice(mach.getCUTB()), S(string6, var2.dref(), continuation)));
         mach.updateCUTB();
         return specialgoal3cont;
@@ -172,13 +172,13 @@ class pred_exec_1_6 extends pred_exec_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
+        local_aregs.setAV(0,var1.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return mach.getCall2();

@@ -20,11 +20,11 @@ public class ArrayConverter extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] local_aregs = mach.getAreg();
-        final Term prolog = local_aregs[0].dref();
-        final Term java = local_aregs[1].dref();
-        final Term javaType = local_aregs[2].dref();
-        final Term cont = local_aregs[3].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term prolog = local_aregs.a(0).getVVV();
+        final Term java = local_aregs.a(1).getVVV();
+        final Term javaType = local_aregs.a(2).getVVV();
+        final Term cont = local_aregs.a(3).getVVV();
         if (prolog.isVariable() && java.isVariable()) {
             log.fatal("one of the first 2 vars need to have a value");
             return mach.Fail0;
@@ -50,7 +50,7 @@ public class ArrayConverter extends Code {
             if (!java.unifyJP(CONST(res)))
                 return mach.Fail0;
         }
-        local_aregs[1] = local_aregs[2] = null;
+        local_aregs.setAV(1,local_aregs.setAV(2,null));
         mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }

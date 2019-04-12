@@ -95,11 +95,11 @@ class pred_newargs_3_1 extends pred_newargs_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
@@ -142,11 +142,11 @@ class pred_newargs_3_2 extends pred_newargs_3 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var5 = Jv(mach);
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
@@ -159,7 +159,7 @@ class pred_newargs_3_2 extends pred_newargs_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs[0] = var3.dref();
+        local_aregs.setAV(0,var3.dref());
 
         mach.setCont(local_aregs, 1, S(pred_newargs_3_consts.string4, var5, var3
                 .dref(), S(pred_newargs_3_consts.string5, var1.dref(), var4

@@ -111,10 +111,10 @@ class pred_specialgoal_2_1 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
@@ -133,10 +133,10 @@ class pred_specialgoal_2_2 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string5, var1, var2))))
@@ -155,10 +155,10 @@ class pred_specialgoal_2_3 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl4);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string7, var1, var2))))
@@ -177,10 +177,10 @@ class pred_specialgoal_2_4 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl5);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string8, var1, var2))))
@@ -199,10 +199,10 @@ class pred_specialgoal_2_5 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl6);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string4, var1, var2))))
@@ -221,10 +221,10 @@ class pred_specialgoal_2_6 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl7);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string3, var1, var2))))
@@ -243,10 +243,10 @@ class pred_specialgoal_2_7 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl8);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
@@ -265,10 +265,10 @@ class pred_specialgoal_2_8 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl9);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string9, var1, var2))))
@@ -287,10 +287,10 @@ class pred_specialgoal_2_9 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl10);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string11, var1, var2))))
@@ -309,10 +309,10 @@ class pred_specialgoal_2_10 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl11);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string10, var1, var2))))
@@ -331,10 +331,10 @@ class pred_specialgoal_2_11 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl12);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string12, var1, var2))))
@@ -353,10 +353,10 @@ class pred_specialgoal_2_12 extends pred_specialgoal_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string6, var1, var2))))

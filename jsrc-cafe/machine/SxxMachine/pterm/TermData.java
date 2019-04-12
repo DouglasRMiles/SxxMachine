@@ -15,6 +15,7 @@ import SxxMachine.Prolog;
 import SxxMachine.PrologFlags;
 import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
+import SxxMachine.TermArray;
 
 abstract public class TermData {
 
@@ -223,6 +224,10 @@ abstract public class TermData {
 
     static public StructureTerm S(String naam, int arity) {
         return factory.S(naam, arity);
+    }
+    
+    static public Compound S(String f, TermArray s3) {
+        return factory.S(f, s3);
     }
 
     static public Compound S(String f, Term... s3) {

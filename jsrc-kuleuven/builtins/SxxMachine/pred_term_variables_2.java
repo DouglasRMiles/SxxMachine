@@ -29,10 +29,10 @@ public class pred_term_variables_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
-        // PrologObject variables = local_aregs[1].Deref();
-        Term term = local_aregs[0].dref();
+        // PrologObject variables = local_aregs.a(1).v.Deref();
+        Term term = local_aregs.a(0).getVVV();
 
         final Set<Term> varset = new HashSet<Term>();
         final Queue<Term> queue = new LinkedList<Term>();
@@ -53,7 +53,7 @@ public class pred_term_variables_2 extends Code {
             varlist = CONS(iter.next(), varlist);
         }
 
-        local_aregs[0] = varlist;
+        local_aregs.setAV(0,varlist);
 
         return unify;
     }

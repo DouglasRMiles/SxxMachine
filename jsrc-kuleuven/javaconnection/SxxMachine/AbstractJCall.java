@@ -21,12 +21,12 @@ abstract class AbstractJCall extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
-        final Term classObject = args[0].dref();
-        final Term methodInvocation = args[1].dref();
-        final Term res = args[2].dref();
-        final Term exception = args[3].dref();
-        final Term cont = args[4];
+        final TermArray local_aregs = mach.getAreg();
+        final Term classObject = local_aregs.a(0).getVVV();
+        final Term methodInvocation = local_aregs.a(1).getVVV();
+        final Term res = local_aregs.a(2).getVVV();
+        final Term exception = local_aregs.a(3).getVVV();
+        final Term cont = local_aregs.a(4).getV();
         if (!(classObject.isAtomOrObject()))
             return mach.Fail0;
         Class<?> callClass;
@@ -55,11 +55,11 @@ abstract class AbstractJCall extends Code {
                 }
             }
         }
-        return doInvoke(mach, args, classObject, res, exception, cont, callClass, methodName, methodArgs);
+        return doInvoke(mach, local_aregs, classObject, res, exception, cont, callClass, methodName, methodArgs);
     }
 
-    private Code doInvoke(PrologMachine mach, Term[] args, Term classObject, Term res, Term exception, Term cont,
-            Class<?> callClass, String methodName, Object[] methodArgs) {
+    private Code doInvoke(PrologMachine mach, TermArray local_aregs, Term classObject, Term res, Term exception,
+            Term cont, Class<?> callClass, String methodName, Object[] methodArgs) {
         Method m;
         try {
             m = findMethod(callClass, methodName, methodArgs);
@@ -77,8 +77,8 @@ abstract class AbstractJCall extends Code {
             if (!exception.unifyJP(CONST(ex)))
                 return mach.Fail0;
         }
-        args[1] = args[2] = args[3] = args[4] = null;
-        mach.setCont(args, 0, cont);
+        local_aregs.setAV(1, local_aregs.setAV(2, local_aregs.setAV(3, local_aregs.setAV(4, null))));
+        mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }
 

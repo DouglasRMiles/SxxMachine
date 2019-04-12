@@ -71,15 +71,15 @@ public class pred_printPredExecCode_7 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 7);
-        final Term areg6 = local_aregs[6].dref();
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg6 = local_aregs.a(6).getVVV();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var9 = Jv(mach);
         final Term var8 = Jv(mach);
         final Term var7 = Jv(mach);
@@ -103,12 +103,12 @@ public class pred_printPredExecCode_7 extends Code {
             return mach.Fail0;
         if (!(areg6.unifyJP(var7)))
             return mach.Fail0;
-        local_aregs[0] = var8;
+        local_aregs.setAV(0,var8);
 
-        local_aregs[1] = S(pred_printPredExecCode_7_consts.string3, var1
-                .dref(), pred_printPredExecCode_7_consts.posint2);
+        local_aregs.setAV(1,S(pred_printPredExecCode_7_consts.string3, var1
+                .dref(), pred_printPredExecCode_7_consts.posint2));
 
-        local_aregs[2] = S(pred_printPredExecCode_7_consts.string2, var9, S(pred_printPredExecCode_7_consts.string3, var1
+        local_aregs.setAV(2,S(pred_printPredExecCode_7_consts.string2, var9, S(pred_printPredExecCode_7_consts.string3, var1
                 .dref(), pred_printPredExecCode_7_consts.posint1), S(pred_printPredExecCode_7_consts.string4, S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string6), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string9), S(pred_printPredExecCode_7_consts.string5, var9
                         .dref(), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string10), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string11, var8
                                 .dref()), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string12, var2
@@ -119,7 +119,7 @@ public class pred_printPredExecCode_7 extends Code {
                                                                         .dref()), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string15), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string16, var6
                                                                                 .dref()), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string17), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string18, var6
                                                                                         .dref(), var7.dref(), var1
-                                                                                                .dref()), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string19), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), CONST(pred_printPredExecCode_7_consts.string20)))))))))))))))))), continuation));
+                                                                                                .dref()), S(pred_printPredExecCode_7_consts.string5, CONST(pred_printPredExecCode_7_consts.string19), S(pred_printPredExecCode_7_consts.string5, S(pred_printPredExecCode_7_consts.string7, CONST(pred_printPredExecCode_7_consts.string8)), CONST(pred_printPredExecCode_7_consts.string20)))))))))))))))))), continuation)));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 7, 3);
         return getConsts().is3cont;

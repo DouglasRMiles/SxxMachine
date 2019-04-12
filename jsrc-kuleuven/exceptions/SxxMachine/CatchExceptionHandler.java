@@ -15,15 +15,15 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
         this.exceptionAction = exceptionAction;
         continuation = cnt;
     }
-
+ 
     @Override
     public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {
         if (!exception.unifyJP(this.exception))
             return super.handlePrologException(exception, mach);
-        final Term[] args = mach.getAreg();
-        args[0] = exceptionAction;
-        mach.setCont(args, 1, continuation);
+        final TermArray local_aregs = mach.getAreg();
+        local_aregs.setAV(0,exceptionAction);
+        mach.setCont(local_aregs, 1, continuation);
         return mach.getMachine().getCall2();
     }
 

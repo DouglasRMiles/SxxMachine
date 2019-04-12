@@ -35,11 +35,11 @@ private void initAlternatives() { }
   public Code exec(PrologMachine mach) {
     PrologObject local_aregs[] = mach.getAreg();
     PrologObject continuation = mach.getCont(local_aregs, 1) ;
-PrologObject areg0 = local_aregs[0].dref() ;
+PrologObject areg0 = local_aregs.a(0).v.dref() ;
     if (!(areg0.unify(new StructureTerm(getConsts().string1,new Const(getConsts().string2),new Const(getConsts().string3))))) return mach.Fail0 ;
-local_aregs[0] = continuation ;
+local_aregs.a(0).v = continuation ;
     mach.updateCUTB();
-local_aregs[1] = null ;
+local_aregs.a(1).v = null ;
     return mach.Call1;
 
 }

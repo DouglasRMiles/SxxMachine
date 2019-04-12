@@ -127,16 +127,16 @@ class pred_eliminate_disjunction_8_1 extends pred_eliminate_disjunction_8 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 8);
-        final Term areg7 = local_aregs[7].dref();
-        final Term areg6 = local_aregs[6].dref();
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg7 = local_aregs.a(7).getVVV();
+        final Term areg6 = local_aregs.a(6).getVVV();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var14 = Jv(mach);
         final Term var13 = Jv(mach);
         final Term var12 = Jv(mach);
@@ -229,16 +229,16 @@ class pred_eliminate_disjunction_8_2 extends pred_eliminate_disjunction_8 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 8);
-        final Term areg7 = local_aregs[7].dref();
-        final Term areg6 = local_aregs[6].dref();
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg7 = local_aregs.a(7).getVVV();
+        final Term areg6 = local_aregs.a(6).getVVV();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var17 = Jv(mach);
         final Term var16 = Jv(mach);
         final Term var15 = Jv(mach);
@@ -341,16 +341,16 @@ class pred_eliminate_disjunction_8_3 extends pred_eliminate_disjunction_8 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 8);
-        final Term areg7 = local_aregs[7].dref();
-        final Term areg6 = local_aregs[6].dref();
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg7 = local_aregs.a(7).getVVV();
+        final Term areg6 = local_aregs.a(6).getVVV();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var16 = Jv(mach);
         final Term var15 = Jv(mach);
         final Term var14 = Jv(mach);
@@ -440,16 +440,16 @@ class pred_eliminate_disjunction_8_4 extends pred_eliminate_disjunction_8 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 8);
-        final Term areg7 = local_aregs[7].dref();
-        final Term areg6 = local_aregs[6].dref();
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg7 = local_aregs.a(7).getVVV();
+        final Term areg6 = local_aregs.a(6).getVVV();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var5 = Jv(mach);
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);

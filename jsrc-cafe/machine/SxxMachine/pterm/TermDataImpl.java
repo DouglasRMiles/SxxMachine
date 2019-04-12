@@ -15,6 +15,7 @@ import SxxMachine.Prolog;
 import SxxMachine.PrologFlags;
 import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
+import SxxMachine.TermArray;
 
 abstract public class TermDataImpl {
 
@@ -349,6 +350,18 @@ abstract public class TermDataImpl {
 
     public JpVar Jv(RunningPrologMachine machine) {
         return machine.mkvar0();
+    }
+
+    /**
+     * @param f
+     * @param s3
+     * @return
+     */
+    public Compound S(String f, TermArray s3) {
+        // TODO Auto-generated method stub
+        if (true)
+            throw new AbstractMethodError("TermDataImpl.S");
+        return null;
     }
 
 }

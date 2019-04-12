@@ -69,21 +69,21 @@ public class pred_genmodule_1 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = var2;
+        local_aregs.setAV(0,var2);
 
-        local_aregs[1] = S(pred_genmodule_1_consts.string3, var3, S(pred_genmodule_1_consts.string4, var3
+        local_aregs.setAV(1,S(pred_genmodule_1_consts.string3, var3, S(pred_genmodule_1_consts.string4, var3
                 .dref(), S(pred_genmodule_1_consts.string5, S(pred_genmodule_1_consts.string6, S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string9)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string10), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string12), S(pred_genmodule_1_consts.string7, var2
                         .dref(), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string13), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string14), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string15, var1
                                 .dref()), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string16), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string17), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string18, var1
-                                        .dref()), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string16), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string19), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string19), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), CONST(pred_genmodule_1_consts.string20))))))))))))))))))))))), S(pred_genmodule_1_consts.string21, continuation)))));
+                                        .dref()), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string16), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string19), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), S(pred_genmodule_1_consts.string7, CONST(pred_genmodule_1_consts.string19), S(pred_genmodule_1_consts.string7, S(pred_genmodule_1_consts.string8, CONST(pred_genmodule_1_consts.string11)), CONST(pred_genmodule_1_consts.string20))))))))))))))))))))))), S(pred_genmodule_1_consts.string21, continuation))))));
         mach.updateCUTB();
         return getConsts().modulename2cont;
 

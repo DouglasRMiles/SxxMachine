@@ -18,9 +18,9 @@ public class pred_del_attr_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         System.out.println("DEL ATTR");
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term variable = local_aregs[0].dref();
+        final Term variable = local_aregs.a(0).getVVV();
 
         mach.setARegENull(local_aregs, 1);
 

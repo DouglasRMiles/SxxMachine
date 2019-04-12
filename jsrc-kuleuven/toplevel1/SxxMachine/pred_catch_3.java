@@ -15,18 +15,19 @@ public class pred_catch_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        final Term[] args = mach.getAreg();
-        final Term goal = args[0].dref();
-        final Term exception = args[1].dref();
-        final Term exceptionCode = args[2].dref();
-        final Term cont = args[3].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term goal = local_aregs.a(0).getVVV();
+        final Term exception = local_aregs.a(1).getVVV();
+        final Term exceptionCode = local_aregs.a(2).getVVV();
+        final Term cont = local_aregs.a(3).getVVV();
         //Niet van beland om args op te slaan, wel van belang dat er een apart choicepoint is
         mach.createChoicePoint(RunningPrologMachine.NO_ARGS);
         //goal aanpassen voor continuation toe te voegen
         // in dit geval skippen exceptionhandler voor code die volgt
         mach.setPrologExceptionHandler(new CatchExceptionHandler(exception, exceptionCode, cont));
-        mach.setCont(args,0,addContinuation(mach, goal, S("endCatch", Integer(mach.getCurrentChoice()), cont)));
-        args[1] = args[2] = args[3] = null;
+        mach.setCont(local_aregs, 0, addContinuation(mach, goal, S("endCatch", Integer(mach
+                .getCurrentChoice()), cont)));
+        local_aregs.setAV(1,local_aregs.setAV(2,local_aregs.setAV(3,null)));
         return (Code) (Object) mach.getCall1();
     }
 
@@ -40,7 +41,7 @@ public class pred_catch_3 extends Code {
             for (int i = 0; i < f.arity(); i++) {
                 newF.setarg0(i, f.getPlainArg(i));
             }
-            mach.setCont(newF.args(), f.arity(), cont);
+            mach.setCont(TermArray.newTermArray(newF.args()), f.arity(), cont);
             return newF;
         }
         throw new JPrologInternalException("Invalid params");
@@ -57,16 +58,16 @@ class pred_endCatch_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        final Term[] args = mach.getAreg();
-        final Term choice = args[0].dref();
-        final Term cont = args[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term choice = local_aregs.a(0).getVVV();
+        final Term cont = local_aregs.a(1).getVVV();
         if (!(choice instanceof NumberTerm))
             return mach.Fail0;
         final long choicePoint = ((NumberTerm) choice).longValue() - 1;
         //zorgen dat bij exceptionhandler er pas wordt verder gezocht vanaf choicePoint
         mach.setPrologExceptionHandler(new SkipExceptionHandler(choicePoint));
-        args[1] = null;
-        mach.setCont(args, 0, cont);
+        local_aregs.setAV(1,null);
+        mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }
 

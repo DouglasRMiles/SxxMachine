@@ -48,11 +48,11 @@ class pred_findall_3_1 extends pred_findall_3 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -63,7 +63,7 @@ class pred_findall_3_1 extends pred_findall_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs[0] = var4;
+        local_aregs.setAV(0,var4);
         mach.setCont(local_aregs, 1, S(string2, var1.dref(), var2.dref(), var3.dref(), var4.dref(), continuation));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3, 2);

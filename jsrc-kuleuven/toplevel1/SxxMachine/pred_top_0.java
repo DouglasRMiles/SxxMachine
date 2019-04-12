@@ -69,14 +69,14 @@ class pred_top_0_1 extends pred_top_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
-        local_aregs[0] = CONST(string1);
-        local_aregs[1] = S(string9, var1, var2, S(string4, var1.dref(), S(string11, var2
+        local_aregs.setAV(0,CONST(string1));
+        local_aregs.setAV(1,S(string9, var1, var2, S(string4, var1.dref(), S(string11, var2
                 .dref(), S(string10, CONST(string2), S(string6, S(string7, S(string0, new HeapChoice(
-                        mach.getCUTB()), S(string5, continuation))))))));
+                        mach.getCUTB()), S(string5, continuation)))))))));
         mach.updateCUTB();
         return write2cont;
     }
@@ -86,7 +86,7 @@ class pred_top_0_2 extends pred_top_0 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 0);
         mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();

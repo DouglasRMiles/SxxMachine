@@ -59,10 +59,10 @@ class pred_vread_2_1 extends pred_vread_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -71,7 +71,7 @@ class pred_vread_2_1 extends pred_vread_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs[0] = var3;
+        local_aregs.setAV(0,var3);
         mach.setCont(local_aregs, 1, S(string6, var3
                 .dref(), var4, S(string4, var4.dref(), var1.dref(), S(string0, new HeapChoice(
                         mach.getCUTB()), S(string2, var4.dref(), CONST(string1), var2.dref(), continuation)))));

@@ -10,11 +10,11 @@ public class pred_call_1 extends AbstractCall {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct/Const - might have to
         // be dereffed
-        final Term object = areg[0].dref();
-        final Term cont = areg[1].dref();
+        final Term object = local_aregs.a(0).getVVV();
+        final Term cont = local_aregs.a(1).getVVV();
         //System.out.println(object);
         String functName;
         Code code;
@@ -25,14 +25,14 @@ public class pred_call_1 extends AbstractCall {
             functName = pred.fname();
             arity = pred.arity();
             code = loadPred(mach, functName, arity);
-            setArguments(areg, arity, pred);
+            setArguments(local_aregs, arity, pred);
         } else {
             final Const pred = (Const) object;
             functName = pred.fname();
             arity = 0;
             code = loadPred(mach, functName, 0);
         }
-        mach.setCont(areg, arity, cont);
+        mach.setCont(local_aregs, arity, cont);
 
         return code;
     }

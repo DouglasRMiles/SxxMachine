@@ -19,24 +19,24 @@ public class JPInstance extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
-        final Term object = args[0].dref();
-        final Term classType = args[1].dref();
-        final Term cont = args[2];
+        final TermArray local_aregs = mach.getAreg();
+        final Term object = local_aregs.a(0).getVVV();
+        final Term classType = local_aregs.a(1).getVVV();
+        final Term cont = local_aregs.a(2).getV();
         if (!(object.isAtomOrObject()))
             return mach.Fail0;
         final Object obj = ((Const) object).getValue();
         if (obj instanceof String)
             return mach.Fail0;
         if (classType.isVariable())
-            return startIteration(args, classType, obj);
+            return startIteration(local_aregs, classType, obj);
         else
-            return doCheckInstance(mach, args, object, classType, cont);
+            return doCheckInstance(mach, local_aregs, object, classType, cont);
 
     }
 
     @SuppressWarnings("rawtypes")
-    private Code doCheckInstance(PrologMachine mach, Term[] args, Term object, Term classType, Term cont) {
+    private Code doCheckInstance(PrologMachine mach, TermArray args, Term object, Term classType, Term cont) {
         if (!(classType.isAtomOrObject()))
             return mach.Fail0;
         final Object cl = ((Const) classType).getValue();
@@ -48,15 +48,15 @@ public class JPInstance extends Code {
         if (!jClassType.isInstance(((Const) object).getValue()))
             return mach.Fail0;
 
-        args[1] = args[2] = null;
+        args.setAV(1,args.setAV(2,null));
         mach.setCont(args, 0, cont);
         return mach.getCall1();
     }
 
-    private Code startIteration(Term[] args, Term classType, Object obj) {
+    private Code startIteration(TermArray args, Term classType, Object obj) {
         //Iteratie starten over structuur
-        args[0] = CONST(obj.getClass());
-        args[1] = classType;
+        args.setAV(0,CONST(obj.getClass()));
+        args.setAV(1,classType);
         return iterate;
     }
 

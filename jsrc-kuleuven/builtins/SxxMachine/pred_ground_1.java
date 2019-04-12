@@ -13,9 +13,9 @@ public class pred_ground_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        Term term = local_aregs[0].dref();
+        Term term = local_aregs.a(0).getVVV();
 
         final Queue<Term> queue = new LinkedList<Term>();
 

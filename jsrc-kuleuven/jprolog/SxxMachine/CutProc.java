@@ -16,12 +16,12 @@ public class CutProc extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a PrologObject of type
         // HeapChoice
-        final int i = ((HeapChoice) areg[0]).CutTo;
+        final int i = ((HeapChoice) local_aregs.a(0).getV()).CutTo;
         mach.doCut(i);
-        mach.setARegXFR(areg, 0, 1);
+        mach.setARegXFR(local_aregs, 0, 1);
         mach.updateCUTB();
         return mach.getCall1().exec(mach);
     }

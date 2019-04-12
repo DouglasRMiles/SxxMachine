@@ -22,9 +22,9 @@ public class pred_put_attr_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
-        final Term variable = local_aregs[0].dref();
-        final Term attribute = local_aregs[1].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term variable = local_aregs.a(0).getVVV();
+        final Term attribute = local_aregs.a(1).getVVV();
 
         mach.setARegXFR(local_aregs, 0, 2);
         mach.setARegENull(local_aregs, 2, 1);

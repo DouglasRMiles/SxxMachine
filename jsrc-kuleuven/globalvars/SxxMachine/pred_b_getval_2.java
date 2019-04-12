@@ -20,8 +20,8 @@ public class pred_b_getval_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
-        Term name = local_aregs[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        Term name = local_aregs.a(0).getVVV();
 
         if (name.isCompound()) {
             final AFunct f = (AFunct) name;
@@ -34,7 +34,7 @@ public class pred_b_getval_2 extends Code {
 
             final Term oldValue = GlobalVarsModule.getTable(mach).get(cname);
             if (oldValue != null) {
-                local_aregs[0] = oldValue;
+                local_aregs.setAV(0,oldValue);
                 // System.out.println("b_getval(" + name + "," + oldValue + ")");
                 return unification;
             } else {

@@ -33,10 +33,10 @@ public class pred_sort_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
-        // PrologObject sortedlist = local_aregs[1].Deref();
-        Term list = local_aregs[0].dref();
+        // PrologObject sortedlist = local_aregs.a(1).v.Deref();
+        Term list = local_aregs.a(0).getVVV();
 
         final SortedSet<Term> set = new TreeSet<Term>(Collections.reverseOrder(pred_compare_3.getComparator()));
         log.debug("Startin sort...");
@@ -57,7 +57,7 @@ public class pred_sort_2 extends Code {
             output = CONS(iter.next(), output);
         }
 
-        local_aregs[0] = output;
+        local_aregs.setAV(0,output);
         return unify;
     }
 

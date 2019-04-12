@@ -80,16 +80,16 @@ class pred_read_1_1 extends pred_read_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
 
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs[0] = var2;
+        local_aregs.setAV(0,var2);
         mach.setCont(local_aregs, 1, S(string5, var2.dref(), var3, S(string2, var3.dref(), var1
                 .dref(), S(string0, new HeapChoice(mach.getCUTB()), continuation))));
         mach.updateCUTB();

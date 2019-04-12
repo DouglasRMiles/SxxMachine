@@ -10,14 +10,14 @@ public class pred_nonvar_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
-        if (!areg[0].dref().isVariable()) {
-            mach.setARegXFR(areg, 0, 1);
-            mach.setARegENull(areg, 1);
+        final TermArray local_aregs = mach.getAreg();
+        if (!local_aregs.a(0).getVVV().isVariable()) {
+            mach.setARegXFR(local_aregs, 0, 1);
+            mach.setARegENull(local_aregs, 1);
             return mach.getCall1();
         } else {
-            areg[0] = null;
-            mach.setARegENull(areg, 1);
+            local_aregs.setAV(0,null);
+            mach.setARegENull(local_aregs, 1);
             return mach.Fail0;
         }
 

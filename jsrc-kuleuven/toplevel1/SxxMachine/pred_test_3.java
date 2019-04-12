@@ -84,8 +84,8 @@ public class pred_test_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] machAreg = mach.getAreg();
-        final Term aregs[] = { machAreg[0], machAreg[1], machAreg[2], machAreg[3] };
+        final TermArray local_aregs = mach.getAreg();
+        final Term aregs[] = { local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV(), local_aregs.a(3).getV() };
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -95,11 +95,11 @@ class pred_test_3_1 extends pred_test_3 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -109,13 +109,13 @@ class pred_test_3_1 extends pred_test_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        // local_aregs[0] = var1.deref();
-        // local_aregs[1] = new Funct(unify, var3.deref(), posint1);
+        // local_aregs.a(0).v = var1.deref();
+        // local_aregs.a(1).v = new Funct(unify, var3.deref(), posint1);
 
-        // local_aregs[2] = new Funct(unify,var1.deref(),new Const(a),continuation);
-        // local_aregs[2] = new Funct(unify, var2.deref(),new Const(b), new Funct(unify,
+        // local_aregs.a(2).v = new Funct(unify,var1.deref(),new Const(a),continuation);
+        // local_aregs.a(2).v = new Funct(unify, var2.deref(),new Const(b), new Funct(unify,
         // new Const(a), var1.deref(), continuation));
-        // local_aregs[2] = new Funct(or, new Funct(conj, new Funct(
+        // local_aregs.a(2).v = new Funct(or, new Funct(conj, new Funct(
         // freeze, var2.deref(),
         // new Funct(unify, var3.deref(), posint2)), new Funct(unify,
         // var1.deref(), var2.deref())), new Funct(unify, var2.deref(),

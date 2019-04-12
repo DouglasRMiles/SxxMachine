@@ -65,10 +65,10 @@ class pred_getargs_2_1 extends pred_getargs_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -77,12 +77,12 @@ class pred_getargs_2_1 extends pred_getargs_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs[0] = var3;
-        local_aregs[1] = S(string3, S(string6, CONST(string1)), CONST(string4));
-        local_aregs[2] = var1.dref();
-        local_aregs[3] = S(string8, var3
+        local_aregs.setAV(0,var3);
+        local_aregs.setAV(1,S(string3, S(string6, CONST(string1)), CONST(string4)));
+        local_aregs.setAV(2,var1.dref());
+        local_aregs.setAV(3,S(string8, var3
                 .dref(), var4, posint900, S(string9, S(string3, var4.dref(), CONST(string4)), var2
-                        .dref(), continuation));
+                        .dref(), continuation)));
         mach.updateCUTB();
         return ap4cont;
     }
@@ -92,10 +92,10 @@ class pred_getargs_2_2 extends pred_getargs_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var6 = Jv(mach);
         final Term var5 = Jv(mach);
         final Term var4 = Jv(mach);
@@ -106,9 +106,9 @@ class pred_getargs_2_2 extends pred_getargs_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs[0] = var3;
-        local_aregs[1] = S(string3, S(string6, CONST(string2)), var4);
-        local_aregs[2] = var1.dref();
+        local_aregs.setAV(0,var3);
+        local_aregs.setAV(1,S(string3, S(string6, CONST(string2)), var4));
+        local_aregs.setAV(2,var1.dref());
         mach.setCont(local_aregs, 3, S(string8, var3
                 .dref(), var5, posint900, S(string9, S(string3, var5.dref(), var6), var2
                         .dref(), S(string7, var4.dref(), var6.dref(), continuation))));

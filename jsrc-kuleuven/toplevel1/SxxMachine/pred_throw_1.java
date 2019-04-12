@@ -10,7 +10,7 @@ public class pred_throw_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
-        final Term ex = mach.getAreg()[0].dref();
+        final Term ex = mach.getAreg().a(0).getVVV();
         if (ex.isVariable())
             return mach.Fail0;
         throw new PrologThrownException(ex);

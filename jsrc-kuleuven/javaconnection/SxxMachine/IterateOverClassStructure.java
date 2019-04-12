@@ -24,10 +24,10 @@ public class IterateOverClassStructure extends Code {
     @Override
     public final Code exec(PrologMachine mach) {
         initMach(mach);
-        final Term[] args = mach.getAreg();
-        final Term object = args[0].dref();
-        final Term classType = args[1].dref();
-        Term cont = args[2];
+        final TermArray local_aregs = mach.getAreg();
+        final Term object = local_aregs.a(0).getVVV();
+        final Term classType = local_aregs.a(1).getVVV();
+        Term cont = local_aregs.a(2).getV();
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object.isAtomOrObject()))
@@ -38,8 +38,8 @@ public class IterateOverClassStructure extends Code {
         cont = doAction((Class) c, classType, cont);
         if (cont == null)
             return mach.Fail0;
-        args[1] = args[2] = null;
-        mach.setCont(args, 0, cont);
+        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        mach.setCont(local_aregs, 0, cont);
         mach.updateCUTB();
         return mach.getCall1();
     }
@@ -110,11 +110,11 @@ class InterfaceIterator extends Code {
     @SuppressWarnings({ "unchecked" })
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] args = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
 
-        final Term object = args[0].dref();
-        final Term classType = args[1].dref();
-        final Term cont = args[2];
+        final Term object = local_aregs.a(0).getVVV();
+        final Term classType = local_aregs.a(1).getVVV();
+        final Term cont = local_aregs.a(2).getV();
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object.isAtomOrObject()))
@@ -127,14 +127,14 @@ class InterfaceIterator extends Code {
             mach.removeChoice();
             return mach.Fail0;
         }
-        final Term[] trace = { args[0], args[1], args[2] };
+        final Term[] trace = { local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV() };
         mach.createChoicePoint(trace);
         mach.fillAlternative(this);
         if (!classType.unifyJP(CONST(it.next())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        args[1] = args[2] = null;
-        mach.setCont(args, 0, cont);
+        local_aregs.setAV(1,local_aregs.setAV(2,null));
+        mach.setCont(local_aregs, 0, cont);
         mach.updateCUTB();
         return mach.getCall1();
     }

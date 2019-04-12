@@ -127,10 +127,10 @@ class pred_constructterm_2_1 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
 
@@ -170,10 +170,10 @@ class pred_constructterm_2_2 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -182,7 +182,7 @@ class pred_constructterm_2_2 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs[0] = var2.dref();
+        local_aregs.setAV(0,var2.dref());
 
         mach.setCont(local_aregs, 1, S(pred_constructterm_2_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string23), S(pred_constructterm_2_consts.string7, var1
@@ -217,10 +217,10 @@ class pred_constructterm_2_3 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -262,10 +262,10 @@ class pred_constructterm_2_4 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -277,11 +277,11 @@ class pred_constructterm_2_4 extends pred_constructterm_2 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs[0] = S(pred_constructterm_2_consts.string5, var3
+        local_aregs.setAV(0,S(pred_constructterm_2_consts.string5, var3
                 .dref(), CONST(pred_constructterm_2_consts.string0), pred_constructterm_2_consts.posint0, var4, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string8), S(pred_constructterm_2_consts.string7, var4
                         .dref(), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string21), S(pred_constructterm_2_consts.string7, S(pred_constructterm_2_consts.string1, var2
                                 .dref(), var3
-                                        .dref()), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))))), continuation));
+                                        .dref()), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))))), continuation)));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
         return mach.getCall1();
@@ -308,17 +308,17 @@ class pred_constructterm_2_5 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
+        local_aregs.setAV(0,var1.dref());
 
         mach.setCont(local_aregs, 1, S(pred_constructterm_2_consts.string0, new HeapChoice(mach
                 .getCUTB()), S(pred_constructterm_2_consts.string17, CONST(pred_constructterm_2_consts.string18), S(pred_constructterm_2_consts.string19, var1
@@ -349,10 +349,10 @@ class pred_constructterm_2_6 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -361,13 +361,13 @@ class pred_constructterm_2_6 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
+        local_aregs.setAV(0,var1.dref());
 
-        local_aregs[1] = S(pred_constructterm_2_consts.string0, new HeapChoice(
+        local_aregs.setAV(1,S(pred_constructterm_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_constructterm_2_consts.string4, var3, var1
                         .dref(), S(pred_constructterm_2_consts.string5, var2.dref(), var3
                                 .dref(), pred_constructterm_2_consts.posint0, var4, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string15), S(pred_constructterm_2_consts.string7, var4
-                                        .dref(), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))), continuation))));
+                                        .dref(), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))), continuation)))));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
         return getConsts().atom2cont;
@@ -394,10 +394,10 @@ class pred_constructterm_2_7 extends pred_constructterm_2 {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var8 = Jv(mach);
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
@@ -410,17 +410,17 @@ class pred_constructterm_2_7 extends pred_constructterm_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs[0] = var1.dref();
-        local_aregs[1] = var3;
-        local_aregs[2] = var4;
+        local_aregs.setAV(0,var1.dref());
+        local_aregs.setAV(1,var3);
+        local_aregs.setAV(2,var4);
 
-        local_aregs[3] = S(pred_constructterm_2_consts.string3, var1
+        local_aregs.setAV(3,S(pred_constructterm_2_consts.string3, var1
                 .dref(), var5, var6, S(pred_constructterm_2_consts.string4, var7, var3
                         .dref(), S(pred_constructterm_2_consts.string5, var2.dref(), var7
                                 .dref(), pred_constructterm_2_consts.posint0, var8, S(pred_constructterm_2_consts.string6, S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string8), S(pred_constructterm_2_consts.string7, var8
                                         .dref(), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string9), S(pred_constructterm_2_consts.string7, S(pred_constructterm_2_consts.string10, var6
                                                 .dref(), pred_constructterm_2_consts.posint1, var2
-                                                        .dref()), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))))), continuation))));
+                                                        .dref()), S(pred_constructterm_2_consts.string7, CONST(pred_constructterm_2_consts.string11), CONST(pred_constructterm_2_consts.string12)))))), continuation)))));
         mach.updateCUTB();
         return getConsts().functor4cont;
     }

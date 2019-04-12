@@ -64,9 +64,9 @@ class pred_writevars_1_1 extends pred_writevars_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(CONST(string4))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, continuation);
@@ -80,15 +80,15 @@ class pred_writevars_1_2 extends pred_writevars_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl3);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, S(string3, var1, var2), var3))))
             return mach.Fail0;
-        local_aregs[0] = var2.dref();
+        local_aregs.setAV(0,var2.dref());
         mach.setCont(local_aregs, 1, S(string8, CONST(string1), S(string8, var1
                 .dref(), S(string7, S(string6, continuation)))));
         mach.updateCUTB();
@@ -100,14 +100,14 @@ class pred_writevars_1_3 extends pred_writevars_1 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
             return mach.Fail0;
-        local_aregs[0] = var2.dref();
+        local_aregs.setAV(0,var2.dref());
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return entry_code;

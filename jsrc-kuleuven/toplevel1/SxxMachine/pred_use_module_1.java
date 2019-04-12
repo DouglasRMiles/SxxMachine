@@ -83,8 +83,8 @@ public class pred_use_module_1 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
-        Term param = areg[0].dref();
+        final TermArray local_aregs = mach.getAreg();
+        Term param = local_aregs.a(0).getVVV();
         if (param.isCons()) {
             while (param.isCons()) {
                 final AFunct f = (AFunct) param;
@@ -98,8 +98,8 @@ public class pred_use_module_1 extends Code {
             if (!load(param, mach))
                 return mach.Fail0;
         }
-        mach.setARegXFR(areg, 0, 1);
-        mach.setARegENull(areg, 1);
+        mach.setARegXFR(local_aregs, 0, 1);
+        mach.setARegENull(local_aregs, 1);
         return mach.getCall1();
     }
 

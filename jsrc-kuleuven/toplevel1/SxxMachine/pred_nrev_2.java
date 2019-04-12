@@ -56,10 +56,10 @@ class pred_nrev_2_1 extends pred_nrev_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.fillAlternative(cl2);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         if (!((areg0).unifyJP(CONST(string2))))
             return mach.Fail0;
         if (!((areg1).unifyJP(CONST(string2))))
@@ -76,10 +76,10 @@ class pred_nrev_2_2 extends pred_nrev_2 {
     @Override
     public Code exec(PrologMachine mach) {
         mach.removeChoice();
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -88,8 +88,8 @@ class pred_nrev_2_2 extends pred_nrev_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs[0] = var2.dref();
-        local_aregs[1] = var4;
+        local_aregs.setAV(0,var2.dref());
+        local_aregs.setAV(1,var4);
         mach.setCont(local_aregs, 2, S(string3, var4.dref(), S(string1, var1.dref(), CONST(string2)), var3
                 .dref(), continuation));
         mach.updateCUTB();

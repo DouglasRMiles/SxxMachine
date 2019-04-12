@@ -63,14 +63,14 @@ public class pred_printDataClass_6 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 6);
-        final Term areg5 = local_aregs[5].dref();
-        final Term areg4 = local_aregs[4].dref();
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg5 = local_aregs.a(5).getVVV();
+        final Term areg4 = local_aregs.a(4).getVVV();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var6 = Jv(mach);
         final Term var5 = Jv(mach);
         final Term var4 = Jv(mach);
@@ -90,12 +90,12 @@ public class pred_printDataClass_6 extends Code {
         if (!(areg5.unifyJP(var6)))
             return mach.Fail0;
 
-        local_aregs[0] = S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
+        local_aregs.setAV(0,S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
                 .dref(), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string5), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string8), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string9, var2
                         .dref(), var3.dref(), var4
                                 .dref()), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string10, var5
                                         .dref(), pred_printDataClass_6_consts.posint0), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string11, var6
-                                                .dref()), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string12), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), CONST(pred_printDataClass_6_consts.string13))))))))))));
+                                                .dref()), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string12), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), CONST(pred_printDataClass_6_consts.string13)))))))))))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 6, 2);

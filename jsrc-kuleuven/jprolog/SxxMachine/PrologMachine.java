@@ -29,10 +29,10 @@ public class PrologMachine extends RunningPrologMachine {
         if (log.isDebugEnabled() || true) {
             final StringBuilder b = new StringBuilder();
             b.append(codeToRun).append("(");
-            final Term[] areg = getAreg();
+            final TermArray local_aregs = getAreg();
             for (int i = 0; i < codeToRun.arity(); i++) {
-                if (areg[i] != null) {
-                    b.append(areg[i].dref());
+                if (local_aregs.a(i).getV() != null) {
+                    b.append(local_aregs.a(i).getVVV());
                 } else {
                     b.append((Object) null);
                 }
@@ -59,9 +59,9 @@ public class PrologMachine extends RunningPrologMachine {
     }
 
     private void installGoal(Term goal, MiniJProlog runStack) {
-        final Term[] areg = runStack.getAreg();
-        areg[0] = goal;
-        areg[1] = S(("halt"), Integer(0));
+        final TermArray local_aregs = runStack.getAreg();
+        local_aregs.setAV(0,goal);
+        local_aregs.setAV(1,S(("halt"), Integer(0)));
     }
 
     //public boolean doTrace = false;
@@ -96,11 +96,11 @@ public class PrologMachine extends RunningPrologMachine {
                 code = nCode;
                 if (status == ErrorStatus.CHANGEDPENDINGGOALS) {
                     log.debug(code);
-                    final Term[] arguments = new Term[code.arity() + 1];
-                    final Term[] areg = getAreg();
+                    final TermArray arguments = TermArray.newTermArray(code.arity() + 1);
+                    final TermArray areg = getAreg();
                     for (int i = 0; i < arguments.length; i++) {
-                        arguments[i] = areg[i];
-                        log.debug(areg[i]);
+                        arguments.setAV(i,areg.a(i).getV());
+                        log.debug(areg.a(i).getV());
                     }
                     final Term continuation = S(("code_call"), new CodeObject(code), S("arguments", arguments));
                     log.debug("*** continuation: " + continuation);
@@ -207,7 +207,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @param arity
      * @param cont
      */
-    public void setCont(Term[] areg, int arity, Term cont) {
+    public void setCont(TermArray areg, int arity, Term cont) {
         getCurrentStackItem().setCont(areg, arity, cont);
     }
 
@@ -215,7 +215,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @param local_aregs
      * @param i
      */
-    public void setARegENull(Term[] local_aregs, int arity) {
+    public void setARegENull(TermArray local_aregs, int arity) {
         getCurrentStackItem().setARegENull(local_aregs, arity);
 
     }
@@ -224,7 +224,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @param local_aregs
      * @param i
      */
-    public void setARegENull(Term[] local_aregs, int high, int low) {
+    public void setARegENull(TermArray local_aregs, int high, int low) {
         getCurrentStackItem().setARegENull(local_aregs, high, low);
 
     }
@@ -233,7 +233,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @param local_aregs
      * @param i
      */
-    public void setARegXFR(Term[] local_aregs, int low, int high) {
+    public void setARegXFR(TermArray local_aregs, int low, int high) {
         getCurrentStackItem().setARegXFR(local_aregs, low, high);
 
     }
@@ -244,7 +244,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @return
      */
     
-    public Term getCont(Term[] local_aregs, int arity) {
+    public Term getCont(TermArray local_aregs, int arity) {
         return getCurrentStackItem().getCont(local_aregs, arity);
     }
 
@@ -256,34 +256,6 @@ public class PrologMachine extends RunningPrologMachine {
         
     }
 
-    /**
-     * @return
-     */
-    public TermArray getAregTA() {
-        // TODO Auto-generated method stub
-        if (true) throw new AbstractMethodError("PrologMachine.getAregTA");
-        return null;
-    }
-
-    /**
-     * @param local_aregs
-     * @param arity
-     * @return
-     */
-    public Term getCont(TermArray local_aregs, int arity) {
-        // TODO Auto-generated method stub
-        if (true) throw new AbstractMethodError("PrologMachine.getCont");
-        return null;
-    }
-
-    /**
-     * @param local_aregs
-     * @param arity
-     * @param continuation
-     */
-    public void setCont(TermArray local_aregs, int arity, Term continuation) {
-        // TODO Auto-generated method stub
-        if (true) throw new AbstractMethodError("PrologMachine.setCont");
+  
         
-    }
 }

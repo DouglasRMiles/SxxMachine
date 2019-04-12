@@ -52,8 +52,8 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
         return choicePointStack.size() - 1;
     }
 
-    public Term[] getAreg() {
-        return areg;
+    public TermArray getAreg() {
+        return (TermArray) (Object) areg;
     }
 
     public void setExceptionState(ErrorStatus status) {
@@ -202,10 +202,10 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param i
      * @param continuation
      */
-    public void setCont(Term[] args, int arity, Term continuation) {
+    public void setCont(TermArray args, int arity, Term continuation) {
         cont = continuation;
         arity_b4_cont = arity;
-        args[arity] = continuation;
+        args.setAV(arity, continuation);
 
     }
 
@@ -213,8 +213,8 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param local_aregs
      * @param i
      */
-    public void setARegENull(Term[] local_aregs, int i) {
-        local_aregs[i] = null;
+    public void setARegENull(TermArray local_aregs, int i) {
+        local_aregs.setAV(i, null);
 
     }
 
@@ -224,14 +224,14 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param low
      */
 
-    public void setARegENull(Term[] local_aregs, int high, int low) {
+    public void setARegENull(TermArray local_aregs, int high, int low) {
         for (int i = low; i < high; i++) {
-            local_aregs[i] = null;
+            local_aregs.setAV(i, null);
         }
 
     }
 
-    protected Term cont;
+    protected Term cont; 
     protected int arity_b4_cont;
 
     /**
@@ -253,8 +253,8 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param i
      * @return
      */
-    public Term getCont(Term[] local_aregs, int i) {
-        return local_aregs[i];
+    public Term getCont(TermArray local_aregs, int i) {
+        return local_aregs.a(i).getV();
     }
 
     /**
@@ -262,8 +262,8 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param low
      * @param high
      */
-    public void setARegXFR(Term[] local_aregs, int low, int high) {
-        cont = local_aregs[low] = local_aregs[high];
+    public void setARegXFR(TermArray local_aregs, int low, int high) {
+        cont = local_aregs.setAV(low, local_aregs.a(high).getV());
 
     }
 

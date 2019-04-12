@@ -52,10 +52,10 @@ public class pred_compstream_2 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -64,8 +64,8 @@ public class pred_compstream_2 extends Code {
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
 
-        local_aregs[0] = CONST(pred_compstream_2_consts.string3);
-        local_aregs[1] = var1.dref();
+        local_aregs.setAV(0,CONST(pred_compstream_2_consts.string3));
+        local_aregs.setAV(1,var1.dref());
 
         mach.setCont(local_aregs, 2, S(pred_compstream_2_consts.string4, var2.dref(), var3, continuation));
         mach.updateCUTB();

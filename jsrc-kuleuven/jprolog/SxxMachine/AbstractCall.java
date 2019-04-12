@@ -5,12 +5,12 @@ import static SxxMachine.pterm.TermData.S;
 
 public abstract class AbstractCall extends Code {
 
-    public void setArguments(Term[] areg, int arity, AFunct pred) {
+    public void setArguments(TermArray local_aregs, int arity, AFunct pred) {
         if (pred == null)
             return;
         final Term args[] = pred.args();
         while (arity-- > 0) {
-            areg[arity] = args[arity];
+            local_aregs.setAV(arity,args[arity]);
         }
     }
 
@@ -40,14 +40,14 @@ public abstract class AbstractCall extends Code {
 
         @Override
         public Code exec(PrologMachine mach) throws JPrologInternalException {
-            final Term[] args = mach.getAreg();
+            final TermArray local_aregs = mach.getAreg();
             final Term[] funcArgs = mach.createAregCopy(arity);
             final Term cont = mach.getCont(mach.getAreg(), arity);
             final JpVar v = Jv(mach);
-            args[0] = S("operator_goal", S(predName, funcArgs), v);
-            mach.setCont(args, 1, S("call", v, cont.dref(), cont.dref()));
+            local_aregs.setAV(0,S("operator_goal", S(predName, funcArgs), v));
+            mach.setCont(local_aregs, 1, S("call", v, cont.dref(), cont.dref()));
             for (int i = 2; i < arity; i++)
-                args[i] = null;
+                local_aregs.setAV(i,null);
             return mach.getCall2();
         }
 

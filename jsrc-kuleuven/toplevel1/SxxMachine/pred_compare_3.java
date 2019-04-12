@@ -108,10 +108,10 @@ public class pred_compare_3 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
-        final Term arg1 = areg[0].dref();
-        final Term arg2 = areg[1].dref();
-        final Term arg3 = areg[2].dref();
+        final TermArray local_aregs = mach.getAreg();
+        final Term arg1 = local_aregs.a(0).getVVV();
+        final Term arg2 = local_aregs.a(1).getVVV();
+        final Term arg3 = local_aregs.a(2).getVVV();
         final int val = compare(arg2, arg3);
         String s;
         if (val < 0)
@@ -123,8 +123,8 @@ public class pred_compare_3 extends Code {
 
         if (!(arg1.unifyJP(CONST(s))))
             return mach.Fail0;
-        mach.setCont(areg, 0, areg[3]); // dinstall the continuation
-        mach.setARegENull(areg, 3, 1);
+        mach.setCont(local_aregs, 0, local_aregs.a(3).getV()); // dinstall the continuation
+        mach.setARegENull(local_aregs, 3, 1);
         return mach.getCall1();
     }
 }

@@ -37,11 +37,11 @@ public class pred_jp_set_3 extends Code {
     public Code exec(PrologMachine mach) {
         final Term aregs[] = mach.createAregCopy(4);
         mach.createChoicePoint(aregs);
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var8 = Jv(mach);
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
@@ -56,9 +56,9 @@ public class pred_jp_set_3 extends Code {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs[0] = var4;
-        local_aregs[1] = var2.dref();
-        local_aregs[2] = S(string3, var3.dref(), CONST(string4));
+        local_aregs.setAV(0,var4);
+        local_aregs.setAV(1,var2.dref());
+        local_aregs.setAV(2,S(string3, var3.dref(), CONST(string4)));
         mach.setCont(local_aregs, 3, S(string5, var1.dref(), var4
                 .dref(), var5, var6, S(string6, S(string7, var6.dref(), var7, var8), continuation)));
         mach.updateCUTB();

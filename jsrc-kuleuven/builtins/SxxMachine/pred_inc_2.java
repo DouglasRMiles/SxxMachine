@@ -31,14 +31,14 @@ public class pred_inc_2 extends Code {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
-        final Term value = local_aregs[1].dref();
-        // PrologObject list = local_aregs[0].Deref();
+        final Term value = local_aregs.a(1).getVVV();
+        // PrologObject list = local_aregs.a(0).v.Deref();
         if (!(value instanceof NumberTerm || value.isCompound())) {
             throw new JPrologInternalException(value + " is not an Int");
         }
-        local_aregs[1] = Integer(value.longValue() + 1);
+        local_aregs.setAV(1,Integer(value.longValue() + 1));
         return unify;
     }
 

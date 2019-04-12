@@ -61,12 +61,12 @@ public class pred_printMethodForIndexing_4 extends Code {
     @Override
     @SuppressWarnings("static-access")
     public Code exec(PrologMachine mach) {
-        final Term local_aregs[] = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 4);
-        final Term areg3 = local_aregs[3].dref();
-        final Term areg2 = local_aregs[2].dref();
-        final Term areg1 = local_aregs[1].dref();
-        final Term areg0 = local_aregs[0].dref();
+        final Term areg3 = local_aregs.a(3).getVVV();
+        final Term areg2 = local_aregs.a(2).getVVV();
+        final Term areg1 = local_aregs.a(1).getVVV();
+        final Term areg0 = local_aregs.a(0).getVVV();
         final Term var4 = Jv(mach);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
@@ -80,11 +80,11 @@ public class pred_printMethodForIndexing_4 extends Code {
         if (!(areg3.unifyJP(var4)))
             return mach.Fail0;
 
-        local_aregs[0] = S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string4), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string7), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string8), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string9, var1
+        local_aregs.setAV(0,S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string4), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string7), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string8), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string9, var1
                 .dref()), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string10, var2
                         .dref(), var3
                                 .dref()), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string11, var4
-                                        .dref()), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string12), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), CONST(pred_printMethodForIndexing_4_consts.string13)))))))))))));
+                                        .dref()), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), S(pred_printMethodForIndexing_4_consts.string3, CONST(pred_printMethodForIndexing_4_consts.string12), S(pred_printMethodForIndexing_4_consts.string3, S(pred_printMethodForIndexing_4_consts.string5, CONST(pred_printMethodForIndexing_4_consts.string6)), CONST(pred_printMethodForIndexing_4_consts.string13))))))))))))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 4, 2);

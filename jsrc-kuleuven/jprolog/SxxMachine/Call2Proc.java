@@ -15,10 +15,10 @@ public class Call2Proc extends AbstractCall {
 
     @Override
     public Code exec(PrologMachine mach) {
-        final Term[] areg = mach.getAreg();
+        final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct or Const - might
         // have to be dereffed
-        final Term obj = areg[0].dref();
+        final Term obj = local_aregs.a(0).getVVV();
         int arity;
         String PredName;
         Code code;
@@ -35,8 +35,8 @@ public class Call2Proc extends AbstractCall {
         }
 
         code = loadPred(mach, PredName, arity);
-        areg[arity] = areg[1];
-        setArguments(areg, arity, pred);
+        local_aregs.setAV(arity, local_aregs.a(1).getV());
+        setArguments(local_aregs, arity, pred);
         return code;
     }
 }
