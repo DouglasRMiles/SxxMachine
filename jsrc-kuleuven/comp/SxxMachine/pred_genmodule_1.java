@@ -71,7 +71,7 @@ public class pred_genmodule_1 extends Code {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);

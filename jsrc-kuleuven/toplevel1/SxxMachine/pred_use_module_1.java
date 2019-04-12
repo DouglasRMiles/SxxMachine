@@ -84,7 +84,7 @@ public class pred_use_module_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        Term param = local_aregs.a(0).getVVV();
+        Term param = local_aregs.getTermDRef(0);
         if (param.isCons()) {
             while (param.isCons()) {
                 final AFunct f = (AFunct) param;

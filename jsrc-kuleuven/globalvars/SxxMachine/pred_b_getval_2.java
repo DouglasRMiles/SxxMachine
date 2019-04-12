@@ -21,7 +21,7 @@ public class pred_b_getval_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        Term name = local_aregs.a(0).getVVV();
+        Term name = local_aregs.getTermDRef(0);
 
         if (name.isCompound()) {
             final AFunct f = (AFunct) name;

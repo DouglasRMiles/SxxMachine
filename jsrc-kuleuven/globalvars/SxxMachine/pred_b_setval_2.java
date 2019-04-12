@@ -15,8 +15,8 @@ public class pred_b_setval_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        Term name = local_aregs.a(0).getVVV();
-        final Term value = local_aregs.a(1).getVVV();
+        Term name = local_aregs.getTermDRef(0);
+        final Term value = local_aregs.getTermDRef(1);
         final Term continuation = mach.getCont(local_aregs, 2);
         if (name.isCompound()) {
             final AFunct f = (AFunct) name;

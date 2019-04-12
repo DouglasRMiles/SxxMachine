@@ -20,9 +20,9 @@ public class JPInstance extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term object = local_aregs.a(0).getVVV();
-        final Term classType = local_aregs.a(1).getVVV();
-        final Term cont = local_aregs.a(2).getV();
+        final Term object = local_aregs.getTermDRef(0);
+        final Term classType = local_aregs.getTermDRef(1);
+        final Term cont = local_aregs.getPlainArg(2);
         if (!(object.isAtomOrObject()))
             return mach.Fail0;
         final Object obj = ((Const) object).getValue();

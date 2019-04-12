@@ -25,8 +25,8 @@ class pred_useOutputStream_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term handle = local_aregs.a(0).getVVV();
-        final Term stream = local_aregs.a(1).getVVV();
+        final Term handle = local_aregs.getTermDRef(0);
+        final Term stream = local_aregs.getTermDRef(1);
         final Term continuation = mach.getCont(local_aregs, 2);
         if (!(stream.isAtomOrObject()))
             return mach.Fail0;
@@ -57,8 +57,8 @@ class pred_useInputStream_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term handle = local_aregs.a(0).getVVV();
-        final Term stream = local_aregs.a(1).getVVV();
+        final Term handle = local_aregs.getTermDRef(0);
+        final Term stream = local_aregs.getTermDRef(1);
         final Term continuation = mach.getCont(local_aregs, 2);
         if (!(stream.isAtomOrObject()))
             return mach.Fail0;
@@ -108,7 +108,7 @@ class pred_tell_1 extends Code {
     @Override
     public Code exec(final PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term file = local_aregs.a(0).getVVV();
+        final Term file = local_aregs.getTermDRef(0);
         final Term continuation = mach.getCont(local_aregs, 1);
         mach.setARegENull(local_aregs, 1);
         mach.setARegENull(local_aregs, 0);
@@ -214,7 +214,7 @@ class pred_see_1 extends Code {
     @Override
     public Code exec(final PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term file = local_aregs.a(0).getVVV();
+        final Term file = local_aregs.getTermDRef(0);
         final Term continuation = mach.getCont(local_aregs, 1);
         mach.setARegENull(local_aregs, 1);
         mach.setARegENull(local_aregs, 0);

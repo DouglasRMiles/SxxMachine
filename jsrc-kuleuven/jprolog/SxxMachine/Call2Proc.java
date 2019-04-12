@@ -18,7 +18,7 @@ public class Call2Proc extends AbstractCall {
         final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct or Const - might
         // have to be dereffed
-        final Term obj = local_aregs.a(0).getVVV();
+        final Term obj = local_aregs.getTermDRef(0);
         int arity;
         String PredName;
         Code code;
@@ -35,7 +35,7 @@ public class Call2Proc extends AbstractCall {
         }
 
         code = loadPred(mach, PredName, arity);
-        local_aregs.setAV(arity, local_aregs.a(1).getV());
+        local_aregs.setAV(arity, local_aregs.getPlainArg(1));
         setArguments(local_aregs, arity, pred);
         return code;
     }

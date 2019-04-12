@@ -15,7 +15,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
     private ErrorStatus status;
 
     private final ArrayDeque<UnTrailOperation> trailStack;
-    private final Term areg[] = new Term[32];
+    private final TermArray areg = new TermArray(32);
 
     private int cutb;
     private final ArrayDeque<JpChoicePointStackEntry> choicePointStack;
@@ -114,7 +114,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
         final JpChoicePointStackEntry cp = getCurrentStackPoint();
         final Term[] args = cp.getArguments();
         for (int i = 0; i < args.length; i++) {
-            areg[i] = args[i];
+            areg.setAV(i, args[i]);
         }
     }
 
@@ -231,14 +231,14 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
 
     }
 
-    protected Term cont; 
+    protected Term cont;
     protected int arity_b4_cont;
 
     /**
      * @param n
      */
     public void checkCont(int n) {
-        final Term term = areg[n];
+        final Term term = areg.getPlainArg(n);
         if (cont != term)
         // TODO Auto-generated method stub
         {
@@ -254,7 +254,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @return
      */
     public Term getCont(TermArray local_aregs, int i) {
-        return local_aregs.a(i).getV();
+        return local_aregs.getPlainArg(i);
     }
 
     /**
@@ -263,7 +263,7 @@ public class MiniJProlog implements Comparator<Class<? extends JpModule>> {
      * @param high
      */
     public void setARegXFR(TermArray local_aregs, int low, int high) {
-        cont = local_aregs.setAV(low, local_aregs.a(high).getV());
+        cont = local_aregs.setAV(low, local_aregs.getPlainArg(high));
 
     }
 

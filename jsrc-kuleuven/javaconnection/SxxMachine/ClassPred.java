@@ -16,9 +16,9 @@ public class ClassPred extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term classConst = local_aregs.a(0).getVVV();
-        final Term className = local_aregs.a(1).getVVV();
-        final Term c = local_aregs.a(2).getV();
+        final Term classConst = local_aregs.getTermDRef(0);
+        final Term className = local_aregs.getTermDRef(1);
+        final Term c = local_aregs.getPlainArg(2);
         if (!find(classConst, className))
             return mach.Fail0;
         local_aregs.setAV(1,local_aregs.setAV(2,null));

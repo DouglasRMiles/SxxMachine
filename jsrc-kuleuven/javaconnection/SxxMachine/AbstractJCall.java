@@ -22,11 +22,11 @@ abstract class AbstractJCall extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term classObject = local_aregs.a(0).getVVV();
-        final Term methodInvocation = local_aregs.a(1).getVVV();
-        final Term res = local_aregs.a(2).getVVV();
-        final Term exception = local_aregs.a(3).getVVV();
-        final Term cont = local_aregs.a(4).getV();
+        final Term classObject = local_aregs.getTermDRef(0);
+        final Term methodInvocation = local_aregs.getTermDRef(1);
+        final Term res = local_aregs.getTermDRef(2);
+        final Term exception = local_aregs.getTermDRef(3);
+        final Term cont = local_aregs.getPlainArg(4);
         if (!(classObject.isAtomOrObject()))
             return mach.Fail0;
         Class<?> callClass;

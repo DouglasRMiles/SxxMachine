@@ -85,7 +85,7 @@ public class pred_test_3 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term aregs[] = { local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV(), local_aregs.a(3).getV() };
+        final Term aregs[] = { local_aregs.getPlainArg(0), local_aregs.getPlainArg(1), local_aregs.getPlainArg(2), local_aregs.getPlainArg(3) };
         mach.createChoicePoint(aregs);
         return cl1.exec(mach);
     }
@@ -97,9 +97,9 @@ class pred_test_3_1 extends pred_test_3 {
         mach.removeChoice();
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs.a(2).getVVV();
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg2 = local_aregs.getTermDRef(2);
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);

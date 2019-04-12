@@ -36,7 +36,7 @@ public class pred_sort_2 extends Code {
         final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
         // PrologObject sortedlist = local_aregs.a(1).v.Deref();
-        Term list = local_aregs.a(0).getVVV();
+        Term list = local_aregs.getTermDRef(0);
 
         final SortedSet<Term> set = new TreeSet<Term>(Collections.reverseOrder(pred_compare_3.getComparator()));
         log.debug("Startin sort...");

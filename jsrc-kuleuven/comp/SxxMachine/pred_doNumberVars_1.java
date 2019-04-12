@@ -92,7 +92,7 @@ class pred_doNumberVars_1_1 extends pred_doNumberVars_1 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
@@ -126,7 +126,7 @@ class pred_doNumberVars_1_2 extends pred_doNumberVars_1 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;

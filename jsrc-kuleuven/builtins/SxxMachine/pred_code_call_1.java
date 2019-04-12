@@ -13,8 +13,8 @@ public class pred_code_call_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final CodeObject codeObject = (CodeObject) local_aregs.a(0).getVVV();
-        final StructureTerm argumentTerm = (StructureTerm) local_aregs.a(1).getVVV();
+        final CodeObject codeObject = (CodeObject) local_aregs.getTermDRef(0);
+        final StructureTerm argumentTerm = (StructureTerm) local_aregs.getTermDRef(1);
 
         mach.setARegENull(local_aregs, 1);
 

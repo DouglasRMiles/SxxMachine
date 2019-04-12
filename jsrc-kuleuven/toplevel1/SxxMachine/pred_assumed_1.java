@@ -50,7 +50,7 @@ class pred_assumed_1_1 extends pred_assumed_1 {
         mach.removeChoice();
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))

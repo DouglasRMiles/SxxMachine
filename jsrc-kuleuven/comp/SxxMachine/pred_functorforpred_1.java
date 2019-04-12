@@ -60,7 +60,7 @@ public class pred_functorforpred_1 extends Code {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var7 = Jv(mach);
         final Term var6 = Jv(mach);
         final Term var5 = Jv(mach);

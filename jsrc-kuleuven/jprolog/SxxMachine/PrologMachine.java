@@ -31,8 +31,8 @@ public class PrologMachine extends RunningPrologMachine {
             b.append(codeToRun).append("(");
             final TermArray local_aregs = getAreg();
             for (int i = 0; i < codeToRun.arity(); i++) {
-                if (local_aregs.a(i).getV() != null) {
-                    b.append(local_aregs.a(i).getVVV());
+                if (local_aregs.getPlainArg(i) != null) {
+                    b.append(local_aregs.getTermDRef(i));
                 } else {
                     b.append((Object) null);
                 }
@@ -60,8 +60,8 @@ public class PrologMachine extends RunningPrologMachine {
 
     private void installGoal(Term goal, MiniJProlog runStack) {
         final TermArray local_aregs = runStack.getAreg();
-        local_aregs.setAV(0,goal);
-        local_aregs.setAV(1,S(("halt"), Integer(0)));
+        local_aregs.setAV(0, goal);
+        local_aregs.setAV(1, S(("halt"), Integer(0)));
     }
 
     //public boolean doTrace = false;
@@ -98,9 +98,11 @@ public class PrologMachine extends RunningPrologMachine {
                     log.debug(code);
                     final TermArray arguments = TermArray.newTermArray(code.arity() + 1);
                     final TermArray areg = getAreg();
-                    for (int i = 0; i < arguments.length; i++) {
-                        arguments.setAV(i,areg.a(i).getV());
-                        log.debug(areg.a(i).getV());
+                    final int length = arguments.getLength();
+                    for (int i = 0; i < length; i++) {
+                        final Term noDref = areg.getPlainArg(i);
+                        arguments.setAV(i, noDref);
+                        log.debug(noDref);
                     }
                     final Term continuation = S(("code_call"), new CodeObject(code), S("arguments", arguments));
                     log.debug("*** continuation: " + continuation);
@@ -243,7 +245,7 @@ public class PrologMachine extends RunningPrologMachine {
      * @param i
      * @return
      */
-    
+
     public Term getCont(TermArray local_aregs, int arity) {
         return getCurrentStackItem().getCont(local_aregs, arity);
     }
@@ -252,10 +254,8 @@ public class PrologMachine extends RunningPrologMachine {
      * @param term
      */
     public void setCont(Term term) {
-       getCurrentStackItem().setCont(term);
-        
+        getCurrentStackItem().setCont(term);
+
     }
 
-  
-        
 }

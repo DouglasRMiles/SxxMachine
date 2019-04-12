@@ -17,8 +17,8 @@ public class pred_name_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term atom = local_aregs.a(0).getVVV();
-        final Term list = local_aregs.a(1).getVVV();
+        final Term atom = local_aregs.getTermDRef(0);
+        final Term list = local_aregs.getTermDRef(1);
         final Term continuation = mach.getCont(local_aregs, 2);
         mach.setARegENull(local_aregs, 0, 2);
         if (atom.isVariable()) {

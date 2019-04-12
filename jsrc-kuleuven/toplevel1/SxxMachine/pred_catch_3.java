@@ -16,10 +16,10 @@ public class pred_catch_3 extends Code {
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
         final TermArray local_aregs = mach.getAreg();
-        final Term goal = local_aregs.a(0).getVVV();
-        final Term exception = local_aregs.a(1).getVVV();
-        final Term exceptionCode = local_aregs.a(2).getVVV();
-        final Term cont = local_aregs.a(3).getVVV();
+        final Term goal = local_aregs.getTermDRef(0);
+        final Term exception = local_aregs.getTermDRef(1);
+        final Term exceptionCode = local_aregs.getTermDRef(2);
+        final Term cont = local_aregs.getTermDRef(3);
         //Niet van beland om args op te slaan, wel van belang dat er een apart choicepoint is
         mach.createChoicePoint(RunningPrologMachine.NO_ARGS);
         //goal aanpassen voor continuation toe te voegen
@@ -59,8 +59,8 @@ class pred_endCatch_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
         final TermArray local_aregs = mach.getAreg();
-        final Term choice = local_aregs.a(0).getVVV();
-        final Term cont = local_aregs.a(1).getVVV();
+        final Term choice = local_aregs.getTermDRef(0);
+        final Term cont = local_aregs.getTermDRef(1);
         if (!(choice instanceof NumberTerm))
             return mach.Fail0;
         final long choicePoint = ((NumberTerm) choice).longValue() - 1;

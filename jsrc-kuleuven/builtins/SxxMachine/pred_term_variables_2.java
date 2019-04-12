@@ -32,7 +32,7 @@ public class pred_term_variables_2 extends Code {
         final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
         // PrologObject variables = local_aregs.a(1).v.Deref();
-        Term term = local_aregs.a(0).getVVV();
+        Term term = local_aregs.getTermDRef(0);
 
         final Set<Term> varset = new HashSet<Term>();
         final Queue<Term> queue = new LinkedList<Term>();

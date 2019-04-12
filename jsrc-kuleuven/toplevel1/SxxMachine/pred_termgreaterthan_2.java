@@ -49,8 +49,8 @@ class pred_termgreaterthan_2_1 extends pred_termgreaterthan_2 {
         mach.removeChoice();
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))

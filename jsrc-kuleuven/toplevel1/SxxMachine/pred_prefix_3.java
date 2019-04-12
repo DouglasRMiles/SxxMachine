@@ -65,9 +65,9 @@ class pred_prefix_3_1 extends pred_prefix_3 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs.a(2).getVVV();
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg2 = local_aregs.getTermDRef(2);
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
         if (!((areg1).unifyJP(CONST(string2))))
@@ -94,9 +94,9 @@ class pred_prefix_3_2 extends pred_prefix_3 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs.a(2).getVVV();
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg2 = local_aregs.getTermDRef(2);
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         if (!((areg0).unifyJP(posint1200)))
             return mach.Fail0;
         if (!((areg1).unifyJP(CONST(string2))))
@@ -123,9 +123,9 @@ class pred_prefix_3_3 extends pred_prefix_3 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs.a(2).getVVV();
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg2 = local_aregs.getTermDRef(2);
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
         if (!((areg1).unifyJP(CONST(string2))))
@@ -152,9 +152,9 @@ class pred_prefix_3_4 extends pred_prefix_3 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 3);
-        final Term areg2 = local_aregs.a(2).getVVV();
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg2 = local_aregs.getTermDRef(2);
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         if (!((areg0).unifyJP(posint500)))
             return mach.Fail0;
         if (!((areg1).unifyJP(CONST(string2))))

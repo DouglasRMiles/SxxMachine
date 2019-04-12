@@ -13,8 +13,8 @@ public class pred_call_1 extends AbstractCall {
         final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct/Const - might have to
         // be dereffed
-        final Term object = local_aregs.a(0).getVVV();
-        final Term cont = local_aregs.a(1).getVVV();
+        final Term object = local_aregs.getTermDRef(0);
+        final Term cont = local_aregs.getTermDRef(1);
         //System.out.println(object);
         String functName;
         Code code;

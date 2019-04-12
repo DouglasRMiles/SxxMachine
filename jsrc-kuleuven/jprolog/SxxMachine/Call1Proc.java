@@ -26,7 +26,7 @@ public class Call1Proc extends AbstractCall {
         final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a Funct - might have to
         // be dereffed
-        final Term object = local_aregs.a(0).getVVV();
+        final Term object = local_aregs.getTermDRef(0);
         //System.out.println(object);
         String FunctName;
         Code code;

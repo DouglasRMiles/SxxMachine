@@ -25,9 +25,9 @@ public class IterateOverClassStructure extends Code {
     public final Code exec(PrologMachine mach) {
         initMach(mach);
         final TermArray local_aregs = mach.getAreg();
-        final Term object = local_aregs.a(0).getVVV();
-        final Term classType = local_aregs.a(1).getVVV();
-        Term cont = local_aregs.a(2).getV();
+        final Term object = local_aregs.getTermDRef(0);
+        final Term classType = local_aregs.getTermDRef(1);
+        Term cont = local_aregs.getPlainArg(2);
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object.isAtomOrObject()))
@@ -112,9 +112,9 @@ class InterfaceIterator extends Code {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
 
-        final Term object = local_aregs.a(0).getVVV();
-        final Term classType = local_aregs.a(1).getVVV();
-        final Term cont = local_aregs.a(2).getV();
+        final Term object = local_aregs.getTermDRef(0);
+        final Term classType = local_aregs.getTermDRef(1);
+        final Term cont = local_aregs.getPlainArg(2);
         if (!classType.isVariable())
             return mach.Fail0;
         if (!(object.isAtomOrObject()))
@@ -127,7 +127,7 @@ class InterfaceIterator extends Code {
             mach.removeChoice();
             return mach.Fail0;
         }
-        final Term[] trace = { local_aregs.a(0).getV(), local_aregs.a(1).getV(), local_aregs.a(2).getV() };
+        final Term[] trace = { local_aregs.getPlainArg(0), local_aregs.getPlainArg(1), local_aregs.getPlainArg(2) };
         mach.createChoicePoint(trace);
         mach.fillAlternative(this);
         if (!classType.unifyJP(CONST(it.next())))

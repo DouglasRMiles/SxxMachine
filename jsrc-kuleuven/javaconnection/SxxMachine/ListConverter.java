@@ -20,9 +20,9 @@ public class ListConverter extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term prolog = local_aregs.a(0).getVVV();
-        final Term java = local_aregs.a(1).getVVV();
-        final Term cont = local_aregs.a(2).getVVV();
+        final Term prolog = local_aregs.getTermDRef(0);
+        final Term java = local_aregs.getTermDRef(1);
+        final Term cont = local_aregs.getTermDRef(2);
         if (prolog.isVariable() && java.isVariable()) {
             log.fatal("Both vars need to have a value");
             return mach.Fail0;

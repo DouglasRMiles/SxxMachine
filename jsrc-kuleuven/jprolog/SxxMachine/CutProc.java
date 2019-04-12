@@ -19,7 +19,7 @@ public class CutProc extends Code {
         final TermArray local_aregs = mach.getAreg();
         // Areg[0] contains a PrologObject of type
         // HeapChoice
-        final int i = ((HeapChoice) local_aregs.a(0).getV()).CutTo;
+        final int i = ((HeapChoice) local_aregs.getPlainArg(0)).CutTo;
         mach.doCut(i);
         mach.setARegXFR(local_aregs, 0, 1);
         mach.updateCUTB();

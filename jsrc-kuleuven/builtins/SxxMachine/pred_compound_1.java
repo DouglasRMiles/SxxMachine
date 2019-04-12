@@ -20,7 +20,7 @@ public class pred_compound_1 extends Code {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term term = local_aregs.a(0).getVVV();
+        final Term term = local_aregs.getTermDRef(0);
 
         mach.setARegENull(local_aregs, 1);
 

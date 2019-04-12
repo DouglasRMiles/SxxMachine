@@ -33,7 +33,7 @@ public class pred_inc_2 extends Code {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         // PrologObject continuation = mach.getCont(local_aregs, 2);
-        final Term value = local_aregs.a(1).getVVV();
+        final Term value = local_aregs.getTermDRef(1);
         // PrologObject list = local_aregs.a(0).v.Deref();
         if (!(value instanceof NumberTerm || value.isCompound())) {
             throw new JPrologInternalException(value + " is not an Int");

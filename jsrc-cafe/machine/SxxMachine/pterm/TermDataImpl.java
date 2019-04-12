@@ -358,10 +358,7 @@ abstract public class TermDataImpl {
      * @return
      */
     public Compound S(String f, TermArray s3) {
-        // TODO Auto-generated method stub
-        if (true)
-            throw new AbstractMethodError("TermDataImpl.S");
-        return null;
+        return S(f, s3.getBacking());
     }
 
 }

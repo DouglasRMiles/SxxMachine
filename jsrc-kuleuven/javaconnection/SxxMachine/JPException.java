@@ -15,7 +15,7 @@ public class JPException extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        local_aregs.setAV(4,local_aregs.a(3).getV());
+        local_aregs.setAV(4,local_aregs.getPlainArg(3));
         local_aregs.setAV(3,Const.javaNull());
         return mach.loadPred("jp_exception", 4).exec(mach);
     }
@@ -35,10 +35,10 @@ class JPException4 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term exception = local_aregs.a(0).getVVV();
-        final Term exceptionClass = local_aregs.a(1).getVVV();
-        final Term exceptionMsg = local_aregs.a(2).getVVV();
-        final Term exceptionCause = local_aregs.a(3).getVVV();
+        final Term exception = local_aregs.getTermDRef(0);
+        final Term exceptionClass = local_aregs.getTermDRef(1);
+        final Term exceptionMsg = local_aregs.getTermDRef(2);
+        final Term exceptionCause = local_aregs.getTermDRef(3);
         if (!exception.isVariable()) {
             if (!(exception.isAtomOrObject()))
                 return mach.Fail0;
@@ -84,7 +84,7 @@ class JPException4 extends Code {
             if (!exception.unifyJP(CONST(error)))
                 return mach.Fail0;
         }
-        local_aregs.setAV(0,local_aregs.a(4).getV());
+        local_aregs.setAV(0,local_aregs.getPlainArg(4));
         local_aregs.setAV(1,local_aregs.setAV(2,local_aregs.setAV(3,local_aregs.setAV(4,null))));
         return mach.getCall1();
     }

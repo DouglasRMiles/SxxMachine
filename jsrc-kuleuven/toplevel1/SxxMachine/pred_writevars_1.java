@@ -66,7 +66,7 @@ class pred_writevars_1_1 extends pred_writevars_1 {
         mach.fillAlternative(cl2);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         if (!((areg0).unifyJP(CONST(string4))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, continuation);
@@ -82,7 +82,7 @@ class pred_writevars_1_2 extends pred_writevars_1 {
         mach.fillAlternative(cl3);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var3 = Jv(mach);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
@@ -102,7 +102,7 @@ class pred_writevars_1_3 extends pred_writevars_1 {
         mach.removeChoice();
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 1);
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))

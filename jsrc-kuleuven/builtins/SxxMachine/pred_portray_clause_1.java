@@ -13,7 +13,7 @@ public class pred_portray_clause_1 extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        final Term clause = local_aregs.a(0).getVVV();
+        final Term clause = local_aregs.getTermDRef(0);
         final Term continuation = mach.getCont(local_aregs, 1);
         mach.setARegENull(local_aregs, 0, 1);
         log.info("pred_portray lists the given clause as a debug-operation");

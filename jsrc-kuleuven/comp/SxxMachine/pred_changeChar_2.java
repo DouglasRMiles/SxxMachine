@@ -94,8 +94,8 @@ class pred_changeChar_2_1 extends pred_changeChar_2 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
 
         if (!(areg0.unifyJP(CONST(pred_changeChar_2_consts.string6))))
             return mach.Fail0;
@@ -130,8 +130,8 @@ class pred_changeChar_2_2 extends pred_changeChar_2 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
 
         if (!(areg0.unifyJP(CONST(pred_changeChar_2_consts.string3))))
             return mach.Fail0;
@@ -166,8 +166,8 @@ class pred_changeChar_2_3 extends pred_changeChar_2 {
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;

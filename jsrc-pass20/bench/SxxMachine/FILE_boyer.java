@@ -71,7 +71,6 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
 
 
 
-
     public static Operation PRED_top_0_static_exec(Prolog m) { 
         Operation cont = m.cont; Term[] LARG = m.AREGS; Operation thiz = m.pred;  
     // top:-wff(A),rewrite(A,B),tautology(B,[],[])

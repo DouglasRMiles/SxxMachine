@@ -113,8 +113,8 @@ class pred_specialgoal_2_1 extends pred_specialgoal_2 {
         mach.fillAlternative(cl2);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string2, var1, var2))))
@@ -135,8 +135,8 @@ class pred_specialgoal_2_2 extends pred_specialgoal_2 {
         mach.fillAlternative(cl3);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string5, var1, var2))))
@@ -157,8 +157,8 @@ class pred_specialgoal_2_3 extends pred_specialgoal_2 {
         mach.fillAlternative(cl4);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string7, var1, var2))))
@@ -179,8 +179,8 @@ class pred_specialgoal_2_4 extends pred_specialgoal_2 {
         mach.fillAlternative(cl5);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string8, var1, var2))))
@@ -201,8 +201,8 @@ class pred_specialgoal_2_5 extends pred_specialgoal_2 {
         mach.fillAlternative(cl6);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string4, var1, var2))))
@@ -223,8 +223,8 @@ class pred_specialgoal_2_6 extends pred_specialgoal_2 {
         mach.fillAlternative(cl7);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string3, var1, var2))))
@@ -245,8 +245,8 @@ class pred_specialgoal_2_7 extends pred_specialgoal_2 {
         mach.fillAlternative(cl8);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
@@ -267,8 +267,8 @@ class pred_specialgoal_2_8 extends pred_specialgoal_2 {
         mach.fillAlternative(cl9);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string9, var1, var2))))
@@ -289,8 +289,8 @@ class pred_specialgoal_2_9 extends pred_specialgoal_2 {
         mach.fillAlternative(cl10);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string11, var1, var2))))
@@ -311,8 +311,8 @@ class pred_specialgoal_2_10 extends pred_specialgoal_2 {
         mach.fillAlternative(cl11);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string10, var1, var2))))
@@ -333,8 +333,8 @@ class pred_specialgoal_2_11 extends pred_specialgoal_2 {
         mach.fillAlternative(cl12);
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string12, var1, var2))))
@@ -355,8 +355,8 @@ class pred_specialgoal_2_12 extends pred_specialgoal_2 {
         mach.removeChoice();
         final TermArray local_aregs = mach.getAreg();
         final Term continuation = mach.getCont(local_aregs, 2);
-        final Term areg1 = local_aregs.a(1).getVVV();
-        final Term areg0 = local_aregs.a(0).getVVV();
+        final Term areg1 = local_aregs.getTermDRef(1);
+        final Term areg0 = local_aregs.getTermDRef(0);
         final Term var2 = Jv(mach);
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string6, var1, var2))))

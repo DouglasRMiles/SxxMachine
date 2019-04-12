@@ -15,8 +15,8 @@ public class pred_concat_atom_2 extends Code {
     @Override
     public Code exec(PrologMachine mach) throws JPrologInternalException {
         final TermArray local_aregs = mach.getAreg();
-        Term list = local_aregs.a(0).getV();
-        final Term dest = local_aregs.a(1).getV();
+        Term list = local_aregs.getPlainArg(0);
+        final Term dest = local_aregs.getPlainArg(1);
         if (!list.isCons())
             throw new JPrologInternalException("Not a list: " + list, this);
         final StringBuilder builder = new StringBuilder();
@@ -33,7 +33,7 @@ public class pred_concat_atom_2 extends Code {
             list = l.getPlainArg(1);
         }
         if (dest.unifyJP(CONST(builder.toString()))) {
-            local_aregs.setAV(0,local_aregs.a(2).getV());
+            local_aregs.setAV(0,local_aregs.getPlainArg(2));
             return mach.getCall1();
         }
         return mach.Fail0;
