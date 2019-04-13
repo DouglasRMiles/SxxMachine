@@ -74,8 +74,8 @@ class pred_sbag_member_2_2 extends pred_chr_sbag_member_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(S(string1, var2, var3))))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return entry_code;

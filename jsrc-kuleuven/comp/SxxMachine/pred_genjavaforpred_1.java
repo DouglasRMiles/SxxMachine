@@ -107,10 +107,10 @@ public class pred_genjavaforpred_1 extends Code {
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_genjavaforpred_1_consts.string3, var2, var3));
-        local_aregs.areg1 = (var1.dref());
+        local_aregs.setAreg0((S(pred_genjavaforpred_1_consts.string3, var2, var3)));
+        local_aregs.setAreg1((var1.dref()));
 
-        local_aregs.areg2 = (S(pred_genjavaforpred_1_consts.string4, var2
+        local_aregs.setAreg2((S(pred_genjavaforpred_1_consts.string4, var2
                 .dref(), var4, var5, S(pred_genjavaforpred_1_consts.string5, var4
                         .dref(), var6, var7, S(pred_genjavaforpred_1_consts.string6, var8, S(pred_genjavaforpred_1_consts.string7, var7
                                 .dref(), pred_genjavaforpred_1_consts.posint1), S(pred_genjavaforpred_1_consts.string8, var9, var6
@@ -143,7 +143,7 @@ public class pred_genjavaforpred_1 extends Code {
                                                                                                                                                                                                                                                         .dref(), var10
                                                                                                                                                                                                                                                                 .dref(), var13
                                                                                                                                                                                                                                                                         .dref(), S(pred_genjavaforpred_1_consts.string37, S(pred_genjavaforpred_1_consts.string0, new HeapChoice(
-                                                                                                                                                                                                                                                                                mach.getCUTB()), continuation))))))))))))))))));
+                                                                                                                                                                                                                                                                                mach.getCUTB()), continuation)))))))))))))))))));
         mach.updateCUTB();
         return getConsts().unify3cont;
 

@@ -109,8 +109,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // serialise(A,B):-[pairlists(A,B,C),arrange(C,D),numbered(D,1,E)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -153,9 +153,9 @@ m.cont = cont;
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-pairlists(B,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-[pairlists(B,D,E)]
         a1 = a1.dref();
@@ -195,9 +195,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             if (!a8.unifyS( FUNCTOR_pair_2 , m.trail, a4, a6)){
                 return m.fail();
             }
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a7;
-        MARG.areg2 = a9;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a7);
+MARG.setAreg2( a9);
 m.cont = cont;
         return pairlists_3_top(m);
     }
@@ -206,9 +206,9 @@ m.cont = cont;
     // pairlists([],[],[]):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // pairlists([],[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -251,8 +251,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // arrange([A|B],tree(C,A,D)):-[split(B,A,E,F),arrange(E,C),arrange(F,D)]
         a1 = a1.dref();
@@ -284,8 +284,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // arrange([],void):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // arrange([],void):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -352,10 +352,10 @@ m.cont = cont;
     // split([A|B],A,C,D):-!,split(B,A,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split([A|B],A,C,D):-['$neck_cut',split(B,A,C,D)]
         a1 = a1.dref();
@@ -374,10 +374,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a6;
-        MARG.areg1 = a5;
-        MARG.areg2 = a3;
-        MARG.areg3 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a6);
+MARG.setAreg1( a5);
+MARG.setAreg2( a3);
+MARG.setAreg3( a4);
 m.cont = cont;
         return split_4_top(m);
     }
@@ -387,10 +387,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split([A|B],C,[A|D],E):-['$get_level'(F),before(A,C),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
@@ -432,10 +432,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split([A|B],C,D,[A|E]):-['$get_level'(F),before(C,A),'$cut'(F),split(B,C,D,E)]
         a1 = a1.dref();
@@ -476,10 +476,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // split([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -503,8 +503,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
     // before(pair(A,B),pair(C,D)):-A<C
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // before(pair(A,B),pair(C,D)):-['$less_than'(A,C)]
         a1 = a1.dref();
             a3 = m.mkvar2();
@@ -558,9 +558,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // numbered(tree(A,pair(B,C),D),E,F):-[numbered(A,E,C),G is C+1,numbered(D,G,F)]
         a1 = a1.dref();
@@ -582,9 +582,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         p2 = //
  Op("is", FILE_builtins::PRED_is_2_static_exec, VA(a8, a9), //
  Op("numbered", FILE_serialise::PRED_numbered_3_static_exec, VA(a6, a8, a3), cont));
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a7;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a7);
         m.cont = p2;
         return numbered_3_top(m);
     }
@@ -593,9 +593,9 @@ m.AREGS = MARG;MARG.areg0 = a4;
     // numbered(void,A,A):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // numbered(void,A,A):-[]
         if (!  ATOM_void .unify(a1, m.trail))

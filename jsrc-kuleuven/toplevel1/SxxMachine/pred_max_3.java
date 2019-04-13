@@ -63,8 +63,8 @@ class pred_max_3_1 extends pred_max_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var2.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var2.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3);
@@ -89,8 +89,8 @@ class pred_max_3_2 extends pred_max_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var2.dref());
-        local_aregs.areg1 = (var1.dref());
+        local_aregs.setAreg0((var2.dref()));
+        local_aregs.setAreg1((var1.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3);

@@ -109,7 +109,7 @@ class pred_fixClauses_2_1 extends pred_fixClauses_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_fixClauses_2_consts.string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
@@ -235,7 +235,7 @@ class pred_fixClauses_2_4 extends pred_fixClauses_2 {
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_fixClauses_2_consts.string4, var1.dref()));
+        local_aregs.setAreg0((S(pred_fixClauses_2_consts.string4, var1.dref())));
 
         mach.setCont(local_aregs, 1, S(pred_fixClauses_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_fixClauses_2_consts.string6, var1.dref(), var2.dref(), continuation)));
@@ -276,7 +276,7 @@ class pred_fixClauses_2_5 extends pred_fixClauses_2 {
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_fixClauses_2_consts.string4, var2.dref()));
+        local_aregs.setAreg0((S(pred_fixClauses_2_consts.string4, var2.dref())));
 
         mach.setCont(local_aregs, 1, S(pred_fixClauses_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_fixClauses_2_consts.string6, var1.dref(), var2.dref(), continuation)));

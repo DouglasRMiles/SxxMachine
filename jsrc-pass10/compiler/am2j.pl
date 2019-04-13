@@ -367,10 +367,13 @@ write_java0(deref(Ri,Rj), _) :- !,
 write_java0(set(_,void), _) :- !.
 write_java0(set(cont,econt),_):- !, w('m.cont = cont;'), nl.
 write_java0(set(arg(1),ea(1)), _) :- !, nop((w('m.AREGS = LARG;'), nl)).
-write_java0(set(ea(1),N), _) :- !, w('TermArray MARG = m.AREGS;'), write_reg(N), w(' = MARG.areg0;'), nl.
-write_java0(set(N,ea(1)), _) :- !, w('m.AREGS = MARG;'),  w('MARG.areg0 = '), write_reg(N), w(';'),nl.
 % BAD write_java0(set(ea(1),a(1)), _) :- !, w('LARG = m.AREGS;'), nl.
 write_java0(set(arg(N),ea(N)), _) :- !, nop((w('// m.AREGS = LARG;'+N), nl)).
+
+write_java0(set(ea(1),N), _) :- !, w('TermArray MARG = m.AREGS;   '), write_reg(N), w(' = MARG.getAreg0();'), nl.
+write_java0(set(N,ea(1)), _) :- !, w('m.AREGS = MARG;  '),  w('MARG.setAreg0( '), write_reg(N), w(');'),nl.
+write_java0(set(N,ea(X)), _) :- !, w('MARG.setAreg'), Y is X - 1, w(Y), w('( '), write_reg(N), w(');'),nl.
+
 
 %write_java0(set(From,ea(N)), _) :- !, 
 %   w('m.AREGS.setAV('),w(N),w(', '), write_reg(From), w(');'),nl.
@@ -385,10 +388,12 @@ write_java0(decl_term_vars([]), _) :- !.
 write_java0(decl_term_vars(L), _) :- !,
 	tab(8),
 	w(' Term '), write_reg_args(L), w(';'), nl.
-write_java0(decl_pred_vars([]), _) :-!.
+write_java0(decl_pred_vars([]), _) :- !.
 write_java0(decl_pred_vars(L), _) :- !,
 	tab(8),
-	w('Operation '), write_reg_args(L), w(';'), nl.
+	w('Operation '),
+	write_reg_args(L),
+	w(';'), nl.
 write_java0(put_cont(BinG,C), _) :- !,
 	(BinG = P:G -> true ; BinG = G),
 	functor(G, F, A0),
@@ -1563,9 +1568,9 @@ write_reg(void) :- inside_params(unify(_)), !, wl(['m.DONT_CARE1()']).
 write_reg(void) :- inside_params(exec_bin), !, wl(['m.DONT_CARE2()']).
 write_reg(void) :- inside_params(F), !, wl(['m.DONTCARE("',call(w(F)),'")']).
 write_reg(void) :- !, w('m.mkvar3()').
-write_reg(arg(X)) :- !, w('LARG.areg'), Y is X - 1, w(Y), w('').
+write_reg(arg(X)) :- !, w('LARG.getAreg'), Y is X - 1, w(Y), w('()').
 % write_reg(a(X)) :- am2j_flag(arrays), !, w('LARG['), Y is X - 1, w(Y), w(']').
-write_reg(ea(X)) :- !, w('MARG.areg'),  Y is X - 1, w(Y), w('').
+write_reg(ea(X)) :- !, w('MARG.getAreg'), Y is X - 1, w(Y), w('()').
 %write_reg(ea(X)) :- !, w('m.areg'), w(X), w('').
 /*
 write_reg(ea(1)) :- !, w('m.areg1').

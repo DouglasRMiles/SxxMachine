@@ -56,9 +56,9 @@ public class pred_jp_set_3 extends Code {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var4);
-        local_aregs.areg1 = (var2.dref());
-        local_aregs.areg2 = (S(string3, var3.dref(), CONST(string4)));
+        local_aregs.setAreg0((var4));
+        local_aregs.setAreg1((var2.dref()));
+        local_aregs.setAreg2((S(string3, var3.dref(), CONST(string4))));
         mach.setCont(local_aregs, 3, S(string5, var1.dref(), var4
                 .dref(), var5, var6, S(string6, S(string7, var6.dref(), var7, var8), continuation)));
         mach.updateCUTB();

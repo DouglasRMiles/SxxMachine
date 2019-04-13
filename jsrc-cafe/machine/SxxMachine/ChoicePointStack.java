@@ -64,18 +64,16 @@ public final class ChoicePointStack {
     }
 
     ChoicePointFrame push(Prolog engine, int arity, Operation next) {
-        final Term[] backing = engine.AREGS.getBacking();
-        return push(engine, backing, arity, next);
+        return push(engine, engine.AREGS, arity, next);
     }
 
-    ChoicePointFrame push(Prolog engine, Term AREGS[], int arity, Operation next) {
+    ChoicePointFrame push(Prolog engine, TermArray AREGS, int arity, Operation next) {
         ChoicePointFrame topFrame = push(engine, next, ChoicePointStack::restoreN);
         if (topFrame.arity != arity) {
             topFrame.arity = arity;
             topFrame.AREGS = new TermArray(arity);
         }
-        final Term[] backing = topFrame.AREGS.getBacking();
-        System.arraycopy(AREGS, 0, backing, 0, backing.length);
+        TermArray.copyTA(AREGS, topFrame.AREGS, arity);
         return topFrame;
     }
 

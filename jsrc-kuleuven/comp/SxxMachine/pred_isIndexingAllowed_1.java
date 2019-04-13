@@ -106,9 +106,9 @@ class pred_isIndexingAllowed_1_1 extends pred_isIndexingAllowed_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (CONST(pred_isIndexingAllowed_1_consts.string11));
+        local_aregs.setAreg0((CONST(pred_isIndexingAllowed_1_consts.string11)));
 
-        local_aregs.areg1 = (CONST(pred_isIndexingAllowed_1_consts.string8));
+        local_aregs.setAreg1((CONST(pred_isIndexingAllowed_1_consts.string8)));
 
         mach.setCont(local_aregs, 2, S(pred_isIndexingAllowed_1_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_isIndexingAllowed_1_consts.string10, continuation)));
@@ -142,13 +142,13 @@ class pred_isIndexingAllowed_1_2 extends pred_isIndexingAllowed_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_isIndexingAllowed_1_consts.string4, CONST(pred_isIndexingAllowed_1_consts.string5), S(pred_isIndexingAllowed_1_consts.string4, var1
-                .dref(), CONST(pred_isIndexingAllowed_1_consts.string6))));
-        local_aregs.areg1 = (var2);
+        local_aregs.setAreg0((S(pred_isIndexingAllowed_1_consts.string4, CONST(pred_isIndexingAllowed_1_consts.string5), S(pred_isIndexingAllowed_1_consts.string4, var1
+                .dref(), CONST(pred_isIndexingAllowed_1_consts.string6)))));
+        local_aregs.setAreg1((var2));
 
-        local_aregs.areg2 = (S(pred_isIndexingAllowed_1_consts.string7, var2
+        local_aregs.setAreg2((S(pred_isIndexingAllowed_1_consts.string7, var2
                 .dref(), CONST(pred_isIndexingAllowed_1_consts.string8), S(pred_isIndexingAllowed_1_consts.string0, new HeapChoice(
-                        mach.getCUTB()), S(pred_isIndexingAllowed_1_consts.string10, continuation))));
+                        mach.getCUTB()), S(pred_isIndexingAllowed_1_consts.string10, continuation)))));
         mach.updateCUTB();
         return getConsts().concat_atom3cont;
     }

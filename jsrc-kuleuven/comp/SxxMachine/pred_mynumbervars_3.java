@@ -119,7 +119,7 @@ class pred_mynumbervars_3_1 extends pred_mynumbervars_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_mynumbervars_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_mynumbervars_3_consts.string6, S(pred_mynumbervars_3_consts.string7, var2
@@ -220,7 +220,7 @@ class pred_mynumbervars_3_3 extends pred_mynumbervars_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_mynumbervars_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_mynumbervars_3_consts.string6, var3.dref(), var2.dref(), continuation)));
@@ -269,9 +269,9 @@ class pred_mynumbervars_3_4 extends pred_mynumbervars_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var4);
-        local_aregs.areg2 = (var5);
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var4));
+        local_aregs.setAreg2((var5));
 
         mach.setCont(local_aregs, 3, S(pred_mynumbervars_3_consts.string3, var5.dref(), var2.dref(), var3
                 .dref(), continuation));

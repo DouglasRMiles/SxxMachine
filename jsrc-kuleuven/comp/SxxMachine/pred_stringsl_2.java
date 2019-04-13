@@ -102,8 +102,8 @@ class pred_stringsl_2_1 extends pred_stringsl_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().strings3cont;
@@ -145,8 +145,8 @@ class pred_stringsl_2_2 extends pred_stringsl_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var2.dref());
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var2.dref()));
+        local_aregs.setAreg1((var3.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().entry_code;

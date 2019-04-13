@@ -128,7 +128,7 @@ class pred_genjava_1_2 extends pred_genjava_1 {
 
         if (!(areg0.unifyJP(S(pred_genjava_1_consts.string2, var1.dref(), var2.dref()))))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_genjava_1_consts.string1, var2.dref(), continuation));
         mach.updateCUTB();

@@ -33,7 +33,7 @@ public class pred_concat_atom_2 extends Code {
             list = l.getPlainArg(1);
         }
         if (dest.unifyJP(CONST(builder.toString()))) {
-            local_aregs.areg0 = (local_aregs.getPlainArg(2));
+            local_aregs.setAreg0((local_aregs.getPlainArg(2)));
             return mach.getCall1();
         }
         return mach.Fail0;

@@ -58,7 +58,7 @@ class pred_chr_newvia_23___disj___2_3_1 extends pred_chr_newvia_23___disj___2_3 
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(
                 mach.getCUTB()), S(string4, var2.dref(), var1.dref(), continuation)));
         mach.updateCUTB();
@@ -85,9 +85,9 @@ class pred_chr_newvia_23___disj___2_3_2 extends pred_chr_newvia_23___disj___2_3 
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.areg0 = (var3.dref());
-        local_aregs.areg1 = (var2.dref());
-        local_aregs.areg2 = (var1.dref());
+        local_aregs.setAreg0((var3.dref()));
+        local_aregs.setAreg1((var2.dref()));
+        local_aregs.setAreg2((var1.dref()));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return chr_newvia_23___disj___23___disj___34cont;

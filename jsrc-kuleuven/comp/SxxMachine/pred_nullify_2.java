@@ -153,9 +153,9 @@ class pred_nullify_2_2 extends pred_nullify_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var3);
+        local_aregs.setAreg0((var3));
 
-        local_aregs.areg1 = (S(pred_nullify_2_consts.string3, var2.dref(), pred_nullify_2_consts.posint1));
+        local_aregs.setAreg1((S(pred_nullify_2_consts.string3, var2.dref(), pred_nullify_2_consts.posint1)));
 
         mach.setCont(local_aregs, 2, S(pred_nullify_2_consts.string4, S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string6), S(pred_nullify_2_consts.string5, var3
                 .dref(), S(pred_nullify_2_consts.string5, CONST(pred_nullify_2_consts.string7), CONST(pred_nullify_2_consts.string8)))), S(pred_nullify_2_consts.string2, var4, S(pred_nullify_2_consts.string3, var1

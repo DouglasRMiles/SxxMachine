@@ -214,18 +214,19 @@ abstract public class TermData {
         return factory.Number(n);
     }
 
-    static public Predicate Op(Operation object, Term[] LARG, Operation cont) {
-        return factory.Op(object, LARG, cont);
-    }
+    //
+    //    static public Predicate Op(Operation object, Term[] LARG, Operation cont) {
+    //        return factory.Op(object, LARG, cont);
+    //    }
 
-    static public Predicate Op(String str, Operation object, Term[] LARG, Operation cont) {
-        return factory.Op(str, object, LARG, cont);
+    static public Predicate Op(String str, Operation object, Term[] args, Operation cont) {
+        return factory.Op(str, object, args, cont);
     }
 
     static public StructureTerm S(String naam, int arity) {
         return factory.S(naam, arity);
     }
-    
+
     static public Compound S(String f, TermArray s3) {
         return factory.S(f, s3);
     }

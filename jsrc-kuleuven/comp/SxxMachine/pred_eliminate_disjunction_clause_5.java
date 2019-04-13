@@ -145,12 +145,12 @@ class pred_eliminate_disjunction_clause_5_1 extends pred_eliminate_disjunction_c
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs.areg0 = (S(pred_eliminate_disjunction_clause_5_consts.string6, var1
+        local_aregs.setAreg0((S(pred_eliminate_disjunction_clause_5_consts.string6, var1
                 .dref(), var8, var9, S(pred_eliminate_disjunction_clause_5_consts.string7, var1
                         .dref(), var10, S(pred_eliminate_disjunction_clause_5_consts.string8, var2
                                 .dref(), S(pred_eliminate_disjunction_clause_5_consts.string9, var8.dref(), var9
                                         .dref()), var10.dref(), var3.dref(), var4
-                                                .dref(), var5.dref(), var6.dref(), var7.dref(), continuation))));
+                                                .dref(), var5.dref(), var6.dref(), var7.dref(), continuation)))));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 5, 2);
         return mach.getCall1();

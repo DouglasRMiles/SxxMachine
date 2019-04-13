@@ -62,7 +62,7 @@ class pred_call_list_1_2 extends pred_call_list_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(S(string1, var1, var2))))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, S(string4, var2.dref(), continuation));
         mach.updateCUTB();
         return mach.getCall2();

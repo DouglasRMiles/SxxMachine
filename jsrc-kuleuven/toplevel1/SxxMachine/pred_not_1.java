@@ -60,7 +60,7 @@ class pred_not_1_1 extends pred_not_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(mach.getCUTB()), S(string4, continuation)));
         mach.updateCUTB();
         return exec2cont;

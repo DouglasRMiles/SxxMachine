@@ -160,8 +160,8 @@ class pred_list_to_set_3_2 extends pred_list_to_set_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var4.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var4.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_list_to_set_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_list_to_set_3_consts.string1, var2.dref(), var3.dref(), var4
@@ -215,10 +215,10 @@ class pred_list_to_set_3_3 extends pred_list_to_set_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var4.dref());
+        local_aregs.setAreg0((var4.dref()));
 
-        local_aregs.areg1 = (S(pred_list_to_set_3_consts.string2, var1.dref(), CONST(pred_list_to_set_3_consts.string4)));
-        local_aregs.areg2 = (var5);
+        local_aregs.setAreg1((S(pred_list_to_set_3_consts.string2, var1.dref(), CONST(pred_list_to_set_3_consts.string4))));
+        local_aregs.setAreg2((var5));
 
         mach.setCont(local_aregs, 3, S(pred_list_to_set_3_consts.string1, var2.dref(), var3.dref(), var5
                 .dref(), continuation));

@@ -116,7 +116,7 @@ class pred_strings_2_1 extends pred_strings_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_strings_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_strings_2_consts.string8, continuation)));
@@ -156,7 +156,7 @@ class pred_strings_2_2 extends pred_strings_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_strings_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_strings_2_consts.string5, var1.dref(), var2.dref(), continuation)));
@@ -196,7 +196,7 @@ class pred_strings_2_3 extends pred_strings_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_strings_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_strings_2_consts.string8, continuation)));
@@ -238,9 +238,9 @@ class pred_strings_2_4 extends pred_strings_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3);
-        local_aregs.areg2 = (var4);
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3));
+        local_aregs.setAreg2((var4));
 
         mach.setCont(local_aregs, 3, S(pred_strings_2_consts.string5, var3.dref(), var2.dref(), continuation));
         mach.updateCUTB();
@@ -280,9 +280,9 @@ class pred_strings_2_5 extends pred_strings_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3);
-        local_aregs.areg2 = (var4);
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3));
+        local_aregs.setAreg2((var4));
 
         mach.setCont(local_aregs, 3, S(pred_strings_2_consts.string3, var4.dref(), var2.dref(), continuation));
         mach.updateCUTB();

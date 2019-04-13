@@ -77,7 +77,7 @@ class pred_untilend_1_2 extends pred_untilend_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2);
+        local_aregs.setAreg0((var2));
         mach.setCont(local_aregs, 1, S(string3, var2.dref(), continuation));
         mach.updateCUTB();
         return get02cont;

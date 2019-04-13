@@ -42,7 +42,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/asm.pl
     // determinate(A):-true
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // determinate(A):-[]
         return cont;
     }

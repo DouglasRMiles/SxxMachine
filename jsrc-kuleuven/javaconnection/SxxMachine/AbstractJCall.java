@@ -77,7 +77,7 @@ abstract class AbstractJCall extends Code {
             if (!exception.unifyJP(CONST(ex)))
                 return mach.Fail0;
         }
-        local_aregs.areg1 = ( local_aregs.areg2 = ( local_aregs.areg3 = ( local_aregs.areg4 = ( null))));
+        local_aregs.setAreg1(( local_aregs.setAreg2(( local_aregs.setAreg3(( local_aregs.setAreg4(( null))))))));
         mach.setCont(local_aregs, 0, cont);
         return mach.getCall1();
     }

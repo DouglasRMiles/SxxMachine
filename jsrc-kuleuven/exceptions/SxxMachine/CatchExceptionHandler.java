@@ -22,7 +22,7 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
         if (!exception.unifyJP(this.exception))
             return super.handlePrologException(exception, mach);
         final TermArray local_aregs = mach.getAreg();
-        local_aregs.areg0 = (exceptionAction);
+        local_aregs.setAreg0((exceptionAction));
         mach.setCont(local_aregs, 1, continuation);
         return mach.getMachine().getCall2();
     }

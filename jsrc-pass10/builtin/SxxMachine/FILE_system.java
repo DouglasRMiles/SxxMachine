@@ -32,7 +32,7 @@ public class FILE_system extends FILE_swi_supp {
 /** PREDICATE: system_predicate/1
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/system.pl
 */
-    // main(system_predicate/1,public) 
+    // main(system_predicate/1,public)
         final static Functor FUNCTOR_system_predicate_1 = F("system_predicate",1);
         final static Functor ATOM_otherwise = SYM("otherwise");
         final static Functor ATOM_fail = SYM("fail");
@@ -2747,7 +2747,7 @@ m.cont = cont;
     // system_predicate(system_predicate(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(system_predicate(A)):-[]
         a1 = a1.dref();
@@ -2761,7 +2761,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(true):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(true):-[]
         if (!  Prolog.True .unify(a1, m.trail))
@@ -2773,7 +2773,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(otherwise):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(otherwise):-[]
         if (!  ATOM_otherwise .unify(a1, m.trail))
@@ -2785,7 +2785,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(fail):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(fail):-[]
         if (!  ATOM_fail .unify(a1, m.trail))
@@ -2797,7 +2797,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(false):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(false):-[]
         if (!  ATOM_false .unify(a1, m.trail))
@@ -2809,7 +2809,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(!):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(!):-[]
         if (!  ATOM_$0021 .unify(a1, m.trail))
@@ -2821,7 +2821,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$get_level'(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$get_level'(A)):-[]
         a1 = a1.dref();
@@ -2835,7 +2835,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$neck_cut'):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$neck_cut'):-[]
         if (!  ATOM_$0024neck_cut .unify(a1, m.trail))
@@ -2847,7 +2847,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$cut'(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$cut'(A)):-[]
         a1 = a1.dref();
@@ -2861,7 +2861,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A^B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A^B):-[]
         a1 = a1.dref();
@@ -2875,7 +2875,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate((A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate((A,B)):-[]
         a1 = a1.dref();
@@ -2889,7 +2889,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate((A;B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate((A;B)):-[]
         a1 = a1.dref();
@@ -2903,7 +2903,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate((A->B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate((A->B)):-[]
         a1 = a1.dref();
@@ -2917,7 +2917,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(call(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(call(A)):-[]
         a1 = a1.dref();
@@ -2931,7 +2931,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(catch(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(catch(A,B,C)):-[]
         a1 = a1.dref();
@@ -2945,7 +2945,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(throw(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(throw(A)):-[]
         a1 = a1.dref();
@@ -2959,7 +2959,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(on_exception(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(on_exception(A,B,C)):-[]
         a1 = a1.dref();
@@ -2973,7 +2973,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(raise_exception(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(raise_exception(A)):-[]
         a1 = a1.dref();
@@ -2987,7 +2987,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=B):-[]
         a1 = a1.dref();
@@ -3001,7 +3001,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$unify'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$unify'(A,B)):-[]
         a1 = a1.dref();
@@ -3015,7 +3015,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A\=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A\=B):-[]
         a1 = a1.dref();
@@ -3029,7 +3029,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$not_unifiable'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$not_unifiable'(A,B)):-[]
         a1 = a1.dref();
@@ -3043,7 +3043,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(var(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(var(A)):-[]
         a1 = a1.dref();
@@ -3057,7 +3057,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atom(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atom(A)):-[]
         a1 = a1.dref();
@@ -3071,7 +3071,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(integer(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(integer(A)):-[]
         a1 = a1.dref();
@@ -3085,7 +3085,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(long(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(long(A)):-[]
         a1 = a1.dref();
@@ -3099,7 +3099,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(float(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(float(A)):-[]
         a1 = a1.dref();
@@ -3113,7 +3113,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atomic(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atomic(A)):-[]
         a1 = a1.dref();
@@ -3127,7 +3127,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(compound(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(compound(A)):-[]
         a1 = a1.dref();
@@ -3141,7 +3141,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nonvar(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nonvar(A)):-[]
         a1 = a1.dref();
@@ -3155,7 +3155,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(number(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(number(A)):-[]
         a1 = a1.dref();
@@ -3169,7 +3169,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java(A)):-[]
         a1 = a1.dref();
@@ -3183,7 +3183,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java(A,B)):-[]
         a1 = a1.dref();
@@ -3197,7 +3197,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(closure(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(closure(A)):-[]
         a1 = a1.dref();
@@ -3211,7 +3211,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(ground(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(ground(A)):-[]
         a1 = a1.dref();
@@ -3225,7 +3225,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(callable(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(callable(A)):-[]
         a1 = a1.dref();
@@ -3239,7 +3239,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A==B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A==B):-[]
         a1 = a1.dref();
@@ -3253,7 +3253,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$equality_of_term'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$equality_of_term'(A,B)):-[]
         a1 = a1.dref();
@@ -3267,7 +3267,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A\==B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A\==B):-[]
         a1 = a1.dref();
@@ -3281,7 +3281,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$inequality_of_term'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$inequality_of_term'(A,B)):-[]
         a1 = a1.dref();
@@ -3295,7 +3295,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=@=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=@=B):-[]
         a1 = a1.dref();
@@ -3309,7 +3309,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$variant'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$variant'(A,B)):-[]
         a1 = a1.dref();
@@ -3323,7 +3323,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A\=@=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A\=@=B):-[]
         a1 = a1.dref();
@@ -3337,7 +3337,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$not_variant'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$not_variant'(A,B)):-[]
         a1 = a1.dref();
@@ -3351,7 +3351,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A@<B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A@<B):-[]
         a1 = a1.dref();
@@ -3365,7 +3365,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$before'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$before'(A,B)):-[]
         a1 = a1.dref();
@@ -3379,7 +3379,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A@>B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A@>B):-[]
         a1 = a1.dref();
@@ -3393,7 +3393,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$after'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$after'(A,B)):-[]
         a1 = a1.dref();
@@ -3407,7 +3407,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A@=<B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A@=<B):-[]
         a1 = a1.dref();
@@ -3421,7 +3421,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$not_after'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$not_after'(A,B)):-[]
         a1 = a1.dref();
@@ -3435,7 +3435,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A@>=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A@>=B):-[]
         a1 = a1.dref();
@@ -3449,7 +3449,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$not_before'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$not_before'(A,B)):-[]
         a1 = a1.dref();
@@ -3463,7 +3463,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(?=(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(?=(A,B)):-[]
         a1 = a1.dref();
@@ -3477,7 +3477,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$identical_or_cannot_unify'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$identical_or_cannot_unify'(A,B)):-[]
         a1 = a1.dref();
@@ -3491,7 +3491,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(compare(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(compare(A,B,C)):-[]
         a1 = a1.dref();
@@ -3505,7 +3505,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(sort(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(sort(A,B)):-[]
         a1 = a1.dref();
@@ -3519,7 +3519,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(keysort(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(keysort(A,B)):-[]
         a1 = a1.dref();
@@ -3533,7 +3533,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(arg(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(arg(A,B,C)):-[]
         a1 = a1.dref();
@@ -3547,7 +3547,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(functor(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(functor(A,B,C)):-[]
         a1 = a1.dref();
@@ -3561,7 +3561,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=..B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=..B):-[]
         a1 = a1.dref();
@@ -3575,7 +3575,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$univ'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$univ'(A,B)):-[]
         a1 = a1.dref();
@@ -3589,7 +3589,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(copy_term(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(copy_term(A,B)):-[]
         a1 = a1.dref();
@@ -3603,7 +3603,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A is B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A is B):-[]
         a1 = a1.dref();
@@ -3617,7 +3617,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$abs'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$abs'(A,B)):-[]
         a1 = a1.dref();
@@ -3631,7 +3631,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$asin'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$asin'(A,B)):-[]
         a1 = a1.dref();
@@ -3645,7 +3645,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$acos'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$acos'(A,B)):-[]
         a1 = a1.dref();
@@ -3659,7 +3659,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$atan'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$atan'(A,B)):-[]
         a1 = a1.dref();
@@ -3673,7 +3673,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$bitwise_conj'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$bitwise_conj'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3687,7 +3687,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$bitwise_disj'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$bitwise_disj'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3701,7 +3701,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$bitwise_exclusive_or'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$bitwise_exclusive_or'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3715,7 +3715,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$bitwise_neg'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$bitwise_neg'(A,B)):-[]
         a1 = a1.dref();
@@ -3729,7 +3729,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$ceil'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$ceil'(A,B)):-[]
         a1 = a1.dref();
@@ -3743,7 +3743,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$cos'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$cos'(A,B)):-[]
         a1 = a1.dref();
@@ -3757,7 +3757,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$degrees'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$degrees'(A,B)):-[]
         a1 = a1.dref();
@@ -3771,7 +3771,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$exp'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$exp'(A,B)):-[]
         a1 = a1.dref();
@@ -3785,7 +3785,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$float'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$float'(A,B)):-[]
         a1 = a1.dref();
@@ -3799,7 +3799,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$float_integer_part'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$float_integer_part'(A,B)):-[]
         a1 = a1.dref();
@@ -3813,7 +3813,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$float_fractional_part'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$float_fractional_part'(A,B)):-[]
         a1 = a1.dref();
@@ -3827,7 +3827,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$float_quotient'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$float_quotient'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3841,7 +3841,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$floor'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$floor'(A,B)):-[]
         a1 = a1.dref();
@@ -3855,7 +3855,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$int_quotient'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$int_quotient'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3869,7 +3869,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$log'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$log'(A,B)):-[]
         a1 = a1.dref();
@@ -3883,7 +3883,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$max'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$max'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3897,7 +3897,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$min'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$min'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3911,7 +3911,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$minus'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$minus'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3925,7 +3925,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$mod'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$mod'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3939,7 +3939,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$multi'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$multi'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3953,7 +3953,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$plus'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$plus'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3967,7 +3967,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$pow'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$pow'(A,B,C)):-[]
         a1 = a1.dref();
@@ -3981,7 +3981,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$radians'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$radians'(A,B)):-[]
         a1 = a1.dref();
@@ -3995,7 +3995,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$rint'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$rint'(A,B)):-[]
         a1 = a1.dref();
@@ -4009,7 +4009,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$round'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$round'(A,B)):-[]
         a1 = a1.dref();
@@ -4023,7 +4023,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$shift_left'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$shift_left'(A,B,C)):-[]
         a1 = a1.dref();
@@ -4037,7 +4037,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$shift_right'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$shift_right'(A,B,C)):-[]
         a1 = a1.dref();
@@ -4051,7 +4051,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$sign'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$sign'(A,B)):-[]
         a1 = a1.dref();
@@ -4065,7 +4065,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$sin'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$sin'(A,B)):-[]
         a1 = a1.dref();
@@ -4079,7 +4079,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$sqrt'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$sqrt'(A,B)):-[]
         a1 = a1.dref();
@@ -4093,7 +4093,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$tan'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$tan'(A,B)):-[]
         a1 = a1.dref();
@@ -4107,7 +4107,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$truncate'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$truncate'(A,B)):-[]
         a1 = a1.dref();
@@ -4121,7 +4121,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=:=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=:=B):-[]
         a1 = a1.dref();
@@ -4135,7 +4135,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$arith_equal'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$arith_equal'(A,B)):-[]
         a1 = a1.dref();
@@ -4149,7 +4149,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=\=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=\=B):-[]
         a1 = a1.dref();
@@ -4163,7 +4163,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$arith_not_equal'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$arith_not_equal'(A,B)):-[]
         a1 = a1.dref();
@@ -4177,7 +4177,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A<B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A<B):-[]
         a1 = a1.dref();
@@ -4191,7 +4191,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$less_than'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$less_than'(A,B)):-[]
         a1 = a1.dref();
@@ -4205,7 +4205,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A=<B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A=<B):-[]
         a1 = a1.dref();
@@ -4219,7 +4219,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$less_or_equal'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$less_or_equal'(A,B)):-[]
         a1 = a1.dref();
@@ -4233,7 +4233,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A>B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A>B):-[]
         a1 = a1.dref();
@@ -4247,7 +4247,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$greater_than'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$greater_than'(A,B)):-[]
         a1 = a1.dref();
@@ -4261,7 +4261,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A>=B):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A>=B):-[]
         a1 = a1.dref();
@@ -4275,7 +4275,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$greater_or_equal'(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$greater_or_equal'(A,B)):-[]
         a1 = a1.dref();
@@ -4289,7 +4289,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(clause(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(clause(A,B)):-[]
         a1 = a1.dref();
@@ -4303,7 +4303,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(initialization(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(initialization(A,B)):-[]
         a1 = a1.dref();
@@ -4317,7 +4317,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$new_indexing_hash'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$new_indexing_hash'(A,B,C)):-[]
         a1 = a1.dref();
@@ -4331,7 +4331,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(assert(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(assert(A)):-[]
         a1 = a1.dref();
@@ -4345,7 +4345,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(assertz(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(assertz(A)):-[]
         a1 = a1.dref();
@@ -4359,7 +4359,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(asserta(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(asserta(A)):-[]
         a1 = a1.dref();
@@ -4373,7 +4373,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(retract(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(retract(A)):-[]
         a1 = a1.dref();
@@ -4387,7 +4387,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(abolish(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(abolish(A)):-[]
         a1 = a1.dref();
@@ -4401,7 +4401,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(retractall(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(retractall(A)):-[]
         a1 = a1.dref();
@@ -4415,7 +4415,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(findall(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(findall(A,B,C)):-[]
         a1 = a1.dref();
@@ -4429,7 +4429,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(bagof(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(bagof(A,B,C)):-[]
         a1 = a1.dref();
@@ -4443,7 +4443,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(setof(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(setof(A,B,C)):-[]
         a1 = a1.dref();
@@ -4457,7 +4457,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(current_input(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(current_input(A)):-[]
         a1 = a1.dref();
@@ -4471,7 +4471,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(current_output(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(current_output(A)):-[]
         a1 = a1.dref();
@@ -4485,7 +4485,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(set_input(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(set_input(A)):-[]
         a1 = a1.dref();
@@ -4499,7 +4499,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(set_output(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(set_output(A)):-[]
         a1 = a1.dref();
@@ -4513,7 +4513,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(open(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(open(A,B,C)):-[]
         a1 = a1.dref();
@@ -4527,7 +4527,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(open(A,B,C,D)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(open(A,B,C,D)):-[]
         a1 = a1.dref();
@@ -4541,7 +4541,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(close(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(close(A)):-[]
         a1 = a1.dref();
@@ -4555,7 +4555,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(close(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(close(A,B)):-[]
         a1 = a1.dref();
@@ -4569,7 +4569,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(flush_output(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(flush_output(A)):-[]
         a1 = a1.dref();
@@ -4583,7 +4583,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(flush_output):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(flush_output):-[]
         if (!  ATOM_flush_output .unify(a1, m.trail))
@@ -4595,7 +4595,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(stream_property(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(stream_property(A,B)):-[]
         a1 = a1.dref();
@@ -4609,7 +4609,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_char(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_char(A)):-[]
         a1 = a1.dref();
@@ -4623,7 +4623,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_char(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_char(A,B)):-[]
         a1 = a1.dref();
@@ -4637,7 +4637,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_code(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_code(A)):-[]
         a1 = a1.dref();
@@ -4651,7 +4651,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_code(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_code(A,B)):-[]
         a1 = a1.dref();
@@ -4665,7 +4665,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_char(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_char(A)):-[]
         a1 = a1.dref();
@@ -4679,7 +4679,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_char(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_char(A,B)):-[]
         a1 = a1.dref();
@@ -4693,7 +4693,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_code(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_code(A)):-[]
         a1 = a1.dref();
@@ -4707,7 +4707,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_code(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_code(A,B)):-[]
         a1 = a1.dref();
@@ -4721,7 +4721,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_char(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_char(A)):-[]
         a1 = a1.dref();
@@ -4735,7 +4735,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_char(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_char(A,B)):-[]
         a1 = a1.dref();
@@ -4749,7 +4749,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_code(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_code(A)):-[]
         a1 = a1.dref();
@@ -4763,7 +4763,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_code(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_code(A,B)):-[]
         a1 = a1.dref();
@@ -4777,7 +4777,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nl):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nl):-[]
         if (!  ATOM_nl .unify(a1, m.trail))
@@ -4789,7 +4789,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nl(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nl(A)):-[]
         a1 = a1.dref();
@@ -4803,7 +4803,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get0(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get0(A)):-[]
         a1 = a1.dref();
@@ -4817,7 +4817,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get0(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get0(A,B)):-[]
         a1 = a1.dref();
@@ -4831,7 +4831,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get(A)):-[]
         a1 = a1.dref();
@@ -4845,7 +4845,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get(A,B)):-[]
         a1 = a1.dref();
@@ -4859,7 +4859,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put(A)):-[]
         a1 = a1.dref();
@@ -4873,7 +4873,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put(A,B)):-[]
         a1 = a1.dref();
@@ -4887,7 +4887,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(tab(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(tab(A)):-[]
         a1 = a1.dref();
@@ -4901,7 +4901,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(tab(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(tab(A,B)):-[]
         a1 = a1.dref();
@@ -4915,7 +4915,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(skip(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(skip(A)):-[]
         a1 = a1.dref();
@@ -4929,7 +4929,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(skip(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(skip(A,B)):-[]
         a1 = a1.dref();
@@ -4943,7 +4943,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_byte(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_byte(A)):-[]
         a1 = a1.dref();
@@ -4957,7 +4957,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(get_byte(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(get_byte(A,B)):-[]
         a1 = a1.dref();
@@ -4971,7 +4971,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_byte(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_byte(A)):-[]
         a1 = a1.dref();
@@ -4985,7 +4985,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(peek_byte(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(peek_byte(A,B)):-[]
         a1 = a1.dref();
@@ -4999,7 +4999,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_byte(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_byte(A)):-[]
         a1 = a1.dref();
@@ -5013,7 +5013,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(put_byte(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(put_byte(A,B)):-[]
         a1 = a1.dref();
@@ -5027,7 +5027,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read(A)):-[]
         a1 = a1.dref();
@@ -5041,7 +5041,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read(A,B)):-[]
         a1 = a1.dref();
@@ -5055,7 +5055,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read_with_variables(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read_with_variables(A,B)):-[]
         a1 = a1.dref();
@@ -5069,7 +5069,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read_with_variables(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read_with_variables(A,B,C)):-[]
         a1 = a1.dref();
@@ -5083,7 +5083,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read_line(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read_line(A)):-[]
         a1 = a1.dref();
@@ -5097,7 +5097,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(read_line(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(read_line(A,B)):-[]
         a1 = a1.dref();
@@ -5111,7 +5111,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write(A)):-[]
         a1 = a1.dref();
@@ -5125,7 +5125,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write(A,B)):-[]
         a1 = a1.dref();
@@ -5139,7 +5139,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(writeq(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(writeq(A)):-[]
         a1 = a1.dref();
@@ -5153,7 +5153,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(writeq(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(writeq(A,B)):-[]
         a1 = a1.dref();
@@ -5167,7 +5167,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write_canonical(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write_canonical(A)):-[]
         a1 = a1.dref();
@@ -5181,7 +5181,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write_canonical(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write_canonical(A,B)):-[]
         a1 = a1.dref();
@@ -5195,7 +5195,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write_term(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write_term(A,B)):-[]
         a1 = a1.dref();
@@ -5209,7 +5209,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(write_term(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(write_term(A,B,C)):-[]
         a1 = a1.dref();
@@ -5223,7 +5223,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(op(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(op(A,B,C)):-[]
         a1 = a1.dref();
@@ -5237,7 +5237,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(current_op(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(current_op(A,B,C)):-[]
         a1 = a1.dref();
@@ -5251,7 +5251,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(\+A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(\+A):-[]
         a1 = a1.dref();
@@ -5265,7 +5265,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(once(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(once(A)):-[]
         a1 = a1.dref();
@@ -5279,7 +5279,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(repeat):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(repeat):-[]
         if (!  ATOM_repeat .unify(a1, m.trail))
@@ -5291,7 +5291,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atom_length(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atom_length(A,B)):-[]
         a1 = a1.dref();
@@ -5305,7 +5305,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atom_concat(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atom_concat(A,B,C)):-[]
         a1 = a1.dref();
@@ -5319,7 +5319,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(sub_atom(A,B,C,D,E)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(sub_atom(A,B,C,D,E)):-[]
         a1 = a1.dref();
@@ -5333,7 +5333,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atom_chars(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atom_chars(A,B)):-[]
         a1 = a1.dref();
@@ -5347,7 +5347,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(atom_codes(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(atom_codes(A,B)):-[]
         a1 = a1.dref();
@@ -5361,7 +5361,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(char_code(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(char_code(A,B)):-[]
         a1 = a1.dref();
@@ -5375,7 +5375,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(number_chars(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(number_chars(A,B)):-[]
         a1 = a1.dref();
@@ -5389,7 +5389,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(number_codes(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(number_codes(A,B)):-[]
         a1 = a1.dref();
@@ -5403,7 +5403,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(name(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(name(A,B)):-[]
         a1 = a1.dref();
@@ -5417,7 +5417,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(set_prolog_flag(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(set_prolog_flag(A,B)):-[]
         a1 = a1.dref();
@@ -5431,7 +5431,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(current_prolog_flag(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(current_prolog_flag(A,B)):-[]
         a1 = a1.dref();
@@ -5445,7 +5445,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(halt):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(halt):-[]
         if (!  ATOM_halt .unify(a1, m.trail))
@@ -5457,7 +5457,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(halt(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(halt(A)):-[]
         a1 = a1.dref();
@@ -5471,7 +5471,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(abort):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(abort):-[]
         if (!  ATOM_abort .unify(a1, m.trail))
@@ -5483,7 +5483,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('C'(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('C'(A,B,C)):-[]
         a1 = a1.dref();
@@ -5497,7 +5497,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(expand_term(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(expand_term(A,B)):-[]
         a1 = a1.dref();
@@ -5511,7 +5511,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(new_hash(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(new_hash(A)):-[]
         a1 = a1.dref();
@@ -5525,7 +5525,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(new_hash(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(new_hash(A,B)):-[]
         a1 = a1.dref();
@@ -5539,7 +5539,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_clear(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_clear(A)):-[]
         a1 = a1.dref();
@@ -5553,7 +5553,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_contains_key(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_contains_key(A,B)):-[]
         a1 = a1.dref();
@@ -5567,7 +5567,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_get(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_get(A,B,C)):-[]
         a1 = a1.dref();
@@ -5581,7 +5581,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_is_empty(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_is_empty(A)):-[]
         a1 = a1.dref();
@@ -5595,7 +5595,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_keys(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_keys(A,B)):-[]
         a1 = a1.dref();
@@ -5609,7 +5609,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_map(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_map(A,B)):-[]
         a1 = a1.dref();
@@ -5623,7 +5623,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_put(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_put(A,B,C)):-[]
         a1 = a1.dref();
@@ -5637,7 +5637,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_remove(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_remove(A,B)):-[]
         a1 = a1.dref();
@@ -5651,7 +5651,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(hash_size(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(hash_size(A,B)):-[]
         a1 = a1.dref();
@@ -5665,7 +5665,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate('$get_hash_manager'(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate('$get_hash_manager'(A)):-[]
         a1 = a1.dref();
@@ -5679,7 +5679,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_constructor0(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_constructor0(A,B)):-[]
         a1 = a1.dref();
@@ -5693,7 +5693,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_constructor(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_constructor(A,B)):-[]
         a1 = a1.dref();
@@ -5707,7 +5707,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_declared_constructor0(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_declared_constructor0(A,B)):-[]
         a1 = a1.dref();
@@ -5721,7 +5721,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_declared_constructor(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_declared_constructor(A,B)):-[]
         a1 = a1.dref();
@@ -5735,7 +5735,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_method0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_method0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5749,7 +5749,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_method(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_method(A,B,C)):-[]
         a1 = a1.dref();
@@ -5763,7 +5763,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_declared_method0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_declared_method0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5777,7 +5777,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_declared_method(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_declared_method(A,B,C)):-[]
         a1 = a1.dref();
@@ -5791,7 +5791,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_get_field0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_get_field0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5805,7 +5805,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_get_field(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_get_field(A,B,C)):-[]
         a1 = a1.dref();
@@ -5819,7 +5819,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_get_declared_field0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_get_declared_field0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5833,7 +5833,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_get_declared_field(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_get_declared_field(A,B,C)):-[]
         a1 = a1.dref();
@@ -5847,7 +5847,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_set_field0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_set_field0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5861,7 +5861,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_set_field(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_set_field(A,B,C)):-[]
         a1 = a1.dref();
@@ -5875,7 +5875,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_set_declared_field0(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_set_declared_field0(A,B,C)):-[]
         a1 = a1.dref();
@@ -5889,7 +5889,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_set_declared_field(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_set_declared_field(A,B,C)):-[]
         a1 = a1.dref();
@@ -5903,7 +5903,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(synchronized(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(synchronized(A,B)):-[]
         a1 = a1.dref();
@@ -5917,7 +5917,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(java_conversion(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(java_conversion(A,B)):-[]
         a1 = a1.dref();
@@ -5931,7 +5931,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(cafeteria):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(cafeteria):-[]
         if (!  ATOM_cafeteria .unify(a1, m.trail))
@@ -5943,7 +5943,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(consult(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(consult(A)):-[]
         a1 = a1.dref();
@@ -5957,7 +5957,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(trace):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(trace):-[]
         if (!  ATOM_trace .unify(a1, m.trail))
@@ -5969,7 +5969,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(notrace):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(notrace):-[]
         if (!  ATOM_notrace .unify(a1, m.trail))
@@ -5981,7 +5981,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(debug):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(debug):-[]
         if (!  ATOM_debug .unify(a1, m.trail))
@@ -5993,7 +5993,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nodebug):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nodebug):-[]
         if (!  ATOM_nodebug .unify(a1, m.trail))
@@ -6005,7 +6005,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(leash(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(leash(A)):-[]
         a1 = a1.dref();
@@ -6019,7 +6019,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(spy(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(spy(A)):-[]
         a1 = a1.dref();
@@ -6033,7 +6033,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nospy(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nospy(A)):-[]
         a1 = a1.dref();
@@ -6047,7 +6047,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(nospyall):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(nospyall):-[]
         if (!  ATOM_nospyall .unify(a1, m.trail))
@@ -6059,7 +6059,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(listing):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(listing):-[]
         if (!  ATOM_listing .unify(a1, m.trail))
@@ -6071,7 +6071,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(listing(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(listing(A)):-[]
         a1 = a1.dref();
@@ -6085,7 +6085,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(length(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(length(A,B)):-[]
         a1 = a1.dref();
@@ -6099,7 +6099,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(numbervars(A,B,C)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(numbervars(A,B,C)):-[]
         a1 = a1.dref();
@@ -6113,7 +6113,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(statistics(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(statistics(A,B)):-[]
         a1 = a1.dref();
@@ -6127,7 +6127,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // system_predicate(A):-call(system_predicate_ext,A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // system_predicate(A):-[call(system_predicate_ext,A)]
         return //

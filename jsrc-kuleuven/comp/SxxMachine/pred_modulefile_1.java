@@ -63,7 +63,7 @@ public class pred_modulefile_1 extends Code {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2);
+        local_aregs.setAreg0((var2));
 
         mach.setCont(local_aregs, 1, S(pred_modulefile_1_consts.string3, CONST(pred_modulefile_1_consts.string4), var3, S(pred_modulefile_1_consts.string5, var3
                 .dref(), var2.dref(), var4, S(pred_modulefile_1_consts.string5, var4

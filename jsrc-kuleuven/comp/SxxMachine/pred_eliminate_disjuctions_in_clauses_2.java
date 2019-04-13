@@ -61,10 +61,10 @@ public class pred_eliminate_disjuctions_in_clauses_2 extends Code {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
-        local_aregs.areg1 = (pred_eliminate_disjuctions_in_clauses_2_consts.posint1);
-        local_aregs.areg2 = (var2.dref());
+        local_aregs.setAreg1((pred_eliminate_disjuctions_in_clauses_2_consts.posint1));
+        local_aregs.setAreg2((var2.dref()));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().eliminate_disjunction_list4cont;

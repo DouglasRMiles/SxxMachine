@@ -351,7 +351,7 @@ public class bootpreds extends sxxtensions {
                 final Term[] args = { s3.subsymbol(0, i), s3.subsymbol(i) };
                 t = CONS(S(AC_2, args), t);
             }
-            return Op(FILE_builtins::PRED_$member_in_reverse_2_static_exec, VA(S(AC_2, a1, a2), t), cont);
+            return Op("$member_in_reverse", FILE_builtins::PRED_$member_in_reverse_2_static_exec, VA(S(AC_2, a1, a2), t), cont);
         } else if (!a3.isVar()) {
             throw new IllegalTypeException(thiz, 3, "atom", a3);
         }
@@ -493,8 +493,8 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_exception_1(Term a1, Operation cont) {
-            
-            ThizLARGs.areg0 = a1;
+
+            ThizLARGs.setAreg0(a1);
             this.cont = cont;
         }
 
@@ -538,9 +538,9 @@ public class bootpreds extends sxxtensions {
         }
 
         public PRED_$begin_sync_2(Term a1, Term a2, Operation cont) {
-            
-            ThizLARGs.areg0 = a1;
-            ThizLARGs.areg1 = a2;
+
+            ThizLARGs.setAreg0(a1);
+            ThizLARGs.setAreg1(a2);
             this.cont = cont;
         }
 
@@ -641,7 +641,7 @@ public class bootpreds extends sxxtensions {
                 engine.setB0();
                 engine.setAREGS(LARG);
                 final TermArray MREG = engine.AREGS;
-                MREG.areg1 = ( FFIObject(new Term[] { next }));
+                MREG.setAreg1((FFIObject(new Term[] { next })));
                 engine.setCont(cont);
                 engine.jtry2(null, PRED_$builtin_member_2::retry); // push new
                                                                    // frame
@@ -694,7 +694,7 @@ public class bootpreds extends sxxtensions {
             engine.setAREGS(LARG);
             final TermArray MREG = engine.AREGS;
 
-            MREG.areg1 = ( FFIObject(new Term[] { next }));
+            MREG.setAreg1((FFIObject(new Term[] { next })));
             engine.setCont(cont);
             engine.jtry2(null, bootpreds::retry_bi_member); // push new frame
                                                             // with
@@ -5195,9 +5195,9 @@ public class bootpreds extends sxxtensions {
         if (!matcher.find()) {
             return engine.fail();
         }
-        engine.AREGS.areg0 = ( FFIObject(matcher));
+        engine.AREGS.setAreg0((FFIObject(matcher)));
         final TermArray MREG = engine.AREGS;
-        MREG.areg1 = ( LARG.getPlainArg(2));
+        MREG.setAreg1((LARG.getPlainArg(2)));
         return engine.jtry2(bootpreds::regex_check, bootpreds::regex_next);
     }
 

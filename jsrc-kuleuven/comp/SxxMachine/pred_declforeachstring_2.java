@@ -149,8 +149,8 @@ class pred_declforeachstring_2_2 extends pred_declforeachstring_2 {
             return mach.Fail0;
         if (!(areg1.unifyJP(var3.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var4);
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var4));
+        local_aregs.setAreg1((var3.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_declforeachstring_2_consts.string4, S(pred_declforeachstring_2_consts.string2, CONST(pred_declforeachstring_2_consts.string5), S(pred_declforeachstring_2_consts.string2, var3
                 .dref(), S(pred_declforeachstring_2_consts.string2, CONST(pred_declforeachstring_2_consts.string6), S(pred_declforeachstring_2_consts.string2, var1

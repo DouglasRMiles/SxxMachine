@@ -165,9 +165,9 @@ class pred_declforeachclause2_3_2 extends pred_declforeachclause2_3 {
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string4), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string5), S(pred_declforeachclause2_3_consts.string2, var4
+        local_aregs.setAreg0((S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string4), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string5), S(pred_declforeachclause2_3_consts.string2, var4
                 .dref(), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string6), S(pred_declforeachclause2_3_consts.string2, var3
-                        .dref(), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string7), S(pred_declforeachclause2_3_consts.string2, S(pred_declforeachclause2_3_consts.string8, CONST(pred_declforeachclause2_3_consts.string9)), CONST(pred_declforeachclause2_3_consts.string10)))))))));
+                        .dref(), S(pred_declforeachclause2_3_consts.string2, CONST(pred_declforeachclause2_3_consts.string7), S(pred_declforeachclause2_3_consts.string2, S(pred_declforeachclause2_3_consts.string8, CONST(pred_declforeachclause2_3_consts.string9)), CONST(pred_declforeachclause2_3_consts.string10))))))))));
 
         mach.setCont(local_aregs, 1, S(pred_declforeachclause2_3_consts.string11, var5, var3
                 .dref(), S(pred_declforeachclause2_3_consts.string1, var2.dref(), var5.dref(), var4

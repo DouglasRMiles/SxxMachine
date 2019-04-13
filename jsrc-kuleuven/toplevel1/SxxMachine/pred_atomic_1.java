@@ -55,8 +55,8 @@ class pred_atomic_1_1 extends pred_atomic_1 {
         final Term var1 = Jv(mach);
         if (!((areg0).unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var2);
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var2));
         mach.setCont(local_aregs, 2, S(string2, var2.dref(), continuation));
         mach.updateCUTB();
         return type_of3cont;

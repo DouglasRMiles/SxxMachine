@@ -63,9 +63,9 @@ class pred_copy_term_2_1 extends pred_copy_term_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var3);
-        local_aregs.areg1 = (S(string2, var3.dref(), var1.dref()));
-        local_aregs.areg2 = (S(string1, var2.dref(), CONST(string3)));
+        local_aregs.setAreg0((var3));
+        local_aregs.setAreg1((S(string2, var3.dref(), var1.dref())));
+        local_aregs.setAreg2((S(string1, var2.dref(), CONST(string3))));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return findall4cont;

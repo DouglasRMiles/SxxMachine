@@ -159,7 +159,7 @@ class pred_newargs_3_2 extends pred_newargs_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var3.dref());
+        local_aregs.setAreg0((var3.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_newargs_3_consts.string4, var5, var3
                 .dref(), S(pred_newargs_3_consts.string5, var1.dref(), var4

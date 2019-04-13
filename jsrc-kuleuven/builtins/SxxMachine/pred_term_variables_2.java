@@ -53,7 +53,7 @@ public class pred_term_variables_2 extends Code {
             varlist = CONS(iter.next(), varlist);
         }
 
-        local_aregs.areg0 = (varlist);
+        local_aregs.setAreg0((varlist));
 
         return unify;
     }

@@ -130,8 +130,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // nreverse([A|B],C):-[nreverse(B,D),concatenate(D,[A],C)]
         a1 = a1.dref();
@@ -149,8 +149,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         a6 = CONS(a3,  Prolog.Nil );
         p1 = //
  Op("concatenate", FILE_nreverse::PRED_concatenate_3_static_exec, VA(a5, a6, a2), cont);
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a5);
         m.cont = p1;
         return nreverse_2_top(m);
     }
@@ -159,8 +159,8 @@ m.AREGS = MARG;MARG.areg0 = a4;
     // nreverse([],[]):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // nreverse([],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -202,9 +202,9 @@ m.cont = cont;
     // concatenate([A|B],C,[A|D]):-concatenate(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // concatenate([A|B],C,[A|D]):-[concatenate(B,C,D)]
         a1 = a1.dref();
@@ -229,9 +229,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a2;
-        MARG.areg2 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a2);
+MARG.setAreg2( a6);
 m.cont = cont;
         return concatenate_3_top(m);
     }
@@ -240,9 +240,9 @@ m.cont = cont;
     // concatenate([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // concatenate([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))

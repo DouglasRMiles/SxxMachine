@@ -15,8 +15,8 @@ public class JPException extends Code {
     @Override
     public Code exec(PrologMachine mach) {
         final TermArray local_aregs = mach.getAreg();
-        local_aregs.areg4 = (local_aregs.getPlainArg(3));
-        local_aregs.areg3 = (Const.javaNull());
+        local_aregs.setAreg4((local_aregs.getPlainArg(3)));
+        local_aregs.setAreg3((Const.javaNull()));
         return mach.loadPred("jp_exception", 4).exec(mach);
     }
 
@@ -84,8 +84,8 @@ class JPException4 extends Code {
             if (!exception.unifyJP(CONST(error)))
                 return mach.Fail0;
         }
-        local_aregs.areg0 = (local_aregs.getPlainArg(4));
-        local_aregs.areg1 = (local_aregs.areg2 = (local_aregs.areg3 = (local_aregs.areg4 = (null))));
+        local_aregs.setAreg0((local_aregs.getPlainArg(4)));
+        local_aregs.setAreg1((local_aregs.setAreg2((local_aregs.setAreg3((local_aregs.setAreg4((null))))))));
         return mach.getCall1();
     }
 

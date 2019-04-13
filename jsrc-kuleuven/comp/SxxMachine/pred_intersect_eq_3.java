@@ -162,8 +162,8 @@ class pred_intersect_eq_3_2 extends pred_intersect_eq_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var4.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_intersect_eq_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_intersect_eq_3_consts.string5, S(pred_intersect_eq_3_consts.string2, var1

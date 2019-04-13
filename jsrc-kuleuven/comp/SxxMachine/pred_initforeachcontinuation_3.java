@@ -386,10 +386,10 @@ class pred_initforeachcontinuation_3_6 extends pred_initforeachcontinuation_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var5.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var6);
+        local_aregs.setAreg0((var6));
 
-        local_aregs.areg1 = (S(pred_initforeachcontinuation_3_consts.string5, var2
-                .dref(), pred_initforeachcontinuation_3_consts.posint1));
+        local_aregs.setAreg1((S(pred_initforeachcontinuation_3_consts.string5, var2
+                .dref(), pred_initforeachcontinuation_3_consts.posint1)));
 
         mach.setCont(local_aregs, 2, S(pred_initforeachcontinuation_3_consts.string6, var7, var1
                 .dref(), S(pred_initforeachcontinuation_3_consts.string7, S(pred_initforeachcontinuation_3_consts.string2, CONST(pred_initforeachcontinuation_3_consts.string8), S(pred_initforeachcontinuation_3_consts.string2, var1

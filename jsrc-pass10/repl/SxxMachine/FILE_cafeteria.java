@@ -203,7 +203,7 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-A==off,!,true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,off),'$cut'(B)]
         a2 = m.mkvar1();
@@ -229,7 +229,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-print_message(info,[debug])
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-[print_message(info,[debug])]
         return //
@@ -261,7 +261,7 @@ m.cont = cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-A=='SxxMachbine',!,'$fast_write'(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-['$get_level'(B),'$equality_of_term'(A,'SxxMachbine'),'$cut'(B),'$fast_write'(A)]
         a2 = m.mkvar1();
@@ -288,7 +288,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-'$fast_write'(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A):-['$fast_write'(A)]
         return //
@@ -341,7 +341,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // '$cafeteria'(A):-[read_with_variables(A,B),'$process_order'(A,B)]
         a2 = m.mkvar1();
         return //
@@ -450,8 +450,8 @@ m.cont = cont;
     // '$process_order'(A,B):-var(A),!,illarg(var,(?-A),1)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$process_order'(A,B):-['$get_level'(C),var(A),'$cut'(C),illarg(var,(?-A),1)]
         a3 = m.mkvar1();
@@ -481,8 +481,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$process_order'(end_of_file,A):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$process_order'(end_of_file,A):-['$neck_cut']
         if (!  ATOM_end_of_file .unify(a1, m.trail))
@@ -497,8 +497,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$process_order'([A|B],C):-!,consult([A|B])
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$process_order'([A|B],C):-['$neck_cut',consult([A|B])]
         a1 = a1.dref();
@@ -525,8 +525,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$process_order'(A,B):-['$get_level'(C),context_module(D),current_prolog_flag(debug,E),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,D,E),nl,'$rm_redundant_vars'(B,F),'$give_answers_with_prompt'(F),'$cut'(C),'$fast_write'(yes),nl]
         a3 = m.mkvar1();
@@ -555,8 +555,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$process_order'(A,B):-[nl,'$fast_write'(no),nl]
         return //
@@ -589,9 +589,9 @@ m.cont = cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-C==off,!,call(B:A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(C,off),'$cut'(D),call(B:A)]
         a4 = m.mkvar1();
@@ -621,9 +621,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-'$trace_goal'(B:A)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-['$trace_goal'(B:A)]
     // put_str_args([a(2),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(4))
@@ -682,8 +682,8 @@ m.cont = cont;
     // '$rm_redundant_vars'([],[]):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$rm_redundant_vars'([],[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -700,8 +700,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$rm_redundant_vars'(['_'=A|B],C):-!,'$rm_redundant_vars'(B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$rm_redundant_vars'(['_'=A|B],C):-['$neck_cut','$rm_redundant_vars'(B,C)]
         a1 = a1.dref();
@@ -722,8 +722,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
 m.cont = cont;
         return $rm_redundant_vars_2_top(m);
     }
@@ -732,8 +732,8 @@ m.cont = cont;
     // '$rm_redundant_vars'([A|B],[A|C]):-'$rm_redundant_vars'(B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$rm_redundant_vars'([A|B],[A|C]):-['$rm_redundant_vars'(B,C)]
         a1 = a1.dref();
@@ -758,8 +758,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a5);
 m.cont = cont;
         return $rm_redundant_vars_2_top(m);
     }
@@ -795,7 +795,7 @@ m.cont = cont;
     // '$give_answers_with_prompt'([]):-!
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$give_answers_with_prompt'([]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -811,7 +811,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$give_answers_with_prompt'(A):-['$give_an_answer'(A),'$fast_write'(' ? '),flush_output,read_line(B),'$inequality_of_term'(B,[59]),nl]
         a2 = m.mkvar1();
@@ -868,7 +868,7 @@ m.cont = cont;
     // '$give_an_answer'([]):-!,'$fast_write'(true)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$give_an_answer'([]):-['$neck_cut','$fast_write'(true)]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -884,7 +884,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$give_an_answer'([A]):-!,'$print_an answer'(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$give_an_answer'([A]):-['$neck_cut','$print_an answer'(A)]
         a1 = a1.dref();
@@ -910,7 +910,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$give_an_answer'([A|B]):-['$print_an answer'(A),'$fast_write'(','),nl,'$give_an_answer'(B)]
         a1 = a1.dref();
@@ -945,7 +945,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // '$print_an answer'(A=B):-[write(A),'$fast_write'(' = '),writeq(B)]
         a1 = a1.dref();
             a2 = m.mkvar2();
@@ -1042,7 +1042,7 @@ m.cont = cont;
     // consult(A):-var(A),!,illarg(var,consult(A),1)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // consult(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,consult(A),1)]
         a2 = m.mkvar1();
@@ -1072,7 +1072,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // consult([]):-!
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // consult([]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1088,7 +1088,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // consult([A|B]):-['$neck_cut',consult(A),consult(B)]
         a1 = a1.dref();
@@ -1107,7 +1107,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("consult", FILE_system::PRED_consult_1_static_exec, VA(a3), cont);
-m.AREGS = MARG;MARG.areg0 = a2;
+m.AREGS = MARG;  MARG.setAreg0( a2);
         m.cont = p1;
         return consult_1_top(m);
     }
@@ -1116,7 +1116,7 @@ m.AREGS = MARG;MARG.areg0 = a2;
     // consult(A):-atom(A),!,'$consult'(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // consult(A):-['$get_level'(B),atom(A),'$cut'(B),'$consult'(A)]
         a2 = m.mkvar1();
@@ -1161,7 +1161,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // '$consult'(A):-['$prolog_file_name'(A,B),open(B,read,C),stream_property(C,file_name(D)),print_message(info,[consulting,D,...]),statistics(runtime,E),consult_stream(D,C),statistics(runtime,[F,G]),print_message(info,[D,consulted,G,msec]),close(C)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -1216,8 +1216,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$prolog_file_name'(A,A):-['$get_level'(B),sub_atom(A,C,D,E,'.'),F is 0,'$greater_than'(E,F),'$cut'(B)]
         if (! a1.unify(a2, m.trail))
@@ -1241,8 +1241,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$prolog_file_name'(A,B):-atom_concat(A,'.pl',B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$prolog_file_name'(A,B):-[atom_concat(A,'.pl',B)]
         return //
@@ -1476,7 +1476,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2, p3;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // '$trace_goal'(A):-['$set_debug_flag'(leap,no),'$get_current_B'(B),context_module(C),'$meta_call'(A,C,B,0,trace)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -1512,10 +1512,10 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(call,A,B,C,D),'$call_internal'(A,B,C,D,trace),print_procedure_box(exit,A,B,C,D),redo_procedure_box(A,B,C,D)]
         return //
@@ -1530,10 +1530,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // '$trace_goal'(A,B,C,D):-[print_procedure_box(fail,A,B,C,D),fail]
         return //
@@ -1578,11 +1578,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // print_procedure_box(A,B,C,D/E,F):-['$get_level'(G),clause('SxxMachine':'$current_spypoint'(C,D,E),H),'$cut'(G),'$builtin_message'([+,F,A,:,C:B]),'$read_blocked'(print_procedure_box(A,B,C,D/E,F))]
         a4 = a4.dref();
@@ -1629,11 +1629,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // print_procedure_box(A,B,C,D,E):-['$get_level'(F),clause('SxxMachine':'$leap_flag'(no),G),'$cut'(F),'$builtin_message'([' ',E,A,:,C:B]),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C,D,E,H)]
         a6 = m.mkvar1();
@@ -1661,11 +1661,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // print_procedure_box(A,B,C,D,E):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // print_procedure_box(A,B,C,D,E):-[]
         return cont;
@@ -1698,12 +1698,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C,D,E,F):-['$get_level'(G),clause('SxxMachine':'$current_leash'(A),F),'$cut'(G),'$read_blocked'(print_procedure_box(A,B,C,D,E))]
         a7 = m.mkvar1();
@@ -1731,12 +1731,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C,D,E,F):-nl
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C,D,E,F):-[nl]
         return //
@@ -1767,10 +1767,10 @@ m.cont = cont;
     // redo_procedure_box(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // redo_procedure_box(A,B,C,D):-[]
         return cont;
@@ -1781,10 +1781,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // redo_procedure_box(A,B,C,D):-[print_procedure_box(redo,A,B,C,D),fail]
         return //
@@ -1816,9 +1816,9 @@ m.cont = cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-A==[],!,B=99
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-['$get_level'(D),'$equality_of_term'(A,[]),'$cut'(D),'$unify'(B,99)]
         a4 = m.mkvar1();
@@ -1849,9 +1849,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-A=[B|C]
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(A,B,C):-['$unify'(A,[B|C])]
         a4 = CONS(a2, a3);
@@ -1876,7 +1876,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2, p3, p4;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // '$read_blocked'(A):-['$fast_write'(' ? '),flush_output,read_line(B),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl'(B,C,D),'$debug_option'(C,A)]
         a2 = m.mkvar1();
         a3 = m.mkvar1();
@@ -1953,8 +1953,8 @@ m.cont = cont;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(97,A):-['$neck_cut',notrace,abort]
         if (!  int_97 .unify(a1, m.trail))
@@ -1971,8 +1971,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$debug_option'(99,A):-!,'$set_debug_flag'(leap,no)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(99,A):-['$neck_cut','$set_debug_flag'(leap,no)]
         if (!  int_99 .unify(a1, m.trail))
@@ -1988,8 +1988,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$debug_option'(108,A):-!,'$set_debug_flag'(leap,yes)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(108,A):-['$neck_cut','$set_debug_flag'(leap,yes)]
         if (!  int_108 .unify(a1, m.trail))
@@ -2006,8 +2006,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(43,print_procedure_box(A,B,C,D,E)):-['$neck_cut',spy(C:D),call('SxxMachine':print_procedure_box(A,B,C,D,E))]
         if (!  int_43 .unify(a1, m.trail))
@@ -2039,8 +2039,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(45,print_procedure_box(A,B,C,D,E)):-['$neck_cut',nospy(C:D),call('SxxMachine':print_procedure_box(A,B,C,D,E))]
         if (!  int_45 .unify(a1, m.trail))
@@ -2072,8 +2072,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(63,A):-['$neck_cut','$show_debug_option',call('SxxMachine':A)]
         if (!  int_63 .unify(a1, m.trail))
@@ -2094,8 +2094,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(104,A):-['$neck_cut','$show_debug_option',call('SxxMachine':A)]
         if (!  int_104 .unify(a1, m.trail))
@@ -2115,8 +2115,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$debug_option'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$debug_option'(A,B):-[]
         return cont;
@@ -2203,8 +2203,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$set_debug_flag'(leap,A):-['$get_level'(B),clause('SxxMachine':'$leap_flag'(A),C),'$cut'(B)]
         if (!  ATOM_leap .unify(a1, m.trail))
@@ -2231,8 +2231,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$set_debug_flag'(leap,A):-[retractall('SxxMachine':'$leap_flag'(B)),assertz('SxxMachine':'$leap_flag'(A))]
         if (!  ATOM_leap .unify(a1, m.trail))
@@ -2268,7 +2268,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // spy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,spy(A)),trace,'$assert_spypoint'(C),'$set_debug_flag'(leap,yes),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -2335,7 +2335,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine':'$current_spypoint'(A,B,C),E),print_message(info,[spypoint,A:B/C,is,already,added]),'$cut'(D)]
         a1 = a1.dref();
@@ -2381,7 +2381,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$assert_spypoint'(A:B/C):-['$get_level'(D),clause('SxxMachine':'$consulted_predicate'(A,B/C,E),F),assertz('SxxMachine':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,added]),'$cut'(D)]
         a1 = a1.dref();
@@ -2436,7 +2436,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$assert_spypoint'(A:B/C):-print_message(warning,[no,matching,predicate,for,spy,A:B/C])
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$assert_spypoint'(A:B/C):-[print_message(warning,[no,matching,predicate,for,spy,A:B/C])]
         a1 = a1.dref();
@@ -2481,7 +2481,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeter
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // nospy(A):-['$get_level'(B),'$term_to_predicateindicator'(A,C,nospy(A)),'$retract_spypoint'(C),'$set_debug_flag'(leap,no),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -2532,7 +2532,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$retract_spypoint'(A:B/C):-['$get_level'(D),retract('SxxMachine':'$current_spypoint'(A,B,C)),print_message(info,[spypoint,A:B/C,is,removed]),'$cut'(D)]
         a1 = a1.dref();
@@ -2577,7 +2577,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$retract_spypoint'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$retract_spypoint'(A):-[]
         return cont;
@@ -2637,7 +2637,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // leash(A):-['$get_level'(B),nonvar(A),'$leash'(A),'$cut'(B)]
         a2 = m.mkvar1();
@@ -2661,7 +2661,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // leash(A):-illarg(type(leash_specifier),leash(A),1)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // leash(A):-[illarg(type(leash_specifier),leash(A),1)]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_leash_1'),y(1),a(2))
@@ -2704,7 +2704,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash'([]):-['$neck_cut',retractall('SxxMachine':'$current_leash'(A)),print_message(info,[no,leashing])]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -2728,7 +2728,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash'(A):-[retractall('SxxMachine':'$current_leash'(B)),'$assert_leash'(A),print_message(info,[leashing,stopping,on,A])]
     // put_str_args([void],y(1)),put_str(@('FUNCTOR_$0024current_leash_1'),y(1),a(2))
@@ -2775,7 +2775,7 @@ m.cont = cont;
     // '$assert_leash'([]):-!
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$assert_leash'([]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -2791,7 +2791,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$assert_leash'([A|B]):-['$leash_specifier'(A),assertz('SxxMachine':'$current_leash'(A)),'$assert_leash'(B)]
         a1 = a1.dref();
@@ -2855,7 +2855,7 @@ m.cont = cont;
     // '$leash_specifier'(call):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash_specifier'(call):-[]
         if (!  ATOM_call .unify(a1, m.trail))
@@ -2867,7 +2867,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$leash_specifier'(exit):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash_specifier'(exit):-[]
         if (!  ATOM_exit .unify(a1, m.trail))
@@ -2879,7 +2879,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$leash_specifier'(redo):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash_specifier'(redo):-[]
         if (!  ATOM_redo .unify(a1, m.trail))
@@ -2891,7 +2891,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$leash_specifier'(fail):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$leash_specifier'(fail):-[]
         if (!  ATOM_fail .unify(a1, m.trail))
@@ -2944,7 +2944,7 @@ m.cont = cont;
     // listing(A):-var(A),!,illarg(var,listing(A),1)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // listing(A):-['$get_level'(B),var(A),'$cut'(B),illarg(var,listing(A),1)]
         a2 = m.mkvar1();
@@ -2975,7 +2975,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // listing(A):-[strip_module(A,B,C),'$listing'(C,B)]
         a2 = m.mkvar1();
@@ -3033,7 +3033,7 @@ m.cont = cont;
 
     private final static Operation $listing_2_int_1(Prolog m) { 
         m.retry(null, FILE_cafeteria::$listing_2_int_2);
-        return $listing_2_3(m);
+        return $listing_2_2(m);
     }
 
     private final static Operation $listing_2_int_2(Prolog m) { 
@@ -3047,13 +3047,13 @@ m.cont = cont;
     }
 
     private final static Operation $listing_2_1(Prolog m) { 
-    // '$listing'(A,B):-var(A),!,'$listing_dynamic_clause'(B,C)
+    // '$listing'(A,B):-var(A),!,'$listing_dynamic_clause'(B,C,D)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
-    // '$listing'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$listing_dynamic_clause'(B,D)]
+    // '$listing'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$listing_dynamic_clause'(B,D,E)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
@@ -3071,60 +3071,17 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
                   m.cut( a3.intValue());
         //END inline expansion
         return //
- Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, m.DONT_CARE2()), cont);
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_3_static_exec, VA(a2, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
     private final static Operation $listing_2_2(Prolog m) { 
-    // '$listing'(A/B,C):-atom(A),integer(B),!,'$listing_dynamic_clause'(C,A/B)
-         Term a1, a2, a3, a4, a5, a6;
+    // '$listing'(A,B):-atom(A),!,'$listing_dynamic_clause'(B,A,C)
+         Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
-    // '$listing'(A/B,C):-['$get_level'(D),atom(A),integer(B),'$cut'(D),'$listing_dynamic_clause'(C,A/B)]
-        a1 = a1.dref();
-            a3 = m.mkvar2();
-            a4 = m.mkvar2();
-            if (!a1.unifyS( FUNCTOR_$002F_2 , m.trail, a3, a4)){
-                return m.fail();
-            }
-        a5 = m.mkvar1();
-        //START inline expansion of $get_level(a(5))
-        if (! a5.unifyInt(m.B0, m.trail)) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of atom(a(3))
-        a3 = a3.dref();
-        if (! a3.isAtomSymbol()) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of integer(a(4))
-        a4 = a4.dref();
-        if (! (a4 .isInteger())) {
-            return m.fail();
-        }
-        //END inline expansion
-        //START inline expansion of $cut(a(5))
-        a5 = a5.dref();
-                  m.cut( a5.intValue());
-        //END inline expansion
-    // put_str_args([a(3),a(4)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(6))
-        a6 =  S( FUNCTOR_$002F_2 , a3, a4);
- ;
-        return //
- Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont);
-    }
-
-    private final static Operation $listing_2_3(Prolog m) { 
-    // '$listing'(A,B):-atom(A),!,'$listing_dynamic_clause'(B,A/C)
-         Term a1, a2, a3, a4;
-        Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        cont = m.cont;
-    // '$listing'(A,B):-['$get_level'(C),atom(A),'$cut'(C),'$listing_dynamic_clause'(B,A/D)]
+    // '$listing'(A,B):-['$get_level'(C),atom(A),'$cut'(C),'$listing_dynamic_clause'(B,A,D)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
@@ -3141,22 +3098,40 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         a3 = a3.dref();
                   m.cut( a3.intValue());
         //END inline expansion
-    // put_str_args([a(1),void],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(4))
-        a4 =  S( FUNCTOR_$002F_2 , a1, m.mkvar3());
- ;
         return //
- Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a4), cont);
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_3_static_exec, VA(a2, a1, m.DONT_CARE2()), cont);
+    }
+
+    private final static Operation $listing_2_3(Prolog m) { 
+    // '$listing'(A/B,C):-!,'$listing_dynamic_clause'(C,A,B)
+         Term a1, a2, a3, a4;
+        Operation cont;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        cont = m.cont;
+    // '$listing'(A/B,C):-['$neck_cut','$listing_dynamic_clause'(C,A,B)]
+        a1 = a1.dref();
+            a3 = m.mkvar2();
+            a4 = m.mkvar2();
+            if (!a1.unifyS( FUNCTOR_$002F_2 , m.trail, a3, a4)){
+                return m.fail();
+            }
+        //START inline expansion of $neck_cut
+        m.neckCut();
+        //END inline expansion
+        return //
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_3_static_exec, VA(a2, a3, a4), cont);
     }
 
     private final static Operation $listing_2_4(Prolog m) { 
-    // '$listing'(A,B):-functor(A,C,D),!,'$listing_dynamic_clause'(B,C/D)
-         Term a1, a2, a3, a4, a5, a6;
-        Operation p1, p2;
+    // '$listing'(A,B):-compound(A),functor(A,C,D),!,'$listing_dynamic_clause'(B,C,D)
+         Term a1, a2, a3, a4, a5;
+        Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
-    // '$listing'(A,B):-['$get_level'(C),functor(A,D,E),'$cut'(C),'$listing_dynamic_clause'(B,D/E)]
+    // '$listing'(A,B):-['$get_level'(C),compound(A),functor(A,D,E),'$cut'(C),'$listing_dynamic_clause'(B,D,E)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
         if (! a3.unifyInt(m.B0, m.trail)) {
@@ -3165,21 +3140,19 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         a4 = m.mkvar1();
         a5 = m.mkvar1();
-    // put_str_args([a(4),a(5)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(6))
-        a6 =  S( FUNCTOR_$002F_2 , a4, a5);
- ;
         return //
+ Op("compound", FILE_system::PRED_compound_1_static_exec, VA(a1), //
  Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a1, a4, a5), //
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), //
- Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_2_static_exec, VA(a2, a6), cont)));
+ Op("$listing_dynamic_clause", FILE_system::PRED_$listing_dynamic_clause_3_static_exec, VA(a2, a4, a5), cont))));
     }
 
     private final static Operation $listing_2_5(Prolog m) { 
     // '$listing'(A,B):-illarg(type(predicate_indicator),listing(B:A),1)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$listing'(A,B):-[illarg(type(predicate_indicator),listing(B:A),1)]
     // put_str_args([a(2),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(3))
@@ -3191,62 +3164,82 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         return //
  Op("illarg", FILE_system::PRED_illarg_3_static_exec, VA(L_$listing_2_s5, a4,  int_1 ), cont);
     }
-/** PREDICATE: $listing_dynamic_clause/2
+/** PREDICATE: $listing_dynamic_clause/3
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/cafeteria.pl
 */
-    // main('$listing_dynamic_clause'/2,non-(public))
+    // main('$listing_dynamic_clause'/3,non-(public))
+        final static Functor FUNCTOR_functor_3 = F("functor",3);
+        final static Functor FUNCTOR_$0024clause_internal_5 = F("$clause_internal",5);
+        final static Functor FUNCTOR_$0024write_dynamic_clause_2 = F("$write_dynamic_clause",2);
 
 
 
 
-    public static Operation PRED_$listing_dynamic_clause_2_static_exec(Prolog m) { 
+    public static Operation PRED_$listing_dynamic_clause_3_static_exec(Prolog m) { 
         final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
 m.cont = cont;
         m.setB0();
-        m.jtry2(null, FILE_cafeteria::$listing_dynamic_clause_2_sub_1);
-        return $listing_dynamic_clause_2_1(m);
+        m.jtry3(null, FILE_cafeteria::$listing_dynamic_clause_3_sub_1);
+        return $listing_dynamic_clause_3_1(m);
     }
 
-    private final static Operation $listing_dynamic_clause_2_sub_1(Prolog m) { 
+    private final static Operation $listing_dynamic_clause_3_sub_1(Prolog m) { 
         m.trust(null);
-        return $listing_dynamic_clause_2_2(m);
+        return $listing_dynamic_clause_3_2(m);
     }
 
-    private final static Operation $listing_dynamic_clause_2_1(Prolog m) { 
-    // '$listing_dynamic_clause'(A,B):-'$new_internal_database'(A),hash_keys(A,C),'$builtin_member'(B,C),B=D/E,functor(F,D,E),'$clause_internal'(A,B,F,G,H),'$write_dynamic_clause'(A,G),fail
-         Term a1, a2, a3, a4, a5, a6, a7, a8;
-        Operation p1, p2, p3, p4, p5, p6, p7;
+    private final static Operation $listing_dynamic_clause_3_1(Prolog m) { 
+    // '$listing_dynamic_clause'(A,B,C):-'$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),show_call(E=B/C),E=B/C,show_call(functor(F,B,C)),show_call('$clause_internal'(A,E,F,G,H)),show_call('$write_dynamic_clause'(A,G)),fail
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
+        Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
-    // '$listing_dynamic_clause'(A,B):-['$new_internal_database'(A),hash_keys(A,C),'$builtin_member'(B,C),'$unify'(B,D/E),functor(F,D,E),'$clause_internal'(A,B,F,G,H),'$write_dynamic_clause'(A,G),fail]
-        a3 = m.mkvar1();
+    // '$listing_dynamic_clause'(A,B,C):-['$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),show_call(E=B/C),'$unify'(E,B/C),show_call(functor(F,B,C)),show_call('$clause_internal'(A,E,F,G,H)),show_call('$write_dynamic_clause'(A,G)),fail]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
-    // put_str_args([a(4),a(5)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(6))
-        a6 =  S( FUNCTOR_$002F_2 , a4, a5);
+    // put_str_args([a(2),a(3)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(6))
+        a6 =  S( FUNCTOR_$002F_2 , a2, a3);
  ;
-        a7 = m.mkvar1();
-        a8 = m.mkvar1();
+    // put_str_args([a(5),a(6)],y(2)),put_str(@('FUNCTOR_$003D_2'),y(2),a(7))
+        a7 =  S( FUNCTOR_$003D_2 , a5, a6);
+ ;
+    // put_str_args([a(2),a(3)],y(3)),put_str(@('FUNCTOR_$002F_2'),y(3),a(8))
+        a8 =  S( FUNCTOR_$002F_2 , a2, a3);
+ ;
+        a9 = m.mkvar1();
+    // put_str_args([a(9),a(2),a(3)],y(4)),put_str(@('FUNCTOR_functor_3'),y(4),a(10))
+        a10 =  S( FUNCTOR_functor_3 , a9, a2, a3);
+ ;
+        a11 = m.mkvar1();
+    // put_str_args([a(1),a(5),a(9),a(11),void],y(5)),put_str(@('FUNCTOR_$0024clause_internal_5'),y(5),a(12))
+        a12 =  S( FUNCTOR_$0024clause_internal_5 , a1, a5, a9, a11, m.mkvar3());
+ ;
+    // put_str_args([a(1),a(11)],y(6)),put_str(@('FUNCTOR_$0024write_dynamic_clause_2'),y(6),a(13))
+        a13 =  S( FUNCTOR_$0024write_dynamic_clause_2 , a1, a11);
+ ;
         return //
  Op("$new_internal_database", FILE_system::PRED_$new_internal_database_1_static_exec, VA(a1), //
- Op("hash_keys", FILE_system::PRED_hash_keys_2_static_exec, VA(a1, a3), //
- Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a3), //
- Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, a6), //
- Op("functor", FILE_system::PRED_functor_3_static_exec, VA(a7, a4, a5), //
- Op("$clause_internal", FILE_system::PRED_$clause_internal_5_static_exec, VA(a1, a2, a7, a8, m.DONT_CARE2()), //
- Op("$write_dynamic_clause", FILE_system::PRED_$write_dynamic_clause_2_static_exec, VA(a1, a8), fail_0)))))));
+ Op("hash_keys", FILE_system::PRED_hash_keys_2_static_exec, VA(a1, a4), //
+ Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a5, a4), //
+ Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a7), //
+ Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a5, a8), //
+ Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a10), //
+ Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a12), //
+ Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a13), fail_0))))))));
     }
 
-    private final static Operation $listing_dynamic_clause_2_2(Prolog m) { 
-    // '$listing_dynamic_clause'(A,B):-true
-         Term a1, a2;
+    private final static Operation $listing_dynamic_clause_3_2(Prolog m) { 
+    // '$listing_dynamic_clause'(A,B,C):-true
+         Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
-    // '$listing_dynamic_clause'(A,B):-[]
+    // '$listing_dynamic_clause'(A,B,C):-[]
         return cont;
     }
 /** PREDICATE: $write_dynamic_clause/2
@@ -3281,8 +3274,8 @@ m.cont = cont;
     // '$write_dynamic_clause'(A,B):-var(B),!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_clause'(A,B):-['$get_level'(C),var(B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -3311,8 +3304,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_clause'(A,(B:-true)):-['$neck_cut',numbervars(B,0,C),'$write_dynamic_head'(A,B),write('.'),nl]
         a2 = a2.dref();
@@ -3335,8 +3328,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_clause'(A,(B:-C)):-['$neck_cut',numbervars((B:-C),0,D),'$write_dynamic_head'(A,B),write(' :-'),nl,'$write_dynamic_body'(C,8),write('.'),nl]
         a2 = a2.dref();
@@ -3386,8 +3379,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_head'(A,B):-['$get_level'(C),context_module(A),'$cut'(C),writeq(B)]
         a3 = m.mkvar1();
@@ -3407,8 +3400,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_head'(A,B):-[write(A),write(:),writeq(B)]
         return //
@@ -3468,8 +3461,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_body'((A,B),C):-['$neck_cut','$write_dynamic_body'(A,C),write(','),nl,'$write_dynamic_body'(B,C)]
         a1 = a1.dref();
@@ -3485,8 +3478,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
  Op("write", FILE_system::PRED_write_1_static_exec, VA( ATOM_$002C ), //
  Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), //
  Op("$write_dynamic_body", FILE_system::PRED_$write_dynamic_body_2_static_exec, VA(a4, a2), cont)));
-m.AREGS = MARG;MARG.areg0 = a3;
-        MARG.areg1 = a2;
+m.AREGS = MARG;  MARG.setAreg0( a3);
+MARG.setAreg1( a2);
         m.cont = p3;
         return $write_dynamic_body_2_top(m);
     }
@@ -3496,8 +3489,8 @@ m.AREGS = MARG;MARG.areg0 = a3;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_body'((A;B),C):-['$neck_cut',D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(;),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')]
         a1 = a1.dref();
@@ -3538,8 +3531,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_body'((A->B),C):-['$neck_cut',D is C+4,tab(C),write('('),nl,'$write_dynamic_body'(A,D),nl,tab(C),write(->),nl,'$write_dynamic_body'(B,D),nl,tab(C),write(')')]
         a1 = a1.dref();
@@ -3580,8 +3573,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_dynamic_body'(A,B):-[tab(B),writeq(A)]
         return //
@@ -3631,8 +3624,8 @@ m.cont = cont;
     // print_message(A,B):-var(A),!,illarg(var,print_message(A,B),1)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // print_message(A,B):-['$get_level'(C),var(A),'$cut'(C),illarg(var,print_message(A,B),1)]
         a3 = m.mkvar1();
@@ -3662,8 +3655,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // print_message(error,A):-!,'$error_message'(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // print_message(error,A):-['$neck_cut','$error_message'(A)]
         if (!  ATOM_error .unify(a1, m.trail))
@@ -3680,8 +3673,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // print_message(info,A):-['$neck_cut','$fast_write'('{'),'$builtin_message'(A),'$fast_write'('}'),nl]
         if (!  ATOM_info .unify(a1, m.trail))
@@ -3701,8 +3694,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // print_message(warning,A):-['$neck_cut','$fast_write'('{WARNING: '),'$builtin_message'(A),'$fast_write'('}'),nl]
         if (!  ATOM_warning .unify(a1, m.trail))
@@ -3780,7 +3773,7 @@ m.cont = cont;
     // '$builtin_message'([]):-!
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$builtin_message'([]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -3795,7 +3788,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$builtin_message'([A]):-!,write(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$builtin_message'([A]):-['$neck_cut',write(A)]
         a1 = a1.dref();
@@ -3821,7 +3814,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$builtin_message'([A|B]):-[write(A),'$fast_write'(' '),'$builtin_message'(B)]
         a1 = a1.dref();
@@ -3961,7 +3954,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(instantiation_error(A,0)):-['$neck_cut','$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -3985,7 +3978,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(instantiation_error(A,B)):-['$neck_cut','$fast_write'(user_error,'{INSTANTIATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4012,7 +4005,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(type_error(A,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{TYPE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4045,7 +4038,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(domain_error(A,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{DOMAIN ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4078,7 +4071,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(existence_error(A,0,B,C,D)):-['$neck_cut','$fast_write'(user_error,'{EXISTENCE ERROR: '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),write(user_error,C),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4106,7 +4099,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(existence_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{EXISTENCE ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,' does not exist'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4140,7 +4133,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(permission_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{PERMISSION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - can not '),'$fast_write'(user_error,B),'$fast_write'(user_error,' '),'$fast_write'(user_error,C),'$fast_write'(user_error,' '),write(user_error,D),'$fast_write'(user_error,': '),'$fast_write'(user_error,E),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4176,7 +4169,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(representation_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{REPRESENTATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': limit of '),'$fast_write'(user_error,C),'$fast_write'(user_error,' is breached'),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4207,7 +4200,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(evaluation_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{EVALUATION ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$fast_write'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4237,7 +4230,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(syntax_error(A,B,C,D,E)):-['$neck_cut','$fast_write'(user_error,'{SYNTAX ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,': expected '),'$fast_write'(user_error,C),'$fast_write'(user_error,', found '),write(user_error,D),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4270,7 +4263,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(system_error(A)):-['$neck_cut','$fast_write'(user_error,'{SYSTEM ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4294,7 +4287,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(internal_error(A)):-['$neck_cut','$fast_write'(user_error,'{INTERNAL ERROR: '),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         a1 = a1.dref();
@@ -4318,7 +4311,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(java_error(A,B,C)):-['$neck_cut','$fast_write'(user_error,'{JAVA ERROR: '),'$write_goal'(user_error,A),'$fast_write'(user_error,' - arg '),'$fast_write'(user_error,B),'$fast_write'(user_error,', found '),'$write_goal'(user_error,C),'$fast_write'(user_error,'}'),nl(user_error),'$print_stack_trace'(C),flush_output(user_error)]
         a1 = a1.dref();
@@ -4349,7 +4342,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$error_message'(A):-['$fast_write'(user_error,'{'),write(user_error,A),'$fast_write'(user_error,'}'),nl(user_error),flush_output(user_error)]
         return //
@@ -4384,7 +4377,7 @@ m.cont = cont;
     // '$write_goal'(A):-java(A),!,'$write_toString'(user_error,A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$write_goal'(A):-['$get_level'(B),java(A),'$cut'(B),'$write_toString'(user_error,A)]
         a2 = m.mkvar1();
@@ -4411,7 +4404,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$write_goal'(A):-write(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$write_goal'(A):-[write(A)]
         return //
@@ -4442,8 +4435,8 @@ m.cont = cont;
     // '$write_goal'(A,B):-java(B),!,'$write_toString'(A,B)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_goal'(A,B):-['$get_level'(C),java(B),'$cut'(C),'$write_toString'(A,B)]
         a3 = m.mkvar1();
@@ -4470,8 +4463,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$write_goal'(A,B):-write(A,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$write_goal'(A,B):-[write(A,B)]
         return //
@@ -4521,7 +4514,7 @@ static public void loadPreds() {
    PredTable.registerBuiltin("listing",0,FILE_cafeteria::PRED_listing_0_static_exec);
    PredTable.registerBuiltin("listing",1,FILE_cafeteria::PRED_listing_1_static_exec);
    PredTable.registerBuiltin("$listing",2,FILE_cafeteria::PRED_$listing_2_static_exec);
-   PredTable.registerBuiltin("$listing_dynamic_clause",2,FILE_cafeteria::PRED_$listing_dynamic_clause_2_static_exec);
+   PredTable.registerBuiltin("$listing_dynamic_clause",3,FILE_cafeteria::PRED_$listing_dynamic_clause_3_static_exec);
    PredTable.registerBuiltin("$write_dynamic_clause",2,FILE_cafeteria::PRED_$write_dynamic_clause_2_static_exec);
    PredTable.registerBuiltin("$write_dynamic_head",2,FILE_cafeteria::PRED_$write_dynamic_head_2_static_exec);
    PredTable.registerBuiltin("$write_dynamic_body",2,FILE_cafeteria::PRED_$write_dynamic_body_2_static_exec);

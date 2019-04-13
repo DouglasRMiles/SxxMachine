@@ -170,10 +170,10 @@ class pred_declforeachclause_3_2 extends pred_declforeachclause_3 {
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string4), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string7), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string8, var3
+        local_aregs.setAreg0((S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string4), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string7), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string8, var3
                 .dref()), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string9, var1
                         .dref(), var2.dref(), var3
-                                .dref()), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string10), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), CONST(pred_declforeachclause_3_consts.string11)))))))))));
+                                .dref()), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), S(pred_declforeachclause_3_consts.string3, CONST(pred_declforeachclause_3_consts.string10), S(pred_declforeachclause_3_consts.string3, S(pred_declforeachclause_3_consts.string5, CONST(pred_declforeachclause_3_consts.string6)), CONST(pred_declforeachclause_3_consts.string11))))))))))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3, 2);

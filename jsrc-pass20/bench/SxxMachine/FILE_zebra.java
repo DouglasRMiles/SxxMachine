@@ -169,7 +169,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
     // houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-true
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-[]
         a1 = a1.dref();
         if (a1 .isCons()){
@@ -277,9 +277,9 @@ m.cont = cont;
     // right_of(A,B,[B,A|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // right_of(A,B,[B,A|C]):-[]
         a3 = a3.dref();
@@ -309,9 +309,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // right_of(A,B,[C|D]):-right_of(A,B,D)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // right_of(A,B,[C|D]):-[right_of(A,B,D)]
         a3 = a3.dref();
@@ -323,9 +323,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a2;
-        MARG.areg2 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a2);
+MARG.setAreg2( a4);
 m.cont = cont;
         return right_of_3_top(m);
     }
@@ -363,9 +363,9 @@ m.cont = cont;
     // next_to(A,B,[A,B|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // next_to(A,B,[A,B|C]):-[]
         a3 = a3.dref();
@@ -395,9 +395,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // next_to(A,B,[B,A|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // next_to(A,B,[B,A|C]):-[]
         a3 = a3.dref();
@@ -427,9 +427,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // next_to(A,B,[C|D]):-next_to(A,B,D)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // next_to(A,B,[C|D]):-[next_to(A,B,D)]
         a3 = a3.dref();
@@ -441,9 +441,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a2;
-        MARG.areg2 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a2);
+MARG.setAreg2( a4);
 m.cont = cont;
         return next_to_3_top(m);
     }
@@ -476,8 +476,8 @@ m.cont = cont;
     // member(A,[A|B]):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // member(A,[A|B]):-[]
         a2 = a2.dref();
@@ -496,8 +496,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // member(A,[B|C]):-member(A,C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // member(A,[B|C]):-[member(A,C)]
         a2 = a2.dref();
@@ -509,8 +509,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a3;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a3);
 m.cont = cont;
         return member_2_top(m);
     }
@@ -544,7 +544,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // print_houses([A|B]):-['$neck_cut',write(A),nl,print_houses(B)]
         a1 = a1.dref();
@@ -571,7 +571,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // print_houses([]):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // print_houses([]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))

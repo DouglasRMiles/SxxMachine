@@ -58,7 +58,7 @@ class pred_length2_disj_1_2_1 extends pred_length2_disj_1_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, S(string0, new HeapChoice(
                 mach.getCUTB()), S(string3, var2.dref(), var1.dref(), continuation)));
         mach.updateCUTB();
@@ -81,8 +81,8 @@ class pred_length2_disj_1_2_2 extends pred_length2_disj_1_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2.dref());
-        local_aregs.areg1 = (var1.dref());
+        local_aregs.setAreg0((var2.dref()));
+        local_aregs.setAreg1((var1.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return length_u3cont;

@@ -38,7 +38,7 @@ public class pred_inc_2 extends Code {
         if (!(value instanceof NumberTerm || value.isCompound())) {
             throw new JPrologInternalException(value + " is not an Int");
         }
-        local_aregs.areg1 = (Integer(value.longValue() + 1));
+        local_aregs.setAreg1((Integer(value.longValue() + 1)));
         return unify;
     }
 

@@ -116,7 +116,7 @@ class pred_makebinbody_3_1 extends pred_makebinbody_3 {
             return mach.Fail0;
         if (!(areg2.unifyJP(var2.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_makebinbody_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_makebinbody_3_consts.string7, var1.dref(), var2.dref(), continuation)));
@@ -217,9 +217,9 @@ class pred_makebinbody_3_3 extends pred_makebinbody_3 {
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
 
-        local_aregs.areg0 = (S(pred_makebinbody_3_consts.string1, var2.dref(), var3
+        local_aregs.setAreg0((S(pred_makebinbody_3_consts.string1, var2.dref(), var3
                 .dref(), var5, S(pred_makebinbody_3_consts.string5, var1.dref(), var5.dref(), var4
-                        .dref(), continuation)));
+                        .dref(), continuation))));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3, 2);
         return mach.getCall1();

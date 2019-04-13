@@ -86,8 +86,8 @@ class pred_chr_sbag_del_element_3_2 extends pred_chr_sbag_del_element_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3.dref()));
         mach.setCont(local_aregs, 2, S(string0, new HeapChoice(
                 mach.getCUTB()), S(string7, var2.dref(), var4.dref(), continuation)));
         mach.updateCUTB();
@@ -116,8 +116,8 @@ class pred_chr_sbag_del_element_3_3 extends pred_chr_sbag_del_element_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.areg0 = (S(string1, var1.dref(), var5));
-        local_aregs.areg1 = (var4.dref());
+        local_aregs.setAreg0((S(string1, var1.dref(), var5)));
+        local_aregs.setAreg1((var4.dref()));
         mach.setCont(local_aregs, 2, S(string4, var2.dref(), var3.dref(), var5.dref(), continuation));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3);

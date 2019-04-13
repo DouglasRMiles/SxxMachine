@@ -81,8 +81,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // queens(A,B):-[range(1,A,C),queens(C,[],B)]
         a3 = m.mkvar1();
         return //
@@ -118,9 +118,9 @@ m.cont = cont;
     // queens([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // queens([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -135,9 +135,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // queens(A,B,C):-[select(A,D,E),not_attack(B,E),queens(D,[E|B],C)]
         a4 = m.mkvar1();
@@ -161,8 +161,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
     // not_attack(A,B):-not_attack(A,B,1)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // not_attack(A,B):-[not_attack(A,B,1)]
         return //
  Op("not_attack", FILE_queens_8::PRED_not_attack_3_static_exec, VA(a1, a2,  int_1 ), cont);
@@ -202,9 +202,9 @@ m.cont = cont;
     // not_attack([],A,B):-!
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // not_attack([],A,B):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -219,9 +219,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // not_attack([A|B],C,D):-C=\=A+D,C=\=A-D,E is D+1,not_attack(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // not_attack([A|B],C,D):-[E is A+D,'$arith_not_equal'(C,E),F is A-D,'$arith_not_equal'(C,F),G is D+1,not_attack(B,C,G)]
         a1 = a1.dref();
@@ -272,9 +272,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a2;
-        MARG.areg2 = a10;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a2);
+MARG.setAreg2( a10);
 m.cont = cont;
         return not_attack_3_top(m);
     }
@@ -311,9 +311,9 @@ m.cont = cont;
     // select([A|B],B,A):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // select([A|B],B,A):-[]
         a1 = a1.dref();
@@ -338,9 +338,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // select([A|B],[A|C],D):-select(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // select([A|B],[A|C],D):-[select(B,C,D)]
         a1 = a1.dref();
@@ -365,9 +365,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a6;
-        MARG.areg2 = a3;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a6);
+MARG.setAreg2( a3);
 m.cont = cont;
         return select_3_top(m);
     }
@@ -400,9 +400,9 @@ m.cont = cont;
     // range(A,A,[A]):-!
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // range(A,A,[A]):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
@@ -428,9 +428,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // range(A,B,[A|C]):-A<B,D is A+1,range(D,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // range(A,B,[A|C]):-['$less_than'(A,B),D is A+1,range(D,B,C)]
         a3 = a3.dref();
@@ -458,9 +458,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a2;
-        MARG.areg2 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a2);
+MARG.setAreg2( a4);
 m.cont = cont;
         return range_3_top(m);
     }

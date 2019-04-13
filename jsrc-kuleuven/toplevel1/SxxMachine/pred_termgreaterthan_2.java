@@ -57,9 +57,9 @@ class pred_termgreaterthan_2_1 extends pred_termgreaterthan_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (CONST(string1));
-        local_aregs.areg1 = (var1.dref());
-        local_aregs.areg2 = (var2.dref());
+        local_aregs.setAreg0((CONST(string1)));
+        local_aregs.setAreg1((var1.dref()));
+        local_aregs.setAreg2((var2.dref()));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return compare4cont;

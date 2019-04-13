@@ -171,9 +171,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // qsort([A|B],C,D):-[partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G])]
         a1 = a1.dref();
@@ -201,9 +201,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // qsort([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // qsort([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -260,10 +260,10 @@ m.cont = cont;
     // partition([A|B],C,[A|D],E):-A=<C,!,partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // partition([A|B],C,[A|D],E):-['$get_level'(F),'$less_or_equal'(A,C),'$cut'(F),partition(B,C,D,E)]
         a1 = a1.dref();
@@ -303,10 +303,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         a8 = a8.dref();
                   m.cut( a8.intValue());
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a6;
-        MARG.areg1 = a2;
-        MARG.areg2 = a7;
-        MARG.areg3 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a6);
+MARG.setAreg1( a2);
+MARG.setAreg2( a7);
+MARG.setAreg3( a4);
 m.cont = cont;
         return partition_4_top(m);
     }
@@ -315,10 +315,10 @@ m.cont = cont;
     // partition([A|B],C,D,[A|E]):-partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // partition([A|B],C,D,[A|E]):-[partition(B,C,D,E)]
         a1 = a1.dref();
@@ -343,10 +343,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a6;
-        MARG.areg1 = a2;
-        MARG.areg2 = a3;
-        MARG.areg3 = a7;
+m.AREGS = MARG;  MARG.setAreg0( a6);
+MARG.setAreg1( a2);
+MARG.setAreg2( a3);
+MARG.setAreg3( a7);
 m.cont = cont;
         return partition_4_top(m);
     }
@@ -355,10 +355,10 @@ m.cont = cont;
     // partition([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // partition([],A,[],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))

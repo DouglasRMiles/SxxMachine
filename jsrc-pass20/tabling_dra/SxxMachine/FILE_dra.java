@@ -148,7 +148,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(file0):-[current_prolog_flag(access_level,A),asserta('$dra':was_access_level(A))]
         if (!  ATOM_file0 .unify(a1, m.trail))
@@ -169,7 +169,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // init_dra(file1):-set_prolog_flag(access_level,user)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(file1):-[set_prolog_flag(access_level,user)]
         if (!  ATOM_file1 .unify(a1, m.trail))
@@ -182,7 +182,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // init_dra(1):-forall(property_pred(A,B),make_db_pred(A,B))
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(1):-[forall(property_pred(A,B),make_db_pred(A,B))]
         if (!  int_1 .unify(a1, m.trail))
@@ -204,7 +204,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(2):-[dra_setval_flag(number_of_answers,0),dra_setval_flag(unique_index,0)]
         if (!  int_2 .unify(a1, m.trail))
@@ -219,7 +219,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(3):-[empty_hypotheses(A),empty_stack(B),nb_setval('$tabling_exec',dra_state(B,A,-1,C))]
         if (!  int_3 .unify(a1, m.trail))
@@ -240,7 +240,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(file7):-[source_location(A,B),prolog_load_context(module,C),forall(source_file(D:E,A),ignore((functor(E,F,G),\+atom_concat($,H,F),D:export(D:F/G),\+predicate_property(D:E,transparent),\+atom_concat('__aux',I,F),C:(module_transparent D:F/G))))]
         if (!  ATOM_file7 .unify(a1, m.trail))
@@ -334,7 +334,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // init_dra(file):-[retract('$dra':was_access_level(A)),set_prolog_flag(access_level,A)]
         if (!  ATOM_file .unify(a1, m.trail))
@@ -394,7 +394,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // std_trace_stream(user_error):-true
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // std_trace_stream(user_error):-[]
         if (!  ATOM_user_error .unify(a1, m.trail))
             return m.fail();
@@ -415,7 +415,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1, p2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_w(A):-[std_trace_stream(B),format(B,'~q',[A]),flush_output(B)]
         a2 = m.mkvar1();
         a3 = CONS(a1,  Prolog.Nil );
@@ -460,7 +460,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dra_wln(A):-['$get_level'(B),call(notrace,(current_predicate(logicmoo_util_dmsg:dmsg/1),!,logicmoo_util_dmsg:dmsg(A))),'$cut'(B)]
         a2 = m.mkvar1();
@@ -491,7 +491,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dra_wln(A):-[std_trace_stream(B),format(B,'~q.~n',[A]),flush_output(B)]
         a2 = m.mkvar1();
@@ -516,7 +516,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_retract_all(A):-ignore((retract(A),fail))
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_retract_all(A):-[ignore((retract(A),fail))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_retract_1'),y(1),a(2))
         a2 =  S( FUNCTOR_retract_1 , a1);
@@ -541,7 +541,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_asserta_new(A):-[dra_retract_all('$dra':A),asserta('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 =  S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , a1);
@@ -567,7 +567,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_assertz_new(A):-[dra_retract_all('$dra':A),assertz('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
         a2 =  S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , a1);
@@ -629,7 +629,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dra_must((A,B)):-['$neck_cut',dra_must(A),dra_must(B)]
         a1 = a1.dref();
@@ -643,7 +643,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("dra_must", FILE_dra::PRED_dra_must_1_static_exec, VA(a3), cont);
-m.AREGS = MARG;MARG.areg0 = a2;
+m.AREGS = MARG;  MARG.setAreg0( a2);
         m.cont = p1;
         return dra_must_1_top(m);
     }
@@ -652,7 +652,7 @@ m.AREGS = MARG;MARG.areg0 = a2;
     // dra_must(A):-A*->true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dra_must(A):-[(A*->true)]
         return //
@@ -663,7 +663,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_must(A):-dra_error(failed_dra_must(A))
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dra_must(A):-[dra_error(failed_dra_must(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_failed_dra_must_1'),y(1),a(2))
@@ -686,7 +686,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_error(A):-throw(dra_error(A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_error(A):-[throw(dra_error(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_dra_error_1'),y(1),a(2))
         a2 =  S( FUNCTOR_dra_error_1 , a1);
@@ -746,8 +746,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-['$get_level'(C),current_prolog_flag(xref,true),'$cut'(C)]
         a3 = m.mkvar1();
@@ -766,8 +766,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-['$get_level'(C),predicate_property(A,dynamic),'$cut'(C),dra_asserta_new('$dra':(A:-B))]
         a3 = m.mkvar1();
@@ -789,8 +789,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-['$get_level'(C),predicate_property(A,number_of_clauses(D)),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -813,8 +813,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-['$get_level'(C),predicate_property(A,static),'$cut'(C),directive_source_file(D),'$compile_aux_clauses'([(A:-B)],D)]
         a3 = m.mkvar1();
@@ -840,8 +840,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-['$get_level'(C),predicate_property(A,undefined),'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(D,E),'$cut'(C),dra_asserta_new('$dra':(A:-B))]
         a3 = m.mkvar1();
@@ -864,8 +864,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_clauses(A,B):-[directive_source_file(C),'$compile_aux_clauses'([(A:-B)],C)]
         a3 = m.mkvar1();
@@ -903,8 +903,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),clause('$dra':A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -925,8 +925,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -957,8 +957,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -976,8 +976,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -1008,8 +1008,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),source_location(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -1027,8 +1027,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -1060,7 +1060,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // directive_source_file(A):-['$get_level'(B),prolog_load_context(source,A),'$cut'(B)]
         a2 = m.mkvar1();
@@ -1079,7 +1079,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // directive_source_file(A):-['$get_level'(B),prolog_load_context(module,A),'$cut'(B)]
         a2 = m.mkvar1();
@@ -1174,8 +1174,8 @@ m.cont = cont;
     // property_pred(table,is_tabled):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(table,is_tabled):-[]
         if (!  ATOM_table .unify(a1, m.trail))
@@ -1189,8 +1189,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(coinductive0,is_coinductive0):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(coinductive0,is_coinductive0):-[]
         if (!  ATOM_coinductive0 .unify(a1, m.trail))
@@ -1204,8 +1204,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(coinductive1,is_coinductive1):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(coinductive1,is_coinductive1):-[]
         if (!  ATOM_coinductive1 .unify(a1, m.trail))
@@ -1219,8 +1219,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(traces,is_traced):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(traces,is_traced):-[]
         if (!  ATOM_traces .unify(a1, m.trail))
@@ -1234,8 +1234,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(cut_ok,is_cut_ok):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(cut_ok,is_cut_ok):-[]
         if (!  ATOM_cut_ok .unify(a1, m.trail))
@@ -1249,8 +1249,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(old_first,is_old_first):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(old_first,is_old_first):-[]
         if (!  ATOM_old_first .unify(a1, m.trail))
@@ -1264,8 +1264,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(never_tabled,is_never_tabled):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(never_tabled,is_never_tabled):-[]
         if (!  ATOM_never_tabled .unify(a1, m.trail))
@@ -1279,8 +1279,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(hilog,is_hilog):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(hilog,is_hilog):-[]
         if (!  ATOM_hilog .unify(a1, m.trail))
@@ -1294,8 +1294,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property_pred(topl,is_topl):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // property_pred(topl,is_topl):-[]
         if (!  ATOM_topl .unify(a1, m.trail))
@@ -1318,7 +1318,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // table A:-process_dra_ective((table A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // table A:-[process_dra_ective((table A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_table_1'),y(1),a(2))
         a2 =  S( FUNCTOR_table_1 , a1);
@@ -1340,7 +1340,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // coinductive0 A:-process_dra_ective((coinductive0 A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // coinductive0 A:-[process_dra_ective((coinductive0 A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_coinductive0_1'),y(1),a(2))
         a2 =  S( FUNCTOR_coinductive0_1 , a1);
@@ -1362,7 +1362,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // coinductive1 A:-process_dra_ective((coinductive1 A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // coinductive1 A:-[process_dra_ective((coinductive1 A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_coinductive1_1'),y(1),a(2))
         a2 =  S( FUNCTOR_coinductive1_1 , a1);
@@ -1384,7 +1384,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // topl(A):-process_dra_ective(topl(A))
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // topl(A):-[process_dra_ective(topl(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_topl_1'),y(1),a(2))
         a2 =  S( FUNCTOR_topl_1 , a1);
@@ -1424,9 +1424,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),predicate_property(C:A,B),'$cut'(D)]
         a4 = m.mkvar1();
@@ -1447,9 +1447,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,C)]
         return //
@@ -1460,9 +1460,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-C=system
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$unify'(C,system)]
         //START inline expansion of $unify(a(3),@(ATOM_system))
@@ -1499,8 +1499,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),predicate_property(A,imported_from(B)),'$cut'(C)]
         a3 = m.mkvar1();
@@ -1521,8 +1521,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[fail]
         //START inline expansion of fail
@@ -1556,8 +1556,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),current_op(B,fy,user:A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -1578,8 +1578,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -1611,8 +1611,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),'$cut'(C),op(1010,fy,user:A)]
         a3 = m.mkvar1();
@@ -1634,8 +1634,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -1655,8 +1655,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // make_db_pred(A,B):-['$univ'(C,[A,D]),'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(C,E,F),(module_transparent F:C),add_clauses(F:C,process_dra_ective(C)),'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,G),(dynamic B/1),(multifile B/1)]
         a3 = m.mkvar1();
         a4 = CONS(m.DONT_CARE1(),  Prolog.Nil );
@@ -1744,8 +1744,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,is_coinductive0):-['$neck_cut',set_meta(A,is_coinductive1),add_clauses(A,(!,dra_call_coind0(A))),dra_asserta_new('$dra':is_coinductive0(A))]
         if (!  ATOM_is_coinductive0 .unify(a2, m.trail))
@@ -1768,8 +1768,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         p2 = //
  Op("add_clauses", FILE_dra::PRED_add_clauses_2_static_exec, VA(a1, a4), //
  Op("dra_asserta_new", FILE_dra::PRED_dra_asserta_new_1_static_exec, VA(a6), cont));
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 =  ATOM_is_coinductive1 ;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1(  ATOM_is_coinductive1 );
         m.cont = p2;
         return set_meta_2_top(m);
     }
@@ -1779,8 +1779,8 @@ m.AREGS = MARG;MARG.areg0 = a1;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,is_coinductive1):-['$neck_cut',add_clauses(A,(!,dra_call_coind1(A))),dra_asserta_new('$dra':is_coinductive1(A))]
         if (!  ATOM_is_coinductive1 .unify(a2, m.trail))
@@ -1810,8 +1810,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,is_never_tabled):-['$neck_cut',dra_retract_all('$dra':is_tabled(A)),dra_retract_all('$dra':is_old_first(A)),dra_retract_all('$dra':(A:-!,dra_call_tabled(A))),'$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         if (!  ATOM_is_never_tabled .unify(a2, m.trail))
@@ -1851,8 +1851,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,is_tabled):-[dra_retract_all('$dra':is_never_tabled(A)),dra_asserta_new('$dra':is_tabled(A)),add_clauses(A,(!,dra_call_tabled(A))),functor(A,B,C),(discontiguous B/C)]
         if (!  ATOM_is_tabled .unify(a2, m.trail))
@@ -1893,8 +1893,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,is_old_first):-[set_meta(A,is_tabled),dra_asserta_new('$dra':is_old_first(A))]
         if (!  ATOM_is_old_first .unify(a2, m.trail))
@@ -1907,8 +1907,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
  ;
         p1 = //
  Op("dra_asserta_new", FILE_dra::PRED_dra_asserta_new_1_static_exec, VA(a4), cont);
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 =  ATOM_is_tabled ;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1(  ATOM_is_tabled );
         m.cont = p1;
         return set_meta_2_top(m);
     }
@@ -1918,8 +1918,8 @@ m.AREGS = MARG;MARG.areg0 = a1;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // set_meta(A,B):-['$univ'(C,[B,A]),dra_asserta_new('$dra':C)]
         a3 = m.mkvar1();
@@ -1958,7 +1958,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),call('$dra':is_never_tabled(A)),'$cut'(B)]
         a2 = m.mkvar1();
@@ -1982,7 +1982,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-dra_asserta_new(is_never_tabled(A))
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[dra_asserta_new('$dra':is_never_tabled(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_is_never_tabled_1'),y(1),a(2))
@@ -2019,7 +2019,7 @@ m.cont = cont;
     // is_builtin(A):-is_swi_builtin(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // is_builtin(A):-[is_swi_builtin(A)]
         return //
@@ -2031,7 +2031,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // is_builtin(A):-[functor(A,B,C),atom_concat($,D,B)]
         a2 = m.mkvar1();
@@ -2052,9 +2052,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // mk_pattern(A,B,C):-functor(C,A,B)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // mk_pattern(A,B,C):-[functor(C,A,B)]
         return //
  Op("functor", FILE_dra::PRED_functor_3_static_exec, VA(a3, a1, a2), cont);
@@ -2142,8 +2142,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspecs_to_patterns(A,B):-['$get_level'(C),var(A),'$cut'(C),trace,dra_error(['A variable instead of predicate specifications: "',A,'"'])]
         a3 = m.mkvar1();
@@ -2174,8 +2174,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspecs_to_patterns([A|B],[C|D]):-['$neck_cut',predspec_to_pattern(A,C),predspecs_to_patterns(B,D)]
         a1 = a1.dref();
@@ -2213,8 +2213,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspecs_to_patterns((A,B),[C|D]):-['$neck_cut',predspec_to_pattern(A,C),predspecs_to_patterns(B,D)]
         a1 = a1.dref();
@@ -2246,8 +2246,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // predspecs_to_patterns(A,[B]):-predspec_to_pattern(A,B)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspecs_to_patterns(A,[B]):-[predspec_to_pattern(A,B)]
         a2 = a2.dref();
@@ -2324,8 +2324,8 @@ m.cont = cont;
     // predspec_to_pattern(+A,+B):-!,predspec_to_pattern(A,B)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspec_to_pattern(+A,+B):-['$neck_cut',predspec_to_pattern(A,B)]
         a1 = a1.dref();
@@ -2341,8 +2341,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a3;
-        MARG.areg1 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a3);
+MARG.setAreg1( a4);
 m.cont = cont;
         return predspec_to_pattern_2_top(m);
     }
@@ -2351,8 +2351,8 @@ m.cont = cont;
     // predspec_to_pattern(-A,-B):-!,predspec_to_pattern(A,B)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspec_to_pattern(-A,-B):-['$neck_cut',predspec_to_pattern(A,B)]
         a1 = a1.dref();
@@ -2368,8 +2368,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a3;
-        MARG.areg1 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a3);
+MARG.setAreg1( a4);
 m.cont = cont;
         return predspec_to_pattern_2_top(m);
     }
@@ -2378,8 +2378,8 @@ m.cont = cont;
     // predspec_to_pattern(A:B,A:C):-!,predspec_to_pattern(B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspec_to_pattern(A:B,A:C):-['$neck_cut',predspec_to_pattern(B,C)]
         a1 = a1.dref();
@@ -2396,8 +2396,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a5);
 m.cont = cont;
         return predspec_to_pattern_2_top(m);
     }
@@ -2406,8 +2406,8 @@ m.cont = cont;
     // predspec_to_pattern(A,B):-B\=C/D,!,A=B
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspec_to_pattern(A,B):-['$get_level'(C),'$not_unifiable'(B,D/E),'$cut'(C),'$unify'(A,B)]
         a3 = m.mkvar1();
@@ -2441,8 +2441,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // predspec_to_pattern(A,B):-[check_predspec(A),'$unify'(A,C/D),mk_pattern(C,D,B)]
         a3 = m.mkvar1();
@@ -2502,7 +2502,7 @@ m.cont = cont;
     // check_predspec(A):-var(A),!,dra_error(['A variable instead of a predicate specification: "',A,'"'])
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // check_predspec(A):-['$get_level'(B),var(A),'$cut'(B),dra_error(['A variable instead of a predicate specification: "',A,'"'])]
         a2 = m.mkvar1();
@@ -2531,7 +2531,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // check_predspec(A/B):-atom(A),integer(B),B>=0,!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // check_predspec(A/B):-['$get_level'(C),atom(A),integer(B),D is 0,'$greater_or_equal'(B,D),'$cut'(C)]
         a1 = a1.dref();
@@ -2581,7 +2581,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // check_predspec(A):-[trace,dra_error(['An incorrect predicate specification: "',A,'"'])]
         a2 = CONS(a1, L_check_predspec_1_s4);
@@ -2603,8 +2603,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // are_variants(A,B):-variant(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // are_variants(A,B):-[variant(A,B)]
         return //
  Op("variant", FILE_dra::PRED_variant_2_static_exec, VA(a1, a2), cont);
@@ -2623,9 +2623,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // write_shallow(A,B,C):-write_term(A,B,[max_depth(C)])
         m.setB0();
          Term a1, a2, a3, a4, a5;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // write_shallow(A,B,C):-[write_term(A,B,[max_depth(C)])]
     // put_str_args([a(3)],y(1)),put_str(@('FUNCTOR_max_depth_1'),y(1),a(4))
         a4 =  S( FUNCTOR_max_depth_1 , a3);
@@ -2661,7 +2661,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),predicate_property(A,built_in),predicate_property(A,static),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -2680,7 +2680,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -2711,7 +2711,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),'$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -2729,7 +2729,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -2747,7 +2747,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // is_swi_builtin(A):-'$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // is_swi_builtin(A):-['$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         return //
  Op("$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl", FILE_dra::PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Ftabling_dra$002Fdra$002Epl_1_static_exec, VA(a1), cont);
@@ -2765,8 +2765,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_setval_flag(A,B):-flag(A,C,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // dra_setval_flag(A,B):-[flag(A,C,B)]
         return //
  Op("flag", FILE_dra::PRED_flag_3_static_exec, VA(a1, m.DONT_CARE2(), a2), cont);
@@ -2784,8 +2784,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_getval_flag(A,B):-flag(A,B,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // dra_getval_flag(A,B):-[flag(A,B,B)]
         return //
  Op("flag", FILE_dra::PRED_flag_3_static_exec, VA(a1, a2, a2), cont);
@@ -2804,7 +2804,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_incval_flag(A):-flag(A,B,B+1)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_incval_flag(A):-[flag(A,B,B+1)]
         a2 = m.mkvar1();
     // put_str_args([a(2),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(3))
@@ -2827,7 +2827,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_tree(empty):-true
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // empty_tree(empty):-[]
         if (!  ATOM_empty .unify(a1, m.trail))
             return m.fail();
@@ -2865,13 +2865,13 @@ m.cont = cont;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-A=D,!,C=E
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-['$get_level'(H),'$unify'(A,D),'$cut'(H),'$unify'(C,E)]
         a8 = m.mkvar1();
@@ -2901,13 +2901,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-'$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-['$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,F)]
         return //
@@ -2918,13 +2918,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-is_in_tree(G,A,B,C)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[is_in_tree(G,A,B,C)]
         return //
@@ -2958,11 +2958,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-['$get_level'(F),call(B,A,D),'$cut'(F),is_in_tree(E,A,B,C)]
         a6 = m.mkvar1();
@@ -2981,11 +2981,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-fail
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-[fail]
         //START inline expansion of fail
@@ -3006,10 +3006,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // is_in_tree(A,B,C,D):-A=t(E,F,G,H),'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
     // is_in_tree(A,B,C,D):-['$unify'(A,t(E,F,G,H)),'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H)]
         a5 = m.mkvar1();
         a6 = m.mkvar1();
@@ -3054,12 +3054,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-['$get_level'(G),empty_tree(A),'$cut'(G),'$unify'(D,t(B,C,E,F)),empty_tree(E),empty_tree(F)]
         a7 = m.mkvar1();
@@ -3083,12 +3083,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-fail
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
@@ -3122,12 +3122,12 @@ m.cont = cont;
     // tree_add(A,B,C,D,E,F):-'$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,F,G,H)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // tree_add(A,B,C,D,E,F):-['$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,F,G,H)]
         return //
@@ -3138,12 +3138,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // tree_add(A,B,C,D,E,F):-A=t(G,H,I,J),'$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H,I,J,K,L,M)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // tree_add(A,B,C,D,E,F):-['$unify'(A,t(G,H,I,J)),'$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,F,G,H,I,J,K,L,M)]
         a7 = m.mkvar1();
@@ -3194,18 +3194,18 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
         cont = m.cont;
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L):-['$get_level'(M),'$unify'(A,F),'$cut'(M),call(D,G,B,J),'$unify'(E,t(F,J,H,I))]
         a13 = m.mkvar1();
@@ -3235,18 +3235,18 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L):-'$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,K)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
         cont = m.cont;
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L):-['$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,K)]
         return //
@@ -3257,18 +3257,18 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L):-E=t(A,G,H,L),tree_add(I,A,B,C,D,L)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
         cont = m.cont;
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L):-['$unify'(E,t(A,G,H,L)),tree_add(I,A,B,C,D,L)]
     // put_str_args([a(1),a(7),a(8),a(12)],y(1)),put_str(@('FUNCTOR_t_4'),y(1),a(13))
@@ -3310,16 +3310,16 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
         cont = m.cont;
     // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J):-['$get_level'(K),call(C,A,F),'$cut'(K),'$unify'(E,t(A,G,J,I)),tree_add(H,A,B,C,D,J)]
         a11 = m.mkvar1();
@@ -3342,16 +3342,16 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J):-fail
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
         cont = m.cont;
     // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J):-[fail]
         //START inline expansion of fail
@@ -3371,7 +3371,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_goal_table(A):-empty_tree(A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // empty_goal_table(A):-[empty_tree(A)]
         return //
  Op("empty_tree", FILE_dra::PRED_empty_tree_1_static_exec, VA(a1), cont);
@@ -3392,8 +3392,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // goal_table_member(A,B):-[functor(A,C,D),is_in_tree(B,C/D,@<,E),once('$dra':essence_hook(A,F)),member_reversed(G,E),once('$dra':essence_hook(G,F))]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -3436,8 +3436,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1, p2, p3, p4, p5, p6;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // is_a_variant_in_goal_table(A,B):-['$get_level'(C),once('$dra':essence_hook(A,D)),functor(A,E,F),is_in_tree(B,E/F,@<,G),member_reversed(H,G),once('$dra':essence_hook(H,I)),are_variants(I,D),'$cut'(C)]
         a3 = m.mkvar1();
         //START inline expansion of $get_level(a(3))
@@ -3504,8 +3504,8 @@ m.cont = cont;
     // member_reversed(A,[B|C]):-member_reversed(A,C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // member_reversed(A,[B|C]):-[member_reversed(A,C)]
         a2 = a2.dref();
@@ -3517,8 +3517,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a3;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a3);
 m.cont = cont;
         return member_reversed_2_top(m);
     }
@@ -3527,8 +3527,8 @@ m.cont = cont;
     // member_reversed(A,[A|B]):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // member_reversed(A,[A|B]):-[]
         a2 = a2.dref();
@@ -3557,9 +3557,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // goal_table_add(A,B,C):-[functor(B,D,E),tree_add(A,D/E,[B],@<,add_to_list,C)]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
@@ -3584,9 +3584,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // add_to_list(A,[B],[B|A]):-true
         m.setB0();
          Term a1, a2, a3, a4;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // add_to_list(A,[B],[B|A]):-[]
         a2 = a2.dref();
         if (a2 .isCons()){
@@ -3625,7 +3625,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_hypotheses(A):-empty_goal_table(A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // empty_hypotheses(A):-[empty_goal_table(A)]
         return //
  Op("empty_goal_table", FILE_dra::PRED_empty_goal_table_1_static_exec, VA(a1), cont);
@@ -3643,9 +3643,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // push_is_coinductive(A,B,C):-goal_table_add(B,A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // push_is_coinductive(A,B,C):-[goal_table_add(B,A,C)]
         return //
  Op("goal_table_add", FILE_dra::PRED_goal_table_add_3_static_exec, VA(a2, a1, a3), cont);
@@ -3663,8 +3663,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // unify_with_coinductive_ancestor(A,B):-goal_table_member(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // unify_with_coinductive_ancestor(A,B):-[goal_table_member(A,B)]
         return //
  Op("goal_table_member", FILE_dra::PRED_goal_table_member_2_static_exec, VA(a1, a2), cont);
@@ -3683,7 +3683,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // empty_stack(tstack([],A)):-empty_goal_table(A)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // empty_stack(tstack([],A)):-[empty_goal_table(A)]
         a1 = a1.dref();
             a2 = m.mkvar2();
@@ -3709,11 +3709,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // push_is_tabled(A,B,C,tstack(D,E),tstack([triple(A,B,C)|D],F)):-goal_table_add(E,A,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
-        a5 = LARG.areg4;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
+        a5 = LARG.getAreg4();
     // push_is_tabled(A,B,C,tstack(D,E),tstack([triple(A,B,C)|D],F)):-[goal_table_add(E,A,F)]
         a4 = a4.dref();
             a6 = m.mkvar2();
@@ -3759,10 +3759,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
     // is_variant_of_ancestor(A,tstack(B,C),D,E):-['$get_level'(F),is_a_variant_in_goal_table(A,C),append(E,[D|G],B),'$unify'(D,triple(H,I,J)),are_essences_variants(A,H),'$cut'(F)]
         a2 = a2.dref();
             a5 = m.mkvar2();
@@ -3802,7 +3802,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_version('DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO'):-true
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_version('DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO'):-[]
         if (!  ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO .unify(a1, m.trail))
             return m.fail();
@@ -4111,7 +4111,7 @@ m.cont = cont;
     // legal_directive(coinductive(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(coinductive(A)):-[]
         a1 = a1.dref();
@@ -4125,7 +4125,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((coinductive1 A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((coinductive1 A)):-[]
         a1 = a1.dref();
@@ -4139,7 +4139,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((table A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((table A)):-[]
         a1 = a1.dref();
@@ -4153,7 +4153,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((dynamic A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((dynamic A)):-[]
         a1 = a1.dref();
@@ -4167,7 +4167,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((old_first A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((old_first A)):-[]
         a1 = a1.dref();
@@ -4181,7 +4181,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((multifile A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((multifile A)):-[]
         a1 = a1.dref();
@@ -4195,7 +4195,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(answers(A,B)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(answers(A,B)):-[]
         a1 = a1.dref();
@@ -4209,7 +4209,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(answers):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(answers):-[]
         if (!  ATOM_answers .unify(a1, m.trail))
@@ -4221,7 +4221,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(call(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(call(A)):-[]
         a1 = a1.dref();
@@ -4235,7 +4235,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive((hilog A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive((hilog A)):-[]
         a1 = a1.dref();
@@ -4249,7 +4249,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(trace):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(trace):-[]
         if (!  ATOM_trace .unify(a1, m.trail))
@@ -4261,7 +4261,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(notrace):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(notrace):-[]
         if (!  ATOM_notrace .unify(a1, m.trail))
@@ -4273,7 +4273,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // legal_directive(A:B):-atom(A),A:legal_directive(B)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(A:B):-[atom(A),call(A:legal_directive(B))]
         a1 = a1.dref();
@@ -4303,7 +4303,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // legal_directive(A):-[compound(A),functor(A,B,1),property_pred(B,C)]
         a2 = m.mkvar1();
@@ -4338,7 +4338,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),legal_directive(A),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -4356,7 +4356,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -4412,7 +4412,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // process_dra_ective(A):-['$get_level'(B),'$dummy_15_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A),'$cut'(B),dra_error(lines(['Unknown directive:',[(:-A),'.']]))]
         a2 = m.mkvar1();
@@ -4440,7 +4440,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // process_dra_ective(answers(A,B)):-dra_w(print_required_answers(A,B))
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // process_dra_ective(answers(A,B)):-[dra_w(print_required_answers(A,B))]
         a1 = a1.dref();
@@ -4461,7 +4461,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // process_dra_ective(A):-['$get_level'(B),property_pred(C,D),'$univ'(A,[C,E]),predspecs_to_patterns(E,F),'$cut'(B),add_patterns(F,D)]
         a2 = m.mkvar1();
@@ -4512,8 +4512,8 @@ m.cont = cont;
     // add_patterns([],A):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_patterns([],A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -4529,8 +4529,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_patterns([A|B],C):-['$get_level'(D),add_pattern(A,C),'$cut'(D),add_patterns(B,C)]
         a1 = a1.dref();
@@ -4590,8 +4590,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_pattern(A,-B):-['$neck_cut','$univ'(C,[B,A]),dra_retract_all('$dra':C)]
         a2 = a2.dref();
@@ -4617,8 +4617,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // add_pattern(A,+B):-!,add_pattern(A,B)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_pattern(A,+B):-['$neck_cut',add_pattern(A,B)]
         a2 = a2.dref();
@@ -4629,8 +4629,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a3;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a3);
 m.cont = cont;
         return add_pattern_2_top(m);
     }
@@ -4640,8 +4640,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_pattern(A,B):-['$get_level'(C),'$univ'(D,[B,A]),set_meta(A,B),dra_assertz_new(D),'$cut'(C)]
         a3 = m.mkvar1();
@@ -4673,7 +4673,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // tnot A:-dra_call_interp(tnot A)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // tnot A:-[dra_call_interp(tnot A)]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_tnot_1'),y(1),a(2))
         a2 =  S( FUNCTOR_tnot_1 , a1);
@@ -4695,7 +4695,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_tabled(A):-dra_use_interp(dra_call_tabled,A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_call_tabled(A):-[dra_use_interp(dra_call_tabled,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_call_tabled , a1), cont);
@@ -4714,7 +4714,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_coind0(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_call_coind0(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4732,7 +4732,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_coind1(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_call_coind1(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4750,7 +4750,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // dra_call_interp(A):-dra_use_interp(dra_interp,A)
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // dra_call_interp(A):-[dra_use_interp(dra_interp,A)]
         return //
  Op("dra_use_interp", FILE_dra::PRED_dra_use_interp_2_static_exec, VA( ATOM_dra_interp , a1), cont);
@@ -4785,8 +4785,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30;
         Operation p1;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // dra_use_interp(A,B):-[dra_must(b_getval('$tabling_exec',dra_state(C,D,E,F))),setup_call_cleanup((E<0->'$dra':init_dra_call,G='$dra':exit_dra_call;G='$dra':cont_dra_call),(H is E+1,call(A,I,B,C,D,H),((var(I);trace,'$dra':non_cutted(B,I,F))->true;!,fail),G),G)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -5038,9 +5038,9 @@ m.cont = cont;
     // '$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-var(C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[var(C)]
         //START inline expansion of var(a(3))
@@ -5056,9 +5056,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-non_cutted(B,C,A)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[non_cutted(B,C,A)]
         return //
@@ -5090,9 +5090,9 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),'$dummy_17_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C),'$cut'(D)]
         a4 = m.mkvar1();
@@ -5110,9 +5110,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$neck_cut',fail]
         //START inline expansion of $neck_cut
@@ -5235,11 +5235,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,B,C,D,E):-['$get_level'(F),assertion(nonvar(B)),call('$dra':is_tabled(B)),'$cut'(F),dra_call_tabled(G,B,C,D,E),'$dummy_16_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,G)]
         a6 = m.mkvar1();
@@ -5270,11 +5270,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,true,B,C,D):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,true,B,C,D):-['$neck_cut']
         if (!  Prolog.True .unify(a2, m.trail))
@@ -5290,11 +5290,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,\+B,C,D,E):-['$neck_cut',F is E+1,trace_entry(normal,\+B,?,E),'$dummy_18_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a2 = a2.dref();
@@ -5327,11 +5327,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,tnot B,C,D,E):-['$neck_cut',findall(A-B,'$dra':dra_interp(A,B,C,D,E),F),'$unify'(F,[])]
         a2 = a2.dref();
@@ -5358,11 +5358,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,once(B),C,D,E):-['$neck_cut',F is E+1,trace_entry(normal,once(B),?,E),'$dummy_20_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a2 = a2.dref();
@@ -5394,11 +5394,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,(B->C;D),E,F,G):-!,'$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,(B->C;D),E,F,G):-['$neck_cut','$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G)]
         a2 = a2.dref();
@@ -5424,11 +5424,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,(B->C),D,E,F):-!,'$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,(B->C),D,E,F):-['$neck_cut','$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a2 = a2.dref();
@@ -5448,11 +5448,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,(B;C),D,E,F):-!,'$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,(B;C),D,E,F):-['$neck_cut','$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a2 = a2.dref();
@@ -5473,11 +5473,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,(B,C),D,E,F):-['$neck_cut',dra_interp(A,B,D,E,F),dra_interp(A,C,D,E,F)]
         a2 = a2.dref();
@@ -5491,11 +5491,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("dra_interp", FILE_dra::PRED_dra_interp_5_static_exec, VA(a1, a7, a3, a4, a5), cont);
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a6;
-        MARG.areg2 = a3;
-        MARG.areg3 = a4;
-        MARG.areg4 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a6);
+MARG.setAreg2( a3);
+MARG.setAreg3( a4);
+MARG.setAreg4( a5);
         m.cont = p1;
         return dra_interp_5_top(m);
     }
@@ -5504,11 +5504,11 @@ m.AREGS = MARG;MARG.areg0 = a1;
     // dra_interp(A,call(B),C,D,E):-!,dra_interp(A,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,call(B),C,D,E):-['$neck_cut',dra_interp(A,B,C,D,E)]
         a2 = a2.dref();
@@ -5519,11 +5519,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a6;
-        MARG.areg2 = a3;
-        MARG.areg3 = a4;
-        MARG.areg4 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a6);
+MARG.setAreg2( a3);
+MARG.setAreg3( a4);
+MARG.setAreg4( a5);
 m.cont = cont;
         return dra_interp_5_top(m);
     }
@@ -5532,11 +5532,11 @@ m.cont = cont;
     // dra_interp(A,findall(B,C,D),E,F,G):-!,H is G+1,findall(B,dra_interp(A,C,E,F,H),D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,findall(B,C,D),E,F,G):-['$neck_cut',H is G+1,findall(B,'$dra':dra_interp(A,C,E,F,H),D)]
         a2 = a2.dref();
@@ -5568,11 +5568,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,!,B,C,D):-!,'$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,!,B,C,D):-['$neck_cut','$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         if (!  ATOM_$0021 .unify(a2, m.trail))
@@ -5588,11 +5588,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,!(B),C,D,E):-!,'$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,!(B),C,D,E):-['$neck_cut','$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B)]
         a2 = a2.dref();
@@ -5611,11 +5611,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,B,C,D,E):-fail,is_coinductive1(B),!,dra_incval_flag(step_counter),trace_entry(coinductive0,B,?,E),'$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,B,C,D,E):-['$get_level'(F),fail,call('$dra':is_coinductive1(B)),'$cut'(F),dra_incval_flag(step_counter),trace_entry(coinductive0,B,?,E),'$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,G,H,I)]
         //START inline expansion of $get_level(void)
@@ -5633,11 +5633,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,B,C,D,E):-['$neck_cut',b_setval('$tabling_exec',dra_state(C,D,E,F)),call('$dra':B),'$dummy_29_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,F)]
         //START inline expansion of $neck_cut
@@ -5660,11 +5660,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dra_interp(A,B,C,D,E):-fail,is_cut_ok(B),set_meta(B,is_tabled),!,dra_call_tabled(F,B,C,D,E),'$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,F)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,B,C,D,E):-['$get_level'(F),fail,is_cut_ok(B),set_meta(B,is_tabled),'$cut'(F),dra_call_tabled(G,B,C,D,E),'$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,G)]
         //START inline expansion of $get_level(void)
@@ -5682,11 +5682,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_interp(A,B,C,D,E):-[trace_entry(normal,B,?,E),'$dummy_33_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G)]
         return //
@@ -5721,11 +5721,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-['$get_level'(F),dra_interp(A,B,C,D,E),'$cut'(F),fail]
         a6 = m.mkvar1();
@@ -5743,11 +5743,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-[]
         return cont;
@@ -5780,12 +5780,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_18_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-['$dummy_19_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,F),trace_success(normal,\+B,?,E)]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_$005C$002B_1'),y(1),a(7))
@@ -5801,12 +5801,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_18_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[trace_failure(normal,\+B,?,E),fail]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_$005C$002B_1'),y(1),a(7))
@@ -5843,12 +5843,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_20_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[once('$dra':dra_interp(A,B,C,D,F)),trace_success(normal,once(B),?,E)]
         a7 = Closure( //
@@ -5866,12 +5866,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_20_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[trace_failure(normal,once(B),?,E),fail]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_once_1'),y(1),a(7))
@@ -5908,13 +5908,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-['$get_level'(H),dra_interp(A,B,E,F,G),'$cut'(H),dra_interp(A,C,E,F,G)]
         a8 = m.mkvar1();
@@ -5933,13 +5933,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-dra_interp(A,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_21_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[dra_interp(A,D,E,F,G)]
         return //
@@ -5973,12 +5973,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-['$get_level'(G),dra_interp(A,B,D,E,F),'$cut'(G),dra_interp(A,C,D,E,F)]
         a7 = m.mkvar1();
@@ -5997,12 +5997,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-fail
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
@@ -6036,12 +6036,12 @@ m.cont = cont;
     // '$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-dra_interp(A,B,D,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[dra_interp(A,B,D,E,F)]
         return //
@@ -6052,12 +6052,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-dra_interp(A,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_23_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[dra_interp(A,C,D,E,F)]
         return //
@@ -6089,7 +6089,7 @@ m.cont = cont;
     // '$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-var(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[var(A)]
         //START inline expansion of var(a(1))
@@ -6105,7 +6105,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-A=cut
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$unify'(A,cut)]
         //START inline expansion of $unify(a(1),@(ATOM_cut))
@@ -6141,8 +6141,8 @@ m.cont = cont;
     // '$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-var(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[var(A)]
         //START inline expansion of var(a(1))
@@ -6158,8 +6158,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-A=cut_to(B)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_25_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$unify'(A,cut_to(B))]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_cut_to_1'),y(1),a(3))
@@ -6198,7 +6198,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_27_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),call('$dra':is_coinductive0(A)),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -6222,7 +6222,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_27_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_27_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -6254,8 +6254,8 @@ m.cont = cont;
     // '$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-trace_success('coinductive (hypothesis)',A,?,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[trace_success('coinductive (hypothesis)',A,?,B)]
         return //
@@ -6267,8 +6267,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[trace_failure(coinductive,A,?,B),fail]
         return //
@@ -6314,14 +6314,14 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
         cont = m.cont;
     // '$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H):-['$get_level'(I),'$dummy_27_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B),unify_with_coinductive_ancestor(B,D),'$cut'(I),'$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,E)]
         a9 = m.mkvar1();
@@ -6342,14 +6342,14 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
         cont = m.cont;
     // '$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H):-[call('$dra':is_coinductive0(B)),unify_with_coinductive_ancestor(B,D),trace_success('coinductive0(hypothesis)',B,?,E)]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_is_coinductive0_1'),y(1),a(9))
@@ -6369,14 +6369,14 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
         cont = m.cont;
     // '$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H):-[F is E+1,use_clause(B,G),push_is_coinductive(B,D,H),dra_interp(A,G,C,H,F),trace_success('coinductive (clause)',B,?,E)]
     // put_str_args([a(5),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(9))
@@ -6399,14 +6399,14 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
         cont = m.cont;
     // '$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H):-[trace_failure(coinductive,B,?,E),fail]
         return //
@@ -6437,9 +6437,9 @@ m.cont = cont;
     // '$dummy_30_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-var(C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_30_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[var(C)]
         //START inline expansion of var(a(3))
@@ -6456,9 +6456,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_30_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[trace,non_cutted(B,C,A)]
         return //
@@ -6491,9 +6491,9 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_29_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),'$dummy_30_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C),'$cut'(D)]
         a4 = m.mkvar1();
@@ -6511,9 +6511,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_29_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_29_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$neck_cut',fail]
         //START inline expansion of $neck_cut
@@ -6548,9 +6548,9 @@ m.cont = cont;
     // '$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-var(C)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[var(C)]
         //START inline expansion of var(a(3))
@@ -6566,9 +6566,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-non_cutted(B,C,A)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[non_cutted(B,C,A)]
         return //
@@ -6600,9 +6600,9 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),'$dummy_32_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C),'$cut'(D)]
         a4 = m.mkvar1();
@@ -6620,9 +6620,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_31_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$neck_cut',fail]
         //START inline expansion of $neck_cut
@@ -6660,13 +6660,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_33_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[F is E+1,use_clause(B,G),dra_interp(A,G,C,D,F),trace_success(normal,B,?,E)]
     // put_str_args([a(5),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(8))
@@ -6688,13 +6688,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_33_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[trace_failure(normal,B,?,E),fail]
         return //
@@ -6730,9 +6730,9 @@ m.cont = cont;
     // non_cutted(A,cut,B):-!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // non_cutted(A,cut,B):-['$neck_cut',fail]
         if (!  ATOM_cut .unify(a2, m.trail))
@@ -6750,9 +6750,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // non_cutted(A,cut_to(B),C):-['$get_level'(D),dra_must(nonvar(B)),'$unify'(A,B),'$cut'(D),fail]
         a2 = a2.dref();
@@ -6779,9 +6779,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // non_cutted(A,B,B):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // non_cutted(A,B,B):-[]
         if (! a2.unify(a3, m.trail))
@@ -6814,8 +6814,8 @@ m.cont = cont;
     // '$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-get_all_tabled_answers(A,?,completed,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[get_all_tabled_answers(A,?,completed,B)]
         return //
@@ -6827,8 +6827,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[trace_failure(completed,A,?,B),fail]
         return //
@@ -6869,11 +6869,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_call_tabled(A,B,C,D,E):-['$get_level'(F),is_completed(B),'$cut'(F),dra_incval_flag(step_counter),trace_entry(completed,B,?,E),'$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,E)]
         a6 = m.mkvar1();
@@ -6895,11 +6895,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_call_tabled(A,B,C,D,E):-['$get_level'(F),is_variant_of_ancestor(B,C,triple(G,H,I),J),'$cut'(F),dra_incval_flag(step_counter),get_unique_index(K),trace_entry(variant,B,K,E),suppress_pioneers_on_list(J,E),'$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(G,H,I,J,L),'$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,D,E,K,M,N,O)]
         a6 = m.mkvar1();
@@ -6932,11 +6932,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // dra_call_tabled(A,B,C,D,E):-['$dummy_39_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,D,F),dra_incval_flag(step_counter),copy_term(B,G),add_pioneer(B,H),trace_entry(pioneer,B,H,E),'$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N)]
         a6 = m.mkvar1();
@@ -6978,11 +6978,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-['$get_level'(F),is_a_variant_of_a_pioneer(A,B),'$cut'(F),extract_goals(D,E),add_loop(B,E),add_looping_alternative(B,C)]
         a6 = m.mkvar1();
@@ -7003,11 +7003,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_35_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-[]
         return cont;
@@ -7051,12 +7051,12 @@ m.cont = cont;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-get_tabled_if_old_first(A,D,'variant (coinductive0)',C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[get_tabled_if_old_first(A,D,'variant (coinductive0)',C)]
         return //
@@ -7068,12 +7068,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[unify_with_coinductive_ancestor(A,B),'$dummy_38_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,E),memo(E,A,C),new_result_or_fail(D,A),trace_success('variant (coinductive0)',A,D,C)]
         return //
@@ -7088,12 +7088,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-get_remaining_tabled_answers(A,D,variant,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[get_remaining_tabled_answers(A,D,variant,C)]
         return //
@@ -7105,12 +7105,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[trace_failure('variant (coinductive0)',A,D,C),retractall('$dra':result(D,F)),fail]
     // put_str_args([a(4),a(6)],y(1)),put_str(@('FUNCTOR_result_2'),y(1),a(7))
@@ -7149,8 +7149,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_38_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),is_answer_known(B,A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -7168,8 +7168,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_38_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_38_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -7207,13 +7207,13 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-['$get_level'(H),call('$dra':is_coinductive1(A)),'$cut'(H),copy_term(A,E),'$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a8 = m.mkvar1();
@@ -7239,13 +7239,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-get_all_tabled_answers(A,D,variant,C)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[get_all_tabled_answers(A,D,variant,C)]
         return //
@@ -7257,13 +7257,13 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
         cont = m.cont;
     // '$dummy_36_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G):-[trace_failure(variant,A,D,C),retractall('$dra':result(D,G)),fail]
     // put_str_args([a(4),a(7)],y(1)),put_str(@('FUNCTOR_result_2'),y(1),a(8))
@@ -7302,9 +7302,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_39_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),call('$dra':is_coinductive1(A)),'$cut'(D),push_is_coinductive(A,B,C)]
         a4 = m.mkvar1();
@@ -7329,9 +7329,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_39_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-C=B
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_39_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$unify'(C,B)]
         //START inline expansion of $unify(a(3),a(2))
@@ -7389,20 +7389,20 @@ m.cont = cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-get_tabled_if_old_first(B,H,pioneer,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-[get_tabled_if_old_first(B,H,pioneer,E)]
         return //
@@ -7414,20 +7414,20 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-[I is E+1,use_clause(B,J),'$dummy_41_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(G),copy_term((B:-J),K),push_is_tabled(G,H,K,C,L),dra_interp(A,J,L,F,I),'$dummy_42_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,G),memo(G,B,E),new_result_or_fail(H,B),trace_success(pioneer,B,H,E)]
     // put_str_args([a(5),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(15))
@@ -7457,20 +7457,20 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-'$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,E,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-['$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,E,H)]
         return //
@@ -7481,20 +7481,20 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-'$dummy_44_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,H,M)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-['$dummy_44_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(B,C,D,E,H,M)]
         return //
@@ -7505,20 +7505,20 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-get_remaining_tabled_answers(B,H,'(no longer a pioneer)',E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-[get_remaining_tabled_answers(B,H,'(no longer a pioneer)',E)]
         return //
@@ -7530,20 +7530,20 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
-        a7 = MARG.areg6;
-        a8 = MARG.areg7;
-        a9 = MARG.areg8;
-        a10 = MARG.areg9;
-        a11 = MARG.areg10;
-        a12 = MARG.areg11;
-        a13 = MARG.areg12;
-        a14 = MARG.areg13;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
+        a7 = MARG.getAreg6();
+        a8 = MARG.getAreg7();
+        a9 = MARG.getAreg8();
+        a10 = MARG.getAreg9();
+        a11 = MARG.getAreg10();
+        a12 = MARG.getAreg11();
+        a13 = MARG.getAreg12();
+        a14 = MARG.getAreg13();
         cont = m.cont;
     // '$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F,G,H,I,J,K,L,M,N):-[trace_failure('(no longer a pioneer)',B,H,E),retractall('$dra':result(H,N)),fail]
     // put_str_args([a(8),a(14)],y(1)),put_str(@('FUNCTOR_result_2'),y(1),a(15))
@@ -7582,7 +7582,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_41_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),is_completed(A),'$cut'(B),fail]
         a2 = m.mkvar1();
@@ -7600,7 +7600,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_41_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_41_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -7631,8 +7631,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_42_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),is_answer_known(B,A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -7650,8 +7650,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_42_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_42_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -7684,9 +7684,9 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),is_completed(A),'$cut'(D),trace_other('Removing completed pioneer',A,C,B),rescind_pioneer_status(C),get_remaining_tabled_answers(A,C,'completed now',B)]
         a4 = m.mkvar1();
@@ -7707,9 +7707,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-[fail]
         //START inline expansion of fail
@@ -7742,8 +7742,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_46_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),new_result_or_fail(B,A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -7761,8 +7761,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_46_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_46_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -7803,12 +7803,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[trace_other('Computing fixed point for',A,E,D),compute_fixed_point(A,E,B,C,D),'$dummy_46_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,E),trace_success(pioneer,A,E,D)]
         return //
@@ -7823,12 +7823,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[trace_other('Fixed point computed',A,E,D),complete_goal(A,D),complete_cluster(E,D),trace_other('Removing pioneer',A,E,D),rescind_pioneer_status(E),get_remaining_tabled_answers(A,E,'completed now',D)]
         return //
@@ -7845,12 +7845,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[retractall('$dra':result(E,F)),fail]
     // put_str_args([a(5),a(6)],y(1)),put_str(@('FUNCTOR_result_2'),y(1),a(7))
@@ -7890,12 +7890,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_44_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-['$get_level'(G),is_a_variant_of_a_pioneer(A,E),'$cut'(G),'$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F)]
         a7 = m.mkvar1();
@@ -7914,12 +7914,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_44_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-fail
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // '$dummy_44_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E,F):-[fail]
         //START inline expansion of fail
@@ -7940,10 +7940,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
     // get_tabled_if_old_first(A,B,C,D):-[call('$dra':is_old_first(A)),get_all_tabled_answers(A,B,C,D),new_result_or_fail(B,A)]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_is_old_first_1'),y(1),a(5))
         a5 =  S( FUNCTOR_is_old_first_1 , a1);
@@ -7970,10 +7970,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
     // get_all_tabled_answers(A,B,C,D):-[get_answer(A),trace_success(C,A,B,D)]
         return //
  Op("get_answer", FILE_dra::PRED_get_answer_1_static_exec, VA(a1), //
@@ -8005,8 +8005,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_47_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),is_result_known(B,A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -8024,8 +8024,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_47_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_47_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -8044,10 +8044,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1, p2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
     // get_remaining_tabled_answers(A,B,C,D):-[get_answer(A),'$dummy_47_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),trace_success(C,A,B,D)]
         return //
  Op("get_answer", FILE_dra::PRED_get_answer_1_static_exec, VA(a1), //
@@ -8080,8 +8080,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // use_clause(A,B):-['$get_level'(C),predicate_property(A,number_of_clauses(D)),'$cut'(C),clause('$dra':A,B),'$not_unifiable'(B,(!,E))]
         a3 = m.mkvar1();
@@ -8111,8 +8111,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // use_clause(A,B):-[set_meta(A,is_never_tabled),'$unify'(B,call(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_call_1'),y(1),a(3))
@@ -8148,9 +8148,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_48_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$get_level'(D),call('$dra':is_coinductive1(A)),'$cut'(D),push_is_coinductive(A,B,C)]
         a4 = m.mkvar1();
@@ -8175,9 +8175,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_48_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-C=B
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_48_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C):-['$unify'(C,B)]
         //START inline expansion of $unify(a(3),a(2))
@@ -8203,11 +8203,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
-        a5 = LARG.areg4;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
+        a5 = LARG.getAreg4();
     // compute_fixed_point(A,B,C,D,E):-[F is E+1,'$dummy_48_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,D,G),dra_getval_flag(number_of_answers,H),compute_fixed_point_(A,B,C,G,F,H)]
         a6 = m.mkvar1();
     // put_str_args([a(5),@(int_1)],y(1)),put_str(@('FUNCTOR_$002B_2'),y(1),a(7))
@@ -8250,8 +8250,8 @@ m.cont = cont;
     // '$dummy_51_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-B=A,!,fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_51_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),'$unify'(B,A),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -8278,8 +8278,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_51_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_51_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -8310,8 +8310,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_49_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),'$dummy_51_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -8329,8 +8329,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_49_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_49_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -8362,7 +8362,7 @@ m.cont = cont;
     // '$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-nonvar(A),!,print_message(warning,[warning,'cutted at ',A])
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),nonvar(A),'$cut'(B),print_message(warning,[warning,'cutted at ',A])]
         a2 = m.mkvar1();
@@ -8392,7 +8392,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[]
         return cont;
@@ -8425,12 +8425,12 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1, p2, p3, p4, p5, p6, p7, p8;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // compute_fixed_point_(A,B,C,D,E,F):-[copy_term(A,G),get_looping_alternative(B,(H:-I)),'$dummy_49_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,H),copy_term((H:-I),J),'$unify'(H,A),push_is_tabled(G,B,J,C,K),dra_interp(L,I,K,D,E),'$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(L),new_result_or_fail(B,A),memo(G,A,E)]
         a7 = m.mkvar1();
@@ -8468,12 +8468,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // compute_fixed_point_(A,B,C,D,E,F):-[dra_getval_flag(number_of_answers,G),'$not_unifiable'(G,F),compute_fixed_point_(A,B,C,D,E,G)]
         a7 = m.mkvar1();
@@ -8508,8 +8508,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // suppress_pioneers_on_list(A,B):-[member(triple(C,D,E),A),is_a_variant_of_a_pioneer(C,D),trace_other('Removing pioneer',C,D,B),rescind_pioneer_status(D),fail]
         a3 = m.mkvar1();
@@ -8528,8 +8528,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // suppress_pioneers_on_list(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // suppress_pioneers_on_list(A,B):-[]
         return cont;
@@ -8548,7 +8548,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1;
         Operation p1, p2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // rescind_pioneer_status(A):-[delete_pioneer(A),delete_loops(A),delete_looping_alternatives(A)]
         return //
  Op("delete_pioneer", FILE_dra::PRED_delete_pioneer_1_static_exec, VA(a1), //
@@ -8581,8 +8581,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // complete_cluster(A,B):-[get_loop(A,C),member(D,C),complete_goal(D,B),fail]
         a3 = m.mkvar1();
@@ -8597,8 +8597,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // complete_cluster(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // complete_cluster(A,B):-[]
         return cont;
@@ -8636,8 +8636,8 @@ m.cont = cont;
     // extract_goals([],[]):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // extract_goals([],[]):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -8651,8 +8651,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // extract_goals([triple(A,B,C)|D],[A|E]):-extract_goals(D,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // extract_goals([triple(A,B,C)|D],[A|E]):-[extract_goals(D,E)]
         a1 = a1.dref();
@@ -8682,8 +8682,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a6);
 m.cont = cont;
         return extract_goals_2_top(m);
     }
@@ -8701,7 +8701,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get_unique_index(A):-[dra_getval_flag(unique_index,A),dra_incval_flag(unique_index)]
         return //
  Op("dra_getval_flag", FILE_dra::PRED_dra_getval_flag_2_static_exec, VA( ATOM_unique_index , a1), //
@@ -8721,8 +8721,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // are_essences_variants(A,B):-[once('$dra':essence_hook(A,C)),once('$dra':essence_hook(B,D)),are_variants(C,D)]
         a3 = m.mkvar1();
     // put_str_args([a(1),a(3)],y(1)),put_str(@('FUNCTOR_essence_hook_2'),y(1),a(4))
@@ -8770,10 +8770,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_entry(A,B,C,D):-['$get_level'(E),call('$dra':is_traced(B)),'$cut'(E),write_level(D),std_trace_stream(F),dra_w('Entering '),write_label_and_goal(A,B,C),nl(F)]
         a5 = m.mkvar1();
@@ -8803,10 +8803,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // trace_entry(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_entry(A,B,C,D):-[]
         return cont;
@@ -8841,11 +8841,11 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_52_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-[write_level(D),dra_w('Success '),write_label_and_goal(A,B,C),nl(E)]
         return //
@@ -8860,11 +8860,11 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
         cont = m.cont;
     // '$dummy_52_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,E):-[write_level(D),dra_w('Retrying '),write_label_and_goal(A,B,C),nl(E),fail]
         return //
@@ -8899,10 +8899,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_success(A,B,C,D):-['$get_level'(E),call('$dra':is_traced(B)),'$cut'(E),std_trace_stream(F),'$dummy_52_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B,C,D,F)]
         a5 = m.mkvar1();
@@ -8929,10 +8929,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // trace_success(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_success(A,B,C,D):-[]
         return cont;
@@ -8964,10 +8964,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_failure(A,B,C,D):-['$get_level'(E),call('$dra':is_traced(B)),'$cut'(E),write_level(D),std_trace_stream(F),dra_w('Failing '),write_label_and_goal(A,B,C),nl(F)]
         a5 = m.mkvar1();
@@ -8997,10 +8997,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // trace_failure(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_failure(A,B,C,D):-[]
         return cont;
@@ -9031,10 +9031,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_other(A,B,C,D):-['$get_level'(E),call('$dra':is_traced(B)),'$cut'(E),write_level(D),write_label_and_goal(A,B,C),std_trace_stream(F),nl(F)]
         a5 = m.mkvar1();
@@ -9063,10 +9063,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // trace_other(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // trace_other(A,B,C,D):-[]
         return cont;
@@ -9084,7 +9084,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // write_level(A):-dra_w([A])
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // write_level(A):-[dra_w([A])]
         a2 = CONS(a1,  Prolog.Nil );
         return //
@@ -9106,9 +9106,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4, p5;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // write_label_and_goal(A,B,C):-[call('$dra':print_depth(D)),std_trace_stream(E),dra_w(A),dra_w(': '),write_goal_number(C),write_shallow(E,B,D)]
         a4 = m.mkvar1();
     // put_str_args([a(4)],y(1)),put_str(@('FUNCTOR_print_depth_1'),y(1),a(5))
@@ -9157,7 +9157,7 @@ m.cont = cont;
     // write_goal_number(?):-!
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // write_goal_number(?):-['$neck_cut']
         if (!  ATOM_$003F .unify(a1, m.trail))
@@ -9173,7 +9173,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // write_goal_number(A):-[dra_w(<),dra_w(A),dra_w('> ')]
         return //
@@ -9208,10 +9208,10 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // optional_trace(A,B,C,D):-['$get_level'(E),call('$dra':is_traced(B)),'$cut'(E),call('$dra':print_depth(F)),write_level(D),std_trace_stream(G),write(G,A),write_shallow(G,B,F),write(G,' : '),write_shallow(G,C,F),nl(G)]
         a5 = m.mkvar1();
@@ -9251,10 +9251,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // optional_trace(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // optional_trace(A,B,C,D):-[]
         return cont;
@@ -9285,8 +9285,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_53_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),recorded(A,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -9304,8 +9304,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_53_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_53_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[fail]
         //START inline expansion of fail
@@ -9337,8 +9337,8 @@ m.cont = cont;
     // ensure_recorded(A,B):-'$dummy_53_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // ensure_recorded(A,B):-['$dummy_53_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B)]
         return //
@@ -9349,8 +9349,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // ensure_recorded(A,B):-recordz(A,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // ensure_recorded(A,B):-[recordz(A,B)]
         return //
@@ -9428,8 +9428,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_54_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),current_predicate(B,A),'$cut'(C),listing(A)]
         a3 = m.mkvar1();
@@ -9448,8 +9448,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_54_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_54_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -9469,7 +9469,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // recorded_listing(A):-['$get_level'(B),'$dummy_54_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,C),forall(recorded(A,D),dra_wln((A->D))),forall(recorded(D,A),dra_wln((D->A))),'$cut'(B)]
         a2 = m.mkvar1();
         //START inline expansion of $get_level(a(2))
@@ -9613,8 +9613,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_answer_known(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),call('$dra':answer(E,F,G)),are_essences_variants(F,A),are_essences_variants(G,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -9655,8 +9655,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_answer_known(A,B):-['$get_level'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),recorded(A,answer(E,F,G)),are_essences_variants(F,A),are_essences_variants(G,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -9725,9 +9725,9 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // memo(A,B,C):-['$get_level'(D),is_answer_known(A,B),'$cut'(D)]
         a4 = m.mkvar1();
@@ -9746,9 +9746,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // memo(A,B,C):-['$get_level'(D),call('$dra':tabling_store(assert)),'$cut'(D),optional_trace('Storing answer: ',A,B,C),copy_term(A,E),once('$dra':essence_hook(E,F)),assert('$dra':answer(F,A,B)),dra_incval_flag(number_of_answers)]
         a4 = m.mkvar1();
@@ -9786,9 +9786,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // memo(A,B,C):-[optional_trace('Storing answer: ',A,B,C),copy_term(A,D),once('$dra':essence_hook(D,E)),recordz(A,answer(E,A,B)),most_general_instance(A,F),ensure_recorded(answer_key,F),dra_incval_flag(number_of_answers)]
         a4 = m.mkvar1();
@@ -9826,8 +9826,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         m.setB0();
          Term a1, a2, a3, a4;
         Operation p1;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // most_general_instance(A,B):-[functor(A,C,D),functor(B,C,D)]
         a3 = m.mkvar1();
         a4 = m.mkvar1();
@@ -9863,7 +9863,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // get_answer(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),once('$dra':essence_hook(A,C)),copy_term(A,D),once('$dra':essence_hook(D,E)),call('$dra':answer(E,F,G)),once('$dra':essence_hook(F,H)),are_variants(C,H),'$unify'(C,H),once('$dra':essence_hook(G,I)),'$unify'(C,I)]
         a2 = m.mkvar1();
@@ -9928,7 +9928,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // get_answer(A):-[copy_term(A,B),once('$dra':essence_hook(B,C)),once('$dra':essence_hook(A,D)),recorded(A,answer(C,E,F)),once('$dra':essence_hook(E,G)),are_variants(D,G),'$unify'(D,G),once('$dra':essence_hook(F,H)),'$unify'(D,H)]
         a2 = m.mkvar1();
@@ -10009,7 +10009,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // get_all_tabled_goals(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),findall(C,'$dra':answer(D,C,E),A)]
         a2 = m.mkvar1();
@@ -10035,7 +10035,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // get_all_tabled_goals(A):-findall(B,(recorded(answer_key,C),recorded(C,answer(D,B,E))),A)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // get_all_tabled_goals(A):-[findall(B,'$dra':(recorded(answer_key,C),recorded(C,answer(D,B,E))),A)]
         a2 = m.mkvar1();
@@ -10164,8 +10164,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_result_known(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),call('$dra':result(A,D)),are_essences_variants(D,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -10194,8 +10194,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_result_known(A,B):-['$get_level'(C),recorded(A,result(D)),are_essences_variants(D,B),'$cut'(C)]
         a3 = m.mkvar1();
@@ -10239,8 +10239,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_55_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),is_result_known(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -10258,8 +10258,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_55_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_55_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -10292,8 +10292,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // new_result_or_fail(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),'$dummy_55_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),assert('$dra':result(A,B))]
         a3 = m.mkvar1();
@@ -10320,8 +10320,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // new_result_or_fail(A,B):-['$dummy_56_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B),recordz(A,result(B)),ensure_recorded(result_key,A)]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_result_1'),y(1),a(3))
@@ -10358,8 +10358,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_56_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-['$get_level'(C),is_result_known(A,B),'$cut'(C),fail]
         a3 = m.mkvar1();
@@ -10377,8 +10377,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_56_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_56_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A,B):-[]
         return cont;
@@ -10492,8 +10492,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_a_variant_of_a_pioneer(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),call('$dra':pioneer(E,F,B)),are_essences_variants(A,F),'$cut'(C)]
         a3 = m.mkvar1();
@@ -10532,8 +10532,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // is_a_variant_of_a_pioneer(A,B):-['$get_level'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),recorded(A,pioneer(E,F,B)),are_essences_variants(A,F),'$cut'(C)]
         a3 = m.mkvar1();
@@ -10595,8 +10595,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_pioneer(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),get_unique_index(B),assert('$dra':pioneer(E,A,B))]
         a3 = m.mkvar1();
@@ -10633,8 +10633,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_pioneer(A,B):-[get_unique_index(B),copy_term(A,C),once('$dra':essence_hook(C,D)),recordz(A,pioneer(D,A,B)),most_general_instance(A,E),ensure_recorded(pioneer_key,E),recordz(B,pioneer_goal(E))]
         a3 = m.mkvar1();
@@ -10689,7 +10689,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_pioneer(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),retract('$dra':pioneer(C,D,A))]
         a2 = m.mkvar1();
@@ -10715,7 +10715,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_pioneer(A):-[recorded(A,pioneer_goal(B),C),erase(C),recorded(B,pioneer(D,E,A),F),erase(F)]
         a2 = m.mkvar1();
@@ -10847,8 +10847,8 @@ m.cont = cont;
     // add_loop(A,[]):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_loop(A,[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a2, m.trail))
@@ -10864,8 +10864,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_loop(A,B):-['$get_level'(C),get_loop(A,D),are_variants(B,D),'$cut'(C)]
         a3 = m.mkvar1();
@@ -10886,8 +10886,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_loop(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),assert('$dra':loop(A,B))]
         a3 = m.mkvar1();
@@ -10913,8 +10913,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_loop(A,B):-[recordz(A,loop(B)),ensure_recorded(loop_key,A)]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_loop_1'),y(1),a(3))
@@ -10957,7 +10957,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_loops(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),retractall('$dra':loop(A,C))]
         a2 = m.mkvar1();
@@ -10983,7 +10983,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_loops(A):-[recorded(A,loop(B),C),erase(C),fail]
     // put_str_args([void],y(1)),put_str(@('FUNCTOR_loop_1'),y(1),a(2))
@@ -10999,7 +10999,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // delete_loops(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_loops(A):-[]
         return cont;
@@ -11032,8 +11032,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // get_loop(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),call('$dra':loop(A,B))]
         a3 = m.mkvar1();
@@ -11058,8 +11058,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // get_loop(A,B):-recorded(A,loop(B))
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // get_loop(A,B):-[recorded(A,loop(B))]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_loop_1'),y(1),a(3))
@@ -11178,8 +11178,8 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_looping_alternative(A,B):-['$get_level'(C),get_looping_alternative(A,D),are_variants(B,D),'$cut'(C)]
         a3 = m.mkvar1();
@@ -11200,8 +11200,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_looping_alternative(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),assert('$dra':looping_alternative(A,B))]
         a3 = m.mkvar1();
@@ -11227,8 +11227,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // add_looping_alternative(A,B):-[recordz(A,looping_alternative(B)),ensure_recorded(looping_alternative_key,A)]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_looping_alternative_1'),y(1),a(3))
@@ -11271,7 +11271,7 @@ m.cont = cont;
          Term a1, a2, a3, a4;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_looping_alternatives(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),retractall('$dra':looping_alternative(A,C))]
         a2 = m.mkvar1();
@@ -11297,7 +11297,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_looping_alternatives(A):-[recorded(A,looping_alternative(B),C),erase(C),fail]
     // put_str_args([void],y(1)),put_str(@('FUNCTOR_looping_alternative_1'),y(1),a(2))
@@ -11313,7 +11313,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // delete_looping_alternatives(A):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // delete_looping_alternatives(A):-[]
         return cont;
@@ -11346,8 +11346,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // get_looping_alternative(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),call('$dra':looping_alternative(A,B))]
         a3 = m.mkvar1();
@@ -11372,8 +11372,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // get_looping_alternative(A,B):-recorded(A,looping_alternative(B))
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // get_looping_alternative(A,B):-[recorded(A,looping_alternative(B))]
     // put_str_args([a(2)],y(1)),put_str(@('FUNCTOR_looping_alternative_1'),y(1),a(3))
@@ -11491,7 +11491,7 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // is_completed(A):-['$get_level'(B),call('$dra':tabling_store(assert)),'$cut'(B),copy_term(A,C),once('$dra':essence_hook(C,D)),call('$dra':completed(D,E)),are_essences_variants(A,E)]
         a2 = m.mkvar1();
@@ -11529,7 +11529,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // is_completed(A):-[copy_term(A,B),once('$dra':essence_hook(B,C)),recorded(A,completed(C,D)),are_essences_variants(A,D)]
         a2 = m.mkvar1();
@@ -11589,8 +11589,8 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // complete_goal(A,B):-['$get_level'(C),is_completed(A),'$cut'(C)]
         a3 = m.mkvar1();
@@ -11609,8 +11609,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3, p4, p5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // complete_goal(A,B):-['$get_level'(C),call('$dra':tabling_store(assert)),'$cut'(C),copy_term(A,D),once('$dra':essence_hook(D,E)),trace_other('Completing',A,?,B),assert('$dra':completed(E,A))]
         a3 = m.mkvar1();
@@ -11647,8 +11647,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // complete_goal(A,B):-[copy_term(A,C),once('$dra':essence_hook(C,D)),trace_other('Completing',A,?,B),recordz(A,completed(D,A)),most_general_instance(A,E),ensure_recorded(completed_key,E)]
         a3 = m.mkvar1();
@@ -11702,7 +11702,7 @@ m.cont = cont;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_57_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),quietly(A),'$cut'(B)]
         a2 = m.mkvar1();
@@ -11720,7 +11720,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_57_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-fail
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_57_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[fail]
         //START inline expansion of fail
@@ -11753,7 +11753,7 @@ m.cont = cont;
     // assertion(A):-'$dummy_57_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // assertion(A):-['$dummy_57_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         return //
@@ -11764,7 +11764,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // assertion(A):-throw(assertion_failed(A))
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // assertion(A):-[throw(assertion_failed(A))]
     // put_str_args([a(1)],y(1)),put_str(@('FUNCTOR_assertion_failed_1'),y(1),a(2))
@@ -11799,7 +11799,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_58_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),tracing,'$cut'(B),each_call_cleanup(notrace,call(A),trace)]
         a2 = m.mkvar1();
@@ -11821,7 +11821,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_58_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-fail
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_58_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[fail]
         //START inline expansion of fail
@@ -11853,7 +11853,7 @@ m.cont = cont;
     // quietly(A):-'$dummy_58_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // quietly(A):-['$dummy_58_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         return //
@@ -11864,7 +11864,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // quietly(A):-call(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // quietly(A):-[call('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))
@@ -11899,7 +11899,7 @@ m.cont = cont;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_59_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-['$get_level'(B),tracing,'$cut'(B),each_call_cleanup(notrace,call(A),trace)]
         a2 = m.mkvar1();
@@ -11921,7 +11921,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_59_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-fail
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$dummy_59_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A):-[fail]
         //START inline expansion of fail
@@ -11953,7 +11953,7 @@ m.cont = cont;
     // dynamic A:-'$dummy_59_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dynamic A:-['$dummy_59_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'(A)]
         return //
@@ -11964,7 +11964,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // dynamic A:-call(A)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // dynamic A:-[call('$dra':A)]
     // put_str_args([@('ATOM_$0024dra'),a(1)],y(1)),put_str(@('FUNCTOR_module_colon_2'),y(1),a(2))

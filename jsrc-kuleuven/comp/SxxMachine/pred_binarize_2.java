@@ -161,9 +161,9 @@ class pred_binarize_2_2 extends pred_binarize_2 {
         if (!(areg1.unifyJP(S(pred_binarize_2_consts.string2, var2
                 .dref(), S(pred_binarize_2_consts.string3, var3.dref())))))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var3.dref());
-        local_aregs.areg2 = (var2.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var3.dref()));
+        local_aregs.setAreg2((var2.dref()));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().add_continuation4cont;

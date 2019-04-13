@@ -93,7 +93,7 @@ class pred_tell_1 extends Code {
         @Override
         public void unTrailSelf() {
             //Terug open doen
-            mach.getAreg().areg0 = (CONST(fileS));
+            mach.getAreg().setAreg0((CONST(fileS)));
             exec(mach);
         }
     }

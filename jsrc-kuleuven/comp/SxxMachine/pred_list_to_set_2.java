@@ -59,10 +59,10 @@ public class pred_list_to_set_2 extends Code {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var2.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var2.dref()));
 
-        local_aregs.areg2 = (CONST(pred_list_to_set_2_consts.string2));
+        local_aregs.setAreg2((CONST(pred_list_to_set_2_consts.string2)));
         mach.setCont(local_aregs, 3, continuation);
         mach.updateCUTB();
         return getConsts().list_to_set4cont;

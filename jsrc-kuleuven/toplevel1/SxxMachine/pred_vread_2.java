@@ -71,7 +71,7 @@ class pred_vread_2_1 extends pred_vread_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var3);
+        local_aregs.setAreg0((var3));
         mach.setCont(local_aregs, 1, S(string6, var3
                 .dref(), var4, S(string4, var4.dref(), var1.dref(), S(string0, new HeapChoice(
                         mach.getCUTB()), S(string2, var4.dref(), CONST(string1), var2.dref(), continuation)))));

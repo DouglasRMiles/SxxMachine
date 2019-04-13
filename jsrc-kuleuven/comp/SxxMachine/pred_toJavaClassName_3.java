@@ -156,10 +156,10 @@ class pred_toJavaClassName_3_2 extends pred_toJavaClassName_3 {
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_toJavaClassName_3_consts.string3, CONST(pred_toJavaClassName_3_consts.string4), S(pred_toJavaClassName_3_consts.string3, var1
+        local_aregs.setAreg0((S(pred_toJavaClassName_3_consts.string3, CONST(pred_toJavaClassName_3_consts.string4), S(pred_toJavaClassName_3_consts.string3, var1
                 .dref(), S(pred_toJavaClassName_3_consts.string3, CONST(pred_toJavaClassName_3_consts.string5), S(pred_toJavaClassName_3_consts.string3, var2
-                        .dref(), CONST(pred_toJavaClassName_3_consts.string6))))));
-        local_aregs.areg1 = (var3.dref());
+                        .dref(), CONST(pred_toJavaClassName_3_consts.string6)))))));
+        local_aregs.setAreg1((var3.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3);

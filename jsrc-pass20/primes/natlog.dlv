@@ -3,13 +3,37 @@
 /*
 (forall (?X
 
+(isa SemiOrderPrimeList Collection)
+(isa SemiOrderPrimeList Collection)
 
-(
+
+(implies 
+ (and 
+  (isa ?N Integer)
+  (greaterThan ?N 1))
+ (exists ?S 
+   (and 
+     (primeFactorization ?S SemiOrderPrimeList)
+     (isa ?S SemiOrderPrimeList)
+    
+(implies 
+ (and 
+  (primeFactorization ?N1 ?SET)
+  (mathScalarInput ?N1 (TheNthFn Integer ?INT1 2))
+  (primeFactorization ?N2 ?SET)
+  (mathScalarInput ?N2 (TheNthFn Integer ?INT2 2)))
+ (equal ?INT1 ?INT2))
+
+(primeFactorization ?S SemiOrderPrimeList)
+
 (implies 
     (and 
-      (isa ?P PrimeNumber) 
-      (different ?P ?Q) 
-      (isa ?Q PrimeNumber)) 
+      (isa ?N Integer)
+      (greaterThan ?N 1)
+      (dividesEvenly ?N ?P)
+      (TheList 
+      (isa ?P PrimeNumber)) 
+
     (orthogonalSetsOrCollections 
       (TheSetOf ?M 
         (relativelyPrimeIntegers ?M ?P)) 
@@ -135,22 +159,22 @@ rob_eq(X,Y):- pos(rob_eq(X,Y)), rob_rdc(
 
 
 
-?- notrace(kif_to_boxlog( all(P,all(X,all(Y, and(P=X*Y , ~(X=) , ~(Y =)) => ~prime(P)))), Out)),maplist(dmsg,Out).
+?- notrace(kif_to_boxlog( all(P,all(X,all(Y, and(P=X*Y , ~(X=1) , ~(Y =1)) => ~prime(P)))), Out)),maplist(dmsg,Out).
 
-% proven_tru(X=) :-
+% proven_tru(X=1) :-
 %     nesc(prime(P)).
 %     nesc(P=X*Y),
-%     falsify(Y=).
+%     falsify(Y=1).
 
 % proven_neg(prime(P)) :-
 %     nesc(P=X*Y),
-%     falsify(X=),
-%     falsify(Y=).
+%     falsify(X=1),
+%     falsify(Y=1).
 
 % proven_neg(P=X*Y) :-
 %     nesc(prime(P)).
-%     falsify(X=),
-%     falsify(Y=).
+%     falsify(X=1),
+%     falsify(Y=1).
 
 
   

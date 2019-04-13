@@ -75,7 +75,7 @@ class pred_findall2_4_1 extends pred_findall2_4 {
             return mach.Fail0;
         if (!((areg3).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2.dref());
+        local_aregs.setAreg0((var2.dref()));
         mach.setCont(local_aregs, 1, S(string1, var1.dref(), var4.dref(), S(string3, continuation)));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 4, 2);
@@ -105,8 +105,8 @@ class pred_findall2_4_2 extends pred_findall2_4 {
             return mach.Fail0;
         if (!((areg3).unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.areg0 = (var3.dref());
-        local_aregs.areg1 = (var4.dref());
+        local_aregs.setAreg0((var3.dref()));
+        local_aregs.setAreg1((var4.dref()));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 4, 3);

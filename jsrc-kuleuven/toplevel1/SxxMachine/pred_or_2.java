@@ -56,7 +56,7 @@ class pred_or_2_1 extends pred_or_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
@@ -78,7 +78,7 @@ class pred_or_2_2 extends pred_or_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2.dref());
+        local_aregs.setAreg0((var2.dref()));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

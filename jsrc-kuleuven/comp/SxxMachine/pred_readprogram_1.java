@@ -56,7 +56,7 @@ public class pred_readprogram_1 extends Code {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var2);
+        local_aregs.setAreg0((var2));
 
         mach.setCont(local_aregs, 1, S(pred_readprogram_1_consts.string3, var2.dref(), var1.dref(), continuation));
         mach.updateCUTB();

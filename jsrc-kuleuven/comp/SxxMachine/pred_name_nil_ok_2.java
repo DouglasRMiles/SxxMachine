@@ -60,8 +60,8 @@ public class pred_name_nil_ok_2 extends Code {
             return mach.Fail0;
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var2.dref());
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var2.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_name_nil_ok_2_consts.string0, new HeapChoice(
                 mach.getCUTB()), continuation));

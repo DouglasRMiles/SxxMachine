@@ -16,17 +16,17 @@ import SxxMachine.pterm.VariableTerm;
 public class PRED_exists_directory_1 extends Predicate.P1 {
     public PRED_exists_directory_1(Term a1, Operation next) {
         
-        ThizLARGs.areg0 = a1;
+        ThizLARGs.setAreg0(a1);
         cont = next;
     }
 
     @Override
     public Operation exec(Prolog engine) throws PrologException {
         //
-        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs.areg0);
+        engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs.getAreg0());
         engine.setB0();
 
-        Term a1 = ThizLARGs.areg0.dref();
+        Term a1 = ThizLARGs.getAreg0().dref();
         if (a1 instanceof VariableTerm)
             throw new PInstantiationException(this, 1);
         if (!(a1 instanceof Functor))

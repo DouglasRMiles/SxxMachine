@@ -77,7 +77,7 @@ public class pred_doCompile_2 extends Code {
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
 
-        local_aregs.areg0 = (CONST(pred_doCompile_2_consts.string3));
+        local_aregs.setAreg0((CONST(pred_doCompile_2_consts.string3)));
 
         mach.setCont(local_aregs, 1, S(pred_doCompile_2_consts.string2, CONST(pred_doCompile_2_consts.string4), S(pred_doCompile_2_consts.string5, CONST(pred_doCompile_2_consts.string6), var1
                 .dref(), S(pred_doCompile_2_consts.string7, var3, S(pred_doCompile_2_consts.string8, S(pred_doCompile_2_consts.string9, var3

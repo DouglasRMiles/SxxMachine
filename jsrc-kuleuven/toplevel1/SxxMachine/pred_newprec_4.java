@@ -87,8 +87,8 @@ class pred_newprec_4_1 extends pred_newprec_4 {
         if (!((areg3).unifyJP(var3.dref())))
             return mach.Fail0;
         mach.doCut(mach.getCUTB());
-        mach.setCont(local_aregs, 0, local_aregs.areg0 = (S(string4, var2.dref(), S(string5, var1
-                .dref(), posint1), S(string4, var3.dref(), S(string5, var1.dref(), posint1), continuation))));
+        mach.setCont(local_aregs, 0, local_aregs.setAreg0((S(string4, var2.dref(), S(string5, var1
+                .dref(), posint1), S(string4, var3.dref(), S(string5, var1.dref(), posint1), continuation)))));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 4, 2);
         return mach.getCall1();

@@ -73,7 +73,7 @@ class pred_freeze_2_1 extends pred_freeze_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(goal)))
             return mach.Fail0;
-        local_aregs.areg0 = (variable.dref());
+        local_aregs.setAreg0((variable.dref()));
         mach.setCont(local_aregs, 1, S(cut, new HeapChoice(
                 mach.getCUTB()), S(freeze_internal, variable.dref(), goal.dref(), continuation)));
         mach.updateCUTB();
@@ -97,7 +97,7 @@ class pred_freeze_2_2 extends pred_freeze_2 {
             return mach.Fail0;
         if (!((areg1).unifyJP(goal)))
             return mach.Fail0;
-        local_aregs.areg0 = (goal.dref());
+        local_aregs.setAreg0((goal.dref()));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);

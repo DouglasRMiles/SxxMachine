@@ -215,9 +215,9 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A+B,C,D+E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -237,9 +237,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("d", FILE_derive::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a6);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -249,9 +249,9 @@ m.AREGS = MARG;MARG.areg0 = a4;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A-B,C,D-E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -271,9 +271,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("d", FILE_derive::PRED_d_3_static_exec, VA(a5, a2, a7), cont);
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a6);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -283,9 +283,9 @@ m.AREGS = MARG;MARG.areg0 = a4;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A*B,C,D*B+A*E):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -315,9 +315,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("d", FILE_derive::PRED_d_3_static_exec, VA(a5, a2, a9), cont);
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a8;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a8);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -327,9 +327,9 @@ m.AREGS = MARG;MARG.areg0 = a4;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A/B,C,(D*B-A*E)/B^2):-['$neck_cut',d(A,C,D),d(B,C,E)]
         a1 = a1.dref();
@@ -369,9 +369,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //END inline expansion
         p1 = //
  Op("d", FILE_derive::PRED_d_3_static_exec, VA(a5, a2, a11), cont);
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a10;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a10);
         m.cont = p1;
         return d_3_top(m);
     }
@@ -380,9 +380,9 @@ m.AREGS = MARG;MARG.areg0 = a4;
     // d(A^B,C,D*B*A^E):-!,integer(B),E is B-1,d(A,C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A^B,C,D*B*A^E):-['$neck_cut',integer(B),E is B-1,d(A,C,D)]
         a1 = a1.dref();
@@ -424,9 +424,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a8;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a8);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -435,9 +435,9 @@ m.cont = cont;
     // d(-A,B,-C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(-A,B,-C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -453,9 +453,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a5);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -464,9 +464,9 @@ m.cont = cont;
     // d(exp(A),B,exp(A)*C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(exp(A),B,exp(A)*C):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -487,9 +487,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a6);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -498,9 +498,9 @@ m.cont = cont;
     // d(log(A),B,C/A):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(log(A),B,C/A):-['$neck_cut',d(A,B,C)]
         a1 = a1.dref();
@@ -516,9 +516,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         //START inline expansion of $neck_cut
         m.neckCut();
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a5;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a5);
 m.cont = cont;
         return d_3_top(m);
     }
@@ -527,9 +527,9 @@ m.cont = cont;
     // d(A,A,1):-!
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A,A,1):-['$neck_cut']
         if (! a1.unify(a2, m.trail))
@@ -546,9 +546,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // d(A,B,0):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // d(A,B,0):-[]
         if (!  int_0 .unify(a3, m.trail))

@@ -112,8 +112,8 @@ class pred_getPredHeader_3_1 extends pred_getPredHeader_3 {
         if (!(areg2.unifyJP(var3.dref())))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_getPredHeader_3_consts.string5, var2.dref(), var3.dref()));
-        local_aregs.areg1 = (var1.dref());
+        local_aregs.setAreg0((S(pred_getPredHeader_3_consts.string5, var2.dref(), var3.dref())));
+        local_aregs.setAreg1((var1.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_getPredHeader_3_consts.string0, new HeapChoice(
                 mach.getCUTB()), continuation));

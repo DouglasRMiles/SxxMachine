@@ -17,8 +17,8 @@ import SxxMachine.pterm.VariableTerm;
 public class PRED_file_directory_name_2 extends Predicate.P2 {
     public PRED_file_directory_name_2(Term a1, Term a2, Operation next) {
 
-        ThizLARGs.areg0 = a1;
-        ThizLARGs.areg1 = a2;
+        ThizLARGs.setAreg0(a1);
+        ThizLARGs.setAreg1(a2);
         cont = next;
     }
 

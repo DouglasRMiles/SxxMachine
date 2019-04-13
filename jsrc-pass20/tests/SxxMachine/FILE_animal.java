@@ -66,7 +66,7 @@ m.cont = cont;
     // animal(goat):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // animal(goat):-[]
         if (!  ATOM_goat .unify(a1, m.trail))
@@ -78,7 +78,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // animal(elephant):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // animal(elephant):-[]
         if (!  ATOM_elephant .unify(a1, m.trail))
@@ -91,7 +91,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // animal(A):-[write('please type one more animal name: '),flush_output,read(A)]
         return //

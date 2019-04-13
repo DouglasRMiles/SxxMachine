@@ -55,9 +55,9 @@ public class pred_comp_1 extends Code {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
-        local_aregs.areg1 = (CONST(pred_comp_1_consts.string2));
+        local_aregs.setAreg1((CONST(pred_comp_1_consts.string2)));
         mach.setCont(local_aregs, 2, continuation);
         mach.updateCUTB();
         return getConsts().comp3cont;

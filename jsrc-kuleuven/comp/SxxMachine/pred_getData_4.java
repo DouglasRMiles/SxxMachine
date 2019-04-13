@@ -80,10 +80,10 @@ public class pred_getData_4 extends Code {
             return mach.Fail0;
         if (!(areg3.unifyJP(var4)))
             return mach.Fail0;
-        local_aregs.areg0 = (var5);
+        local_aregs.setAreg0((var5));
 
-        local_aregs.areg1 = (S(pred_getData_4_consts.string3, var1.dref(), var5.dref()));
-        local_aregs.areg2 = (var2.dref());
+        local_aregs.setAreg1((S(pred_getData_4_consts.string3, var1.dref(), var5.dref())));
+        local_aregs.setAreg2((var2.dref()));
 
         mach.setCont(local_aregs, 3, S(pred_getData_4_consts.string2, var5.dref(), S(pred_getData_4_consts.string4, var1
                 .dref(), var5.dref()), var6, S(pred_getData_4_consts.string2, var5

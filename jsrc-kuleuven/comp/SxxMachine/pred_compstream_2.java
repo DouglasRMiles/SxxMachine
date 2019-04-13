@@ -64,8 +64,8 @@ public class pred_compstream_2 extends Code {
         if (!(areg1.unifyJP(var2)))
             return mach.Fail0;
 
-        local_aregs.areg0 = (CONST(pred_compstream_2_consts.string3));
-        local_aregs.areg1 = (var1.dref());
+        local_aregs.setAreg0((CONST(pred_compstream_2_consts.string3)));
+        local_aregs.setAreg1((var1.dref()));
 
         mach.setCont(local_aregs, 2, S(pred_compstream_2_consts.string4, var2.dref(), var3, continuation));
         mach.updateCUTB();

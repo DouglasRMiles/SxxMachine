@@ -63,7 +63,7 @@ class pred_findall_3_1 extends pred_findall_3 {
             return mach.Fail0;
         if (!((areg2).unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.areg0 = (var4);
+        local_aregs.setAreg0((var4));
         mach.setCont(local_aregs, 1, S(string2, var1.dref(), var2.dref(), var3.dref(), var4.dref(), continuation));
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 3, 2);

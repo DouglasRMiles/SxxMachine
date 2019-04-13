@@ -90,12 +90,12 @@ public class pred_printDataClass_6 extends Code {
         if (!(areg5.unifyJP(var6)))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
+        local_aregs.setAreg0((S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string4), S(pred_printDataClass_6_consts.string3, var1
                 .dref(), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string5), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string8), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string9, var2
                         .dref(), var3.dref(), var4
                                 .dref()), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string10, var5
                                         .dref(), pred_printDataClass_6_consts.posint0), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string11, var6
-                                                .dref()), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string12), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), CONST(pred_printDataClass_6_consts.string13)))))))))))));
+                                                .dref()), S(pred_printDataClass_6_consts.string3, CONST(pred_printDataClass_6_consts.string12), S(pred_printDataClass_6_consts.string3, S(pred_printDataClass_6_consts.string6, CONST(pred_printDataClass_6_consts.string7)), CONST(pred_printDataClass_6_consts.string13))))))))))))));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 6, 2);

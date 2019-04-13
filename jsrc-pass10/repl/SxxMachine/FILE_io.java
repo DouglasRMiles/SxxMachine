@@ -42,7 +42,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // package A:-true
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // package A:-[]
         return cont;
     }
@@ -59,9 +59,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // open(A,B,C):-open(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // open(A,B,C):-[open(A,B,C,[])]
         return //
  Op("open", FILE_system::PRED_open_4_static_exec, VA(a1, a2, a3,  Prolog.Nil ), cont);
@@ -79,7 +79,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // close(A):-close(A,[])
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // close(A):-[close(A,[])]
         return //
  Op("close", FILE_system::PRED_close_2_static_exec, VA(a1,  Prolog.Nil ), cont);
@@ -139,8 +139,8 @@ m.cont = cont;
     // stream_property(A,B):-var(B),!,'$stream_property'(A,B)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),var(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -168,8 +168,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // stream_property(A,B):-['$get_level'(C),'$stream_property_specifier'(B),'$cut'(C),'$stream_property'(A,B)]
         a3 = m.mkvar1();
@@ -188,8 +188,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // stream_property(A,B):-illarg(domain(term,stream_property),stream_property(A,B),2)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // stream_property(A,B):-[illarg(domain(term,stream_property),stream_property(A,B),2)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -232,8 +232,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),var(A),'$cut'(C),'$get_stream_manager'(D),hash_map(D,E),'$builtin_member'((A,F),E),java(A),'$builtin_member'(B,F)]
         a3 = m.mkvar1();
@@ -271,8 +271,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$stream_property'(A,B):-['$get_level'(C),java(A),'$cut'(C),'$get_stream_manager'(D),hash_get(D,A,E),'$builtin_member'(B,E)]
         a3 = m.mkvar1();
@@ -303,8 +303,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property'(A,B):-illarg(domain(stream,stream),stream_property(A,B),1)
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$stream_property'(A,B):-[illarg(domain(stream,stream),stream_property(A,B),1)]
     // put_str_args([a(1),a(2)],y(1)),put_str(@('FUNCTOR_stream_property_2'),y(1),a(3))
@@ -398,7 +398,7 @@ m.cont = cont;
     // '$stream_property_specifier'(input):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'(input):-[]
         if (!  ATOM_input .unify(a1, m.trail))
@@ -410,7 +410,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property_specifier'(output):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'(output):-[]
         if (!  ATOM_output .unify(a1, m.trail))
@@ -422,7 +422,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property_specifier'(alias(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'(alias(A)):-[]
         a1 = a1.dref();
@@ -436,7 +436,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property_specifier'((mode A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'((mode A)):-[]
         a1 = a1.dref();
@@ -450,7 +450,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property_specifier'(type(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'(type(A)):-[]
         a1 = a1.dref();
@@ -464,7 +464,7 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$stream_property_specifier'(file_name(A)):-true
          Term a1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         cont = m.cont;
     // '$stream_property_specifier'(file_name(A)):-[]
         a1 = a1.dref();
@@ -487,7 +487,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get_char(A):-[current_input(B),get_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -508,7 +508,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get_code(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -529,7 +529,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // peek_char(A):-[current_input(B),peek_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -550,7 +550,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // peek_code(A):-[current_input(B),peek_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -571,7 +571,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // put_char(A):-[current_output(B),put_char(B,A)]
         a2 = m.mkvar1();
         return //
@@ -592,7 +592,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // put_code(A):-[current_output(B),put_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -613,7 +613,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // nl(A):-put_char(A,'\n')
         m.setB0();
          Term a1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // nl(A):-[put_char(A,'\n')]
         return //
  Op("put_char", FILE_system::PRED_put_char_2_static_exec, VA(a1,  ATOM_$000A ), cont);
@@ -632,7 +632,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get0(A):-[current_input(B),get_code(B,A)]
         a2 = m.mkvar1();
         return //
@@ -652,8 +652,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // get0(A,B):-get_code(A,B)
         m.setB0();
          Term a1, a2;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // get0(A,B):-[get_code(A,B)]
         return //
  Op("get_code", FILE_system::PRED_get_code_2_static_exec, VA(a1, a2), cont);
@@ -672,7 +672,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get(A):-[current_input(B),get(B,A)]
         a2 = m.mkvar1();
         return //
@@ -693,7 +693,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // put(A):-[current_output(B),put(B,A)]
         a2 = m.mkvar1();
         return //
@@ -713,8 +713,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
     // put(A,B):-C is B,put_code(A,C)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
     // put(A,B):-[C is B,put_code(A,C)]
         a3 = m.mkvar1();
         //START inline expansion of a(3)is a(2)
@@ -739,7 +739,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // tab(A):-[current_output(B),tab(B,A)]
         a2 = m.mkvar1();
         return //
@@ -760,7 +760,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // skip(A):-[current_input(B),skip(B,A)]
         a2 = m.mkvar1();
         return //
@@ -781,7 +781,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // get_byte(A):-[current_input(B),get_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -802,7 +802,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // peek_byte(A):-[current_input(B),peek_byte(B,A)]
         a2 = m.mkvar1();
         return //
@@ -823,7 +823,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
         m.setB0();
          Term a1, a2;
         Operation p1;
-        a1 = LARG.areg0;
+        a1 = LARG.getAreg0();
     // put_byte(A):-[current_output(B),put_byte(B,A)]
         a2 = m.mkvar1();
         return //

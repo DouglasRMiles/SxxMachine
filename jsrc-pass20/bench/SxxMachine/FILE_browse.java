@@ -186,11 +186,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse
     // init(A,B,C,D,E):-init(A,B,B,C,D,E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
-        a4 = LARG.areg3;
-        a5 = LARG.areg4;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
+        a4 = LARG.getAreg3();
+        a5 = LARG.getAreg4();
     // init(A,B,C,D,E):-[init(A,B,B,C,D,E)]
         return //
  Op("init", FILE_browse::PRED_init_6_static_exec, VA(a1, a2, a2, a3, a4, a5), cont);
@@ -228,12 +228,12 @@ m.cont = cont;
     // init(0,A,B,C,D,E):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // init(0,A,B,C,D,E):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -249,12 +249,12 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5, p6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
-        a5 = MARG.areg4;
-        a6 = MARG.areg5;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
+        a5 = MARG.getAreg4();
+        a6 = MARG.getAreg5();
         cont = m.cont;
     // init(A,B,C,D,E,[F|G]):-[fill(B,[],H),get_pats(D,E,I),J is C-B,fill(J,[pattern(I)|H],F),K is A-1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(B,C,L),init(K,L,C,D,E,G)]
         a6 = a6.dref();
@@ -317,9 +317,9 @@ m.cont = cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B,C):-A=:=0,!,C is B
          Term a1, a2, a3, a4, a5;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B,C):-['$get_level'(D),E is 0,'$arith_equal'(A,E),'$cut'(D),C is B]
         a4 = m.mkvar1();
@@ -355,9 +355,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B,C):-C is A-1
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B,C):-[C is A-1]
     // put_str_args([a(1),@(int_1)],y(1)),put_str(@('FUNCTOR_$002D_2'),y(1),a(4))
@@ -405,9 +405,9 @@ m.cont = cont;
     // fill(0,A,A):-!
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // fill(0,A,A):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -424,9 +424,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // fill(A,B,[dummy([])|C]):-D is A-1,fill(D,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // fill(A,B,[dummy([])|C]):-[D is A-1,fill(D,B,C)]
         a3 = a3.dref();
@@ -449,9 +449,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a2;
-        MARG.areg2 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a2);
+MARG.setAreg2( a4);
 m.cont = cont;
         return fill_3_top(m);
     }
@@ -487,9 +487,9 @@ m.cont = cont;
     // randomize([],[],A):-!
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // randomize([],[],A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -507,9 +507,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2, p3, p4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // randomize(A,[B|C],D):-[length(A,E),F is D*17 mod 251,G is F mod E,split(G,A,B,H),randomize(H,C,F)]
         a2 = a2.dref();
@@ -576,10 +576,10 @@ m.cont = cont;
     // split(0,[A|B],A,B):-!
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split(0,[A|B],A,B):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -609,10 +609,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // split(A,[B|C],D,[B|E]):-F is A-1,split(F,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // split(A,[B|C],D,[B|E]):-[F is A-1,split(F,C,D,E)]
         a2 = a2.dref();
@@ -646,10 +646,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a8;
-        MARG.areg1 = a6;
-        MARG.areg2 = a3;
-        MARG.areg3 = a7;
+m.AREGS = MARG;  MARG.setAreg0( a8);
+MARG.setAreg1( a6);
+MARG.setAreg2( a3);
+MARG.setAreg3( a7);
 m.cont = cont;
         return split_4_top(m);
     }
@@ -683,8 +683,8 @@ m.cont = cont;
     // investigate([],A):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // investigate([],A):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -700,8 +700,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // investigate([A|B],C):-[property(A,pattern,D),p_investigate(D,C),investigate(B,C)]
         a1 = a1.dref();
@@ -734,9 +734,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse
     // get_pats(A,B,C):-get_pats(A,B,C,B)
         m.setB0();
          Term a1, a2, a3;
-        a1 = LARG.areg0;
-        a2 = LARG.areg1;
-        a3 = LARG.areg2;
+        a1 = LARG.getAreg0();
+        a2 = LARG.getAreg1();
+        a3 = LARG.getAreg2();
     // get_pats(A,B,C):-[get_pats(A,B,C,B)]
         return //
  Op("get_pats", FILE_browse::PRED_get_pats_4_static_exec, VA(a1, a2, a3, a2), cont);
@@ -789,10 +789,10 @@ m.cont = cont;
     // get_pats(0,A,[],B):-!
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // get_pats(0,A,[],B):-['$neck_cut']
         if (!  int_0 .unify(a1, m.trail))
@@ -809,10 +809,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // get_pats(A,[B|C],[B|D],E):-F is A-1,get_pats(F,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // get_pats(A,[B|C],[B|D],E):-[F is A-1,get_pats(F,C,D,E)]
         a2 = a2.dref();
@@ -846,10 +846,10 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a8;
-        MARG.areg1 = a6;
-        MARG.areg2 = a7;
-        MARG.areg3 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a8);
+MARG.setAreg1( a6);
+MARG.setAreg2( a7);
+MARG.setAreg3( a4);
 m.cont = cont;
         return get_pats_4_top(m);
     }
@@ -858,18 +858,18 @@ m.cont = cont;
     // get_pats(A,[],B,C):-get_pats(A,C,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
-        a4 = MARG.areg3;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
+        a4 = MARG.getAreg3();
         cont = m.cont;
     // get_pats(A,[],B,C):-[get_pats(A,C,B,C)]
         if (!  Prolog.Nil .unify(a2, m.trail))
             return m.fail();
-m.AREGS = MARG;MARG.areg0 = a1;
-        MARG.areg1 = a4;
-        MARG.areg2 = a3;
-        MARG.areg3 = a4;
+m.AREGS = MARG;  MARG.setAreg0( a1);
+MARG.setAreg1( a4);
+MARG.setAreg2( a3);
+MARG.setAreg3( a4);
 m.cont = cont;
         return get_pats_4_top(m);
     }
@@ -921,9 +921,9 @@ m.cont = cont;
     // property([],A,B):-fail
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // property([],A,B):-[fail]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -938,9 +938,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // property([A|B],C,D):-['$get_level'(E),functor(A,C,F),'$cut'(E),arg(1,A,D)]
         a1 = a1.dref();
@@ -968,9 +968,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // property([A|B],C,D):-property(B,C,D)
          Term a1, a2, a3, a4;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // property([A|B],C,D):-[property(B,C,D)]
         a1 = a1.dref();
@@ -982,9 +982,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a2;
-        MARG.areg2 = a3;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a2);
+MARG.setAreg2( a3);
 m.cont = cont;
         return property_3_top(m);
     }
@@ -1017,8 +1017,8 @@ m.cont = cont;
     // p_investigate([],A):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // p_investigate([],A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1031,8 +1031,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // p_investigate([A|B],C):-[p_match(C,A),p_investigate(B,C)]
         a1 = a1.dref();
@@ -1079,8 +1079,8 @@ m.cont = cont;
     // p_match([],A):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // p_match([],A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1093,8 +1093,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // p_match([A|B],C):-['$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,C),p_match(B,C)]
         a1 = a1.dref();
@@ -1138,8 +1138,8 @@ m.cont = cont;
          Term a1, a2;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-[match(B,A),fail]
         return //
@@ -1150,8 +1150,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-[]
         return cont;
@@ -1224,8 +1224,8 @@ m.cont = cont;
     // match([],[]):-!
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // match([],[]):-['$neck_cut']
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1242,8 +1242,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // match([A|B],[C|D]):-var(C),!,A=C,match(B,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // match([A|B],[C|D]):-['$get_level'(E),var(C),'$cut'(E),'$unify'(A,C),match(B,D)]
         a1 = a1.dref();
@@ -1289,8 +1289,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
             return m.fail();
         }
         //END inline expansion
-m.AREGS = MARG;MARG.areg0 = a4;
-        MARG.areg1 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a4);
+MARG.setAreg1( a6);
 m.cont = cont;
         return match_2_top(m);
     }
@@ -1300,8 +1300,8 @@ m.cont = cont;
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // match(A,[B|C]):-['$get_level'(D),nonvar(B),'$unify'(B,star(E)),'$cut'(D),'$concat'(E,F,A),match(F,C)]
         a2 = a2.dref();
@@ -1351,8 +1351,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // match([A|B],[C|D]):-['$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,C),match(B,D)]
         a1 = a1.dref();
@@ -1406,8 +1406,8 @@ m.cont = cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-atom(A),!,A=B
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-['$get_level'(C),atom(A),'$cut'(C),'$unify'(A,B)]
         a3 = m.mkvar1();
@@ -1438,8 +1438,8 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-match(A,B)
          Term a1, a2;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
         cont = m.cont;
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl'(A,B):-[match(A,B)]
         return //
@@ -1478,9 +1478,9 @@ m.cont = cont;
     // '$concat'([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$concat'([],A,A):-[]
         if (!  Prolog.Nil .unify(a1, m.trail))
@@ -1494,9 +1494,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
     // '$concat'([A|B],C,[A|D]):-'$concat'(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
-TermArray MARG = m.AREGS;a1 = MARG.areg0;
-        a2 = MARG.areg1;
-        a3 = MARG.areg2;
+TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
+        a2 = MARG.getAreg1();
+        a3 = MARG.getAreg2();
         cont = m.cont;
     // '$concat'([A|B],C,[A|D]):-['$concat'(B,C,D)]
         a1 = a1.dref();
@@ -1521,9 +1521,9 @@ TermArray MARG = m.AREGS;a1 = MARG.areg0;
         } else {
             return m.fail();
         }
-m.AREGS = MARG;MARG.areg0 = a5;
-        MARG.areg1 = a2;
-        MARG.areg2 = a6;
+m.AREGS = MARG;  MARG.setAreg0( a5);
+MARG.setAreg1( a2);
+MARG.setAreg2( a6);
 m.cont = cont;
         return $concat_3_top(m);
     }

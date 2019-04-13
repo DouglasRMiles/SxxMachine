@@ -43,10 +43,8 @@ public class RunningPrologMachine extends ModulePrologMachine {
     public Term[] createAregCopy(int count) {
         if (count < 0)
             throw new IllegalArgumentException();
-        final Term[] copy = new Term[count];
         final TermArray areg = getAreg();
-        final Term[] backing = areg.getBacking();
-        System.arraycopy(backing, 0, copy, 0, count);
+        final Term[] copy = areg.getBackingCopy();
         return copy;
     }
 

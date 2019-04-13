@@ -66,9 +66,9 @@ public class pred_createSet_3 extends Code {
             return mach.Fail0;
         if (!(areg2.unifyJP(var3)))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
-        local_aregs.areg1 = (var2.dref());
-        local_aregs.areg2 = (var4);
+        local_aregs.setAreg0((var1.dref()));
+        local_aregs.setAreg1((var2.dref()));
+        local_aregs.setAreg2((var4));
 
         mach.setCont(local_aregs, 3, S(pred_createSet_3_consts.string3, var4.dref(), var3.dref(), continuation));
         mach.updateCUTB();

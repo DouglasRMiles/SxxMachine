@@ -116,7 +116,7 @@ class pred_wr_1_1 extends pred_wr_1 {
         if (!(areg0.unifyJP(S(pred_wr_1_consts.string1, CONST(pred_wr_1_consts.string11)))))
             return mach.Fail0;
 
-        local_aregs.areg0 = (CONST(pred_wr_1_consts.string15));
+        local_aregs.setAreg0((CONST(pred_wr_1_consts.string15)));
 
         mach.setCont(local_aregs, 1, S(pred_wr_1_consts.string0, new HeapChoice(mach.getCUTB()), continuation));
         mach.updateCUTB();
@@ -209,7 +209,7 @@ class pred_wr_1_4 extends pred_wr_1 {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
 
         mach.setCont(local_aregs, 1, S(pred_wr_1_consts.string0, new HeapChoice(
                 mach.getCUTB()), S(pred_wr_1_consts.string8, var1.dref(), continuation)));
@@ -313,7 +313,7 @@ class pred_wr_1_7 extends pred_wr_1 {
         if (!(areg0.unifyJP(S(pred_wr_1_consts.string3, var1.dref(), var2.dref()))))
             return mach.Fail0;
 
-        local_aregs.areg0 = (S(pred_wr_1_consts.string3, var1.dref(), var2.dref()));
+        local_aregs.setAreg0((S(pred_wr_1_consts.string3, var1.dref(), var2.dref())));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return getConsts().writel2cont;
@@ -343,7 +343,7 @@ class pred_wr_1_8 extends pred_wr_1 {
         final Term var1 = Jv(mach);
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
-        local_aregs.areg0 = (var1.dref());
+        local_aregs.setAreg0((var1.dref()));
         mach.setCont(local_aregs, 1, continuation);
         mach.updateCUTB();
         return mach.getCall2();

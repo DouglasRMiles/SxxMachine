@@ -290,26 +290,29 @@ listing(MPI) :- strip_module(MPI,M,PI),'$listing'(PI, M).
 
 
 '$listing'(PI, M) :- var(PI), !,
-	'$listing_dynamic_clause'(M, _).
-'$listing'(F/A, M) :- atom(F), integer(A), !,
-	'$listing_dynamic_clause'(M, F/A).
+	'$listing_dynamic_clause'(M, _F, _A).
 '$listing'(F, M) :- atom(F), !,
-	'$listing_dynamic_clause'(M, F/_A).
-'$listing'(P, M) :- functor(P,F,A), !,
-	'$listing_dynamic_clause'(M, F/A).
+	'$listing_dynamic_clause'(M, F, _).
+'$listing'(F/A, M) :- !,
+	'$listing_dynamic_clause'(M, F, A).
+'$listing'(P, M) :- compound(P), functor(P,F,A), !,
+	'$listing_dynamic_clause'(M, F, A).
 '$listing'(PI, M) :- illarg(type(predicate_indicator), listing(M:PI), 1).
 
 % context_module(P),'$new_internal_database'(P), hash_keys(P, Keys), '$builtin_member'(PI, Keys).
-'$listing_dynamic_clause'(P, PI) :-
+:- export('$listing_dynamic_clause'/3).
+'$listing_dynamic_clause'(P, F, A) :-
 	'$new_internal_database'(P),
-	hash_keys(P, Keys),
-	'$builtin_member'(PI, Keys),
-	PI = F/A,
-	functor(H, F, A),
-	'$clause_internal'(P, PI, H, Cl, _),
-	'$write_dynamic_clause'(P, Cl),
+     hash_keys(P, Keys),
+	 '$builtin_member'(PI, Keys),	 
+	 show_call(PI = F/A),
+	 PI = F/A,
+	 show_call(functor(H, F, A)),
+	show_call('$clause_internal'(P, PI, H, Cl, _)),
+	show_call('$write_dynamic_clause'(P, Cl)),
 	fail.
-'$listing_dynamic_clause'(_, _).
+'$listing_dynamic_clause'(_, _, _).
+
 
 '$write_dynamic_clause'(_, Cl) :- var(Cl), !, fail.
 '$write_dynamic_clause'(P, (H :- true)) :- !,
