@@ -63,13 +63,13 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public int exec(Prog p) {
         //IO.println("this should be overriden, prog="+p.to);
-        Method m = getBuiltin();
+        final Method m = this.getBuiltin();
         try {
             if (m == null)
                 return -1;
             m.setAccessible(true);
             final Object invoke = m.invoke(null, p, this);
-            return (int) (Integer) invoke;
+            return (Integer) invoke;
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public String getFAKey() {
-        return fname() + "/" + arity();
+        return this.fname() + "/" + this.arity();
     }
 
     static public final Term getHead(Term T) {
@@ -100,7 +100,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean isConj() {
-        return name == "," && arityOrType() == 2;
+        return this.name == "," && this.arityOrType() == 2;
     }
 
     // @Override
@@ -111,17 +111,17 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public boolean isAtomOrObject() {
         // TODO Auto-generated method stub
-        if (arityOrType() == 0)
+        if (this.arityOrType() == 0)
             return true;
         //oopsy("?isConst reason");
-        return isImmutable();
+        return this.isImmutable();
     }
 
     // private String Name;
 
     @Override
     public final int arityOrType() {
-        return argz.length;
+        return this.argz.length;
     }
 
     /*
@@ -138,7 +138,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     private static Term[] makeVars(int arity) {
         // TODO Auto-generated method stub
-        Term[] t = new Term[arity];
+        final Term[] t = new Term[arity];
         for (int i = 0; i < t.length; i++) {
             t[i] = V();
         }
@@ -147,48 +147,48 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public void init(int arity) {
-        argz = new Term[arity];
+        this.argz = new Term[arity];
         for (int i = 0; i < arity; i++) {
-            argz[i] = V();
+            this.argz[i] = V();
         }
     }
 
     @Override
     public final int getIntArg(int i) {
-        return getDrefArg(i).intValue();
+        return this.getDrefArg(i).intValue();
     }
 
     @Override
     public final void setArg(int i, Term T) {
-        argz[i] = T;
+        this.argz[i] = T;
     }
 
     @Override
     public final int unifyArg(int i, Term T, Prog p) {
         // return getArg(i).unify(T,p.getTrail())?1:0;
-        return argz[i].DO_Unify(T, p.getTrail()) ? 1 : 0;
+        return this.argz[i].DO_Unify(T, p.getTrail()) ? 1 : 0;
     }
 
     protected final String funToString() {
-        StringBuilder sb = new StringBuilder();
-        toStringImpl(1, sb);
+        final StringBuilder sb = new StringBuilder();
+        this.toStringImpl(1, sb);
         return sb.toString();
     }
 
     @Override
     public String pprint() {
-        if (isCons())
-            return toListString();
-        return funToString();
+        if (this.isCons())
+            return this.toListString();
+        return this.funToString();
     }
 
     /**
      * List printer.
      */
     public String toListString() {
-        Term h = getDrefArg(0);
-        Term t = getDrefArg(1);
-        StringBuffer s = new StringBuffer("[" + watchNull(h));
+        Term h = this.getDrefArg(0);
+        Term t = this.getDrefArg(1);
+        final StringBuffer s = new StringBuffer("[" + watchNull(h));
         for (;;) {
             if (t.isNil()) {
                 s.append("]");
@@ -206,9 +206,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     }
 
     public String conjToString() {
-        Term h = argz[0].dref();
-        Term t = argz[1].dref();
-        StringBuffer s = new StringBuffer(watchNull(h));
+        Term h = this.argz[0].dref();
+        Term t = this.argz[1].dref();
+        final StringBuffer s = new StringBuffer(watchNull(h));
         for (;;) {
             if (!(t.isConj())) {
                 s.append("," + t);
@@ -228,16 +228,16 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean bindKP(Term that, KPTrail trail) {
-        return super.bindKP(that, trail) && argz.length == TermData.asStruct(that).arity();
+        return super.bindKP(that, trail) && this.argz.length == TermData.asStruct(that).arity();
     }
 
     @Override
     public boolean Unify_TO(Term that, KPTrail trail) {
-        if (bindKP(that, trail)) {
-            Term other = that;
-            Term[] otherargz = other.args();
-            for (int i = 0; i < argz.length; i++) {
-                if (!argz[i].DO_Unify(otherargz[i], trail))
+        if (this.bindKP(that, trail)) {
+            final Term other = that;
+            final Term[] otherargz = other.args();
+            for (int i = 0; i < this.argz.length; i++) {
+                if (!this.argz[i].DO_Unify(otherargz[i], trail))
                     return false;
             }
             return true;
@@ -247,7 +247,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Term carTokenOrSelf() {
-        return argz[0];
+        return this.argz[0];
     }
 
     // stuff allowing polymorphic cloning of StructureTerm subclasses
@@ -256,44 +256,44 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public StructureTerm toClone() {
         StructureTerm f = null;
-        assert getClass() == StructureTerm.class;
+        assert this.getClass() == StructureTerm.class;
         // use of clone is needed for "polymorphic" copy
-        if (functor != null)
-            return new StructureTerm(functor, argz);
-        f = new StructureTerm(name, argz);
+        if (this.functor != null)
+            return new StructureTerm(this.functor, this.argz);
+        f = new StructureTerm(this.name, this.argz);
 
         return f;
     }
 
     protected StructureTerm unInitializedClone() {
-        StructureTerm f = toClone();
-        f.argz = new Term[argz.length];
+        final StructureTerm f = this.toClone();
+        f.argz = new Term[this.argz.length];
         return f;
     }
 
     protected StructureTerm initializedClone() {
-        StructureTerm f = toClone();
-        f.init(argz.length);
+        final StructureTerm f = this.toClone();
+        f.init(this.argz.length);
         return f;
     }
 
     @Override
     public Term reaction(Term that) {
         // IO.mes("TRACE>> "+name());
-        StructureTerm f = toClone();
-        f.argz = new Term[argz.length];
-        for (int i = 0; i < argz.length; i++) {
-            f.argz[i] = argz[i].reaction(that);
+        final StructureTerm f = this.toClone();
+        f.argz = new Term[this.argz.length];
+        for (int i = 0; i < this.argz.length; i++) {
+            f.argz[i] = this.argz[i].reaction(that);
         }
         return f;
     }
 
     @Override
     public Compound listify() {
-        Compound l = CONS(SYM(fname()), Prolog.Nil);
+        final Compound l = CONS(SYM(this.fname()), Prolog.Nil);
         Compound curr = l;
-        for (int i = 0; i < argz.length; i++) {
-            Compound tail = CONS(argz[i], Prolog.Nil);
+        for (int i = 0; i < this.argz.length; i++) {
+            final Compound tail = CONS(this.argz[i], Prolog.Nil);
             curr.setCdr(tail);
             curr = tail;
         }
@@ -302,7 +302,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean isClause() {
-        return arityOrType() == 2 && fname().equals(":-");
+        return this.arityOrType() == 2 && this.fname().equals(":-");
     }
 
     //    public static StructureTerm CONS(Term x0, Term x1) {
@@ -344,18 +344,18 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean isCons() {
-        return argz.length == 2 && (functor() == Prolog.FUNCTOR_LIST_2);
+        return this.argz.length == 2 && (this.functor() == Prolog.FUNCTOR_LIST_2);
     }
 
     @Override
     public int type() {
-        if (isCons())
+        if (this.isCons())
             return TYPE_LIST;
         return TYPE_STRUCTURE;
     }
 
     private final boolean isConsOL() {
-        return false && isCons();
+        return false && this.isCons();
     }
 
     /** Holds the functor symbol of this <code>StructureTerm</code>. */
@@ -369,7 +369,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     // protected boolean immutable;
     @Override
     public boolean isCompound() {
-        return !isCons() || true;
+        return !this.isCons() || true;
     }
 
     @Override
@@ -384,10 +384,10 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     public StructureTerm(String _name, Term... _args) {
         // this.name = name.intern();
         super();
-        name = _name.intern();
+        this.name = _name.intern();
         this.argz = _args;
         if (!Prolog.BE_FAST)
-            checkImmuatble();
+            this.checkImmuatble();
     }
 
     private void checkImmuatble() {
@@ -402,7 +402,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Object javaInstance() {
-        if (isConsOL())
+        if (this.isConsOL())
             return super.javaInstance();
         return this;
     }
@@ -423,7 +423,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public boolean convertible(Class type) {
-        if (isConsOL())
+        if (this.isConsOL())
             return convertible(List.class, type);
         return true;
     }
@@ -500,23 +500,23 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public final String fname() {
-        if (name == null) {
-            name = functor.fname();
+        if (this.name == null) {
+            this.name = this.functor.fname();
             // name = name.intern();
         }
-        return name;
+        return this.name;
     }
 
     @Override
     public String getJavaString() {
-       // oopsy("unknown reason");
+        // oopsy("unknown reason");
         // TODO Auto-generated method stub
         return super.getJavaString();
     }
 
     @Override
     public Term getPlainArg(int nth) {
-        if (isConsOL()) {
+        if (this.isConsOL()) {
             return super.nthTermEle0(nth);
         }
         return this.argz[nth];
@@ -524,7 +524,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public final boolean unifyImpl(Term t, Trail trail) {
-        if (isConsOL()) {
+        if (this.isConsOL()) {
             return super.unifyImpl(t, trail);
         }
         t = t.dref(); // fast dereference //t = t.dereference();
@@ -542,8 +542,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             return false;
         }
 
-        ListTerm st = (ListTerm) t;
-        if (this.argz.length != st.argz.length) {
+        final ListTerm st = (ListTerm) t;
+        final Term[] argz2 = st.argz;
+        if (this.argz.length != argz2.length) {
             return false;
         }
         if (this.name != null) {
@@ -556,7 +557,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         }
 
         for (int i = 0; i < this.argz.length; i++) {
-            if (!this.argz[i].unify(st.argz[i], trail)) {
+            final Term termS = this.argz[i];
+            final Term termT = argz2[i];
+            if (!termS.unify(termT, trail)) {
                 return false;
             }
         }
@@ -565,18 +568,18 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
-        if (isConsOL())
+        if (this.isConsOL())
             return super.cafe_copyImpl(copyHash, deeply);
         if (this.immutable) {
             return this;
         }
-        Term[] a = new Term[this.argz.length];
-        int len = this.argz.length;
+        final Term[] a = new Term[this.argz.length];
+        final int len = this.argz.length;
         boolean cyclic = false;
         for (int i = 0; i < len; i++) {
             try {
                 a[i] = this.argz[i].copy(copyHash, deeply);
-            } catch (StackOverflowError e) {
+            } catch (final StackOverflowError e) {
                 // TODO: handle exception
                 e.printStackTrace();
                 cyclic = true;
@@ -586,16 +589,16 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         if (cyclic) {
             if (this.functor != null)
                 return new StructureTerm(this.functor, a);
-            return new StructureTerm(fname(), a);
+            return new StructureTerm(this.fname(), a);
         }
         if (this.functor != null)
             return new StructureTerm(this.functor, a);
-        return new StructureTerm(fname(), a);
+        return new StructureTerm(this.fname(), a);
     }
 
     @Override
     public final boolean isImmutable() {
-        if (isConsOL()) {
+        if (this.isConsOL()) {
             return true;
         }
         return this.immutable;
@@ -603,7 +606,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public boolean isGround() {
-        for (Term t : this.argz) {
+        for (final Term t : this.argz) {
             if (!t.isGround()) {
                 return false;
             }
@@ -614,11 +617,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public int containsTermImpl(Term variableTerm, OpVisitor comparison) {
         int contains = 0;
-        for (Term t : this.argz) {
+        for (final Term t : this.argz) {
             contains += t.containsTerm(variableTerm, comparison);
         }
-        if (functor != null)
-            return functor.containsTerm(variableTerm, comparison) + contains;
+        if (this.functor != null)
+            return this.functor.containsTerm(variableTerm, comparison) + contains;
         return contains;
     }
 
@@ -637,21 +640,21 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public boolean equalsTerm(Term that, OpVisitor comparator) {
-        if (isConsOL())
+        if (this.isConsOL())
             return super.equalsTerm(that, comparator);
         if (that == this)
             return true;
         if (!(that.isCompound()))
             return false;
-        Term st = that;
+        final Term st = that;
 
-        if (!fname().equals(that.fname()))
+        if (!this.fname().equals(that.fname()))
             return false;
-        if (!getClass().equals(that.getClass())) {
+        if (!this.getClass().equals(that.getClass())) {
 
             //Kan nog gelijk zijn aan een constante zonder parameters
             if (that.isAtomOrObject()) {
-                return arity() == 0;
+                return this.arity() == 0;
             }
             return false;
         }
@@ -676,21 +679,21 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         Term arg1[], obj1;
         Term arg2[], obj2;
 
-        if (!fname().equals(that.fname()))
+        if (!this.fname().equals(that.fname()))
             return false;
-        if (!getClass().equals(that.getClass())) {
+        if (!this.getClass().equals(that.getClass())) {
             //Kan nog gelijk zijn aan een constante zonder parameters
             if (that.isAtomOrObject()) {
-                return arity() == 0;
+                return this.arity() == 0;
             }
             return false;
         }
 
         tmpfunct = (AFunct) that; // cast perhaps to be avoided
-        final int length = arity();
+        final int length = this.arity();
         if (length != tmpfunct.arity())
             return false;
-        arg1 = args();
+        arg1 = this.args();
         arg2 = tmpfunct.args();
         for (int i = 0; i < length; i++) {
             obj1 = arg1[i].dref();
@@ -703,11 +706,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public int termHashCodeImpl() {
-        if (isConsOL())
+        if (this.isConsOL())
             return super.termHashCodeImpl();
         int h = 1;
-        h = 31 * h + fname().hashCode();
-        for (Term arg : this.argz) {
+        h = 31 * h + this.fname().hashCode();
+        for (final Term arg : this.argz) {
             h = 31 * h + arg.dref().termHashCode();
         }
         return h;
@@ -719,12 +722,12 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public void toStringImpl(int printingFlags, StringBuilder sb) {
-        if (isCons()) {
-            toListStringImpl(printingFlags, sb);
+        if (this.isCons()) {
+            this.toListStringImpl(printingFlags, sb);
             return;
         }
-        final String fname = fname();
-        if (arity() == 2) {
+        final String fname = this.fname();
+        if (this.arity() == 2) {
             final boolean printInfix = "/".equals(fname) || ":".equals(fname) || ":-".equals(fname);
             if (printInfix) {
                 toArgString(printingFlags, sb, this.argz[0]);
@@ -790,9 +793,9 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Iterator<Term> iterator(boolean includeSyntax) {
-        if (isConsOL())
-            return listIterator(includeSyntax);
-        return new StructureTermIterator(functor(), this.argz, includeSyntax);
+        if (this.isConsOL())
+            return this.listIterator(includeSyntax);
+        return new StructureTermIterator(this.functor(), this.argz, includeSyntax);
     }
 
     private static class StructureTermIterator implements Iterator<Term> {
@@ -804,7 +807,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         private final Term[] argsIt;
         private final int length;
         private boolean comma = false;
-        private boolean includeSyntax;
+        private final boolean includeSyntax;
 
         StructureTermIterator(Term functor, Term[] args, boolean includeSyntax) {
             this.includeSyntax = includeSyntax;
@@ -820,12 +823,12 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
         @Override
         public Term next() {
-            if (!includeSyntax) {
-                if (index == -1) {
-                    index++;
+            if (!this.includeSyntax) {
+                if (this.index == -1) {
+                    this.index++;
                 } else {
-                    if (index == length) {
-                        index++;
+                    if (this.index == this.length) {
+                        this.index++;
                     }
                 }
             }
@@ -863,22 +866,22 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if (isConsOL())
-            return compareTo(anotherTerm);
+        if (this.isConsOL())
+            return super.compareTo(anotherTerm);
         Term functor, functor2;
         Term[] args2;
         int arity2, rc;
         if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomSymbol()))
             return AFTER;
         if ((anotherTerm.isCons())) {
-            ListTerm t = (ListTerm) anotherTerm;
+            final ListTerm t = (ListTerm) anotherTerm;
             functor2 = Prolog.FUNCTOR_LIST_2;
             args2 = new Term[2];
             args2[0] = t.car();
             args2[1] = t.cdr();
             arity2 = 2;
         } else if ((anotherTerm.isCompound())) {
-            Term s = anotherTerm;
+            final Term s = anotherTerm;
             functor2 = s.functor();
             args2 = s.args();
             arity2 = s.arity();
@@ -887,7 +890,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         }
         if (this.argz.length != arity2)
             return (this.argz.length - arity2);
-        functor = functor();
+        functor = this.functor();
         if (!functor.equalsTerm(functor2, StrictEquals))
             return functor.compareTo(functor2);
         for (int i = 0; i < this.argz.length; i++) {
@@ -900,25 +903,25 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public void setarg0(int i, Term f) {
-        argz[i] = f;
+        this.argz[i] = f;
     }
 
     public void setarg0(int i, StructureTerm f) {
-        argz[i] = f;
+        this.argz[i] = f;
     }
 
     public void setarg0(int i, Const f) {
-        argz[i] = f;
+        this.argz[i] = f;
     }
 
     @Override
     public void setarg0Maybe_trail(Trail trail, int i, Term val) {
-        if (isConsOL()) {
+        if (this.isConsOL()) {
             super.setarg0Maybe_trail(trail, i, val);
             return;
         }
         if (trail == null) {
-            argz[i] = val;
+            this.argz[i] = val;
         } else {
             sxxtensions.DoSetArg3_p2(trail.getProlog(), i + 1, this, val);
         }
@@ -927,38 +930,38 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     // @Override
     @Override
     public void setCar(Term t) {
-        assert isCons();
-        argz[0] = t;
+        assert this.isCons();
+        this.argz[0] = t;
 
     }
 
     // @Override
     @Override
     public void setCdr(Term t) {
-        assert isCons();
-        argz[1] = t;
+        assert this.isCons();
+        this.argz[1] = t;
 
     }
 
     @Override
     public void setMethod(Method b) {
-        ((NameArity) functor()).setMethod(b);
+        ((NameArity) this.functor()).setMethod(b);
     }
 
     @Override
     public Term copyJP(RunningPrologMachine m, long t) {
-        int a = arity();
-        final AFunct f = new StructureTerm(fname(), a);
+        int a = this.arity();
+        final AFunct f = new StructureTerm(this.fname(), a);
         Term arg;
         while (a-- > 0) {
-            arg = args()[a].dref();
+            arg = this.args()[a].dref();
             f.args()[a] = arg.copyJP(m, t);
         }
         return f;
     }
 
     public List<Term> toList() {
-        if (!isCons())
+        if (!this.isCons())
             return null;
         final List<Term> l = new ArrayList<Term>();
         Term o = this;
@@ -984,11 +987,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public long longValue() {
-        final int arity = arity();
+        final int arity = this.arity();
         long i1, i2;
-        final String operator = fname();
+        final String operator = this.fname();
         if (arity == 1) {
-            i1 = (getPlainArg(0).dref()).longValue();
+            i1 = (this.getPlainArg(0).dref()).longValue();
             if ("-".equals(operator))
                 return -i1;
             if ("+".equals(operator))
@@ -997,8 +1000,8 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         }
         if (arity != 2)
             return 0;
-        i1 = getPlainArg(0).dref().longValue();
-        i2 = getPlainArg(1).dref().longValue();
+        i1 = this.getPlainArg(0).dref().longValue();
+        i2 = this.getPlainArg(1).dref().longValue();
 
         if ("-".equals(operator))
             return i1 - i2;
@@ -1023,15 +1026,15 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         if (object.isAtomOrObject()) {
             //speciaal geval
             final Term c = object;
-            return arity() == 0 && functor().couldUnifyInverse(c.functor());
+            return this.arity() == 0 && this.functor().couldUnifyInverse(c.functor());
         } else if (object.isCompound()) {
             final AFunct f = (AFunct) object;
-            if (!fname().equals(f.fname()))
+            if (!this.fname().equals(f.fname()))
                 return false;
-            if (arity() != f.arity())
+            if (this.arity() != f.arity())
                 return false;
             //nu moeten ook alle args passen
-            final Term[] args = args();
+            final Term[] args = this.args();
             final Term[] args2 = f.args();
             for (int i = 0; i < args.length; i++) {
                 if (!args[i].couldUnify(args2[i]))
@@ -1045,7 +1048,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     @Override
     public boolean couldUnify(Term object) {
         if (object instanceof StructureTerm)
-            return couldUnifyInverse(object);
+            return this.couldUnifyInverse(object);
         return object.couldUnify(this);
     }
 

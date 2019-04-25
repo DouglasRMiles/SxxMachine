@@ -154,7 +154,7 @@ public final class Prolog extends PrologFlags {
     public Compound lastPendingGoal;
     public Term assumptions;
     public Operation pred;
-    private Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
+    private final Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
     public final static Functor anEof = TermData.SYM("end_of_file");
     public final static Functor aNo = TermData.SYM("no");
     public final static Functor aYes = TermData.SYM("yes");
@@ -213,7 +213,7 @@ public final class Prolog extends PrologFlags {
     private void initOnce(InputStream in, PrintStream out, PrintStream err) {
         //
         //this.AREGS =  new Term[this.maxArity];
-        this.setAREGS(TermArray.newTermArray(maxArity));
+        this.setAREGS(TermArray.newTermArray(this.maxArity));
 
         if (this.pcl == null)
             this.pcl = new PrologClassLoader();
@@ -226,13 +226,13 @@ public final class Prolog extends PrologFlags {
             this.userError = new PrintWriter(new OutputStreamWriter(err), true);
             this.streamManager.put(SYM_USERINPUT, TermData.FFIObject(this.userInput));
             this.streamManager.put(TermData
-                    .FFIObject(this.userInput), makeStreamProperty(SYM_READ, SYM_INPUT, SYM_USERINPUT, SYM_TEXT));
+                    .FFIObject(this.userInput), this.makeStreamProperty(SYM_READ, SYM_INPUT, SYM_USERINPUT, SYM_TEXT));
             this.streamManager.put(SYM_USEROUTPUT, TermData.FFIObject(this.userOutput));
             this.streamManager.put(TermData
-                    .FFIObject(this.userOutput), makeStreamProperty(SYM_APPEND, SYM_OUTPUT, SYM_USEROUTPUT, SYM_TEXT));
+                    .FFIObject(this.userOutput), this.makeStreamProperty(SYM_APPEND, SYM_OUTPUT, SYM_USEROUTPUT, SYM_TEXT));
             this.streamManager.put(SYM_USERERROR, TermData.FFIObject(this.userError));
             this.streamManager.put(TermData
-                    .FFIObject(this.userError), makeStreamProperty(SYM_APPEND, SYM_OUTPUT, SYM_USERERROR, SYM_TEXT));
+                    .FFIObject(this.userError), this.makeStreamProperty(SYM_APPEND, SYM_OUTPUT, SYM_USERERROR, SYM_TEXT));
         } else {
             this.userInput = NO_INPUT;
             this.userOutput = NO_OUTPUT;
@@ -242,9 +242,9 @@ public final class Prolog extends PrologFlags {
 
     /** Initializes this Prolog engine. */
     public void init(InputStream in, PrintStream out, PrintStream err) {
-        initTimes++;
-        if (this.AREGS == null || initTimes == 1)
-            initOnce(in, out, err);
+        this.initTimes++;
+        if (this.AREGS == null || this.initTimes == 1)
+            this.initOnce(in, out, err);
 
         this.stack.init();
         this.trail.init();
@@ -258,13 +258,13 @@ public final class Prolog extends PrologFlags {
             this.stack.push(this, Failure.FAILURE, ChoicePointStack::restore0);
         this.logger.init(this.stack.top);
         this.halt = 0;
-        pendingGoals = Nil;
-        assumptions = Nil;
-        PENDING_INTERUPTS = 0;
+        this.pendingGoals = Nil;
+        this.assumptions = Nil;
+        this.PENDING_INTERUPTS = 0;
         //INTERUPT_LOCK = new Object();
-        lastPendingGoal = null;
+        this.lastPendingGoal = null;
 
-        setFlags();
+        this.setFlags();
 
         this.exception = NONE;
         this.startRuntime = this.features.contains(Feature.STATISTICS_RUNTIME) ? System.currentTimeMillis() : 0;
@@ -283,13 +283,13 @@ public final class Prolog extends PrologFlags {
     public void pushCatcherB(int b) {
         this.catchersBindex++;
         if (this.catchersBindex >= this.catchersB.length) {
-            ensureCatchersCapability();
+            this.ensureCatchersCapability();
         }
         this.catchersB[this.catchersBindex] = b;
     }
 
     private void ensureCatchersCapability() {
-        int[] newCatchersB = new int[this.catchersB.length << 1];
+        final int[] newCatchersB = new int[this.catchersB.length << 1];
         System.arraycopy(this.catchersB, 0, newCatchersB, 0, this.catchersB.length);
         this.catchersB = newCatchersB;
     }
@@ -325,7 +325,7 @@ public final class Prolog extends PrologFlags {
         if (t.isImmutable()) {
             return t;
         } else {
-            int deeply = Term.COPY_ALL;
+            final int deeply = Term.COPY_ALL;
             //copyHash.clear();
             //    		copyHash = new Map<Object, Term>();
             return t.copy(new IdentityHashMap<Object, Term>(), deeply);
@@ -338,7 +338,7 @@ public final class Prolog extends PrologFlags {
      * and returns the backtrack point in current choice point.
      */
     public Operation fail() {
-        ChoicePointFrame top = this.stack.top;
+        final ChoicePointFrame top = this.stack.top;
         this.logger.fail(top.bp, top);
         this.B0 = top.b0; // restore B0
         return top.bp; // execute next clause
@@ -353,7 +353,7 @@ public final class Prolog extends PrologFlags {
      */
     public Operation switch_on_term(Operation var, Operation Int, Operation flo, Operation con, Operation str,
             Operation lis) {
-        Term a1 = this.AREGS.getTermDRef(0);
+        final Term a1 = this.AREGS.getTermDRef(0);
 
         switch (a1.type()) {
             case Term.TYPE_VARIABLE:
@@ -395,7 +395,7 @@ public final class Prolog extends PrologFlags {
      * this returns <code>otherwise</code>.
      */
     public Operation switch_on_hash(Map<Term, Operation> hash, Operation otherwise) {
-        Term arg1 = this.AREGS.getTermDRef(0);
+        final Term arg1 = this.AREGS.getTermDRef(0);
         Term key;
         if (((arg1.isInteger()) || arg1.isDouble()) || (arg1.isAtomSymbol())) {
             key = arg1;
@@ -404,7 +404,7 @@ public final class Prolog extends PrologFlags {
         } else {
             throw new SystemException("Invalid argument in switch_on_hash");
         }
-        Operation p = hash.get(key);
+        final Operation p = hash.get(key);
         if (p != null)
             return p;
         else
@@ -420,45 +420,45 @@ public final class Prolog extends PrologFlags {
     /** Creates a new choice point frame. */
     public Operation jtry0(Operation p, Operation next) {
         this.trail.timeStamp = ++this.CPFTimeStamp;
-        return finishjtry(p, next, this.stack.push(this, next, ChoicePointStack::restore0));
+        return this.finishjtry(p, next, this.stack.push(this, next, ChoicePointStack::restore0));
         //return p;
     }
 
     public Operation jtry1(Operation p, Operation next) {
-        return jtry(1, p, next);
+        return this.jtry(1, p, next);
     }
 
     public Operation jtry2(Operation p, Operation next) {
-        return jtry(2, p, next);
+        return this.jtry(2, p, next);
     }
 
     public Operation jtry3(Operation p, Operation next) {
-        return jtry(3, p, next);
+        return this.jtry(3, p, next);
     }
 
     public Operation jtry4(Operation p, Operation next) {
-        return jtry(4, p, next);
+        return this.jtry(4, p, next);
     }
 
     public Operation jtry5(Operation p, Operation next) {
-        return jtry(5, p, next);
+        return this.jtry(5, p, next);
     }
 
     public Operation jtry6(Operation p, Operation next) {
-        return jtry(6, p, next);
+        return this.jtry(6, p, next);
     }
 
     public Operation jtry7(Operation p, Operation next) {
-        return jtry(7, p, next);
+        return this.jtry(7, p, next);
     }
 
     public Operation jtry8(Operation p, Operation next) {
-        return jtry(8, p, next);
+        return this.jtry(8, p, next);
     }
 
     public Operation jtry(int arity, Operation p, Operation next) {
         this.trail.timeStamp = ++this.CPFTimeStamp;
-        return finishjtry(p, next, this.stack.push(this, arity, next));
+        return this.finishjtry(p, next, this.stack.push(this, arity, next));
         //return p;
     }
 
@@ -469,7 +469,7 @@ public final class Prolog extends PrologFlags {
               entry.timeStamp = ++CPFTimeStamp;
               stack.push(entry);
         */
-        logger.jtry(p, next, entry);
+        this.logger.jtry(p, next, entry);
         return p;
     }
 
@@ -479,7 +479,7 @@ public final class Prolog extends PrologFlags {
      * and then returns <code>p</code>.
      */
     public Operation retry(Operation p, Operation next) {
-        ChoicePointFrame top = this.stack.top;
+        final ChoicePointFrame top = this.stack.top;
         top.restore.accept(top, this);
         this.logger.retry(p, next, top);
         this.trail.unwind(top.tr);
@@ -501,9 +501,9 @@ public final class Prolog extends PrologFlags {
     }
 
     private Term makeStreamProperty(Functor _mode, Functor io, Functor _alias, Functor _type) {
-        Term[] mode = { _mode };
-        Term[] alias = { _alias };
-        Term[] type = { _type };
+        final Term[] mode = { _mode };
+        final Term[] alias = { _alias };
+        final Term[] type = { _type };
         Term t = Nil;
         t = CONS(S(SYM_MODE_1, mode), t);
         t = CONS(io, t);
@@ -639,33 +639,33 @@ public final class Prolog extends PrologFlags {
     }
 
     public Term popPendingGoals() {
-        if (halt != 0)
+        if (this.halt != 0)
             return Nil;
-        synchronized (INTERUPT_LOCK) {
-            if (PENDING_INTERUPTS == 0)
+        synchronized (this.INTERUPT_LOCK) {
+            if (this.PENDING_INTERUPTS == 0)
                 return Nil;
-            PENDING_INTERUPTS = 0;
-            Term retPendingGoals = this.pendingGoals;
-            lastPendingGoal = null;
-            pendingGoals = Nil;
+            this.PENDING_INTERUPTS = 0;
+            final Term retPendingGoals = this.pendingGoals;
+            this.lastPendingGoal = null;
+            this.pendingGoals = Nil;
             return retPendingGoals;
         }
     }
 
     public Term peekPendingGoals() {
-        synchronized (INTERUPT_LOCK) {
-            if (PENDING_INTERUPTS == 0)
+        synchronized (this.INTERUPT_LOCK) {
+            if (this.PENDING_INTERUPTS == 0)
                 return Nil;
             return this.pendingGoals;
         }
     }
 
     public void pushPendingGoal(Term goal) {
-        synchronized (INTERUPT_LOCK) {
-            PENDING_INTERUPTS++;
-            if (pendingGoals == null || pendingGoals == Prolog.Nil || pendingGoals == Prolog.True) {
-                pendingGoals = goal;
-                lastPendingGoal = null;
+        synchronized (this.INTERUPT_LOCK) {
+            this.PENDING_INTERUPTS++;
+            if (this.pendingGoals == null || this.pendingGoals == Prolog.Nil || this.pendingGoals == Prolog.True) {
+                this.pendingGoals = goal;
+                this.lastPendingGoal = null;
             } else {
                 // lastPendingGoal = lastPendingGoal;
                 this.pendingGoals = CONS(goal, this.pendingGoals);
@@ -674,20 +674,20 @@ public final class Prolog extends PrologFlags {
     }
 
     public void addPendingGoal(Term goal) {
-        synchronized (INTERUPT_LOCK) {
-            PENDING_INTERUPTS++;
-            if (lastPendingGoal != null) {
-                lastPendingGoal = this.lastPendingGoal.appendCons(goal);
+        synchronized (this.INTERUPT_LOCK) {
+            this.PENDING_INTERUPTS++;
+            if (this.lastPendingGoal != null) {
+                this.lastPendingGoal = this.lastPendingGoal.appendCons(goal);
                 return;
             }
-            if (pendingGoals == null || pendingGoals == Prolog.Nil || pendingGoals == Prolog.True) {
-                pendingGoals = goal;
+            if (this.pendingGoals == null || this.pendingGoals == Prolog.Nil || this.pendingGoals == Prolog.True) {
+                this.pendingGoals = goal;
             } else {
                 if (this.pendingGoals.isCons()) {
-                    lastPendingGoal = this.pendingGoals.appendCons(goal);
+                    this.lastPendingGoal = this.pendingGoals.appendCons(goal);
                 } else {
-                    lastPendingGoal = CONS(this.pendingGoals, goal);
-                    pendingGoals = lastPendingGoal;
+                    this.lastPendingGoal = CONS(this.pendingGoals, goal);
+                    this.pendingGoals = this.lastPendingGoal;
                 }
             }
         }
@@ -699,24 +699,24 @@ public final class Prolog extends PrologFlags {
 
     @Override
     public String toString() {
-        if (logger == null) {
+        if (this.logger == null) {
             return super.toString();
         }
-        Operation code = cont;
+        final Operation code = this.cont;
         if (code == null) {
             return super.toString();
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        logger.printStack(code, stringBuilder);
+        final StringBuilder stringBuilder = new StringBuilder();
+        this.logger.printStack(code, stringBuilder);
         return stringBuilder.toString();
     }
 
     public static void Break(String string) {
-        byte[] array = new byte[16];
+        final byte[] array = new byte[16];
         try {
             new Exception(string).printStackTrace();
             System.in.read(array);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -755,7 +755,7 @@ public final class Prolog extends PrologFlags {
 
     public Map<Term, Term> getTermBlackboard() {
         // TODO Auto-generated method stub
-        return termBlackboard;
+        return this.termBlackboard;
     }
 
     public static void setPrologFlag(String string, boolean b) {
@@ -767,7 +767,7 @@ public final class Prolog extends PrologFlags {
      * @return the cont
      */
     public Operation getCont() {
-        return cont;
+        return this.cont;
     }
 
     /**
@@ -782,7 +782,7 @@ public final class Prolog extends PrologFlags {
      * @return
      */
     public Term getPlainArg(int i) {
-        return AREGS.getPlainArg(i);
+        return this.AREGS.getPlainArg(i);
     }
 
     /**
@@ -790,7 +790,7 @@ public final class Prolog extends PrologFlags {
      * @return
      */
     public Term getTermDRef(int i) {
-        return AREGS.getTermDRef(i);
+        return this.AREGS.getTermDRef(i);
     }
 
     /**
@@ -798,7 +798,7 @@ public final class Prolog extends PrologFlags {
      * @param atomExp
      */
     public Term setAV(int i, Term v) {
-        return AREGS.setAV(i, v);
+        return this.AREGS.setAV(i, v);
     }
 
     /**

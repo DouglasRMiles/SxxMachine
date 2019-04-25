@@ -138,24 +138,18 @@ strip_module(T,M,T):-context_module(M).
 
 %member(X,[1,2,3]) *-> write(X) ; write(0).
 
-:- public(if_each_none/3).
-if_each_none(IF , THEN , ELSE):-  
+:- public(if_each_else/3).
+if_each_else(IF , THEN , ELSE):-  
    copy_term(sols(0),Succeed1),    
-   or((call(IF),nb_setarg(1,Succeed1,some),call(THEN)),
+   ((call(IF),nb_setarg(1,Succeed1,some),call(THEN));
     (Succeed1 = sols(0),call(ELSE))).
 
-% if_each_none(member(X,[1,2,3]) , Y=t(X) , Y=f(X)).
-or(X,Y):-call(X);call(Y).
+% if_each_else(member(X,[1,2,3]) , Y=t(X) , Y=f(X)).
 
-
-:- public(if_each_or/3).
-if_each_or(IF , THEN , ELSE):-  Succeed1 = sols(0),    
-   or((call(IF),nb_setarg(1,Succeed1,some),call(THEN)),
-      (Succeed1 = sols(0),call(ELSE))).
 
 :- op(1150,xfy,('*->')).
 :- public(( *-> )/2).
-((IF *-> THEN ; ELSE)) :- if_each_none(IF , THEN , ELSE).
+((IF *-> THEN ; ELSE)) :- if_each_else(IF , THEN , ELSE).
 
 /*
 (IF *-> THEN; ELSE) :-
@@ -171,17 +165,17 @@ if_each_or(IF , THEN , ELSE):-  Succeed1 = sols(0),
 debugln(G):- writeq(G), nl. 
 
 :- public(show_call/1).
-show_call(G):- if_each_none(call(G),debugln(show_succeeded(G)),(debugln(show_failed(G)),fail)).
+show_call(G):- if_each_else(call(G),debugln(show_succeeded(G)),(debugln(show_failed(G)),fail)).
   
-:- public(show_success/1).
-show_fail(G):- if_each_none(call(G),true,(debugln(show_failed(G)),fail)).
+:- public(show_failure/1).
+show_failure(G):- if_each_else(call(G),true,(debugln(show_failed(G)),fail)).
 
-:- public(show_fail/1).
-show_success(G):- if_each_none(call(G),debugln(show_succeeded(G)),fail).
+:- public(show_success/1).
+show_success(G):- if_each_else(call(G),debugln(show_succeeded(G)),fail).
 
 :- public(show_retry/1).  
 show_retry(G):-  
-  if_each_none(call(G),
+  if_each_else(call(G),
     (debugln(show_exit(G)); (debugln(show_retry(G)), fail)), 
      ((call(G),debugln(show_fail(G)), fail))). 
 

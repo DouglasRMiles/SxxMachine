@@ -305,11 +305,10 @@ listing(MPI) :- strip_module(MPI,M,PI),'$listing'(PI, M).
 	'$new_internal_database'(P),
      hash_keys(P, Keys),
 	 '$builtin_member'(PI, Keys),	 
-	 show_call(PI = F/A),
 	 PI = F/A,
-	 show_call(functor(H, F, A)),
-	show_call('$clause_internal'(P, PI, H, Cl, _)),
-	show_call('$write_dynamic_clause'(P, Cl)),
+	 show_failure(functor(H, F, A)),
+	show_failure('$clause_internal'(P, PI, H, Cl, _)),
+	show_failure('$write_dynamic_clause'(P, Cl)),
 	fail.
 '$listing_dynamic_clause'(_, _, _).
 

@@ -3189,46 +3189,39 @@ m.cont = cont;
     }
 
     private final static Operation $listing_dynamic_clause_3_1(Prolog m) { 
-    // '$listing_dynamic_clause'(A,B,C):-'$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),show_call(E=B/C),E=B/C,show_call(functor(F,B,C)),show_call('$clause_internal'(A,E,F,G,H)),show_call('$write_dynamic_clause'(A,G)),fail
-         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
-        Operation p1, p2, p3, p4, p5, p6, p7, p8;
+    // '$listing_dynamic_clause'(A,B,C):-'$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),E=B/C,show_failure(functor(F,B,C)),show_failure('$clause_internal'(A,E,F,G,H)),show_failure('$write_dynamic_clause'(A,G)),fail
+         Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
+        Operation p1, p2, p3, p4, p5, p6, p7;
         Operation cont;
 TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         a2 = MARG.getAreg1();
         a3 = MARG.getAreg2();
         cont = m.cont;
-    // '$listing_dynamic_clause'(A,B,C):-['$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),show_call(E=B/C),'$unify'(E,B/C),show_call(functor(F,B,C)),show_call('$clause_internal'(A,E,F,G,H)),show_call('$write_dynamic_clause'(A,G)),fail]
+    // '$listing_dynamic_clause'(A,B,C):-['$new_internal_database'(A),hash_keys(A,D),'$builtin_member'(E,D),'$unify'(E,B/C),show_failure(functor(F,B,C)),show_failure('$clause_internal'(A,E,F,G,H)),show_failure('$write_dynamic_clause'(A,G)),fail]
         a4 = m.mkvar1();
         a5 = m.mkvar1();
     // put_str_args([a(2),a(3)],y(1)),put_str(@('FUNCTOR_$002F_2'),y(1),a(6))
         a6 =  S( FUNCTOR_$002F_2 , a2, a3);
  ;
-    // put_str_args([a(5),a(6)],y(2)),put_str(@('FUNCTOR_$003D_2'),y(2),a(7))
-        a7 =  S( FUNCTOR_$003D_2 , a5, a6);
- ;
-    // put_str_args([a(2),a(3)],y(3)),put_str(@('FUNCTOR_$002F_2'),y(3),a(8))
-        a8 =  S( FUNCTOR_$002F_2 , a2, a3);
+        a7 = m.mkvar1();
+    // put_str_args([a(7),a(2),a(3)],y(2)),put_str(@('FUNCTOR_functor_3'),y(2),a(8))
+        a8 =  S( FUNCTOR_functor_3 , a7, a2, a3);
  ;
         a9 = m.mkvar1();
-    // put_str_args([a(9),a(2),a(3)],y(4)),put_str(@('FUNCTOR_functor_3'),y(4),a(10))
-        a10 =  S( FUNCTOR_functor_3 , a9, a2, a3);
+    // put_str_args([a(1),a(5),a(7),a(9),void],y(3)),put_str(@('FUNCTOR_$0024clause_internal_5'),y(3),a(10))
+        a10 =  S( FUNCTOR_$0024clause_internal_5 , a1, a5, a7, a9, m.mkvar3());
  ;
-        a11 = m.mkvar1();
-    // put_str_args([a(1),a(5),a(9),a(11),void],y(5)),put_str(@('FUNCTOR_$0024clause_internal_5'),y(5),a(12))
-        a12 =  S( FUNCTOR_$0024clause_internal_5 , a1, a5, a9, a11, m.mkvar3());
- ;
-    // put_str_args([a(1),a(11)],y(6)),put_str(@('FUNCTOR_$0024write_dynamic_clause_2'),y(6),a(13))
-        a13 =  S( FUNCTOR_$0024write_dynamic_clause_2 , a1, a11);
+    // put_str_args([a(1),a(9)],y(4)),put_str(@('FUNCTOR_$0024write_dynamic_clause_2'),y(4),a(11))
+        a11 =  S( FUNCTOR_$0024write_dynamic_clause_2 , a1, a9);
  ;
         return //
  Op("$new_internal_database", FILE_system::PRED_$new_internal_database_1_static_exec, VA(a1), //
  Op("hash_keys", FILE_system::PRED_hash_keys_2_static_exec, VA(a1, a4), //
  Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a5, a4), //
- Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a7), //
- Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a5, a8), //
- Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a10), //
- Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a12), //
- Op("show_call", FILE_system::PRED_show_call_1_static_exec, VA(a13), fail_0))))))));
+ Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a5, a6), //
+ Op("show_failure", FILE_system::PRED_show_failure_1_static_exec, VA(a8), //
+ Op("show_failure", FILE_system::PRED_show_failure_1_static_exec, VA(a10), //
+ Op("show_failure", FILE_system::PRED_show_failure_1_static_exec, VA(a11), fail_0)))))));
     }
 
     private final static Operation $listing_dynamic_clause_3_2(Prolog m) { 

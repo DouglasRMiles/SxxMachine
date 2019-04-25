@@ -218,7 +218,7 @@ abstract public class TermData {
     //    static public Predicate Op(Operation object, Term[] LARG, Operation cont) {
     //        return factory.Op(object, LARG, cont);
     //    }
-
+    
     static public Predicate Op(String str, Operation object, Term[] args, Operation cont) {
         return factory.Op(str, object, args, cont);
     }

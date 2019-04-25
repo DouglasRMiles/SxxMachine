@@ -29,4 +29,4 @@ animal_chars_pro(X) :-
 	
 :- listing.
 
-:- listing(animal_chars_pro/1).	
+:- listing(animal_atom_pro/1).	

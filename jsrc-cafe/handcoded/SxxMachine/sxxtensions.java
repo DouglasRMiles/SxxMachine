@@ -26,12 +26,12 @@ public class sxxtensions extends missing_preds {
     }
 
     static void linkval(Prolog m, Term a1, Term a2) {
-        Map<Term, Term> saved = m.getTermBlackboard();
+        final Map<Term, Term> saved = m.getTermBlackboard();
         saved.put(a1.functor(), a2);
     }
 
     static Term currentval(Prolog m, Term a1) {
-        Map<Term, Term> saved = m.getTermBlackboard();
+        final Map<Term, Term> saved = m.getTermBlackboard();
         return saved.get(a1.functor());
     }
 
@@ -39,11 +39,11 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Map<Term, Term> saved = m.getTermBlackboard();
+        final Map<Term, Term> saved = m.getTermBlackboard();
         Term was = saved.get(a1.functor());
         if (was == null)
             was = Prolog.Nil;
-        VariableTerm sav = new VariableTerm();
+        final VariableTerm sav = new VariableTerm();
         sav.Refers = was;
         sav.bind(a2, m.trail);
         linkval(m, a1, sav);
@@ -66,7 +66,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Map<Term, Term> saved = m.getTermBlackboard();
+        final Map<Term, Term> saved = m.getTermBlackboard();
         final Term arg0 = saved.get(a1.functor());
         if (!a2.unify(arg0, m.trail)) {
             return m.fail();
@@ -78,7 +78,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Map<Term, Term> saved = m.getTermBlackboard();
+        final Map<Term, Term> saved = m.getTermBlackboard();
         final Term arg0 = saved.get(a1.functor());
         if (arg0 == null || !a2.unify(arg0, m.trail)) {
             return m.fail();
@@ -88,7 +88,7 @@ public class sxxtensions extends missing_preds {
 
     public Operation PRED_cputime_1_static_exec(Prolog m) {
         m.setB0();
-        long t = java.lang.System.currentTimeMillis();
+        final long t = java.lang.System.currentTimeMillis();
         if (!m.getPlainArg(0).unify(Long(t), m.trail))
             return m.fail();
         return m.getCont();
@@ -102,10 +102,10 @@ public class sxxtensions extends missing_preds {
             return false;
         if (!(arg2.isCompound()))
             return false;
-        int i = arg1.intValue();
+        final int i = arg1.intValue();
         if (i < 1)
             return false;
-        int l = arg2.arity();
+        final int l = arg2.arity();
         if (i > l)
             return false;
         return DoSetArg3_p2(m, i, arg2, arg3);
@@ -116,8 +116,8 @@ public class sxxtensions extends missing_preds {
             arg2.setarg0Maybe_trail(null, i - 1, arg3);
             return true;
         }
-        Term x = arg2.getPlainArg(i - 1);
-        VariableTerm v = V(m);
+        final Term x = arg2.getPlainArg(i - 1);
+        final VariableTerm v = V(m);
         v.Refers = arg3;
         arg2.setarg0Maybe_trail(null, i - 1, v);
         m.push(new SetArgTrail(x, v, m));
@@ -148,13 +148,13 @@ public class sxxtensions extends missing_preds {
             return false;
         if (arg2.isAtomicValue())
             return false;
-        int i = arg1.intValue();
+        final int i = arg1.intValue();
         if (i < 1)
             return false;
-        int l = arg2.arity();
+        final int l = arg2.arity();
         if (i > l)
             return false;
-        (arg2).args()[i - 1] = arg3.dref();
+        arg2.setArg(i - 1, arg3.dref());
         return true;
     }
 
@@ -173,7 +173,7 @@ public class sxxtensions extends missing_preds {
         @Override
         public String toString() {
             // TODO Auto-generated method stub
-            return "$SetArgTrail " + OldValue + " " + Which;
+            return "$SetArgTrail " + this.OldValue + " " + this.Which;
         }
 
         SetArgTrail(Term old, Var changed, Prolog m) {
@@ -198,7 +198,7 @@ public class sxxtensions extends missing_preds {
         @Override
         public String toString() {
             // TODO Auto-generated method stub
-            return "$PopPendingGoals " + old;
+            return "$PopPendingGoals " + this.old;
         }
 
         public PopPendingGoals(Prolog m, Term o) {
@@ -221,7 +221,7 @@ public class sxxtensions extends missing_preds {
         @Override
         public String toString() {
             // TODO Auto-generated method stub
-            return "$PopAssumptions " + old;
+            return "$PopAssumptions " + this.old;
         }
 
         PopAssumptions(Prolog m, Term o) {
@@ -256,7 +256,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getPlainArg(0);
         a2 = m.getTermDRef(1);
-        Term goals = a1.frozenGoals();
+        final Term goals = a1.frozenGoals();
         if (!a2.unify(goals, m.trail)) {
             return m.fail();
         }
@@ -286,11 +286,11 @@ public class sxxtensions extends missing_preds {
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
         a3 = m.getTermDRef(2);
-        Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
+        final Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
         if (!a2.unify(a1.copy(saved, Term.COPY_SAVE_ATTRS_COPY), m.trail)) {
             return m.fail();
         }
-        Term copyGoals = saved.get(Prolog.GOALS);
+        final Term copyGoals = saved.get(Prolog.GOALS);
         if (sxxtensions.isNoGoal(copyGoals)) {
             if (!a3.unify(Prolog.Nil, m.trail)) {
                 return m.fail();
@@ -307,7 +307,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
+        final Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
         if (!a2.unify(a1.copy(saved, Term.COPY_NO_ATTRS), m.trail)) {
             return m.fail();
         }
@@ -318,8 +318,8 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
-        Term copy = a1.copy(saved, Term.COPY_ALL);
+        final Map<Object, Term> saved = new IdentityHashMap<Object, Term>();
+        final Term copy = a1.copy(saved, Term.COPY_ALL);
         if (!a2.unify(copy, m.trail)) {
             return m.fail();
         }
@@ -343,7 +343,7 @@ public class sxxtensions extends missing_preds {
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
         a3 = m.getTermDRef(2);
-        Term t = a1.findOrAttrValue(m.trail, false, a2);
+        final Term t = a1.findOrAttrValue(m.trail, false, a2);
         if (!t.isCompound())
             return m.fail();
         if (!a3.unify(t.getPlainArg(1), m.trail))
@@ -357,7 +357,7 @@ public class sxxtensions extends missing_preds {
         Term a1, a2;
         a1 = m.getTermDRef(0);
         a2 = m.getTermDRef(1);
-        Term attrs = a1.getAttrs();
+        final Term attrs = a1.getAttrs();
         if (!a2.unify(attrs, m.trail)) {
             return m.fail();
         }
@@ -383,7 +383,7 @@ public class sxxtensions extends missing_preds {
     public static Operation PRED_peek_pending_1_static_exec(final Prolog m) {
         m.setB0();
         final Term a1 = m.getTermDRef(0);
-        Term goals = m.peekPendingGoals();
+        final Term goals = m.peekPendingGoals();
         if (!a1.unify(goals, m.trail)) {
             return m.fail();
         }
@@ -414,16 +414,16 @@ public class sxxtensions extends missing_preds {
     }
 
     public static Operation PRED_assume_1_static_exec(Prolog m) {
-        Term arg1 = m.getTermDRef(0);
-        Term ass = (m.assumptions).dref();
+        final Term arg1 = m.getTermDRef(0);
+        final Term ass = (m.assumptions).dref();
         m.push(new PopAssumptions(m, ass));
         m.assumptions = CONS(arg1, ass);
         return m.getCont();
     }
 
     public static Operation PRED_allassumed_1_static_exec(Prolog m) {
-        Term arg1 = m.getTermDRef(0);
-        Term ass = (m.assumptions).dref();
+        final Term arg1 = m.getTermDRef(0);
+        final Term ass = (m.assumptions).dref();
         if (!(arg1.unify(ass, m.trail)))
             return m.fail();
         return m.getCont();

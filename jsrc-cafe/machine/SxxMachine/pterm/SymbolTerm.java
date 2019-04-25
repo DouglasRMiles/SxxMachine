@@ -636,18 +636,33 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public boolean unifyImpl(Term t, Trail trail) {
         t = t.dref(); // fast dereference
-        return (t.isVar()) ? t.bind(this, trail)
-                : ((t instanceof Partial) ? t.unify(this, trail)
-                        : ((t.isAtomSymbol()) && (this.arity == (t.asSymbolTerm()).arity())
-                                && this.name.equals(t.asSymbolTerm().getJavaString())));
+        if (t == this)
+            return true;
+        if (t.isVar())
+            return t.bind(this, trail);
+        if ((t instanceof Partial))
+            return t.unify(this, trail);
+        if ((!t.isAtomSymbol()) && this.isAtomSymbol())
+            return false;
+        final Functor asSymbolTerm = t.asSymbolTerm();
+        final String o_fname = asSymbolTerm.fname();
+        final String fname = this.fname();
+        if (!fname.equals(o_fname)) {
+            return false;
+        }
+        if (o_fname == fname)
+            return true;
+        return (this.arity != asSymbolTerm.arity());
+
     }
 
     /* (non-Javadoc)
      * @see SxxMachine.pterm.Functor#termHashCodeImpl()
      */
     @Override
-    public int termHashCodeImpl() {
-        return this.name.hashCode();
+    public int termHashCodeImpl() {        
+        final String fname = this.fname();
+        return fname.hashCode();
     }
 
     /* (non-Javadoc)
