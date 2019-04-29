@@ -358,7 +358,7 @@ abstract public class TermDataImpl {
      * @return
      */
     public Compound S(String f, TermArray s3) {
-        return S(f, s3.getBackingCopy());
+        return S(f, s3.getBackingCopy(s3.length));
     }
 
 }

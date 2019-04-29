@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package SxxMachine;
 
@@ -137,7 +137,7 @@ public class TermArray {
         //
         //            }
         //            return v;
-        //        } else 
+        //        } else
         if (true) {
             final Term[] backing = this.backing;
             return backing[i] = v;
@@ -471,11 +471,12 @@ public class TermArray {
     }
 
     /**
+     * @param count
      * @return
      */
-    public Term[] getBackingCopy() {
+    public Term[] getBackingCopy(int count) {
         final Term[] lbacking = getBacking();
-        final int len = lbacking.length;
+        final int len = count;
         final Term[] copy = new Term[len];
         System.arraycopy(lbacking, 0, copy, 0, len);
         return copy;

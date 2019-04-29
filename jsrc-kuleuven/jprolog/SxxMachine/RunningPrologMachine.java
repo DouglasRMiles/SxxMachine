@@ -44,7 +44,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
         if (count < 0)
             throw new IllegalArgumentException();
         final TermArray areg = getAreg();
-        final Term[] copy = areg.getBackingCopy();
+        final Term[] copy = areg.getBackingCopy(count);
         return copy;
     }
 
@@ -153,6 +153,7 @@ public class RunningPrologMachine extends ModulePrologMachine {
         getCurrentStackItem().createChoicePoint(args);
     }
 
+    @Override
     public void checkCont(int n) {
         getCurrentStackItem().checkCont(n);
     }
