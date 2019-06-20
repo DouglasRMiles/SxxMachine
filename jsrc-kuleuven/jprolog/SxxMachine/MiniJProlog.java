@@ -276,8 +276,14 @@ public class MiniJProlog implements Comparator<Class< ? extends JpModule>>
     if( cont != term )
     // TODO Auto-generated method stub
     {
-      if( false && cont != term )
+      if( false )
         throw new AbstractMethodError( "MiniJProlog.checkCont" );
+    }
+    else
+    {
+      if( cont == term )
+      {
+      } ;// throw new AbstractMethodError( "MiniJProlog.checkCont" );
     }
   }
 
