@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="jsrc-cafe/compiler"/>
-	<classpathentry kind="src" path="jsrc-cafe/exceptions"/>
-	<classpathentry kind="src" path="jsrc-cafe/handcoded"/>
-	<classpathentry kind="src" path="jsrc-cafe/machine"/>
-	<classpathentry kind="src" path="jsrc-cafe/repl"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/attvars"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/builtins"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/chr"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/comp"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/exceptions"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/globalvars"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/javaconnection"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/jprolog"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/prolog"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/scriptEngine"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/support"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/test"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/toplevel1"/>
-	<classpathentry kind="src" path="jsrc-kuleuven/util"/>
-	<classpathentry kind="src" path="jsrc-pass10/builtin"/>
-	<classpathentry kind="src" path="jsrc-pass10/compiler"/>
-	<classpathentry kind="src" path="jsrc-pass10/repl"/>
-	<classpathentry kind="src" path="jsrc-pass20/bench"/>
-	<classpathentry kind="src" path="jsrc-pass20/tabling_dra"/>
-	<classpathentry kind="src" path="jsrc-pass20/tests"/>
-	<classpathentry kind="src" path="jsrc-kernelprolog/fluents"/>
-	<classpathentry kind="src" path="jsrc-kernelprolog/io"/>
-	<classpathentry kind="src" path="jsrc-kernelprolog/main"/>
-	<classpathentry kind="src" path="jsrc-kernelprolog/terms"/>
-	<classpathentry kind="src" path="jsrc-kernelprolog/tests"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/compiler"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/exceptions"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/handcoded"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/machine"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/repl"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/attvars"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/builtins"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/chr"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/comp"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/exceptions"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/globalvars"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/javaconnection"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/jprolog"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/prolog"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/scriptEngine"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/support"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/toplevel1"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/util"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/builtin"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/compiler"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/repl"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-pass20/bench"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-pass20/tabling_dra"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/fluents"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/io"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/main"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/terms"/>
+	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/test"/>
+	<classpathentry kind="src" output="target/test-classes" path="jsrc-kernelprolog/tests">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="jsrc-pass20/tests">
+		<attributes>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>	
+	
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

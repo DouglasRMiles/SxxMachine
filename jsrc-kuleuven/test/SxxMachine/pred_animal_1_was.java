@@ -3,7 +3,8 @@
 // Authors: Bart Demoen and Paul Tarau
 
 package SxxMachine;
-
+ 
+import SxxMachine.*;
 import static SxxMachine.pterm.TermData.CONST;
 import static SxxMachine.pterm.TermData.Jv;
 import static SxxMachine.pterm.TermData.S;
@@ -11,7 +12,7 @@ import static SxxMachine.pterm.TermData.internS;
 
 import java.util.Iterator;
 
-class pred_animal_1_consts {
+class pred_animal_1_was_consts {
     Code entry_code;
     Code write2cont;
     final static String string0 = internS("cut");
@@ -24,20 +25,20 @@ class pred_animal_1_consts {
     final static String string7 = internS("goat");
 }
 
-public class pred_animal_1 extends Code {
-    private final pred_animal_1_consts consts;
+public class pred_animal_1_was extends Code {
+    private final pred_animal_1_was_consts consts;
 
-    public pred_animal_1() {
-        consts = new pred_animal_1_consts();
+    public pred_animal_1_was() {
+        consts = new pred_animal_1_was_consts();
         initAlternatives();
     }
 
-    protected pred_animal_1(pred_animal_1 c) {
+    protected pred_animal_1_was(pred_animal_1_was c) {
         consts = c.getConsts();
         ALT = null;
     }
 
-    protected final pred_animal_1_consts getConsts() {
+    protected final pred_animal_1_was_consts getConsts() {
         return consts;
     }
 
@@ -45,9 +46,9 @@ public class pred_animal_1 extends Code {
 
     private void initAlternatives() {
         ALT.disable();
-        ALT.addAlternative(new pred_animal_1_1(this));
-        ALT.addAlternative(new pred_animal_1_2(this));
-        ALT.addAlternative(new pred_animal_1_3(this));
+        ALT.addAlternative(new pred_animal_1_was_1(this));
+        ALT.addAlternative(new pred_animal_1_was_2(this));
+        ALT.addAlternative(new pred_animal_1_was_3(this));
 
     }
 
@@ -74,8 +75,8 @@ public class pred_animal_1 extends Code {
     }
 }
 
-class pred_animal_1_1 extends pred_animal_1 {
-    pred_animal_1_1(pred_animal_1 consts) {
+class pred_animal_1_was_1 extends pred_animal_1_was {
+    pred_animal_1_was_1(pred_animal_1_was consts) {
         super(consts);
     }
 
@@ -83,7 +84,7 @@ class pred_animal_1_1 extends pred_animal_1 {
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
 
-        final Term arg0 = CONST(pred_animal_1_consts.string7);
+        final Term arg0 = CONST(pred_animal_1_was_consts.string7);
         return new Term[] { arg0 };
     }
 
@@ -94,7 +95,7 @@ class pred_animal_1_1 extends pred_animal_1 {
         final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs.getTermDRef(0);
 
-        if (!(areg0.unifyJP(CONST(pred_animal_1_consts.string7))))
+        if (!(areg0.unifyJP(CONST(pred_animal_1_was_consts.string7))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
@@ -103,8 +104,8 @@ class pred_animal_1_1 extends pred_animal_1 {
     }
 }
 
-class pred_animal_1_2 extends pred_animal_1 {
-    pred_animal_1_2(pred_animal_1 consts) {
+class pred_animal_1_was_2 extends pred_animal_1_was {
+    pred_animal_1_was_2(pred_animal_1_was consts) {
         super(consts);
     }
 
@@ -112,7 +113,7 @@ class pred_animal_1_2 extends pred_animal_1 {
     @SuppressWarnings("static-access")
     protected Term[] getArgs() {
 
-        final Term arg0 = CONST(pred_animal_1_consts.string5);
+        final Term arg0 = CONST(pred_animal_1_was_consts.string5);
         return new Term[] { arg0 };
     }
 
@@ -123,7 +124,7 @@ class pred_animal_1_2 extends pred_animal_1 {
         final Term continuation = mach.getCont(local_aregs, 1);
         final Term areg0 = local_aregs.getTermDRef(0);
 
-        if (!(areg0.unifyJP(CONST(pred_animal_1_consts.string5))))
+        if (!(areg0.unifyJP(CONST(pred_animal_1_was_consts.string5))))
             return mach.Fail0;
         mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
@@ -132,8 +133,8 @@ class pred_animal_1_2 extends pred_animal_1 {
     }
 }
 
-class pred_animal_1_3 extends pred_animal_1 {
-    pred_animal_1_3(pred_animal_1 consts) {
+class pred_animal_1_was_3 extends pred_animal_1_was {
+    pred_animal_1_was_3(pred_animal_1_was consts) {
         super(consts);
     }
 
@@ -156,9 +157,9 @@ class pred_animal_1_3 extends pred_animal_1 {
         if (!(areg0.unifyJP(var1.dref())))
             return mach.Fail0;
 
-        local_aregs.setAreg0((CONST(pred_animal_1_consts.string3)));
+        local_aregs.setAreg0((CONST(pred_animal_1_was_consts.string3)));
 
-        mach.setCont(local_aregs, 1, S(pred_animal_1_consts.string4, var1.dref(), continuation));
+        mach.setCont(local_aregs, 1, S(pred_animal_1_was_consts.string4, var1.dref(), continuation));
         mach.updateCUTB();
         return getConsts().write2cont;
     }

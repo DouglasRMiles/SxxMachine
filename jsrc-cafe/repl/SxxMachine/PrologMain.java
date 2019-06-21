@@ -67,7 +67,7 @@ public class PrologMain {
     private static Term MAIN_GOAL;
     final private static Queue<String> pendingGoals = new LinkedList<String>();
     private static Queue<String> pendingInits = new LinkedList<String>();
-
+ 
     public static void main(String argv[]) {
         if (argv == null || argv.length == 0) {
             argv = new String[] { "--enable-io", "-l", "jsrc-pass20/tests/animal_string.pro", "-main", "cafeteria" };
