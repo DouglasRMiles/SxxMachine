@@ -1,44 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/compiler"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/exceptions"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/handcoded"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/machine"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-cafe/repl"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/attvars"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/builtins"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/chr"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/comp"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/exceptions"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/globalvars"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/javaconnection"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/jprolog"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/prolog"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/scriptEngine"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/support"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/toplevel1"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/util"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/builtin"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/compiler"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-pass10/repl"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-pass20/bench"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-pass20/tabling_dra"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/fluents"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/io"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/main"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kernelprolog/terms"/>
-	<classpathentry kind="src" including="**/*.java" path="jsrc-kuleuven/test"/>
-	<classpathentry kind="src" output="target/test-classes" path="jsrc-kernelprolog/tests">
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-cafe/repl">
 		<attributes>
-			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="jsrc-pass20/tests">
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-cafe/compiler">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-cafe/exceptions">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-cafe/handcoded">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-cafe/machine">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/attvars">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/builtins">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/chr">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/comp">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/exceptions">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/globalvars">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/javaconnection">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/jprolog">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-kuleuven/prolog">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/scriptEngine">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/support">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/toplevel1">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kuleuven/util">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-pass10/builtin">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-pass10/compiler">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-pass10/repl">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-pass20/bench">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-pass20/tabling_dra">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kernelprolog/fluents">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kernelprolog/io">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="jsrc-kernelprolog/main">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="jsrc-kernelprolog/terms">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="jsrc-kuleuven/test">
 		<attributes>
 			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
-	</classpathentry>	
-	
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="jsrc-kernelprolog/tests">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="jsrc-pass20/tests">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

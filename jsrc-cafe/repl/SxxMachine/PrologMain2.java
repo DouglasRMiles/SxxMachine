@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-public class PrologMain2 {
+class PrologMain2 {
     /** Version information */
     public static final String VERSION = "Prolog Cafe 1.2.5 (mantis)";
     /** Copyright information */
