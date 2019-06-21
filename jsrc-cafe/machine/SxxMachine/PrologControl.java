@@ -253,7 +253,7 @@ public abstract class PrologControl {
                         //code.toString();
                         nextCode = code.exec(engine);
                         final String debug = PrologFlags.current.getDebug();
-                        if (!"off".equals(debug)) {
+                        if ("on".equals(debug)) {
                             Class c = code.getClass();
                             thiz.steps++;
                             if (c == StaticPred.class) {
