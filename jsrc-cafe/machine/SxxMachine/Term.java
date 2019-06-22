@@ -318,4 +318,12 @@ public interface Term extends Comparable<Term> {
      */
     public boolean equalsIdentical(Term a2);
 
+	/**
+	 * @param i
+	 * @param a
+	 * @param p
+	 * @return
+	 */
+	public int unifyArg(int i, Term a, Prog p);
+
 }

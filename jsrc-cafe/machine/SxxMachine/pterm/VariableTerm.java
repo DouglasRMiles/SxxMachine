@@ -17,6 +17,7 @@ import SxxMachine.KPTrail;
 import SxxMachine.MiniJProlog;
 import SxxMachine.OpVisitor;
 import SxxMachine.Operation;
+import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.PrologMachineCopy;
 import SxxMachine.RunningPrologMachine;
@@ -685,5 +686,13 @@ public class VariableTerm extends AVar implements Undoable, Var {
     public boolean equalsTerm(Term aneof) {
         return aneof == this;
     }
+
+	@Override
+	public int unifyArg(int i, Term a, Prog p) {
+		if (a instanceof VariableTerm) {
+			return Unify_TO(a, p.getTrail()) ? 1 : 0;
+		}
+		return a.unifyArg(i, a, p);
+	}
 
 }

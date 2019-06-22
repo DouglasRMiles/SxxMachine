@@ -805,21 +805,21 @@ public final class Prolog extends PrologFlags implements ISTerm {
 		return theProg ;
 	}
 
-	private static final int PROG_OFFSET = -1;
+	private static final int PROG_OFFSET = 1;
 	
 	@Override
 	public Term getDrefArg(int i) {
-		return getTermDRef(i + PROG_OFFSET);
+		return getTermDRef(PROG_OFFSET).getDrefArg(i);
 	}
 
 	@Override
 	public int getIntArg(int i) {
-		return getTermDRef(i + PROG_OFFSET).intValue();
+		return getDrefArg(i).intValue();
 	}
 
 	@Override
 	public int unifyArg(int i, Term a, Prog p) {
-		return getTermDRef(i + PROG_OFFSET).Unify_TO(a, p.getTrail()) ? 1 : 0;
+		return getTermDRef(PROG_OFFSET).unifyArg(i, a, p);
 	}
 
 }
