@@ -8,6 +8,8 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
@@ -98,7 +100,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
      */
     public VariableTerm() {
         // this.val = this;
-        this.myID = nextID++;
+        this.myID = nextID.getAndIncrement();
         this.timeStamp = Long.MIN_VALUE;
     }
 
@@ -115,7 +117,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
         // this.val = this;
         if (engine != null)
             this.timeStamp = engine.getCPFTimeStamp();
-        this.myID = nextID++;
+        this.myID = nextID.getAndIncrement();
     }
 
     /** Returns a string representation of this object. */
@@ -544,7 +546,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
         return false;
     }
 
-    static int nextID;
+    static AtomicInteger nextID = new AtomicInteger(0);
     final int myID;
     // Prolog mach;
     public String varName = null;
@@ -558,20 +560,20 @@ public class VariableTerm extends AVar implements Undoable, Var {
         this.varName = sval;
         Prolog mach = m;
         this.timeStamp = mach.getCPFTimeStamp();
-        this.myID = nextID++;
+        this.myID = nextID.getAndIncrement();
     }
 
     public VariableTerm(Prolog mach, long currentChoice, Term newgoals) {
         this.Refers = this;
         this.timeStamp = currentChoice;
-        this.myID = nextID++;
+        this.myID = nextID.getAndIncrement();
         this.getFdata().setGoals(newgoals);
     }
 
     public VariableTerm(Prolog mach, long currentChoice) {
         this.Refers = this;
         this.timeStamp = currentChoice;
-        this.myID = nextID++;
+        this.myID = nextID.getAndIncrement();
     }
 
     @Override
