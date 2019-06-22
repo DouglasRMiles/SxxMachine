@@ -34,7 +34,7 @@ import SxxMachine.pterm.TermData;
  * @version 1.2
  */
 @SuppressWarnings("unused")
-public final class Prolog extends PrologFlags {
+public final class Prolog extends PrologFlags implements ISTerm {
     private final PrologLogger logger;
     private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
     private static final Functor NONE = TermData.SYM("$none");
@@ -794,7 +794,8 @@ public final class Prolog extends PrologFlags {
 	 * @return
 	 */
 	public ISTerm getISTerm(int arity) {
-		return null;
+		// @TODO pass a small local copy of this
+		return this;
 	}
 
 	/**
@@ -802,6 +803,23 @@ public final class Prolog extends PrologFlags {
 	 */
 	public Prog asProg() {
 		return theProg ;
+	}
+
+	private static final int PROG_OFFSET = -1;
+	
+	@Override
+	public Term getDrefArg(int i) {
+		return getTermDRef(i + PROG_OFFSET);
+	}
+
+	@Override
+	public int getIntArg(int i) {
+		return getTermDRef(i + PROG_OFFSET).intValue();
+	}
+
+	@Override
+	public int unifyArg(int i, Term a, Prog p) {
+		return getTermDRef(i + PROG_OFFSET).Unify_TO(a, p.getTrail()) ? 1 : 0;
 	}
 
 }
