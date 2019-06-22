@@ -316,7 +316,7 @@ public final class Prolog extends PrologFlags {
     public void neckCut() {
         this.stack.cut(this.B0);
     }
-
+    
     /**
      * Returns a copy of term <code>t</code>.
      * @param t a term to be copied. It must be dereferenced.
