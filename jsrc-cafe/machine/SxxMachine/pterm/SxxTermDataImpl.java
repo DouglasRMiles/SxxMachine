@@ -51,6 +51,11 @@ public class SxxTermDataImpl implements ITermFactory {
 	public VariableTerm V(Prolog engine) {
         return new VariableTerm(engine);
     }
+	@Override
+	public VariableTerm V(Prolog engine, String why) {
+        return new VariableTerm(engine, why);
+	}
+
 
     @Override
 	public VariableTerm V() {

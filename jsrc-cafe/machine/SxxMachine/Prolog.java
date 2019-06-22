@@ -19,6 +19,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 import SxxMachine.pterm.HashtableOfTerm;
@@ -42,7 +43,9 @@ public final class Prolog extends PrologFlags {
     /** Argument registers */
     //public Term AREGS.a(0).v, AREGS.a(1).v, AREGS.a(2).v, AREGS.a(3).v, AREGS.a(4).v, AREGS.a(5).v, AREGS.a(6).v, AREGS.a(7).v;
     //public Term[] aregs;
+    //* @TODO Convert Prolog to -PrologRegs soon
     public TermArray AREGS;
+    // public PrologRegs AREGS;
 
     public int initTimes = 0;
 
@@ -523,26 +526,6 @@ public final class Prolog extends PrologFlags {
     private long startRuntime;
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     private long previousRuntime;
-    //public final static Const Nil = CONST("[]");
-    public PrologRegs regs;
-    Term r0;
-    Term r1;
-    Term r2;
-    Term r3;
-    Term r4;
-    Term r5;
-    Term r6;
-    Term r7;
-    Term r8;
-    Term r9;
-    Term r10;
-    Term r11;
-    Term r12;
-    Term r13;
-    Term r14;
-    Term r15;
-    Term r16;
-    Term r17;
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {
@@ -723,44 +706,41 @@ public final class Prolog extends PrologFlags {
 
     }
 
+    /**
+	 * @param string
+	 * @return
+	 */
+	final static AtomicLong debugVarNum = new AtomicLong(0);
+	private Term mVar(String why) {
+    	if(!BE_SAFE) return TermData.V(this);
+		return TermData.V(this, why + "_" + Long.toOctalString(debugVarNum.incrementAndGet()));
+	}
+
     public Term mkvar1() {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+        return mVar("M1V");
     }
 
     public Term mkvar2() {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+        return mVar("M2V");
     }
 
     public Term mkvar3() {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+        return mVar("M3V");
     }
 
     public Term DONTCARE(String _string) {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+        return mVar(String.valueOf(_string).toUpperCase().replaceAll("[^A-Z]", "_"));
     }
 
-    public Term DONT_CARE1() {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+	public Term DONT_CARE1() {
+		return mVar("D1C");
     }
-
     public Term DONT_CARE2() {
-        // TODO Auto-generated method stub
-        return TermData.V(this);
+		return mVar("D2C");
     }
 
     public Map<Term, Term> getTermBlackboard() {
-        // TODO Auto-generated method stub
         return this.termBlackboard;
-    }
-
-    public static void setPrologFlag(String string, boolean b) {
-        // TODO Auto-generated method stub
-
     }
 
     /**

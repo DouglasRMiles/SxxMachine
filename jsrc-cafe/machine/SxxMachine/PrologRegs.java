@@ -5,6 +5,8 @@ package SxxMachine;
 
 /**
  * @author Administrator
+ * 
+ * @TODO Convert Prolog to -PrologRegs soon
  *
  */
 public class PrologRegs {

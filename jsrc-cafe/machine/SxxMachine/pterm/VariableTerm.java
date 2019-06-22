@@ -546,7 +546,7 @@ public class VariableTerm extends AVar implements Undoable, Var {
         return false;
     }
 
-    static AtomicInteger nextID = new AtomicInteger(0);
+    final static AtomicInteger nextID = new AtomicInteger(0);
     final int myID;
     // Prolog mach;
     public String varName = null;

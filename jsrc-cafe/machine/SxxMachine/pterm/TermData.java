@@ -273,6 +273,9 @@ abstract public class TermData {
 	static public VariableTerm V(Prolog engine) {
 		return factory.V(engine);
 	}
+	static public VariableTerm V(Prolog engine, String why) {
+		return factory.V(engine, why);
+	}
 
 	static public Term[] VA(Term... array) {
 		return factory.VA(array);

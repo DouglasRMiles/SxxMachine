@@ -159,5 +159,12 @@ public interface ITermFactory {
 	 */
 	Compound S(String f, TermArray s3);
 
+	/**
+	 * @param engine
+	 * @param why
+	 * @return
+	 */
+	VariableTerm V(Prolog engine, String why);
+
 
 }
