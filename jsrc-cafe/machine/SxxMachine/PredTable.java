@@ -185,9 +185,13 @@ public class PredTable {
 	 * @param funBuiltin
 	 */
 	public static void register(ConstBuiltin funBuiltin) {
-		if (findPredicateOp(null, funBuiltin.fname(), funBuiltin.arity()) != null)
+		final String fname = funBuiltin.fname();
+		final int arity = funBuiltin.arity();
+		
+		if (findPredicateOp(null, fname, arity) != null)
 			return;
-		registerBuiltin(funBuiltin.fname(), funBuiltin.arity(), new Operation() {		
+		
+		registerBuiltin(fname, arity, new Operation() {		
 			@Override
 			public Operation exec(Prolog engine) throws PrologException {
 				// TODO Auto-generated method stub
