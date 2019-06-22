@@ -256,6 +256,11 @@ final public class TermData {
 		Prolog.Break("soopsy!");
 	}
 
+	static public void soopsy(String oops) {
+		new Exception(oops).printStackTrace();
+		Prolog.Break("soopsy!" + oops);
+	}
+
 	/** Returns a Prolog atom for the given name. */
 	static public SxxMachine.Functor SYM(String _name) {
 		return factory.SYM(_name);

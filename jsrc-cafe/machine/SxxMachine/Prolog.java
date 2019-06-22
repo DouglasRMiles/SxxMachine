@@ -23,6 +23,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 import SxxMachine.pterm.HashtableOfTerm;
+import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.TermData;
 
 /**
@@ -526,6 +527,7 @@ public final class Prolog extends PrologFlags {
     private long startRuntime;
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     private long previousRuntime;
+	private Prog theProg = new Prog(HornClause.clauseFromString("true"), null);
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {
@@ -787,5 +789,19 @@ public final class Prolog extends PrologFlags {
     public void setAREGS(TermArray aREGS) {
         this.AREGS = aREGS;
     }
+
+	/**
+	 * @return
+	 */
+	public ISTerm getISTerm(int arity) {
+		return null;
+	}
+
+	/**
+	 * @return
+	 */
+	public Prog asProg() {
+		return theProg ;
+	}
 
 }

@@ -16,7 +16,7 @@ abstract public class FunBuiltin extends ConstBuiltin {
     }
 
     // @Override
-    // public int exec(Prog p) {s
+    //public int exec(Prog p) {
     // // TODO Auto-generated method stub
     // return 0;
     // }

@@ -785,7 +785,7 @@ public class Parser
 
   public static HornClause clsFromString(String s)
   {
-    return null;
+    return clsFromStringOld(s);
   }
 
   public static HornClause clsFromStringOld(String s)

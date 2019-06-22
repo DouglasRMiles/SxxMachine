@@ -1,52 +1,74 @@
 package SxxMachine;
 
+import static SxxMachine.pterm.TermData.*;
+
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import SxxMachine.pterm.TermData;
-import SxxMachine.pterm.SxxTermDataImpl;
-import static SxxMachine.pterm.TermData.*;
 /**
  * Template for builtins of arity 0
  */
 
-abstract public class ConstBuiltin implements NameArity {
+abstract public class ConstBuiltin implements NameArity, Operation {
 
-    Method st_exec_method;
+	Method st_exec_method;
 
-    @Override
-    public void setMethod(Method b) {
-        soopsy();
-        st_exec_method = b;
-    }
+	@Override
+	public Operation exec(Prolog engine) throws PrologException {
 
-    @Override
-    public java.lang.String getFAKey() {
-        return Name + "/" + arity();
-    }
+		if (st_exec_method == null) {
+			soopsy("Null method in " + this);
 
-    String Name;
+		}
+		return new Operation() {
 
-    public ConstBuiltin(String s) {
-        Name = s;
-        if(getClass()==ConstBuiltin.class) {
-            PredTable.register(this);
-        }
-    }
+			@Override
+			public Operation exec(Prolog e) throws PrologException {
+				try {
+					return (Operation) st_exec_method.invoke(null, e.asProg(), engine.getISTerm(arity()));
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {
+					e1.printStackTrace();
+					throw new AbstractMethodError(".exec throw Exception " + e1);
+				}
+			}
+		};
 
-    // abstract public int exec(Prog p);
+	}
 
-    public boolean isBuiltin() {
-        return true;
-    }
+	@Override
+	public void setMethod(Method b) {
+		// soopsy();
+		st_exec_method = b;
+	}
 
-    @Override
-    public String fname() {
-        return Name;
-    }
+	@Override
+	public java.lang.String getFAKey() {
+		return Name + "/" + arity();
+	}
 
-    @Override
-    public int arity() {
-        return Term.CONST;
-    }
+	String Name;
+
+	public ConstBuiltin(String s) {
+		Name = s;
+		if (getClass() == ConstBuiltin.class) {
+			PredTable.register(this);
+		}
+	}
+
+	// abstract public int exec(Prog p);
+
+	public boolean isBuiltin() {
+		return true;
+	}
+
+	@Override
+	public String fname() {
+		return Name;
+	}
+
+	@Override
+	public int arity() {
+		return Term.CONST;
+	}
 
 }
