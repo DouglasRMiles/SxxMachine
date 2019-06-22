@@ -4,12 +4,12 @@ import java.lang.reflect.Method;
 
 import SxxMachine.pterm.TermData;
 import SxxMachine.pterm.SxxTermDataImpl;
-
+import static SxxMachine.pterm.TermData.*;
 /**
  * Template for builtins of arity 0
  */
 
-abstract public class ConstBuiltin extends TermData implements NameArity {
+abstract public class ConstBuiltin implements NameArity {
 
     Method st_exec_method;
 
@@ -28,6 +28,9 @@ abstract public class ConstBuiltin extends TermData implements NameArity {
 
     public ConstBuiltin(String s) {
         Name = s;
+        if(getClass()==ConstBuiltin.class) {
+            PredTable.register(this);
+        }
     }
 
     // abstract public int exec(Prog p);

@@ -181,6 +181,24 @@ public class PredTable {
         return moduleName;
     }
 
+    /**
+	 * @param funBuiltin
+	 */
+	public static void register(ConstBuiltin funBuiltin) {
+		if (findPredicateOp(null, funBuiltin.fname(), funBuiltin.arity()) != null)
+			return;
+		registerBuiltin(funBuiltin.fname(), funBuiltin.arity(), new Operation() {		
+			@Override
+			public Operation exec(Prolog engine) throws PrologException {
+				// TODO Auto-generated method stub
+				if (true)
+					throw new AbstractMethodError("Auto-generated method stub:  exec" + funBuiltin);
+				return null;
+			}
+		});
+		
+	}
+
     public static void registerBuiltin(String functor, String mangle, int arity, Operation cont) {
         registerBuiltin(functor, arity, cont);
         registerBuiltin(mangle, arity, cont);

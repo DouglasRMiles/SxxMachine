@@ -12,6 +12,7 @@ abstract public class FunBuiltin extends ConstBuiltin {
     public FunBuiltin(String f, int i) {
         super(f);
         arity = i;
+        PredTable.register(this);
     }
 
     // @Override

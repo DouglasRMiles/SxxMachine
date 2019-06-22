@@ -209,4 +209,5 @@ public class PredicateEncoder {
         System.out.println(p + ":" + f + "/" + n);
         System.out.println(PredicateEncoder.encode(p, f, n));
     }
+
 }

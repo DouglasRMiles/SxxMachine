@@ -1,24 +1,23 @@
 package SxxMachine.pterm;
 
-import java.math.BigInteger;
-
 import SxxMachine.CharReader;
 import SxxMachine.Compound;
 import SxxMachine.Const;
-import SxxMachine.Functor;
 import SxxMachine.JpVar;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
 import SxxMachine.Operation;
 import SxxMachine.Predicate;
 import SxxMachine.Prolog;
-import SxxMachine.PrologFlags;
 import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.TermArray;
 
-abstract public class TermData {
+final public class TermData {
 
+	private TermData() {
+	}
+	
 	static public ITermFactory factory = null;
 	static {
 		setFactory(new SxxTermDataImpl());
