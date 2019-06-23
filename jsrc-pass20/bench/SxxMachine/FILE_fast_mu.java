@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -20,8 +20,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-theorem([m,u,i,i,u])
         m.setB0();
     // top:-[theorem([m,u,i,i,u])]
@@ -39,8 +39,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_theorem_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_theorem_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // theorem(A):-length(A,B),C is B-1,derive([m,i],A,1,C,D,0)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -68,24 +68,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_derive_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_derive_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return derive_6_top(m);
     }
 
-    private final static Operation derive_6_top(Prolog m) { 
+    private final static Operation derive_6_top(Prolog m) {
         m.setB0();
         m.jtry6(null, FILE_fast_mu::derive_6_sub_1);
         return derive_6_1(m);
     }
 
-    private final static Operation derive_6_sub_1(Prolog m) { 
+    private final static Operation derive_6_sub_1(Prolog m) {
         m.trust(null);
         return derive_6_2(m);
     }
 
-    private final static Operation derive_6_1(Prolog m) { 
+    private final static Operation derive_6_1(Prolog m) {
     // derive(A,B,C,D,E,F):-derive2(A,B,C,D,1,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -101,7 +101,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("derive2", FILE_fast_mu::PRED_derive2_7_static_exec, VA(a1, a2, a3, a4,  int_1 , a5, a6), cont);
     }
 
-    private final static Operation derive_6_2(Prolog m) { 
+    private final static Operation derive_6_2(Prolog m) {
     // derive(A,B,C,D,E,F):-G is F+1,derive(A,B,C,D,E,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -142,20 +142,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_derive2_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_derive2_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_fast_mu::derive2_7_sub_1);
         return derive2_7_1(m);
     }
 
-    private final static Operation derive2_7_sub_1(Prolog m) { 
+    private final static Operation derive2_7_sub_1(Prolog m) {
         m.trust(null);
         return derive2_7_2(m);
     }
 
-    private final static Operation derive2_7_1(Prolog m) { 
+    private final static Operation derive2_7_1(Prolog m) {
     // derive2(A,A,B,B,C,[],D):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -177,7 +177,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation derive2_7_2(Prolog m) { 
+    private final static Operation derive2_7_2(Prolog m) {
     // derive2(A,B,C,D,E,[rule(F,G)|H],I):-lower_bound(C,D,J),I>=J,K is I-1,rule(A,G,C,L,E,M,F),derive2(G,B,L,D,M,H,K)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3, p4;
@@ -232,8 +232,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_rule_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rule([m|A],[m|B],C,D,E,F,G):-rule(A,B,C,D,E,F,1,i,G,H,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -284,63 +284,63 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_rule_11_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule_11_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return rule_11_top(m);
     }
 
-    private final static Operation rule_11_top(Prolog m) { 
+    private final static Operation rule_11_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_fast_mu::rule_11_var, fail_0, fail_0, FILE_fast_mu::rule_11_2, fail_0, FILE_fast_mu::rule_11_lis); 
+        return m.switch_on_term(FILE_fast_mu::rule_11_var, fail_0, fail_0, FILE_fast_mu::rule_11_2, fail_0, FILE_fast_mu::rule_11_lis);
     }
 
-    private final static Operation rule_11_var(Prolog m) { 
+    private final static Operation rule_11_var(Prolog m) {
         m.jtry(11, null, FILE_fast_mu::rule_11_var_1);
         return rule_11_1(m);
     }
 
-    private final static Operation rule_11_var_1(Prolog m) { 
+    private final static Operation rule_11_var_1(Prolog m) {
         m.retry(null, FILE_fast_mu::rule_11_var_2);
         return rule_11_2(m);
     }
 
-    private final static Operation rule_11_var_2(Prolog m) { 
+    private final static Operation rule_11_var_2(Prolog m) {
         m.retry(null, FILE_fast_mu::rule_11_var_3);
         return rule_11_3(m);
     }
 
-    private final static Operation rule_11_var_3(Prolog m) { 
+    private final static Operation rule_11_var_3(Prolog m) {
         m.retry(null, FILE_fast_mu::rule_11_var_4);
         return rule_11_4(m);
     }
 
-    private final static Operation rule_11_var_4(Prolog m) { 
+    private final static Operation rule_11_var_4(Prolog m) {
         m.trust(null);
         return rule_11_5(m);
     }
 
-    private final static Operation rule_11_lis(Prolog m) { 
+    private final static Operation rule_11_lis(Prolog m) {
         m.jtry(11, null, FILE_fast_mu::rule_11_lis_1);
         return rule_11_1(m);
     }
 
-    private final static Operation rule_11_lis_1(Prolog m) { 
+    private final static Operation rule_11_lis_1(Prolog m) {
         m.retry(null, FILE_fast_mu::rule_11_lis_2);
         return rule_11_3(m);
     }
 
-    private final static Operation rule_11_lis_2(Prolog m) { 
+    private final static Operation rule_11_lis_2(Prolog m) {
         m.retry(null, FILE_fast_mu::rule_11_lis_3);
         return rule_11_4(m);
     }
 
-    private final static Operation rule_11_lis_3(Prolog m) { 
+    private final static Operation rule_11_lis_3(Prolog m) {
         m.trust(null);
         return rule_11_5(m);
     }
 
-    private final static Operation rule_11_1(Prolog m) { 
+    private final static Operation rule_11_1(Prolog m) {
     // rule([i],[i,u],A,B,C,D,E,F,1,G,H):-E>=C,D is E-2,B is A+1
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation cont;
@@ -387,7 +387,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule_11_2(Prolog m) { 
+    private final static Operation rule_11_2(Prolog m) {
     // rule([],A,B,C,D,1,E,F,2,A,[]):-C is B+B
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
@@ -425,7 +425,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule_11_3(Prolog m) { 
+    private final static Operation rule_11_3(Prolog m) {
     // rule([i,i,i|A],[u|A],B,C,D,E,F,G,3,H,I):-F>=D,E is F-1,C is B-2
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation cont;
@@ -512,7 +512,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule_11_4(Prolog m) { 
+    private final static Operation rule_11_4(Prolog m) {
     // rule([u,u|A],A,B,C,D,E,F,i,4,G,H):-F>=D,E is F-2,C is B-2
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation cont;
@@ -581,7 +581,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule_11_5(Prolog m) { 
+    private final static Operation rule_11_5(Prolog m) {
     // rule([A|B],[A|C],D,E,F,G,H,I,J,K,[A|L]):-M is H+1,rule(B,C,D,E,F,G,M,A,J,K,L)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation cont;
@@ -663,25 +663,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_lower_bound_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_lower_bound_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_fast_mu::lower_bound_3_sub_1);
         return lower_bound_3_1(m);
     }
 
-    private final static Operation lower_bound_3_sub_1(Prolog m) { 
+    private final static Operation lower_bound_3_sub_1(Prolog m) {
         m.retry(null, FILE_fast_mu::lower_bound_3_sub_2);
         return lower_bound_3_2(m);
     }
 
-    private final static Operation lower_bound_3_sub_2(Prolog m) { 
+    private final static Operation lower_bound_3_sub_2(Prolog m) {
         m.trust(null);
         return lower_bound_3_3(m);
     }
 
-    private final static Operation lower_bound_3_1(Prolog m) { 
+    private final static Operation lower_bound_3_1(Prolog m) {
     // lower_bound(A,B,1):-A<B
          Term a1, a2, a3;
         Operation cont;
@@ -700,7 +700,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation lower_bound_3_2(Prolog m) { 
+    private final static Operation lower_bound_3_2(Prolog m) {
     // lower_bound(A,A,2):-true
          Term a1, a2, a3;
         Operation cont;
@@ -716,7 +716,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation lower_bound_3_3(Prolog m) { 
+    private final static Operation lower_bound_3_3(Prolog m) {
     // lower_bound(A,B,C):-A>B,D is A-B,E is D/\1,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -760,20 +760,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_m
 
 
 
-    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_fast_mu::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_1(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(A,B,C):-C=:=0,!,A is B>>1
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -814,7 +814,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_2(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_2(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl'(A,B,C):-A is (B+1)>>1+1
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;

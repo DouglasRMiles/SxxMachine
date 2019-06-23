@@ -56,7 +56,7 @@ public class StaticPred extends Predicate implements Operation {
         if (ThizLARGs == null) {
             return -1;
         }
-        
+
         return ThizLARGs.length;
     }
 

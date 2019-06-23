@@ -16,14 +16,14 @@ import SxxMachine.pterm.VariableTerm;
 /** {@code make_directory(+Dir)} */
 public class PRED_make_directory_1 extends Predicate.P1 {
     public PRED_make_directory_1(Term a1, Operation next) {
-        
+
         ThizLARGs.setAreg0(a1);
         cont = next;
     }
 
     @Override
     public Operation exec(Prolog engine) throws PrologException {
-        
+
         engine.requireFeature(Prolog.Feature.IO, this, ThizLARGs.getAreg0());
         engine.setB0();
 

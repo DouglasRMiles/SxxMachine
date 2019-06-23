@@ -15,7 +15,7 @@ public class CatchExceptionHandler extends DefaultExceptionHandler {
         this.exceptionAction = exceptionAction;
         continuation = cnt;
     }
- 
+
     @Override
     public Code handlePrologException(JPrologInternalException exception, MiniJProlog mach)
             throws JPrologInternalException {

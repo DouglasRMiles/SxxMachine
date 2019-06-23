@@ -27,7 +27,8 @@ import SxxMachine.Var;
  */
 public abstract class KPTerm implements Term {
 
-    public Term listify() {
+    @Override
+	public Term listify() {
         // TODO Auto-generated method stub
         oopsy("listify");
         return null;
@@ -63,7 +64,8 @@ public abstract class KPTerm implements Term {
         Prolog.Break(problem);
     }
 
-    abstract // @Override
+    @Override
+	abstract // @Override
     public Term toClone() throws CloneNotSupportedException;
 
     @Override
@@ -81,29 +83,35 @@ public abstract class KPTerm implements Term {
         return pprint();
     }
 
-    public abstract int termHashCode();
+    @Override
+	public abstract int termHashCode();
 
     /**
      * returns or fakes an arity for all subtypes
      */
-    abstract public int arityOrType();
+    @Override
+	abstract public int arityOrType();
 
     /**
      * Dereferences if necessary. If multi-threaded, this should be synchronized
      * otherwise vicious non-reentrancy problems may occur in the presence of GC and
      * heavy multi-threading!!!
      */
-    public Term dref() { // synchronized !!!
+    @Override
+	public Term dref() { // synchronized !!!
         return this;
     }
 
-    public abstract boolean bindKP(Term that, KPTrail trail);
+    @Override
+	public abstract boolean bindKP(Term that, KPTrail trail);
 
     /** Unify dereferenced */
-    public abstract boolean Unify_TO(Term that, KPTrail trail);
+    @Override
+	public abstract boolean Unify_TO(Term that, KPTrail trail);
 
     /** Dereference and unify_to */
-    public final boolean DO_Unify(Term that, KPTrail trail) {
+    @Override
+	public final boolean DO_Unify(Term that, KPTrail trail) {
         if (that == this)
             return true;
         Term thisd = dref();
@@ -115,7 +123,8 @@ public abstract class KPTerm implements Term {
 
     // public abstract boolean eq(Term that);
 
-    public Term carTokenOrSelf() {
+    @Override
+	public Term carTokenOrSelf() {
         return toTerm();
     }
 
@@ -123,11 +132,13 @@ public abstract class KPTerm implements Term {
         return this;
     }
 
-    public HornClause toClause() {
+    @Override
+	public HornClause toClause() {
         return new HornClause((Term) this, Prolog.True);
     }
 
-    public boolean isClause() {
+    @Override
+	public boolean isClause() {
         return false;
     }
 
@@ -143,11 +154,13 @@ public abstract class KPTerm implements Term {
      *
      */
     // synchronized
-    public boolean matches(Term that) {
+    @Override
+	public boolean matches(Term that) {
         return matches(that, new KPTrail());
     }
 
-    public boolean matches(Term that, KPTrail trail) {
+    @Override
+	public boolean matches(Term that, KPTrail trail) {
         int oldtop = trail.top();
         boolean ok = DO_Unify(that, trail);
         trail.unwind(oldtop);
@@ -162,7 +175,8 @@ public abstract class KPTerm implements Term {
      */
     // synchronized
 
-    public Term matching_copy(Term that) {
+    @Override
+	public Term matching_copy(Term that) {
         KPTrail trail = new KPTrail();
         int oldtop = trail.top();
         boolean ok = DO_Unify(that, trail);
@@ -181,7 +195,8 @@ public abstract class KPTerm implements Term {
      *
      * @see Term
      */
-    public Term reaction(Term agent) {
+    @Override
+	public Term reaction(Term agent) {
         Term T = agent.action(toTerm());
         return T;
     }
@@ -189,7 +204,8 @@ public abstract class KPTerm implements Term {
     /**
      * Identity action.
      */
-    public Term action(Term that) {
+    @Override
+	public Term action(Term that) {
         return that;
     }
 
@@ -198,7 +214,8 @@ public abstract class KPTerm implements Term {
      * variables').
      */
     // synchronized
-    public Term duplicateTerm() {
+    @Override
+	public Term duplicateTerm() {
         return reaction(new Copier());
     }
 
@@ -213,7 +230,8 @@ public abstract class KPTerm implements Term {
      * Replaces variables with uppercase constants named `V1', 'V2', etc. to be read
      * back as variables.
      */
-    public Term numbervars() {
+    @Override
+	public Term numbervars() {
         return duplicateTerm().reaction(new VarNumberer());
     }
 
@@ -230,13 +248,15 @@ public abstract class KPTerm implements Term {
     /*
      * Returns an unquoted version of toString()
      */
-    abstract public String pprint();
+    @Override
+	abstract public String pprint();
 
     /**
      * Returns a string key used based on the string name of the term. Note that the
      * key for a clause AL-B,C. is the key insted of ':-'.
      */
-    public String getFAKey() {
+    @Override
+	public String getFAKey() {
         return toUnquotedNumVars();
     }
 
@@ -244,7 +264,8 @@ public abstract class KPTerm implements Term {
      * Java Object wrapper. In particular, it is used to wrap a Thread to hide it
      * inside a Prolog data object.
      */
-    public Object javaInstance() {
+    @Override
+	public Object javaInstance() {
         return dref();
     }
 
@@ -262,7 +283,8 @@ public abstract class KPTerm implements Term {
      * warning if this is forgotten.
      */
 
-    public int exec(Prog p) {
+    @Override
+	public int exec(Prog p) {
         oopsy("int exec()");
         // IO.println("this should be overriden, prog="+p);
         return -1;
@@ -285,56 +307,67 @@ public abstract class KPTerm implements Term {
         return stringToChars(toUnquotedNumVars());
     }
 
-    public boolean isCons() {
+    @Override
+	public boolean isCons() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isNil() {
+    @Override
+	public boolean isNil() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isBuiltin() {
+    @Override
+	public boolean isBuiltin() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isConj() {
+    @Override
+	public boolean isConj() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isLong() {
+    @Override
+	public boolean isLong() {
         // TODO Auto-generated method stub
         return isInteger();
     }
 
-    public int intValue() {
+    @Override
+	public int intValue() {
         // TODO Auto-generated method stub
         return 0;
     }
 
-    public boolean isAtomOrObject() {
+    @Override
+	public boolean isAtomOrObject() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isCompound() {
+    @Override
+	public boolean isCompound() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isTrueProc() {
+    @Override
+	public boolean isTrueProc() {
         return false;
     }
 
-    public boolean isNumber() {
+    @Override
+	public boolean isNumber() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    abstract public String getJavaString() throws IllegalTypeException;
+    @Override
+	abstract public String getJavaString() throws IllegalTypeException;
 
     public boolean isFloat() {
         return false;
@@ -354,48 +387,58 @@ public abstract class KPTerm implements Term {
         return false;
     }
 
-    public boolean isVar() {
+    @Override
+	public boolean isVar() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public boolean isCharReader() {
+    @Override
+	public boolean isCharReader() {
         // TODO Auto-generated method stub
         return false;
     }
 
-    public Term toValueTalueTerm() {
+    @Override
+	public Term toValueTalueTerm() {
         return dref();
     }
 
-    public double doubleValue() {
+    @Override
+	public double doubleValue() {
         // TODO Auto-generated method stub
         return 0;
     }
 
-    abstract public boolean equalsTerm(Term aneof);
+    @Override
+	abstract public boolean equalsTerm(Term aneof);
 
-    public Functor asConst() {
+    @Override
+	public Functor asConst() {
         // TODO Auto-generated method stub
         return (Functor) this;
     }
 
-    public Var toVar() {
+    @Override
+	public Var toVar() {
         // TODO Auto-generated method stub
         return (Var) this;
     }
 
-    public Term getDrefArg(int i) {
+    @Override
+	public Term getDrefArg(int i) {
         return this.asStructureTerm().getDrefArg(i);
     }
 
-    public boolean isFunctor(String string) throws IllegalTypeException {
+    @Override
+	public boolean isFunctor(String string) throws IllegalTypeException {
         oopsy("to fuinctor");
         String fname = getJavaString();
         return fname.equals(string);
     }
 
-    public SourceFluentTerm asSource(Prog prog) {
+    @Override
+	public SourceFluentTerm asSource(Prog prog) {
         if (this instanceof SourceFluentTerm)
             return (SourceFluentTerm) this;
         Term thiz = dref();
@@ -409,7 +452,8 @@ public abstract class KPTerm implements Term {
      * @see SxxMachine.pterm.KPTerm#asSource(SxxMachine.Prog)
      */
     //@Override
-    public SinkFluentTerm asSink(Prog prog) {
+    @Override
+	public SinkFluentTerm asSink(Prog prog) {
         return (SinkFluentTerm) this;
     }
 

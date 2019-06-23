@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package SxxMachine;
 
@@ -9,7 +9,7 @@ package SxxMachine;
  */
 public interface PrologModule {
     /**
-     * 
+     *
      */
     String getModuleInit();
 

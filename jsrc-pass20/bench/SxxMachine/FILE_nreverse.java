@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-nreverse
         m.setB0();
     // top:-[nreverse]
@@ -63,8 +63,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
 
-    public static Operation PRED_nreverse_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_nreverse_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // nreverse:-nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)
         m.setB0();
     // nreverse:-[nreverse([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],A)]
@@ -79,28 +79,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
 
-    public static Operation PRED_nreverse_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_nreverse_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return nreverse_2_top(m);
     }
 
-    private final static Operation nreverse_2_top(Prolog m) { 
+    private final static Operation nreverse_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_nreverse::nreverse_2_var, fail_0, fail_0, FILE_nreverse::nreverse_2_2, fail_0, FILE_nreverse::nreverse_2_1); 
+        return m.switch_on_term(FILE_nreverse::nreverse_2_var, fail_0, fail_0, FILE_nreverse::nreverse_2_2, fail_0, FILE_nreverse::nreverse_2_1);
     }
 
-    private final static Operation nreverse_2_var(Prolog m) { 
+    private final static Operation nreverse_2_var(Prolog m) {
         m.jtry2(null, FILE_nreverse::nreverse_2_var_1);
         return nreverse_2_1(m);
     }
 
-    private final static Operation nreverse_2_var_1(Prolog m) { 
+    private final static Operation nreverse_2_var_1(Prolog m) {
         m.trust(null);
         return nreverse_2_2(m);
     }
 
-    private final static Operation nreverse_2_1(Prolog m) { 
+    private final static Operation nreverse_2_1(Prolog m) {
     // nreverse([A|B],C):-nreverse(B,D),concatenate(D,[A],C)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -130,7 +130,7 @@ MARG.setAreg1( a5);
         return nreverse_2_top(m);
     }
 
-    private final static Operation nreverse_2_2(Prolog m) { 
+    private final static Operation nreverse_2_2(Prolog m) {
     // nreverse([],[]):-true
          Term a1, a2;
         Operation cont;
@@ -152,28 +152,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nrever
 
 
 
-    public static Operation PRED_concatenate_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_concatenate_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return concatenate_3_top(m);
     }
 
-    private final static Operation concatenate_3_top(Prolog m) { 
+    private final static Operation concatenate_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_nreverse::concatenate_3_var, fail_0, fail_0, FILE_nreverse::concatenate_3_2, fail_0, FILE_nreverse::concatenate_3_1); 
+        return m.switch_on_term(FILE_nreverse::concatenate_3_var, fail_0, fail_0, FILE_nreverse::concatenate_3_2, fail_0, FILE_nreverse::concatenate_3_1);
     }
 
-    private final static Operation concatenate_3_var(Prolog m) { 
+    private final static Operation concatenate_3_var(Prolog m) {
         m.jtry3(null, FILE_nreverse::concatenate_3_var_1);
         return concatenate_3_1(m);
     }
 
-    private final static Operation concatenate_3_var_1(Prolog m) { 
+    private final static Operation concatenate_3_var_1(Prolog m) {
         m.trust(null);
         return concatenate_3_2(m);
     }
 
-    private final static Operation concatenate_3_1(Prolog m) { 
+    private final static Operation concatenate_3_1(Prolog m) {
     // concatenate([A|B],C,[A|D]):-concatenate(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -211,7 +211,7 @@ m.cont = cont;
         return concatenate_3_top(m);
     }
 
-    private final static Operation concatenate_3_2(Prolog m) { 
+    private final static Operation concatenate_3_2(Prolog m) {
     // concatenate([],A,A):-true
          Term a1, a2, a3;
         Operation cont;

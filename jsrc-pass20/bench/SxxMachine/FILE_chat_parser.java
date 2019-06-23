@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-chat_parser
         m.setB0();
     // top:-[chat_parser]
@@ -31,8 +31,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_go_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_go_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // go:-statistics(runtime,[A,B]),chat_parser,statistics(runtime,[C,D]),write('execution time is '),write(D),write(milliseconds)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -59,20 +59,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_chat_parser_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_chat_parser_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_chat_parser::chat_parser_0_sub_1);
         return chat_parser_0_1(m);
     }
 
-    private final static Operation chat_parser_0_sub_1(Prolog m) { 
+    private final static Operation chat_parser_0_sub_1(Prolog m) {
         m.trust(null);
         return chat_parser_0_2(m);
     }
 
-    private final static Operation chat_parser_0_1(Prolog m) { 
+    private final static Operation chat_parser_0_1(Prolog m) {
     // chat_parser:-my_string(A),determinate_say(A,B),fail
          Term a1;
         Operation p1, p2;
@@ -85,7 +85,7 @@ m.cont = cont;
  Op("determinate_say", FILE_chat_parser::PRED_determinate_say_2_static_exec, VA(a1, m.DONT_CARE2()), fail_0));
     }
 
-    private final static Operation chat_parser_0_2(Prolog m) { 
+    private final static Operation chat_parser_0_2(Prolog m) {
     // chat_parser:-true
         Operation cont;
         cont = m.cont;
@@ -293,94 +293,94 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_my_string_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_my_string_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::my_string_1_var, fail_0, fail_0, fail_0, fail_0, FILE_chat_parser::my_string_1_var); 
+        return m.switch_on_term(FILE_chat_parser::my_string_1_var, fail_0, fail_0, fail_0, fail_0, FILE_chat_parser::my_string_1_var);
     }
 
-    private final static Operation my_string_1_var(Prolog m) { 
+    private final static Operation my_string_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::my_string_1_var_1);
         return my_string_1_1(m);
     }
 
-    private final static Operation my_string_1_var_1(Prolog m) { 
+    private final static Operation my_string_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_2);
         return my_string_1_2(m);
     }
 
-    private final static Operation my_string_1_var_2(Prolog m) { 
+    private final static Operation my_string_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_3);
         return my_string_1_3(m);
     }
 
-    private final static Operation my_string_1_var_3(Prolog m) { 
+    private final static Operation my_string_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_4);
         return my_string_1_4(m);
     }
 
-    private final static Operation my_string_1_var_4(Prolog m) { 
+    private final static Operation my_string_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_5);
         return my_string_1_5(m);
     }
 
-    private final static Operation my_string_1_var_5(Prolog m) { 
+    private final static Operation my_string_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_6);
         return my_string_1_6(m);
     }
 
-    private final static Operation my_string_1_var_6(Prolog m) { 
+    private final static Operation my_string_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_7);
         return my_string_1_7(m);
     }
 
-    private final static Operation my_string_1_var_7(Prolog m) { 
+    private final static Operation my_string_1_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_8);
         return my_string_1_8(m);
     }
 
-    private final static Operation my_string_1_var_8(Prolog m) { 
+    private final static Operation my_string_1_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_9);
         return my_string_1_9(m);
     }
 
-    private final static Operation my_string_1_var_9(Prolog m) { 
+    private final static Operation my_string_1_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_10);
         return my_string_1_10(m);
     }
 
-    private final static Operation my_string_1_var_10(Prolog m) { 
+    private final static Operation my_string_1_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_11);
         return my_string_1_11(m);
     }
 
-    private final static Operation my_string_1_var_11(Prolog m) { 
+    private final static Operation my_string_1_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_12);
         return my_string_1_12(m);
     }
 
-    private final static Operation my_string_1_var_12(Prolog m) { 
+    private final static Operation my_string_1_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_13);
         return my_string_1_13(m);
     }
 
-    private final static Operation my_string_1_var_13(Prolog m) { 
+    private final static Operation my_string_1_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_14);
         return my_string_1_14(m);
     }
 
-    private final static Operation my_string_1_var_14(Prolog m) { 
+    private final static Operation my_string_1_var_14(Prolog m) {
         m.retry(null, FILE_chat_parser::my_string_1_var_15);
         return my_string_1_15(m);
     }
 
-    private final static Operation my_string_1_var_15(Prolog m) { 
+    private final static Operation my_string_1_var_15(Prolog m) {
         m.trust(null);
         return my_string_1_16(m);
     }
 
-    private final static Operation my_string_1_1(Prolog m) { 
+    private final static Operation my_string_1_1(Prolog m) {
     // my_string([what,rivers,are,there,?]):-true
          Term a1;
         Operation cont;
@@ -392,7 +392,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_2(Prolog m) { 
+    private final static Operation my_string_1_2(Prolog m) {
     // my_string([does,afghanistan,border,china,?]):-true
          Term a1;
         Operation cont;
@@ -404,7 +404,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_3(Prolog m) { 
+    private final static Operation my_string_1_3(Prolog m) {
     // my_string([what,is,the,capital,of,upper_volta,?]):-true
          Term a1;
         Operation cont;
@@ -416,7 +416,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_4(Prolog m) { 
+    private final static Operation my_string_1_4(Prolog m) {
     // my_string([where,is,the,largest,country,?]):-true
          Term a1;
         Operation cont;
@@ -428,7 +428,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_5(Prolog m) { 
+    private final static Operation my_string_1_5(Prolog m) {
     // my_string([which,country,~,s,capital,is,london,?]):-true
          Term a1;
         Operation cont;
@@ -440,7 +440,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_6(Prolog m) { 
+    private final static Operation my_string_1_6(Prolog m) {
     // my_string([which,countries,are,european,?]):-true
          Term a1;
         Operation cont;
@@ -452,7 +452,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_7(Prolog m) { 
+    private final static Operation my_string_1_7(Prolog m) {
     // my_string([how,large,is,the,smallest,american,country,?]):-true
          Term a1;
         Operation cont;
@@ -464,7 +464,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_8(Prolog m) { 
+    private final static Operation my_string_1_8(Prolog m) {
     // my_string([what,is,the,ocean,that,borders,african,countries,and,that,borders,asian,countries,?]):-true
          Term a1;
         Operation cont;
@@ -476,7 +476,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_9(Prolog m) { 
+    private final static Operation my_string_1_9(Prolog m) {
     // my_string([what,are,the,capitals,of,the,countries,bordering,the,baltic,?]):-true
          Term a1;
         Operation cont;
@@ -488,7 +488,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_10(Prolog m) { 
+    private final static Operation my_string_1_10(Prolog m) {
     // my_string([which,countries,are,bordered,by,two,seas,?]):-true
          Term a1;
         Operation cont;
@@ -500,7 +500,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_11(Prolog m) { 
+    private final static Operation my_string_1_11(Prolog m) {
     // my_string([how,many,countries,does,the,danube,flow,through,?]):-true
          Term a1;
         Operation cont;
@@ -512,7 +512,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_12(Prolog m) { 
+    private final static Operation my_string_1_12(Prolog m) {
     // my_string([what,is,the,total,area,of,countries,south,of,the,equator,and,not,in,australasia,?]):-true
          Term a1;
         Operation cont;
@@ -524,7 +524,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_13(Prolog m) { 
+    private final static Operation my_string_1_13(Prolog m) {
     // my_string([what,is,the,average,area,of,the,countries,in,each,continent,?]):-true
          Term a1;
         Operation cont;
@@ -536,7 +536,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_14(Prolog m) { 
+    private final static Operation my_string_1_14(Prolog m) {
     // my_string([is,there,more,than,one,country,in,each,continent,?]):-true
          Term a1;
         Operation cont;
@@ -548,7 +548,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_15(Prolog m) { 
+    private final static Operation my_string_1_15(Prolog m) {
     // my_string([is,there,some,ocean,that,does,not,border,any,country,?]):-true
          Term a1;
         Operation cont;
@@ -560,7 +560,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation my_string_1_16(Prolog m) { 
+    private final static Operation my_string_1_16(Prolog m) {
     // my_string([what,are,the,countries,from,which,a,river,flows,into,the,black_sea,?]):-true
          Term a1;
         Operation cont;
@@ -579,8 +579,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_determinate_say_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_determinate_say_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // determinate_say(A,B):-say(A,B),!
         m.setB0();
          Term a1, a2, a3;
@@ -610,20 +610,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_terminal_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_terminal_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry5(null, FILE_chat_parser::terminal_5_sub_1);
         return terminal_5_1(m);
     }
 
-    private final static Operation terminal_5_sub_1(Prolog m) { 
+    private final static Operation terminal_5_sub_1(Prolog m) {
         m.trust(null);
         return terminal_5_2(m);
     }
 
-    private final static Operation terminal_5_1(Prolog m) { 
+    private final static Operation terminal_5_1(Prolog m) {
     // terminal(A,B,B,x(C,terminal,A,D),D):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -646,7 +646,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation terminal_5_2(Prolog m) { 
+    private final static Operation terminal_5_2(Prolog m) {
     // terminal(A,[A|B],B,C,C):-gap(C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -684,24 +684,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_gap_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_gap_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::gap_1_var, fail_0, fail_0, FILE_chat_parser::gap_1_2, FILE_chat_parser::gap_1_1, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::gap_1_var, fail_0, fail_0, FILE_chat_parser::gap_1_2, FILE_chat_parser::gap_1_1, fail_0);
     }
 
-    private final static Operation gap_1_var(Prolog m) { 
+    private final static Operation gap_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::gap_1_var_1);
         return gap_1_1(m);
     }
 
-    private final static Operation gap_1_var_1(Prolog m) { 
+    private final static Operation gap_1_var_1(Prolog m) {
         m.trust(null);
         return gap_1_2(m);
     }
 
-    private final static Operation gap_1_1(Prolog m) { 
+    private final static Operation gap_1_1(Prolog m) {
     // gap(x(gap,A,B,C)):-true
          Term a1;
         Operation cont;
@@ -715,7 +715,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation gap_1_2(Prolog m) { 
+    private final static Operation gap_1_2(Prolog m) {
     // gap([]):-true
          Term a1;
         Operation cont;
@@ -735,8 +735,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_virtual_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_virtual_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // virtual(A,x(B,nonterminal,A,C),C):-true
         m.setB0();
          Term a1, a2, a3, a4;
@@ -762,8 +762,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_is_pp_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_pp_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // is_pp(#(1,A,B,C)):-true
         m.setB0();
          Term a1;
@@ -783,8 +783,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_is_pred_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_pred_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // is_pred(#(A,1,B,C)):-true
         m.setB0();
          Term a1;
@@ -804,8 +804,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_is_trace_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_trace_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // is_trace(#(A,B,1,C)):-true
         m.setB0();
          Term a1;
@@ -825,8 +825,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_is_adv_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_adv_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // is_adv(#(A,B,C,1)):-true
         m.setB0();
          Term a1;
@@ -847,8 +847,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_trace1_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_trace1_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // trace1(#(A,B,1,C),#(0,0,0,0)):-true
         m.setB0();
          Term a1, a2;
@@ -872,8 +872,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_trace1_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_trace1_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // trace1(#(0,0,1,0)):-true
         m.setB0();
          Term a1;
@@ -892,8 +892,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adv_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adv_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // adv(#(0,0,0,1)):-true
         m.setB0();
          Term a1;
@@ -912,8 +912,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_empty_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_empty_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // empty(#(0,0,0,0)):-true
         m.setB0();
          Term a1;
@@ -932,8 +932,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_all_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_all_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // np_all(#(1,1,1,0)):-true
         m.setB0();
          Term a1;
@@ -952,8 +952,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_s_all_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_s_all_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // s_all(#(1,0,1,1)):-true
         m.setB0();
          Term a1;
@@ -972,8 +972,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_no_trace_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_no_trace_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // np_no_trace(#(1,1,0,0)):-true
         m.setB0();
          Term a1;
@@ -991,8 +991,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_myplus_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_myplus_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // myplus(#(A,B,C,D),#(E,F,G,H),#(I,J,K,L)):-or(A,E,I),or(B,F,J),or(C,G,K),or(D,H,L)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
@@ -1039,8 +1039,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_minus_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_minus_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // minus(#(A,B,C,D),#(E,F,G,H),#(I,J,K,L)):-anot(A,E,I),anot(B,F,J),anot(C,G,K),anot(D,H,L)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
@@ -1087,29 +1087,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_or_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_or_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::or_3_var, FILE_chat_parser::or_3_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::or_3_var, FILE_chat_parser::or_3_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation or_3_var(Prolog m) { 
+    private final static Operation or_3_var(Prolog m) {
         m.jtry3(null, FILE_chat_parser::or_3_var_1);
         return or_3_1(m);
     }
 
-    private final static Operation or_3_var_1(Prolog m) { 
+    private final static Operation or_3_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::or_3_var_2);
         return or_3_2(m);
     }
 
-    private final static Operation or_3_var_2(Prolog m) { 
+    private final static Operation or_3_var_2(Prolog m) {
         m.trust(null);
         return or_3_3(m);
     }
 
-    private final static Operation or_3_1(Prolog m) { 
+    private final static Operation or_3_1(Prolog m) {
     // or(1,A,1):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1125,7 +1125,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation or_3_2(Prolog m) { 
+    private final static Operation or_3_2(Prolog m) {
     // or(0,1,1):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1143,7 +1143,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation or_3_3(Prolog m) { 
+    private final static Operation or_3_3(Prolog m) {
     // or(0,0,0):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1168,20 +1168,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_anot_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_anot_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_chat_parser::anot_3_sub_1);
         return anot_3_1(m);
     }
 
-    private final static Operation anot_3_sub_1(Prolog m) { 
+    private final static Operation anot_3_sub_1(Prolog m) {
         m.trust(null);
         return anot_3_2(m);
     }
 
-    private final static Operation anot_3_1(Prolog m) { 
+    private final static Operation anot_3_1(Prolog m) {
     // anot(A,0,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1197,7 +1197,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation anot_3_2(Prolog m) { 
+    private final static Operation anot_3_2(Prolog m) {
     // anot(A,1,0):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1229,44 +1229,44 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_role_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_role_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::role_3_var, fail_0, fail_0, FILE_chat_parser::role_3_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::role_3_var, fail_0, fail_0, FILE_chat_parser::role_3_var, fail_0, fail_0);
     }
 
-    private final static Operation role_3_var(Prolog m) { 
+    private final static Operation role_3_var(Prolog m) {
         m.jtry3(null, FILE_chat_parser::role_3_var_1);
         return role_3_1(m);
     }
 
-    private final static Operation role_3_var_1(Prolog m) { 
+    private final static Operation role_3_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::role_3_var_2);
         return role_3_2(m);
     }
 
-    private final static Operation role_3_var_2(Prolog m) { 
+    private final static Operation role_3_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::role_3_var_3);
         return role_3_3(m);
     }
 
-    private final static Operation role_3_var_3(Prolog m) { 
+    private final static Operation role_3_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::role_3_var_4);
         return role_3_4(m);
     }
 
-    private final static Operation role_3_var_4(Prolog m) { 
+    private final static Operation role_3_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::role_3_var_5);
         return role_3_5(m);
     }
 
-    private final static Operation role_3_var_5(Prolog m) { 
+    private final static Operation role_3_var_5(Prolog m) {
         m.trust(null);
         return role_3_6(m);
     }
 
-    private final static Operation role_3_1(Prolog m) { 
+    private final static Operation role_3_1(Prolog m) {
     // role(subj,A,#(1,0,0)):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1282,7 +1282,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation role_3_2(Prolog m) { 
+    private final static Operation role_3_2(Prolog m) {
     // role(compl,A,#(0,B,C)):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1300,7 +1300,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation role_3_3(Prolog m) { 
+    private final static Operation role_3_3(Prolog m) {
     // role(undef,main,#(A,0,B)):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1320,7 +1320,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation role_3_4(Prolog m) { 
+    private final static Operation role_3_4(Prolog m) {
     // role(undef,aux,#(0,A,B)):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1340,7 +1340,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation role_3_5(Prolog m) { 
+    private final static Operation role_3_5(Prolog m) {
     // role(undef,decl,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1356,7 +1356,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation role_3_6(Prolog m) { 
+    private final static Operation role_3_6(Prolog m) {
     // role(nil,A,B):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1378,8 +1378,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_subj_case_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_subj_case_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // subj_case(#(1,0,0)):-true
         m.setB0();
          Term a1;
@@ -1398,8 +1398,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_case_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_case_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // verb_case(#(0,1,0)):-true
         m.setB0();
          Term a1;
@@ -1418,8 +1418,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_prep_case_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_prep_case_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // prep_case(#(0,0,1)):-true
         m.setB0();
          Term a1;
@@ -1437,8 +1437,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_compl_case_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_compl_case_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // compl_case(#(0,A,B)):-true
         m.setB0();
          Term a1;
@@ -1458,8 +1458,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_say_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_say_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // say(A,B):-sentence(B,A,[],[],[])
         m.setB0();
          Term a1, a2;
@@ -1481,35 +1481,35 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sentence_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sentence_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry5(null, FILE_chat_parser::sentence_5_sub_1);
         return sentence_5_1(m);
     }
 
-    private final static Operation sentence_5_sub_1(Prolog m) { 
+    private final static Operation sentence_5_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::sentence_5_sub_2);
         return sentence_5_2(m);
     }
 
-    private final static Operation sentence_5_sub_2(Prolog m) { 
+    private final static Operation sentence_5_sub_2(Prolog m) {
         m.retry(null, FILE_chat_parser::sentence_5_sub_3);
         return sentence_5_3(m);
     }
 
-    private final static Operation sentence_5_sub_3(Prolog m) { 
+    private final static Operation sentence_5_sub_3(Prolog m) {
         m.retry(null, FILE_chat_parser::sentence_5_sub_4);
         return sentence_5_4(m);
     }
 
-    private final static Operation sentence_5_sub_4(Prolog m) { 
+    private final static Operation sentence_5_sub_4(Prolog m) {
         m.trust(null);
         return sentence_5_5(m);
     }
 
-    private final static Operation sentence_5_1(Prolog m) { 
+    private final static Operation sentence_5_1(Prolog m) {
     // sentence(A,B,C,D,E):-declarative(A,B,F,D,G),terminator('.',F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -1528,7 +1528,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$002E , a6, a3, a7, a5), cont));
     }
 
-    private final static Operation sentence_5_2(Prolog m) { 
+    private final static Operation sentence_5_2(Prolog m) {
     // sentence(A,B,C,D,E):-wh_question(A,B,F,D,G),terminator(?,F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -1547,7 +1547,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
     }
 
-    private final static Operation sentence_5_3(Prolog m) { 
+    private final static Operation sentence_5_3(Prolog m) {
     // sentence(A,B,C,D,E):-topic(B,F,D,G),wh_question(A,F,H,G,I),terminator(?,H,C,I,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
@@ -1569,7 +1569,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a8, a3, a9, a5), cont)));
     }
 
-    private final static Operation sentence_5_4(Prolog m) { 
+    private final static Operation sentence_5_4(Prolog m) {
     // sentence(A,B,C,D,E):-yn_question(A,B,F,D,G),terminator(?,F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -1588,7 +1588,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminator", FILE_chat_parser::PRED_terminator_5_static_exec, VA( ATOM_$003F , a6, a3, a7, a5), cont));
     }
 
-    private final static Operation sentence_5_5(Prolog m) { 
+    private final static Operation sentence_5_5(Prolog m) {
     // sentence(A,B,C,D,E):-imperative(A,B,F,D,G),terminator(!,F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -1618,24 +1618,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pp_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pp_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::pp_8_var, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_var, FILE_chat_parser::pp_8_1); 
+        return m.switch_on_term(FILE_chat_parser::pp_8_var, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_1, FILE_chat_parser::pp_8_var, FILE_chat_parser::pp_8_1);
     }
 
-    private final static Operation pp_8_var(Prolog m) { 
+    private final static Operation pp_8_var(Prolog m) {
         m.jtry8(null, FILE_chat_parser::pp_8_var_1);
         return pp_8_1(m);
     }
 
-    private final static Operation pp_8_var_1(Prolog m) { 
+    private final static Operation pp_8_var_1(Prolog m) {
         m.trust(null);
         return pp_8_2(m);
     }
 
-    private final static Operation pp_8_1(Prolog m) { 
+    private final static Operation pp_8_1(Prolog m) {
     // pp(A,B,C,D,E,E,F,G):-virtual(pp(A,B,C,D),F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -1658,7 +1658,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
-    private final static Operation pp_8_2(Prolog m) { 
+    private final static Operation pp_8_2(Prolog m) {
     // pp(pp(A,B),C,D,E,F,G,H,I):-prep(A,F,J,H,K),prep_case(L),np(B,M,L,N,C,D,E,J,G,K,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2;
@@ -1695,8 +1695,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_topic_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_topic_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // topic(A,B,C,x(gap,nonterminal,pp(D,compl,E,F),G)):-pp(D,compl,E,F,A,H,C,I),opt_comma(H,B,I,G)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
@@ -1734,20 +1734,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_opt_comma_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_opt_comma_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_chat_parser::opt_comma_4_sub_1);
         return opt_comma_4_1(m);
     }
 
-    private final static Operation opt_comma_4_sub_1(Prolog m) { 
+    private final static Operation opt_comma_4_sub_1(Prolog m) {
         m.trust(null);
         return opt_comma_4_2(m);
     }
 
-    private final static Operation opt_comma_4_1(Prolog m) { 
+    private final static Operation opt_comma_4_1(Prolog m) {
     // opt_comma(A,B,C,D):- ~(',',A,B,C,D)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -1761,7 +1761,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_$002C , a1, a2, a3, a4), cont);
     }
 
-    private final static Operation opt_comma_4_2(Prolog m) { 
+    private final static Operation opt_comma_4_2(Prolog m) {
     // opt_comma(A,A,B,B):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -1788,8 +1788,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_declarative_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_declarative_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // declarative(decl(A),B,C,D,E):-s(A,F,B,C,D,E)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -1818,8 +1818,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_wh_question_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_wh_question_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // wh_question(whq(A,B),C,D,E,F):-variable_q(A,G,H,I,C,J,E,K),question(H,I,B,J,D,K,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
@@ -1862,34 +1862,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_11_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_11_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::np_11_var, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_var, FILE_chat_parser::np_11_1); 
+        return m.switch_on_term(FILE_chat_parser::np_11_var, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_1, FILE_chat_parser::np_11_var, FILE_chat_parser::np_11_1);
     }
 
-    private final static Operation np_11_var(Prolog m) { 
+    private final static Operation np_11_var(Prolog m) {
         m.jtry(11, null, FILE_chat_parser::np_11_var_1);
         return np_11_1(m);
     }
 
-    private final static Operation np_11_var_1(Prolog m) { 
+    private final static Operation np_11_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::np_11_var_2);
         return np_11_2(m);
     }
 
-    private final static Operation np_11_var_2(Prolog m) { 
+    private final static Operation np_11_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::np_11_var_3);
         return np_11_3(m);
     }
 
-    private final static Operation np_11_var_3(Prolog m) { 
+    private final static Operation np_11_var_3(Prolog m) {
         m.trust(null);
         return np_11_4(m);
     }
 
-    private final static Operation np_11_1(Prolog m) { 
+    private final static Operation np_11_1(Prolog m) {
     // np(A,B,C,D,E,F,G,H,H,I,J):-virtual(np(A,B,C,D,E,F,G),I,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
@@ -1915,7 +1915,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a12, a10, a11), cont);
     }
 
-    private final static Operation np_11_2(Prolog m) { 
+    private final static Operation np_11_2(Prolog m) {
     // np(np(A,B,[]),A,C,def,D,E,F,G,H,I,J):-is_pp(E),pers_pron(B,A,K,G,H,I,J),empty(F),role(K,decl,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1, p2, p3;
@@ -1951,7 +1951,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA(a14,  ATOM_decl , a3), cont))));
     }
 
-    private final static Operation np_11_3(Prolog m) { 
+    private final static Operation np_11_3(Prolog m) {
     // np(np(A,B,C),A,D,E,F,G,H,I,J,K,L):-is_pp(G),np_head(B,A,E+M,N,C,I,O,K,P),np_all(Q),np_compls(M,A,F,N,Q,H,O,J,P,L)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
         Operation p1, p2, p3;
@@ -1993,7 +1993,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("np_compls", FILE_chat_parser::PRED_np_compls_10_static_exec, VA(a15, a12, a5, a17, a20, a7, a18, a9, a19, a11), cont))));
     }
 
-    private final static Operation np_11_4(Prolog m) { 
+    private final static Operation np_11_4(Prolog m) {
     // np(part(A,B),3+C,D,indef,E,F,G,H,I,J,K):-is_pp(F),determiner(A,C,indef,H,L,J,M),~(of,L,N,M,O),s_all(P),prep_case(Q),np(B,3+plu,Q,def,E,P,G,N,I,O,K)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
         Operation p1, p2, p3, p4, p5;
@@ -2056,30 +2056,30 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_variable_q_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_variable_q_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry8(null, FILE_chat_parser::variable_q_8_sub_1);
         return variable_q_8_1(m);
     }
 
-    private final static Operation variable_q_8_sub_1(Prolog m) { 
+    private final static Operation variable_q_8_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::variable_q_8_sub_2);
         return variable_q_8_2(m);
     }
 
-    private final static Operation variable_q_8_sub_2(Prolog m) { 
+    private final static Operation variable_q_8_sub_2(Prolog m) {
         m.retry(null, FILE_chat_parser::variable_q_8_sub_3);
         return variable_q_8_3(m);
     }
 
-    private final static Operation variable_q_8_sub_3(Prolog m) { 
+    private final static Operation variable_q_8_sub_3(Prolog m) {
         m.trust(null);
         return variable_q_8_4(m);
     }
 
-    private final static Operation variable_q_8_1(Prolog m) { 
+    private final static Operation variable_q_8_1(Prolog m) {
     // variable_q(A,B,C,D,E,F,G,x(gap,nonterminal,np(H,B,D,I,J,K,L),M)):-whq(A,B,H,C,E,F,G,M),trace1(K,L)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -2112,7 +2112,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
     }
 
-    private final static Operation variable_q_8_2(Prolog m) { 
+    private final static Operation variable_q_8_2(Prolog m) {
     // variable_q(A,B,compl,C,D,E,F,x(gap,nonterminal,pp(pp(G,H),compl,I,J),K)):-prep(G,D,L,F,M),whq(A,B,H,N,L,E,M,K),trace1(I,J),compl_case(C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3;
@@ -2157,7 +2157,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("compl_case", FILE_chat_parser::PRED_compl_case_1_static_exec, VA(a4), cont))));
     }
 
-    private final static Operation variable_q_8_3(Prolog m) { 
+    private final static Operation variable_q_8_3(Prolog m) {
     // variable_q(A,B,compl,C,D,E,F,x(gap,nonterminal,adv_phrase(pp(G,np(B,np_head(int_det(A),[],H),[])),I,J),K)):-context_pron(G,H,D,E,F,K),trace1(I,J),verb_case(C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2;
@@ -2214,7 +2214,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_case", FILE_chat_parser::PRED_verb_case_1_static_exec, VA(a4), cont)));
     }
 
-    private final static Operation variable_q_8_4(Prolog m) { 
+    private final static Operation variable_q_8_4(Prolog m) {
     // variable_q(A,B,compl,C,D,E,F,x(gap,nonterminal,predicate(adj,value(G,wh(A)),H),I)):- ~(how,D,J,F,K),adj(quant,G,J,E,K,I),empty(H),verb_case(C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3;
@@ -2273,24 +2273,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adv_phrase_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adv_phrase_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::adv_phrase_7_var, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_var, FILE_chat_parser::adv_phrase_7_1); 
+        return m.switch_on_term(FILE_chat_parser::adv_phrase_7_var, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_1, FILE_chat_parser::adv_phrase_7_var, FILE_chat_parser::adv_phrase_7_1);
     }
 
-    private final static Operation adv_phrase_7_var(Prolog m) { 
+    private final static Operation adv_phrase_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::adv_phrase_7_var_1);
         return adv_phrase_7_1(m);
     }
 
-    private final static Operation adv_phrase_7_var_1(Prolog m) { 
+    private final static Operation adv_phrase_7_var_1(Prolog m) {
         m.trust(null);
         return adv_phrase_7_2(m);
     }
 
-    private final static Operation adv_phrase_7_1(Prolog m) { 
+    private final static Operation adv_phrase_7_1(Prolog m) {
     // adv_phrase(A,B,C,D,D,E,F):-virtual(adv_phrase(A,B,C),E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -2312,7 +2312,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
-    private final static Operation adv_phrase_7_2(Prolog m) { 
+    private final static Operation adv_phrase_7_2(Prolog m) {
     // adv_phrase(pp(A,B),C,D,E,F,G,H):-loc_pred(A,E,I,G,J),pp(pp(prep(of),B),compl,C,D,I,F,J,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1;
@@ -2352,49 +2352,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_predicate_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_predicate_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::predicate_7_var, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_var, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_int); 
+        return m.switch_on_term(FILE_chat_parser::predicate_7_var, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_var, FILE_chat_parser::predicate_7_int, FILE_chat_parser::predicate_7_int);
     }
 
-    private final static Operation predicate_7_var(Prolog m) { 
+    private final static Operation predicate_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::predicate_7_var_1);
         return predicate_7_1(m);
     }
 
-    private final static Operation predicate_7_var_1(Prolog m) { 
+    private final static Operation predicate_7_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::predicate_7_var_2);
         return predicate_7_2(m);
     }
 
-    private final static Operation predicate_7_var_2(Prolog m) { 
+    private final static Operation predicate_7_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::predicate_7_var_3);
         return predicate_7_3(m);
     }
 
-    private final static Operation predicate_7_var_3(Prolog m) { 
+    private final static Operation predicate_7_var_3(Prolog m) {
         m.trust(null);
         return predicate_7_4(m);
     }
 
-    private final static Operation predicate_7_int(Prolog m) { 
+    private final static Operation predicate_7_int(Prolog m) {
         m.jtry7(null, FILE_chat_parser::predicate_7_int_1);
         return predicate_7_1(m);
     }
 
-    private final static Operation predicate_7_int_1(Prolog m) { 
+    private final static Operation predicate_7_int_1(Prolog m) {
         m.retry(null, FILE_chat_parser::predicate_7_int_2);
         return predicate_7_2(m);
     }
 
-    private final static Operation predicate_7_int_2(Prolog m) { 
+    private final static Operation predicate_7_int_2(Prolog m) {
         m.trust(null);
         return predicate_7_4(m);
     }
 
-    private final static Operation predicate_7_1(Prolog m) { 
+    private final static Operation predicate_7_1(Prolog m) {
     // predicate(A,B,C,D,D,E,F):-virtual(predicate(A,B,C),E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -2416,7 +2416,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
-    private final static Operation predicate_7_2(Prolog m) { 
+    private final static Operation predicate_7_2(Prolog m) {
     // predicate(A,B,C,D,E,F,G):-adj_phrase(B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -2433,7 +2433,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adj_phrase", FILE_chat_parser::PRED_adj_phrase_6_static_exec, VA(a2, a3, a4, a5, a6, a7), cont);
     }
 
-    private final static Operation predicate_7_3(Prolog m) { 
+    private final static Operation predicate_7_3(Prolog m) {
     // predicate(neg,A,B,C,D,E,F):-s_all(G),pp(A,compl,G,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -2455,7 +2455,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a2,  ATOM_compl , a8, a3, a4, a5, a6, a7), cont));
     }
 
-    private final static Operation predicate_7_4(Prolog m) { 
+    private final static Operation predicate_7_4(Prolog m) {
     // predicate(A,B,C,D,E,F,G):-s_all(H),adv_phrase(B,H,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -2484,20 +2484,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_whq_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_whq_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry8(null, FILE_chat_parser::whq_8_sub_1);
         return whq_8_1(m);
     }
 
-    private final static Operation whq_8_sub_1(Prolog m) { 
+    private final static Operation whq_8_sub_1(Prolog m) {
         m.trust(null);
         return whq_8_2(m);
     }
 
-    private final static Operation whq_8_1(Prolog m) { 
+    private final static Operation whq_8_1(Prolog m) {
     // whq(A,B,C,undef,D,E,F,G):-int_det(A,B,D,H,F,I),s_all(J),np(C,B,K,L,subj,J,M,H,E,I,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2;
@@ -2523,7 +2523,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("np", FILE_chat_parser::PRED_np_11_static_exec, VA(a3, a2, m.DONT_CARE2(), m.DONT_CARE2(),  ATOM_subj , a11, m.DONT_CARE2(), a9, a6, a10, a8), cont)));
     }
 
-    private final static Operation whq_8_2(Prolog m) { 
+    private final static Operation whq_8_2(Prolog m) {
     // whq(A,3+B,np(3+B,wh(A),[]),C,D,E,F,G):-int_pron(C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -2569,20 +2569,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_det_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_det_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_chat_parser::int_det_6_sub_1);
         return int_det_6_1(m);
     }
 
-    private final static Operation int_det_6_sub_1(Prolog m) { 
+    private final static Operation int_det_6_sub_1(Prolog m) {
         m.trust(null);
         return int_det_6_2(m);
     }
 
-    private final static Operation int_det_6_1(Prolog m) { 
+    private final static Operation int_det_6_1(Prolog m) {
     // int_det(A,3+B,C,D,E,F):-whose(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -2603,7 +2603,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("whose", FILE_chat_parser::PRED_whose_6_static_exec, VA(a1, a7, a3, a4, a5, a6), cont);
     }
 
-    private final static Operation int_det_6_2(Prolog m) { 
+    private final static Operation int_det_6_2(Prolog m) {
     // int_det(A,3+B,C,D,E,F):-int_art(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -2632,20 +2632,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_gen_marker_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_gen_marker_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_chat_parser::gen_marker_4_sub_1);
         return gen_marker_4_1(m);
     }
 
-    private final static Operation gen_marker_4_sub_1(Prolog m) { 
+    private final static Operation gen_marker_4_sub_1(Prolog m) {
         m.trust(null);
         return gen_marker_4_2(m);
     }
 
-    private final static Operation gen_marker_4_1(Prolog m) { 
+    private final static Operation gen_marker_4_1(Prolog m) {
     // gen_marker(A,A,B,C):-virtual(gen_marker,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -2661,7 +2661,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA( ATOM_gen_marker , a3, a4), cont);
     }
 
-    private final static Operation gen_marker_4_2(Prolog m) { 
+    private final static Operation gen_marker_4_2(Prolog m) {
     // gen_marker(A,B,C,D):- ~(~,A,E,C,F),an_s(E,B,F,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -2692,8 +2692,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_whose_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_whose_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // whose(A,B,C,D,E,x(nogap,nonterminal,np_head0(wh(A),B,proper),x(nogap,nonterminal,gen_marker,F))):- ~(whose,C,D,E,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -2737,20 +2737,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_question_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_question_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_chat_parser::question_7_sub_1);
         return question_7_1(m);
     }
 
-    private final static Operation question_7_sub_1(Prolog m) { 
+    private final static Operation question_7_sub_1(Prolog m) {
         m.trust(null);
         return question_7_2(m);
     }
 
-    private final static Operation question_7_1(Prolog m) { 
+    private final static Operation question_7_1(Prolog m) {
     // question(A,B,C,D,E,F,G):-subj_question(A),role(subj,H,B),s(C,I,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
@@ -2770,7 +2770,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("s", FILE_chat_parser::PRED_s_6_static_exec, VA(a3, m.DONT_CARE2(), a4, a5, a6, a7), cont)));
     }
 
-    private final static Operation question_7_2(Prolog m) { 
+    private final static Operation question_7_2(Prolog m) {
     // question(A,B,C,D,E,F,G):-fronted_verb(A,B,D,H,F,I),s(C,J,H,E,I,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -2803,49 +2803,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_det_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_det_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::det_7_var, FILE_chat_parser::det_7_1, FILE_chat_parser::det_7_1, FILE_chat_parser::det_7_con, FILE_chat_parser::det_7_str, FILE_chat_parser::det_7_1); 
+        return m.switch_on_term(FILE_chat_parser::det_7_var, FILE_chat_parser::det_7_1, FILE_chat_parser::det_7_1, FILE_chat_parser::det_7_con, FILE_chat_parser::det_7_str, FILE_chat_parser::det_7_1);
     }
 
-    private final static Operation det_7_var(Prolog m) { 
+    private final static Operation det_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::det_7_var_1);
         return det_7_1(m);
     }
 
-    private final static Operation det_7_var_1(Prolog m) { 
+    private final static Operation det_7_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::det_7_var_2);
         return det_7_2(m);
     }
 
-    private final static Operation det_7_var_2(Prolog m) { 
+    private final static Operation det_7_var_2(Prolog m) {
         m.trust(null);
         return det_7_3(m);
     }
 
-    private final static Operation det_7_con(Prolog m) { 
+    private final static Operation det_7_con(Prolog m) {
         m.jtry7(null, FILE_chat_parser::det_7_con_1);
         return det_7_1(m);
     }
 
-    private final static Operation det_7_con_1(Prolog m) { 
+    private final static Operation det_7_con_1(Prolog m) {
         m.trust(null);
         return det_7_3(m);
     }
 
-    private final static Operation det_7_str(Prolog m) { 
+    private final static Operation det_7_str(Prolog m) {
         m.jtry7(null, FILE_chat_parser::det_7_str_1);
         return det_7_1(m);
     }
 
-    private final static Operation det_7_str_1(Prolog m) { 
+    private final static Operation det_7_str_1(Prolog m) {
         m.trust(null);
         return det_7_2(m);
     }
 
-    private final static Operation det_7_1(Prolog m) { 
+    private final static Operation det_7_1(Prolog m) {
     // det(A,B,C,D,D,E,F):-virtual(det(A,B,C),E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -2867,7 +2867,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
-    private final static Operation det_7_2(Prolog m) { 
+    private final static Operation det_7_2(Prolog m) {
     // det(det(A),B,C,D,E,F,G):-terminal(H,D,E,F,G),det(H,B,A,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -2892,7 +2892,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("det", FILE_chat_parser::PRED_det_4_static_exec, VA(a9, a2, a8, a3), cont));
     }
 
-    private final static Operation det_7_3(Prolog m) { 
+    private final static Operation det_7_3(Prolog m) {
     // det(generic,A,generic,B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -2925,8 +2925,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_art_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_art_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // int_art(A,B,C,D,E,x(nogap,nonterminal,det(F,B,def),G)):-int_art(A,B,F,C,D,E,G)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
@@ -2959,24 +2959,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_subj_question_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_subj_question_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::subj_question_1_var, fail_0, fail_0, FILE_chat_parser::subj_question_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::subj_question_1_var, fail_0, fail_0, FILE_chat_parser::subj_question_1_var, fail_0, fail_0);
     }
 
-    private final static Operation subj_question_1_var(Prolog m) { 
+    private final static Operation subj_question_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::subj_question_1_var_1);
         return subj_question_1_1(m);
     }
 
-    private final static Operation subj_question_1_var_1(Prolog m) { 
+    private final static Operation subj_question_1_var_1(Prolog m) {
         m.trust(null);
         return subj_question_1_2(m);
     }
 
-    private final static Operation subj_question_1_1(Prolog m) { 
+    private final static Operation subj_question_1_1(Prolog m) {
     // subj_question(subj):-true
          Term a1;
         Operation cont;
@@ -2988,7 +2988,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation subj_question_1_2(Prolog m) { 
+    private final static Operation subj_question_1_2(Prolog m) {
     // subj_question(undef):-true
          Term a1;
         Operation cont;
@@ -3010,8 +3010,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_yn_question_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_yn_question_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // yn_question(q(A),B,C,D,E):-fronted_verb(nil,F,B,G,D,H),s(A,I,G,C,H,E)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -3044,20 +3044,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_form_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_form_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry8(null, FILE_chat_parser::verb_form_8_sub_1);
         return verb_form_8_1(m);
     }
 
-    private final static Operation verb_form_8_sub_1(Prolog m) { 
+    private final static Operation verb_form_8_sub_1(Prolog m) {
         m.trust(null);
         return verb_form_8_2(m);
     }
 
-    private final static Operation verb_form_8_1(Prolog m) { 
+    private final static Operation verb_form_8_1(Prolog m) {
     // verb_form(A,B,C,D,E,E,F,G):-virtual(verb_form(A,B,C,D),F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -3080,7 +3080,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
-    private final static Operation verb_form_8_2(Prolog m) { 
+    private final static Operation verb_form_8_2(Prolog m) {
     // verb_form(A,B,C,D,E,F,G,H):-terminal(I,E,F,G,H),verb_form(I,A,B,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -3112,39 +3112,39 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_neg_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_neg_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::neg_6_var, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_var, FILE_chat_parser::neg_6_int); 
+        return m.switch_on_term(FILE_chat_parser::neg_6_var, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_int, FILE_chat_parser::neg_6_var, FILE_chat_parser::neg_6_int);
     }
 
-    private final static Operation neg_6_var(Prolog m) { 
+    private final static Operation neg_6_var(Prolog m) {
         m.jtry6(null, FILE_chat_parser::neg_6_var_1);
         return neg_6_1(m);
     }
 
-    private final static Operation neg_6_var_1(Prolog m) { 
+    private final static Operation neg_6_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::neg_6_var_2);
         return neg_6_2(m);
     }
 
-    private final static Operation neg_6_var_2(Prolog m) { 
+    private final static Operation neg_6_var_2(Prolog m) {
         m.trust(null);
         return neg_6_3(m);
     }
 
-    private final static Operation neg_6_int(Prolog m) { 
+    private final static Operation neg_6_int(Prolog m) {
         m.jtry6(null, FILE_chat_parser::neg_6_int_1);
         return neg_6_1(m);
     }
 
-    private final static Operation neg_6_int_1(Prolog m) { 
+    private final static Operation neg_6_int_1(Prolog m) {
         m.trust(null);
         return neg_6_3(m);
     }
 
-    private final static Operation neg_6_1(Prolog m) { 
+    private final static Operation neg_6_1(Prolog m) {
     // neg(A,B,C,C,D,E):-virtual(neg(A,B),D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -3165,7 +3165,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a7, a5, a6), cont);
     }
 
-    private final static Operation neg_6_2(Prolog m) { 
+    private final static Operation neg_6_2(Prolog m) {
     // neg(aux+A,neg,B,C,D,E):- ~(not,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -3187,7 +3187,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
     }
 
-    private final static Operation neg_6_3(Prolog m) { 
+    private final static Operation neg_6_3(Prolog m) {
     // neg(A,pos,B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -3217,8 +3217,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_fronted_verb_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_fronted_verb_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // fronted_verb(A,B,C,D,E,x(gap,nonterminal,verb_form(F,G,H,I),x(nogap,nonterminal,neg(J,K),L))):-verb_form(F,G,H,M,C,N,E,O),verb_type(F,aux+P),role(A,I,B),neg(Q,K,N,D,O,L)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
@@ -3277,8 +3277,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_imperative_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_imperative_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // imperative(imp(A),B,C,D,E):-imperative_verb(B,F,D,G),s(A,H,F,C,G,E)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -3315,8 +3315,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_imperative_verb_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_imperative_verb_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // imperative_verb(A,B,C,x(nogap,terminal,you,x(nogap,nonterminal,verb_form(D,imp+fin,2+sin,main),E))):-verb_form(D,inf,F,G,A,B,C,E)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -3355,8 +3355,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_s_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_s_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // s(s(A,B,C,D),E,F,G,H,I):-subj(A,J,K,F,L,H,M),verb(B,J,K,N,L,O,M,P),empty(Q),s_all(R),verb_args(K,N,C,Q,S,O,T,P,U),minus(R,S,V),myplus(R,S,W),verb_mods(D,V,W,E,T,G,U,I)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24;
@@ -3411,24 +3411,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_subj_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_subj_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::subj_7_var, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_var, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_2); 
+        return m.switch_on_term(FILE_chat_parser::subj_7_var, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_var, FILE_chat_parser::subj_7_2, FILE_chat_parser::subj_7_2);
     }
 
-    private final static Operation subj_7_var(Prolog m) { 
+    private final static Operation subj_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::subj_7_var_1);
         return subj_7_1(m);
     }
 
-    private final static Operation subj_7_var_1(Prolog m) { 
+    private final static Operation subj_7_var_1(Prolog m) {
         m.trust(null);
         return subj_7_2(m);
     }
 
-    private final static Operation subj_7_1(Prolog m) { 
+    private final static Operation subj_7_1(Prolog m) {
     // subj(there,A,B+be,C,D,E,F):- ~(there,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -3451,7 +3451,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_there , a4, a5, a6, a7), cont);
     }
 
-    private final static Operation subj_7_2(Prolog m) { 
+    private final static Operation subj_7_2(Prolog m) {
     // subj(A,B,C,D,E,F,G):-s_all(H),subj_case(I),np(A,B,I,J,subj,H,K,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
@@ -3482,8 +3482,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_head_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_head_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // np_head(A,B,C,D,E,F,G,H,I):-np_head0(J,K,L,F,M,H,N),possessive(J,K,L,O,O,A,B,C,D,E,M,G,N,I)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
@@ -3523,49 +3523,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_head0_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_head0_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::np_head0_7_var, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_var, FILE_chat_parser::np_head0_7_int); 
+        return m.switch_on_term(FILE_chat_parser::np_head0_7_var, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_int, FILE_chat_parser::np_head0_7_var, FILE_chat_parser::np_head0_7_int);
     }
 
-    private final static Operation np_head0_7_var(Prolog m) { 
+    private final static Operation np_head0_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::np_head0_7_var_1);
         return np_head0_7_1(m);
     }
 
-    private final static Operation np_head0_7_var_1(Prolog m) { 
+    private final static Operation np_head0_7_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::np_head0_7_var_2);
         return np_head0_7_2(m);
     }
 
-    private final static Operation np_head0_7_var_2(Prolog m) { 
+    private final static Operation np_head0_7_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::np_head0_7_var_3);
         return np_head0_7_3(m);
     }
 
-    private final static Operation np_head0_7_var_3(Prolog m) { 
+    private final static Operation np_head0_7_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::np_head0_7_var_4);
         return np_head0_7_4(m);
     }
 
-    private final static Operation np_head0_7_var_4(Prolog m) { 
+    private final static Operation np_head0_7_var_4(Prolog m) {
         m.trust(null);
         return np_head0_7_5(m);
     }
 
-    private final static Operation np_head0_7_int(Prolog m) { 
+    private final static Operation np_head0_7_int(Prolog m) {
         m.jtry7(null, FILE_chat_parser::np_head0_7_int_1);
         return np_head0_7_1(m);
     }
 
-    private final static Operation np_head0_7_int_1(Prolog m) { 
+    private final static Operation np_head0_7_int_1(Prolog m) {
         m.trust(null);
         return np_head0_7_4(m);
     }
 
-    private final static Operation np_head0_7_1(Prolog m) { 
+    private final static Operation np_head0_7_1(Prolog m) {
     // np_head0(A,B,C,D,D,E,F):-virtual(np_head0(A,B,C),E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -3587,7 +3587,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a8, a6, a7), cont);
     }
 
-    private final static Operation np_head0_7_2(Prolog m) { 
+    private final static Operation np_head0_7_2(Prolog m) {
     // np_head0(name(A),3+sin,def+proper,B,C,D,E):-name(A,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -3613,7 +3613,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("name", FILE_chat_parser::PRED_name_5_static_exec, VA(a8, a4, a5, a6, a7), cont);
     }
 
-    private final static Operation np_head0_7_3(Prolog m) { 
+    private final static Operation np_head0_7_3(Prolog m) {
     // np_head0(np_head(A,B,C),3+D,E+common,F,G,H,I):-determiner(A,D,E,F,J,H,K),adjs(B,J,L,K,M),noun(C,D,L,G,M,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2;
@@ -3654,7 +3654,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("noun", FILE_chat_parser::PRED_noun_6_static_exec, VA(a10, a11, a15, a5, a16, a7), cont)));
     }
 
-    private final static Operation np_head0_7_4(Prolog m) { 
+    private final static Operation np_head0_7_4(Prolog m) {
     // np_head0(A,B,def+proper,C,D,E,x(nogap,nonterminal,gen_marker,F)):-poss_pron(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -3678,7 +3678,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("poss_pron", FILE_chat_parser::PRED_poss_pron_6_static_exec, VA(a1, a2, a4, a5, a6, a8), cont);
     }
 
-    private final static Operation np_head0_7_5(Prolog m) { 
+    private final static Operation np_head0_7_5(Prolog m) {
     // np_head0(np_head(A,[],B),3+sin,indef+common,C,D,E,F):-quantifier_pron(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -3714,24 +3714,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_compls_10_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_compls_10_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::np_compls_10_var, fail_0, fail_0, FILE_chat_parser::np_compls_10_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::np_compls_10_var, fail_0, fail_0, FILE_chat_parser::np_compls_10_var, fail_0, fail_0);
     }
 
-    private final static Operation np_compls_10_var(Prolog m) { 
+    private final static Operation np_compls_10_var(Prolog m) {
         m.jtry(10, null, FILE_chat_parser::np_compls_10_var_1);
         return np_compls_10_1(m);
     }
 
-    private final static Operation np_compls_10_var_1(Prolog m) { 
+    private final static Operation np_compls_10_var_1(Prolog m) {
         m.trust(null);
         return np_compls_10_2(m);
     }
 
-    private final static Operation np_compls_10_1(Prolog m) { 
+    private final static Operation np_compls_10_1(Prolog m) {
     // np_compls(proper,A,B,[],C,D,E,E,F,F):-empty(D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -3759,7 +3759,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a6), cont);
     }
 
-    private final static Operation np_compls_10_2(Prolog m) { 
+    private final static Operation np_compls_10_2(Prolog m) {
     // np_compls(common,A,B,C,D,E,F,G,H,I):-np_all(J),np_mods(A,B,K,C,D,L,J,M,F,N,H,O),relative(A,K,L,M,E,N,G,O,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2;
@@ -3800,20 +3800,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_possessive_14_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_possessive_14_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(14, null, FILE_chat_parser::possessive_14_sub_1);
         return possessive_14_1(m);
     }
 
-    private final static Operation possessive_14_sub_1(Prolog m) { 
+    private final static Operation possessive_14_sub_1(Prolog m) {
         m.trust(null);
         return possessive_14_2(m);
     }
 
-    private final static Operation possessive_14_1(Prolog m) { 
+    private final static Operation possessive_14_1(Prolog m) {
     // possessive(A,B,C,[],D,E,F,G,H,I,J,K,L,M):-gen_case(J,N,L,O),np_head0(P,Q,R,N,S,O,T),possessive(P,Q,R,U,[pp(poss,np(B,A,D))|U],E,F,G,H,I,S,K,T,M)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25;
         Operation p1, p2;
@@ -3857,7 +3857,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("possessive", FILE_chat_parser::PRED_possessive_14_static_exec, VA(a17, a18, a19, a22, a25, a6, a7, a8, a9, a10, a20, a12, a21, a14), cont)));
     }
 
-    private final static Operation possessive_14_2(Prolog m) { 
+    private final static Operation possessive_14_2(Prolog m) {
     // possessive(A,B,C,D,E,A,B,C,D,E,F,F,G,G):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation cont;
@@ -3901,8 +3901,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_gen_case_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_gen_case_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // gen_case(A,B,C,x(nogap,terminal,the,D)):-gen_marker(A,B,C,D)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -3927,20 +3927,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_an_s_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_an_s_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_chat_parser::an_s_4_sub_1);
         return an_s_4_1(m);
     }
 
-    private final static Operation an_s_4_sub_1(Prolog m) { 
+    private final static Operation an_s_4_sub_1(Prolog m) {
         m.trust(null);
         return an_s_4_2(m);
     }
 
-    private final static Operation an_s_4_1(Prolog m) { 
+    private final static Operation an_s_4_1(Prolog m) {
     // an_s(A,B,C,D):- ~(s,A,B,C,D)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -3954,7 +3954,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_s , a1, a2, a3, a4), cont);
     }
 
-    private final static Operation an_s_4_2(Prolog m) { 
+    private final static Operation an_s_4_2(Prolog m) {
     // an_s(A,A,B,B):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -3980,20 +3980,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_determiner_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_determiner_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_chat_parser::determiner_7_sub_1);
         return determiner_7_1(m);
     }
 
-    private final static Operation determiner_7_sub_1(Prolog m) { 
+    private final static Operation determiner_7_sub_1(Prolog m) {
         m.trust(null);
         return determiner_7_2(m);
     }
 
-    private final static Operation determiner_7_1(Prolog m) { 
+    private final static Operation determiner_7_1(Prolog m) {
     // determiner(A,B,C,D,E,F,G):-det(A,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -4010,7 +4010,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("det", FILE_chat_parser::PRED_det_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
     }
 
-    private final static Operation determiner_7_2(Prolog m) { 
+    private final static Operation determiner_7_2(Prolog m) {
     // determiner(A,B,C,D,E,F,G):-quant_phrase(A,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -4037,8 +4037,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_quant_phrase_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_quant_phrase_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // quant_phrase(quant(A,B),C,D,E,F,G,H):-quant(A,D,E,I,G,J),number(B,C,I,F,J,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
@@ -4075,44 +4075,44 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_quant_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_quant_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::quant_6_var, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_var, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_int); 
+        return m.switch_on_term(FILE_chat_parser::quant_6_var, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_var, FILE_chat_parser::quant_6_int, FILE_chat_parser::quant_6_int);
     }
 
-    private final static Operation quant_6_var(Prolog m) { 
+    private final static Operation quant_6_var(Prolog m) {
         m.jtry6(null, FILE_chat_parser::quant_6_var_1);
         return quant_6_1(m);
     }
 
-    private final static Operation quant_6_var_1(Prolog m) { 
+    private final static Operation quant_6_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::quant_6_var_2);
         return quant_6_2(m);
     }
 
-    private final static Operation quant_6_var_2(Prolog m) { 
+    private final static Operation quant_6_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::quant_6_var_3);
         return quant_6_3(m);
     }
 
-    private final static Operation quant_6_var_3(Prolog m) { 
+    private final static Operation quant_6_var_3(Prolog m) {
         m.trust(null);
         return quant_6_4(m);
     }
 
-    private final static Operation quant_6_int(Prolog m) { 
+    private final static Operation quant_6_int(Prolog m) {
         m.jtry6(null, FILE_chat_parser::quant_6_int_1);
         return quant_6_1(m);
     }
 
-    private final static Operation quant_6_int_1(Prolog m) { 
+    private final static Operation quant_6_int_1(Prolog m) {
         m.trust(null);
         return quant_6_2(m);
     }
 
-    private final static Operation quant_6_1(Prolog m) { 
+    private final static Operation quant_6_1(Prolog m) {
     // quant(A,indef,B,C,D,E):-neg_adv(F,A,B,G,D,H),comp_adv(F,G,I,H,J),~(than,I,C,J,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2;
@@ -4138,7 +4138,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a10, a4, a11, a6), cont)));
     }
 
-    private final static Operation quant_6_2(Prolog m) { 
+    private final static Operation quant_6_2(Prolog m) {
     // quant(A,indef,B,C,D,E):- ~(at,B,F,D,G),sup_adv(H,F,C,G,E),sup_op(H,A)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
@@ -4162,7 +4162,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("sup_op", FILE_chat_parser::PRED_sup_op_2_static_exec, VA(a9, a1), cont)));
     }
 
-    private final static Operation quant_6_3(Prolog m) { 
+    private final static Operation quant_6_3(Prolog m) {
     // quant(the,def,A,B,C,D):- ~(the,A,B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -4182,7 +4182,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_the , a3, a4, a5, a6), cont);
     }
 
-    private final static Operation quant_6_4(Prolog m) { 
+    private final static Operation quant_6_4(Prolog m) {
     // quant(same,indef,A,A,B,B):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -4214,20 +4214,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_neg_adv_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_neg_adv_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_chat_parser::neg_adv_6_sub_1);
         return neg_adv_6_1(m);
     }
 
-    private final static Operation neg_adv_6_sub_1(Prolog m) { 
+    private final static Operation neg_adv_6_sub_1(Prolog m) {
         m.trust(null);
         return neg_adv_6_2(m);
     }
 
-    private final static Operation neg_adv_6_1(Prolog m) { 
+    private final static Operation neg_adv_6_1(Prolog m) {
     // neg_adv(A,not+A,B,C,D,E):- ~(not,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -4247,7 +4247,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_not , a3, a4, a5, a6), cont);
     }
 
-    private final static Operation neg_adv_6_2(Prolog m) { 
+    private final static Operation neg_adv_6_2(Prolog m) {
     // neg_adv(A,A,B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -4280,24 +4280,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sup_op_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sup_op_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::sup_op_2_var, fail_0, fail_0, FILE_chat_parser::sup_op_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::sup_op_2_var, fail_0, fail_0, FILE_chat_parser::sup_op_2_var, fail_0, fail_0);
     }
 
-    private final static Operation sup_op_2_var(Prolog m) { 
+    private final static Operation sup_op_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::sup_op_2_var_1);
         return sup_op_2_1(m);
     }
 
-    private final static Operation sup_op_2_var_1(Prolog m) { 
+    private final static Operation sup_op_2_var_1(Prolog m) {
         m.trust(null);
         return sup_op_2_2(m);
     }
 
-    private final static Operation sup_op_2_1(Prolog m) { 
+    private final static Operation sup_op_2_1(Prolog m) {
     // sup_op(least,not+less):-true
          Term a1, a2;
         Operation cont;
@@ -4312,7 +4312,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation sup_op_2_2(Prolog m) { 
+    private final static Operation sup_op_2_2(Prolog m) {
     // sup_op(most,not+more):-true
          Term a1, a2;
         Operation cont;
@@ -4336,20 +4336,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_mods_12_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_mods_12_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(12, null, FILE_chat_parser::np_mods_12_sub_1);
         return np_mods_12_1(m);
     }
 
-    private final static Operation np_mods_12_sub_1(Prolog m) { 
+    private final static Operation np_mods_12_sub_1(Prolog m) {
         m.trust(null);
         return np_mods_12_2(m);
     }
 
-    private final static Operation np_mods_12_1(Prolog m) { 
+    private final static Operation np_mods_12_1(Prolog m) {
     // np_mods(A,B,C,[D|E],F,G,H,I,J,K,L,M):-np_mod(A,B,D,F,N,J,O,L,P),trace1(Q),myplus(Q,N,R),minus(F,R,S),myplus(N,F,T),np_mods(A,B,C,E,S,G,T,I,O,K,P,M)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21;
         Operation p1, p2, p3, p4, p5;
@@ -4395,7 +4395,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("np_mods", FILE_chat_parser::PRED_np_mods_12_static_exec, VA(a1, a2, a3, a14, a20, a6, a21, a8, a16, a10, a17, a12), cont))))));
     }
 
-    private final static Operation np_mods_12_2(Prolog m) { 
+    private final static Operation np_mods_12_2(Prolog m) {
     // np_mods(A,B,C,C,D,D,E,E,F,F,G,G):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
@@ -4435,20 +4435,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_np_mod_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_np_mod_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(9, null, FILE_chat_parser::np_mod_9_sub_1);
         return np_mod_9_1(m);
     }
 
-    private final static Operation np_mod_9_sub_1(Prolog m) { 
+    private final static Operation np_mod_9_sub_1(Prolog m) {
         m.trust(null);
         return np_mod_9_2(m);
     }
 
-    private final static Operation np_mod_9_1(Prolog m) { 
+    private final static Operation np_mod_9_1(Prolog m) {
     // np_mod(A,B,C,D,E,F,G,H,I):-pp(C,B,D,E,F,G,H,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -4467,7 +4467,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("pp", FILE_chat_parser::PRED_pp_8_static_exec, VA(a3, a2, a4, a5, a6, a7, a8, a9), cont);
     }
 
-    private final static Operation np_mod_9_2(Prolog m) { 
+    private final static Operation np_mod_9_2(Prolog m) {
     // np_mod(A,B,C,D,E,F,G,H,I):-reduced_relative(A,C,D,E,F,G,H,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -4495,24 +4495,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_mods_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_mods_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_mods_8_var, fail_0, fail_0, FILE_chat_parser::verb_mods_8_2, fail_0, FILE_chat_parser::verb_mods_8_1); 
+        return m.switch_on_term(FILE_chat_parser::verb_mods_8_var, fail_0, fail_0, FILE_chat_parser::verb_mods_8_2, fail_0, FILE_chat_parser::verb_mods_8_1);
     }
 
-    private final static Operation verb_mods_8_var(Prolog m) { 
+    private final static Operation verb_mods_8_var(Prolog m) {
         m.jtry8(null, FILE_chat_parser::verb_mods_8_var_1);
         return verb_mods_8_1(m);
     }
 
-    private final static Operation verb_mods_8_var_1(Prolog m) { 
+    private final static Operation verb_mods_8_var_1(Prolog m) {
         m.trust(null);
         return verb_mods_8_2(m);
     }
 
-    private final static Operation verb_mods_8_1(Prolog m) { 
+    private final static Operation verb_mods_8_1(Prolog m) {
     // verb_mods([A|B],C,D,E,F,G,H,I):-verb_mod(A,C,J,F,K,H,L),trace1(M),myplus(M,J,N),minus(C,N,O),myplus(J,C,P),verb_mods(B,O,P,E,K,G,L,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
         Operation p1, p2, p3, p4, p5;
@@ -4554,7 +4554,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_mods", FILE_chat_parser::PRED_verb_mods_8_static_exec, VA(a10, a16, a17, a4, a12, a6, a13, a8), cont))))));
     }
 
-    private final static Operation verb_mods_8_2(Prolog m) { 
+    private final static Operation verb_mods_8_2(Prolog m) {
     // verb_mods([],A,B,B,C,C,D,D):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -4588,25 +4588,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_mod_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_mod_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_chat_parser::verb_mod_7_sub_1);
         return verb_mod_7_1(m);
     }
 
-    private final static Operation verb_mod_7_sub_1(Prolog m) { 
+    private final static Operation verb_mod_7_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_mod_7_sub_2);
         return verb_mod_7_2(m);
     }
 
-    private final static Operation verb_mod_7_sub_2(Prolog m) { 
+    private final static Operation verb_mod_7_sub_2(Prolog m) {
         m.trust(null);
         return verb_mod_7_3(m);
     }
 
-    private final static Operation verb_mod_7_1(Prolog m) { 
+    private final static Operation verb_mod_7_1(Prolog m) {
     // verb_mod(A,B,C,D,E,F,G):-adv_phrase(A,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -4623,7 +4623,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adv_phrase", FILE_chat_parser::PRED_adv_phrase_7_static_exec, VA(a1, a2, a3, a4, a5, a6, a7), cont);
     }
 
-    private final static Operation verb_mod_7_2(Prolog m) { 
+    private final static Operation verb_mod_7_2(Prolog m) {
     // verb_mod(A,B,C,D,E,F,G):-is_adv(B),adverb(A,D,E,F,G),empty(C)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
@@ -4643,7 +4643,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a3), cont)));
     }
 
-    private final static Operation verb_mod_7_3(Prolog m) { 
+    private final static Operation verb_mod_7_3(Prolog m) {
     // verb_mod(A,B,C,D,E,F,G):-pp(A,compl,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -4669,24 +4669,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adjs_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adjs_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::adjs_5_var, fail_0, fail_0, FILE_chat_parser::adjs_5_2, fail_0, FILE_chat_parser::adjs_5_1); 
+        return m.switch_on_term(FILE_chat_parser::adjs_5_var, fail_0, fail_0, FILE_chat_parser::adjs_5_2, fail_0, FILE_chat_parser::adjs_5_1);
     }
 
-    private final static Operation adjs_5_var(Prolog m) { 
+    private final static Operation adjs_5_var(Prolog m) {
         m.jtry5(null, FILE_chat_parser::adjs_5_var_1);
         return adjs_5_1(m);
     }
 
-    private final static Operation adjs_5_var_1(Prolog m) { 
+    private final static Operation adjs_5_var_1(Prolog m) {
         m.trust(null);
         return adjs_5_2(m);
     }
 
-    private final static Operation adjs_5_1(Prolog m) { 
+    private final static Operation adjs_5_1(Prolog m) {
     // adjs([A|B],C,D,E,F):-pre_adj(A,C,G,E,H),adjs(B,G,D,H,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -4716,7 +4716,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adjs", FILE_chat_parser::PRED_adjs_5_static_exec, VA(a7, a8, a3, a9, a5), cont));
     }
 
-    private final static Operation adjs_5_2(Prolog m) { 
+    private final static Operation adjs_5_2(Prolog m) {
     // adjs([],A,A,B,B):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -4745,20 +4745,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pre_adj_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pre_adj_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry5(null, FILE_chat_parser::pre_adj_5_sub_1);
         return pre_adj_5_1(m);
     }
 
-    private final static Operation pre_adj_5_sub_1(Prolog m) { 
+    private final static Operation pre_adj_5_sub_1(Prolog m) {
         m.trust(null);
         return pre_adj_5_2(m);
     }
 
-    private final static Operation pre_adj_5_1(Prolog m) { 
+    private final static Operation pre_adj_5_1(Prolog m) {
     // pre_adj(A,B,C,D,E):-adj(F,A,B,C,D,E)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -4773,7 +4773,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adj", FILE_chat_parser::PRED_adj_6_static_exec, VA(m.DONT_CARE2(), a1, a2, a3, a4, a5), cont);
     }
 
-    private final static Operation pre_adj_5_2(Prolog m) { 
+    private final static Operation pre_adj_5_2(Prolog m) {
     // pre_adj(A,B,C,D,E):-sup_phrase(A,B,C,D,E)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -4798,24 +4798,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sup_phrase_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sup_phrase_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::sup_phrase_5_var, fail_0, fail_0, fail_0, FILE_chat_parser::sup_phrase_5_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::sup_phrase_5_var, fail_0, fail_0, fail_0, FILE_chat_parser::sup_phrase_5_var, fail_0);
     }
 
-    private final static Operation sup_phrase_5_var(Prolog m) { 
+    private final static Operation sup_phrase_5_var(Prolog m) {
         m.jtry5(null, FILE_chat_parser::sup_phrase_5_var_1);
         return sup_phrase_5_1(m);
     }
 
-    private final static Operation sup_phrase_5_var_1(Prolog m) { 
+    private final static Operation sup_phrase_5_var_1(Prolog m) {
         m.trust(null);
         return sup_phrase_5_2(m);
     }
 
-    private final static Operation sup_phrase_5_1(Prolog m) { 
+    private final static Operation sup_phrase_5_1(Prolog m) {
     // sup_phrase(sup(most,A),B,C,D,E):-sup_adj(A,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -4835,7 +4835,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("sup_adj", FILE_chat_parser::PRED_sup_adj_5_static_exec, VA(a6, a2, a3, a4, a5), cont);
     }
 
-    private final static Operation sup_phrase_5_2(Prolog m) { 
+    private final static Operation sup_phrase_5_2(Prolog m) {
     // sup_phrase(sup(A,B),C,D,E,F):-sup_adv(A,C,G,E,H),adj(quant,B,G,D,H,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -4870,8 +4870,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_comp_phrase_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_comp_phrase_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // comp_phrase(comp(A,B,C),D,E,F,G,H):-comp(A,B,E,I,G,J),np_no_trace(K),prep_case(L),np(C,M,L,N,compl,K,D,I,F,J,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
@@ -4911,29 +4911,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_comp_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_comp_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::comp_6_var, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_var, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_1); 
+        return m.switch_on_term(FILE_chat_parser::comp_6_var, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_var, FILE_chat_parser::comp_6_1, FILE_chat_parser::comp_6_1);
     }
 
-    private final static Operation comp_6_var(Prolog m) { 
+    private final static Operation comp_6_var(Prolog m) {
         m.jtry6(null, FILE_chat_parser::comp_6_var_1);
         return comp_6_1(m);
     }
 
-    private final static Operation comp_6_var_1(Prolog m) { 
+    private final static Operation comp_6_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::comp_6_var_2);
         return comp_6_2(m);
     }
 
-    private final static Operation comp_6_var_2(Prolog m) { 
+    private final static Operation comp_6_var_2(Prolog m) {
         m.trust(null);
         return comp_6_3(m);
     }
 
-    private final static Operation comp_6_1(Prolog m) { 
+    private final static Operation comp_6_1(Prolog m) {
     // comp(A,B,C,D,E,F):-comp_adv(A,C,G,E,H),adj(quant,B,G,I,H,J),~(than,I,D,J,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -4956,7 +4956,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a9, a4, a10, a6), cont)));
     }
 
-    private final static Operation comp_6_2(Prolog m) { 
+    private final static Operation comp_6_2(Prolog m) {
     // comp(more,A,B,C,D,E):-rel_adj(A,B,F,D,G),~(than,F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -4978,7 +4978,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_than , a7, a4, a8, a6), cont));
     }
 
-    private final static Operation comp_6_3(Prolog m) { 
+    private final static Operation comp_6_3(Prolog m) {
     // comp(same,A,B,C,D,E):- ~(as,B,F,D,G),adj(quant,A,F,H,G,I),~(as,H,C,I,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -5012,20 +5012,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_relative_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_relative_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(9, null, FILE_chat_parser::relative_9_sub_1);
         return relative_9_1(m);
     }
 
-    private final static Operation relative_9_sub_1(Prolog m) { 
+    private final static Operation relative_9_sub_1(Prolog m) {
         m.trust(null);
         return relative_9_2(m);
     }
 
-    private final static Operation relative_9_1(Prolog m) { 
+    private final static Operation relative_9_1(Prolog m) {
     // relative(A,[B],C,D,E,F,G,H,I):-is_pred(C),rel_conj(A,J,B,E,F,G,H,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;
@@ -5057,7 +5057,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rel_conj", FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, m.DONT_CARE2(), a10, a5, a6, a7, a8, a9), cont));
     }
 
-    private final static Operation relative_9_2(Prolog m) { 
+    private final static Operation relative_9_2(Prolog m) {
     // relative(A,[],B,C,C,D,D,E,E):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -5092,8 +5092,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_conj_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_conj_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rel_conj(A,B,C,D,E,F,G,H):-rel(A,I,J,E,K,G,L),rel_rest(A,B,I,C,J,D,K,F,L,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -5125,20 +5125,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_rest_10_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_rest_10_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(10, null, FILE_chat_parser::rel_rest_10_sub_1);
         return rel_rest_10_1(m);
     }
 
-    private final static Operation rel_rest_10_sub_1(Prolog m) { 
+    private final static Operation rel_rest_10_sub_1(Prolog m) {
         m.trust(null);
         return rel_rest_10_2(m);
     }
 
-    private final static Operation rel_rest_10_1(Prolog m) { 
+    private final static Operation rel_rest_10_1(Prolog m) {
     // rel_rest(A,B,C,D,E,F,G,H,I,J):-conj(B,K,C,L,D,G,M,I,N),rel_conj(A,K,L,F,M,H,N,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1;
@@ -5164,7 +5164,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rel_conj", FILE_chat_parser::PRED_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
     }
 
-    private final static Operation rel_rest_10_2(Prolog m) { 
+    private final static Operation rel_rest_10_2(Prolog m) {
     // rel_rest(A,B,C,C,D,D,E,E,F,F):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -5201,8 +5201,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rel(A,rel(B,C),D,E,F,G,H):-myopen(E,I,G,J),variable(A,B,I,K,J,L),s(C,M,K,N,L,O),trace1(P),minus(M,P,D),close(N,F,O,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
@@ -5247,25 +5247,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_variable_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_variable_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_chat_parser::variable_6_sub_1);
         return variable_6_1(m);
     }
 
-    private final static Operation variable_6_sub_1(Prolog m) { 
+    private final static Operation variable_6_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::variable_6_sub_2);
         return variable_6_2(m);
     }
 
-    private final static Operation variable_6_sub_2(Prolog m) { 
+    private final static Operation variable_6_sub_2(Prolog m) {
         m.trust(null);
         return variable_6_3(m);
     }
 
-    private final static Operation variable_6_1(Prolog m) { 
+    private final static Operation variable_6_1(Prolog m) {
     // variable(A,B,C,D,E,x(gap,nonterminal,np(np(A,wh(B),[]),A,F,G,H,I,J),K)):- ~(that,C,D,E,K),trace1(I,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1;
@@ -5305,7 +5305,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a10, a11), cont));
     }
 
-    private final static Operation variable_6_2(Prolog m) { 
+    private final static Operation variable_6_2(Prolog m) {
     // variable(A,B,C,D,E,x(gap,nonterminal,np(F,G,H,I,J,K,L),M)):-wh(B,A,F,G,H,C,D,E,M),trace1(K,L)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -5338,7 +5338,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("trace1", FILE_chat_parser::PRED_trace1_2_static_exec, VA(a12, a13), cont));
     }
 
-    private final static Operation variable_6_3(Prolog m) { 
+    private final static Operation variable_6_3(Prolog m) {
     // variable(A,B,C,D,E,x(gap,nonterminal,pp(pp(F,G),compl,H,I),J)):-prep(F,C,K,E,L),wh(B,A,G,M,N,K,D,L,J),trace1(H,I),compl_case(N)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1, p2, p3;
@@ -5389,25 +5389,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_wh_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_wh_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(9, null, FILE_chat_parser::wh_9_sub_1);
         return wh_9_1(m);
     }
 
-    private final static Operation wh_9_sub_1(Prolog m) { 
+    private final static Operation wh_9_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::wh_9_sub_2);
         return wh_9_2(m);
     }
 
-    private final static Operation wh_9_sub_2(Prolog m) { 
+    private final static Operation wh_9_sub_2(Prolog m) {
         m.trust(null);
         return wh_9_3(m);
     }
 
-    private final static Operation wh_9_1(Prolog m) { 
+    private final static Operation wh_9_1(Prolog m) {
     // wh(A,B,np(B,wh(A),[]),B,C,D,E,F,G):-rel_pron(H,D,E,F,G),role(H,decl,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
@@ -5440,7 +5440,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("role", FILE_chat_parser::PRED_role_3_static_exec, VA(a11,  ATOM_decl , a5), cont));
     }
 
-    private final static Operation wh_9_2(Prolog m) { 
+    private final static Operation wh_9_2(Prolog m) {
     // wh(A,B,np(C,D,[pp(E,F)]),C,G,H,I,J,K):-np_head0(D,C,L+common,H,M,J,N),prep(E,M,O,N,P),wh(A,B,F,Q,R,O,I,P,K)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20;
         Operation p1, p2;
@@ -5495,7 +5495,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("wh", FILE_chat_parser::PRED_wh_9_static_exec, VA(a1, a2, a15, m.DONT_CARE2(), m.DONT_CARE2(), a19, a7, a20, a9), cont)));
     }
 
-    private final static Operation wh_9_3(Prolog m) { 
+    private final static Operation wh_9_3(Prolog m) {
     // wh(A,B,C,D,E,F,G,H,I):-whose(A,B,F,J,H,K),s_all(L),np(C,D,E,def,subj,L,M,J,G,K,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1, p2;
@@ -5529,8 +5529,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_reduced_relative_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reduced_relative_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // reduced_relative(A,B,C,D,E,F,G,H):-is_pred(C),reduced_rel_conj(A,I,B,D,E,F,G,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -5558,8 +5558,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_reduced_rel_conj_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reduced_rel_conj_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // reduced_rel_conj(A,B,C,D,E,F,G,H):-reduced_rel(A,I,J,E,K,G,L),reduced_rel_rest(A,B,I,C,J,D,K,F,L,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -5591,20 +5591,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_reduced_rel_rest_10_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reduced_rel_rest_10_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(10, null, FILE_chat_parser::reduced_rel_rest_10_sub_1);
         return reduced_rel_rest_10_1(m);
     }
 
-    private final static Operation reduced_rel_rest_10_sub_1(Prolog m) { 
+    private final static Operation reduced_rel_rest_10_sub_1(Prolog m) {
         m.trust(null);
         return reduced_rel_rest_10_2(m);
     }
 
-    private final static Operation reduced_rel_rest_10_1(Prolog m) { 
+    private final static Operation reduced_rel_rest_10_1(Prolog m) {
     // reduced_rel_rest(A,B,C,D,E,F,G,H,I,J):-conj(B,K,C,L,D,G,M,I,N),reduced_rel_conj(A,K,L,F,M,H,N,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
         Operation p1;
@@ -5630,7 +5630,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("reduced_rel_conj", FILE_chat_parser::PRED_reduced_rel_conj_8_static_exec, VA(a1, a11, a12, a6, a13, a8, a14, a10), cont));
     }
 
-    private final static Operation reduced_rel_rest_10_2(Prolog m) { 
+    private final static Operation reduced_rel_rest_10_2(Prolog m) {
     // reduced_rel_rest(A,B,C,C,D,D,E,E,F,F):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -5667,8 +5667,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_reduced_rel_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reduced_rel_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // reduced_rel(A,reduced_rel(B,C),D,E,F,G,H):-myopen(E,I,G,J),reduced_wh(A,B,I,K,J,L),s(C,M,K,N,L,O),trace1(P),minus(M,P,D),close(N,F,O,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17;
@@ -5716,25 +5716,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_reduced_wh_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reduced_wh_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_chat_parser::reduced_wh_6_sub_1);
         return reduced_wh_6_1(m);
     }
 
-    private final static Operation reduced_wh_6_sub_1(Prolog m) { 
+    private final static Operation reduced_wh_6_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::reduced_wh_6_sub_2);
         return reduced_wh_6_2(m);
     }
 
-    private final static Operation reduced_wh_6_sub_2(Prolog m) { 
+    private final static Operation reduced_wh_6_sub_2(Prolog m) {
         m.trust(null);
         return reduced_wh_6_3(m);
     }
 
-    private final static Operation reduced_wh_6_1(Prolog m) { 
+    private final static Operation reduced_wh_6_1(Prolog m) {
     // reduced_wh(A,B,C,D,E,x(nogap,nonterminal,np(np(A,wh(B),[]),A,F,G,H,I,J),x(nogap,nonterminal,verb_form(be,pres+fin,A,main),x(nogap,nonterminal,neg(K,L),x(nogap,nonterminal,predicate(L,M,N),O))))):-neg(P,L,C,Q,E,R),predicate(L,M,N,Q,D,R,O),trace1(I,J),subj_case(F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24;
         Operation p1, p2, p3;
@@ -5812,7 +5812,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont))));
     }
 
-    private final static Operation reduced_wh_6_2(Prolog m) { 
+    private final static Operation reduced_wh_6_2(Prolog m) {
     // reduced_wh(A,B,C,D,E,x(nogap,nonterminal,np(np(A,wh(B),[]),A,F,G,H,I,J),x(nogap,nonterminal,verb(K,L,M,N),O))):-participle(K,M,N,C,D,E,O),trace1(I,J),subj_case(F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
         Operation p1, p2;
@@ -5867,7 +5867,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("subj_case", FILE_chat_parser::PRED_subj_case_1_static_exec, VA(a10), cont)));
     }
 
-    private final static Operation reduced_wh_6_3(Prolog m) { 
+    private final static Operation reduced_wh_6_3(Prolog m) {
     // reduced_wh(A,B,C,D,E,x(nogap,nonterminal,np(F,G,H,I,J,K,L),x(gap,nonterminal,np(np(A,wh(B),[]),A,M,N,O,P,Q),R))):-s_all(S),subj_case(H),verb_case(M),np(F,G,T,I,subj,S,U,C,D,E,R),trace1(K,L),trace1(P,Q)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22;
         Operation p1, p2, p3, p4, p5;
@@ -5939,24 +5939,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_8_var, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_var, FILE_chat_parser::verb_8_1); 
+        return m.switch_on_term(FILE_chat_parser::verb_8_var, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_1, FILE_chat_parser::verb_8_var, FILE_chat_parser::verb_8_1);
     }
 
-    private final static Operation verb_8_var(Prolog m) { 
+    private final static Operation verb_8_var(Prolog m) {
         m.jtry8(null, FILE_chat_parser::verb_8_var_1);
         return verb_8_1(m);
     }
 
-    private final static Operation verb_8_var_1(Prolog m) { 
+    private final static Operation verb_8_var_1(Prolog m) {
         m.trust(null);
         return verb_8_2(m);
     }
 
-    private final static Operation verb_8_1(Prolog m) { 
+    private final static Operation verb_8_1(Prolog m) {
     // verb(A,B,C,D,E,E,F,G):-virtual(verb(A,B,C,D),F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -5979,7 +5979,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("virtual", FILE_chat_parser::PRED_virtual_3_static_exec, VA(a9, a7, a8), cont);
     }
 
-    private final static Operation verb_8_2(Prolog m) { 
+    private final static Operation verb_8_2(Prolog m) {
     // verb(verb(A,B,C+fin,D,E),F,G,B,H,I,J,K):-verb_form(L,C+fin,F,M,H,N,J,O),verb_type(L,P),neg(P,E,N,Q,O,R),rest_verb(M,L,A,B,D,Q,I,R,K),verb_type(A,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22;
         Operation p1, p2, p3, p4;
@@ -6044,34 +6044,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rest_verb_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rest_verb_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::rest_verb_9_var, fail_0, fail_0, FILE_chat_parser::rest_verb_9_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::rest_verb_9_var, fail_0, fail_0, FILE_chat_parser::rest_verb_9_var, fail_0, fail_0);
     }
 
-    private final static Operation rest_verb_9_var(Prolog m) { 
+    private final static Operation rest_verb_9_var(Prolog m) {
         m.jtry(9, null, FILE_chat_parser::rest_verb_9_var_1);
         return rest_verb_9_1(m);
     }
 
-    private final static Operation rest_verb_9_var_1(Prolog m) { 
+    private final static Operation rest_verb_9_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::rest_verb_9_var_2);
         return rest_verb_9_2(m);
     }
 
-    private final static Operation rest_verb_9_var_2(Prolog m) { 
+    private final static Operation rest_verb_9_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::rest_verb_9_var_3);
         return rest_verb_9_3(m);
     }
 
-    private final static Operation rest_verb_9_var_3(Prolog m) { 
+    private final static Operation rest_verb_9_var_3(Prolog m) {
         m.trust(null);
         return rest_verb_9_4(m);
     }
 
-    private final static Operation rest_verb_9_1(Prolog m) { 
+    private final static Operation rest_verb_9_1(Prolog m) {
     // rest_verb(aux,have,A,B,[perf|C],D,E,F,G):-verb_form(H,past+part,I,J,D,K,F,L),have(H,A,B,C,K,E,L,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -6110,7 +6110,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("have", FILE_chat_parser::PRED_have_8_static_exec, VA(a11, a3, a4, a10, a12, a7, a13, a9), cont));
     }
 
-    private final static Operation rest_verb_9_2(Prolog m) { 
+    private final static Operation rest_verb_9_2(Prolog m) {
     // rest_verb(aux,be,A,B,C,D,E,F,G):-verb_form(H,I,J,K,D,L,F,M),be(I,H,A,B,C,L,E,M,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -6139,7 +6139,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("be", FILE_chat_parser::PRED_be_9_static_exec, VA(a11, a10, a3, a4, a5, a12, a7, a13, a9), cont));
     }
 
-    private final static Operation rest_verb_9_3(Prolog m) { 
+    private final static Operation rest_verb_9_3(Prolog m) {
     // rest_verb(aux,do,A,active,[],B,C,D,E):-verb_form(A,inf,F,G,B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -6166,7 +6166,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_form", FILE_chat_parser::PRED_verb_form_8_static_exec, VA(a3,  ATOM_inf , m.DONT_CARE2(), m.DONT_CARE2(), a6, a7, a8, a9), cont);
     }
 
-    private final static Operation rest_verb_9_4(Prolog m) { 
+    private final static Operation rest_verb_9_4(Prolog m) {
     // rest_verb(main,A,A,active,[],B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -6205,24 +6205,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_have_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_have_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::have_8_var, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_var, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_2); 
+        return m.switch_on_term(FILE_chat_parser::have_8_var, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_var, FILE_chat_parser::have_8_2, FILE_chat_parser::have_8_2);
     }
 
-    private final static Operation have_8_var(Prolog m) { 
+    private final static Operation have_8_var(Prolog m) {
         m.jtry8(null, FILE_chat_parser::have_8_var_1);
         return have_8_1(m);
     }
 
-    private final static Operation have_8_var_1(Prolog m) { 
+    private final static Operation have_8_var_1(Prolog m) {
         m.trust(null);
         return have_8_2(m);
     }
 
-    private final static Operation have_8_1(Prolog m) { 
+    private final static Operation have_8_1(Prolog m) {
     // have(be,A,B,C,D,E,F,G):-verb_form(H,I,J,K,D,L,F,M),be(I,H,A,B,C,L,E,M,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation p1;
@@ -6248,7 +6248,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("be", FILE_chat_parser::PRED_be_9_static_exec, VA(a10, a9, a2, a3, a4, a11, a6, a12, a8), cont));
     }
 
-    private final static Operation have_8_2(Prolog m) { 
+    private final static Operation have_8_2(Prolog m) {
     // have(A,A,active,[],B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -6289,24 +6289,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_be_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_be_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::be_9_var, fail_0, fail_0, fail_0, FILE_chat_parser::be_9_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::be_9_var, fail_0, fail_0, fail_0, FILE_chat_parser::be_9_var, fail_0);
     }
 
-    private final static Operation be_9_var(Prolog m) { 
+    private final static Operation be_9_var(Prolog m) {
         m.jtry(9, null, FILE_chat_parser::be_9_var_1);
         return be_9_1(m);
     }
 
-    private final static Operation be_9_var_1(Prolog m) { 
+    private final static Operation be_9_var_1(Prolog m) {
         m.trust(null);
         return be_9_2(m);
     }
 
-    private final static Operation be_9_1(Prolog m) { 
+    private final static Operation be_9_1(Prolog m) {
     // be(past+part,A,A,passive,[],B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -6336,7 +6336,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation be_9_2(Prolog m) { 
+    private final static Operation be_9_2(Prolog m) {
     // be(pres+part,A,B,C,[prog],D,E,F,G):-passive(A,B,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -6369,24 +6369,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_passive_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_passive_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::passive_7_var, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_var, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_2); 
+        return m.switch_on_term(FILE_chat_parser::passive_7_var, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_var, FILE_chat_parser::passive_7_2, FILE_chat_parser::passive_7_2);
     }
 
-    private final static Operation passive_7_var(Prolog m) { 
+    private final static Operation passive_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::passive_7_var_1);
         return passive_7_1(m);
     }
 
-    private final static Operation passive_7_var_1(Prolog m) { 
+    private final static Operation passive_7_var_1(Prolog m) {
         m.trust(null);
         return passive_7_2(m);
     }
 
-    private final static Operation passive_7_1(Prolog m) { 
+    private final static Operation passive_7_1(Prolog m) {
     // passive(be,A,passive,B,C,D,E):-verb_form(A,past+part,F,G,B,C,D,E),verb_type(A,H),passive(H)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
@@ -6411,7 +6411,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("passive", FILE_chat_parser::PRED_passive_1_static_exec, VA(a8), cont)));
     }
 
-    private final static Operation passive_7_2(Prolog m) { 
+    private final static Operation passive_7_2(Prolog m) {
     // passive(A,A,active,B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -6444,8 +6444,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_participle_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_participle_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // participle(verb(A,B,inf,C,D),E,B,F,G,H,I):-neg(J,D,F,K,H,L),verb_form(A,M,N,O,K,G,L,I),participle(M,B,C),verb_type(A,E)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
@@ -6487,24 +6487,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_passive_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_passive_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::passive_1_var, fail_0, fail_0, fail_0, FILE_chat_parser::passive_1_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::passive_1_var, fail_0, fail_0, fail_0, FILE_chat_parser::passive_1_var, fail_0);
     }
 
-    private final static Operation passive_1_var(Prolog m) { 
+    private final static Operation passive_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::passive_1_var_1);
         return passive_1_1(m);
     }
 
-    private final static Operation passive_1_var_1(Prolog m) { 
+    private final static Operation passive_1_var_1(Prolog m) {
         m.trust(null);
         return passive_1_2(m);
     }
 
-    private final static Operation passive_1_1(Prolog m) { 
+    private final static Operation passive_1_1(Prolog m) {
     // passive(A+trans):-true
          Term a1;
         Operation cont;
@@ -6518,7 +6518,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation passive_1_2(Prolog m) { 
+    private final static Operation passive_1_2(Prolog m) {
     // passive(A+ditrans):-true
          Term a1;
         Operation cont;
@@ -6542,24 +6542,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_participle_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_participle_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::participle_3_var, fail_0, fail_0, fail_0, FILE_chat_parser::participle_3_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::participle_3_var, fail_0, fail_0, fail_0, FILE_chat_parser::participle_3_var, fail_0);
     }
 
-    private final static Operation participle_3_var(Prolog m) { 
+    private final static Operation participle_3_var(Prolog m) {
         m.jtry3(null, FILE_chat_parser::participle_3_var_1);
         return participle_3_1(m);
     }
 
-    private final static Operation participle_3_var_1(Prolog m) { 
+    private final static Operation participle_3_var_1(Prolog m) {
         m.trust(null);
         return participle_3_2(m);
     }
 
-    private final static Operation participle_3_1(Prolog m) { 
+    private final static Operation participle_3_1(Prolog m) {
     // participle(pres+part,active,[prog]):-true
          Term a1, a2, a3;
         Operation cont;
@@ -6577,7 +6577,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation participle_3_2(Prolog m) { 
+    private final static Operation participle_3_2(Prolog m) {
     // participle(past+part,passive,[]):-true
          Term a1, a2, a3;
         Operation cont;
@@ -6603,8 +6603,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_close_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_close_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // close(A,A,B,C):-virtual(close,B,C)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -6626,8 +6626,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_myopen_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_myopen_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // myopen(A,A,B,x(gap,nonterminal,close,B)):-true
         m.setB0();
          Term a1, a2, a3, a4;
@@ -6660,99 +6660,99 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_args_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_args_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_args_9_var, FILE_chat_parser::verb_args_9_8, FILE_chat_parser::verb_args_9_8, FILE_chat_parser::verb_args_9_con, FILE_chat_parser::verb_args_9_str, FILE_chat_parser::verb_args_9_8); 
+        return m.switch_on_term(FILE_chat_parser::verb_args_9_var, FILE_chat_parser::verb_args_9_8, FILE_chat_parser::verb_args_9_8, FILE_chat_parser::verb_args_9_con, FILE_chat_parser::verb_args_9_str, FILE_chat_parser::verb_args_9_8);
     }
 
-    private final static Operation verb_args_9_var(Prolog m) { 
+    private final static Operation verb_args_9_var(Prolog m) {
         m.jtry(9, null, FILE_chat_parser::verb_args_9_var_1);
         return verb_args_9_1(m);
     }
 
-    private final static Operation verb_args_9_var_1(Prolog m) { 
+    private final static Operation verb_args_9_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_2);
         return verb_args_9_2(m);
     }
 
-    private final static Operation verb_args_9_var_2(Prolog m) { 
+    private final static Operation verb_args_9_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_3);
         return verb_args_9_3(m);
     }
 
-    private final static Operation verb_args_9_var_3(Prolog m) { 
+    private final static Operation verb_args_9_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_4);
         return verb_args_9_4(m);
     }
 
-    private final static Operation verb_args_9_var_4(Prolog m) { 
+    private final static Operation verb_args_9_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_5);
         return verb_args_9_5(m);
     }
 
-    private final static Operation verb_args_9_var_5(Prolog m) { 
+    private final static Operation verb_args_9_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_6);
         return verb_args_9_6(m);
     }
 
-    private final static Operation verb_args_9_var_6(Prolog m) { 
+    private final static Operation verb_args_9_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_var_7);
         return verb_args_9_7(m);
     }
 
-    private final static Operation verb_args_9_var_7(Prolog m) { 
+    private final static Operation verb_args_9_var_7(Prolog m) {
         m.trust(null);
         return verb_args_9_8(m);
     }
 
-    private final static Operation verb_args_9_con(Prolog m) { 
+    private final static Operation verb_args_9_con(Prolog m) {
         m.jtry(9, null, FILE_chat_parser::verb_args_9_con_1);
         return verb_args_9_2(m);
     }
 
-    private final static Operation verb_args_9_con_1(Prolog m) { 
+    private final static Operation verb_args_9_con_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_con_2);
         return verb_args_9_3(m);
     }
 
-    private final static Operation verb_args_9_con_2(Prolog m) { 
+    private final static Operation verb_args_9_con_2(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_con_3);
         return verb_args_9_4(m);
     }
 
-    private final static Operation verb_args_9_con_3(Prolog m) { 
+    private final static Operation verb_args_9_con_3(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_con_4);
         return verb_args_9_5(m);
     }
 
-    private final static Operation verb_args_9_con_4(Prolog m) { 
+    private final static Operation verb_args_9_con_4(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_con_5);
         return verb_args_9_6(m);
     }
 
-    private final static Operation verb_args_9_con_5(Prolog m) { 
+    private final static Operation verb_args_9_con_5(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_args_9_con_6);
         return verb_args_9_7(m);
     }
 
-    private final static Operation verb_args_9_con_6(Prolog m) { 
+    private final static Operation verb_args_9_con_6(Prolog m) {
         m.trust(null);
         return verb_args_9_8(m);
     }
 
-    private final static Operation verb_args_9_str(Prolog m) { 
+    private final static Operation verb_args_9_str(Prolog m) {
         m.jtry(9, null, FILE_chat_parser::verb_args_9_str_1);
         return verb_args_9_1(m);
     }
 
-    private final static Operation verb_args_9_str_1(Prolog m) { 
+    private final static Operation verb_args_9_str_1(Prolog m) {
         m.trust(null);
         return verb_args_9_8(m);
     }
 
-    private final static Operation verb_args_9_1(Prolog m) { 
+    private final static Operation verb_args_9_1(Prolog m) {
     // verb_args(A+B,C,D,E,F,G,H,I,J):-advs(D,K,L,G,M,I,N),verb_args(B,C,K,E,F,M,H,N,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -6781,7 +6781,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_args", FILE_chat_parser::PRED_verb_args_9_static_exec, VA(a10, a2, a11, a4, a5, a12, a7, a13, a9), cont));
     }
 
-    private final static Operation verb_args_9_2(Prolog m) { 
+    private final static Operation verb_args_9_2(Prolog m) {
     // verb_args(trans,active,[arg(dir,A)],B,C,D,E,F,G):-verb_arg(np,A,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -6820,7 +6820,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
-    private final static Operation verb_args_9_3(Prolog m) { 
+    private final static Operation verb_args_9_3(Prolog m) {
     // verb_args(ditrans,A,[arg(B,C)|D],E,F,G,H,I,J):-verb_arg(np,C,K,G,L,I,M),object(B,D,K,F,L,H,M,J)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation p1;
@@ -6863,7 +6863,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("object", FILE_chat_parser::PRED_object_8_static_exec, VA(a12, a11, a14, a5, a15, a7, a16, a9), cont));
     }
 
-    private final static Operation verb_args_9_4(Prolog m) { 
+    private final static Operation verb_args_9_4(Prolog m) {
     // verb_args(be,A,[void],B,B,C,D,E,F):-terminal(there,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -6888,7 +6888,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_there , a6, a7, a8, a9), cont);
     }
 
-    private final static Operation verb_args_9_5(Prolog m) { 
+    private final static Operation verb_args_9_5(Prolog m) {
     // verb_args(be,A,[arg(predicate,B)],C,D,E,F,G,H):-pred_conj(I,B,D,E,F,G,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -6925,7 +6925,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("pred_conj", FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(m.DONT_CARE2(), a11, a5, a6, a7, a8, a9), cont);
     }
 
-    private final static Operation verb_args_9_6(Prolog m) { 
+    private final static Operation verb_args_9_6(Prolog m) {
     // verb_args(be,A,[arg(dir,B)],C,D,E,F,G,H):-verb_arg(np,B,D,E,F,G,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -6962,7 +6962,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
-    private final static Operation verb_args_9_7(Prolog m) { 
+    private final static Operation verb_args_9_7(Prolog m) {
     // verb_args(have,active,[arg(dir,A)],B,C,D,E,F,G):-verb_arg(np,A,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -7001,7 +7001,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a11, a5, a6, a7, a8, a9), cont);
     }
 
-    private final static Operation verb_args_9_8(Prolog m) { 
+    private final static Operation verb_args_9_8(Prolog m) {
     // verb_args(A,B,[],C,C,D,D,E,E):-no_args(A)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -7037,8 +7037,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_object_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_object_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // object(A,B,C,D,E,F,G,H):-adv(I),minus(I,C,J),advs(B,K,J,E,L,G,M),obj(A,K,C,D,L,F,M,H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
@@ -7074,24 +7074,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_obj_8_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_obj_8_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::obj_8_var, fail_0, fail_0, FILE_chat_parser::obj_8_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::obj_8_var, fail_0, fail_0, FILE_chat_parser::obj_8_var, fail_0, fail_0);
     }
 
-    private final static Operation obj_8_var(Prolog m) { 
+    private final static Operation obj_8_var(Prolog m) {
         m.jtry8(null, FILE_chat_parser::obj_8_var_1);
         return obj_8_1(m);
     }
 
-    private final static Operation obj_8_var_1(Prolog m) { 
+    private final static Operation obj_8_var_1(Prolog m) {
         m.trust(null);
         return obj_8_2(m);
     }
 
-    private final static Operation obj_8_1(Prolog m) { 
+    private final static Operation obj_8_1(Prolog m) {
     // obj(ind,[arg(dir,A)],B,C,D,E,F,G):-verb_arg(np,A,C,D,E,F,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -7127,7 +7127,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_arg", FILE_chat_parser::PRED_verb_arg_7_static_exec, VA( ATOM_np , a10, a4, a5, a6, a7, a8), cont);
     }
 
-    private final static Operation obj_8_2(Prolog m) { 
+    private final static Operation obj_8_2(Prolog m) {
     // obj(dir,[],A,A,B,B,C,C):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -7163,8 +7163,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pred_conj_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pred_conj_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // pred_conj(A,B,C,D,E,F,G):-predicate(H,I,J,D,K,F,L),pred_rest(A,I,B,J,C,K,E,L,G)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
@@ -7195,20 +7195,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pred_rest_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pred_rest_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry(9, null, FILE_chat_parser::pred_rest_9_sub_1);
         return pred_rest_9_1(m);
     }
 
-    private final static Operation pred_rest_9_sub_1(Prolog m) { 
+    private final static Operation pred_rest_9_sub_1(Prolog m) {
         m.trust(null);
         return pred_rest_9_2(m);
     }
 
-    private final static Operation pred_rest_9_1(Prolog m) { 
+    private final static Operation pred_rest_9_1(Prolog m) {
     // pred_rest(A,B,C,D,E,F,G,H,I):-conj(A,J,B,K,C,F,L,H,M),pred_conj(J,K,E,L,G,M,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -7233,7 +7233,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("pred_conj", FILE_chat_parser::PRED_pred_conj_7_static_exec, VA(a10, a11, a5, a12, a7, a13, a9), cont));
     }
 
-    private final static Operation pred_rest_9_2(Prolog m) { 
+    private final static Operation pred_rest_9_2(Prolog m) {
     // pred_rest(A,B,B,C,C,D,D,E,E):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -7268,8 +7268,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_arg_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_arg_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // verb_arg(np,A,B,C,D,E,F):-s_all(G),verb_case(H),np(A,I,H,J,compl,G,B,C,D,E,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
@@ -7301,24 +7301,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_advs_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_advs_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::advs_7_var, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_var); 
+        return m.switch_on_term(FILE_chat_parser::advs_7_var, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_2, FILE_chat_parser::advs_7_var);
     }
 
-    private final static Operation advs_7_var(Prolog m) { 
+    private final static Operation advs_7_var(Prolog m) {
         m.jtry7(null, FILE_chat_parser::advs_7_var_1);
         return advs_7_1(m);
     }
 
-    private final static Operation advs_7_var_1(Prolog m) { 
+    private final static Operation advs_7_var_1(Prolog m) {
         m.trust(null);
         return advs_7_2(m);
     }
 
-    private final static Operation advs_7_1(Prolog m) { 
+    private final static Operation advs_7_1(Prolog m) {
     // advs([A|B],C,D,E,F,G,H):-is_adv(D),adverb(A,E,I,G,J),advs(B,C,D,I,F,J,H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2;
@@ -7351,7 +7351,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("advs", FILE_chat_parser::PRED_advs_7_static_exec, VA(a9, a2, a3, a10, a5, a11, a7), cont)));
     }
 
-    private final static Operation advs_7_2(Prolog m) { 
+    private final static Operation advs_7_2(Prolog m) {
     // advs(A,A,B,C,C,D,D):-true
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -7382,20 +7382,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adj_phrase_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adj_phrase_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_chat_parser::adj_phrase_6_sub_1);
         return adj_phrase_6_1(m);
     }
 
-    private final static Operation adj_phrase_6_sub_1(Prolog m) { 
+    private final static Operation adj_phrase_6_sub_1(Prolog m) {
         m.trust(null);
         return adj_phrase_6_2(m);
     }
 
-    private final static Operation adj_phrase_6_1(Prolog m) { 
+    private final static Operation adj_phrase_6_1(Prolog m) {
     // adj_phrase(A,B,C,D,E,F):-adj(G,A,C,D,E,F),empty(B)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -7413,7 +7413,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("empty", FILE_chat_parser::PRED_empty_1_static_exec, VA(a2), cont));
     }
 
-    private final static Operation adj_phrase_6_2(Prolog m) { 
+    private final static Operation adj_phrase_6_2(Prolog m) {
     // adj_phrase(A,B,C,D,E,F):-comp_phrase(A,B,C,D,E,F)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -7437,29 +7437,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_no_args_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_no_args_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::no_args_1_var, fail_0, fail_0, FILE_chat_parser::no_args_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::no_args_1_var, fail_0, fail_0, FILE_chat_parser::no_args_1_var, fail_0, fail_0);
     }
 
-    private final static Operation no_args_1_var(Prolog m) { 
+    private final static Operation no_args_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::no_args_1_var_1);
         return no_args_1_1(m);
     }
 
-    private final static Operation no_args_1_var_1(Prolog m) { 
+    private final static Operation no_args_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::no_args_1_var_2);
         return no_args_1_2(m);
     }
 
-    private final static Operation no_args_1_var_2(Prolog m) { 
+    private final static Operation no_args_1_var_2(Prolog m) {
         m.trust(null);
         return no_args_1_3(m);
     }
 
-    private final static Operation no_args_1_1(Prolog m) { 
+    private final static Operation no_args_1_1(Prolog m) {
     // no_args(trans):-true
          Term a1;
         Operation cont;
@@ -7471,7 +7471,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation no_args_1_2(Prolog m) { 
+    private final static Operation no_args_1_2(Prolog m) {
     // no_args(ditrans):-true
          Term a1;
         Operation cont;
@@ -7483,7 +7483,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation no_args_1_3(Prolog m) { 
+    private final static Operation no_args_1_3(Prolog m) {
     // no_args(intrans):-true
          Term a1;
         Operation cont;
@@ -7506,8 +7506,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_conj_9_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_conj_9_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // conj(conj(A,B),conj(A,C),D,E,conj(A,D,E),F,G,H,I):-conj(A,B,C,F,G,H,I)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -7549,8 +7549,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_noun_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_noun_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // noun(A,B,C,D,E,F):-terminal(G,C,D,E,F),noun_form(G,A,B)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -7578,8 +7578,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adj_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adj_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // adj(A,adj(B),C,D,E,F):-terminal(B,C,D,E,F),adj(B,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -7610,8 +7610,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_prep_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_prep_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // prep(prep(A),B,C,D,E):-terminal(A,B,C,D,E),prep(A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -7641,8 +7641,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_adj_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_adj_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rel_adj(adj(A),B,C,D,E):-terminal(F,B,C,D,E),rel_adj(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -7673,8 +7673,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sup_adj_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sup_adj_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // sup_adj(adj(A),B,C,D,E):-terminal(F,B,C,D,E),sup_adj(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -7705,24 +7705,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_comp_adv_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_comp_adv_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::comp_adv_5_var, fail_0, fail_0, FILE_chat_parser::comp_adv_5_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::comp_adv_5_var, fail_0, fail_0, FILE_chat_parser::comp_adv_5_var, fail_0, fail_0);
     }
 
-    private final static Operation comp_adv_5_var(Prolog m) { 
+    private final static Operation comp_adv_5_var(Prolog m) {
         m.jtry5(null, FILE_chat_parser::comp_adv_5_var_1);
         return comp_adv_5_1(m);
     }
 
-    private final static Operation comp_adv_5_var_1(Prolog m) { 
+    private final static Operation comp_adv_5_var_1(Prolog m) {
         m.trust(null);
         return comp_adv_5_2(m);
     }
 
-    private final static Operation comp_adv_5_1(Prolog m) { 
+    private final static Operation comp_adv_5_1(Prolog m) {
     // comp_adv(less,A,B,C,D):- ~(less,A,B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -7739,7 +7739,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_less , a2, a3, a4, a5), cont);
     }
 
-    private final static Operation comp_adv_5_2(Prolog m) { 
+    private final static Operation comp_adv_5_2(Prolog m) {
     // comp_adv(more,A,B,C,D):- ~(more,A,B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -7765,24 +7765,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sup_adv_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sup_adv_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::sup_adv_5_var, fail_0, fail_0, FILE_chat_parser::sup_adv_5_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::sup_adv_5_var, fail_0, fail_0, FILE_chat_parser::sup_adv_5_var, fail_0, fail_0);
     }
 
-    private final static Operation sup_adv_5_var(Prolog m) { 
+    private final static Operation sup_adv_5_var(Prolog m) {
         m.jtry5(null, FILE_chat_parser::sup_adv_5_var_1);
         return sup_adv_5_1(m);
     }
 
-    private final static Operation sup_adv_5_var_1(Prolog m) { 
+    private final static Operation sup_adv_5_var_1(Prolog m) {
         m.trust(null);
         return sup_adv_5_2(m);
     }
 
-    private final static Operation sup_adv_5_1(Prolog m) { 
+    private final static Operation sup_adv_5_1(Prolog m) {
     // sup_adv(least,A,B,C,D):- ~(least,A,B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -7799,7 +7799,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_least , a2, a3, a4, a5), cont);
     }
 
-    private final static Operation sup_adv_5_2(Prolog m) { 
+    private final static Operation sup_adv_5_2(Prolog m) {
     // sup_adv(most,A,B,C,D):- ~(most,A,B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -7825,8 +7825,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_pron_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_pron_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rel_pron(A,B,C,D,E):-terminal(F,B,C,D,E),rel_pron(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -7852,8 +7852,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_name_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_name_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // name(A,B,C,D,E):-opt_the(B,F,D,G),terminal(A,F,C,G,E),name(A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -7881,20 +7881,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_art_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_art_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_chat_parser::int_art_7_sub_1);
         return int_art_7_1(m);
     }
 
-    private final static Operation int_art_7_sub_1(Prolog m) { 
+    private final static Operation int_art_7_sub_1(Prolog m) {
         m.trust(null);
         return int_art_7_2(m);
     }
 
-    private final static Operation int_art_7_1(Prolog m) { 
+    private final static Operation int_art_7_1(Prolog m) {
     // int_art(A,plu,quant(same,wh(A)),B,C,D,E):- ~(how,B,F,D,G),~(many,F,C,G,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;
@@ -7926,7 +7926,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_many , a9, a5, a10, a7), cont));
     }
 
-    private final static Operation int_art_7_2(Prolog m) { 
+    private final static Operation int_art_7_2(Prolog m) {
     // int_art(A,B,C,D,E,F,G):-terminal(H,D,E,F,G),int_art(H,A,B,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -7955,8 +7955,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_pron_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_pron_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // int_pron(A,B,C,D,E):-terminal(F,B,C,D,E),int_pron(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -7983,8 +7983,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adverb_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adverb_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // adverb(adv(A),B,C,D,E):-terminal(A,B,C,D,E),adverb(A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -8015,8 +8015,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_poss_pron_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poss_pron_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // poss_pron(pronoun(A),B+C,D,E,F,G):-terminal(H,D,E,F,G),poss_pron(H,A,B,C)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -8054,8 +8054,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pers_pron_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pers_pron_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // pers_pron(pronoun(A),B+C,D,E,F,G,H):-terminal(I,E,F,G,H),pers_pron(I,A,B,C,D)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
@@ -8094,8 +8094,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_quantifier_pron_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_quantifier_pron_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // quantifier_pron(A,B,C,D,E,F):-terminal(G,C,D,E,F),quantifier_pron(G,A,B)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -8127,24 +8127,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_context_pron_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_context_pron_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::context_pron_6_var, fail_0, fail_0, fail_0, FILE_chat_parser::context_pron_6_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::context_pron_6_var, fail_0, fail_0, fail_0, FILE_chat_parser::context_pron_6_var, fail_0);
     }
 
-    private final static Operation context_pron_6_var(Prolog m) { 
+    private final static Operation context_pron_6_var(Prolog m) {
         m.jtry6(null, FILE_chat_parser::context_pron_6_var_1);
         return context_pron_6_1(m);
     }
 
-    private final static Operation context_pron_6_var_1(Prolog m) { 
+    private final static Operation context_pron_6_var_1(Prolog m) {
         m.trust(null);
         return context_pron_6_2(m);
     }
 
-    private final static Operation context_pron_6_1(Prolog m) { 
+    private final static Operation context_pron_6_1(Prolog m) {
     // context_pron(prep(in),place,A,B,C,D):- ~(where,A,B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -8164,7 +8164,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_5_static_exec, VA( ATOM_where , a3, a4, a5, a6), cont);
     }
 
-    private final static Operation context_pron_6_2(Prolog m) { 
+    private final static Operation context_pron_6_2(Prolog m) {
     // context_pron(prep(at),time,A,B,C,D):- ~(when,A,B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -8194,8 +8194,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_number_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_number_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // number(nb(A),B,C,D,E,F):-terminal(G,C,D,E,F),number(G,A,B)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -8227,8 +8227,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_terminator_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_terminator_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // terminator(A,B,C,D,E):-terminal(F,B,C,D,E),terminator(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -8252,20 +8252,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_opt_the_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_opt_the_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_chat_parser::opt_the_4_sub_1);
         return opt_the_4_1(m);
     }
 
-    private final static Operation opt_the_4_sub_1(Prolog m) { 
+    private final static Operation opt_the_4_sub_1(Prolog m) {
         m.trust(null);
         return opt_the_4_2(m);
     }
 
-    private final static Operation opt_the_4_1(Prolog m) { 
+    private final static Operation opt_the_4_1(Prolog m) {
     // opt_the(A,A,B,B):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -8282,7 +8282,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation opt_the_4_2(Prolog m) { 
+    private final static Operation opt_the_4_2(Prolog m) {
     // opt_the(A,B,C,D):- ~(the,A,B,C,D)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -8307,20 +8307,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_conj_7_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_conj_7_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry7(null, FILE_chat_parser::conj_7_sub_1);
         return conj_7_1(m);
     }
 
-    private final static Operation conj_7_sub_1(Prolog m) { 
+    private final static Operation conj_7_sub_1(Prolog m) {
         m.trust(null);
         return conj_7_2(m);
     }
 
-    private final static Operation conj_7_1(Prolog m) { 
+    private final static Operation conj_7_1(Prolog m) {
     // conj(A,list,list,B,C,D,E):-terminal(',',B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -8341,7 +8341,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminal", FILE_chat_parser::PRED_terminal_5_static_exec, VA( ATOM_$002C , a4, a5, a6, a7), cont);
     }
 
-    private final static Operation conj_7_2(Prolog m) { 
+    private final static Operation conj_7_2(Prolog m) {
     // conj(A,list,end,B,C,D,E):-terminal(A,B,C,D,E),conj(A)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -8373,8 +8373,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_loc_pred_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_loc_pred_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // loc_pred(A,B,C,D,E):-terminal(F,B,C,D,E),loc_pred(F,A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -8400,8 +8400,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_$007E_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$007E_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // ~(A,B,C,D,E):-terminal(A,B,C,D,E),~(A)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -8424,110 +8424,110 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_word_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_word_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_chat_parser::word_1_sub_1);
         return word_1_1(m);
     }
 
-    private final static Operation word_1_sub_1(Prolog m) { 
+    private final static Operation word_1_sub_1(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_2);
         return word_1_2(m);
     }
 
-    private final static Operation word_1_sub_2(Prolog m) { 
+    private final static Operation word_1_sub_2(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_3);
         return word_1_3(m);
     }
 
-    private final static Operation word_1_sub_3(Prolog m) { 
+    private final static Operation word_1_sub_3(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_4);
         return word_1_4(m);
     }
 
-    private final static Operation word_1_sub_4(Prolog m) { 
+    private final static Operation word_1_sub_4(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_5);
         return word_1_5(m);
     }
 
-    private final static Operation word_1_sub_5(Prolog m) { 
+    private final static Operation word_1_sub_5(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_6);
         return word_1_6(m);
     }
 
-    private final static Operation word_1_sub_6(Prolog m) { 
+    private final static Operation word_1_sub_6(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_7);
         return word_1_7(m);
     }
 
-    private final static Operation word_1_sub_7(Prolog m) { 
+    private final static Operation word_1_sub_7(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_8);
         return word_1_8(m);
     }
 
-    private final static Operation word_1_sub_8(Prolog m) { 
+    private final static Operation word_1_sub_8(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_9);
         return word_1_9(m);
     }
 
-    private final static Operation word_1_sub_9(Prolog m) { 
+    private final static Operation word_1_sub_9(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_10);
         return word_1_10(m);
     }
 
-    private final static Operation word_1_sub_10(Prolog m) { 
+    private final static Operation word_1_sub_10(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_11);
         return word_1_11(m);
     }
 
-    private final static Operation word_1_sub_11(Prolog m) { 
+    private final static Operation word_1_sub_11(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_12);
         return word_1_12(m);
     }
 
-    private final static Operation word_1_sub_12(Prolog m) { 
+    private final static Operation word_1_sub_12(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_13);
         return word_1_13(m);
     }
 
-    private final static Operation word_1_sub_13(Prolog m) { 
+    private final static Operation word_1_sub_13(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_14);
         return word_1_14(m);
     }
 
-    private final static Operation word_1_sub_14(Prolog m) { 
+    private final static Operation word_1_sub_14(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_15);
         return word_1_15(m);
     }
 
-    private final static Operation word_1_sub_15(Prolog m) { 
+    private final static Operation word_1_sub_15(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_16);
         return word_1_16(m);
     }
 
-    private final static Operation word_1_sub_16(Prolog m) { 
+    private final static Operation word_1_sub_16(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_17);
         return word_1_17(m);
     }
 
-    private final static Operation word_1_sub_17(Prolog m) { 
+    private final static Operation word_1_sub_17(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_18);
         return word_1_18(m);
     }
 
-    private final static Operation word_1_sub_18(Prolog m) { 
+    private final static Operation word_1_sub_18(Prolog m) {
         m.retry(null, FILE_chat_parser::word_1_sub_19);
         return word_1_19(m);
     }
 
-    private final static Operation word_1_sub_19(Prolog m) { 
+    private final static Operation word_1_sub_19(Prolog m) {
         m.trust(null);
         return word_1_20(m);
     }
 
-    private final static Operation word_1_1(Prolog m) { 
+    private final static Operation word_1_1(Prolog m) {
     // word(A):- ~(A)
          Term a1;
         Operation cont;
@@ -8538,7 +8538,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("~", FILE_chat_parser::PRED_$007E_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation word_1_2(Prolog m) { 
+    private final static Operation word_1_2(Prolog m) {
     // word(A):-conj(A)
          Term a1;
         Operation cont;
@@ -8549,7 +8549,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("conj", FILE_chat_parser::PRED_conj_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation word_1_3(Prolog m) { 
+    private final static Operation word_1_3(Prolog m) {
     // word(A):-adverb(A)
          Term a1;
         Operation cont;
@@ -8560,7 +8560,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adverb", FILE_chat_parser::PRED_adverb_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation word_1_4(Prolog m) { 
+    private final static Operation word_1_4(Prolog m) {
     // word(A):-sup_adj(A,B)
          Term a1;
         Operation cont;
@@ -8571,7 +8571,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("sup_adj", FILE_chat_parser::PRED_sup_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_5(Prolog m) { 
+    private final static Operation word_1_5(Prolog m) {
     // word(A):-rel_adj(A,B)
          Term a1;
         Operation cont;
@@ -8582,7 +8582,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rel_adj", FILE_chat_parser::PRED_rel_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_6(Prolog m) { 
+    private final static Operation word_1_6(Prolog m) {
     // word(A):-adj(A,B)
          Term a1;
         Operation cont;
@@ -8593,7 +8593,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("adj", FILE_chat_parser::PRED_adj_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_7(Prolog m) { 
+    private final static Operation word_1_7(Prolog m) {
     // word(A):-name(A)
          Term a1;
         Operation cont;
@@ -8604,7 +8604,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("name", FILE_chat_parser::PRED_name_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation word_1_8(Prolog m) { 
+    private final static Operation word_1_8(Prolog m) {
     // word(A):-terminator(A,B)
          Term a1;
         Operation cont;
@@ -8615,7 +8615,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("terminator", FILE_chat_parser::PRED_terminator_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_9(Prolog m) { 
+    private final static Operation word_1_9(Prolog m) {
     // word(A):-pers_pron(A,B,C,D,E)
          Term a1;
         Operation cont;
@@ -8626,7 +8626,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("pers_pron", FILE_chat_parser::PRED_pers_pron_5_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_10(Prolog m) { 
+    private final static Operation word_1_10(Prolog m) {
     // word(A):-poss_pron(A,B,C,D)
          Term a1;
         Operation cont;
@@ -8637,7 +8637,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("poss_pron", FILE_chat_parser::PRED_poss_pron_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_11(Prolog m) { 
+    private final static Operation word_1_11(Prolog m) {
     // word(A):-rel_pron(A,B)
          Term a1;
         Operation cont;
@@ -8648,7 +8648,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rel_pron", FILE_chat_parser::PRED_rel_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_12(Prolog m) { 
+    private final static Operation word_1_12(Prolog m) {
     // word(A):-verb_form(A,B,C,D)
          Term a1;
         Operation cont;
@@ -8659,7 +8659,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_form", FILE_chat_parser::PRED_verb_form_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_13(Prolog m) { 
+    private final static Operation word_1_13(Prolog m) {
     // word(A):-noun_form(A,B,C)
          Term a1;
         Operation cont;
@@ -8670,7 +8670,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("noun_form", FILE_chat_parser::PRED_noun_form_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_14(Prolog m) { 
+    private final static Operation word_1_14(Prolog m) {
     // word(A):-prep(A)
          Term a1;
         Operation cont;
@@ -8681,7 +8681,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("prep", FILE_chat_parser::PRED_prep_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation word_1_15(Prolog m) { 
+    private final static Operation word_1_15(Prolog m) {
     // word(A):-quantifier_pron(A,B,C)
          Term a1;
         Operation cont;
@@ -8692,7 +8692,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("quantifier_pron", FILE_chat_parser::PRED_quantifier_pron_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_16(Prolog m) { 
+    private final static Operation word_1_16(Prolog m) {
     // word(A):-number(A,B,C)
          Term a1;
         Operation cont;
@@ -8703,7 +8703,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("number", FILE_chat_parser::PRED_number_3_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_17(Prolog m) { 
+    private final static Operation word_1_17(Prolog m) {
     // word(A):-det(A,B,C,D)
          Term a1;
         Operation cont;
@@ -8714,7 +8714,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("det", FILE_chat_parser::PRED_det_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_18(Prolog m) { 
+    private final static Operation word_1_18(Prolog m) {
     // word(A):-int_art(A,B,C,D)
          Term a1;
         Operation cont;
@@ -8725,7 +8725,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("int_art", FILE_chat_parser::PRED_int_art_4_static_exec, VA(a1, m.DONT_CARE2(), m.DONT_CARE2(), m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_19(Prolog m) { 
+    private final static Operation word_1_19(Prolog m) {
     // word(A):-int_pron(A,B)
          Term a1;
         Operation cont;
@@ -8736,7 +8736,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("int_pron", FILE_chat_parser::PRED_int_pron_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation word_1_20(Prolog m) { 
+    private final static Operation word_1_20(Prolog m) {
     // word(A):-loc_pred(A,B)
          Term a1;
         Operation cont;
@@ -8754,114 +8754,114 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_$007E_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$007E_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::$007E_1_var, fail_0, fail_0, FILE_chat_parser::$007E_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::$007E_1_var, fail_0, fail_0, FILE_chat_parser::$007E_1_var, fail_0, fail_0);
     }
 
-    private final static Operation $007E_1_var(Prolog m) { 
+    private final static Operation $007E_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::$007E_1_var_1);
         return $007E_1_1(m);
     }
 
-    private final static Operation $007E_1_var_1(Prolog m) { 
+    private final static Operation $007E_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_2);
         return $007E_1_2(m);
     }
 
-    private final static Operation $007E_1_var_2(Prolog m) { 
+    private final static Operation $007E_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_3);
         return $007E_1_3(m);
     }
 
-    private final static Operation $007E_1_var_3(Prolog m) { 
+    private final static Operation $007E_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_4);
         return $007E_1_4(m);
     }
 
-    private final static Operation $007E_1_var_4(Prolog m) { 
+    private final static Operation $007E_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_5);
         return $007E_1_5(m);
     }
 
-    private final static Operation $007E_1_var_5(Prolog m) { 
+    private final static Operation $007E_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_6);
         return $007E_1_6(m);
     }
 
-    private final static Operation $007E_1_var_6(Prolog m) { 
+    private final static Operation $007E_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_7);
         return $007E_1_7(m);
     }
 
-    private final static Operation $007E_1_var_7(Prolog m) { 
+    private final static Operation $007E_1_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_8);
         return $007E_1_8(m);
     }
 
-    private final static Operation $007E_1_var_8(Prolog m) { 
+    private final static Operation $007E_1_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_9);
         return $007E_1_9(m);
     }
 
-    private final static Operation $007E_1_var_9(Prolog m) { 
+    private final static Operation $007E_1_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_10);
         return $007E_1_10(m);
     }
 
-    private final static Operation $007E_1_var_10(Prolog m) { 
+    private final static Operation $007E_1_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_11);
         return $007E_1_11(m);
     }
 
-    private final static Operation $007E_1_var_11(Prolog m) { 
+    private final static Operation $007E_1_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_12);
         return $007E_1_12(m);
     }
 
-    private final static Operation $007E_1_var_12(Prolog m) { 
+    private final static Operation $007E_1_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_13);
         return $007E_1_13(m);
     }
 
-    private final static Operation $007E_1_var_13(Prolog m) { 
+    private final static Operation $007E_1_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_14);
         return $007E_1_14(m);
     }
 
-    private final static Operation $007E_1_var_14(Prolog m) { 
+    private final static Operation $007E_1_var_14(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_15);
         return $007E_1_15(m);
     }
 
-    private final static Operation $007E_1_var_15(Prolog m) { 
+    private final static Operation $007E_1_var_15(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_16);
         return $007E_1_16(m);
     }
 
-    private final static Operation $007E_1_var_16(Prolog m) { 
+    private final static Operation $007E_1_var_16(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_17);
         return $007E_1_17(m);
     }
 
-    private final static Operation $007E_1_var_17(Prolog m) { 
+    private final static Operation $007E_1_var_17(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_18);
         return $007E_1_18(m);
     }
 
-    private final static Operation $007E_1_var_18(Prolog m) { 
+    private final static Operation $007E_1_var_18(Prolog m) {
         m.retry(null, FILE_chat_parser::$007E_1_var_19);
         return $007E_1_19(m);
     }
 
-    private final static Operation $007E_1_var_19(Prolog m) { 
+    private final static Operation $007E_1_var_19(Prolog m) {
         m.trust(null);
         return $007E_1_20(m);
     }
 
-    private final static Operation $007E_1_1(Prolog m) { 
+    private final static Operation $007E_1_1(Prolog m) {
     // ~(how):-true
          Term a1;
         Operation cont;
@@ -8873,7 +8873,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_2(Prolog m) { 
+    private final static Operation $007E_1_2(Prolog m) {
     // ~(whose):-true
          Term a1;
         Operation cont;
@@ -8885,7 +8885,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_3(Prolog m) { 
+    private final static Operation $007E_1_3(Prolog m) {
     // ~(there):-true
          Term a1;
         Operation cont;
@@ -8897,7 +8897,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_4(Prolog m) { 
+    private final static Operation $007E_1_4(Prolog m) {
     // ~(of):-true
          Term a1;
         Operation cont;
@@ -8909,7 +8909,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_5(Prolog m) { 
+    private final static Operation $007E_1_5(Prolog m) {
     // ~(~):-true
          Term a1;
         Operation cont;
@@ -8921,7 +8921,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_6(Prolog m) { 
+    private final static Operation $007E_1_6(Prolog m) {
     // ~(','):-true
          Term a1;
         Operation cont;
@@ -8933,7 +8933,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_7(Prolog m) { 
+    private final static Operation $007E_1_7(Prolog m) {
     // ~(s):-true
          Term a1;
         Operation cont;
@@ -8945,7 +8945,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_8(Prolog m) { 
+    private final static Operation $007E_1_8(Prolog m) {
     // ~(than):-true
          Term a1;
         Operation cont;
@@ -8957,7 +8957,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_9(Prolog m) { 
+    private final static Operation $007E_1_9(Prolog m) {
     // ~(at):-true
          Term a1;
         Operation cont;
@@ -8969,7 +8969,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_10(Prolog m) { 
+    private final static Operation $007E_1_10(Prolog m) {
     // ~(the):-true
          Term a1;
         Operation cont;
@@ -8981,7 +8981,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_11(Prolog m) { 
+    private final static Operation $007E_1_11(Prolog m) {
     // ~(not):-true
          Term a1;
         Operation cont;
@@ -8993,7 +8993,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_12(Prolog m) { 
+    private final static Operation $007E_1_12(Prolog m) {
     // ~(as):-true
          Term a1;
         Operation cont;
@@ -9005,7 +9005,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_13(Prolog m) { 
+    private final static Operation $007E_1_13(Prolog m) {
     // ~(that):-true
          Term a1;
         Operation cont;
@@ -9017,7 +9017,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_14(Prolog m) { 
+    private final static Operation $007E_1_14(Prolog m) {
     // ~(less):-true
          Term a1;
         Operation cont;
@@ -9029,7 +9029,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_15(Prolog m) { 
+    private final static Operation $007E_1_15(Prolog m) {
     // ~(more):-true
          Term a1;
         Operation cont;
@@ -9041,7 +9041,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_16(Prolog m) { 
+    private final static Operation $007E_1_16(Prolog m) {
     // ~(least):-true
          Term a1;
         Operation cont;
@@ -9053,7 +9053,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_17(Prolog m) { 
+    private final static Operation $007E_1_17(Prolog m) {
     // ~(most):-true
          Term a1;
         Operation cont;
@@ -9065,7 +9065,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_18(Prolog m) { 
+    private final static Operation $007E_1_18(Prolog m) {
     // ~(many):-true
          Term a1;
         Operation cont;
@@ -9077,7 +9077,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_19(Prolog m) { 
+    private final static Operation $007E_1_19(Prolog m) {
     // ~(where):-true
          Term a1;
         Operation cont;
@@ -9089,7 +9089,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $007E_1_20(Prolog m) { 
+    private final static Operation $007E_1_20(Prolog m) {
     // ~(when):-true
          Term a1;
         Operation cont;
@@ -9109,24 +9109,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_conj_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_conj_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::conj_1_var, fail_0, fail_0, FILE_chat_parser::conj_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::conj_1_var, fail_0, fail_0, FILE_chat_parser::conj_1_var, fail_0, fail_0);
     }
 
-    private final static Operation conj_1_var(Prolog m) { 
+    private final static Operation conj_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::conj_1_var_1);
         return conj_1_1(m);
     }
 
-    private final static Operation conj_1_var_1(Prolog m) { 
+    private final static Operation conj_1_var_1(Prolog m) {
         m.trust(null);
         return conj_1_2(m);
     }
 
-    private final static Operation conj_1_1(Prolog m) { 
+    private final static Operation conj_1_1(Prolog m) {
     // conj(and):-true
          Term a1;
         Operation cont;
@@ -9138,7 +9138,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation conj_1_2(Prolog m) { 
+    private final static Operation conj_1_2(Prolog m) {
     // conj(or):-true
          Term a1;
         Operation cont;
@@ -9159,34 +9159,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_pron_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_pron_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::int_pron_2_var, fail_0, fail_0, FILE_chat_parser::int_pron_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::int_pron_2_var, fail_0, fail_0, FILE_chat_parser::int_pron_2_var, fail_0, fail_0);
     }
 
-    private final static Operation int_pron_2_var(Prolog m) { 
+    private final static Operation int_pron_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::int_pron_2_var_1);
         return int_pron_2_1(m);
     }
 
-    private final static Operation int_pron_2_var_1(Prolog m) { 
+    private final static Operation int_pron_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::int_pron_2_var_2);
         return int_pron_2_2(m);
     }
 
-    private final static Operation int_pron_2_var_2(Prolog m) { 
+    private final static Operation int_pron_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::int_pron_2_var_3);
         return int_pron_2_3(m);
     }
 
-    private final static Operation int_pron_2_var_3(Prolog m) { 
+    private final static Operation int_pron_2_var_3(Prolog m) {
         m.trust(null);
         return int_pron_2_4(m);
     }
 
-    private final static Operation int_pron_2_1(Prolog m) { 
+    private final static Operation int_pron_2_1(Prolog m) {
     // int_pron(what,undef):-true
          Term a1, a2;
         Operation cont;
@@ -9201,7 +9201,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation int_pron_2_2(Prolog m) { 
+    private final static Operation int_pron_2_2(Prolog m) {
     // int_pron(which,undef):-true
          Term a1, a2;
         Operation cont;
@@ -9216,7 +9216,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation int_pron_2_3(Prolog m) { 
+    private final static Operation int_pron_2_3(Prolog m) {
     // int_pron(who,subj):-true
          Term a1, a2;
         Operation cont;
@@ -9231,7 +9231,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation int_pron_2_4(Prolog m) { 
+    private final static Operation int_pron_2_4(Prolog m) {
     // int_pron(whom,compl):-true
          Term a1, a2;
         Operation cont;
@@ -9253,24 +9253,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_int_art_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_int_art_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::int_art_4_var, fail_0, fail_0, FILE_chat_parser::int_art_4_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::int_art_4_var, fail_0, fail_0, FILE_chat_parser::int_art_4_var, fail_0, fail_0);
     }
 
-    private final static Operation int_art_4_var(Prolog m) { 
+    private final static Operation int_art_4_var(Prolog m) {
         m.jtry4(null, FILE_chat_parser::int_art_4_var_1);
         return int_art_4_1(m);
     }
 
-    private final static Operation int_art_4_var_1(Prolog m) { 
+    private final static Operation int_art_4_var_1(Prolog m) {
         m.trust(null);
         return int_art_4_2(m);
     }
 
-    private final static Operation int_art_4_1(Prolog m) { 
+    private final static Operation int_art_4_1(Prolog m) {
     // int_art(what,A,B,int_det(A)):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9289,7 +9289,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation int_art_4_2(Prolog m) { 
+    private final static Operation int_art_4_2(Prolog m) {
     // int_art(which,A,B,int_det(A)):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9320,59 +9320,59 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_det_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_det_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::det_4_var, fail_0, fail_0, FILE_chat_parser::det_4_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::det_4_var, fail_0, fail_0, FILE_chat_parser::det_4_var, fail_0, fail_0);
     }
 
-    private final static Operation det_4_var(Prolog m) { 
+    private final static Operation det_4_var(Prolog m) {
         m.jtry4(null, FILE_chat_parser::det_4_var_1);
         return det_4_1(m);
     }
 
-    private final static Operation det_4_var_1(Prolog m) { 
+    private final static Operation det_4_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_2);
         return det_4_2(m);
     }
 
-    private final static Operation det_4_var_2(Prolog m) { 
+    private final static Operation det_4_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_3);
         return det_4_3(m);
     }
 
-    private final static Operation det_4_var_3(Prolog m) { 
+    private final static Operation det_4_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_4);
         return det_4_4(m);
     }
 
-    private final static Operation det_4_var_4(Prolog m) { 
+    private final static Operation det_4_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_5);
         return det_4_5(m);
     }
 
-    private final static Operation det_4_var_5(Prolog m) { 
+    private final static Operation det_4_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_6);
         return det_4_6(m);
     }
 
-    private final static Operation det_4_var_6(Prolog m) { 
+    private final static Operation det_4_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_7);
         return det_4_7(m);
     }
 
-    private final static Operation det_4_var_7(Prolog m) { 
+    private final static Operation det_4_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::det_4_var_8);
         return det_4_8(m);
     }
 
-    private final static Operation det_4_var_8(Prolog m) { 
+    private final static Operation det_4_var_8(Prolog m) {
         m.trust(null);
         return det_4_9(m);
     }
 
-    private final static Operation det_4_1(Prolog m) { 
+    private final static Operation det_4_1(Prolog m) {
     // det(the,A,the(A),def):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9393,7 +9393,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_2(Prolog m) { 
+    private final static Operation det_4_2(Prolog m) {
     // det(a,sin,a,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9414,7 +9414,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_3(Prolog m) { 
+    private final static Operation det_4_3(Prolog m) {
     // det(an,sin,a,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9435,7 +9435,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_4(Prolog m) { 
+    private final static Operation det_4_4(Prolog m) {
     // det(every,sin,every,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9456,7 +9456,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_5(Prolog m) { 
+    private final static Operation det_4_5(Prolog m) {
     // det(some,A,some,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9475,7 +9475,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_6(Prolog m) { 
+    private final static Operation det_4_6(Prolog m) {
     // det(any,A,any,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9494,7 +9494,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_7(Prolog m) { 
+    private final static Operation det_4_7(Prolog m) {
     // det(all,plu,all,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9515,7 +9515,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_8(Prolog m) { 
+    private final static Operation det_4_8(Prolog m) {
     // det(each,sin,each,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9536,7 +9536,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation det_4_9(Prolog m) { 
+    private final static Operation det_4_9(Prolog m) {
     // det(no,A,no,indef):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -9562,8 +9562,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_number_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_number_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // number(A,B,C):-tr_number(A,B),ag_number(B,C)
         m.setB0();
          Term a1, a2, a3;
@@ -9592,119 +9592,119 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_tr_number_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_tr_number_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::tr_number_2_var, fail_0, fail_0, FILE_chat_parser::tr_number_2_con, FILE_chat_parser::tr_number_2_1, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::tr_number_2_var, fail_0, fail_0, FILE_chat_parser::tr_number_2_con, FILE_chat_parser::tr_number_2_1, fail_0);
     }
 
-    private final static Operation tr_number_2_var(Prolog m) { 
+    private final static Operation tr_number_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::tr_number_2_var_1);
         return tr_number_2_1(m);
     }
 
-    private final static Operation tr_number_2_var_1(Prolog m) { 
+    private final static Operation tr_number_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_2);
         return tr_number_2_2(m);
     }
 
-    private final static Operation tr_number_2_var_2(Prolog m) { 
+    private final static Operation tr_number_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_3);
         return tr_number_2_3(m);
     }
 
-    private final static Operation tr_number_2_var_3(Prolog m) { 
+    private final static Operation tr_number_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_4);
         return tr_number_2_4(m);
     }
 
-    private final static Operation tr_number_2_var_4(Prolog m) { 
+    private final static Operation tr_number_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_5);
         return tr_number_2_5(m);
     }
 
-    private final static Operation tr_number_2_var_5(Prolog m) { 
+    private final static Operation tr_number_2_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_6);
         return tr_number_2_6(m);
     }
 
-    private final static Operation tr_number_2_var_6(Prolog m) { 
+    private final static Operation tr_number_2_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_7);
         return tr_number_2_7(m);
     }
 
-    private final static Operation tr_number_2_var_7(Prolog m) { 
+    private final static Operation tr_number_2_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_8);
         return tr_number_2_8(m);
     }
 
-    private final static Operation tr_number_2_var_8(Prolog m) { 
+    private final static Operation tr_number_2_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_9);
         return tr_number_2_9(m);
     }
 
-    private final static Operation tr_number_2_var_9(Prolog m) { 
+    private final static Operation tr_number_2_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_var_10);
         return tr_number_2_10(m);
     }
 
-    private final static Operation tr_number_2_var_10(Prolog m) { 
+    private final static Operation tr_number_2_var_10(Prolog m) {
         m.trust(null);
         return tr_number_2_11(m);
     }
 
-    private final static Operation tr_number_2_con(Prolog m) { 
+    private final static Operation tr_number_2_con(Prolog m) {
         m.jtry2(null, FILE_chat_parser::tr_number_2_con_1);
         return tr_number_2_2(m);
     }
 
-    private final static Operation tr_number_2_con_1(Prolog m) { 
+    private final static Operation tr_number_2_con_1(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_2);
         return tr_number_2_3(m);
     }
 
-    private final static Operation tr_number_2_con_2(Prolog m) { 
+    private final static Operation tr_number_2_con_2(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_3);
         return tr_number_2_4(m);
     }
 
-    private final static Operation tr_number_2_con_3(Prolog m) { 
+    private final static Operation tr_number_2_con_3(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_4);
         return tr_number_2_5(m);
     }
 
-    private final static Operation tr_number_2_con_4(Prolog m) { 
+    private final static Operation tr_number_2_con_4(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_5);
         return tr_number_2_6(m);
     }
 
-    private final static Operation tr_number_2_con_5(Prolog m) { 
+    private final static Operation tr_number_2_con_5(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_6);
         return tr_number_2_7(m);
     }
 
-    private final static Operation tr_number_2_con_6(Prolog m) { 
+    private final static Operation tr_number_2_con_6(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_7);
         return tr_number_2_8(m);
     }
 
-    private final static Operation tr_number_2_con_7(Prolog m) { 
+    private final static Operation tr_number_2_con_7(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_8);
         return tr_number_2_9(m);
     }
 
-    private final static Operation tr_number_2_con_8(Prolog m) { 
+    private final static Operation tr_number_2_con_8(Prolog m) {
         m.retry(null, FILE_chat_parser::tr_number_2_con_9);
         return tr_number_2_10(m);
     }
 
-    private final static Operation tr_number_2_con_9(Prolog m) { 
+    private final static Operation tr_number_2_con_9(Prolog m) {
         m.trust(null);
         return tr_number_2_11(m);
     }
 
-    private final static Operation tr_number_2_1(Prolog m) { 
+    private final static Operation tr_number_2_1(Prolog m) {
     // tr_number(nb(A),A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -9722,7 +9722,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_2(Prolog m) { 
+    private final static Operation tr_number_2_2(Prolog m) {
     // tr_number(one,1):-true
          Term a1, a2;
         Operation cont;
@@ -9737,7 +9737,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_3(Prolog m) { 
+    private final static Operation tr_number_2_3(Prolog m) {
     // tr_number(two,2):-true
          Term a1, a2;
         Operation cont;
@@ -9752,7 +9752,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_4(Prolog m) { 
+    private final static Operation tr_number_2_4(Prolog m) {
     // tr_number(three,3):-true
          Term a1, a2;
         Operation cont;
@@ -9767,7 +9767,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_5(Prolog m) { 
+    private final static Operation tr_number_2_5(Prolog m) {
     // tr_number(four,4):-true
          Term a1, a2;
         Operation cont;
@@ -9782,7 +9782,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_6(Prolog m) { 
+    private final static Operation tr_number_2_6(Prolog m) {
     // tr_number(five,5):-true
          Term a1, a2;
         Operation cont;
@@ -9797,7 +9797,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_7(Prolog m) { 
+    private final static Operation tr_number_2_7(Prolog m) {
     // tr_number(six,6):-true
          Term a1, a2;
         Operation cont;
@@ -9812,7 +9812,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_8(Prolog m) { 
+    private final static Operation tr_number_2_8(Prolog m) {
     // tr_number(seven,7):-true
          Term a1, a2;
         Operation cont;
@@ -9827,7 +9827,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_9(Prolog m) { 
+    private final static Operation tr_number_2_9(Prolog m) {
     // tr_number(eight,8):-true
          Term a1, a2;
         Operation cont;
@@ -9842,7 +9842,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_10(Prolog m) { 
+    private final static Operation tr_number_2_10(Prolog m) {
     // tr_number(nine,9):-true
          Term a1, a2;
         Operation cont;
@@ -9857,7 +9857,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tr_number_2_11(Prolog m) { 
+    private final static Operation tr_number_2_11(Prolog m) {
     // tr_number(ten,10):-true
          Term a1, a2;
         Operation cont;
@@ -9879,24 +9879,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_ag_number_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_ag_number_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::ag_number_2_var, FILE_chat_parser::ag_number_2_var, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2); 
+        return m.switch_on_term(FILE_chat_parser::ag_number_2_var, FILE_chat_parser::ag_number_2_var, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2, FILE_chat_parser::ag_number_2_2);
     }
 
-    private final static Operation ag_number_2_var(Prolog m) { 
+    private final static Operation ag_number_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::ag_number_2_var_1);
         return ag_number_2_1(m);
     }
 
-    private final static Operation ag_number_2_var_1(Prolog m) { 
+    private final static Operation ag_number_2_var_1(Prolog m) {
         m.trust(null);
         return ag_number_2_2(m);
     }
 
-    private final static Operation ag_number_2_1(Prolog m) { 
+    private final static Operation ag_number_2_1(Prolog m) {
     // ag_number(1,sin):-true
          Term a1, a2;
         Operation cont;
@@ -9911,7 +9911,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation ag_number_2_2(Prolog m) { 
+    private final static Operation ag_number_2_2(Prolog m) {
     // ag_number(A,plu):-A>1
          Term a1, a2, a3;
         Operation cont;
@@ -9955,69 +9955,69 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_quantifier_pron_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_quantifier_pron_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::quantifier_pron_3_var, fail_0, fail_0, FILE_chat_parser::quantifier_pron_3_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::quantifier_pron_3_var, fail_0, fail_0, FILE_chat_parser::quantifier_pron_3_var, fail_0, fail_0);
     }
 
-    private final static Operation quantifier_pron_3_var(Prolog m) { 
+    private final static Operation quantifier_pron_3_var(Prolog m) {
         m.jtry3(null, FILE_chat_parser::quantifier_pron_3_var_1);
         return quantifier_pron_3_1(m);
     }
 
-    private final static Operation quantifier_pron_3_var_1(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_2);
         return quantifier_pron_3_2(m);
     }
 
-    private final static Operation quantifier_pron_3_var_2(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_3);
         return quantifier_pron_3_3(m);
     }
 
-    private final static Operation quantifier_pron_3_var_3(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_4);
         return quantifier_pron_3_4(m);
     }
 
-    private final static Operation quantifier_pron_3_var_4(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_5);
         return quantifier_pron_3_5(m);
     }
 
-    private final static Operation quantifier_pron_3_var_5(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_6);
         return quantifier_pron_3_6(m);
     }
 
-    private final static Operation quantifier_pron_3_var_6(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_7);
         return quantifier_pron_3_7(m);
     }
 
-    private final static Operation quantifier_pron_3_var_7(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_8);
         return quantifier_pron_3_8(m);
     }
 
-    private final static Operation quantifier_pron_3_var_8(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_9);
         return quantifier_pron_3_9(m);
     }
 
-    private final static Operation quantifier_pron_3_var_9(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::quantifier_pron_3_var_10);
         return quantifier_pron_3_10(m);
     }
 
-    private final static Operation quantifier_pron_3_var_10(Prolog m) { 
+    private final static Operation quantifier_pron_3_var_10(Prolog m) {
         m.trust(null);
         return quantifier_pron_3_11(m);
     }
 
-    private final static Operation quantifier_pron_3_1(Prolog m) { 
+    private final static Operation quantifier_pron_3_1(Prolog m) {
     // quantifier_pron(everybody,every,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10035,7 +10035,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_2(Prolog m) { 
+    private final static Operation quantifier_pron_3_2(Prolog m) {
     // quantifier_pron(everyone,every,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10053,7 +10053,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_3(Prolog m) { 
+    private final static Operation quantifier_pron_3_3(Prolog m) {
     // quantifier_pron(everything,every,thing):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10071,7 +10071,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_4(Prolog m) { 
+    private final static Operation quantifier_pron_3_4(Prolog m) {
     // quantifier_pron(somebody,some,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10089,7 +10089,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_5(Prolog m) { 
+    private final static Operation quantifier_pron_3_5(Prolog m) {
     // quantifier_pron(someone,some,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10107,7 +10107,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_6(Prolog m) { 
+    private final static Operation quantifier_pron_3_6(Prolog m) {
     // quantifier_pron(something,some,thing):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10125,7 +10125,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_7(Prolog m) { 
+    private final static Operation quantifier_pron_3_7(Prolog m) {
     // quantifier_pron(anybody,any,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10143,7 +10143,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_8(Prolog m) { 
+    private final static Operation quantifier_pron_3_8(Prolog m) {
     // quantifier_pron(anyone,any,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10161,7 +10161,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_9(Prolog m) { 
+    private final static Operation quantifier_pron_3_9(Prolog m) {
     // quantifier_pron(anything,any,thing):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10179,7 +10179,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_10(Prolog m) { 
+    private final static Operation quantifier_pron_3_10(Prolog m) {
     // quantifier_pron(nobody,no,person):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10197,7 +10197,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation quantifier_pron_3_11(Prolog m) { 
+    private final static Operation quantifier_pron_3_11(Prolog m) {
     // quantifier_pron(nothing,no,thing):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10225,69 +10225,69 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_prep_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_prep_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::prep_1_var, fail_0, fail_0, FILE_chat_parser::prep_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::prep_1_var, fail_0, fail_0, FILE_chat_parser::prep_1_var, fail_0, fail_0);
     }
 
-    private final static Operation prep_1_var(Prolog m) { 
+    private final static Operation prep_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::prep_1_var_1);
         return prep_1_1(m);
     }
 
-    private final static Operation prep_1_var_1(Prolog m) { 
+    private final static Operation prep_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_2);
         return prep_1_2(m);
     }
 
-    private final static Operation prep_1_var_2(Prolog m) { 
+    private final static Operation prep_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_3);
         return prep_1_3(m);
     }
 
-    private final static Operation prep_1_var_3(Prolog m) { 
+    private final static Operation prep_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_4);
         return prep_1_4(m);
     }
 
-    private final static Operation prep_1_var_4(Prolog m) { 
+    private final static Operation prep_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_5);
         return prep_1_5(m);
     }
 
-    private final static Operation prep_1_var_5(Prolog m) { 
+    private final static Operation prep_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_6);
         return prep_1_6(m);
     }
 
-    private final static Operation prep_1_var_6(Prolog m) { 
+    private final static Operation prep_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_7);
         return prep_1_7(m);
     }
 
-    private final static Operation prep_1_var_7(Prolog m) { 
+    private final static Operation prep_1_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_8);
         return prep_1_8(m);
     }
 
-    private final static Operation prep_1_var_8(Prolog m) { 
+    private final static Operation prep_1_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_9);
         return prep_1_9(m);
     }
 
-    private final static Operation prep_1_var_9(Prolog m) { 
+    private final static Operation prep_1_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::prep_1_var_10);
         return prep_1_10(m);
     }
 
-    private final static Operation prep_1_var_10(Prolog m) { 
+    private final static Operation prep_1_var_10(Prolog m) {
         m.trust(null);
         return prep_1_11(m);
     }
 
-    private final static Operation prep_1_1(Prolog m) { 
+    private final static Operation prep_1_1(Prolog m) {
     // prep(as):-true
          Term a1;
         Operation cont;
@@ -10299,7 +10299,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_2(Prolog m) { 
+    private final static Operation prep_1_2(Prolog m) {
     // prep(at):-true
          Term a1;
         Operation cont;
@@ -10311,7 +10311,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_3(Prolog m) { 
+    private final static Operation prep_1_3(Prolog m) {
     // prep(of):-true
          Term a1;
         Operation cont;
@@ -10323,7 +10323,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_4(Prolog m) { 
+    private final static Operation prep_1_4(Prolog m) {
     // prep(to):-true
          Term a1;
         Operation cont;
@@ -10335,7 +10335,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_5(Prolog m) { 
+    private final static Operation prep_1_5(Prolog m) {
     // prep(by):-true
          Term a1;
         Operation cont;
@@ -10347,7 +10347,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_6(Prolog m) { 
+    private final static Operation prep_1_6(Prolog m) {
     // prep(with):-true
          Term a1;
         Operation cont;
@@ -10359,7 +10359,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_7(Prolog m) { 
+    private final static Operation prep_1_7(Prolog m) {
     // prep(in):-true
          Term a1;
         Operation cont;
@@ -10371,7 +10371,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_8(Prolog m) { 
+    private final static Operation prep_1_8(Prolog m) {
     // prep(on):-true
          Term a1;
         Operation cont;
@@ -10383,7 +10383,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_9(Prolog m) { 
+    private final static Operation prep_1_9(Prolog m) {
     // prep(from):-true
          Term a1;
         Operation cont;
@@ -10395,7 +10395,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_10(Prolog m) { 
+    private final static Operation prep_1_10(Prolog m) {
     // prep(into):-true
          Term a1;
         Operation cont;
@@ -10407,7 +10407,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation prep_1_11(Prolog m) { 
+    private final static Operation prep_1_11(Prolog m) {
     // prep(through):-true
          Term a1;
         Operation cont;
@@ -10428,44 +10428,44 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_noun_form_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_noun_form_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::noun_form_3_var, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_var, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_int); 
+        return m.switch_on_term(FILE_chat_parser::noun_form_3_var, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_var, FILE_chat_parser::noun_form_3_int, FILE_chat_parser::noun_form_3_int);
     }
 
-    private final static Operation noun_form_3_var(Prolog m) { 
+    private final static Operation noun_form_3_var(Prolog m) {
         m.jtry3(null, FILE_chat_parser::noun_form_3_var_1);
         return noun_form_3_1(m);
     }
 
-    private final static Operation noun_form_3_var_1(Prolog m) { 
+    private final static Operation noun_form_3_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_form_3_var_2);
         return noun_form_3_2(m);
     }
 
-    private final static Operation noun_form_3_var_2(Prolog m) { 
+    private final static Operation noun_form_3_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_form_3_var_3);
         return noun_form_3_3(m);
     }
 
-    private final static Operation noun_form_3_var_3(Prolog m) { 
+    private final static Operation noun_form_3_var_3(Prolog m) {
         m.trust(null);
         return noun_form_3_4(m);
     }
 
-    private final static Operation noun_form_3_int(Prolog m) { 
+    private final static Operation noun_form_3_int(Prolog m) {
         m.jtry3(null, FILE_chat_parser::noun_form_3_int_1);
         return noun_form_3_1(m);
     }
 
-    private final static Operation noun_form_3_int_1(Prolog m) { 
+    private final static Operation noun_form_3_int_1(Prolog m) {
         m.trust(null);
         return noun_form_3_2(m);
     }
 
-    private final static Operation noun_form_3_1(Prolog m) { 
+    private final static Operation noun_form_3_1(Prolog m) {
     // noun_form(A,B,plu):-noun_plu(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -10480,7 +10480,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("noun_plu", FILE_chat_parser::PRED_noun_plu_2_static_exec, VA(a1, a2), cont);
     }
 
-    private final static Operation noun_form_3_2(Prolog m) { 
+    private final static Operation noun_form_3_2(Prolog m) {
     // noun_form(A,A,sin):-noun_sin(A)
          Term a1, a2, a3;
         Operation cont;
@@ -10497,7 +10497,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("noun_sin", FILE_chat_parser::PRED_noun_sin_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation noun_form_3_3(Prolog m) { 
+    private final static Operation noun_form_3_3(Prolog m) {
     // noun_form(proportion,proportion,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10513,7 +10513,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_form_3_4(Prolog m) { 
+    private final static Operation noun_form_3_4(Prolog m) {
     // noun_form(percentage,percentage,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -10539,34 +10539,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_root_form_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_root_form_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::root_form_1_var, fail_0, fail_0, fail_0, FILE_chat_parser::root_form_1_var, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::root_form_1_var, fail_0, fail_0, fail_0, FILE_chat_parser::root_form_1_var, fail_0);
     }
 
-    private final static Operation root_form_1_var(Prolog m) { 
+    private final static Operation root_form_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::root_form_1_var_1);
         return root_form_1_1(m);
     }
 
-    private final static Operation root_form_1_var_1(Prolog m) { 
+    private final static Operation root_form_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::root_form_1_var_2);
         return root_form_1_2(m);
     }
 
-    private final static Operation root_form_1_var_2(Prolog m) { 
+    private final static Operation root_form_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::root_form_1_var_3);
         return root_form_1_3(m);
     }
 
-    private final static Operation root_form_1_var_3(Prolog m) { 
+    private final static Operation root_form_1_var_3(Prolog m) {
         m.trust(null);
         return root_form_1_4(m);
     }
 
-    private final static Operation root_form_1_1(Prolog m) { 
+    private final static Operation root_form_1_1(Prolog m) {
     // root_form(1+sin):-true
          Term a1;
         Operation cont;
@@ -10578,7 +10578,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation root_form_1_2(Prolog m) { 
+    private final static Operation root_form_1_2(Prolog m) {
     // root_form(2+A):-true
          Term a1;
         Operation cont;
@@ -10592,7 +10592,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation root_form_1_3(Prolog m) { 
+    private final static Operation root_form_1_3(Prolog m) {
     // root_form(1+plu):-true
          Term a1;
         Operation cont;
@@ -10604,7 +10604,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation root_form_1_4(Prolog m) { 
+    private final static Operation root_form_1_4(Prolog m) {
     // root_form(3+plu):-true
          Term a1;
         Operation cont;
@@ -10627,59 +10627,59 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_root_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_root_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_root_1_var, fail_0, fail_0, FILE_chat_parser::verb_root_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::verb_root_1_var, fail_0, fail_0, FILE_chat_parser::verb_root_1_var, fail_0, fail_0);
     }
 
-    private final static Operation verb_root_1_var(Prolog m) { 
+    private final static Operation verb_root_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::verb_root_1_var_1);
         return verb_root_1_1(m);
     }
 
-    private final static Operation verb_root_1_var_1(Prolog m) { 
+    private final static Operation verb_root_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_2);
         return verb_root_1_2(m);
     }
 
-    private final static Operation verb_root_1_var_2(Prolog m) { 
+    private final static Operation verb_root_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_3);
         return verb_root_1_3(m);
     }
 
-    private final static Operation verb_root_1_var_3(Prolog m) { 
+    private final static Operation verb_root_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_4);
         return verb_root_1_4(m);
     }
 
-    private final static Operation verb_root_1_var_4(Prolog m) { 
+    private final static Operation verb_root_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_5);
         return verb_root_1_5(m);
     }
 
-    private final static Operation verb_root_1_var_5(Prolog m) { 
+    private final static Operation verb_root_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_6);
         return verb_root_1_6(m);
     }
 
-    private final static Operation verb_root_1_var_6(Prolog m) { 
+    private final static Operation verb_root_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_7);
         return verb_root_1_7(m);
     }
 
-    private final static Operation verb_root_1_var_7(Prolog m) { 
+    private final static Operation verb_root_1_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_root_1_var_8);
         return verb_root_1_8(m);
     }
 
-    private final static Operation verb_root_1_var_8(Prolog m) { 
+    private final static Operation verb_root_1_var_8(Prolog m) {
         m.trust(null);
         return verb_root_1_9(m);
     }
 
-    private final static Operation verb_root_1_1(Prolog m) { 
+    private final static Operation verb_root_1_1(Prolog m) {
     // verb_root(be):-true
          Term a1;
         Operation cont;
@@ -10691,7 +10691,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_2(Prolog m) { 
+    private final static Operation verb_root_1_2(Prolog m) {
     // verb_root(have):-true
          Term a1;
         Operation cont;
@@ -10703,7 +10703,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_3(Prolog m) { 
+    private final static Operation verb_root_1_3(Prolog m) {
     // verb_root(do):-true
          Term a1;
         Operation cont;
@@ -10715,7 +10715,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_4(Prolog m) { 
+    private final static Operation verb_root_1_4(Prolog m) {
     // verb_root(border):-true
          Term a1;
         Operation cont;
@@ -10727,7 +10727,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_5(Prolog m) { 
+    private final static Operation verb_root_1_5(Prolog m) {
     // verb_root(contain):-true
          Term a1;
         Operation cont;
@@ -10739,7 +10739,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_6(Prolog m) { 
+    private final static Operation verb_root_1_6(Prolog m) {
     // verb_root(drain):-true
          Term a1;
         Operation cont;
@@ -10751,7 +10751,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_7(Prolog m) { 
+    private final static Operation verb_root_1_7(Prolog m) {
     // verb_root(exceed):-true
          Term a1;
         Operation cont;
@@ -10763,7 +10763,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_8(Prolog m) { 
+    private final static Operation verb_root_1_8(Prolog m) {
     // verb_root(flow):-true
          Term a1;
         Operation cont;
@@ -10775,7 +10775,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_root_1_9(Prolog m) { 
+    private final static Operation verb_root_1_9(Prolog m) {
     // verb_root(rise):-true
          Term a1;
         Operation cont;
@@ -10794,54 +10794,54 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_regular_pres_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_regular_pres_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::regular_pres_1_var, fail_0, fail_0, FILE_chat_parser::regular_pres_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::regular_pres_1_var, fail_0, fail_0, FILE_chat_parser::regular_pres_1_var, fail_0, fail_0);
     }
 
-    private final static Operation regular_pres_1_var(Prolog m) { 
+    private final static Operation regular_pres_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::regular_pres_1_var_1);
         return regular_pres_1_1(m);
     }
 
-    private final static Operation regular_pres_1_var_1(Prolog m) { 
+    private final static Operation regular_pres_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_2);
         return regular_pres_1_2(m);
     }
 
-    private final static Operation regular_pres_1_var_2(Prolog m) { 
+    private final static Operation regular_pres_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_3);
         return regular_pres_1_3(m);
     }
 
-    private final static Operation regular_pres_1_var_3(Prolog m) { 
+    private final static Operation regular_pres_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_4);
         return regular_pres_1_4(m);
     }
 
-    private final static Operation regular_pres_1_var_4(Prolog m) { 
+    private final static Operation regular_pres_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_5);
         return regular_pres_1_5(m);
     }
 
-    private final static Operation regular_pres_1_var_5(Prolog m) { 
+    private final static Operation regular_pres_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_6);
         return regular_pres_1_6(m);
     }
 
-    private final static Operation regular_pres_1_var_6(Prolog m) { 
+    private final static Operation regular_pres_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_pres_1_var_7);
         return regular_pres_1_7(m);
     }
 
-    private final static Operation regular_pres_1_var_7(Prolog m) { 
+    private final static Operation regular_pres_1_var_7(Prolog m) {
         m.trust(null);
         return regular_pres_1_8(m);
     }
 
-    private final static Operation regular_pres_1_1(Prolog m) { 
+    private final static Operation regular_pres_1_1(Prolog m) {
     // regular_pres(have):-true
          Term a1;
         Operation cont;
@@ -10853,7 +10853,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_2(Prolog m) { 
+    private final static Operation regular_pres_1_2(Prolog m) {
     // regular_pres(do):-true
          Term a1;
         Operation cont;
@@ -10865,7 +10865,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_3(Prolog m) { 
+    private final static Operation regular_pres_1_3(Prolog m) {
     // regular_pres(rise):-true
          Term a1;
         Operation cont;
@@ -10877,7 +10877,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_4(Prolog m) { 
+    private final static Operation regular_pres_1_4(Prolog m) {
     // regular_pres(border):-true
          Term a1;
         Operation cont;
@@ -10889,7 +10889,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_5(Prolog m) { 
+    private final static Operation regular_pres_1_5(Prolog m) {
     // regular_pres(contain):-true
          Term a1;
         Operation cont;
@@ -10901,7 +10901,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_6(Prolog m) { 
+    private final static Operation regular_pres_1_6(Prolog m) {
     // regular_pres(drain):-true
          Term a1;
         Operation cont;
@@ -10913,7 +10913,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_7(Prolog m) { 
+    private final static Operation regular_pres_1_7(Prolog m) {
     // regular_pres(exceed):-true
          Term a1;
         Operation cont;
@@ -10925,7 +10925,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_pres_1_8(Prolog m) { 
+    private final static Operation regular_pres_1_8(Prolog m) {
     // regular_pres(flow):-true
          Term a1;
         Operation cont;
@@ -10949,44 +10949,44 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_regular_past_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_regular_past_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::regular_past_2_var, fail_0, fail_0, FILE_chat_parser::regular_past_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::regular_past_2_var, fail_0, fail_0, FILE_chat_parser::regular_past_2_var, fail_0, fail_0);
     }
 
-    private final static Operation regular_past_2_var(Prolog m) { 
+    private final static Operation regular_past_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::regular_past_2_var_1);
         return regular_past_2_1(m);
     }
 
-    private final static Operation regular_past_2_var_1(Prolog m) { 
+    private final static Operation regular_past_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_past_2_var_2);
         return regular_past_2_2(m);
     }
 
-    private final static Operation regular_past_2_var_2(Prolog m) { 
+    private final static Operation regular_past_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_past_2_var_3);
         return regular_past_2_3(m);
     }
 
-    private final static Operation regular_past_2_var_3(Prolog m) { 
+    private final static Operation regular_past_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_past_2_var_4);
         return regular_past_2_4(m);
     }
 
-    private final static Operation regular_past_2_var_4(Prolog m) { 
+    private final static Operation regular_past_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::regular_past_2_var_5);
         return regular_past_2_5(m);
     }
 
-    private final static Operation regular_past_2_var_5(Prolog m) { 
+    private final static Operation regular_past_2_var_5(Prolog m) {
         m.trust(null);
         return regular_past_2_6(m);
     }
 
-    private final static Operation regular_past_2_1(Prolog m) { 
+    private final static Operation regular_past_2_1(Prolog m) {
     // regular_past(had,have):-true
          Term a1, a2;
         Operation cont;
@@ -11001,7 +11001,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_past_2_2(Prolog m) { 
+    private final static Operation regular_past_2_2(Prolog m) {
     // regular_past(bordered,border):-true
          Term a1, a2;
         Operation cont;
@@ -11016,7 +11016,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_past_2_3(Prolog m) { 
+    private final static Operation regular_past_2_3(Prolog m) {
     // regular_past(contained,contain):-true
          Term a1, a2;
         Operation cont;
@@ -11031,7 +11031,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_past_2_4(Prolog m) { 
+    private final static Operation regular_past_2_4(Prolog m) {
     // regular_past(drained,drain):-true
          Term a1, a2;
         Operation cont;
@@ -11046,7 +11046,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_past_2_5(Prolog m) { 
+    private final static Operation regular_past_2_5(Prolog m) {
     // regular_past(exceeded,exceed):-true
          Term a1, a2;
         Operation cont;
@@ -11061,7 +11061,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation regular_past_2_6(Prolog m) { 
+    private final static Operation regular_past_2_6(Prolog m) {
     // regular_past(flowed,flow):-true
          Term a1, a2;
         Operation cont;
@@ -11083,29 +11083,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_pron_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_pron_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::rel_pron_2_var, fail_0, fail_0, FILE_chat_parser::rel_pron_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::rel_pron_2_var, fail_0, fail_0, FILE_chat_parser::rel_pron_2_var, fail_0, fail_0);
     }
 
-    private final static Operation rel_pron_2_var(Prolog m) { 
+    private final static Operation rel_pron_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::rel_pron_2_var_1);
         return rel_pron_2_1(m);
     }
 
-    private final static Operation rel_pron_2_var_1(Prolog m) { 
+    private final static Operation rel_pron_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_pron_2_var_2);
         return rel_pron_2_2(m);
     }
 
-    private final static Operation rel_pron_2_var_2(Prolog m) { 
+    private final static Operation rel_pron_2_var_2(Prolog m) {
         m.trust(null);
         return rel_pron_2_3(m);
     }
 
-    private final static Operation rel_pron_2_1(Prolog m) { 
+    private final static Operation rel_pron_2_1(Prolog m) {
     // rel_pron(who,subj):-true
          Term a1, a2;
         Operation cont;
@@ -11120,7 +11120,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_pron_2_2(Prolog m) { 
+    private final static Operation rel_pron_2_2(Prolog m) {
     // rel_pron(whom,compl):-true
          Term a1, a2;
         Operation cont;
@@ -11135,7 +11135,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_pron_2_3(Prolog m) { 
+    private final static Operation rel_pron_2_3(Prolog m) {
     // rel_pron(which,undef):-true
          Term a1, a2;
         Operation cont;
@@ -11167,49 +11167,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_poss_pron_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poss_pron_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::poss_pron_4_var, fail_0, fail_0, FILE_chat_parser::poss_pron_4_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::poss_pron_4_var, fail_0, fail_0, FILE_chat_parser::poss_pron_4_var, fail_0, fail_0);
     }
 
-    private final static Operation poss_pron_4_var(Prolog m) { 
+    private final static Operation poss_pron_4_var(Prolog m) {
         m.jtry4(null, FILE_chat_parser::poss_pron_4_var_1);
         return poss_pron_4_1(m);
     }
 
-    private final static Operation poss_pron_4_var_1(Prolog m) { 
+    private final static Operation poss_pron_4_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::poss_pron_4_var_2);
         return poss_pron_4_2(m);
     }
 
-    private final static Operation poss_pron_4_var_2(Prolog m) { 
+    private final static Operation poss_pron_4_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::poss_pron_4_var_3);
         return poss_pron_4_3(m);
     }
 
-    private final static Operation poss_pron_4_var_3(Prolog m) { 
+    private final static Operation poss_pron_4_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::poss_pron_4_var_4);
         return poss_pron_4_4(m);
     }
 
-    private final static Operation poss_pron_4_var_4(Prolog m) { 
+    private final static Operation poss_pron_4_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::poss_pron_4_var_5);
         return poss_pron_4_5(m);
     }
 
-    private final static Operation poss_pron_4_var_5(Prolog m) { 
+    private final static Operation poss_pron_4_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::poss_pron_4_var_6);
         return poss_pron_4_6(m);
     }
 
-    private final static Operation poss_pron_4_var_6(Prolog m) { 
+    private final static Operation poss_pron_4_var_6(Prolog m) {
         m.trust(null);
         return poss_pron_4_7(m);
     }
 
-    private final static Operation poss_pron_4_1(Prolog m) { 
+    private final static Operation poss_pron_4_1(Prolog m) {
     // poss_pron(my,A,1,sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11228,7 +11228,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_2(Prolog m) { 
+    private final static Operation poss_pron_4_2(Prolog m) {
     // poss_pron(your,A,2,B):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11245,7 +11245,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_3(Prolog m) { 
+    private final static Operation poss_pron_4_3(Prolog m) {
     // poss_pron(his,masc,3,sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11266,7 +11266,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_4(Prolog m) { 
+    private final static Operation poss_pron_4_4(Prolog m) {
     // poss_pron(her,fem,3,sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11287,7 +11287,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_5(Prolog m) { 
+    private final static Operation poss_pron_4_5(Prolog m) {
     // poss_pron(its,neut,3,sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11308,7 +11308,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_6(Prolog m) { 
+    private final static Operation poss_pron_4_6(Prolog m) {
     // poss_pron(our,A,1,plu):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11327,7 +11327,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poss_pron_4_7(Prolog m) { 
+    private final static Operation poss_pron_4_7(Prolog m) {
     // poss_pron(their,A,3,plu):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -11365,74 +11365,74 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_pers_pron_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pers_pron_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::pers_pron_5_var, fail_0, fail_0, FILE_chat_parser::pers_pron_5_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::pers_pron_5_var, fail_0, fail_0, FILE_chat_parser::pers_pron_5_var, fail_0, fail_0);
     }
 
-    private final static Operation pers_pron_5_var(Prolog m) { 
+    private final static Operation pers_pron_5_var(Prolog m) {
         m.jtry5(null, FILE_chat_parser::pers_pron_5_var_1);
         return pers_pron_5_1(m);
     }
 
-    private final static Operation pers_pron_5_var_1(Prolog m) { 
+    private final static Operation pers_pron_5_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_2);
         return pers_pron_5_2(m);
     }
 
-    private final static Operation pers_pron_5_var_2(Prolog m) { 
+    private final static Operation pers_pron_5_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_3);
         return pers_pron_5_3(m);
     }
 
-    private final static Operation pers_pron_5_var_3(Prolog m) { 
+    private final static Operation pers_pron_5_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_4);
         return pers_pron_5_4(m);
     }
 
-    private final static Operation pers_pron_5_var_4(Prolog m) { 
+    private final static Operation pers_pron_5_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_5);
         return pers_pron_5_5(m);
     }
 
-    private final static Operation pers_pron_5_var_5(Prolog m) { 
+    private final static Operation pers_pron_5_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_6);
         return pers_pron_5_6(m);
     }
 
-    private final static Operation pers_pron_5_var_6(Prolog m) { 
+    private final static Operation pers_pron_5_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_7);
         return pers_pron_5_7(m);
     }
 
-    private final static Operation pers_pron_5_var_7(Prolog m) { 
+    private final static Operation pers_pron_5_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_8);
         return pers_pron_5_8(m);
     }
 
-    private final static Operation pers_pron_5_var_8(Prolog m) { 
+    private final static Operation pers_pron_5_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_9);
         return pers_pron_5_9(m);
     }
 
-    private final static Operation pers_pron_5_var_9(Prolog m) { 
+    private final static Operation pers_pron_5_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_10);
         return pers_pron_5_10(m);
     }
 
-    private final static Operation pers_pron_5_var_10(Prolog m) { 
+    private final static Operation pers_pron_5_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::pers_pron_5_var_11);
         return pers_pron_5_11(m);
     }
 
-    private final static Operation pers_pron_5_var_11(Prolog m) { 
+    private final static Operation pers_pron_5_var_11(Prolog m) {
         m.trust(null);
         return pers_pron_5_12(m);
     }
 
-    private final static Operation pers_pron_5_1(Prolog m) { 
+    private final static Operation pers_pron_5_1(Prolog m) {
     // pers_pron(i,A,1,sin,subj):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11454,7 +11454,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_2(Prolog m) { 
+    private final static Operation pers_pron_5_2(Prolog m) {
     // pers_pron(you,A,2,B,C):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11472,7 +11472,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_3(Prolog m) { 
+    private final static Operation pers_pron_5_3(Prolog m) {
     // pers_pron(he,masc,3,sin,subj):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11496,7 +11496,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_4(Prolog m) { 
+    private final static Operation pers_pron_5_4(Prolog m) {
     // pers_pron(she,fem,3,sin,subj):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11520,7 +11520,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_5(Prolog m) { 
+    private final static Operation pers_pron_5_5(Prolog m) {
     // pers_pron(it,neut,3,sin,A):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11542,7 +11542,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_6(Prolog m) { 
+    private final static Operation pers_pron_5_6(Prolog m) {
     // pers_pron(we,A,1,plu,subj):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11564,7 +11564,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_7(Prolog m) { 
+    private final static Operation pers_pron_5_7(Prolog m) {
     // pers_pron(them,A,3,plu,subj):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11586,7 +11586,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_8(Prolog m) { 
+    private final static Operation pers_pron_5_8(Prolog m) {
     // pers_pron(me,A,1,sin,compl(B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11610,7 +11610,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_9(Prolog m) { 
+    private final static Operation pers_pron_5_9(Prolog m) {
     // pers_pron(him,masc,3,sin,compl(A)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11636,7 +11636,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_10(Prolog m) { 
+    private final static Operation pers_pron_5_10(Prolog m) {
     // pers_pron(her,fem,3,sin,compl(A)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11662,7 +11662,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_11(Prolog m) { 
+    private final static Operation pers_pron_5_11(Prolog m) {
     // pers_pron(us,A,1,plu,compl(B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11686,7 +11686,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pers_pron_5_12(Prolog m) { 
+    private final static Operation pers_pron_5_12(Prolog m) {
     // pers_pron(them,A,3,plu,compl(B)):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -11717,29 +11717,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_terminator_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_terminator_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::terminator_2_var, fail_0, fail_0, FILE_chat_parser::terminator_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::terminator_2_var, fail_0, fail_0, FILE_chat_parser::terminator_2_var, fail_0, fail_0);
     }
 
-    private final static Operation terminator_2_var(Prolog m) { 
+    private final static Operation terminator_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::terminator_2_var_1);
         return terminator_2_1(m);
     }
 
-    private final static Operation terminator_2_var_1(Prolog m) { 
+    private final static Operation terminator_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::terminator_2_var_2);
         return terminator_2_2(m);
     }
 
-    private final static Operation terminator_2_var_2(Prolog m) { 
+    private final static Operation terminator_2_var_2(Prolog m) {
         m.trust(null);
         return terminator_2_3(m);
     }
 
-    private final static Operation terminator_2_1(Prolog m) { 
+    private final static Operation terminator_2_1(Prolog m) {
     // terminator('.',A):-true
          Term a1, a2;
         Operation cont;
@@ -11752,7 +11752,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation terminator_2_2(Prolog m) { 
+    private final static Operation terminator_2_2(Prolog m) {
     // terminator(?,?):-true
          Term a1, a2;
         Operation cont;
@@ -11767,7 +11767,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation terminator_2_3(Prolog m) { 
+    private final static Operation terminator_2_3(Prolog m) {
     // terminator(!,!):-true
          Term a1, a2;
         Operation cont;
@@ -11789,8 +11789,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_name_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_name_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // name(A):-true
         m.setB0();
          Term a1;
@@ -11817,34 +11817,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_loc_pred_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_loc_pred_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::loc_pred_2_var, fail_0, fail_0, FILE_chat_parser::loc_pred_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::loc_pred_2_var, fail_0, fail_0, FILE_chat_parser::loc_pred_2_var, fail_0, fail_0);
     }
 
-    private final static Operation loc_pred_2_var(Prolog m) { 
+    private final static Operation loc_pred_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::loc_pred_2_var_1);
         return loc_pred_2_1(m);
     }
 
-    private final static Operation loc_pred_2_var_1(Prolog m) { 
+    private final static Operation loc_pred_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::loc_pred_2_var_2);
         return loc_pred_2_2(m);
     }
 
-    private final static Operation loc_pred_2_var_2(Prolog m) { 
+    private final static Operation loc_pred_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::loc_pred_2_var_3);
         return loc_pred_2_3(m);
     }
 
-    private final static Operation loc_pred_2_var_3(Prolog m) { 
+    private final static Operation loc_pred_2_var_3(Prolog m) {
         m.trust(null);
         return loc_pred_2_4(m);
     }
 
-    private final static Operation loc_pred_2_1(Prolog m) { 
+    private final static Operation loc_pred_2_1(Prolog m) {
     // loc_pred(east,prep(eastof)):-true
          Term a1, a2;
         Operation cont;
@@ -11859,7 +11859,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation loc_pred_2_2(Prolog m) { 
+    private final static Operation loc_pred_2_2(Prolog m) {
     // loc_pred(west,prep(westof)):-true
          Term a1, a2;
         Operation cont;
@@ -11874,7 +11874,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation loc_pred_2_3(Prolog m) { 
+    private final static Operation loc_pred_2_3(Prolog m) {
     // loc_pred(north,prep(northof)):-true
          Term a1, a2;
         Operation cont;
@@ -11889,7 +11889,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation loc_pred_2_4(Prolog m) { 
+    private final static Operation loc_pred_2_4(Prolog m) {
     // loc_pred(south,prep(southof)):-true
          Term a1, a2;
         Operation cont;
@@ -11920,89 +11920,89 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adj_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adj_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::adj_2_var, fail_0, fail_0, FILE_chat_parser::adj_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::adj_2_var, fail_0, fail_0, FILE_chat_parser::adj_2_var, fail_0, fail_0);
     }
 
-    private final static Operation adj_2_var(Prolog m) { 
+    private final static Operation adj_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::adj_2_var_1);
         return adj_2_1(m);
     }
 
-    private final static Operation adj_2_var_1(Prolog m) { 
+    private final static Operation adj_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_2);
         return adj_2_2(m);
     }
 
-    private final static Operation adj_2_var_2(Prolog m) { 
+    private final static Operation adj_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_3);
         return adj_2_3(m);
     }
 
-    private final static Operation adj_2_var_3(Prolog m) { 
+    private final static Operation adj_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_4);
         return adj_2_4(m);
     }
 
-    private final static Operation adj_2_var_4(Prolog m) { 
+    private final static Operation adj_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_5);
         return adj_2_5(m);
     }
 
-    private final static Operation adj_2_var_5(Prolog m) { 
+    private final static Operation adj_2_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_6);
         return adj_2_6(m);
     }
 
-    private final static Operation adj_2_var_6(Prolog m) { 
+    private final static Operation adj_2_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_7);
         return adj_2_7(m);
     }
 
-    private final static Operation adj_2_var_7(Prolog m) { 
+    private final static Operation adj_2_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_8);
         return adj_2_8(m);
     }
 
-    private final static Operation adj_2_var_8(Prolog m) { 
+    private final static Operation adj_2_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_9);
         return adj_2_9(m);
     }
 
-    private final static Operation adj_2_var_9(Prolog m) { 
+    private final static Operation adj_2_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_10);
         return adj_2_10(m);
     }
 
-    private final static Operation adj_2_var_10(Prolog m) { 
+    private final static Operation adj_2_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_11);
         return adj_2_11(m);
     }
 
-    private final static Operation adj_2_var_11(Prolog m) { 
+    private final static Operation adj_2_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_12);
         return adj_2_12(m);
     }
 
-    private final static Operation adj_2_var_12(Prolog m) { 
+    private final static Operation adj_2_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_13);
         return adj_2_13(m);
     }
 
-    private final static Operation adj_2_var_13(Prolog m) { 
+    private final static Operation adj_2_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::adj_2_var_14);
         return adj_2_14(m);
     }
 
-    private final static Operation adj_2_var_14(Prolog m) { 
+    private final static Operation adj_2_var_14(Prolog m) {
         m.trust(null);
         return adj_2_15(m);
     }
 
-    private final static Operation adj_2_1(Prolog m) { 
+    private final static Operation adj_2_1(Prolog m) {
     // adj(minimum,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12017,7 +12017,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_2(Prolog m) { 
+    private final static Operation adj_2_2(Prolog m) {
     // adj(maximum,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12032,7 +12032,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_3(Prolog m) { 
+    private final static Operation adj_2_3(Prolog m) {
     // adj(average,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12047,7 +12047,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_4(Prolog m) { 
+    private final static Operation adj_2_4(Prolog m) {
     // adj(total,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12062,7 +12062,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_5(Prolog m) { 
+    private final static Operation adj_2_5(Prolog m) {
     // adj(african,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12077,7 +12077,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_6(Prolog m) { 
+    private final static Operation adj_2_6(Prolog m) {
     // adj(american,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12092,7 +12092,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_7(Prolog m) { 
+    private final static Operation adj_2_7(Prolog m) {
     // adj(asian,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12107,7 +12107,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_8(Prolog m) { 
+    private final static Operation adj_2_8(Prolog m) {
     // adj(european,restr):-true
          Term a1, a2;
         Operation cont;
@@ -12122,7 +12122,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_9(Prolog m) { 
+    private final static Operation adj_2_9(Prolog m) {
     // adj(great,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12137,7 +12137,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_10(Prolog m) { 
+    private final static Operation adj_2_10(Prolog m) {
     // adj(big,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12152,7 +12152,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_11(Prolog m) { 
+    private final static Operation adj_2_11(Prolog m) {
     // adj(small,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12167,7 +12167,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_12(Prolog m) { 
+    private final static Operation adj_2_12(Prolog m) {
     // adj(large,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12182,7 +12182,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_13(Prolog m) { 
+    private final static Operation adj_2_13(Prolog m) {
     // adj(old,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12197,7 +12197,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_14(Prolog m) { 
+    private final static Operation adj_2_14(Prolog m) {
     // adj(new,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12212,7 +12212,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adj_2_15(Prolog m) { 
+    private final static Operation adj_2_15(Prolog m) {
     // adj(populous,quant):-true
          Term a1, a2;
         Operation cont;
@@ -12240,49 +12240,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_rel_adj_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rel_adj_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::rel_adj_2_var, fail_0, fail_0, FILE_chat_parser::rel_adj_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::rel_adj_2_var, fail_0, fail_0, FILE_chat_parser::rel_adj_2_var, fail_0, fail_0);
     }
 
-    private final static Operation rel_adj_2_var(Prolog m) { 
+    private final static Operation rel_adj_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::rel_adj_2_var_1);
         return rel_adj_2_1(m);
     }
 
-    private final static Operation rel_adj_2_var_1(Prolog m) { 
+    private final static Operation rel_adj_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_adj_2_var_2);
         return rel_adj_2_2(m);
     }
 
-    private final static Operation rel_adj_2_var_2(Prolog m) { 
+    private final static Operation rel_adj_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_adj_2_var_3);
         return rel_adj_2_3(m);
     }
 
-    private final static Operation rel_adj_2_var_3(Prolog m) { 
+    private final static Operation rel_adj_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_adj_2_var_4);
         return rel_adj_2_4(m);
     }
 
-    private final static Operation rel_adj_2_var_4(Prolog m) { 
+    private final static Operation rel_adj_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_adj_2_var_5);
         return rel_adj_2_5(m);
     }
 
-    private final static Operation rel_adj_2_var_5(Prolog m) { 
+    private final static Operation rel_adj_2_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::rel_adj_2_var_6);
         return rel_adj_2_6(m);
     }
 
-    private final static Operation rel_adj_2_var_6(Prolog m) { 
+    private final static Operation rel_adj_2_var_6(Prolog m) {
         m.trust(null);
         return rel_adj_2_7(m);
     }
 
-    private final static Operation rel_adj_2_1(Prolog m) { 
+    private final static Operation rel_adj_2_1(Prolog m) {
     // rel_adj(greater,great):-true
          Term a1, a2;
         Operation cont;
@@ -12297,7 +12297,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_2(Prolog m) { 
+    private final static Operation rel_adj_2_2(Prolog m) {
     // rel_adj(less,small):-true
          Term a1, a2;
         Operation cont;
@@ -12312,7 +12312,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_3(Prolog m) { 
+    private final static Operation rel_adj_2_3(Prolog m) {
     // rel_adj(bigger,big):-true
          Term a1, a2;
         Operation cont;
@@ -12327,7 +12327,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_4(Prolog m) { 
+    private final static Operation rel_adj_2_4(Prolog m) {
     // rel_adj(smaller,small):-true
          Term a1, a2;
         Operation cont;
@@ -12342,7 +12342,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_5(Prolog m) { 
+    private final static Operation rel_adj_2_5(Prolog m) {
     // rel_adj(larger,large):-true
          Term a1, a2;
         Operation cont;
@@ -12357,7 +12357,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_6(Prolog m) { 
+    private final static Operation rel_adj_2_6(Prolog m) {
     // rel_adj(older,old):-true
          Term a1, a2;
         Operation cont;
@@ -12372,7 +12372,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rel_adj_2_7(Prolog m) { 
+    private final static Operation rel_adj_2_7(Prolog m) {
     // rel_adj(newer,new):-true
          Term a1, a2;
         Operation cont;
@@ -12397,39 +12397,39 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_sup_adj_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sup_adj_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::sup_adj_2_var, fail_0, fail_0, FILE_chat_parser::sup_adj_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::sup_adj_2_var, fail_0, fail_0, FILE_chat_parser::sup_adj_2_var, fail_0, fail_0);
     }
 
-    private final static Operation sup_adj_2_var(Prolog m) { 
+    private final static Operation sup_adj_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::sup_adj_2_var_1);
         return sup_adj_2_1(m);
     }
 
-    private final static Operation sup_adj_2_var_1(Prolog m) { 
+    private final static Operation sup_adj_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::sup_adj_2_var_2);
         return sup_adj_2_2(m);
     }
 
-    private final static Operation sup_adj_2_var_2(Prolog m) { 
+    private final static Operation sup_adj_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::sup_adj_2_var_3);
         return sup_adj_2_3(m);
     }
 
-    private final static Operation sup_adj_2_var_3(Prolog m) { 
+    private final static Operation sup_adj_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::sup_adj_2_var_4);
         return sup_adj_2_4(m);
     }
 
-    private final static Operation sup_adj_2_var_4(Prolog m) { 
+    private final static Operation sup_adj_2_var_4(Prolog m) {
         m.trust(null);
         return sup_adj_2_5(m);
     }
 
-    private final static Operation sup_adj_2_1(Prolog m) { 
+    private final static Operation sup_adj_2_1(Prolog m) {
     // sup_adj(biggest,big):-true
          Term a1, a2;
         Operation cont;
@@ -12444,7 +12444,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation sup_adj_2_2(Prolog m) { 
+    private final static Operation sup_adj_2_2(Prolog m) {
     // sup_adj(smallest,small):-true
          Term a1, a2;
         Operation cont;
@@ -12459,7 +12459,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation sup_adj_2_3(Prolog m) { 
+    private final static Operation sup_adj_2_3(Prolog m) {
     // sup_adj(largest,large):-true
          Term a1, a2;
         Operation cont;
@@ -12474,7 +12474,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation sup_adj_2_4(Prolog m) { 
+    private final static Operation sup_adj_2_4(Prolog m) {
     // sup_adj(oldest,old):-true
          Term a1, a2;
         Operation cont;
@@ -12489,7 +12489,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation sup_adj_2_5(Prolog m) { 
+    private final static Operation sup_adj_2_5(Prolog m) {
     // sup_adj(newest,new):-true
          Term a1, a2;
         Operation cont;
@@ -12525,139 +12525,139 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_noun_sin_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_noun_sin_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::noun_sin_1_var, fail_0, fail_0, FILE_chat_parser::noun_sin_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::noun_sin_1_var, fail_0, fail_0, FILE_chat_parser::noun_sin_1_var, fail_0, fail_0);
     }
 
-    private final static Operation noun_sin_1_var(Prolog m) { 
+    private final static Operation noun_sin_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::noun_sin_1_var_1);
         return noun_sin_1_1(m);
     }
 
-    private final static Operation noun_sin_1_var_1(Prolog m) { 
+    private final static Operation noun_sin_1_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_2);
         return noun_sin_1_2(m);
     }
 
-    private final static Operation noun_sin_1_var_2(Prolog m) { 
+    private final static Operation noun_sin_1_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_3);
         return noun_sin_1_3(m);
     }
 
-    private final static Operation noun_sin_1_var_3(Prolog m) { 
+    private final static Operation noun_sin_1_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_4);
         return noun_sin_1_4(m);
     }
 
-    private final static Operation noun_sin_1_var_4(Prolog m) { 
+    private final static Operation noun_sin_1_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_5);
         return noun_sin_1_5(m);
     }
 
-    private final static Operation noun_sin_1_var_5(Prolog m) { 
+    private final static Operation noun_sin_1_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_6);
         return noun_sin_1_6(m);
     }
 
-    private final static Operation noun_sin_1_var_6(Prolog m) { 
+    private final static Operation noun_sin_1_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_7);
         return noun_sin_1_7(m);
     }
 
-    private final static Operation noun_sin_1_var_7(Prolog m) { 
+    private final static Operation noun_sin_1_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_8);
         return noun_sin_1_8(m);
     }
 
-    private final static Operation noun_sin_1_var_8(Prolog m) { 
+    private final static Operation noun_sin_1_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_9);
         return noun_sin_1_9(m);
     }
 
-    private final static Operation noun_sin_1_var_9(Prolog m) { 
+    private final static Operation noun_sin_1_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_10);
         return noun_sin_1_10(m);
     }
 
-    private final static Operation noun_sin_1_var_10(Prolog m) { 
+    private final static Operation noun_sin_1_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_11);
         return noun_sin_1_11(m);
     }
 
-    private final static Operation noun_sin_1_var_11(Prolog m) { 
+    private final static Operation noun_sin_1_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_12);
         return noun_sin_1_12(m);
     }
 
-    private final static Operation noun_sin_1_var_12(Prolog m) { 
+    private final static Operation noun_sin_1_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_13);
         return noun_sin_1_13(m);
     }
 
-    private final static Operation noun_sin_1_var_13(Prolog m) { 
+    private final static Operation noun_sin_1_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_14);
         return noun_sin_1_14(m);
     }
 
-    private final static Operation noun_sin_1_var_14(Prolog m) { 
+    private final static Operation noun_sin_1_var_14(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_15);
         return noun_sin_1_15(m);
     }
 
-    private final static Operation noun_sin_1_var_15(Prolog m) { 
+    private final static Operation noun_sin_1_var_15(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_16);
         return noun_sin_1_16(m);
     }
 
-    private final static Operation noun_sin_1_var_16(Prolog m) { 
+    private final static Operation noun_sin_1_var_16(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_17);
         return noun_sin_1_17(m);
     }
 
-    private final static Operation noun_sin_1_var_17(Prolog m) { 
+    private final static Operation noun_sin_1_var_17(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_18);
         return noun_sin_1_18(m);
     }
 
-    private final static Operation noun_sin_1_var_18(Prolog m) { 
+    private final static Operation noun_sin_1_var_18(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_19);
         return noun_sin_1_19(m);
     }
 
-    private final static Operation noun_sin_1_var_19(Prolog m) { 
+    private final static Operation noun_sin_1_var_19(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_20);
         return noun_sin_1_20(m);
     }
 
-    private final static Operation noun_sin_1_var_20(Prolog m) { 
+    private final static Operation noun_sin_1_var_20(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_21);
         return noun_sin_1_21(m);
     }
 
-    private final static Operation noun_sin_1_var_21(Prolog m) { 
+    private final static Operation noun_sin_1_var_21(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_22);
         return noun_sin_1_22(m);
     }
 
-    private final static Operation noun_sin_1_var_22(Prolog m) { 
+    private final static Operation noun_sin_1_var_22(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_23);
         return noun_sin_1_23(m);
     }
 
-    private final static Operation noun_sin_1_var_23(Prolog m) { 
+    private final static Operation noun_sin_1_var_23(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_sin_1_var_24);
         return noun_sin_1_24(m);
     }
 
-    private final static Operation noun_sin_1_var_24(Prolog m) { 
+    private final static Operation noun_sin_1_var_24(Prolog m) {
         m.trust(null);
         return noun_sin_1_25(m);
     }
 
-    private final static Operation noun_sin_1_1(Prolog m) { 
+    private final static Operation noun_sin_1_1(Prolog m) {
     // noun_sin(average):-true
          Term a1;
         Operation cont;
@@ -12669,7 +12669,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_2(Prolog m) { 
+    private final static Operation noun_sin_1_2(Prolog m) {
     // noun_sin(total):-true
          Term a1;
         Operation cont;
@@ -12681,7 +12681,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_3(Prolog m) { 
+    private final static Operation noun_sin_1_3(Prolog m) {
     // noun_sin(sum):-true
          Term a1;
         Operation cont;
@@ -12693,7 +12693,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_4(Prolog m) { 
+    private final static Operation noun_sin_1_4(Prolog m) {
     // noun_sin(degree):-true
          Term a1;
         Operation cont;
@@ -12705,7 +12705,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_5(Prolog m) { 
+    private final static Operation noun_sin_1_5(Prolog m) {
     // noun_sin(sqmile):-true
          Term a1;
         Operation cont;
@@ -12717,7 +12717,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_6(Prolog m) { 
+    private final static Operation noun_sin_1_6(Prolog m) {
     // noun_sin(ksqmile):-true
          Term a1;
         Operation cont;
@@ -12729,7 +12729,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_7(Prolog m) { 
+    private final static Operation noun_sin_1_7(Prolog m) {
     // noun_sin(thousand):-true
          Term a1;
         Operation cont;
@@ -12741,7 +12741,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_8(Prolog m) { 
+    private final static Operation noun_sin_1_8(Prolog m) {
     // noun_sin(million):-true
          Term a1;
         Operation cont;
@@ -12753,7 +12753,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_9(Prolog m) { 
+    private final static Operation noun_sin_1_9(Prolog m) {
     // noun_sin(time):-true
          Term a1;
         Operation cont;
@@ -12765,7 +12765,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_10(Prolog m) { 
+    private final static Operation noun_sin_1_10(Prolog m) {
     // noun_sin(place):-true
          Term a1;
         Operation cont;
@@ -12777,7 +12777,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_11(Prolog m) { 
+    private final static Operation noun_sin_1_11(Prolog m) {
     // noun_sin(area):-true
          Term a1;
         Operation cont;
@@ -12789,7 +12789,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_12(Prolog m) { 
+    private final static Operation noun_sin_1_12(Prolog m) {
     // noun_sin(capital):-true
          Term a1;
         Operation cont;
@@ -12801,7 +12801,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_13(Prolog m) { 
+    private final static Operation noun_sin_1_13(Prolog m) {
     // noun_sin(city):-true
          Term a1;
         Operation cont;
@@ -12813,7 +12813,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_14(Prolog m) { 
+    private final static Operation noun_sin_1_14(Prolog m) {
     // noun_sin(continent):-true
          Term a1;
         Operation cont;
@@ -12825,7 +12825,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_15(Prolog m) { 
+    private final static Operation noun_sin_1_15(Prolog m) {
     // noun_sin(country):-true
          Term a1;
         Operation cont;
@@ -12837,7 +12837,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_16(Prolog m) { 
+    private final static Operation noun_sin_1_16(Prolog m) {
     // noun_sin(latitude):-true
          Term a1;
         Operation cont;
@@ -12849,7 +12849,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_17(Prolog m) { 
+    private final static Operation noun_sin_1_17(Prolog m) {
     // noun_sin(longitude):-true
          Term a1;
         Operation cont;
@@ -12861,7 +12861,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_18(Prolog m) { 
+    private final static Operation noun_sin_1_18(Prolog m) {
     // noun_sin(ocean):-true
          Term a1;
         Operation cont;
@@ -12873,7 +12873,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_19(Prolog m) { 
+    private final static Operation noun_sin_1_19(Prolog m) {
     // noun_sin(person):-true
          Term a1;
         Operation cont;
@@ -12885,7 +12885,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_20(Prolog m) { 
+    private final static Operation noun_sin_1_20(Prolog m) {
     // noun_sin(population):-true
          Term a1;
         Operation cont;
@@ -12897,7 +12897,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_21(Prolog m) { 
+    private final static Operation noun_sin_1_21(Prolog m) {
     // noun_sin(region):-true
          Term a1;
         Operation cont;
@@ -12909,7 +12909,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_22(Prolog m) { 
+    private final static Operation noun_sin_1_22(Prolog m) {
     // noun_sin(river):-true
          Term a1;
         Operation cont;
@@ -12921,7 +12921,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_23(Prolog m) { 
+    private final static Operation noun_sin_1_23(Prolog m) {
     // noun_sin(sea):-true
          Term a1;
         Operation cont;
@@ -12933,7 +12933,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_24(Prolog m) { 
+    private final static Operation noun_sin_1_24(Prolog m) {
     // noun_sin(seamass):-true
          Term a1;
         Operation cont;
@@ -12945,7 +12945,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_sin_1_25(Prolog m) { 
+    private final static Operation noun_sin_1_25(Prolog m) {
     // noun_sin(number):-true
          Term a1;
         Operation cont;
@@ -12984,144 +12984,144 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_noun_plu_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_noun_plu_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::noun_plu_2_var, fail_0, fail_0, FILE_chat_parser::noun_plu_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::noun_plu_2_var, fail_0, fail_0, FILE_chat_parser::noun_plu_2_var, fail_0, fail_0);
     }
 
-    private final static Operation noun_plu_2_var(Prolog m) { 
+    private final static Operation noun_plu_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::noun_plu_2_var_1);
         return noun_plu_2_1(m);
     }
 
-    private final static Operation noun_plu_2_var_1(Prolog m) { 
+    private final static Operation noun_plu_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_2);
         return noun_plu_2_2(m);
     }
 
-    private final static Operation noun_plu_2_var_2(Prolog m) { 
+    private final static Operation noun_plu_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_3);
         return noun_plu_2_3(m);
     }
 
-    private final static Operation noun_plu_2_var_3(Prolog m) { 
+    private final static Operation noun_plu_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_4);
         return noun_plu_2_4(m);
     }
 
-    private final static Operation noun_plu_2_var_4(Prolog m) { 
+    private final static Operation noun_plu_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_5);
         return noun_plu_2_5(m);
     }
 
-    private final static Operation noun_plu_2_var_5(Prolog m) { 
+    private final static Operation noun_plu_2_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_6);
         return noun_plu_2_6(m);
     }
 
-    private final static Operation noun_plu_2_var_6(Prolog m) { 
+    private final static Operation noun_plu_2_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_7);
         return noun_plu_2_7(m);
     }
 
-    private final static Operation noun_plu_2_var_7(Prolog m) { 
+    private final static Operation noun_plu_2_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_8);
         return noun_plu_2_8(m);
     }
 
-    private final static Operation noun_plu_2_var_8(Prolog m) { 
+    private final static Operation noun_plu_2_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_9);
         return noun_plu_2_9(m);
     }
 
-    private final static Operation noun_plu_2_var_9(Prolog m) { 
+    private final static Operation noun_plu_2_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_10);
         return noun_plu_2_10(m);
     }
 
-    private final static Operation noun_plu_2_var_10(Prolog m) { 
+    private final static Operation noun_plu_2_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_11);
         return noun_plu_2_11(m);
     }
 
-    private final static Operation noun_plu_2_var_11(Prolog m) { 
+    private final static Operation noun_plu_2_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_12);
         return noun_plu_2_12(m);
     }
 
-    private final static Operation noun_plu_2_var_12(Prolog m) { 
+    private final static Operation noun_plu_2_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_13);
         return noun_plu_2_13(m);
     }
 
-    private final static Operation noun_plu_2_var_13(Prolog m) { 
+    private final static Operation noun_plu_2_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_14);
         return noun_plu_2_14(m);
     }
 
-    private final static Operation noun_plu_2_var_14(Prolog m) { 
+    private final static Operation noun_plu_2_var_14(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_15);
         return noun_plu_2_15(m);
     }
 
-    private final static Operation noun_plu_2_var_15(Prolog m) { 
+    private final static Operation noun_plu_2_var_15(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_16);
         return noun_plu_2_16(m);
     }
 
-    private final static Operation noun_plu_2_var_16(Prolog m) { 
+    private final static Operation noun_plu_2_var_16(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_17);
         return noun_plu_2_17(m);
     }
 
-    private final static Operation noun_plu_2_var_17(Prolog m) { 
+    private final static Operation noun_plu_2_var_17(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_18);
         return noun_plu_2_18(m);
     }
 
-    private final static Operation noun_plu_2_var_18(Prolog m) { 
+    private final static Operation noun_plu_2_var_18(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_19);
         return noun_plu_2_19(m);
     }
 
-    private final static Operation noun_plu_2_var_19(Prolog m) { 
+    private final static Operation noun_plu_2_var_19(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_20);
         return noun_plu_2_20(m);
     }
 
-    private final static Operation noun_plu_2_var_20(Prolog m) { 
+    private final static Operation noun_plu_2_var_20(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_21);
         return noun_plu_2_21(m);
     }
 
-    private final static Operation noun_plu_2_var_21(Prolog m) { 
+    private final static Operation noun_plu_2_var_21(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_22);
         return noun_plu_2_22(m);
     }
 
-    private final static Operation noun_plu_2_var_22(Prolog m) { 
+    private final static Operation noun_plu_2_var_22(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_23);
         return noun_plu_2_23(m);
     }
 
-    private final static Operation noun_plu_2_var_23(Prolog m) { 
+    private final static Operation noun_plu_2_var_23(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_24);
         return noun_plu_2_24(m);
     }
 
-    private final static Operation noun_plu_2_var_24(Prolog m) { 
+    private final static Operation noun_plu_2_var_24(Prolog m) {
         m.retry(null, FILE_chat_parser::noun_plu_2_var_25);
         return noun_plu_2_25(m);
     }
 
-    private final static Operation noun_plu_2_var_25(Prolog m) { 
+    private final static Operation noun_plu_2_var_25(Prolog m) {
         m.trust(null);
         return noun_plu_2_26(m);
     }
 
-    private final static Operation noun_plu_2_1(Prolog m) { 
+    private final static Operation noun_plu_2_1(Prolog m) {
     // noun_plu(averages,average):-true
          Term a1, a2;
         Operation cont;
@@ -13136,7 +13136,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_2(Prolog m) { 
+    private final static Operation noun_plu_2_2(Prolog m) {
     // noun_plu(totals,total):-true
          Term a1, a2;
         Operation cont;
@@ -13151,7 +13151,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_3(Prolog m) { 
+    private final static Operation noun_plu_2_3(Prolog m) {
     // noun_plu(sums,sum):-true
          Term a1, a2;
         Operation cont;
@@ -13166,7 +13166,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_4(Prolog m) { 
+    private final static Operation noun_plu_2_4(Prolog m) {
     // noun_plu(degrees,degree):-true
          Term a1, a2;
         Operation cont;
@@ -13181,7 +13181,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_5(Prolog m) { 
+    private final static Operation noun_plu_2_5(Prolog m) {
     // noun_plu(sqmiles,sqmile):-true
          Term a1, a2;
         Operation cont;
@@ -13196,7 +13196,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_6(Prolog m) { 
+    private final static Operation noun_plu_2_6(Prolog m) {
     // noun_plu(ksqmiles,ksqmile):-true
          Term a1, a2;
         Operation cont;
@@ -13211,7 +13211,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_7(Prolog m) { 
+    private final static Operation noun_plu_2_7(Prolog m) {
     // noun_plu(million,million):-true
          Term a1, a2;
         Operation cont;
@@ -13226,7 +13226,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_8(Prolog m) { 
+    private final static Operation noun_plu_2_8(Prolog m) {
     // noun_plu(thousand,thousand):-true
          Term a1, a2;
         Operation cont;
@@ -13241,7 +13241,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_9(Prolog m) { 
+    private final static Operation noun_plu_2_9(Prolog m) {
     // noun_plu(times,time):-true
          Term a1, a2;
         Operation cont;
@@ -13256,7 +13256,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_10(Prolog m) { 
+    private final static Operation noun_plu_2_10(Prolog m) {
     // noun_plu(places,place):-true
          Term a1, a2;
         Operation cont;
@@ -13271,7 +13271,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_11(Prolog m) { 
+    private final static Operation noun_plu_2_11(Prolog m) {
     // noun_plu(areas,area):-true
          Term a1, a2;
         Operation cont;
@@ -13286,7 +13286,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_12(Prolog m) { 
+    private final static Operation noun_plu_2_12(Prolog m) {
     // noun_plu(capitals,capital):-true
          Term a1, a2;
         Operation cont;
@@ -13301,7 +13301,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_13(Prolog m) { 
+    private final static Operation noun_plu_2_13(Prolog m) {
     // noun_plu(cities,city):-true
          Term a1, a2;
         Operation cont;
@@ -13316,7 +13316,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_14(Prolog m) { 
+    private final static Operation noun_plu_2_14(Prolog m) {
     // noun_plu(continents,continent):-true
          Term a1, a2;
         Operation cont;
@@ -13331,7 +13331,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_15(Prolog m) { 
+    private final static Operation noun_plu_2_15(Prolog m) {
     // noun_plu(countries,country):-true
          Term a1, a2;
         Operation cont;
@@ -13346,7 +13346,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_16(Prolog m) { 
+    private final static Operation noun_plu_2_16(Prolog m) {
     // noun_plu(latitudes,latitude):-true
          Term a1, a2;
         Operation cont;
@@ -13361,7 +13361,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_17(Prolog m) { 
+    private final static Operation noun_plu_2_17(Prolog m) {
     // noun_plu(longitudes,longitude):-true
          Term a1, a2;
         Operation cont;
@@ -13376,7 +13376,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_18(Prolog m) { 
+    private final static Operation noun_plu_2_18(Prolog m) {
     // noun_plu(oceans,ocean):-true
          Term a1, a2;
         Operation cont;
@@ -13391,7 +13391,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_19(Prolog m) { 
+    private final static Operation noun_plu_2_19(Prolog m) {
     // noun_plu(persons,person):-true
          Term a1, a2;
         Operation cont;
@@ -13406,7 +13406,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_20(Prolog m) { 
+    private final static Operation noun_plu_2_20(Prolog m) {
     // noun_plu(people,person):-true
          Term a1, a2;
         Operation cont;
@@ -13421,7 +13421,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_21(Prolog m) { 
+    private final static Operation noun_plu_2_21(Prolog m) {
     // noun_plu(populations,population):-true
          Term a1, a2;
         Operation cont;
@@ -13436,7 +13436,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_22(Prolog m) { 
+    private final static Operation noun_plu_2_22(Prolog m) {
     // noun_plu(regions,region):-true
          Term a1, a2;
         Operation cont;
@@ -13451,7 +13451,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_23(Prolog m) { 
+    private final static Operation noun_plu_2_23(Prolog m) {
     // noun_plu(rivers,river):-true
          Term a1, a2;
         Operation cont;
@@ -13466,7 +13466,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_24(Prolog m) { 
+    private final static Operation noun_plu_2_24(Prolog m) {
     // noun_plu(seas,sea):-true
          Term a1, a2;
         Operation cont;
@@ -13481,7 +13481,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_25(Prolog m) { 
+    private final static Operation noun_plu_2_25(Prolog m) {
     // noun_plu(seamasses,seamass):-true
          Term a1, a2;
         Operation cont;
@@ -13496,7 +13496,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation noun_plu_2_26(Prolog m) { 
+    private final static Operation noun_plu_2_26(Prolog m) {
     // noun_plu(numbers,number):-true
          Term a1, a2;
         Operation cont;
@@ -13545,189 +13545,189 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_form_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_form_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_form_4_var, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_var, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_int); 
+        return m.switch_on_term(FILE_chat_parser::verb_form_4_var, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_var, FILE_chat_parser::verb_form_4_int, FILE_chat_parser::verb_form_4_int);
     }
 
-    private final static Operation verb_form_4_var(Prolog m) { 
+    private final static Operation verb_form_4_var(Prolog m) {
         m.jtry4(null, FILE_chat_parser::verb_form_4_var_1);
         return verb_form_4_1(m);
     }
 
-    private final static Operation verb_form_4_var_1(Prolog m) { 
+    private final static Operation verb_form_4_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_2);
         return verb_form_4_2(m);
     }
 
-    private final static Operation verb_form_4_var_2(Prolog m) { 
+    private final static Operation verb_form_4_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_3);
         return verb_form_4_3(m);
     }
 
-    private final static Operation verb_form_4_var_3(Prolog m) { 
+    private final static Operation verb_form_4_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_4);
         return verb_form_4_4(m);
     }
 
-    private final static Operation verb_form_4_var_4(Prolog m) { 
+    private final static Operation verb_form_4_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_5);
         return verb_form_4_5(m);
     }
 
-    private final static Operation verb_form_4_var_5(Prolog m) { 
+    private final static Operation verb_form_4_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_6);
         return verb_form_4_6(m);
     }
 
-    private final static Operation verb_form_4_var_6(Prolog m) { 
+    private final static Operation verb_form_4_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_7);
         return verb_form_4_7(m);
     }
 
-    private final static Operation verb_form_4_var_7(Prolog m) { 
+    private final static Operation verb_form_4_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_8);
         return verb_form_4_8(m);
     }
 
-    private final static Operation verb_form_4_var_8(Prolog m) { 
+    private final static Operation verb_form_4_var_8(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_9);
         return verb_form_4_9(m);
     }
 
-    private final static Operation verb_form_4_var_9(Prolog m) { 
+    private final static Operation verb_form_4_var_9(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_10);
         return verb_form_4_10(m);
     }
 
-    private final static Operation verb_form_4_var_10(Prolog m) { 
+    private final static Operation verb_form_4_var_10(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_11);
         return verb_form_4_11(m);
     }
 
-    private final static Operation verb_form_4_var_11(Prolog m) { 
+    private final static Operation verb_form_4_var_11(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_12);
         return verb_form_4_12(m);
     }
 
-    private final static Operation verb_form_4_var_12(Prolog m) { 
+    private final static Operation verb_form_4_var_12(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_13);
         return verb_form_4_13(m);
     }
 
-    private final static Operation verb_form_4_var_13(Prolog m) { 
+    private final static Operation verb_form_4_var_13(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_14);
         return verb_form_4_14(m);
     }
 
-    private final static Operation verb_form_4_var_14(Prolog m) { 
+    private final static Operation verb_form_4_var_14(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_15);
         return verb_form_4_15(m);
     }
 
-    private final static Operation verb_form_4_var_15(Prolog m) { 
+    private final static Operation verb_form_4_var_15(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_16);
         return verb_form_4_16(m);
     }
 
-    private final static Operation verb_form_4_var_16(Prolog m) { 
+    private final static Operation verb_form_4_var_16(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_17);
         return verb_form_4_17(m);
     }
 
-    private final static Operation verb_form_4_var_17(Prolog m) { 
+    private final static Operation verb_form_4_var_17(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_18);
         return verb_form_4_18(m);
     }
 
-    private final static Operation verb_form_4_var_18(Prolog m) { 
+    private final static Operation verb_form_4_var_18(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_19);
         return verb_form_4_19(m);
     }
 
-    private final static Operation verb_form_4_var_19(Prolog m) { 
+    private final static Operation verb_form_4_var_19(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_20);
         return verb_form_4_20(m);
     }
 
-    private final static Operation verb_form_4_var_20(Prolog m) { 
+    private final static Operation verb_form_4_var_20(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_21);
         return verb_form_4_21(m);
     }
 
-    private final static Operation verb_form_4_var_21(Prolog m) { 
+    private final static Operation verb_form_4_var_21(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_22);
         return verb_form_4_22(m);
     }
 
-    private final static Operation verb_form_4_var_22(Prolog m) { 
+    private final static Operation verb_form_4_var_22(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_23);
         return verb_form_4_23(m);
     }
 
-    private final static Operation verb_form_4_var_23(Prolog m) { 
+    private final static Operation verb_form_4_var_23(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_24);
         return verb_form_4_24(m);
     }
 
-    private final static Operation verb_form_4_var_24(Prolog m) { 
+    private final static Operation verb_form_4_var_24(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_25);
         return verb_form_4_25(m);
     }
 
-    private final static Operation verb_form_4_var_25(Prolog m) { 
+    private final static Operation verb_form_4_var_25(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_26);
         return verb_form_4_26(m);
     }
 
-    private final static Operation verb_form_4_var_26(Prolog m) { 
+    private final static Operation verb_form_4_var_26(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_27);
         return verb_form_4_27(m);
     }
 
-    private final static Operation verb_form_4_var_27(Prolog m) { 
+    private final static Operation verb_form_4_var_27(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_28);
         return verb_form_4_28(m);
     }
 
-    private final static Operation verb_form_4_var_28(Prolog m) { 
+    private final static Operation verb_form_4_var_28(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_29);
         return verb_form_4_29(m);
     }
 
-    private final static Operation verb_form_4_var_29(Prolog m) { 
+    private final static Operation verb_form_4_var_29(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_30);
         return verb_form_4_30(m);
     }
 
-    private final static Operation verb_form_4_var_30(Prolog m) { 
+    private final static Operation verb_form_4_var_30(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_var_31);
         return verb_form_4_31(m);
     }
 
-    private final static Operation verb_form_4_var_31(Prolog m) { 
+    private final static Operation verb_form_4_var_31(Prolog m) {
         m.trust(null);
         return verb_form_4_32(m);
     }
 
-    private final static Operation verb_form_4_int(Prolog m) { 
+    private final static Operation verb_form_4_int(Prolog m) {
         m.jtry4(null, FILE_chat_parser::verb_form_4_int_1);
         return verb_form_4_1(m);
     }
 
-    private final static Operation verb_form_4_int_1(Prolog m) { 
+    private final static Operation verb_form_4_int_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_form_4_int_2);
         return verb_form_4_2(m);
     }
 
-    private final static Operation verb_form_4_int_2(Prolog m) { 
+    private final static Operation verb_form_4_int_2(Prolog m) {
         m.trust(null);
         return verb_form_4_3(m);
     }
 
-    private final static Operation verb_form_4_1(Prolog m) { 
+    private final static Operation verb_form_4_1(Prolog m) {
     // verb_form(A,A,inf,B):-verb_root(A)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13745,7 +13745,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_root", FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation verb_form_4_2(Prolog m) { 
+    private final static Operation verb_form_4_2(Prolog m) {
     // verb_form(A,A,pres+fin,B):-regular_pres(A),root_form(B),verb_root(A)
          Term a1, a2, a3, a4;
         Operation p1, p2;
@@ -13766,7 +13766,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("verb_root", FILE_chat_parser::PRED_verb_root_1_static_exec, VA(a1), cont)));
     }
 
-    private final static Operation verb_form_4_3(Prolog m) { 
+    private final static Operation verb_form_4_3(Prolog m) {
     // verb_form(A,B,past+C,D):-regular_past(A,B)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13784,7 +13784,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("regular_past", FILE_chat_parser::PRED_regular_past_2_static_exec, VA(a1, a2), cont);
     }
 
-    private final static Operation verb_form_4_4(Prolog m) { 
+    private final static Operation verb_form_4_4(Prolog m) {
     // verb_form(am,be,pres+fin,1+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13805,7 +13805,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_5(Prolog m) { 
+    private final static Operation verb_form_4_5(Prolog m) {
     // verb_form(are,be,pres+fin,2+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13826,7 +13826,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_6(Prolog m) { 
+    private final static Operation verb_form_4_6(Prolog m) {
     // verb_form(is,be,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13847,7 +13847,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_7(Prolog m) { 
+    private final static Operation verb_form_4_7(Prolog m) {
     // verb_form(are,be,pres+fin,A+plu):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13870,7 +13870,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_8(Prolog m) { 
+    private final static Operation verb_form_4_8(Prolog m) {
     // verb_form(was,be,past+fin,1+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13891,7 +13891,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_9(Prolog m) { 
+    private final static Operation verb_form_4_9(Prolog m) {
     // verb_form(were,be,past+fin,2+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13912,7 +13912,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_10(Prolog m) { 
+    private final static Operation verb_form_4_10(Prolog m) {
     // verb_form(was,be,past+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13933,7 +13933,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_11(Prolog m) { 
+    private final static Operation verb_form_4_11(Prolog m) {
     // verb_form(were,be,past+fin,A+plu):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13956,7 +13956,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_12(Prolog m) { 
+    private final static Operation verb_form_4_12(Prolog m) {
     // verb_form(been,be,past+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13975,7 +13975,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_13(Prolog m) { 
+    private final static Operation verb_form_4_13(Prolog m) {
     // verb_form(being,be,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -13994,7 +13994,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_14(Prolog m) { 
+    private final static Operation verb_form_4_14(Prolog m) {
     // verb_form(has,have,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14015,7 +14015,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_15(Prolog m) { 
+    private final static Operation verb_form_4_15(Prolog m) {
     // verb_form(having,have,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14034,7 +14034,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_16(Prolog m) { 
+    private final static Operation verb_form_4_16(Prolog m) {
     // verb_form(does,do,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14055,7 +14055,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_17(Prolog m) { 
+    private final static Operation verb_form_4_17(Prolog m) {
     // verb_form(did,do,past+fin,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14074,7 +14074,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_18(Prolog m) { 
+    private final static Operation verb_form_4_18(Prolog m) {
     // verb_form(doing,do,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14093,7 +14093,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_19(Prolog m) { 
+    private final static Operation verb_form_4_19(Prolog m) {
     // verb_form(done,do,past+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14112,7 +14112,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_20(Prolog m) { 
+    private final static Operation verb_form_4_20(Prolog m) {
     // verb_form(flows,flow,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14133,7 +14133,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_21(Prolog m) { 
+    private final static Operation verb_form_4_21(Prolog m) {
     // verb_form(flowing,flow,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14152,7 +14152,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_22(Prolog m) { 
+    private final static Operation verb_form_4_22(Prolog m) {
     // verb_form(rises,rise,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14173,7 +14173,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_23(Prolog m) { 
+    private final static Operation verb_form_4_23(Prolog m) {
     // verb_form(rose,rise,past+fin,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14192,7 +14192,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_24(Prolog m) { 
+    private final static Operation verb_form_4_24(Prolog m) {
     // verb_form(risen,rise,past+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14211,7 +14211,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_25(Prolog m) { 
+    private final static Operation verb_form_4_25(Prolog m) {
     // verb_form(borders,border,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14232,7 +14232,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_26(Prolog m) { 
+    private final static Operation verb_form_4_26(Prolog m) {
     // verb_form(bordering,border,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14251,7 +14251,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_27(Prolog m) { 
+    private final static Operation verb_form_4_27(Prolog m) {
     // verb_form(contains,contain,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14272,7 +14272,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_28(Prolog m) { 
+    private final static Operation verb_form_4_28(Prolog m) {
     // verb_form(containing,contain,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14291,7 +14291,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_29(Prolog m) { 
+    private final static Operation verb_form_4_29(Prolog m) {
     // verb_form(drains,drain,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14312,7 +14312,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_30(Prolog m) { 
+    private final static Operation verb_form_4_30(Prolog m) {
     // verb_form(draining,drain,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14331,7 +14331,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_31(Prolog m) { 
+    private final static Operation verb_form_4_31(Prolog m) {
     // verb_form(exceeds,exceed,pres+fin,3+sin):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14352,7 +14352,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_form_4_32(Prolog m) { 
+    private final static Operation verb_form_4_32(Prolog m) {
     // verb_form(exceeding,exceed,pres+part,A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -14383,59 +14383,59 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_verb_type_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_verb_type_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::verb_type_2_var, fail_0, fail_0, FILE_chat_parser::verb_type_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::verb_type_2_var, fail_0, fail_0, FILE_chat_parser::verb_type_2_var, fail_0, fail_0);
     }
 
-    private final static Operation verb_type_2_var(Prolog m) { 
+    private final static Operation verb_type_2_var(Prolog m) {
         m.jtry2(null, FILE_chat_parser::verb_type_2_var_1);
         return verb_type_2_1(m);
     }
 
-    private final static Operation verb_type_2_var_1(Prolog m) { 
+    private final static Operation verb_type_2_var_1(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_2);
         return verb_type_2_2(m);
     }
 
-    private final static Operation verb_type_2_var_2(Prolog m) { 
+    private final static Operation verb_type_2_var_2(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_3);
         return verb_type_2_3(m);
     }
 
-    private final static Operation verb_type_2_var_3(Prolog m) { 
+    private final static Operation verb_type_2_var_3(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_4);
         return verb_type_2_4(m);
     }
 
-    private final static Operation verb_type_2_var_4(Prolog m) { 
+    private final static Operation verb_type_2_var_4(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_5);
         return verb_type_2_5(m);
     }
 
-    private final static Operation verb_type_2_var_5(Prolog m) { 
+    private final static Operation verb_type_2_var_5(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_6);
         return verb_type_2_6(m);
     }
 
-    private final static Operation verb_type_2_var_6(Prolog m) { 
+    private final static Operation verb_type_2_var_6(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_7);
         return verb_type_2_7(m);
     }
 
-    private final static Operation verb_type_2_var_7(Prolog m) { 
+    private final static Operation verb_type_2_var_7(Prolog m) {
         m.retry(null, FILE_chat_parser::verb_type_2_var_8);
         return verb_type_2_8(m);
     }
 
-    private final static Operation verb_type_2_var_8(Prolog m) { 
+    private final static Operation verb_type_2_var_8(Prolog m) {
         m.trust(null);
         return verb_type_2_9(m);
     }
 
-    private final static Operation verb_type_2_1(Prolog m) { 
+    private final static Operation verb_type_2_1(Prolog m) {
     // verb_type(have,aux+have):-true
          Term a1, a2;
         Operation cont;
@@ -14450,7 +14450,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_2(Prolog m) { 
+    private final static Operation verb_type_2_2(Prolog m) {
     // verb_type(be,aux+be):-true
          Term a1, a2;
         Operation cont;
@@ -14465,7 +14465,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_3(Prolog m) { 
+    private final static Operation verb_type_2_3(Prolog m) {
     // verb_type(do,aux+ditrans):-true
          Term a1, a2;
         Operation cont;
@@ -14480,7 +14480,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_4(Prolog m) { 
+    private final static Operation verb_type_2_4(Prolog m) {
     // verb_type(rise,main+intrans):-true
          Term a1, a2;
         Operation cont;
@@ -14495,7 +14495,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_5(Prolog m) { 
+    private final static Operation verb_type_2_5(Prolog m) {
     // verb_type(border,main+trans):-true
          Term a1, a2;
         Operation cont;
@@ -14510,7 +14510,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_6(Prolog m) { 
+    private final static Operation verb_type_2_6(Prolog m) {
     // verb_type(contain,main+trans):-true
          Term a1, a2;
         Operation cont;
@@ -14525,7 +14525,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_7(Prolog m) { 
+    private final static Operation verb_type_2_7(Prolog m) {
     // verb_type(drain,main+intrans):-true
          Term a1, a2;
         Operation cont;
@@ -14540,7 +14540,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_8(Prolog m) { 
+    private final static Operation verb_type_2_8(Prolog m) {
     // verb_type(exceed,main+trans):-true
          Term a1, a2;
         Operation cont;
@@ -14555,7 +14555,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation verb_type_2_9(Prolog m) { 
+    private final static Operation verb_type_2_9(Prolog m) {
     // verb_type(flow,main+intrans):-true
          Term a1, a2;
         Operation cont;
@@ -14579,24 +14579,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 
 
 
-    public static Operation PRED_adverb_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_adverb_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_chat_parser::adverb_1_var, fail_0, fail_0, FILE_chat_parser::adverb_1_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_chat_parser::adverb_1_var, fail_0, fail_0, FILE_chat_parser::adverb_1_var, fail_0, fail_0);
     }
 
-    private final static Operation adverb_1_var(Prolog m) { 
+    private final static Operation adverb_1_var(Prolog m) {
         m.jtry1(null, FILE_chat_parser::adverb_1_var_1);
         return adverb_1_1(m);
     }
 
-    private final static Operation adverb_1_var_1(Prolog m) { 
+    private final static Operation adverb_1_var_1(Prolog m) {
         m.trust(null);
         return adverb_1_2(m);
     }
 
-    private final static Operation adverb_1_1(Prolog m) { 
+    private final static Operation adverb_1_1(Prolog m) {
     // adverb(yesterday):-true
          Term a1;
         Operation cont;
@@ -14608,7 +14608,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation adverb_1_2(Prolog m) { 
+    private final static Operation adverb_1_2(Prolog m) {
     // adverb(tomorrow):-true
          Term a1;
         Operation cont;

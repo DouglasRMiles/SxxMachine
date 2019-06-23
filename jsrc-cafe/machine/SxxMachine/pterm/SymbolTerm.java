@@ -434,8 +434,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @return
      */
     static boolean badInteredAtom0(String _name) {
-        return _name.length() > 10 && (_name.contains(" ") 
-        		|| _name.contains("\n")) && 
+        return _name.length() > 10 && (_name.contains(" ")
+        		|| _name.contains("\n")) &&
         		!_name.endsWith(":");
 
     }
@@ -678,7 +678,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @see SxxMachine.pterm.Functor#termHashCodeImpl()
      */
     @Override
-    public int termHashCodeImpl() {        
+    public int termHashCodeImpl() {
         final String fname = this.fname();
         return fname.hashCode();
     }

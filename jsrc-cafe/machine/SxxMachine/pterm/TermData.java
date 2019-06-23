@@ -18,7 +18,7 @@ final public class TermData {
 
 	private TermData() {
 	}
-	
+
 	static public ITermFactory factory = null;
 	static {
 		setFactory(new SxxTermDataImpl());
@@ -285,7 +285,7 @@ final public class TermData {
 	static public Term[] VA(Term... array) {
 		return factory.VA(array);
 	}
-	
+
 	static public Term[] VA() {
 		return factory.VA();
 	}

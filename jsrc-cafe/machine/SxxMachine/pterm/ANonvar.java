@@ -23,7 +23,7 @@ public abstract class ANonvar extends PTerm implements Nonvar {
 	public Nonvar toNonVar() {
 		return this;
 	}
-	
+
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)
@@ -33,7 +33,8 @@ public abstract class ANonvar extends PTerm implements Nonvar {
         return false;
     }
 
-    public boolean isFunctor(String string) throws IllegalTypeException {
+    @Override
+	public boolean isFunctor(String string) throws IllegalTypeException {
         String fname = fname();
         return fname.equals(string);
     }

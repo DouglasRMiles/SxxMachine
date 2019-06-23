@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
 public class FILE_log10 extends FILE_system {
@@ -11,8 +11,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/log10.
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-log10
         m.setB0();
     // top:-[log10]
@@ -39,8 +39,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/log10.
 
 
 
-    public static Operation PRED_log10_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_log10_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // log10:-d(log(log(log(log(log(log(log(log(log(log(x)))))))))),x,A)
         m.setB0();
     // log10:-[d(log(log(log(log(log(log(log(log(log(log(x)))))))))),x,A)]
@@ -62,78 +62,78 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/log10.
 
 
 
-    public static Operation PRED_d_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_d_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return d_3_top(m);
     }
 
-    private final static Operation d_3_top(Prolog m) { 
+    private final static Operation d_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_log10::d_3_var, FILE_log10::d_3_int, FILE_log10::d_3_int, FILE_log10::d_3_int, FILE_log10::d_3_var, FILE_log10::d_3_int); 
+        return m.switch_on_term(FILE_log10::d_3_var, FILE_log10::d_3_int, FILE_log10::d_3_int, FILE_log10::d_3_int, FILE_log10::d_3_var, FILE_log10::d_3_int);
     }
 
-    private final static Operation d_3_var(Prolog m) { 
+    private final static Operation d_3_var(Prolog m) {
         m.jtry3(null, FILE_log10::d_3_var_1);
         return d_3_1(m);
     }
 
-    private final static Operation d_3_var_1(Prolog m) { 
+    private final static Operation d_3_var_1(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_2);
         return d_3_2(m);
     }
 
-    private final static Operation d_3_var_2(Prolog m) { 
+    private final static Operation d_3_var_2(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_3);
         return d_3_3(m);
     }
 
-    private final static Operation d_3_var_3(Prolog m) { 
+    private final static Operation d_3_var_3(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_4);
         return d_3_4(m);
     }
 
-    private final static Operation d_3_var_4(Prolog m) { 
+    private final static Operation d_3_var_4(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_5);
         return d_3_5(m);
     }
 
-    private final static Operation d_3_var_5(Prolog m) { 
+    private final static Operation d_3_var_5(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_6);
         return d_3_6(m);
     }
 
-    private final static Operation d_3_var_6(Prolog m) { 
+    private final static Operation d_3_var_6(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_7);
         return d_3_7(m);
     }
 
-    private final static Operation d_3_var_7(Prolog m) { 
+    private final static Operation d_3_var_7(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_8);
         return d_3_8(m);
     }
 
-    private final static Operation d_3_var_8(Prolog m) { 
+    private final static Operation d_3_var_8(Prolog m) {
         m.retry(null, FILE_log10::d_3_var_9);
         return d_3_9(m);
     }
 
-    private final static Operation d_3_var_9(Prolog m) { 
+    private final static Operation d_3_var_9(Prolog m) {
         m.trust(null);
         return d_3_10(m);
     }
 
-    private final static Operation d_3_int(Prolog m) { 
+    private final static Operation d_3_int(Prolog m) {
         m.jtry3(null, FILE_log10::d_3_int_1);
         return d_3_9(m);
     }
 
-    private final static Operation d_3_int_1(Prolog m) { 
+    private final static Operation d_3_int_1(Prolog m) {
         m.trust(null);
         return d_3_10(m);
     }
 
-    private final static Operation d_3_1(Prolog m) { 
+    private final static Operation d_3_1(Prolog m) {
     // d(A+B,C,D+E):-!,d(A,C,D),d(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -167,7 +167,7 @@ MARG.setAreg2( a6);
         return d_3_top(m);
     }
 
-    private final static Operation d_3_2(Prolog m) { 
+    private final static Operation d_3_2(Prolog m) {
     // d(A-B,C,D-E):-!,d(A,C,D),d(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -201,7 +201,7 @@ MARG.setAreg2( a6);
         return d_3_top(m);
     }
 
-    private final static Operation d_3_3(Prolog m) { 
+    private final static Operation d_3_3(Prolog m) {
     // d(A*B,C,D*B+A*E):-!,d(A,C,D),d(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1;
@@ -245,7 +245,7 @@ MARG.setAreg2( a8);
         return d_3_top(m);
     }
 
-    private final static Operation d_3_4(Prolog m) { 
+    private final static Operation d_3_4(Prolog m) {
     // d(A/B,C,(D*B-A*E)/B^2):-!,d(A,C,D),d(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
@@ -299,7 +299,7 @@ MARG.setAreg2( a10);
         return d_3_top(m);
     }
 
-    private final static Operation d_3_5(Prolog m) { 
+    private final static Operation d_3_5(Prolog m) {
     // d(A^B,C,D*B*A^E):-!,integer(B),E is B-1,d(A,C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -354,7 +354,7 @@ m.cont = cont;
         return d_3_top(m);
     }
 
-    private final static Operation d_3_6(Prolog m) { 
+    private final static Operation d_3_6(Prolog m) {
     // d(-A,B,-C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -383,7 +383,7 @@ m.cont = cont;
         return d_3_top(m);
     }
 
-    private final static Operation d_3_7(Prolog m) { 
+    private final static Operation d_3_7(Prolog m) {
     // d(exp(A),B,exp(A)*C):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -417,7 +417,7 @@ m.cont = cont;
         return d_3_top(m);
     }
 
-    private final static Operation d_3_8(Prolog m) { 
+    private final static Operation d_3_8(Prolog m) {
     // d(log(A),B,C/A):-!,d(A,B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -446,7 +446,7 @@ m.cont = cont;
         return d_3_top(m);
     }
 
-    private final static Operation d_3_9(Prolog m) { 
+    private final static Operation d_3_9(Prolog m) {
     // d(A,A,1):-!
          Term a1, a2, a3;
         Operation cont;
@@ -465,7 +465,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation d_3_10(Prolog m) { 
+    private final static Operation d_3_10(Prolog m) {
     // d(A,B,0):-true
          Term a1, a2, a3;
         Operation cont;

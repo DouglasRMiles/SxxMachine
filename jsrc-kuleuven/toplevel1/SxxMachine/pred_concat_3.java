@@ -15,9 +15,9 @@ public class pred_concat_3 extends Code {
 
     protected String getAsString(Term o) {
         if (o.isAtomOrObject()) {
-            // portrayTerm is being deleted from Term 
-            // and put into Const 
-            // @TODO replace with return ((Const) o).portrayTerm(); 
+            // portrayTerm is being deleted from Term
+            // and put into Const
+            // @TODO replace with return ((Const) o).portrayTerm();
            // afterwards
             return o.portrayTerm();
         }

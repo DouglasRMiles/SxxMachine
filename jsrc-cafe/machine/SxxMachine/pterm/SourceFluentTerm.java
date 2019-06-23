@@ -26,7 +26,8 @@ abstract public class SourceFluentTerm extends FluentTerm implements Undoable, V
         super(p);
     }
 
-    public boolean isSource() {
+    @Override
+	public boolean isSource() {
         return true;
     }
 

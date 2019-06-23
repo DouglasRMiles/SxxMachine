@@ -2223,7 +2223,7 @@ public class bootpreds extends sxxtensions {
 			}
 			hash = hashManager.get(a1).javaInstance();
 		} else if (a1.isCompound()) {
-			
+
 			final Term functor = a1.functor();
 			final boolean equalsTerm = functor.equalsTerm(SYM_ALIAS_1);
 			if (!equalsTerm)
@@ -2244,11 +2244,11 @@ public class bootpreds extends sxxtensions {
 			} else {
 				return coerceHoT(engine, thiz, alias);
 			}
-			
+
 		} else {
 			throw new IllegalDomainException(thiz, 1, "hash_or_alias", a1);
 		}
-		
+
 		if (!HashtableOfTerm.isHashtableOfTerm(hash)) {
 			throw new InternalException(thiz + ": Hash is not HashtableOfTerm");
 		}

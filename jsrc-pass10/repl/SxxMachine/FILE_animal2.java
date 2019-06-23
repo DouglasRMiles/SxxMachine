@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
 public class FILE_animal2 extends FILE_system {
@@ -12,32 +12,32 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tests/animal
         final static Atomic ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
-        
 
 
-    public static Operation PRED_animal_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+
+    public static Operation PRED_animal_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_animal2::animal_1_var, FILE_animal2::animal_1_3, FILE_animal2::animal_1_3, FILE_animal2::animal_1_var, FILE_animal2::animal_1_3, FILE_animal2::animal_1_3); 
+        return m.switch_on_term(FILE_animal2::animal_1_var, FILE_animal2::animal_1_3, FILE_animal2::animal_1_3, FILE_animal2::animal_1_var, FILE_animal2::animal_1_3, FILE_animal2::animal_1_3);
     }
 
-    private final static Operation animal_1_var(Prolog m) { 
+    private final static Operation animal_1_var(Prolog m) {
         m.jtry1(null, FILE_animal2::animal_1_var_1);
         return animal_1_1(m);
     }
 
-    private final static Operation animal_1_var_1(Prolog m) { 
+    private final static Operation animal_1_var_1(Prolog m) {
         m.retry(null, FILE_animal2::animal_1_var_2);
         return animal_1_2(m);
     }
 
-    private final static Operation animal_1_var_2(Prolog m) { 
+    private final static Operation animal_1_var_2(Prolog m) {
         m.trust(null);
         return animal_1_3(m);
     }
 
-    private final static Operation animal_1_1(Prolog m) { 
+    private final static Operation animal_1_1(Prolog m) {
     // animal(goat):-true
          Term a1;
         Operation cont;
@@ -49,7 +49,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation animal_1_2(Prolog m) { 
+    private final static Operation animal_1_2(Prolog m) {
     // animal(elephant):-true
          Term a1;
         Operation cont;
@@ -61,7 +61,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation animal_1_3(Prolog m) { 
+    private final static Operation animal_1_3(Prolog m) {
     // animal(A):-write('please type one more animal name: '),flush_output,read(A)
          Term a1;
         Operation p1, p2;

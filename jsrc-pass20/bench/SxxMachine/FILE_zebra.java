@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -38,8 +38,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-houses(A),member(house(red,english,B,C,D),A),member(house(E,spanish,dog,F,G),A),member(house(green,H,I,coffee,J),A),member(house(K,ukrainian,L,tea,M),A),right_of(house(green,N,O,P,Q),house(ivory,R,S,T,U),A),member(house(V,W,snails,X,winstons),A),member(house(yellow,Y,Z,A1,kools),A),A=[B1,C1,house(D1,E1,F1,milk,G1),H1,I1],A=[house(J1,norwegian,K1,L1,M1)|N1],next_to(house(O1,P1,Q1,R1,chesterfields),house(S1,T1,fox,U1,V1),A),next_to(house(W1,X1,Y1,Z1,kools),house(A2,B2,horse,C2,D2),A),member(house(E2,F2,G2,orange_juice,lucky_strikes),A),member(house(H2,japanese,I2,J2,parliaments),A),next_to(house(K2,norwegian,L2,M2,N2),house(blue,O2,P2,Q2,R2),A),member(house(S2,T2,zebra,U2,V2),A),member(house(W2,X2,Y2,water,Z2),A)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27;
@@ -139,8 +139,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_houses_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_houses_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // houses([house(A,B,C,D,E),house(F,G,H,I,J),house(K,L,M,N,O),house(P,Q,R,S,T),house(U,V,W,X,Y)]):-true
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -231,24 +231,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_right_of_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_right_of_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return right_of_3_top(m);
     }
 
-    private final static Operation right_of_3_top(Prolog m) { 
+    private final static Operation right_of_3_top(Prolog m) {
         m.setB0();
         m.jtry3(null, FILE_zebra::right_of_3_sub_1);
         return right_of_3_1(m);
     }
 
-    private final static Operation right_of_3_sub_1(Prolog m) { 
+    private final static Operation right_of_3_sub_1(Prolog m) {
         m.trust(null);
         return right_of_3_2(m);
     }
 
-    private final static Operation right_of_3_1(Prolog m) { 
+    private final static Operation right_of_3_1(Prolog m) {
     // right_of(A,B,[B,A|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -280,7 +280,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation right_of_3_2(Prolog m) { 
+    private final static Operation right_of_3_2(Prolog m) {
     // right_of(A,B,[C|D]):-right_of(A,B,D)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -312,29 +312,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_next_to_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_next_to_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return next_to_3_top(m);
     }
 
-    private final static Operation next_to_3_top(Prolog m) { 
+    private final static Operation next_to_3_top(Prolog m) {
         m.setB0();
         m.jtry3(null, FILE_zebra::next_to_3_sub_1);
         return next_to_3_1(m);
     }
 
-    private final static Operation next_to_3_sub_1(Prolog m) { 
+    private final static Operation next_to_3_sub_1(Prolog m) {
         m.retry(null, FILE_zebra::next_to_3_sub_2);
         return next_to_3_2(m);
     }
 
-    private final static Operation next_to_3_sub_2(Prolog m) { 
+    private final static Operation next_to_3_sub_2(Prolog m) {
         m.trust(null);
         return next_to_3_3(m);
     }
 
-    private final static Operation next_to_3_1(Prolog m) { 
+    private final static Operation next_to_3_1(Prolog m) {
     // next_to(A,B,[A,B|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -366,7 +366,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation next_to_3_2(Prolog m) { 
+    private final static Operation next_to_3_2(Prolog m) {
     // next_to(A,B,[B,A|C]):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -398,7 +398,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation next_to_3_3(Prolog m) { 
+    private final static Operation next_to_3_3(Prolog m) {
     // next_to(A,B,[C|D]):-next_to(A,B,D)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -430,24 +430,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_member_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_member_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return member_2_top(m);
     }
 
-    private final static Operation member_2_top(Prolog m) { 
+    private final static Operation member_2_top(Prolog m) {
         m.setB0();
         m.jtry2(null, FILE_zebra::member_2_sub_1);
         return member_2_1(m);
     }
 
-    private final static Operation member_2_sub_1(Prolog m) { 
+    private final static Operation member_2_sub_1(Prolog m) {
         m.trust(null);
         return member_2_2(m);
     }
 
-    private final static Operation member_2_1(Prolog m) { 
+    private final static Operation member_2_1(Prolog m) {
     // member(A,[A|B]):-true
          Term a1, a2;
         Operation cont;
@@ -467,7 +467,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation member_2_2(Prolog m) { 
+    private final static Operation member_2_2(Prolog m) {
     // member(A,[B|C]):-member(A,C)
          Term a1, a2, a3;
         Operation cont;
@@ -497,24 +497,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 
 
 
-    public static Operation PRED_print_houses_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_print_houses_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_zebra::print_houses_1_var, fail_0, fail_0, FILE_zebra::print_houses_1_2, fail_0, FILE_zebra::print_houses_1_1); 
+        return m.switch_on_term(FILE_zebra::print_houses_1_var, fail_0, fail_0, FILE_zebra::print_houses_1_2, fail_0, FILE_zebra::print_houses_1_1);
     }
 
-    private final static Operation print_houses_1_var(Prolog m) { 
+    private final static Operation print_houses_1_var(Prolog m) {
         m.jtry1(null, FILE_zebra::print_houses_1_var_1);
         return print_houses_1_1(m);
     }
 
-    private final static Operation print_houses_1_var_1(Prolog m) { 
+    private final static Operation print_houses_1_var_1(Prolog m) {
         m.trust(null);
         return print_houses_1_2(m);
     }
 
-    private final static Operation print_houses_1_1(Prolog m) { 
+    private final static Operation print_houses_1_1(Prolog m) {
     // print_houses([A|B]):-!,write(A),nl,print_houses(B)
          Term a1, a2, a3;
         Operation p1, p2;
@@ -542,7 +542,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("print_houses", FILE_zebra::PRED_print_houses_1_static_exec, VA(a3), cont)));
     }
 
-    private final static Operation print_houses_1_2(Prolog m) { 
+    private final static Operation print_houses_1_2(Prolog m) {
     // print_houses([]):-true
          Term a1;
         Operation cont;

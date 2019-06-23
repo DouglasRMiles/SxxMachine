@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-serialise
         m.setB0();
     // top:-[serialise]
@@ -62,8 +62,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_serialise_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_serialise_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // serialise:-serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)
         m.setB0();
     // serialise:-[serialise([65,66,76,69,32,87,65,83,32,73,32,69,82,69,32,73,32,83,65,87,32,69,76,66,65],A)]
@@ -78,8 +78,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_serialise_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_serialise_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // serialise(A,B):-pairlists(A,B,C),arrange(C,D),numbered(D,1,E)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -103,28 +103,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_pairlists_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pairlists_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return pairlists_3_top(m);
     }
 
-    private final static Operation pairlists_3_top(Prolog m) { 
+    private final static Operation pairlists_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_serialise::pairlists_3_var, fail_0, fail_0, FILE_serialise::pairlists_3_2, fail_0, FILE_serialise::pairlists_3_1); 
+        return m.switch_on_term(FILE_serialise::pairlists_3_var, fail_0, fail_0, FILE_serialise::pairlists_3_2, fail_0, FILE_serialise::pairlists_3_1);
     }
 
-    private final static Operation pairlists_3_var(Prolog m) { 
+    private final static Operation pairlists_3_var(Prolog m) {
         m.jtry3(null, FILE_serialise::pairlists_3_var_1);
         return pairlists_3_1(m);
     }
 
-    private final static Operation pairlists_3_var_1(Prolog m) { 
+    private final static Operation pairlists_3_var_1(Prolog m) {
         m.trust(null);
         return pairlists_3_2(m);
     }
 
-    private final static Operation pairlists_3_1(Prolog m) { 
+    private final static Operation pairlists_3_1(Prolog m) {
     // pairlists([A|B],[C|D],[pair(A,C)|E]):-pairlists(B,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -177,7 +177,7 @@ m.cont = cont;
         return pairlists_3_top(m);
     }
 
-    private final static Operation pairlists_3_2(Prolog m) { 
+    private final static Operation pairlists_3_2(Prolog m) {
     // pairlists([],[],[]):-true
          Term a1, a2, a3;
         Operation cont;
@@ -204,24 +204,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_arrange_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_arrange_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_serialise::arrange_2_var, fail_0, fail_0, FILE_serialise::arrange_2_2, fail_0, FILE_serialise::arrange_2_1); 
+        return m.switch_on_term(FILE_serialise::arrange_2_var, fail_0, fail_0, FILE_serialise::arrange_2_2, fail_0, FILE_serialise::arrange_2_1);
     }
 
-    private final static Operation arrange_2_var(Prolog m) { 
+    private final static Operation arrange_2_var(Prolog m) {
         m.jtry2(null, FILE_serialise::arrange_2_var_1);
         return arrange_2_1(m);
     }
 
-    private final static Operation arrange_2_var_1(Prolog m) { 
+    private final static Operation arrange_2_var_1(Prolog m) {
         m.trust(null);
         return arrange_2_2(m);
     }
 
-    private final static Operation arrange_2_1(Prolog m) { 
+    private final static Operation arrange_2_1(Prolog m) {
     // arrange([A|B],tree(C,A,D)):-split(B,A,E,F),arrange(E,C),arrange(F,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
@@ -255,7 +255,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("arrange", FILE_serialise::PRED_arrange_2_static_exec, VA(a8, a6), cont)));
     }
 
-    private final static Operation arrange_2_2(Prolog m) { 
+    private final static Operation arrange_2_2(Prolog m) {
     // arrange([],void):-true
          Term a1, a2;
         Operation cont;
@@ -277,53 +277,53 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_split_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_split_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return split_4_top(m);
     }
 
-    private final static Operation split_4_top(Prolog m) { 
+    private final static Operation split_4_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_serialise::split_4_var, fail_0, fail_0, FILE_serialise::split_4_4, fail_0, FILE_serialise::split_4_lis); 
+        return m.switch_on_term(FILE_serialise::split_4_var, fail_0, fail_0, FILE_serialise::split_4_4, fail_0, FILE_serialise::split_4_lis);
     }
 
-    private final static Operation split_4_var(Prolog m) { 
+    private final static Operation split_4_var(Prolog m) {
         m.jtry4(null, FILE_serialise::split_4_var_1);
         return split_4_1(m);
     }
 
-    private final static Operation split_4_var_1(Prolog m) { 
+    private final static Operation split_4_var_1(Prolog m) {
         m.retry(null, FILE_serialise::split_4_var_2);
         return split_4_2(m);
     }
 
-    private final static Operation split_4_var_2(Prolog m) { 
+    private final static Operation split_4_var_2(Prolog m) {
         m.retry(null, FILE_serialise::split_4_var_3);
         return split_4_3(m);
     }
 
-    private final static Operation split_4_var_3(Prolog m) { 
+    private final static Operation split_4_var_3(Prolog m) {
         m.trust(null);
         return split_4_4(m);
     }
 
-    private final static Operation split_4_lis(Prolog m) { 
+    private final static Operation split_4_lis(Prolog m) {
         m.jtry4(null, FILE_serialise::split_4_lis_1);
         return split_4_1(m);
     }
 
-    private final static Operation split_4_lis_1(Prolog m) { 
+    private final static Operation split_4_lis_1(Prolog m) {
         m.retry(null, FILE_serialise::split_4_lis_2);
         return split_4_2(m);
     }
 
-    private final static Operation split_4_lis_2(Prolog m) { 
+    private final static Operation split_4_lis_2(Prolog m) {
         m.trust(null);
         return split_4_3(m);
     }
 
-    private final static Operation split_4_1(Prolog m) { 
+    private final static Operation split_4_1(Prolog m) {
     // split([A|B],A,C,D):-!,split(B,A,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -357,7 +357,7 @@ m.cont = cont;
         return split_4_top(m);
     }
 
-    private final static Operation split_4_2(Prolog m) { 
+    private final static Operation split_4_2(Prolog m) {
     // split([A|B],C,[A|D],E):-before(A,C),!,split(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
@@ -402,7 +402,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("split", FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a7, a4), cont)));
     }
 
-    private final static Operation split_4_3(Prolog m) { 
+    private final static Operation split_4_3(Prolog m) {
     // split([A|B],C,D,[A|E]):-before(C,A),!,split(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1, p2;
@@ -447,7 +447,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("split", FILE_serialise::PRED_split_4_static_exec, VA(a6, a2, a3, a7), cont)));
     }
 
-    private final static Operation split_4_4(Prolog m) { 
+    private final static Operation split_4_4(Prolog m) {
     // split([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -473,8 +473,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_before_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_before_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // before(pair(A,B),pair(C,D)):-A<C
         m.setB0();
          Term a1, a2, a3, a4;
@@ -507,28 +507,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 
 
 
-    public static Operation PRED_numbered_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_numbered_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return numbered_3_top(m);
     }
 
-    private final static Operation numbered_3_top(Prolog m) { 
+    private final static Operation numbered_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_serialise::numbered_3_var, fail_0, fail_0, FILE_serialise::numbered_3_2, FILE_serialise::numbered_3_1, fail_0); 
+        return m.switch_on_term(FILE_serialise::numbered_3_var, fail_0, fail_0, FILE_serialise::numbered_3_2, FILE_serialise::numbered_3_1, fail_0);
     }
 
-    private final static Operation numbered_3_var(Prolog m) { 
+    private final static Operation numbered_3_var(Prolog m) {
         m.jtry3(null, FILE_serialise::numbered_3_var_1);
         return numbered_3_1(m);
     }
 
-    private final static Operation numbered_3_var_1(Prolog m) { 
+    private final static Operation numbered_3_var_1(Prolog m) {
         m.trust(null);
         return numbered_3_2(m);
     }
 
-    private final static Operation numbered_3_1(Prolog m) { 
+    private final static Operation numbered_3_1(Prolog m) {
     // numbered(tree(A,pair(B,C),D),E,F):-numbered(A,E,C),G is C+1,numbered(D,G,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
@@ -564,7 +564,7 @@ MARG.setAreg2( a7);
         return numbered_3_top(m);
     }
 
-    private final static Operation numbered_3_2(Prolog m) { 
+    private final static Operation numbered_3_2(Prolog m) {
     // numbered(void,A,A):-true
          Term a1, a2, a3;
         Operation cont;

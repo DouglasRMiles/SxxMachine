@@ -11,7 +11,8 @@ import SxxMachine.Term;
 */
 abstract public class KPNonvar extends SystemObject {
 
-    final public String fname() {
+    @Override
+	final public String fname() {
         return sym;
     }
 //
@@ -127,7 +128,8 @@ abstract public class KPNonvar extends SystemObject {
     /**
       returns a list representation of the object
     */
-    public Compound listify() {
+    @Override
+	public Compound listify() {
         return TermData.CONS(this, Prolog.Nil);
     }
 

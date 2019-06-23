@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-poly_10
         m.setB0();
     // top:-[poly_10]
@@ -28,8 +28,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_poly_10_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poly_10_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // poly_10:-test_poly(A),poly_exp(10,A,B)
         m.setB0();
          Term a1;
@@ -60,8 +60,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_test_poly_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_test_poly_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // test_poly(A):-poly_add(poly(x,[term(0,1),term(1,1)]),poly(y,[term(1,1)]),B),poly_add(poly(z,[term(1,1)]),B,A)
         m.setB0();
          Term a1, a2;
@@ -81,29 +81,29 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_less_than_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_less_than_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::less_than_2_var, fail_0, fail_0, FILE_poly_10::less_than_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_poly_10::less_than_2_var, fail_0, fail_0, FILE_poly_10::less_than_2_var, fail_0, fail_0);
     }
 
-    private final static Operation less_than_2_var(Prolog m) { 
+    private final static Operation less_than_2_var(Prolog m) {
         m.jtry2(null, FILE_poly_10::less_than_2_var_1);
         return less_than_2_1(m);
     }
 
-    private final static Operation less_than_2_var_1(Prolog m) { 
+    private final static Operation less_than_2_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::less_than_2_var_2);
         return less_than_2_2(m);
     }
 
-    private final static Operation less_than_2_var_2(Prolog m) { 
+    private final static Operation less_than_2_var_2(Prolog m) {
         m.trust(null);
         return less_than_2_3(m);
     }
 
-    private final static Operation less_than_2_1(Prolog m) { 
+    private final static Operation less_than_2_1(Prolog m) {
     // x less_than y:-true
          Term a1, a2;
         Operation cont;
@@ -118,7 +118,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation less_than_2_2(Prolog m) { 
+    private final static Operation less_than_2_2(Prolog m) {
     // y less_than z:-true
          Term a1, a2;
         Operation cont;
@@ -133,7 +133,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation less_than_2_3(Prolog m) { 
+    private final static Operation less_than_2_3(Prolog m) {
     // x less_than z:-true
          Term a1, a2;
         Operation cont;
@@ -156,49 +156,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_poly_add_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poly_add_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int); 
+        return m.switch_on_term(FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_int, FILE_poly_10::poly_add_3_var, FILE_poly_10::poly_add_3_int);
     }
 
-    private final static Operation poly_add_3_var(Prolog m) { 
+    private final static Operation poly_add_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_add_3_var_1);
         return poly_add_3_1(m);
     }
 
-    private final static Operation poly_add_3_var_1(Prolog m) { 
+    private final static Operation poly_add_3_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::poly_add_3_var_2);
         return poly_add_3_2(m);
     }
 
-    private final static Operation poly_add_3_var_2(Prolog m) { 
+    private final static Operation poly_add_3_var_2(Prolog m) {
         m.retry(null, FILE_poly_10::poly_add_3_var_3);
         return poly_add_3_3(m);
     }
 
-    private final static Operation poly_add_3_var_3(Prolog m) { 
+    private final static Operation poly_add_3_var_3(Prolog m) {
         m.retry(null, FILE_poly_10::poly_add_3_var_4);
         return poly_add_3_4(m);
     }
 
-    private final static Operation poly_add_3_var_4(Prolog m) { 
+    private final static Operation poly_add_3_var_4(Prolog m) {
         m.trust(null);
         return poly_add_3_5(m);
     }
 
-    private final static Operation poly_add_3_int(Prolog m) { 
+    private final static Operation poly_add_3_int(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_add_3_int_1);
         return poly_add_3_3(m);
     }
 
-    private final static Operation poly_add_3_int_1(Prolog m) { 
+    private final static Operation poly_add_3_int_1(Prolog m) {
         m.trust(null);
         return poly_add_3_5(m);
     }
 
-    private final static Operation poly_add_3_1(Prolog m) { 
+    private final static Operation poly_add_3_1(Prolog m) {
     // poly_add(poly(A,B),poly(A,C),poly(A,D)):-!,term_add(B,C,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -230,7 +230,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("term_add", FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a6, a7), cont);
     }
 
-    private final static Operation poly_add_3_2(Prolog m) { 
+    private final static Operation poly_add_3_2(Prolog m) {
     // poly_add(poly(A,B),poly(C,D),poly(A,E)):-A less_than C,!,add_to_order_zero_term(B,poly(C,D),E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -272,7 +272,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a10, a8), cont)));
     }
 
-    private final static Operation poly_add_3_3(Prolog m) { 
+    private final static Operation poly_add_3_3(Prolog m) {
     // poly_add(A,poly(B,C),poly(B,D)):-!,add_to_order_zero_term(C,A,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -299,7 +299,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a1, a6), cont);
     }
 
-    private final static Operation poly_add_3_4(Prolog m) { 
+    private final static Operation poly_add_3_4(Prolog m) {
     // poly_add(poly(A,B),C,poly(A,D)):-!,add_to_order_zero_term(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -326,7 +326,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("add_to_order_zero_term", FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec, VA(a5, a2, a6), cont);
     }
 
-    private final static Operation poly_add_3_5(Prolog m) { 
+    private final static Operation poly_add_3_5(Prolog m) {
     // poly_add(A,B,C):-C is A+B
          Term a1, a2, a3, a4;
         Operation cont;
@@ -353,88 +353,88 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_term_add_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_term_add_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return term_add_3_top(m);
     }
 
-    private final static Operation term_add_3_top(Prolog m) { 
+    private final static Operation term_add_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::term_add_3_var, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_con, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_lis); 
+        return m.switch_on_term(FILE_poly_10::term_add_3_var, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_con, FILE_poly_10::term_add_3_int, FILE_poly_10::term_add_3_lis);
     }
 
-    private final static Operation term_add_3_var(Prolog m) { 
+    private final static Operation term_add_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_add_3_var_1);
         return term_add_3_1(m);
     }
 
-    private final static Operation term_add_3_var_1(Prolog m) { 
+    private final static Operation term_add_3_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_var_2);
         return term_add_3_2(m);
     }
 
-    private final static Operation term_add_3_var_2(Prolog m) { 
+    private final static Operation term_add_3_var_2(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_var_3);
         return term_add_3_3(m);
     }
 
-    private final static Operation term_add_3_var_3(Prolog m) { 
+    private final static Operation term_add_3_var_3(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_var_4);
         return term_add_3_4(m);
     }
 
-    private final static Operation term_add_3_var_4(Prolog m) { 
+    private final static Operation term_add_3_var_4(Prolog m) {
         m.trust(null);
         return term_add_3_5(m);
     }
 
-    private final static Operation term_add_3_int(Prolog m) { 
+    private final static Operation term_add_3_int(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_add_3_int_1);
         return term_add_3_2(m);
     }
 
-    private final static Operation term_add_3_int_1(Prolog m) { 
+    private final static Operation term_add_3_int_1(Prolog m) {
         m.trust(null);
         return term_add_3_5(m);
     }
 
-    private final static Operation term_add_3_con(Prolog m) { 
+    private final static Operation term_add_3_con(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_add_3_con_1);
         return term_add_3_1(m);
     }
 
-    private final static Operation term_add_3_con_1(Prolog m) { 
+    private final static Operation term_add_3_con_1(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_con_2);
         return term_add_3_2(m);
     }
 
-    private final static Operation term_add_3_con_2(Prolog m) { 
+    private final static Operation term_add_3_con_2(Prolog m) {
         m.trust(null);
         return term_add_3_5(m);
     }
 
-    private final static Operation term_add_3_lis(Prolog m) { 
+    private final static Operation term_add_3_lis(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_add_3_lis_1);
         return term_add_3_2(m);
     }
 
-    private final static Operation term_add_3_lis_1(Prolog m) { 
+    private final static Operation term_add_3_lis_1(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_lis_2);
         return term_add_3_3(m);
     }
 
-    private final static Operation term_add_3_lis_2(Prolog m) { 
+    private final static Operation term_add_3_lis_2(Prolog m) {
         m.retry(null, FILE_poly_10::term_add_3_lis_3);
         return term_add_3_4(m);
     }
 
-    private final static Operation term_add_3_lis_3(Prolog m) { 
+    private final static Operation term_add_3_lis_3(Prolog m) {
         m.trust(null);
         return term_add_3_5(m);
     }
 
-    private final static Operation term_add_3_1(Prolog m) { 
+    private final static Operation term_add_3_1(Prolog m) {
     // term_add([],A,A):-!
          Term a1, a2, a3;
         Operation cont;
@@ -453,7 +453,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation term_add_3_2(Prolog m) { 
+    private final static Operation term_add_3_2(Prolog m) {
     // term_add(A,[],A):-!
          Term a1, a2, a3;
         Operation cont;
@@ -472,7 +472,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation term_add_3_3(Prolog m) { 
+    private final static Operation term_add_3_3(Prolog m) {
     // term_add([term(A,B)|C],[term(A,D)|E],[term(A,F)|G]):-!,poly_add(B,D,F),term_add(C,E,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -539,7 +539,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("term_add", FILE_poly_10::PRED_term_add_3_static_exec, VA(a5, a9, a12), cont));
     }
 
-    private final static Operation term_add_3_4(Prolog m) { 
+    private final static Operation term_add_3_4(Prolog m) {
     // term_add([term(A,B)|C],[term(D,E)|F],[term(A,B)|G]):-A<D,!,term_add(C,[term(D,E)|F],G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
         Operation cont;
@@ -623,7 +623,7 @@ m.cont = cont;
         return term_add_3_top(m);
     }
 
-    private final static Operation term_add_3_5(Prolog m) { 
+    private final static Operation term_add_3_5(Prolog m) {
     // term_add(A,[term(B,C)|D],[term(B,C)|E]):-term_add(A,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -678,24 +678,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_add_to_order_zero_term_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_add_to_order_zero_term_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::add_to_order_zero_term_3_var, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_var); 
+        return m.switch_on_term(FILE_poly_10::add_to_order_zero_term_3_var, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_2, FILE_poly_10::add_to_order_zero_term_3_var);
     }
 
-    private final static Operation add_to_order_zero_term_3_var(Prolog m) { 
+    private final static Operation add_to_order_zero_term_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::add_to_order_zero_term_3_var_1);
         return add_to_order_zero_term_3_1(m);
     }
 
-    private final static Operation add_to_order_zero_term_3_var_1(Prolog m) { 
+    private final static Operation add_to_order_zero_term_3_var_1(Prolog m) {
         m.trust(null);
         return add_to_order_zero_term_3_2(m);
     }
 
-    private final static Operation add_to_order_zero_term_3_1(Prolog m) { 
+    private final static Operation add_to_order_zero_term_3_1(Prolog m) {
     // add_to_order_zero_term([term(0,A)|B],C,[term(0,D)|B]):-!,poly_add(A,C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -743,7 +743,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("poly_add", FILE_poly_10::PRED_poly_add_3_static_exec, VA(a6, a2, a8), cont);
     }
 
-    private final static Operation add_to_order_zero_term_3_2(Prolog m) { 
+    private final static Operation add_to_order_zero_term_3_2(Prolog m) {
     // add_to_order_zero_term(A,B,[term(0,B)|A]):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -780,43 +780,43 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_poly_exp_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poly_exp_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return poly_exp_3_top(m);
     }
 
-    private final static Operation poly_exp_3_top(Prolog m) { 
+    private final static Operation poly_exp_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::poly_exp_3_var, FILE_poly_10::poly_exp_3_var, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo); 
+        return m.switch_on_term(FILE_poly_10::poly_exp_3_var, FILE_poly_10::poly_exp_3_var, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo, FILE_poly_10::poly_exp_3_flo);
     }
 
-    private final static Operation poly_exp_3_var(Prolog m) { 
+    private final static Operation poly_exp_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_exp_3_var_1);
         return poly_exp_3_1(m);
     }
 
-    private final static Operation poly_exp_3_var_1(Prolog m) { 
+    private final static Operation poly_exp_3_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::poly_exp_3_var_2);
         return poly_exp_3_2(m);
     }
 
-    private final static Operation poly_exp_3_var_2(Prolog m) { 
+    private final static Operation poly_exp_3_var_2(Prolog m) {
         m.trust(null);
         return poly_exp_3_3(m);
     }
 
-    private final static Operation poly_exp_3_flo(Prolog m) { 
+    private final static Operation poly_exp_3_flo(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_exp_3_flo_1);
         return poly_exp_3_2(m);
     }
 
-    private final static Operation poly_exp_3_flo_1(Prolog m) { 
+    private final static Operation poly_exp_3_flo_1(Prolog m) {
         m.trust(null);
         return poly_exp_3_3(m);
     }
 
-    private final static Operation poly_exp_3_1(Prolog m) { 
+    private final static Operation poly_exp_3_1(Prolog m) {
     // poly_exp(0,A,1):-!
          Term a1, a2, a3;
         Operation cont;
@@ -835,7 +835,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation poly_exp_3_2(Prolog m) { 
+    private final static Operation poly_exp_3_2(Prolog m) {
     // poly_exp(A,B,C):-D is A>>1,A is D<<1,!,poly_exp(D,B,E),poly_mul(E,E,C)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -882,7 +882,7 @@ MARG.setAreg2( a8);
         return poly_exp_3_top(m);
     }
 
-    private final static Operation poly_exp_3_3(Prolog m) { 
+    private final static Operation poly_exp_3_3(Prolog m) {
     // poly_exp(A,B,C):-D is A-1,poly_exp(D,B,E),poly_mul(B,E,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -919,49 +919,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_poly_mul_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_poly_mul_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int); 
+        return m.switch_on_term(FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_int, FILE_poly_10::poly_mul_3_var, FILE_poly_10::poly_mul_3_int);
     }
 
-    private final static Operation poly_mul_3_var(Prolog m) { 
+    private final static Operation poly_mul_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_mul_3_var_1);
         return poly_mul_3_1(m);
     }
 
-    private final static Operation poly_mul_3_var_1(Prolog m) { 
+    private final static Operation poly_mul_3_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::poly_mul_3_var_2);
         return poly_mul_3_2(m);
     }
 
-    private final static Operation poly_mul_3_var_2(Prolog m) { 
+    private final static Operation poly_mul_3_var_2(Prolog m) {
         m.retry(null, FILE_poly_10::poly_mul_3_var_3);
         return poly_mul_3_3(m);
     }
 
-    private final static Operation poly_mul_3_var_3(Prolog m) { 
+    private final static Operation poly_mul_3_var_3(Prolog m) {
         m.retry(null, FILE_poly_10::poly_mul_3_var_4);
         return poly_mul_3_4(m);
     }
 
-    private final static Operation poly_mul_3_var_4(Prolog m) { 
+    private final static Operation poly_mul_3_var_4(Prolog m) {
         m.trust(null);
         return poly_mul_3_5(m);
     }
 
-    private final static Operation poly_mul_3_int(Prolog m) { 
+    private final static Operation poly_mul_3_int(Prolog m) {
         m.jtry3(null, FILE_poly_10::poly_mul_3_int_1);
         return poly_mul_3_3(m);
     }
 
-    private final static Operation poly_mul_3_int_1(Prolog m) { 
+    private final static Operation poly_mul_3_int_1(Prolog m) {
         m.trust(null);
         return poly_mul_3_5(m);
     }
 
-    private final static Operation poly_mul_3_1(Prolog m) { 
+    private final static Operation poly_mul_3_1(Prolog m) {
     // poly_mul(poly(A,B),poly(A,C),poly(A,D)):-!,term_mul(B,C,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -993,7 +993,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("term_mul", FILE_poly_10::PRED_term_mul_3_static_exec, VA(a5, a6, a7), cont);
     }
 
-    private final static Operation poly_mul_3_2(Prolog m) { 
+    private final static Operation poly_mul_3_2(Prolog m) {
     // poly_mul(poly(A,B),poly(C,D),poly(A,E)):-A less_than C,!,mul_through(B,poly(C,D),E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1, p2;
@@ -1035,7 +1035,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a10, a8), cont)));
     }
 
-    private final static Operation poly_mul_3_3(Prolog m) { 
+    private final static Operation poly_mul_3_3(Prolog m) {
     // poly_mul(A,poly(B,C),poly(B,D)):-!,mul_through(C,A,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -1062,7 +1062,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a1, a6), cont);
     }
 
-    private final static Operation poly_mul_3_4(Prolog m) { 
+    private final static Operation poly_mul_3_4(Prolog m) {
     // poly_mul(poly(A,B),C,poly(A,D)):-!,mul_through(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -1089,7 +1089,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("mul_through", FILE_poly_10::PRED_mul_through_3_static_exec, VA(a5, a2, a6), cont);
     }
 
-    private final static Operation poly_mul_3_5(Prolog m) { 
+    private final static Operation poly_mul_3_5(Prolog m) {
     // poly_mul(A,B,C):-C is A*B
          Term a1, a2, a3, a4;
         Operation cont;
@@ -1116,49 +1116,49 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_term_mul_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_term_mul_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::term_mul_3_var, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_con, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_lis); 
+        return m.switch_on_term(FILE_poly_10::term_mul_3_var, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_con, FILE_poly_10::term_mul_3_2, FILE_poly_10::term_mul_3_lis);
     }
 
-    private final static Operation term_mul_3_var(Prolog m) { 
+    private final static Operation term_mul_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_mul_3_var_1);
         return term_mul_3_1(m);
     }
 
-    private final static Operation term_mul_3_var_1(Prolog m) { 
+    private final static Operation term_mul_3_var_1(Prolog m) {
         m.retry(null, FILE_poly_10::term_mul_3_var_2);
         return term_mul_3_2(m);
     }
 
-    private final static Operation term_mul_3_var_2(Prolog m) { 
+    private final static Operation term_mul_3_var_2(Prolog m) {
         m.trust(null);
         return term_mul_3_3(m);
     }
 
-    private final static Operation term_mul_3_con(Prolog m) { 
+    private final static Operation term_mul_3_con(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_mul_3_con_1);
         return term_mul_3_1(m);
     }
 
-    private final static Operation term_mul_3_con_1(Prolog m) { 
+    private final static Operation term_mul_3_con_1(Prolog m) {
         m.trust(null);
         return term_mul_3_2(m);
     }
 
-    private final static Operation term_mul_3_lis(Prolog m) { 
+    private final static Operation term_mul_3_lis(Prolog m) {
         m.jtry3(null, FILE_poly_10::term_mul_3_lis_1);
         return term_mul_3_2(m);
     }
 
-    private final static Operation term_mul_3_lis_1(Prolog m) { 
+    private final static Operation term_mul_3_lis_1(Prolog m) {
         m.trust(null);
         return term_mul_3_3(m);
     }
 
-    private final static Operation term_mul_3_1(Prolog m) { 
+    private final static Operation term_mul_3_1(Prolog m) {
     // term_mul([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
@@ -1177,7 +1177,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation term_mul_3_2(Prolog m) { 
+    private final static Operation term_mul_3_2(Prolog m) {
     // term_mul(A,[],[]):-!
          Term a1, a2, a3;
         Operation cont;
@@ -1196,7 +1196,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation term_mul_3_3(Prolog m) { 
+    private final static Operation term_mul_3_3(Prolog m) {
     // term_mul([A|B],C,D):-single_term_mul(C,A,E),term_mul(B,C,F),term_add(E,F,D)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
@@ -1232,24 +1232,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_single_term_mul_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_single_term_mul_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::single_term_mul_3_var, fail_0, fail_0, FILE_poly_10::single_term_mul_3_1, fail_0, FILE_poly_10::single_term_mul_3_2); 
+        return m.switch_on_term(FILE_poly_10::single_term_mul_3_var, fail_0, fail_0, FILE_poly_10::single_term_mul_3_1, fail_0, FILE_poly_10::single_term_mul_3_2);
     }
 
-    private final static Operation single_term_mul_3_var(Prolog m) { 
+    private final static Operation single_term_mul_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::single_term_mul_3_var_1);
         return single_term_mul_3_1(m);
     }
 
-    private final static Operation single_term_mul_3_var_1(Prolog m) { 
+    private final static Operation single_term_mul_3_var_1(Prolog m) {
         m.trust(null);
         return single_term_mul_3_2(m);
     }
 
-    private final static Operation single_term_mul_3_1(Prolog m) { 
+    private final static Operation single_term_mul_3_1(Prolog m) {
     // single_term_mul([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
@@ -1268,7 +1268,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation single_term_mul_3_2(Prolog m) { 
+    private final static Operation single_term_mul_3_2(Prolog m) {
     // single_term_mul([term(A,B)|C],term(D,E),[term(F,G)|H]):-F is A+D,poly_mul(B,E,G),single_term_mul(C,term(D,E),H)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation p1;
@@ -1341,24 +1341,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 
 
 
-    public static Operation PRED_mul_through_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_mul_through_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_poly_10::mul_through_3_var, fail_0, fail_0, FILE_poly_10::mul_through_3_1, fail_0, FILE_poly_10::mul_through_3_2); 
+        return m.switch_on_term(FILE_poly_10::mul_through_3_var, fail_0, fail_0, FILE_poly_10::mul_through_3_1, fail_0, FILE_poly_10::mul_through_3_2);
     }
 
-    private final static Operation mul_through_3_var(Prolog m) { 
+    private final static Operation mul_through_3_var(Prolog m) {
         m.jtry3(null, FILE_poly_10::mul_through_3_var_1);
         return mul_through_3_1(m);
     }
 
-    private final static Operation mul_through_3_var_1(Prolog m) { 
+    private final static Operation mul_through_3_var_1(Prolog m) {
         m.trust(null);
         return mul_through_3_2(m);
     }
 
-    private final static Operation mul_through_3_1(Prolog m) { 
+    private final static Operation mul_through_3_1(Prolog m) {
     // mul_through([],A,[]):-!
          Term a1, a2, a3;
         Operation cont;
@@ -1377,7 +1377,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation mul_through_3_2(Prolog m) { 
+    private final static Operation mul_through_3_2(Prolog m) {
     // mul_through([term(A,B)|C],D,[term(A,E)|F]):-poly_mul(B,D,E),mul_through(C,D,F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;

@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-mu
         m.setB0();
     // top:-[mu]
@@ -36,8 +36,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_mu_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_mu_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // mu:-theorem([m,u,i,i,u],5,A),!
         m.setB0();
          Term a1;
@@ -67,28 +67,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_theorem_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_theorem_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return theorem_3_top(m);
     }
 
-    private final static Operation theorem_3_top(Prolog m) { 
+    private final static Operation theorem_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_mu::theorem_3_var, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_var); 
+        return m.switch_on_term(FILE_mu::theorem_3_var, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_2, FILE_mu::theorem_3_var);
     }
 
-    private final static Operation theorem_3_var(Prolog m) { 
+    private final static Operation theorem_3_var(Prolog m) {
         m.jtry3(null, FILE_mu::theorem_3_var_1);
         return theorem_3_1(m);
     }
 
-    private final static Operation theorem_3_var_1(Prolog m) { 
+    private final static Operation theorem_3_var_1(Prolog m) {
         m.trust(null);
         return theorem_3_2(m);
     }
 
-    private final static Operation theorem_3_1(Prolog m) { 
+    private final static Operation theorem_3_1(Prolog m) {
     // theorem([m,i],A,[[a,m,i]]):-true
          Term a1, a2, a3;
         Operation cont;
@@ -104,7 +104,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation theorem_3_2(Prolog m) { 
+    private final static Operation theorem_3_2(Prolog m) {
     // theorem(A,B,[[C|A]|D]):-B>0,E is B-1,theorem(F,E,D),rule(C,F,A)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;
@@ -173,34 +173,34 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_rule_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_mu::rule_3_var, FILE_mu::rule_3_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_mu::rule_3_var, FILE_mu::rule_3_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation rule_3_var(Prolog m) { 
+    private final static Operation rule_3_var(Prolog m) {
         m.jtry3(null, FILE_mu::rule_3_var_1);
         return rule_3_1(m);
     }
 
-    private final static Operation rule_3_var_1(Prolog m) { 
+    private final static Operation rule_3_var_1(Prolog m) {
         m.retry(null, FILE_mu::rule_3_var_2);
         return rule_3_2(m);
     }
 
-    private final static Operation rule_3_var_2(Prolog m) { 
+    private final static Operation rule_3_var_2(Prolog m) {
         m.retry(null, FILE_mu::rule_3_var_3);
         return rule_3_3(m);
     }
 
-    private final static Operation rule_3_var_3(Prolog m) { 
+    private final static Operation rule_3_var_3(Prolog m) {
         m.trust(null);
         return rule_3_4(m);
     }
 
-    private final static Operation rule_3_1(Prolog m) { 
+    private final static Operation rule_3_1(Prolog m) {
     // rule(1,A,B):-rule1(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -215,7 +215,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rule1", FILE_mu::PRED_rule1_2_static_exec, VA(a2, a3), cont);
     }
 
-    private final static Operation rule_3_2(Prolog m) { 
+    private final static Operation rule_3_2(Prolog m) {
     // rule(2,A,B):-rule2(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -230,7 +230,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rule2", FILE_mu::PRED_rule2_2_static_exec, VA(a2, a3), cont);
     }
 
-    private final static Operation rule_3_3(Prolog m) { 
+    private final static Operation rule_3_3(Prolog m) {
     // rule(3,A,B):-rule3(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -245,7 +245,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("rule3", FILE_mu::PRED_rule3_2_static_exec, VA(a2, a3), cont);
     }
 
-    private final static Operation rule_3_4(Prolog m) { 
+    private final static Operation rule_3_4(Prolog m) {
     // rule(4,A,B):-rule4(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -270,28 +270,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_rule1_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule1_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return rule1_2_top(m);
     }
 
-    private final static Operation rule1_2_top(Prolog m) { 
+    private final static Operation rule1_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_mu::rule1_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule1_2_var); 
+        return m.switch_on_term(FILE_mu::rule1_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule1_2_var);
     }
 
-    private final static Operation rule1_2_var(Prolog m) { 
+    private final static Operation rule1_2_var(Prolog m) {
         m.jtry2(null, FILE_mu::rule1_2_var_1);
         return rule1_2_1(m);
     }
 
-    private final static Operation rule1_2_var_1(Prolog m) { 
+    private final static Operation rule1_2_var_1(Prolog m) {
         m.trust(null);
         return rule1_2_2(m);
     }
 
-    private final static Operation rule1_2_1(Prolog m) { 
+    private final static Operation rule1_2_1(Prolog m) {
     // rule1([i],[i,u]):-true
          Term a1, a2;
         Operation cont;
@@ -306,7 +306,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule1_2_2(Prolog m) { 
+    private final static Operation rule1_2_2(Prolog m) {
     // rule1([A|B],[A|C]):-rule1(B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -349,8 +349,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_rule2_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule2_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // rule2([m|A],[m|B]):-append(A,A,B)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -390,28 +390,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_rule3_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule3_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return rule3_2_top(m);
     }
 
-    private final static Operation rule3_2_top(Prolog m) { 
+    private final static Operation rule3_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_mu::rule3_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule3_2_var); 
+        return m.switch_on_term(FILE_mu::rule3_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule3_2_var);
     }
 
-    private final static Operation rule3_2_var(Prolog m) { 
+    private final static Operation rule3_2_var(Prolog m) {
         m.jtry2(null, FILE_mu::rule3_2_var_1);
         return rule3_2_1(m);
     }
 
-    private final static Operation rule3_2_var_1(Prolog m) { 
+    private final static Operation rule3_2_var_1(Prolog m) {
         m.trust(null);
         return rule3_2_2(m);
     }
 
-    private final static Operation rule3_2_1(Prolog m) { 
+    private final static Operation rule3_2_1(Prolog m) {
     // rule3([i,i,i|A],[u|A]):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -466,7 +466,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule3_2_2(Prolog m) { 
+    private final static Operation rule3_2_2(Prolog m) {
     // rule3([A|B],[A|C]):-rule3(B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -509,28 +509,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_rule4_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_rule4_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return rule4_2_top(m);
     }
 
-    private final static Operation rule4_2_top(Prolog m) { 
+    private final static Operation rule4_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_mu::rule4_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule4_2_var); 
+        return m.switch_on_term(FILE_mu::rule4_2_var, fail_0, fail_0, fail_0, fail_0, FILE_mu::rule4_2_var);
     }
 
-    private final static Operation rule4_2_var(Prolog m) { 
+    private final static Operation rule4_2_var(Prolog m) {
         m.jtry2(null, FILE_mu::rule4_2_var_1);
         return rule4_2_1(m);
     }
 
-    private final static Operation rule4_2_var_1(Prolog m) { 
+    private final static Operation rule4_2_var_1(Prolog m) {
         m.trust(null);
         return rule4_2_2(m);
     }
 
-    private final static Operation rule4_2_1(Prolog m) { 
+    private final static Operation rule4_2_1(Prolog m) {
     // rule4([u,u|A],A):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -565,7 +565,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation rule4_2_2(Prolog m) { 
+    private final static Operation rule4_2_2(Prolog m) {
     // rule4([A|B],[A|C]):-rule4(B,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -608,28 +608,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/mu.pl
 
 
 
-    public static Operation PRED_append_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_append_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return append_3_top(m);
     }
 
-    private final static Operation append_3_top(Prolog m) { 
+    private final static Operation append_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_mu::append_3_var, fail_0, fail_0, FILE_mu::append_3_1, fail_0, FILE_mu::append_3_2); 
+        return m.switch_on_term(FILE_mu::append_3_var, fail_0, fail_0, FILE_mu::append_3_1, fail_0, FILE_mu::append_3_2);
     }
 
-    private final static Operation append_3_var(Prolog m) { 
+    private final static Operation append_3_var(Prolog m) {
         m.jtry3(null, FILE_mu::append_3_var_1);
         return append_3_1(m);
     }
 
-    private final static Operation append_3_var_1(Prolog m) { 
+    private final static Operation append_3_var_1(Prolog m) {
         m.trust(null);
         return append_3_2(m);
     }
 
-    private final static Operation append_3_1(Prolog m) { 
+    private final static Operation append_3_1(Prolog m) {
     // append([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -645,7 +645,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation append_3_2(Prolog m) { 
+    private final static Operation append_3_2(Prolog m) {
     // append([A|B],C,[A|D]):-append(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;

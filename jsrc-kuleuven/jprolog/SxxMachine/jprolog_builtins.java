@@ -374,7 +374,7 @@ class pred_functor_3
     {
       if( ( !( arg2.isAtomOrObject() ) ) || ( !( arg3 instanceof NumberTerm ) ) )
         return false;
-      int i = (int) ( arg3.longValue() );  
+      int i = (int) ( arg3.longValue() );
       final String Name = arg2.fname();
       final Term args[] = new Term[ i ];
       while ( i-- > 0)

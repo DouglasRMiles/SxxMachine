@@ -44,7 +44,8 @@ public interface Functor extends NameArity, Atomic {
     @Override
     int unifyArg(int i, Term a, Prog p);
 
-    Term getPlainArg(int i);
+    @Override
+	Term getPlainArg(int i);
 
     int exec(Prog p, ISTerm thiz);
 

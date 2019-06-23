@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-prover
         m.setB0();
     // top:-[prover]
@@ -28,20 +28,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_prover_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_prover_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_prover::prover_0_sub_1);
         return prover_0_1(m);
     }
 
-    private final static Operation prover_0_sub_1(Prolog m) { 
+    private final static Operation prover_0_sub_1(Prolog m) {
         m.trust(null);
         return prover_0_2(m);
     }
 
-    private final static Operation prover_0_1(Prolog m) { 
+    private final static Operation prover_0_1(Prolog m) {
     // prover:-problem(A,B,C),implies(B,C),fail
          Term a1, a2;
         Operation p1, p2;
@@ -55,7 +55,7 @@ m.cont = cont;
  Op("implies", FILE_prover::PRED_implies_2_static_exec, VA(a1, a2), fail_0));
     }
 
-    private final static Operation prover_0_2(Prolog m) { 
+    private final static Operation prover_0_2(Prolog m) {
     // prover:-true
         Operation cont;
         cont = m.cont;
@@ -102,64 +102,64 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_problem_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_problem_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_prover::problem_3_var, FILE_prover::problem_3_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_prover::problem_3_var, FILE_prover::problem_3_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation problem_3_var(Prolog m) { 
+    private final static Operation problem_3_var(Prolog m) {
         m.jtry3(null, FILE_prover::problem_3_var_1);
         return problem_3_1(m);
     }
 
-    private final static Operation problem_3_var_1(Prolog m) { 
+    private final static Operation problem_3_var_1(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_2);
         return problem_3_2(m);
     }
 
-    private final static Operation problem_3_var_2(Prolog m) { 
+    private final static Operation problem_3_var_2(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_3);
         return problem_3_3(m);
     }
 
-    private final static Operation problem_3_var_3(Prolog m) { 
+    private final static Operation problem_3_var_3(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_4);
         return problem_3_4(m);
     }
 
-    private final static Operation problem_3_var_4(Prolog m) { 
+    private final static Operation problem_3_var_4(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_5);
         return problem_3_5(m);
     }
 
-    private final static Operation problem_3_var_5(Prolog m) { 
+    private final static Operation problem_3_var_5(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_6);
         return problem_3_6(m);
     }
 
-    private final static Operation problem_3_var_6(Prolog m) { 
+    private final static Operation problem_3_var_6(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_7);
         return problem_3_7(m);
     }
 
-    private final static Operation problem_3_var_7(Prolog m) { 
+    private final static Operation problem_3_var_7(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_8);
         return problem_3_8(m);
     }
 
-    private final static Operation problem_3_var_8(Prolog m) { 
+    private final static Operation problem_3_var_8(Prolog m) {
         m.retry(null, FILE_prover::problem_3_var_9);
         return problem_3_9(m);
     }
 
-    private final static Operation problem_3_var_9(Prolog m) { 
+    private final static Operation problem_3_var_9(Prolog m) {
         m.trust(null);
         return problem_3_10(m);
     }
 
-    private final static Operation problem_3_1(Prolog m) { 
+    private final static Operation problem_3_1(Prolog m) {
     // problem(1,-a,+a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -177,7 +177,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_2(Prolog m) { 
+    private final static Operation problem_3_2(Prolog m) {
     // problem(2,+a,-a& -a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -195,7 +195,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_3(Prolog m) { 
+    private final static Operation problem_3_3(Prolog m) {
     // problem(3,-a,+to_be# -to_be):-true
          Term a1, a2, a3;
         Operation cont;
@@ -213,7 +213,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_4(Prolog m) { 
+    private final static Operation problem_3_4(Prolog m) {
     // problem(4,-a& -a,-a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -231,7 +231,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_5(Prolog m) { 
+    private final static Operation problem_3_5(Prolog m) {
     // problem(5,-a,+b# -a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -249,7 +249,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_6(Prolog m) { 
+    private final static Operation problem_3_6(Prolog m) {
     // problem(6,-a& -b,-b& -a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -267,7 +267,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_7(Prolog m) { 
+    private final static Operation problem_3_7(Prolog m) {
     // problem(7,-a,-b# +b& -a):-true
          Term a1, a2, a3;
         Operation cont;
@@ -285,7 +285,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_8(Prolog m) { 
+    private final static Operation problem_3_8(Prolog m) {
     // problem(8,-a# -b# +c,-b# -a# +c):-true
          Term a1, a2, a3;
         Operation cont;
@@ -303,7 +303,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_9(Prolog m) { 
+    private final static Operation problem_3_9(Prolog m) {
     // problem(9,-a# +b,+b& -c# -a# +c):-true
          Term a1, a2, a3;
         Operation cont;
@@ -321,7 +321,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation problem_3_10(Prolog m) { 
+    private final static Operation problem_3_10(Prolog m) {
     // problem(10,(-a# +c)&(-b# +c),-a& -b# +c):-true
          Term a1, a2, a3;
         Operation cont;
@@ -348,8 +348,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_implies_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_implies_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // implies(A,B):-opposite(B,C),add_conjunction(A,C,fs([],[],[],[]))
         m.setB0();
          Term a1, a2, a3;
@@ -370,38 +370,38 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_opposite_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_opposite_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return opposite_2_top(m);
     }
 
-    private final static Operation opposite_2_top(Prolog m) { 
+    private final static Operation opposite_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_prover::opposite_2_var, fail_0, fail_0, fail_0, FILE_prover::opposite_2_var, fail_0); 
+        return m.switch_on_term(FILE_prover::opposite_2_var, fail_0, fail_0, fail_0, FILE_prover::opposite_2_var, fail_0);
     }
 
-    private final static Operation opposite_2_var(Prolog m) { 
+    private final static Operation opposite_2_var(Prolog m) {
         m.jtry2(null, FILE_prover::opposite_2_var_1);
         return opposite_2_1(m);
     }
 
-    private final static Operation opposite_2_var_1(Prolog m) { 
+    private final static Operation opposite_2_var_1(Prolog m) {
         m.retry(null, FILE_prover::opposite_2_var_2);
         return opposite_2_2(m);
     }
 
-    private final static Operation opposite_2_var_2(Prolog m) { 
+    private final static Operation opposite_2_var_2(Prolog m) {
         m.retry(null, FILE_prover::opposite_2_var_3);
         return opposite_2_3(m);
     }
 
-    private final static Operation opposite_2_var_3(Prolog m) { 
+    private final static Operation opposite_2_var_3(Prolog m) {
         m.trust(null);
         return opposite_2_4(m);
     }
 
-    private final static Operation opposite_2_1(Prolog m) { 
+    private final static Operation opposite_2_1(Prolog m) {
     // opposite(A&B,C#D):-!,opposite(A,C),opposite(B,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -433,7 +433,7 @@ MARG.setAreg1( a5);
         return opposite_2_top(m);
     }
 
-    private final static Operation opposite_2_2(Prolog m) { 
+    private final static Operation opposite_2_2(Prolog m) {
     // opposite(A#B,C&D):-!,opposite(A,C),opposite(B,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -465,7 +465,7 @@ MARG.setAreg1( a5);
         return opposite_2_top(m);
     }
 
-    private final static Operation opposite_2_3(Prolog m) { 
+    private final static Operation opposite_2_3(Prolog m) {
     // opposite(+A,-A):-!
          Term a1, a2, a3;
         Operation cont;
@@ -488,7 +488,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation opposite_2_4(Prolog m) { 
+    private final static Operation opposite_2_4(Prolog m) {
     // opposite(-A,+A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -515,8 +515,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_add_conjunction_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_add_conjunction_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // add_conjunction(A,B,C):-expand(A,C,D),expand(B,D,E),refute(E)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -541,53 +541,53 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_expand_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_expand_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return expand_3_top(m);
     }
 
-    private final static Operation expand_3_top(Prolog m) { 
+    private final static Operation expand_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_prover::expand_3_var, FILE_prover::expand_3_1, FILE_prover::expand_3_1, FILE_prover::expand_3_1, FILE_prover::expand_3_var, FILE_prover::expand_3_1); 
+        return m.switch_on_term(FILE_prover::expand_3_var, FILE_prover::expand_3_1, FILE_prover::expand_3_1, FILE_prover::expand_3_1, FILE_prover::expand_3_var, FILE_prover::expand_3_1);
     }
 
-    private final static Operation expand_3_var(Prolog m) { 
+    private final static Operation expand_3_var(Prolog m) {
         m.jtry3(null, FILE_prover::expand_3_var_1);
         return expand_3_1(m);
     }
 
-    private final static Operation expand_3_var_1(Prolog m) { 
+    private final static Operation expand_3_var_1(Prolog m) {
         m.retry(null, FILE_prover::expand_3_var_2);
         return expand_3_2(m);
     }
 
-    private final static Operation expand_3_var_2(Prolog m) { 
+    private final static Operation expand_3_var_2(Prolog m) {
         m.retry(null, FILE_prover::expand_3_var_3);
         return expand_3_3(m);
     }
 
-    private final static Operation expand_3_var_3(Prolog m) { 
+    private final static Operation expand_3_var_3(Prolog m) {
         m.retry(null, FILE_prover::expand_3_var_4);
         return expand_3_4(m);
     }
 
-    private final static Operation expand_3_var_4(Prolog m) { 
+    private final static Operation expand_3_var_4(Prolog m) {
         m.retry(null, FILE_prover::expand_3_var_5);
         return expand_3_5(m);
     }
 
-    private final static Operation expand_3_var_5(Prolog m) { 
+    private final static Operation expand_3_var_5(Prolog m) {
         m.retry(null, FILE_prover::expand_3_var_6);
         return expand_3_6(m);
     }
 
-    private final static Operation expand_3_var_6(Prolog m) { 
+    private final static Operation expand_3_var_6(Prolog m) {
         m.trust(null);
         return expand_3_7(m);
     }
 
-    private final static Operation expand_3_1(Prolog m) { 
+    private final static Operation expand_3_1(Prolog m) {
     // expand(A,refuted,refuted):-!
          Term a1, a2, a3;
         Operation cont;
@@ -606,7 +606,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation expand_3_2(Prolog m) { 
+    private final static Operation expand_3_2(Prolog m) {
     // expand(A&B,fs(C,D,E,F),refuted):-includes(C,A&B),!
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -643,7 +643,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
-    private final static Operation expand_3_3(Prolog m) { 
+    private final static Operation expand_3_3(Prolog m) {
     // expand(A&B,fs(C,D,E,F),fs(C,D,E,F)):-includes(D,A&B),!
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1;
@@ -685,7 +685,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a10), cont));
     }
 
-    private final static Operation expand_3_4(Prolog m) { 
+    private final static Operation expand_3_4(Prolog m) {
     // expand(A&B,fs(C,D,E,F),G):-!,expand(A,fs(C,[A&B|D],E,F),H),expand(B,H,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -729,7 +729,7 @@ MARG.setAreg2( a13);
         return expand_3_top(m);
     }
 
-    private final static Operation expand_3_5(Prolog m) { 
+    private final static Operation expand_3_5(Prolog m) {
     // expand(A#B,fs(C,D,E,F),G):-!,opposite(A#B,H),extend(H,C,D,I,fs(I,D,E,F),G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1;
@@ -769,7 +769,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("extend", FILE_prover::PRED_extend_6_static_exec, VA(a11, a6, a7, a12, a13, a3), cont));
     }
 
-    private final static Operation expand_3_6(Prolog m) { 
+    private final static Operation expand_3_6(Prolog m) {
     // expand(+A,fs(B,C,D,E),F):-!,extend(A,D,E,G,fs(B,C,G,E),F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -802,7 +802,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("extend", FILE_prover::PRED_extend_6_static_exec, VA(a4, a7, a8, a9, a10, a3), cont);
     }
 
-    private final static Operation expand_3_7(Prolog m) { 
+    private final static Operation expand_3_7(Prolog m) {
     // expand(-A,fs(B,C,D,E),F):-extend(A,E,D,G,fs(B,C,D,G),F)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation cont;
@@ -839,28 +839,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_includes_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_includes_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return includes_2_top(m);
     }
 
-    private final static Operation includes_2_top(Prolog m) { 
+    private final static Operation includes_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_prover::includes_2_var, fail_0, fail_0, fail_0, fail_0, FILE_prover::includes_2_var); 
+        return m.switch_on_term(FILE_prover::includes_2_var, fail_0, fail_0, fail_0, fail_0, FILE_prover::includes_2_var);
     }
 
-    private final static Operation includes_2_var(Prolog m) { 
+    private final static Operation includes_2_var(Prolog m) {
         m.jtry2(null, FILE_prover::includes_2_var_1);
         return includes_2_1(m);
     }
 
-    private final static Operation includes_2_var_1(Prolog m) { 
+    private final static Operation includes_2_var_1(Prolog m) {
         m.trust(null);
         return includes_2_2(m);
     }
 
-    private final static Operation includes_2_1(Prolog m) { 
+    private final static Operation includes_2_1(Prolog m) {
     // includes([A|B],A):-!
          Term a1, a2, a3;
         Operation cont;
@@ -885,7 +885,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation includes_2_2(Prolog m) { 
+    private final static Operation includes_2_2(Prolog m) {
     // includes([A|B],C):-includes(B,C)
          Term a1, a2, a3;
         Operation cont;
@@ -917,25 +917,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_extend_6_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_extend_6_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry6(null, FILE_prover::extend_6_sub_1);
         return extend_6_1(m);
     }
 
-    private final static Operation extend_6_sub_1(Prolog m) { 
+    private final static Operation extend_6_sub_1(Prolog m) {
         m.retry(null, FILE_prover::extend_6_sub_2);
         return extend_6_2(m);
     }
 
-    private final static Operation extend_6_sub_2(Prolog m) { 
+    private final static Operation extend_6_sub_2(Prolog m) {
         m.trust(null);
         return extend_6_3(m);
     }
 
-    private final static Operation extend_6_1(Prolog m) { 
+    private final static Operation extend_6_1(Prolog m) {
     // extend(A,B,C,D,E,refuted):-includes(C,A),!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -961,7 +961,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
-    private final static Operation extend_6_2(Prolog m) { 
+    private final static Operation extend_6_2(Prolog m) {
     // extend(A,B,C,B,D,D):-includes(B,A),!
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -989,7 +989,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_prover::PRED_$cut_1_static_exec, VA(a7), cont));
     }
 
-    private final static Operation extend_6_3(Prolog m) { 
+    private final static Operation extend_6_3(Prolog m) {
     // extend(A,B,C,[A|B],D,D):-true
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -1024,24 +1024,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 
 
 
-    public static Operation PRED_refute_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_refute_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_prover::refute_1_var, fail_0, fail_0, FILE_prover::refute_1_1, FILE_prover::refute_1_2, fail_0); 
+        return m.switch_on_term(FILE_prover::refute_1_var, fail_0, fail_0, FILE_prover::refute_1_1, FILE_prover::refute_1_2, fail_0);
     }
 
-    private final static Operation refute_1_var(Prolog m) { 
+    private final static Operation refute_1_var(Prolog m) {
         m.jtry1(null, FILE_prover::refute_1_var_1);
         return refute_1_1(m);
     }
 
-    private final static Operation refute_1_var_1(Prolog m) { 
+    private final static Operation refute_1_var_1(Prolog m) {
         m.trust(null);
         return refute_1_2(m);
     }
 
-    private final static Operation refute_1_1(Prolog m) { 
+    private final static Operation refute_1_1(Prolog m) {
     // refute(refuted):-!
          Term a1;
         Operation cont;
@@ -1056,7 +1056,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation refute_1_2(Prolog m) { 
+    private final static Operation refute_1_2(Prolog m) {
     // refute(fs([A&B|C],D,E,F)):-opposite(A,G),opposite(B,H),I=fs(C,D,E,F),add_conjunction(G,B,I),add_conjunction(G,H,I),add_conjunction(A,H,I)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5;

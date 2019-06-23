@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-meta_qsort
         m.setB0();
     // top:-[meta_qsort]
@@ -29,8 +29,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_meta_qsort_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_meta_qsort_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // meta_qsort:-interpret(qsort)
         m.setB0();
     // meta_qsort:-[interpret(qsort)]
@@ -45,20 +45,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_meta_qsort::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_1(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A):-nonvar(A),!,interpret(A)
          Term a1, a2;
         Operation cont;
@@ -85,7 +85,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret", FILE_meta_qsort::PRED_interpret_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_2(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A):-true
          Term a1;
         Operation cont;
@@ -102,8 +102,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_interpret_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_interpret_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // interpret(A):-interpret(A,B),'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B)
         m.setB0();
          Term a1, a2;
@@ -129,148 +129,148 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_interpret_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_interpret_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return interpret_2_top(m);
     }
 
-    private final static Operation interpret_2_top(Prolog m) { 
+    private final static Operation interpret_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_meta_qsort::interpret_2_var, FILE_meta_qsort::interpret_2_int, FILE_meta_qsort::interpret_2_int, FILE_meta_qsort::interpret_2_con, FILE_meta_qsort::interpret_2_str, FILE_meta_qsort::interpret_2_int); 
+        return m.switch_on_term(FILE_meta_qsort::interpret_2_var, FILE_meta_qsort::interpret_2_int, FILE_meta_qsort::interpret_2_int, FILE_meta_qsort::interpret_2_con, FILE_meta_qsort::interpret_2_str, FILE_meta_qsort::interpret_2_int);
     }
 
-    private final static Operation interpret_2_var(Prolog m) { 
+    private final static Operation interpret_2_var(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::interpret_2_var_1);
         return interpret_2_1(m);
     }
 
-    private final static Operation interpret_2_var_1(Prolog m) { 
+    private final static Operation interpret_2_var_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_2);
         return interpret_2_2(m);
     }
 
-    private final static Operation interpret_2_var_2(Prolog m) { 
+    private final static Operation interpret_2_var_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_3);
         return interpret_2_3(m);
     }
 
-    private final static Operation interpret_2_var_3(Prolog m) { 
+    private final static Operation interpret_2_var_3(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_4);
         return interpret_2_4(m);
     }
 
-    private final static Operation interpret_2_var_4(Prolog m) { 
+    private final static Operation interpret_2_var_4(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_5);
         return interpret_2_5(m);
     }
 
-    private final static Operation interpret_2_var_5(Prolog m) { 
+    private final static Operation interpret_2_var_5(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_6);
         return interpret_2_6(m);
     }
 
-    private final static Operation interpret_2_var_6(Prolog m) { 
+    private final static Operation interpret_2_var_6(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_7);
         return interpret_2_7(m);
     }
 
-    private final static Operation interpret_2_var_7(Prolog m) { 
+    private final static Operation interpret_2_var_7(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_var_8);
         return interpret_2_8(m);
     }
 
-    private final static Operation interpret_2_var_8(Prolog m) { 
+    private final static Operation interpret_2_var_8(Prolog m) {
         m.trust(null);
         return interpret_2_9(m);
     }
 
-    private final static Operation interpret_2_int(Prolog m) { 
+    private final static Operation interpret_2_int(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::interpret_2_int_1);
         return interpret_2_1(m);
     }
 
-    private final static Operation interpret_2_int_1(Prolog m) { 
+    private final static Operation interpret_2_int_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_int_2);
         return interpret_2_7(m);
     }
 
-    private final static Operation interpret_2_int_2(Prolog m) { 
+    private final static Operation interpret_2_int_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_int_3);
         return interpret_2_8(m);
     }
 
-    private final static Operation interpret_2_int_3(Prolog m) { 
+    private final static Operation interpret_2_int_3(Prolog m) {
         m.trust(null);
         return interpret_2_9(m);
     }
 
-    private final static Operation interpret_2_con(Prolog m) { 
+    private final static Operation interpret_2_con(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::interpret_2_con_1);
         return interpret_2_1(m);
     }
 
-    private final static Operation interpret_2_con_1(Prolog m) { 
+    private final static Operation interpret_2_con_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_con_2);
         return interpret_2_6(m);
     }
 
-    private final static Operation interpret_2_con_2(Prolog m) { 
+    private final static Operation interpret_2_con_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_con_3);
         return interpret_2_7(m);
     }
 
-    private final static Operation interpret_2_con_3(Prolog m) { 
+    private final static Operation interpret_2_con_3(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_con_4);
         return interpret_2_8(m);
     }
 
-    private final static Operation interpret_2_con_4(Prolog m) { 
+    private final static Operation interpret_2_con_4(Prolog m) {
         m.trust(null);
         return interpret_2_9(m);
     }
 
-    private final static Operation interpret_2_str(Prolog m) { 
+    private final static Operation interpret_2_str(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::interpret_2_str_1);
         return interpret_2_1(m);
     }
 
-    private final static Operation interpret_2_str_1(Prolog m) { 
+    private final static Operation interpret_2_str_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_2);
         return interpret_2_2(m);
     }
 
-    private final static Operation interpret_2_str_2(Prolog m) { 
+    private final static Operation interpret_2_str_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_3);
         return interpret_2_3(m);
     }
 
-    private final static Operation interpret_2_str_3(Prolog m) { 
+    private final static Operation interpret_2_str_3(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_4);
         return interpret_2_4(m);
     }
 
-    private final static Operation interpret_2_str_4(Prolog m) { 
+    private final static Operation interpret_2_str_4(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_5);
         return interpret_2_5(m);
     }
 
-    private final static Operation interpret_2_str_5(Prolog m) { 
+    private final static Operation interpret_2_str_5(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_6);
         return interpret_2_7(m);
     }
 
-    private final static Operation interpret_2_str_6(Prolog m) { 
+    private final static Operation interpret_2_str_6(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_2_str_7);
         return interpret_2_8(m);
     }
 
-    private final static Operation interpret_2_str_7(Prolog m) { 
+    private final static Operation interpret_2_str_7(Prolog m) {
         m.trust(null);
         return interpret_2_9(m);
     }
 
-    private final static Operation interpret_2_1(Prolog m) { 
+    private final static Operation interpret_2_1(Prolog m) {
     // interpret(A,B):-var(A),!,fail
          Term a1, a2, a3;
         Operation cont;
@@ -299,7 +299,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         //END inline expansion
     }
 
-    private final static Operation interpret_2_2(Prolog m) { 
+    private final static Operation interpret_2_2(Prolog m) {
     // interpret((A,B),C):-!,interpret(A,D),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B,C,D)
          Term a1, a2, a3, a4, a5;
         Operation p1;
@@ -326,7 +326,7 @@ MARG.setAreg1( a5);
         return interpret_2_top(m);
     }
 
-    private final static Operation interpret_2_3(Prolog m) { 
+    private final static Operation interpret_2_3(Prolog m) {
     // interpret((A;B),C):-!,interpret_disjunction(A,B,C)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -347,7 +347,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a3, a4, a2), cont);
     }
 
-    private final static Operation interpret_2_4(Prolog m) { 
+    private final static Operation interpret_2_4(Prolog m) {
     // interpret((A->B),C):-!,interpret_disjunction((A->B),fail,C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -371,7 +371,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a5,  ATOM_fail , a2), cont);
     }
 
-    private final static Operation interpret_2_5(Prolog m) { 
+    private final static Operation interpret_2_5(Prolog m) {
     // interpret(\+A,B):-!,interpret_disjunction((A->fail),true,B)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -394,7 +394,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret_disjunction", FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec, VA(a4,  Prolog.True , a2), cont);
     }
 
-    private final static Operation interpret_2_6(Prolog m) { 
+    private final static Operation interpret_2_6(Prolog m) {
     // interpret(!,true):-!
          Term a1, a2;
         Operation cont;
@@ -412,7 +412,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation interpret_2_7(Prolog m) { 
+    private final static Operation interpret_2_7(Prolog m) {
     // interpret(A,B):-number(A),!,fail
          Term a1, a2, a3;
         Operation cont;
@@ -441,7 +441,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         //END inline expansion
     }
 
-    private final static Operation interpret_2_8(Prolog m) { 
+    private final static Operation interpret_2_8(Prolog m) {
     // interpret(A,B):-is_built_in(A),!,interpret_built_in(A)
          Term a1, a2, a3;
         Operation p1, p2;
@@ -462,7 +462,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret_built_in", FILE_meta_qsort::PRED_interpret_built_in_1_static_exec, VA(a1), cont)));
     }
 
-    private final static Operation interpret_2_9(Prolog m) { 
+    private final static Operation interpret_2_9(Prolog m) {
     // interpret(A,B):-define(A,C),interpret(C)
          Term a1, a2, a3;
         Operation p1;
@@ -484,20 +484,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_meta_qsort::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) {
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C,A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -533,7 +533,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) {
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -553,20 +553,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_meta_qsort::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_1(Prolog m) {
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-nonvar(C),!,B=(C->A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -602,7 +602,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_2(Prolog m) {
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(A,B,C):-interpret(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -622,44 +622,44 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_interpret_disjunction_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_interpret_disjunction_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int); 
+        return m.switch_on_term(FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_int, FILE_meta_qsort::interpret_disjunction_3_var, FILE_meta_qsort::interpret_disjunction_3_int);
     }
 
-    private final static Operation interpret_disjunction_3_var(Prolog m) { 
+    private final static Operation interpret_disjunction_3_var(Prolog m) {
         m.jtry3(null, FILE_meta_qsort::interpret_disjunction_3_var_1);
         return interpret_disjunction_3_1(m);
     }
 
-    private final static Operation interpret_disjunction_3_var_1(Prolog m) { 
+    private final static Operation interpret_disjunction_3_var_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_disjunction_3_var_2);
         return interpret_disjunction_3_2(m);
     }
 
-    private final static Operation interpret_disjunction_3_var_2(Prolog m) { 
+    private final static Operation interpret_disjunction_3_var_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::interpret_disjunction_3_var_3);
         return interpret_disjunction_3_3(m);
     }
 
-    private final static Operation interpret_disjunction_3_var_3(Prolog m) { 
+    private final static Operation interpret_disjunction_3_var_3(Prolog m) {
         m.trust(null);
         return interpret_disjunction_3_4(m);
     }
 
-    private final static Operation interpret_disjunction_3_int(Prolog m) { 
+    private final static Operation interpret_disjunction_3_int(Prolog m) {
         m.jtry3(null, FILE_meta_qsort::interpret_disjunction_3_int_1);
         return interpret_disjunction_3_3(m);
     }
 
-    private final static Operation interpret_disjunction_3_int_1(Prolog m) { 
+    private final static Operation interpret_disjunction_3_int_1(Prolog m) {
         m.trust(null);
         return interpret_disjunction_3_4(m);
     }
 
-    private final static Operation interpret_disjunction_3_1(Prolog m) { 
+    private final static Operation interpret_disjunction_3_1(Prolog m) {
     // interpret_disjunction((A->B),C,D):-interpret(A,E),!,'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl'(B,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2;
@@ -688,7 +688,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl", FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec, VA(a5, a3, a7), cont)));
     }
 
-    private final static Operation interpret_disjunction_3_2(Prolog m) { 
+    private final static Operation interpret_disjunction_3_2(Prolog m) {
     // interpret_disjunction((A->B),C,D):-!,interpret(C,D)
          Term a1, a2, a3;
         Operation cont;
@@ -708,7 +708,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a2, a3), cont);
     }
 
-    private final static Operation interpret_disjunction_3_3(Prolog m) { 
+    private final static Operation interpret_disjunction_3_3(Prolog m) {
     // interpret_disjunction(A,B,C):-interpret(A,C)
          Term a1, a2, a3;
         Operation cont;
@@ -721,7 +721,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("interpret", FILE_meta_qsort::PRED_interpret_2_static_exec, VA(a1, a3), cont);
     }
 
-    private final static Operation interpret_disjunction_3_4(Prolog m) { 
+    private final static Operation interpret_disjunction_3_4(Prolog m) {
     // interpret_disjunction(A,B,C):-interpret(B,C)
          Term a1, a2, a3;
         Operation cont;
@@ -742,24 +742,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_is_built_in_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_built_in_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_meta_qsort::is_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::is_built_in_1_1, FILE_meta_qsort::is_built_in_1_2, fail_0); 
+        return m.switch_on_term(FILE_meta_qsort::is_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::is_built_in_1_1, FILE_meta_qsort::is_built_in_1_2, fail_0);
     }
 
-    private final static Operation is_built_in_1_var(Prolog m) { 
+    private final static Operation is_built_in_1_var(Prolog m) {
         m.jtry1(null, FILE_meta_qsort::is_built_in_1_var_1);
         return is_built_in_1_1(m);
     }
 
-    private final static Operation is_built_in_1_var_1(Prolog m) { 
+    private final static Operation is_built_in_1_var_1(Prolog m) {
         m.trust(null);
         return is_built_in_1_2(m);
     }
 
-    private final static Operation is_built_in_1_1(Prolog m) { 
+    private final static Operation is_built_in_1_1(Prolog m) {
     // is_built_in(true):-true
          Term a1;
         Operation cont;
@@ -771,7 +771,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation is_built_in_1_2(Prolog m) { 
+    private final static Operation is_built_in_1_2(Prolog m) {
     // is_built_in(A=<B):-true
          Term a1;
         Operation cont;
@@ -792,24 +792,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_interpret_built_in_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_interpret_built_in_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_meta_qsort::interpret_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::interpret_built_in_1_1, FILE_meta_qsort::interpret_built_in_1_2, fail_0); 
+        return m.switch_on_term(FILE_meta_qsort::interpret_built_in_1_var, fail_0, fail_0, FILE_meta_qsort::interpret_built_in_1_1, FILE_meta_qsort::interpret_built_in_1_2, fail_0);
     }
 
-    private final static Operation interpret_built_in_1_var(Prolog m) { 
+    private final static Operation interpret_built_in_1_var(Prolog m) {
         m.jtry1(null, FILE_meta_qsort::interpret_built_in_1_var_1);
         return interpret_built_in_1_1(m);
     }
 
-    private final static Operation interpret_built_in_1_var_1(Prolog m) { 
+    private final static Operation interpret_built_in_1_var_1(Prolog m) {
         m.trust(null);
         return interpret_built_in_1_2(m);
     }
 
-    private final static Operation interpret_built_in_1_1(Prolog m) { 
+    private final static Operation interpret_built_in_1_1(Prolog m) {
     // interpret_built_in(true):-true
          Term a1;
         Operation cont;
@@ -821,7 +821,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation interpret_built_in_1_2(Prolog m) { 
+    private final static Operation interpret_built_in_1_2(Prolog m) {
     // interpret_built_in(A=<B):-A=<B
          Term a1, a2, a3;
         Operation cont;
@@ -931,69 +931,69 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 
 
 
-    public static Operation PRED_define_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_define_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_meta_qsort::define_2_var, fail_0, fail_0, FILE_meta_qsort::define_2_1, FILE_meta_qsort::define_2_str, fail_0); 
+        return m.switch_on_term(FILE_meta_qsort::define_2_var, fail_0, fail_0, FILE_meta_qsort::define_2_1, FILE_meta_qsort::define_2_str, fail_0);
     }
 
-    private final static Operation define_2_var(Prolog m) { 
+    private final static Operation define_2_var(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::define_2_var_1);
         return define_2_1(m);
     }
 
-    private final static Operation define_2_var_1(Prolog m) { 
+    private final static Operation define_2_var_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_var_2);
         return define_2_2(m);
     }
 
-    private final static Operation define_2_var_2(Prolog m) { 
+    private final static Operation define_2_var_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_var_3);
         return define_2_3(m);
     }
 
-    private final static Operation define_2_var_3(Prolog m) { 
+    private final static Operation define_2_var_3(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_var_4);
         return define_2_4(m);
     }
 
-    private final static Operation define_2_var_4(Prolog m) { 
+    private final static Operation define_2_var_4(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_var_5);
         return define_2_5(m);
     }
 
-    private final static Operation define_2_var_5(Prolog m) { 
+    private final static Operation define_2_var_5(Prolog m) {
         m.trust(null);
         return define_2_6(m);
     }
 
-    private final static Operation define_2_str(Prolog m) { 
+    private final static Operation define_2_str(Prolog m) {
         m.jtry2(null, FILE_meta_qsort::define_2_str_1);
         return define_2_2(m);
     }
 
-    private final static Operation define_2_str_1(Prolog m) { 
+    private final static Operation define_2_str_1(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_str_2);
         return define_2_3(m);
     }
 
-    private final static Operation define_2_str_2(Prolog m) { 
+    private final static Operation define_2_str_2(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_str_3);
         return define_2_4(m);
     }
 
-    private final static Operation define_2_str_3(Prolog m) { 
+    private final static Operation define_2_str_3(Prolog m) {
         m.retry(null, FILE_meta_qsort::define_2_str_4);
         return define_2_5(m);
     }
 
-    private final static Operation define_2_str_4(Prolog m) { 
+    private final static Operation define_2_str_4(Prolog m) {
         m.trust(null);
         return define_2_6(m);
     }
 
-    private final static Operation define_2_1(Prolog m) { 
+    private final static Operation define_2_1(Prolog m) {
     // define(qsort,qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])):-true
          Term a1, a2;
         Operation cont;
@@ -1010,7 +1010,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation define_2_2(Prolog m) { 
+    private final static Operation define_2_2(Prolog m) {
     // define(qsort([A|B],C,D),(partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G]))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15;
         Operation cont;
@@ -1078,7 +1078,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation define_2_3(Prolog m) { 
+    private final static Operation define_2_3(Prolog m) {
     // define(qsort([],A,A),true):-true
          Term a1, a2, a3;
         Operation cont;
@@ -1096,7 +1096,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation define_2_4(Prolog m) { 
+    private final static Operation define_2_4(Prolog m) {
     // define(partition([A|B],C,[A|D],E),(A=<C,!,partition(B,C,D,E))):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
         Operation cont;
@@ -1156,7 +1156,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation define_2_5(Prolog m) { 
+    private final static Operation define_2_5(Prolog m) {
     // define(partition([A|B],C,D,[A|E]),partition(B,C,D,E)):-true
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation cont;
@@ -1201,7 +1201,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation define_2_6(Prolog m) { 
+    private final static Operation define_2_6(Prolog m) {
     // define(partition([],A,[],[]),true):-true
          Term a1, a2;
         Operation cont;

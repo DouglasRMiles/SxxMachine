@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
 public class FILE_tak extends FILE_system {
@@ -11,8 +11,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-tak
         m.setB0();
     // top:-[tak]
@@ -27,8 +27,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
 
-    public static Operation PRED_tak_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_tak_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // tak:-tak(18,12,6,A)
         m.setB0();
     // tak:-[tak(18,12,6,A)]
@@ -44,24 +44,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/tak.pl
 
 
 
-    public static Operation PRED_tak_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_tak_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return tak_4_top(m);
     }
 
-    private final static Operation tak_4_top(Prolog m) { 
+    private final static Operation tak_4_top(Prolog m) {
         m.setB0();
         m.jtry4(null, FILE_tak::tak_4_sub_1);
         return tak_4_1(m);
     }
 
-    private final static Operation tak_4_sub_1(Prolog m) { 
+    private final static Operation tak_4_sub_1(Prolog m) {
         m.trust(null);
         return tak_4_2(m);
     }
 
-    private final static Operation tak_4_1(Prolog m) { 
+    private final static Operation tak_4_1(Prolog m) {
     // tak(A,B,C,D):-A=<B,C=D
          Term a1, a2, a3, a4;
         Operation cont;
@@ -84,7 +84,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation tak_4_2(Prolog m) { 
+    private final static Operation tak_4_2(Prolog m) {
     // tak(A,B,C,D):-A>B,E is A-1,tak(E,B,C,F),G is B-1,tak(G,C,A,H),I is C-1,tak(I,A,B,J),tak(F,H,J,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
         Operation p1, p2, p3, p4, p5;

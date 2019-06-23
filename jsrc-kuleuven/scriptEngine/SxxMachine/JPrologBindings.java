@@ -297,7 +297,7 @@ public class JPrologBindings implements Bindings {
 				Term t = bindings.get(key);
 				bindings.remove(t);
 			} else {
-				bindings.remove(key);		
+				bindings.remove(key);
 			}
 		}
 

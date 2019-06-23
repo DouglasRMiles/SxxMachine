@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_package_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_package_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // package A:-true
         m.setB0();
          Term a1;
@@ -29,8 +29,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_open_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_open_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // open(A,B,C):-open(A,B,C,[])
         m.setB0();
          Term a1, a2, a3;
@@ -49,8 +49,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_close_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_close_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // close(A):-close(A,[])
         m.setB0();
          Term a1;
@@ -67,8 +67,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_flush_output_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_flush_output_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // flush_output:-current_output(A),flush_output(A)
         m.setB0();
          Term a1;
@@ -92,25 +92,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_stream_property_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_stream_property_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_io::stream_property_2_sub_1);
         return stream_property_2_1(m);
     }
 
-    private final static Operation stream_property_2_sub_1(Prolog m) { 
+    private final static Operation stream_property_2_sub_1(Prolog m) {
         m.retry(null, FILE_io::stream_property_2_sub_2);
         return stream_property_2_2(m);
     }
 
-    private final static Operation stream_property_2_sub_2(Prolog m) { 
+    private final static Operation stream_property_2_sub_2(Prolog m) {
         m.trust(null);
         return stream_property_2_3(m);
     }
 
-    private final static Operation stream_property_2_1(Prolog m) { 
+    private final static Operation stream_property_2_1(Prolog m) {
     // stream_property(A,B):-var(B),!,'$stream_property'(A,B)
          Term a1, a2, a3;
         Operation cont;
@@ -138,7 +138,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$stream_property", FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont);
     }
 
-    private final static Operation stream_property_2_2(Prolog m) { 
+    private final static Operation stream_property_2_2(Prolog m) {
     // stream_property(A,B):-'$stream_property_specifier'(B),!,'$stream_property'(A,B)
          Term a1, a2, a3;
         Operation p1, p2;
@@ -159,7 +159,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$stream_property", FILE_system::PRED_$stream_property_2_static_exec, VA(a1, a2), cont)));
     }
 
-    private final static Operation stream_property_2_3(Prolog m) { 
+    private final static Operation stream_property_2_3(Prolog m) {
     // stream_property(A,B):-illarg(domain(term,stream_property),stream_property(A,B),2)
          Term a1, a2, a3;
         Operation cont;
@@ -184,25 +184,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_$stream_property_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$stream_property_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_io::$stream_property_2_sub_1);
         return $stream_property_2_1(m);
     }
 
-    private final static Operation $stream_property_2_sub_1(Prolog m) { 
+    private final static Operation $stream_property_2_sub_1(Prolog m) {
         m.retry(null, FILE_io::$stream_property_2_sub_2);
         return $stream_property_2_2(m);
     }
 
-    private final static Operation $stream_property_2_sub_2(Prolog m) { 
+    private final static Operation $stream_property_2_sub_2(Prolog m) {
         m.trust(null);
         return $stream_property_2_3(m);
     }
 
-    private final static Operation $stream_property_2_1(Prolog m) { 
+    private final static Operation $stream_property_2_1(Prolog m) {
     // '$stream_property'(A,B):-var(A),!,'$get_stream_manager'(C),hash_map(C,D),'$builtin_member'((A,E),D),java(A),'$builtin_member'(B,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3, p4;
@@ -241,7 +241,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a6), cont)))));
     }
 
-    private final static Operation $stream_property_2_2(Prolog m) { 
+    private final static Operation $stream_property_2_2(Prolog m) {
     // '$stream_property'(A,B):-java(A),!,'$get_stream_manager'(C),hash_get(C,A,D),'$builtin_member'(B,D)
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -274,7 +274,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$builtin_member", FILE_system::PRED_$builtin_member_2_static_exec, VA(a2, a5), cont)));
     }
 
-    private final static Operation $stream_property_2_3(Prolog m) { 
+    private final static Operation $stream_property_2_3(Prolog m) {
     // '$stream_property'(A,B):-illarg(domain(stream,stream),stream_property(A,B),1)
          Term a1, a2, a3;
         Operation cont;
@@ -302,74 +302,74 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$stream_property_specifier_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_io::$stream_property_specifier_1_var, fail_0, fail_0, FILE_io::$stream_property_specifier_1_con, FILE_io::$stream_property_specifier_1_str, fail_0); 
+        return m.switch_on_term(FILE_io::$stream_property_specifier_1_var, fail_0, fail_0, FILE_io::$stream_property_specifier_1_con, FILE_io::$stream_property_specifier_1_str, fail_0);
     }
 
-    private final static Operation $stream_property_specifier_1_var(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var(Prolog m) {
         m.jtry1(null, FILE_io::$stream_property_specifier_1_var_1);
         return $stream_property_specifier_1_1(m);
     }
 
-    private final static Operation $stream_property_specifier_1_var_1(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var_1(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_var_2);
         return $stream_property_specifier_1_2(m);
     }
 
-    private final static Operation $stream_property_specifier_1_var_2(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var_2(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_var_3);
         return $stream_property_specifier_1_3(m);
     }
 
-    private final static Operation $stream_property_specifier_1_var_3(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var_3(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_var_4);
         return $stream_property_specifier_1_4(m);
     }
 
-    private final static Operation $stream_property_specifier_1_var_4(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var_4(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_var_5);
         return $stream_property_specifier_1_5(m);
     }
 
-    private final static Operation $stream_property_specifier_1_var_5(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_var_5(Prolog m) {
         m.trust(null);
         return $stream_property_specifier_1_6(m);
     }
 
-    private final static Operation $stream_property_specifier_1_con(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_con(Prolog m) {
         m.jtry1(null, FILE_io::$stream_property_specifier_1_con_1);
         return $stream_property_specifier_1_1(m);
     }
 
-    private final static Operation $stream_property_specifier_1_con_1(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_con_1(Prolog m) {
         m.trust(null);
         return $stream_property_specifier_1_2(m);
     }
 
-    private final static Operation $stream_property_specifier_1_str(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_str(Prolog m) {
         m.jtry1(null, FILE_io::$stream_property_specifier_1_str_1);
         return $stream_property_specifier_1_3(m);
     }
 
-    private final static Operation $stream_property_specifier_1_str_1(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_str_1(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_str_2);
         return $stream_property_specifier_1_4(m);
     }
 
-    private final static Operation $stream_property_specifier_1_str_2(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_str_2(Prolog m) {
         m.retry(null, FILE_io::$stream_property_specifier_1_str_3);
         return $stream_property_specifier_1_5(m);
     }
 
-    private final static Operation $stream_property_specifier_1_str_3(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_str_3(Prolog m) {
         m.trust(null);
         return $stream_property_specifier_1_6(m);
     }
 
-    private final static Operation $stream_property_specifier_1_1(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_1(Prolog m) {
     // '$stream_property_specifier'(input):-true
          Term a1;
         Operation cont;
@@ -381,7 +381,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $stream_property_specifier_1_2(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_2(Prolog m) {
     // '$stream_property_specifier'(output):-true
          Term a1;
         Operation cont;
@@ -393,7 +393,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $stream_property_specifier_1_3(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_3(Prolog m) {
     // '$stream_property_specifier'(alias(A)):-true
          Term a1;
         Operation cont;
@@ -407,7 +407,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $stream_property_specifier_1_4(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_4(Prolog m) {
     // '$stream_property_specifier'((mode A)):-true
          Term a1;
         Operation cont;
@@ -421,7 +421,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $stream_property_specifier_1_5(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_5(Prolog m) {
     // '$stream_property_specifier'(type(A)):-true
          Term a1;
         Operation cont;
@@ -435,7 +435,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $stream_property_specifier_1_6(Prolog m) { 
+    private final static Operation $stream_property_specifier_1_6(Prolog m) {
     // '$stream_property_specifier'(file_name(A)):-true
          Term a1;
         Operation cont;
@@ -456,8 +456,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get_char_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get_char_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get_char(A):-current_input(B),get_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -477,8 +477,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get_code_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get_code_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get_code(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -498,8 +498,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_peek_char_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_peek_char_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // peek_char(A):-current_input(B),peek_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -519,8 +519,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_peek_code_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_peek_code_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // peek_code(A):-current_input(B),peek_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -540,8 +540,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_put_char_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_put_char_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // put_char(A):-current_output(B),put_char(B,A)
         m.setB0();
          Term a1, a2;
@@ -561,8 +561,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_put_code_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_put_code_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // put_code(A):-current_output(B),put_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -583,8 +583,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_nl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_nl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // nl(A):-put_char(A,'\n')
         m.setB0();
          Term a1;
@@ -601,8 +601,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get0_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get0_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get0(A):-current_input(B),get_code(B,A)
         m.setB0();
          Term a1, a2;
@@ -622,8 +622,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get0_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get0_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get0(A,B):-get_code(A,B)
         m.setB0();
          Term a1, a2;
@@ -641,8 +641,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get(A):-current_input(B),get(B,A)
         m.setB0();
          Term a1, a2;
@@ -662,8 +662,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_put_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_put_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // put(A):-current_output(B),put(B,A)
         m.setB0();
          Term a1, a2;
@@ -683,8 +683,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_put_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_put_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // put(A,B):-C is B,put_code(A,C)
         m.setB0();
          Term a1, a2, a3;
@@ -708,8 +708,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_tab_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_tab_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // tab(A):-current_output(B),tab(B,A)
         m.setB0();
          Term a1, a2;
@@ -729,8 +729,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_skip_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_skip_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // skip(A):-current_input(B),skip(B,A)
         m.setB0();
          Term a1, a2;
@@ -750,8 +750,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_get_byte_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_get_byte_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // get_byte(A):-current_input(B),get_byte(B,A)
         m.setB0();
          Term a1, a2;
@@ -771,8 +771,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_peek_byte_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_peek_byte_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // peek_byte(A):-current_input(B),peek_byte(B,A)
         m.setB0();
          Term a1, a2;
@@ -792,8 +792,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 
 
 
-    public static Operation PRED_put_byte_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_put_byte_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // put_byte(A):-current_output(B),put_byte(B,A)
         m.setB0();
          Term a1, a2;

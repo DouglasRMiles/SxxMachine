@@ -15,7 +15,7 @@ public class PrologFlags {
     private final String integerRoundingFunction = "down";
     /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>char_conversion</code>. */
     private String charConversion = "codes";
-    
+
     // fields are set via reflection .. i should really updat the set flag code to realize is a boolean
     /** Prolog implementation flag: <code>debug</code>. */
     private boolean debug; // TODO Fix set_prolog_flag to realize this is a boolean

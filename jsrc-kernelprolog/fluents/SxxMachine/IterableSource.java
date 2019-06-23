@@ -19,7 +19,7 @@ public class IterableSource extends SourceFluentTerm {
         super(p);
         this.e = iterator;
     }
- 
+
 
     public IterableSource(Iterable V, Prog p) {
         super(p);

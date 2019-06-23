@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,20 +12,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_sendmore::top_0_sub_1);
         return top_0_1(m);
     }
 
-    private final static Operation top_0_sub_1(Prolog m) { 
+    private final static Operation top_0_sub_1(Prolog m) {
         m.trust(null);
         return top_0_2(m);
     }
 
-    private final static Operation top_0_1(Prolog m) { 
+    private final static Operation top_0_1(Prolog m) {
     // top:-digit(A),digit(B),A=\=B,sumdigit(0,A,B,C,D),digit(E),E=\=C,E=\=B,E=\=A,digit(F),F=\=E,F=\=C,F=\=B,F=\=A,sumdigit(D,E,F,B,G),digit(H),H=\=F,H=\=E,H=\=C,H=\=B,H=\=A,sumdigit(G,B,H,E,I),leftdigit(J),J=\=H,J=\=F,J=\=E,J=\=C,J=\=B,J=\=A,leftdigit(K),K=\=J,K=\=H,K=\=F,K=\=E,K=\=C,K=\=B,K=\=A,sumdigit(I,J,K,H,K),fail
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37;
@@ -83,7 +83,7 @@ m.cont = cont;
  Op("sumdigit", FILE_sendmore::PRED_sumdigit_5_static_exec, VA(a9, a10, a11, a8, a11), fail_0)))))))))))))))))))))))))))))))))))));
     }
 
-    private final static Operation top_0_2(Prolog m) { 
+    private final static Operation top_0_2(Prolog m) {
     // top:-true
         Operation cont;
         cont = m.cont;
@@ -99,20 +99,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
 
-    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_sendmore::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_1(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-C<10,!,A=C,B=0
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -155,7 +155,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_2(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_2(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(A,B,C):-A is C-10,B=1
          Term a1, a2, a3, a4;
         Operation cont;
@@ -190,8 +190,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
 
-    public static Operation PRED_sumdigit_5_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_sumdigit_5_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // sumdigit(A,B,C,D,E):-F is A+B+C,'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl'(D,E,F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8;
@@ -224,64 +224,64 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
 
-    public static Operation PRED_digit_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_digit_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_sendmore::digit_1_var, FILE_sendmore::digit_1_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_sendmore::digit_1_var, FILE_sendmore::digit_1_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation digit_1_var(Prolog m) { 
+    private final static Operation digit_1_var(Prolog m) {
         m.jtry1(null, FILE_sendmore::digit_1_var_1);
         return digit_1_1(m);
     }
 
-    private final static Operation digit_1_var_1(Prolog m) { 
+    private final static Operation digit_1_var_1(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_2);
         return digit_1_2(m);
     }
 
-    private final static Operation digit_1_var_2(Prolog m) { 
+    private final static Operation digit_1_var_2(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_3);
         return digit_1_3(m);
     }
 
-    private final static Operation digit_1_var_3(Prolog m) { 
+    private final static Operation digit_1_var_3(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_4);
         return digit_1_4(m);
     }
 
-    private final static Operation digit_1_var_4(Prolog m) { 
+    private final static Operation digit_1_var_4(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_5);
         return digit_1_5(m);
     }
 
-    private final static Operation digit_1_var_5(Prolog m) { 
+    private final static Operation digit_1_var_5(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_6);
         return digit_1_6(m);
     }
 
-    private final static Operation digit_1_var_6(Prolog m) { 
+    private final static Operation digit_1_var_6(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_7);
         return digit_1_7(m);
     }
 
-    private final static Operation digit_1_var_7(Prolog m) { 
+    private final static Operation digit_1_var_7(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_8);
         return digit_1_8(m);
     }
 
-    private final static Operation digit_1_var_8(Prolog m) { 
+    private final static Operation digit_1_var_8(Prolog m) {
         m.retry(null, FILE_sendmore::digit_1_var_9);
         return digit_1_9(m);
     }
 
-    private final static Operation digit_1_var_9(Prolog m) { 
+    private final static Operation digit_1_var_9(Prolog m) {
         m.trust(null);
         return digit_1_10(m);
     }
 
-    private final static Operation digit_1_1(Prolog m) { 
+    private final static Operation digit_1_1(Prolog m) {
     // digit(0):-true
          Term a1;
         Operation cont;
@@ -293,7 +293,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_2(Prolog m) { 
+    private final static Operation digit_1_2(Prolog m) {
     // digit(1):-true
          Term a1;
         Operation cont;
@@ -305,7 +305,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_3(Prolog m) { 
+    private final static Operation digit_1_3(Prolog m) {
     // digit(2):-true
          Term a1;
         Operation cont;
@@ -317,7 +317,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_4(Prolog m) { 
+    private final static Operation digit_1_4(Prolog m) {
     // digit(3):-true
          Term a1;
         Operation cont;
@@ -329,7 +329,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_5(Prolog m) { 
+    private final static Operation digit_1_5(Prolog m) {
     // digit(4):-true
          Term a1;
         Operation cont;
@@ -341,7 +341,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_6(Prolog m) { 
+    private final static Operation digit_1_6(Prolog m) {
     // digit(5):-true
          Term a1;
         Operation cont;
@@ -353,7 +353,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_7(Prolog m) { 
+    private final static Operation digit_1_7(Prolog m) {
     // digit(6):-true
          Term a1;
         Operation cont;
@@ -365,7 +365,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_8(Prolog m) { 
+    private final static Operation digit_1_8(Prolog m) {
     // digit(7):-true
          Term a1;
         Operation cont;
@@ -377,7 +377,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_9(Prolog m) { 
+    private final static Operation digit_1_9(Prolog m) {
     // digit(8):-true
          Term a1;
         Operation cont;
@@ -389,7 +389,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation digit_1_10(Prolog m) { 
+    private final static Operation digit_1_10(Prolog m) {
     // digit(9):-true
          Term a1;
         Operation cont;
@@ -408,59 +408,59 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmo
 
 
 
-    public static Operation PRED_leftdigit_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_leftdigit_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_sendmore::leftdigit_1_var, FILE_sendmore::leftdigit_1_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_sendmore::leftdigit_1_var, FILE_sendmore::leftdigit_1_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation leftdigit_1_var(Prolog m) { 
+    private final static Operation leftdigit_1_var(Prolog m) {
         m.jtry1(null, FILE_sendmore::leftdigit_1_var_1);
         return leftdigit_1_1(m);
     }
 
-    private final static Operation leftdigit_1_var_1(Prolog m) { 
+    private final static Operation leftdigit_1_var_1(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_2);
         return leftdigit_1_2(m);
     }
 
-    private final static Operation leftdigit_1_var_2(Prolog m) { 
+    private final static Operation leftdigit_1_var_2(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_3);
         return leftdigit_1_3(m);
     }
 
-    private final static Operation leftdigit_1_var_3(Prolog m) { 
+    private final static Operation leftdigit_1_var_3(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_4);
         return leftdigit_1_4(m);
     }
 
-    private final static Operation leftdigit_1_var_4(Prolog m) { 
+    private final static Operation leftdigit_1_var_4(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_5);
         return leftdigit_1_5(m);
     }
 
-    private final static Operation leftdigit_1_var_5(Prolog m) { 
+    private final static Operation leftdigit_1_var_5(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_6);
         return leftdigit_1_6(m);
     }
 
-    private final static Operation leftdigit_1_var_6(Prolog m) { 
+    private final static Operation leftdigit_1_var_6(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_7);
         return leftdigit_1_7(m);
     }
 
-    private final static Operation leftdigit_1_var_7(Prolog m) { 
+    private final static Operation leftdigit_1_var_7(Prolog m) {
         m.retry(null, FILE_sendmore::leftdigit_1_var_8);
         return leftdigit_1_8(m);
     }
 
-    private final static Operation leftdigit_1_var_8(Prolog m) { 
+    private final static Operation leftdigit_1_var_8(Prolog m) {
         m.trust(null);
         return leftdigit_1_9(m);
     }
 
-    private final static Operation leftdigit_1_1(Prolog m) { 
+    private final static Operation leftdigit_1_1(Prolog m) {
     // leftdigit(1):-true
          Term a1;
         Operation cont;
@@ -472,7 +472,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_2(Prolog m) { 
+    private final static Operation leftdigit_1_2(Prolog m) {
     // leftdigit(2):-true
          Term a1;
         Operation cont;
@@ -484,7 +484,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_3(Prolog m) { 
+    private final static Operation leftdigit_1_3(Prolog m) {
     // leftdigit(3):-true
          Term a1;
         Operation cont;
@@ -496,7 +496,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_4(Prolog m) { 
+    private final static Operation leftdigit_1_4(Prolog m) {
     // leftdigit(4):-true
          Term a1;
         Operation cont;
@@ -508,7 +508,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_5(Prolog m) { 
+    private final static Operation leftdigit_1_5(Prolog m) {
     // leftdigit(5):-true
          Term a1;
         Operation cont;
@@ -520,7 +520,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_6(Prolog m) { 
+    private final static Operation leftdigit_1_6(Prolog m) {
     // leftdigit(6):-true
          Term a1;
         Operation cont;
@@ -532,7 +532,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_7(Prolog m) { 
+    private final static Operation leftdigit_1_7(Prolog m) {
     // leftdigit(7):-true
          Term a1;
         Operation cont;
@@ -544,7 +544,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_8(Prolog m) { 
+    private final static Operation leftdigit_1_8(Prolog m) {
     // leftdigit(8):-true
          Term a1;
         Operation cont;
@@ -556,7 +556,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation leftdigit_1_9(Prolog m) { 
+    private final static Operation leftdigit_1_9(Prolog m) {
     // leftdigit(9):-true
          Term a1;
         Operation cont;

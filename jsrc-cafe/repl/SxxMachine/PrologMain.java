@@ -56,7 +56,7 @@ public class PrologMain {
     private static long reductionLimit;
     // First Files Init Each  -f
     private static List<File> toLoadF = new ArrayList<File>(4);
-    // Load Files NoInit -l 
+    // Load Files NoInit -l
     private static List<File> toLoadL = new ArrayList<File>(4);
     // Script Files InitNow [-s]
     private static List<File> toLoadS = new ArrayList<File>(4);
@@ -66,7 +66,7 @@ public class PrologMain {
     private static Term MAIN_GOAL;
     final private static Queue<String> pendingGoals = new LinkedList<String>();
     private static Queue<String> pendingInits = new LinkedList<String>();
- 
+
     public static void main(String argv[]) {
         if (argv == null || argv.length == 0) {
             argv = new String[] { "--enable-io", "-l", "jsrc-pass20/tests/animal_string.pro", "-main", "cafeteria" };
@@ -184,8 +184,8 @@ public class PrologMain {
 
     /**
      * @param file
-     * @throws IOException 
-     * @throws FileNotFoundException 
+     * @throws IOException
+     * @throws FileNotFoundException
      */
     private static void loadFile(File file, boolean enableInits) throws FileNotFoundException, IOException {
         Queue<String> savedPQueue = pendingInits;
@@ -238,7 +238,7 @@ public class PrologMain {
     }
 
     /**
-     * 
+     *
      */
     private static void doInits(Queue<String> pendingInits) {
         while (!pendingInits.isEmpty()) {
@@ -307,7 +307,7 @@ public class PrologMain {
         e.println("                  (if not specified, runs interactive loop)");
     }
 
-    /** 
+    /**
      * @param file_animal
      */
     public void run(PrologModule file_animal) {

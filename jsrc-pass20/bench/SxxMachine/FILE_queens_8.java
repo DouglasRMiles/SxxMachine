@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,20 +12,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_queens_8::top_0_sub_1);
         return top_0_1(m);
     }
 
-    private final static Operation top_0_sub_1(Prolog m) { 
+    private final static Operation top_0_sub_1(Prolog m) {
         m.trust(null);
         return top_0_2(m);
     }
 
-    private final static Operation top_0_1(Prolog m) { 
+    private final static Operation top_0_1(Prolog m) {
     // top:-queens(8,A),fail
         Operation p1;
         Operation cont;
@@ -35,7 +35,7 @@ m.cont = cont;
  Op("queens", FILE_queens_8::PRED_queens_2_static_exec, VA( int_8 , m.DONT_CARE2()), fail_0);
     }
 
-    private final static Operation top_0_2(Prolog m) { 
+    private final static Operation top_0_2(Prolog m) {
     // top:-true
         Operation cont;
         cont = m.cont;
@@ -50,8 +50,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_queens_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_queens_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // queens(A,B):-range(1,A,C),queens(C,[],B)
         m.setB0();
          Term a1, a2, a3;
@@ -72,24 +72,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_queens_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_queens_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2); 
+        return m.switch_on_term(FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_var, FILE_queens_8::queens_3_2, FILE_queens_8::queens_3_2);
     }
 
-    private final static Operation queens_3_var(Prolog m) { 
+    private final static Operation queens_3_var(Prolog m) {
         m.jtry3(null, FILE_queens_8::queens_3_var_1);
         return queens_3_1(m);
     }
 
-    private final static Operation queens_3_var_1(Prolog m) { 
+    private final static Operation queens_3_var_1(Prolog m) {
         m.trust(null);
         return queens_3_2(m);
     }
 
-    private final static Operation queens_3_1(Prolog m) { 
+    private final static Operation queens_3_1(Prolog m) {
     // queens([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -105,7 +105,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation queens_3_2(Prolog m) { 
+    private final static Operation queens_3_2(Prolog m) {
     // queens(A,B,C):-select(A,D,E),not_attack(B,E),queens(D,[E|B],C)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
@@ -131,8 +131,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_not_attack_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_not_attack_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // not_attack(A,B):-not_attack(A,B,1)
         m.setB0();
          Term a1, a2;
@@ -152,28 +152,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_not_attack_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_not_attack_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return not_attack_3_top(m);
     }
 
-    private final static Operation not_attack_3_top(Prolog m) { 
+    private final static Operation not_attack_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_queens_8::not_attack_3_var, fail_0, fail_0, FILE_queens_8::not_attack_3_1, fail_0, FILE_queens_8::not_attack_3_2); 
+        return m.switch_on_term(FILE_queens_8::not_attack_3_var, fail_0, fail_0, FILE_queens_8::not_attack_3_1, fail_0, FILE_queens_8::not_attack_3_2);
     }
 
-    private final static Operation not_attack_3_var(Prolog m) { 
+    private final static Operation not_attack_3_var(Prolog m) {
         m.jtry3(null, FILE_queens_8::not_attack_3_var_1);
         return not_attack_3_1(m);
     }
 
-    private final static Operation not_attack_3_var_1(Prolog m) { 
+    private final static Operation not_attack_3_var_1(Prolog m) {
         m.trust(null);
         return not_attack_3_2(m);
     }
 
-    private final static Operation not_attack_3_1(Prolog m) { 
+    private final static Operation not_attack_3_1(Prolog m) {
     // not_attack([],A,B):-!
          Term a1, a2, a3;
         Operation cont;
@@ -190,7 +190,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation not_attack_3_2(Prolog m) { 
+    private final static Operation not_attack_3_2(Prolog m) {
     // not_attack([A|B],C,D):-C=\=A+D,C=\=A-D,E is D+1,not_attack(B,C,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11;
         Operation cont;
@@ -261,28 +261,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_select_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_select_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return select_3_top(m);
     }
 
-    private final static Operation select_3_top(Prolog m) { 
+    private final static Operation select_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_queens_8::select_3_var, fail_0, fail_0, fail_0, fail_0, FILE_queens_8::select_3_var); 
+        return m.switch_on_term(FILE_queens_8::select_3_var, fail_0, fail_0, fail_0, fail_0, FILE_queens_8::select_3_var);
     }
 
-    private final static Operation select_3_var(Prolog m) { 
+    private final static Operation select_3_var(Prolog m) {
         m.jtry3(null, FILE_queens_8::select_3_var_1);
         return select_3_1(m);
     }
 
-    private final static Operation select_3_var_1(Prolog m) { 
+    private final static Operation select_3_var_1(Prolog m) {
         m.trust(null);
         return select_3_2(m);
     }
 
-    private final static Operation select_3_1(Prolog m) { 
+    private final static Operation select_3_1(Prolog m) {
     // select([A|B],B,A):-true
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -309,7 +309,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation select_3_2(Prolog m) { 
+    private final static Operation select_3_2(Prolog m) {
     // select([A|B],[A|C],D):-select(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -354,24 +354,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/queens
 
 
 
-    public static Operation PRED_range_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_range_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return range_3_top(m);
     }
 
-    private final static Operation range_3_top(Prolog m) { 
+    private final static Operation range_3_top(Prolog m) {
         m.setB0();
         m.jtry3(null, FILE_queens_8::range_3_sub_1);
         return range_3_1(m);
     }
 
-    private final static Operation range_3_sub_1(Prolog m) { 
+    private final static Operation range_3_sub_1(Prolog m) {
         m.trust(null);
         return range_3_2(m);
     }
 
-    private final static Operation range_3_1(Prolog m) { 
+    private final static Operation range_3_1(Prolog m) {
     // range(A,A,[A]):-!
          Term a1, a2, a3;
         Operation cont;
@@ -399,7 +399,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation range_3_2(Prolog m) { 
+    private final static Operation range_3_2(Prolog m) {
     // range(A,B,[A|C]):-A<B,D is A+1,range(D,B,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;

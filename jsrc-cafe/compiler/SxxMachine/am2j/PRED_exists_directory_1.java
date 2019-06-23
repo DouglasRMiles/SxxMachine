@@ -15,7 +15,7 @@ import SxxMachine.pterm.VariableTerm;
 /** {@code exists_directory(+Directory)} */
 public class PRED_exists_directory_1 extends Predicate.P1 {
     public PRED_exists_directory_1(Term a1, Operation next) {
-        
+
         ThizLARGs.setAreg0(a1);
         cont = next;
     }

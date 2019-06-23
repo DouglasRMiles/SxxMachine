@@ -10,7 +10,8 @@ public interface Nonvar extends Term {
     @Override
     boolean isNonvar();
 
-    int unifyArg(int i, Term a, Prog p);
+    @Override
+	int unifyArg(int i, Term a, Prog p);
 
     int getIntArg(int i);
 

@@ -23,7 +23,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
 
     private Class intendedClass;
 
-    public JavaObjectTerm toClone() {
+    @Override
+	public JavaObjectTerm toClone() {
         return TermData.createJavaObjectTerm(obj, this.intendedClass);
     }
     //
@@ -31,7 +32,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
     //        return obj;
     //    }
 
-    public boolean isObject() {
+    @Override
+	public boolean isObject() {
         return true;
     }
 
@@ -44,12 +46,14 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * synchronized public void resume() { available=true; notifyAll(); }
      */
 
-    public final boolean isImmutable() {
+    @Override
+	public final boolean isImmutable() {
         return immutable;
         // FIXME this.obj is not final
     }
 
-    public String pprint() throws PrologException {
+    @Override
+	public String pprint() throws PrologException {
         return "" + obj;
     }
 
@@ -57,7 +61,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
     ///  final private Object obj;
     public boolean immutable = true;
 
-    public boolean isJavaObject() {
+    @Override
+	public boolean isJavaObject() {
         return true;
     }
 
@@ -94,18 +99,21 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * <code>JavaObjectTerm</code>.
      */
 
-    public Class getIntendedClass() {
+    @Override
+	public Class getIntendedClass() {
         return this.obj.getClass();
     }
 
-    public String getJavaString() {
+    @Override
+	public String getJavaString() {
         oopsy("unknown getString");
         return "" + obj;
     }
 
     /* Term */
 
-    public boolean unifyImpl(Term t, Trail trail) {
+    @Override
+	public boolean unifyImpl(Term t, Trail trail) {
         t = t.dref();
         return (t.isVar()) ? t.bind(this, trail) : ((t.isJavaObject()) && this.obj == ((t).javaInstance()));
     }
@@ -120,7 +128,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * @see Term#convertible(Class, Class)
      */
 
-    public boolean convertible(Class type) {
+    @Override
+	public boolean convertible(Class type) {
         return convertible(this.obj.getClass(), type);
     }
 
@@ -131,7 +140,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * @see #obj
      */
 
-    public Object javaInstance() {
+    @Override
+	public Object javaInstance() {
         return this.obj;
     }
 
@@ -148,11 +158,13 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * @see #compareTo
      */
 
-    public boolean equalsTerm(Term o, OpVisitor comparator) {
+    @Override
+	public boolean equalsTerm(Term o, OpVisitor comparator) {
         return o.isJavaObject() && this.obj == ((o).javaInstance());
     }
 
-    public int termHashCodeImpl() {
+    @Override
+	public int termHashCodeImpl() {
         return System.identityHashCode(this.obj);
     }
 
@@ -161,7 +173,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
      * StringBuilder instance.
      */
 
-    public void toStringImpl(int printFlags, StringBuilder sb) {
+    @Override
+	public void toStringImpl(int printFlags, StringBuilder sb) {
         sb.append(this.obj.getClass().getName());
         sb.append("(0x");
         sb.append(Integer.toHexString(termHashCode()));
@@ -182,7 +195,8 @@ public class JavaObjectTerm extends SxxMachine.Const {
      *         this term is <em>after</em> the <code>anotherTerm</code>.
      */
 
-    public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
+    @Override
+	public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
         if ((anotherTerm.isVar()) || (anotherTerm.isNumber()) || (anotherTerm.isAtomSymbol()) || (anotherTerm.isCons())
                 || (anotherTerm.isCompound()))
             return AFTER;
@@ -193,11 +207,13 @@ public class JavaObjectTerm extends SxxMachine.Const {
         return this.obj.hashCode() - (anotherTerm).javaInstance().hashCode(); // ???
     }
 
-    public int type() {
+    @Override
+	public int type() {
         return TYPE_JAVA_OBJECT;
     }
 
-    public int arityOrType() {
+    @Override
+	public int arityOrType() {
         return TYPE_JAVA_OBJECT;
     }
 

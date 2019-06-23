@@ -50,7 +50,7 @@ class IntegerTerm extends LongTerm {
      * <code>int</code> value.
      */
     public IntegerTerm(int i) {
-        super(i);        
+        super(i);
         if (!(nvalue instanceof Integer)) {
         	// This allows it to be broken into debugger easier
             @SuppressWarnings("unused")

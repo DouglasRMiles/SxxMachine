@@ -17,7 +17,7 @@ public class KPTrail {
 
 
     public int top() {
-        return size();     
+        return size();
     }
 
     public final Undoable pop() {

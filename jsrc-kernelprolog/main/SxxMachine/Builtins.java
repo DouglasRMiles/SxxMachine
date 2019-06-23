@@ -204,7 +204,7 @@ public class Builtins extends HashDict {
             return (Nonvar) c;
         if (fname.equals(Prolog.Nil.fname()))
             return (Nonvar) Prolog.Nil;
-        if (fname.equals(Prolog.aNo.fname()))             
+        if (fname.equals(Prolog.aNo.fname()))
             return (Nonvar) Prolog.aNo;
         if (fname.equals(Prolog.aYes.fname()))
             return (Nonvar) Prolog.aYes;

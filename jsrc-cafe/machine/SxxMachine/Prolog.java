@@ -319,7 +319,7 @@ public final class Prolog extends PrologFlags implements ISTerm {
     public void neckCut() {
         this.stack.cut(this.B0);
     }
-    
+
     /**
      * Returns a copy of term <code>t</code>.
      * @param t a term to be copied. It must be dereferenced.
@@ -758,7 +758,8 @@ public final class Prolog extends PrologFlags implements ISTerm {
      * @param i
      * @return
      */
-    public Term getPlainArg(int i) {
+    @Override
+	public Term getPlainArg(int i) {
         return this.AREGS.getPlainArg(i);
     }
 
@@ -804,7 +805,7 @@ public final class Prolog extends PrologFlags implements ISTerm {
 	}
 
 	private static final int PROG_OFFSET = 1;
-	
+
 	@Override
 	public Term getDrefArg(int i) {
 		return getTermDRef(PROG_OFFSET).getDrefArg(i);

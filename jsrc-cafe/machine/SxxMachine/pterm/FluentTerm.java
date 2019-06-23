@@ -19,13 +19,13 @@ public abstract class FluentTerm extends SystemObject implements Undoable, Fluen
 			throw new AbstractMethodError("Auto-generated method stub:  FluentTerm.containsTermImpl");
 		return super.containsTermImpl(variableTerm, comparison);
 	}
-	
+
     public FluentTerm(Prog p) {
         trailMe(p);
     }
 
     /**
-     * 
+     *
      */
     public String variableName() {
         return qname();

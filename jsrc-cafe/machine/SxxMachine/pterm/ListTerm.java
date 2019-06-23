@@ -182,7 +182,8 @@ public abstract class ListTerm extends AFunct implements Compound {
         return charsToString(this);
     }
 
-    public String fname() {
+    @Override
+	public String fname() {
         return functor().fname();
     }
 

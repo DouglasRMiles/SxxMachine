@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-qsort
         m.setB0();
     // top:-[qsort]
@@ -108,8 +108,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
 
-    public static Operation PRED_qsort_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_qsort_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // qsort:-qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])
         m.setB0();
     // qsort:-[qsort([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8],A,[])]
@@ -124,24 +124,24 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
 
-    public static Operation PRED_qsort_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_qsort_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_qsort::qsort_3_var, fail_0, fail_0, FILE_qsort::qsort_3_2, fail_0, FILE_qsort::qsort_3_1); 
+        return m.switch_on_term(FILE_qsort::qsort_3_var, fail_0, fail_0, FILE_qsort::qsort_3_2, fail_0, FILE_qsort::qsort_3_1);
     }
 
-    private final static Operation qsort_3_var(Prolog m) { 
+    private final static Operation qsort_3_var(Prolog m) {
         m.jtry3(null, FILE_qsort::qsort_3_var_1);
         return qsort_3_1(m);
     }
 
-    private final static Operation qsort_3_var_1(Prolog m) { 
+    private final static Operation qsort_3_var_1(Prolog m) {
         m.trust(null);
         return qsort_3_2(m);
     }
 
-    private final static Operation qsort_3_1(Prolog m) { 
+    private final static Operation qsort_3_1(Prolog m) {
     // qsort([A|B],C,D):-partition(B,A,E,F),qsort(F,G,D),qsort(E,C,[A|G])
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2;
@@ -172,7 +172,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("qsort", FILE_qsort::PRED_qsort_3_static_exec, VA(a6, a2, a9), cont)));
     }
 
-    private final static Operation qsort_3_2(Prolog m) { 
+    private final static Operation qsort_3_2(Prolog m) {
     // qsort([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -195,43 +195,43 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/qsort.
 
 
 
-    public static Operation PRED_partition_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_partition_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return partition_4_top(m);
     }
 
-    private final static Operation partition_4_top(Prolog m) { 
+    private final static Operation partition_4_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_qsort::partition_4_var, fail_0, fail_0, FILE_qsort::partition_4_3, fail_0, FILE_qsort::partition_4_lis); 
+        return m.switch_on_term(FILE_qsort::partition_4_var, fail_0, fail_0, FILE_qsort::partition_4_3, fail_0, FILE_qsort::partition_4_lis);
     }
 
-    private final static Operation partition_4_var(Prolog m) { 
+    private final static Operation partition_4_var(Prolog m) {
         m.jtry4(null, FILE_qsort::partition_4_var_1);
         return partition_4_1(m);
     }
 
-    private final static Operation partition_4_var_1(Prolog m) { 
+    private final static Operation partition_4_var_1(Prolog m) {
         m.retry(null, FILE_qsort::partition_4_var_2);
         return partition_4_2(m);
     }
 
-    private final static Operation partition_4_var_2(Prolog m) { 
+    private final static Operation partition_4_var_2(Prolog m) {
         m.trust(null);
         return partition_4_3(m);
     }
 
-    private final static Operation partition_4_lis(Prolog m) { 
+    private final static Operation partition_4_lis(Prolog m) {
         m.jtry4(null, FILE_qsort::partition_4_lis_1);
         return partition_4_1(m);
     }
 
-    private final static Operation partition_4_lis_1(Prolog m) { 
+    private final static Operation partition_4_lis_1(Prolog m) {
         m.trust(null);
         return partition_4_2(m);
     }
 
-    private final static Operation partition_4_1(Prolog m) { 
+    private final static Operation partition_4_1(Prolog m) {
     // partition([A|B],C,[A|D],E):-A=<C,!,partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation cont;
@@ -286,7 +286,7 @@ m.cont = cont;
         return partition_4_top(m);
     }
 
-    private final static Operation partition_4_2(Prolog m) { 
+    private final static Operation partition_4_2(Prolog m) {
     // partition([A|B],C,D,[A|E]):-partition(B,C,D,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation cont;
@@ -326,7 +326,7 @@ m.cont = cont;
         return partition_4_top(m);
     }
 
-    private final static Operation partition_4_3(Prolog m) { 
+    private final static Operation partition_4_3(Prolog m) {
     // partition([],A,[],[]):-true
          Term a1, a2, a3, a4;
         Operation cont;

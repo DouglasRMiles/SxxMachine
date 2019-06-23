@@ -167,7 +167,7 @@ public class ListViewTerm extends ListTerm {
     }
 
     @Override
-    public Term car() { 
+    public Term car() {
         return nthTermEle0(0);
     }
 

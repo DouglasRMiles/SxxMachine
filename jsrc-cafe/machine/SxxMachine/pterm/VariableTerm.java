@@ -49,11 +49,11 @@ public class VariableTerm extends AVar implements Undoable, Var {
 			return null;
 		}
 
-	
+
     public long timestampJP;
 
     protected MiniJProlog mach;
-    
+
     @Override
     public Var toClone() {
         return this;
@@ -128,7 +128,8 @@ public class VariableTerm extends AVar implements Undoable, Var {
     }
 
     /** Returns a string representation of this object. */
-    public String variableName() {
+    @Override
+	public String variableName() {
         if (this.varName != null) {
             return this.varName;
         }

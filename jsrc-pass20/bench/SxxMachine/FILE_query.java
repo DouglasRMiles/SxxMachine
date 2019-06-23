@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_top_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_top_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // top:-query
         m.setB0();
     // top:-[query]
@@ -28,20 +28,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_query_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_query_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry0(null, FILE_query::query_0_sub_1);
         return query_0_1(m);
     }
 
-    private final static Operation query_0_sub_1(Prolog m) { 
+    private final static Operation query_0_sub_1(Prolog m) {
         m.trust(null);
         return query_0_2(m);
     }
 
-    private final static Operation query_0_1(Prolog m) { 
+    private final static Operation query_0_1(Prolog m) {
     // query:-query(A),fail
         Operation p1;
         Operation cont;
@@ -51,7 +51,7 @@ m.cont = cont;
  Op("query", FILE_query::PRED_query_1_static_exec, VA(m.DONT_CARE2()), fail_0);
     }
 
-    private final static Operation query_0_2(Prolog m) { 
+    private final static Operation query_0_2(Prolog m) {
     // query:-true
         Operation cont;
         cont = m.cont;
@@ -67,8 +67,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_query_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_query_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // query([A,B,C,D]):-density(A,B),density(C,D),B>D,E is 20*B,F is 21*D,E<F
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -145,8 +145,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_density_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_density_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // density(A,B):-pop(A,C),area(A,D),B is C*100//D
         m.setB0();
          Term a1, a2, a3, a4, a5, a6;
@@ -225,139 +225,139 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_pop_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_pop_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_query::pop_2_var, fail_0, fail_0, FILE_query::pop_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_query::pop_2_var, fail_0, fail_0, FILE_query::pop_2_var, fail_0, fail_0);
     }
 
-    private final static Operation pop_2_var(Prolog m) { 
+    private final static Operation pop_2_var(Prolog m) {
         m.jtry2(null, FILE_query::pop_2_var_1);
         return pop_2_1(m);
     }
 
-    private final static Operation pop_2_var_1(Prolog m) { 
+    private final static Operation pop_2_var_1(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_2);
         return pop_2_2(m);
     }
 
-    private final static Operation pop_2_var_2(Prolog m) { 
+    private final static Operation pop_2_var_2(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_3);
         return pop_2_3(m);
     }
 
-    private final static Operation pop_2_var_3(Prolog m) { 
+    private final static Operation pop_2_var_3(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_4);
         return pop_2_4(m);
     }
 
-    private final static Operation pop_2_var_4(Prolog m) { 
+    private final static Operation pop_2_var_4(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_5);
         return pop_2_5(m);
     }
 
-    private final static Operation pop_2_var_5(Prolog m) { 
+    private final static Operation pop_2_var_5(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_6);
         return pop_2_6(m);
     }
 
-    private final static Operation pop_2_var_6(Prolog m) { 
+    private final static Operation pop_2_var_6(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_7);
         return pop_2_7(m);
     }
 
-    private final static Operation pop_2_var_7(Prolog m) { 
+    private final static Operation pop_2_var_7(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_8);
         return pop_2_8(m);
     }
 
-    private final static Operation pop_2_var_8(Prolog m) { 
+    private final static Operation pop_2_var_8(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_9);
         return pop_2_9(m);
     }
 
-    private final static Operation pop_2_var_9(Prolog m) { 
+    private final static Operation pop_2_var_9(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_10);
         return pop_2_10(m);
     }
 
-    private final static Operation pop_2_var_10(Prolog m) { 
+    private final static Operation pop_2_var_10(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_11);
         return pop_2_11(m);
     }
 
-    private final static Operation pop_2_var_11(Prolog m) { 
+    private final static Operation pop_2_var_11(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_12);
         return pop_2_12(m);
     }
 
-    private final static Operation pop_2_var_12(Prolog m) { 
+    private final static Operation pop_2_var_12(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_13);
         return pop_2_13(m);
     }
 
-    private final static Operation pop_2_var_13(Prolog m) { 
+    private final static Operation pop_2_var_13(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_14);
         return pop_2_14(m);
     }
 
-    private final static Operation pop_2_var_14(Prolog m) { 
+    private final static Operation pop_2_var_14(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_15);
         return pop_2_15(m);
     }
 
-    private final static Operation pop_2_var_15(Prolog m) { 
+    private final static Operation pop_2_var_15(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_16);
         return pop_2_16(m);
     }
 
-    private final static Operation pop_2_var_16(Prolog m) { 
+    private final static Operation pop_2_var_16(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_17);
         return pop_2_17(m);
     }
 
-    private final static Operation pop_2_var_17(Prolog m) { 
+    private final static Operation pop_2_var_17(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_18);
         return pop_2_18(m);
     }
 
-    private final static Operation pop_2_var_18(Prolog m) { 
+    private final static Operation pop_2_var_18(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_19);
         return pop_2_19(m);
     }
 
-    private final static Operation pop_2_var_19(Prolog m) { 
+    private final static Operation pop_2_var_19(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_20);
         return pop_2_20(m);
     }
 
-    private final static Operation pop_2_var_20(Prolog m) { 
+    private final static Operation pop_2_var_20(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_21);
         return pop_2_21(m);
     }
 
-    private final static Operation pop_2_var_21(Prolog m) { 
+    private final static Operation pop_2_var_21(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_22);
         return pop_2_22(m);
     }
 
-    private final static Operation pop_2_var_22(Prolog m) { 
+    private final static Operation pop_2_var_22(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_23);
         return pop_2_23(m);
     }
 
-    private final static Operation pop_2_var_23(Prolog m) { 
+    private final static Operation pop_2_var_23(Prolog m) {
         m.retry(null, FILE_query::pop_2_var_24);
         return pop_2_24(m);
     }
 
-    private final static Operation pop_2_var_24(Prolog m) { 
+    private final static Operation pop_2_var_24(Prolog m) {
         m.trust(null);
         return pop_2_25(m);
     }
 
-    private final static Operation pop_2_1(Prolog m) { 
+    private final static Operation pop_2_1(Prolog m) {
     // pop(china,8250):-true
          Term a1, a2;
         Operation cont;
@@ -372,7 +372,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_2(Prolog m) { 
+    private final static Operation pop_2_2(Prolog m) {
     // pop(india,5863):-true
          Term a1, a2;
         Operation cont;
@@ -387,7 +387,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_3(Prolog m) { 
+    private final static Operation pop_2_3(Prolog m) {
     // pop(ussr,2521):-true
          Term a1, a2;
         Operation cont;
@@ -402,7 +402,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_4(Prolog m) { 
+    private final static Operation pop_2_4(Prolog m) {
     // pop(usa,2119):-true
          Term a1, a2;
         Operation cont;
@@ -417,7 +417,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_5(Prolog m) { 
+    private final static Operation pop_2_5(Prolog m) {
     // pop(indonesia,1276):-true
          Term a1, a2;
         Operation cont;
@@ -432,7 +432,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_6(Prolog m) { 
+    private final static Operation pop_2_6(Prolog m) {
     // pop(japan,1097):-true
          Term a1, a2;
         Operation cont;
@@ -447,7 +447,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_7(Prolog m) { 
+    private final static Operation pop_2_7(Prolog m) {
     // pop(brazil,1042):-true
          Term a1, a2;
         Operation cont;
@@ -462,7 +462,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_8(Prolog m) { 
+    private final static Operation pop_2_8(Prolog m) {
     // pop(bangladesh,750):-true
          Term a1, a2;
         Operation cont;
@@ -477,7 +477,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_9(Prolog m) { 
+    private final static Operation pop_2_9(Prolog m) {
     // pop(pakistan,682):-true
          Term a1, a2;
         Operation cont;
@@ -492,7 +492,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_10(Prolog m) { 
+    private final static Operation pop_2_10(Prolog m) {
     // pop(w_germany,620):-true
          Term a1, a2;
         Operation cont;
@@ -507,7 +507,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_11(Prolog m) { 
+    private final static Operation pop_2_11(Prolog m) {
     // pop(nigeria,613):-true
          Term a1, a2;
         Operation cont;
@@ -522,7 +522,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_12(Prolog m) { 
+    private final static Operation pop_2_12(Prolog m) {
     // pop(mexico,581):-true
          Term a1, a2;
         Operation cont;
@@ -537,7 +537,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_13(Prolog m) { 
+    private final static Operation pop_2_13(Prolog m) {
     // pop(uk,559):-true
          Term a1, a2;
         Operation cont;
@@ -552,7 +552,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_14(Prolog m) { 
+    private final static Operation pop_2_14(Prolog m) {
     // pop(italy,554):-true
          Term a1, a2;
         Operation cont;
@@ -567,7 +567,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_15(Prolog m) { 
+    private final static Operation pop_2_15(Prolog m) {
     // pop(france,525):-true
          Term a1, a2;
         Operation cont;
@@ -582,7 +582,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_16(Prolog m) { 
+    private final static Operation pop_2_16(Prolog m) {
     // pop(philippines,415):-true
          Term a1, a2;
         Operation cont;
@@ -597,7 +597,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_17(Prolog m) { 
+    private final static Operation pop_2_17(Prolog m) {
     // pop(thailand,410):-true
          Term a1, a2;
         Operation cont;
@@ -612,7 +612,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_18(Prolog m) { 
+    private final static Operation pop_2_18(Prolog m) {
     // pop(turkey,383):-true
          Term a1, a2;
         Operation cont;
@@ -627,7 +627,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_19(Prolog m) { 
+    private final static Operation pop_2_19(Prolog m) {
     // pop(egypt,364):-true
          Term a1, a2;
         Operation cont;
@@ -642,7 +642,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_20(Prolog m) { 
+    private final static Operation pop_2_20(Prolog m) {
     // pop(spain,352):-true
          Term a1, a2;
         Operation cont;
@@ -657,7 +657,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_21(Prolog m) { 
+    private final static Operation pop_2_21(Prolog m) {
     // pop(poland,337):-true
          Term a1, a2;
         Operation cont;
@@ -672,7 +672,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_22(Prolog m) { 
+    private final static Operation pop_2_22(Prolog m) {
     // pop(s_korea,335):-true
          Term a1, a2;
         Operation cont;
@@ -687,7 +687,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_23(Prolog m) { 
+    private final static Operation pop_2_23(Prolog m) {
     // pop(iran,320):-true
          Term a1, a2;
         Operation cont;
@@ -702,7 +702,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_24(Prolog m) { 
+    private final static Operation pop_2_24(Prolog m) {
     // pop(ethiopia,272):-true
          Term a1, a2;
         Operation cont;
@@ -717,7 +717,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation pop_2_25(Prolog m) { 
+    private final static Operation pop_2_25(Prolog m) {
     // pop(argentina,251):-true
          Term a1, a2;
         Operation cont;
@@ -764,139 +764,139 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/query.
 
 
 
-    public static Operation PRED_area_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_area_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_query::area_2_var, fail_0, fail_0, FILE_query::area_2_var, fail_0, fail_0); 
+        return m.switch_on_term(FILE_query::area_2_var, fail_0, fail_0, FILE_query::area_2_var, fail_0, fail_0);
     }
 
-    private final static Operation area_2_var(Prolog m) { 
+    private final static Operation area_2_var(Prolog m) {
         m.jtry2(null, FILE_query::area_2_var_1);
         return area_2_1(m);
     }
 
-    private final static Operation area_2_var_1(Prolog m) { 
+    private final static Operation area_2_var_1(Prolog m) {
         m.retry(null, FILE_query::area_2_var_2);
         return area_2_2(m);
     }
 
-    private final static Operation area_2_var_2(Prolog m) { 
+    private final static Operation area_2_var_2(Prolog m) {
         m.retry(null, FILE_query::area_2_var_3);
         return area_2_3(m);
     }
 
-    private final static Operation area_2_var_3(Prolog m) { 
+    private final static Operation area_2_var_3(Prolog m) {
         m.retry(null, FILE_query::area_2_var_4);
         return area_2_4(m);
     }
 
-    private final static Operation area_2_var_4(Prolog m) { 
+    private final static Operation area_2_var_4(Prolog m) {
         m.retry(null, FILE_query::area_2_var_5);
         return area_2_5(m);
     }
 
-    private final static Operation area_2_var_5(Prolog m) { 
+    private final static Operation area_2_var_5(Prolog m) {
         m.retry(null, FILE_query::area_2_var_6);
         return area_2_6(m);
     }
 
-    private final static Operation area_2_var_6(Prolog m) { 
+    private final static Operation area_2_var_6(Prolog m) {
         m.retry(null, FILE_query::area_2_var_7);
         return area_2_7(m);
     }
 
-    private final static Operation area_2_var_7(Prolog m) { 
+    private final static Operation area_2_var_7(Prolog m) {
         m.retry(null, FILE_query::area_2_var_8);
         return area_2_8(m);
     }
 
-    private final static Operation area_2_var_8(Prolog m) { 
+    private final static Operation area_2_var_8(Prolog m) {
         m.retry(null, FILE_query::area_2_var_9);
         return area_2_9(m);
     }
 
-    private final static Operation area_2_var_9(Prolog m) { 
+    private final static Operation area_2_var_9(Prolog m) {
         m.retry(null, FILE_query::area_2_var_10);
         return area_2_10(m);
     }
 
-    private final static Operation area_2_var_10(Prolog m) { 
+    private final static Operation area_2_var_10(Prolog m) {
         m.retry(null, FILE_query::area_2_var_11);
         return area_2_11(m);
     }
 
-    private final static Operation area_2_var_11(Prolog m) { 
+    private final static Operation area_2_var_11(Prolog m) {
         m.retry(null, FILE_query::area_2_var_12);
         return area_2_12(m);
     }
 
-    private final static Operation area_2_var_12(Prolog m) { 
+    private final static Operation area_2_var_12(Prolog m) {
         m.retry(null, FILE_query::area_2_var_13);
         return area_2_13(m);
     }
 
-    private final static Operation area_2_var_13(Prolog m) { 
+    private final static Operation area_2_var_13(Prolog m) {
         m.retry(null, FILE_query::area_2_var_14);
         return area_2_14(m);
     }
 
-    private final static Operation area_2_var_14(Prolog m) { 
+    private final static Operation area_2_var_14(Prolog m) {
         m.retry(null, FILE_query::area_2_var_15);
         return area_2_15(m);
     }
 
-    private final static Operation area_2_var_15(Prolog m) { 
+    private final static Operation area_2_var_15(Prolog m) {
         m.retry(null, FILE_query::area_2_var_16);
         return area_2_16(m);
     }
 
-    private final static Operation area_2_var_16(Prolog m) { 
+    private final static Operation area_2_var_16(Prolog m) {
         m.retry(null, FILE_query::area_2_var_17);
         return area_2_17(m);
     }
 
-    private final static Operation area_2_var_17(Prolog m) { 
+    private final static Operation area_2_var_17(Prolog m) {
         m.retry(null, FILE_query::area_2_var_18);
         return area_2_18(m);
     }
 
-    private final static Operation area_2_var_18(Prolog m) { 
+    private final static Operation area_2_var_18(Prolog m) {
         m.retry(null, FILE_query::area_2_var_19);
         return area_2_19(m);
     }
 
-    private final static Operation area_2_var_19(Prolog m) { 
+    private final static Operation area_2_var_19(Prolog m) {
         m.retry(null, FILE_query::area_2_var_20);
         return area_2_20(m);
     }
 
-    private final static Operation area_2_var_20(Prolog m) { 
+    private final static Operation area_2_var_20(Prolog m) {
         m.retry(null, FILE_query::area_2_var_21);
         return area_2_21(m);
     }
 
-    private final static Operation area_2_var_21(Prolog m) { 
+    private final static Operation area_2_var_21(Prolog m) {
         m.retry(null, FILE_query::area_2_var_22);
         return area_2_22(m);
     }
 
-    private final static Operation area_2_var_22(Prolog m) { 
+    private final static Operation area_2_var_22(Prolog m) {
         m.retry(null, FILE_query::area_2_var_23);
         return area_2_23(m);
     }
 
-    private final static Operation area_2_var_23(Prolog m) { 
+    private final static Operation area_2_var_23(Prolog m) {
         m.retry(null, FILE_query::area_2_var_24);
         return area_2_24(m);
     }
 
-    private final static Operation area_2_var_24(Prolog m) { 
+    private final static Operation area_2_var_24(Prolog m) {
         m.trust(null);
         return area_2_25(m);
     }
 
-    private final static Operation area_2_1(Prolog m) { 
+    private final static Operation area_2_1(Prolog m) {
     // area(china,3380):-true
          Term a1, a2;
         Operation cont;
@@ -911,7 +911,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_2(Prolog m) { 
+    private final static Operation area_2_2(Prolog m) {
     // area(india,1139):-true
          Term a1, a2;
         Operation cont;
@@ -926,7 +926,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_3(Prolog m) { 
+    private final static Operation area_2_3(Prolog m) {
     // area(ussr,8708):-true
          Term a1, a2;
         Operation cont;
@@ -941,7 +941,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_4(Prolog m) { 
+    private final static Operation area_2_4(Prolog m) {
     // area(usa,3609):-true
          Term a1, a2;
         Operation cont;
@@ -956,7 +956,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_5(Prolog m) { 
+    private final static Operation area_2_5(Prolog m) {
     // area(indonesia,570):-true
          Term a1, a2;
         Operation cont;
@@ -971,7 +971,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_6(Prolog m) { 
+    private final static Operation area_2_6(Prolog m) {
     // area(japan,148):-true
          Term a1, a2;
         Operation cont;
@@ -986,7 +986,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_7(Prolog m) { 
+    private final static Operation area_2_7(Prolog m) {
     // area(brazil,3288):-true
          Term a1, a2;
         Operation cont;
@@ -1001,7 +1001,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_8(Prolog m) { 
+    private final static Operation area_2_8(Prolog m) {
     // area(bangladesh,55):-true
          Term a1, a2;
         Operation cont;
@@ -1016,7 +1016,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_9(Prolog m) { 
+    private final static Operation area_2_9(Prolog m) {
     // area(pakistan,311):-true
          Term a1, a2;
         Operation cont;
@@ -1031,7 +1031,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_10(Prolog m) { 
+    private final static Operation area_2_10(Prolog m) {
     // area(w_germany,96):-true
          Term a1, a2;
         Operation cont;
@@ -1046,7 +1046,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_11(Prolog m) { 
+    private final static Operation area_2_11(Prolog m) {
     // area(nigeria,373):-true
          Term a1, a2;
         Operation cont;
@@ -1061,7 +1061,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_12(Prolog m) { 
+    private final static Operation area_2_12(Prolog m) {
     // area(mexico,764):-true
          Term a1, a2;
         Operation cont;
@@ -1076,7 +1076,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_13(Prolog m) { 
+    private final static Operation area_2_13(Prolog m) {
     // area(uk,86):-true
          Term a1, a2;
         Operation cont;
@@ -1091,7 +1091,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_14(Prolog m) { 
+    private final static Operation area_2_14(Prolog m) {
     // area(italy,116):-true
          Term a1, a2;
         Operation cont;
@@ -1106,7 +1106,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_15(Prolog m) { 
+    private final static Operation area_2_15(Prolog m) {
     // area(france,213):-true
          Term a1, a2;
         Operation cont;
@@ -1121,7 +1121,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_16(Prolog m) { 
+    private final static Operation area_2_16(Prolog m) {
     // area(philippines,90):-true
          Term a1, a2;
         Operation cont;
@@ -1136,7 +1136,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_17(Prolog m) { 
+    private final static Operation area_2_17(Prolog m) {
     // area(thailand,200):-true
          Term a1, a2;
         Operation cont;
@@ -1151,7 +1151,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_18(Prolog m) { 
+    private final static Operation area_2_18(Prolog m) {
     // area(turkey,296):-true
          Term a1, a2;
         Operation cont;
@@ -1166,7 +1166,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_19(Prolog m) { 
+    private final static Operation area_2_19(Prolog m) {
     // area(egypt,386):-true
          Term a1, a2;
         Operation cont;
@@ -1181,7 +1181,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_20(Prolog m) { 
+    private final static Operation area_2_20(Prolog m) {
     // area(spain,190):-true
          Term a1, a2;
         Operation cont;
@@ -1196,7 +1196,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_21(Prolog m) { 
+    private final static Operation area_2_21(Prolog m) {
     // area(poland,121):-true
          Term a1, a2;
         Operation cont;
@@ -1211,7 +1211,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_22(Prolog m) { 
+    private final static Operation area_2_22(Prolog m) {
     // area(s_korea,37):-true
          Term a1, a2;
         Operation cont;
@@ -1226,7 +1226,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_23(Prolog m) { 
+    private final static Operation area_2_23(Prolog m) {
     // area(iran,628):-true
          Term a1, a2;
         Operation cont;
@@ -1241,7 +1241,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_24(Prolog m) { 
+    private final static Operation area_2_24(Prolog m) {
     // area(ethiopia,350):-true
          Term a1, a2;
         Operation cont;
@@ -1256,7 +1256,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation area_2_25(Prolog m) { 
+    private final static Operation area_2_25(Prolog m) {
     // area(argentina,1080):-true
          Term a1, a2;
         Operation cont;

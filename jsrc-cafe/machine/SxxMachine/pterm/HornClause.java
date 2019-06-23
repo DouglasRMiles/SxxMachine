@@ -240,7 +240,8 @@ public class HornClause extends StructureTerm {
     /**
      * Extracts the head of a clause (a Term).
      */
-    public final Term getHead() {
+    @Override
+	public final Term getHead() {
         return argz[0].dref();
     }
 

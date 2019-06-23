@@ -1,5 +1,5 @@
 package SxxMachine;
- 
+
 import static SxxMachine.Failure.*;
 import static SxxMachine.pterm.TermData.*;
 @SuppressWarnings("unused")
@@ -12,8 +12,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_package_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_package_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // package A:-true
         m.setB0();
          Term a1;
@@ -31,20 +31,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-call(A),!,fail
          Term a1, a2, a3;
         Operation p1, p2;
@@ -66,7 +66,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -83,20 +83,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-(call(A),'$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(B)),!,fail
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
@@ -120,7 +120,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a3), fail_0)));
     }
 
-    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) { 
+    private final static Operation $dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) {
     // '$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-true
          Term a1, a2;
         Operation cont;
@@ -138,8 +138,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_forall_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_forall_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // forall(A,B):-'$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
         m.setB0();
          Term a1, a2;
@@ -158,8 +158,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_format_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_format_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // format(A,B,C):-writeq(A,fmt(B,C))
         m.setB0();
          Term a1, a2, a3, a4;
@@ -181,20 +181,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_swi_supp::$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_sub_1);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_1(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_sub_1(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_2(m);
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_1(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_1(Prolog m) {
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C):-call(A),!,call(B),call(C)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1, p2, p3;
@@ -226,7 +226,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("call", FILE_system::PRED_call_1_static_exec, VA(a7), cont))));
     }
 
-    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_2(Prolog m) { 
+    private final static Operation $dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_2(Prolog m) {
     // '$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C):-fail
          Term a1, a2, a3;
         Operation cont;
@@ -247,20 +247,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_reorder_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_reorder_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_swi_supp::reorder_3_sub_1);
         return reorder_3_1(m);
     }
 
-    private final static Operation reorder_3_sub_1(Prolog m) { 
+    private final static Operation reorder_3_sub_1(Prolog m) {
         m.trust(null);
         return reorder_3_2(m);
     }
 
-    private final static Operation reorder_3_1(Prolog m) { 
+    private final static Operation reorder_3_1(Prolog m) {
     // reorder(A,B,C):-'$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C)
          Term a1, a2, a3;
         Operation cont;
@@ -273,7 +273,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_3_static_exec, VA(a1, a2, a3), cont);
     }
 
-    private final static Operation reorder_3_2(Prolog m) { 
+    private final static Operation reorder_3_2(Prolog m) {
     // reorder(A,B,C):-call(C),call(B)
          Term a1, a2, a3, a4, a5;
         Operation p1;
@@ -301,8 +301,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_setup_call_cleanup_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_setup_call_cleanup_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // setup_call_cleanup(A,B,C):-setup_call_catcher_cleanup(A,B,D,C)
         m.setB0();
          Term a1, a2, a3;
@@ -322,8 +322,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_each_call_cleanup_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_each_call_cleanup_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // each_call_cleanup(A,B,C):-throw_missing(each_call_cleanup(A,B,D,C))
         m.setB0();
          Term a1, a2, a3, a4;
@@ -346,8 +346,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_setup_call_catcher_cleanup_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_setup_call_catcher_cleanup_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // setup_call_catcher_cleanup(A,B,C,D):-throw_missing(setup_call_catcher_cleanup(A,B,C,D))
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -370,8 +370,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_recorda_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_recorda_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // recorda(A,B):-recorda(A,B,C)
         m.setB0();
          Term a1, a2;
@@ -389,8 +389,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_recordz_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_recordz_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // recordz(A,B):-recordz(A,B,C)
         m.setB0();
          Term a1, a2;
@@ -408,8 +408,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_recorded_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_recorded_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // recorded(A,B):-recorded(A,B,C)
         m.setB0();
          Term a1, a2;
@@ -428,8 +428,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_throw_missing_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_throw_missing_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // throw_missing(A):-throw(throw_missing(A))
         m.setB0();
          Term a1, a2;
@@ -450,8 +450,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_instance_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_instance_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // instance(A,B):-throw_missing(instance(A,B))
         m.setB0();
          Term a1, a2, a3;
@@ -473,8 +473,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_flag_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_flag_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // flag(A,B,C):-throw_missing(flag(A,B,C))
         m.setB0();
          Term a1, a2, a3, a4;
@@ -497,8 +497,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_source_location_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_source_location_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // source_location(A,B):-throw_missing(source_location(A,B))
         m.setB0();
          Term a1, a2, a3;
@@ -523,58 +523,58 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_set_predicate_property_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_set_predicate_property_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return set_predicate_property_2_top(m);
     }
 
-    private final static Operation set_predicate_property_2_top(Prolog m) { 
+    private final static Operation set_predicate_property_2_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::set_predicate_property_2_var, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_var, FILE_swi_supp::set_predicate_property_2_8); 
+        return m.switch_on_term(FILE_swi_supp::set_predicate_property_2_var, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_8, FILE_swi_supp::set_predicate_property_2_var, FILE_swi_supp::set_predicate_property_2_8);
     }
 
-    private final static Operation set_predicate_property_2_var(Prolog m) { 
+    private final static Operation set_predicate_property_2_var(Prolog m) {
         m.jtry2(null, FILE_swi_supp::set_predicate_property_2_var_1);
         return set_predicate_property_2_1(m);
     }
 
-    private final static Operation set_predicate_property_2_var_1(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_1(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_2);
         return set_predicate_property_2_2(m);
     }
 
-    private final static Operation set_predicate_property_2_var_2(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_2(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_3);
         return set_predicate_property_2_3(m);
     }
 
-    private final static Operation set_predicate_property_2_var_3(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_3(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_4);
         return set_predicate_property_2_4(m);
     }
 
-    private final static Operation set_predicate_property_2_var_4(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_4(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_5);
         return set_predicate_property_2_5(m);
     }
 
-    private final static Operation set_predicate_property_2_var_5(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_5(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_6);
         return set_predicate_property_2_6(m);
     }
 
-    private final static Operation set_predicate_property_2_var_6(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_6(Prolog m) {
         m.retry(null, FILE_swi_supp::set_predicate_property_2_var_7);
         return set_predicate_property_2_7(m);
     }
 
-    private final static Operation set_predicate_property_2_var_7(Prolog m) { 
+    private final static Operation set_predicate_property_2_var_7(Prolog m) {
         m.trust(null);
         return set_predicate_property_2_8(m);
     }
 
-    private final static Operation set_predicate_property_2_1(Prolog m) { 
+    private final static Operation set_predicate_property_2_1(Prolog m) {
     // set_predicate_property(A:B:C,D):-!,nonvar(B),set_predicate_property(B:C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -611,7 +611,7 @@ m.cont = cont;
         return set_predicate_property_2_top(m);
     }
 
-    private final static Operation set_predicate_property_2_2(Prolog m) { 
+    private final static Operation set_predicate_property_2_2(Prolog m) {
     // set_predicate_property(A:[],B):-!
          Term a1, a2;
         Operation cont;
@@ -629,7 +629,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation set_predicate_property_2_3(Prolog m) { 
+    private final static Operation set_predicate_property_2_3(Prolog m) {
     // set_predicate_property(A:B/C,D):-!,set_predicate_property(A,B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -656,7 +656,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("set_predicate_property", FILE_system::PRED_set_predicate_property_4_static_exec, VA(a3, a5, a6, a2), cont);
     }
 
-    private final static Operation set_predicate_property_2_4(Prolog m) { 
+    private final static Operation set_predicate_property_2_4(Prolog m) {
     // set_predicate_property(A:[B|C],D):-!,set_predicate_property(A:B,D),set_predicate_property(A:C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -699,7 +699,7 @@ MARG.setAreg1( a2);
         return set_predicate_property_2_top(m);
     }
 
-    private final static Operation set_predicate_property_2_5(Prolog m) { 
+    private final static Operation set_predicate_property_2_5(Prolog m) {
     // set_predicate_property(A:(B,C),D):-!,set_predicate_property(A:B,D),set_predicate_property(A:C,D)
          Term a1, a2, a3, a4, a5, a6, a7, a8;
         Operation p1;
@@ -737,7 +737,7 @@ MARG.setAreg1( a2);
         return set_predicate_property_2_top(m);
     }
 
-    private final static Operation set_predicate_property_2_6(Prolog m) { 
+    private final static Operation set_predicate_property_2_6(Prolog m) {
     // set_predicate_property(A:B,meta_predicate):-!,functor(B,C,D),set_predicate_property(A,C,D,(meta_predicate B))
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -767,7 +767,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("set_predicate_property", FILE_system::PRED_set_predicate_property_4_static_exec, VA(a3, a5, a6, a7), cont));
     }
 
-    private final static Operation set_predicate_property_2_7(Prolog m) { 
+    private final static Operation set_predicate_property_2_7(Prolog m) {
     // set_predicate_property(A:B,C):-functor(B,D,E),set_predicate_property(A,D,E,C)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -789,7 +789,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("set_predicate_property", FILE_system::PRED_set_predicate_property_4_static_exec, VA(a3, a5, a6, a2), cont));
     }
 
-    private final static Operation set_predicate_property_2_8(Prolog m) { 
+    private final static Operation set_predicate_property_2_8(Prolog m) {
     // set_predicate_property(A,B):-strip_module(A,C,D),A==D,!,set_predicate_property(C:D,B)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2, p3;
@@ -823,8 +823,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_ccall_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_ccall_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // ccall(A):-clause('SxxMachine':A,true)
         m.setB0();
          Term a1, a2;
@@ -844,20 +844,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-ccall(A),!,true
          Term a1, a2;
         Operation p1;
@@ -876,7 +876,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), cont));
     }
 
-    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-fail
          Term a1;
         Operation cont;
@@ -895,20 +895,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_assertz_if_new_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_assertz_if_new_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::assertz_if_new_1_sub_1);
         return assertz_if_new_1_1(m);
     }
 
-    private final static Operation assertz_if_new_1_sub_1(Prolog m) { 
+    private final static Operation assertz_if_new_1_sub_1(Prolog m) {
         m.trust(null);
         return assertz_if_new_1_2(m);
     }
 
-    private final static Operation assertz_if_new_1_1(Prolog m) { 
+    private final static Operation assertz_if_new_1_1(Prolog m) {
     // assertz_if_new(A):-'$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A)
          Term a1;
         Operation cont;
@@ -919,7 +919,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_3_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation assertz_if_new_1_2(Prolog m) { 
+    private final static Operation assertz_if_new_1_2(Prolog m) {
     // assertz_if_new(A):-'SxxMachine':assertz(A)
          Term a1, a2;
         Operation cont;
@@ -942,20 +942,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_set_predicate_property_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_set_predicate_property_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_swi_supp::set_predicate_property_4_sub_1);
         return set_predicate_property_4_1(m);
     }
 
-    private final static Operation set_predicate_property_4_sub_1(Prolog m) { 
+    private final static Operation set_predicate_property_4_sub_1(Prolog m) {
         m.trust(null);
         return set_predicate_property_4_2(m);
     }
 
-    private final static Operation set_predicate_property_4_1(Prolog m) { 
+    private final static Operation set_predicate_property_4_1(Prolog m) {
     // set_predicate_property(A,B,C,D):-ccall('$predicate_property'(D,A,B,C)),!
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -980,7 +980,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a5), cont));
     }
 
-    private final static Operation set_predicate_property_4_2(Prolog m) { 
+    private final static Operation set_predicate_property_4_2(Prolog m) {
     // set_predicate_property(A,B,C,D):-assertz_if_new('$predicate_property'(defined,A,B,C)),assertz_if_new('$predicate_property'(D,A,B,C))
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -1010,8 +1010,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_multifile_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_multifile_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // multifile A:-set_predicate_property(A,multifile)
         m.setB0();
          Term a1;
@@ -1029,8 +1029,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_discontiguous_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_discontiguous_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // discontiguous A:-set_predicate_property(A,discontiguous)
         m.setB0();
          Term a1;
@@ -1048,8 +1048,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_module_transparent_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_module_transparent_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // module_transparent A:-set_predicate_property(A,transparent)
         m.setB0();
          Term a1;
@@ -1066,8 +1066,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_meta_predicate_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_meta_predicate_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // meta_predicate A:-set_predicate_property(A,meta_predicate)
         m.setB0();
          Term a1;
@@ -1084,20 +1084,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-call(A),!,true
          Term a1, a2, a3;
         Operation p1;
@@ -1119,7 +1119,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), cont));
     }
 
-    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-fail
          Term a1;
         Operation cont;
@@ -1138,20 +1138,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_ignore_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_ignore_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::ignore_1_sub_1);
         return ignore_1_1(m);
     }
 
-    private final static Operation ignore_1_sub_1(Prolog m) { 
+    private final static Operation ignore_1_sub_1(Prolog m) {
         m.trust(null);
         return ignore_1_2(m);
     }
 
-    private final static Operation ignore_1_1(Prolog m) { 
+    private final static Operation ignore_1_1(Prolog m) {
     // ignore(A):-'$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A)
          Term a1;
         Operation cont;
@@ -1162,7 +1162,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_4_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_4_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec, VA(a1), cont);
     }
 
-    private final static Operation ignore_1_2(Prolog m) { 
+    private final static Operation ignore_1_2(Prolog m) {
     // ignore(A):-true
          Term a1;
         Operation cont;
@@ -1179,8 +1179,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_variant_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_variant_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // variant(A,B):-'$term_variant'(A,B)
         m.setB0();
          Term a1, a2;
@@ -1199,20 +1199,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) { 
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) { 
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) {
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-'$current_typein_module'(B),!,A=B
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -1239,7 +1239,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a1, a2), cont)));
     }
 
-    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) { 
+    private final static Operation $dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) {
     // '$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
@@ -1259,20 +1259,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_typein_module_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_typein_module_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::typein_module_1_sub_1);
         return typein_module_1_1(m);
     }
 
-    private final static Operation typein_module_1_sub_1(Prolog m) { 
+    private final static Operation typein_module_1_sub_1(Prolog m) {
         m.trust(null);
         return typein_module_1_2(m);
     }
 
-    private final static Operation typein_module_1_1(Prolog m) { 
+    private final static Operation typein_module_1_1(Prolog m) {
     // typein_module(A):-'$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
          Term a1;
         Operation cont;
@@ -1283,7 +1283,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_5_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation typein_module_1_2(Prolog m) { 
+    private final static Operation typein_module_1_2(Prolog m) {
     // typein_module(A):-A='SxxMachine'
          Term a1;
         Operation cont;
@@ -1306,20 +1306,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) { 
+    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) { 
+    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) {
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-'$current_source_module'(B),!,A=B
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -1346,7 +1346,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a1, a2), cont)));
     }
 
-    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) { 
+    private final static Operation $dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) {
     // '$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
@@ -1366,20 +1366,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_source_module_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_source_module_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::source_module_1_sub_1);
         return source_module_1_1(m);
     }
 
-    private final static Operation source_module_1_sub_1(Prolog m) { 
+    private final static Operation source_module_1_sub_1(Prolog m) {
         m.trust(null);
         return source_module_1_2(m);
     }
 
-    private final static Operation source_module_1_1(Prolog m) { 
+    private final static Operation source_module_1_1(Prolog m) {
     // source_module(A):-'$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
          Term a1;
         Operation cont;
@@ -1390,7 +1390,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl", FILE_system::PRED_$dummy_6_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec, VA(a1, m.DONT_CARE2()), cont);
     }
 
-    private final static Operation source_module_1_2(Prolog m) { 
+    private final static Operation source_module_1_2(Prolog m) {
     // source_module(A):-A='SxxMachine'
          Term a1;
         Operation cont;
@@ -1413,20 +1413,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-'$current_context_module'(A)
          Term a1, a2, a3;
         Operation cont;
@@ -1443,7 +1443,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("call", FILE_system::PRED_call_1_static_exec, VA(a3), cont);
     }
 
-    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_8_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-typein_module(A)
          Term a1;
         Operation cont;
@@ -1461,20 +1461,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_swi_supp::$dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1);
         return $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(m);
     }
 
-    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) { 
+    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(m);
     }
 
-    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) { 
+    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_1(Prolog m) {
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-'$dummy_8_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(B),!,B=A
          Term a1, a2, a3;
         Operation p1, p2;
@@ -1495,7 +1495,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, a1), cont)));
     }
 
-    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) { 
+    private final static Operation $dummy_7_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_2_2(Prolog m) {
     // '$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B):-fail
          Term a1, a2;
         Operation cont;
@@ -1515,8 +1515,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_context_module_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_context_module_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // context_module(A):-'$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B)
         m.setB0();
          Term a1;
@@ -1533,8 +1533,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_current_predicate_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_current_predicate_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // current_predicate(A):-strip_module(A,B,C/D),current_predicate_m_f_a(B,C,D)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1559,8 +1559,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_current_predicate_m_f_a_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_current_predicate_m_f_a_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // current_predicate_m_f_a(A,B,C):-ccall('$predicate_property'(defined,A,B,C))
         m.setB0();
          Term a1, a2, a3, a4;
@@ -1582,8 +1582,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_current_predicate_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_current_predicate_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // current_predicate(A,B):-predicate_property(B,C),strip_module(B,D,E),functor(E,F,G),strip_module(A,D,F)
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1611,8 +1611,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_predicate_property_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_predicate_property_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // predicate_property(A,B):-strip_module(A,C,D),reorder(var(D),ccall('$predicate_property'(B,C,E,F)),functor(D,E,F))
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -1648,39 +1648,39 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_strip_module_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_strip_module_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int); 
+        return m.switch_on_term(FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_int, FILE_swi_supp::strip_module_3_var, FILE_swi_supp::strip_module_3_int);
     }
 
-    private final static Operation strip_module_3_var(Prolog m) { 
+    private final static Operation strip_module_3_var(Prolog m) {
         m.jtry3(null, FILE_swi_supp::strip_module_3_var_1);
         return strip_module_3_1(m);
     }
 
-    private final static Operation strip_module_3_var_1(Prolog m) { 
+    private final static Operation strip_module_3_var_1(Prolog m) {
         m.retry(null, FILE_swi_supp::strip_module_3_var_2);
         return strip_module_3_2(m);
     }
 
-    private final static Operation strip_module_3_var_2(Prolog m) { 
+    private final static Operation strip_module_3_var_2(Prolog m) {
         m.trust(null);
         return strip_module_3_3(m);
     }
 
-    private final static Operation strip_module_3_int(Prolog m) { 
+    private final static Operation strip_module_3_int(Prolog m) {
         m.jtry3(null, FILE_swi_supp::strip_module_3_int_1);
         return strip_module_3_1(m);
     }
 
-    private final static Operation strip_module_3_int_1(Prolog m) { 
+    private final static Operation strip_module_3_int_1(Prolog m) {
         m.trust(null);
         return strip_module_3_3(m);
     }
 
-    private final static Operation strip_module_3_1(Prolog m) { 
+    private final static Operation strip_module_3_1(Prolog m) {
     // strip_module(A,B,A):-var(A),!,context_module(B)
          Term a1, a2, a3, a4;
         Operation cont;
@@ -1711,7 +1711,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("context_module", FILE_system::PRED_context_module_1_static_exec, VA(a2), cont);
     }
 
-    private final static Operation strip_module_3_2(Prolog m) { 
+    private final static Operation strip_module_3_2(Prolog m) {
     // strip_module(A:B,A,B):-!
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -1736,7 +1736,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation strip_module_3_3(Prolog m) { 
+    private final static Operation strip_module_3_3(Prolog m) {
     // strip_module(A,B,A):-context_module(B)
          Term a1, a2, a3;
         Operation cont;
@@ -1761,20 +1761,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_swi_supp::$dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_sub_1);
         return $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_1(m);
     }
 
-    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_sub_1(Prolog m) { 
+    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_2(m);
     }
 
-    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_1(Prolog m) { 
+    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_1(Prolog m) {
     // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D):-call(A),nb_setarg(1,D,some),call(B)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
@@ -1797,7 +1797,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("call", FILE_system::PRED_call_1_static_exec, VA(a6), cont)));
     }
 
-    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_2(Prolog m) { 
+    private final static Operation $dummy_9_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_4_2(Prolog m) {
     // '$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D):-D=sols(0),call(C)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -1827,8 +1827,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_if_each_else_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_if_each_else_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // if_each_else(A,B,C):-copy_term(sols(0),D),'$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A,B,C,D)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -1854,8 +1854,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$002A$002D$003E_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$002A$002D$003E_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // A*->B;C:-if_each_else(A,B,C)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -1879,8 +1879,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_debugln_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_debugln_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // debugln(A):-writeq(A),nl
         m.setB0();
          Term a1;
@@ -1904,8 +1904,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_show_call_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_show_call_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // show_call(A):-if_each_else(call(A),debugln(show_succeeded(A)),(debugln(show_failed(A)),fail))
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7;
@@ -1940,8 +1940,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_show_failure_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_show_failure_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // show_failure(A):-if_each_else(call(A),true,(debugln(show_failed(A)),fail))
         m.setB0();
          Term a1, a2, a3, a4, a5;
@@ -1970,8 +1970,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_show_success_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_show_success_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // show_success(A):-if_each_else(call(A),debugln(show_succeeded(A)),fail)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -2000,8 +2000,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_show_retry_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_show_retry_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // show_retry(A):-if_each_else(call(A),(debugln(show_exit(A));debugln(show_retry(A)),fail),(call(A),debugln(show_fail(A)),fail))
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13;
@@ -2054,20 +2054,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_maplist_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_maplist_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry2(null, FILE_swi_supp::maplist_2_sub_1);
         return maplist_2_1(m);
     }
 
-    private final static Operation maplist_2_sub_1(Prolog m) { 
+    private final static Operation maplist_2_sub_1(Prolog m) {
         m.trust(null);
         return maplist_2_2(m);
     }
 
-    private final static Operation maplist_2_1(Prolog m) { 
+    private final static Operation maplist_2_1(Prolog m) {
     // maplist(A,[B|C]):-!,call(A,B),maplist(A,C)
          Term a1, a2, a3, a4;
         Operation p1;
@@ -2095,7 +2095,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("maplist", FILE_system::PRED_maplist_2_static_exec, VA(a1, a4), cont));
     }
 
-    private final static Operation maplist_2_2(Prolog m) { 
+    private final static Operation maplist_2_2(Prolog m) {
     // maplist(A,B):-true
          Term a1, a2;
         Operation cont;
@@ -2113,20 +2113,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_maplist_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_maplist_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry3(null, FILE_swi_supp::maplist_3_sub_1);
         return maplist_3_1(m);
     }
 
-    private final static Operation maplist_3_sub_1(Prolog m) { 
+    private final static Operation maplist_3_sub_1(Prolog m) {
         m.trust(null);
         return maplist_3_2(m);
     }
 
-    private final static Operation maplist_3_1(Prolog m) { 
+    private final static Operation maplist_3_1(Prolog m) {
     // maplist(A,[B|C],[D|E]):-!,call(A,B,D),maplist(A,C,E)
          Term a1, a2, a3, a4, a5, a6, a7;
         Operation p1;
@@ -2166,7 +2166,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("maplist", FILE_system::PRED_maplist_3_static_exec, VA(a1, a5, a7), cont));
     }
 
-    private final static Operation maplist_3_2(Prolog m) { 
+    private final static Operation maplist_3_2(Prolog m) {
     // maplist(A,B,C):-true
          Term a1, a2, a3;
         Operation cont;
@@ -2185,20 +2185,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_maplist_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_maplist_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry4(null, FILE_swi_supp::maplist_4_sub_1);
         return maplist_4_1(m);
     }
 
-    private final static Operation maplist_4_sub_1(Prolog m) { 
+    private final static Operation maplist_4_sub_1(Prolog m) {
         m.trust(null);
         return maplist_4_2(m);
     }
 
-    private final static Operation maplist_4_1(Prolog m) { 
+    private final static Operation maplist_4_1(Prolog m) {
     // maplist(A,[B|C],[D|E],[F|G]):-!,call(A,B,D,F),maplist(A,C,E,G)
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         Operation p1;
@@ -2250,7 +2250,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("maplist", FILE_system::PRED_maplist_4_static_exec, VA(a1, a6, a8, a10), cont));
     }
 
-    private final static Operation maplist_4_2(Prolog m) { 
+    private final static Operation maplist_4_2(Prolog m) {
     // maplist(A,B,C,D):-true
          Term a1, a2, a3, a4;
         Operation cont;
@@ -2270,8 +2270,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_call_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_call_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // call(A,B):-A=..[C|D],append(D,[B],E),F=..[C|E],call(F)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
@@ -2303,8 +2303,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_call_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_call_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // call(A,B,C):-A=..[D|E],append(E,[B,C],F),G=..[D|F],call(G)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12;
@@ -2338,8 +2338,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_call_4_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_call_4_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // call(A,B,C,D):-A=..[E|F],append(F,[B,C,D],G),H=..[E|G],call(H)
         m.setB0();
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14;
@@ -2375,8 +2375,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_is_cons_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_cons_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // is_cons(A):-compound(A),A=[B|C]
         m.setB0();
          Term a1, a2;
@@ -2396,20 +2396,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-compound(A),!,fail
          Term a1, a2;
         Operation p1, p2;
@@ -2428,7 +2428,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_10_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -2445,28 +2445,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_is_list_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_is_list_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return is_list_1_top(m);
     }
 
-    private final static Operation is_list_1_top(Prolog m) { 
+    private final static Operation is_list_1_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::is_list_1_var, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_var); 
+        return m.switch_on_term(FILE_swi_supp::is_list_1_var, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_1, FILE_swi_supp::is_list_1_var);
     }
 
-    private final static Operation is_list_1_var(Prolog m) { 
+    private final static Operation is_list_1_var(Prolog m) {
         m.jtry1(null, FILE_swi_supp::is_list_1_var_1);
         return is_list_1_1(m);
     }
 
-    private final static Operation is_list_1_var_1(Prolog m) { 
+    private final static Operation is_list_1_var_1(Prolog m) {
         m.trust(null);
         return is_list_1_2(m);
     }
 
-    private final static Operation is_list_1_1(Prolog m) { 
+    private final static Operation is_list_1_1(Prolog m) {
     // is_list(A):-'$dummy_10_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),!,A==[]
          Term a1, a2;
         Operation p1, p2;
@@ -2486,7 +2486,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$equality_of_term", FILE_system::PRED_$equality_of_term_2_static_exec, VA(a1,  Prolog.Nil ), cont)));
     }
 
-    private final static Operation is_list_1_2(Prolog m) { 
+    private final static Operation is_list_1_2(Prolog m) {
     // is_list([A|B]):-is_list(B)
          Term a1, a2;
         Operation cont;
@@ -2514,8 +2514,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_member_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_member_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // member(A,[B|C]):-member_(C,A,B)
         m.setB0();
          Term a1, a2, a3, a4;
@@ -2544,28 +2544,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_member__3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_member__3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return member__3_top(m);
     }
 
-    private final static Operation member__3_top(Prolog m) { 
+    private final static Operation member__3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::member__3_var, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_var); 
+        return m.switch_on_term(FILE_swi_supp::member__3_var, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_1, FILE_swi_supp::member__3_var);
     }
 
-    private final static Operation member__3_var(Prolog m) { 
+    private final static Operation member__3_var(Prolog m) {
         m.jtry3(null, FILE_swi_supp::member__3_var_1);
         return member__3_1(m);
     }
 
-    private final static Operation member__3_var_1(Prolog m) { 
+    private final static Operation member__3_var_1(Prolog m) {
         m.trust(null);
         return member__3_2(m);
     }
 
-    private final static Operation member__3_1(Prolog m) { 
+    private final static Operation member__3_1(Prolog m) {
     // member_(A,B,B):-true
          Term a1, a2, a3;
         Operation cont;
@@ -2579,7 +2579,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation member__3_2(Prolog m) { 
+    private final static Operation member__3_2(Prolog m) {
     // member_([A|B],C,D):-member_(B,C,A)
          Term a1, a2, a3, a4, a5;
         Operation cont;
@@ -2613,28 +2613,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_append_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_append_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return append_3_top(m);
     }
 
-    private final static Operation append_3_top(Prolog m) { 
+    private final static Operation append_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::append_3_var, fail_0, fail_0, FILE_swi_supp::append_3_1, fail_0, FILE_swi_supp::append_3_2); 
+        return m.switch_on_term(FILE_swi_supp::append_3_var, fail_0, fail_0, FILE_swi_supp::append_3_1, fail_0, FILE_swi_supp::append_3_2);
     }
 
-    private final static Operation append_3_var(Prolog m) { 
+    private final static Operation append_3_var(Prolog m) {
         m.jtry3(null, FILE_swi_supp::append_3_var_1);
         return append_3_1(m);
     }
 
-    private final static Operation append_3_var_1(Prolog m) { 
+    private final static Operation append_3_var_1(Prolog m) {
         m.trust(null);
         return append_3_2(m);
     }
 
-    private final static Operation append_3_1(Prolog m) { 
+    private final static Operation append_3_1(Prolog m) {
     // append([],A,A):-true
          Term a1, a2, a3;
         Operation cont;
@@ -2650,7 +2650,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation append_3_2(Prolog m) { 
+    private final static Operation append_3_2(Prolog m) {
     // append([A|B],C,[A|D]):-append(B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation cont;
@@ -2695,8 +2695,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_flatten_2_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_flatten_2_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // flatten(A,B):-flatten(A,[],C),!,B=C
         m.setB0();
          Term a1, a2, a3, a4;
@@ -2724,78 +2724,78 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_flatten_3_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_flatten_3_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         return flatten_3_top(m);
     }
 
-    private final static Operation flatten_3_top(Prolog m) { 
+    private final static Operation flatten_3_top(Prolog m) {
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::flatten_3_var, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_con, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_lis); 
+        return m.switch_on_term(FILE_swi_supp::flatten_3_var, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_con, FILE_swi_supp::flatten_3_int, FILE_swi_supp::flatten_3_lis);
     }
 
-    private final static Operation flatten_3_var(Prolog m) { 
+    private final static Operation flatten_3_var(Prolog m) {
         m.jtry3(null, FILE_swi_supp::flatten_3_var_1);
         return flatten_3_1(m);
     }
 
-    private final static Operation flatten_3_var_1(Prolog m) { 
+    private final static Operation flatten_3_var_1(Prolog m) {
         m.retry(null, FILE_swi_supp::flatten_3_var_2);
         return flatten_3_2(m);
     }
 
-    private final static Operation flatten_3_var_2(Prolog m) { 
+    private final static Operation flatten_3_var_2(Prolog m) {
         m.retry(null, FILE_swi_supp::flatten_3_var_3);
         return flatten_3_3(m);
     }
 
-    private final static Operation flatten_3_var_3(Prolog m) { 
+    private final static Operation flatten_3_var_3(Prolog m) {
         m.trust(null);
         return flatten_3_4(m);
     }
 
-    private final static Operation flatten_3_int(Prolog m) { 
+    private final static Operation flatten_3_int(Prolog m) {
         m.jtry3(null, FILE_swi_supp::flatten_3_int_1);
         return flatten_3_1(m);
     }
 
-    private final static Operation flatten_3_int_1(Prolog m) { 
+    private final static Operation flatten_3_int_1(Prolog m) {
         m.trust(null);
         return flatten_3_4(m);
     }
 
-    private final static Operation flatten_3_con(Prolog m) { 
+    private final static Operation flatten_3_con(Prolog m) {
         m.jtry3(null, FILE_swi_supp::flatten_3_con_1);
         return flatten_3_1(m);
     }
 
-    private final static Operation flatten_3_con_1(Prolog m) { 
+    private final static Operation flatten_3_con_1(Prolog m) {
         m.retry(null, FILE_swi_supp::flatten_3_con_2);
         return flatten_3_2(m);
     }
 
-    private final static Operation flatten_3_con_2(Prolog m) { 
+    private final static Operation flatten_3_con_2(Prolog m) {
         m.trust(null);
         return flatten_3_4(m);
     }
 
-    private final static Operation flatten_3_lis(Prolog m) { 
+    private final static Operation flatten_3_lis(Prolog m) {
         m.jtry3(null, FILE_swi_supp::flatten_3_lis_1);
         return flatten_3_1(m);
     }
 
-    private final static Operation flatten_3_lis_1(Prolog m) { 
+    private final static Operation flatten_3_lis_1(Prolog m) {
         m.retry(null, FILE_swi_supp::flatten_3_lis_2);
         return flatten_3_3(m);
     }
 
-    private final static Operation flatten_3_lis_2(Prolog m) { 
+    private final static Operation flatten_3_lis_2(Prolog m) {
         m.trust(null);
         return flatten_3_4(m);
     }
 
-    private final static Operation flatten_3_1(Prolog m) { 
+    private final static Operation flatten_3_1(Prolog m) {
     // flatten(A,B,[A|B]):-var(A),!
          Term a1, a2, a3, a4;
         Operation cont;
@@ -2834,7 +2834,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation flatten_3_2(Prolog m) { 
+    private final static Operation flatten_3_2(Prolog m) {
     // flatten([],A,A):-!
          Term a1, a2, a3;
         Operation cont;
@@ -2853,7 +2853,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
         return cont;
     }
 
-    private final static Operation flatten_3_3(Prolog m) { 
+    private final static Operation flatten_3_3(Prolog m) {
     // flatten([A|B],C,D):-!,flatten(A,E,D),flatten(B,C,E)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1;
@@ -2887,7 +2887,7 @@ MARG.setAreg2( a3);
         return flatten_3_top(m);
     }
 
-    private final static Operation flatten_3_4(Prolog m) { 
+    private final static Operation flatten_3_4(Prolog m) {
     // flatten(A,B,[A|B]):-true
          Term a1, a2, a3;
         Operation cont;
@@ -2917,20 +2917,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_printAll_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_printAll_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::printAll_1_sub_1);
         return printAll_1_1(m);
     }
 
-    private final static Operation printAll_1_sub_1(Prolog m) { 
+    private final static Operation printAll_1_sub_1(Prolog m) {
         m.trust(null);
         return printAll_1_2(m);
     }
 
-    private final static Operation printAll_1_1(Prolog m) { 
+    private final static Operation printAll_1_1(Prolog m) {
     // printAll(A):-call(A),writeq(A),nl,fail
          Term a1, a2;
         Operation p1, p2, p3;
@@ -2947,7 +2947,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), fail_0)));
     }
 
-    private final static Operation printAll_1_2(Prolog m) { 
+    private final static Operation printAll_1_2(Prolog m) {
     // printAll(A):-true
          Term a1;
         Operation cont;
@@ -2966,8 +2966,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_random_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_random_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // random(A):-A is random(0)
         m.setB0();
          Term a1;
@@ -2991,89 +2991,89 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_go_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_go_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
-        return m.switch_on_term(FILE_swi_supp::go_1_var, FILE_swi_supp::go_1_var, fail_0, fail_0, fail_0, fail_0); 
+        return m.switch_on_term(FILE_swi_supp::go_1_var, FILE_swi_supp::go_1_var, fail_0, fail_0, fail_0, fail_0);
     }
 
-    private final static Operation go_1_var(Prolog m) { 
+    private final static Operation go_1_var(Prolog m) {
         m.jtry1(null, FILE_swi_supp::go_1_var_1);
         return go_1_1(m);
     }
 
-    private final static Operation go_1_var_1(Prolog m) { 
+    private final static Operation go_1_var_1(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_2);
         return go_1_2(m);
     }
 
-    private final static Operation go_1_var_2(Prolog m) { 
+    private final static Operation go_1_var_2(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_3);
         return go_1_3(m);
     }
 
-    private final static Operation go_1_var_3(Prolog m) { 
+    private final static Operation go_1_var_3(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_4);
         return go_1_4(m);
     }
 
-    private final static Operation go_1_var_4(Prolog m) { 
+    private final static Operation go_1_var_4(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_5);
         return go_1_5(m);
     }
 
-    private final static Operation go_1_var_5(Prolog m) { 
+    private final static Operation go_1_var_5(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_6);
         return go_1_6(m);
     }
 
-    private final static Operation go_1_var_6(Prolog m) { 
+    private final static Operation go_1_var_6(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_7);
         return go_1_7(m);
     }
 
-    private final static Operation go_1_var_7(Prolog m) { 
+    private final static Operation go_1_var_7(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_8);
         return go_1_8(m);
     }
 
-    private final static Operation go_1_var_8(Prolog m) { 
+    private final static Operation go_1_var_8(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_9);
         return go_1_9(m);
     }
 
-    private final static Operation go_1_var_9(Prolog m) { 
+    private final static Operation go_1_var_9(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_10);
         return go_1_10(m);
     }
 
-    private final static Operation go_1_var_10(Prolog m) { 
+    private final static Operation go_1_var_10(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_11);
         return go_1_11(m);
     }
 
-    private final static Operation go_1_var_11(Prolog m) { 
+    private final static Operation go_1_var_11(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_12);
         return go_1_12(m);
     }
 
-    private final static Operation go_1_var_12(Prolog m) { 
+    private final static Operation go_1_var_12(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_13);
         return go_1_13(m);
     }
 
-    private final static Operation go_1_var_13(Prolog m) { 
+    private final static Operation go_1_var_13(Prolog m) {
         m.retry(null, FILE_swi_supp::go_1_var_14);
         return go_1_14(m);
     }
 
-    private final static Operation go_1_var_14(Prolog m) { 
+    private final static Operation go_1_var_14(Prolog m) {
         m.trust(null);
         return go_1_15(m);
     }
 
-    private final static Operation go_1_1(Prolog m) { 
+    private final static Operation go_1_1(Prolog m) {
     // go(1):-freeze(A,integer(A)),A=1
          Term a1, a2, a3;
         Operation p1;
@@ -3091,7 +3091,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2,  int_1 ), cont));
     }
 
-    private final static Operation go_1_2(Prolog m) { 
+    private final static Operation go_1_2(Prolog m) {
     // go(2):-freeze(A,integer(A)),A\=1.0
          Term a1, a2, a3;
         Operation p1;
@@ -3109,7 +3109,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$not_unifiable", FILE_system::PRED_$not_unifiable_2_static_exec, VA(a2, sf3), cont));
     }
 
-    private final static Operation go_1_3(Prolog m) { 
+    private final static Operation go_1_3(Prolog m) {
     // go(3):-'$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),A=1.0
          Term a1, a2;
         Operation p1;
@@ -3125,7 +3125,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, sf3), cont));
     }
 
-    private final static Operation go_1_4(Prolog m) { 
+    private final static Operation go_1_4(Prolog m) {
     // go(4):-'$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),A=1.0
          Term a1, a2;
         Operation p1;
@@ -3141,7 +3141,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$unify", FILE_system::PRED_$unify_2_static_exec, VA(a2, sf3), cont));
     }
 
-    private final static Operation go_1_5(Prolog m) { 
+    private final static Operation go_1_5(Prolog m) {
     // go(11):-freeze(A,integer(A)),freeze(B,integer(B)),copy_term(A+B,C+D),printAll(frozen(D,E))
          Term a1, a2, a3, a4, a5, a6, a7, a8, a9;
         Operation p1, p2, p3;
@@ -3174,7 +3174,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("printAll", FILE_system::PRED_printAll_1_static_exec, VA(a9), cont))));
     }
 
-    private final static Operation go_1_6(Prolog m) { 
+    private final static Operation go_1_6(Prolog m) {
     // go(12):-freeze(A,integer(A)),printAll(frozen(A,B))
          Term a1, a2, a3, a4;
         Operation p1;
@@ -3195,7 +3195,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("printAll", FILE_system::PRED_printAll_1_static_exec, VA(a4), cont));
     }
 
-    private final static Operation go_1_7(Prolog m) { 
+    private final static Operation go_1_7(Prolog m) {
     // go(13):-freeze(A,integer(A)),copy_term(A,B),printAll(frozen(B,C))
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -3218,7 +3218,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("printAll", FILE_system::PRED_printAll_1_static_exec, VA(a5), cont)));
     }
 
-    private final static Operation go_1_8(Prolog m) { 
+    private final static Operation go_1_8(Prolog m) {
     // go(14):-freeze(A,integer(A)),copy_term_nat(A,B),printAll(frozen(B,C))
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -3241,7 +3241,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("printAll", FILE_system::PRED_printAll_1_static_exec, VA(a5), cont)));
     }
 
-    private final static Operation go_1_9(Prolog m) { 
+    private final static Operation go_1_9(Prolog m) {
     // go(15):-freeze(A,integer(A)),copy_term_att(A,B),printAll(frozen(B,C))
          Term a1, a2, a3, a4, a5;
         Operation p1, p2;
@@ -3264,7 +3264,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("printAll", FILE_system::PRED_printAll_1_static_exec, VA(a5), cont)));
     }
 
-    private final static Operation go_1_10(Prolog m) { 
+    private final static Operation go_1_10(Prolog m) {
     // go(16):-freeze(A,integer(A)),copy_term_att(A,B),frozen(B,C),frozen(A,D)
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
@@ -3285,7 +3285,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("frozen", sxxtensions::PRED_frozen_2_static_exec, VA(a2, m.DONT_CARE2()), cont))));
     }
 
-    private final static Operation go_1_11(Prolog m) { 
+    private final static Operation go_1_11(Prolog m) {
     // go(17):-freeze(A,integer(A)),copy_term_nat(A,B),frozen(B,C),frozen(A,D)
          Term a1, a2, a3, a4;
         Operation p1, p2, p3;
@@ -3306,7 +3306,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("frozen", sxxtensions::PRED_frozen_2_static_exec, VA(a2, m.DONT_CARE2()), cont))));
     }
 
-    private final static Operation go_1_12(Prolog m) { 
+    private final static Operation go_1_12(Prolog m) {
     // go(18):-random(A),write(A),nl,fail
          Term a1, a2;
         Operation p1, p2, p3;
@@ -3323,7 +3323,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("nl", FILE_system::PRED_nl_0_static_exec, VA(), fail_0)));
     }
 
-    private final static Operation go_1_13(Prolog m) { 
+    private final static Operation go_1_13(Prolog m) {
     // go(19):-peek_pending(A)
          Term a1;
         Operation cont;
@@ -3336,7 +3336,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("peek_pending", FILE_system::PRED_peek_pending_1_static_exec, VA(m.DONT_CARE2()), cont);
     }
 
-    private final static Operation go_1_14(Prolog m) { 
+    private final static Operation go_1_14(Prolog m) {
     // go(20):-freeze(A,integer(A)),freeze(B,integer(B)),copy_term(A+B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
@@ -3361,7 +3361,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("copy_term", sxxtensions::PRED_copy_term_3_static_exec, VA(a6, m.DONT_CARE2(), m.DONT_CARE2()), cont)));
     }
 
-    private final static Operation go_1_15(Prolog m) { 
+    private final static Operation go_1_15(Prolog m) {
     // go(21):-freeze(A,integer(A)),freeze(B,integer(B)),copy_term(A+B,C,D)
          Term a1, a2, a3, a4, a5, a6;
         Operation p1, p2;
@@ -3393,20 +3393,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-freeze(A,integer(A)),!,fail
          Term a1, a2, a3;
         Operation p1, p2;
@@ -3427,7 +3427,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_12_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -3444,20 +3444,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-'$dummy_12_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),!,fail
          Term a1, a2;
         Operation p1, p2;
@@ -3476,7 +3476,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_11_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_11_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -3493,20 +3493,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-freeze(A,integer(A)),!,fail
          Term a1, a2, a3;
         Operation p1, p2;
@@ -3527,7 +3527,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_14_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -3544,20 +3544,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
 m.cont = cont;
         m.setB0();
         m.jtry1(null, FILE_swi_supp::$dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1);
         return $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(m);
     }
 
-    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) { 
+    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_sub_1(Prolog m) {
         m.trust(null);
         return $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(m);
     }
 
-    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) { 
+    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_1(Prolog m) {
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-'$dummy_14_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A),!,fail
          Term a1, a2;
         Operation p1, p2;
@@ -3576,7 +3576,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
  Op("$cut", FILE_system::PRED_$cut_1_static_exec, VA(a2), fail_0));
     }
 
-    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) { 
+    private final static Operation $dummy_13_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fswi_supp$002Epl_1_2(Prolog m) {
     // '$dummy_13_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_supp.pl'(A):-true
          Term a1;
         Operation cont;
@@ -3595,8 +3595,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_initpp_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_initpp_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // initpp:-set_predicate_property(is_cons(A),builtin)
         m.setB0();
          Term a1;
@@ -3626,8 +3626,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/swi_
 
 
 
-    public static Operation PRED_$init_0_static_exec(Prolog m) { 
-        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;  
+    public static Operation PRED_$init_0_static_exec(Prolog m) {
+        final Operation cont = m.cont; TermArray LARG = m.AREGS; final Operation thiz = m.pred;
     // '$init':-'$new_indexing_hash'('SxxMachine','$predicate_property'/4,A),assertz(('$current_typein_module'('SxxMachine'):-true)),'$new_indexing_hash'('SxxMachine','$current_source_module'/1,B),assertz(('$current_context_module'('SxxMachine'):-true))
         m.setB0();
         Operation p1, p2, p3;

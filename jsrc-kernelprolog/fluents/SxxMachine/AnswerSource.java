@@ -45,7 +45,8 @@ public class AnswerSource extends SourceFluent implements Runnable, IProg {
         return parent;
     }
 
-    public final BlackBoard getBlackboard() {
+    @Override
+	public final BlackBoard getBlackboard() {
         return blackboard;
     }
 

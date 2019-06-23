@@ -220,7 +220,7 @@ public abstract class PrologControl {
     }
 
     // @SuppressWarnings("null")
-    
+
     final public void executePredicate(boolean isOutter) throws PrologException, JavaInterruptedException {
         executePredicate(this, engine, code, isOutter);
     }
