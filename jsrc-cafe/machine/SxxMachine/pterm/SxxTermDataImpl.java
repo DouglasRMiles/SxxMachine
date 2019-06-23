@@ -16,6 +16,7 @@ import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.TermArray;
 
+@SuppressWarnings("cast")
 public class SxxTermDataImpl implements ITermFactory {
 
     @Override

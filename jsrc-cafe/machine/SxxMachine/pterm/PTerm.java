@@ -26,7 +26,7 @@ import SxxMachine.Var;
 import SxxMachine.sxxtensions;
 //import jdk.jshell.spi.ExecutionControl;
 
-@SuppressWarnings({ "rawtypes" })
+@SuppressWarnings({ "rawtypes" , "cast" })
 abstract class PTerm extends KPTerm {
 
     /* (non-Javadoc)
@@ -979,6 +979,7 @@ abstract class PTerm extends KPTerm {
     }
 
     @Override
+    @SuppressWarnings("cast")
     public Term asStructureTerm() {
         // TODO Auto-generated method stub
         return (Term) dref();
