@@ -20,7 +20,7 @@ import SxxMachine.TermArray;
 abstract public class TermDataImpl {
 
     public Compound S(String string, Term... s3) {
-        return (Compound) new StructureTerm(string, s3);
+        return new StructureTerm(string, s3);
     }
 
     public Compound S(SxxMachine.Functor f, Term... s3) {
@@ -199,7 +199,7 @@ abstract public class TermDataImpl {
      * Converts a list of character codes to a String.
      */
     public String charsToString(Term Cs) {
-        StringBuffer s = new StringBuffer("");
+        StringBuffer s = new StringBuffer();
 
         while (!(Cs.isNil())) {
             if (!(Cs.isCons()))
@@ -290,7 +290,7 @@ abstract public class TermDataImpl {
 
     public Compound asCons(Term i) {
 
-        return (StructureTerm) i.asListTerm();
+        return i.asListTerm();
     }
 
     public NumberTerm asNum(Term i) {
@@ -304,7 +304,7 @@ abstract public class TermDataImpl {
     }
 
     public final Nonvar the(Term X) {
-        return (null == X) ? (Nonvar) Prolog.aNo : S("the", X);
+        return (null == X) ? Prolog.aNo : S("the", X);
     }
 
     public CharReader asCharReader(Term i) {

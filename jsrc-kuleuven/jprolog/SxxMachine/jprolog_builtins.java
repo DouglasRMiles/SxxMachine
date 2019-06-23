@@ -278,7 +278,7 @@ class pred_univ_3
       int l = 0;
       while ( tail.isCons())
       {
-        tail = ( ( (AFunct) tail ).getPlainArg( 1 ) ).dref();
+        tail = ( tail.getPlainArg( 1 ) ).dref();
         l++;
       }
       // if (l == 0) //l == 0 kan als er geen parameters zijn voor de gegeven
@@ -304,8 +304,8 @@ class pred_univ_3
       int i;
       for( i = 0; i < l; i++ )
       {
-        args[ i ] = ( (AFunct) tail ).getPlainArg( 0 );
-        tail = ( ( (AFunct) tail ).getPlainArg( 1 ) ).dref();
+        args[ i ] = tail.getPlainArg( 0 );
+        tail = ( tail.getPlainArg( 1 ) ).dref();
       }
       if( !arg1.unifyJP( S( arg2.fname(), args ) ) )
         return mach.Fail0;
@@ -379,7 +379,7 @@ class pred_functor_3
     {
       if( ( !( arg2.isAtomOrObject() ) ) || ( !( arg3 instanceof NumberTerm ) ) )
         return false;
-      int i = (int) ( ( (NumberTerm) arg3 ).doubleValue() );
+      int i = (int) ( arg3.doubleValue() );
       final String Name = arg2.fname();
       final Term args[] = new Term[ i ];
       while ( i-- > 0)
@@ -437,10 +437,10 @@ class pred_arg_3
     final int i = (int) arg1.doubleValue();
     if( i < 1 )
       return false;
-    final int l = ( (AFunct) arg2 ).arity();
+    final int l = arg2.arity();
     if( i > l )
       return false;
-    Term x = ( (AFunct) arg2 ).args()[ i - 1 ];
+    Term x = arg2.args()[ i - 1 ];
     x = x.dref();
     return ( arg3.unifyJP( x ) );
   }
@@ -919,16 +919,16 @@ class pred_setarg_3
       return false;
     if( !( arg2.isCompound() ) )
       return false;
-    final int i = (int) ( ( (NumberTerm) arg1 ).doubleValue() );
+    final int i = (int) ( arg1.doubleValue() );
     if( i < 1 )
       return false;
-    final int l = ( (AFunct) arg2 ).arity();
+    final int l = arg2.arity();
     if( i > l )
       return false;
-    final Term x = ( (AFunct) arg2 ).args()[ i - 1 ];
+    final Term x = arg2.args()[ i - 1 ];
     final JpVar v = Jv( mach );
     v.Refers = arg3;
-    ( (AFunct) arg2 ).args()[ i - 1 ] = v;
+    arg2.args()[ i - 1 ] = v;
     mach.trailEntry( new SetArgTrail( x, v, mach ) );
     return true;
   }
@@ -1022,7 +1022,7 @@ class pred_frozen_2
     if( arg1 instanceof JpVar )
       goal = CONST( internS( "true" ) );
     else if( arg1 instanceof FrozenVar )
-      goal = ( ( (FrozenVar) arg1 ).getGoals() ).dref();
+      goal = ( arg1.getGoals() ).dref();
     else
       return mach.Fail0;
     if( !( arg2.unifyJP( goal ) ) )

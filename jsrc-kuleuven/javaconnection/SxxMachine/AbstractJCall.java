@@ -39,7 +39,7 @@ abstract class AbstractJCall extends Code {
         String methodName;
         Object[] methodArgs;
         if (methodInvocation.isAtomOrObject()) {
-            methodName = ((Const) methodInvocation).fname();
+            methodName = methodInvocation.fname();
             methodArgs = new Object[0];
         } else {
             if (!(methodInvocation.isCompound()))

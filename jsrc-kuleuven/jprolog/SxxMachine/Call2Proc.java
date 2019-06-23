@@ -30,7 +30,7 @@ public class Call2Proc extends AbstractCall {
             arity = (pred.args()).length;
         } else // it is a Const
         {
-            PredName = ((Const) obj).fname();
+            PredName = obj.fname();
             arity = 0;
         }
 

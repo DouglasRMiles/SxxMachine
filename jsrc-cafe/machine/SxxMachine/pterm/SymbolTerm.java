@@ -89,7 +89,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
     @Override
     public boolean isTrueProc() {
         // TODO Auto-generated method stub
-        return getJavaString() == "true" && arity == 0;
+        return arity == 0 && getJavaString() == "true";
     }
 
     /* (non-Javadoc)
@@ -670,7 +670,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
-        return (obj instanceof Partial) ? ((Partial) obj).equalsTerm(this, comparator)
+        return (obj instanceof Partial) ? obj.equalsTerm(this, comparator)
                 : ((obj.isAtomSymbol()) && (this.arity == obj.asSymbolTerm().arity())
                         && this.name.equals(obj.asSymbolTerm().getJavaString()));
     }

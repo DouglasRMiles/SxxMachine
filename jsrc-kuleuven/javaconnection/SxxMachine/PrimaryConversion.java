@@ -45,7 +45,7 @@ public class PrimaryConversion {
                 throw new JPrologScriptException("can not convert a function to a java-object");
             return f.fname();
         }
-        return ((NumberTerm) prologObject).longValue();
+        return prologObject.longValue();
     }
 
 }

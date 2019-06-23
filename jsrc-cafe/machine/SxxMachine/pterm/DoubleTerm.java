@@ -73,7 +73,7 @@ public class DoubleTerm extends ANumberTerm {
 
     @Override
     public boolean bindKP(Term that, KPTrail trail) {
-        return super.bindKP(that, trail) && doubleValue() == (((NumberTerm) that).doubleValue());
+        return super.bindKP(that, trail) && doubleValue() == (that.doubleValue());
     }
 
     // public double dvalue;

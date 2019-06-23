@@ -30,7 +30,7 @@ public class pred_name_2 extends Code {
         } else {
             //van atom naar een lijst gaan, dat unify met list
             if (atom instanceof StructureTerm) {
-                if (((StructureTerm) atom).arity() != 0)
+                if (atom.arity() != 0)
                     return mach.Fail0;
             }
             final Term l = buildList(atom.portrayTerm());
@@ -56,7 +56,7 @@ public class pred_name_2 extends Code {
                 final Term ch = f.getPlainArg(0).dref();
                 if (!(ch instanceof NumberTerm))
                     return null;
-                b.append((char) ((NumberTerm) ch).longValue());
+                b.append((char) ch.longValue());
                 list = f.getPlainArg(1).dref();
             }
         }

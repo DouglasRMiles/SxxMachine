@@ -17,7 +17,7 @@ public class pred_concat_3 extends Code {
 
     protected String getAsString(Term o) {
         if (o.isAtomOrObject()) {
-            return ((Const) o).portrayTerm();
+            return o.portrayTerm();
         }
         if (o.isCompound()) {
             final AFunct f = (AFunct) o;
@@ -63,7 +63,7 @@ public class pred_concat_3 extends Code {
             if (v3Str == null)
                 return mach.Fail0;
             //Opsplitsing teken per teken teruggeven
-            mach.createChoicePoint(new Term[] { v1, v2, v3, local_aregs.getPlainArg(3) });
+            mach.createChoicePoint(v1, v2, v3, local_aregs.getPlainArg(3));
             return concat1.exec(mach);
         }
         mach.setCont(local_aregs.setAreg0(( local_aregs.getPlainArg(3))));

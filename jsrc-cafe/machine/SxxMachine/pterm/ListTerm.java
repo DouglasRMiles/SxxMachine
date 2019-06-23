@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.AFunct;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
@@ -363,7 +362,7 @@ public abstract class ListTerm extends AFunct implements Compound {
         @Override
         public void remove() {
 			// TODO Auto-generated method stub
-			throw new NotImplementedException();
+			throw new UnsupportedOperationException();
 
         }
     }

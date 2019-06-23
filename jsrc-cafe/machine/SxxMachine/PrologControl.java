@@ -293,7 +293,7 @@ public abstract class PrologControl {
                         engine.setException(engine.copy(e.getMessageTerm()));
                         engine.cut(b);
                         code = engine.fail(); // set next operation to execute
-                        continue mainLoop;
+                        continue;
                     } else {
                         t.printStackTrace();
                         throw e;

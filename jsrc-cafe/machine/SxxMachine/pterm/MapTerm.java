@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.Functor;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
@@ -394,7 +393,7 @@ public class MapTerm extends SystemObject {
 		@Override
 		public void remove() {
 			// TODO Auto-generated method stub
-			throw new NotImplementedException();
+			throw new UnsupportedOperationException();
 		}
     }
 

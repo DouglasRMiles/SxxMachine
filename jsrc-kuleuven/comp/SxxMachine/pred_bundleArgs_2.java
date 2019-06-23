@@ -114,7 +114,7 @@ class pred_bundleArgs_2_1 extends pred_bundleArgs_2 {
         mach.setCont(local_aregs, 0, continuation);
         mach.updateCUTB();
         mach.setARegENull(local_aregs, 2);
-        return (Code) (Object) mach.getCall1();
+        return mach.getCall1();
     }
 }
 

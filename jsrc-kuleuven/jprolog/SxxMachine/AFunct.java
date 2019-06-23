@@ -100,7 +100,7 @@ public abstract class AFunct extends ANonvar {
             //Kan wel
             if (arity() != 0)
                 return false;
-            return fname().equals(((Const) that).fname());
+            return fname().equals(that.fname());
         }
         return false;
     }

@@ -207,9 +207,9 @@ public class Builtins extends HashDict {
         if (fname.equals(Prolog.Nil.fname()))
             return (Nonvar) Prolog.Nil;
         if (fname.equals(Prolog.aNo.fname()))
-            return (Nonvar) Prolog.aNo;
+            return Prolog.aNo;
         if (fname.equals(Prolog.aYes.fname()))
-            return (Nonvar) Prolog.aYes;
+            return Prolog.aYes;
 
         Nonvar B = Init.builtinDict.asBuiltin(c);
         if (null == B) {
@@ -227,7 +227,7 @@ public class Builtins extends HashDict {
             return AND(f.car(), f.cdr());
         }
         final Nonvar asBuiltin = Init.builtinDict.asBuiltin((NameArity) f);
-        Term B = (Compound) asBuiltin.asStructureTerm();
+        Term B = asBuiltin.asStructureTerm();
         if (null == B)
             return f;
         //B = B.toClone();
@@ -708,7 +708,7 @@ final class pred_to_string extends FunBuiltin {
         String listing = Init.default_db.pred_to_string(key);
         if (null == listing)
             return 0;
-        Nonvar R = (Nonvar) SYM(listing);
+        Nonvar R = SYM(listing);
         return thiz.unifyArg(1, R, p);
     }
 }
@@ -756,7 +756,7 @@ final class new_fun extends FunBuiltin {
         if (i == 0) {
             T = Builtins.toConstBuiltin(SYM(s));
         } else {
-            Compound F = (Compound) S(s,i);
+            Compound F = S(s,i);
             F.init(i);
             T = Builtins.toFunBuiltin(F);
         }
@@ -786,7 +786,7 @@ final class chars_to_name extends FunBuiltin {
         int convert = thiz.getIntArg(0);
         final Nonvar argDeRef = (Nonvar) thiz.getDrefArg(1);
         String s = charsToString(argDeRef);
-        Nonvar T = (Nonvar) SYM(s);
+        Nonvar T = SYM(s);
         if (convert > 0) {
             try {
                 double r = Double.valueOf(s).doubleValue();
@@ -842,10 +842,8 @@ final class compute extends FunBuiltin {
                 r = x * y;
                 break;
             case '/':
-                r = x / y;
-                break;
             case ':':
-                r = (x / y);
+                r = x / y;
                 break;
             case '%':
                 r = x % y;

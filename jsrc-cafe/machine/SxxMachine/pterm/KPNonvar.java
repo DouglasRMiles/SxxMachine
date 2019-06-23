@@ -121,14 +121,14 @@ abstract public class KPNonvar extends SystemObject {
 
     @Override
     public boolean bindJP(Term that) {
-        return (that instanceof KPNonvar) && bindKP(that, (KPTrail) null);
+        return (that instanceof KPNonvar) && bindKP(that, null);
     }
 
     /**
       returns a list representation of the object
     */
     public Compound listify() {
-        return TermData.CONS(this, (Term) Prolog.Nil);
+        return TermData.CONS(this, Prolog.Nil);
     }
 
 }

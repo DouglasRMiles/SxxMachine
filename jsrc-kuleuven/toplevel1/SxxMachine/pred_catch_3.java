@@ -28,7 +28,7 @@ public class pred_catch_3 extends Code {
         mach.setCont(local_aregs, 0, addContinuation(mach, goal, S("endCatch", Integer(mach
                 .getCurrentChoice()), cont)));
         local_aregs.setAreg1((local_aregs.setAreg2((local_aregs.setAreg3((null))))));
-        return (Code) (Object) mach.getCall1();
+        return mach.getCall1();
     }
 
     private StructureTerm addContinuation(PrologMachine mach, Term o, Term cont) {
@@ -63,7 +63,7 @@ class pred_endCatch_1 extends Code {
         final Term cont = local_aregs.getTermDRef(1);
         if (!(choice instanceof NumberTerm))
             return mach.Fail0;
-        final long choicePoint = ((NumberTerm) choice).longValue() - 1;
+        final long choicePoint = choice.longValue() - 1;
         //zorgen dat bij exceptionhandler er pas wordt verder gezocht vanaf choicePoint
         mach.setPrologExceptionHandler(new SkipExceptionHandler(choicePoint));
         local_aregs.setAreg1((null));

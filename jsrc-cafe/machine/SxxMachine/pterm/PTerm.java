@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+//import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
@@ -24,6 +24,7 @@ import SxxMachine.Trail;
 import SxxMachine.Undoable;
 import SxxMachine.Var;
 import SxxMachine.sxxtensions;
+import jdk.jshell.spi.ExecutionControl;
 
 @SuppressWarnings({ "rawtypes" })
 abstract class PTerm extends KPTerm {
@@ -488,7 +489,7 @@ abstract class PTerm extends KPTerm {
      */
     @Override
     public Iterator<Term> iterator(boolean includeSyntax) {
-        return Collections.<Term>emptyIterator();
+        return Collections.emptyIterator();
     }
 
     /**
@@ -608,7 +609,7 @@ abstract class PTerm extends KPTerm {
 
         @Override
         public void remove() {
-            throw new NotImplementedException();
+            throw new UnsupportedOperationException();
         }
     }
 
@@ -790,7 +791,6 @@ abstract class PTerm extends KPTerm {
                 });
             }
             this.setAttrs(newatts);
-            return;
         } else {
             Term next = wasAttrs;
             do {
@@ -990,7 +990,7 @@ abstract class PTerm extends KPTerm {
     @Override
     public Term asStructureTerm() {
         // TODO Auto-generated method stub
-        return (Term) dref();
+        return dref();
     }
 
     @Override

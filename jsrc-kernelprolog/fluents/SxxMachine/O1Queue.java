@@ -37,7 +37,7 @@ public class O1Queue {
 
     // synchronized
     private final void makeIt(int size) {
-        size = (size < MIN_QUEUE) ? MIN_QUEUE : size;
+        size = Math.max(size, MIN_QUEUE);
         queue = new Object[size];
         head = tail = 0;
         // busy=false;

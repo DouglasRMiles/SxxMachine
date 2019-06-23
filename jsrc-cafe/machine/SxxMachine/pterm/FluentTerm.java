@@ -63,7 +63,7 @@ public abstract class FluentTerm extends SystemObject implements Undoable, Fluen
      */
     protected void trailMe(Prog p) {
         if (null != p)
-            p.getTrail().push((Undoable) this);
+            p.getTrail().push(this);
     }
 
     /* (non-Javadoc)

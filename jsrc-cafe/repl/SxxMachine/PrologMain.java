@@ -149,7 +149,7 @@ public class PrologMain {
             if (goal == null) {
                 System.err.println();
                 System.err.flush();
-                goal = S(TermData.F(":", 2), new Term[] { SYM(Prolog.BUILTIN), createAtomic("cafeteria") });
+                goal = S(TermData.F(":", 2), SYM(Prolog.BUILTIN), createAtomic("cafeteria"));
             }
 
         } catch (HaltException e) {
