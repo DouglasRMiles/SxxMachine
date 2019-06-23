@@ -165,25 +165,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reduce
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reducer.pl
 */
     // main(t_def/3,public)
-        final static Functor ATOM_fac = SYM("fac");
+        final static Atomic ATOM_fac = SYM("fac");
         final static Functor FUNCTOR_cond_3 = F("cond",3);
         final static Functor FUNCTOR_$003D_2 = F("=",2);
         final static Functor FUNCTOR_$002A_2 = F("*",2);
         final static Functor FUNCTOR_$002D_2 = F("-",2);
-        final static Functor ATOM_quick = SYM("quick");
+        final static Atomic ATOM_quick = SYM("quick");
         final static Functor FUNCTOR_tl_1 = F("tl",1);
         final static Functor FUNCTOR_quick2_1 = F("quick2",1);
         final static Functor FUNCTOR_split_2 = F("split",2);
         final static Functor FUNCTOR_hd_1 = F("hd",1);
-        final static Functor ATOM_quick2 = SYM("quick2");
+        final static Atomic ATOM_quick2 = SYM("quick2");
         final static Functor FUNCTOR_append_2 = F("append",2);
-        final static Functor ATOM_split = SYM("split");
+        final static Atomic ATOM_split = SYM("split");
         final static Functor FUNCTOR_$003D$003C_2 = F("=<",2);
         final static Functor FUNCTOR_inserthead_2 = F("inserthead",2);
         final static Functor FUNCTOR_inserttail_2 = F("inserttail",2);
-        final static Functor ATOM_inserthead = SYM("inserthead");
-        final static Functor ATOM_inserttail = SYM("inserttail");
-        final static Functor ATOM_append = SYM("append");
+        final static Atomic ATOM_inserthead = SYM("inserthead");
+        final static Atomic ATOM_inserttail = SYM("inserttail");
+        final static Atomic ATOM_append = SYM("append");
 
 
 
@@ -974,41 +974,41 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reducer.pl
 */
     // main(t_redex/2,public)
-        final static Functor ATOM_sp = SYM("sp");
-        final static Functor ATOM_bp = SYM("bp");
-        final static Functor ATOM_cp = SYM("cp");
-        final static Functor ATOM_s = SYM("s");
-        final static Functor ATOM_b = SYM("b");
-        final static Functor ATOM_c = SYM("c");
-        final static Functor ATOM_k = SYM("k");
-        final static Functor ATOM_i = SYM("i");
-        final static Functor ATOM_cond = SYM("cond");
-        final static Functor ATOM_apply = SYM("apply");
-        final static Functor ATOM_hd = SYM("hd");
-        final static Functor ATOM_tl = SYM("tl");
-        final static Functor ATOM_$002B = SYM("+");
-        final static Functor ATOM_$002D = SYM("-");
-        final static Functor ATOM_$002A = SYM("*");
-        final static Functor ATOM_$002F$002F = SYM("//");
-        final static Functor ATOM_mod = SYM("mod");
+        final static Atomic ATOM_sp = SYM("sp");
+        final static Atomic ATOM_bp = SYM("bp");
+        final static Atomic ATOM_cp = SYM("cp");
+        final static Atomic ATOM_s = SYM("s");
+        final static Atomic ATOM_b = SYM("b");
+        final static Atomic ATOM_c = SYM("c");
+        final static Atomic ATOM_k = SYM("k");
+        final static Atomic ATOM_i = SYM("i");
+        final static Atomic ATOM_cond = SYM("cond");
+        final static Atomic ATOM_apply = SYM("apply");
+        final static Atomic ATOM_hd = SYM("hd");
+        final static Atomic ATOM_tl = SYM("tl");
+        final static Atomic ATOM_$002B = SYM("+");
+        final static Atomic ATOM_$002D = SYM("-");
+        final static Atomic ATOM_$002A = SYM("*");
+        final static Atomic ATOM_$002F$002F = SYM("//");
+        final static Atomic ATOM_mod = SYM("mod");
     private static final Compound L_t_redex_2_s20 = CONS( ATOM_mod ,  Prolog.Nil );
     private static final Compound L_t_redex_2_s21 = CONS( ATOM_$002F$002F , L_t_redex_2_s20);
     private static final Compound L_t_redex_2_s22 = CONS( ATOM_$002A , L_t_redex_2_s21);
     private static final Compound L_t_redex_2_s23 = CONS( ATOM_$002D , L_t_redex_2_s22);
     private static final Compound L_t_redex_2_s24 = CONS( ATOM_$002B , L_t_redex_2_s23);
-        final static Functor ATOM_$003C = SYM("<");
-        final static Functor ATOM_$003E = SYM(">");
-        final static Functor ATOM_$003D$003C = SYM("=<");
-        final static Functor ATOM_$003E$003D = SYM(">=");
-        final static Functor ATOM_$003D$005C$003D = SYM("=\\=");
-        final static Functor ATOM_$003D$003A$003D = SYM("=:=");
+        final static Atomic ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003E = SYM(">");
+        final static Atomic ATOM_$003D$003C = SYM("=<");
+        final static Atomic ATOM_$003E$003D = SYM(">=");
+        final static Atomic ATOM_$003D$005C$003D = SYM("=\\=");
+        final static Atomic ATOM_$003D$003A$003D = SYM("=:=");
     private static final Compound L_t_redex_2_s31 = CONS( ATOM_$003D$003A$003D ,  Prolog.Nil );
     private static final Compound L_t_redex_2_s32 = CONS( ATOM_$003D$005C$003D , L_t_redex_2_s31);
     private static final Compound L_t_redex_2_s33 = CONS( ATOM_$003E$003D , L_t_redex_2_s32);
     private static final Compound L_t_redex_2_s34 = CONS( ATOM_$003D$003C , L_t_redex_2_s33);
     private static final Compound L_t_redex_2_s35 = CONS( ATOM_$003E , L_t_redex_2_s34);
     private static final Compound L_t_redex_2_s36 = CONS( ATOM_$003C , L_t_redex_2_s35);
-        final static Functor ATOM_$003D = SYM("=");
+        final static Atomic ATOM_$003D = SYM("=");
     private static final Compound L_t_redex_2_s38 = CONS( ATOM_$002D ,  Prolog.Nil );
 
 
@@ -2023,7 +2023,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reducer.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/reducer.pl'/4,public)
-        final static Functor ATOM_false = SYM("false");
+        final static Atomic ATOM_false = SYM("false");
 
 
 

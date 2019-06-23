@@ -34,31 +34,31 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/zebra.
 */
     // main(top/0,public)
         final static Functor FUNCTOR_house_5 = F("house",5);
-        final static Functor ATOM_red = SYM("red");
-        final static Functor ATOM_english = SYM("english");
-        final static Functor ATOM_spanish = SYM("spanish");
-        final static Functor ATOM_dog = SYM("dog");
-        final static Functor ATOM_green = SYM("green");
-        final static Functor ATOM_coffee = SYM("coffee");
-        final static Functor ATOM_ukrainian = SYM("ukrainian");
-        final static Functor ATOM_tea = SYM("tea");
-        final static Functor ATOM_ivory = SYM("ivory");
-        final static Functor ATOM_snails = SYM("snails");
-        final static Functor ATOM_winstons = SYM("winstons");
-        final static Functor ATOM_yellow = SYM("yellow");
-        final static Functor ATOM_kools = SYM("kools");
-        final static Functor ATOM_milk = SYM("milk");
-        final static Functor ATOM_norwegian = SYM("norwegian");
-        final static Functor ATOM_chesterfields = SYM("chesterfields");
-        final static Functor ATOM_fox = SYM("fox");
-        final static Functor ATOM_horse = SYM("horse");
-        final static Functor ATOM_orange_juice = SYM("orange_juice");
-        final static Functor ATOM_lucky_strikes = SYM("lucky_strikes");
-        final static Functor ATOM_japanese = SYM("japanese");
-        final static Functor ATOM_parliaments = SYM("parliaments");
-        final static Functor ATOM_blue = SYM("blue");
-        final static Functor ATOM_zebra = SYM("zebra");
-        final static Functor ATOM_water = SYM("water");
+        final static Atomic ATOM_red = SYM("red");
+        final static Atomic ATOM_english = SYM("english");
+        final static Atomic ATOM_spanish = SYM("spanish");
+        final static Atomic ATOM_dog = SYM("dog");
+        final static Atomic ATOM_green = SYM("green");
+        final static Atomic ATOM_coffee = SYM("coffee");
+        final static Atomic ATOM_ukrainian = SYM("ukrainian");
+        final static Atomic ATOM_tea = SYM("tea");
+        final static Atomic ATOM_ivory = SYM("ivory");
+        final static Atomic ATOM_snails = SYM("snails");
+        final static Atomic ATOM_winstons = SYM("winstons");
+        final static Atomic ATOM_yellow = SYM("yellow");
+        final static Atomic ATOM_kools = SYM("kools");
+        final static Atomic ATOM_milk = SYM("milk");
+        final static Atomic ATOM_norwegian = SYM("norwegian");
+        final static Atomic ATOM_chesterfields = SYM("chesterfields");
+        final static Atomic ATOM_fox = SYM("fox");
+        final static Atomic ATOM_horse = SYM("horse");
+        final static Atomic ATOM_orange_juice = SYM("orange_juice");
+        final static Atomic ATOM_lucky_strikes = SYM("lucky_strikes");
+        final static Atomic ATOM_japanese = SYM("japanese");
+        final static Atomic ATOM_parliaments = SYM("parliaments");
+        final static Atomic ATOM_blue = SYM("blue");
+        final static Atomic ATOM_zebra = SYM("zebra");
+        final static Atomic ATOM_water = SYM("water");
 
 
 

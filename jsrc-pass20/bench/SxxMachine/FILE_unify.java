@@ -146,7 +146,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl
 */
     // main(unify/6,public)
-        final static Functor ATOM_nonlast = SYM("nonlast");
+        final static Atomic ATOM_nonlast = SYM("nonlast");
 
     // private final Term arg5, arg6;
 
@@ -229,8 +229,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
     // main(uninit/6,public)
         final static Functor FUNCTOR_move_2 = F("move",2);
         final static Functor FUNCTOR_$005E_2 = F("^",2);
-        final static Functor ATOM_h = SYM("h");
-        final static Functor ATOM_tatm = SYM("tatm");
+        final static Atomic ATOM_h = SYM("h");
+        final static Atomic ATOM_tatm = SYM("tatm");
 
     // private final Term arg5, arg6;
 
@@ -410,7 +410,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
         final static Functor FUNCTOR_deref_1 = F("deref",1);
         final static Functor FUNCTOR_switch_5 = F("switch",5);
         final static Functor FUNCTOR_trail_1 = F("trail",1);
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -551,7 +551,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 */
     // main(unify_var/6,public)
         final static Functor FUNCTOR_unify_3 = F("unify",3);
-        final static Functor ATOM_tvar = SYM("tvar");
+        final static Atomic ATOM_tvar = SYM("tvar");
     private static final Compound L_unify_var_6_s8 = S( FUNCTOR_$005E_2 ,  ATOM_tvar ,  ATOM_h );
         final static Functor FUNCTOR_add_2 = F("add",2);
     private static final Compound L_unify_var_6_s12 = S( FUNCTOR_add_2 ,  int_1 ,  ATOM_h );
@@ -1117,7 +1117,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl
 */
     // main(unify_args/10,public)
-        final static Functor ATOM_last = SYM("last");
+        final static Atomic ATOM_last = SYM("last");
         final static Functor FUNCTOR_$002B_2 = F("+",2);
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10;
@@ -2957,8 +2957,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl
 */
     // main(in_2/3,public)
-        final static Functor ATOM_$003D = SYM("=");
-        final static Functor ATOM_$003E = SYM(">");
+        final static Atomic ATOM_$003D = SYM("=");
+        final static Atomic ATOM_$003E = SYM(">");
 
 
 
@@ -3108,7 +3108,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl
 */
     // main(incl_3/5,public)
-        final static Functor ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003C = SYM("<");
 
     // private final Term arg5;
 
@@ -3426,8 +3426,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/unify.pl
 */
     // main(termtag/2,public)
-        final static Functor ATOM_tstr = SYM("tstr");
-        final static Functor ATOM_tlst = SYM("tlst");
+        final static Atomic ATOM_tstr = SYM("tstr");
+        final static Atomic ATOM_tlst = SYM("tlst");
 
 
 

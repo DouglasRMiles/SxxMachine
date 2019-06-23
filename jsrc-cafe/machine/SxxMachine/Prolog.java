@@ -99,7 +99,7 @@ public final class Prolog extends PrologFlags implements ISTerm {
     public static final String BUILTIN = "SxxMachine";
     /** Holds an atom <code>[]<code> (empty list). */
     public static final Term Nil = TermData.SYM("[]");
-    public static final Functor True = TermData.SYM("true");
+    public static final Term True = TermData.SYM("true");
     /* Some symbols for stream options */
     private static final Functor SYM_MODE_1 = TermData.F("mode", 1);
     private static final Functor SYM_ALIAS_1 = TermData.F("alias", 1);
@@ -159,16 +159,16 @@ public final class Prolog extends PrologFlags implements ISTerm {
     public Term assumptions;
     public Operation pred;
     private final Map<Term, Term> termBlackboard = new HashtableOfTerm().termMap;
-    public final static Functor anEof = TermData.SYM("end_of_file");
-    public final static Functor aNo = TermData.SYM("no");
-    public final static Functor aYes = TermData.SYM("yes");
+    public final static Atomic anEof = TermData.SYM("end_of_file");
+    public final static Term aNo = TermData.SYM("no");
+    public final static Term aYes = TermData.SYM("yes");
     public final static NameArity aFail = TermData.SYM("fail");//new fail_();
 
     /** A functor <code>'.' /2</code>. */
     public static final Functor FUNCTOR_LIST_2 = TermData.F(".", 2);
     public static final Functor FUNCTOR_CONJ_2 = TermData.F(",", 2);
     public static final Functor FUNCTOR_NECK_2 = TermData.F(":-", 2);
-    public static final Functor GOALS = TermData.SYM("$goals");
+    public static final Term GOALS = TermData.SYM("$goals");
 
     Prolog(PrologControl c) {
         M = this;

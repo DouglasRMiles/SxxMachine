@@ -224,7 +224,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/serial
 */
     // main(arrange/2,public)
         final static Functor FUNCTOR_tree_3 = F("tree",3);
-        final static Functor ATOM_void = SYM("void");
+        final static Atomic ATOM_void = SYM("void");
 
 
 

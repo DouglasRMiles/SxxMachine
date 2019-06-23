@@ -33,7 +33,7 @@ public class FILE_animal_string2 extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tests/animal_string.pl
 */
     // main(animal_string/1,public)
-        final static Functor ATOM_goat = SYM("goat");
+        final static Atomic ATOM_goat = SYM("goat");
         final static NumberTerm int_101 = Integer(101);
         final static NumberTerm int_108 = Integer(108);
         final static NumberTerm int_112 = Integer(112);

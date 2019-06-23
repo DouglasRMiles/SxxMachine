@@ -35,7 +35,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/primes/mapli
     // main(n_maplist/4,public)
         final static Functor FUNCTOR_$002D_2 = F("-",2);
         final static Functor FUNCTOR_module_colon_2 = F(":",2);
-        final static Functor ATOM_n_maplist = SYM("n_maplist");
+        final static Atomic ATOM_n_maplist = SYM("n_maplist");
 
 
 

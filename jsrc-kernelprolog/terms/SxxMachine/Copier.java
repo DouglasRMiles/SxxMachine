@@ -109,7 +109,7 @@ public class Copier extends JPrologObject {
      * being the elements of the Iterator.
      */
 
-    static Term toFun(Functor c, Iterator e) {
+    static Term toFun(Atomic c, Iterator e) {
         ArrayList V = EnumerationToVector(e);
         int arity = V.size();
         if (arity == 0)
@@ -139,7 +139,7 @@ public class Copier extends JPrologObject {
      * Extracts the free variables of a Term, using a care of recursing over its
      * structure. It can be speeded up through specialization.
      */
-    final static Functor anAnswer = SYM("answer");
+    final static Atomic anAnswer = SYM("answer");
 
     public Term getMyVars(Term that) {
         /* Term */that.reaction(this);

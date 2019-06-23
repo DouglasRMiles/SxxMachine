@@ -12,10 +12,10 @@ import SxxMachine.pterm.TermData;
  * @version 1.0
  */
 public class Arithmetic {
-    static final Functor SYM_RANDOM = TermData.SYM("random");
-    static final Functor SYM_PI = TermData.SYM("pi");
-    static final Functor SYM_E = TermData.SYM("e");
-    static final Functor SYM_ADD_1 = TermData.F("+", 1);
+    static final Atomic SYM_RANDOM = TermData.SYM("random");
+    static final Atomic SYM_PI = TermData.SYM("pi");
+    static final Atomic SYM_E = TermData.SYM("e");
+    static final Atomic SYM_ADD_1 = TermData.F("+", 1);
     static final Functor SYM_NEGATE_1 = TermData.F("-", 1);
     static final Functor SYM_ADD_2 = TermData.F("+", 2);
     static final Functor SYM_SUBTRACT_2 = TermData.F("-", 2);

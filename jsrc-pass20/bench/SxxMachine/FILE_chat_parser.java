@@ -49,9 +49,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(go/0,public)
-        final static Functor ATOM_runtime = SYM("runtime");
-        final static Functor ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
-        final static Functor ATOM_milliseconds = SYM("milliseconds");
+        final static Atomic ATOM_runtime = SYM("runtime");
+        final static Atomic ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
+        final static Atomic ATOM_milliseconds = SYM("milliseconds");
 
 
 
@@ -121,47 +121,47 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(my_string/1,public)
-        final static Functor ATOM_what = SYM("what");
-        final static Functor ATOM_rivers = SYM("rivers");
-        final static Functor ATOM_are = SYM("are");
-        final static Functor ATOM_there = SYM("there");
-        final static Functor ATOM_$003F = SYM("?");
+        final static Atomic ATOM_what = SYM("what");
+        final static Atomic ATOM_rivers = SYM("rivers");
+        final static Atomic ATOM_are = SYM("are");
+        final static Atomic ATOM_there = SYM("there");
+        final static Atomic ATOM_$003F = SYM("?");
     private static final Compound L_my_string_1_s7 = CONS( ATOM_$003F ,  Prolog.Nil );
     private static final Compound L_my_string_1_s8 = CONS( ATOM_there , L_my_string_1_s7);
     private static final Compound L_my_string_1_s9 = CONS( ATOM_are , L_my_string_1_s8);
     private static final Compound L_my_string_1_s10 = CONS( ATOM_rivers , L_my_string_1_s9);
     private static final Compound L_my_string_1_s11 = CONS( ATOM_what , L_my_string_1_s10);
-        final static Functor ATOM_does = SYM("does");
-        final static Functor ATOM_afghanistan = SYM("afghanistan");
-        final static Functor ATOM_border = SYM("border");
-        final static Functor ATOM_china = SYM("china");
+        final static Atomic ATOM_does = SYM("does");
+        final static Atomic ATOM_afghanistan = SYM("afghanistan");
+        final static Atomic ATOM_border = SYM("border");
+        final static Atomic ATOM_china = SYM("china");
     private static final Compound L_my_string_1_s16 = CONS( ATOM_china , L_my_string_1_s7);
     private static final Compound L_my_string_1_s17 = CONS( ATOM_border , L_my_string_1_s16);
     private static final Compound L_my_string_1_s18 = CONS( ATOM_afghanistan , L_my_string_1_s17);
     private static final Compound L_my_string_1_s19 = CONS( ATOM_does , L_my_string_1_s18);
-        final static Functor ATOM_is = SYM("is");
-        final static Functor ATOM_the = SYM("the");
-        final static Functor ATOM_capital = SYM("capital");
-        final static Functor ATOM_of = SYM("of");
-        final static Functor ATOM_upper_volta = SYM("upper_volta");
+        final static Atomic ATOM_is = SYM("is");
+        final static Atomic ATOM_the = SYM("the");
+        final static Atomic ATOM_capital = SYM("capital");
+        final static Atomic ATOM_of = SYM("of");
+        final static Atomic ATOM_upper_volta = SYM("upper_volta");
     private static final Compound L_my_string_1_s25 = CONS( ATOM_upper_volta , L_my_string_1_s7);
     private static final Compound L_my_string_1_s26 = CONS( ATOM_of , L_my_string_1_s25);
     private static final Compound L_my_string_1_s27 = CONS( ATOM_capital , L_my_string_1_s26);
     private static final Compound L_my_string_1_s28 = CONS( ATOM_the , L_my_string_1_s27);
     private static final Compound L_my_string_1_s29 = CONS( ATOM_is , L_my_string_1_s28);
     private static final Compound L_my_string_1_s30 = CONS( ATOM_what , L_my_string_1_s29);
-        final static Functor ATOM_where = SYM("where");
-        final static Functor ATOM_largest = SYM("largest");
-        final static Functor ATOM_country = SYM("country");
+        final static Atomic ATOM_where = SYM("where");
+        final static Atomic ATOM_largest = SYM("largest");
+        final static Atomic ATOM_country = SYM("country");
     private static final Compound L_my_string_1_s34 = CONS( ATOM_country , L_my_string_1_s7);
     private static final Compound L_my_string_1_s35 = CONS( ATOM_largest , L_my_string_1_s34);
     private static final Compound L_my_string_1_s36 = CONS( ATOM_the , L_my_string_1_s35);
     private static final Compound L_my_string_1_s37 = CONS( ATOM_is , L_my_string_1_s36);
     private static final Compound L_my_string_1_s38 = CONS( ATOM_where , L_my_string_1_s37);
-        final static Functor ATOM_which = SYM("which");
-        final static Functor ATOM_$007E = SYM("~");
-        final static Functor ATOM_s = SYM("s");
-        final static Functor ATOM_london = SYM("london");
+        final static Atomic ATOM_which = SYM("which");
+        final static Atomic ATOM_$007E = SYM("~");
+        final static Atomic ATOM_s = SYM("s");
+        final static Atomic ATOM_london = SYM("london");
     private static final Compound L_my_string_1_s43 = CONS( ATOM_london , L_my_string_1_s7);
     private static final Compound L_my_string_1_s44 = CONS( ATOM_is , L_my_string_1_s43);
     private static final Compound L_my_string_1_s45 = CONS( ATOM_capital , L_my_string_1_s44);
@@ -169,28 +169,28 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s47 = CONS( ATOM_$007E , L_my_string_1_s46);
     private static final Compound L_my_string_1_s48 = CONS( ATOM_country , L_my_string_1_s47);
     private static final Compound L_my_string_1_s49 = CONS( ATOM_which , L_my_string_1_s48);
-        final static Functor ATOM_countries = SYM("countries");
-        final static Functor ATOM_european = SYM("european");
+        final static Atomic ATOM_countries = SYM("countries");
+        final static Atomic ATOM_european = SYM("european");
     private static final Compound L_my_string_1_s52 = CONS( ATOM_european , L_my_string_1_s7);
     private static final Compound L_my_string_1_s53 = CONS( ATOM_are , L_my_string_1_s52);
     private static final Compound L_my_string_1_s54 = CONS( ATOM_countries , L_my_string_1_s53);
     private static final Compound L_my_string_1_s55 = CONS( ATOM_which , L_my_string_1_s54);
-        final static Functor ATOM_how = SYM("how");
-        final static Functor ATOM_large = SYM("large");
-        final static Functor ATOM_smallest = SYM("smallest");
-        final static Functor ATOM_american = SYM("american");
+        final static Atomic ATOM_how = SYM("how");
+        final static Atomic ATOM_large = SYM("large");
+        final static Atomic ATOM_smallest = SYM("smallest");
+        final static Atomic ATOM_american = SYM("american");
     private static final Compound L_my_string_1_s60 = CONS( ATOM_american , L_my_string_1_s34);
     private static final Compound L_my_string_1_s61 = CONS( ATOM_smallest , L_my_string_1_s60);
     private static final Compound L_my_string_1_s62 = CONS( ATOM_the , L_my_string_1_s61);
     private static final Compound L_my_string_1_s63 = CONS( ATOM_is , L_my_string_1_s62);
     private static final Compound L_my_string_1_s64 = CONS( ATOM_large , L_my_string_1_s63);
     private static final Compound L_my_string_1_s65 = CONS( ATOM_how , L_my_string_1_s64);
-        final static Functor ATOM_ocean = SYM("ocean");
-        final static Functor ATOM_that = SYM("that");
-        final static Functor ATOM_borders = SYM("borders");
-        final static Functor ATOM_african = SYM("african");
-        final static Functor ATOM_and = SYM("and");
-        final static Functor ATOM_asian = SYM("asian");
+        final static Atomic ATOM_ocean = SYM("ocean");
+        final static Atomic ATOM_that = SYM("that");
+        final static Atomic ATOM_borders = SYM("borders");
+        final static Atomic ATOM_african = SYM("african");
+        final static Atomic ATOM_and = SYM("and");
+        final static Atomic ATOM_asian = SYM("asian");
     private static final Compound L_my_string_1_s72 = CONS( ATOM_countries , L_my_string_1_s7);
     private static final Compound L_my_string_1_s73 = CONS( ATOM_asian , L_my_string_1_s72);
     private static final Compound L_my_string_1_s74 = CONS( ATOM_borders , L_my_string_1_s73);
@@ -204,9 +204,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s82 = CONS( ATOM_the , L_my_string_1_s81);
     private static final Compound L_my_string_1_s83 = CONS( ATOM_is , L_my_string_1_s82);
     private static final Compound L_my_string_1_s84 = CONS( ATOM_what , L_my_string_1_s83);
-        final static Functor ATOM_capitals = SYM("capitals");
-        final static Functor ATOM_bordering = SYM("bordering");
-        final static Functor ATOM_baltic = SYM("baltic");
+        final static Atomic ATOM_capitals = SYM("capitals");
+        final static Atomic ATOM_bordering = SYM("bordering");
+        final static Atomic ATOM_baltic = SYM("baltic");
     private static final Compound L_my_string_1_s88 = CONS( ATOM_baltic , L_my_string_1_s7);
     private static final Compound L_my_string_1_s89 = CONS( ATOM_the , L_my_string_1_s88);
     private static final Compound L_my_string_1_s90 = CONS( ATOM_bordering , L_my_string_1_s89);
@@ -217,10 +217,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s95 = CONS( ATOM_the , L_my_string_1_s94);
     private static final Compound L_my_string_1_s96 = CONS( ATOM_are , L_my_string_1_s95);
     private static final Compound L_my_string_1_s97 = CONS( ATOM_what , L_my_string_1_s96);
-        final static Functor ATOM_bordered = SYM("bordered");
-        final static Functor ATOM_by = SYM("by");
-        final static Functor ATOM_two = SYM("two");
-        final static Functor ATOM_seas = SYM("seas");
+        final static Atomic ATOM_bordered = SYM("bordered");
+        final static Atomic ATOM_by = SYM("by");
+        final static Atomic ATOM_two = SYM("two");
+        final static Atomic ATOM_seas = SYM("seas");
     private static final Compound L_my_string_1_s102 = CONS( ATOM_seas , L_my_string_1_s7);
     private static final Compound L_my_string_1_s103 = CONS( ATOM_two , L_my_string_1_s102);
     private static final Compound L_my_string_1_s104 = CONS( ATOM_by , L_my_string_1_s103);
@@ -228,10 +228,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s106 = CONS( ATOM_are , L_my_string_1_s105);
     private static final Compound L_my_string_1_s107 = CONS( ATOM_countries , L_my_string_1_s106);
     private static final Compound L_my_string_1_s108 = CONS( ATOM_which , L_my_string_1_s107);
-        final static Functor ATOM_many = SYM("many");
-        final static Functor ATOM_danube = SYM("danube");
-        final static Functor ATOM_flow = SYM("flow");
-        final static Functor ATOM_through = SYM("through");
+        final static Atomic ATOM_many = SYM("many");
+        final static Atomic ATOM_danube = SYM("danube");
+        final static Atomic ATOM_flow = SYM("flow");
+        final static Atomic ATOM_through = SYM("through");
     private static final Compound L_my_string_1_s113 = CONS( ATOM_through , L_my_string_1_s7);
     private static final Compound L_my_string_1_s114 = CONS( ATOM_flow , L_my_string_1_s113);
     private static final Compound L_my_string_1_s115 = CONS( ATOM_danube , L_my_string_1_s114);
@@ -240,13 +240,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s118 = CONS( ATOM_countries , L_my_string_1_s117);
     private static final Compound L_my_string_1_s119 = CONS( ATOM_many , L_my_string_1_s118);
     private static final Compound L_my_string_1_s120 = CONS( ATOM_how , L_my_string_1_s119);
-        final static Functor ATOM_total = SYM("total");
-        final static Functor ATOM_area = SYM("area");
-        final static Functor ATOM_south = SYM("south");
-        final static Functor ATOM_equator = SYM("equator");
-        final static Functor ATOM_not = SYM("not");
-        final static Functor ATOM_in = SYM("in");
-        final static Functor ATOM_australasia = SYM("australasia");
+        final static Atomic ATOM_total = SYM("total");
+        final static Atomic ATOM_area = SYM("area");
+        final static Atomic ATOM_south = SYM("south");
+        final static Atomic ATOM_equator = SYM("equator");
+        final static Atomic ATOM_not = SYM("not");
+        final static Atomic ATOM_in = SYM("in");
+        final static Atomic ATOM_australasia = SYM("australasia");
     private static final Compound L_my_string_1_s128 = CONS( ATOM_australasia , L_my_string_1_s7);
     private static final Compound L_my_string_1_s129 = CONS( ATOM_in , L_my_string_1_s128);
     private static final Compound L_my_string_1_s130 = CONS( ATOM_not , L_my_string_1_s129);
@@ -262,9 +262,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s140 = CONS( ATOM_the , L_my_string_1_s139);
     private static final Compound L_my_string_1_s141 = CONS( ATOM_is , L_my_string_1_s140);
     private static final Compound L_my_string_1_s142 = CONS( ATOM_what , L_my_string_1_s141);
-        final static Functor ATOM_average = SYM("average");
-        final static Functor ATOM_each = SYM("each");
-        final static Functor ATOM_continent = SYM("continent");
+        final static Atomic ATOM_average = SYM("average");
+        final static Atomic ATOM_each = SYM("each");
+        final static Atomic ATOM_continent = SYM("continent");
     private static final Compound L_my_string_1_s146 = CONS( ATOM_continent , L_my_string_1_s7);
     private static final Compound L_my_string_1_s147 = CONS( ATOM_each , L_my_string_1_s146);
     private static final Compound L_my_string_1_s148 = CONS( ATOM_in , L_my_string_1_s147);
@@ -276,17 +276,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s154 = CONS( ATOM_the , L_my_string_1_s153);
     private static final Compound L_my_string_1_s155 = CONS( ATOM_is , L_my_string_1_s154);
     private static final Compound L_my_string_1_s156 = CONS( ATOM_what , L_my_string_1_s155);
-        final static Functor ATOM_more = SYM("more");
-        final static Functor ATOM_than = SYM("than");
-        final static Functor ATOM_one = SYM("one");
+        final static Atomic ATOM_more = SYM("more");
+        final static Atomic ATOM_than = SYM("than");
+        final static Atomic ATOM_one = SYM("one");
     private static final Compound L_my_string_1_s160 = CONS( ATOM_country , L_my_string_1_s148);
     private static final Compound L_my_string_1_s161 = CONS( ATOM_one , L_my_string_1_s160);
     private static final Compound L_my_string_1_s162 = CONS( ATOM_than , L_my_string_1_s161);
     private static final Compound L_my_string_1_s163 = CONS( ATOM_more , L_my_string_1_s162);
     private static final Compound L_my_string_1_s164 = CONS( ATOM_there , L_my_string_1_s163);
     private static final Compound L_my_string_1_s165 = CONS( ATOM_is , L_my_string_1_s164);
-        final static Functor ATOM_some = SYM("some");
-        final static Functor ATOM_any = SYM("any");
+        final static Atomic ATOM_some = SYM("some");
+        final static Atomic ATOM_any = SYM("any");
     private static final Compound L_my_string_1_s168 = CONS( ATOM_any , L_my_string_1_s34);
     private static final Compound L_my_string_1_s169 = CONS( ATOM_border , L_my_string_1_s168);
     private static final Compound L_my_string_1_s170 = CONS( ATOM_not , L_my_string_1_s169);
@@ -296,12 +296,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     private static final Compound L_my_string_1_s174 = CONS( ATOM_some , L_my_string_1_s173);
     private static final Compound L_my_string_1_s175 = CONS( ATOM_there , L_my_string_1_s174);
     private static final Compound L_my_string_1_s176 = CONS( ATOM_is , L_my_string_1_s175);
-        final static Functor ATOM_from = SYM("from");
-        final static Functor ATOM_a = SYM("a");
-        final static Functor ATOM_river = SYM("river");
-        final static Functor ATOM_flows = SYM("flows");
-        final static Functor ATOM_into = SYM("into");
-        final static Functor ATOM_black_sea = SYM("black_sea");
+        final static Atomic ATOM_from = SYM("from");
+        final static Atomic ATOM_a = SYM("a");
+        final static Atomic ATOM_river = SYM("river");
+        final static Atomic ATOM_flows = SYM("flows");
+        final static Atomic ATOM_into = SYM("into");
+        final static Atomic ATOM_black_sea = SYM("black_sea");
     private static final Compound L_my_string_1_s183 = CONS( ATOM_black_sea , L_my_string_1_s7);
     private static final Compound L_my_string_1_s184 = CONS( ATOM_the , L_my_string_1_s183);
     private static final Compound L_my_string_1_s185 = CONS( ATOM_into , L_my_string_1_s184);
@@ -628,7 +628,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(terminal/5,public)
         final static Functor FUNCTOR_x_4 = F("x",4);
-        final static Functor ATOM_terminal = SYM("terminal");
+        final static Atomic ATOM_terminal = SYM("terminal");
 
     // private final Term arg5;
 
@@ -704,7 +704,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(gap/1,public)
-        final static Functor ATOM_gap = SYM("gap");
+        final static Atomic ATOM_gap = SYM("gap");
 
 
 
@@ -755,7 +755,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(virtual/3,public)
-        final static Functor ATOM_nonterminal = SYM("nonterminal");
+        final static Atomic ATOM_nonterminal = SYM("nonterminal");
 
 
 
@@ -1241,15 +1241,15 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(role/3,public)
-        final static Functor ATOM_subj = SYM("subj");
+        final static Atomic ATOM_subj = SYM("subj");
         final static Functor FUNCTOR_$0023_3 = F("#",3);
     private static final Compound L_role_3_s6 = S( FUNCTOR_$0023_3 ,  int_1 ,  int_0 ,  int_0 );
-        final static Functor ATOM_compl = SYM("compl");
-        final static Functor ATOM_undef = SYM("undef");
-        final static Functor ATOM_main = SYM("main");
-        final static Functor ATOM_aux = SYM("aux");
-        final static Functor ATOM_decl = SYM("decl");
-        final static Functor ATOM_nil = SYM("nil");
+        final static Atomic ATOM_compl = SYM("compl");
+        final static Atomic ATOM_undef = SYM("undef");
+        final static Atomic ATOM_main = SYM("main");
+        final static Atomic ATOM_aux = SYM("aux");
+        final static Atomic ATOM_decl = SYM("decl");
+        final static Atomic ATOM_nil = SYM("nil");
 
 
 
@@ -1498,8 +1498,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(sentence/5,public)
-        final static Functor ATOM_$002E = SYM(".");
-        final static Functor ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_$002E = SYM(".");
+        final static Atomic ATOM_$0021 = SYM("!");
 
     // private final Term arg5;
 
@@ -1754,7 +1754,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(opt_comma/4,public)
-        final static Functor ATOM_$002C = SYM(",");
+        final static Atomic ATOM_$002C = SYM(",");
 
 
 
@@ -1875,11 +1875,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     // main(np/11,public)
         final static Functor FUNCTOR_np_7 = F("np",7);
         final static Functor FUNCTOR_np_3 = F("np",3);
-        final static Functor ATOM_def = SYM("def");
+        final static Atomic ATOM_def = SYM("def");
         final static Functor FUNCTOR_$002B_2 = F("+",2);
         final static Functor FUNCTOR_part_2 = F("part",2);
-        final static Functor ATOM_indef = SYM("indef");
-        final static Functor ATOM_plu = SYM("plu");
+        final static Atomic ATOM_indef = SYM("indef");
+        final static Atomic ATOM_plu = SYM("plu");
     private static final Compound L_np_11_s13 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_plu );
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11;
@@ -2071,10 +2071,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
         final static Functor FUNCTOR_np_head_3 = F("np_head",3);
         final static Functor FUNCTOR_int_det_1 = F("int_det",1);
         final static Functor FUNCTOR_predicate_3 = F("predicate",3);
-        final static Functor ATOM_adj = SYM("adj");
+        final static Atomic ATOM_adj = SYM("adj");
         final static Functor FUNCTOR_value_2 = F("value",2);
         final static Functor FUNCTOR_wh_1 = F("wh",1);
-        final static Functor ATOM_quant = SYM("quant");
+        final static Atomic ATOM_quant = SYM("quant");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -2370,7 +2370,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(predicate/7,public)
-        final static Functor ATOM_neg = SYM("neg");
+        final static Atomic ATOM_neg = SYM("neg");
 
     // private final Term arg5, arg6, arg7;
 
@@ -2652,7 +2652,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(gen_marker/4,public)
-        final static Functor ATOM_gen_marker = SYM("gen_marker");
+        final static Atomic ATOM_gen_marker = SYM("gen_marker");
 
 
 
@@ -2707,10 +2707,10 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(whose/6,public)
-        final static Functor ATOM_nogap = SYM("nogap");
+        final static Atomic ATOM_nogap = SYM("nogap");
         final static Functor FUNCTOR_np_head0_3 = F("np_head0",3);
-        final static Functor ATOM_proper = SYM("proper");
-        final static Functor ATOM_whose = SYM("whose");
+        final static Atomic ATOM_proper = SYM("proper");
+        final static Atomic ATOM_whose = SYM("whose");
 
     // private final Term arg5, arg6;
 
@@ -2821,7 +2821,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
     // main(det/7,public)
         final static Functor FUNCTOR_det_3 = F("det",3);
         final static Functor FUNCTOR_det_1 = F("det",1);
-        final static Functor ATOM_generic = SYM("generic");
+        final static Atomic ATOM_generic = SYM("generic");
 
     // private final Term arg5, arg6, arg7;
 
@@ -3130,7 +3130,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(neg/6,public)
         final static Functor FUNCTOR_neg_2 = F("neg",2);
-        final static Functor ATOM_pos = SYM("pos");
+        final static Atomic ATOM_pos = SYM("pos");
 
     // private final Term arg5, arg6;
 
@@ -3329,13 +3329,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(imperative_verb/4,public)
-        final static Functor ATOM_you = SYM("you");
-        final static Functor ATOM_imp = SYM("imp");
-        final static Functor ATOM_fin = SYM("fin");
+        final static Atomic ATOM_you = SYM("you");
+        final static Atomic ATOM_imp = SYM("imp");
+        final static Atomic ATOM_fin = SYM("fin");
     private static final Compound L_imperative_verb_4_s11 = S( FUNCTOR_$002B_2 ,  ATOM_imp ,  ATOM_fin );
-        final static Functor ATOM_sin = SYM("sin");
+        final static Atomic ATOM_sin = SYM("sin");
     private static final Compound L_imperative_verb_4_s15 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
-        final static Functor ATOM_inf = SYM("inf");
+        final static Atomic ATOM_inf = SYM("inf");
 
 
 
@@ -3429,7 +3429,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(subj/7,public)
-        final static Functor ATOM_be = SYM("be");
+        final static Atomic ATOM_be = SYM("be");
 
     // private final Term arg5, arg6, arg7;
 
@@ -3540,7 +3540,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
         final static Functor FUNCTOR_name_1 = F("name",1);
     private static final Compound L_np_head0_7_s7 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
     private static final Compound L_np_head0_7_s11 = S( FUNCTOR_$002B_2 ,  ATOM_def ,  ATOM_proper );
-        final static Functor ATOM_common = SYM("common");
+        final static Atomic ATOM_common = SYM("common");
     private static final Compound L_np_head0_7_s21 = S( FUNCTOR_$002B_2 ,  ATOM_indef ,  ATOM_common );
 
     // private final Term arg5, arg6, arg7;
@@ -3818,7 +3818,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(possessive/14,public)
-        final static Functor ATOM_poss = SYM("poss");
+        final static Atomic ATOM_poss = SYM("poss");
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14;
 
@@ -4092,8 +4092,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(quant/6,public)
-        final static Functor ATOM_at = SYM("at");
-        final static Functor ATOM_same = SYM("same");
+        final static Atomic ATOM_at = SYM("at");
+        final static Atomic ATOM_same = SYM("same");
 
     // private final Term arg5, arg6;
 
@@ -4296,10 +4296,10 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(sup_op/2,public)
-        final static Functor ATOM_least = SYM("least");
-        final static Functor ATOM_less = SYM("less");
+        final static Atomic ATOM_least = SYM("least");
+        final static Atomic ATOM_less = SYM("less");
     private static final Compound L_sup_op_2_s6 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_less );
-        final static Functor ATOM_most = SYM("most");
+        final static Atomic ATOM_most = SYM("most");
     private static final Compound L_sup_op_2_s10 = S( FUNCTOR_$002B_2 ,  ATOM_not ,  ATOM_more );
 
 
@@ -4929,7 +4929,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(comp/6,public)
-        final static Functor ATOM_as = SYM("as");
+        final static Atomic ATOM_as = SYM("as");
 
     // private final Term arg5, arg6;
 
@@ -5732,7 +5732,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(reduced_wh/6,public)
-        final static Functor ATOM_pres = SYM("pres");
+        final static Atomic ATOM_pres = SYM("pres");
     private static final Compound L_reduced_wh_6_s14 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
         final static Functor FUNCTOR_verb_4 = F("verb",4);
 
@@ -6056,13 +6056,13 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(rest_verb/9,public)
-        final static Functor ATOM_have = SYM("have");
-        final static Functor ATOM_perf = SYM("perf");
-        final static Functor ATOM_past = SYM("past");
-        final static Functor ATOM_part = SYM("part");
+        final static Atomic ATOM_have = SYM("have");
+        final static Atomic ATOM_perf = SYM("perf");
+        final static Atomic ATOM_past = SYM("past");
+        final static Atomic ATOM_part = SYM("part");
     private static final Compound L_rest_verb_9_s8 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static Functor ATOM_do = SYM("do");
-        final static Functor ATOM_active = SYM("active");
+        final static Atomic ATOM_do = SYM("do");
+        final static Atomic ATOM_active = SYM("active");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -6304,9 +6304,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(be/9,public)
     private static final Compound L_be_9_s5 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static Functor ATOM_passive = SYM("passive");
+        final static Atomic ATOM_passive = SYM("passive");
     private static final Compound L_be_9_s10 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-        final static Functor ATOM_prog = SYM("prog");
+        final static Atomic ATOM_prog = SYM("prog");
     private static final Compound L_be_9_s12 = CONS( ATOM_prog ,  Prolog.Nil );
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
@@ -6506,8 +6506,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(passive/1,public)
-        final static Functor ATOM_trans = SYM("trans");
-        final static Functor ATOM_ditrans = SYM("ditrans");
+        final static Atomic ATOM_trans = SYM("trans");
+        final static Atomic ATOM_ditrans = SYM("ditrans");
 
 
 
@@ -6623,7 +6623,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(close/4,public)
-        final static Functor ATOM_close = SYM("close");
+        final static Atomic ATOM_close = SYM("close");
 
 
 
@@ -6674,11 +6674,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(verb_args/9,public)
         final static Functor FUNCTOR_arg_2 = F("arg",2);
-        final static Functor ATOM_dir = SYM("dir");
-        final static Functor ATOM_np = SYM("np");
-        final static Functor ATOM_void = SYM("void");
+        final static Atomic ATOM_dir = SYM("dir");
+        final static Atomic ATOM_np = SYM("np");
+        final static Atomic ATOM_void = SYM("void");
     private static final Compound L_verb_args_9_s11 = CONS( ATOM_void ,  Prolog.Nil );
-        final static Functor ATOM_predicate = SYM("predicate");
+        final static Atomic ATOM_predicate = SYM("predicate");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -7092,7 +7092,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(obj/8,public)
-        final static Functor ATOM_ind = SYM("ind");
+        final static Atomic ATOM_ind = SYM("ind");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -7457,7 +7457,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(no_args/1,public)
-        final static Functor ATOM_intrans = SYM("intrans");
+        final static Atomic ATOM_intrans = SYM("intrans");
 
 
 
@@ -8142,10 +8142,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(context_pron/6,public)
     private static final Compound L_context_pron_6_s4 = S( FUNCTOR_prep_1 ,  ATOM_in );
-        final static Functor ATOM_place = SYM("place");
+        final static Atomic ATOM_place = SYM("place");
     private static final Compound L_context_pron_6_s9 = S( FUNCTOR_prep_1 ,  ATOM_at );
-        final static Functor ATOM_time = SYM("time");
-        final static Functor ATOM_when = SYM("when");
+        final static Atomic ATOM_time = SYM("time");
+        final static Atomic ATOM_when = SYM("when");
 
     // private final Term arg5, arg6;
 
@@ -8324,8 +8324,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(conj/7,public)
-        final static Functor ATOM_list = SYM("list");
-        final static Functor ATOM_end = SYM("end");
+        final static Atomic ATOM_list = SYM("list");
+        final static Atomic ATOM_end = SYM("end");
 
     // private final Term arg5, arg6, arg7;
 
@@ -9129,7 +9129,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(conj/1,public)
-        final static Functor ATOM_or = SYM("or");
+        final static Atomic ATOM_or = SYM("or");
 
 
 
@@ -9178,8 +9178,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(int_pron/2,public)
-        final static Functor ATOM_who = SYM("who");
-        final static Functor ATOM_whom = SYM("whom");
+        final static Atomic ATOM_who = SYM("who");
+        final static Atomic ATOM_whom = SYM("whom");
 
 
 
@@ -9337,10 +9337,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(det/4,public)
         final static Functor FUNCTOR_the_1 = F("the",1);
-        final static Functor ATOM_an = SYM("an");
-        final static Functor ATOM_every = SYM("every");
-        final static Functor ATOM_all = SYM("all");
-        final static Functor ATOM_no = SYM("no");
+        final static Atomic ATOM_an = SYM("an");
+        final static Atomic ATOM_every = SYM("every");
+        final static Atomic ATOM_all = SYM("all");
+        final static Atomic ATOM_no = SYM("no");
 
 
 
@@ -9605,14 +9605,14 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(tr_number/2,public)
-        final static Functor ATOM_three = SYM("three");
-        final static Functor ATOM_four = SYM("four");
-        final static Functor ATOM_five = SYM("five");
-        final static Functor ATOM_six = SYM("six");
-        final static Functor ATOM_seven = SYM("seven");
-        final static Functor ATOM_eight = SYM("eight");
-        final static Functor ATOM_nine = SYM("nine");
-        final static Functor ATOM_ten = SYM("ten");
+        final static Atomic ATOM_three = SYM("three");
+        final static Atomic ATOM_four = SYM("four");
+        final static Atomic ATOM_five = SYM("five");
+        final static Atomic ATOM_six = SYM("six");
+        final static Atomic ATOM_seven = SYM("seven");
+        final static Atomic ATOM_eight = SYM("eight");
+        final static Atomic ATOM_nine = SYM("nine");
+        final static Atomic ATOM_ten = SYM("ten");
 
 
 
@@ -9963,19 +9963,19 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(quantifier_pron/3,public)
-        final static Functor ATOM_everybody = SYM("everybody");
-        final static Functor ATOM_person = SYM("person");
-        final static Functor ATOM_everyone = SYM("everyone");
-        final static Functor ATOM_everything = SYM("everything");
-        final static Functor ATOM_thing = SYM("thing");
-        final static Functor ATOM_somebody = SYM("somebody");
-        final static Functor ATOM_someone = SYM("someone");
-        final static Functor ATOM_something = SYM("something");
-        final static Functor ATOM_anybody = SYM("anybody");
-        final static Functor ATOM_anyone = SYM("anyone");
-        final static Functor ATOM_anything = SYM("anything");
-        final static Functor ATOM_nobody = SYM("nobody");
-        final static Functor ATOM_nothing = SYM("nothing");
+        final static Atomic ATOM_everybody = SYM("everybody");
+        final static Atomic ATOM_person = SYM("person");
+        final static Atomic ATOM_everyone = SYM("everyone");
+        final static Atomic ATOM_everything = SYM("everything");
+        final static Atomic ATOM_thing = SYM("thing");
+        final static Atomic ATOM_somebody = SYM("somebody");
+        final static Atomic ATOM_someone = SYM("someone");
+        final static Atomic ATOM_something = SYM("something");
+        final static Atomic ATOM_anybody = SYM("anybody");
+        final static Atomic ATOM_anyone = SYM("anyone");
+        final static Atomic ATOM_anything = SYM("anything");
+        final static Atomic ATOM_nobody = SYM("nobody");
+        final static Atomic ATOM_nothing = SYM("nothing");
 
 
 
@@ -10243,9 +10243,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(prep/1,public)
-        final static Functor ATOM_to = SYM("to");
-        final static Functor ATOM_with = SYM("with");
-        final static Functor ATOM_on = SYM("on");
+        final static Atomic ATOM_to = SYM("to");
+        final static Atomic ATOM_with = SYM("with");
+        final static Atomic ATOM_on = SYM("on");
 
 
 
@@ -10447,8 +10447,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(noun_form/3,public)
-        final static Functor ATOM_proportion = SYM("proportion");
-        final static Functor ATOM_percentage = SYM("percentage");
+        final static Atomic ATOM_proportion = SYM("proportion");
+        final static Atomic ATOM_percentage = SYM("percentage");
 
 
 
@@ -10644,10 +10644,10 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(verb_root/1,public)
-        final static Functor ATOM_contain = SYM("contain");
-        final static Functor ATOM_drain = SYM("drain");
-        final static Functor ATOM_exceed = SYM("exceed");
-        final static Functor ATOM_rise = SYM("rise");
+        final static Atomic ATOM_contain = SYM("contain");
+        final static Atomic ATOM_drain = SYM("drain");
+        final static Atomic ATOM_exceed = SYM("exceed");
+        final static Atomic ATOM_rise = SYM("rise");
 
 
 
@@ -10965,11 +10965,11 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(regular_past/2,public)
-        final static Functor ATOM_had = SYM("had");
-        final static Functor ATOM_contained = SYM("contained");
-        final static Functor ATOM_drained = SYM("drained");
-        final static Functor ATOM_exceeded = SYM("exceeded");
-        final static Functor ATOM_flowed = SYM("flowed");
+        final static Atomic ATOM_had = SYM("had");
+        final static Atomic ATOM_contained = SYM("contained");
+        final static Atomic ATOM_drained = SYM("drained");
+        final static Atomic ATOM_exceeded = SYM("exceeded");
+        final static Atomic ATOM_flowed = SYM("flowed");
 
 
 
@@ -11178,16 +11178,16 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(poss_pron/4,public)
-        final static Functor ATOM_my = SYM("my");
-        final static Functor ATOM_your = SYM("your");
-        final static Functor ATOM_his = SYM("his");
-        final static Functor ATOM_masc = SYM("masc");
-        final static Functor ATOM_her = SYM("her");
-        final static Functor ATOM_fem = SYM("fem");
-        final static Functor ATOM_its = SYM("its");
-        final static Functor ATOM_neut = SYM("neut");
-        final static Functor ATOM_our = SYM("our");
-        final static Functor ATOM_their = SYM("their");
+        final static Atomic ATOM_my = SYM("my");
+        final static Atomic ATOM_your = SYM("your");
+        final static Atomic ATOM_his = SYM("his");
+        final static Atomic ATOM_masc = SYM("masc");
+        final static Atomic ATOM_her = SYM("her");
+        final static Atomic ATOM_fem = SYM("fem");
+        final static Atomic ATOM_its = SYM("its");
+        final static Atomic ATOM_neut = SYM("neut");
+        final static Atomic ATOM_our = SYM("our");
+        final static Atomic ATOM_their = SYM("their");
 
 
 
@@ -11374,16 +11374,16 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(pers_pron/5,public)
-        final static Functor ATOM_i = SYM("i");
-        final static Functor ATOM_he = SYM("he");
-        final static Functor ATOM_she = SYM("she");
-        final static Functor ATOM_it = SYM("it");
-        final static Functor ATOM_we = SYM("we");
-        final static Functor ATOM_them = SYM("them");
-        final static Functor ATOM_me = SYM("me");
+        final static Atomic ATOM_i = SYM("i");
+        final static Atomic ATOM_he = SYM("he");
+        final static Atomic ATOM_she = SYM("she");
+        final static Atomic ATOM_it = SYM("it");
+        final static Atomic ATOM_we = SYM("we");
+        final static Atomic ATOM_them = SYM("them");
+        final static Atomic ATOM_me = SYM("me");
         final static Functor FUNCTOR_compl_1 = F("compl",1);
-        final static Functor ATOM_him = SYM("him");
-        final static Functor ATOM_us = SYM("us");
+        final static Atomic ATOM_him = SYM("him");
+        final static Atomic ATOM_us = SYM("us");
 
     // private final Term arg5;
 
@@ -11827,16 +11827,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(loc_pred/2,public)
-        final static Functor ATOM_east = SYM("east");
-        final static Functor ATOM_eastof = SYM("eastof");
+        final static Atomic ATOM_east = SYM("east");
+        final static Atomic ATOM_eastof = SYM("eastof");
     private static final Compound L_loc_pred_2_s5 = S( FUNCTOR_prep_1 ,  ATOM_eastof );
-        final static Functor ATOM_west = SYM("west");
-        final static Functor ATOM_westof = SYM("westof");
+        final static Atomic ATOM_west = SYM("west");
+        final static Atomic ATOM_westof = SYM("westof");
     private static final Compound L_loc_pred_2_s9 = S( FUNCTOR_prep_1 ,  ATOM_westof );
-        final static Functor ATOM_north = SYM("north");
-        final static Functor ATOM_northof = SYM("northof");
+        final static Atomic ATOM_north = SYM("north");
+        final static Atomic ATOM_northof = SYM("northof");
     private static final Compound L_loc_pred_2_s13 = S( FUNCTOR_prep_1 ,  ATOM_northof );
-        final static Functor ATOM_southof = SYM("southof");
+        final static Atomic ATOM_southof = SYM("southof");
     private static final Compound L_loc_pred_2_s17 = S( FUNCTOR_prep_1 ,  ATOM_southof );
 
 
@@ -11932,15 +11932,15 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(adj/2,public)
-        final static Functor ATOM_minimum = SYM("minimum");
-        final static Functor ATOM_restr = SYM("restr");
-        final static Functor ATOM_maximum = SYM("maximum");
-        final static Functor ATOM_great = SYM("great");
-        final static Functor ATOM_big = SYM("big");
-        final static Functor ATOM_small = SYM("small");
-        final static Functor ATOM_old = SYM("old");
-        final static Functor ATOM_new = SYM("new");
-        final static Functor ATOM_populous = SYM("populous");
+        final static Atomic ATOM_minimum = SYM("minimum");
+        final static Atomic ATOM_restr = SYM("restr");
+        final static Atomic ATOM_maximum = SYM("maximum");
+        final static Atomic ATOM_great = SYM("great");
+        final static Atomic ATOM_big = SYM("big");
+        final static Atomic ATOM_small = SYM("small");
+        final static Atomic ATOM_old = SYM("old");
+        final static Atomic ATOM_new = SYM("new");
+        final static Atomic ATOM_populous = SYM("populous");
 
 
 
@@ -12255,12 +12255,12 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(rel_adj/2,public)
-        final static Functor ATOM_greater = SYM("greater");
-        final static Functor ATOM_bigger = SYM("bigger");
-        final static Functor ATOM_smaller = SYM("smaller");
-        final static Functor ATOM_larger = SYM("larger");
-        final static Functor ATOM_older = SYM("older");
-        final static Functor ATOM_newer = SYM("newer");
+        final static Atomic ATOM_greater = SYM("greater");
+        final static Atomic ATOM_bigger = SYM("bigger");
+        final static Atomic ATOM_smaller = SYM("smaller");
+        final static Atomic ATOM_larger = SYM("larger");
+        final static Atomic ATOM_older = SYM("older");
+        final static Atomic ATOM_newer = SYM("newer");
 
 
 
@@ -12415,9 +12415,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(sup_adj/2,public)
-        final static Functor ATOM_biggest = SYM("biggest");
-        final static Functor ATOM_oldest = SYM("oldest");
-        final static Functor ATOM_newest = SYM("newest");
+        final static Atomic ATOM_biggest = SYM("biggest");
+        final static Atomic ATOM_oldest = SYM("oldest");
+        final static Atomic ATOM_newest = SYM("newest");
 
 
 
@@ -12532,20 +12532,20 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(noun_sin/1,public)
-        final static Functor ATOM_sum = SYM("sum");
-        final static Functor ATOM_degree = SYM("degree");
-        final static Functor ATOM_sqmile = SYM("sqmile");
-        final static Functor ATOM_ksqmile = SYM("ksqmile");
-        final static Functor ATOM_thousand = SYM("thousand");
-        final static Functor ATOM_million = SYM("million");
-        final static Functor ATOM_city = SYM("city");
-        final static Functor ATOM_latitude = SYM("latitude");
-        final static Functor ATOM_longitude = SYM("longitude");
-        final static Functor ATOM_population = SYM("population");
-        final static Functor ATOM_region = SYM("region");
-        final static Functor ATOM_sea = SYM("sea");
-        final static Functor ATOM_seamass = SYM("seamass");
-        final static Functor ATOM_number = SYM("number");
+        final static Atomic ATOM_sum = SYM("sum");
+        final static Atomic ATOM_degree = SYM("degree");
+        final static Atomic ATOM_sqmile = SYM("sqmile");
+        final static Atomic ATOM_ksqmile = SYM("ksqmile");
+        final static Atomic ATOM_thousand = SYM("thousand");
+        final static Atomic ATOM_million = SYM("million");
+        final static Atomic ATOM_city = SYM("city");
+        final static Atomic ATOM_latitude = SYM("latitude");
+        final static Atomic ATOM_longitude = SYM("longitude");
+        final static Atomic ATOM_population = SYM("population");
+        final static Atomic ATOM_region = SYM("region");
+        final static Atomic ATOM_sea = SYM("sea");
+        final static Atomic ATOM_seamass = SYM("seamass");
+        final static Atomic ATOM_number = SYM("number");
 
 
 
@@ -12985,26 +12985,26 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(noun_plu/2,public)
-        final static Functor ATOM_averages = SYM("averages");
-        final static Functor ATOM_totals = SYM("totals");
-        final static Functor ATOM_sums = SYM("sums");
-        final static Functor ATOM_degrees = SYM("degrees");
-        final static Functor ATOM_sqmiles = SYM("sqmiles");
-        final static Functor ATOM_ksqmiles = SYM("ksqmiles");
-        final static Functor ATOM_times = SYM("times");
-        final static Functor ATOM_places = SYM("places");
-        final static Functor ATOM_areas = SYM("areas");
-        final static Functor ATOM_cities = SYM("cities");
-        final static Functor ATOM_continents = SYM("continents");
-        final static Functor ATOM_latitudes = SYM("latitudes");
-        final static Functor ATOM_longitudes = SYM("longitudes");
-        final static Functor ATOM_oceans = SYM("oceans");
-        final static Functor ATOM_persons = SYM("persons");
-        final static Functor ATOM_people = SYM("people");
-        final static Functor ATOM_populations = SYM("populations");
-        final static Functor ATOM_regions = SYM("regions");
-        final static Functor ATOM_seamasses = SYM("seamasses");
-        final static Functor ATOM_numbers = SYM("numbers");
+        final static Atomic ATOM_averages = SYM("averages");
+        final static Atomic ATOM_totals = SYM("totals");
+        final static Atomic ATOM_sums = SYM("sums");
+        final static Atomic ATOM_degrees = SYM("degrees");
+        final static Atomic ATOM_sqmiles = SYM("sqmiles");
+        final static Atomic ATOM_ksqmiles = SYM("ksqmiles");
+        final static Atomic ATOM_times = SYM("times");
+        final static Atomic ATOM_places = SYM("places");
+        final static Atomic ATOM_areas = SYM("areas");
+        final static Atomic ATOM_cities = SYM("cities");
+        final static Atomic ATOM_continents = SYM("continents");
+        final static Atomic ATOM_latitudes = SYM("latitudes");
+        final static Atomic ATOM_longitudes = SYM("longitudes");
+        final static Atomic ATOM_oceans = SYM("oceans");
+        final static Atomic ATOM_persons = SYM("persons");
+        final static Atomic ATOM_people = SYM("people");
+        final static Atomic ATOM_populations = SYM("populations");
+        final static Atomic ATOM_regions = SYM("regions");
+        final static Atomic ATOM_seamasses = SYM("seamasses");
+        final static Atomic ATOM_numbers = SYM("numbers");
 
 
 
@@ -13540,32 +13540,32 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_p
 */
     // main(verb_form/4,public)
     private static final Compound L_verb_form_4_s6 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_fin );
-        final static Functor ATOM_am = SYM("am");
+        final static Atomic ATOM_am = SYM("am");
     private static final Compound L_verb_form_4_s13 = S( FUNCTOR_$002B_2 ,  int_1 ,  ATOM_sin );
     private static final Compound L_verb_form_4_s17 = S( FUNCTOR_$002B_2 ,  int_2 ,  ATOM_sin );
     private static final Compound L_verb_form_4_s21 = S( FUNCTOR_$002B_2 ,  int_3 ,  ATOM_sin );
-        final static Functor ATOM_was = SYM("was");
+        final static Atomic ATOM_was = SYM("was");
     private static final Compound L_verb_form_4_s25 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_fin );
-        final static Functor ATOM_were = SYM("were");
-        final static Functor ATOM_been = SYM("been");
+        final static Atomic ATOM_were = SYM("were");
+        final static Atomic ATOM_been = SYM("been");
     private static final Compound L_verb_form_4_s30 = S( FUNCTOR_$002B_2 ,  ATOM_past ,  ATOM_part );
-        final static Functor ATOM_being = SYM("being");
+        final static Atomic ATOM_being = SYM("being");
     private static final Compound L_verb_form_4_s33 = S( FUNCTOR_$002B_2 ,  ATOM_pres ,  ATOM_part );
-        final static Functor ATOM_has = SYM("has");
-        final static Functor ATOM_having = SYM("having");
-        final static Functor ATOM_did = SYM("did");
-        final static Functor ATOM_doing = SYM("doing");
-        final static Functor ATOM_done = SYM("done");
-        final static Functor ATOM_flowing = SYM("flowing");
-        final static Functor ATOM_rises = SYM("rises");
-        final static Functor ATOM_rose = SYM("rose");
-        final static Functor ATOM_risen = SYM("risen");
-        final static Functor ATOM_contains = SYM("contains");
-        final static Functor ATOM_containing = SYM("containing");
-        final static Functor ATOM_drains = SYM("drains");
-        final static Functor ATOM_draining = SYM("draining");
-        final static Functor ATOM_exceeds = SYM("exceeds");
-        final static Functor ATOM_exceeding = SYM("exceeding");
+        final static Atomic ATOM_has = SYM("has");
+        final static Atomic ATOM_having = SYM("having");
+        final static Atomic ATOM_did = SYM("did");
+        final static Atomic ATOM_doing = SYM("doing");
+        final static Atomic ATOM_done = SYM("done");
+        final static Atomic ATOM_flowing = SYM("flowing");
+        final static Atomic ATOM_rises = SYM("rises");
+        final static Atomic ATOM_rose = SYM("rose");
+        final static Atomic ATOM_risen = SYM("risen");
+        final static Atomic ATOM_contains = SYM("contains");
+        final static Atomic ATOM_containing = SYM("containing");
+        final static Atomic ATOM_drains = SYM("drains");
+        final static Atomic ATOM_draining = SYM("draining");
+        final static Atomic ATOM_exceeds = SYM("exceeds");
+        final static Atomic ATOM_exceeding = SYM("exceeding");
 
 
 
@@ -14598,8 +14598,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/chat_parser.pl
 */
     // main(adverb/1,public)
-        final static Functor ATOM_yesterday = SYM("yesterday");
-        final static Functor ATOM_tomorrow = SYM("tomorrow");
+        final static Atomic ATOM_yesterday = SYM("yesterday");
+        final static Atomic ATOM_tomorrow = SYM("tomorrow");
 
 
 

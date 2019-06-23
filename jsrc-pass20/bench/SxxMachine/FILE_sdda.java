@@ -33,7 +33,7 @@ public class FILE_sdda extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl
 */
     // main(top/0,public)
-        final static Functor ATOM_test = SYM("test");
+        final static Atomic ATOM_test = SYM("test");
 
 
 
@@ -76,10 +76,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
 */
     // main(read_procedures/3,public)
         final static Functor FUNCTOR_$002F_2 = F("/",2);
-        final static Functor ATOM_a = SYM("a");
+        final static Atomic ATOM_a = SYM("a");
     private static final Compound L_read_procedures_3_s5 = S( FUNCTOR_$002F_2 ,  ATOM_a ,  int_2 );
         final static Functor FUNCTOR_a_2 = F("a",2);
-        final static Functor ATOM_c = SYM("c");
+        final static Atomic ATOM_c = SYM("c");
     private static final Compound L_read_procedures_3_s10 = S( FUNCTOR_$002F_2 ,  ATOM_c ,  int_3 );
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
         final static Functor FUNCTOR_c_3 = F("c",3);
@@ -851,7 +851,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl
 */
     // main(unify/2,public)
-        final static Functor ATOM_g = SYM("g");
+        final static Atomic ATOM_g = SYM("g");
 
 
 
@@ -2275,25 +2275,25 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
 */
     // main(built_in/3,public)
     private static final Compound L_built_in_3_s5 = S( FUNCTOR_$002F_2 ,  Prolog.True ,  int_0 );
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
     private static final Compound L_built_in_3_s9 = S( FUNCTOR_$002F_2 ,  ATOM_fail ,  int_0 );
-        final static Functor ATOM_$003D = SYM("=");
+        final static Atomic ATOM_$003D = SYM("=");
     private static final Compound L_built_in_3_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$003D ,  int_2 );
     private static final Compound L_built_in_3_s15 = CONS( ATOM_g ,  Prolog.Nil );
     private static final Compound L_built_in_3_s16 = CONS( ATOM_g , L_built_in_3_s15);
-        final static Functor ATOM_$002B = SYM("+");
+        final static Atomic ATOM_$002B = SYM("+");
     private static final Compound L_built_in_3_s19 = S( FUNCTOR_$002F_2 ,  ATOM_$002B ,  int_2 );
-        final static Functor ATOM_$002D = SYM("-");
+        final static Atomic ATOM_$002D = SYM("-");
     private static final Compound L_built_in_3_s22 = S( FUNCTOR_$002F_2 ,  ATOM_$002D ,  int_2 );
-        final static Functor ATOM_$002A = SYM("*");
+        final static Atomic ATOM_$002A = SYM("*");
     private static final Compound L_built_in_3_s25 = S( FUNCTOR_$002F_2 ,  ATOM_$002A ,  int_2 );
-        final static Functor ATOM_$002F = SYM("/");
+        final static Atomic ATOM_$002F = SYM("/");
     private static final Compound L_built_in_3_s28 = S( FUNCTOR_$002F_2 ,  ATOM_$002F ,  int_2 );
-        final static Functor ATOM_$003E$003D = SYM(">=");
+        final static Atomic ATOM_$003E$003D = SYM(">=");
     private static final Compound L_built_in_3_s31 = S( FUNCTOR_$002F_2 ,  ATOM_$003E$003D ,  int_2 );
-        final static Functor ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003C = SYM("<");
     private static final Compound L_built_in_3_s34 = S( FUNCTOR_$002F_2 ,  ATOM_$003C ,  int_2 );
-        final static Functor ATOM_is = SYM("is");
+        final static Atomic ATOM_is = SYM("is");
     private static final Compound L_built_in_3_s37 = S( FUNCTOR_$002F_2 ,  ATOM_is ,  int_2 );
 
 
@@ -3986,8 +3986,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sdda.pl'/3,public)
-        final static Functor ATOM_$002C = SYM(",");
-        final static Functor ATOM_$0020 = SYM(" ");
+        final static Atomic ATOM_$002C = SYM(",");
+        final static Atomic ATOM_$0020 = SYM(" ");
 
 
 

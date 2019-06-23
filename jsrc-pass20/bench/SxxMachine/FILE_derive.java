@@ -54,7 +54,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/derive
     // main(ops8/0,public)
         final static Functor FUNCTOR_$002A_2 = F("*",2);
         final static Functor FUNCTOR_$002B_2 = F("+",2);
-        final static Functor ATOM_x = SYM("x");
+        final static Atomic ATOM_x = SYM("x");
     private static final Compound L_ops8_0_s6 = S( FUNCTOR_$002B_2 ,  ATOM_x ,  int_1 );
         final static Functor FUNCTOR_$005E_2 = F("^",2);
     private static final Compound L_ops8_0_s10 = S( FUNCTOR_$005E_2 ,  ATOM_x ,  int_2 );

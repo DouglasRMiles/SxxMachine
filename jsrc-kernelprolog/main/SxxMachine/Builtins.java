@@ -49,7 +49,7 @@ public class Builtins extends HashDict {
 
         // basics
         registerBI(new is_builtin());
-        registerBI(Prolog.True, true_.class);
+        registerBI((NameArity) Prolog.True, true_.class);
         registerBI(Prolog.aFail, fail_.class);
         registerBI(new halt());
         registerBI(new compute());

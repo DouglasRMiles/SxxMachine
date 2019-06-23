@@ -70,16 +70,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/poly_1
 */
     // main(test_poly/1,public)
         final static Functor FUNCTOR_poly_2 = F("poly",2);
-        final static Functor ATOM_x = SYM("x");
+        final static Atomic ATOM_x = SYM("x");
         final static Functor FUNCTOR_term_2 = F("term",2);
     private static final Compound L_test_poly_1_s7 = S( FUNCTOR_term_2 ,  int_0 ,  int_1 );
     private static final Compound L_test_poly_1_s9 = S( FUNCTOR_term_2 ,  int_1 ,  int_1 );
     private static final Compound L_test_poly_1_s11 = CONS(L_test_poly_1_s9,  Prolog.Nil );
     private static final Compound L_test_poly_1_s12 = CONS(L_test_poly_1_s7, L_test_poly_1_s11);
     private static final Compound L_test_poly_1_s14 = S( FUNCTOR_poly_2 ,  ATOM_x , L_test_poly_1_s12);
-        final static Functor ATOM_y = SYM("y");
+        final static Atomic ATOM_y = SYM("y");
     private static final Compound L_test_poly_1_s17 = S( FUNCTOR_poly_2 ,  ATOM_y , L_test_poly_1_s11);
-        final static Functor ATOM_z = SYM("z");
+        final static Atomic ATOM_z = SYM("z");
     private static final Compound L_test_poly_1_s20 = S( FUNCTOR_poly_2 ,  ATOM_z , L_test_poly_1_s11);
 
 

@@ -109,8 +109,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 */
     // main(stream_property/2,public)
         final static Functor FUNCTOR_domain_2 = F("domain",2);
-        final static Functor ATOM_term = SYM("term");
-        final static Functor ATOM_stream_property = SYM("stream_property");
+        final static Atomic ATOM_term = SYM("term");
+        final static Atomic ATOM_stream_property = SYM("stream_property");
     private static final Compound L_stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_term ,  ATOM_stream_property );
         final static Functor FUNCTOR_stream_property_2 = F("stream_property",2);
 
@@ -203,7 +203,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 */
     // main('$stream_property'/2,non-(public))
         final static Functor FUNCTOR_$002C_2 = F(",",2);
-        final static Functor ATOM_stream = SYM("stream");
+        final static Atomic ATOM_stream = SYM("stream");
     private static final Compound L_$stream_property_2_s5 = S( FUNCTOR_domain_2 ,  ATOM_stream ,  ATOM_stream );
 
 
@@ -317,8 +317,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 */
     // main('$stream_property_specifier'/1,non-(public))
-        final static Functor ATOM_input = SYM("input");
-        final static Functor ATOM_output = SYM("output");
+        final static Atomic ATOM_input = SYM("input");
+        final static Atomic ATOM_output = SYM("output");
         final static Functor FUNCTOR_alias_1 = F("alias",1);
         final static Functor FUNCTOR_mode_1 = F("mode",1);
         final static Functor FUNCTOR_type_1 = F("type",1);
@@ -603,7 +603,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/repl/io.pl
 */
     // main(nl/1,public)
-        final static Functor ATOM_$000A = SYM("\n");
+        final static Atomic ATOM_$000A = SYM("\n");
 
 
 

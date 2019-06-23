@@ -49,7 +49,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl
 */
     // main(meta_qsort/0,public)
-        final static Functor ATOM_qsort = SYM("qsort");
+        final static Atomic ATOM_qsort = SYM("qsort");
 
 
 
@@ -147,9 +147,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_q
         final static Functor FUNCTOR_$002C_2 = F(",",2);
         final static Functor FUNCTOR_or_2 = F(";",2);
         final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
-        final static Functor ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_$0021 = SYM("!");
 
 
 

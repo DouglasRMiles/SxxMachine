@@ -33,35 +33,35 @@ public class FILE_dra extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(init_dra/1,non-(public))
-        final static Functor ATOM_file0 = SYM("file0");
-        final static Functor ATOM_access_level = SYM("access_level");
+        final static Atomic ATOM_file0 = SYM("file0");
+        final static Atomic ATOM_access_level = SYM("access_level");
         final static Functor FUNCTOR_module_colon_2 = F(":",2);
-        final static Functor ATOM_$0024dra = SYM("$dra");
+        final static Atomic ATOM_$0024dra = SYM("$dra");
         final static Functor FUNCTOR_was_access_level_1 = F("was_access_level",1);
-        final static Functor ATOM_file1 = SYM("file1");
-        final static Functor ATOM_user = SYM("user");
+        final static Atomic ATOM_file1 = SYM("file1");
+        final static Atomic ATOM_user = SYM("user");
         final static Functor FUNCTOR_property_pred_2 = F("property_pred",2);
         final static Functor FUNCTOR_make_db_pred_2 = F("make_db_pred",2);
-        final static Functor ATOM_number_of_answers = SYM("number_of_answers");
-        final static Functor ATOM_unique_index = SYM("unique_index");
-        final static Functor ATOM_$0024tabling_exec = SYM("$tabling_exec");
+        final static Atomic ATOM_number_of_answers = SYM("number_of_answers");
+        final static Atomic ATOM_unique_index = SYM("unique_index");
+        final static Atomic ATOM_$0024tabling_exec = SYM("$tabling_exec");
         final static Functor FUNCTOR_dra_state_4 = F("dra_state",4);
-        final static Functor ATOM_file7 = SYM("file7");
-        final static Functor ATOM_module = SYM("module");
+        final static Atomic ATOM_file7 = SYM("file7");
+        final static Atomic ATOM_module = SYM("module");
         final static Functor FUNCTOR_source_file_2 = F("source_file",2);
         final static Functor FUNCTOR_ignore_1 = F("ignore",1);
         final static Functor FUNCTOR_$002C_2 = F(",",2);
         final static Functor FUNCTOR_functor_3 = F("functor",3);
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
         final static Functor FUNCTOR_atom_concat_3 = F("atom_concat",3);
-        final static Functor ATOM_$0024 = SYM("$");
+        final static Atomic ATOM_$0024 = SYM("$");
         final static Functor FUNCTOR_export_1 = F("export",1);
         final static Functor FUNCTOR_$002F_2 = F("/",2);
         final static Functor FUNCTOR_predicate_property_2 = F("predicate_property",2);
-        final static Functor ATOM_transparent = SYM("transparent");
-        final static Functor ATOM___aux = SYM("__aux");
+        final static Atomic ATOM_transparent = SYM("transparent");
+        final static Atomic ATOM___aux = SYM("__aux");
         final static Functor FUNCTOR_module_transparent_1 = F("module_transparent",1);
-        final static Functor ATOM_file = SYM("file");
+        final static Atomic ATOM_file = SYM("file");
 
 
 
@@ -384,7 +384,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(std_trace_stream/1,non-(public))
-        final static Functor ATOM_user_error = SYM("user_error");
+        final static Atomic ATOM_user_error = SYM("user_error");
 
 
 
@@ -404,7 +404,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_w/1,non-(public))
-        final static Functor ATOM_$007Eq = SYM("~q");
+        final static Atomic ATOM_$007Eq = SYM("~q");
 
 
 
@@ -428,16 +428,16 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_wln/1,non-(public))
-        final static Functor ATOM_notrace = SYM("notrace");
+        final static Atomic ATOM_notrace = SYM("notrace");
         final static Functor FUNCTOR_current_predicate_1 = F("current_predicate",1);
-        final static Functor ATOM_logicmoo_util_dmsg = SYM("logicmoo_util_dmsg");
-        final static Functor ATOM_dmsg = SYM("dmsg");
+        final static Atomic ATOM_logicmoo_util_dmsg = SYM("logicmoo_util_dmsg");
+        final static Atomic ATOM_dmsg = SYM("dmsg");
     private static final Compound L_dra_wln_1_s10 = S( FUNCTOR_$002F_2 ,  ATOM_dmsg ,  int_1 );
     private static final Compound L_dra_wln_1_s12 = S( FUNCTOR_module_colon_2 ,  ATOM_logicmoo_util_dmsg , L_dra_wln_1_s10);
     private static final Compound L_dra_wln_1_s14 = S( FUNCTOR_current_predicate_1 , L_dra_wln_1_s12);
-        final static Functor ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_$0021 = SYM("!");
         final static Functor FUNCTOR_dmsg_1 = F("dmsg",1);
-        final static Functor ATOM_$007Eq$002E$007En = SYM("~q.~n");
+        final static Atomic ATOM_$007Eq$002E$007En = SYM("~q.~n");
 
 
 
@@ -506,7 +506,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 */
     // main(dra_retract_all/1,non-(public))
         final static Functor FUNCTOR_retract_1 = F("retract",1);
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
 
 
 
@@ -698,12 +698,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(add_clauses/2,non-(public))
-        final static Functor ATOM_xref = SYM("xref");
-        final static Functor ATOM_dynamic = SYM("dynamic");
+        final static Atomic ATOM_xref = SYM("xref");
+        final static Atomic ATOM_dynamic = SYM("dynamic");
         final static Functor FUNCTOR_number_of_clauses_1 = F("number_of_clauses",1);
-        final static Functor ATOM_static = SYM("static");
+        final static Atomic ATOM_static = SYM("static");
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
-        final static Functor ATOM_undefined = SYM("undefined");
+        final static Atomic ATOM_undefined = SYM("undefined");
 
 
 
@@ -1037,7 +1037,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(directive_source_file/1,non-(public))
-        final static Functor ATOM_source = SYM("source");
+        final static Atomic ATOM_source = SYM("source");
 
 
 
@@ -1096,24 +1096,24 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(property_pred/2,non-(public))
-        final static Functor ATOM_table = SYM("table");
-        final static Functor ATOM_is_tabled = SYM("is_tabled");
-        final static Functor ATOM_coinductive0 = SYM("coinductive0");
-        final static Functor ATOM_is_coinductive0 = SYM("is_coinductive0");
-        final static Functor ATOM_coinductive1 = SYM("coinductive1");
-        final static Functor ATOM_is_coinductive1 = SYM("is_coinductive1");
-        final static Functor ATOM_traces = SYM("traces");
-        final static Functor ATOM_is_traced = SYM("is_traced");
-        final static Functor ATOM_cut_ok = SYM("cut_ok");
-        final static Functor ATOM_is_cut_ok = SYM("is_cut_ok");
-        final static Functor ATOM_old_first = SYM("old_first");
-        final static Functor ATOM_is_old_first = SYM("is_old_first");
-        final static Functor ATOM_never_tabled = SYM("never_tabled");
-        final static Functor ATOM_is_never_tabled = SYM("is_never_tabled");
-        final static Functor ATOM_hilog = SYM("hilog");
-        final static Functor ATOM_is_hilog = SYM("is_hilog");
-        final static Functor ATOM_topl = SYM("topl");
-        final static Functor ATOM_is_topl = SYM("is_topl");
+        final static Atomic ATOM_table = SYM("table");
+        final static Atomic ATOM_is_tabled = SYM("is_tabled");
+        final static Atomic ATOM_coinductive0 = SYM("coinductive0");
+        final static Atomic ATOM_is_coinductive0 = SYM("is_coinductive0");
+        final static Atomic ATOM_coinductive1 = SYM("coinductive1");
+        final static Atomic ATOM_is_coinductive1 = SYM("is_coinductive1");
+        final static Atomic ATOM_traces = SYM("traces");
+        final static Atomic ATOM_is_traced = SYM("is_traced");
+        final static Atomic ATOM_cut_ok = SYM("cut_ok");
+        final static Atomic ATOM_is_cut_ok = SYM("is_cut_ok");
+        final static Atomic ATOM_old_first = SYM("old_first");
+        final static Atomic ATOM_is_old_first = SYM("is_old_first");
+        final static Atomic ATOM_never_tabled = SYM("never_tabled");
+        final static Atomic ATOM_is_never_tabled = SYM("is_never_tabled");
+        final static Atomic ATOM_hilog = SYM("hilog");
+        final static Atomic ATOM_is_hilog = SYM("is_hilog");
+        final static Atomic ATOM_topl = SYM("topl");
+        final static Atomic ATOM_is_topl = SYM("is_topl");
 
 
 
@@ -1396,7 +1396,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/3,non-(public))
-        final static Functor ATOM_system = SYM("system");
+        final static Atomic ATOM_system = SYM("system");
 
 
 
@@ -1533,7 +1533,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/2,non-(public))
-        final static Functor ATOM_fy = SYM("fy");
+        final static Atomic ATOM_fy = SYM("fy");
 
 
 
@@ -2063,8 +2063,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(predspecs_to_patterns/2,non-(public))
-        final static Functor ATOM_A$0020variable$0020instead$0020of$0020predicate$0020specifications$003A$0020$0022 = SYM("A variable instead of predicate specifications: \"");
-        final static Functor ATOM_$0022 = SYM("\"");
+        final static Atomic ATOM_A$0020variable$0020instead$0020of$0020predicate$0020specifications$003A$0020$0022 = SYM("A variable instead of predicate specifications: \"");
+        final static Atomic ATOM_$0022 = SYM("\"");
     private static final Compound L_predspecs_to_patterns_2_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
 
 
@@ -2459,9 +2459,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(check_predspec/1,non-(public))
-        final static Functor ATOM_A$0020variable$0020instead$0020of$0020a$0020predicate$0020specification$003A$0020$0022 = SYM("A variable instead of a predicate specification: \"");
+        final static Atomic ATOM_A$0020variable$0020instead$0020of$0020a$0020predicate$0020specification$003A$0020$0022 = SYM("A variable instead of a predicate specification: \"");
     private static final Compound L_check_predspec_1_s4 = CONS( ATOM_$0022 ,  Prolog.Nil );
-        final static Functor ATOM_An$0020incorrect$0020predicate$0020specification$003A$0020$0022 = SYM("An incorrect predicate specification: \"");
+        final static Atomic ATOM_An$0020incorrect$0020predicate$0020specification$003A$0020$0022 = SYM("An incorrect predicate specification: \"");
 
 
 
@@ -2638,7 +2638,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_9_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/1,non-(public))
-        final static Functor ATOM_built_in = SYM("built_in");
+        final static Atomic ATOM_built_in = SYM("built_in");
 
 
 
@@ -2817,7 +2817,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(empty_tree/1,non-(public))
-        final static Functor ATOM_empty = SYM("empty");
+        final static Atomic ATOM_empty = SYM("empty");
 
 
 
@@ -3380,7 +3380,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(goal_table_member/2,non-(public))
-        final static Functor ATOM_$0040$003C = SYM("@<");
+        final static Atomic ATOM_$0040$003C = SYM("@<");
         final static Functor FUNCTOR_essence_hook_2 = F("essence_hook",2);
 
 
@@ -3546,7 +3546,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(goal_table_add/3,non-(public))
-        final static Functor ATOM_add_to_list = SYM("add_to_list");
+        final static Atomic ATOM_add_to_list = SYM("add_to_list");
 
 
 
@@ -3792,7 +3792,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_version/1,non-(public))
-        final static Functor ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO = SYM("DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO");
+        final static Atomic ATOM_DRA$0020$0028$0028c$0029$0020UTD$00202009$0029$0020version$00200$002E97$0020$0028beta$0029$002C$0020June$00202011$0020$002D$0020LOGICMOO = SYM("DRA ((c) UTD 2009) version 0.97 (beta), June 2011 - LOGICMOO");
 
 
 
@@ -3871,20 +3871,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(abolish_tables/0,public)
-        final static Functor ATOM_reinitialise_answer = SYM("reinitialise_answer");
-        final static Functor ATOM_reinitialise_result = SYM("reinitialise_result");
-        final static Functor ATOM_reinitialise_pioneer = SYM("reinitialise_pioneer");
-        final static Functor ATOM_reinitialise_loop = SYM("reinitialise_loop");
-        final static Functor ATOM_reinitialise_looping_alternative = SYM("reinitialise_looping_alternative");
-        final static Functor ATOM_reinitialise_completed = SYM("reinitialise_completed");
+        final static Atomic ATOM_reinitialise_answer = SYM("reinitialise_answer");
+        final static Atomic ATOM_reinitialise_result = SYM("reinitialise_result");
+        final static Atomic ATOM_reinitialise_pioneer = SYM("reinitialise_pioneer");
+        final static Atomic ATOM_reinitialise_loop = SYM("reinitialise_loop");
+        final static Atomic ATOM_reinitialise_looping_alternative = SYM("reinitialise_looping_alternative");
+        final static Atomic ATOM_reinitialise_completed = SYM("reinitialise_completed");
         final static Functor FUNCTOR_retractall_1 = F("retractall",1);
         final static Functor FUNCTOR_is_traced_1 = F("is_traced",1);
         final static Functor FUNCTOR_dra_setval_flag_2 = F("dra_setval_flag",2);
     private static final Compound L_abolish_tables_0_s14 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_number_of_answers ,  int_0 );
     private static final Compound L_abolish_tables_0_s17 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_unique_index ,  int_0 );
-        final static Functor ATOM_step_counter = SYM("step_counter");
+        final static Atomic ATOM_step_counter = SYM("step_counter");
     private static final Compound L_abolish_tables_0_s20 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_step_counter ,  int_0 );
-        final static Functor ATOM_old_table_size = SYM("old_table_size");
+        final static Atomic ATOM_old_table_size = SYM("old_table_size");
     private static final Compound L_abolish_tables_0_s23 = S( FUNCTOR_dra_setval_flag_2 ,  ATOM_old_table_size ,  int_0 );
     private static final Compound L_abolish_tables_0_s25 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s20, L_abolish_tables_0_s23);
     private static final Compound L_abolish_tables_0_s27 = S( FUNCTOR_$002C_2 , L_abolish_tables_0_s17, L_abolish_tables_0_s25);
@@ -3946,10 +3946,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         final static Functor FUNCTOR_old_first_1 = F("old_first",1);
         final static Functor FUNCTOR_multifile_1 = F("multifile",1);
         final static Functor FUNCTOR_answers_2 = F("answers",2);
-        final static Functor ATOM_answers = SYM("answers");
+        final static Atomic ATOM_answers = SYM("answers");
         final static Functor FUNCTOR_call_1 = F("call",1);
         final static Functor FUNCTOR_hilog_1 = F("hilog",1);
-        final static Functor ATOM_trace = SYM("trace");
+        final static Atomic ATOM_trace = SYM("trace");
         final static Functor FUNCTOR_legal_directive_1 = F("legal_directive",1);
 
 
@@ -4366,9 +4366,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 */
     // main(process_dra_ective/1,public)
         final static Functor FUNCTOR_lines_1 = F("lines",1);
-        final static Functor ATOM_Unknown$0020directive$003A = SYM("Unknown directive:");
+        final static Atomic ATOM_Unknown$0020directive$003A = SYM("Unknown directive:");
         final static Functor FUNCTOR_$003A$002D_1 = F(":-",1);
-        final static Functor ATOM_$002E = SYM(".");
+        final static Atomic ATOM_$002E = SYM(".");
     private static final Compound L_process_dra_ective_1_s6 = CONS( ATOM_$002E ,  Prolog.Nil );
         final static Functor FUNCTOR_print_required_answers_2 = F("print_required_answers",2);
 
@@ -4685,7 +4685,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_call_tabled/1,public)
-        final static Functor ATOM_dra_call_tabled = SYM("dra_call_tabled");
+        final static Atomic ATOM_dra_call_tabled = SYM("dra_call_tabled");
 
 
 
@@ -4704,7 +4704,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_call_coind0/1,public)
-        final static Functor ATOM_dra_interp = SYM("dra_interp");
+        final static Atomic ATOM_dra_interp = SYM("dra_interp");
 
 
 
@@ -4763,12 +4763,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         final static Functor FUNCTOR_or_2 = F(";",2);
         final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
         final static Functor FUNCTOR_$003C_2 = F("<",2);
-        final static Functor ATOM_init_dra_call = SYM("init_dra_call");
+        final static Atomic ATOM_init_dra_call = SYM("init_dra_call");
     private static final Compound L_dra_use_interp_2_s13 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_init_dra_call );
         final static Functor FUNCTOR_$003D_2 = F("=",2);
-        final static Functor ATOM_exit_dra_call = SYM("exit_dra_call");
+        final static Atomic ATOM_exit_dra_call = SYM("exit_dra_call");
     private static final Compound L_dra_use_interp_2_s17 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_exit_dra_call );
-        final static Functor ATOM_cont_dra_call = SYM("cont_dra_call");
+        final static Atomic ATOM_cont_dra_call = SYM("cont_dra_call");
     private static final Compound L_dra_use_interp_2_s20 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra ,  ATOM_cont_dra_call );
         final static Functor FUNCTOR_is_2 = F("is",2);
         final static Functor FUNCTOR_call_6 = F("call",6);
@@ -4942,9 +4942,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
         final static Functor FUNCTOR_$002D_2 = F("-",2);
         final static Functor FUNCTOR_$003E_2 = F(">",2);
         final static Functor FUNCTOR_dra_wln_1 = F("dra_wln",1);
-        final static Functor ATOM_step = SYM("step");
-        final static Functor ATOM_growth = SYM("growth");
-        final static Functor ATOM_tabled = SYM("tabled");
+        final static Atomic ATOM_step = SYM("step");
+        final static Atomic ATOM_growth = SYM("growth");
+        final static Atomic ATOM_tabled = SYM("tabled");
 
 
 
@@ -5127,8 +5127,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 */
     // main(dra_interp/5,non-(public))
         final static Functor FUNCTOR_nonvar_1 = F("nonvar",1);
-        final static Functor ATOM_normal = SYM("normal");
-        final static Functor ATOM_$003F = SYM("?");
+        final static Atomic ATOM_normal = SYM("normal");
+        final static Atomic ATOM_$003F = SYM("?");
         final static Functor FUNCTOR_once_1 = F("once",1);
         final static Functor FUNCTOR_findall_3 = F("findall",3);
         final static Functor FUNCTOR_$0021_1 = F("!",1);
@@ -6067,7 +6067,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_24_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/1,non-(public))
-        final static Functor ATOM_cut = SYM("cut");
+        final static Atomic ATOM_cut = SYM("cut");
 
 
 
@@ -6231,8 +6231,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_28_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/2,non-(public))
-        final static Functor ATOM_coinductive$0020$0028hypothesis$0029 = SYM("coinductive (hypothesis)");
-        final static Functor ATOM_coinductive = SYM("coinductive");
+        final static Atomic ATOM_coinductive$0020$0028hypothesis$0029 = SYM("coinductive (hypothesis)");
+        final static Atomic ATOM_coinductive = SYM("coinductive");
 
 
 
@@ -6278,8 +6278,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_26_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/8,non-(public))
-        final static Functor ATOM_coinductive0$0028hypothesis$0029 = SYM("coinductive0(hypothesis)");
-        final static Functor ATOM_coinductive$0020$0028clause$0029 = SYM("coinductive (clause)");
+        final static Atomic ATOM_coinductive0$0028hypothesis$0029 = SYM("coinductive0(hypothesis)");
+        final static Atomic ATOM_coinductive$0020$0028clause$0029 = SYM("coinductive (clause)");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -6792,7 +6792,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_34_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/2,non-(public))
-        final static Functor ATOM_completed = SYM("completed");
+        final static Atomic ATOM_completed = SYM("completed");
 
 
 
@@ -6838,8 +6838,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(dra_call_tabled/5,non-(public))
-        final static Functor ATOM_variant = SYM("variant");
-        final static Functor ATOM_pioneer = SYM("pioneer");
+        final static Atomic ATOM_variant = SYM("variant");
+        final static Atomic ATOM_pioneer = SYM("pioneer");
 
     // private final Term arg5;
 
@@ -7016,7 +7016,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_37_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/6,non-(public))
-        final static Functor ATOM_variant$0020$0028coinductive0$0029 = SYM("variant (coinductive0)");
+        final static Atomic ATOM_variant$0020$0028coinductive0$0029 = SYM("variant (coinductive0)");
         final static Functor FUNCTOR_result_2 = F("result",2);
 
     // private final Term arg5, arg6;
@@ -7345,7 +7345,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_40_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/14,non-(public))
-        final static Functor ATOM_$0028no$0020longer$0020a$0020pioneer$0029 = SYM("(no longer a pioneer)");
+        final static Atomic ATOM_$0028no$0020longer$0020a$0020pioneer$0029 = SYM("(no longer a pioneer)");
 
     // private final Term arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14;
 
@@ -7660,8 +7660,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_43_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/3,non-(public))
-        final static Functor ATOM_Removing$0020completed$0020pioneer = SYM("Removing completed pioneer");
-        final static Functor ATOM_completed$0020now = SYM("completed now");
+        final static Atomic ATOM_Removing$0020completed$0020pioneer = SYM("Removing completed pioneer");
+        final static Atomic ATOM_completed$0020now = SYM("completed now");
 
 
 
@@ -7771,9 +7771,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_45_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/6,non-(public))
-        final static Functor ATOM_Computing$0020fixed$0020point$0020for = SYM("Computing fixed point for");
-        final static Functor ATOM_Fixed$0020point$0020computed = SYM("Fixed point computed");
-        final static Functor ATOM_Removing$0020pioneer = SYM("Removing pioneer");
+        final static Atomic ATOM_Computing$0020fixed$0020point$0020for = SYM("Computing fixed point for");
+        final static Atomic ATOM_Fixed$0020point$0020computed = SYM("Fixed point computed");
+        final static Atomic ATOM_Removing$0020pioneer = SYM("Removing pioneer");
 
     // private final Term arg5, arg6;
 
@@ -8339,8 +8339,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_50_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/1,non-(public))
-        final static Functor ATOM_warning = SYM("warning");
-        final static Functor ATOM_cutted$0020at$0020 = SYM("cutted at ");
+        final static Atomic ATOM_warning = SYM("warning");
+        final static Atomic ATOM_cutted$0020at$0020 = SYM("cutted at ");
 
 
 
@@ -8747,7 +8747,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(trace_entry/4,non-(public))
-        final static Functor ATOM_Entering$0020 = SYM("Entering ");
+        final static Atomic ATOM_Entering$0020 = SYM("Entering ");
 
 
 
@@ -8815,8 +8815,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$dummy_52_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl'/5,non-(public))
-        final static Functor ATOM_Success$0020 = SYM("Success ");
-        final static Functor ATOM_Retrying$0020 = SYM("Retrying ");
+        final static Atomic ATOM_Success$0020 = SYM("Success ");
+        final static Atomic ATOM_Retrying$0020 = SYM("Retrying ");
 
     // private final Term arg5;
 
@@ -8941,7 +8941,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(trace_failure/4,non-(public))
-        final static Functor ATOM_Failing$0020 = SYM("Failing ");
+        final static Atomic ATOM_Failing$0020 = SYM("Failing ");
 
 
 
@@ -9095,7 +9095,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 */
     // main(write_label_and_goal/3,non-(public))
         final static Functor FUNCTOR_print_depth_1 = F("print_depth",1);
-        final static Functor ATOM_$003A$0020 = SYM(": ");
+        final static Atomic ATOM_$003A$0020 = SYM(": ");
 
 
 
@@ -9130,8 +9130,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(write_goal_number/1,non-(public))
-        final static Functor ATOM_$003C = SYM("<");
-        final static Functor ATOM_$003E$0020 = SYM("> ");
+        final static Atomic ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003E$0020 = SYM("> ");
 
 
 
@@ -9185,7 +9185,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main(optional_trace/4,non-(public))
-        final static Functor ATOM_$0020$003A$0020 = SYM(" : ");
+        final static Atomic ATOM_$0020$003A$0020 = SYM(" : ");
 
 
 
@@ -9507,10 +9507,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 */
     // main(reinitialise_answer/0,non-(public))
         final static Functor FUNCTOR_tabling_store_1 = F("tabling_store",1);
-        final static Functor ATOM_assert = SYM("assert");
+        final static Atomic ATOM_assert = SYM("assert");
     private static final Compound L_reinitialise_answer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_answer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_answer_0_s6);
-        final static Functor ATOM_answer_key = SYM("answer_key");
+        final static Atomic ATOM_answer_key = SYM("answer_key");
 
 
 
@@ -9697,7 +9697,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(memo/3,non-(public))
     private static final Compound L_memo_3_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_memo_3_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_memo_3_s6);
-        final static Functor ATOM_Storing$0020answer$003A$0020 = SYM("Storing answer: ");
+        final static Atomic ATOM_Storing$0020answer$003A$0020 = SYM("Storing answer: ");
 
 
 
@@ -10060,7 +10060,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(reinitialise_result/0,non-(public))
     private static final Compound L_reinitialise_result_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_result_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_result_0_s6);
-        final static Functor ATOM_result_key = SYM("result_key");
+        final static Atomic ATOM_result_key = SYM("result_key");
         final static Functor FUNCTOR_result_1 = F("result",1);
 
 
@@ -10389,7 +10389,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(reinitialise_pioneer/0,non-(public))
     private static final Compound L_reinitialise_pioneer_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_pioneer_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_pioneer_0_s6);
-        final static Functor ATOM_pioneer_key = SYM("pioneer_key");
+        final static Atomic ATOM_pioneer_key = SYM("pioneer_key");
 
 
 
@@ -10739,7 +10739,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(reinitialise_loop/0,non-(public))
     private static final Compound L_reinitialise_loop_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_loop_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_loop_0_s6);
-        final static Functor ATOM_loop_key = SYM("loop_key");
+        final static Atomic ATOM_loop_key = SYM("loop_key");
 
 
 
@@ -11074,7 +11074,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(reinitialise_looping_alternative/0,non-(public))
     private static final Compound L_reinitialise_looping_alternative_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_looping_alternative_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_looping_alternative_0_s6);
-        final static Functor ATOM_looping_alternative_key = SYM("looping_alternative_key");
+        final static Atomic ATOM_looping_alternative_key = SYM("looping_alternative_key");
 
 
 
@@ -11388,7 +11388,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(reinitialise_completed/0,non-(public))
     private static final Compound L_reinitialise_completed_0_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_reinitialise_completed_0_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_reinitialise_completed_0_s6);
-        final static Functor ATOM_completed_key = SYM("completed_key");
+        final static Atomic ATOM_completed_key = SYM("completed_key");
 
 
 
@@ -11561,7 +11561,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     // main(complete_goal/2,non-(public))
     private static final Compound L_complete_goal_2_s6 = S( FUNCTOR_tabling_store_1 ,  ATOM_assert );
     private static final Compound L_complete_goal_2_s8 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_complete_goal_2_s6);
-        final static Functor ATOM_Completing = SYM("Completing");
+        final static Atomic ATOM_Completing = SYM("Completing");
 
 
 
@@ -11993,13 +11993,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/dra.pl
 */
     // main('$init'/0,public)
-        final static Functor ATOM_was_access_level = SYM("was_access_level");
+        final static Atomic ATOM_was_access_level = SYM("was_access_level");
     private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_was_access_level ,  int_1 );
         final static Functor FUNCTOR_is_table_ok_1 = F("is_table_ok",1);
     private static final Compound L_$init_0_s15 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
         final static Functor FUNCTOR_is_builtin_1 = F("is_builtin",1);
         final static Functor FUNCTOR_asserta_1 = F("asserta",1);
-        final static Functor ATOM_is_table_ok = SYM("is_table_ok");
+        final static Atomic ATOM_is_table_ok = SYM("is_table_ok");
     private static final Compound L_$init_0_s21 = S( FUNCTOR_$002F_2 ,  ATOM_is_table_ok ,  int_1 );
     private static final Compound L_$init_0_s26 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive0 ,  int_1 );
     private static final Compound L_$init_0_s29 = S( FUNCTOR_$002F_2 ,  ATOM_is_coinductive1 ,  int_1 );
@@ -12009,21 +12009,21 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tabling_dra/
     private static final Compound L_$init_0_s42 = S( FUNCTOR_print_depth_1 ,  int_10 );
     private static final Compound L_$init_0_s44 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s42,  Prolog.True );
     private static final Compound L_$init_0_s46 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s44);
-        final static Functor ATOM_hybrid = SYM("hybrid");
+        final static Atomic ATOM_hybrid = SYM("hybrid");
     private static final Compound L_$init_0_s50 = S( FUNCTOR_tabling_store_1 ,  ATOM_hybrid );
     private static final Compound L_$init_0_s52 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s50,  Prolog.True );
     private static final Compound L_$init_0_s54 = S( FUNCTOR_module_colon_2 ,  ATOM_$0024dra , L_$init_0_s52);
-        final static Functor ATOM_answer = SYM("answer");
+        final static Atomic ATOM_answer = SYM("answer");
     private static final Compound L_$init_0_s58 = S( FUNCTOR_$002F_2 ,  ATOM_answer ,  int_3 );
     private static final Compound L_$init_0_s61 = S( FUNCTOR_$002F_2 ,  ATOM_pioneer ,  int_3 );
-        final static Functor ATOM_result = SYM("result");
+        final static Atomic ATOM_result = SYM("result");
     private static final Compound L_$init_0_s65 = S( FUNCTOR_$002F_2 ,  ATOM_result ,  int_2 );
-        final static Functor ATOM_loop = SYM("loop");
+        final static Atomic ATOM_loop = SYM("loop");
     private static final Compound L_$init_0_s68 = S( FUNCTOR_$002F_2 ,  ATOM_loop ,  int_2 );
-        final static Functor ATOM_looping_alternative = SYM("looping_alternative");
+        final static Atomic ATOM_looping_alternative = SYM("looping_alternative");
     private static final Compound L_$init_0_s71 = S( FUNCTOR_$002F_2 ,  ATOM_looping_alternative ,  int_2 );
     private static final Compound L_$init_0_s74 = S( FUNCTOR_$002F_2 ,  ATOM_completed ,  int_2 );
-        final static Functor ATOM_$0024tracing = SYM("$tracing");
+        final static Atomic ATOM_$0024tracing = SYM("$tracing");
     private static final Compound L_$init_0_s78 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tracing ,  int_0 );
 
 

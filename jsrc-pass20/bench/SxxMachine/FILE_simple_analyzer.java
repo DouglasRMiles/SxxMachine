@@ -51,7 +51,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
     // main(main/1,public)
         final static Functor FUNCTOR_stree_5 = F("stree",5);
         final static Functor FUNCTOR_$002F_2 = F("/",2);
-        final static Functor ATOM_main = SYM("main");
+        final static Atomic ATOM_main = SYM("main");
     private static final Compound L_main_1_s6 = S( FUNCTOR_$002F_2 ,  ATOM_main ,  int_0 );
         final static Functor FUNCTOR_$003A$002D_2 = F(":-",2);
         final static Functor FUNCTOR_or_2 = F(";",2);
@@ -59,20 +59,20 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
         final static Functor FUNCTOR_qsort_3 = F("qsort",3);
     private static final Compound L_main_1_s14 = CONS( int_2 ,  Prolog.Nil );
     private static final Compound L_main_1_s15 = CONS( int_1 , L_main_1_s14);
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
     private static final Compound L_main_1_s19 = S( FUNCTOR_$003A$002D_2 ,  ATOM_main ,  Prolog.True );
-        final static Functor ATOM_qsort = SYM("qsort");
+        final static Atomic ATOM_qsort = SYM("qsort");
     private static final Compound L_main_1_s23 = S( FUNCTOR_$002F_2 ,  ATOM_qsort ,  int_3 );
         final static Functor FUNCTOR_$003D_2 = F("=",2);
         final static Functor FUNCTOR_part_4 = F("part",4);
-        final static Functor ATOM_part = SYM("part");
+        final static Atomic ATOM_part = SYM("part");
     private static final Compound L_main_1_s29 = S( FUNCTOR_$002F_2 ,  ATOM_part ,  int_4 );
         final static Functor FUNCTOR_$0024cut_load_1 = F("$cut_load",1);
         final static Functor FUNCTOR_$0024cut_part$002F41_5 = F("$cut_part/4_1",5);
-        final static Functor ATOM_$0024cut_part$002F41 = SYM("$cut_part/4_1");
+        final static Atomic ATOM_$0024cut_part$002F41 = SYM("$cut_part/4_1");
     private static final Compound L_main_1_s35 = S( FUNCTOR_$002F_2 ,  ATOM_$0024cut_part$002F41 ,  int_5 );
         final static Functor FUNCTOR_$0024fac_$0024cut_part$002F4_1$002F52_6 = F("$fac_$cut_part/4_1/5_2",6);
-        final static Functor ATOM_$0024fac_$0024cut_part$002F4_1$002F52 = SYM("$fac_$cut_part/4_1/5_2");
+        final static Atomic ATOM_$0024fac_$0024cut_part$002F4_1$002F52 = SYM("$fac_$cut_part/4_1/5_2");
     private static final Compound L_main_1_s40 = S( FUNCTOR_$002F_2 ,  ATOM_$0024fac_$0024cut_part$002F4_1$002F52 ,  int_6 );
         final static Functor FUNCTOR_$003D$003C_2 = F("=<",2);
         final static Functor FUNCTOR_$0024cut_shallow_1 = F("$cut_shallow",1);
@@ -936,8 +936,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(traverse_conj/6,public)
-        final static Functor ATOM_uninit = SYM("uninit");
-        final static Functor ATOM_ground = SYM("ground");
+        final static Atomic ATOM_uninit = SYM("uninit");
+        final static Atomic ATOM_ground = SYM("ground");
 
     // private final Term arg5, arg6;
 
@@ -1587,8 +1587,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(lub/3,public)
-        final static Functor ATOM_unknown = SYM("unknown");
-        final static Functor ATOM_any = SYM("any");
+        final static Atomic ATOM_unknown = SYM("unknown");
+        final static Atomic ATOM_any = SYM("any");
 
 
 
@@ -1832,8 +1832,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(create_argument/6,public)
-        final static Functor ATOM_yes = SYM("yes");
-        final static Functor ATOM_no = SYM("no");
+        final static Atomic ATOM_yes = SYM("yes");
+        final static Atomic ATOM_no = SYM("no");
 
     // private final Term arg5, arg6;
 
@@ -2611,8 +2611,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(get/5,public)
-        final static Functor ATOM_$003C = SYM("<");
-        final static Functor ATOM_$003E = SYM(">");
+        final static Atomic ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003E = SYM(">");
 
     // private final Term arg5;
 
@@ -2673,7 +2673,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(set/4,public)
-        final static Functor ATOM_leaf = SYM("leaf");
+        final static Atomic ATOM_leaf = SYM("leaf");
 
 
 
@@ -2749,7 +2749,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(set_2/9,public)
-        final static Functor ATOM_$003D = SYM("=");
+        final static Atomic ATOM_$003D = SYM("=");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -3591,7 +3591,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/simple_analyzer.pl
 */
     // main(make_key/2,public)
-        final static Functor ATOM_dummy = SYM("dummy");
+        final static Atomic ATOM_dummy = SYM("dummy");
 
 
 

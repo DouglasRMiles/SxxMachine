@@ -130,7 +130,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 */
     // main((^)/2,public)
         final static Functor FUNCTOR_module_colon_2 = F(":",2);
-        final static Functor ATOM_SxxMachine = SYM("SxxMachine");
+        final static Atomic ATOM_SxxMachine = SYM("SxxMachine");
 
 
 
@@ -357,7 +357,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main(call/1,public)
-        final static Functor ATOM_interpret = SYM("interpret");
+        final static Atomic ATOM_interpret = SYM("interpret");
 
 
 
@@ -379,22 +379,22 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$meta_call'/5,non-(public))
-        final static Functor ATOM_var = SYM("var");
+        final static Atomic ATOM_var = SYM("var");
         final static Functor FUNCTOR_call_1 = F("call",1);
-        final static Functor ATOM_trace = SYM("trace");
-        final static Functor ATOM_debug = SYM("debug");
-        final static Functor ATOM_notrace = SYM("notrace");
-        final static Functor ATOM_nodebug = SYM("nodebug");
+        final static Atomic ATOM_trace = SYM("trace");
+        final static Atomic ATOM_debug = SYM("debug");
+        final static Atomic ATOM_notrace = SYM("notrace");
+        final static Atomic ATOM_nodebug = SYM("nodebug");
         final static Functor FUNCTOR_spy_1 = F("spy",1);
         final static Functor FUNCTOR_nospy_1 = F("nospy",1);
-        final static Functor ATOM_nospyall = SYM("nospyall");
+        final static Atomic ATOM_nospyall = SYM("nospyall");
         final static Functor FUNCTOR_leash_1 = F("leash",1);
         final static Functor FUNCTOR_$005E_2 = F("^",2);
-        final static Functor ATOM_$0021 = SYM("!");
-        final static Functor ATOM_no = SYM("no");
+        final static Atomic ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_no = SYM("no");
         final static Functor FUNCTOR_context_2 = F("context",2);
-        final static Functor ATOM_if = SYM("if");
-        final static Functor ATOM_cut = SYM("cut");
+        final static Atomic ATOM_if = SYM("if");
+        final static Atomic ATOM_cut = SYM("cut");
     private static final Compound L_$meta_call_5_s21 = S( FUNCTOR_context_2 ,  ATOM_if ,  ATOM_cut );
         final static Functor FUNCTOR_$002C_2 = F(",",2);
         final static Functor FUNCTOR_or_2 = F(";",2);
@@ -414,7 +414,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
         final static Functor FUNCTOR_abolish_1 = F("abolish",1);
         final static Functor FUNCTOR_retractall_1 = F("retractall",1);
         final static Functor FUNCTOR_type_1 = F("type",1);
-        final static Functor ATOM_callable = SYM("callable");
+        final static Atomic ATOM_callable = SYM("callable");
     private static final Compound L_$meta_call_5_s44 = S( FUNCTOR_type_1 ,  ATOM_callable );
 
     // private final Term arg5;
@@ -2303,7 +2303,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$on_exception'/3,non-(public))
-        final static Functor ATOM_$0024none = SYM("$none");
+        final static Atomic ATOM_$0024none = SYM("$none");
 
 
 
@@ -3278,9 +3278,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$map_compare_op'/2,non-(public))
-        final static Functor ATOM_$003D = SYM("=");
-        final static Functor ATOM_$003C = SYM("<");
-        final static Functor ATOM_$003E = SYM(">");
+        final static Atomic ATOM_$003D = SYM("=");
+        final static Atomic ATOM_$003C = SYM("<");
+        final static Atomic ATOM_$003E = SYM(">");
 
 
 
@@ -5163,8 +5163,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main(clause/2,public)
-        final static Functor ATOM_access = SYM("access");
-        final static Functor ATOM_private_procedure = SYM("private_procedure");
+        final static Atomic ATOM_access = SYM("access");
+        final static Atomic ATOM_private_procedure = SYM("private_procedure");
 
 
 
@@ -5537,7 +5537,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$init_internal_database'/1,non-(public))
-        final static Functor ATOM_$0024init = SYM("$init");
+        final static Atomic ATOM_$0024init = SYM("$init");
 
 
 
@@ -5846,9 +5846,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$new_indexing_hash'/3,public)
-        final static Functor ATOM_all = SYM("all");
-        final static Functor ATOM_lis = SYM("lis");
-        final static Functor ATOM_str = SYM("str");
+        final static Atomic ATOM_all = SYM("all");
+        final static Atomic ATOM_lis = SYM("lis");
+        final static Atomic ATOM_str = SYM("str");
 
 
 
@@ -5974,7 +5974,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$calc_indexing_key0'/2,non-(public))
-        final static Functor ATOM_term = SYM("term");
+        final static Atomic ATOM_term = SYM("term");
     private static final Compound L_$calc_indexing_key0_2_s7 = S( FUNCTOR_type_1 ,  ATOM_term );
         final static Functor FUNCTOR_$0024calc_indexing_key0_2 = F("$calc_indexing_key0",2);
 
@@ -6457,11 +6457,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main(asserta/3,non-(public))
-        final static Functor ATOM_modify = SYM("modify");
-        final static Functor ATOM_static_procedure = SYM("static_procedure");
+        final static Atomic ATOM_modify = SYM("modify");
+        final static Atomic ATOM_static_procedure = SYM("static_procedure");
         final static Functor FUNCTOR_$0024update_indexing_5 = F("$update_indexing",5);
-        final static Functor ATOM_a = SYM("a");
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_a = SYM("a");
+        final static Atomic ATOM_fail = SYM("fail");
 
 
 
@@ -6519,7 +6519,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main(assertz/3,non-(public))
-        final static Functor ATOM_z = SYM("z");
+        final static Atomic ATOM_z = SYM("z");
 
 
 
@@ -6796,7 +6796,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$term_to_clause'/5,non-(public))
-        final static Functor ATOM_atom = SYM("atom");
+        final static Atomic ATOM_atom = SYM("atom");
     private static final Compound L_$term_to_clause_5_s7 = S( FUNCTOR_type_1 ,  ATOM_atom );
 
     // private final Term arg5;
@@ -7600,7 +7600,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$localize_args'/4,non-(public))
-        final static Functor ATOM_module_colon = SYM(":");
+        final static Atomic ATOM_module_colon = SYM(":");
 
 
 
@@ -7833,26 +7833,26 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$builtin_meta_predicates'/3,non-(public))
-        final static Functor ATOM_$005E = SYM("^");
-        final static Functor ATOM_$003F = SYM("?");
+        final static Atomic ATOM_$005E = SYM("^");
+        final static Atomic ATOM_$003F = SYM("?");
     private static final Compound L_$builtin_meta_predicates_3_s6 = CONS( ATOM_module_colon ,  Prolog.Nil );
     private static final Compound L_$builtin_meta_predicates_3_s7 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s6);
-        final static Functor ATOM_call = SYM("call");
-        final static Functor ATOM_once = SYM("once");
-        final static Functor ATOM_$005C$002B = SYM("\\+");
-        final static Functor ATOM_findall = SYM("findall");
+        final static Atomic ATOM_call = SYM("call");
+        final static Atomic ATOM_once = SYM("once");
+        final static Atomic ATOM_$005C$002B = SYM("\\+");
+        final static Atomic ATOM_findall = SYM("findall");
     private static final Compound L_$builtin_meta_predicates_3_s14 = CONS( ATOM_$003F ,  Prolog.Nil );
     private static final Compound L_$builtin_meta_predicates_3_s15 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s14);
     private static final Compound L_$builtin_meta_predicates_3_s16 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s15);
-        final static Functor ATOM_setof = SYM("setof");
-        final static Functor ATOM_bagof = SYM("bagof");
-        final static Functor ATOM_on_exception = SYM("on_exception");
+        final static Atomic ATOM_setof = SYM("setof");
+        final static Atomic ATOM_bagof = SYM("bagof");
+        final static Atomic ATOM_on_exception = SYM("on_exception");
     private static final Compound L_$builtin_meta_predicates_3_s20 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s6);
     private static final Compound L_$builtin_meta_predicates_3_s21 = CONS( ATOM_$003F , L_$builtin_meta_predicates_3_s20);
-        final static Functor ATOM_catch = SYM("catch");
+        final static Atomic ATOM_catch = SYM("catch");
     private static final Compound L_$builtin_meta_predicates_3_s23 = CONS( ATOM_module_colon , L_$builtin_meta_predicates_3_s7);
-        final static Functor ATOM_synchronized = SYM("synchronized");
-        final static Functor ATOM_freeze = SYM("freeze");
+        final static Atomic ATOM_synchronized = SYM("synchronized");
+        final static Atomic ATOM_freeze = SYM("freeze");
 
 
 
@@ -8483,10 +8483,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$term_to_predicateindicator'/5,non-(public))
-        final static Functor ATOM_predicate_indicator = SYM("predicate_indicator");
+        final static Atomic ATOM_predicate_indicator = SYM("predicate_indicator");
     private static final Compound L_$term_to_predicateindicator_5_s8 = S( FUNCTOR_type_1 ,  ATOM_predicate_indicator );
     private static final Compound L_$term_to_predicateindicator_5_s11 = S( FUNCTOR_type_1 ,  ATOM_atom );
-        final static Functor ATOM_integer = SYM("integer");
+        final static Atomic ATOM_integer = SYM("integer");
     private static final Compound L_$term_to_predicateindicator_5_s14 = S( FUNCTOR_type_1 ,  ATOM_integer );
 
     // private final Term arg5;
@@ -9649,7 +9649,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$findall'/4,non-(public))
-        final static Functor ATOM_$0024FINDALL = SYM("$FINDALL");
+        final static Atomic ATOM_$0024FINDALL = SYM("$FINDALL");
 
 
 
@@ -9825,7 +9825,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$bagof'/3,non-(public))
-        final static Functor ATOM_$0024witness = SYM("$witness");
+        final static Atomic ATOM_$0024witness = SYM("$witness");
 
 
 
@@ -11940,15 +11940,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$read_tokens1'/5,non-(public))
-        final static Functor ATOM_user_error = SYM("user_error");
-        final static Functor ATOM_$007BSYNTAX$0020ERROR$007D = SYM("{SYNTAX ERROR}");
-        final static Functor ATOM_$002A$002A$0020 = SYM("** ");
-        final static Functor ATOM_$0020$002A$002A = SYM(" **");
-        final static Functor ATOM_end_of_file = SYM("end_of_file");
-        final static Functor ATOM_$002E = SYM(".");
+        final static Atomic ATOM_user_error = SYM("user_error");
+        final static Atomic ATOM_$007BSYNTAX$0020ERROR$007D = SYM("{SYNTAX ERROR}");
+        final static Atomic ATOM_$002A$002A$0020 = SYM("** ");
+        final static Atomic ATOM_$0020$002A$002A = SYM(" **");
+        final static Atomic ATOM_end_of_file = SYM("end_of_file");
+        final static Atomic ATOM_$002E = SYM(".");
     private static final Compound L_$read_tokens1_5_s9 = CONS( ATOM_$002E ,  Prolog.Nil );
     private static final Compound L_$read_tokens1_5_s10 = CONS( ATOM_end_of_file , L_$read_tokens1_5_s9);
-        final static Functor ATOM__ = SYM("_");
+        final static Atomic ATOM__ = SYM("_");
     private static final Compound L_$read_tokens1_5_s14 = S( FUNCTOR_var_1 ,  ATOM__ );
         final static Functor FUNCTOR_var_2 = F("var",2);
         final static Functor FUNCTOR_$003D_2 = F("=",2);
@@ -12556,10 +12556,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens1'/5,non-(public))
-        final static Functor ATOM_cannot = SYM("cannot");
-        final static Functor ATOM_start = SYM("start");
-        final static Functor ATOM_an = SYM("an");
-        final static Functor ATOM_expression = SYM("expression");
+        final static Atomic ATOM_cannot = SYM("cannot");
+        final static Atomic ATOM_start = SYM("start");
+        final static Atomic ATOM_an = SYM("an");
+        final static Atomic ATOM_expression = SYM("expression");
     private static final Compound L_$parse_tokens1_5_s6 = CONS( ATOM_expression ,  Prolog.Nil );
     private static final Compound L_$parse_tokens1_5_s7 = CONS( ATOM_an , L_$parse_tokens1_5_s6);
     private static final Compound L_$parse_tokens1_5_s8 = CONS( ATOM_start , L_$parse_tokens1_5_s7);
@@ -12637,9 +12637,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens2'/7,non-(public))
-        final static Functor ATOM_operator = SYM("operator");
-        final static Functor ATOM_expected = SYM("expected");
-        final static Functor ATOM_after = SYM("after");
+        final static Atomic ATOM_operator = SYM("operator");
+        final static Atomic ATOM_expected = SYM("expected");
+        final static Atomic ATOM_after = SYM("after");
     private static final Compound L_$parse_tokens2_7_s6 = CONS( ATOM_expression ,  Prolog.Nil );
     private static final Compound L_$parse_tokens2_7_s7 = CONS( ATOM_after , L_$parse_tokens2_7_s6);
     private static final Compound L_$parse_tokens2_7_s8 = CONS( ATOM_expected , L_$parse_tokens2_7_s7);
@@ -12759,17 +12759,17 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_before_op'/5,non-(public))
-        final static Functor ATOM_$0020 = SYM(" ");
-        final static Functor ATOM_$002D = SYM("-");
+        final static Atomic ATOM_$0020 = SYM(" ");
+        final static Atomic ATOM_$002D = SYM("-");
     private static final Compound L_$parse_tokens_before_op_5_s8 = S( FUNCTOR_atom_1 ,  ATOM_$002D );
         final static Functor FUNCTOR_$002D_1 = F("-",1);
-        final static Functor ATOM_$0028 = SYM("(");
-        final static Functor ATOM_$0029 = SYM(")");
-        final static Functor ATOM_$007B = SYM("{");
-        final static Functor ATOM_$005B = SYM("[");
-        final static Functor ATOM_fx = SYM("fx");
+        final static Atomic ATOM_$0028 = SYM("(");
+        final static Atomic ATOM_$0029 = SYM(")");
+        final static Atomic ATOM_$007B = SYM("{");
+        final static Atomic ATOM_$005B = SYM("[");
+        final static Atomic ATOM_fx = SYM("fx");
         final static Functor FUNCTOR_$002D_2 = F("-",2);
-        final static Functor ATOM_fy = SYM("fy");
+        final static Atomic ATOM_fy = SYM("fy");
 
     // private final Term arg5;
 
@@ -13564,8 +13564,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_brace'/3,non-(public))
-        final static Functor ATOM_$007B$007D = SYM("{}");
-        final static Functor ATOM_$007D = SYM("}");
+        final static Atomic ATOM_$007B$007D = SYM("{}");
+        final static Atomic ATOM_$007D = SYM("}");
         final static Functor FUNCTOR_$007B$007D_1 = F("{}",1);
 
 
@@ -13647,8 +13647,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_list'/3,non-(public))
-        final static Functor ATOM_Nil = SYM("[]");
-        final static Functor ATOM_$005D = SYM("]");
+        final static Atomic ATOM_Nil = SYM("[]");
+        final static Atomic ATOM_$005D = SYM("]");
         final static NumberTerm int_999 = Integer(999);
 
 
@@ -13736,8 +13736,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_list_rest'/3,non-(public))
-        final static Functor ATOM_$007C = SYM("|");
-        final static Functor ATOM_$002C = SYM(",");
+        final static Atomic ATOM_$007C = SYM("|");
+        final static Atomic ATOM_$002C = SYM(",");
 
 
 
@@ -14142,13 +14142,13 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 */
     // main('$parse_tokens_op'/8,non-(public))
     private static final Compound L_$parse_tokens_op_8_s4 = S( FUNCTOR_atom_1 ,  ATOM_$002C );
-        final static Functor ATOM_or = SYM(";");
+        final static Atomic ATOM_or = SYM(";");
     private static final Compound L_$parse_tokens_op_8_s8 = S( FUNCTOR_atom_1 ,  ATOM_or );
-        final static Functor ATOM_xf = SYM("xf");
-        final static Functor ATOM_yf = SYM("yf");
-        final static Functor ATOM_xfx = SYM("xfx");
-        final static Functor ATOM_xfy = SYM("xfy");
-        final static Functor ATOM_yfx = SYM("yfx");
+        final static Atomic ATOM_xf = SYM("xf");
+        final static Atomic ATOM_yf = SYM("yf");
+        final static Atomic ATOM_xfx = SYM("xfx");
+        final static Atomic ATOM_xfy = SYM("xfy");
+        final static Atomic ATOM_yfx = SYM("yfx");
 
     // private final Term arg5, arg6, arg7, arg8;
 
@@ -15235,7 +15235,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_error1'/2,non-(public))
-        final static Functor ATOM_$002A$002A$0020here$0020$002A$002A = SYM("** here **");
+        final static Atomic ATOM_$002A$002A$0020here$0020$002A$002A = SYM("** here **");
 
 
 
@@ -15360,7 +15360,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$parse_tokens_error2'/1,non-(public))
-        final static Functor ATOM_$0022 = SYM("\"");
+        final static Atomic ATOM_$0022 = SYM("\"");
 
 
 
@@ -15868,7 +15868,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 */
     // main('$write_term'/3,non-(public))
         final static NumberTerm int_1200 = Integer(1200);
-        final static Functor ATOM_punct = SYM("punct");
+        final static Atomic ATOM_punct = SYM("punct");
 
 
 
@@ -15897,10 +15897,10 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$write_term0'/6,non-(public))
-        final static Functor ATOM_alpha = SYM("alpha");
+        final static Atomic ATOM_alpha = SYM("alpha");
         final static Functor FUNCTOR_$0024VAR_1 = F("$VAR",1);
     private static final Compound L_$write_term0_6_s7 = S( FUNCTOR_numbervars_1 ,  Prolog.True );
-        final static Functor ATOM_symbol = SYM("symbol");
+        final static Atomic ATOM_symbol = SYM("symbol");
 
     // private final Term arg5, arg6;
 
@@ -16577,7 +16577,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$write_space_if_needed'/3,non-(public))
-        final static Functor ATOM_other = SYM("other");
+        final static Atomic ATOM_other = SYM("other");
 
 
 
@@ -18476,9 +18476,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$op_specifier'/2,non-(public))
-        final static Functor ATOM_prefix = SYM("prefix");
-        final static Functor ATOM_infix = SYM("infix");
-        final static Functor ATOM_postfix = SYM("postfix");
+        final static Atomic ATOM_prefix = SYM("prefix");
+        final static Atomic ATOM_infix = SYM("infix");
+        final static Atomic ATOM_postfix = SYM("postfix");
 
 
 
@@ -18965,7 +18965,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$dummy_20_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl'/2,non-(public))
-        final static Functor ATOM_atomic = SYM("atomic");
+        final static Atomic ATOM_atomic = SYM("atomic");
     private static final Compound L_$dummy_20_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fbuiltins$002Epl_2_s4 = S( FUNCTOR_type_1 ,  ATOM_atomic );
         final static Functor FUNCTOR_name_2 = F("name",2);
 
@@ -19165,7 +19165,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$dummy_22_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl'/3,non-(public))
-        final static Functor ATOM_char = SYM("char");
+        final static Atomic ATOM_char = SYM("char");
     private static final Compound L_$dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fbuiltins$002Epl_3_s5 = S( FUNCTOR_list_1 ,  ATOM_char );
     private static final Compound L_$dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fbuiltins$002Epl_3_s7 = S( FUNCTOR_type_1 , L_$dummy_22_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass10$002Fbuiltin$002Fbuiltins$002Epl_3_s5);
 
@@ -19625,7 +19625,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 */
     // main('$set_prolog_flag0'/2,non-(public))
         final static Functor FUNCTOR_changeable_1 = F("changeable",1);
-        final static Functor ATOM_prolog_flag = SYM("prolog_flag");
+        final static Atomic ATOM_prolog_flag = SYM("prolog_flag");
     private static final Compound L_$set_prolog_flag0_2_s6 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_prolog_flag );
 
 
@@ -19688,8 +19688,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$set_prolog_flag0'/4,non-(public))
-        final static Functor ATOM_flag = SYM("flag");
-        final static Functor ATOM_flag_value = SYM("flag_value");
+        final static Atomic ATOM_flag = SYM("flag");
+        final static Atomic ATOM_flag_value = SYM("flag_value");
     private static final Compound L_$set_prolog_flag0_4_s10 = S( FUNCTOR_domain_2 ,  ATOM_atom ,  ATOM_flag_value );
 
 
@@ -19956,34 +19956,34 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$prolog_impl_flag'/3,non-(public))
-        final static Functor ATOM_max_integer = SYM("max_integer");
+        final static Atomic ATOM_max_integer = SYM("max_integer");
     private static final Compound L_$prolog_impl_flag_3_s5 = S( FUNCTOR_changeable_1 ,  ATOM_no );
-        final static Functor ATOM_min_integer = SYM("min_integer");
-        final static Functor ATOM_char_conversion = SYM("char_conversion");
-        final static Functor ATOM_on = SYM("on");
-        final static Functor ATOM_off = SYM("off");
+        final static Atomic ATOM_min_integer = SYM("min_integer");
+        final static Atomic ATOM_char_conversion = SYM("char_conversion");
+        final static Atomic ATOM_on = SYM("on");
+        final static Atomic ATOM_off = SYM("off");
     private static final Compound L_$prolog_impl_flag_3_s11 = CONS( ATOM_off ,  Prolog.Nil );
     private static final Compound L_$prolog_impl_flag_3_s12 = CONS( ATOM_on , L_$prolog_impl_flag_3_s11);
-        final static Functor ATOM_yes = SYM("yes");
+        final static Atomic ATOM_yes = SYM("yes");
     private static final Compound L_$prolog_impl_flag_3_s16 = S( FUNCTOR_changeable_1 ,  ATOM_yes );
-        final static Functor ATOM_jdebug = SYM("jdebug");
-        final static Functor ATOM_max_arity = SYM("max_arity");
-        final static Functor ATOM_unknown = SYM("unknown");
-        final static Functor ATOM_error = SYM("error");
-        final static Functor ATOM_warning = SYM("warning");
+        final static Atomic ATOM_jdebug = SYM("jdebug");
+        final static Atomic ATOM_max_arity = SYM("max_arity");
+        final static Atomic ATOM_unknown = SYM("unknown");
+        final static Atomic ATOM_error = SYM("error");
+        final static Atomic ATOM_warning = SYM("warning");
     private static final Compound L_$prolog_impl_flag_3_s23 = CONS( ATOM_warning ,  Prolog.Nil );
     private static final Compound L_$prolog_impl_flag_3_s24 = CONS( ATOM_fail , L_$prolog_impl_flag_3_s23);
     private static final Compound L_$prolog_impl_flag_3_s25 = CONS( ATOM_error , L_$prolog_impl_flag_3_s24);
-        final static Functor ATOM_double_quotes = SYM("double_quotes");
-        final static Functor ATOM_chars = SYM("chars");
-        final static Functor ATOM_codes = SYM("codes");
-        final static Functor ATOM_string = SYM("string");
+        final static Atomic ATOM_double_quotes = SYM("double_quotes");
+        final static Atomic ATOM_chars = SYM("chars");
+        final static Atomic ATOM_codes = SYM("codes");
+        final static Atomic ATOM_string = SYM("string");
     private static final Compound L_$prolog_impl_flag_3_s31 = CONS( ATOM_string ,  Prolog.Nil );
     private static final Compound L_$prolog_impl_flag_3_s32 = CONS( ATOM_atom , L_$prolog_impl_flag_3_s31);
     private static final Compound L_$prolog_impl_flag_3_s33 = CONS( ATOM_codes , L_$prolog_impl_flag_3_s32);
     private static final Compound L_$prolog_impl_flag_3_s34 = CONS( ATOM_chars , L_$prolog_impl_flag_3_s33);
-        final static Functor ATOM_back_quotes = SYM("back_quotes");
-        final static Functor ATOM_print_stack_trace = SYM("print_stack_trace");
+        final static Atomic ATOM_back_quotes = SYM("back_quotes");
+        final static Atomic ATOM_print_stack_trace = SYM("print_stack_trace");
 
 
 
@@ -20238,7 +20238,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main(abort/0,public)
-        final static Functor ATOM_Execution$0020aborted = SYM("Execution aborted");
+        final static Atomic ATOM_Execution$0020aborted = SYM("Execution aborted");
 
 
 
@@ -22986,9 +22986,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$statistics_mode'/1,non-(public))
-        final static Functor ATOM_runtime = SYM("runtime");
-        final static Functor ATOM_trail = SYM("trail");
-        final static Functor ATOM_choice = SYM("choice");
+        final static Atomic ATOM_runtime = SYM("runtime");
+        final static Atomic ATOM_trail = SYM("trail");
+        final static Atomic ATOM_choice = SYM("choice");
 
 
 
@@ -23777,25 +23777,25 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$match_type'/2,non-(public))
-        final static Functor ATOM_variable = SYM("variable");
-        final static Functor ATOM_byte = SYM("byte");
+        final static Atomic ATOM_variable = SYM("variable");
+        final static Atomic ATOM_byte = SYM("byte");
         final static NumberTerm int_255 = Integer(255);
-        final static Functor ATOM_in_byte = SYM("in_byte");
-        final static Functor ATOM_character = SYM("character");
-        final static Functor ATOM_in_character = SYM("in_character");
-        final static Functor ATOM_number = SYM("number");
-        final static Functor ATOM_long = SYM("long");
-        final static Functor ATOM_float = SYM("float");
-        final static Functor ATOM_compound = SYM("compound");
-        final static Functor ATOM_list = SYM("list");
-        final static Functor ATOM_java = SYM("java");
-        final static Functor ATOM_stream = SYM("stream");
-        final static Functor ATOM_java$002Eio$002EPushbackReader = SYM("java.io.PushbackReader");
-        final static Functor ATOM_java$002Eio$002EPrintWriter = SYM("java.io.PrintWriter");
-        final static Functor ATOM_stream_or_alias = SYM("stream_or_alias");
-        final static Functor ATOM_hash = SYM("hash");
-        final static Functor ATOM_SxxMachine$002EHashtableOfTerm = SYM("SxxMachine.HashtableOfTerm");
-        final static Functor ATOM_hash_or_alias = SYM("hash_or_alias");
+        final static Atomic ATOM_in_byte = SYM("in_byte");
+        final static Atomic ATOM_character = SYM("character");
+        final static Atomic ATOM_in_character = SYM("in_character");
+        final static Atomic ATOM_number = SYM("number");
+        final static Atomic ATOM_long = SYM("long");
+        final static Atomic ATOM_float = SYM("float");
+        final static Atomic ATOM_compound = SYM("compound");
+        final static Atomic ATOM_list = SYM("list");
+        final static Atomic ATOM_java = SYM("java");
+        final static Atomic ATOM_stream = SYM("stream");
+        final static Atomic ATOM_java$002Eio$002EPushbackReader = SYM("java.io.PushbackReader");
+        final static Atomic ATOM_java$002Eio$002EPrintWriter = SYM("java.io.PrintWriter");
+        final static Atomic ATOM_stream_or_alias = SYM("stream_or_alias");
+        final static Atomic ATOM_hash = SYM("hash");
+        final static Atomic ATOM_SxxMachine$002EHashtableOfTerm = SYM("SxxMachine.HashtableOfTerm");
+        final static Atomic ATOM_hash_or_alias = SYM("hash_or_alias");
 
 
 
@@ -25313,85 +25313,85 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/builtins.pl
 */
     // main('$init'/0,public)
-        final static Functor ATOM_$0024recorded_key = SYM("$recorded_key");
+        final static Atomic ATOM_$0024recorded_key = SYM("$recorded_key");
     private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_$0024recorded_key ,  int_1 );
-        final static Functor ATOM_$0024recorded = SYM("$recorded");
+        final static Atomic ATOM_$0024recorded = SYM("$recorded");
     private static final Compound L_$init_0_s10 = S( FUNCTOR_$002F_2 ,  ATOM_$0024recorded ,  int_2 );
-        final static Functor ATOM_$0024tokens = SYM("$tokens");
+        final static Atomic ATOM_$0024tokens = SYM("$tokens");
     private static final Compound L_$init_0_s13 = S( FUNCTOR_$002F_2 ,  ATOM_$0024tokens ,  int_1 );
-        final static Functor ATOM_$003A$002D = SYM(":-");
+        final static Atomic ATOM_$003A$002D = SYM(":-");
     private static final Compound L_$init_0_s21 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$003A$002D );
     private static final Compound L_$init_0_s24 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s21,  Prolog.True );
     private static final Compound L_$init_0_s26 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s24);
-        final static Functor ATOM_$002D$002D$003E = SYM("-->");
+        final static Atomic ATOM_$002D$002D$003E = SYM("-->");
     private static final Compound L_$init_0_s29 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_xfx ,  ATOM_$002D$002D$003E );
     private static final Compound L_$init_0_s31 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s29,  Prolog.True );
     private static final Compound L_$init_0_s33 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s31);
     private static final Compound L_$init_0_s36 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003A$002D );
     private static final Compound L_$init_0_s38 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s36,  Prolog.True );
     private static final Compound L_$init_0_s40 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s38);
-        final static Functor ATOM_$003F$002D = SYM("?-");
+        final static Atomic ATOM_$003F$002D = SYM("?-");
     private static final Compound L_$init_0_s43 = S( FUNCTOR_$0024current_operator_3 ,  int_1200 ,  ATOM_fx ,  ATOM_$003F$002D );
     private static final Compound L_$init_0_s45 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s43,  Prolog.True );
     private static final Compound L_$init_0_s47 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s45);
         final static NumberTerm int_1150 = Integer(1150);
-        final static Functor ATOM_package = SYM("package");
+        final static Atomic ATOM_package = SYM("package");
     private static final Compound L_$init_0_s51 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_package );
     private static final Compound L_$init_0_s53 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s51,  Prolog.True );
     private static final Compound L_$init_0_s55 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s53);
-        final static Functor ATOM_import = SYM("import");
+        final static Atomic ATOM_import = SYM("import");
     private static final Compound L_$init_0_s58 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_import );
     private static final Compound L_$init_0_s60 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s58,  Prolog.True );
     private static final Compound L_$init_0_s62 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s60);
-        final static Functor ATOM_include = SYM("include");
+        final static Atomic ATOM_include = SYM("include");
     private static final Compound L_$init_0_s65 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include );
     private static final Compound L_$init_0_s67 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s65,  Prolog.True );
     private static final Compound L_$init_0_s69 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s67);
-        final static Functor ATOM_include_resource = SYM("include_resource");
+        final static Atomic ATOM_include_resource = SYM("include_resource");
     private static final Compound L_$init_0_s72 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_include_resource );
     private static final Compound L_$init_0_s74 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s72,  Prolog.True );
     private static final Compound L_$init_0_s76 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s74);
-        final static Functor ATOM_constant = SYM("constant");
+        final static Atomic ATOM_constant = SYM("constant");
     private static final Compound L_$init_0_s79 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_constant );
     private static final Compound L_$init_0_s81 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s79,  Prolog.True );
     private static final Compound L_$init_0_s83 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s81);
-        final static Functor ATOM_public = SYM("public");
+        final static Atomic ATOM_public = SYM("public");
     private static final Compound L_$init_0_s86 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_public );
     private static final Compound L_$init_0_s88 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s86,  Prolog.True );
     private static final Compound L_$init_0_s90 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s88);
-        final static Functor ATOM_dynamic = SYM("dynamic");
+        final static Atomic ATOM_dynamic = SYM("dynamic");
     private static final Compound L_$init_0_s93 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_dynamic );
     private static final Compound L_$init_0_s95 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s93,  Prolog.True );
     private static final Compound L_$init_0_s97 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s95);
-        final static Functor ATOM_meta_predicate = SYM("meta_predicate");
+        final static Atomic ATOM_meta_predicate = SYM("meta_predicate");
     private static final Compound L_$init_0_s100 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_meta_predicate );
     private static final Compound L_$init_0_s102 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s100,  Prolog.True );
     private static final Compound L_$init_0_s104 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s102);
-        final static Functor ATOM_mode = SYM("mode");
+        final static Atomic ATOM_mode = SYM("mode");
     private static final Compound L_$init_0_s107 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_mode );
     private static final Compound L_$init_0_s109 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s107,  Prolog.True );
     private static final Compound L_$init_0_s111 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s109);
-        final static Functor ATOM_multifile = SYM("multifile");
+        final static Atomic ATOM_multifile = SYM("multifile");
     private static final Compound L_$init_0_s114 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_multifile );
     private static final Compound L_$init_0_s116 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s114,  Prolog.True );
     private static final Compound L_$init_0_s118 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s116);
-        final static Functor ATOM_block = SYM("block");
+        final static Atomic ATOM_block = SYM("block");
     private static final Compound L_$init_0_s121 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_block );
     private static final Compound L_$init_0_s123 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s121,  Prolog.True );
     private static final Compound L_$init_0_s125 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s123);
-        final static Functor ATOM_ifdef = SYM("ifdef");
+        final static Atomic ATOM_ifdef = SYM("ifdef");
     private static final Compound L_$init_0_s128 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifdef );
     private static final Compound L_$init_0_s130 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s128,  Prolog.True );
     private static final Compound L_$init_0_s132 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s130);
-        final static Functor ATOM_ifndef = SYM("ifndef");
+        final static Atomic ATOM_ifndef = SYM("ifndef");
     private static final Compound L_$init_0_s135 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_ifndef );
     private static final Compound L_$init_0_s137 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s135,  Prolog.True );
     private static final Compound L_$init_0_s139 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s137);
-        final static Functor ATOM_domain = SYM("domain");
+        final static Atomic ATOM_domain = SYM("domain");
     private static final Compound L_$init_0_s142 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_domain );
     private static final Compound L_$init_0_s144 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s142,  Prolog.True );
     private static final Compound L_$init_0_s146 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s144);
-        final static Functor ATOM_database = SYM("database");
+        final static Atomic ATOM_database = SYM("database");
     private static final Compound L_$init_0_s149 = S( FUNCTOR_$0024current_operator_3 ,  int_1150 ,  ATOM_fx ,  ATOM_database );
     private static final Compound L_$init_0_s151 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s149,  Prolog.True );
     private static final Compound L_$init_0_s153 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s151);
@@ -25400,7 +25400,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
     private static final Compound L_$init_0_s160 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s158,  Prolog.True );
     private static final Compound L_$init_0_s162 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s160);
         final static NumberTerm int_1050 = Integer(1050);
-        final static Functor ATOM_$002D$003E = SYM("->");
+        final static Atomic ATOM_$002D$003E = SYM("->");
     private static final Compound L_$init_0_s166 = S( FUNCTOR_$0024current_operator_3 ,  int_1050 ,  ATOM_xfy ,  ATOM_$002D$003E );
     private static final Compound L_$init_0_s168 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s166,  Prolog.True );
     private static final Compound L_$init_0_s170 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s168);
@@ -25416,47 +25416,47 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
     private static final Compound L_$init_0_s191 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D );
     private static final Compound L_$init_0_s193 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s191,  Prolog.True );
     private static final Compound L_$init_0_s195 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s193);
-        final static Functor ATOM_$005C$003D = SYM("\\=");
+        final static Atomic ATOM_$005C$003D = SYM("\\=");
     private static final Compound L_$init_0_s198 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D );
     private static final Compound L_$init_0_s200 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s198,  Prolog.True );
     private static final Compound L_$init_0_s202 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s200);
-        final static Functor ATOM_$003D$003D = SYM("==");
+        final static Atomic ATOM_$003D$003D = SYM("==");
     private static final Compound L_$init_0_s205 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003D );
     private static final Compound L_$init_0_s207 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s205,  Prolog.True );
     private static final Compound L_$init_0_s209 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s207);
-        final static Functor ATOM_$005C$003D$003D = SYM("\\==");
+        final static Atomic ATOM_$005C$003D$003D = SYM("\\==");
     private static final Compound L_$init_0_s212 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$005C$003D$003D );
     private static final Compound L_$init_0_s214 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s212,  Prolog.True );
     private static final Compound L_$init_0_s216 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s214);
-        final static Functor ATOM_$0040$003C = SYM("@<");
+        final static Atomic ATOM_$0040$003C = SYM("@<");
     private static final Compound L_$init_0_s219 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003C );
     private static final Compound L_$init_0_s221 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s219,  Prolog.True );
     private static final Compound L_$init_0_s223 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s221);
-        final static Functor ATOM_$0040$003E = SYM("@>");
+        final static Atomic ATOM_$0040$003E = SYM("@>");
     private static final Compound L_$init_0_s226 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E );
     private static final Compound L_$init_0_s228 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s226,  Prolog.True );
     private static final Compound L_$init_0_s230 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s228);
-        final static Functor ATOM_$0040$003D$003C = SYM("@=<");
+        final static Atomic ATOM_$0040$003D$003C = SYM("@=<");
     private static final Compound L_$init_0_s233 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003D$003C );
     private static final Compound L_$init_0_s235 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s233,  Prolog.True );
     private static final Compound L_$init_0_s237 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s235);
-        final static Functor ATOM_$0040$003E$003D = SYM("@>=");
+        final static Atomic ATOM_$0040$003E$003D = SYM("@>=");
     private static final Compound L_$init_0_s240 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$0040$003E$003D );
     private static final Compound L_$init_0_s242 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s240,  Prolog.True );
     private static final Compound L_$init_0_s244 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s242);
-        final static Functor ATOM_$003D$002E$002E = SYM("=..");
+        final static Atomic ATOM_$003D$002E$002E = SYM("=..");
     private static final Compound L_$init_0_s247 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$002E$002E );
     private static final Compound L_$init_0_s249 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s247,  Prolog.True );
     private static final Compound L_$init_0_s251 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s249);
-        final static Functor ATOM_is = SYM("is");
+        final static Atomic ATOM_is = SYM("is");
     private static final Compound L_$init_0_s254 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_is );
     private static final Compound L_$init_0_s256 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s254,  Prolog.True );
     private static final Compound L_$init_0_s258 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s256);
-        final static Functor ATOM_$003D$003A$003D = SYM("=:=");
+        final static Atomic ATOM_$003D$003A$003D = SYM("=:=");
     private static final Compound L_$init_0_s261 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003A$003D );
     private static final Compound L_$init_0_s263 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s261,  Prolog.True );
     private static final Compound L_$init_0_s265 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s263);
-        final static Functor ATOM_$003D$005C$003D = SYM("=\\=");
+        final static Atomic ATOM_$003D$005C$003D = SYM("=\\=");
     private static final Compound L_$init_0_s268 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$005C$003D );
     private static final Compound L_$init_0_s270 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s268,  Prolog.True );
     private static final Compound L_$init_0_s272 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s270);
@@ -25466,11 +25466,11 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
     private static final Compound L_$init_0_s282 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E );
     private static final Compound L_$init_0_s284 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s282,  Prolog.True );
     private static final Compound L_$init_0_s286 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s284);
-        final static Functor ATOM_$003D$003C = SYM("=<");
+        final static Atomic ATOM_$003D$003C = SYM("=<");
     private static final Compound L_$init_0_s289 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003D$003C );
     private static final Compound L_$init_0_s291 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s289,  Prolog.True );
     private static final Compound L_$init_0_s293 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s291);
-        final static Functor ATOM_$003E$003D = SYM(">=");
+        final static Atomic ATOM_$003E$003D = SYM(">=");
     private static final Compound L_$init_0_s296 = S( FUNCTOR_$0024current_operator_3 ,  int_700 ,  ATOM_xfx ,  ATOM_$003E$003D );
     private static final Compound L_$init_0_s298 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s296,  Prolog.True );
     private static final Compound L_$init_0_s300 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s298);
@@ -25479,22 +25479,22 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
     private static final Compound L_$init_0_s306 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s304,  Prolog.True );
     private static final Compound L_$init_0_s308 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s306);
         final static NumberTerm int_500 = Integer(500);
-        final static Functor ATOM_$002B = SYM("+");
+        final static Atomic ATOM_$002B = SYM("+");
     private static final Compound L_$init_0_s313 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002B );
     private static final Compound L_$init_0_s315 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s313,  Prolog.True );
     private static final Compound L_$init_0_s317 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s315);
     private static final Compound L_$init_0_s320 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002D );
     private static final Compound L_$init_0_s322 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s320,  Prolog.True );
     private static final Compound L_$init_0_s324 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s322);
-        final static Functor ATOM_$0023 = SYM("#");
+        final static Atomic ATOM_$0023 = SYM("#");
     private static final Compound L_$init_0_s327 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$0023 );
     private static final Compound L_$init_0_s329 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s327,  Prolog.True );
     private static final Compound L_$init_0_s331 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s329);
-        final static Functor ATOM_$002F$005C = SYM("/\\");
+        final static Atomic ATOM_$002F$005C = SYM("/\\");
     private static final Compound L_$init_0_s334 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$002F$005C );
     private static final Compound L_$init_0_s336 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s334,  Prolog.True );
     private static final Compound L_$init_0_s338 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s336);
-        final static Functor ATOM_$005C$002F = SYM("\\/");
+        final static Atomic ATOM_$005C$002F = SYM("\\/");
     private static final Compound L_$init_0_s341 = S( FUNCTOR_$0024current_operator_3 ,  int_500 ,  ATOM_yfx ,  ATOM_$005C$002F );
     private static final Compound L_$init_0_s343 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s341,  Prolog.True );
     private static final Compound L_$init_0_s345 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s343);
@@ -25502,61 +25502,61 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/buil
     private static final Compound L_$init_0_s349 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s347,  Prolog.True );
     private static final Compound L_$init_0_s351 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s349);
         final static NumberTerm int_400 = Integer(400);
-        final static Functor ATOM_$002A = SYM("*");
+        final static Atomic ATOM_$002A = SYM("*");
     private static final Compound L_$init_0_s355 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002A );
     private static final Compound L_$init_0_s357 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s355,  Prolog.True );
     private static final Compound L_$init_0_s359 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s357);
-        final static Functor ATOM_$002F = SYM("/");
+        final static Atomic ATOM_$002F = SYM("/");
     private static final Compound L_$init_0_s362 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F );
     private static final Compound L_$init_0_s364 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s362,  Prolog.True );
     private static final Compound L_$init_0_s366 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s364);
-        final static Functor ATOM_$002F$002F = SYM("//");
+        final static Atomic ATOM_$002F$002F = SYM("//");
     private static final Compound L_$init_0_s369 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$002F$002F );
     private static final Compound L_$init_0_s371 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s369,  Prolog.True );
     private static final Compound L_$init_0_s373 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s371);
-        final static Functor ATOM_mod = SYM("mod");
+        final static Atomic ATOM_mod = SYM("mod");
     private static final Compound L_$init_0_s376 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_mod );
     private static final Compound L_$init_0_s378 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s376,  Prolog.True );
     private static final Compound L_$init_0_s380 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s378);
-        final static Functor ATOM_rem = SYM("rem");
+        final static Atomic ATOM_rem = SYM("rem");
     private static final Compound L_$init_0_s383 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_rem );
     private static final Compound L_$init_0_s385 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s383,  Prolog.True );
     private static final Compound L_$init_0_s387 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s385);
-        final static Functor ATOM_$003C$003C = SYM("<<");
+        final static Atomic ATOM_$003C$003C = SYM("<<");
     private static final Compound L_$init_0_s390 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003C$003C );
     private static final Compound L_$init_0_s392 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s390,  Prolog.True );
     private static final Compound L_$init_0_s394 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s392);
-        final static Functor ATOM_$003E$003E = SYM(">>");
+        final static Atomic ATOM_$003E$003E = SYM(">>");
     private static final Compound L_$init_0_s397 = S( FUNCTOR_$0024current_operator_3 ,  int_400 ,  ATOM_yfx ,  ATOM_$003E$003E );
     private static final Compound L_$init_0_s399 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s397,  Prolog.True );
     private static final Compound L_$init_0_s401 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s399);
         final static NumberTerm int_300 = Integer(300);
-        final static Functor ATOM_$007E = SYM("~");
+        final static Atomic ATOM_$007E = SYM("~");
     private static final Compound L_$init_0_s405 = S( FUNCTOR_$0024current_operator_3 ,  int_300 ,  ATOM_xfx ,  ATOM_$007E );
     private static final Compound L_$init_0_s407 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s405,  Prolog.True );
     private static final Compound L_$init_0_s409 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s407);
         final static NumberTerm int_200 = Integer(200);
-        final static Functor ATOM_$002A$002A = SYM("**");
+        final static Atomic ATOM_$002A$002A = SYM("**");
     private static final Compound L_$init_0_s413 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfx ,  ATOM_$002A$002A );
     private static final Compound L_$init_0_s415 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s413,  Prolog.True );
     private static final Compound L_$init_0_s417 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s415);
     private static final Compound L_$init_0_s420 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_xfy ,  ATOM_$005E );
     private static final Compound L_$init_0_s422 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s420,  Prolog.True );
     private static final Compound L_$init_0_s424 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s422);
-        final static Functor ATOM_$005C = SYM("\\");
+        final static Atomic ATOM_$005C = SYM("\\");
     private static final Compound L_$init_0_s427 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$005C );
     private static final Compound L_$init_0_s429 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s427,  Prolog.True );
     private static final Compound L_$init_0_s431 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s429);
     private static final Compound L_$init_0_s433 = S( FUNCTOR_$0024current_operator_3 ,  int_200 ,  ATOM_fy ,  ATOM_$002D );
     private static final Compound L_$init_0_s435 = S( FUNCTOR_$003A$002D_2 , L_$init_0_s433,  Prolog.True );
     private static final Compound L_$init_0_s437 = S( FUNCTOR_module_colon_2 ,  ATOM_SxxMachine , L_$init_0_s435);
-        final static Functor ATOM_$0024consulted_file = SYM("$consulted_file");
+        final static Atomic ATOM_$0024consulted_file = SYM("$consulted_file");
     private static final Compound L_$init_0_s440 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_file ,  int_1 );
-        final static Functor ATOM_$0024consulted_import = SYM("$consulted_import");
+        final static Atomic ATOM_$0024consulted_import = SYM("$consulted_import");
     private static final Compound L_$init_0_s443 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_import ,  int_2 );
-        final static Functor ATOM_$0024consulted_package = SYM("$consulted_package");
+        final static Atomic ATOM_$0024consulted_package = SYM("$consulted_package");
     private static final Compound L_$init_0_s446 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_package ,  int_1 );
-        final static Functor ATOM_$0024consulted_predicate = SYM("$consulted_predicate");
+        final static Atomic ATOM_$0024consulted_predicate = SYM("$consulted_predicate");
     private static final Compound L_$init_0_s450 = S( FUNCTOR_$002F_2 ,  ATOM_$0024consulted_predicate ,  int_3 );
 
 

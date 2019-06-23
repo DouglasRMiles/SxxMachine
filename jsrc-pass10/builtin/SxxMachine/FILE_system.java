@@ -34,12 +34,12 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
 */
     // main(system_predicate/1,public)
         final static Functor FUNCTOR_system_predicate_1 = F("system_predicate",1);
-        final static Functor ATOM_otherwise = SYM("otherwise");
-        final static Functor ATOM_fail = SYM("fail");
-        final static Functor ATOM_false = SYM("false");
-        final static Functor ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_otherwise = SYM("otherwise");
+        final static Atomic ATOM_fail = SYM("fail");
+        final static Atomic ATOM_false = SYM("false");
+        final static Atomic ATOM_$0021 = SYM("!");
         final static Functor FUNCTOR_$0024get_level_1 = F("$get_level",1);
-        final static Functor ATOM_$0024neck_cut = SYM("$neck_cut");
+        final static Atomic ATOM_$0024neck_cut = SYM("$neck_cut");
         final static Functor FUNCTOR_$0024cut_1 = F("$cut",1);
         final static Functor FUNCTOR_$005E_2 = F("^",2);
         final static Functor FUNCTOR_$002C_2 = F(",",2);
@@ -164,7 +164,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
         final static Functor FUNCTOR_close_1 = F("close",1);
         final static Functor FUNCTOR_close_2 = F("close",2);
         final static Functor FUNCTOR_flush_output_1 = F("flush_output",1);
-        final static Functor ATOM_flush_output = SYM("flush_output");
+        final static Atomic ATOM_flush_output = SYM("flush_output");
         final static Functor FUNCTOR_stream_property_2 = F("stream_property",2);
         final static Functor FUNCTOR_get_char_1 = F("get_char",1);
         final static Functor FUNCTOR_get_char_2 = F("get_char",2);
@@ -178,7 +178,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
         final static Functor FUNCTOR_put_char_2 = F("put_char",2);
         final static Functor FUNCTOR_put_code_1 = F("put_code",1);
         final static Functor FUNCTOR_put_code_2 = F("put_code",2);
-        final static Functor ATOM_nl = SYM("nl");
+        final static Atomic ATOM_nl = SYM("nl");
         final static Functor FUNCTOR_nl_1 = F("nl",1);
         final static Functor FUNCTOR_get0_1 = F("get0",1);
         final static Functor FUNCTOR_get0_2 = F("get0",2);
@@ -214,7 +214,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
         final static Functor FUNCTOR_current_op_3 = F("current_op",3);
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
         final static Functor FUNCTOR_once_1 = F("once",1);
-        final static Functor ATOM_repeat = SYM("repeat");
+        final static Atomic ATOM_repeat = SYM("repeat");
         final static Functor FUNCTOR_atom_length_2 = F("atom_length",2);
         final static Functor FUNCTOR_atom_concat_3 = F("atom_concat",3);
         final static Functor FUNCTOR_sub_atom_5 = F("sub_atom",5);
@@ -226,9 +226,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
         final static Functor FUNCTOR_name_2 = F("name",2);
         final static Functor FUNCTOR_set_prolog_flag_2 = F("set_prolog_flag",2);
         final static Functor FUNCTOR_current_prolog_flag_2 = F("current_prolog_flag",2);
-        final static Functor ATOM_halt = SYM("halt");
+        final static Atomic ATOM_halt = SYM("halt");
         final static Functor FUNCTOR_halt_1 = F("halt",1);
-        final static Functor ATOM_abort = SYM("abort");
+        final static Atomic ATOM_abort = SYM("abort");
         final static Functor FUNCTOR_C_3 = F("C",3);
         final static Functor FUNCTOR_expand_term_2 = F("expand_term",2);
         final static Functor FUNCTOR_new_hash_1 = F("new_hash",1);
@@ -261,22 +261,22 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/syst
         final static Functor FUNCTOR_java_set_declared_field_3 = F("java_set_declared_field",3);
         final static Functor FUNCTOR_synchronized_2 = F("synchronized",2);
         final static Functor FUNCTOR_java_conversion_2 = F("java_conversion",2);
-        final static Functor ATOM_cafeteria = SYM("cafeteria");
+        final static Atomic ATOM_cafeteria = SYM("cafeteria");
         final static Functor FUNCTOR_consult_1 = F("consult",1);
-        final static Functor ATOM_trace = SYM("trace");
-        final static Functor ATOM_notrace = SYM("notrace");
-        final static Functor ATOM_debug = SYM("debug");
-        final static Functor ATOM_nodebug = SYM("nodebug");
+        final static Atomic ATOM_trace = SYM("trace");
+        final static Atomic ATOM_notrace = SYM("notrace");
+        final static Atomic ATOM_debug = SYM("debug");
+        final static Atomic ATOM_nodebug = SYM("nodebug");
         final static Functor FUNCTOR_leash_1 = F("leash",1);
         final static Functor FUNCTOR_spy_1 = F("spy",1);
         final static Functor FUNCTOR_nospy_1 = F("nospy",1);
-        final static Functor ATOM_nospyall = SYM("nospyall");
-        final static Functor ATOM_listing = SYM("listing");
+        final static Atomic ATOM_nospyall = SYM("nospyall");
+        final static Atomic ATOM_listing = SYM("listing");
         final static Functor FUNCTOR_listing_1 = F("listing",1);
         final static Functor FUNCTOR_length_2 = F("length",2);
         final static Functor FUNCTOR_numbervars_3 = F("numbervars",3);
         final static Functor FUNCTOR_statistics_2 = F("statistics",2);
-        final static Functor ATOM_system_predicate_ext = SYM("system_predicate_ext");
+        final static Atomic ATOM_system_predicate_ext = SYM("system_predicate_ext");
 
 
 
@@ -6137,7 +6137,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass10/builtin/system.pl
 */
     // main('$init'/0,public)
-        final static Functor ATOM_SxxMachine = SYM("SxxMachine");
+        final static Atomic ATOM_SxxMachine = SYM("SxxMachine");
         final static Functor FUNCTOR_$002F_2 = F("/",2);
     private static final Compound L_$init_0_s6 = S( FUNCTOR_$002F_2 ,  ATOM_system_predicate_ext ,  int_1 );
 

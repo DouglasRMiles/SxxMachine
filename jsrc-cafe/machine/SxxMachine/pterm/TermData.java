@@ -1,8 +1,10 @@
 package SxxMachine.pterm;
 
+import SxxMachine.Atomic;
 import SxxMachine.CharReader;
 import SxxMachine.Compound;
 import SxxMachine.Const;
+import SxxMachine.Functor;
 import SxxMachine.JpVar;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;
@@ -262,7 +264,7 @@ final public class TermData {
 	}
 
 	/** Returns a Prolog atom for the given name. */
-	static public SxxMachine.Functor SYM(String _name) {
+	static public Functor SYM(String _name) {
 		return factory.SYM(_name);
 	}
 

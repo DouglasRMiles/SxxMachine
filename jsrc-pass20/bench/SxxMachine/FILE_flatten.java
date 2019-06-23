@@ -429,9 +429,9 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 */
     // main(is_disj/2,public)
         final static Functor FUNCTOR_$002D$003E_2 = F("->",2);
-        final static Functor ATOM_$0021 = SYM("!");
+        final static Atomic ATOM_$0021 = SYM("!");
         final static Functor FUNCTOR_not_1 = F("not",1);
-        final static Functor ATOM_fail = SYM("fail");
+        final static Atomic ATOM_fail = SYM("fail");
     private static final Compound L_is_disj_2_s9 = S( FUNCTOR_$002C_2 ,  ATOM_$0021 ,  ATOM_fail );
         final static Functor FUNCTOR_$005C$002B_1 = F("\\+",1);
         final static Functor FUNCTOR_$005C$003D_2 = F("\\=",2);
@@ -1029,7 +1029,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatte
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/flatten.pl
 */
     // main(make_dummy_name/2,public)
-        final static Functor ATOM__dummy_ = SYM("_dummy_");
+        final static Atomic ATOM__dummy_ = SYM("_dummy_");
 
 
 

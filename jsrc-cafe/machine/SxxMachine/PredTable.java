@@ -34,13 +34,13 @@ public class PredTable {
 
 			@Override
 			public Operation exec(Prolog engine) throws PrologException {
-				// TODO Auto-generated method stub
+				//
 				return cont0.exec(engine);
 			}
 
 			@Override
 			public String toString() {
-				// TODO Auto-generated method stub
+				//
 				return key + " " + cont0.toString();
 			}
 		};
@@ -244,7 +244,6 @@ public class PredTable {
 					try {
 						return (Operation) m.invoke(null, engine);
 					} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 						throw new JavaException(e);
 					}

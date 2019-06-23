@@ -33,9 +33,9 @@ public class FILE_boyer extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
 */
     // main(go/0,public)
-        final static Functor ATOM_runtime = SYM("runtime");
-        final static Functor ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
-        final static Functor ATOM_$0020milliseconds = SYM(" milliseconds");
+        final static Atomic ATOM_runtime = SYM("runtime");
+        final static Atomic ATOM_execution$0020time$0020is$0020 = SYM("execution time is ");
+        final static Atomic ATOM_$0020milliseconds = SYM(" milliseconds");
 
 
 
@@ -94,17 +94,17 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
         final static Functor FUNCTOR_and_2 = F("and",2);
         final static Functor FUNCTOR_f_1 = F("f",1);
         final static Functor FUNCTOR_myplus_2 = F("myplus",2);
-        final static Functor ATOM_a = SYM("a");
-        final static Functor ATOM_b = SYM("b");
+        final static Atomic ATOM_a = SYM("a");
+        final static Atomic ATOM_b = SYM("b");
     private static final Compound L_wff_1_s8 = S( FUNCTOR_myplus_2 ,  ATOM_a ,  ATOM_b );
-        final static Functor ATOM_c = SYM("c");
-        final static Functor ATOM_zero = SYM("zero");
+        final static Atomic ATOM_c = SYM("c");
+        final static Atomic ATOM_zero = SYM("zero");
     private static final Compound L_wff_1_s12 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_zero );
     private static final Compound L_wff_1_s14 = S( FUNCTOR_myplus_2 , L_wff_1_s8, L_wff_1_s12);
     private static final Compound L_wff_1_s16 = S( FUNCTOR_f_1 , L_wff_1_s14);
         final static Functor FUNCTOR_times_2 = F("times",2);
     private static final Compound L_wff_1_s18 = S( FUNCTOR_times_2 ,  ATOM_a ,  ATOM_b );
-        final static Functor ATOM_d = SYM("d");
+        final static Atomic ATOM_d = SYM("d");
     private static final Compound L_wff_1_s21 = S( FUNCTOR_myplus_2 ,  ATOM_c ,  ATOM_d );
     private static final Compound L_wff_1_s23 = S( FUNCTOR_times_2 , L_wff_1_s18, L_wff_1_s21);
     private static final Compound L_wff_1_s25 = S( FUNCTOR_f_1 , L_wff_1_s23);
@@ -116,8 +116,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.
     private static final Compound L_wff_1_s35 = S( FUNCTOR_f_1 , L_wff_1_s33);
         final static Functor FUNCTOR_equal_2 = F("equal",2);
         final static Functor FUNCTOR_boyer_difference_2 = F("boyer_difference",2);
-        final static Functor ATOM_x = SYM("x");
-        final static Functor ATOM_y = SYM("y");
+        final static Atomic ATOM_x = SYM("x");
+        final static Atomic ATOM_y = SYM("y");
     private static final Compound L_wff_1_s41 = S( FUNCTOR_boyer_difference_2 ,  ATOM_x ,  ATOM_y );
     private static final Compound L_wff_1_s43 = S( FUNCTOR_equal_2 , L_wff_1_s8, L_wff_1_s41);
         final static Functor FUNCTOR_lessp_2 = F("lessp",2);
@@ -814,7 +814,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
 */
     // main(truep/2,public)
-        final static Functor ATOM_t = SYM("t");
+        final static Atomic ATOM_t = SYM("t");
 
 
 
@@ -867,7 +867,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/boyer.pl
 */
     // main(falsep/2,public)
-        final static Functor ATOM_f = SYM("f");
+        final static Atomic ATOM_f = SYM("f");
 
 
 

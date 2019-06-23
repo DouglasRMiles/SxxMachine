@@ -34,8 +34,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse
 */
     // main(top/0,public)
         final static NumberTerm int_100 = Integer(100);
-        final static Functor ATOM_a = SYM("a");
-        final static Functor ATOM_b = SYM("b");
+        final static Atomic ATOM_a = SYM("a");
+        final static Atomic ATOM_b = SYM("b");
     private static final Compound L_top_0_s7 = CONS( ATOM_a ,  Prolog.Nil );
     private static final Compound L_top_0_s8 = CONS( ATOM_a , L_top_0_s7);
     private static final Compound L_top_0_s9 = CONS( ATOM_a , L_top_0_s8);
@@ -657,7 +657,7 @@ m.cont = cont;
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl
 */
     // main(investigate/2,public)
-        final static Functor ATOM_pattern = SYM("pattern");
+        final static Atomic ATOM_pattern = SYM("pattern");
 
 
 

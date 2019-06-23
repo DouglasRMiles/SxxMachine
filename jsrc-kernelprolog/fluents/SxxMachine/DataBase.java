@@ -20,9 +20,9 @@ public class DataBase extends BlackBoard {
         super(map);
     }
 
-    private static Functor yes = Prolog.aYes;
+    private static Term yes = Prolog.aYes;
 
-    private static Functor no = Prolog.aNo;
+    private static Term no = Prolog.aNo;
 
     /**
      * Removes a matching Term from the blackboards and signals failure if no such

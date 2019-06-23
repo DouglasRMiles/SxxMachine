@@ -92,18 +92,18 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 */
     // main(problem/3,public)
         final static Functor FUNCTOR_$002D_1 = F("-",1);
-        final static Functor ATOM_a = SYM("a");
+        final static Atomic ATOM_a = SYM("a");
     private static final Compound L_problem_3_s5 = S( FUNCTOR_$002D_1 ,  ATOM_a );
         final static Functor FUNCTOR_$002B_1 = F("+",1);
     private static final Compound L_problem_3_s7 = S( FUNCTOR_$002B_1 ,  ATOM_a );
         final static Functor FUNCTOR_$0026_2 = F("&",2);
     private static final Compound L_problem_3_s11 = S( FUNCTOR_$0026_2 , L_problem_3_s5, L_problem_3_s5);
         final static Functor FUNCTOR_$0023_2 = F("#",2);
-        final static Functor ATOM_to_be = SYM("to_be");
+        final static Atomic ATOM_to_be = SYM("to_be");
     private static final Compound L_problem_3_s16 = S( FUNCTOR_$002B_1 ,  ATOM_to_be );
     private static final Compound L_problem_3_s17 = S( FUNCTOR_$002D_1 ,  ATOM_to_be );
     private static final Compound L_problem_3_s19 = S( FUNCTOR_$0023_2 , L_problem_3_s16, L_problem_3_s17);
-        final static Functor ATOM_b = SYM("b");
+        final static Atomic ATOM_b = SYM("b");
     private static final Compound L_problem_3_s24 = S( FUNCTOR_$002B_1 ,  ATOM_b );
     private static final Compound L_problem_3_s26 = S( FUNCTOR_$0023_2 , L_problem_3_s24, L_problem_3_s5);
     private static final Compound L_problem_3_s28 = S( FUNCTOR_$002D_1 ,  ATOM_b );
@@ -111,7 +111,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
     private static final Compound L_problem_3_s32 = S( FUNCTOR_$0026_2 , L_problem_3_s28, L_problem_3_s5);
     private static final Compound L_problem_3_s34 = S( FUNCTOR_$0026_2 , L_problem_3_s24, L_problem_3_s5);
     private static final Compound L_problem_3_s36 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s34);
-        final static Functor ATOM_c = SYM("c");
+        final static Atomic ATOM_c = SYM("c");
     private static final Compound L_problem_3_s40 = S( FUNCTOR_$002B_1 ,  ATOM_c );
     private static final Compound L_problem_3_s42 = S( FUNCTOR_$0023_2 , L_problem_3_s28, L_problem_3_s40);
     private static final Compound L_problem_3_s44 = S( FUNCTOR_$0023_2 , L_problem_3_s5, L_problem_3_s42);
@@ -561,7 +561,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/prover.pl
 */
     // main(expand/3,public)
-        final static Functor ATOM_refuted = SYM("refuted");
+        final static Atomic ATOM_refuted = SYM("refuted");
 
 
 

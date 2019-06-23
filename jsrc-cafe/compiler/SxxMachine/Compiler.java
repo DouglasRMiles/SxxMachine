@@ -80,7 +80,7 @@ public class Compiler {
     public static enum Option {
         eliminateDisjunctions("ed", true), arithmeticCompilation("ac", true), inlineExpansion("ie",
                 true), optimiseRecursiveCall("rc", true), switchOnHash("idx", true), generateClosure("clo", false);
-        final Functor symbol;
+        final Atomic symbol;
         final boolean onByDefault;
 
         Option(String symbol, boolean onByDefault) {

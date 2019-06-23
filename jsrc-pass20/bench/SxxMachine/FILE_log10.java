@@ -50,7 +50,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/log10.
 */
     // main(log10/0,public)
         final static Functor FUNCTOR_log_1 = F("log",1);
-        final static Functor ATOM_x = SYM("x");
+        final static Atomic ATOM_x = SYM("x");
     private static final Compound L_log10_0_s4 = S( FUNCTOR_log_1 ,  ATOM_x );
     private static final Compound L_log10_0_s6 = S( FUNCTOR_log_1 , L_log10_0_s4);
     private static final Compound L_log10_0_s8 = S( FUNCTOR_log_1 , L_log10_0_s6);

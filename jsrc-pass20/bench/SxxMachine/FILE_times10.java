@@ -50,7 +50,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/times1
 */
     // main(times10/0,public)
         final static Functor FUNCTOR_$002A_2 = F("*",2);
-        final static Functor ATOM_x = SYM("x");
+        final static Atomic ATOM_x = SYM("x");
     private static final Compound L_times10_0_s4 = S( FUNCTOR_$002A_2 ,  ATOM_x ,  ATOM_x );
     private static final Compound L_times10_0_s6 = S( FUNCTOR_$002A_2 , L_times10_0_s4,  ATOM_x );
     private static final Compound L_times10_0_s8 = S( FUNCTOR_$002A_2 , L_times10_0_s6,  ATOM_x );

@@ -653,7 +653,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/1,public)
-        final static Functor ATOM_cov = SYM("cov");
+        final static Atomic ATOM_cov = SYM("cov");
 
 
 
@@ -711,7 +711,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/1,public)
-        final static Functor ATOM_nf = SYM("nf");
+        final static Atomic ATOM_nf = SYM("nf");
 
 
 
@@ -769,7 +769,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main(select_vector/5,public)
-        final static Functor ATOM_dummy = SYM("dummy");
+        final static Atomic ATOM_dummy = SYM("dummy");
         final static NumberTerm int_999 = Integer(999);
 
     // private final Term arg5;
@@ -1256,7 +1256,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_3_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/4,public)
-        final static Functor ATOM_exp = SYM("exp");
+        final static Atomic ATOM_exp = SYM("exp");
 
 
 
@@ -1314,7 +1314,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main(cover_type2/9,public)
-        final static Functor ATOM_var = SYM("var");
+        final static Atomic ATOM_var = SYM("var");
 
     // private final Term arg5, arg6, arg7, arg8, arg9;
 
@@ -1594,8 +1594,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_6_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/4,public)
-        final static Functor ATOM_fcn = SYM("fcn");
-        final static Functor ATOM_mcf = SYM("mcf");
+        final static Atomic ATOM_fcn = SYM("fcn");
+        final static Atomic ATOM_mcf = SYM("mcf");
 
 
 
@@ -1653,7 +1653,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_5_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/6,public)
-        final static Functor ATOM_exmcf = SYM("exmcf");
+        final static Atomic ATOM_exmcf = SYM("exmcf");
 
     // private final Term arg5, arg6;
 
@@ -1738,7 +1738,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main('$dummy_7_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl'/4,public)
-        final static Functor ATOM_exf = SYM("exf");
+        final static Atomic ATOM_exf = SYM("exf");
 
 
 
@@ -6214,7 +6214,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main(test_bounds/3,public)
-        final static Functor ATOM_bound = SYM("bound");
+        final static Atomic ATOM_bound = SYM("bound");
 
 
 
@@ -6352,8 +6352,8 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.p
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/nand.pl
 */
     // main(write_gates/1,public)
-        final static Functor ATOM_gate$0020$0023 = SYM("gate #");
-        final static Functor ATOM_$0020inputs$003A$0020$0020$0020 = SYM(" inputs:   ");
+        final static Atomic ATOM_gate$0020$0023 = SYM("gate #");
+        final static Atomic ATOM_$0020inputs$003A$0020$0020$0020 = SYM(" inputs:   ");
 
 
 

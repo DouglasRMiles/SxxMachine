@@ -33,9 +33,9 @@ public class FILE_animal2 extends FILE_system {
 from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tests/animal.pl
 */
     // main(animal/1,public)
-        final static Functor ATOM_goat = SYM("goat");
-        final static Functor ATOM_elephant = SYM("elephant");
-        final static Functor ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
+        final static Atomic ATOM_goat = SYM("goat");
+        final static Atomic ATOM_elephant = SYM("elephant");
+        final static Atomic ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
         
