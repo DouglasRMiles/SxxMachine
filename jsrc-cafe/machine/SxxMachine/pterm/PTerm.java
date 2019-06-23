@@ -44,8 +44,7 @@ abstract class PTerm extends KPTerm {
     }
 
 	protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
-		if (true)
-			throw new AbstractMethodError("Auto-generated method stub:  containsTermImpl");
+		// @TODO produce warning if arriving here
 		return 0;
 	}
 

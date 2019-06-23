@@ -15,10 +15,7 @@ public abstract class FluentTerm extends SystemObject implements Undoable, Fluen
 
 	@Override
 	protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
-
-		if (true)
-			throw new AbstractMethodError("Auto-generated method stub:  FluentTerm.containsTermImpl");
-		return super.containsTermImpl(variableTerm, comparison);
+		 return 0;
 	}
 	
     public FluentTerm(Prog p) {
