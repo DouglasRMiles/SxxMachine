@@ -1,7 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Op;
-import static SxxMachine.pterm.TermData.VA;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Arrays;
 import java.util.logging.Level;

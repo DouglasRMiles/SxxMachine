@@ -86,7 +86,8 @@ public class CharReader extends SourceFluentTerm {
     /* (non-Javadoc)
      * @see SxxMachine.Term#copy(SxxMachine.RunningPrologMachine, long)
      */
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public Term copyJP(RunningPrologMachine m, long t) {
         // TODO Auto-generated method stub
         if (true) throw new AbstractMethodError("Term.copy");

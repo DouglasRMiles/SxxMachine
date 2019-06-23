@@ -1,14 +1,6 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.CONS;
-import static SxxMachine.pterm.TermData.Float;
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Long;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.SYM;
-import static SxxMachine.pterm.TermData.V;
-import static SxxMachine.pterm.TermData.asInt;
-import static SxxMachine.pterm.TermData.asStruct;
+import static SxxMachine.pterm.TermData.*;
 
 import java.io.IOException;
 import java.io.PushbackReader;

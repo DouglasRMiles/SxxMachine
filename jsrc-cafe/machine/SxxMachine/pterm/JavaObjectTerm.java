@@ -1,11 +1,7 @@
 package SxxMachine.pterm;
 
-// CONST;
-import static SxxMachine.pterm.TermData.*;
-
 import SxxMachine.OpVisitor;
 import SxxMachine.PrologException;
-import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Trail;
 

@@ -2,6 +2,7 @@ package SxxMachine;
 
 // *;
 import static SxxMachine.pterm.TermData.*;
+
 import SxxMachine.pterm.SourceFluentTerm;
 
 /**

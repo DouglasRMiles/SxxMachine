@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PushbackReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;

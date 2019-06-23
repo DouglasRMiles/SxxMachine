@@ -4,10 +4,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_getData_4_consts {
     Code entry_code;

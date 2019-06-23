@@ -7,7 +7,6 @@ import static SxxMachine.pterm.TermData.*;
 import SxxMachine.EvaluationException;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
-import SxxMachine.Trail;
 import SxxMachine.NumberTerm;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
@@ -86,7 +85,8 @@ public class LongTerm extends ANumberTerm {
         // longValue() = value;
     }
 
-    private void checkNValue() {
+    @SuppressWarnings("unused")
+	private void checkNValue() {
         if (!(nvalue instanceof Long)) {
             if (!(nvalue instanceof Integer)) {
                 try {

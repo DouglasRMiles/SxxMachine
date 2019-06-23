@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class CutProc extends Code {
 

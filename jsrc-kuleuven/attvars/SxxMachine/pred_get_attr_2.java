@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_get_attr_2 extends Code {
 

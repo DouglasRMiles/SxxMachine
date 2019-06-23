@@ -1,7 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.*;
 
 public abstract class AbstractCall extends Code {
 

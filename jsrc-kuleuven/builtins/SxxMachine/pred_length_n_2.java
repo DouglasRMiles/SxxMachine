@@ -5,8 +5,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_length_n_2 extends Code {
     static Code entry_code;

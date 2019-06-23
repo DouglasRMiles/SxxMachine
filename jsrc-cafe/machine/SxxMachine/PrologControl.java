@@ -41,7 +41,7 @@ public abstract class PrologControl {
     private PrintStream userOuput = System.out;
 
     private PrintStream userError = System.err;
-    private int steps;
+    public int steps;
 
     /** Constructs a new <code>PrologControl</code>. */
     public PrologControl() {

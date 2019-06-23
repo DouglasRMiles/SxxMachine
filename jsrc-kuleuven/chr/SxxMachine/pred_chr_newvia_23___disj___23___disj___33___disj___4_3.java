@@ -1,10 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_chr_newvia_23___disj___23___disj___33___disj___4_3 extends Code {
     static Code entry_code;

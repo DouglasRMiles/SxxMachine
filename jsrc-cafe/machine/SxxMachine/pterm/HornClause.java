@@ -4,7 +4,6 @@ package SxxMachine.pterm;
 import static SxxMachine.pterm.TermData.*;
 
 import java.util.Iterator;
-import java.util.Map;
 
 import SxxMachine.HashDict;
 import SxxMachine.IO;

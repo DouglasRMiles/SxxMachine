@@ -5,8 +5,6 @@ package SxxMachine.pterm;
 import static SxxMachine.pterm.TermData.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 import SxxMachine.Compound;
 import SxxMachine.Copier;
@@ -16,8 +14,6 @@ import SxxMachine.IterableSource;
 import SxxMachine.JpVar;
 import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
-import SxxMachine.NumberTerm;
-import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.RunningPrologMachine;

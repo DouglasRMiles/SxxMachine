@@ -5,7 +5,6 @@ import java.math.BigInteger;
 import SxxMachine.CharReader;
 import SxxMachine.Compound;
 import SxxMachine.Const;
-import SxxMachine.Functor;
 import SxxMachine.JpVar;
 import SxxMachine.Nonvar;
 import SxxMachine.NumberTerm;

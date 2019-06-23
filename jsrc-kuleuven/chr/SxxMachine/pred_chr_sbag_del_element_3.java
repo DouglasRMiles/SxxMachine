@@ -1,11 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_chr_sbag_del_element_3 extends Code {
     static Code entry_code;

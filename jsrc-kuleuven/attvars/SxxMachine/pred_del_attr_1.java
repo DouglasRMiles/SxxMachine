@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
+import static SxxMachine.pterm.TermData.*;
 
 /**
   * del_attr/1 removes attributed from attributed variable or fails silently.

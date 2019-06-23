@@ -1,6 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class Call1Proc extends AbstractCall {
 

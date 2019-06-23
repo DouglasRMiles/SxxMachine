@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_b_setval_2 extends Code {
 

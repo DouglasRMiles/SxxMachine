@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 
 import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
@@ -21,7 +20,6 @@ import SxxMachine.Operation;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.PrologMachineCopy;
-import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.TermArray;
 import SxxMachine.Trail;

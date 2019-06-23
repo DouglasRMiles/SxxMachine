@@ -1,6 +1,7 @@
 package SxxMachine.pterm; //
 
-import SxxMachine.*;
+import SxxMachine.KPTrail;
+import SxxMachine.Term;
 
 /**
  * A FunctionObject is a Jinni Nonvar with system assigned name

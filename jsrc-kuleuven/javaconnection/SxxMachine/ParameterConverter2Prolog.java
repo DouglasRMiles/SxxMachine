@@ -1,8 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.*;
 
 import java.lang.reflect.Array;
 import java.util.HashMap;

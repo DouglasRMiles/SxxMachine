@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.SYM;
+import static SxxMachine.pterm.TermData.*;
 
 // jProlog 0.1 Copyright (C) Bart Demoen, Paul Tarau 1996
 // Prolog implementation in Java

@@ -1,6 +1,6 @@
 package SxxMachine.pterm;
 
-import static SxxMachine.pterm.TermData.isQuoted;
+import static SxxMachine.pterm.TermData.*;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
@@ -12,12 +12,13 @@ import SxxMachine.ExecProg;
 import SxxMachine.Functor;
 import SxxMachine.ISTerm;
 import SxxMachine.Init;
-import SxxMachine.*;
+import SxxMachine.KPTrail;
 import SxxMachine.NameArity;
 import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.PrologException;
+import SxxMachine.RunningPrologMachine;
 import SxxMachine.Term;
 import SxxMachine.Token;
 import SxxMachine.Trail;

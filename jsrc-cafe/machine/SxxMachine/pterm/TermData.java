@@ -1,6 +1,5 @@
 package SxxMachine.pterm;
 
-import SxxMachine.Atomic;
 import SxxMachine.CharReader;
 import SxxMachine.Compound;
 import SxxMachine.Const;

@@ -2,8 +2,7 @@ package SxxMachine;
 
 import java.util.Vector;
 
-import SxxMachine.pterm.*;
-import static SxxMachine.pterm.TermData.*;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /**
   An Infinite IFluent.

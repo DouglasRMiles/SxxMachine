@@ -4,9 +4,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_printHeading_0_consts {
     Code entry_code;

@@ -1,9 +1,9 @@
 package SxxMachine.pterm;
 
-import SxxMachine.*;
-import SxxMachine.pterm.ANonvar;
-import SxxMachine.pterm.PTerm;
-import SxxMachine.pterm.SystemObject;
+import SxxMachine.Compound;
+import SxxMachine.KPTrail;
+import SxxMachine.Prolog;
+import SxxMachine.Term;
 
 /**
   Part of the Prolog ITerm hierarchy

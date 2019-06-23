@@ -4,9 +4,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_list_to_set_2_consts {
     Code entry_code;

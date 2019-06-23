@@ -16,8 +16,6 @@ import SxxMachine.pterm.FunctionObject;
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.SinkFluentTerm;
 import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.pterm.SystemObject;
-import SxxMachine.pterm.TermData;
 
 /**
  * This class contains a dictionary of all builtins i.e. Java based classes

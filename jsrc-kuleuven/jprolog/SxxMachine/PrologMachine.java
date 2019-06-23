@@ -1,9 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.S;
-import static SxxMachine.pterm.TermData.SYM;
+import static SxxMachine.pterm.TermData.*;
 
 import java.io.File;
 

@@ -1,8 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Jv;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 public class pred_chr_newvia_2_3 extends Code {
     static Code entry_code;

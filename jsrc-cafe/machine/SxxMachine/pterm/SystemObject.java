@@ -1,6 +1,5 @@
 package SxxMachine.pterm;
 
-import SxxMachine.KPTrail;
 import SxxMachine.OpVisitor;
 import SxxMachine.Term;
 import SxxMachine.Trail;

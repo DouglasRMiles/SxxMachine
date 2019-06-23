@@ -1,8 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
-import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.pterm.StructureTerm;
 

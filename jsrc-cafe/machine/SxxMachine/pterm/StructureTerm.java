@@ -2,8 +2,6 @@
 package SxxMachine.pterm;
 
 import static SxxMachine.pterm.TermData.*;
-import static SxxMachine.pterm.TermData.V;
-import static SxxMachine.pterm.TermData.isQuoted;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,7 +10,25 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import SxxMachine.*;
+import SxxMachine.AFunct;
+import SxxMachine.Compound;
+import SxxMachine.Const;
+import SxxMachine.Functor;
+import SxxMachine.ISTerm;
+import SxxMachine.Init;
+import SxxMachine.InternalException;
+import SxxMachine.JpVar;
+import SxxMachine.KPTrail;
+import SxxMachine.NameArity;
+import SxxMachine.OpVisitor;
+import SxxMachine.Prog;
+import SxxMachine.Prolog;
+import SxxMachine.PrologMachine;
+import SxxMachine.RunningPrologMachine;
+import SxxMachine.Term;
+import SxxMachine.Token;
+import SxxMachine.Trail;
+import SxxMachine.sxxtensions;
 
 /**
  * Compound term. <br>

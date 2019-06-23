@@ -1,9 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONS;
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.HashSet;
 import java.util.Iterator;

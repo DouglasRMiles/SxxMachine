@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.Integer;
+import static SxxMachine.pterm.TermData.*;
 
 class pred_savecp_1 extends Code {
 

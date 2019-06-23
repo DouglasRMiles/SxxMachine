@@ -3,7 +3,11 @@ package SxxMachine;
 import java.util.Iterator;
 import java.util.Map;
 
-import SxxMachine.pterm.*;
+import SxxMachine.pterm.ClosureTerm;
+import SxxMachine.pterm.HornClause;
+import SxxMachine.pterm.MapTerm;
+import SxxMachine.pterm.SinkFluentTerm;
+import SxxMachine.pterm.SourceFluentTerm;
 
 /*
 

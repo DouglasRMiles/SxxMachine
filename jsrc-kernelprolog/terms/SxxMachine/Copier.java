@@ -6,8 +6,6 @@ import static SxxMachine.pterm.TermData.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import SxxMachine.pterm.SystemObject;
-
 //!depends
 /**
  * Term Copier agent. Has its own Variable dictionnary. Uses a generic action

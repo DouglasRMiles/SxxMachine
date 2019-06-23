@@ -65,6 +65,7 @@ public class O1Queue {
         return true;
     }
 
+    @SuppressWarnings("unused")
     private final void enterCritical() {
         while (busy) {
             try {
@@ -75,7 +76,8 @@ public class O1Queue {
         busy = true;
     }
 
-    private final void exitCritical() {
+    @SuppressWarnings("unused")
+	private final void exitCritical() {
         busy = false;
         notifyAll();
     }

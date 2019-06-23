@@ -7,7 +7,6 @@ import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
-import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;

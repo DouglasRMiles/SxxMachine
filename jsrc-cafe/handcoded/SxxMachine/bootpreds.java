@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.locks.Lock;
-import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -40,7 +39,6 @@ import SxxMachine.pterm.HashtableOfTerm;
 import SxxMachine.pterm.JavaObjectTerm;
 import SxxMachine.pterm.ListViewTerm;
 import SxxMachine.pterm.Mutex;
-import static SxxMachine.pterm.TermData.*;
 
 
 @SuppressWarnings({ "rawtypes", "unchecked", "unused", "resource" })

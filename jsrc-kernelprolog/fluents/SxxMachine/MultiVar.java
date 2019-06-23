@@ -1,11 +1,8 @@
 package SxxMachine;
 
-import SxxMachine.pterm.*;
-import static SxxMachine.pterm.TermData.*;
-import SxxMachine.pterm.SourceFluentTerm;
-import SxxMachine.Prog;
-
 import java.util.Stack;
+
+import SxxMachine.pterm.FluentTerm;
 
 
 

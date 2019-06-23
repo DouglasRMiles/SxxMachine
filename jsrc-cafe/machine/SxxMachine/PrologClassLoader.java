@@ -1,12 +1,12 @@
 package SxxMachine;
 
-import SxxMachine.pterm.StaticPred;
-import SxxMachine.pterm.TermData;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static SxxMachine.pterm.TermData.S;
+import SxxMachine.pterm.StaticPred;
+import SxxMachine.pterm.TermData;
 
 /**
  * Prolog class loader.

@@ -8,16 +8,12 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import static SxxMachine.pterm.TermData.*;
-
 import SxxMachine.Const;
-import SxxMachine.DataBase;
 import SxxMachine.Functor;
 import SxxMachine.HashDict;
 import SxxMachine.IO;
@@ -35,7 +31,7 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
     public final static Map atomTable = new Hashtable();
 
     static public final Functor useAtomStatic(String s) {
-        Functor I = (Functor) atomTable.get(s);
+    	Functor I = (Functor) atomTable.get(s);
         if (I != null)
             return I;
         I = SYM(s);

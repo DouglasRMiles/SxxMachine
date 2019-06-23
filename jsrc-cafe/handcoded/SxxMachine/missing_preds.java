@@ -1,7 +1,5 @@
 package SxxMachine;
 
-import SxxMachine.pterm.TermData;
-
 public class missing_preds implements PrologModule {
 
     /**

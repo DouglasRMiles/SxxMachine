@@ -1,7 +1,7 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONS;
+import static SxxMachine.pterm.TermData.*;
 
 import SxxMachine.pterm.ANonvar;
 

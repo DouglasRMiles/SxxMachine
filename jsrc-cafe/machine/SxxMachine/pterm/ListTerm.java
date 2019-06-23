@@ -19,7 +19,6 @@ import SxxMachine.OpVisitor;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
 import SxxMachine.Trail;
-import SxxMachine.pterm.PTerm.TermTreeIterator;
 
 @SuppressWarnings({ "rawtypes" })
 public abstract class ListTerm extends AFunct implements Compound {

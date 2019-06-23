@@ -1,16 +1,12 @@
 
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONS;
-import static SxxMachine.pterm.TermData.CONST;
-import static SxxMachine.pterm.TermData.internS;
+import static SxxMachine.pterm.TermData.*;
 
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
-import SxxMachine.pterm.StructureTerm;
 
 public class pred_sort_2 extends Code {
 

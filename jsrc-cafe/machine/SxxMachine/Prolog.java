@@ -1,7 +1,6 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.CONS;
-import static SxxMachine.pterm.TermData.S;
+import static SxxMachine.pterm.TermData.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
