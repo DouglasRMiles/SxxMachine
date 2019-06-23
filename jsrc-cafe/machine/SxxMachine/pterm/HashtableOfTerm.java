@@ -73,7 +73,7 @@ public class HashtableOfTerm/* implements Map<Term, Term> */ {
 
     private static HashtableOfTerm copyDeep(HashtableOfTerm src, Map<Object, Term> copyHash) {
         int deeply = Term.COPY_DEEPLY;
-        HashtableOfTerm hm = new HashtableOfTerm();
+        HashtableOfTerm hm = new HashtableOfTerm(src.size());
         for (Map.Entry<Term, Term> e : src.entrySet()) {
             Term val = e.getValue().copy(copyHash, deeply);
             if ((val.isJavaObject())) {
@@ -90,7 +90,7 @@ public class HashtableOfTerm/* implements Map<Term, Term> */ {
     }
 
     private static HashtableOfTerm copyShallow(HashtableOfTerm src) {
-        HashtableOfTerm hm = new HashtableOfTerm();
+        HashtableOfTerm hm = new HashtableOfTerm(src.size());
         for (Map.Entry<Term, Term> e : src.entrySet()) {
             Term val = e.getValue();
             if ((val.isJavaObject())) {

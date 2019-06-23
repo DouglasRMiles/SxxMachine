@@ -70,15 +70,12 @@ public class PredikaatLoader {
         } catch (final IllegalArgumentException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
-            return;
         } catch (final IllegalAccessException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
-            return;
         } catch (final InvocationTargetException e) {
             //Komen we normaalgezien niet, anders aanpassing in java
             log.fatal(EXCEPTIONMESSAGE, e);
-            return;
         }
     }
 

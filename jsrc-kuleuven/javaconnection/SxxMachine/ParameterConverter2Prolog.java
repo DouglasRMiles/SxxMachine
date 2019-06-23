@@ -42,12 +42,12 @@ class ParameterConverter2Prolog {
 
             if (ar.length == 0)
                 return Prolog.Nil;
-            final StructureTerm head = (StructureTerm) S(".", 2);
+            final StructureTerm head = S(".", 2);
             StructureTerm tail = head;
             boolean add = false;
             for (final Object obj : ar) {
                 if (add) {
-                    final StructureTerm f = (StructureTerm) S(".", 2);
+                    final StructureTerm f = S(".", 2);
                     tail.setarg0(1, f);
                     tail = f;
                 }

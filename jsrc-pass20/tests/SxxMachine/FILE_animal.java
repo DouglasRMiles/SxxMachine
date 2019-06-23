@@ -38,6 +38,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/tests/animal
         final static Functor ATOM_please$0020type$0020one$0020more$0020animal$0020name$003A$0020 = SYM("please type one more animal name: ");
 
 
+        
 
 
     public static Operation PRED_animal_1_static_exec(Prolog m) { 

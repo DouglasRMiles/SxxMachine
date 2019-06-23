@@ -79,7 +79,7 @@ class LexerHIDE
   {
     this( IO.input );
   }
-  private final static String anonymous = "_".intern();
+  private final static String anonymous = "_";
 
   private final static String char2string(int c)
   {
@@ -307,8 +307,7 @@ class varToken
 {
   public varToken( Var X, Nonvar nonvar, NumberTerm I )
   {
-    super( "varToken", new Term[] { X, nonvar, I
-    } );
+    super( "varToken", X, nonvar, I);
   }
 
   @Override
@@ -668,7 +667,7 @@ public class Parser
     Term t = n.carTokenOrSelf();
     if( n.isFunctor( "stringToken" ) )
     {
-      t = ( (Nonvar) ( (stringToken) n ).getDrefArg( 0 ) ).toCharsList();
+      t = ( (Nonvar) n.getDrefArg( 0 ) ).toCharsList();
       // IO.mes("getTerm:stringToken-->"+t);
     }
     else if( n.isFunctor( "[" ) )

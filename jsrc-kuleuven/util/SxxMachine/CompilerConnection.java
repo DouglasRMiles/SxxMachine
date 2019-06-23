@@ -71,7 +71,8 @@ public class CompilerConnection {
     private static void moveToRunLocation(File location, File tmpFolder) {
         final File newTarget = new File(tmpFolder, PACKAGENAME);
         newTarget.mkdirs();
-        for (final File f : location.listFiles((FileFilter) pathname -> pathname.getName().startsWith("query"))) {
+//         for (final File f : location.listFiles((FileFilter) pathname -> pathname.getName().startsWith("query"))) {
+        for (final File f : location.listFiles(pathname -> pathname.getName().startsWith("query"))) {
             final File newName = new File(newTarget, f.getName());
             if (!f.renameTo(newName))
                 throw new IllegalStateException("Could not move file: " + f);

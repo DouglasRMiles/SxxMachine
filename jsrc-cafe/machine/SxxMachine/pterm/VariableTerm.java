@@ -15,6 +15,7 @@ import SxxMachine.BlockingPrologControl;
 import SxxMachine.InternalException;
 import SxxMachine.KPTrail;
 import SxxMachine.MiniJProlog;
+import SxxMachine.Nonvar;
 import SxxMachine.OpVisitor;
 import SxxMachine.Operation;
 import SxxMachine.Prog;
@@ -44,6 +45,13 @@ import SxxMachine.Var;
 public class VariableTerm extends AVar implements Undoable, Var {
 
 
+	@Override
+		public Nonvar toNonVar() {
+		if(true) throw new AbstractMethodError("Auto-generated method stub:  FluentTerm.toNonVar");
+			return null;
+		}
+
+	
     public long timestampJP;
 
     protected MiniJProlog mach;

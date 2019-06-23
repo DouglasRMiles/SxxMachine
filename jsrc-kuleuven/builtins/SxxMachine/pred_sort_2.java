@@ -41,7 +41,7 @@ public class pred_sort_2 extends Code {
         final SortedSet<Term> set = new TreeSet<Term>(Collections.reverseOrder(pred_compare_3.getComparator()));
         log.debug("Startin sort...");
         while (list.isCons()) {
-            final Term[] fields = ((StructureTerm) list).args();
+            final Term[] fields = list.args();
             set.add(fields[0].dref());
             list = fields[1].dref();
         }

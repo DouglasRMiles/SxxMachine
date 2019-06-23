@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+//import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import SxxMachine.Compound;
 import SxxMachine.Functor;
 import SxxMachine.IllegalTypeException;
@@ -24,6 +24,7 @@ import SxxMachine.Trail;
 import SxxMachine.Undoable;
 import SxxMachine.Var;
 import SxxMachine.sxxtensions;
+//import jdk.jshell.spi.ExecutionControl;
 
 @SuppressWarnings({ "rawtypes" })
 abstract class PTerm extends KPTerm {
@@ -42,9 +43,11 @@ abstract class PTerm extends KPTerm {
         return super.asConst();
     }
 
-    protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
-        return 0;
-    }
+	protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
+		if (true)
+			throw new AbstractMethodError("Auto-generated method stub:  containsTermImpl");
+		return 0;
+	}
 
     int loopContainsTerm = 0;
 
@@ -231,17 +234,7 @@ abstract class PTerm extends KPTerm {
         return false;
     }
 
-    /**
-     * Check whether this term is a compound term.
-     *
-     * @return <code>true</code> if <code>this .isStructure()</code>, otherwise
-     *         <code>false</code>.
-     * @see Term
-     */
-    @Override
-    public boolean isCompound() {
-        return false;
-    }
+
 
     /**
      * Check whether this term is a java term.
@@ -488,7 +481,7 @@ abstract class PTerm extends KPTerm {
      */
     @Override
     public Iterator<Term> iterator(boolean includeSyntax) {
-        return Collections.<Term>emptyIterator();
+        return Collections.emptyIterator();
     }
 
     /**
@@ -608,7 +601,7 @@ abstract class PTerm extends KPTerm {
 
         @Override
         public void remove() {
-            throw new NotImplementedException();
+            throw new UnsupportedOperationException();
         }
     }
 
@@ -790,7 +783,6 @@ abstract class PTerm extends KPTerm {
                 });
             }
             this.setAttrs(newatts);
-            return;
         } else {
             Term next = wasAttrs;
             do {

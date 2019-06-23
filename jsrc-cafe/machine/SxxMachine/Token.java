@@ -98,7 +98,7 @@ public class Token {
                 return c;
             case '.': /* full stop or symbol */
                 c1 = in.read();
-                if (c1 == -1 || c1 <= ' ') {
+                if (c1 <= ' ') {
                     s.append(".");
                     return '.';
                 }

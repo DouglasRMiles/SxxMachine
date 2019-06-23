@@ -7,6 +7,7 @@ import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
+import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
@@ -19,6 +20,16 @@ import SxxMachine.Trail;
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
 
+	@Override
+	public Nonvar toNonVar() {
+		return this;
+	}
+
+	@Override
+	protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {		
+		if(true) throw new AbstractMethodError("Auto-generated method stub:  FluentTerm.containsTermImpl");
+		return super.containsTermImpl(variableTerm, comparison);
+	}
 
     /* (non-Javadoc)
      * @see SxxMachine.Term#unifySYM(java.lang.String, SxxMachine.Trail)

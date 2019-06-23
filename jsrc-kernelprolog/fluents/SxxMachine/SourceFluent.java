@@ -19,14 +19,14 @@ abstract public class SourceFluent extends SourceFluentTerm implements Fluent {
     public Nonvar toPlConsList() {
         Term head = getElement();
         if (null == head)
-            return (Nonvar) Nonvar.aNil;
+            return Nonvar.aNil;
         Compound l = CONS(head, Nonvar.aNil);
         Compound curr = l;
         for (;;) {
             head = getElement();
             if (null == head)
                 break;
-            Compound tail = CONS(head, (Term) Nonvar.aNil);
+            Compound tail = CONS(head, Nonvar.aNil);
             curr.setArg(1, tail);
             curr = tail;
         }

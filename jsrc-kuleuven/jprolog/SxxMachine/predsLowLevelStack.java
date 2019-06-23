@@ -38,7 +38,7 @@ class pred_cutto extends Code {
         final Term cont = local_aregs.getTermDRef(1);
         if (!(point instanceof NumberTerm))
             throw new JPrologInternalException("Parameter is not a valid stackpoint! " + point);
-        final int stack = (int) ((NumberTerm) point).longValue();
+        final int stack = (int) point.longValue();
         mach.doCut(stack);
         mach.setCont(local_aregs, 0, cont);
         local_aregs.setAreg1((null));

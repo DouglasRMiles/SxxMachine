@@ -177,7 +177,7 @@ public class PredicateEncoder {
             } else if (index + 4 < finish) {
                 try {
                     int c = Integer.parseInt(className.substring(index + 1, index + 5), 16);
-                    sb.append(className.substring(middle, index));
+                    sb.append(className, middle, index);
                     switch (c) {
                         case '\\':
                             sb.append("\\\\");
@@ -197,7 +197,7 @@ public class PredicateEncoder {
             }
         }
         if (middle < finish) {
-            sb.append(className.substring(middle, finish));
+            sb.append(className, middle, finish);
         }
         return sb.toString();
     }

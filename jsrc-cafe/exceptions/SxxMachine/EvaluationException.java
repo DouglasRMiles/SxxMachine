@@ -44,7 +44,7 @@ public class EvaluationException extends BuiltinException {
     public Term getMessageTerm() {
         Term[] args = { FFIObject(this.goal), Integer(this.argNo),
                 createAtomic(this.errorType) };
-        return (Term) createErrorTerm(this, EVALUATION_ERROR, args);
+        return createErrorTerm(this, EVALUATION_ERROR, args);
     }
 
     /** Returns a string representation of this <code>EvaluationException</code>. */

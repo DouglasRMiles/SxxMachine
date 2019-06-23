@@ -80,7 +80,7 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
         for (Iterator iterator = currentInstance().keySet().iterator(); iterator.hasNext();) {
             String key = (String) iterator.next();
             if (currentInstance().get(key) == any)
-                return key.toString();
+                return key;
         }
         return null;
     }
@@ -113,15 +113,14 @@ public class ForeignObject extends FunctionObject implements InvocationHandler {
                 return theStub;
             return useStringAtom((String) obj);
         }
-        if (obj instanceof KPNonvar || obj instanceof Term)
+        if (obj instanceof Term) // split obj instanceof KPNonvar later
             return (Term) obj;
         String loc = objectKey(obj);
         if (loc != null)
             return objectGet(loc);
         Class[] pclasses = obj.getClass().getClasses();
         Class[] classes = new Class[pclasses.length + 1];
-        for (int i = 0; i < pclasses.length; i++)
-            classes[i] = pclasses[i];
+        System.arraycopy(pclasses, 0, classes, 0, pclasses.length);
         classes[pclasses.length] = baseinterface;
         try {
             Class proxyClass = Proxy.getProxyClass(baseinterface.getClassLoader(), classes);

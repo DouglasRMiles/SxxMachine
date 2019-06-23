@@ -19,7 +19,7 @@ import SxxMachine.Trail;
  * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
  * @version 1.0
  */
-abstract class AliasTerm extends PTerm implements Comparable<Term> {
+public abstract class AliasTerm extends PTerm implements Comparable<Term> {
 
     private Term value;
 

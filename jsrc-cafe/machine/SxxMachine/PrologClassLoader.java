@@ -1,12 +1,12 @@
 package SxxMachine;
 
-import static SxxMachine.pterm.TermData.S;
+import SxxMachine.pterm.StaticPred;
+import SxxMachine.pterm.TermData;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import SxxMachine.pterm.StaticPred;
-import SxxMachine.pterm.TermData;
+import static SxxMachine.pterm.TermData.S;
 
 /**
  * Prolog class loader.
@@ -17,6 +17,8 @@ import SxxMachine.pterm.TermData;
  */
 public class PrologClassLoader extends ClassLoader {
 
+    private final static Operation NOT_FOUND = new NotFoundPredicate();
+
     static {
         Prolog.startLevel = 1;
         bootpreds.loadFile();
@@ -26,8 +28,8 @@ public class PrologClassLoader extends ClassLoader {
         FILE_io.loadPreds();
         FILE_swi_supp.loadPreds();
         FILE_system.loadPreds();
-        FILE_animal_string.loadPreds();
-        FILE_animal.loadPreds();
+        FILE_animal_string2.loadPreds();
+        FILE_animal2.loadPreds();
 
         //  FILE_dra.loadPreds();
         Prolog.startLevel = 2;
@@ -46,8 +48,6 @@ public class PrologClassLoader extends ClassLoader {
         }
     }
 
-    private final static Operation NOT_FOUND = new NotFoundPredicate();
-
     /**
      * Initialize using the {@link ClassLoader#getSystemClassLoader()}.
      */
@@ -57,24 +57,24 @@ public class PrologClassLoader extends ClassLoader {
     /**
      * Initialize using a specific parent ClassLoader.
      *
-     * @param parent
-     *            source for all predicates in this context.
+     * @param parent source for all predicates in this context.
      */
     public PrologClassLoader(ClassLoader parent) {
         super(parent);
     }
 
+    private static Term term(String pkg, String functor, int arity) {
+        return S(":", TermData.SYM(pkg), S("/", TermData.SYM(functor), TermData.Integer(arity)));
+    }
+
     /**
      * Check whether the predicate class for the given arguments is defined.
      *
-     * @param pkg
-     *            package name
-     * @param functor
-     *            predicate name
-     * @param arity
-     *            predicate arity
+     * @param pkg     package name
+     * @param functor predicate name
+     * @param arity   predicate arity
      * @return <code>true</code> if the predicate <code>pkg:functor/arity</code> is
-     *         defined, otherwise <code>false</code>.
+     * defined, otherwise <code>false</code>.
      */
     public boolean definedPredicate(String pkg, String functor, int arity) {
         try {
@@ -87,12 +87,9 @@ public class PrologClassLoader extends ClassLoader {
     /**
      * Allocate a predicate and configure it with the specified arguments.
      *
-     * @param pkg
-     *            package the predicate is in.
-     * @param functor
-     *            name of the predicate.
-     * @param args
-     *            arguments to pass. The arity is derived from the arguments.
+     * @param pkg     package the predicate is in.
+     * @param functor name of the predicate.
+     * @param args    arguments to pass. The arity is derived from the arguments.
      * @return the predicate encapsulating the logic and the arguments.
      */
     public Operation predicate(String pkg, String functor, Term... args) {
@@ -102,15 +99,11 @@ public class PrologClassLoader extends ClassLoader {
     /**
      * Allocate a predicate and configure it with the specified arguments.
      *
-     * @param pkg
-     *            package the predicate is in.
-     * @param functor
-     *            name of the predicate.
-     * @param cont
-     *            operation to execute if the predicate is successful. Usually this
-     *            is {@link Success#SUCCESS}.
-     * @param args
-     *            arguments to pass. The arity is derived from the arguments.
+     * @param pkg     package the predicate is in.
+     * @param functor name of the predicate.
+     * @param cont    operation to execute if the predicate is successful. Usually this
+     *                is {@link Success#SUCCESS}.
+     * @param args    arguments to pass. The arity is derived from the arguments.
      * @return the predicate encapsulating the logic and the arguments.
      */
     public Operation predicate(String pkg, String functor, Operation cont, Term... args) {
@@ -130,10 +123,6 @@ public class PrologClassLoader extends ClassLoader {
             throw err2;
         }
         throw new ExistenceException("procedure", term(pkg, functor, arity), "NOT_FOUND");
-    }
-
-    private static Term term(String pkg, String functor, int arity) {
-        return S(":", TermData.SYM(pkg), S("/", TermData.SYM(functor), TermData.Integer(arity)));
     }
 
     // private Constructor<? extends Predicate> getConstructor(String pkg, String functor, int arity) throws ClassNotFoundException {
@@ -180,15 +169,13 @@ public class PrologClassLoader extends ClassLoader {
         if (paren > 0) {
             functor = functor.substring(0, paren);
         }
+
+        String fun = functor;
         final Key key = new Key(pkg, functor, arity);
-        Operation constructor = this.predicateCache.get(key);
-        if (constructor == null) {
-            constructor = getConstructor(pkg, functor, arity);
-            if (constructor == null)
-                throw new ClassNotFoundException("" + pkg + ":" + functor + "/" + arity + " " + key);
-            this.predicateCache.put(key, constructor);
-        }
-        return constructor;
+        Operation c = predicateCache.computeIfAbsent(key, (k) -> getConstructor(pkg, fun, arity));
+        if (c == null)
+            throw new ClassNotFoundException("" + pkg + ":" + fun + "/" + arity + " " + key);
+        return c;
     }
 
     private Operation getConstructor(String pkg, String functor, int arity) {
@@ -199,26 +186,35 @@ public class PrologClassLoader extends ClassLoader {
         private final String pkg;
         private final String functor;
         private final int arity;
+        private final int h;
 
         Key(String pkg, String functor, int arity) {
-            this.pkg = pkg;
+            this.pkg = pkg.toString(); // to throw NPE
             this.functor = functor;
             this.arity = arity;
+
+            int h = this.pkg.hashCode();
+            h = (h * 31) + this.functor.hashCode();
+            h = (h * 31) + this.arity;
+            this.h = h;
+        }
+
+        @Override
+        public String toString() {
+            return pkg + ":" + functor + "/" + arity;
         }
 
         @Override
         public int hashCode() {
-            int h = this.pkg.hashCode();
-            h = (h * 31) + this.functor.hashCode();
-            h = (h * 31) + this.arity;
             return h;
         }
 
         @Override
         public boolean equals(Object other) {
+            if (this == other) return true;
             if (other instanceof Key) {
                 Key b = (Key) other;
-                return this.arity == b.arity && this.pkg.equals(b.pkg) && this.functor.equals(b.functor);
+                return (this.h == b.h) && this.arity == b.arity && this.pkg.equals(b.pkg) && this.functor.equals(b.functor);
             }
             return false;
         }

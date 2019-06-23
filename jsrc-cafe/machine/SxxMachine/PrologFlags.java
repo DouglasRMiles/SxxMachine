@@ -15,8 +15,10 @@ public class PrologFlags {
     private final String integerRoundingFunction = "down";
     /** <font color="red">Not supported yet</font>. Prolog implementation flag: <code>char_conversion</code>. */
     private String charConversion = "codes";
+    
+    // fields are set via reflection .. i should really updat the set flag code to realize is a boolean
     /** Prolog implementation flag: <code>debug</code>. */
-    private String debug;
+    private boolean debug; // TODO Fix set_prolog_flag to realize this is a boolean
     /** Prolog implementation flag: <code>max_arity</code>. */
     int maxArity = 255;
     /** Prolog implementation flag: <code>unknown</code>. */
@@ -57,13 +59,13 @@ public class PrologFlags {
     }
 
     /** Returns the value of Prolog implementation flag: <code>debug</code>. */
-    public String getDebug() {
+    public boolean getDebug() {
         return this.debug;
     }
 
     /** Sets the value of Prolog implementation flag: <code>debug</code>. */
     public void setDebug(String mode) {
-        this.debug = mode;
+        this.debug = mode.equals("on");   assert debug || (mode.equals("off"));
     }
 
     /** Returns the value of Prolog implementation flag: <code>max_arity</code>. */
@@ -105,7 +107,7 @@ public class PrologFlags {
 
     protected void setFlags() {
         this.charConversion = "off";
-        this.debug = "off";
+        this.debug = false;
         this.unknown = "error";
         this.doubleQuotes = "codes";
         this.printStackTrace = "off";
