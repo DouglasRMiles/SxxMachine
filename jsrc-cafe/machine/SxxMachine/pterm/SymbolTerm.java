@@ -418,7 +418,9 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      * @return
      */
     static boolean badInteredAtom0(String _name) {
-        return _name.length() > 10 && (_name.contains(" ") || _name.contains("\n")) && !_name.endsWith(":");
+        return _name.length() > 10 && (_name.contains(" ") 
+        		|| _name.contains("\n")) && 
+        		!_name.endsWith(":");
 
     }
 

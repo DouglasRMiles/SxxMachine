@@ -527,7 +527,7 @@ public final class Prolog extends PrologFlags implements ISTerm {
     private long startRuntime;
     /** Holds the previous time as <code>long</code> for <code>statistics/2</code>. */
     private long previousRuntime;
-	private Prog theProg = new Prog(HornClause.clauseFromString("true"), null);
+	private Prog theProg;
 
     /** Returns the value of <code>exception</code>. This is used in <code>catch/3</code>. */
     public Term getException() {
@@ -802,7 +802,10 @@ public final class Prolog extends PrologFlags implements ISTerm {
 	 * @return
 	 */
 	public Prog asProg() {
-		return theProg ;
+		if(theProg==null) {
+			theProg = new Prog(HornClause.clauseFromString("true"), null);
+		}
+		return theProg;
 	}
 
 	private static final int PROG_OFFSET = 1;

@@ -80,7 +80,7 @@ public class SxxTermDataImpl implements ITermFactory {
     @Override
 	public LongTerm Long(long t) {
         int i = (int) t;
-        if ((i) == t) {
+        if (((long)i) == t) {
             return Integer(i);
         }
         return new LongTerm(t);
