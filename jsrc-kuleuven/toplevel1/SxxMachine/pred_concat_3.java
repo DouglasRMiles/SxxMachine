@@ -17,7 +17,11 @@ public class pred_concat_3 extends Code {
 
     protected String getAsString(Term o) {
         if (o.isAtomOrObject()) {
-            return ((Const) o).portrayTerm();
+            // portrayTerm is being deleted from Term 
+            // and put into Const 
+            // @TODO replace with return ((Const) o).portrayTerm(); 
+           // afterwards
+            return o.portrayTerm();
         }
         if (o.isCompound()) {
             final AFunct f = (AFunct) o;
@@ -63,7 +67,8 @@ public class pred_concat_3 extends Code {
             if (v3Str == null)
                 return mach.Fail0;
             //Opsplitsing teken per teken teruggeven
-            mach.createChoicePoint(new Term[] { v1, v2, v3, local_aregs.getPlainArg(3) });
+            // @TODO make sure createChoicePoint calls args.clone(); if using varargs
+            mach.createChoicePoint(v1, v2, v3, local_aregs.getPlainArg(3));
             return concat1.exec(mach);
         }
         mach.setCont(local_aregs.setAreg0(( local_aregs.getPlainArg(3))));

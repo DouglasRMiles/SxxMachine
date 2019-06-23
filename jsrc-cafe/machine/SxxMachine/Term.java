@@ -3,11 +3,16 @@ package SxxMachine;
 import java.util.Iterator;
 import java.util.Map;
 
+import SxxMachine.pterm.*;
+
+/*
+
 import SxxMachine.pterm.ClosureTerm;
 import SxxMachine.pterm.HornClause;
 import SxxMachine.pterm.MapTerm;
 import SxxMachine.pterm.SinkFluentTerm;
 import SxxMachine.pterm.SourceFluentTerm;
+*/
 
 /**
  * The superclass of classes for term structures. The subclasses of
@@ -75,7 +80,9 @@ public interface Term extends Comparable<Term> {
 
     public NumberTerm asLongTerm();
 
-    public boolean isCompound();
+    default boolean isCompound() {
+        return false;
+    }
 
     public NumberTerm asIntegerTerm();
 
@@ -307,6 +314,10 @@ public interface Term extends Comparable<Term> {
      */
     public boolean unifySYM(String string, Trail trail);
 
+    default boolean unifySYM(boolean onOrOff, Trail trail) {
+        return unifySYM(onOrOff ? "on" : "off", trail);
+    }
+
     /**
      * @return
      */
@@ -325,5 +336,10 @@ public interface Term extends Comparable<Term> {
 	 * @return
 	 */
 	public int unifyArg(int i, Term a, Prog p);
+
+	/**
+	 * @return
+	 */
+	Nonvar toNonVar();
 
 }

@@ -52,7 +52,7 @@ class pred_maketerm_2_1 extends pred_maketerm_2 {
     private Term ignore(Term o, String[][] ignores) {
         if (ignores == null || !(o instanceof StructureTerm))
             return o;
-        final Term arg = ((StructureTerm) o).getPlainArg(0).dref();
+        final Term arg = o.getPlainArg(0).dref();
         for (int i = 0; i < ignores.length; i++) {
             if (arg.equalsTerm(S("const", CONST(ignores[i][0]))))
                 return findToken((StructureTerm) o, ignores[i][1], ignores).getPlainArg(1).dref();

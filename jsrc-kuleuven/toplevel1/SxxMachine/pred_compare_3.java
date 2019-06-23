@@ -29,8 +29,8 @@ public class pred_compare_3 extends Code {
         if (t instanceof NumberTerm) {
             if (!(s instanceof NumberTerm))
                 return -1;
-            final long i1 = ((NumberTerm) t).longValue();
-            final long i2 = ((NumberTerm) s).longValue();
+            final long i1 = t.longValue();
+            final long i2 = s.longValue();
             if (i1 < i2)
                 return -1;
             if (i1 == i2)
@@ -46,7 +46,7 @@ public class pred_compare_3 extends Code {
             final Const ct = (Const) t;
             final Const cs = (Const) s;
             final Object value = ct.getValue();
-            if (value != null && value instanceof Comparable) {
+            if (value instanceof Comparable) {
                 final Comparable cv = (Comparable) value;
                 final Object value2 = cs.getValue();
                 if (value2 != null && value.getClass().equals(value2.getClass())) {

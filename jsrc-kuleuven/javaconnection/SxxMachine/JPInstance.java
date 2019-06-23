@@ -40,7 +40,7 @@ public class JPInstance extends Code {
         if (!(classType.isAtomOrObject()))
             return mach.Fail0;
         final Object cl = ((Const) classType).getValue();
-        if (cl == null || !(cl instanceof Class))
+        if (!(cl instanceof Class))
             return mach.Fail0;
         final Class jClassType = (Class) cl;
         if (!(object.isAtomOrObject()))

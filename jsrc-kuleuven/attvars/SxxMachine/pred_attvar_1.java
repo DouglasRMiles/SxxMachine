@@ -23,7 +23,7 @@ public class pred_attvar_1 extends Code {
 
         if (variable instanceof AttributedVariable) {
             mach.setCont(local_aregs, 0, continuation);
-            return (Code) (Object) mach.getCall1();
+            return mach.getCall1();
         } else {
             mach.setARegENull(local_aregs, 0);
             return mach.Fail0;

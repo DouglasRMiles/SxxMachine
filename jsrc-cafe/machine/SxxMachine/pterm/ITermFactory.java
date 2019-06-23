@@ -103,7 +103,7 @@ public interface ITermFactory {
 	void soopsy();
 
 	/** Returns a Prolog atom for the given character. */
-	Term CHAR(char c);
+	Term CHAR(int c);
 
 	/** Returns a Prolog atom for the given name. */
 	Term createAtomic(String _name);

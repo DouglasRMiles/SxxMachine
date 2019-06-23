@@ -55,7 +55,7 @@ public class MiniJProlog implements Comparator<Class< ? extends JpModule>>
 
   public TermArray getAreg()
   {
-    return (TermArray) (Object) areg;
+    return areg;
   }
 
   public void setExceptionState(ErrorStatus status)

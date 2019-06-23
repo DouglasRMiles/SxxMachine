@@ -117,7 +117,7 @@ public class Lexer extends java.io.StreamTokenizer {
                 X = Jv(prologmachine);
                 dict.put(sval, X);
             } else {
-                occ = ((NumberTerm) dict.get(X)).longValue();
+                occ = dict.get(X).longValue();
                 occ++;
             }
             I = Integer(occ);

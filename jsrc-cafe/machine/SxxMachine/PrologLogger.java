@@ -35,7 +35,7 @@ public class PrologLogger {
     private Predicate[] stackFrame;
     private int stackTop;
     private boolean normalExecution = true;
-    private final StringBuilder stringBuilder = new StringBuilder(2048);
+    private final ThreadLocal<StringBuilder> stringBuilder = ThreadLocal.withInitial(() -> new StringBuilder(2048));
     private char[] indent;
     public boolean loggerEnable = true;
 
@@ -63,10 +63,11 @@ public class PrologLogger {
         // write to log
         if (this.loggerEnable)
             this.logger.log(Level.FINER, () -> {
-                stringBuilder.setLength(0);
-                stringBuilder.append(this.indent, 1, this.stackTop).append("failure => ");
-                stringBuilder.append(next);
-                return stringBuilder.toString();
+                StringBuilder s = this.stringBuilder.get();
+                s.setLength(0);
+                s.append(this.indent, 1, this.stackTop).append("failure => ");
+                s.append(next);
+                return this.stringBuilder.toString();
             });
         this.normalExecution = false;
         this.stackTop = entry.loggerStackTop;
@@ -82,12 +83,13 @@ public class PrologLogger {
         // write to log
         if (this.loggerEnable)
             this.logger.log(Level.FINER, () -> {
-                stringBuilder.setLength(0);
-                stringBuilder.append(this.indent, 1, this.stackTop).append("try ");
-                stringBuilder.append(this.stackFrame[this.stackTop].toString());
-                stringBuilder.append(" => ");
-                stringBuilder.append(p);
-                return stringBuilder.toString();
+                StringBuilder s = this.stringBuilder.get();
+                s.setLength(0);
+                s.append(this.indent, 1, this.stackTop).append("try ");
+                s.append(this.stackFrame[this.stackTop].toString());
+                s.append(" => ");
+                s.append(p);
+                return this.stringBuilder.toString();
             });
     }
 
@@ -98,12 +100,13 @@ public class PrologLogger {
         // write to log
         if (this.loggerEnable)
             this.logger.log(Level.FINER, () -> {
-                stringBuilder.setLength(0);
-                stringBuilder.append(this.indent, 1, this.stackTop).append("retry ");
-                stringBuilder.append(entry.ownerPredicate.toString());
-                stringBuilder.append(" => ");
-                stringBuilder.append(p);
-                return stringBuilder.toString();
+                StringBuilder s = this.stringBuilder.get();
+                s.setLength(0);
+                s.append(this.indent, 1, this.stackTop).append("retry ");
+                s.append(entry.ownerPredicate.toString());
+                s.append(" => ");
+                s.append(p);
+                return this.stringBuilder.toString();
             });
         this.normalExecution = false;
         this.stackTop = entry.loggerStackTop;
@@ -114,12 +117,13 @@ public class PrologLogger {
         // write to log
         if (this.loggerEnable)
             this.logger.log(Level.FINER, () -> {
-                stringBuilder.setLength(0);
-                stringBuilder.append(this.indent, 1, this.stackTop).append("trust ");
-                stringBuilder.append(entry.ownerPredicate.toString());
-                stringBuilder.append(" => ");
-                stringBuilder.append(p);
-                return stringBuilder.toString();
+                StringBuilder s = this.stringBuilder.get();
+                s.setLength(0);
+                s.append(this.indent, 1, this.stackTop).append("trust ");
+                s.append(entry.ownerPredicate.toString());
+                s.append(" => ");
+                s.append(p);
+                return this.stringBuilder.toString();
             });
         this.normalExecution = false;
         this.stackTop = entry.loggerStackTop;
@@ -131,9 +135,12 @@ public class PrologLogger {
         // do afterExec
         if (code instanceof Predicate) {
             if (this.normalExecution) {
+
                 while (this.stackTop >= 0 && this.stackFrame[this.stackTop].cont == code) {
                     this.stackTop--;
                 }
+
+                // Still deciding on whether to incement r not
                 this.stackTop++;
                 if (this.stackTop >= this.stackFrame.length) {
                     ensureCapacity();
@@ -149,14 +156,15 @@ public class PrologLogger {
         // if logger.isLoggable(Level.FINE) write code to log
         if (this.loggerEnable)
             this.logger.log(level, () -> {
-                stringBuilder.setLength(0);
-                stringBuilder.append(this.indent, 1, this.stackTop).append(": ");
+                StringBuilder s = this.stringBuilder.get();
+                s.setLength(0);
+                s.append(this.indent, 1, this.stackTop).append(": ");
                 if (code instanceof Predicate) {
-                    ((Predicate) code).toString(stringBuilder);
+                    ((Predicate) code).toString(s);
                 } else {
-                    stringBuilder.append(code);
+                    s.append(code);
                 }
-                return stringBuilder.toString();
+                return this.stringBuilder.toString();
             });
     }
 

@@ -66,7 +66,7 @@ public class LazyList extends StructureTerm implements Undoable {
     }
 
     public Nonvar getNull() {
-        return (Nonvar) Nonvar.aNil;
+        return Nonvar.aNil;
     }
 
     @Override

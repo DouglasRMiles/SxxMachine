@@ -77,7 +77,7 @@ final public class TermData {
 	}
 
 	/** Returns a Prolog atom for the given character. */
-	static public Term CHAR(char c) {
+	static public Term CHAR(int c) {
 		return factory.CHAR(c);
 	}
 

@@ -10,11 +10,11 @@ import javax.script.ScriptEngineFactory;
 
 public class PrologScriptEngineFactory implements ScriptEngineFactory {
 
-    private final static List<String> EXT = Collections.unmodifiableList(Arrays.asList(new String[] { "pl" }));
+    private final static List<String> EXT = Collections.unmodifiableList(Arrays.asList("pl"));
     private final static List<String> NAMES = Collections
-            .unmodifiableList(Arrays.asList(new String[] { "prolog", "jprolog", "kuleuven prolog" }));
+            .unmodifiableList(Arrays.asList("prolog", "jprolog", "kuleuven prolog"));
     private final static List<String> MIMES = Collections
-            .unmodifiableList(Arrays.asList(new String[] { "text/plain" }));
+            .unmodifiableList(Arrays.asList("text/plain"));
 
     @Override
     public String getEngineName() {

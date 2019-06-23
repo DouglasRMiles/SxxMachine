@@ -12,25 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import SxxMachine.AFunct;
-import SxxMachine.Compound;
-import SxxMachine.Const;
-import SxxMachine.Functor;
-import SxxMachine.ISTerm;
-import SxxMachine.Init;
-import SxxMachine.InternalException;
-import SxxMachine.JpVar;
-import SxxMachine.KPTrail;
-import SxxMachine.NameArity;
-import SxxMachine.OpVisitor;
-import SxxMachine.Prog;
-import SxxMachine.Prolog;
-import SxxMachine.PrologMachine;
-import SxxMachine.RunningPrologMachine;
-import SxxMachine.Term;
-import SxxMachine.Token;
-import SxxMachine.Trail;
-import SxxMachine.sxxtensions;
+import SxxMachine.*;
 
 /**
  * Compound term. <br>
@@ -644,10 +626,11 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
             return super.equalsTerm(that, comparator);
         if (that == this)
             return true;
+        if (false && this.arity() != that.arity())
+            return false;
         if (!(that.isCompound()))
             return false;
         final Term st = that;
-
         if (!this.fname().equals(that.fname()))
             return false;
         if (!this.getClass().equals(that.getClass())) {

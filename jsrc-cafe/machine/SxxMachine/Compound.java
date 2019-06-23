@@ -42,6 +42,4 @@ public interface Compound extends Nonvar {
     @Override
     Term cdr();
 
-    Nonvar toNonVar();
-
 }

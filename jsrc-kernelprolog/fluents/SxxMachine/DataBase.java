@@ -214,7 +214,7 @@ public class DataBase extends BlackBoard {
 
     static private boolean streamToProg(String fname, Reader sname, boolean overwrite) {
         try {
-            BlackBoard ktable = overwrite ? (BlackBoard) Init.default_db.toClone() : null;
+            BlackBoard ktable = overwrite ? Init.default_db.toClone() : null;
             // Clause Err=new Clause(new Const("error"),new Var());
             Parser p = new Parser(sname);
             apply_parser(p, fname, ktable);

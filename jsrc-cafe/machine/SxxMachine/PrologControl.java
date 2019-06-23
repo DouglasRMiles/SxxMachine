@@ -80,7 +80,7 @@ public abstract class PrologControl {
      *            stack trace to print (or log).
      */
     public void printStackTrace(Throwable err) {
-        this.engine.getLogger().printStackTrace(err);
+        this.engine.logger.printStackTrace(err);
     }
 
     public void setUserInput(InputStream userInput) {
@@ -226,63 +226,43 @@ public abstract class PrologControl {
     }
 
     // @SuppressWarnings("null")
-    static public void executePredicate(PrologControl thiz, Prolog engine, Operation code, boolean isOutter)
+    static public void executePredicate(PrologControl thiz, Prolog engine, Operation code, boolean outter)
             throws PrologException, JavaInterruptedException {
 
-        PrologLogger logger = engine.getLogger();
+        PrologLogger logger = engine.logger;
 
         Operation nextCode = code;
         System.err.flush();
 
         try {
-            if (isOutter) {
+            if (outter) {
                 engine.init(thiz.userInput, thiz.userOuput, thiz.userError);
             }
             mainLoop: do {
                 try {
                     do {
-                        if (isOutter) {
+                        if (outter)
                             code = thiz.insertPendingGoals(code);
-                        }
+
                         if (Prolog.BE_SAFE)
                             logger.beforeExec(code);
-                        if (code == null) {
-                            break;
-                        }
-                        engine.pred = code;
-                        //code.toString();
-                        nextCode = code.exec(engine);
-                        final String debug = PrologFlags.current.getDebug();
-                        if ("on".equals(debug)) {
-                            Class c = code.getClass();
-                            thiz.steps++;
-                            if (c == StaticPred.class) {
-                                System.err.println(" O: " + code);
-                            } else {
-                                Class c2;
-                                if (!c.getName().contains("$$Lambda$")) {
-                                    System.err.println(" CC: " + code);
-                                } else {
-                                    c2 = c.getDeclaringClass();
-                                    if (c2 == Object.class)
-                                        c2 = null;
-                                    if (c2 == null)
-                                        c2 = c.getSuperclass();
-                                    if (c2 == Object.class)
-                                        c2 = null;
-                                    if (c2 == null)
-                                        System.err.println(" DO: " + code);
-                                    else
-                                        System.err.println(" DC: " + c2);
-                                }
 
-                            }
-                        }
-                        if (nextCode == code || nextCode == null) {
+                        if (code == null)
                             break;
-                        }
-                        code = nextCode;
+
+                        engine.pred = code;
+                        nextCode = code.exec(engine);
+
+                        if (PrologFlags.current.getDebug())
+                            debug(thiz, code);
+
+                        if (nextCode == code || nextCode == null)
+                            break;
+                        else
+                            code = nextCode;
+
                     } while (true);
+
                 } catch (StopEngineException see) {
                     see.printStackTrace();
                     return; // escape execution loop
@@ -304,16 +284,39 @@ public abstract class PrologControl {
                 }
             } while (nextCode != null);
         } finally {
-            if (isOutter) {
-                thiz.code = thiz.insertPendingGoals(code);
-            } else {
-                thiz.code = code;
-            }
+            thiz.code = outter ? thiz.insertPendingGoals(code) : code;
 
-            if (isOutter) {
+            if (outter) {
                 TermData.gc();
                 logger.close();
             }
+        }
+    }
+
+    private static void debug(PrologControl thiz, Operation code) {
+        thiz.steps++;
+
+        Class c = code.getClass();
+        if (c == StaticPred.class) {
+            System.err.println(" O: " + code);
+        } else {
+            Class c2;
+            if (!c.getName().contains("$$Lambda$")) {
+                System.err.println(" CC: " + code);
+            } else {
+                c2 = c.getDeclaringClass();
+                if (c2 == Object.class)
+                    c2 = null;
+                if (c2 == null)
+                    c2 = c.getSuperclass();
+                if (c2 == Object.class)
+                    c2 = null;
+                if (c2 == null)
+                    System.err.println(" DO: " + code);
+                else
+                    System.err.println(" DC: " + c2);
+            }
+
         }
     }
 
@@ -397,6 +400,6 @@ public abstract class PrologControl {
     }
 
     public PrologLogger getLogger() {
-        return engine.getLogger();
+        return engine.logger;
     }
 }

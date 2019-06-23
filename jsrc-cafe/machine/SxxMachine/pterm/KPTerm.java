@@ -120,11 +120,11 @@ public abstract class KPTerm implements Term {
     // public abstract boolean eq(Term that);
 
     public Term carTokenOrSelf() {
-        return (Term) this;
+        return toTerm();
     }
 
     public Term toTerm() {
-        return (Term) this;
+        return this;
     }
 
     public HornClause toClause() {
@@ -186,7 +186,7 @@ public abstract class KPTerm implements Term {
      * @see Term
      */
     public Term reaction(Term agent) {
-        Term T = agent.action((Term) this);
+        Term T = agent.action(toTerm());
         return T;
     }
 
@@ -203,7 +203,7 @@ public abstract class KPTerm implements Term {
      */
     // synchronized
     public Term duplicateTerm() {
-        return reaction((Term) new Copier());
+        return reaction(new Copier());
     }
 
     /**
@@ -282,7 +282,7 @@ public abstract class KPTerm implements Term {
             curr.setArg(1, tail);
             curr = tail;
         }
-        return (Nonvar) l;
+        return  l;// .toNonVar();
     }
 
     public Nonvar toCharsList() {

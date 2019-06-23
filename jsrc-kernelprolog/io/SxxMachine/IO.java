@@ -88,7 +88,6 @@ public class IO {
             }
         } else
             peer.print(s);
-        return;
     }
 
     public static final void println(Writer o, String s) {

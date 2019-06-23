@@ -34,14 +34,14 @@ public class pred_test_3 extends Code {
 
         NextAnswerList = AnswerList.dref();
         while (NextAnswerList.isCons()) {
-            Answer = (((AFunct) NextAnswerList).getPlainArg(0)).dref();
+            Answer = NextAnswerList.getDrefArg(0);
             // do something with the answer - e.g. print it
             final String s = Answer.portrayTerm();
             System.out.println(s);
             System.out.flush();
 
             // get the tail of the next answer list
-            NextAnswerList = (((AFunct) NextAnswerList).getPlainArg(1)).dref();
+            NextAnswerList = NextAnswerList.getDrefArg(1);
         }
     }
 

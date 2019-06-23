@@ -1,6 +1,7 @@
 package SxxMachine.pterm;
 
 import SxxMachine.Fluent;
+import SxxMachine.OpVisitor;
 import SxxMachine.Prog;
 import SxxMachine.Term;
 import SxxMachine.Undoable;
@@ -11,6 +12,15 @@ import SxxMachine.Undoable;
  *
  */
 public abstract class FluentTerm extends SystemObject implements Undoable, Fluent {
+
+	@Override
+	protected int containsTermImpl(Term variableTerm, OpVisitor comparison) {
+
+		if (true)
+			throw new AbstractMethodError("Auto-generated method stub:  FluentTerm.containsTermImpl");
+		return super.containsTermImpl(variableTerm, comparison);
+	}
+	
     public FluentTerm(Prog p) {
         trailMe(p);
     }

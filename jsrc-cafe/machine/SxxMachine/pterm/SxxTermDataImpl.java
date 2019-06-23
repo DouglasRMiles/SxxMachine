@@ -21,7 +21,7 @@ public class SxxTermDataImpl implements ITermFactory {
 
     @Override
 	public Compound S(String string, Term... s3) {
-        return (Compound) new StructureTerm(string, s3);
+        return new StructureTerm(string, s3);
     }
 
     @Override
@@ -238,8 +238,8 @@ public class SxxTermDataImpl implements ITermFactory {
      * Converts a list of character codes to a String.
      */
     @Override
-	public String charsToString(Term Cs) {
-        StringBuffer s = new StringBuffer("");
+    public String charsToString(Term Cs) {
+        StringBuffer s = new StringBuffer();
 
         while (!(Cs.isNil())) {
             if (!(Cs.isCons()))
@@ -282,14 +282,14 @@ public class SxxTermDataImpl implements ITermFactory {
 
     /** Returns a Prolog atom for the given character. */
     @Override
-	public Term CHAR(char c) {
+	public Term CHAR(int c) {
         if (PrologFlags.useDoubleQuotes().contentEquals("codes")) {
             return Integer(c);
         }
         if (0 <= c && c <= 127)
-            return SYM(Character.toString(c));
+            return SYM(Character.toString((char)c));
         else
-            return SYM(Character.toString(c));
+            return SYM(Character.toString((char)c));
     }
 
     /** Returns a Prolog atom for the given name. */
@@ -342,7 +342,7 @@ public class SxxTermDataImpl implements ITermFactory {
     @Override
 	public Compound asCons(Term i) {
 
-        return (StructureTerm) i.asListTerm();
+        return i.asListTerm();
     }
 
     @Override
