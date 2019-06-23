@@ -391,26 +391,17 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
 
     /** Returns a Prolog functor for the given name and arity. */
     public static Functor intern(String _name, int _arity) {
-        _name = checkName(_name, _arity);
-        SymbolTerm.Key key = new SymbolTerm.Key(_name, _arity);
-        Reference<? extends Interned> ref = SymbolTerm.SYMBOL_TABLE.get(key);
-        if (ref != null) {
-            Interned sym = ref.get();
-            if (sym != null)
-                return sym;
-            SYMBOL_TABLE.remove(key, ref);
-            ref.enqueue();
-        }
-        atom_gc();
-        Interned sym = new Interned(_name, _arity);
-        InternRef nref = new InternRef(key, sym);
-        InternRef oref = SYMBOL_TABLE.putIfAbsent(key, nref);
-        if (oref != null) {
-            Functor osym = oref.get();
-            if (osym != null)
-                return osym;
-        }
-        return sym;
+        return SymbolTerm.SYMBOL_TABLE.compute(new Key(checkName(_name, _arity), _arity), (k, ref)->{
+            if (ref != null) {
+                Interned sym = ref.get();
+                if (sym != null)
+                    return ref;
+                SYMBOL_TABLE.remove(k, ref);
+                ref.enqueue();
+            }
+            atom_gc();
+            return new InternRef(k, new Interned(k.name, _arity));
+        }).get();
     }
 
     /**
@@ -450,7 +441,7 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
         if (_name != null && _name != "." && _name != ":-") {
             String is = _name.intern();
             if (Prolog.startLevel > 1) {
-                if (_name.contains("(") && _name.length() != 1) {
+                if (_name.length() != 1 && _name.contains("(")) {
                     Prolog.Break(_name);
                 }
                 if (is != _name) {
@@ -670,6 +661,8 @@ abstract class SymbolTerm extends AtomicConst implements NameArity, ISTerm, Func
      */
     @Override
     public boolean equalsTerm(Term obj, OpVisitor comparator) {
+        if (this == obj)
+            return true;
         return (obj instanceof Partial) ? obj.equalsTerm(this, comparator)
                 : ((obj.isAtomSymbol()) && (this.arity == obj.asSymbolTerm().arity())
                         && this.name.equals(obj.asSymbolTerm().getJavaString()));

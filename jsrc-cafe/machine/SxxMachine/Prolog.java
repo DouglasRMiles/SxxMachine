@@ -33,7 +33,7 @@ import SxxMachine.pterm.TermData;
  */
 @SuppressWarnings("unused")
 public final class Prolog extends PrologFlags {
-    private final PrologLogger logger;
+    public final PrologLogger logger;
     private final static Logger javaUtilLogger = Logger.getLogger(Prolog.class.getName());
     private static final Functor NONE = TermData.SYM("$none");
     private final ConcurrentMap<String, Object> externalData = new ConcurrentHashMap<>();
@@ -628,10 +628,6 @@ public final class Prolog extends PrologFlags {
 
     public void setExternalData(String key, Object value) {
         this.externalData.put(key, value);
-    }
-
-    public PrologLogger getLogger() {
-        return this.logger;
     }
 
     public void push(Undoable undoable) {

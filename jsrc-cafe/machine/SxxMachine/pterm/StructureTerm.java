@@ -12,25 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import SxxMachine.AFunct;
-import SxxMachine.Compound;
-import SxxMachine.Const;
-import SxxMachine.Functor;
-import SxxMachine.ISTerm;
-import SxxMachine.Init;
-import SxxMachine.InternalException;
-import SxxMachine.JpVar;
-import SxxMachine.KPTrail;
-import SxxMachine.NameArity;
-import SxxMachine.OpVisitor;
-import SxxMachine.Prog;
-import SxxMachine.Prolog;
-import SxxMachine.PrologMachine;
-import SxxMachine.RunningPrologMachine;
-import SxxMachine.Term;
-import SxxMachine.Token;
-import SxxMachine.Trail;
-import SxxMachine.sxxtensions;
+import SxxMachine.*;
 
 /**
  * Compound term. <br>
@@ -354,10 +336,6 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
         return TYPE_STRUCTURE;
     }
 
-    private final boolean isConsOL() {
-        return false && this.isCons();
-    }
-
     /** Holds the functor symbol of this <code>StructureTerm</code>. */
     // private final String name;
     // protected String name;
@@ -369,7 +347,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
     // protected boolean immutable;
     @Override
     public boolean isCompound() {
-        return !this.isCons() || true;
+        return true; //!this.isCons() || true;
     }
 
     @Override
@@ -402,7 +380,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Object javaInstance() {
-        if (this.isConsOL())
+        if (false)
             return super.javaInstance();
         return this;
     }
@@ -423,7 +401,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public boolean convertible(Class type) {
-        if (this.isConsOL())
+        if (false)
             return convertible(List.class, type);
         return true;
     }
@@ -516,7 +494,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Term getPlainArg(int nth) {
-        if (this.isConsOL()) {
+        if (false) {
             return super.nthTermEle0(nth);
         }
         return this.argz[nth];
@@ -524,7 +502,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public final boolean unifyImpl(Term t, Trail trail) {
-        if (this.isConsOL()) {
+        if (false) {
             return super.unifyImpl(t, trail);
         }
         t = t.dref(); // fast dereference //t = t.dereference();
@@ -568,7 +546,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     protected Term cafe_copyImpl(Map<Object, Term> copyHash, int deeply) {
-        if (this.isConsOL())
+        if (false)
             return super.cafe_copyImpl(copyHash, deeply);
         if (this.immutable) {
             return this;
@@ -598,7 +576,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public final boolean isImmutable() {
-        if (this.isConsOL()) {
+        if (false) {
             return true;
         }
         return this.immutable;
@@ -640,14 +618,15 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public boolean equalsTerm(Term that, OpVisitor comparator) {
-        if (this.isConsOL())
-            return super.equalsTerm(that, comparator);
+//        if (this.isConsOL()) //always false
+//            return super.equalsTerm(that, comparator);
         if (that == this)
             return true;
+        if (this.arity() != that.arity())
+            return false;
         if (!(that.isCompound()))
             return false;
         final Term st = that;
-
         if (!this.fname().equals(that.fname()))
             return false;
         if (!this.getClass().equals(that.getClass())) {
@@ -706,7 +685,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public int termHashCodeImpl() {
-        if (this.isConsOL())
+        if (false)
             return super.termHashCodeImpl();
         int h = 1;
         h = 31 * h + this.fname().hashCode();
@@ -793,7 +772,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public Iterator<Term> iterator(boolean includeSyntax) {
-        if (this.isConsOL())
+        if (false)
             return this.listIterator(includeSyntax);
         return new StructureTermIterator(this.functor(), this.argz, includeSyntax);
     }
@@ -866,7 +845,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
      */
     @Override
     public int compareTo(Term anotherTerm) { // anotherTerm must be dereferenced.
-        if (this.isConsOL())
+        if (false)
             return super.compareTo(anotherTerm);
         Term functor, functor2;
         Term[] args2;
@@ -916,7 +895,7 @@ public class StructureTerm extends ListTerm implements Cloneable, Compound, ISTe
 
     @Override
     public void setarg0Maybe_trail(Trail trail, int i, Term val) {
-        if (this.isConsOL()) {
+        if (false) {
             super.setarg0Maybe_trail(trail, i, val);
             return;
         }

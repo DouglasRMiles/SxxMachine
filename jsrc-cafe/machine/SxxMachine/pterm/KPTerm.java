@@ -324,10 +324,6 @@ public abstract class KPTerm implements Term {
         return false;
     }
 
-    public boolean isCompound() {
-        // TODO Auto-generated method stub
-        return false;
-    }
 
     public boolean isTrueProc() {
         return false;

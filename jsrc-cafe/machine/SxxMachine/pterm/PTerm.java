@@ -232,17 +232,7 @@ abstract class PTerm extends KPTerm {
         return false;
     }
 
-    /**
-     * Check whether this term is a compound term.
-     *
-     * @return <code>true</code> if <code>this .isStructure()</code>, otherwise
-     *         <code>false</code>.
-     * @see Term
-     */
-    @Override
-    public boolean isCompound() {
-        return false;
-    }
+
 
     /**
      * Check whether this term is a java term.

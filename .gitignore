@@ -9,3 +9,5 @@ jsrc-gen3-*/
 jsrc-gen4-*/
 target/
 /.gradle/
+.idea/
+*.iml

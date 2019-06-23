@@ -93,10 +93,7 @@ public abstract class Const extends ANonvar {
     //        return value.hashCode();
     //    }
 
-    @Override
-    public int arity() {
-        return 0;
-    }
+
 
     @Override
     public String fname() {
