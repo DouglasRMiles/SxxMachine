@@ -228,9 +228,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_nreverse::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("nreverse",0,FILE_nreverse::PRED_nreverse_0_static_exec);
-   PredTable.registerBuiltin("nreverse",2,FILE_nreverse::PRED_nreverse_2_static_exec);
-   PredTable.registerBuiltin("concatenate",3,FILE_nreverse::PRED_concatenate_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_nreverse::PRED_top_0_static_exec);
+   PredTable.registerPredicate("nreverse",0,FILE_nreverse::PRED_nreverse_0_static_exec);
+   PredTable.registerPredicate("nreverse",2,FILE_nreverse::PRED_nreverse_2_static_exec);
+   PredTable.registerPredicate("concatenate",3,FILE_nreverse::PRED_concatenate_3_static_exec);
 }
 }

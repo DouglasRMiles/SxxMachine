@@ -1006,14 +1006,14 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_crypt::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("sum",3,FILE_crypt::PRED_sum_3_static_exec);
-   PredTable.registerBuiltin("sum",4,FILE_crypt::PRED_sum_4_static_exec);
-   PredTable.registerBuiltin("mult",3,FILE_crypt::PRED_mult_3_static_exec);
-   PredTable.registerBuiltin("mult",4,FILE_crypt::PRED_mult_4_static_exec);
-   PredTable.registerBuiltin("zero",1,FILE_crypt::PRED_zero_1_static_exec);
-   PredTable.registerBuiltin("odd",1,FILE_crypt::PRED_odd_1_static_exec);
-   PredTable.registerBuiltin("even",1,FILE_crypt::PRED_even_1_static_exec);
-   PredTable.registerBuiltin("lefteven",1,FILE_crypt::PRED_lefteven_1_static_exec);
+   PredTable.registerPredicate("top",0,FILE_crypt::PRED_top_0_static_exec);
+   PredTable.registerPredicate("sum",3,FILE_crypt::PRED_sum_3_static_exec);
+   PredTable.registerPredicate("sum",4,FILE_crypt::PRED_sum_4_static_exec);
+   PredTable.registerPredicate("mult",3,FILE_crypt::PRED_mult_3_static_exec);
+   PredTable.registerPredicate("mult",4,FILE_crypt::PRED_mult_4_static_exec);
+   PredTable.registerPredicate("zero",1,FILE_crypt::PRED_zero_1_static_exec);
+   PredTable.registerPredicate("odd",1,FILE_crypt::PRED_odd_1_static_exec);
+   PredTable.registerPredicate("even",1,FILE_crypt::PRED_even_1_static_exec);
+   PredTable.registerPredicate("lefteven",1,FILE_crypt::PRED_lefteven_1_static_exec);
 }
 }

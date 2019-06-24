@@ -2,7 +2,7 @@ package SxxMachine;
 
 public interface NumberTerm extends Atomic {
 
-    Object value();
+    Number getNativeNumber();
 
     @Override
     NumberTerm toClone();
@@ -220,5 +220,10 @@ public interface NumberTerm extends Atomic {
 
     @Override
     boolean isImmutable();
+
+	/**
+	 * @param i 
+	 */
+	NumberTerm add(Number i);
 
 }

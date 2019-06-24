@@ -135,8 +135,8 @@ MARG.setAreg3( a7);
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_tak::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("tak",0,FILE_tak::PRED_tak_0_static_exec);
-   PredTable.registerBuiltin("tak",4,FILE_tak::PRED_tak_4_static_exec);
+   PredTable.registerPredicate("top",0,FILE_tak::PRED_top_0_static_exec);
+   PredTable.registerPredicate("tak",0,FILE_tak::PRED_tak_0_static_exec);
+   PredTable.registerPredicate("tak",4,FILE_tak::PRED_tak_4_static_exec);
 }
 }

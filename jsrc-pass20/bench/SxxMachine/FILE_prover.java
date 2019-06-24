@@ -1105,15 +1105,15 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_prover::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("prover",0,FILE_prover::PRED_prover_0_static_exec);
-   PredTable.registerBuiltin("problem",3,FILE_prover::PRED_problem_3_static_exec);
-   PredTable.registerBuiltin("implies",2,FILE_prover::PRED_implies_2_static_exec);
-   PredTable.registerBuiltin("opposite",2,FILE_prover::PRED_opposite_2_static_exec);
-   PredTable.registerBuiltin("add_conjunction",3,FILE_prover::PRED_add_conjunction_3_static_exec);
-   PredTable.registerBuiltin("expand",3,FILE_prover::PRED_expand_3_static_exec);
-   PredTable.registerBuiltin("includes",2,FILE_prover::PRED_includes_2_static_exec);
-   PredTable.registerBuiltin("extend",6,FILE_prover::PRED_extend_6_static_exec);
-   PredTable.registerBuiltin("refute",1,FILE_prover::PRED_refute_1_static_exec);
+   PredTable.registerPredicate("top",0,FILE_prover::PRED_top_0_static_exec);
+   PredTable.registerPredicate("prover",0,FILE_prover::PRED_prover_0_static_exec);
+   PredTable.registerPredicate("problem",3,FILE_prover::PRED_problem_3_static_exec);
+   PredTable.registerPredicate("implies",2,FILE_prover::PRED_implies_2_static_exec);
+   PredTable.registerPredicate("opposite",2,FILE_prover::PRED_opposite_2_static_exec);
+   PredTable.registerPredicate("add_conjunction",3,FILE_prover::PRED_add_conjunction_3_static_exec);
+   PredTable.registerPredicate("expand",3,FILE_prover::PRED_expand_3_static_exec);
+   PredTable.registerPredicate("includes",2,FILE_prover::PRED_includes_2_static_exec);
+   PredTable.registerPredicate("extend",6,FILE_prover::PRED_extend_6_static_exec);
+   PredTable.registerPredicate("refute",1,FILE_prover::PRED_refute_1_static_exec);
 }
 }

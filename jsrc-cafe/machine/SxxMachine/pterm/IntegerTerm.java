@@ -79,6 +79,12 @@ class IntegerTerm extends LongTerm {
     }
 
     /**
+	 * 
+	 */
+	public LongTerm add(Number num) {
+		return Long(intValue() + num.longValue());
+	}
+    /**
      * Returns a <code>java.lang.Integer</code> corresponds to this
      * <code>IntegerTerm</code> according to <em>Prolog Cafe interoperability with
      * Java</em>.

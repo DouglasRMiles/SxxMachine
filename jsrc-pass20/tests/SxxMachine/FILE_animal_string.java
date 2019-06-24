@@ -277,7 +277,7 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("animal_string",1,FILE_animal_string::PRED_animal_string_1_static_exec);
-   PredTable.registerBuiltin("animal_chars",1,FILE_animal_string::PRED_animal_chars_1_static_exec);
+   PredTable.registerPredicate("animal_string",1,FILE_animal_string::PRED_animal_string_1_static_exec);
+   PredTable.registerPredicate("animal_chars",1,FILE_animal_string::PRED_animal_chars_1_static_exec);
 }
 }

@@ -684,14 +684,14 @@ m.cont = cont;
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_mu::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("mu",0,FILE_mu::PRED_mu_0_static_exec);
-   PredTable.registerBuiltin("theorem",3,FILE_mu::PRED_theorem_3_static_exec);
-   PredTable.registerBuiltin("rule",3,FILE_mu::PRED_rule_3_static_exec);
-   PredTable.registerBuiltin("rule1",2,FILE_mu::PRED_rule1_2_static_exec);
-   PredTable.registerBuiltin("rule2",2,FILE_mu::PRED_rule2_2_static_exec);
-   PredTable.registerBuiltin("rule3",2,FILE_mu::PRED_rule3_2_static_exec);
-   PredTable.registerBuiltin("rule4",2,FILE_mu::PRED_rule4_2_static_exec);
-   PredTable.registerBuiltin("append",3,FILE_mu::PRED_append_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_mu::PRED_top_0_static_exec);
+   PredTable.registerPredicate("mu",0,FILE_mu::PRED_mu_0_static_exec);
+   PredTable.registerPredicate("theorem",3,FILE_mu::PRED_theorem_3_static_exec);
+   PredTable.registerPredicate("rule",3,FILE_mu::PRED_rule_3_static_exec);
+   PredTable.registerPredicate("rule1",2,FILE_mu::PRED_rule1_2_static_exec);
+   PredTable.registerPredicate("rule2",2,FILE_mu::PRED_rule2_2_static_exec);
+   PredTable.registerPredicate("rule3",2,FILE_mu::PRED_rule3_2_static_exec);
+   PredTable.registerPredicate("rule4",2,FILE_mu::PRED_rule4_2_static_exec);
+   PredTable.registerPredicate("append",3,FILE_mu::PRED_append_3_static_exec);
 }
 }

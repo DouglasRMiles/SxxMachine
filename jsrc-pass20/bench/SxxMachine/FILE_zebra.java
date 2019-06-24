@@ -555,11 +555,11 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_zebra::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("houses",1,FILE_zebra::PRED_houses_1_static_exec);
-   PredTable.registerBuiltin("right_of",3,FILE_zebra::PRED_right_of_3_static_exec);
-   PredTable.registerBuiltin("next_to",3,FILE_zebra::PRED_next_to_3_static_exec);
-   PredTable.registerBuiltin("member",2,FILE_zebra::PRED_member_2_static_exec);
-   PredTable.registerBuiltin("print_houses",1,FILE_zebra::PRED_print_houses_1_static_exec);
+   PredTable.registerPredicate("top",0,FILE_zebra::PRED_top_0_static_exec);
+   PredTable.registerPredicate("houses",1,FILE_zebra::PRED_houses_1_static_exec);
+   PredTable.registerPredicate("right_of",3,FILE_zebra::PRED_right_of_3_static_exec);
+   PredTable.registerPredicate("next_to",3,FILE_zebra::PRED_next_to_3_static_exec);
+   PredTable.registerPredicate("member",2,FILE_zebra::PRED_member_2_static_exec);
+   PredTable.registerPredicate("print_houses",1,FILE_zebra::PRED_print_houses_1_static_exec);
 }
 }

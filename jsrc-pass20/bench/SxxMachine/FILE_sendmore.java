@@ -569,10 +569,10 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_sendmore::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl",3,FILE_sendmore::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_static_exec);
-   PredTable.registerBuiltin("sumdigit",5,FILE_sendmore::PRED_sumdigit_5_static_exec);
-   PredTable.registerBuiltin("digit",1,FILE_sendmore::PRED_digit_1_static_exec);
-   PredTable.registerBuiltin("leftdigit",1,FILE_sendmore::PRED_leftdigit_1_static_exec);
+   PredTable.registerPredicate("top",0,FILE_sendmore::PRED_top_0_static_exec);
+   PredTable.registerPredicate("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/sendmore.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl",3,FILE_sendmore::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fsendmore$002Epl_3_static_exec);
+   PredTable.registerPredicate("sumdigit",5,FILE_sendmore::PRED_sumdigit_5_static_exec);
+   PredTable.registerPredicate("digit",1,FILE_sendmore::PRED_digit_1_static_exec);
+   PredTable.registerPredicate("leftdigit",1,FILE_sendmore::PRED_leftdigit_1_static_exec);
 }
 }

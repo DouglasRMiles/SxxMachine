@@ -28,6 +28,8 @@ public class PrologClassLoader extends ClassLoader {
         FILE_io.loadPreds();
         FILE_swi_supp.loadPreds();
         FILE_system.loadPreds();
+        FILE_crypt.loadPreds();
+        FILE_queens_8.loadPreds();
         FILE_animal_string2.loadPreds();
         FILE_animal2.loadPreds();
 

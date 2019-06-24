@@ -531,10 +531,10 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_derive::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("ops8",0,FILE_derive::PRED_ops8_0_static_exec);
-   PredTable.registerBuiltin("log10",0,FILE_derive::PRED_log10_0_static_exec);
-   PredTable.registerBuiltin("divide10",0,FILE_derive::PRED_divide10_0_static_exec);
-   PredTable.registerBuiltin("d",3,FILE_derive::PRED_d_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_derive::PRED_top_0_static_exec);
+   PredTable.registerPredicate("ops8",0,FILE_derive::PRED_ops8_0_static_exec);
+   PredTable.registerPredicate("log10",0,FILE_derive::PRED_log10_0_static_exec);
+   PredTable.registerPredicate("divide10",0,FILE_derive::PRED_divide10_0_static_exec);
+   PredTable.registerPredicate("d",3,FILE_derive::PRED_d_3_static_exec);
 }
 }

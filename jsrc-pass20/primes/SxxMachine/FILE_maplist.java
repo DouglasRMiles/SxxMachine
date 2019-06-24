@@ -159,6 +159,6 @@ m.cont = cont;
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("n_maplist",4,FILE_maplist::PRED_n_maplist_4_static_exec);
+   PredTable.registerPredicate("n_maplist",4,FILE_maplist::PRED_n_maplist_4_static_exec);
 }
 }

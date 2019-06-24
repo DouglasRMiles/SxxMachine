@@ -14,6 +14,7 @@ public class PredTable {
 	public static Map<String, Operation> predicateCache = new HashMap<String, Operation>();
 	public static Map<String, Operation> hiddenCache = new HashMap<String, Operation>();
 	public static Map<String, Operation> initsCache = new HashMap<String, Operation>();
+	private static Class<?> loadingClass;
 
 	public static void registerPredicate(String pkg, String functor, int arity, Operation cont) {
 		registerPredicate(pkg, functor, arity, cont, false);
@@ -122,16 +123,30 @@ public class PredTable {
 		Operation op = predicateCache.get(key);
 		return op;
 	}
-
+	
 	public static void registerBuiltin(String functor, int arity, Operation cont) {
-		String module = moduleFromClass(cont);
+		registerPredicate("system", functor, arity, cont);
+		registerPredicate(functor, arity, cont);
+	}
+
+	public static void registerPredicate(String functor, int arity, Operation cont) {
+		String module = null;
+		if (loadingClass != null) {
+			module = moduleFromClass(loadingClass);
+		} else {
+			module = moduleFromClass(cont);
+		}
+		final String prefix = "SxxMachine.";
+		if (module.startsWith(prefix)) {
+			module = module.substring(prefix.length());
+		}
 		if (arity == 0 && isEntryPoint(functor)) {
 			registerFileEntryPoint(module, functor, arity, cont);
 		} else {
-			registerPredicate("system", functor, arity, cont);
 			registerPredicate(module, functor, arity, cont, true);
 		}
 	}
+
 
 	/**
 	 * @param functor
@@ -139,8 +154,8 @@ public class PredTable {
 	 */
 	private static boolean isEntryPoint(String functor) {
 
-		return functor != null
-				&& (functor.equals("main") || functor.equals("go") || functor.equals("top") || functor.equals("$init"));
+		return functor != null && (functor.equals("main") || functor.equals("go") //
+				|| functor.equals("top") || functor.equals("$init"));
 	}
 
 	private static void registerFileEntryPoint(String module, String functor, int arity, Operation cont) {
@@ -221,7 +236,18 @@ public class PredTable {
 		System.err.flush();
 	}
 
-	public static void scanPreds(Class<?> class1) {
+	public static void scanPreds(Class<?> class1, boolean builtin) {
+		Class wasLoadingClass = loadingClass;
+
+		try {
+			loadingClass = class1;
+			scanPreds0(class1, builtin);
+		} finally {
+			loadingClass = wasLoadingClass;
+		}
+	}
+
+	static void scanPreds0(Class<?> class1, boolean builtin) {
 		final String suffix = "_static_exec";
 		for (Method m : class1.getDeclaredMethods()) {
 			if (!Modifier.isStatic(m.getModifiers()))
@@ -254,7 +280,11 @@ public class PredTable {
 					return functor + "/" + arity + " " + super.toString();
 				}
 			};
-			registerBuiltin(functor, arity, cont);
+			if(builtin) {
+				registerBuiltin(functor, arity, cont);
+			} else {
+				registerPredicate(functor, arity, cont);
+			}
 		}
 
 	}

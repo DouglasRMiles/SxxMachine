@@ -86,6 +86,6 @@ public class FILE_animal extends FILE_system {
 	}
 
 	static public void loadPreds() {
-		PredTable.registerBuiltin("animal", 1, FILE_animal::PRED_animal_1_static_exec);
+		PredTable.registerPredicate("animal", 1, FILE_animal::PRED_animal_1_static_exec);
 	}
 }

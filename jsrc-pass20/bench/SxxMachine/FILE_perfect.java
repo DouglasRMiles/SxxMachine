@@ -651,15 +651,15 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfec
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_perfect::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("ok",1,FILE_perfect::PRED_ok_1_static_exec);
-   PredTable.registerBuiltin("divisible",2,FILE_perfect::PRED_divisible_2_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl",2,FILE_perfect::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl_2_static_exec);
-   PredTable.registerBuiltin("isprime",2,FILE_perfect::PRED_isprime_2_static_exec);
-   PredTable.registerBuiltin("power",3,FILE_perfect::PRED_power_3_static_exec);
-   PredTable.registerBuiltin("calc",3,FILE_perfect::PRED_calc_3_static_exec);
-   PredTable.registerBuiltin("listperf",2,FILE_perfect::PRED_listperf_2_static_exec);
-   PredTable.registerBuiltin("generateList",2,FILE_perfect::PRED_generateList_2_static_exec);
-   PredTable.registerBuiltin("perfect",2,FILE_perfect::PRED_perfect_2_static_exec);
+   PredTable.registerPredicate("top",0,FILE_perfect::PRED_top_0_static_exec);
+   PredTable.registerPredicate("ok",1,FILE_perfect::PRED_ok_1_static_exec);
+   PredTable.registerPredicate("divisible",2,FILE_perfect::PRED_divisible_2_static_exec);
+   PredTable.registerPredicate("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/perfect.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl",2,FILE_perfect::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fperfect$002Epl_2_static_exec);
+   PredTable.registerPredicate("isprime",2,FILE_perfect::PRED_isprime_2_static_exec);
+   PredTable.registerPredicate("power",3,FILE_perfect::PRED_power_3_static_exec);
+   PredTable.registerPredicate("calc",3,FILE_perfect::PRED_calc_3_static_exec);
+   PredTable.registerPredicate("listperf",2,FILE_perfect::PRED_listperf_2_static_exec);
+   PredTable.registerPredicate("generateList",2,FILE_perfect::PRED_generateList_2_static_exec);
+   PredTable.registerPredicate("perfect",2,FILE_perfect::PRED_perfect_2_static_exec);
 }
 }

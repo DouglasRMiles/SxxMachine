@@ -20,19 +20,19 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
 
     @Override
     public Class getIntendedClass() {
-        return value().getClass();
+        return getNativeNumber().getClass();
     }
 
     @Override
     public String getJavaString() {
-        return value().toString();
+        return getNativeNumber().toString();
     }
 
     /* (non-Javadoc)
      * @see SxxMachine.pterm.NumberTerm#value()
      */
     @Override
-    final public Number value() {
+    final public Number getNativeNumber() {
         return nvalue;
     }
 
@@ -67,7 +67,7 @@ abstract class ANumberTerm extends AtomicConst implements NumberTerm {
      */
     @Override
     public int termHashCodeImpl() {
-        return value().hashCode();
+        return getNativeNumber().hashCode();
     }
 
     /* (non-Javadoc)

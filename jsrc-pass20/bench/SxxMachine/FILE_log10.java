@@ -480,8 +480,8 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_log10::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("log10",0,FILE_log10::PRED_log10_0_static_exec);
-   PredTable.registerBuiltin("d",3,FILE_log10::PRED_d_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_log10::PRED_top_0_static_exec);
+   PredTable.registerPredicate("log10",0,FILE_log10::PRED_log10_0_static_exec);
+   PredTable.registerPredicate("d",3,FILE_log10::PRED_d_3_static_exec);
 }
 }

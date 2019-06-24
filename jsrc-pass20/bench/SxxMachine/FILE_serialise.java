@@ -581,13 +581,13 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_serialise::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("serialise",0,FILE_serialise::PRED_serialise_0_static_exec);
-   PredTable.registerBuiltin("serialise",2,FILE_serialise::PRED_serialise_2_static_exec);
-   PredTable.registerBuiltin("pairlists",3,FILE_serialise::PRED_pairlists_3_static_exec);
-   PredTable.registerBuiltin("arrange",2,FILE_serialise::PRED_arrange_2_static_exec);
-   PredTable.registerBuiltin("split",4,FILE_serialise::PRED_split_4_static_exec);
-   PredTable.registerBuiltin("before",2,FILE_serialise::PRED_before_2_static_exec);
-   PredTable.registerBuiltin("numbered",3,FILE_serialise::PRED_numbered_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_serialise::PRED_top_0_static_exec);
+   PredTable.registerPredicate("serialise",0,FILE_serialise::PRED_serialise_0_static_exec);
+   PredTable.registerPredicate("serialise",2,FILE_serialise::PRED_serialise_2_static_exec);
+   PredTable.registerPredicate("pairlists",3,FILE_serialise::PRED_pairlists_3_static_exec);
+   PredTable.registerPredicate("arrange",2,FILE_serialise::PRED_arrange_2_static_exec);
+   PredTable.registerPredicate("split",4,FILE_serialise::PRED_split_4_static_exec);
+   PredTable.registerPredicate("before",2,FILE_serialise::PRED_before_2_static_exec);
+   PredTable.registerPredicate("numbered",3,FILE_serialise::PRED_numbered_3_static_exec);
 }
 }

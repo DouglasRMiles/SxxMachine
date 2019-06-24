@@ -1272,11 +1272,11 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_query::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("query",0,FILE_query::PRED_query_0_static_exec);
-   PredTable.registerBuiltin("query",1,FILE_query::PRED_query_1_static_exec);
-   PredTable.registerBuiltin("density",2,FILE_query::PRED_density_2_static_exec);
-   PredTable.registerBuiltin("pop",2,FILE_query::PRED_pop_2_static_exec);
-   PredTable.registerBuiltin("area",2,FILE_query::PRED_area_2_static_exec);
+   PredTable.registerPredicate("top",0,FILE_query::PRED_top_0_static_exec);
+   PredTable.registerPredicate("query",0,FILE_query::PRED_query_0_static_exec);
+   PredTable.registerPredicate("query",1,FILE_query::PRED_query_1_static_exec);
+   PredTable.registerPredicate("density",2,FILE_query::PRED_density_2_static_exec);
+   PredTable.registerPredicate("pop",2,FILE_query::PRED_pop_2_static_exec);
+   PredTable.registerPredicate("area",2,FILE_query::PRED_area_2_static_exec);
 }
 }

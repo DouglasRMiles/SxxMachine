@@ -14,7 +14,7 @@ public class sxxtensions extends missing_preds {
     }
 
     static {
-        PredTable.scanPreds(sxxtensions.class);
+        PredTable.scanPreds(sxxtensions.class, true);
     }
 
     public static Operation PRED_nb_linkval_2_static_exec(Prolog m) {

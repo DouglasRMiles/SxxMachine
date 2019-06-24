@@ -441,12 +441,12 @@ m.cont = cont;
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_queens_8::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("queens",2,FILE_queens_8::PRED_queens_2_static_exec);
-   PredTable.registerBuiltin("queens",3,FILE_queens_8::PRED_queens_3_static_exec);
-   PredTable.registerBuiltin("not_attack",2,FILE_queens_8::PRED_not_attack_2_static_exec);
-   PredTable.registerBuiltin("not_attack",3,FILE_queens_8::PRED_not_attack_3_static_exec);
-   PredTable.registerBuiltin("select",3,FILE_queens_8::PRED_select_3_static_exec);
-   PredTable.registerBuiltin("range",3,FILE_queens_8::PRED_range_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_queens_8::PRED_top_0_static_exec);
+   PredTable.registerPredicate("queens",2,FILE_queens_8::PRED_queens_2_static_exec);
+   PredTable.registerPredicate("queens",3,FILE_queens_8::PRED_queens_3_static_exec);
+   PredTable.registerPredicate("not_attack",2,FILE_queens_8::PRED_not_attack_2_static_exec);
+   PredTable.registerPredicate("not_attack",3,FILE_queens_8::PRED_not_attack_3_static_exec);
+   PredTable.registerPredicate("select",3,FILE_queens_8::PRED_select_3_static_exec);
+   PredTable.registerPredicate("range",3,FILE_queens_8::PRED_range_3_static_exec);
 }
 }

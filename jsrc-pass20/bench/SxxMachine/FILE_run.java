@@ -1820,30 +1820,30 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/run.pl
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("run",1,FILE_run::PRED_run_1_static_exec);
-   PredTable.registerBuiltin("run",2,FILE_run::PRED_run_2_static_exec);
-   PredTable.registerBuiltin("compile_programs",0,FILE_run::PRED_compile_programs_0_static_exec);
-   PredTable.registerBuiltin("run_program",4,FILE_run::PRED_run_program_4_static_exec);
-   PredTable.registerBuiltin("add",3,FILE_run::PRED_add_3_static_exec);
-   PredTable.registerBuiltin("get_performance_stats",2,FILE_run::PRED_get_performance_stats_2_static_exec);
-   PredTable.registerBuiltin("ntimes",4,FILE_run::PRED_ntimes_4_static_exec);
-   PredTable.registerBuiltin("ntimes",2,FILE_run::PRED_ntimes_2_static_exec);
-   PredTable.registerBuiltin("ntimes_dummy",1,FILE_run::PRED_ntimes_dummy_1_static_exec);
-   PredTable.registerBuiltin("not_not_top",1,FILE_run::PRED_not_not_top_1_static_exec);
-   PredTable.registerBuiltin("not_top",1,FILE_run::PRED_not_top_1_static_exec);
-   PredTable.registerBuiltin("not_not_dummy",0,FILE_run::PRED_not_not_dummy_0_static_exec);
-   PredTable.registerBuiltin("not_dummy",0,FILE_run::PRED_not_dummy_0_static_exec);
-   PredTable.registerBuiltin("dummy",0,FILE_run::PRED_dummy_0_static_exec);
-   PredTable.registerBuiltin("tune_counts",0,FILE_run::PRED_tune_counts_0_static_exec);
-   PredTable.registerBuiltin("tune_count",2,FILE_run::PRED_tune_count_2_static_exec);
-   PredTable.registerBuiltin("program",3,FILE_run::PRED_program_3_static_exec);
-   PredTable.registerBuiltin("program",2,FILE_run::PRED_program_2_static_exec);
-   PredTable.registerBuiltin("run_interleaved",1,FILE_run::PRED_run_interleaved_1_static_exec);
-   PredTable.registerBuiltin("seq_interleaved",3,FILE_run::PRED_seq_interleaved_3_static_exec);
-   PredTable.registerBuiltin("seq_interleaved",4,FILE_run::PRED_seq_interleaved_4_static_exec);
-   PredTable.registerBuiltin("seq_clause",2,FILE_run::PRED_seq_clause_2_static_exec);
-   PredTable.registerBuiltin("run_non_interleaved",1,FILE_run::PRED_run_non_interleaved_1_static_exec);
-   PredTable.registerBuiltin("seq_non_interleaved",3,FILE_run::PRED_seq_non_interleaved_3_static_exec);
-   PredTable.registerBuiltin("$init",0,FILE_run::PRED_$init_0_static_exec);
+   PredTable.registerPredicate("run",1,FILE_run::PRED_run_1_static_exec);
+   PredTable.registerPredicate("run",2,FILE_run::PRED_run_2_static_exec);
+   PredTable.registerPredicate("compile_programs",0,FILE_run::PRED_compile_programs_0_static_exec);
+   PredTable.registerPredicate("run_program",4,FILE_run::PRED_run_program_4_static_exec);
+   PredTable.registerPredicate("add",3,FILE_run::PRED_add_3_static_exec);
+   PredTable.registerPredicate("get_performance_stats",2,FILE_run::PRED_get_performance_stats_2_static_exec);
+   PredTable.registerPredicate("ntimes",4,FILE_run::PRED_ntimes_4_static_exec);
+   PredTable.registerPredicate("ntimes",2,FILE_run::PRED_ntimes_2_static_exec);
+   PredTable.registerPredicate("ntimes_dummy",1,FILE_run::PRED_ntimes_dummy_1_static_exec);
+   PredTable.registerPredicate("not_not_top",1,FILE_run::PRED_not_not_top_1_static_exec);
+   PredTable.registerPredicate("not_top",1,FILE_run::PRED_not_top_1_static_exec);
+   PredTable.registerPredicate("not_not_dummy",0,FILE_run::PRED_not_not_dummy_0_static_exec);
+   PredTable.registerPredicate("not_dummy",0,FILE_run::PRED_not_dummy_0_static_exec);
+   PredTable.registerPredicate("dummy",0,FILE_run::PRED_dummy_0_static_exec);
+   PredTable.registerPredicate("tune_counts",0,FILE_run::PRED_tune_counts_0_static_exec);
+   PredTable.registerPredicate("tune_count",2,FILE_run::PRED_tune_count_2_static_exec);
+   PredTable.registerPredicate("program",3,FILE_run::PRED_program_3_static_exec);
+   PredTable.registerPredicate("program",2,FILE_run::PRED_program_2_static_exec);
+   PredTable.registerPredicate("run_interleaved",1,FILE_run::PRED_run_interleaved_1_static_exec);
+   PredTable.registerPredicate("seq_interleaved",3,FILE_run::PRED_seq_interleaved_3_static_exec);
+   PredTable.registerPredicate("seq_interleaved",4,FILE_run::PRED_seq_interleaved_4_static_exec);
+   PredTable.registerPredicate("seq_clause",2,FILE_run::PRED_seq_clause_2_static_exec);
+   PredTable.registerPredicate("run_non_interleaved",1,FILE_run::PRED_run_non_interleaved_1_static_exec);
+   PredTable.registerPredicate("seq_non_interleaved",3,FILE_run::PRED_seq_non_interleaved_3_static_exec);
+   PredTable.registerPredicate("$init",0,FILE_run::PRED_$init_0_static_exec);
 }
 }

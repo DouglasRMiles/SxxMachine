@@ -51,7 +51,7 @@ from: /mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/asm.pl
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("determinate",1,FILE_asm::PRED_determinate_1_static_exec);
-   PredTable.registerBuiltin("setup_determinates",0,FILE_asm::PRED_setup_determinates_0_static_exec);
+   PredTable.registerPredicate("determinate",1,FILE_asm::PRED_determinate_1_static_exec);
+   PredTable.registerPredicate("setup_determinates",0,FILE_asm::PRED_setup_determinates_0_static_exec);
 }
 }

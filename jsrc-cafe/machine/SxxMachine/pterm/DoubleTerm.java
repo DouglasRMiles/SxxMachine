@@ -27,6 +27,11 @@ import SxxMachine.Trail;
  */
 public class DoubleTerm extends ANumberTerm {
 
+	@Override
+	public NumberTerm add(Number i) {
+		return Float(doubleValue()+i.doubleValue());
+	}
+	
     @Override
     public Term copyJP(RunningPrologMachine m, long t) {
         return Float(doubleValue());

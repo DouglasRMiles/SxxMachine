@@ -1504,22 +1504,22 @@ m.cont = cont;
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_browse::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("init",5,FILE_browse::PRED_init_5_static_exec);
-   PredTable.registerBuiltin("init",6,FILE_browse::PRED_init_6_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",3,FILE_browse::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_3_static_exec);
-   PredTable.registerBuiltin("fill",3,FILE_browse::PRED_fill_3_static_exec);
-   PredTable.registerBuiltin("randomize",3,FILE_browse::PRED_randomize_3_static_exec);
-   PredTable.registerBuiltin("split",4,FILE_browse::PRED_split_4_static_exec);
-   PredTable.registerBuiltin("investigate",2,FILE_browse::PRED_investigate_2_static_exec);
-   PredTable.registerBuiltin("get_pats",3,FILE_browse::PRED_get_pats_3_static_exec);
-   PredTable.registerBuiltin("get_pats",4,FILE_browse::PRED_get_pats_4_static_exec);
-   PredTable.registerBuiltin("property",3,FILE_browse::PRED_property_3_static_exec);
-   PredTable.registerBuiltin("p_investigate",2,FILE_browse::PRED_p_investigate_2_static_exec);
-   PredTable.registerBuiltin("p_match",2,FILE_browse::PRED_p_match_2_static_exec);
-   PredTable.registerBuiltin("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",2,FILE_browse::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_2_static_exec);
-   PredTable.registerBuiltin("match",2,FILE_browse::PRED_match_2_static_exec);
-   PredTable.registerBuiltin("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",2,FILE_browse::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_2_static_exec);
-   PredTable.registerBuiltin("$concat",3,FILE_browse::PRED_$concat_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_browse::PRED_top_0_static_exec);
+   PredTable.registerPredicate("init",5,FILE_browse::PRED_init_5_static_exec);
+   PredTable.registerPredicate("init",6,FILE_browse::PRED_init_6_static_exec);
+   PredTable.registerPredicate("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",3,FILE_browse::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_3_static_exec);
+   PredTable.registerPredicate("fill",3,FILE_browse::PRED_fill_3_static_exec);
+   PredTable.registerPredicate("randomize",3,FILE_browse::PRED_randomize_3_static_exec);
+   PredTable.registerPredicate("split",4,FILE_browse::PRED_split_4_static_exec);
+   PredTable.registerPredicate("investigate",2,FILE_browse::PRED_investigate_2_static_exec);
+   PredTable.registerPredicate("get_pats",3,FILE_browse::PRED_get_pats_3_static_exec);
+   PredTable.registerPredicate("get_pats",4,FILE_browse::PRED_get_pats_4_static_exec);
+   PredTable.registerPredicate("property",3,FILE_browse::PRED_property_3_static_exec);
+   PredTable.registerPredicate("p_investigate",2,FILE_browse::PRED_p_investigate_2_static_exec);
+   PredTable.registerPredicate("p_match",2,FILE_browse::PRED_p_match_2_static_exec);
+   PredTable.registerPredicate("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",2,FILE_browse::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_2_static_exec);
+   PredTable.registerPredicate("match",2,FILE_browse::PRED_match_2_static_exec);
+   PredTable.registerPredicate("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/browse.pl","$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl",2,FILE_browse::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fbrowse$002Epl_2_static_exec);
+   PredTable.registerPredicate("$concat",3,FILE_browse::PRED_$concat_3_static_exec);
 }
 }

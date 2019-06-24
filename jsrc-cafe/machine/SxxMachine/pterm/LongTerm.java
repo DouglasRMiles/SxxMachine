@@ -19,8 +19,15 @@ public class LongTerm extends ANumberTerm {
 
     @Override
     public Term copyJP(RunningPrologMachine m, long t) {
-        return Long(longValue());
+    	return Long(longValue());
     }
+    
+    /**
+	 * 
+	 */
+	public LongTerm add(Number num) {
+		return Long(longValue()+num.longValue());
+	}
 
     @Override
     public Term dref() {

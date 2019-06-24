@@ -1426,17 +1426,17 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_poly_10::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("poly_10",0,FILE_poly_10::PRED_poly_10_0_static_exec);
-   PredTable.registerBuiltin("test_poly",1,FILE_poly_10::PRED_test_poly_1_static_exec);
-   PredTable.registerBuiltin("less_than",2,FILE_poly_10::PRED_less_than_2_static_exec);
-   PredTable.registerBuiltin("poly_add",3,FILE_poly_10::PRED_poly_add_3_static_exec);
-   PredTable.registerBuiltin("term_add",3,FILE_poly_10::PRED_term_add_3_static_exec);
-   PredTable.registerBuiltin("add_to_order_zero_term",3,FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec);
-   PredTable.registerBuiltin("poly_exp",3,FILE_poly_10::PRED_poly_exp_3_static_exec);
-   PredTable.registerBuiltin("poly_mul",3,FILE_poly_10::PRED_poly_mul_3_static_exec);
-   PredTable.registerBuiltin("term_mul",3,FILE_poly_10::PRED_term_mul_3_static_exec);
-   PredTable.registerBuiltin("single_term_mul",3,FILE_poly_10::PRED_single_term_mul_3_static_exec);
-   PredTable.registerBuiltin("mul_through",3,FILE_poly_10::PRED_mul_through_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_poly_10::PRED_top_0_static_exec);
+   PredTable.registerPredicate("poly_10",0,FILE_poly_10::PRED_poly_10_0_static_exec);
+   PredTable.registerPredicate("test_poly",1,FILE_poly_10::PRED_test_poly_1_static_exec);
+   PredTable.registerPredicate("less_than",2,FILE_poly_10::PRED_less_than_2_static_exec);
+   PredTable.registerPredicate("poly_add",3,FILE_poly_10::PRED_poly_add_3_static_exec);
+   PredTable.registerPredicate("term_add",3,FILE_poly_10::PRED_term_add_3_static_exec);
+   PredTable.registerPredicate("add_to_order_zero_term",3,FILE_poly_10::PRED_add_to_order_zero_term_3_static_exec);
+   PredTable.registerPredicate("poly_exp",3,FILE_poly_10::PRED_poly_exp_3_static_exec);
+   PredTable.registerPredicate("poly_mul",3,FILE_poly_10::PRED_poly_mul_3_static_exec);
+   PredTable.registerPredicate("term_mul",3,FILE_poly_10::PRED_term_mul_3_static_exec);
+   PredTable.registerPredicate("single_term_mul",3,FILE_poly_10::PRED_single_term_mul_3_static_exec);
+   PredTable.registerPredicate("mul_through",3,FILE_poly_10::PRED_mul_through_3_static_exec);
 }
 }

@@ -346,9 +346,9 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_qsort::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("qsort",0,FILE_qsort::PRED_qsort_0_static_exec);
-   PredTable.registerBuiltin("qsort",3,FILE_qsort::PRED_qsort_3_static_exec);
-   PredTable.registerBuiltin("partition",4,FILE_qsort::PRED_partition_4_static_exec);
+   PredTable.registerPredicate("top",0,FILE_qsort::PRED_top_0_static_exec);
+   PredTable.registerPredicate("qsort",0,FILE_qsort::PRED_qsort_0_static_exec);
+   PredTable.registerPredicate("qsort",3,FILE_qsort::PRED_qsort_3_static_exec);
+   PredTable.registerPredicate("partition",4,FILE_qsort::PRED_partition_4_static_exec);
 }
 }

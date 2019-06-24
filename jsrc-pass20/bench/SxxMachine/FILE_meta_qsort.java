@@ -1219,16 +1219,16 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_meta_qsort::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("meta_qsort",0,FILE_meta_qsort::PRED_meta_qsort_0_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",1,FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_static_exec);
-   PredTable.registerBuiltin("interpret",1,FILE_meta_qsort::PRED_interpret_1_static_exec);
-   PredTable.registerBuiltin("interpret",2,FILE_meta_qsort::PRED_interpret_2_static_exec);
-   PredTable.registerBuiltin("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
-   PredTable.registerBuiltin("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
-   PredTable.registerBuiltin("interpret_disjunction",3,FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec);
-   PredTable.registerBuiltin("is_built_in",1,FILE_meta_qsort::PRED_is_built_in_1_static_exec);
-   PredTable.registerBuiltin("interpret_built_in",1,FILE_meta_qsort::PRED_interpret_built_in_1_static_exec);
-   PredTable.registerBuiltin("define",2,FILE_meta_qsort::PRED_define_2_static_exec);
+   PredTable.registerPredicate("top",0,FILE_meta_qsort::PRED_top_0_static_exec);
+   PredTable.registerPredicate("meta_qsort",0,FILE_meta_qsort::PRED_meta_qsort_0_static_exec);
+   PredTable.registerPredicate("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",1,FILE_meta_qsort::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_1_static_exec);
+   PredTable.registerPredicate("interpret",1,FILE_meta_qsort::PRED_interpret_1_static_exec);
+   PredTable.registerPredicate("interpret",2,FILE_meta_qsort::PRED_interpret_2_static_exec);
+   PredTable.registerPredicate("$dummy_1_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_1_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
+   PredTable.registerPredicate("$dummy_2_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/meta_qsort.pl","$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl",3,FILE_meta_qsort::PRED_$dummy_2_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Fmeta_qsort$002Epl_3_static_exec);
+   PredTable.registerPredicate("interpret_disjunction",3,FILE_meta_qsort::PRED_interpret_disjunction_3_static_exec);
+   PredTable.registerPredicate("is_built_in",1,FILE_meta_qsort::PRED_is_built_in_1_static_exec);
+   PredTable.registerPredicate("interpret_built_in",1,FILE_meta_qsort::PRED_interpret_built_in_1_static_exec);
+   PredTable.registerPredicate("define",2,FILE_meta_qsort::PRED_define_2_static_exec);
 }
 }

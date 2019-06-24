@@ -841,13 +841,13 @@ TermArray MARG = m.AREGS;   a1 = MARG.getAreg0();
     }
 static { loadPreds(); }
 static public void loadPreds() {
-   PredTable.registerBuiltin("top",0,FILE_fast_mu::PRED_top_0_static_exec);
-   PredTable.registerBuiltin("theorem",1,FILE_fast_mu::PRED_theorem_1_static_exec);
-   PredTable.registerBuiltin("derive",6,FILE_fast_mu::PRED_derive_6_static_exec);
-   PredTable.registerBuiltin("derive2",7,FILE_fast_mu::PRED_derive2_7_static_exec);
-   PredTable.registerBuiltin("rule",7,FILE_fast_mu::PRED_rule_7_static_exec);
-   PredTable.registerBuiltin("rule",11,FILE_fast_mu::PRED_rule_11_static_exec);
-   PredTable.registerBuiltin("lower_bound",3,FILE_fast_mu::PRED_lower_bound_3_static_exec);
-   PredTable.registerBuiltin("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl",3,FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_static_exec);
+   PredTable.registerPredicate("top",0,FILE_fast_mu::PRED_top_0_static_exec);
+   PredTable.registerPredicate("theorem",1,FILE_fast_mu::PRED_theorem_1_static_exec);
+   PredTable.registerPredicate("derive",6,FILE_fast_mu::PRED_derive_6_static_exec);
+   PredTable.registerPredicate("derive2",7,FILE_fast_mu::PRED_derive2_7_static_exec);
+   PredTable.registerPredicate("rule",7,FILE_fast_mu::PRED_rule_7_static_exec);
+   PredTable.registerPredicate("rule",11,FILE_fast_mu::PRED_rule_11_static_exec);
+   PredTable.registerPredicate("lower_bound",3,FILE_fast_mu::PRED_lower_bound_3_static_exec);
+   PredTable.registerPredicate("$dummy_0_/mnt/gggg/opt/CYC_JRTL_with_CommonLisp/SxxMachine/jsrc-pass20/bench/fast_mu.pl","$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl",3,FILE_fast_mu::PRED_$dummy_0_$002Fmnt$002Fgggg$002Fopt$002FCYC_JRTL_with_CommonLisp$002FSxxMachine$002Fjsrc$002Dpass20$002Fbench$002Ffast_mu$002Epl_3_static_exec);
 }
 }
