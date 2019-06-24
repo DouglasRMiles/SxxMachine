@@ -94,7 +94,6 @@ public class bootpreds extends sxxtensions {
 	final public static NumberTerm int_neg20 = Integer(-20);
 	final public static NumberTerm int_neg21 = Integer(-21);
 
-
 	// load_c_1 extends Predicate.P1 {
 	public static Operation PRED_load_c_1_static_exec(Prolog engine) {
 		final Operation cont = engine.getCont();
@@ -108,9 +107,7 @@ public class bootpreds extends sxxtensions {
 	}
 
 	/**
-	 *  between(Start, End, Out).
-	 *  ?- between(4,1,X).
-	 *  ?- between(2,1,X).
+	 * between(Start, End, Out). ?- between(4,1,X). ?- between(2,1,X).
 	 */
 	// _$builtin_between_3 extends Predicate.P2 {
 	public static Operation PRED_between_3_static_exec(Prolog engine) {
@@ -138,12 +135,12 @@ public class bootpreds extends sxxtensions {
 				if (l3 > l1 || l3 < l2)
 					return engine.fail();
 				return cont;
-		}
+			}
 			if (l3 > l2 || l3 < l1)
 				return engine.fail();
 
-		return cont;
-	}
+			return cont;
+		}
 
 		if (dir != 0) {
 			engine.setB0();
@@ -177,11 +174,11 @@ public class bootpreds extends sxxtensions {
 			engine.neckCut();
 			return a1.unify(a3, engine.trail) ? cont : engine.fail();
 		}
-		
+
 		final TermArray LARG = engine.AREGS;
 		engine.setB0();
 		engine.setAREGS(LARG);
-		
+
 		final NumberTerm next;
 		if (l1 > l2) {
 			next = a1.asNumberTerm().add(-1);
@@ -189,8 +186,8 @@ public class bootpreds extends sxxtensions {
 			next = a1.asNumberTerm().add(1);
 		}
 		// add choice point
-		//engine.retry(null, bootpreds::retry_between);
-		//engine.jtry3(null, bootpreds::retry_between); 		
+		// engine.retry(null, bootpreds::retry_between);
+		// engine.jtry3(null, bootpreds::retry_between);
 		final TermArray MREG = engine.AREGS;
 		MREG.setAreg0(next);
 		engine.setCont(cont);
