@@ -2,6 +2,11 @@ package SxxMachine;
 
 public interface NumberTerm extends Atomic {
 
+	@Override
+	default NumberTerm asNumberTerm() {
+		return this;
+	}
+	
     Number getNativeNumber();
 
     @Override
@@ -222,7 +227,7 @@ public interface NumberTerm extends Atomic {
     boolean isImmutable();
 
 	/**
-	 * @param i 
+	 * @param i
 	 */
 	NumberTerm add(Number i);
 

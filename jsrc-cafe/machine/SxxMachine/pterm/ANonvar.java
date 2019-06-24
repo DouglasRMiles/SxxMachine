@@ -3,10 +3,12 @@ package SxxMachine.pterm;
 // CONS;
 import static SxxMachine.pterm.TermData.*;
 
+import SxxMachine.Arithmetic;
 import SxxMachine.Compound;
 import SxxMachine.IllegalTypeException;
 import SxxMachine.KPTrail;
 import SxxMachine.Nonvar;
+import SxxMachine.NumberTerm;
 import SxxMachine.Prog;
 import SxxMachine.Prolog;
 import SxxMachine.Term;
@@ -19,6 +21,11 @@ import SxxMachine.Trail;
  */
 public abstract class ANonvar extends PTerm implements Nonvar {
 
+	@Override
+	public NumberTerm asNumberTerm() {
+		return Arithmetic.evaluate(this);
+	}
+	
 	@Override
 	public Nonvar toNonVar() {
 		return this;

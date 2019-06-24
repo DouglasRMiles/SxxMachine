@@ -107,31 +107,25 @@ public class bootpreds extends sxxtensions {
 	}
 
 	/**
-	 * between(Start, End, Out). ?- between(4,1,X). ?- between(2,1,X).
+	 * between(+Start, +End, -Out)
+	 * ex:
+	 *  between(4,1,X).
+	 *  
+	 *  between(-1,infinite,X).
 	 */
 	// _$builtin_between_3 extends Predicate.P2 {
 	public static Operation PRED_between_3_static_exec(Prolog engine) {
 		final Operation thiz = engine.pred;
 		final Operation cont = engine.getCont();
 		final TermArray LARG = engine.AREGS;
-		final Term a1 = engine.getTermDRef(0);
-		if (!a1.isInteger()) {
-			throw new IllegalTypeException(thiz, 1, "integer", a1);
-		}
-		final Term a2 = engine.getTermDRef(1);
-		if (!a2.isInteger()) {
-			throw new IllegalTypeException(thiz, 2, "integer", a2);
-		}
-		long l1 = a1.longValue();
-		long l2 = a2.longValue();
-		long dir = l2 - l1;
+		final NumberTerm a1 = ceorceInteger(engine, 0);
+		final NumberTerm a2 = ceorceInteger(engine, 1);
+		final long l1 = a1.longValue();
+		final long l2 = a2.longValue();
 		final Term a3 = engine.getTermDRef(2);
 		if (!a3.isVariable()) {
-			if (!a3.isInteger()) {
-				throw new IllegalTypeException(thiz, 3, "integer", a3);
-			}
-			long l3 = a3.longValue();
-			if (dir < 1) {
+			final long l3 = ceorceInteger(engine, 2).longValue();
+			if (l1 > l2) {
 				if (l3 > l1 || l3 < l2)
 					return engine.fail();
 				return cont;
@@ -142,16 +136,16 @@ public class bootpreds extends sxxtensions {
 			return cont;
 		}
 
-		if (dir != 0) {
+		if (l1 != l2) {
 			engine.setB0();
 			engine.setAREGS(LARG);
-			final TermArray MREG = engine.AREGS;
-			final Term next;
-			if (dir < 0) {
-				next = a1.asNumberTerm().add(-1);
+			final NumberTerm next;
+			if (l1 > l2) {
+				next = a1.add(-1);
 			} else {
-				next = a1.asNumberTerm().add(1);
+				next = a1.add(1);
 			}
+			final TermArray MREG = engine.AREGS;
 			MREG.setAreg0(next);
 			engine.setCont(cont);
 			engine.jtry3(null, bootpreds::retry_between); // push new frame
@@ -161,9 +155,25 @@ public class bootpreds extends sxxtensions {
 		return a1.unify(a3, engine.trail) ? cont : engine.fail();
 	}
 
+	public static NumberTerm ceorceInteger(Prolog engine, int n) throws PInstantiationException, IllegalTypeException {
+		Term a1 = engine.getTermDRef(n);
+		if (a1.isVar()) {
+			throw new PInstantiationException(engine.pred, n + 1);
+		}
+		NumberTerm n1 = a1.asNumberTerm();
+		if (!n1.isInteger()) {
+			throw new IllegalTypeException(engine.pred, n + 1, "integer", a1);
+		}
+		if (a1 != n1) {
+			engine.AREGS.setAV(n, n1);
+		}
+		return n1;
+	}
+
 	private static Operation retry_between(Prolog engine) {
 		engine.retry(null, bootpreds::retry_between);
 		final Operation cont = engine.getCont();
+		// this have been coerced already
 		final Term a1 = engine.getTermDRef(0);
 		final Term a2 = engine.getTermDRef(1);
 		final Term a3 = engine.getTermDRef(2);
@@ -5929,6 +5939,8 @@ public class bootpreds extends sxxtensions {
 
 				.registerBuiltin("sort", 2, bootpreds::PRED_sort_2_static_exec);
 		PredTable.registerBuiltin("tab", 2, bootpreds::PRED_tab_2_static_exec);
+		PredTable.registerBuiltin("between", 3, bootpreds::PRED_between_3_static_exec);
+		PredTable.registerBuiltin("load_c", 1, bootpreds::PRED_load_c_1_static_exec);
 		PredTable.registerBuiltin("write_domain_definitions", 2,
 				bootpreds::PRED_write_domain_definitions_2_static_exec);
 		// PredTable.register("$current_operator", "$current_operator", 3,
