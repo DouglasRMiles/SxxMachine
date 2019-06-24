@@ -94,40 +94,107 @@ public class bootpreds extends sxxtensions {
 	final public static NumberTerm int_neg20 = Integer(-20);
 	final public static NumberTerm int_neg21 = Integer(-21);
 
-	/**
-	 * <code>arg/3</code><br>
-	 *
-	 * @author Mutsunori Banbara (banbara@kobe-u.ac.jp)
-	 * @author Naoyuki Tamura (tamura@kobe-u.ac.jp)
-	 * @version 1.0
-	 */
-	// _between_3 extends Predicate.P3 {
-	public static Operation PRED_between_3_static_exec(Prolog engine) {
+
+	// load_c_1 extends Predicate.P1 {
+	public static Operation PRED_load_c_1_static_exec(Prolog engine) {
 		final Operation cont = engine.getCont();
 		final TermArray LARG = engine.AREGS;
 		final Operation thiz = engine.pred;
 		engine.setB0();
 		Term a1, a2, a3;
-		a1 = LARG.getPlainArg(0);
-		a2 = LARG.getPlainArg(1);
-		a3 = LARG.getPlainArg(2);
-		a1 = a1.dref();
-		if (a1.isVar()) {
-			throw new PInstantiationException(thiz, 1);
-		} else if (!a1.isInteger()) {
+		a1 = LARG.getPlainArg(0).dref();
+		PredTable.moduleFromClass(a1.getJavaString());
+		return cont;
+	}
+
+	/**
+	 *  between(Start, End, Out).
+	 *  ?- between(4,1,X).
+	 *  ?- between(2,1,X).
+	 */
+	// _$builtin_between_3 extends Predicate.P2 {
+	public static Operation PRED_between_3_static_exec(Prolog engine) {
+		final Operation thiz = engine.pred;
+		final Operation cont = engine.getCont();
+		final TermArray LARG = engine.AREGS;
+		final Term a1 = engine.getTermDRef(0);
+		if (!a1.isInteger()) {
 			throw new IllegalTypeException(thiz, 1, "integer", a1);
 		}
-		a2 = a2.dref();
+		final Term a2 = engine.getTermDRef(1);
 		if (!a2.isInteger()) {
-			throw new IllegalTypeException(thiz, 3, "integer", a2);
+			throw new IllegalTypeException(thiz, 2, "integer", a2);
 		}
-		if (a1.intValue() < a2.intValue()) {
-			a3 = a3.dref();
-			if (a3.isVariable()) {
-				a3.bind(a1, engine.trail);
+		long l1 = a1.longValue();
+		long l2 = a2.longValue();
+		long dir = l2 - l1;
+		final Term a3 = engine.getTermDRef(2);
+		if (!a3.isVariable()) {
+			if (!a3.isInteger()) {
+				throw new IllegalTypeException(thiz, 3, "integer", a3);
 			}
+			long l3 = a3.longValue();
+			if (dir < 1) {
+				if (l3 > l1 || l3 < l2)
+					return engine.fail();
+				return cont;
 		}
+			if (l3 > l2 || l3 < l1)
+				return engine.fail();
+
 		return cont;
+	}
+
+		if (dir != 0) {
+			engine.setB0();
+			engine.setAREGS(LARG);
+			final TermArray MREG = engine.AREGS;
+			final Term next;
+			if (dir < 0) {
+				next = a1.asNumberTerm().add(-1);
+			} else {
+				next = a1.asNumberTerm().add(1);
+			}
+			MREG.setAreg0(next);
+			engine.setCont(cont);
+			engine.jtry3(null, bootpreds::retry_between); // push new frame
+															// with
+															// retry as next
+		}
+		return a1.unify(a3, engine.trail) ? cont : engine.fail();
+	}
+
+	private static Operation retry_between(Prolog engine) {
+		engine.retry(null, bootpreds::retry_between);
+		final Operation cont = engine.getCont();
+		final Term a1 = engine.getTermDRef(0);
+		final Term a2 = engine.getTermDRef(1);
+		final Term a3 = engine.getTermDRef(2);
+		long l1 = a1.longValue();
+		long l2 = a2.longValue();
+		if (l2 == l1) {
+			// last number
+			engine.neckCut();
+			return a1.unify(a3, engine.trail) ? cont : engine.fail();
+		}
+		
+		final TermArray LARG = engine.AREGS;
+		engine.setB0();
+		engine.setAREGS(LARG);
+		
+		final NumberTerm next;
+		if (l1 > l2) {
+			next = a1.asNumberTerm().add(-1);
+		} else {
+			next = a1.asNumberTerm().add(1);
+		}
+		// add choice point
+		//engine.retry(null, bootpreds::retry_between);
+		//engine.jtry3(null, bootpreds::retry_between); 		
+		final TermArray MREG = engine.AREGS;
+		MREG.setAreg0(next);
+		engine.setCont(cont);
+		return a1.unify(a3, engine.trail) ? cont : engine.fail();
 	}
 
 	/**
